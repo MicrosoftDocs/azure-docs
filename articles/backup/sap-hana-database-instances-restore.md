@@ -13,20 +13,20 @@ ms.author: v-amallick
 This article describes how to restore a backed-up SAP HANA database instance to another target VM via snapshots.
 
 >[!Note]
->If you intend to perform in-place restore, that is, to overwrite the backed-up VM by detaching the existing disks and attaching new disks, detach the existing disks and see the follow sections for restore.
+>If you want to do an in-place restore (that is, to overwrite the backed-up VM by detaching the existing disks and attaching new disks), detach the existing disks and see the following sections for restore.
 
 You can restore the HANA snapshot + storage snapshot as disks by selecting Attach and mount to the target machine. However, Azure Backup won't automatically restore HANA system to the required point.
 
-The following are two workflows:
+Here are two workflows:
 
-- To restore entire HANA system to the snapshot based restore point, follow the HANA native commands to perform a snapshot based restore.
-- To restore logs over the snapshot, proceed to database restore and select the required log point-in-time and indicate that this is over snapshot. Then Azure Backup downloads logs, apply it over snapshot and restart HANA database completely. You must perform log point-in-time for all database within the instance for a snapshot based restore.
+- [Restore entire HANA system (system database and all tenant databases) to a single snapshot based restore point](#restore-entire-system-to-snapshot-restore-point).
+- [Restore system database and all tenant database to a different log point-in-time over snapshot](#restore-database-to-a-different-log-point-in-time-over-snapshot).
 
 >[!Note]
->SAP HANA strongly recommends recovering the entire system during snapshot restore. This means that you nust also restore the system database. If system database is restored, the users/access information is now also overwritten or updated, and subsequent attempts of recovery of tenant databases might fail after system database recovery. The two options to resolve this issue are:
+>SAP HANA recommends recovering the entire system during snapshot restore. This means that you must also restore the system database. If system database is restored, the users/access information is now also overwritten or updated, and subsequent attempts of recovery of tenant databases might fail after system database recovery. The two options to resolve this issue are:
 >
->- Both backed up VM and the target VM have the same backup key (including username and password). This means that HANA backup service can connect with the same credentials and continue to recover tenant databases.
->- If the backed up VM and the target VM have different keys then the pre-registration script has to be run after system database recovery. This will update credentials on the target VM and then the tenant databases could be recovered.
+>- Both backed-up VM and the target VM have the same backup key (including username and password). This means that HANA backup service can connect with the same credentials and continue to recover tenant databases.
+>- If the backed-up VM and the target VM have different keys then the pre-registration script has to be run after system database recovery. This will update credentials on the target VM and then the tenant databases could be recovered.
 
 ## Prerequisites
 
@@ -39,11 +39,11 @@ The following table lists the resource, permissions, and scope.
 >[!Note]
 >Once restore is completed, you can revoke these permissions.
 
-Scope of permission | Required built-in role | Who/what needs permission | Note
+Entity | Built-in role | Scope of permission | Description
 --- | --- | --- | ---
-Target VM | Virtual Machine Contributor | Backup admin who configures/runs HANA snapshot restore and Target VM’s MSI. | Restore from disk snapshots to create new managed disks and attach/mount to target VM/OS.
-Source snapshot resource group | Disk Snapshot Contributor | Target | Restore from disk snapshots.
-Target disk resource group (where all existing disks of target VM are present, for revert). <br><br> Target disk resource group (where all new disks will be created during restore). | Disk Restore Operator | Target VM’s MSI | Restore from disk snapshots to create new managed disks and attach/mount to target VM/OS.
+Target VM | Virtual Machine Contributor | Backup admin who configures/runs HANA snapshot restore and Target VM’s MSI. | Restores from disk snapshots to create new managed disks and attach/mount to target VM/OS.
+Source snapshot resource group | Disk Snapshot Contributor | Target | Restores from disk snapshots.
+Target disk resource group (where all existing disks of target VM are present, for revert). <br><br> Target disk resource group (where all new disks will be created during restore). | Disk Restore Operator | Target VM’s MSI | Restores from disk snapshots to create new managed disks and attach/mount to target VM/OS.
 
 >[!Note]
 >
@@ -185,7 +185,7 @@ Follow these steps:
 
 ## Cross region restore
 
-The Managed Disk snapshots don't get transferred to Recovery Services vault. Therefore, cross-region [restore is only possible via Backint stream backups](sap-hana-db-restore.md#cross-region-restore).
+The Managed Disk snapshots don't get transferred to Recovery Services vault. So, cross-region [restore is only possible via Backint stream backups](sap-hana-db-restore.md#cross-region-restore).
 
 ## Next steps
 

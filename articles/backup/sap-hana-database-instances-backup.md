@@ -47,11 +47,11 @@ You must assign the required permissions to the Azure Backup service (residing w
 
 The following table lists the resource, permissions, and scope.
 
-Scope of permission | Required built-in role | Who/what needs permission | Note
+Entity | Built-in role | Scope of permission | Description
 --- | --- | --- | ---
-Source VM | Virtual Machine Contributor | Backup admin who configures/runs HANA snapshot backup | To configure HANA instance.
-Source disk resource Group (where all disks are present for backup) | Disk Backup Reader | Source VM’s MSI | Create disk snapshots.
-Source snapshot resource Group | Disk Snapshot Contributor | Source VM’s MSI | Create disk snapshots and store on source snapshot resource group.
+Source VM | Virtual Machine Contributor | Backup admin who configures/runs HANA snapshot backup | Configures HANA instance.
+Source disk resource Group (where all disks are present for backup) | Disk Backup Reader | Source VM’s MSI | Creates disk snapshots.
+Source snapshot resource Group | Disk Snapshot Contributor | Source VM’s MSI | Creates disk snapshots and store on source snapshot resource group.
 Source snapshot resource Group | Disk Snapshot Contributor | Backup Management Service | Delete old snapshots on source snapshot resource group.
 
 >[!Note]
@@ -79,8 +79,6 @@ To create a policy for SAP HANA database instance backup, follow these steps:
 
 1. On **Create policy**, perform the following actions:
 
-   :::image type="content" source="./media/sap-hana-database-instances-backup/create-policy.png" alt-text="Screenshot showing to create the policy.":::
-
    - **Policy name**: Enter a unique policy name.
    - **Snapshot Backup**: Set *Time* and *Timezone* for backup as from the drop-down list. The default selection is *10:30 PM* and *(UTC) Coordinated Universal Time* respectively.
 
@@ -97,7 +95,9 @@ To create a policy for SAP HANA database instance backup, follow these steps:
 
 1. Select **Create**.
 
-You also need to [create a policy for SAP HANA database backup](backup-azure-sap-hana-database.md#create-a-backup-policy).
+   :::image type="content" source="./media/sap-hana-database-instances-backup/create-policy.png" alt-text="Screenshot showing how to create the policy.":::
+
+Also, you need to [create a policy for SAP HANA database backup](backup-azure-sap-hana-database.md#create-a-backup-policy).
 
 ## Discover the databases instance
 
@@ -141,7 +141,7 @@ Once done, follow these steps:
 
 Follow these steps:
 
-1. In the Azure portal, go to Recovery Services vault.
+1. In the Azure portal, go to **Recovery Services vault**.
 
 1. In the Recovery Services vault, select **Backup items** in the left pane.
 

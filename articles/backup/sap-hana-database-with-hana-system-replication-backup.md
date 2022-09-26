@@ -32,7 +32,9 @@ In this article, you'll learn how to:
 
 - Identify/create a Recovery Services vault in the same region and subscription as the two VMs/nodes of the HSR.
 - Allow connectivity from each of the VMs/nodes to the internet for communication with Azure. 
-- Ensure that the combined length of the SAP HANA Server VM name and the Resource Group name doesn't exceed 84 characters for Azure Resource Manager (ARM) VMs and 77 characters for classic VMs. This is because some characters are reserved by the service.
+
+>[!Important]
+>Ensure that the combined length of the SAP HANA Server VM name and the Resource Group name doesn't exceed 84 characters for Azure Resource Manager (ARM) VMs and 77 characters for classic VMs. This is because some characters are reserved by the service.
 
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
@@ -72,11 +74,11 @@ To discover the HSR database, follow these steps:
 
 ## Run the pre-registration script to assign permissions
 
-1. When a failover happens, the users are replicated to the new primary, but the *hdbuserstore* isn’t replicated. Therefore, you need to create the same key in all nodes of the HSR setup that allows the Azure Backup service to connect to any new primary node automatically, without any manual intervention. 
+1. When a failover occurs, the users are replicated to the new primary, but the *hdbuserstore* isn't replicated. So, you need to create the same key in all nodes of the HSR setup that allows the Azure Backup service to connect to any new primary node automatically, without any manual intervention. 
 
 1. Create a custom backup user in the HANA system with the following roles and permissions:
 
-   | Roles | Permissions | Descriptions |
+   | Role | Permission | Description |
    | --- | --- | --- |
    | MDC | DATABASE ADMIN and BACKUP ADMIN (HANA 2.0 SPS05 and higher) | To create new databases during restore. |
    | SDC | BACKUP ADMIN | To read the backup catalog. |
@@ -88,7 +90,7 @@ To discover the HSR database, follow these steps:
 
 1. Run the SAP HANA backup configuration script (pre-registration script) in the VMs where HANA is installed as the root user. This script sets up the HANA system for backup. For more information about the script actions, see the [What the pre-registration script does](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) section.
 
-1. There's no HANA generated unique ID for an HSR setup. Therefore, you need to provide a unique ID that helps the backup service to group all nodes of an HSR as a single data source. Provide a unique HSR ID as input to the script: `-hn HSR_UNIQUE_VALUE` or `--hsr-unique-value HSR_Unique_Value`. You must provide the same HSR ID on both the VMs/nodes. This ID must be unique within a vault and should be an alphanumeric value (containing at least one digit, lower-case, and upper-case character) with a length of *6* to *35* characters.
+1. There's no HANA generated unique ID for an HSR setup. So, you need to provide a unique ID that helps the backup service to group all nodes of an HSR as a single data source. Provide a unique HSR ID as input to the script: `-hn HSR_UNIQUE_VALUE` or `--hsr-unique-value HSR_Unique_Value`. You must provide the same HSR ID on both the VMs/nodes. This ID must be unique within a vault and should be an alphanumeric value (containing at least one digit, lower-case, and upper-case character) with a length of *6* to *35* characters.
 
 1. While running the pre-registration script on the secondary node, you must specify the SDC/MDC port as input. This is because SQL commands to identify the SDC/MDC setup can't be run on the secondary node. You must provide the port number as parameter as shown below: `-p PORT_NUMER` or `–port_number PORT_NUMBER`.
 
@@ -190,7 +192,7 @@ To configure the policy settings, follow these steps:
 1. After  the backup policy configuration is complete, select **OK**.
 
 >[!Note]
->All log-backups are chained to the previous full backup to form a recovery chain. A full backup is retained until the retention of expiry of the last log backup. Therefore, the full backup is retained for an extra period to ensure that all logs can be recovered. 
+>All log-backups are chained to the previous full backup to form a recovery chain. A full backup is retained until the retention of expiry of the last log backup. So, the full backup is retained for an extra period to ensure that all logs can be recovered. 
 >
 >For example, consider that you've a weekly full backup, daily differential, and *2 hour* logs. All of them are retained for *30 days*. But the weekly full backup is deleted only after the next full backup is available, that is, after 30 + 7 days.
 >
