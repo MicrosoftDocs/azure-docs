@@ -239,12 +239,12 @@ When the fine-tune job has succeeded, the value of `fine_tuned_model` in the res
 > [!NOTE]
 > As with all applications, we require a review process prior to going live.
 
- You can use either the [deployment API](#deploy-a-model-using-azure-openai) included with Azure OpenAI or the [Azure Command-Line Interface (CLI)](#deploy-a-model-using-azure-cli) to deploy your customized model, as shown in the following sections.
+ You can use either [Azure OpenAI](#deploy-a-model-using-azure-openai) or the [Azure Command-Line Interface (CLI)](#deploy-a-model-with-azure-cli) to deploy your customized model.
 
 > [!NOTE]
 > Only one deployment is permitted for a customized model. An error occurs if you select an already-deployed customized model.
 
-### Deploy a model using Azure OpenAI
+### Deploy a model with Azure OpenAI
 
 The following Python example shows how to use the deployment API included with Azure OpenAI to create a model deployment for your customized model. The deployment API generates a name for the deployment of your customized model.
 
@@ -262,9 +262,9 @@ The following Python example shows how to use the deployment API included with A
     deployment_id = result["id"]
 ```
 
-### Deploy a model using Azure CLI
+### Deploy a model with Azure CLI
 
-The following console command example shows how to use the Azure CLI to deploy your customized model. With the Azure CLI, you must specify a name for the deployment of your customized model. For more information about using the Azure CLI to deploy customized models, see <a href="https://learn.microsoft.com/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest" target="_blank">az cognitiveservices account deployment</a> in the <a href="https://learn.microsoft.com/cli/azure/?view=azure-cli-latest" target="_blank">Azure Command-Line Interface (CLI) documentation</a>. 
+The following Azure CLI command example shows how to use the Azure CLI to deploy your customized model. With the Azure CLI, you must specify a name for the deployment of your customized model. For more information about using the Azure CLI to deploy customized models, see <a href="https://learn.microsoft.com/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest" target="_blank">az cognitiveservices account deployment</a> in the <a href="https://learn.microsoft.com/cli/azure/?view=azure-cli-latest" target="_blank">Azure Command-Line Interface (CLI) documentation</a>. 
 
 To run this Azure CLI command in a console window, you must replace the following placeholders with the corresponding values for your customized model:
 
