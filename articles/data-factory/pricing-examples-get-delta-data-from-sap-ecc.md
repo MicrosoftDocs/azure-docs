@@ -25,7 +25,8 @@ Refer to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calc
 To accomplish the scenario, you need to create a pipeline with the following items: 
 
 - One Mapping Data Flow activity with an input dataset for the data to be loaded from SAP ECC, the transformation logic, and an output dataset for the data on Azure Data Lake Gen2 storage. 
-- A Self-Hosted Integration Runtime referenced to SAP CDC connector.  
+- A Self-Hosted Integration Runtime referenced to SAP CDC connector.
+- A schedule trigger to execute the pipeline. When you want to run a pipeline, you can either [trigger it immediately or schedule it](concepts-pipeline-execution-triggers.md). In addition to the pipeline itself, each trigger instance counts as a single Activity run.
 
 ## Costs estimation
 

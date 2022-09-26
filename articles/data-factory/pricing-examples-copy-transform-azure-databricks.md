@@ -26,7 +26,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 1. One copy activity with an input dataset for the data to be copied from AWS S3, and an output dataset for the data on Azure storage.
 2. One Azure Databricks activity for the data transformation.
-3. One schedule trigger to execute the pipeline every hour.
+3. One schedule trigger to execute the pipeline every hour. When you want to run a pipeline, you can either [trigger it immediately or schedule it](concepts-pipeline-execution-triggers.md). In addition to the pipeline itself, each trigger instance counts as a single Activity run.
 
 :::image type="content" source="media/pricing-concepts/scenario2.png" alt-text="Diagram shows a pipeline with a schedule trigger. In the pipeline, copy activity flows to an input dataset, an output dataset, and a DataBricks activity, which runs on Azure Databricks. The input dataset flows to an A W S S3 linked service. The output dataset flows to an Azure Storage linked service.":::
 

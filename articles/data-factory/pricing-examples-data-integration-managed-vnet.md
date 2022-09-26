@@ -27,7 +27,7 @@ To accomplish the scenario, you need to create two pipelines with the following 
   - A pipeline activity – Delete Activity.
   - A copy activity with an input dataset for the data to be copied from Azure Blob storage.
   - An output dataset for the data on Azure SQL Database.
-  - A schedule triggers to execute the pipeline.
+  - A schedule trigger to execute the pipeline. When you want to run a pipeline, you can either [trigger it immediately or schedule it](concepts-pipeline-execution-triggers.md). In addition to the pipeline itself, each trigger instance counts as a single Activity run.
 
 ## Costs estimation
 

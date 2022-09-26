@@ -26,7 +26,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 1. I'll copy data from AWS S3 to Azure Blob storage, and this will move 10 GB of data from S3 to blob storage. I estimate it will run for 2-3 hours, and I plan to set DIU as Auto.
 
-3. A schedule trigger to execute the pipeline every hour for 8 hours every day.
+3. A schedule trigger to execute the pipeline every hour for 8 hours every day. When you want to run a pipeline, you can either [trigger it immediately or schedule it](concepts-pipeline-execution-triggers.md). In addition to the pipeline itself, each trigger instance counts as a single Activity run.
 
    :::image type="content" source="media/pricing-concepts/scenario1.png" alt-text="Diagram shows a pipeline with a schedule trigger.":::
 

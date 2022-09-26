@@ -27,7 +27,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 1. A Data Flow activity with the transformation logic.
 1. An input dataset for the data on Azure Storage.
 1. An output dataset for the data on Azure Storage.
-1. A schedule trigger to execute the pipeline every hour.
+1. A schedule trigger to execute the pipeline every hour. When you want to run a pipeline, you can either [trigger it immediately or schedule it](concepts-pipeline-execution-triggers.md). In addition to the pipeline itself, each trigger instance counts as a single Activity run.
 
 ## Costs estimation
 
