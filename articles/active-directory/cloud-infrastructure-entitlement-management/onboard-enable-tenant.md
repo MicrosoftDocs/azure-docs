@@ -18,6 +18,8 @@ This article describes how to enable Permissions Management in your organization
 > [!NOTE]
 > To complete this task, you must have *global administrator* permissions as a user in that tenant. You can't enable Permissions Management as a user from other tenant who has signed in via B2B or via Azure Lighthouse.
 
+:::image type="content" source="media/onboard-enable-tenant/dashboard.png" alt-text="A preview of what the permissions management dashboard looks like." lightbox="media/onboard-enable-tenant/dashboard.png":::
+
 ## Prerequisites
 
 To enable Permissions Management in your organization:
