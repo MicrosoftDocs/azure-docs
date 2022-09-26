@@ -24,7 +24,6 @@ Azure availability zones are at least three physically separate groups of datace
 
 Azure availability zones-enabled services are designed to provide the right level of reliability and flexibility. They can be configured in two ways. They can be either zone redundant, with automatic replication across zones, or zonal, with instances pinned to a specific zone. You can also combine these approaches. For more information on zonal vs. zone-redundant architecture, see [Build solutions with availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability.md).
 
-
 ## Availability zone support
 
 Azure DNS Private Resolver supports Availability Zones without any additional configuration required. When the service is provisioned, it's deployed across the different Availability Zones and will provide zonal resiliency out of the box.
@@ -34,13 +33,13 @@ Azure DNS Private Resolver supports Availability Zones without any additional co
 The regions listed in this location include availability zone support and you won't need to take any additional action apart from provisioning the service.
 https://learn.microsoft.com/en-us/azure/availability-zones/az-region#azure-regions-with-availability-zones
 
-There are no increased SLAs for [Azure DNS Private Resolver]. For more information on the [Azure DNS Private Resolver] SLAs, see [https://azure.microsoft.com/en-us/support/legal/sla/dns/v1_1/].
+There are no increased SLAs for [Azure DNS Private Resolver]. For more information on the Azure DNS Private Resolver SLAs, see [SLA for Azure DNS](https://azure.microsoft.com/support/legal/sla/dns/v1_1/).
 
-For detailed steps on how to provision the service please refer to the following location [https://learn.microsoft.com/en-us/azure/dns/dns-private-resolver-get-started-portal].
+For detailed steps on how to provision the service, see [Create an Azure private DNS Resolver using the Azure portal](dns-private-resolver-get-started-portal.md).
 
 #### Create a resource with availability zone enabled
-For Azure DNS Private Resolver, you do not need to do any additional steps. Just create the resource in the region with AZ support and it will be available across all AZs
-https://learn.microsoft.com/en-us/azure/dns/dns-private-resolver-get-started-portal
+
+For Azure DNS Private Resolver, you do not need to do any additional steps. Just [create the resource](dns-private-resolver-get-started-portal.md) in the region with AZ support and it will be available across all AZs
 
 ### Fault tolerance
 
@@ -55,13 +54,13 @@ https://learn.microsoft.com/en-us/azure/dns/tutorial-dns-private-resolver-failov
 
 In the event of a regional outage we recommend using the same pattern as the failover described above.
 
-When there's a regional failure, if following the pattern described here[https://learn.microsoft.com/en-us/azure/dns/tutorial-dns-private-resolver-failover], it will enable you to keep resolving names on the other active regions and also increase the resiliency of your workloads. 
+When there's a regional failure, if you have [Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md), it will enable you to keep resolving names on the other active regions and also increase the resiliency of your workloads. 
 
 All instances of Azure DNS Private Resolver run as Active-Active within the same region.
 
-The service health is onboarded to Azure Resource Health [https://learn.microsoft.com/en-us/azure/service-health/resource-health-overview] so you'll be able to check for health notifications when you subscribe to them [https://learn.microsoft.com/en-us/azure/service-health/alerts-activity-log-service-notifications-portal].
+The service health is onboarded to Azure Resource Health [/azure/service-health/resource-health-overview] so you'll be able to check for health notifications when you subscribe to them [/azure/service-health/alerts-activity-log-service-notifications-portal].
 
-The SLA is Azure DNS Private Resolver is available here: [https://azure.microsoft.com/en-us/support/legal/sla/dns/v1_1/].
+The SLA is Azure DNS Private Resolver is available here: [https://azure.microsoft.com/support/legal/sla/dns/v1_1/].
 
 ## Next steps
 
