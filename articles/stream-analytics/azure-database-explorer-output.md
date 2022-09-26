@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/22/2022
+ms.date: 09/26/2022
 ---
 
 # Azure Data Explorer output from Azure Stream Analytics (Preview)
@@ -66,7 +66,7 @@ You can significantly grow the scope of real-time analytics by leveraging ASA an
 
 ## Other Scenarios and limitations
 * The name of the columns and data type should match between Azure Stream Analytics SQL query and Azure Data Explorer table. Note that the comparison is case sensitive.
-* Columns that exist in your kusto clusters but are missing in ASA are ignored while columns that are missing in Azure Stream  raise an error.
+* Columns that exist in your Azure Data explorer clusters but are missing in ASA are ignored while columns that are missing in Azure Stream  raise an error.
 * The order of columns when writing to your kusto clusters does not matter
 * Azure Data Explorer has an aggregation (batching) policy for data ingestion, designed to optimize the ingestion process. The policy is configured to 5 minutes, 1000 items or 1 GB of data by default, so you may experience a latency. See [batching policy](/azure/data-explorer/kusto/management/batchingpolicy) for aggregation options.
 
