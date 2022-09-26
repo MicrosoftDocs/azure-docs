@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-This article shows you how to use an Azure Resource Manager template to create an IoT Hub and a [consumer group](https://learn.microsoft.com/azure/event-hubs/event-hubs-features#consumer-groups), using Azure PowerShell. Resource Manager templates are JSON files that define the resources you need to deploy for your solution. For more information about developing Resource Manager templates, see [Azure Resource Manager documentation](../azure-resource-manager/index.yml).
+This article shows you how to use an Azure Resource Manager template to create an IoT Hub and a [consumer group](https://learn.microsoft.com/azure/event-hubs/event-hubs-features#consumer-groups), using Azure PowerShell. Resource Manager templates are JSON files that define the resources you need to deploy for your solution. For more information about developing Resource Manager templates, see the [Azure Resource Manager documentation](../azure-resource-manager/index.yml).
 
 ## Prerequisites
 
@@ -29,11 +29,11 @@ The [Resource Manager JSON template](https://azure.microsoft.com/resources/templ
 
 Use the following PowerShell command to create a resource group which is then used to create an IoT hub. The JSON template is used in `-TemplateUri`.
 
-To run the following PowerShell script, select **Try it** to open the Azure Cloud Shell. Copy the script, paste it into the shell, and answer the prompts to create a new resource, choose a region, and create a new IoT hub.
+To run the following PowerShell script, select **Try it** to open the Azure Cloud Shell. Copy the script, paste into your shell, then press enter. Answer the prompts. These prompts will help you to create a new resource, choose a region, and create a new IoT hub. Once answered, a confirmation of your IoT hub prints to the console.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+$location = Read-Host -Prompt "Enter the location (for example: centralus)"
 $iotHubName = Read-Host -Prompt "Enter the IoT Hub name"
 
 New-AzResourceGroup -Name $resourceGroupName -Location "$location"
