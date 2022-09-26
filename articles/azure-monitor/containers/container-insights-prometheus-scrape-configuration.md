@@ -1,14 +1,14 @@
 ---
-title: Customize scraping of Prometheus metrics in Container insights
-description: Customize metrics scraping for a Kubernetes cluster with the metrics addon in Container insights.
+title: Customize scraping of Prometheus metrics in Azure Monitor
+description: Customize metrics scraping for a Kubernetes cluster with the metrics addon in Azure Monitor.
 ms.topic: conceptual
 ms.date: 09/16/2022
 ms.reviewer: aul
 ---
 
-# Customize scraping of Prometheus metrics in Container insights
+# Customize scraping of Prometheus metrics in Azure Monitor
 
-This article provides instructions on customizing metrics scraping for a Kubernetes cluster with the metrics addon in Container insights. 
+This article provides instructions on customizing metrics scraping for a Kubernetes cluster with the metrics addon in Container insights.
 
 ## Default targets
 The following table has a list of all the default targets that the Container insights metrics addon can scrape by default and whether it's initially enabled. Default targets are scraped every 30 seconds.

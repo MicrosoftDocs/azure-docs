@@ -1,12 +1,12 @@
 ---
-title: Troubleshoot collection of Prometheus metrics in Container insights
-description: Steps that you can take if you aren't collecting Prometheus metrics for a Kubernetes cluster as expected.
+title: Troubleshoot collection of Prometheus metrics in Azure Monitor
+description: Steps that you can take if you aren't collecting Prometheus metrics as expected.
 ms.topic: conceptual
 ms.date: 05/24/2022
 ms.reviewer: aul
 ---
 
-# Troubleshoot collection of Prometheus metrics in Container insights
+# Troubleshoot collection of Prometheus metrics in Azure Monitor
 
 Follow the steps in this article to determine the cause of Prometheus metrics not being collected as expected.
 
