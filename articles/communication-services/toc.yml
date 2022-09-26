@@ -307,7 +307,7 @@ items:
           - name: Firewall configuration
             href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
           - name: Government clouds
-            href: concepts/interop/teams-user/gov-cloud-for-teams-user.md
+            href: concepts/interop/teams-user/gov-cloud.md
   - name: Network Traversal (TURN)
     href: concepts/network-traversal.md    
   - name: Data residency and user privacy
