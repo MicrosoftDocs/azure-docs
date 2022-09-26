@@ -21,9 +21,9 @@ Before applying sustainable software engineering principles to your application,
 
 ## Get started with sustainability software engineering
 
-* What is a [sustainability software engineering](/azure/architecture/framework/sustainability/sustainability-get-started)
-* Design Methodology for building sustainable workloads
-* Design principles of a sustainable workload
+* [What is a sustainability software engineering](/azure/architecture/framework/sustainability/sustainability-get-started)
+* [Design Methodology for building sustainable workloads](/azure/architecture/framework/sustainability/sustainability-design-methodology)
+* [Design principles of a sustainable workload](/azure/architecture/framework/sustainability/sustainability-design-principles)
 
 ## Key sustainability Design Areas
 
@@ -33,13 +33,13 @@ Decisions made in one design area can impact or influence decisions across the e
 
 |Design area|Description|
 |---|---|
-|[Application design](sustainability-application-design.md)|Cloud application patterns that allow for designing sustainable workloads.|
-|[Application platform](sustainability-application-platform.md)|Choices around hosting environment, dependencies, frameworks, and libraries.|
-|[Testing](sustainability-testing.md)|Strategies for CI/CD pipelines and automation, and how to deliver more sustainable software testing.|
-|[Operational procedures](sustainability-operational-procedures.md)|Processes related to sustainable operations.|
+|[Application design](/azure/architecture/framework/sustainability/sustainability-application-design.md)|Cloud application patterns that allow for designing sustainable workloads.|
+|[Application platform](/azure/architecture/framework/sustainability/sustainability-application-platform.md)|Choices around hosting environment, dependencies, frameworks, and libraries.|
+|[Testing](/azure/architecture/framework/sustainability/sustainability-testing.md)|Strategies for CI/CD pipelines and automation, and how to deliver more sustainable software testing.|
+|[Operational procedures](/azure/architecture/framework/sustainability/sustainability-operational-procedures.md)|Processes related to sustainable operations.|
 |[Storage](sustainability-storage.md)|Design choices for making the data storage options more sustainable.|
-|[Network and connectivity](sustainability-networking.md)|Networking considerations that can help reduce traffic and amount of data transmitted to and from the application.|
-|[Security](sustainability-security.md)|Relevant recommendations to design more efficient security solutions on Azure.|
+|[Network and connectivity](/azure/architecture/framework/sustainability/sustainability-networking.md)|Networking considerations that can help reduce traffic and amount of data transmitted to and from the application.|
+|[Security](/azure/architecture/framework/sustainability/sustainability-security.md)|Relevant recommendations to design more efficient security solutions on Azure.|
 
 We recommend that readers familiarize themselves with these design areas, reviewing provided considerations and recommendations to better understand the consequences of encompassed decisions.
 
@@ -47,17 +47,17 @@ We recommend that readers familiarize themselves with these design areas, review
 
 * **Application Platform**: AKS is the Platform
 * **Security**: regarding cluster security configuration and integration with Monitoring & SIEM.
-* Storage : regarding implementation of storage classes & Backup retention policies.
-* Testing : regarding Testing procedures for Cluster development lifecycle
-* Network and connectivity : regarding cluster network design (availability zones, Network routing, etc.) and configuration (service mesh,..)
+* **Storage** : regarding implementation of storage classes & Backup retention policies.
+* **Testing** : regarding Testing procedures for Cluster development lifecycle
+* **Network and connectivity** : regarding cluster network design (availability zones, Network routing, etc.) and configuration (service mesh,..)
 
 
 ## Design areas for AKS workloads
 
 * **Application Design** : regarding code optimization recommendations for applications.
-* Storage : regarding application design (stateful Vs Stateless) ; and defining storage requirements
-* Testing : regarding Testing procedures for Application development lifecycle
-* Network and connectivity : regarding overall networking architecture (use of CDNs, caching mecanisms, etc.)
+* **Storage** : regarding application design (stateful Vs Stateless) ; and defining storage requirements
+* **Testing** : regarding Testing procedures for Application development lifecycle
+* **Network and connectivity** : regarding overall networking architecture (use of CDNs, caching mecanisms, etc.)
 
 
 ## Operational Procedures
