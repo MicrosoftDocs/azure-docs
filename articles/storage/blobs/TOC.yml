@@ -615,7 +615,9 @@ items:
             - name: Manage blob properties and metadata
               href: storage-blob-properties-metadata.md
             - name: Create and manage leases
-              href: storage-blob-container-lease.md              
+              href: storage-blob-container-lease.md 
+          - name: Implement a retry policy
+            href: storage-retry-policy.md          
         - name: JavaScript
           items:
           - name: Get started
