@@ -31,16 +31,13 @@ Azure IoT Hub creates monitoring data using [Azure Monitor](../azure-monitor/ove
 Start with the article [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md), which describes the following concepts:
 
 - What is Azure Monitor?
-- Costs associated with monitoring
 - Monitoring data collected in Azure
-- Configuring data collection
-- Standard tools in Azure for analyzing and alerting on monitoring data
+- Metrics and logs such as platform metrics and resource logs
+- Configuring data collection such as through diagnostic settings
+- Standard tools in Azure for analysis and insights
+- Alerts fired when monitoring data
 
 The following sections build on this article by describing the specific data gathered for Azure IoT Hub and providing examples for configuring data collection and analyzing this data with Azure tools.
-
-## Monitoring data
-
-Azure IoT Hub collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data).
 
 See [Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md) for detailed information on the metrics and logs created by Azure IoT Hub.
 
