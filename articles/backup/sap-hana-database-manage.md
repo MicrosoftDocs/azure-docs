@@ -76,7 +76,7 @@ Backups run in accordance with the policy schedule. You can run a backup on-dema
 
 ### HANA native client integration
 
-In the following sections, you'll learn how to trigger various backup and restore operations from non-Azure clients, such as HANA studio.
+In the following sections, you'll learn how to trigger the backup and restore operations from non-Azure clients, such as HANA studio.
 
 >[!Note]
 >HANA native clients are integrated for Backint based operations only. Snapshots and HANA System Replication mode related operations are currently not supported.
