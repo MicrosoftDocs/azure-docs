@@ -1,7 +1,7 @@
 ---
-title: Train and deploy a TensorFlow model
+title: Train and deploy a TensorFlow model (SDK v2)
 titleSuffix: Azure Machine Learning
-description: Learn how Azure Machine Learning enables you to scale out a TensorFlow training job using elastic cloud compute resources.
+description: Learn how Azure Machine Learning SDK (v2) enables you to scale out a TensorFlow training job using elastic cloud compute resources.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.author: larryfr
 author: blackmist
 ms.date: 02/23/2022
 ms.topic: how-to
-ms.custom: sdkv1, event-tier1-build-2022
+ms.custom: sdkv2, event-tier1-build-2022
 #Customer intent: As a TensorFlow developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale.
 ---
 
@@ -35,8 +35,7 @@ Run this code on either of these environments:
     - In the samples deep learning folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > tensorflow > train-hyperparameter-tune-deploy-with-tensorflow** folder.
 
 - Your own Jupyter Notebook server
-    - [Install the Azure Machine Learning SDK](/python/api/overview/azure/ml/install) (>= 1.15.0).
-    - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
+    - [Install the Azure Machine Learning SDK (v2)](https://aka.ms/sdk-v2-install).
     - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow) `tf_mnist.py` and `utils.py`
 
     You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
