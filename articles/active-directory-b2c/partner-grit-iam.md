@@ -96,7 +96,8 @@ Make sure you've Azure portal tenant access and the application is configured in
 >[!NOTE]
 >To provide a walk-through or demo, some applications are pre-configured in the Azure AD tenant of the Onboarding portal.
 
-The Onboarding portal defines the claims per application and per organization. Thereafter, the portal creates an endpoint URL for the sign-in sign-up user flow.
+The Onboarding portal defines the claims per application and per organization. Thereafter, the portal creates an endpoint URL for the sign-in and sign-up user flow.
+
 
 To learn how to onboard an organization, check this [tutorial](https://app.archbee.com/doc/G_YZFq_VwvgMlmX-_efmX/8m90WVb2M6Yi0gCe7yor2).
 
