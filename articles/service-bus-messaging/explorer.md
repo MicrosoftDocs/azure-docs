@@ -47,7 +47,7 @@ To use the Service Bus Explorer, navigate to the Service Bus namespace on which 
     :::image type="content" source="./media/service-bus-explorer/queue-topics-left-navigation.png" alt-text="Screenshot of left side navigation, where entity can be selected." lightbox="./media/service-bus-explorer/queue-topics-left-navigation.png":::
 
 1. After selecting **Queues** or **Topics**, select the specific queue or topic.
-2. Select the **Service Bus Explorer (preview)** from the left navigation menu
+1. Select the **Service Bus Explorer (preview)** from the left navigation menu
 
     :::image type="content" source="./media/service-bus-explorer/left-navigation-menu-selected.png" alt-text="Screenshot of queue blade where Service Bus Explorer can be selected." lightbox="./media/service-bus-explorer/left-navigation-menu-selected.png":::
 
