@@ -17,7 +17,7 @@ This article describes about how to back up SAP HANA System Replication (HSR) da
 In this article, you'll learn how to:
 
 >[!div class="checklist"]
->- Create and configure a Backup vault
+>- Create and configure a Recovery Services vault
 >- Create a policy
 >- Discover databases instances
 >- Run the pre-registration script
