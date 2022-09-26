@@ -56,6 +56,8 @@ With Azure Container Apps, you can:
 
 - [**Monitor your apps**](monitor.md) using Azure Log Analytics.
 
+- [**Generous quotas**](quotas.md) which are overridable to increase limits on a per-account basis.
+
 <sup>1</sup> Applications that [scale on CPU or memory load](scale-app.md) can't scale to zero.
 
 ## Introductory video
