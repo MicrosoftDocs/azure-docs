@@ -15,7 +15,7 @@ Before beginning this tutorial, start with these prerequisites:
 
 Then, continue through the rest of this section to set up the remaining prerequisites.
 
-### Get required resources
+### Get sample resources
 
 The tutorial is driven by an [Azure Digital Twins end-to-end sample project written in C#](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Get the sample project on your machine by navigating to the sample link, and selecting the **Browse code** button underneath the title. 
 
