@@ -75,6 +75,9 @@
     - name: Manage resources VS Code
       displayName: vscode,resources
       href: ../how-to-manage-resources-vscode.md
+    - name: Git integration
+      displayName: github gitlab
+      href: ../concept-train-model-git-integration.md
 - name: Tutorials (v1)
   expanded: true
   items:
