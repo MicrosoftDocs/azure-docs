@@ -144,4 +144,4 @@ In this article, you learned how to use IotCentralJsonPathContentTemplate with y
 >[!div class="nextstepaction"]
 >[How to use FHIR destination mappings](how-to-use-fhir-mappings.md)
 
-(FHIR&#174;) is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
