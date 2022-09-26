@@ -16,8 +16,6 @@ Use this table to determine *availability of neural voices* by region or endpoin
 | Brazil South | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Canada Central | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` |
 | Central US | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` |
-| China East 2 | `https://chinaeast2.tts.speech.azure.cn/cognitiveservices/v1` |
-| China North 2 | `https://chinanorth2.tts.speech.azure.cn/cognitiveservices/v1` |
 | East Asia | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` |
 | East US | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` |
 | East US 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` |
