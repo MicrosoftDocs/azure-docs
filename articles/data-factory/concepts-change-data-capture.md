@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 07/26/2022
 ---
 
-# Changed data capture in Azure Data Factory and Azure Synapse Analytics
+# Change data capture in Azure Data Factory and Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
