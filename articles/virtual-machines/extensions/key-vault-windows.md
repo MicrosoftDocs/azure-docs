@@ -102,7 +102,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 > This is because the `/secrets` path returns the full certificate, including the private key, while the `/certificates` path does not. More information about certificates can be found here: [Key Vault Certificates](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!IMPORTANT]
-> The 'authenticationSettings' property is **required** for VMs with any **user assigned identities**. Even if you want to use a system assigned identity this is still required otherwise the VM extension will not know which identity to use. Without this section, a VM with user assigned identities will result in the Key Vault extension failing and being unable to download certificates.
+> The 'authenticationSettings' property is **required** for VMs with any **user assigned identities**. Even if you want to use a system-assigned identity, this is still required; otherwise the VM extension will not know which identity to use. Without this section, a VM with user-assigned identities will result in the Key Vault extension failing and being unable to download certificates.
 > It specifies identity to use for authentication to Key Vault.
 
 > [!IMPORTANT]
