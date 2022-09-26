@@ -30,12 +30,12 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   + **azureml-core**
     + Added deprecation warning when inference customers use CLI/SDK v1 model deployment APIs to deploy models and also when python version is 3.6 and less.
     + The following values of `AZUREML_LOG_DEPRECATION_WARNING_ENABLED` change the behavior as follows:
-    + Default - displays the warning when customer uses python 3.6 and less and for cli/sdk v1. 
-    + `True` - displays the sdk v1 deprecation warning on azureml-sdk packages. 
-    + `False` - disables the sdk v1 deprecation warning on azureml-sdk packages. 
+      + Default - displays the warning when customer uses python 3.6 and less and for cli/sdk v1. 
+      + `True` - displays the sdk v1 deprecation warning on azureml-sdk packages. 
+      + `False` - disables the sdk v1 deprecation warning on azureml-sdk packages. 
     + Command to be executed to set the environment variable to disable the deprecation message: 
-    + Windows - setx `AZUREML_LOG_DEPRECATION_WARNING_ENABLED` "False" 
-    + Linux - export `AZUREML_LOG_DEPRECATION_WARNING_ENABLED`="False"
+      + Windows - `setx AZUREML_LOG_DEPRECATION_WARNING_ENABLED "False"`
+      + Linux - `export AZUREML_LOG_DEPRECATION_WARNING_ENABLED="False"`
   + **azureml-interpret**
     + update azureml-interpret package to interpret-community 0.27.*
   + **azureml-pipeline-core**
