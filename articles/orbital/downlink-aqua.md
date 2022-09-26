@@ -130,7 +130,7 @@ sudo apt install socat
    | IP Address | Enter the Private IP address of the virtual machine you created above (VM) |
    | Port | **56001** |
    | Protocol | **TCP** |
-   | Demodulation Configuration | Leave this field **blank** or request a demodulation configuration from the [Azure Orbital team](mailto:msazureorbital@microsoft.com) to use a software modem. Include your Subscription ID, Spacecraft resource ID, and Contact Profile resource ID in your email request.|
+   | Demodulation Configuration | Select the 'Preset Named Modem Configuration' option and choose **Aqua Direct Broadcast**|
    | Decoding Configuration | Leave this field **blank** |
 
 

@@ -3,7 +3,7 @@ title: Manage users and roles in Azure IoT Central application | Microsoft Docs
 description: As an administrator, how to manage users and roles in your Azure IoT Central application
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/22/2022
+ms.date: 08/01/2022
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -27,10 +27,10 @@ Every user must have a user account before they can sign in and access an applic
 
     :::image type="content" source="media/howto-manage-users-roles/manage-users-pnp.png" alt-text="Screenshot of manage users page in IoT Central.":::
 
-1. To add a user on the **Users** page, choose **+ Assign user**. To add a service principal on the **Users** page, choose **+ Assign service principal**. Start typing the name of the service principal to auto-populate the form.
+1. To add a user on the **Users** page, choose **+ Assign user**. To add a service principal on the **Users** page, choose **+ Assign service principal**. To add an Azure Active Directory group on the **Users** page, choose **+ Assign group**. Start typing the name of the Active Directory group or service principal to auto-populate the form.
 
     > [!NOTE]
-    > A service principal must belong to the same Azure Active Directory tenant as the Azure subscription associated with the IoT Central application.
+    > Service principals and Active Directory groups must belong to the same Azure Active Directory tenant as the Azure subscription associated with the IoT Central application.
 
 1. If your application uses [organizations](howto-create-organizations.md), choose an organization to assign to the user from the **Organization** drop-down menu.
 
@@ -47,6 +47,12 @@ Every user must have a user account before they can sign in and access an applic
 
     > [!NOTE]
     > If a user is deleted from Azure Active Directory and then added back, they won't be able to sign into the IoT Central application. To re-enable access, the application's administrator should delete and re-add the user in the application as well.
+
+The following limitations apply to Azure Active Directory groups and service principals:
+
+- Total number of Azure Active Directory groups for each IoT Central application can't be more than 20.
+- Total number of unique Azure Active Directory groups from the same Azure Active Directory tenant can't be more than 200 across all IoT Central applications.
+- Service principals that are part of an Azure Active Directory group aren't automatically granted access to the application. The service principals must be added explicitly.
 
 ### Edit the roles and organizations that are assigned to users
 
@@ -140,6 +146,8 @@ When you define a custom role, you choose the set of permissions that a user is 
 | Delete | View <br/> Other dependencies: View device templates and device groups  |
 | Execute commands | Update, View <br/> Other dependencies: View device templates and device groups  |
 | View raw data | View <br/> Other dependencies: View device templates and device groups  |
+| View uploaded device files | View <br/> Other dependencies: View device templates and device groups  |
+| Delete uploaded device files | View <br/> Other dependencies: View device templates and device groups  |
 | Full Control | View, Update, Create, Delete, Execute commands, View raw data <br/> Other dependencies: View device templates and device groups  |
 
 **Device groups permissions**
@@ -218,6 +226,16 @@ When you define a custom role, you choose the set of permissions that a user is 
 | Manage | None     |
 | Full Control | Manage |
 
+**Audit log permissions**
+
+| Name | Dependencies |
+| ---- | -------- |
+| View | None     |
+| Full Control | View |
+
+> [!CAUTION]
+> Any user granted permission to view the audit log can see all log entries even if they don't have permission to view or modify the entities listed in the log. Therefore, any user who can view the log can view the identity of and changes made to any modified entity.
+
 #### Managing users and roles
 
 **Custom roles permissions**
@@ -273,6 +291,16 @@ When you define a custom role, you choose the set of permissions that a user is 
 | Create | View, Update   |
 | Delete | View   |
 | Full Control | View, Update, Create, Delete |
+
+**Data explorer permissions**
+
+| Name | Dependencies |
+| ---- | -------- |
+| View | None <br/> Other dependencies: View device groups, device templates, device instances |
+| Update | View <br/> Other dependencies: View device groups, device templates, device instances |
+| Create | View, Update <br/> Other dependencies: View device groups, device templates, device instances |
+| Delete | View <br/> Other dependencies: View device groups, device templates, device instances |
+| Full Control | View, Update, Create, Delete <br/> Other dependencies: View device groups, device templates, device instances |
 
 **Branding, favicon, and colors permissions**
 

@@ -14,7 +14,7 @@ ms.date: 08/15/2022
 
 When you want to perform basic JSON transformations in your logic app workflows, you can use built-in data operations, such as the **Compose** action or **Parse JSON** action. However, some scenarios might require advanced and complex transformations that include elements such as iterations, control flows, and variables. For transformations between JSON to JSON, JSON to text, XML to JSON, or XML to text, you can create a template that describes the required mapping or transformation using the Liquid open-source template language. You can select this template when you add a **Liquid** built-in action to your workflow. You can use **Liquid** actions in multi-tenant Consumption logic app workflows and single-tenant Standard logic app workflows.
 
-Although no **Liquid** triggers are available, you can use any trigger or action to get or feed the source JSON or XML content into your workflow for transformation. For example, you can use a built-in connector trigger, a managed or Azure-hosted connector trigger available for Azure Logic Apps, or even another app.
+While no **Liquid** triggers are available, you can use any trigger or action to feed the source JSON or XML content into your workflow. For example, you can use a built-in connector trigger, a managed or Azure-hosted connector trigger available for Azure Logic Apps, or even another app.
 
 This article shows how to complete the following tasks:
 
@@ -54,9 +54,7 @@ For more information, review the following documentation:
 
     * If you already have an integration account with the artifacts that you need or want to use, you can link the integration account to multiple Standard logic app resources where you want to use the artifacts. That way, you don't have to upload maps to each individual logic app. For more information, review [Link your logic app resource to your integration account](logic-apps-enterprise-integration-create-integration-account.md?tabs=standard#link-account).
 
-    * Some Azure-hosted integration account connectors, such as **AS2**, **EDIFACT**, and **X12**, let you create a connection to your integration account. If you're just using these connectors, you don't need the link.
-
-    * The built-in connectors named **Liquid** and **Flat File** let you select maps and schemas that you previously uploaded to your logic app resource or to a linked integration account, but not both. You can then use these artifacts across all child workflows within the *same logic app resource*.
+    * The **Liquid** built-in connector lets you select a map that you previously uploaded to your logic app resource or to a linked integration account, but not both. You can then use these artifacts across all child workflows within the *same logic app resource*.
 
     So, if you don't have or need an integration account, you can use the upload option. Otherwise, you can use the linking option. Either way, you can use these artifacts across all child workflows within the same logic app resource.
 
@@ -193,7 +191,7 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
       ![Screenshot showing Consumption workflow, Liquid action's "Content" property, an open dynamic content list, and "Body" token selected.](./media/logic-apps-enterprise-integration-liquid-transform/select-body-consumption.png)
 
-1. For the **Map** property, open the **Map** list, and select your Liquid template.
+1. From the **Map** list, select your Liquid template.
 
    This example continues with the template named **JsonToJsonTemplate**.
 
@@ -201,12 +199,14 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
    > [!NOTE]
    >
-   > If the maps list is empty, most likely your logic app resource isn't linked to your integration account. 
-   > Make sure to [link your logic app resource to the integration account that has the Liquid template or map](logic-apps-enterprise-integration-create-integration-account.md?tabs=consumption#link-account).
+   > If the maps list is empty, either your logic app resource isn't linked to your 
+   > integration account or your integration account doesn't contain any map files.
 
    When you're done, the action looks similar to the following example:
 
    ![Screenshot showing Consumption workflow with finished "Transform JSON to JSON" action.](./media/logic-apps-enterprise-integration-liquid-transform/finished-transform-action-consumption.png)
+
+1. Save your workflow. On the designer toolbar, select **Save**.
 
 ### [Standard](#tab/standard)
 
@@ -236,6 +236,12 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
       ![Screenshot showing Standard workflow, Liquid action's "Content" property with dynamic content list opened, and "Body" token selected.](./media/logic-apps-enterprise-integration-liquid-transform/select-body-standard.png)
 
+   > [!NOTE]
+   >
+   > If the **Body** property doesn't appear in the dynamic content list, 
+   > select **See more** next to the **When a HTTP request is received** section label.
+   > You can also directly enter the content to decode in the **Content** box.
+
 1. From the **Source** list, select either **LogicApp** or **IntegrationAccount** as your Liquid template source.
 
    This example continues by selecting **IntegrationAccount**.
@@ -257,11 +263,13 @@ The following steps show how to add a Liquid transformation action for Consumpti
 
    ![Screenshot showing Standard workflow with finished "Transform JSON to JSON" action.](./media/logic-apps-enterprise-integration-liquid-transform/finished-transform-action-standard.png)
 
+1. Save your workflow. On the designer toolbar, select **Save**.
+
 ---
 
 ## Test your workflow
 
-1. By using [Postman](https://www.getpostman.com/postman) or a similar tool and the `POST` method, send a call to the Request trigger's URL and include the JSON input to transform, for example:
+1. By using [Postman](https://www.getpostman.com/postman) or a similar tool and the `POST` method, send a call to the Request trigger's URL, which appears in the Request trigger's **HTTP POST URL** property, and include the JSON input to transform, for example:
 
    ```json
    {

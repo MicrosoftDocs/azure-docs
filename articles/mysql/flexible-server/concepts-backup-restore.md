@@ -214,7 +214,9 @@ The estimated time for the recovery of the server depends on several factors:
    - The network bandwidth if the restore is to a different region
    - The number of concurrent restore requests being processed in the target region
    - The presence of primary key in the tables in the database. For faster recovery, consider adding primary key for all the tables in your database.
-
+   
+ - **Will modifying session level database variables impact restoration?**
+   Modifying session level variables and running DML statements in MySQL client session can impact the PITR (point in time restore) operation, as these modifications do not get recorded in binary log which is used for backup and restore operation. For example, [foreign_key_checks](http://dev.mysql.com/doc/refman/5.5/en/server-system-variables.html#sysvar_foreign_key_checks) is one such session level variable which if disabled for running a DML statement which violates the foreign key constraint will result in PITR (point in time restore) failure. The only workaround in such a scenario would be to select a PITR time which is earlier than the time at which [foreign_key_checks](http://dev.mysql.com/doc/refman/5.5/en/server-system-variables.html#sysvar_foreign_key_checks) were disabled. Our recommendation is to NOT modify any session variables for a successful PITR operation.
 
 ## Next steps
 

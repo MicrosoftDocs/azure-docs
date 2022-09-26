@@ -94,7 +94,7 @@ Until one of the components that are being retired are actually deprecated, you 
 
 We expect TLS 1.0/1.1 to be deprecated in 2022, and you need to make sure you aren't using these protocols by that date as your service may stop working unexpectedly. You can manually configure your server for TLS 1.2 though, and that doesn't require an update of Azure AD Connect to V2 
 
-Azure AD Connect Health will stop working after December 20222. We will auto upgrade all Health agents to a new version before the end of 2022, but we cannot auto upgrade if you are running AADConnect V1 due to compatibility issues with V versions.
+Azure AD Connect Health will stop working after December 2022. We will auto upgrade all Health agents to a new version before the end of 2022, but we cannot auto upgrade if you are running AADConnect V1 due to compatibility issues with V versions.
 
 After December 2022, ADAL is planned to go out of support. When ADAL goes out of support, authentication may stop working unexpectedly, and this will block the Azure AD Connect server from working properly. We strongly advise you to upgrade to Azure AD Connect V2 before December 2022. You can't upgrade to a supported authentication library with your current Azure AD Connect version. 
 

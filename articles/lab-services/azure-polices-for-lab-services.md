@@ -40,7 +40,7 @@ This policy can be used to restrict [customization of lab templates](tutorial-se
 |**Audit**|Labs will show on the [compliance dashboard](/azure/governance/policy/assign-policy-portal#identify-non-compliant-resources) as non-compliant when a template virtual machine is used for a lab.|
 |**Deny**|Lab creation to fail if “create a template virtual machine” option is used for a lab.|
 
-## Lab Services require non-admin user for labs 
+## Lab Services requires non-admin user for labs 
 
 This policy is used to enforce using non-admin accounts while creating a lab. With the August 2022 Update, you can choose to add a non-admin account to the VM image.  This new feature allows you to keep separate credentials for VM admin and non-admin users. For more information to create a lab with a non-admin user, see [Tutorial: Create and publish a lab](tutorial-setup-lab.md#create-a-lab), which shows how to give a student non-administrator account rather than default administrator account on the “Virtual machine credentials” page of the new lab wizard.  
 
@@ -48,7 +48,7 @@ During the policy assignment, the lab administrator can choose the following eff
 
 |**Effect**|**Behavior**|
 |-----|-----|
-|**Audit**|Labs show on the [compliance dashboard](/azure/governance/policy/assign-policy-portal#identify-non-compliant-resources) as non-compliant when non-admin accounts is not used while creating the lab.|
+|**Audit**|Labs show on the [compliance dashboard](/azure/governance/policy/assign-policy-portal#identify-non-compliant-resources) as non-compliant when non-admin accounts are not used while creating the lab.|
 |**Deny**|Lab creation will fail if “Give lab users a non-admin account on their virtual machines” is not checked while creating a lab.|
 
 ## Lab Services should restrict allowed virtual machine SKU sizes
@@ -59,6 +59,14 @@ During the policy assignment, the Lab Administrator can choose the following eff
 |-----|-----|
 |**Audit**|Labs show on the [compliance dashboard](/azure/governance/policy/assign-policy-portal#identify-non-compliant-resources) as non-compliant when a non-allowed SKU is used while creating the lab.|
 |**Deny**|Lab creation will fail if SKU chosen while creating a lab is not allowed as per the policy assignment.|
+
+## Custom policies
+
+In addition to the new built-in policies described above, you can create and apply custom policies. This technique is helpful in situations where none of the built-in policies apply or where you need more granularity. 
+
+Learn how to create custom policies:
+- [Tutorial: Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md).
+- [Tutorial: Create a custom policy definition](../governance/policy/tutorials/create-custom-policy-definition.md).
 
 ## Next steps
 

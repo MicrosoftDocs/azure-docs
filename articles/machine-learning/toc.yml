@@ -7,13 +7,57 @@
     - name: What is Azure Machine Learning?
       displayName: AML, services, overview, introduction
       href: overview-what-is-azure-machine-learning.md
+    - name: Glossary
+      href: azure-machine-learning-glossary.md
     - name: What is Azure Machine Learning studio?
       displayName: AML, studio, designer
       href: overview-what-is-machine-learning-studio.md
     - name: How it works
       displayName: concepts, definitions, glossary
       href: concept-azure-machine-learning-v2.md
-    
+- name: Migration from v1 to v2
+  items:
+    - name: Migration overview
+      displayName: migration
+      href: how-to-migrate-from-v1.md
+    - name: Migrate resources and assets
+      items:
+      - name: "Workspace"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-resource-workspace.md
+      - name: "Datastore"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-resource-datastore.md
+      - name: "Data assets"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-assets-data.md
+      - name: "Model assets"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-assets-model.md
+    - name: Migrate training
+      items:
+      - name: "Run a script"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-command-job.md
+      - name: "Local runs"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-local-runs.md
+      - name: "AutoML"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-execution-automl.md
+      - name: "Hyperparameter tuning"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-execution-hyperdrive.md
+      - name: "Parallel run step"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-execution-parallel-run-step.md  
+      - name: "Pipelines"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-execution-pipeline.md  
+    - name: "Migrate endpoints"
+      displayName: migration, v1, v2
+      href: migrate-to-v2-deploy-endpoints.md  
+
 - name: Quickstart
   expanded: true
   items: 
@@ -22,7 +66,7 @@
 - name: Tutorials
   expanded: true
   items: 
-    - name: Python get started (Day 1)
+    - name: Azure ML in a day
       expanded: true
       items: 
         - name: 1. Run a Python script
@@ -31,45 +75,31 @@
           href: tutorial-1st-experiment-sdk-train.md
         - name: 3. Use your own data
           href: tutorial-1st-experiment-bring-data.md
-    - name: Jupyter Notebooks
+    - name: Build models
       items: 
-        - name: Train & deploy image classification
-          displayName: MNIST
-          href: tutorial-train-deploy-notebook.md
-        - name: Object detection with AutoML
-          displayName: automl, automated, auto ml, computer vision, images, image model
-          href: tutorial-auto-train-image-models.md
-
-    - name: Studio
-      items: 
-        - name: Automated ML (UI)
-          items: 
+        - name: Create production ML pipelines (preview)
+          href: tutorial-pipeline-python-sdk.md
+        - name: Train a TensorFlow image classification model
+          href: tutorial-train-deploy-image-classification-model-vscode.md
+        - name: Automated ML
+          items:
+            - name: Object detection with AutoML (SDK)
+              displayName: automl, automated, auto ml, computer vision, images, image model
+              href: tutorial-auto-train-image-models.md
             - name: Create automated ML experiments
-              displayName: automl, automated, auto ml, portal, ui
+              displayName: automl, automated, auto ml, portal, studio, ui
               href: tutorial-first-experiment-automated-ml.md
             - name: Forecast demand (Bike share data)
-              displayName: automl, automated, auto ml, portal, ui
+              displayName: automl, automated, auto ml, portal, studio, ui
               href: tutorial-automated-ml-forecast.md 
         - name: Designer (drag-n-drop)
           items: 
             - name: 1. Train a regression model
               displayName: studio
               href: tutorial-designer-automobile-price-train-score.md
-            - name: 2. Deploy that model
+            - name: 2. Deploy the model
               displayName: studio
               href: tutorial-designer-automobile-price-deploy.md
-    - name: Visual Studio Code
-      items: 
-        - name: Train a TensorFlow image classification model
-          href: tutorial-train-deploy-image-classification-model-vscode.md
-    - name: Microsoft Power BI integration
-      items: 
-        - name: "Part 1: Train and deploy models"
-          href: tutorial-power-bi-custom-model.md
-        - name: "Part 2: Consume in Power BI"
-          href: /power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context
-    - name: Build a training pipeline (Python SDK V2)(preview)
-      href: tutorial-pipeline-python-sdk.md
 - name: Samples
   items: 
     - name: Jupyter Notebooks
@@ -211,6 +241,9 @@
         - name: Set up authentication
           displayName: authentication, auth, oauth
           href: how-to-setup-authentication.md
+        - name: Set up service authentication
+          displayName: managed identity
+          href: how-to-identity-based-service-authentication.md
         - name: Manage users and roles
           href: how-to-assign-roles.md
         - name: Use managed identities for access control
@@ -280,12 +313,29 @@
         - name: Compute cluster
           displayName: compute target, low priority, managed identity
           href: how-to-create-attach-compute-cluster.md
-        - name: AKS and Arc Enabled Kubernetes cluster
-          displayName: Azure Arc, Kubernetes, on-premises, multi-cloud, attach
-          href: how-to-attach-kubernetes-anywhere.md
         - name: Manage compute resources
           displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
           href: how-to-create-attach-compute-studio.md
+    - name: AKS and Azure Arc-enabled Kubernetes
+      items:
+        - name: What is Kubernetes compute target
+          displayName: compute target, Azure Kuberentes Service, Azure Arc-enabled Kubernetes, AKS, on-premises, multi-cloud
+          href: how-to-attach-kubernetes-anywhere.md
+        - name: Step 1 - Deploy AzureML extension
+          displayName: AKS, Arc Kubernetes, inference router
+          href: how-to-deploy-kubernetes-extension.md
+        - name: Step 2 - Attach cluster to workspace
+          displayName: AKS, Arc Kubernetes, attach
+          href: how-to-attach-kubernetes-to-workspace.md
+        - name: Create and manage instance types
+          displayName: compute target, instance types, AKS, Arc Kubernetes
+          href: how-to-manage-kubernetes-instance-types.md
+        - name: Manage AzureML inference router
+          displayNmae: AKS, Arc Kubernetes, inference, compute target
+          href: how-to-kubernetes-inference-routing-azureml-fe.md
+        - name: Secure inferencing environment
+          displayName: AKS, Arc Kubernetes, HTTPS, private IP, no-public IP, private link, private endpoint, inference
+          href: how-to-secure-kubernetes-inferencing-environment.md
     - name: Plan and manage costs
       displayName: low priority VM
       href: concept-plan-manage-cost.md
@@ -401,10 +451,8 @@
             href: how-to-train-pytorch.md
           - name: Train with custom Docker image
             href: how-to-train-with-custom-image.md
-          - name: Migrate from Estimators to ScriptRunConfig
-            href: how-to-migrate-from-estimators-to-scriptrunconfig.md
           - name: Use Key Vault when training
-            displayName: secrets keyvault
+            displayName: secrets keyvault job
             href: how-to-use-secrets-in-runs.md
         - name: Train with the CLI v2
           href: how-to-train-cli.md
@@ -638,9 +686,6 @@
         - name: Responsible AI dashboard scorecard
           displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
           href: how-to-responsible-ai-scorecard.md
-    - name: Migrate from v1
-      displayName: migration, v1, v2
-      href: how-to-migrate-from-v1.md
 - name: Troubleshoot & debug
   items: 
     - name: Troubleshoot secure workspace connectivity
@@ -653,6 +698,9 @@
     - name: Troubleshoot descriptor error
       displayName: descriptors cannot not be created directly
       href: how-to-troubleshoot-protobuf-descriptor-error.md
+    - name: How to troubleshoot data access
+      displayName: troubleshoot, data, debug, image
+      href: how-to-troubleshoot-data-access.md
 - name: Reference
   items: 
     - name: Python SDK v1
@@ -770,8 +818,8 @@
       href: reference-machine-learning-cloud-parity.md
     - name: User forum
       href: /answers/topics/azure-machine-learning.html
-    - name: Microsoft Learn
-      href: /learn/browse/?expanded=azure&products=azure-machine-learning
+    - name: Microsoft Learn training
+      href: /training/browse/?expanded=azure&products=azure-machine-learning
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-machine-learning-service
     - name: Compare our ML products

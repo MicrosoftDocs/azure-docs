@@ -105,7 +105,7 @@ For this task, you can use the Azure portal, [Azure CLI](/cli/azure/resource#az-
    |----------|----------|-------|-------------|
    | **Subscription** | Yes | <*Azure-subscription-name*> | The name for your Azure subscription |
    | **Resource group** | Yes | <*Azure-resource-group-name*> | The name for the [Azure resource group](../azure-resource-manager/management/overview.md) to use for organizing related resources. For this example, create a new resource group named **FabrikamIntegration-RG**. |
-   | **Integration account name** | Yes | <*integration-account-name*> | Your integration account's name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). This example uses **Fabrikam-Integration**. |
+   | **Integration account name** | Yes | <*integration-account-name*> | Your integration account's name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`()`), and periods (`.`). This example uses **Fabrikam-Integration**. |
    | **Region** | Yes | <*Azure-region*> | The Azure region where to store your integration account metadata. Either select the same location as your logic app resource, or create your logic apps in the same location as your integration account. For this example, use **West US**. <br><br>**Note**: To create an integration account inside an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md), select **Associate with integration service environment** and select your ISE as the location. For more information, see [Create integration accounts in an ISE](add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). |
    | **Pricing Tier** | Yes | <*pricing-level*> | The pricing tier for the integration account, which you can change later. For this example, select **Free**. For more information, review the following documentation: <br><br>- [Logic Apps pricing model](logic-apps-pricing.md#integration-accounts) <br>- [Logic Apps limits and configuration](logic-apps-limits-and-config.md#integration-account-limits) <br>- [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/) |
    | **Enable log analytics** | No | Unselected | For this example, don't select this option. |
@@ -144,7 +144,7 @@ For this task, you can use the Azure portal, [Azure CLI](/cli/azure/resource#az-
        --name integration_account_01 --location westus --sku name=Standard
    ```
 
-   Your integration account name can contain only letters, numbers, hyphens (-), underscores (_), parentheses ((, )), and periods (.).
+   Your integration account name can contain only letters, numbers, hyphens (-), underscores (_), parentheses (()), and periods (.).
 
    To view a specific integration account, use the [az logic integration-account show](/cli/azure/logic/integration-account#az-logic-integration-account-show) command:
 
@@ -216,7 +216,9 @@ Before you can link your integration account to a Standard logic app resource, y
 
 1. Find the **Generated Callback URL** property value, copy the value, and save the URL to use later for linking.
 
-#### Link your integration account to your Standard logic app resource
+#### Link integration account to Standard logic app
+
+##### Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
@@ -232,9 +234,34 @@ Before you can link your integration account to a Standard logic app resource, y
    |----------|-------|
    | **Name** | **WORKFLOW_INTEGRATION_ACCOUNT_CALLBACK_URL** |
    | **Value** | <*integration-account-callback-URL*> |
-   |||
 
 1. When you're done, select **OK**. When you return to the **Configuration** pane, make sure to save your changes. On the **Configuration** pane toolbar, select **Save**.
+
+##### Visual Studio Code
+
+1. From your Standard logic app project in Visual Studio Code, open the **local.settings.json** file.
+
+1. In the `Values` object, add an app setting that has the following properties and values, including the previously saved callback URL:
+
+   | Property | Value |
+   |----------|-------|
+   | **Name** | **WORKFLOW_INTEGRATION_ACCOUNT_CALLBACK_URL** |
+   | **Value** | <*integration-account-callback-URL*> |
+
+   This example shows how a sample app setting might appear:
+
+   ```json
+   {
+       "IsEncrypted": false,
+       "Values": {
+           "AzureWebJobStorage": "UseDevelopmentStorage=true",
+           "FUNCTIONS_WORKER_RUNTIME": "node",
+           "WORKFLOW_INTEGRATION_ACCOUNT_CALLBACK_URL": "https://prod-03.westus.logic.azure.com:443/integrationAccounts/...."
+       }
+   }
+   ```
+
+1. When you're done, save your changes.
 
 ---
 
@@ -366,6 +393,8 @@ If you want to link your logic app to another integration account, or no longer 
 
 ### [Standard](#tab/standard)
 
+#### Azure portal
+
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
 1. On your logic app's navigation menu, under **Settings**, select **Configuration**.
@@ -375,6 +404,19 @@ If you want to link your logic app to another integration account, or no longer 
 1. In the **Delete** column, select **Delete** (trash can icon).
 
 1. On the **Configuration** pane toolbar, select **Save**.
+
+#### Visual Studio Code
+
+1. From your Standard logic app project in Visual Studio Code, open the **local.settings.json** file.
+
+1. In the `Values` object, find and delete the app setting that has the following properties and values:
+
+   | Property | Value |
+   |----------|-------|
+   | **Name** | **WORKFLOW_INTEGRATION_ACCOUNT_CALLBACK_URL** |
+   | **Value** | <*integration-account-callback-URL*> |
+
+1. When you're done, save your changes.
 
 ---
 
