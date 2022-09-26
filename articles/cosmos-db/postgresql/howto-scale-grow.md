@@ -25,7 +25,7 @@ queries.
 
 1. On the portal page for your cluster, select **Scale** from the left menu.
 
-1. On the **Scale** page, select a new value for **Node count** under worker **Nodes**.
+1. On the **Scale** page, under **Nodes**, select a new value for **Node count**.
 
    :::image type="content" source="media/howto-scaling/01-sliders-workers.png" alt-text="Resource sliders":::
 

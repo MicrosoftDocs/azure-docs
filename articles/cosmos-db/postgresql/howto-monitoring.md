@@ -41,4 +41,4 @@ The metrics will now be plotted in one color-coded line per node.
 
 ## Next steps
 
-* Review Azure Cosmos DB for PostgreSQL [monitoring concepts](concepts-monitoring.md)
+* Review Azure Cosmos DB for PostgreSQL [monitoring concepts](concepts-monitoring.md).

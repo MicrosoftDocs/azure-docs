@@ -24,9 +24,9 @@ network and subnet. For an example of setting up prerequisites, see the
 1. In the Azure portal, search for and select **Azure Cosmos DB**.
 1. On the **Azure Cosmos DB** page, select **Create**.
 1. On the **Select API option** page, on the **PostgreSQL** tile, select **Create**.
-1. On the **Create an Azure Cosmos DB for PostgreSQL cluster - Preview** page, select or create a **Resource group**, enter a **Cluster name** and **Location**, and enter and confirm the administrator **Password**.
+1. On the **Create an Azure Cosmos DB for PostgreSQL cluster** page, select or create a **Resource group**, enter a **Cluster name** and **Location**, and enter and confirm the administrator **Password**.
 1. Select **Next: Networking**.
-1, On the **Networking** tab, for **Connectivity method**, select **Private access**.
+1. On the **Networking** tab, for **Connectivity method**, select **Private access**.
 1. On the **Create private endpoint** screen, enter or select appropriate values for:
    - **Resource group**
    - **Location**
@@ -47,7 +47,7 @@ To create a private endpoint to a node in an existing cluster, open the
 
    :::image type="content" source="media/howto-private-access/networking.png" alt-text="Screenshot of selecting Add private endpoint on the Networking screen.":::
 
-2. In the **Basics** tab, confirm the **Subscription**, **Resource group**, and
+2. On the **Basics** tab of the **Create a private endpoint** screen, confirm the **Subscription**, **Resource group**, and
    **Region**. Enter a **Name** for the endpoint, such as *my-cluster-1*, and a **Network interface name**, such as *my-cluster-1-nic*.
 
    > [!NOTE]
@@ -68,7 +68,7 @@ To create a private endpoint to a node in an existing cluster, open the
 
 5. Select **Next: Tags**, and add any desired tags.
 
-6. Select **Review + create**. Review the settings and select
+6. Select **Review + create**. Review the settings, and select
    **Create** when satisfied.
 
 ## Next steps
