@@ -81,8 +81,8 @@ sections:
           Can I protect my on-premises resources using DDoS Protection?
         answer: |
           You need to have the public endpoints of your service associated to a VNet in Azure to be enabled for DDoS protection. Example designs include:
-          - Web sites (IaaS) in Azure and backend databases in on-prem datacenter.
-          - Application Gateway in Azure (DDoS protection enabled on App Gateway/WAF) and websites in on-prem datacenters.
+          - Web sites (IaaS) in Azure and backend databases in on-premises datacenter.
+          - Application Gateway in Azure (DDoS protection enabled on App Gateway/WAF) and websites in on-premises datacenters.
 
           See [Azure DDoS Protection reference architectures](ddos-protection-reference-architectures.md) for more details.
 
