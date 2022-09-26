@@ -99,7 +99,7 @@ You can turn on analytical store when creating an Azure Cosmos DB container by u
 
 1. After the container is created, verify that analytical store has been enabled by clicking **Settings**, right below Documents in Data Explorer, and check if the **Analytical Store Time to Live** option is turned on.
 
-### Azure Cosmos DB SDKs
+### Azure Cosmos DB SDKs - SQL API only
 
 Set the `analytical TTL` property to the required value to create an analytical store enabled container. For the list of allowed values, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
 
@@ -138,19 +138,6 @@ container = database.createContainerIfNotExists(containerProperties, 400).block(
 The following code creates a container with analytical store by using the Python V4 SDK. Set the `analytical_storage_ttl` property to the required value in seconds or use `-1` for infinite retention. This setting can be changed later.
 
 ```python
-# Azure Cosmos DB Python SDK, for SQL API only.
-# Creating an analytical store enabled container.
-
-import azure.cosmos as cosmos
-import azure.cosmos.cosmos_client as cosmos_client
-import azure.cosmos.exceptions as exceptions
-from azure.cosmos.partition_key import PartitionKey
-
-HOST = 'your-cosmos-db-account-URI'
-KEY = 'your-cosmos-db-account-key'
-DATABASE = 'your-cosmos-db-database-name'
-CONTAINER = 'your-cosmos-db-container-name'
-
 # Client
 client = cosmos_client.CosmosClient(HOST,  KEY )
 
@@ -249,8 +236,30 @@ If you created an analytical store enabled container through the Azure portal, i
    1. Select **On (no default)** or select **On** and set a TTL value.
    1. Click **Save** to save the changes.
 
+### Command-Line Tools
 
-### .NET SDK
+Set the `analytical TTL` property to `-1` for infinite retention or use a positive integer to specify the number of seconds that the data will be retain in analytical store. For more information, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
+
+
+#### Azure CLI
+
+The following links show how to update containers analytical TTL by using Azure CLI:
+
+* [Azure Cosmos DB API for Mongo DB](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-update)
+* [Azure Cosmos DB SQL API](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-update)
+
+#### PowerShell
+
+The following links show how to update containers analytical TTL by using PowerShell:
+
+* [Azure Cosmos DB API for Mongo DB](/powershell/module/az.cosmosdb/update-azcosmosdbmongodbcollection)
+* [Azure Cosmos DB SQL API](/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer)
+
+### Azure Cosmos DB SDKs - SQL API only
+
+Set the `analytical TTL` property to the required value to create an analytical store enabled container. For the list of allowed values, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
+
+#### .NET SDK
 
 The following code shows how to update the TTL for analytical store by using the .NET SDK:
 
@@ -262,7 +271,7 @@ containerResponse.Resource. AnalyticalStorageTimeToLiveInSeconds = 60 * 60 * 24 
 await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
 ```
 
-### Java V4 SDK
+#### Java V4 SDK
 
 The following code shows how to update the TTL for analytical store by using the Java V4 SDK:
 
@@ -276,24 +285,9 @@ containerProperties.setAnalyticalStoreTimeToLiveInSeconds (60 * 60 * 24 * 180 );
 container.replace(containerProperties).block();
 ```
 
-### Python V4 SDK
+#### Python V4 SDK
 
 Currently not supported.
-
-
-### Azure CLI
-
-The following links show how to update containers analytical TTL by using Azure CLI:
-
-* [Azure Cosmos DB API for Mongo DB](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-update)
-* [Azure Cosmos DB SQL API](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-update)
-
-### PowerShell
-
-The following links show how to update containers analytical TTL by using PowerShell:
-
-* [Azure Cosmos DB API for Mongo DB](/powershell/module/az.cosmosdb/update-azcosmosdbmongodbcollection)
-* [Azure Cosmos DB SQL API](/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer)
 
 ## <a id="disable-analytical-store"></a> Optional - Disable analytical store in a SQL API container
 
