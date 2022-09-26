@@ -8,7 +8,7 @@ ms.service: backup
 ms.author: v-amallick
 ---
 
-# Back up SAP HANA database instances in Azure VMs (preview)
+# Back up SAP HANA databases' instance snapshots in Azure VMs (preview)
 
 Azure Backup now performs SAP HANA Storage Snapshot based backup of the entire database instance. It combines Azure Managed disk’s full/incremental snapshot with HANA snapshot commands to provide instant HANA backup and restore.
 
@@ -17,7 +17,7 @@ This article describes how to back up SAP HANA databases instances that are runn
 In this article, you'll learn how to:
 
 >[!div class="checklist"]
->- Create and configure a Backup vault
+>- Create and configure a Recovery Services vault
 >- Create a policy
 >- Discover databases instances
 >- Configure backups
@@ -47,17 +47,19 @@ You must assign the required permissions to the Azure Backup service (residing w
 
 The following table lists the resource, permissions, and scope.
 
-Scope of permission | Required built-in role | Who/what needs permission | Note
+Entity | Built-in role | Scope of permission | Description
 --- | --- | --- | ---
-Source VM | Virtual Machine Contributor | Backup admin who configures/runs HANA snapshot backup | To configure HANA instance.
-Source disk resource Group (where all disks are present for backup) | Disk Backup Reader | Source VM’s MSI | Create disk snapshots.
-Source snapshot resource Group | Disk Snapshot Contributor | Source VM’s MSI | Create disk snapshots and store on source snapshot resource group.
+Source VM | Virtual Machine Contributor | Backup admin who configures/runs HANA snapshot backup | Configures HANA instance.
+Source disk resource Group (where all disks are present for backup) | Disk Backup Reader | Source VM’s MSI | Creates disk snapshots.
+Source snapshot resource Group | Disk Snapshot Contributor | Source VM’s MSI | Creates disk snapshots and store on source snapshot resource group.
 Source snapshot resource Group | Disk Snapshot Contributor | Backup Management Service | Delete old snapshots on source snapshot resource group.
 
 >[!Note]
 >- The credentials used should have permissions to grant roles to other resources and should be Owner or User Access Administ.rator [as mentioned here](../role-based-access-control/role-assignments-steps.md#step-4-check-your-prerequisites).
 >- During backup configuration, you can use the Azure portal to assign all above permissions, except *Disk snapshot contributor* to *Backup Management Service* principal for snapshot resource group. You need to manually assign this permission.
 >- We recommend you not to change the resource groups once they are given/assigned to Azure Backup as it eases the permissions handling.
+
+Learn about the [permissions required for snapshot restore](sap-hana-database-instances-restore.md#permissions-required-for-snapshot-restore).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -77,8 +79,6 @@ To create a policy for SAP HANA database instance backup, follow these steps:
 
 1. On **Create policy**, perform the following actions:
 
-   :::image type="content" source="./media/sap-hana-database-instances-backup/create-policy.png" alt-text="Screenshot showing to create the policy.":::
-
    - **Policy name**: Enter a unique policy name.
    - **Snapshot Backup**: Set *Time* and *Timezone* for backup as from the drop-down list. The default selection is *10:30 PM* and *(UTC) Coordinated Universal Time* respectively.
 
@@ -95,7 +95,9 @@ To create a policy for SAP HANA database instance backup, follow these steps:
 
 1. Select **Create**.
 
-You also need to [create a policy for SAP HANA database backup](backup-azure-sap-hana-database.md#create-a-backup-policy).
+   :::image type="content" source="./media/sap-hana-database-instances-backup/create-policy.png" alt-text="Screenshot showing how to create the policy.":::
+
+Also, you need to [create a policy for SAP HANA database backup](backup-azure-sap-hana-database.md#create-a-backup-policy).
 
 ## Discover the databases instance
 
@@ -139,7 +141,7 @@ Once done, follow these steps:
 
 Follow these steps:
 
-1. In the Azure portal, go to Recovery Services vault.
+1. In the Azure portal, go to **Recovery Services vault**.
 
 1. In the Recovery Services vault, select **Backup items** in the left pane.
 
@@ -169,5 +171,5 @@ Azure Backup service creates a job for scheduled backups or if you trigger on-de
 
 ## Next steps
 
-- [Learn how restore SAP HANA databases instances on Azure VMs (preview)](sap-hana-database-instances-restore.md).
-- [Learn how manage SAP HANA databases instances on Azure VMs (preview)](sap-hana-database-manage.md).
+- [Learn how restore SAP HANA databases' instance snapshots on Azure VMs (preview)](sap-hana-database-instances-restore.md).
+- [Learn how manage SAP HANA databases on Azure VMs (preview)](sap-hana-database-manage.md).
