@@ -46,7 +46,7 @@ The following flags are inherited from parent command [`blobfuse2`](blobfuse2-co
 | Flag                  | Short version | Value type | Default value | Description |
 |-----------------------|---------------|------------|---------------|-------------|
 | disable-version-check |               | boolean    | false         | Enables or disables automatic version checking of the BlobFuse2 binaries |
-| help                  | -h            | n/a        | n/a           | Help info for the blobfuse2 command and subcommands                      |
+| help                  | -h            | n/a        | n/a           | Help info for the BlobFuse2 command and subcommands                      |
 
 ### Flags that apply only to the BlobFuse2 health-monitor command
 
@@ -60,16 +60,36 @@ The following flags apply only to command `blobfuse2 health-monitor`:
 ## Examples
 
 > [!NOTE]
-> The following examples assume you have already created a configuration file in the current directory.
+> The following example assumes you have already created a configuration file in the current directory.
 
-1. Example 1:
+   Get the PID of all processes invoked by the `blobfuse2` command:
 
     ```bash
-    ~$ blobfuse2 health-monitor --config-file ./config.yaml --pid 1234
+    ps -C blobfuse2 -f
     ```
+
+    ```output
+    UID          PID    PPID  C STIME TTY          TIME CMD
+    user1       5505       1  9 11:54 ?        00:07:41 blobfuse2 mount ./mount1 --config-file=./config.yaml
+    ```
+
+    Start the BlobFuse2 Health Monitor for the desired process:
+
+    ```bash
+    blobfuse2 health-monitor --pid 5505 --config-file ./config.yaml
+    ```
+
+The results will be sent to a file named `monitor_<pid>.json` in the directory specified by the `output-path` parameter in the configuration file. For example:
+
+```Health Monitor configuration settings in ./config/yaml
+# Health Monitor configuration
+health_monitor:
+  enable-monitoring: true
+  output-path: /home/user1/blobfuse2/HMresults/
+```
 
 ## See also
 
 - [Use Health Monitor to gain insights into BlobFuse2 mount activities and resource usage (preview)](blobfuse2-health-monitor.md)
-- [The Blobfuse2 command set (preview)](blobfuse2-commands.md)
+- [The BlobFuse2 command set (preview)](blobfuse2-commands.md)
 - What is BlobFuse2? (preview)](blobfuse2-what-is.md)
