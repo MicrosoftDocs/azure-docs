@@ -34,7 +34,7 @@ This feature will enable customers to perform in-place upgrades of their MySQL 5
 
 ## Perform Planned Major version upgrade from MySQL 5.7 to MySQL 8.0 using Azure Portal
 
-1. In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for MySQL 5.7 server.
+1. In the [Azure Portal](https://portal.azure.com/), select your existing Azure Database for MySQL 5.7 server.
     >[!Important] 
     > We recommend performing upgrade first on restored copy of the server rather than upgrading production directly. See [how to perform point-in-time restore](./how-to-restore-server-portal.md).
 
