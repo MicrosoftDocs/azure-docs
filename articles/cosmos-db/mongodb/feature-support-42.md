@@ -583,7 +583,7 @@ Azure Cosmos DB supports GridFS through any GridFS-compatible Mongo driver.
 
 Azure Cosmos DB supports automatic, native replication at the lowest layers. This logic is extended out to achieve low-latency, global replication as well. Azure Cosmos DB does not support manual replication commands.
 
-## Retryable Writes (preview)
+## Retryable Writes
 Retryable writes enables MongoDB drivers to automatically retry certain write operations in case of failure, but results in more stringent requirements for certain operations, which match MongoDB protocol requirements. With this feature enabled, update operations, including deletes, in sharded collections will require the shard key to be included in the query filter or update statement.
 
 For example, with a sharded collection, sharded on key “country”: To delete all the documents with the field city = "NYC", the application will need to execute the operation for all shard key (country) values if Retryable writes is enabled. 
@@ -592,7 +592,7 @@ db.coll.deleteMany({"country": "USA", "city": "NYC"}) – Success
 
 db.coll.deleteMany({"city": "NYC"})- Fails with error ShardKeyNotFound(61) 
 
-To enable the feature, [add the EnableMongoRetryableWrites capability](how-to-configure-capabilities.md) to your database account. 
+To enable the feature, [add the EnableMongoRetryableWrites capability](how-to-configure-capabilities.md) to your database account. This feature can also be enabled in the features tab in the Azure Portal. 
 
 ## Sharding
 
