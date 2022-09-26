@@ -30,14 +30,14 @@ When using Planned Maintenance, the following restrictions apply:
 
 
 
-## Available Pre-created Public Maintenance configurations for you to pick
+## Available pre-created public maintenance configurations for you to pick
 
-There are 2 general kinds of pre-created Public Maintenance configurations:
+There are 2 general kinds of pre-created public maintenance configurations:
 
 - For Weekday (Monday, Tuesday, Wednesday, Thursday), from 10 pm to 6 am next morning.
 - For Weekend (Friday, Saturday, Sunday), from 10 pm to 6 am next morning.
 
-For a list of pre-created Public Maintenance configurations on the weekday schedule, see below. For weekend schedules, replace `weekday` with `weekend`.
+For a list of pre-created public maintenance configurations on the weekday schedule, see below. For weekend schedules, replace `weekday` with `weekend`.
 
 |Configuration name| Time zone|
 |--|--|
@@ -49,9 +49,9 @@ For a list of pre-created Public Maintenance configurations on the weekday sched
 |...|...|
 |aks-mrp-cfg-weekday_utc-12|UTC-12|
 
-## Assign a Public Maintenance configuration to an AKS Cluster
+## Assign a public maintenance configuration to an AKS Cluster
 
-Find the Public Maintenance configuration ID by name:
+Find the public maintenance configuration ID by name:
 ```azurecli-interactive
 az maintenance public-configuration show --resource-name "aks-mrp-cfg-weekday_utc8"
 ```
@@ -81,7 +81,7 @@ The output should look like the below example. Be sure to take note of the `id` 
 }
 ```
 
-Next, assign the Public Maintenance configuration to your AKS cluster using the ID:
+Next, assign the public maintenance configuration to your AKS cluster using the ID:
 ```azurecli-interactive
 az maintenance assignment create --maintenance-configuration-id "/subscriptions/0159df5c-b605-45a9-9876-36e17d5286e0/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/aks-mrp-cfg-weekday_utc8" --name assignmentName --provider-name "Microsoft.ContainerService" --resource-group myResourceGroup --resource-name myAKSCluster --resource-type "managedClusters"
 ```
