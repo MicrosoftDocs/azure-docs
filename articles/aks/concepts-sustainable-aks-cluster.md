@@ -1,20 +1,16 @@
 ---
-title: Application platform considerations for sustainable workloads on Azure
-description: This design area explores application platform and infrastructure considerations for sustainable workloads on Azure.
-author: Zimmergren
-ms.author: tozimmergren
+title: Concepts - Sustainable Design recommendations for AKS Clusters
+description: Learn about sustainabile design recommendations for building and operating Azure Kubernetes Service (AKS).
+services: container-service
 ms.topic: conceptual
-ms.date: 10/12/2022
-ms.service: architecture-center
-ms.subservice: well-architected
+ms.date: 09/27/2022
 categories: 
-  - networking
-products: Azure
+  - sustainability
+products: AKS
 ms.custom:
   - sustainability
 ---
-
-# Application platform considerations for sustainable workloads on Azure
+# Sustainable Design recommendations for AKS Clusters
 
 Designing and building sustainable workloads requires understanding the platform where you're deploying the applications. Review the considerations and recommendations in this section to know how to make better informed platform-related decisions around sustainability.
 
