@@ -18,14 +18,13 @@ This article describes how to enable and configure the OpenTelemetry-based Azure
 
 ### [.NET](#tab/net)
 
-Carefully consider whether this preview is right for you. It *enables distributed tracing only* and _excludes_:
+Consider whether this preview is right for you. It *enables distributed tracing, metrics* and _excludes_:
 
  - [Live Metrics](live-stream.md)
  - Logging API (like console logs and logging libraries)
  - [Profiler](profiler-overview.md)
  - [Snapshot Debugger](snapshot-debugger.md)
  - [Azure Active Directory authentication](azure-ad-authentication.md)
- - [Sampling](sampling.md)
  - Autopopulation of Cloud Role Name and Cloud Role Instance in Azure environments
  - Autopopulation of User ID and Authenticated User ID when you use the [Application Insights JavaScript SDK](javascript.md)
  - Autopopulation of User IP (to determine location attributes)
@@ -38,12 +37,11 @@ If you require a full-feature experience, use the existing Application Insights 
 
 ### [Node.js](#tab/nodejs)
 
-Carefully consider whether this preview is right for you. It *enables distributed tracing only* and _excludes_:
+Consider whether this preview is right for you. It *enables distributed tracing, metrics* and _excludes_:
 
  - [Live Metrics](live-stream.md)
  - Logging API (like console logs and logging libraries)
  - [Azure Active Directory authentication](azure-ad-authentication.md)
- - [Sampling](sampling.md)
  - Autopopulation of Cloud Role Name and Cloud Role Instance in Azure environments
  - Autopopulation of User ID and Authenticated User ID when you use the [Application Insights JavaScript SDK](javascript.md)
  - Autopopulation of User IP (to determine location attributes)
@@ -58,12 +56,11 @@ If you require a full-feature experience, use the existing [Application Insights
 
 ### [Python](#tab/python)
 
-Carefully consider whether this preview is right for you. It *enables distributed tracing only* and _excludes_:
+Consider whether this preview is right for you. It *enables distributed tracing, metrics* and _excludes_:
 
  - [Live Metrics](live-stream.md)
  - Logging API (like console logs and logging libraries)
  - [Azure Active Directory authentication](azure-ad-authentication.md)
- - [Sampling](sampling.md)
  - Autopopulation of Cloud Role Name and Cloud Role Instance in Azure environments
  - Autopopulation of User ID and Authenticated User ID when you use the [Application Insights JavaScript SDK](javascript.md)
  - Autopopulation of User IP (to determine location attributes)
