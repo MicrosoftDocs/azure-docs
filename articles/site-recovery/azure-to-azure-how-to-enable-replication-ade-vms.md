@@ -103,7 +103,7 @@ Use the following procedure to replicate Azure Disk Encryption-enabled VMs to an
           > You can also create a new failover virtual network by selecting **Create new**.
         - **Failover subnet**: Select the failover subnet.
     1. **Storage**: By default, Site Recovery creates a new target storage account by mimicking your source VM storage configuration. If a storage account already exists, it's reused. Select **View/edit storage configuration** to view or edit the storage account.
-    1. **Availability options**: By default, Site Recovery creates a new availability option in the target region. The name has the *asr* suffix. If an availability set that was created by Site Recovery already exists, it's reused. Select **View/edit availability options** to view or edit the availability options.
+    1. **Availability options**: Select appropriate availability option for your VM in the target region. If an availability set that was created by Site Recovery already exists, it's reused. Select **View/edit availability options** to view or edit the availability options.
     1. **Capacity Reservation**: Capacity Reservation lets you purchase capacity in the recovery region, and then failover to that capacity. You can either create a new Capacity Reservation Group or use an existing one. For more information, see [how capacity reservation works](https://learn.microsoft.com/azure/virtual-machines/capacity-reservation-overview).
     
        :::image type="enable replication parameters" source="./media/azure-to-azure-how-to-enable-replication-ade-vms/enable-vm-replication.png" alt-text="Screenshot that displays the enable replication parameters.":::
@@ -111,8 +111,8 @@ Use the following procedure to replicate Azure Disk Encryption-enabled VMs to an
 1. Select **Next**.
 1. In **Manage**, do the following:
     1. Under **Replication policy**,
-       - **Replication policy**: Select the replication policy. Defines the settings for recovery point retention history and app-consistent snapshot frequency. By default, Site Recovery creates a new replication policy with default settings of 24 hours for recovery point retention and 60 minutes for app-consistent snapshot frequency.
-       - **Replication group**: Create replication group.
+       - **Replication policy**: Select the replication policy. Defines the settings for recovery point retention history and app-consistent snapshot frequency. By default, Site Recovery creates a new replication policy with default settings of 24 hours for recovery point retention.
+       - **Replication group**: Create replication group to replicate VMs together to generate Multi-VM consistent recovery points. Note that enabling multi-VM consistency can impact workload performance and should only be used if machines are running the same workload and you need consistency across multiple machines.
     1. Under **Extension settings**, 
        - Select **Update settings** and **Automation account**.
    
