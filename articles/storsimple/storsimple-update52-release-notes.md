@@ -5,7 +5,7 @@ author: alkohli
 ms.assetid: 
 ms.service: storsimple
 ms.topic: conceptual
-ms.date: 09/19/2022
+ms.date: 09/26/2022
 ms.author: alkohli
 ---
 
@@ -32,7 +32,7 @@ Update 5.2 corresponds to software version 6.3.9600.17886.
 
 * **Reliability issue fixed in backup code path** without which a backup could be corrupted in a rare scenario.
 
-* **Issue with Local Only volume conversion fixed.** In earlier releases, Local only volume conversion might get stuck if the system restarts at a specific window of the conversion.
+* **Issue with Local Only volume conversion fixed.** In earlier releases, Local Only volume conversion might get stuck if the system restarts at a specific window of the conversion.
 
 * **SHA 256 hashing algorithm is supported for the remote management certificate.** Remote management certificates are used while connecting to the PowerShell interface of the appliance, or during a Support session using remote PowerShell over Single Sockets Layer (SSL). Earlier releases use an SHA 128 hashing algorithm, which is considered weak. Update 5.2 uses SHA 256, which is considered more secure.
 
@@ -42,9 +42,9 @@ Use the following steps to install Update 5.2:
 
 1. [Connect to Windows PowerShell on the StorSimple 8000 series device](/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console), or connect directly to the appliance via serial cable.
 
-1. Use [Start-HcsUpdate](/powershell/module/hcs/start-hcsupdate.md?view=winserver2012r2-ps&preserve-view=true) to update the device. For steps, see [Install regular updates via Windows PowerShell](/azure/storsimple/storsimple-update-device.md#to-install-regular-updates-via-windows-powershell-for-storsimple). This update is non-disruptive.
+1. Use [Start-HcsUpdate](/powershell/module/hcs/start-hcsupdate.md?view=winserver2012r2-ps&preserve-view=true) to update the device. For detailed steps, see [Install regular updates via Windows PowerShell](/azure/storsimple/storsimple-update-device.md#to-install-regular-updates-via-windows-powershell-for-storsimple). This update is non-disruptive.
 
-1. If ```Start-HcsUpdate``` doesn't work because of firewall issues, install Update 5.2 (or higher) [via the hotfix method](storsimple-8000-install-update-51.md). 
+1. If ```Start-HcsUpdate``` doesn't work because of firewall issues, contact Microsoft Support. 
 
 ## Verify the updates
 
