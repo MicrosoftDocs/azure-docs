@@ -650,24 +650,14 @@ By default, if you don't specify otherwise, serverless SQL pool uses 100% of the
 For example, to create statistics with default options (FULLSCAN) for a year column of the dataset based on the population.csv file:
 
 ```sql
-/* make sure you have credentials for storage account access created
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
-DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
-GO
 
-CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]  
-WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = ''
-GO
-*/
-
-EXEC sys.sp_create_openrowset_statistics N'SELECT year
+EXEC sys.sp_create_openrowset_statistics N'SELECT 
+    year
 FROM OPENROWSET(
-        BULK ''https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv'',
-        FORMAT = ''CSV'',
-        FIELDTERMINATOR ='','',
-        ROWTERMINATOR = ''\n''
-    )
+    BULK ''https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv'',
+    FORMAT = ''CSV'',
+    PARSER_VERSION = ''2.0'',
+    HEADER_ROW = TRUE)
 WITH (
     [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
     [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
@@ -675,6 +665,7 @@ WITH (
     [population] bigint
 ) AS [r]
 '
+
 ```
 
 #### Create single-column statistics by specifying the sample size
