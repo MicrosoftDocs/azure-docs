@@ -228,6 +228,18 @@ items:
         href: essentials/prometheus-remote-write.md
       - name: Rule groups
         href: essentials/prometheus-metrics-rule-groups.md
+      - name: Customize collection
+        items:
+        - name: Default configuration
+          href: containers/container-insights-prometheus-scrape-default.md
+        - name: Custom configuration
+          href: containers/container-insights-prometheus-scrape-configuration.md
+        - name: Create and validate config filters
+          href: containers/container-insights-prometheus-scrape-validate.md
+        - name: Minimal ingestion profile
+          href: containers/container-insights-prometheus-scrape-configuration-minimal.md
+        - name: Send to multiple workspaces
+          href: containers/container-insights-prometheus-multiple-workspaces.md
     - name: Metrics explorer
       items:
       - name: Getting started with Metrics Explorer
@@ -1264,18 +1276,6 @@ items:
         href: containers/container-insights-prometheus-monitoring-addon.md
       - name: Send to managed Prometheus
         href: containers/container-insights-prometheus-metrics-addon.md
-      - name: Customize collection
-        items:
-        - name: Default configuration
-          href: containers/container-insights-prometheus-scrape-default.md
-        - name: Custom configuration
-          href: containers/container-insights-prometheus-scrape-configuration.md
-        - name: Create and validate config filters
-          href: containers/container-insights-prometheus-scrape-validate.md
-        - name: Minimal ingestion profile
-          href: containers/container-insights-prometheus-scrape-configuration-minimal.md
-        - name: Send to multiple workspaces
-          href: containers/container-insights-prometheus-multiple-workspaces.md
     - name: Troubleshoot collection
       href: containers/container-insights-prometheus-metrics-troubleshoot.md
     - name: Configure

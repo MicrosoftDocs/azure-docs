@@ -28,21 +28,6 @@ Azure Monitor managed service for Prometheus adds a new Prometheus metric alert 
 
 - [Azure Monitor workspace](azure-monitor-workspace-overview.md) - Prometheus metrics are stored in an Azure Monitor workspace. You can either create a workspace or have one created as part of the onboarding process described below.
 
-### Enable feature flags
-While Azure Monitor managed service for Prometheus is in public preview, you must enable it by registering the following features:
-
-  - Microsoft.Monitor/Convergence
-  - Microsoft.Monitor/EnableFirstPartyFeatures
-  - Microsoft.Insights/PrometheusPreview
--
-Register the features using [az feature register](/cli/azure/feature#az-feature-register) as in the following:
-
-```cli
-az feature register --namespace Microsoft.Monitor --name Convergence
-az feature register --namespace Microsoft.Monitor --name EnableFirstPartyFeatures
-az feature register --namespace Microsoft.Insights --name PrometheusPreview
-```
-
 ### Service limits
 See [Azure Monitor service limits](../service-limits.md) for any service limits related to Azure Monitor managed service for Prometheus.
 

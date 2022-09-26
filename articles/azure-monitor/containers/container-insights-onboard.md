@@ -52,7 +52,7 @@ You can let the onboarding experience create a Log Analytics workspace in the de
 
 An AKS cluster can be attached to a Log Analytics workspace in a different Azure subscription in the same Azure AD Tenant. This cannot currently be done with the Azure portal, but can be done with Azure CLI or Resource Manager template.
 
-### Azure Monitor workspace
+### Azure Monitor workspace (preview)
 If you are going to configure the cluster to [collect Prometheus metrics](container-insights-prometheus-metrics-addon.md) with [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md), then you must have an Azure Monitor workspace which is where Prometheus metrics are stored. You can let the onboarding experience create an  Azure Monitor workspace in the default resource group of the AKS cluster subscription or use an existing Azure Monitor workspace.
 
 ### Permissions
