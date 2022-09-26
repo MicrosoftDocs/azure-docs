@@ -54,7 +54,6 @@ To complete the steps in this tutorial, you must have the following resources an
    |Interactive retention    |  30 days       |
    |Total retention period     |     60 days    |
 
-   :::image type="content" source="media/configure-data-retention/data-retention-settings.png" alt-text="Screenshot of the data retention settings with days set for interactive retention and total retention period.":::
 1. Select **Save**.
 
 
