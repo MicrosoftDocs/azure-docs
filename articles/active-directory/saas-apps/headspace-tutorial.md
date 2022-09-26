@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 26/09/2022
+ms.date: 09/26/2022
 ms.author: jeedes
 
 ---
