@@ -83,7 +83,7 @@ The Communication Services Calling SDK supports the following streaming configur
 
 | Limit                                                         | Web                         | Windows/Android/iOS        |
 | ------------------------------------------------------------- | --------------------------- | -------------------------- |
-| **Maximum # of outgoing local streams that can be sent simultaneously**     | 1 video or 1 screen sharing | 1 video + 1 screen sharing |
+| **Maximum # of outgoing local streams that can be sent simultaneously**     | 1 video and 1 screen sharing | 1 video + 1 screen sharing |
 | **Maximum # of incoming remote streams that can be rendered simultaneously** | 4 videos + 1 screen sharing | 6 videos + 1 screen sharing |
 
 While the Calling SDK won't enforce these limits, your users may experience performance degradation if they're exceeded.
