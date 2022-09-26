@@ -33,7 +33,7 @@ For how-to guide, follow the instructions here for [Portal, Azure CLI and PowerS
 
 ### Key Vault Firewall Enabled (IPv4 Addresses and Ranges - Static IPs)
 
-If you would like to authorize a particular service to access key vault through the Key Vault Firewall, you can add its IP Address to the key vault firewall allow list. This configuration is best for services that use static IP addresses or well-known ranges. There is a limit of 1000 CIDR ranges for this case.
+If you would like to authorize a particular service to access key vault through the Key Vault Firewall, you can add its IP Address to the key vault firewall allowlist. This configuration is best for services that use static IP addresses or well-known ranges. There is a limit of 1000 CIDR ranges for this case.
 
 To allow an IP Address or range of an Azure resource, such as a Web App or Logic App, perform the following steps.
 
@@ -41,7 +41,7 @@ To allow an IP Address or range of an Azure resource, such as a Web App or Logic
 1. Select the resource (specific instance of the service).
 1. Click on the 'Properties' blade under 'Settings'.
 1. Look for the "IP Address" field.
-1. Copy this value or range and enter it into the key vault firewall allow list.
+1. Copy this value or range and enter it into the key vault firewall allowlist.
 
 To allow an entire Azure service, through the Key Vault firewall, use the list of publicly documented data center IP addresses for Azure [here](https://www.microsoft.com/download/details.aspx?id=56519). Find the IP addresses associated with the service you would like in the region you want and add those IP addresses to the key vault firewall using the steps above.
 
