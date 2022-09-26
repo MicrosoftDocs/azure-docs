@@ -1,5 +1,5 @@
 ---
-title: Enable partitioning in Azure Service Bus Premium namespaces (Preview)
+title: Enable partitioning in Azure Service Bus Premium namespaces
 description: This article explains how to enable partitioning in Azure Service Bus Premium namespaces by using Azure portal, PowerShell, CLI, and programming languages (C#, Java, Python, and JavaScript)
 ms.topic: how-to
 ms.date: 08/30/2022 
@@ -13,12 +13,15 @@ Service Bus partitions enable queues and topics, or messaging entities, to be pa
 > [!IMPORTANT]
 > - Partitioning is available at entity creation for namespaces in the Premium SKU. Any previously existing partitioned entities in Premium namespaces continue to work as expected.
 > - It's not possible to change the partitioning option on any existing namespace. You can only set the option when you create a namespace.
-> - Partitions equally share the total amount of assigned messaging units. For example, in a namespace with 16MU and 4 partitions, each partition will have 4MU assigned.
+> - The assigned messaging units are always a multiplier of the amount of partitions in a namespace, and are equally distributed across the partitions. For example, in a namespace with 16MU and 4 partitions, each partition will be assigned 4MU.
+
+> [!NOTE]
+> Some limitations may be encountered during public preview, which will be resolved before going into GA. 
+> - It is currently not possible to use JMS on partitioned entities. 
+> - Metrics are currently only available on an aggregated namespace level, not for individual partitions.
 
 ## Using Azure portal
-When creating a **namespace** in the Azure portal, set the **Partitioning** to **Enabled** as shown in the following image. 
-
-:::image type="content" source="./media/enable-partitions/create-queue.png" alt-text="Enable partitioning at the time of the namespace creation":::
+When creating a **namespace** in the Azure portal, set the **Partitioning** to **Enabled** and choose the number of partitions.
 
 ## Using Azure Resource Manager template
 To **create a namespace with partitioning enabled**, set `partitions` to a number larger than 1 in the namespace properties section. In the example below a partitioned namespace is created with 4 partitions, and 1 messaging unit assigned to each partition. For more information, see [Microsoft.ServiceBus namespaces template reference](/azure/templates/microsoft.servicebus/namespaces?tabs=json). 
@@ -45,7 +48,7 @@ To **create a namespace with partitioning enabled**, set `partitions` to a numbe
   "resources": [
     {
       "type": "Microsoft.ServiceBus/namespaces",
-      "apiVersion": "2022-01-01-preview",
+      "apiVersion": "2022-10-01-preview",
       "name": "[parameters('serviceBusNamespaceName')]",
       "location": "[parameters('location')]",
       "sku": {
