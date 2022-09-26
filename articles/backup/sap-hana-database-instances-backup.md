@@ -59,7 +59,7 @@ Source snapshot resource Group | Disk Snapshot Contributor | Backup Management S
 >- During backup configuration, you can use the Azure portal to assign all above permissions, except *Disk snapshot contributor* to *Backup Management Service* principal for snapshot resource group. You need to manually assign this permission.
 >- We recommend you not to change the resource groups once they are given/assigned to Azure Backup as it eases the permissions handling.
 
-Learn about the [permissions required for snapshot restore](sap-hana-database-instances-restore#permissions-required-for-snapshot-restore).
+Learn about the [permissions required for snapshot restore](sap-hana-database-instances-restore.md#permissions-required-for-snapshot-restore).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 

@@ -72,7 +72,7 @@ To discover the HSR database, follow these steps:
 
   To view the details of all databases of each of the discovered VMs, select View details under the **Step 1: Discover DBs in VMs section**.
 
-## Run the pre-registration script to assign permissions
+## Run the pre-registration script
 
 1. When a failover occurs, the users are replicated to the new primary, but the *hdbuserstore* isn't replicated. So, you need to create the same key in all nodes of the HSR setup that allows the Azure Backup service to connect to any new primary node automatically, without any manual intervention. 
 
