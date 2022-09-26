@@ -43,6 +43,8 @@ items:
     href: how-to-enable-zone-redundancy.md
   - name: Use deterministic outbound IPs
     href: how-to-deterministic-ip.md
+  - name: Subscribe to a Grafana Enterprise plan
+    href: how-to-subscribe-to-grafana-enterprise.md
   - name: Troubleshoot common issues
     href: troubleshoot-managed-grafana.md
   - name: Known limitations
