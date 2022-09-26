@@ -2,11 +2,11 @@
 title: Grant permissions to users and client applications using CLI and REST API - Azure Health Data Services
 description: This article describes how to grant permissions to users and client applications using CLI and REST API.
 services: healthcare-apis
-author: expekesheth
+author: mikaelweave
 ms.service: healthcare-apis
 ms.topic: tutorial
 ms.date: 06/06/2022
-ms.author: kesheth
+ms.author: mikaelw
 ---
 
 # Configure Azure RBAC role using Azure CLI and REST API
