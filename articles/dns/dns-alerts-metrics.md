@@ -30,7 +30,7 @@ Azure DNS provides the following metrics to Azure Monitor for your DNS zones:
 For more information, see [metrics definition](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkdnszones).
 
 >[!NOTE]
-> At this time, these metrics are only available for Public DNS zones hosted in Azure DNS. If you have Private Zones hosted in Azure DNS, these metrics will not provide data for those zones. In addition, the metrics and alerting feature is only supported in Azure Public cloud. Support for sovereign clouds will follow at a later time. 
+> At this time, these metrics are only available for Public DNS zones hosted in Azure DNS. If you have Private Zones hosted in Azure DNS, these metrics won't provide data for those zones. In addition, the metrics and alerting feature is only supported in Azure Public cloud. Support for sovereign clouds will follow at a later time. 
 
 The most granular element that you can see metrics for is a DNS zone. You currently can't see metrics for individual resource records within a zone.
 
