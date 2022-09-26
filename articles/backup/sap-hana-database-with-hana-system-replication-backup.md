@@ -20,8 +20,10 @@ In this article, you'll learn how to:
 >- Create and configure a Backup vault
 >- Create a policy
 >- Discover databases instances
+>- Run the pre-registration script
 >- Configure backups
->- Track a a backup job
+>- Run an on-demand backup
+>- Run SAP HANA Studio backup
 
 >[!Note]
 >See [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md) for more information about the supported configurations and scenarios.
@@ -32,34 +34,6 @@ In this article, you'll learn how to:
 - Allow connectivity from each of the VMs/nodes to the internet for communication with Azure. 
 - Ensure that the combined length of the SAP HANA Server VM name and the Resource Group name doesn't exceed 84 characters for Azure Resource Manager (ARM) VMs and 77 characters for classic VMs. This is because some characters are reserved by the service.
 
-
-## Run the pre-registration script
-
-1. When a failover happens, the users are replicated to the new primary, but the *hdbuserstore* isn’t replicated. Therefore, you need to create the same key in all nodes of the HSR setup that allows the Azure Backup service to connect to any new primary node automatically, without any manual intervention. 
-
-1. Create a custom backup user in the HANA system with the following roles and permissions:
-
-   | Roles | Permissions | Descriptions |
-   | --- | --- | --- |
-   | MDC | DATABASE ADMIN and BACKUP ADMIN (HANA 2.0 SPS05 and higher) | To create new databases during restore. |
-   | SDC | BACKUP ADMIN | To read the backup catalog. |
-   | SAP_INTERNAL_HANA_SUPPORT |      | To access a few private tables. <br><br> This is only required for SDC and MDC versions lower than HANA 2.0 SPS04 Rev 46. This isn't required for HANA 2.0 SPS04 Rev 46 versions and higher because we receive the required information from public tables now after the fix from HANA team. |
-
-1. Then add the key to *hdbuserstore* for your custom backup user that enables the HANA backup plug-in to manage all operations (database queries, restore operations, configuring, and running backup). Pass the custom Backup user key to the script as a parameter: `-bk CUSTOM_BACKUP_KEY_NAME` or `-backup-key CUSTOM_BACKUP_KEY_NAME`. If the password of this custom backup key expires, it could lead to back up and restore failures.
-
-1. Create the same customer backup user (with the same password) and key (in hdbuserstore) on both nodes/VMs.
-
-1. Run the SAP HANA backup configuration script (pre-registration script) in the VMs where HANA is installed as the root user. This script sets up the HANA system for backup. For more information about the script actions, see the [What the pre-registration script does](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) section.
-
-1. There's no HANA generated unique ID for an HSR setup. Therefore, you need to provide a unique ID that helps the backup service to group all nodes of an HSR as a single data source. Provide a unique HSR ID as input to the script: `-hn HSR_UNIQUE_VALUE` or `--hsr-unique-value HSR_Unique_Value`. You must provide the same HSR ID on both the VMs/nodes. This ID must be unique within a vault and should be an alphanumeric value (containing at least one digit, lower-case, and upper-case character) with a length of *6* to *35* characters.
-
-1. While running the pre-registration script on the secondary node, you must specify the SDC/MDC port as input. This is because SQL commands to identify the SDC/MDC setup can't be run on the secondary node. You must provide the port number as parameter as shown below: `-p PORT_NUMER` or `–port_number PORT_NUMBER`.
-
-   - For MDC, it should have the format as `3<instancenumber>13`.
-   - For SDC, it should have the format as `3<instancenumber>15`.
-1. If your HANA setup uses Private Endpoints, run the pre-registration script with the `-sn` or `--skip-network-checks` parameter. Once the pre-registration script runs successfully, proceed to the next steps.
-   
-To set up the database for backup, see the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and the [What the pre-registration script does sections](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -95,6 +69,34 @@ To discover the HSR database, follow these steps:
    Azure Backup discovers all SAP HANA databases on the VM. During discovery, Azure Backup registers the VM with the vault, and installs an extension on the VM. It doesn't install any agent on the database.
 
   To view the details of all databases of each of the discovered VMs, select View details under the **Step 1: Discover DBs in VMs section**.
+
+## Run the pre-registration script to assign permissions
+
+1. When a failover happens, the users are replicated to the new primary, but the *hdbuserstore* isn’t replicated. Therefore, you need to create the same key in all nodes of the HSR setup that allows the Azure Backup service to connect to any new primary node automatically, without any manual intervention. 
+
+1. Create a custom backup user in the HANA system with the following roles and permissions:
+
+   | Roles | Permissions | Descriptions |
+   | --- | --- | --- |
+   | MDC | DATABASE ADMIN and BACKUP ADMIN (HANA 2.0 SPS05 and higher) | To create new databases during restore. |
+   | SDC | BACKUP ADMIN | To read the backup catalog. |
+   | SAP_INTERNAL_HANA_SUPPORT |      | To access a few private tables. <br><br> This is only required for SDC and MDC versions lower than HANA 2.0 SPS04 Rev 46. This isn't required for HANA 2.0 SPS04 Rev 46 versions and higher because we receive the required information from public tables now after the fix from HANA team. |
+
+1. Then add the key to *hdbuserstore* for your custom backup user that enables the HANA backup plug-in to manage all operations (database queries, restore operations, configuring, and running backup). Pass the custom Backup user key to the script as a parameter: `-bk CUSTOM_BACKUP_KEY_NAME` or `-backup-key CUSTOM_BACKUP_KEY_NAME`. If the password of this custom backup key expires, it could lead to back up and restore failures.
+
+1. Create the same customer backup user (with the same password) and key (in hdbuserstore) on both nodes/VMs.
+
+1. Run the SAP HANA backup configuration script (pre-registration script) in the VMs where HANA is installed as the root user. This script sets up the HANA system for backup. For more information about the script actions, see the [What the pre-registration script does](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) section.
+
+1. There's no HANA generated unique ID for an HSR setup. Therefore, you need to provide a unique ID that helps the backup service to group all nodes of an HSR as a single data source. Provide a unique HSR ID as input to the script: `-hn HSR_UNIQUE_VALUE` or `--hsr-unique-value HSR_Unique_Value`. You must provide the same HSR ID on both the VMs/nodes. This ID must be unique within a vault and should be an alphanumeric value (containing at least one digit, lower-case, and upper-case character) with a length of *6* to *35* characters.
+
+1. While running the pre-registration script on the secondary node, you must specify the SDC/MDC port as input. This is because SQL commands to identify the SDC/MDC setup can't be run on the secondary node. You must provide the port number as parameter as shown below: `-p PORT_NUMER` or `–port_number PORT_NUMBER`.
+
+   - For MDC, it should have the format as `3<instancenumber>13`.
+   - For SDC, it should have the format as `3<instancenumber>15`.
+1. If your HANA setup uses Private Endpoints, run the pre-registration script with the `-sn` or `--skip-network-checks` parameter. Once the pre-registration script runs successfully, proceed to the next steps.
+   
+To set up the database for backup, see the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and the [What the pre-registration script does sections](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
 
 ## Configure backup
 
