@@ -11,7 +11,10 @@ ms.subservice: teams-interop
 ---
 
 # Support for government clouds
-Azure Communication Services are also support Government Cloud, but the Government Cloud account can only communicate within the Government Cloud tenant. The following table show supported M365 Term and Azure Term:
+Developers can integrate Azure Communication Services to connect to Microsoft Teams also in government clouds. Azure Communication Services allow to connect to Microsoft 365 cloud that meets government security and compliance requirements. 
+
+## Supported cloud parity between Microsoft 365 and Azure 
+The following table shows pair of government clouds, that are currently supported by Azure Communication Services:
 
 | Microsoft 365 cloud| Azure cloud| Support |
 | --- | --- | --- |
