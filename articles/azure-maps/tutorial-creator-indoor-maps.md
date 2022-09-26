@@ -348,7 +348,7 @@ Once your tileset creation completes, you can get the `mapConfigurationId` using
 
 2. In the **Create New** window, select **HTTP Request**.
 
-3. Enter a **Request name** for the request, such as *GET mapCongigurationId from Tileset*.
+3. Enter a **Request name** for the request, such as *GET mapConfigurationId from Tileset*.
 
 4. Select the **GET** HTTP method.
 

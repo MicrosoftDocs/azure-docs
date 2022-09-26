@@ -123,7 +123,7 @@ Some important things to know about aliases:
 Once you have entered values into each required field, select the **Upload map configuration** button to save the style and map configuration data to your Creator resource.
 
 > [!TIP]
-> Make a note of the map configuration ID or alias values, they are needed when you [Instantiate the Indoor Manager][Instantiate the Indoor Manager] of a Map object when developing applications in Azure Maps.
+> Make a note of the map configuration `alias` value, it will be required when you [Instantiate the Indoor Manager][Instantiate the Indoor Manager] of a Map object when developing applications in Azure Maps.
 
 ## Custom categories
 
