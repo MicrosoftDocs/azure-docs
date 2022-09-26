@@ -60,8 +60,5 @@ Event Grid’s automatic failover has different RPOs and RTOs for your metadata 
 > - The cost for using this feature  is: $0. 
 > - Geo-disaster recovery is not supported for partner namespaces and partner topics. 
 
-## More information
-You may find more information availability zone resiliency and disaster recovery in Azure Event Grid in our [FAQ](./event-grid-faq.yml).
-
 ## Next steps
 If you want to implement your own disaster recovery plan for Azure Event Grid topics and domains, see [Build your own disaster recovery for custom topics in Event Grid](custom-disaster-recovery.md).
