@@ -341,7 +341,7 @@ https://github.com/Azure/azureml-examples/blob/main/sdk/jobs/automl-standalone-j
 
 ---
 
-## Model Sweeping and Hyperparameter Tuning (Preview) 
+## Model sweeping and hyperparameter tuning (preview) 
 
 AutoML NLP allows you to provide a list of models and combinations of hyperparameters, via the hyperparameter search space in the config. Hyperdrive generates several child runs, each of which is a fine-tuning run for a given NLP model and set of hyperparameter values that were chosen and swept over based on the provided search space.
 
@@ -366,7 +366,7 @@ All the pre-trained text DNN models currently available in AutoML NLP for fine-t
 
 Note that the large models are significantly larger than their base counterparts. They are typically more performant, but they take up more GPU memory and time for training. As such, their SKU requirements are more stringent: we recommend running on ND-series VMs for the best results. 
 
-## Supported Hyperparameters 
+## Supported hyperparameters 
 
 The following table describes the hyperparameters that AutoML NLP supports. 
 
