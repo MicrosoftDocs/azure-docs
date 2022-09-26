@@ -108,7 +108,7 @@ Deploy an ARM template with the following specific parameters:
 | Parameter | Description | Example value |
 | --- | --- | --- |
 | `keyVaultKeyUri` | Identifier of the customer-managed key residing in the service provider's key vault. | `https://my-vault.vault.azure.com/keys/my-key` |
-| `identity` | Object specifying that the managed identity should be assigned to the Azure Cosmos DB account. | :::code language="json" source="resources/cross-tenant-customer-managed-keys-sample-template.json" range="4-9"::: |
+| `identity` | Object specifying that the managed identity should be assigned to the Azure Cosmos DB account. | `"identity":{"type":"UserAssigned","userAssignedIdentities":{"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-identity":{}}}` |
 | `defaultIdentity` | Combination of the resource ID of the managed identity and the application ID of the multi-tenant Azure Active Directory application. | `UserAssignedIdentity=/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-identity&FederatedClientId=11111111-1111-1111-1111-111111111111` |
 
 Here's an example of a template segment with the three parameters configured:
