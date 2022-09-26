@@ -12,7 +12,7 @@ ms.custom: mvc
 # Tutorial: Build a Quarkus web app with Azure App Service on Linux and PostgreSQL
 
 This tutorial walks you through the process of building, configuring, deploying, and scaling Java web apps on Azure. 
-When you are finished, you will have a [Quarkus](https://quarkus.io) application storing data in [PostgreSQL](/azure/postgresql) database running on [Azure App Service on Linux](overview.md).
+When you are finished, you will have a [Quarkus](https://quarkus.io) application storing data in [PostgreSQL](../postgresql/index.yml) database running on [Azure App Service on Linux](overview.md).
 
 ![Screenshot of Quarkus application storing data in PostgreSQL.](./media/tutorial-java-quarkus-postgresql/quarkus-crud-running-locally.png)
 
@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 
 ## Clone the sample app and prepare the repo
 
-This tutorial uses a sample Fruits list app with a web UI that calls a Quarkus REST API backed by [Azure Database for PostgreSQL](/azure/postgresql). The code for the app is available [on GitHub](https://github.com/quarkusio/quarkus-quickstarts/tree/main/hibernate-orm-panache-quickstart). To learn more about writing Java apps using Quarkus and PostgreSQL, see the [Quarkus Hibernate ORM with Panache Guide](https://quarkus.io/guides/hibernate-orm-panache) and the [Quarkus Datasource Guide](https://quarkus.io/guides/datasource).
+This tutorial uses a sample Fruits list app with a web UI that calls a Quarkus REST API backed by [Azure Database for PostgreSQL](../postgresql/index.yml). The code for the app is available [on GitHub](https://github.com/quarkusio/quarkus-quickstarts/tree/main/hibernate-orm-panache-quickstart). To learn more about writing Java apps using Quarkus and PostgreSQL, see the [Quarkus Hibernate ORM with Panache Guide](https://quarkus.io/guides/hibernate-orm-panache) and the [Quarkus Datasource Guide](https://quarkus.io/guides/datasource).
 
 
 Run the following commands in your terminal to clone the sample repo and set up the sample app environment.
@@ -236,7 +236,7 @@ mvn clean package
 
 The final result will be a JAR file in the `target/` subfolder.
 
-To deploy applications to Azure App Service, developers can use the [Maven Plugin for App Service](/learn/modules/publish-web-app-with-maven-plugin-for-azure-app-service/), [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice), or the Azure CLI to deploy apps. Use the following command to deploy our app to the App Service:
+To deploy applications to Azure App Service, developers can use the [Maven Plugin for App Service](/training/modules/publish-web-app-with-maven-plugin-for-azure-app-service/), [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice), or the Azure CLI to deploy apps. Use the following command to deploy our app to the App Service:
 
 ```azurecli
 az webapp deploy \

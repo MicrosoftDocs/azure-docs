@@ -87,7 +87,7 @@ The following steps show the steps required to prepare sample customer range (1.
     
     * [RIPE](https://www.ripe.net/manage-ips-and-asns/db/support/updating-the-ripe-database) - edit the "Remarks" of the inetnum record.
     
-    * [APNIC](https://www.apnic.net/manage-ip/using-whois/updating-whois/) - in order to edit the prefix record, contact helpdesk@apnic.net.
+    * [APNIC](https://www.apnic.net/manage-ip/using-whois/updating-whois/) - edit the “Remarks” of the inetnum record using MyAPNIC.
     
     * For ranges from either LACNIC or AFRINIC registries, create a support ticket with Microsoft.
      

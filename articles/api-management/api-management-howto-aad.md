@@ -17,9 +17,12 @@ In this article, you'll learn how to:
 > * Enable access to the developer portal for users from Azure Active Directory (Azure AD).
 > * Manage groups of Azure AD users by adding external groups that contain the users.
 
+For an overview of options to secure the developer portal, see [Authentication and authorization in API Management](authentication-authorization-overview.md#developer-portal-user-plane).
+
 > [!IMPORTANT]
 > * This article has been updated with steps to configure an Azure AD app using the Microsoft Authentication Library ([MSAL](../active-directory/develop/msal-overview.md)). 
 > * If you previously configured an Azure AD app for user sign-in using the Azure AD Authentication Library (ADAL), we recommend that you [migrate to MSAL](#migrate-to-msal).
+ 
 
 ## Prerequisites
 
@@ -150,7 +153,7 @@ Now that you've enabled access for users in an Azure AD tenant, you can:
 
 Follow these steps to grant:
 * `User.Read` **delegated** permission for Microsoft Graph API. 
-
+* `Directory.ReadAll` **application** permission for Microsoft Graph API. 
 1. Update the first 3 lines of the following Azure CLI script to match your environment and run it.
 
    ```azurecli
@@ -160,8 +163,8 @@ Follow these steps to grant:
    #Login and Set the Subscription
    az login
    az account set --subscription $subId
-   #Assign the following permission: Microsoft Graph Delegated Permission: User.Read
-   az rest --method PATCH --uri "https://graph.microsoft.com/v1.0/$($tenantId)/applications/$($appObjectID)" --body "{'requiredResourceAccess':[{'resourceAccess': [{'id': 'e1fe6dd8-ba31-4d61-89e7-88639da4683d','type': 'Scope'}],'resourceAppId': '00000003-0000-0000-c000-000000000000'}]}"
+   #Assign the following permission: Microsoft Graph Delegated Permission: User.Read, Microsoft Graph Application Permission: Directory.ReadAll
+   az rest --method PATCH --uri "https://graph.microsoft.com/v1.0/$($tenantId)/applications/$($appObjectID)" --body "{'requiredResourceAccess':[{'resourceAccess': [{'id': 'e1fe6dd8-ba31-4d61-89e7-88639da4683d','type': 'Scope'},{'id': '7ab1d382-f21e-4acd-a863-ba3e13f7da61','type': 'Role'}],'resourceAppId': '00000003-0000-0000-c000-000000000000'}]}"
    ```
 
 1. Sign out and sign back in to the Azure portal.

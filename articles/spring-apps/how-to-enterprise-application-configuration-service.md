@@ -85,6 +85,9 @@ The following image shows the three types of repository authentication supported
    | Host key algorithm       | No        | The algorithm for `hostKey`: one of `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, and `ecdsa-sha2-nistp521`. (Required if supplying `Host key`).                                                              |
    | Strict host key checking | No        | Optional value that indicates whether the backend should be ignored if it encounters an error when using the provided `Host key`. Valid values are `true` and `false`. The default value is `true`.                                 |
 
+> [!NOTE]
+> Application Configuration Service for Tanzu doesn't support SHA-2 signatures yet and we are actively working on to support it in future release. Before that, please use SHA-1 signatures or basic auth instead.
+
 To validate access to the target URI, select **Validate**. After validation completes successfully, select **Apply** to update the configuration settings.
 
 ## Refresh strategies

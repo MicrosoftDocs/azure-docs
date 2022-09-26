@@ -4,7 +4,7 @@ description: How to test members against a membership rule for a dynamic group i
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity

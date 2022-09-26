@@ -32,7 +32,7 @@ Ready to start?
 ## Prerequisites
 
 * Install the [.NET Core SDK](https://dotnet.microsoft.com/download).
-* Download or clone the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) GitHub repository. 
+* Download or clone the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) GitHub repository.
 
 Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsnetcore).
 
@@ -42,7 +42,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
 ## Create an ASP.NET Core web app
 
-In this section, you use the [.NET Core command-line interface (CLI)](/dotnet/core/tools/) to create an ASP.NET Core MVC web app project. The advantage of using the .NET Core CLI over Visual Studio is that it's available across the Windows, macOS, and Linux platforms. 
+In this section, you use the [.NET Core command-line interface (CLI)](/dotnet/core/tools/) to create an ASP.NET Core MVC web app project. The advantage of using the .NET Core CLI over Visual Studio is that it's available across the Windows, macOS, and Linux platforms.
 
 1. Create a folder for your project. This quickstart uses the *E:\Testing\chattest* folder.
 
@@ -82,13 +82,19 @@ In this section, you'll add the [Secret Manager tool](/aspnet/core/security/app-
     dotnet add package Microsoft.Azure.SignalR
     ```
 
-2. Run the following command to restore packages for your project:
+1. Run the following command to restore packages for your project:
 
     ```dotnetcli
     dotnet restore
     ```
 
-3. Add a secret named *Azure:SignalR:ConnectionString* to Secret Manager.
+1. Prepare the Secret Manager for use with this project.
+
+    ````dotnetcli
+    dotnet user-secrets init
+    ````
+
+1. Add a secret named *Azure:SignalR:ConnectionString* to Secret Manager.
 
     This secret will contain the connection string to access your SignalR Service resource. *Azure:SignalR:ConnectionString* is the default configuration key that SignalR looks for to establish a connection. Replace the value in the following command with the connection string for your SignalR Service resource.
 
@@ -102,8 +108,7 @@ In this section, you'll add the [Secret Manager tool](/aspnet/core/security/app-
 
     This secret is accessed with the Configuration API. A colon (:) works in the configuration name with the Configuration API on all supported platforms. See [Configuration by environment](/dotnet/core/extensions/configuration-providers#environment-variable-configuration-provider).
 
-
-4. Open *Startup.cs* and update the `ConfigureServices` method to use Azure SignalR Service by calling the `AddSignalR()` and `AddAzureSignalR()` methods:
+1. Open *Startup.cs* and update the `ConfigureServices` method to use Azure SignalR Service by calling the `AddSignalR()` and `AddAzureSignalR()` methods:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -115,7 +120,7 @@ In this section, you'll add the [Secret Manager tool](/aspnet/core/security/app-
 
     Not passing a parameter to `AddAzureSignalR()` causes this code to use the default configuration key for the SignalR Service resource connection string. The default configuration key is *Azure:SignalR:ConnectionString*.
 
-5. In *Startup.cs*, update the `Configure` method by replacing it with the following code.
+1. In *Startup.cs*, update the `Configure` method by replacing it with the following code.
 
     ```csharp
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -341,7 +346,6 @@ In this section, you'll add a development runtime environment for ASP.NET Core. 
     }
     ```
 
-
 ## Build and run the app locally
 
 1. To build the app by using the .NET Core CLI, run the following command in the command shell:
@@ -374,7 +378,6 @@ In this section, you'll add a development runtime environment for ASP.NET Core. 
 1. Open two browser windows. In each browser, go to `http://localhost:5000`. You're prompted to enter your name. Enter a client name for both clients and test pushing message content between both clients by using the **Send** button.
 
     ![Example of an Azure SignalR group chat](media/signalr-quickstart-dotnet-core/signalr-quickstart-complete-local.png)
-
 
 ## Clean up resources
 

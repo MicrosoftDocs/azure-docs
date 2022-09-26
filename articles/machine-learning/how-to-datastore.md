@@ -8,7 +8,7 @@ ms.subservice: mldata
 ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
-ms.reviewer: nibaccam
+ms.reviewer: ssalgado
 ms.date: 01/28/2022
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
 
@@ -17,6 +17,13 @@ ms.custom: contperf-fy21q1, devx-track-python, data4ml
 ---
 
 # Create datastores
+
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning developer platform you are using:"]
+> * [v1](v1/how-to-access-data.md)
+> * [v2 (current version)](how-to-datastore.md)
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 In this article, learn how to connect to data storage services on Azure with Azure Machine Learning datastores.
 
@@ -416,5 +423,5 @@ ml_client.create_or_update(store)
 ## Next steps
 
 - [Read data in a job](how-to-read-write-data-v2.md#read-data-in-a-job)
-- [Create data assets](how-to-create-register-data-assets.md#create-data-assets)
+- [Create data assets](how-to-create-data-assets.md#create-data-assets)
 - [Data administration](how-to-administrate-data-authentication.md#data-administration)

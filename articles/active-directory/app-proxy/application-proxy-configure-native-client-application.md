@@ -3,7 +3,7 @@ title: Publish native client apps - Azure Active Directory
 description: Covers how to enable native client apps to communicate with Azure Active Directory Application Proxy Connector to provide secure remote access to your on-premises apps.
 services: active-directory
 author: kenwith
-manager: rkarlin
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity

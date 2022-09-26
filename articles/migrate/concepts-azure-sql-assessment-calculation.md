@@ -10,7 +10,7 @@ ms.date: 05/05/2022
 
 # Assessment Overview (migrate to Azure SQL)
 
-This article provides an overview of assessments for migrating on-premises SQL Server instances from a VMware environment to SQL Server on Azure VM or Azure SQL Database or Azure SQL Managed Instance using the [Azure Migrate: Discovery and assessment tool](./migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool).
+This article provides an overview of assessments for migrating on-premises SQL Server instances from a VMware, Microsoft Hyper-V, and Physical environment to SQL Server on Azure VM or Azure SQL Database or Azure SQL Managed Instance using the [Azure Migrate: Discovery and assessment tool](./migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool).
 
 ## What's an assessment?
 An assessment with the Discovery and assessment tool is a point in time snapshot of data and measures the readiness and estimates the effect of migrating on-premises servers to Azure.
@@ -22,7 +22,7 @@ There are three types of assessments you can create using the Azure Migrate: Dis
 **Assessment Type** | **Details**
 --- | --- 
 **Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. <br/><br/> You can assess your on-premises servers in [VMware](how-to-set-up-appliance-vmware.md) and [Hyper-V](how-to-set-up-appliance-hyper-v.md) environment, and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs using this assessment type.
-**Azure SQL** | Assessments to migrate your on-premises SQL servers from your VMware environment to SQL Server on Azure VM or Azure SQL Database or Azure SQL Managed Instance. <br/><br/> If your SQL servers are running on a non-VMware platform, you can assess readiness by using the [Data Migration Assistant](/sql/dma/dma-assess-sql-data-estate-to-sqldb).
+**Azure SQL** | Assessments to migrate your on-premises SQL servers from your VMware, Microsoft Hyper-V, and Physical environment to SQL Server on Azure VM or Azure SQL Database or Azure SQL Managed Instance.
 **Azure App Service** | Assessments to migrate your on-premises ASP.NET web apps, running on IIS web servers, from your VMware environment to Azure App Service.
 **Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md).
 

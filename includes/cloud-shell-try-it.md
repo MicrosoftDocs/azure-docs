@@ -6,6 +6,6 @@ ms.author: dbradish
 manager: barbkess
 ---
 
-## Use Azure Cloud Shell
+## Azure Cloud Shell
 
 [!INCLUDE [Use Azure Cloud Shell](cloud-shell-try-it-no-header.md)]

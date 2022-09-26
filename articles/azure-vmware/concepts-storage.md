@@ -4,7 +4,7 @@ description: Learn about storage capacity, storage policies, fault tolerance, an
 ms.topic: conceptual
 ms.custom: contperf-fy21q4
 ms.service: azure-vmware
-ms.date: 07/27/2022
+ms.date: 08/09/2022
 ---
 
 # Azure VMware Solution storage concepts
@@ -47,9 +47,14 @@ In a three-host cluster, FTT-1 accommodates a single host's failure. Microsoft g
 
 vSAN datastores use data-at-rest encryption by default using keys stored in Azure Key Vault. The encryption solution is KMS-based and supports vCenter Server operations for key management.  When a host is removed from a cluster, all data on SSDs is invalidated immediately.
 
+## Datastore capacity expansion options
+
+The vSAN datastore capacity can be expanded by connecting Azure storage resources such as [Azure NetApp Files volumes as datastores](/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts). Virtual machines can be migrated between vSAN and Azure NetApp Files datastores using storage vMotion. Azure NetApp Files datastores can be replicated to other regions using storage based [Cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction) for testing, development and failover purposes.
+Azure NetApp Files is available in [Ultra, Premium and Standard performance tiers](/azure/azure-netapp-files/azure-netapp-files-service-levels) to allow for adjusting performance and cost to the requirements of the workloads. 
+
 ## Azure storage integration
 
-You can use Azure storage services in workloads running in your private cloud. The Azure storage services include Storage Accounts, Table Storage, and Blob Storage. The connection of workloads to Azure storage services doesn't traverse the internet. This connectivity provides more security and enables you to use SLA-based Azure storage services in your private cloud workloads. You can also connect Azure disk pools or [Azure NetApp Files datastores](attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) to expand the storage capacity. This functionality is in preview.
+You can use Azure storage services in workloads running in your private cloud. The Azure storage services include Storage Accounts, Table Storage, and Blob Storage. The connection of workloads to Azure storage services doesn't traverse the internet. This connectivity provides more security and enables you to use SLA-based Azure storage services in your private cloud workloads. 
 
 ## Alerts and monitoring
 

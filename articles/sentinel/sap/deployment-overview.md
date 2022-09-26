@@ -16,7 +16,11 @@ This article introduces you to the process of deploying the Microsoft Sentinel S
 **Microsoft Sentinel Solution for SAP** is a [Microsoft Sentinel solution](../sentinel-solutions.md) that you can use to monitor your SAP systems and detect sophisticated threats throughout the business logic and application layers. The solution includes the following components:
 - The Microsoft Sentinel for SAP data connector for data ingestion.
 - Analytics rules and watchlists for threat detection.
+- Functions for easy data access. 
 - Workbooks for interactive data visualization. 
+- Watchlists for customization of the built-in solution parameters.  
+
+The solution is free until February 2023, when an additional cost will be added on top of the ingested data. [Learn more about pricing](https://azure.microsoft.com/pricing/offers/microsoft-sentinel-sap-promo/).  
 
 The Microsoft Sentinel for SAP data connector is an agent, installed on a VM or a physical server, that collects application logs from across the entire SAP system landscape. It then sends those logs to your Log Analytics workspace in Microsoft Sentinel. You can then use the other content in the Threat Monitoring for SAP solution – the analytics rules, workbooks, and watchlists – to gain insight into your organization's SAP environment and to detect and respond to security threats.
 

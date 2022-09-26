@@ -120,9 +120,9 @@ If your data is already in a cloud storage service, and you want to keep your da
 
 Use the following steps to register a dataset to Azure Machine Learning from a cloud service: 
 
-1. [Create a datastore](how-to-connect-data-ui.md#create-datastores), which links the cloud storage service to your Azure Machine Learning workspace. 
+1. [Create a datastore](v1/how-to-connect-data-ui.md#create-datastores), which links the cloud storage service to your Azure Machine Learning workspace. 
 
-1. [Register a dataset](how-to-connect-data-ui.md#create-datasets). If you are migrating a Studio (classic) dataset, select the **Tabular** dataset setting.
+1. [Register a dataset](v1/how-to-connect-data-ui.md#create-datasets). If you are migrating a Studio (classic) dataset, select the **Tabular** dataset setting.
 
 After you register a dataset in Azure Machine Learning, you can use it in designer:
  
@@ -134,7 +134,7 @@ After you register a dataset in Azure Machine Learning, you can use it in design
 
 Use the following steps to import data directly to your designer pipeline:
 
-1. [Create a datastore](how-to-connect-data-ui.md#create-datastores), which links the cloud storage service to your Azure Machine Learning workspace. 
+1. [Create a datastore](v1/how-to-connect-data-ui.md#create-datastores), which links the cloud storage service to your Azure Machine Learning workspace. 
 
 After you create the datastore, you can use the [**Import Data**](algorithm-module-reference/import-data.md) module in the designer to ingest data from it:
 

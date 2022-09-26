@@ -215,7 +215,7 @@ With additional algorithms below.
 * [NLP Text Classification Multi-label Algorithms](how-to-auto-train-nlp-models.md#language-settings)
 * [NLP Text Named Entity Recognition (NER) Algorithms](how-to-auto-train-nlp-models.md#language-settings)
 
-Follow [this link](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/automl-standalone-jobs) for example notebooks of each task type.
+Follow [this link](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/jobs/automl-standalone-jobs) for example notebooks of each task type.
 
 ### Primary metric
 
@@ -339,8 +339,11 @@ No&nbsp;criteria | If you do not define any exit parameters the experiment conti
 `max_concurrent_trials`| Represents the maximum number of trials (children jobs) that would be executed in parallel. It's a good practice to match this number with the number of nodes your cluster
 
 ## Run experiment
-> [!WARNING]
+> [!NOTE]
 > If you run an experiment with the same configuration settings and primary metric multiple times, you'll likely see variation in each experiments final metrics score and generated models. The algorithms automated ML employs have inherent randomness that can cause slight variation in the models output by the experiment and the recommended model's final metrics score, like accuracy. You'll likely also see results with the same model name, but different hyperparameters used. 
+
+> [!WARNING]
+> If you have set rules in firewall and/or Network Security Group over your workspace, verify that required permissions are given to inbound and outbound network traffic as defined in [Configure inbound and outbound network traffic](how-to-access-azureml-behind-firewall.md).
 
 Submit the experiment to run and generate a model. With the MLClient created in the prerequisites,you can run the following command in the workspace.
 
@@ -391,7 +394,7 @@ After you test a model and confirm you want to use it in production, you can reg
 
 To leverage AutoML in your MLOps workflows, you can add AutoML Job steps to your [AzureML Pipelines](./how-to-create-component-pipeline-python.md). This allows you to automate your entire workflow by hooking up your data prep scripts to AutoML and then registering and validating the resulting best model.
 
-Below is a [sample pipeline](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/pipelines/1h_automl_in_pipeline/automl-classification-bankmarketing-in-pipeline) with an AutoML classification component and a command component that shows the resulting AutoML output. Note how the inputs (training & validation data) and the outputs (best model) are referenced in different steps.
+Below is a [sample pipeline](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/jobs/pipelines/1h_automl_in_pipeline/automl-classification-bankmarketing-in-pipeline) with an AutoML classification component and a command component that shows the resulting AutoML output. Note how the inputs (training & validation data) and the outputs (best model) are referenced in different steps.
 
 ``` python
 # Define pipeline
@@ -431,12 +434,12 @@ pipeline_classification = automl_classification(
 )
 
 # ...
-# Note that the above is only a snippet from the bankmarketing example you can find in our examples repo -> https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/pipelines/1h_automl_in_pipeline/automl-classification-bankmarketing-in-pipeline
+# Note that the above is only a snippet from the bankmarketing example you can find in our examples repo -> https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/jobs/pipelines/1h_automl_in_pipeline/automl-classification-bankmarketing-in-pipeline
 
 ```
 
-For more examples on how to do include AutoML in your pipelines, please check out our [examples repo](https://github.com/Azure/azureml-examples/tree/sdk-preview/sdk/jobs/pipelines/1h_automl_in_pipeline/).
+For more examples on how to do include AutoML in your pipelines, please check out our [examples repo](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/jobs/pipelines/1h_automl_in_pipeline/).
 
 ## Next steps
 
-+ Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
++ Learn more about [how and where to deploy a model](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
