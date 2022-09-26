@@ -84,7 +84,7 @@ Will return:
 
 [**Sliding**](/stream-analytics-query/sliding-window-azure-stream-analytics) windows, unlike Tumbling or Hopping windows, output events only for points in time when the content of the window actually changes. In other words, when an event enters or exits the window. So, every window has at least one event. Similar to Hopping windows, events can belong to more than one sliding window.
 
-![Stream Analytics 10 second sliding window](media/stream-analytics-window-functions/stream-analytics-windo-functions-sliding-intro.png)
+![Stream Analytics 10 second sliding window](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
 With the following input data (illustrated above):
 
