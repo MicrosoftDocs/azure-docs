@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/23/2022
+ms.date: 09/26/2022
 
 
 ms.author: justinha
@@ -43,10 +43,7 @@ For more information, see [Staged Rollout](../hybrid/how-to-connect-staged-rollo
 
 An AD FS admin can use **Synchronization Rules Editor** to create rules to sync the values of attributes from AD FS to Azure AD user objects. For more information, see [Sync rules for certificateUserIds](concept-certificate-based-authentication-certificateuserids.md#update-certificateuserids-using-azure-ad-connect-for-federated-users).
 
-The AWS service is the service Azure AD Connect uses to access Azure AD. It uses a special role named **Hybrid Identity Administrator**, which grants the necessary permissions. This role needs to get the right permissions to write to the new cloud attribute.
-
->[!NOTE] 
->For security, the AD FS admin must make sure that no other party can write to the attributes for synced users.
+Azure AD Connect uses the AWS service to access Azure AD. It requires a special role named **Hybrid Identity Administrator**, which grants the necessary permissions. You need this role for permission to write to the new cloud attribute.
 
 >[!NOTE] 
 >If a user is using synchronized attributes, such as the onPremisesUserPrincipalName attribute in the user object for username binding, be aware that any user that has administrative access to the Azure AD Connect server can change the synchronized attribute mapping, and change the value of the synchronized attribute. The user does not need to be a cloud admin. The AD FS admin should make sure the administrative access to the Azure AD Connect server should be limited, and privileged accounts should be cloud-only accounts.
@@ -63,16 +60,16 @@ The AWS service is the service Azure AD Connect uses to access Azure AD. It uses
 
   For synchronized accounts:
 
-  - If they are in a managed domain (not federated) there is no risk from the federated IdP.
-  - If they are in a federated domain, but a subset are being moved to Azure AD CBA via Staged Rollout they are still subject to risks related to the federated Idp, until the federated domain is fully switched to cloud authentication.
+  - If they're in a managed domain (not federated), there's no risk from the federated IdP.
+  - If they're in a federated domain, but a subset of accounts are being moved to Azure AD CBA by Staged Rollout, they are subject to risks related to the federated Idp until the federated domain is fully switched to cloud authentication.
 
-- **Should a customer eliminate Federated server like AD FS to prevent the capability to pivot from AD FS to Azure?**
+- **Should organizations eliminate federated servers like AD FS to prevent the capability to pivot from AD FS to Azure?**
  
-  Even with cloud-only GA (any role) account with AD FS an attacker could impersonate anyone, like the CIO, even if they cannot obtain a GA or similar role
+  With federation, an attacker could impersonate anyone, such as a CIO, even if they cannot obtain a cloud-only role like the Global Administrator account.
 
-  When a domain is federated in Azure AD, a high level of trust is being placed on the Federated IdP (AD FS in this example but holds true for ANY federated IdP). There are many customers that deploy federated IdP such as AD FS exclusively to accomplish certificate based authentication. Azure AD CBA completely removes the AD FS dependency in this case. With Azure AD CBA, customers can move their application estate to Azure AD to modernize their IAM infrastructure and reduce costs with increased security.
+  When a domain is federated in Azure AD, a high level of trust is being placed on the Federated IdP. AD FS is one example, but the notion holds true for *any* federated IdP. Many organizations deploy a federated IdP such as AD FS exclusively to accomplish certificate based authentication. Azure AD CBA completely removes the AD FS dependency in this case. With Azure AD CBA, customers can move their application estate to Azure AD to modernize their IAM infrastructure and reduce costs with increased security.
 
-  From a security perspective, there is no change to the credential (X.509 certificate, CACs, PIVs etc.) or PKI being used. The PKI owners retain complete control of certificate lifecyle and policy (Issuance & Revocation). The revocation check and the authentication will happen at Azure AD instead of federated Idp. This will enable passwordless, phishing resistant authentication method to Azure AD to directly for all customers.
+  From a security perspective, there's no change to the credential, including the X.509 certificate, CACs, PIVs, and so on, or to the PKI being used. The PKI owners retain complete control of the certificate issuance and revocation lifecycle and policy. The revocation check and the authentication happen at Azure AD instead of federated Idp. These checks enable passwordless, phishing-resistant authentication directly to Azure AD for all users.
 
 - **How does authentication work with Federated AD FS and Azure AD cloud authentication with Windows?**
 
