@@ -103,7 +103,7 @@ The following table summarizes our migration or deployment recommendations for w
 |Scenario |Description |
 |---------|------------|
 | New or existing cluster deployment running a supported version of Azure Identity<sup>1</sup> | No migration steps are required.<br> Sample deployment resources:<ul><li> [Deploy and configure workload identity on a new cluster][deploy-configure-workload-identity-new-cluster]</ul></li> <ul><li>[Tutorial: Use a workload identity with an application on AKS][tutorial-use-workload-identity] |
-| New or existing cluster deployment not running a supported version of Azure Identity<sup>1</sup>| Update container image and deploy with newer version, or use the [migration sidecar][workload-identity-migration-sidecar]. |
+| New or existing cluster deployment not running a supported version of Azure Identity v1.6| Update container image and deploy with newer version, or use the [migration sidecar][workload-identity-migration-sidecar]. |
 
 <sup>1</sup> The version of the Azure Identity SDK is based on the SDK language used:
 - C# - 1.5.0-beta.4
