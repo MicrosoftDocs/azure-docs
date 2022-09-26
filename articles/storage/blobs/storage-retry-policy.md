@@ -1,7 +1,7 @@
 ---
 title: Implement a retry policy .NET
 titleSuffix: Azure Storage
-description: Learn about retry policies and how to implement them for Blob Storage. This article helps you set up a retry policy for blob storage requests using the .NET v12 SDK. 
+description: Learn about retry policies and how to implement them for Blob Storage. This article helps you set up a retry policy for Blob Storage requests using the .NET v12 SDK. 
 author: pauljewellmsft
 ms.author: pauljewell
 ms.service: storage
@@ -14,7 +14,7 @@ ms.subservice: blobs
 
 Any application that runs in the cloud or communicates with remote services and resources must be able to handle transient faults. It's common for these applications to experience faults due to a momentary loss of network connectivity, a request timeout when a service or resource is busy, or other factors. Developers should build applications to handle transient faults transparently to improve stability and resiliency. 
 
-This article shows you how to use .NET client libraries to set up a retry policy for an application that connects to Azure blob storage. Retry policies define how the application handles failed requests, and should always be tuned to match the business requirements of the application and the nature of the failure.
+This article shows you how to use .NET client libraries to set up a retry policy for an application that connects to Azure Blob Storage. Retry policies define how the application handles failed requests, and should always be tuned to match the business requirements of the application and the nature of the failure.
 
 > [!NOTE]
 > The examples in this article assume that you're working with an existing app or that you've created a sample console app using the guidance in the [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md) article.
