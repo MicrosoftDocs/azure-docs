@@ -43,8 +43,9 @@ To complete the steps in this tutorial, you must have the following resources an
 1. In the Azure portal, search for and open **Log Analytics workspaces**.
 1. Select the appropriate workspace.
 1. Under **Settings**, select **Tables**.
-1. On a table like **Syslog**, open the context menu (...).
+1. On a table like **SecurityEvent**, open the context menu (...).
 1. Select **Manage table**.
+   :::image type="content" source="media/configure-data-retention/data-retention-tables.png" alt-text="Screenshot of the manage table option on the context menu for a table in the tables view.":::
 1. Under **Data retention**, enter the following values.
 
    |Field |Value  |
@@ -53,6 +54,7 @@ To complete the steps in this tutorial, you must have the following resources an
    |Interactive retention    |  30 days       |
    |Total retention period     |     60 days    |
 
+   :::image type="content" source="media/configure-data-retention/data-retention-settings.png" alt-text="Screenshot of the data retention settings with days set for interactive retention and total retention period.":::
 1. Select **Save**.
 
 
@@ -67,6 +69,7 @@ On the **Tables** page for the table you updated, review the field values for **
 
 So the **Table** page shows the following an archive period of 30 days.
 
+:::image type="content" source="media/configure-data-retention/data-retention-archive-period.png" alt-text="Screenshot of the table view that shows the interactive retention and archive period columns.":::
 
 ## Clean up resources
 
