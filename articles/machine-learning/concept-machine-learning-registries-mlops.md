@@ -37,7 +37,7 @@ If you want to develop a pipeline in one workspace and then run it in others, st
 
 The following diagram illustrates promotion of pipelines between exploratory and dev workspaces, then model promotion between dev, test, and production.
 
-![Diagram of pipeline and model use across environments.](./media/concept-machine-learning-registries-mlops/cross-workspace-mlops-with-registries.png)
+:::image type="content" source="./media/concept-machine-learning-registries-mlops/cross-workspace-mlops-with-registries.png" alt-text="Diagram of pipeline and model use across environments.":::
 
 ## Next steps
 

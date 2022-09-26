@@ -24,7 +24,7 @@ Assets lend themselves to being stored a central repository and used in differen
 
 AzureML registries enable you to create and use those assets in different workspaces. Since the target workspaces in which you can use assets hosted in a registry can be in different Azure regions, registries support multi region replication for low latency access to assets when they to be used. Creating a registry will provision Azure resources required to facilitate replication. First, Azure blob storage accounts in each supported region. Second, a single Azure Container Registry with replication enabled to each supported region. 
 
-![Diagram of the relationship between assets in workspace and registry](./media/how-to-manage-registries/machiene-learning-registry-block-diagram.png)
+:::image type="content" source="./media/how-to-manage-registries/machine-learning-registry-block-diagram.png" alt-text="Diagram of the relationships between assets in workspace and registry.":::
 
 ## Prerequisites
 
@@ -95,8 +95,6 @@ You can create registries in AzureML studio using the following steps:
 	
 1. Enter the registry name, select the subscription and resource group and then select __Next__.
 
-    :::image type="content" source="./media/how-to-manage-registries/studio-create-registry-basics.png" alt-text="Screenshot of the registry creation basics tab.":::
-
 1. Select the __Primary region__ and __Additional region__, then select __Next__.
 
     :::image type="content" source="./media/how-to-manage-registries/studio-registry-select-regions.png" alt-text="Screenshot of the registry region selection":::
@@ -130,7 +128,7 @@ Azure storage offers several types of storage accounts with different features a
 Next, decide if you want to use an [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction) account or [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction). To create Azure Data Lake Storage Gen2, set `storage_account_hns` to `true`. To create Azure Blob Storage, set `storage_account_hns` to `false`. The `storage_account_hns` field is under each `location` in the `replication_locations` list.
 
 > [!NOTE]
-The `hns` portion of `storage_account_hns` refers to the [hierarchical namespace](/azure/storage/blobs/data-lake-storage-namespace) capability of Azure Data Lake Storage Gen2 accounts.
+> The `hns` portion of `storage_account_hns` refers to the [hierarchical namespace](/azure/storage/blobs/data-lake-storage-namespace) capability of Azure Data Lake Storage Gen2 accounts.
 
 Below is an example YAML that demonstrates this advanced storage configuration:
 

@@ -152,6 +152,7 @@ If you get an error that an environment with this name and version already exist
 version=$(date +%s)
 az ml environment create --file env_train.yml --registry-name <registry-name> --set version=$version
 ```
+
 > [!TIP]
 > `version=$(date +%s)` works only in Linux. Replace `$version` with a random number if this does not work.
 
@@ -160,6 +161,7 @@ Note down the `name` and `version` of the environment from the output of the `az
 ```azurecli
 az ml environment show --name SKLearnEnv --version 1 --registry-name <registry-name>
 ```
+
 > [!TIP]
 > If you used a different environment name or version, replace the `--name` and `--version` parameters accordingly.
 
@@ -182,6 +184,7 @@ env_docker_context = Environment(
 )
 ml_client_registry.environments.create_or_update(env_docker_context)
 ```
+
 > [!TIP]
 > If you get an error that an environment with this name and version already exists in the registry, specify a different version for the `version` parameter.
 
@@ -241,15 +244,18 @@ command: >-
   --test_split_ratio ${{inputs.test_split_ratio}}
 
 ```
+
 If you used different name or version, the more generic representation looks like this: `environment: azureml://registries/<registry-name>/environments/<sklearn-environment-name>/versions/<sklearn-environment-version>`, so make sure you replace the `<registry-name>`,  `<sklearn-environment-name>` and `<sklearn-environment-version>` accordingly. You then run the `az ml component create` command to create the component as follows.
 
 ```azurecli
 az ml component create --file train.yml --registry-name <registry-name>
 ```
+
 > [!TIP]
 > The same the CLI command `az ml component create` can be used to create components in a workspace or registry. Running the command with `--workspace-name` command creates the component in a workspace whereas running the command with `--registry-name` creates the component in the registry.
 
-If you prefer to not edit the `train.yml`, you can override the environment name on the CLI as follows.
+If you prefer to not edit the `train.yml`, you can override the environment name on the CLI as follows:
+
 ```azurecli
 az ml component create --file train.yml --registry-name <registry-name>` --set environment=azureml://registries/<registry-name>/environments/SKLearnEnv/versions/1
 # or if you used a different name or version, replace `<sklearn-environment-name>` and `<sklearn-environment-version>` accordingly
@@ -277,7 +283,8 @@ print(train_model)
 ```
 
 Update the `environment` to point to the `SKLearnEnv` environment created in the previous section and create the environment. 
-```
+
+```python
 train_model.environment=env_from_registry
 ml_client_registry.components.create_or_update(train_model)
 ```
@@ -332,10 +339,8 @@ jobs:
 The key aspect is that this pipeline is going to run in a workspace using a component that isn't in the specific workspace. The component is in a registry that can be used with any workspace in your organization. You can run this training job in any workspace you have access to without having worry about making the training code and environment available in that workspace. 
 
 > [!WARNING]
-> Before running the pipeline job, confirm that the workspace in which you will run the job is in a Azure region that is supported by the registry in which you created the component.
-
-> [!WARNING]
-> Confirm that the workspace has a compute cluster with the name `cpu-cluster` or edit the `compute` field under `jobs.train_job.compute` with the name of your compute.
+> * Before running the pipeline job, confirm that the workspace in which you will run the job is in a Azure region that is supported by the registry in which you created the component.
+> * Confirm that the workspace has a compute cluster with the name `cpu-cluster` or edit the `compute` field under `jobs.train_job.compute` with the name of your compute.
 
 Run the pipeline job with the `az ml job create` command.
 
@@ -348,6 +353,7 @@ az ml job create --file single-job-pipeline.yml
 
 
 Alternatively, ou can skip editing `single-job-pipeline.yml` and override the component name used by `train_job` in the CLI.
+
 ```azurecli
 az ml job create --file single-job-pipeline.yml --set jobs.train_job.component=azureml://registries/<registry-name>/component/train_linear_regression_model/versions/1
 ```
@@ -379,14 +385,14 @@ pipeline_job = pipeline_with_registered_components(
 )
 pipeline_job.settings.default_compute = "cpu-cluster"
 print(pipeline_job)
-```  
-> [!WARNING]
-> Confirm that the workspace in which you will run this job is in a Azure location that is supported by the registry in which you created the component before you run the pipeline job.
+```
 
 > [!WARNING]
-> Confirm that the workspace has a compute cluster with the name `cpu-cluster` or update it `pipeline_job.settings.default_compute=<compute-cluster-name>`.
+> * Confirm that the workspace in which you will run this job is in a Azure location that is supported by the registry in which you created the component before you run the pipeline job.
+> * Confirm that the workspace has a compute cluster with the name `cpu-cluster` or update it `pipeline_job.settings.default_compute=<compute-cluster-name>`.
 
 Run the pipeline job and wait for it to complete. 
+
 ```python
 pipeline_job = ml_client_workspace.jobs.create_or_update(
     pipeline_job, experiment_name="sdk_job_component_from_registry" ,  skip_validation=True
@@ -427,22 +433,25 @@ az ml job download --name $train_job_name
 # review the model files
 ls -l ./artifacts/model/
 ```
+
 > [!TIP]
 > If you have not configured the default workspace and resource group as explained in the prerequisites section, you will need to specify the `--workspace-name` and `--resource-group` parameters for the `az ml model create` to work.
+
 > [!WARNING]
 > The output of `az ml job list` is passed to `sed`. This works only on Linux shells. If you are on Windows, run `az ml job list --parent-job-name <job-name> --query [0].name ` and strip any quotes you see in the train job name.
+
 If you're unable to download the model, you can find sample MLflow model trained by the training job in the previous section in `cli/jobs/pipelines-with-components/nyc_taxi_data_regression/artifacts/model/` folder.
 
-Create the model in the registry
+Create the model in the registry:
+
 ```azurecli
 # create model in registry
 az ml model create --name nyc-taxi-model --version 1 --type mlflow_model --path ./artifacts/model/ --registry-name <registry-name>
 ```
-> [!TIP]
-> Use a random number for the `version` parameter if you get an error that model name and version exists.
 
 > [!TIP]
-> The same the CLI command `az ml model create` can be used to create models in a workspace or registry. Running the command with `--workspace-name` command creates the model in a workspace whereas running the command with `--registry-name` creates the model in the registry.
+> * Use a random number for the `version` parameter if you get an error that model name and version exists.
+> * The same the CLI command `az ml model create` can be used to create models in a workspace or registry. Running the command with `--workspace-name` command creates the model in a workspace whereas running the command with `--registry-name` creates the model in the registry.
 
 # [Python SDK](#tab/python)
 
@@ -480,17 +489,16 @@ In this workflow, you'll first create the model in the workspace and then copy i
 
 Make sure you have the name of the pipeline job from the previous section and replace that in the command to fetch the training job name below. You'll then register the model from the output of the training job into the workspace. Note how the `--path` parameter refers to the output `train_job` output with the `azureml://jobs/$train_job_name/outputs/default/model` syntax. 
 
-```
+```azurecli
 # fetch the name of the train_job by listing all child jobs of the pipeline job
 train_job_name=$(az ml job list --parent-job-name <job-name> --workspace-name <workspace-name> --resource-group <workspace-resource-group> --query [0].name | sed 's/\"//g')
 # create model in workspace
 az ml model create --name nyc-taxi-model --version 1 --type mlflow_model --path azureml://jobs/$train_job_name/outputs/default/model 
 ```
-> [!TIP]
-> Use a random number for the `version` parameter if you get an error that model name and version exists.`
 
 > [!TIP]
-> If you have not configured the default workspace and resource group as explained in the prerequisites section, you will need to specify the `--workspace-name` and `--resource-group` parameters for the `az ml model create` to work.
+> * Use a random number for the `version` parameter if you get an error that model name and version exists.`
+> * If you have not configured the default workspace and resource group as explained in the prerequisites section, you will need to specify the `--workspace-name` and `--resource-group` parameters for the `az ml model create` to work.
 
 Note down the model name and version. You can validate if the model is registered in the workspace by browsing it in the Studio UI or using `az ml model show --name nyc-taxi-model --version $model_version` command.  
 
@@ -503,15 +511,15 @@ az ml model create --registry-name <registry-name> --path azureml://subscription
 ```
 
 > [!TIP]
-> Make sure to use the right model name and version if you changed it in the `az ml model create` command.
-> [!TIP]
-> The above command creates the model in the registry with the same name and version. You can provide a different name or version with the `--name` or `--version` parameters. 
+> * Make sure to use the right model name and version if you changed it in the `az ml model create` command.
+> * The above command creates the model in the registry with the same name and version. You can provide a different name or version with the `--name` or `--version` parameters. 
 Note down the `name` and `version` of the model from the output of the `az ml model create` command and use them with `az ml model show` commands as follows. You'll need the `name` and `version` in the next section when you deploy the model to an online endpoint for inference. 
 
 ```azurecli 
 az ml model show --name <model_name> --version <model_version> --registry-name <registry-name>
 ```
- You can also use `az ml model list --registry-name <registry-name>` to list all models in the registry or browse all components in the AzureML Studio UI. Make sure you navigate to the global UI and look for the Registries hub.
+
+You can also use `az ml model list --registry-name <registry-name>` to list all models in the registry or browse all components in the AzureML Studio UI. Make sure you navigate to the global UI and look for the Registries hub.
 
 # [Python SDK](#tab/python)
 
@@ -617,10 +625,8 @@ curl --request POST "$SCORING_URI" --header "Authorization: Bearer $ENDPOINT_KEY
 ```
 
 > [!TIP]
-> `curl` command works only on Linux
-
-> [!TIP]
-> If you have not configured the default workspace and resource group as explained in the prerequisites section, you will need to specify the `--workspace-name` and `--resource-group` parameters for the `az ml online-endpoint` and `az ml online-deployment` commands to work.
+> * `curl` command works only on Linux.
+> * If you have not configured the default workspace and resource group as explained in the prerequisites section, you will need to specify the `--workspace-name` and `--resource-group` parameters for the `az ml online-endpoint` and `az ml online-deployment` commands to work.
 
 # [Python SDK](#tab/python)
 
@@ -683,13 +689,9 @@ ml_client_workspace.online_endpoints.begin_delete(name=online_endpoint_name)
 
 ---
 
+## Next steps
 
-
-
-
-
-
-
-
-
-
+* [How to create and manage registries](how-to-manage-registries.md)
+* [How to manage environments](how-to-manage-environments-v2.md)
+* [How to train models](how-to-train-cli.md)
+* [How to create pipelines using components](how-to-create-component-pipeline-python.md)
