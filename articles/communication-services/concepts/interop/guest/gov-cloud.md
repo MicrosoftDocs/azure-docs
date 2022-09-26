@@ -15,7 +15,7 @@ Azure Communication Services are also support Government Cloud, but the Governme
 
 | M365 Term | Azure Term | Supported |
 | --- | --- | --- |
-| GCC-M | Public | ❌ |
+| [GCC](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc) | Public | ❌ |
 | [GCC-H](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod) | [US Goverment](/azure/azure-government/documentation-government-welcome) | ✔️ |
 
 ## Supported use cases
