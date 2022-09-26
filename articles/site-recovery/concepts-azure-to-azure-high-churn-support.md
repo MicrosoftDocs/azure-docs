@@ -24,7 +24,7 @@ Azure Site Recovery supports churn (data change rate) up to 100 MB/s per VM. You
 
 ## Limitations
 
-- These limits are based on our tests and doesn't cover all possible application I/O combinations. 
+- These limits are based on our tests and don't cover all possible application I/O combinations. 
 - Actual results may vary based on your app I/O mix. 
 - There are two limits to consider, per disk data churn and per virtual machine data churn. 
 - Limit per virtual machine data churn - 100 MB/s. 
