@@ -228,6 +228,8 @@ items:
         href: essentials/prometheus-remote-write.md
       - name: Rule groups
         href: essentials/prometheus-metrics-rule-groups.md
+      - name: Troubleshoot collection
+        href: containers/container-insights-prometheus-metrics-troubleshoot.md
       - name: Customize collection
         items:
         - name: Default configuration
@@ -1276,8 +1278,6 @@ items:
         href: containers/container-insights-prometheus-monitoring-addon.md
       - name: Send to managed Prometheus
         href: containers/container-insights-prometheus-metrics-addon.md
-    - name: Troubleshoot collection
-      href: containers/container-insights-prometheus-metrics-troubleshoot.md
     - name: Configure
       items:
       - name: Agent management

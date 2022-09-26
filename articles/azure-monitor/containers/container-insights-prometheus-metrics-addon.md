@@ -62,20 +62,22 @@ Use the following procedure to install the Azure Monitor agent and the metrics a
 Use `az aks update` with the `-enable-azuremonitormetrics` option to install the metrics addon. Following are multiple options depending on the Azure Monitor workspace and Grafana workspace you want to use.
 
 
-**Create a new default Azure Monitor workspace.**
+**Create a new default Azure Monitor workspace.**<br>
 The workspace will be in the region specific in [Region mappings](#region-mappings).
 
 ```azurecli
 az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group>`
 ```
 
-**Use an existing Azure Monitor workspace.**
+**Use an existing Azure Monitor workspace.**<br>
+If the Azure Monitor workspace is linked to one or more Grafana workspaces, then the data will be available in Grafana.
 
 ```azurecli
 az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <workspace-name-resource-id>
 ```
 
-**Use an existing Azure Monitor workspace and integrate with an existing Grafana workspace.**
+**Use an existing Azure Monitor workspace and link with an existing Grafana workspace.**<br>
+This creates a link between the Azure Monitor workspace and the Grafana workspace.
 
 ```azurecli
 az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <azure-monitor-workspace-name-resource-id> --grafana-resource-id  <grafana-workspace-name-resource-id>`
