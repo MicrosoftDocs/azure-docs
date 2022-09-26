@@ -418,6 +418,8 @@
           href: ../how-to-define-unique-keys.md
         - name: Perform transactional batch operations
           href: transactional-batch.md
+        - name: Delete items by partition key (preview)
+          href: how-to-delete-by-partition-key.md
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
           href: find-request-unit-charge.md
@@ -1040,8 +1042,6 @@
           href: ../how-to-move-regions.md
         - name: Prevent changes or deletion
           href: ../resource-locks.md
-        - name: Back up and restore
-          items:
     - name: Global distribution
       items:
         - name: Distribute data globally tutorial
@@ -1255,8 +1255,8 @@
       href: ../policy-reference.md
 - name: Resources
   items:
-    - name: Build your skills with Microsoft Learn
-      href: /learn/browse/?products=azure-cosmos-db
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/?products=azure-cosmos-db
     - name: FAQ
       href: ../faq.yml?toc=/azure/cosmos-db/sql/toc.json
     - name: Whitepapers

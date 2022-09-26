@@ -189,4 +189,4 @@ To learn more about the CI/CD pipeline, see:
 
 ## Videos
 
-> [!VIDEO https://docs.microsoft.com/Events/Build/2018/BRK3308/player]
+> [!VIDEO https://learn.microsoft.com/Events/Build/2018/BRK3308/player]

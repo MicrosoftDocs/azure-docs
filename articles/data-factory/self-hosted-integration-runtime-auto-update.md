@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
 ms.custom: seo-lt-2019
-ms.date: 06/16/2021
+ms.date: 08/18/2022
 ---
 
 # Self-hosted integration runtime auto-update and expire notification
