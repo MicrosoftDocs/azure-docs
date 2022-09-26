@@ -1073,7 +1073,9 @@
             - name: Use Always Encrypted
               href: ../how-to-always-encrypted.md
             - name: Configure customer-managed keys
-              href: ../how-to-setup-cmk.md
+              href: ../how-to-setup-customer-managed-keys.md
+            - name: Configure cross-tenant customer-managed keys
+              href: ../how-to-setup-cross-tenant-customer-managed-keys.md
             - name: Access Azure Key Vault with managed identity
               href: ../access-key-vault-managed-identity.md
         - name: Managed Identity
