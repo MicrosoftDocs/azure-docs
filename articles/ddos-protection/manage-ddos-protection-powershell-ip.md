@@ -35,7 +35,7 @@ You can enable DDoS IP Protection when creating a public IP address. In this exa
 New-AzResourceGroup -Name MyResourceGroup -Location eastus
 
 #Creates the IP address and enables DDoS IP Protection
-New-AzPublicIpAddress -Name myStandardPublicIP -ResourceGroupName MyResourceGroup -Location "East US" -DdosProtectionMode Enabled   
+New-AzPublicIpAddress -Name myStandardPublicIP -ResourceGroupName MyResourceGroup -Location "East US" -AllocationMethod Static -DdosProtectionMode Enabled   
 ```
 
 ### Enable DDoS IP Protection for an existing public IP address
@@ -43,11 +43,14 @@ New-AzPublicIpAddress -Name myStandardPublicIP -ResourceGroupName MyResourceGrou
 You can associate an existing public IP address:
 
 ```azurepowershell-interactive
-$pip = Get-AzPublicIpAddress -Name myStandardPublicIP -ResourceGroupName MyResourceGroup 
+#Gets the public IP address
+$publicIp = Get-AzPublicIpAddress -Name myStandardPublicIP -ResourceGroupName MyResourceGroup 
 
-$pip.DdosSettings.ProtectionMode = Enabled
+#Enables DDoS IP Protection for the public IP address
+$publicIp.DdosSettings.ProtectionMode = Enabled
 
-Set-AzPublicIpAddress -PublicIpAddress $pip 
+#Updates public IP address
+Set-AzPublicIpAddress -PublicIpAddress $publicIp
 ```
 
 
@@ -56,7 +59,11 @@ Set-AzPublicIpAddress -PublicIpAddress $pip
 Check the details of your public IP address and verify that DDoS IP Protection is enabled.
 
 ```azurepowershell-interactive
-$pip = Get-AzPublicIpAddress  -Name <String>  -ResourceGroupName <String>  
+#Gets the public IP address
+$publicIp = Get-AzPublicIpAddress -Name myStandardPublicIP -ResourceGroupName MyResourceGroup 
+
+$protectionMode = $publicIp.DdosSettings.ProtectionMode
+
 ```
 
 ## Clean up resources
@@ -70,11 +77,11 @@ Remove-AzResourceGroup -Name MyResourceGroup
 ### Disable DDoS IP Protection for an existing public IP address
 
 ```azurepowershell-interactive
-$pip = Get-AzPublicIpAddress -Name myStandardPublicIP -ResourceGroupName MyResourceGroup 
+$publicIp = Get-AzPublicIpAddress -Name myStandardPublicIP -ResourceGroupName MyResourceGroup 
 
-$pip.DdosSettings.ProtectionMode = Disable
+$publicIp.DdosSettings.ProtectionMode = Disable
 
-Set-AzPublicIpAddress -PublicIpAddress $pip 
+Set-AzPublicIpAddress -PublicIpAddress $publicIp 
 ```
 
 ## Next steps
