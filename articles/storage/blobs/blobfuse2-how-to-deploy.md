@@ -6,7 +6,7 @@ author: jammart
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 08/02/2022
+ms.date: 09/26/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
@@ -59,14 +59,14 @@ To install BlobFuse2:
 1. Retrieve the latest Blobfuse2 binary for your distro from GitHub, for example:
 
     ```bash
-    wget https://github.com/Azure/azure-storage-fuse/releases/download/blobfuse2-2.0.0-preview2/blobfuse2-2.0.0-preview.2-ubuntu-20.04-x86-64.deb
+    wget https://github.com/Azure/azure-storage-fuse/releases/download/blobfuse2-2.0.0-preview.3/blobfuse2-2.0.0-preview.3-Ubuntu-22.04-x86-64.deb
     ```
     
 1. Install BlobFuse2. For example, on an Ubuntu distribution run:
 
     ```bash
     sudo apt-get install libfuse3-dev fuse3 
-    sudo apt install blobfuse2-2.0.0-preview.2-ubuntu-20.04-x86-64.deb
+    sudo dpkg -i blobfuse2-2.0.0-preview.3-Ubuntu-22.04-x86-64.deb
     ```
     
 ### Option 2: Build from source

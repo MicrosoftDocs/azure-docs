@@ -15,10 +15,13 @@ ms.reviewer: tamram
 
 ## Overview
 
-> [!NOTE]
-> This article is about the original version of BlobFuse. It is simply referred to as "BlobFuse" in many cases, but is also referred to as "BlobFuse v1" in this and other articles to distinguish it from the next generation of BlobFuse, BlobFuse2.  BlobFuse2 is currently in preview and might not be suitable for production workloads.
+> [!IMPORTANT]
+> [BlobFuse2](blobfuse2-what-is.md) is the latest version of BlobFuse and has many significant improvements over the original version of BlobFuse.
+> To learn about the improvements made in BlobFuse2, see [the list of BlobFuse2 enhancements](blobfuse2-what-is.md#blobfuse2-enhancements).
 >
-> To learn about the improvements made in BlobFuse2, see [What is BlobFuse2?](blobfuse2-what-is.md).
+> BlobFuse2 is currently in preview and might not be suitable for production workloads.
+>
+> This article is about the original version of BlobFuse. It is simply referred to as "BlobFuse" in many cases, but is also referred to as "BlobFuse v1" in this and other articles to distinguish it from the next generation of BlobFuse, BlobFuse2.
 
 [BlobFuse](https://github.com/Azure/azure-storage-fuse) is a virtual file system driver for Azure Blob storage. BlobFuse allows you to access your existing block blob data in your storage account through the Linux file system. BlobFuse uses the virtual directory scheme with the forward-slash '/' as a delimiter.
 
