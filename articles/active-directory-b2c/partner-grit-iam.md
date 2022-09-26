@@ -45,7 +45,8 @@ Contoso does business with end customers and large enterprises, like Fabrikam_bi
 
 This integration is composed of the following components:
 
-- **Azure AD B2C Identity Experience Framework (IEF)**: An engine that executes user journeys, which can include validating credentials, performing MFA, checking user access. It's aided by the Azure AD database and the API layer, configured using XML.
+- **Azure AD B2C Identity Experience Framework (IEF)**: An engine that executes user journeys, which can include validating credentials, performing MFA, checking user access. It's aided by the Azure AD database and the API layer, which's configured using XML.
+
 
 - **Grit API layer**: This layer exposes user profile data and metadata about organizations and applications. The data is stored in Azure AD and Cosmos DB.
 
