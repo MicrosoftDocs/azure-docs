@@ -21,7 +21,7 @@ To enhance development of your APIs, you can export an API fronted in API Manage
     For testing authorization in Postman later in this article, the API should require a subscription.
 
 + A [Postman](https://www.postman.com) account, which you can use to access Postman for Web.
-    * Optionally, [download](https://www.postman.com/downloads/) and install the Postman desktop app locally.
+    * Optionally, [download and install](https://learning.postman.com/docs/getting-started/installation-and-updates/) the Postman desktop app locally.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
