@@ -44,7 +44,7 @@ Managed identity can be enabled either when you create a cache instance or after
 
 Managed identity for storage is only used with the import/export feature and persistence feature at present, which limits its use to the Premium tier of Azure Cache for Redis.
 
-Managed identity for storage is not supported on caches that have a dependency on Cloud Services (classic). For more information on what actions to take, [Caches with a dependency on cloud services](cache-faq.yml#caches-with-a-dependency-on-cloud-services--classic-).
+Managed identity for storage is not supported on caches that have a dependency on Cloud Services (classic). For more information on what actions to take, [Caches with a dependency on cloud services](cache-faq.yml#caches-with-a-dependency-on-cloud-services-(classic-)).
 
 ## Create a new cache with managed identity using the portal
 
