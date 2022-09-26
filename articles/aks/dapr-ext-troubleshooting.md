@@ -56,10 +56,9 @@ az k8s-extension list --cluster-type managedClusters --cluster-name myCluster --
 
 For these cases, possible remediation actions are to:
 
-- Force delete and [reinstall the Dapr extension](./dapr.md). 
 - [Restart your AKS or Arc for Kubernetes cluster](./start-stop-cluster.md).
 - Make sure you've [registered the `KubernetesConfiguration` service provider](./dapr.md#register-the-kubernetesconfiguration-service-provider).
-- See if you're encountering an error [installing the `microsoft.flux` extension](../azure-arc/kubernetes/troubleshooting.md#flux-v2---error-installing-the-microsoftflux-extension).
+- Force delete and [reinstall the Dapr extension](./dapr.md). 
 
 See below for examples of error messages you may encounter during Dapr extension install or update.
 
