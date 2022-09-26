@@ -35,22 +35,20 @@ To verify if a method can be used:
 
 If the user is registered for an enabled method that meets the authentication strength, they might need to use another method that isn't available after primary authentication, such as Windows Hello for Business or certificate-based authentication. For more information, see [How each authentication method works](concept-authentication-methods.md#how-each-authentication-method-works). The user will need to restart the session and choose **Sign-in options** and select a method required by the authentication strength.
 
-## A user is blocked from accessing a resource
+## A user can't accessing a resource
 
-If authentication strength requires a method a user can’t use (for example, they are not enabled for the method in the unified authentication method policy), the user is blocked from sign-in.
-
-Follow the steps outlined in the [previous question](/troubleshoot-authentication-strengths.md#a-user-is-prompted-to-use-a-different-authentication-method-but-they-dont-see-how-to-register-that-method) to identify which method the user is required to use by authentication strengths, and which method the user is enabled for by the unified authentication method policy. 
+If an authentication strength requires a method that a user can’t use, the user is blocked from sign-in. To check which method is required by an authentication strength, and which method the user is registered and enabled to use, follow the steps in the [previous section](#a-user-is-prompted-to-use-a-different-authentication-method-but-they-dont-see-how-to-register-that-method). 
 
 ## How to check which authentication strength was enforced during sign-in
 Use the **Sign-ins** log to find additional information about the sign-in: 
 
 - Under the **Authentication details** tab, the **Requirement** column shows the name of the authentication strengths policy.
 
-  :::image type="content" source="media/troubleshoot-authentication-strengths/sign-in-logs-authentication-details.png" alt-text="Screenshot showing the authentication strength in the Sign-ins log.":::
+  :::image type="content" source="./media/troubleshoot-authentication-strengths/sign-in-logs-authentication-details.png" alt-text="Screenshot showing the authentication strength in the Sign-ins log.":::
 
 - Under the **Conditional Access** tab, you can see which Conditional Access policy was applied. Click the name of the policy, and look for **Grant controls** to see the authentication strength that was enforced. 
 
-  :::image type="content" source="media/troubleshoot-authentication-strengths/sign-in-logs-control.png" alt-text="Screenshot showing the authentication strength under "Conditional Access Policy details" in the Sign-ins log.":::
+  :::image type="content" source="./media/troubleshoot-authentication-strengths/sign-in-logs-control.png" alt-text="Screenshot showing the authentication strength under Conditional Access Policy details in the Sign-ins log.":::
 
 ## My users can't use their FIDO2 security key to sign in
 An admin can restrict access to specific security keys. When a user tries to sign in by using a key they can't use, this **You can't get there from here** message appears. The user has to restart the session, and sign-in with a different FIDO2 security key.
