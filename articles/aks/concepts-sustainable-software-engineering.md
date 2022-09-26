@@ -21,7 +21,7 @@ Before applying sustainable software engineering principles to your application,
 
 ## Get started with sustainability software engineering
 
-* [What is a sustainability software engineering](/azure/architecture/framework/sustainability/sustainability-get-started)
+* [What is a sustainable workload](/azure/architecture/framework/sustainability/sustainability-get-started)
 * [Design Methodology for building sustainable workloads](/azure/architecture/framework/sustainability/sustainability-design-methodology)
 * [Design principles of a sustainable workload](/azure/architecture/framework/sustainability/sustainability-design-principles)
 
