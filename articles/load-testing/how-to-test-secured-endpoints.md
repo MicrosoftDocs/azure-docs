@@ -122,8 +122,8 @@ The following diagram shows how to use shared secrets or credentials to authenti
     1. Update the JMeter sampler component to pass the secret in the request. For example, to provide an OAuth2 access token, you configure the `Authentication` HTTP header:
         <!-- Add screenshot -->
 
+When you now run your load test, the JMeter script can retrieve the secret information from the secrets store and authenticate with the application endpoint.
 
-<!-- TODO: add certificate-based auth -->
 ## Authenticate with client certificates
 
 Support for PFX format certificate - must be stored in Azure Key Vault
