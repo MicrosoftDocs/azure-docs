@@ -59,7 +59,8 @@ Reference for more available credentials if it does not work for you: configure 
 
 <!-- Create a workspace object from the `config.json` file created in the [prerequisites section](#prerequisites). -->
 
-[!notebook-python[](~/azureml-examples-main/sdk/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=credential)]
+[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=credential)]
+
 
 ### Prepare scripts
 
