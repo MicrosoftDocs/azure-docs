@@ -3411,6 +3411,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/how-to-setup-cmk.md",
+      "redirect_url": "/azure/cosmos-db/how-to-setup-customer-managed-keys",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/sql-api-sdk-java-spring-v3.md",
       "redirect_url": "/azure/cosmos-db/sql/sql-api-sdk-java-spring-v3",
       "redirect_document_id": true
