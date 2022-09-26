@@ -158,7 +158,7 @@ foreach ($ResourceGroup in $ResourceGroups)
 
 ## Graphical runbooks
 
-You can test the managed identity to verify if the Graphical runbook is working as expected by creating a copy of your production runbook to use the managed identity and updating your test graphical runbook code to authenticate by using the managed identity. You can add this functionality to a graphical runbook by adding `Connect-AzAccount` cmdlet.
+You must test the managed identity to verify if the Graphical runbook is working as expected by creating a copy of your production runbook to use the managed identity and updating your test graphical runbook code to authenticate by using the managed identity. You can add this functionality to a graphical runbook by adding `Connect-AzAccount` cmdlet.
 
 Listed below is an example to guide on how a graphical runbook that uses Run As account use managed identities:
 
@@ -168,13 +168,13 @@ Listed below is an example to guide on how a graphical runbook that uses Run As 
 
     :::image type="content" source="./media/migrate-run-as-account-managed-identity/edit-graphical-runbook-inline.png" alt-text="Screenshot of edit graphical runbook." lightbox="./media/migrate-run-as-account-managed-identity/edit-graphical-runbook-expanded.png":::
 
-1. Replace, Run As connection that uses `AzureRunAsConnection`and connection asset that internally uses PowerShell `Get-AutomationConnection` cmdlet with graphical runbook functionality.
+1. Replace, Run As connection that uses `AzureRunAsConnection`and connection asset that internally uses PowerShell `Get-AutomationConnection` cmdlet with `Connect-AzAccount` cmdlet.
 
-1. Connect to Azure that uses `Connect-AzAccount` to add the authenticated Run As account for use in the runbook with `Connect-AzAccount` activity from the `Az.Accounts` cmdlet that uses the PowerShell code to connect to identity.
+1. Connect to Azure that uses `Connect-AzAccount` to add the identity support for use in the runbook using `Connect-AzAccount` activity from the `Az.Accounts` cmdlet that uses the PowerShell code to connect to identity.
 
     :::image type="content" source="./media/migrate-run-as-account-managed-identity/add-functionality-inline.png" alt-text="Screenshot of add functionality to graphical runbook." lightbox="./media/migrate-run-as-account-managed-identity/add-functionality-expanded.png":::
 
-1. Select **Code** to enter the following code.
+1. Select **Code** to enter the following code to pass the identity.
 
 ```powershell-interactive
 try 
@@ -190,7 +190,7 @@ catch {
 
 For example, in the runbook `Start Azure V2 VMs` in the runbook gallery, you must replace `Get Run As Connection` and `Connect to Azure` activities with `Connect-AzAccount` cmdlet activity.
 
-For more information, see sample runbook name *AzureAutomationTutorialWithIdentityGraphical* that you created with the Automation account.
+For more information, see sample runbook name *AzureAutomationTutorialWithIdentityGraphical* that gets created with the Automation account.
 
 
 ## Next steps
