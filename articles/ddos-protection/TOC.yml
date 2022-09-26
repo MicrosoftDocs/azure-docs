@@ -8,18 +8,26 @@
     href: ddos-protection-sku-comparison.md
 - name: Quickstarts
   items:
-  - name: Create a DDoS protection plan - Portal
-    href: manage-ddos-protection.md
-  - name: Create a DDoS protection plan - PowerShell
-    href: manage-ddos-protection-powershell.md
-  - name: Create a DDoS protection plan - CLI
-    href: manage-ddos-protection-cli.md
-  - name: Create a DDoS protection plan - Bicep
-    displayName: ARM, Resource Manager, Template
-    href: manage-ddos-protection-bicep.md
-  - name: Create a DDoS protection plan - ARM template
-    displayName: Resource Manager
-    href: manage-ddos-protection-template.md
+  - name: DDoS Network Protection
+    items:
+    - name: Portal
+      href: manage-ddos-protection.md
+    - name: PowerShell
+      href: manage-ddos-protection-powershell.md
+    - name: CLI
+      href: manage-ddos-protection-cli.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: manage-ddos-protection-bicep.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: manage-ddos-protection-template.md
+      expanded: true
+  - name: DDoS IP Protection
+    items:
+    - name: Portal
+      href: manage-ddos-protection-ip.md
+      expanded: true
 - name: Tutorials
   items:
   - name: View and configure DDoS telemetry
