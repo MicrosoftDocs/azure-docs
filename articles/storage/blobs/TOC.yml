@@ -568,8 +568,6 @@ items:
         href: secure-file-transfer-protocol-support-how-to.md
       - name: Mount storage by using NFS
         href: network-file-system-protocol-support-how-to.md
-      - name: Mount storage from Linux using BlobFuse
-        href: storage-how-to-mount-container-linux.md
       - name: Transfer data with the Data Movement library
         href: ../common/storage-use-data-movement-library.md?toc=/azure/storage/blobs/toc.json
     - name: Develop applications
@@ -762,8 +760,6 @@ items:
           items:
           - name: BlobFuse2 unmount all
             href: blobfuse2-commands-unmount-all.md?toc=/azure/storage/blobs/toc.json
-        - name: BlobFuse2 health-monitor
-          href: blobfuse2-commands-health-monitor.md?toc=/azure/storage/blobs/toc.json
         - name: BlobFuse2 completion
           href: blobfuse2-commands-completion.md?toc=/azure/storage/blobs/toc.json
           items:

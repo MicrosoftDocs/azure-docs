@@ -41,7 +41,6 @@ During the preview of BlobFuse2, refer to [the BlobFuse2 Health Monitor README o
 
 ## See also
 
-- [BlobFuse2 health-monitor command reference (preview)](blobfuse2-commands-health-monitor.md)
 - [What is BlobFuse2? (preview)](blobfuse2-what-is.md)
 - [BlobFuse2 configuration reference (preview)](blobfuse2-configuration.md)
 - [How to mount an Azure blob storage container on Linux with BlobFuse2 (preview)](blobfuse2-how-to-deploy.md)
