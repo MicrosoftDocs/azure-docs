@@ -239,7 +239,7 @@ When the fine-tune job has succeeded, the value of `fine_tuned_model` in the res
 > [!NOTE]
 > As with all applications, we require a review process prior to going live.
 
- You can use either [Azure OpenAI](#deploy-a-model-using-azure-openai) or the [Azure Command-Line Interface (CLI)](#deploy-a-model-with-azure-cli) to deploy your customized model.
+ You can use either [Azure OpenAI](#deploy-a-model-with-azure-openai) or the [Azure Command-Line Interface (CLI)](#deploy-a-model-with-azure-cli) to deploy your customized model.
 
 > [!NOTE]
 > Only one deployment is permitted for a customized model. An error occurs if you select an already-deployed customized model.
