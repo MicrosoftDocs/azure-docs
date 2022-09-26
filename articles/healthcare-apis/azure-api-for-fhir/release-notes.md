@@ -2,13 +2,13 @@
 title: Azure API for FHIR monthly releases
 description: This article provides details about the Azure API for FHIR monthly features and enhancements.
 services: healthcare-apis
-author: mikaelweave
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 06/16/2022
 ms.custom: references_regions
-ms.author: mikaelw
+ms.author: kesheth
 ---
 
 # Release notes: Azure API for FHIR
