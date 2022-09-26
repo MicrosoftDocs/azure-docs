@@ -1,12 +1,12 @@
 ---
 title: Manage firewall rules - Azure Cosmos DB for PostgreSQL
-description: Create and manage firewall rules for Azure Cosmos DB for PostgreSQL using the Azure portal
+description: Create and manage firewall rules for Azure Cosmos DB for PostgreSQL using the Azure portal.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 11/16/2021
+ms.date: 09/24/2022
 ---
 # Manage public access for Azure Cosmos DB for PostgreSQL
 
@@ -24,44 +24,44 @@ To step through this how-to guide, you need:
 ## Create a server-level firewall rule in the Azure portal
 
 > [!NOTE]
-> These settings are also accessible during the creation of an Azure Cosmos DB for PostgreSQL cluster. Under the **Networking** tab, select **Public access (allowed IP address)**.
+> These settings are also accessible during the creation of an Azure Cosmos DB for PostgreSQL cluster. On the **Networking** tab, for **Connectivity method**, select **Public access (allowed IP address)**.
 >
-> :::image type="content" source="media/howto-manage-firewall-using-portal/0-create-public-access.png" alt-text="Azure portal - networking tab":::
+> :::image type="content" source="media/howto-manage-firewall-using-portal/0-create-public-access.png" alt-text="Screenshot of selecting Public access on the Networking tab.":::
 
-1. On the PostgreSQL cluster page, under the Security heading, click **Networking** to open the Firewall rules.
+1. On the PostgreSQL cluster page, under **Settings**, select **Networking**.
 
-   :::image type="content" source="media/howto-manage-firewall-using-portal/1-connection-security.png" alt-text="Azure portal - click Networking":::
+   :::image type="content" source="media/howto-manage-firewall-using-portal/1-connection-security.png" alt-text="Screenshot of selecting Networking.":::
 
-2. Select **Allow public access from Azure services and resources within Azure to this cluster**.
+2. On the **Networking** page, select **Allow public access from Azure services and resources within Azure to this cluster**.
 
-3. If desired, select **Enable access to the worker nodes**. With this option, the firewall rules will allow access to all worker nodes as well as the coordinator node.
+3. If desired, select **Enable access to the worker nodes**. With this option, the firewall rules allow access to all worker nodes as well as the coordinator node.
 
-4. Click **Add current client IP address** to create a firewall rule with the public IP address of your computer, as perceived by the Azure system.
+4. Select **Add current client IP address** to create a firewall rule with the public IP address of your computer, as perceived by the Azure system.
 
-Alternately, clicking **+Add 0.0.0.0 - 255.255.255.255** (to the right of option B) allows not just your IP, but the whole internet to access the coordinator node's port 5432 (and 6432 for connection pooling). In this situation, clients still must log in with the correct username and password to use the cluster. Nevertheless, we recommend allowing worldwide access for only short periods of time and for only non-production databases.
+   Verify your IP address before saving this configuration. In some situations, the IP address observed by Azure portal differs from the IP address used when accessing the internet and Azure servers. Thus, you may need to change the start IP and end IP to make the rule function as expected. Use a search engine or other online tool to check your own IP address. For example, search for *what is my IP*.
 
-5. Verify your IP address before saving the configuration. In some situations, the IP address observed by Azure portal differs from the IP address used when accessing the internet and Azure servers. Thus, you may need to change the Start IP and End IP to make the rule function as expected.
-   Use a search engine or other online tool to check your own IP address. For example, search for "what is my IP."
+   :::image type="content" source="media/howto-manage-firewall-using-portal/3-what-is-my-ip.png" alt-text="Screenshot of Bing search for What is my IP.":::
 
-   :::image type="content" source="media/howto-manage-firewall-using-portal/3-what-is-my-ip.png" alt-text="Bing search for What is my IP":::
+   You can also select **Add 0.0.0.0 - 255.255.255.255** to allow not just your IP, but the whole internet to access the coordinator node's port 5432 (and 6432 for connection pooling). In this situation, clients still must log in with the correct username and password to use the cluster. Nevertheless, it's best to allow worldwide access for only short periods of time and for only non-production databases.
 
-6. Add more address ranges. In the firewall rules, you can specify a single IP address or a range of addresses. If you want to limit the rule to a single IP address, type the same address in the field for Start IP and End IP. Opening the firewall enables administrators, users, and applications to access the coordinator node on ports 5432 and 6432.
+6. To add firewall rules, type in the **Firewall rule name**, **Start IP address**, and **End IP address**. Opening the firewall enables administrators, users, and applications to access the coordinator node on ports 5432 and 6432. You can specify a single IP address or a range of addresses. If you want to limit the rule to a single IP address, type the same address in the field for start IP and end IP.
 
-7. Click **Save** on the toolbar to save this server-level firewall rule. Wait for the confirmation that the update to the firewall rules was successful.
+ Select **Save** on the toolbar to save the settings and server-level firewall rules. Wait for the confirmation that the update was successful.
 
-## Connecting from Azure
+## Connect from Azure
 
-There is an easy way to grant cluster access to applications hosted on Azure (such as an Azure Web Apps application, or those running in an Azure VM). Select the checkbox **Allow Azure services and resources to access this cluster** in the portal from the **Networking** pane and hit **Save**.
+There's an easy way to grant cluster access to applications hosted on Azure, such as an Azure Web Apps application or those running in an Azure VM. On the portal page for your cluster, select the checkbox **Allow Azure services and resources to access this cluster** from **Networking**, and then select **Save**.
 
 > [!IMPORTANT]
-> This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
+> This option configures the firewall to allow all connections from Azure, including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
 
 ## Manage existing server-level firewall rules through the Azure portal
 Repeat the steps to manage the firewall rules.
-* To add the current computer, click the button to + **Add current client IP address**. Click **Save** to save the changes.
-* To add more IP addresses, type in the Rule Name, Start IP Address, and End IP Address. Click **Save** to save the changes.
-* To modify an existing rule, click any of the fields in the rule and modify. Click **Save** to save the changes.
-* To delete an existing rule, click the ellipsis […] and click **Delete** to remove the rule. Click **Save** to save the changes.
+* To add the current computer, select **Add current client IP address**. Select **Save** to save the changes.
+* To add more IP addresses, type in the **Firewall rule name**, **Start IP address**, and **End IP address**. Select **Save** to save the changes.
+* To modify an existing rule, select any of the fields in the rule and modify. Select **Save** to save the changes.
+* To delete an existing rule, select the ellipsis **...** and then select **Delete** to remove the rule. Select **Save** to save the changes.
 
 ## Next steps
-- Learn more about [Concept of firewall rules](concepts-firewall-rules.md), including how to troubleshoot connection problems.
+
+For more about firewall rules, including how to troubleshoot connection problems, see [Public access in Azure Cosmos DB for PostgreSQL](concepts-firewall-rules.md).

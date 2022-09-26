@@ -1,12 +1,12 @@
 ---
 title: Restore - Azure Cosmos DB for PostgreSQL - Azure portal
-description: This article describes how to perform restore operations in Azure Cosmos DB for PostgreSQL through the Azure portal.
+description: See how to perform restore operations in Azure Cosmos DB for PostgreSQL through the Azure portal.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 07/09/2021
+ms.date: 09/24/2022
 ---
 
 # Point-in-time restore of a cluster
@@ -18,64 +18,38 @@ recoveries](concepts-backup.md#restore) for a
 cluster using backups. You can restore either to the earliest backup or to
 a custom restore point within your retention period.
 
-## Restoring to the earliest restore point
+> [!IMPORTANT]
+> If the **Restore** option isn't present for your cluster, open an Azure support request to restore your cluster.
+
+## Restore to the earliest restore point
 
 Follow these steps to restore your cluster to its
 earliest existing backup.
 
-1.  In the [Azure portal](https://portal.azure.com/), choose the cluster
-	that you want to restore.
+1.  In the [Azure portal](https://portal.azure.com/), from the **Overview** page of the cluster you want to restore, select **Restore**.
 
-2.  Click **Overview** from the left panel and click **Restore**.
+1. On the **Restore** page, select the **Earliest** restore point, which is shown.
 
-	> [!IMPORTANT]
-	> If the **Restore** button is not yet present for your cluster,
-	> please open an Azure support request to restore your cluster.
+1. Provide a new cluster name in the **Restore to new cluster** field. The subscription, resource group, and location fields aren't editable.
 
-3.  The restore page will ask you to choose between the **Earliest** and a
-	**Custom** restore point, and will display the earliest date.
+1. Select **OK**. A notification shows that the restore operation is initiated.
 
-4.  Select **Earliest restore point**.
+1. When the restore completes, follow the [post-restore tasks](#post-restore-tasks).
 
-5.  Provide a new cluster name in the **Restore to new server** field. The
-	other fields (subscription, resource group, and location) are displayed but
-	not editable.
-
-6.  Click **OK**.
-
-7.  A notification will be shown that the restore operation has been initiated.
-
-Finally, follow the [post-restore tasks](#post-restore-tasks).
-
-## Restoring to a custom restore point
+## Restore to a custom restore point
 
 Follow these steps to restore your cluster to a date
 and time of your choosing.
 
-1.  In the [Azure portal](https://portal.azure.com/), choose the cluster
-	that you want to restore.
+1.  In the [Azure portal](https://portal.azure.com/), from the **Overview** page of the cluster you want to restore, select **Restore**.
 
-2.  Click **Overview** from the left panel and click **Restore**
+1. On the **Restore** page, choose **Custom restore point**.
 
-	> [!IMPORTANT]
-	> If the **Restore** button is not yet present for your cluster,
-	> please open an Azure support request to restore your cluster.
-
-3.  The restore page will ask you to choose between the **Earliest** and a
-	**Custom** restore point, and will display the earliest date.
-
-4.  Choose **Custom restore point**.
-
-5.  Select date and time for **Restore point (UTC)**, and provide a new cluster
-	name in the **Restore to new server** field. The other fields
-	(subscription, resource group, and location) are displayed but not editable.
+1. Select a date and provide a time in the date and time fields, and enter a cluster name in the **Restore to new cluster** field. The other fields aren't editable.
  
-6.  Click **OK**.
+1. Select **OK**. A notification shows that the restore operation is initiated.
 
-7.  A notification will be shown that the restore operation has been
-    initiated.
-
-Finally, follow the [post-restore tasks](#post-restore-tasks).
+1. When the restore completes, follow the [post-restore tasks](#post-restore-tasks).
 
 ## Post-restore tasks
 
@@ -95,5 +69,4 @@ back up and running:
 
 * Learn more about [backup and restore](concepts-backup.md) in
   Azure Cosmos DB for PostgreSQL.
-* Set [suggested
-  alerts](./howto-alert-on-metric.md#suggested-alerts) on clusters.
+* Set [suggested alerts](./howto-alert-on-metric.md#suggested-alerts) on clusters.
