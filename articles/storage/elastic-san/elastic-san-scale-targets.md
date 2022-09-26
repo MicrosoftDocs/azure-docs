@@ -33,16 +33,33 @@ The throughput of an Elastic SAN increases by 80 MB/s per base TiB. So if you ha
 
 ### Elastic SAN scale targets
 
-The appliance scale targets vary depending on region and redundancy of the SAN itself. The following table breaks out the scale targets based on the SAN's [redundancy](elastic-san-planning.md#redundancy) and the region where it's located.
+The appliance scale targets vary depending on region and redundancy of the SAN itself. The following table breaks out the scale targets based on whether the SAN's [redundancy](elastic-san-planning.md#redundancy) is set to locally-redundant storage (LRS) or zone-redundant storage (ZRS), and what region the SAN is in.
 
-|Resource  |West US 2  |France Central  |Southeast Asia  |
+#### LRS
+
+
+|Resource  |West US 2   |France Central   |Southeast Asia  |
 |---------|---------|---------|---------|
 |Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5         |5         |
-|Maximum total capacity (TiB)     | LRS - 600 <br/> ZRS - 200         |LRS - 100 <br/> ZRS - 200         |LRS - 100         |
-|Maximum base capacity (TiB)    |LRS - 400 <br/> ZRS - 100         |LRS - 100 <br/> ZRS - 100         |LRS - 100         |
+|Maximum total capacity (TiB)     |600         |100         |100         |
+|Maximum base capacity (TiB)    |400         |100         |100         |
 |Minimum total capacity (TiB)    |64          |64         |64         |
-|Maximum total IOPS     |LRS - 2,000,000 <br/> ZRS - 500,000         |LRS/ZRS - 500,000         |LRS - 500,000         |
-|Maximum total throughput (MB/s)    |LRS - 32,000 <br/> ZRS - 8,000         |LRS/ZRS - 8,000         |LRS - 8,000         |
+|Maximum total IOPS     |2,000,000 |500,000         |500,000         |
+|Maximum total throughput (MB/s)    |32,000 |8,000         |8,000         |
+
+
+#### ZRS
+
+ZRS is only available in West US 2 and France Central.
+
+|Resource  |West US 2  |France Central  |
+|---------|---------|---------|
+|Maximum number of Elastic SAN that can be deployed per subscription per region     |5         |5         |
+|Maximum total capacity (TiB)     |200         |200         |
+|Maximum base capacity (TiB)    |100         |100         |
+|Minimum total capacity (TiB)    |64          |64         |
+|Maximum total IOPS     | 500,000         |LRS/ZRS - 500,000         |L
+|Maximum total throughput (MB/s)    | 8,000         |8,000         |
 
 
 ## Volume group

@@ -34,7 +34,7 @@ With an Elastic SAN, it's possible to scale your performance up to millions of I
 
 ### Cost optimization and consolidation
 
-Cost optimization can be achieved with Elastic SAN since you can increase your SAN storage in bulk. You can either increase your performance along with the storage capacity, or increase the storage capacity without increasing the SAN's performance, potentially offering a lower total cost of ownership.
+Cost optimization can be achieved with Elastic SAN since you can increase your SAN storage in bulk. You can either increase your performance along with the storage capacity, or increase the storage capacity without increasing the SAN's performance, potentially offering a lower total cost of ownership. With Elastic SAN, you generally won't need to overprovision volumes, because you share the performance of the SAN with all its volumes.
 
 ## Elastic SAN resources
 
@@ -77,39 +77,6 @@ The status of items in this table may change over time.
 | Grant network access to specific Azure virtual networks|  ✔️  |
 | Soft delete | ⛔  |
 | Snapshots | ⛔ |
-
-### iSCSI support
-
-Elastic SAN has some limitations with iSCSI.
-
-Elastic SAN currently doesn't support the following iSCSI features:
-- CHAP authorization
-- Initiator registration
-- iSCSI Error Recovery Levels 1 and 2
-- ESXi iSCSI flow control
-- More than one LUN per iSCSI target
-- Multiple connections per session (MC/S)
-
-Only the following iSCSI commands are currently supported:
-- TEST UNIT READY
-- REQUEST SENSE
-- INQUIRY
-- REPORT LUNS
-- MODE SENSE
-- READ CAPACITY (10)
-- READ CAPACITY (16)
-- READ (6)
-- READ (10)
-- READ (16)
-- WRITE (6)
-- WRITE (10)
-- WRITE (16)
-- WRITE VERIFY (10)
-- WRITE VERIFY (16)
-- VERIFY (10)
-- VERIFY (16)
-- SYNCHRONIZE CACHE (10)
-- SYNCHRONIZE CACHE (16)
 
 ## Next steps
 

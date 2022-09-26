@@ -17,42 +17,12 @@ This article explains how to deploy and configure an elastic storage area networ
 
 - Sign up for the preview at [https://aka.ms/ElasticSANPreviewSignUp](https://aka.ms/ElasticSANPreviewSignUp).
     You'll receive an email when your subscription has been enrolled in the preview.
-- An Azure Virtual Network in the same region as your compute clients.
 - If you're using Azure Powershell, use `Install-Module -Name Az.Elastic-SAN -Scope CurrentUser -Repository PSGallery -Force -RequiredVersion .10-preview` to install the preview module.
 - If you're using Azure CLI, install version `2.41.0`. For installation instructions, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Limitations
 
-Currently, Elastic SAN (preview) is only available in the following regions:
-
-- West US 2
-- France Central
-- Southeast Asia
-
-## Configure virtual network
-
-Enable the Storage service endpoint on your subnet so that traffic is routed optimally to your Elastic SAN.
-
-# [Portal](#tab/azure-portal)
-
-1. Navigate to your virtual network and select **Service Endpoints**.
-1. Select **+ Add** and for **Service** select **Microsoft.Storage**.
-1. Select any policies you like, as well as the subnet you deploy your Elastic SAN into and select **Add**.
-
-:::image type="content" source="media/elastic-san-create/elastic-san-service-endpoint.png" alt-text="Screenshot of the virtual network service endpoint page, adding the storage service endpoint." lightbox="media/elastic-san-create/elastic-san-service-endpoint.png":::
-
-# [PowerShell](#tab/azure-powershell)
-
-```powershell
-Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --service-endpoints "Microsoft.Storage"
-```
----
+[!INCLUDE [elastic-san-regions](../../../includes/elastic-san-regions.md)]
 
 ## Register for the preview
 
@@ -116,13 +86,11 @@ az elastic-san create -n $sanName -g $resourceGroupName -l $sanLocation –base-
 ```
 ---
 
-
 ## Create volume groups
 
 Now that you've configured the basic settings and provisioned your storage, you can create volume groups. Volume groups are a tool for managing volumes at scale. Any settings or configurations applied to a volume group apply to all volumes associated with that volume group.
 
 # [Portal](#tab/azure-portal)
-
 
 1. Select **+ Create volume group** and name your volume.
     The volume group name can't be changed once created.
@@ -184,78 +152,6 @@ az elastic-san volume-group create --elastic-san-name $sanName -g $resourceGroup
 ```
 ---
 
+## Next steps
 
-## Configure networking
-
-Now that your SAN has been deployed, configure the network security settings on your volume groups. You can grant network access to a volume group from one or more Azure virtual networks.
-
-By default, no network access is allowed to any volumes in a volume group. Adding a virtual network to your volume group lets you to establish iSCSI connections from clients in the same virtual network and subnet to the volumes in the volume group.
-
-# [Portal](#tab/azure-portal)
-
-1. Navigate to your SAN and select **Volume groups**.
-1. Select a volume group and select **Modify**.
-1. Add an existing virtual network and select **Save**.
-
-# [PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-$rule1 = New-AzElasticSanVirtualNetworkRuleObject -VirtualNetworkResourceId <resourceIDHere> -Action Allow
-
-Update-AzElasticSanVolumeGroup -ResourceGroupName $rgName -ElasticSanName $sanName -Name $volGroupName -NetworkAclsVirtualNetworkRule $rule1
-```
-# [Azure CLI](#tab/azure-cli)
-
-```azurecli
-az elastic-san volume-group update -e $sanName -g $resourceGroupName --name $volumeGroupName --network-acls "{virtualNetworkRules:[{id:/subscriptions/subscriptionID/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/vnetName/subnets/default, action:Allow}]}"
-```
-
-
----
-
-## Connect a volume
-
-### Windows
-
-You'll need to construct a command to connect to your volume from a client. 
-
-```powershell
-# Get the target name and iSCSI portal name to connect a volume to a client 
-$connectVolume = Get-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -GroupName $searchedVolumeGroup -Name $searchedVolume
-$storageTargetIQN = $connectVolume.storagetargetiqn
-$portalName = $connectVolume.storagetargetportalhostname
-$port = $connectVolume.storagetargetportalport
-
-# Add target IQN
-# The *s are essential, as they are default arguments
-iscsicli AddTarget $storageTargetIQN * $portalName $port * 0 * * * * * * * * * 0
-
-# Login
-
-# The *s are essential, as they are default arguments
-iscsicli LoginTarget $storageTargetIQN t $portalName $port Root\ISCSIPRT\0000_0 -1 * * * * * * * * * * * 0
-
-```
-
-### Linux
-
-First, get the information from the volume you'd like to connect to using the following command:
-
-```azurecli
-az elastic-san volume-group list -e $sanName -g $resourceGroupName -v $searchedVolumeGroup -n $searchedVolume
-```
-
-You should see a list of output that looks like the following:
-
-:::image type="content" source="media/elastic-san-create/elastic-san-vol.png" alt-text="Screenshot of command output." lightbox="media/elastic-san-create/elastic-san-vol.png":::
-
-
-
-Note down the values for **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort**, you'll need them for the next commands inside your compute client.
-Replace **yourStorageTargetIQN**, **yourStorageTargetPortalHostName**, and **yourStorageTargetPortalPort** with the values you kept, then run the following commands from your compute client to connect an Elastic SAN volume..
-
-```bash
-iscsiadm -m node --targetname **yourStorageTargetIQN** --portal **yourStorageTargetPortalHostName**:**yourStorageTargetPortalPort** -o new
-
-iscsiadm -m node --targetname **yourStorageTargetIQN** -p **yourStorageTargetPortalHostName**:**yourStorageTargetPortalPort** -l
-```
+Now that you've deployed an Elastic SAN, [Connect to Elastic SAN (preview) volumes](elastic-san-connect.md).

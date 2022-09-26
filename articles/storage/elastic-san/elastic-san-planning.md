@@ -55,3 +55,38 @@ All data stored in an Elastic SAN is encrypted at rest using Azure storage servi
 Data in an Azure Elastic SAN is encrypted and decrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant. Encryption is enabled for all Elastic SANs and can't be disabled. Because your data is secured by default, you don't need to modify your code, or applications to take advantage of SSE. There's no extra cost for SSE.
 
 For more information about the cryptographic modules underlying SSE, see [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal).
+
+## Protocol compatibility
+
+### iSCSI support
+
+Elastic SAN has some limitations with iSCSI.
+
+Elastic SAN currently doesn't support the following iSCSI features:
+- CHAP authorization
+- Initiator registration
+- iSCSI Error Recovery Levels 1 and 2
+- ESXi iSCSI flow control
+- More than one LUN per iSCSI target
+- Multiple connections per session (MC/S)
+
+Only the following iSCSI commands are currently supported:
+- TEST UNIT READY
+- REQUEST SENSE
+- INQUIRY
+- REPORT LUNS
+- MODE SENSE
+- READ CAPACITY (10)
+- READ CAPACITY (16)
+- READ (6)
+- READ (10)
+- READ (16)
+- WRITE (6)
+- WRITE (10)
+- WRITE (16)
+- WRITE VERIFY (10)
+- WRITE VERIFY (16)
+- VERIFY (10)
+- VERIFY (16)
+- SYNCHRONIZE CACHE (10)
+- SYNCHRONIZE CACHE (16)

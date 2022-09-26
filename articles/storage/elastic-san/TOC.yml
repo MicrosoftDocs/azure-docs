@@ -16,6 +16,8 @@ items:
   items:
   - name: Deploy an Elastic SAN
     href: elastic-san-create.md
+  - name: Connect to an Elastic SAN volume
+    href: elastic-san-connect.md
   - name: Expand an Elastic SAN
     href: elastic-san-expand.md
   - name: Configure virtual networks
