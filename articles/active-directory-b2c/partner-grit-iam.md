@@ -55,7 +55,8 @@ This integration is composed of the following components:
 - **Grit Admin portal**: Used by the *Contoso* admin and by admins of *fabrikam_big1*, and *fabirkam_small1*. Delegated admins can manage users and their access. Super admins of the organizations manage all users.
 
 
-- **Grit Visual IEF editor**: A low code/no code editor that customizes the user journey and is provided by Grit. It produces the XML used by IEF. Contoso developers use it to customize user journeys.
+- **Grit Visual IEF editor**: A low code/no code editor that customizes the user journey and is provided by Grit. It produces the XML used by IEF. *Contoso* developers use it to customize user journeys.
+
 
 - **Applications**: Developed by Contoso or third parties. Applications use Open ID or SAML to connect to the CIAM system. Tokens they receive contain user-profile information, but can make API calls, with the token as auth mechanism, to do user-profile data create, read, update and delete (CRUD) operations.
 
