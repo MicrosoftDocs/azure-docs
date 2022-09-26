@@ -3,7 +3,7 @@ title: 'Quickstart: Azure Blob Storage library v12 - Python'
 description: In this quickstart, you learn how to use the Azure Blob Storage client library version 12 for Python to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 01/28/2021
+ms.date: 09/26/2022
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: blobs
@@ -86,13 +86,13 @@ Use the following Python classes to interact with these resources:
 
 These example code snippets show you how to do the following tasks with the Azure Blob Storage client library for Python:
 
-- [Get the connection string](#get-the-connection-string)
+- [Get the connection string](#get-the-connection-string-for-authentication)
 - [Create a container](#create-a-container)
 - [Upload blobs to a container](#upload-blobs-to-a-container)
 - [List the blobs in a container](#list-the-blobs-in-a-container)
 - [Download blobs](#download-blobs)
 - [Delete a container](#delete-a-container)
-
+d
 ### Get the connection string for authentication
 
 The code below retrieves the storage account connection string from the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
