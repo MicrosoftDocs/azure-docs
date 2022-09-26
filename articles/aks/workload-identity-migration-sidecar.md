@@ -144,7 +144,7 @@ proxy "msg"="received token request"
 This article showed you how to set up your pod to authenticate using a workload identity as a migration option. For more information about Azure AD workload identity (preview), see the following [Overview][workload-identity-overview] article.
 
 <!-- INTERNAL LINKS -->
-[pod-annotations]: workload-identity-overview.md#service-account-labels-and-annotations
+[pod-annotations]: workload-identity-overview.md#pod-annotations
 [az-identity-create]: /cli/azure/identity#az-identity-create
 [az-account-set]: /cli/azure/account#az-account-set
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
