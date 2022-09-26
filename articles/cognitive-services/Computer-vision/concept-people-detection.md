@@ -20,7 +20,7 @@ Version 4.0 of Image Analysis offers the ability to detect people appearing in i
 > [!IMPORTANT]
 > you need 4.0 for this TBD
 
-## Image description example
+## People detection example
 
 The following JSON response illustrates what the Analyze API returns when describing the example image based on its visual features.
 

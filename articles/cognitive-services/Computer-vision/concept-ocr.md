@@ -269,4 +269,4 @@ The text reading feature is part of the [Analyze Image](TBD) API. You can call t
 
 ## Next steps
 
-Follow the [quickstart](./quickstarts-sdk/client-library.md) to read text from an image using the Analyze API.
+Follow the [quickstart](./quickstarts-sdk/image-analysis-client-library.md) to read text from an image using the Analyze API.
