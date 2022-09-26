@@ -155,28 +155,28 @@ items:
     href: concept-model-overview.md
   - name: Form Recognizer Studio | v3.0
     href: concept-form-recognizer-studio.md
-  - name: General document model | v3.0
-    displayName: key value pairs, selection marks, structured
-    href: concept-general-document.md
-  - name: W-2 form model | v3.0
-    displayName: wages, taxes, salary, employees
-    href: concept-w2.md
   - name: Read OCR model | v3.0
     displayName: text
     href: concept-read.md
-  - name: Layout model
+  - name: General document model | v3.0
+    displayName: key value pairs, selection marks, structured
+    href: concept-general-document.md
+  - name: Layout model | v3.0, v2.0
     displayName: tables, selection marks, structure, paragraph roles, text, headers, page numbers
     href: concept-layout.md
-  - name: Invoice model
+  - name: W-2 form model | v3.0
+    displayName: wages, taxes, salary, employees
+    href: concept-w2.md
+  - name: Invoice model | v3.0, v2.0
     displayName: sales, vendors, VAT
     href: concept-invoice.md
-  - name: Receipt model
+  - name: Receipt model | v3.0, v2.0
     displayName: sales, merchants
     href: concept-receipt.md
-  - name: ID document model
+  - name: ID document model | v3.0, v2.0
     displayName: passport, visa, ID, social security, green card
     href: concept-id-document.md
-  - name: Business card model
+  - name: Business card model | v3.0, v2.0
     displayName: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument
     href: concept-business-card.md
   - name: Custom models
@@ -190,12 +190,12 @@ items:
     - name: Custom neural model
       displayName: selection, structure, tables, tabular, train, signatures
       href: concept-custom-neural.md
-    - name: Accuracy and confidence scores
-      displayName: tables, labels, ocr, performance, signatures
-      href: concept-accuracy-confidence.md
-  - name: Composed models
-    displayName: custom, assign, modelId, model ID, template, neural
-    href:  concept-composed-models.md
+    - name: Composed models
+      displayName: custom, assign, modelId, model ID, template, neural
+      href:  concept-composed-models.md
+  - name: Accuracy and confidence scores
+    displayName: tables, labels, ocr, performance, signatures
+    href: concept-accuracy-confidence.md
 - name: Tutorials
   items:
   - name: Use Form Recognizer with Azure Logic Apps
