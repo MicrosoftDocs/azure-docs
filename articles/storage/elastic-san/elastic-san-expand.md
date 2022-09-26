@@ -41,7 +41,7 @@ az elastic-san update -e $sanName -g $resourceGroupName –base-size-tib $newBas
 
 ## Expand volume size
 
-Once you've expanded the size of your SAN, you can either create an additional volume, or expand the size of an existing volume.
+Once you've expanded the size of your SAN, you can either create an additional volume, or expand the size of an existing volume. In Preview, you can expand the volume when there is no active connection to the volume.
 
 # [PowerShell](#tab/azure-powershell)
 
