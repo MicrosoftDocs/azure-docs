@@ -26,7 +26,7 @@ Red Hat Enterprise Linux (RHEL) images are available in Azure via a pay-as-you-g
 - Standard support policies apply to VMs created from these images.
 - The VMs provisioned from Red Hat Gold Images don't carry RHEL fees associated with RHEL pay-as-you-go images.
 - The images are unentitled. You must use Red Hat Subscription-Manager to register and subscribe the VMs to get updates from Red Hat directly.
-- It's possible to switch from pay-as-you-go images to BYOS using the [Azure Hybrid Benefit](../../linux/azure-hybrid-benefit-linux.md). To convert from RHEL BYOS to pay-as-you-go follow, the steps in [Azure Hybrid Benefit for bring-your-own-subscription Linux virtual machines](../../linux/azure-hybrid-benefit-byos-linux.md#get-started)
+- It's possible to switch from pay-as-you-go images to BYOS using the [Azure Hybrid Benefit](../../linux/azure-hybrid-benefit-linux.md). To convert from RHEL BYOS to pay-as-you-go, follow the steps in [Azure Hybrid Benefit for bring-your-own-subscription Linux virtual machines](../../linux/azure-hybrid-benefit-byos-linux.md#get-started)
 
 ## Requirements and conditions to access the Red Hat Gold Images
 
