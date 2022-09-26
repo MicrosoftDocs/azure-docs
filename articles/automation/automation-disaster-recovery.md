@@ -24,14 +24,14 @@ Every Automation account that you [create](../automation/quickstarts/create-acco
 - Begin by [creating a replica Automation account](./quickstarts/create-account-portal.md#create-automation-account) in any alternate [region](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).
 - Select the secondary region of your choice - paired region or any other region where Azure Automation is available.
 - Apart from creating a replica of the Automation account, replicate the dependent resources such as Runbooks, Modules, Connections, Credentials, Certificates, Variables, Schedules and permissions assigned for the Run As account and Managed Identities in the Automation account in primary region to the Automation account in secondary region. You can use the [PowerShell script](#powershell-script-to-migrate-automation-account-from-one-region-to-another) to migrate assets of the Automation account from one region to another.
-- If you are using [ARM templates](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all) to define and deploy Automation runbooks, you can use these templates to deploy the same runbooks in any other Azure region where you create the replica Automation account. In case of a region-wide outage or zone-wide failure in the primary region, you can execute the runbooks replicated in the secondary region to continue business as usual. This ensures that the secondary region steps up to continue the work if the primary regions have a disruption or failure. 
+- If you are using [ARM templates](../azure-resource-manager/management/overview.md) to define and deploy Automation runbooks, you can use these templates to deploy the same runbooks in any other Azure region where you create the replica Automation account. In case of a region-wide outage or zone-wide failure in the primary region, you can execute the runbooks replicated in the secondary region to continue business as usual. This ensures that the secondary region steps up to continue the work if the primary region has a disruption or failure. 
 
 >[!NOTE]
 > Due to data residency requirements, jobs data and logs present in the primary region are not available in the secondary region.
 
 ## Scenarios for cloud and hybrid jobs
 
-### Scenario: Execute Cloud jobs on secondary region
+### Scenario: Execute Cloud jobs in secondary region
 For Cloud jobs, there would be a negligible downtime, provided a replica Automation account and all dependent resources and runbooks are already deployed and available in the secondary region. You can use the replica account for executing jobs as usual.
 
 ### Scenario: Execute jobs on Hybrid Runbook Worker deployed in a region different from primary region of failure
@@ -41,9 +41,7 @@ If the Windows or Linux Hybrid Runbook worker is deployed using the extension-ba
 1. [Add](extension-based-hybrid-runbook-worker-install.md?tabs=windows#create-hybrid-worker-group) the same Hybrid Runbook worker to a Hybrid Worker group in the Automation account in the secondary region. The Hybrid worker extension is installed on the machine in the replica of the Automation account.
 1. Execute the jobs on the Hybrid Runbook worker created in Step 2.
 
-#### Deploy the Windows/Linux Hybrid Runbook worked using the agent-based approach
-
-Choose the Hybrid Runbook worker
+For Hybrid Runbook worker deployed using the agent-based approach, choose from below:
 
 #### [Windows Hybrid Runbook worker](#tab/win-hrw)
 

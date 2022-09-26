@@ -35,6 +35,14 @@ See [Regions and Availability Zones in Azure](/global-infrastructure/geographies
 Automation Accounts currently supports the following regions in preview:  
 - China North 3
 - Qatar Central
+- West US 2
+- East US 2
+- East US
+- North Europe
+- West Europe
+- France Central
+- Japan East
+
 
 ## Create a zone redundant Automation account
 You can create a zone redundant Automation account using:
