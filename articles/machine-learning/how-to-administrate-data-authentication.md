@@ -31,7 +31,7 @@ In general, data access from studio involves the following checks:
 
 * Who is accessing?
     - There are multiple different types of authentication depending on the storage type. For example, account key, token, service principal, managed identity, and user identity.
-    - If authentication is made using a user identity, then it's important to know *which* user is trying to access storage. Learn more about [identity-based data access](how-to-identity-based-data-access.md).
+    - If authentication is made using a user identity, then it's important to know *which* user is trying to access storage. For more information on authenticating a _user_, see [authentication for Azure Machine Learning](how-to-setup-authentication.md). For more information on service-level authentication, see [authentication between AzureML and other services](how-to-identity-based-service-authentication.md).
 * Do they have permission?
     - Are the credentials correct? If so, does the service principal, managed identity, etc., have the necessary permissions on the storage? Permissions are granted using Azure role-based access controls (Azure RBAC).
     - [Reader](../role-based-access-control/built-in-roles.md#reader) of the storage account reads metadata of the storage.
