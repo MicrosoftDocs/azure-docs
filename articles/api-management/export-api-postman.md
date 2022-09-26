@@ -1,17 +1,17 @@
 ---
 title: Export API from Azure API Management to Postman | Microsoft Docs
-description: Learn how to export an API definition from API Management to Postman and automatically generate a Postman collection and API documentation.
+description: Learn how to export an API definition from API Management to Postman and use Postman for API testing and monitoring
 author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 09/23/2022
+ms.date: 09/26/2022
 ms.author: danlep
 
 ---
-# Export API definition from Azure API Management to Postman
+# Export API definition to Postman for API testing and monitoring
 
-To enhance development of your APIs, you can export an API fronted in API Management to [Postman](https://www.postman.com/product/what-is-postman/). Export an API definition from API Management as a Postman [collection](https://learning.postman.com/docs/getting-started/creating-the-first-collection/) so that you can use Postman's tools to design, document, test, and collaborate on APIs. 
+To enhance development of your APIs, you can export an API fronted in API Management to [Postman](https://www.postman.com/product/what-is-postman/). Export an API definition from API Management as a Postman [collection](https://learning.postman.com/docs/getting-started/creating-the-first-collection/) so that you can use Postman's tools to design, document, test, monitor, and collaborate on APIs. 
 
 ## Prerequisites
 
