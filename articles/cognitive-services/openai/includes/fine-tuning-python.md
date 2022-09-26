@@ -104,7 +104,7 @@ You can use the [Models API](../reference.md#models) to identify which models ar
 
 ## Upload your training data
 
-The next step is to either choose existing prepared training data or upload new prepared training data to use when customizing your model. Once you've prepared your training data, you can upload your files to the service. We offer two ways to do this:
+The next step is to either choose existing prepared training data or upload new prepared training data to use when customizing your model. Once you've prepared your training data, you can upload your files to the service. We offer two ways to upload training data:
 
 - [From a local file](../reference.md#upload-a-file)
 - [Import from an Azure Blob store or other web location](../reference.md#import-a-file-from-azure-blob)
@@ -114,11 +114,10 @@ For large data files, we recommend you import from an Azure Blob store. Large fi
 > [!NOTE]
 > Training data files must be formatted as JSONL files, encoded in UTF-8 with a byte-order mark (BOM), and less than 200 MB in size.
 
-The following Python example creates sample training and validation dataset files, then uploads the files and prints the returned file IDs. Make sure to save the IDs returned by the example, because you'll need them for the fine-tuning training job creation.
+The following Python example locally creates sample training and validation dataset files, then uploads the local files and prints the returned file IDs. Make sure to save the IDs returned by the example, because you'll need them for the fine-tuning training job creation.
 
 > [!IMPORTANT]
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
-helps to refine your fine-tuned model.
 
 ```python
 import openai
@@ -178,7 +177,7 @@ while train_status not in ["succeeded", "failed"] or valid_status not in ["succe
 
 ## Create a customized model
 
-After you've uploaded the training file and, optionally, validation file, with which you want to fine-tune your customized model, you're ready to start the fine-tune job. The following Python code shows an example of how to create a new fine-tune job:
+After you've uploaded your training and validation files, you're ready to start the fine-tune job. The following Python code shows an example of how to create a new fine-tune job:
 
 ```python
 # This example defines a fine-tune job that creates a customized model based on curie, 
@@ -267,7 +266,7 @@ The following Python example shows how to use the deployment API included with A
 
 The following console command example shows how to use the Azure CLI to deploy your customized model. With the Azure CLI, you must specify a name for the deployment of your customized model. For more information about using the Azure CLI to deploy customized models, see <a href="https://learn.microsoft.com/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest" target="_blank">az cognitiveservices account deployment</a> in the <a href="https://learn.microsoft.com/cli/azure/?view=azure-cli-latest" target="_blank">Azure Command-Line Interface (CLI) documentation</a>. 
 
-To run this command in a console window, you must replace the following placeholders with the corresponding values for your customized model:
+To run this Azure CLI command in a console window, you must replace the following placeholders with the corresponding values for your customized model:
 
 | Placeholder | Value |
 | --- | --- |
@@ -345,7 +344,8 @@ When you're done with your customized model, you can delete the deployment and m
 
 ### Delete your model deployment
 
-You can use a variety of methods to delete the deployment for your customized model:
+You can use various methods to delete the deployment for your customized model:
+
 - [Azure OpenAI Studio](fine-tuning.md&pivots=programming-language-studio#delete-your-model-deployment)
 - [Azure CLI](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-deployment-delete)
 - [REST APIs](../reference.md#delete-a-deployment) 
@@ -361,7 +361,8 @@ The following Python example uses the Python SDK to delete the deployment for yo
 
 ### Delete your customized model
 
-Similarly, you can use a variety of methods to delete your customized model:
+Similarly, you can use various methods to delete your customized model:
+
 - [Azure OpenAI Studio](fine-tuning.md&pivots=programming-language-studio#delete-your-customized-model)
 - [REST APIs](../reference.md#delete-a-specific-fine-tuning-job) 
 - Python SDK
