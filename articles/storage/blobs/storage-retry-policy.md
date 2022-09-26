@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/23/2022
+ms.date: 09/26/2022
 ms.subservice: blobs
 ---
 
