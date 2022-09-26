@@ -5,7 +5,6 @@ author: genlin
 manager: dcscontentpm
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 08/04/2022
 ms.author: genli
