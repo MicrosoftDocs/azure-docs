@@ -58,7 +58,7 @@ This command installs the Azure Blob Storage for Python package and  libraries o
 From the project directory, follow steps to create the basic structure of the app:
 
 1. Open a new text file in your code editor
-1. Add `import` statements and create the structure for the program, including basic exception handling
+1. Add `import` statements, create the structure for the program, and include basic exception handling, as shown below
 1. Save the new file as *blob-quickstart-v12.py* in the *blob-quickstart-v12* directory.
 :::code language="python" source="~/azure-storage-snippets/blobs/quickstarts/python/V12/app_framework.py":::
 
