@@ -44,7 +44,7 @@ Follow the steps outlined in the [previous question](/troubleshoot-authenticatio
 ## How to check which authentication strength was enforced during sign-in
 Use the **Sign-ins** log to find additional information about the sign-in: 
 
-- Under the **Authentication details** tab, check the **Requirement** column will indicate the name of the authentication strengths policy.
+- Under the **Authentication details** tab, the **Requirement** column shows the name of the authentication strengths policy.
 
   :::image type="content" source="media/troubleshoot-authentication-strengths/sign-in-logs-authentication-details.png" alt-text="Screenshot showing the authentication strength in the Sign-ins log.":::
 
@@ -52,14 +52,14 @@ Use the **Sign-ins** log to find additional information about the sign-in:
 
   :::image type="content" source="media/troubleshoot-authentication-strengths/AuthStrengthsCASignInLogs.png" alt-text="Screenshot showing the authentication strength under "Conditional Access Policy details" in the Sign-ins log.":::
 
-## My users can't use their FIDO2 key to sign in
+## My users can't use their FIDO2 security key to sign in
 An admin can restrict access to specific security keys. When a user tries to sign in by using a key they can't use, this **You can't get there from here** message appears. The user has to restart the session, and sign-in with a different FIDO2 security key.
 
 :::image type="content" border="true" source="./media/troubleshoot-authentication-strengths/restricted-security-key.png" alt-text="Screenshot of a sign-in error when using a restricted FIDO2 security key.":::
 
-## During sign-in, a user is asked to register a new authentication method. When the user is in the combined registration – they are unable to register the method.
+## A user can't register a new method during sign-in 
 
-Some methods cannot be registered during sign-in or require additional configuration outside of the combined registration. For more information see [Registering authentication methods](concept-authentication-strengths.md#registering-authentication-methods]
+Some methods can't be registered during sign-in, or they need more setup beyond the combined registration. For more information, see [Registering authentication methods](concept-authentication-strengths.md#registering-authentication-methods).
  
 :::image type="content" border="true" source="./media/troubleshoot-authentication-strengths/MySecInfo-RegisterFIDO2.png" alt-text="Screenshot of a sign-in error when they are unable to register the method."::: 
 
