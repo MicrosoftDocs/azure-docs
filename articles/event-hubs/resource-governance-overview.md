@@ -6,7 +6,7 @@ ms.date: 09/23/2022
 ms.custom: ignite-2022
 ---
 
-# Resource governance with application groups (preview)
+# Resource governance with application groups 
 
 Azure Event Hubs enables you to govern event streaming workloads of client applications that connect to Event Hubs. You can create logical groups known as *application groups* where each group is a collection of client applications, and then apply quota and access management policies for an application group (group of client applications).  
 
