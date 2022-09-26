@@ -55,18 +55,29 @@ The following table summarizes Site Recovery limits:
 1. Select source VMs on which you want to enable replication. To enable replication, follow the steps [here](https://learn.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication).
 
 2. Under **Replication Settings** > **Storage**, select **View/edit storage configuration**. The **Customize target settings** page opens.
+  
+   :::image type="Replication settings" source="media/concepts-azure-to-azure-high-churn-support/replication-settings-storage.png" alt-text="Screenshot of Replication settings storage.":::
+
 
 3. Under **Churn for the VM**, there are two options: 
 
    - **Normal Churn** (default option) - You can get up to 54 MB/s per VM. Select Normal Churn to use Standard storage accounts only for Cache Storage. Hence, Cache storage dropdown will list only Standard storage accounts. 
 
    - **High Churn** - You can get up to 100 MB/s per VM. Select High Churn to use Premium Block Blob storage accounts only for Cache Storage. Hence, Cache storage dropdown will list only Premium Block blob storage accounts. 
+   
+        :::image type="Churn" source="media/concepts-azure-to-azure-high-churn-support/churn.png" alt-text="Screenshot of churn.":::
 
-4. Select **High Churn**.
+4. Select **High Churn (Public Preview)**.
+
+   :::image type="High churn" source="media/concepts-azure-to-azure-high-churn-support/high-churn.png" alt-text="Screenshot of high-churn.":::
    
    If you select multiple source VMs to configure Site Recovery and want to enable High Churn for all these VMs, select High Churn at the top level.
 
+   :::image type="Churn top level" source="media/concepts-azure-to-azure-high-churn-support/churn-top-level.png" alt-text="Screenshot of churn top level.":::
+
 5. Select cache storage account and then select **Confirm Selection**. 
+
+   :::image type="Cache storage" source="media/concepts-azure-to-azure-high-churn-support/cache-storage.png" alt-text="Screenshot of Cache storage.":::
 
 6. Configure other settings and enable the replication. 
 
@@ -76,14 +87,20 @@ The following table summarizes Site Recovery limits:
 
 2. On the left pane, under **Operations**, select **Disaster recovery**.
    
-   
+   :::image type="Disaster recovery" source="media/concepts-azure-to-azure-high-churn-support/disaster-recovery.png" alt-text="Screenshot of Disaster recovery page.":::
 
 3. Under **Basics**, select the **Target region** and then select **Next: Advanced settings**. 
 
 4. Under **Advanced settings**, select **Subscription**, **VM resource group**, **Virtual network**, **Availability**, and **Proximity placement group** as required.
 
 5. Under **Advanced settings** > **Storage settings**, select **[+] Show details**.
+
+   :::image type="Storage" source="media/concepts-azure-to-azure-high-churn-support/storage-show-details.png" alt-text="Screenshot of Storage show details.":::
+
    - **Churn for the VM**: Select **High Churn(Public Preview)**. You will be able to use Premium Block Blob type of storage accounts only for cache storage. 
+   - 
+     :::image type="High churn" source="media/concepts-azure-to-azure-high-churn-support/churn-for-vm.png" alt-text="Screenshot of Churn for VM.":::
+
 
 6. Select **Next: Review + Start replication**.
 
