@@ -61,36 +61,13 @@ We recommend that readers familiarize themselves with these design areas, review
 
 
 ## Operational Procedures
-Are considerations for sustainable workloads on Azure (not specific to a given service). The procedures will guide you through setting up an environment for measuring and continuously improving your Azure workloads' cost and carbon efficiency
+They Are considerations for sustainable workloads on Azure (not specific to a given service). The procedures will guide you through setting up an environment **for measuring and continuously improving your Azure workloads' cost and carbon efficiency**
 
 
 ## Next steps
 
-Learn more about the features of AKS mentioned in this article:
+Learn more about sustainable design considerations:
 
-* [Multiple node pools][multiple-node-pools]
-* [Node sizing][node-sizing]
-* [Scaling a cluster][scale]
-* [Horizontal pod autoscaler][scale-horizontal]
-* [Cluster autoscaler][scale-auto]
-* [Spot pools][spot-pools]
-* [System pools][system-pools]
-* [Resource reservations][resource-reservations]
-* [Proximity placement groups][proiximity-placement-groups]
-* [Availability Zones][availability-zones]
+* [for a sustainable AKS cluster][concepts-sustainable-aks-cluster.md]
 
-[availability-zones]: availability-zones.md
-[azure-monitor]: ../azure-monitor/containers/container-insights-overview.md
-[azure-traffic-manager]: ../traffic-manager/traffic-manager-overview.md
-[proiximity-placement-groups]: reduce-latency-ppg.md
-[regions]: faq.md#which-azure-regions-currently-provide-aks
-[resource-reservations]: concepts-clusters-workloads.md#resource-reservations
-[scale]: concepts-scale.md
-[scale-auto]: concepts-scale.md#cluster-autoscaler
-[scale-horizontal]: concepts-scale.md#horizontal-pod-autoscaler
-[spot-pools]: spot-node-pool.md
-[multiple-node-pools]: use-multiple-node-pools.md
-[node-sizing]: use-multiple-node-pools.md#specify-a-vm-size-for-a-node-pool
-[sustainability-calculator]: https://azure.microsoft.com/blog/microsoft-sustainability-calculator-helps-enterprises-analyze-the-carbon-emissions-of-their-it-infrastructure/
-[system-pools]: use-system-pools.md
-[principles-sse]: /training/modules/sustainable-software-engineering-overview/
+* [for a sustainable AKS workload][concepts-sustainable-aks-workload.md]
