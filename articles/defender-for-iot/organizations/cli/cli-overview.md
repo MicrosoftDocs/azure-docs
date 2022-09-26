@@ -60,7 +60,7 @@ To sign out manually, run one of the following commands:
 |---------|---------|
 |**support**     |  `logout`       |
 |**cyberx**     |  `cyberx-xsense-logout`       |
-|**cyberx_host**     |   `cyberx_host-xsense-logout`      |
+|**cyberx_host**     |   `logout`      |
 
 ## Next steps
 More control and monitoring of cloud connected sensors in [Sites and Sensors](how-to-manage-sensors-on-the-cloud.md)
