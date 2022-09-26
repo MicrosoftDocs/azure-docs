@@ -207,6 +207,8 @@ print(f'Fine-tuning model with job ID: {job_id}.')
 
 You can either use default values for the hyperparameters of the fine-tune job, or you can adjust those hyperparameters for your customization needs. For the previous Python example, we've set the `n_epochs` hyperparameter to 1, indicating that we want just one full cycle through the training data. For more information about these hyperparameters, see the [Create a Fine tune job](../reference.md#create-a-fine-tune-job) section of the [REST API](../reference.md) documentation.
 
+## Check the status of your customized model
+
 After you've started a fine-tune job, it may take some time to complete. Your job may be queued behind other jobs on our system, and training your model can take minutes or hours depending on the model and dataset size. You can check the status of your job by retrieving information about your Job using the ID returned from the prior call:
 
 ```python
@@ -221,7 +223,7 @@ After you've started a fine-tune job, it may take some time to complete. Your jo
             status = openai.FineTune.retrieve(id=job_id)["status"]
             print(f'Status: {status}')
     else:
-        print(f'Finetune job {job_id} finished with status: {status}')
+        print(f'Fine-tune job {job_id} finished with status: {status}')
 
     # Check if there are other fine-tune jobs in the subscription. 
     # Your fine-tune job may be queued, so this is helpful information to have
@@ -287,7 +289,7 @@ az cognitiveservices account deployment create
     --scale-settings-scale-type "Standard" 
 ```
 
-## Use a fine-tuned model
+## Use a deployed customized model
 
 Once your customized model has been deployed, you can use it like any other deployed model. For example, you can send a completion call to your deployed model, as shown in the following Python example. You can continue to use the same parameters with your customized model, such as temperature and frequency penalty, as you can with other deployed models. 
 
@@ -344,7 +346,7 @@ When you're done with your customized model, you can delete the deployment and m
 ### Delete your model deployment
 
 You can use a variety of methods to delete the deployment for your customized model:
-- [Azure OpenAI Studio](fine-tuning-studio.md#delete-your-model-deployment)
+- [Azure OpenAI Studio](fine-tuning.md&pivots=programming-language-studio#delete-your-model-deployment)
 - [Azure CLI](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-deployment-delete)
 - [REST APIs](../reference.md#delete-a-deployment) 
 - Python SDK
@@ -359,14 +361,13 @@ The following Python example uses the Python SDK to delete the deployment for yo
 
 ### Delete your customized model
 
-> [!NOTE]
-> You cannot delete a customized model if it has an existing deployment. You must first [delete your model deployment](#delete-your-model-deployment) before you can delete your customized model.
-
-Similarly, you can use a variety of methods to delete the deployment for your customized model:
-- [Azure OpenAI Studio](fine-tuning-studio.md#delete-your-customized-model)
-preserve-view=true#az-cognitiveservices-account-deployment-delete)
+Similarly, you can use a variety of methods to delete your customized model:
+- [Azure OpenAI Studio](fine-tuning.md&pivots=programming-language-studio#delete-your-customized-model)
 - [REST APIs](../reference.md#delete-a-specific-fine-tuning-job) 
 - Python SDK
+
+> [!NOTE]
+> You cannot delete a customized model if it has an existing deployment. You must first [delete your model deployment](#delete-your-model-deployment) before you can delete your customized model.
 
 The following Python example uses the Python SDK to delete the deployment for your customized model.
 
@@ -378,20 +379,31 @@ The following Python example uses the Python SDK to delete the deployment for yo
 
 ### Delete your training files
 
-You can optionally delete training and validation files you've uploaded for training, and result files generated during training, from the **File Management** page for Azure OpenAI Studio. Select the file to delete, and then select **Delete** to delete the file.
+You can optionally delete training and validation files you've uploaded for training, and result files generated during training, from your Azure OpenAI subscription. You can use the following methods to delete your training, validation, and result files:
+
+- [Azure OpenAI Studio](fine-tuning.md&pivots=programming-language-studio#delete-your-training-files)
+- [REST APIs](../reference.md#delete-a-file) 
+- Python SDK
 
 The following Python example uses the Python SDK to delete the uploaded training and validation dataset files for our customized model.
 
 ```python
 print('Checking for existing uploaded files.')
 results = []
+
+# Get the complete list of uploaded files in our subscription.
 files = openai.File.list().data
 print(f'Found {len(files)} total uploaded files in the subscription.')
+
+# Enumerate all uploaded files, extracting the file IDs for the
+# files with file names that match your training dataset file and
+# validation dataset file names.
 for item in files:
     if item["filename"] in [training_file_name, validation_file_name]:
         results.append(item["id"])
-print(f'Found {len(results)} already uploaded files that match our
+print(f'Found {len(results)} already uploaded files that match our files')
 
+# Enumerate the file IDs for our files and delete each file.
 print(f'Deleting already uploaded files.')
 for id in results:
     openai.File.delete(sid = id)
