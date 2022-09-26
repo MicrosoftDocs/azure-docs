@@ -48,21 +48,6 @@ Currently, the FHIR service supports `$export` to Data Lake Storage Gen2 account
 
 To export data to a storage account behind a firewall, see [Configure settings for export](configure-export-data.md).
 
-## Troubleshoot
-
-The following information can help you resolve problems with exporting FHIR data.
-
-### Jobs stuck in a bad state
-
-In some situations, there's a potential for a job to be stuck in a bad state while the FHIR service is attempting to export data. This can occur especially if the Data Lake Storage Gen2 account permissions haven't been set up correctly.
-
-One way to check the status of your `$export` operation is to go to your storage account's *storage browser* and see whether any `.ndjson` files are present in the export container. If the files aren't present and no other `$export` jobs are running, it's possible that the current job is stuck in a bad state. In this case, you can cancel the `$export` job by calling the FHIR service API with a `DELETE` request. Later, you can requeue the `$export` job and try again. 
-
-For more information about canceling an `$export` operation, see the [Bulk Data Delete Request](https://hl7.org/fhir/uv/bulkdata/export/index.html#bulk-data-delete-request) documentation from HL7. 
-
-> [!NOTE] 
-> In the FHIR service, the default time for an `$export` operation to idle in a bad state is 10 minutes before the service stops the operation and moves to a new job. 
-
 ## Settings and parameters
 
 ### Headers
@@ -84,6 +69,21 @@ The FHIR service supports the following query parameters for filtering exported 
 > [!Note]
 > Only storage accounts in the same subscription as the FHIR service are allowed to be registered as the destination for `$export` operations.
     
+## Troubleshoot
+
+The following information can help you resolve problems with exporting FHIR data.
+
+### Jobs stuck in a bad state
+
+In some situations, there's a potential for a job to be stuck in a bad state while the FHIR service is attempting to export data. This can occur especially if the Data Lake Storage Gen2 account permissions haven't been set up correctly.
+
+One way to check the status of your `$export` operation is to go to your storage account's *storage browser* and see whether any `.ndjson` files are present in the export container. If the files aren't present and no other `$export` jobs are running, it's possible that the current job is stuck in a bad state. In this case, you can cancel the `$export` job by calling the FHIR service API with a `DELETE` request. Later, you can requeue the `$export` job and try again. 
+
+For more information about canceling an `$export` operation, see the [Bulk Data Delete Request](https://hl7.org/fhir/uv/bulkdata/export/index.html#bulk-data-delete-request) documentation from HL7. 
+
+> [!NOTE] 
+> In the FHIR service, the default time for an `$export` operation to idle in a bad state is 10 minutes before the service stops the operation and moves to a new job.
+
 ## Next steps
 
 In this article, you've learned about exporting FHIR resources by using the `$export` operation. For information about how to set up and use additional options for export, see:
