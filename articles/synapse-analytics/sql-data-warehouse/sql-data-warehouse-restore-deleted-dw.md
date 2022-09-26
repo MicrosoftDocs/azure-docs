@@ -1,14 +1,14 @@
 ---
 title: Restore a deleted dedicated SQL pool (formerly SQL DW)
 description: How to guide for restoring a deleted dedicated SQL pool in Azure Synapse Analytics.
-author: anumjs
+author: joannapea
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 08/29/2018
 ms.author: joanpo
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ---
 

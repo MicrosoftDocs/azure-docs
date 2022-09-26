@@ -12,7 +12,7 @@ ms.custom: template-concept
 
 # Workflows in Microsoft Purview
 
-[!INCLUDE [Region Notice](./includes/workflow-regions.md)]
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 Workflows are automated, repeatable business processes that users can create within Microsoft Purview to validate and orchestrate CUD (create, update, delete) operations on their data entities. Enabling these processes allow organizations to track changes, enforce policy compliance, and ensure quality data across their data landscape.
 

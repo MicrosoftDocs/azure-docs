@@ -3,13 +3,13 @@ title: Create and configure an Azure DDoS Protection plan using Azure PowerShell
 description: Learn how to create a DDoS Protection Plan using Azure PowerShell
 services: ddos-protection
 documentationcenter: na
-author: aletheatoh
+author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/18/2022
-ms.author: yitoh 
+ms.author: abell 
 ms.custom: devx-track-azurepowershell, mode-api
 
 ---
@@ -57,7 +57,7 @@ You can enable DDoS protection when creating a virtual network. In this example,
 $ddosProtectionPlanID = Get-AzDdosProtectionPlan -ResourceGroupName MyResourceGroup -Name MyDdosProtectionPlan
 
 #Creates the virtual network
-New-AzVirtualNetwork -Name MyVnet -ResourceGroupName MyResourceGroup -Location "East US" -AddressPrefix 10.0.0.0/16 -DdosProtectionPlan $ddosProtectionPlanID -EnableDdosProtection  
+New-AzVirtualNetwork -Name MyVnet -ResourceGroupName MyResourceGroup -Location "East US" -AddressPrefix 10.0.0.0/16 -DdosProtectionPlan $ddosProtectionPlanID.Id -EnableDdosProtection  
 ```
 
 ### Enable DDoS for an existing virtual network

@@ -3,7 +3,7 @@ title: 'Azure HDInsight: .NET samples'
 description: Find C# .NET examples on GitHub for common tasks using the HDInsight SDK for .NET.
 ms.service: hdinsight
 ms.topic: sample
-ms.date: 12/06/2019
+ms.date: 08/30/2022
 ---
 
 # Azure HDInsight: .NET samples

@@ -4,6 +4,7 @@ description: Learn how to upload source maps to your own storage account Blob co
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-js
+ms.reviewer: mmcc
 ---
 
 # Source map support for JavaScript applications

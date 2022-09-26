@@ -26,7 +26,7 @@ To configure the automatic downloading of updates without automatically installi
 * Windows Server 2016 and later, set to a value of **7**.
 * Windows Server 2012 R2 and earlier, set to a value of **3**.
 
-This setting enables downloads of the required updates in the background, and notifies you that the updates are ready to install. In this way, Update Management remains in control of schedules, but allows downloading of updates outside the Update Management maintenance window. This behavior prevents `Maintenance window exceeded` errors in Update Management.
+This setting enables downloads of the required updates in the background, and notifies you that the updates are ready to install. In this way, Update Management remains in control of schedules, but allows downloading of updates outside the Update Management maintenance window. [Learn more](view-update-assessments.md). This behavior prevents `Maintenance window exceeded` errors in Update Management.
 
 You can enable this setting in PowerShell:
 
@@ -55,7 +55,7 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 ## Make WSUS configuration settings
 
-Update Management supports WSUS settings. You can specify sources for scanning and downloading updates using instructions in [Specify intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location). By default, the Windows Update client is configured to download updates from Windows Update. When you specify a WSUS server as a source for your machines, if the updates aren't approved in WSUS, update deployment fails. 
+Update Management supports WSUS settings. [Learn more](view-update-assessments.md). You can specify sources for scanning and downloading updates using instructions in [Specify intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location). By default, the Windows Update client is configured to download updates from Windows Update. When you specify a WSUS server as a source for your machines, if the updates aren't approved in WSUS, update deployment fails. 
 
 To restrict machines to the internal update service, set [Do not connect to any Windows Update Internet locations](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations).
 

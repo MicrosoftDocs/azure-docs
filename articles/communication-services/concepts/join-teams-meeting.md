@@ -12,9 +12,6 @@ ms.subservice: teams-interop
 
 # Join a Teams meeting
 
-> [!IMPORTANT]
-> BYOI interoperability is now generally available to all Communication Services applications and Teams organizations.
-
 Azure Communication Services can be used to build applications that enable users to join and participate in Teams meetings. [Standard Azure Communication Services pricing](https://azure.microsoft.com/pricing/details/communication-services/) applies to these users, but there's no additional fee for the interoperability capability itself. With the bring your own identity (BYOI) model, you control user authentication and users of your applications don't need Teams licenses to join Teams meetings. This is ideal for applications that enable licensed Teams users and external users using a custom application to join into a virtual consultation experience. For example, healthcare providers using Teams can conduct teleheath virtual visits with their patients who use a custom application. 
 
 It's also possible to use Teams identities with the Azure Communication Services SDKs. More information is available [here](./teams-interop.md).
@@ -35,7 +32,7 @@ As with Teams anonymous meeting join, your application must have the meeting lin
 
 A Communication Service user won't be admitted to a Teams meeting until there is at least one Teams user present in the meeting. Once a Teams user is present, then the Communication Services user will wait in the lobby until explicitly admitted by a Teams user, unless the "Who can bypass the lobby?" meeting policy/setting is set to "Everyone".
 
-During a meeting, Communication Services users will be able to use core audio, video, screen sharing, and chat functionality via Azure Communication Services SDKs. Once a Communication Services user leaves the meeting or the meeting ends, they're no longer able to send or receive new chat messages, but they'll have access to messages sent and received during the meeting. Anonymous Communication Services users can't add/remove participants to/from the meeting nor can they start recording or transcription for the meeting.
+During a meeting, Communication Services users will be able to use core audio, video, screen sharing, and chat functionality via Azure Communication Services SDKs. Once a Communication Services user leaves the meeting or the meeting ends, they're no longer able to send or receive new chat messages, and they no longer have access to messages sent and received during the meeting. Anonymous Communication Services users can't add/remove participants to/from the meeting nor can they start recording or transcription for the meeting.
 
 Additional information on required dataflows for joining Teams meetings is available at the [client and server architecture page](client-and-server-architecture.md). The [Group Calling Hero Sample](../samples/calling-hero-sample.md) provides example code for joining a Teams meeting from a web application.
 

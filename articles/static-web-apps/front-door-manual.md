@@ -5,13 +5,16 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 01/12/2022
+ms.date: 07/05/2022
 ms.author: cshoe
 ---
 
 # Tutorial: Manually configure Azure Front Door for Azure Static Web Apps
 
 Learn to add [Azure Front Door](../frontdoor/front-door-overview.md) as the CDN for your static web app.  Azure Front Door is a scalable and secure entry point for fast delivery of your web applications.
+
+> [!NOTE]
+> Consider using [enterprise-grade edge](enterprise-edge.md) for faster page loads, enhanced security, and optimized reliability for global applications.
 
 In this tutorial, you learn how to:
 
@@ -35,23 +38,23 @@ In this tutorial, you learn how to:
 
 ## Add Azure Front Door
 
-1. Navigate to the Azure home screen.
+When creating an Azure Front Door profile, you must select an origin from the same subscription as the selected the Front Door.
+
+1. Navigate to the Azure portal home.
 
 1. Select **Create a resource**.
 
 1. Search for **Front Door**.
 
-1. Select **Front Door Standard/Premium**.
-
-    Make sure to select the service labeled *Front Door Standard/Premium* and not the plain *Front Door* option.
+1. Select **Front Door and CDN profiles**.
 
 1. Select **Create**.
 
-1. Select the **Azure Front Door Standard/Premium** option.
+1. Select the **Azure Front Door** option.
 
 1. Select the **Quick create** option.
 
-1. Select the **Continue to create a front door** button.
+1. Select the **Continue to create a Front Door** button.
 
 1. In the *Basics* tab, enter the following values:
 
@@ -63,12 +66,16 @@ In this tutorial, you learn how to:
     | Name | Enter **my-static-web-app-front-door**. |
     | Tier | Select **Standard**. |
     | Endpoint name | Enter a unique name for your Front Door host. |
-    | Origin type | Select **Custom**. |
-    | Origin host name | Enter the hostname of your static web app that you set aside from the beginning of this tutorial. Make sure your value does not include a trailing slash or protocol. (For example, `desert-rain-04056.azurestaticapps.net`)  |
+    | Origin type | Select **Static Web App**. |
+    | Origin host name | Select the host name of your static web app from the dropdown.  |
     | Caching | Check the **Enable caching** checkbox. |
-    | Query string caching behavior | Select **Use Query string** from the dropdown. |
+    | Query string caching behavior | Select **Use Query String** |
+    | Compression | Select **Enable compression** |
+    | WAF policy | Select **Create new** or select an existing Web Application Firewall policy from the dropdown if you want to enable this feature. |
 
 1. Select **Review + create**.
+
+    The validation process may take a moment to complete before you can continue.
 
 1. Select **Create**.
 
@@ -77,6 +84,9 @@ In this tutorial, you learn how to:
 1. Select **Go to resource**.
 
 ## Disable cache for auth workflow
+
+> [!NOTE]
+> The cache expiration, cache key query string and origin group override actions are deprecated. These actions can still work normally, but your rule set can't change. Replace these overrides with new route configuration override actions before changing your rule set.
 
 Add the following settings to disable Front Door's caching policies from trying to cache authentication and authorization-related pages.
 
@@ -94,7 +104,7 @@ Add the following settings to disable Front Door's caching policies from trying 
 
 1. Select **Request path**.
 
-1. Select **Begins With** in the *Operator* drop down.
+1. Select **Begins With** in the *Operator* drop-down.
 
 1. Select the **Edit** link above the *Value* textbox.
 
@@ -102,15 +112,13 @@ Add the following settings to disable Front Door's caching policies from trying 
 
 1. Select the **Update** button.
 
-1. Select the **No transform** option from the *Case transform* dropdown.
-
 ### Add an action
 
 1. Select the **Add an action** dropdown.
 
-1. Select **Cache expiration**.
+1. Select **Route configuration override**.
 
-1. Select **Bypass cache** in the *Cache Behavior* dropdown.
+1. Select **Disabled** in the *Caching* dropdown.
 
 1. Select the **Save** button.
 
@@ -120,7 +128,7 @@ Now that the rule is created, you apply the rule to a Front Door endpoint.
 
 1. Select the **Unassociated** link.
 
-1. Select the Endpoint name to which you want to apply the caching rule.
+1. Select the endpoint name to which you want to apply the caching rule.
 
 1. Select the **Next** button.
 
@@ -176,11 +184,17 @@ Open the [staticwebapp.config.json](configuration.md) file for your site and mak
 
     ```json
     {
-        "route": "/members",
-        "allowedRoles": ["authenticated, members"],
-        "headers": {
-            "Cache-Control": "no-store"
-        }
+        ...
+        "routes": [
+            {
+                "route": "/members",
+                "allowedRoles": ["authenticated", "members"],
+                "headers": {
+                    "Cache-Control": "no-store"
+                }
+            }
+        ]
+        ...
     }
     ```
 
@@ -201,4 +215,4 @@ If you no longer want to use the resources created in this tutorial, delete the 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add an API](apis.md)
+> [Add an API](apis-overview.md)

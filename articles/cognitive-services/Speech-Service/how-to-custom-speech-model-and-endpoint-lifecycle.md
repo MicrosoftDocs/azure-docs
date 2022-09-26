@@ -1,110 +1,283 @@
 ---
-title: Model and Endpoint Lifecycle of Custom Speech - Speech service
+title: Model lifecycle of Custom Speech - Speech service
 titleSuffix: Azure Cognitive Services
-description: Custom Speech provides base models for adaptation and lets you create custom models from your data. This article describes the timelines for models and for endpoints that use these models.
+description: Custom Speech provides base models for training and lets you create custom models from your data. This article describes the timelines for models and for endpoints that use these models.
 services: cognitive-services
 author: heikora
 manager: dongli
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/2/2021
+ms.date: 08/11/2022
 ms.author: heikora
+zone_pivot_groups: speech-studio-cli-rest
 ---
 
-# Model and endpoint lifecycle
+# Custom Speech model lifecycle
 
-Our standard (not customized) speech is built upon AI models that we call base models. In most cases, we train a different base model for each spoken language we support.  We update the speech service with new base models every few months to improve accuracy and quality.  
-With Custom Speech, custom models are created by adapting a chosen base model with data from your particular customer scenario. Once you create a custom model, that model will not be updated or changed, even if the corresponding base model from which it was adapted gets updated in the standard speech service.  
-This policy allows you to keep using a particular custom model for a long time after you have a custom model that meets your needs.  But we recommend that you periodically recreate your custom model so you can adapt from the latest base model to take advantage of the improved accuracy and quality.
+You can use a Custom Speech model for some time after it's deployed to your custom endpoint. But when new base models are made available, the older models are expired. You must periodically recreate and train your custom model from the latest base model to take advantage of the improved accuracy and quality.
 
-Other key terms related to the model lifecycle include:
+Here are some key terms related to the model lifecycle:
 
-* **Adaptation**: Taking a base model and customizing it to your domain/scenario by using text data and/or audio data.
-* **Decoding**: Using a model and performing speech recognition (decoding audio into text).
-* **Endpoint**: A user-specific deployment of either a base model or a custom model that's accessible *only* to a given user.
+* **Training**: Taking a base model and customizing it to your domain/scenario by using text data and/or audio data. In some contexts such as the REST API properties, training is also referred to as **adaptation**.
+* **Transcription**: Using a model and performing speech recognition (decoding audio into text).
+* **Endpoint**: A specific deployment of either a base model or a custom model that only you can access. 
 
-### Expiration timeline
+> [!NOTE]
+> Endpoints used by `F0` Speech resources are deleted after seven days.
 
-As new models and new functionality become available and older, less accurate models are retired, see the following timelines for model and endpoint expiration:
+## Expiration timeline
 
-**Base models** 
+Here are timelines for model adaptation and transcription expiration:
 
-* Adaptation: Available for one year. After the model is imported, it's available for one year to create custom models. After one year, new custom models must be created from a newer base model version.  
-* Decoding: Available for two years after import. So you can create an endpoint and use batch transcription for two years with this model. 
-* Endpoints: Available on the same timeline as decoding.
+- Training is available for one year after the quarter when the base model was created by Microsoft.
+- Transcription with a base model is available for two years after the quarter when the base model was created by Microsoft.
+- Transcription with a custom model is available for two years after the quarter when you created the custom model.
 
-**Custom models**
+In this context, quarters end on January 15th, April 15th, July 15th, and October 15th. 
 
-* Decoding: Available for two years after the model is created. So you can use the custom model for two years (batch/realtime/testing) after it's created. After two years, *you should retrain your model* because the base model will usually have been deprecated for adaptation.  
-* Endpoints: Available on the same timeline as decoding.
+## What to do when a model expires
 
-When either a base model or custom model expires, it will always fall back to the *newest base model version*. So your implementation will never break, but it might become less accurate for *your specific data* if custom models reach expiration. You can see the expiration for a model in the following places in the Custom Speech area of the Speech Studio:
+When a custom model or base model expires, it is no longer available for transcription. You can change the model that is used by your custom speech endpoint without downtime.
 
-* Model training summary
-* Model training detail
-* Deployment summary
-* Deployment detail
+|Transcription route  |Expired model result  |Recommendation  |
+|---------|---------|---------|
+|Custom endpoint|Speech recognition requests will fall back to the most recent base model for the same [locale](language-support.md?tabs=stt-tts). You will get results, but recognition might not accurately transcribe your domain data.  |Update the endpoint's model as described in the [Deploy a Custom Speech model](how-to-custom-speech-deploy-model.md) guide. |
+|Batch transcription |[Batch transcription](batch-transcription.md) requests for expired models will fail with a 4xx error. |In each [CreateTranscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateTranscription) REST API request body, set the `model` property to a base model or custom model that hasn't yet expired. Otherwise don't include the `model` property to always use the latest base model. |
 
-Here is an example form the model training summary:
 
-![Model training summary](media/custom-speech/custom-speech-model-training-with-expiry.png)
-And also from the model training detail page:
+## Get base model expiration dates
 
-![Model training detail](media/custom-speech/custom-speech-model-details-with-expiry.png)
+::: zone pivot="speech-studio"
 
-You can also check the expiration dates via the [`GetModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModel) and [`GetBaseModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel) custom speech APIs under the `deprecationDates` property in the JSON response.
+The last date that you could use the base model for training was shown when you created the custom model. For more information, see [Train a Custom Speech model](how-to-custom-speech-train-model.md).
 
-Here is an example of the expiration data from the GetModel API call. The **DEPRECATIONDATES** show when the model expires: 
+Follow these instructions to get the transcription expiration date for a base model:
+
+1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech). 
+1. Select **Custom Speech** > Your project name > **Deploy models**.
+1. The expiration date for the model is shown in the **Expiration** column. This is the last date that you can use the model for transcription.
+
+    :::image type="content" source="media/custom-speech/custom-speech-model-expiration.png" alt-text="Screenshot of the deploy models page that shows the transcription expiration date.":::
+
+
+::: zone-end
+
+::: zone pivot="speech-cli"
+
+To get the training and transcription expiration dates for a base model, use the `spx csr model status` command. Construct the request parameters according to the following instructions:
+
+- Set the `url` parameter to the URI of the base model that you want to get. You can run the `spx csr list --base` command to get available base models for all locales.
+
+Here's an example Speech CLI command to get the training and transcription expiration dates for a base model:
+
+```azurecli-interactive
+spx csr model status --model https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/b0bbc1e0-78d5-468b-9b7c-a5a43b2bb83f
+```
+
+In the response, take note of the date in the `adaptationDateTime` property. This is the last date that you can use the base model for training. Also take note of the date in the `transcriptionDateTime` property. This is the last date that you can use the base model for transcription.
+
+You should receive a response body in the following format:
+
 ```json
 {
-    "SELF": "HTTPS://WESTUS2.API.COGNITIVE.MICROSOFT.COM/SPEECHTOTEXT/V3.0/MODELS/{id}",
-    "BASEMODEL": {
-    "SELF": HTTPS://WESTUS2.API.COGNITIVE.MICROSOFT.COM/SPEECHTOTEXT/V3.0/MODELS/BASE/{id}
-    },
-    "DATASETS": [
-    {
-        "SELF": https://westus2.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/{id}
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d",
+  "datasets": [],
+  "links": {
+    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d/manifest"
+  },
+  "properties": {
+    "deprecationDates": {
+      "adaptationDateTime": "2023-01-15T00:00:00Z",
+      "transcriptionDateTime": "2024-01-15T00:00:00Z"
     }
-    ],
-    "LINKS": {
-    "MANIFEST": "HTTPS://WESTUS2.API.COGNITIVE.MICROSOFT.COM/SPEECHTOTEXT/V3.0/MODELS/{id}/MANIFEST",
-    "COPYTO": https://westus2.api.cognitive.microsoft.com/speechtotext/v3.0/models/{id}/copyto
-    },
-    "PROJECT": {
-        "SELF": https://westus2.api.cognitive.microsoft.com/speechtotext/v3.0/projects/{id}
-    },
-    "PROPERTIES": {
-    "DEPRECATIONDATES": {
-        "ADAPTATIONDATETIME": "2022-01-15T00:00:00Z",     // last date the base model can be used for adaptation
-        "TRANSCRIPTIONDATETIME": "2023-03-01T21:27:29Z"   // last date this model can be used for decoding
-    }
-    },
-    "LASTACTIONDATETIME": "2021-03-01T21:27:40Z",
-    "STATUS": "SUCCEEDED",
-    "CREATEDDATETIME": "2021-03-01T21:27:29Z",
-    "LOCALE": "EN-US",
-    "DISPLAYNAME": "EXAMPLE MODEL",
-    "DESCRIPTION": "",
-    "CUSTOMPROPERTIES": {
-    "PORTALAPIVERSION": "3"
-    }
+  },
+  "lastActionDateTime": "2022-05-06T10:52:02Z",
+  "status": "Succeeded",
+  "createdDateTime": "2021-10-13T00:00:00Z",
+  "locale": "en-US",
+  "displayName": "20210831 + Audio file adaptation",
+  "description": "en-US base model"
 }
 ```
-Note that you can upgrade the model on a custom speech endpoint without downtime by changing the model used by the endpoint in the deployment section of the Speech Studio, or via the custom speech API.
 
-## What happens when models expire and how to update them
-What happens when a model expires and how to update the model depends on how it is being used.
-### Batch transcription
-If a model expires that is used with [batch transcription](batch-transcription.md) transcription requests will fail with a 4xx error. To prevent this update the `model` parameter in the JSON sent in the **Create Transcription** request body to either point to a more recent base model or more recent custom model. You can also remove the `model` entry from the JSON to always use the latest base model.
-### Custom speech endpoint
-If a model expires that is used by a [custom speech endpoint](how-to-custom-speech-train-model.md), then the service will automatically fall back to using the latest base model for the language you are using. To update a model you are using, you can select **Deployment** in the **Custom Speech** menu at the top of the page and then click on the endpoint name to see its details. At the top of the details page, you will see an **Update Model** button that lets you seamlessly update the model used by this endpoint without downtime. You can also make this change programmatically by using the [**Update Model**](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateModel) REST API.
+For Speech CLI help with models, run the following command:
+
+```azurecli-interactive
+spx help csr model
+```
+
+::: zone-end
+
+::: zone pivot="rest-api"
+
+To get the training and transcription expiration dates for a base model, use the [GetBaseModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel) operation of the [Speech-to-text REST API](rest-speech-to-text.md). You can make a [GetBaseModels](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModels) request to get available base models for all locales.
+
+Make an HTTP GET request using the model URI as shown in the following example. Replace `BaseModelId` with your model ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+
+```azurecli-interactive
+curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/BaseModelId" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
+```
+
+In the response, take note of the date in the `adaptationDateTime` property. This is the last date that you can use the base model for training. Also take note of the date in the `transcriptionDateTime` property. This is the last date that you can use the base model for transcription.
+
+You should receive a response body in the following format:
+
+```json
+{
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d",
+  "datasets": [],
+  "links": {
+    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d/manifest"
+  },
+  "properties": {
+    "deprecationDates": {
+      "adaptationDateTime": "2023-01-15T00:00:00Z",
+      "transcriptionDateTime": "2024-01-15T00:00:00Z"
+    }
+  },
+  "lastActionDateTime": "2022-05-06T10:52:02Z",
+  "status": "Succeeded",
+  "createdDateTime": "2021-10-13T00:00:00Z",
+  "locale": "en-US",
+  "displayName": "20210831 + Audio file adaptation",
+  "description": "en-US base model"
+}
+```
+
+::: zone-end
+
+
+## Get custom model expiration dates
+
+::: zone pivot="speech-studio"
+
+Follow these instructions to get the transcription expiration date for a custom model:
+
+1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech). 
+1. Select **Custom Speech** > Your project name > **Train custom models**.
+1. The expiration date the custom model is shown in the **Expiration** column. This is the last date that you can use the custom model for transcription. Base models are not shown on the **Train custom models** page. 
+
+    :::image type="content" source="media/custom-speech/custom-speech-custom-model-expiration.png" alt-text="Screenshot of the train custom models page that shows the transcription expiration date.":::
+
+You can also follow these instructions to get the transcription expiration date for a custom model:
+
+1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech). 
+1. Select **Custom Speech** > Your project name > **Deploy models**.
+1. The expiration date for the model is shown in the **Expiration** column. This is the last date that you can use the model for transcription.
+
+    :::image type="content" source="media/custom-speech/custom-speech-model-expiration.png" alt-text="Screenshot of the deploy models page that shows the transcription expiration date.":::
+
+
+::: zone-end
+
+::: zone pivot="speech-cli"
+
+To get the transcription expiration date for your custom model, use the `spx csr model status` command. Construct the request parameters according to the following instructions:
+
+- Set the `url` parameter to the URI of the model that you want to get. Replace `YourModelId` with your model ID and replace `YourServiceRegion` with your Speech resource region.
+
+Here's an example Speech CLI command to get the transcription expiration date for your custom model:
+
+```azurecli-interactive
+spx csr model status --model https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/models/YourModelId
+```
+
+In the response, take note of the date in the `transcriptionDateTime` property. This is the last date that you can use your custom model for transcription. The `adaptationDateTime` property is not applicable, since custom models are not used to train other custom models.
+
+You should receive a response body in the following format:
+
+```json
+{
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7",
+  "baseModel": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+  },
+  "datasets": [
+    {
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/69e46263-ab10-4ab4-abbe-62e370104d95"
+    }
+  ],
+  "links": {
+    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/manifest",
+    "copyTo": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/copyto"
+  },
+  "project": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/5d25e60a-7f4a-4816-afd9-783bb8daccfc"
+  },
+  "properties": {
+    "deprecationDates": {
+      "adaptationDateTime": "2023-01-15T00:00:00Z",
+      "transcriptionDateTime": "2024-07-15T00:00:00Z"
+    }
+  },
+  "lastActionDateTime": "2022-05-21T13:21:01Z",
+  "status": "Succeeded",
+  "createdDateTime": "2022-05-22T16:37:01Z",
+  "locale": "en-US",
+  "displayName": "My Model",
+  "description": "My Model Description"
+}
+```
+
+For Speech CLI help with models, run the following command:
+
+```azurecli-interactive
+spx help csr model
+```
+
+::: zone-end
+
+::: zone pivot="rest-api"
+
+To get the transcription expiration date for your custom model, use the [GetModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModel) operation of the [Speech-to-text REST API](rest-speech-to-text.md). 
+
+Make an HTTP GET request using the model URI as shown in the following example. Replace `YourModelId` with your model ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+
+```azurecli-interactive
+curl -v -X GET "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/models/YourModelId" -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey"
+```
+
+In the response, take note of the date in the `transcriptionDateTime` property. This is the last date that you can use your custom model for transcription. The `adaptationDateTime` property is not applicable, since custom models are not used to train other custom models.
+
+You should receive a response body in the following format:
+
+```json
+{
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7",
+  "baseModel": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"
+  },
+  "datasets": [
+    {
+      "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/datasets/69e46263-ab10-4ab4-abbe-62e370104d95"
+    }
+  ],
+  "links": {
+    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/manifest",
+    "copyTo": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/86c4ebd7-d70d-4f67-9ccc-84609504ffc7/copyto"
+  },
+  "project": {
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/5d25e60a-7f4a-4816-afd9-783bb8daccfc"
+  },
+  "properties": {
+    "deprecationDates": {
+      "adaptationDateTime": "2023-01-15T00:00:00Z",
+      "transcriptionDateTime": "2024-07-15T00:00:00Z"
+    }
+  },
+  "lastActionDateTime": "2022-05-21T13:21:01Z",
+  "status": "Succeeded",
+  "createdDateTime": "2022-05-22T16:37:01Z",
+  "locale": "en-US",
+  "displayName": "My Model",
+  "description": "My Model Description"
+}
+```
+
+::: zone-end
 
 ## Next steps
 
-* [Train and deploy a model](how-to-custom-speech-train-model.md)
-
-## Additional resources
-
-* [Prepare and test your data](./how-to-custom-speech-test-and-train.md)
-* [Inspect your data](how-to-custom-speech-inspect-data.md)
+- [Train a model](how-to-custom-speech-train-model.md)
+- [CI/CD for Custom Speech](how-to-custom-speech-continuous-integration-continuous-deployment.md)

@@ -1,6 +1,6 @@
 ---
 title: "How to use the read model with JavaScript programming language"
-description: Use the Form Recognizer prebuilt-read model and JavaScript to extract printed and handwritten text from documents.
+description: Use the Form Recognizer prebuilt-read model and JavaScript to extract printed (typeface) and handwritten text from documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -11,7 +11,7 @@ ms.author: lajanuar
 recommendations: false
 ---
 
-[Reference documentation](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_4.0.0-beta.3/sdk/formrecognizer/ai-form-recognizer/) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v4-beta/javascript/README.md)
+[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html) | [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Samples](https://github.com/witemple-msft/azure-sdk-for-js/tree/7e3196f7e529212a6bc329f5f06b0831bf4cc174/sdk/formrecognizer/ai-form-recognizer/samples/v4) |[Supported REST API versions](../../sdk-overview.md)
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ recommendations: false
 * A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
     > [!TIP]
-    > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
+    > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
@@ -54,7 +54,7 @@ recommendations: false
 1. Install the `ai-form-recognizer` client library and `azure/identity` npm packages:
 
     ```console
-    npm install @azure/ai-form-recognizer@4.0.0-beta.3 @azure/identity
+    npm i @azure/ai-form-recognizer @azure/identity
     ```
 
     * Your app's `package.json` file will be updated with the dependencies.
@@ -77,7 +77,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 > * We've added the file URL value to the `formUrl` variable near the top of the file.
 > * To analyze a given file from a URL, you'll use the `beginAnalyzeDocuments` method and pass in `prebuilt-read` as the model Id.
 
-1. Open the `index.js` file in Visual Studio Code or your favorite IDE and copy the following code sample to paste into your application. **Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal**:
+1. Open the `index.js` file in Visual Studio Code or your favorite IDE and copy the following code sample to paste into your application. **Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance**:
 
 ```javascript
 const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
@@ -98,7 +98,7 @@ const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-servi
 async function main() {
   // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
   const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
-  const poller = await client.beginAnalyzeDocument("prebuilt-read", formUrl);
+  const poller = await client.beginAnalyzeDocument("prebuilt-read", formUrlRead);
 
   const { content, pages, languages, styles } = await poller.pollUntilDone();
 
@@ -170,9 +170,10 @@ main().catch((error) => {
 
 <!-- markdownlint-disable MD036 -->
 
-2. Once you've added a code sample to your application, navigate to the folder where you have your form recognizer application (form-recognizer-app).
+1. Once you've added a code sample to your application, navigate to the folder where you have your form recognizer application (form-recognizer-app).
 
-3. Type the following command in your terminal:
+1. Type the following command in your terminal:
+
     ```console
     node index.js
     ```
@@ -211,4 +212,4 @@ To view the entire output, visit the Azure samples repository on GitHub to view 
 Try the layout model, which can extract selection marks and table structures in addition to what the read model offers.
 
 > [!div class="nextstepaction"]
-> [Use the Layout Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
+> [Use the Layout Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)

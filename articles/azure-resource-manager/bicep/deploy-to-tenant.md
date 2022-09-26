@@ -9,9 +9,9 @@ ms.date: 11/22/2021
 
 As your organization matures, you may need to define and assign [policies](../../governance/policy/overview.md) or [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) across your Azure AD tenant. With tenant level templates, you can declaratively apply policies and assign roles at a global level.
 
-### Microsoft Learn
+### Training resources
 
-If you would rather learn about deployment scopes through step-by-step guidance, see [Deploy resources to subscriptions, management groups, and tenants by using Bicep](/learn/modules/deploy-resources-scopes-bicep/) on **Microsoft Learn**.
+If you would rather learn about deployment scopes through step-by-step guidance, see [Deploy resources to subscriptions, management groups, and tenants by using Bicep](/training/modules/deploy-resources-scopes-bicep/).
 
 ## Supported resources
 
@@ -217,7 +217,7 @@ The following template assigns a role at the tenant scope.
 ```bicep
 targetScope = 'tenant'
 
-@description('principalId if the user that will be given contributor access to the resourceGroup')
+@description('principalId of the user that will be given contributor access to the resourceGroup')
 param principalId string
 
 @description('roleDefinition for the assignment - default is owner')

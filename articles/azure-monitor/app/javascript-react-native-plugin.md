@@ -7,6 +7,7 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.devlang: javascript
+ms.reviewer: mmcc
 ---
 
 # React Native plugin for Application Insights JavaScript SDK
@@ -37,6 +38,8 @@ react-native link react-native-device-info
 
 To use this plugin, you need to construct the plugin and add it as an `extension` to your existing Application Insights instance.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ```typescript
 import { ApplicationInsights } from '@microsoft/applicationinsights-web';
 import { ReactNativePlugin } from '@microsoft/applicationinsights-react-native';
@@ -44,7 +47,7 @@ import { ReactNativePlugin } from '@microsoft/applicationinsights-react-native';
 var RNPlugin = new ReactNativePlugin();
 var appInsights = new ApplicationInsights({
     config: {
-        instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+        connectionString: 'YOUR_CONNECTION_STRING_GOES_HERE',
         extensions: [RNPlugin]
     }
 });
@@ -56,7 +59,7 @@ appInsights.loadAppInsights();
 
 Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
 
-In JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. To enable correlation please reference [JavaScript client-side correlation documentation](./javascript.md#enable-correlation).
+In JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. To enable correlation please reference [JavaScript client-side correlation documentation](./javascript.md#enable-distributed-tracing).
 
 ### PageView
 

@@ -436,11 +436,11 @@ To inject these secrets in your Spring or Tomcat configuration file, use environ
 
 ### Use the Java Key Store
 
-By default, any public or private certificates [uploaded to App Service Linux](configure-ssl-certificate.md) will be loaded into the respective Java Key Stores as the container starts. After uploading your certificate, you will need to restart your App Service for it to be loaded into the Java Key Store. Public certificates are loaded into the Key Store at `$JAVA_HOME/jre/lib/security/cacerts`, and private certificates are stored in `$JAVA_HOME/lib/security/client.jks`.
+By default, any public or private certificates [uploaded to App Service Linux](configure-ssl-certificate.md) will be loaded into the respective Java Key Stores as the container starts. After uploading your certificate, you will need to restart your App Service for it to be loaded into the Java Key Store. Public certificates are loaded into the Key Store at `$JRE_HOME/lib/security/cacerts`, and private certificates are stored in `$JRE_HOME/lib/security/client.jks`.
 
 More configuration may be necessary for encrypting your JDBC connection with certificates in the Java Key Store. Refer to the documentation for your chosen JDBC driver.
 
-- [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
+- [PostgreSQL](https://jdbc.postgresql.org/documentation/ssl/)
 - [SQL Server](/sql/connect/jdbc/connecting-with-ssl-encryption)
 - [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
 - [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
@@ -453,12 +453,12 @@ To initialize the `import java.security.KeyStore` object, load the keystore file
 ```java
 KeyStore keyStore = KeyStore.getInstance("jks");
 keyStore.load(
-    new FileInputStream(System.getenv("JAVA_HOME")+"/lib/security/cacets"),
+    new FileInputStream(System.getenv("JRE_HOME")+"/lib/security/cacerts"),
     "changeit".toCharArray());
 
 KeyStore keyStore = KeyStore.getInstance("pkcs12");
 keyStore.load(
-    new FileInputStream(System.getenv("JAVA_HOME")+"/lib/security/client.jks"),
+    new FileInputStream(System.getenv("JRE_HOME")+"/lib/security/client.jks"),
     "changeit".toCharArray());
 ```
 
@@ -610,7 +610,7 @@ These instructions apply to all database connections. You will need to fill plac
 
 | Database   | Driver Class Name                             | JDBC Driver                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
-| PostgreSQL | `org.postgresql.Driver`                        | [Download](https://jdbc.postgresql.org/download.html)                                    |
+| PostgreSQL | `org.postgresql.Driver`                        | [Download](https://jdbc.postgresql.org/download/)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Download](https://dev.mysql.com/downloads/connector/j/) (Select "Platform Independent") |
 | SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Download](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server#download)                                                           |
 
@@ -640,10 +640,10 @@ Next, determine if the data source should be available to one application or to 
         <Resource
             name="jdbc/dbconnection"
             type="javax.sql.DataSource"
-            url="${dbuser}"
+            url="${connURL}"
             driverClassName="<insert your driver class name>"
-            username="${dbpassword}"
-            password="${connURL}"
+            username="${dbuser}"
+            password="${dbpassword}"
         />
     </Context>
     ```
@@ -920,7 +920,7 @@ These instructions apply to all database connections. You will need to fill plac
 
 | Database   | Driver Class Name                             | JDBC Driver                                                                              |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
-| PostgreSQL | `org.postgresql.Driver`                        | [Download](https://jdbc.postgresql.org/download.html)                                    |
+| PostgreSQL | `org.postgresql.Driver`                        | [Download](https://jdbc.postgresql.org/download/)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Download](https://dev.mysql.com/downloads/connector/j/) (Select "Platform Independent") |
 | SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Download](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server#download)     |
 
@@ -950,10 +950,10 @@ Next, determine if the data source should be available to one application or to 
         <Resource
             name="jdbc/dbconnection"
             type="javax.sql.DataSource"
-            url="${dbuser}"
+            url="${connURL}"
             driverClassName="<insert your driver class name>"
-            username="${dbpassword}"
-            password="${connURL}"
+            username="${dbuser}"
+            password="${dbpassword}"
         />
     </Context>
     ```
@@ -1116,7 +1116,7 @@ To confirm that the datasource was added to the JBoss server, SSH into your weba
 
 ## Choosing a Java runtime version
 
-App Service allows users to choose the major version of the JVM, such as Java 8 or Java 11, and the patch version, such as 1.8.0_232 or 11.0.5. You can also choose to have the patch version automatically updated as new minor versions become available. In most cases, production sites should use pinned patch JVM versions. This will prevent unnanticipated outages during a patch version auto-update. All Java web apps use 64-bit JVMs, this is not configurable.
+App Service allows users to choose the major version of the JVM, such as Java 8 or Java 11, and the patch version, such as 1.8.0_232 or 11.0.5. You can also choose to have the patch version automatically updated as new minor versions become available. In most cases, production sites should use pinned patch JVM versions. This will prevent unanticipated outages during a patch version auto-update. All Java web apps use 64-bit JVMs, this is not configurable.
 
 If you are using Tomcat, you can choose to pin the patch version of Tomcat. On Windows, you can pin the patch versions of the JVM and Tomcat independently. On Linux, you can pin the patch version of Tomcat; the patch version of the JVM will also be pinned but is not separately configurable.
 
@@ -1134,6 +1134,18 @@ App Service supports clustering for JBoss EAP versions 7.4.1 and greater. To ena
 > If you are enabling your virtual network integration with an ARM template, you will need to manually set the property `vnetPrivatePorts` to a value of `2`. If you enable virtual network integration from the CLI or Portal, this property will be set for you automatically.  
 
 When clustering is enabled, the JBoss EAP instances use the FILE_PING JGroups discovery protocol to discover new instances and persist the cluster information like the cluster members, their identifiers, and their IP addresses. On App Service, these files are under `/home/clusterinfo/`. The first EAP instance to start will obtain read/write permissions on the cluster membership file. Other instances will read the file, find the primary node, and coordinate with that node to be included in the cluster and added to the file.
+
+The Premium V3 and Isolated V2 App Service Plan types can optionally be distributed across Availability Zones to improve resiliency and reliability for your business-critical workloads. This architecture is also known as [zone redundancy](../availability-zones/migrate-app-service.md). The JBoss EAP clustering feature is compatabile with the zone redundancy feature. 
+
+#### Auto-Scale Rules
+
+When configuring auto-scale rules for horizontal scaling it is important to remove instances incrementally (one at a time) to ensure each removed instance can transfer its activity (such as handling a database transaction) to another member of the cluster. When configuring your autoscale rules in the Portal to scale down, use the following options:
+
+- **Operation**: "Decrease count by"
+- **Cool down**: "5 minutes" or greater
+- **Instance count**: 1
+
+You do not need to incrementally add instances (scaling out), you can add multiple instances to the cluster at a time.
 
 ### JBoss EAP App Service Plans
 
@@ -1175,8 +1187,8 @@ Community support for Java 7 will terminate on July 29th, 2022 and [Java 7 will 
 
 If a supported Java runtime will be retired, Azure developers using the affected runtime will be given a deprecation notice at least six months before the runtime is retired.
 
-- [Reasons to move to Java 11](/java/openjdk/reasons-to-move-to-java-11?bc=%2fazure%2fdeveloper%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdeveloper%2fjava%2ffundamentals%2ftoc.json)
-- [Java 7 migration guide](/java/openjdk/transition-from-java-7-to-java-8?bc=%2fazure%2fdeveloper%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fdeveloper%2fjava%2ffundamentals%2ftoc.json)
+- [Reasons to move to Java 11](/java/openjdk/reasons-to-move-to-java-11?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/fundamentals/toc.json)
+- [Java 7 migration guide](/java/openjdk/transition-from-java-7-to-java-8?bc=/azure/developer/breadcrumb/toc.json&toc=/azure/developer/java/fundamentals/toc.json)
 
 ### Local development
 

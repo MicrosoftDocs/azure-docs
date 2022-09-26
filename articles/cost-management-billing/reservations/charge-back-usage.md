@@ -19,8 +19,8 @@ Users with an individual subscription can get the amortized cost data from their
 ## See reservation usage data for show back and charge back
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Navigate to **Cost Management + Billing** 
-3. Select **Cost analysis** from left navigation 
+2. Navigate to **Cost Management + Billing**.
+3. Select **Cost analysis** from left navigation.
 4. Under **Actual Cost**, select the **Amortized Cost** metric.
 5. To see which resources were used by a reservation, apply a filter for **Reservation** and then select reservations.
 6. Set the **Granularity** to **Monthly** or **Daily**.
@@ -34,13 +34,14 @@ Here's a video showing how to view reservation usage costs at subscription, reso
  > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4sQOw] 
 
 ## Get the data for show back and charge back
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Navigate to **Cost Management + Billing** 
-3. Select **Export** from left navigation 
-4. Click on **Add** button
-5. Select Amortized cost as the metric button and setup your export
 
-the EffectivePrice for the usage that gets reservation discount is the prorated cost of the reservation (instead of being zero). This helps you know the monetary value of reservation consumption by a subscription, resource group or a resource, and can help you charge back for the reservation utilization internally. The dataset also has unused reservation hours. 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Navigate to **Cost Management + Billing**.
+3. Select **Export** from left navigation.
+4. Select **Add**.
+5. Select Amortized cost as the metric button and setup your export.
+
+The EffectivePrice for the usage that gets reservation discount is the prorated cost of the reservation (instead of being zero). This helps you know the monetary value of reservation consumption by a subscription, resource group or a resource, and can help you charge back for the reservation utilization internally. The dataset also has unused reservation hours. 
 
 ## Get Azure consumption and reservation usage data using API
 
@@ -75,8 +76,8 @@ If you're an EA admin, you can download the CSV file that contains new usage dat
 In the Azure portal, navigate to [Cost management + billing](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 
 1. Select the billing account.
-2. Click **Usage + charges**.
-3. Click **Download**.  
+2. Select **Usage + charges**.
+3. Select **Download**.  
 ![Example showing where to Download the CSV usage data file in the Azure portal](./media/understand-reserved-instance-usage-ea/portal-download-csv.png)
 4. In **Usage Details**, select **Amortized usage data**.
 

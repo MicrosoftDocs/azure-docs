@@ -3,7 +3,7 @@ title: Device management permissions for Azure AD custom roles (Preview) - Azure
 description: Device management permissions for Azure AD custom roles (Preview) in the Azure portal, PowerShell, or Microsoft Graph API.
 services: active-directory
 author: rolyon
-manager: KarenH444
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles

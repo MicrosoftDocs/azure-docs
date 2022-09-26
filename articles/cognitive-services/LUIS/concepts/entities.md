@@ -10,7 +10,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/06/2022
+ms.date: 07/19/2022
 
 ---
 
@@ -133,7 +133,7 @@ You can use entities as a signal for an intent. For example, the presence of a c
 
 | Example utterance | Entity | Intent |
 |--|--|--|
-| Book me a _fight to New York_. | City | Book Flight |
+| Book me a _flight to New York_. | City | Book Flight |
 | Book me the _main conference room_. | Room | Reserve Room |
 
 ## Entities as Feature for entities

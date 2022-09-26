@@ -1,8 +1,12 @@
 ---
 title: Deploy container group to Azure virtual network
 description: Learn how to deploy a container group to a new or existing Azure virtual network via the Azure CLI.
-ms.topic: article
-ms.date: 11/11/2021
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: container-instances
+services: container-instances
+ms.date: 06/17/2022
 ms.custom: devx-track-js, devx-track-azurecli
 ---
 
@@ -55,7 +59,7 @@ When you deploy to a new virtual network by using this method, the deployment ca
 
 To deploy a container group to an existing virtual network:
 
-1. Create a subnet within your existing virtual network, use an existing subnet in which a container group is already deployed, or use an existing subnet emptied of *all* other resources
+1. Create a subnet within your existing virtual network, use an existing subnet in which a container group is already deployed, or use an existing subnet emptied of *all* other resources and configuration.
 1. Deploy a container group with [az container create][az-container-create] and specify one of the following:
    * Virtual network name and subnet name
    * Virtual network resource ID and subnet resource ID, which allows using a virtual network from a different resource group

@@ -2,27 +2,28 @@
 title: Deploy Arc for Azure VMware Solution (Preview)
 description: Learn how to set up and enable Arc for your Azure VMware Solution private cloud.
 ms.topic: how-to 
-ms.date: 01/31/2022
+ms.service: azure-vmware
+ms.date: 04/11/2022
 ms.custom: references_regions
 ---
 
 
 # Deploy Arc for Azure VMware Solution (Preview)
 
-In this article, you'll learn how to deploy Arc for Azure VMware Solution. Once you've set up the components needed for this public preview, you'll be ready to execute operations in Azure VMware Solution vCenter from the Azure portal. Operations are related to Create, Read, Update, and Delete (CRUD) virtual machines (VMs) in an Arc-enabled Azure VMware Solution private cloud. Users can also enable guest management and install Azure extensions once the private cloud is Arc-enabled.
+In this article, you'll learn how to deploy Arc for Azure VMware Solution. Once you've set up the components needed for this public preview, you'll be ready to execute operations in Azure VMware Solution vCenter Server from the Azure portal. Operations are related to Create, Read, Update, and Delete (CRUD) virtual machines (VMs) in an Arc-enabled Azure VMware Solution private cloud. Users can also enable guest management and install Azure extensions once the private cloud is Arc-enabled.
 
 Before you begin checking off the prerequisites, verify the following actions have been done:
  
 - You deployed an Azure VMware Solution private cluster. 
 - You have a connection to the Azure VMware Solution private cloud through your on-prem environment or your native Azure Virtual Network. 
-- There should be an isolated NSX-T segment for deploying the Arc for Azure VMware Solution Open Virtualization Appliance (OVA). If an isolated NSX-T segment doesn't exist, one will be created.
+- There should be an isolated NSX-T Data Center segment for deploying the Arc for Azure VMware Solution Open Virtualization Appliance (OVA). If an isolated NSX-T Data Center segment doesn't exist, one will be created.
 
 ## Prerequisites 
 
 The following items are needed to ensure you're set up to begin the onboarding process to deploy Arc for Azure VMware Solution (Preview).
 
 - A jump box virtual machine (VM) with network access to the Azure VMware Solution vCenter. 
-    - From the jump-box VM, verify you have access to [vCenter and NSX-T portals](./tutorial-configure-networking.md). 
+    - From the jump-box VM, verify you have access to [vCenter Server and NSX-T Manager portals](./tutorial-configure-networking.md). 
 - Verify that your Azure subscription has been enabled or you have connectivity to Azure end points, mentioned in the [Appendices](#appendices).
 - Resource group in the subscription where you have owner or contributor role.  
 - A minimum of three free non-overlapping IPs addresses.  
@@ -34,7 +35,7 @@ The following items are needed to ensure you're set up to begin the onboarding p
 > [!NOTE]
 > Only the default port of 443 is supported. If you use a different port, Appliance VM creation will fail. 
 
-At this point, you should have already deployed an Azure VMware Solution private cluster. You need to have a connection from your on-prem environment or your native Azure Virtual Network to the Azure VMware Solution private cloud.
+At this point, you should have already deployed an Azure VMware Solution private cloud. You need to have a connection from your on-prem environment or your native Azure Virtual Network to the Azure VMware Solution private cloud.
 
 For Network planning and setup, use the [Network planning checklist - Azure VMware Solution | Microsoft Docs](./tutorial-network-checklist.md)
 
@@ -64,7 +65,7 @@ az feature show --name AzureArcForAVS --namespace Microsoft.AVS
 
 Use the following steps to guide you through the process to onboard in Arc for Azure VMware Solution (Preview).
 
-1. Sign into the jumpbox VM and extract the contents from the compressed file from the following [location](https://github.com/Azure/ArcOnAVS/releases/tag/v2.0.0). The extracted file contains the scripts to install the preview software.
+1. Sign into the jumpbox VM and extract the contents from the compressed file from the following [location](https://github.com/Azure/ArcOnAVS/releases/latest). The extracted file contains the scripts to install the preview software.
 1. Open the 'config_avs.json' file and populate all the variables.
 
     **Config JSON**
@@ -143,8 +144,8 @@ Use the following steps to guide you through the process to onboard in Arc for A
 When Arc appliance is successfully deployed on your private cloud, you can do the following actions.
 
 - View the status from within the private cloud under **Operations > Azure Arc**, located in the left navigation. 
-- View the VMware infrastructure resources from the private cloud left navigation under **Private cloud** then select **Azure Arc vCenter resources**.
-- Discover your VMware infrastructure resources and  project them to Azure using the same browser experience, **Private cloud > Arc vCenter resources > Virtual Machines**.
+- View the VMware vSphere infrastructure resources from the private cloud left navigation under **Private cloud** then select **Azure Arc vCenter resources**.
+- Discover your VMware vSphere infrastructure resources and  project them to Azure using the same browser experience, **Private cloud > Arc vCenter resources > Virtual Machines**.
 - Similar to VMs, customers can enable networks, templates, resource pools, and data-stores in Azure.
 
 After you've enabled VMs to be managed from Azure, you can install guest management and do the following actions.
@@ -153,7 +154,7 @@ After you've enabled VMs to be managed from Azure, you can install guest managem
     - To enable guest management, customers will be required to use admin credentials
     - VMtools should already be running on the VM
 > [!NOTE] 
-> Azure VMware Solution vCenter will be available in global search but will NOT be available in the list of vCenters for ARc for VMware.
+> Azure VMware Solution vCenter Server will be available in global search but will NOT be available in the list of vCenter Servers for Arc for VMware.
 
 - Customers can view the list of VM extensions available in public preview.
     - Change tracking
@@ -169,25 +170,25 @@ When the script has run successfully, you can check the status to see if Azure A
 
     :::image type="content" source="media/deploy-arc-for-azure-vmware-solution/arc-private-cloud-configured.png" alt-text="Image showing navigation to Azure Arc state to verify it's configured."lightbox="media/deploy-arc-for-azure-vmware-solution/arc-private-cloud-configured.png":::
 
-**Arc enabled VMware resources**
+**Arc enabled VMware vSphere resources**
 
 After the private cloud is Arc-enabled, vCenter resources should appear under **Virtual machines**.
 - From the left navigation, under **Azure Arc VMware resources (preview)**, locate **Virtual machines**.
-- Choose **Virtual machines** to view the vCenter resources.
+- Choose **Virtual machines** to view the vCenter Server resources.
 
 ### Manage access to VMware resources through Azure Role-Based Access Control
 
-After your Azure VMware Solution vCenter resources have been enabled for access through Azure, there's one final step in setting up a self-service experience for your teams. You'll need to provide your teams with access to: compute, storage, networking, and other vCenter resources used to configure VMs.
+After your Azure VMware Solution vCenter resources have been enabled for access through Azure, there's one final step in setting up a self-service experience for your teams. You'll need to provide your teams with access to: compute, storage, networking, and other vCenter Server resources used to configure VMs.
 
-This section will demonstrate how to use custom roles to manage granular access to VMware resources through Azure.
+This section will demonstrate how to use custom roles to manage granular access to VMware vSphere resources through Azure.
 
 #### Arc-enabled VMware vSphere custom roles
 
 Three custom roles are provided to meet your Role-based access control (RBAC) requirements. These roles can be applied to a whole subscription, resource group, or a single resource.
 
-- Azure Arc VMware Administrator role
-- Azure Arc VMware Private Cloud User role
-- Azure Arc VMware VM Contributor role
+- Azure Arc VMware vSphere Administrator role
+- Azure Arc VMware vSphere Private Cloud User role
+- Azure Arc VMware vSphere VM Contributor role
 
 The first role is for an Administrator. The other two roles apply to anyone who needs to deploy or manage a VM.
 
@@ -211,7 +212,7 @@ We recommend assigning this role at the subscription level or resource group you
 
 1. Navigate to the Azure portal.
 1. Locate the subscription, resource group, or the resource at the scope you want to provide for the custom role.
-1. Find the Arc-enabled Azure VMware Solution vCenter resources.
+1. Find the Arc-enabled Azure VMware Solution vCenter Server resources.
     1. Navigate to the resource group and select the **Show hidden types** checkbox.
     1. Search for "Azure VMware Solution".
 1. Select **Access control (IAM)** in the table of contents located on the left navigation.
@@ -225,7 +226,7 @@ We recommend assigning this role at the subscription level or resource group you
 
 ## Create Arc-enabled Azure VMware Solution virtual machine
 
-This section shows users how to create a virtual machine (VM) on VMware vCenter using Azure Arc. Before you begin, check the following prerequisite list to ensure you're set up and ready to create an Arc-enabled Azure VMware Solution VM. 
+This section shows users how to create a virtual machine (VM) on VMware vCenter Server using Azure Arc. Before you begin, check the following prerequisite list to ensure you're set up and ready to create an Arc-enabled Azure VMware Solution VM. 
 
 ### Prerequisites
 
@@ -236,7 +237,7 @@ This section shows users how to create a virtual machine (VM) on VMware vCenter 
 
 ### Create VM flow
 
-- Open the [Azure portal](https://ms.portal.azure.com/)
+- Open the [Azure portal](https://portal.azure.com/)
 - On the **Home** page, search for **virtual machines**. Once you've navigated to **Virtual machines**, select the **+ Create** drop down and select **Azure VMware Solution virtual machine**.
     :::image type="content" source="media/deploy-arc-for-azure-vmware-solution/deploy-vm-arc-1.2.png" alt-text="Image showing the location of the plus Create drop down menu and Azure VMware Solution virtual machine selection option."lightbox="media/deploy-arc-for-azure-vmware-solution/deploy-vm-arc-1.2.png"::: 
 
@@ -255,7 +256,7 @@ Near the top of the **Virtual machines** page, you'll find five tabs labeled: **
 1. The connectivity method defaults to **Public endpoint**. Create a **Username**, **Password**, and **Confirm password**.
     
 **Disks**
-  - You can opt to change the disks configured in the template, add more disks, or update existing disks. These disks will be created on the default datastore per the VMware vCenter storage policies.
+  - You can opt to change the disks configured in the template, add more disks, or update existing disks. These disks will be created on the default datastore per the VMware vCenter Server storage policies.
   - You can change the network interfaces configured in the template, add Network interface cards (NICs), or update existing NICs. You can also change the network that the NIC will be attached to provided you have permissions to the network resource.
   
 **Networking**
@@ -270,12 +271,12 @@ Near the top of the **Virtual machines** page, you'll find five tabs labeled: **
  
 ## Enable guest management and extension installation
 
-The guest management must be enabled on the VMware virtual machine (VM) before you can install an extension. Use the following prerequisite steps to enable guest management.
+The guest management must be enabled on the VMware vSphere virtual machine (VM) before you can install an extension. Use the following prerequisite steps to enable guest management.
 
 **Prerequisite**
 
-1. Navigate to [Azure portal](https://ms.portal.azure.com/).
-1. Locate the VMware VM you want to check for guest management and install extensions on, select the name of the VM.
+1. Navigate to [Azure portal](https://portal.azure.com/).
+1. Locate the VMware vSphere VM you want to check for guest management and install extensions on, select the name of the VM.
 1. Select **Configuration** from the left navigation for a VMware VM.
 1. Verify **Enable guest management** has been checked.
 
@@ -283,7 +284,7 @@ The guest management must be enabled on the VMware virtual machine (VM) before y
 > The following conditions are necessary to enable guest management on a VM.
 
 - The machine must be running a [Supported operating system](../azure-arc/servers/agent-overview.md).
-- The machine needs to connect through the firewall to communicate over the Internet. Make sure the [URLs](../azure-arc/servers/agent-overview.md) listed aren't blocked.
+- The machine needs to connect through the firewall to communicate over the internet. Make sure the [URLs](../azure-arc/servers/agent-overview.md) listed aren't blocked.
 - The machine can't be behind a proxy, it's not supported yet.
 - If you're using Linux VM, the account must not prompt to sign in on pseudo commands.
     
@@ -311,7 +312,7 @@ When the extension installation steps are completed, they trigger deployment and
 
 Use the following guide to change your Arc appliance credential once you've changed your SDDC credentials.
 
-Use the **`Set Credential`** command to update the provider credentials for appliance resource. When **cloud admin** credentials are updated, use the following steps to update the credentials in the appliance store.
+Use the **`Set Credential`** command to update the provider credentials for appliance resource. When **cloudadmin** credentials are updated, use the following steps to update the credentials in the appliance store.
 
 1. Log into the jumpbox VM from where onboarding was performed. Change the directory to **onboarding directory**.
 1. Run the following command for Windows-based jumpbox VM.
@@ -342,8 +343,8 @@ The following command invokes the set credential for the specified appliance res
 
 Use the following steps to perform a manual upgrade for Arc appliance virtual machine (VM).
 
-1. Log into vCenter.
-1. Locate the arc appliance VM, which should be in the resource pool that was configured during onboarding.
+1. Log into vCenter Server.
+1. Locate the Arc appliance VM, which should be in the resource pool that was configured during onboarding.
     1. Power off the VM.
     1. Delete the VM.
 1. Delete the download template corresponding to the VM.
@@ -355,7 +356,7 @@ Use the following steps to perform a manual upgrade for Arc appliance virtual ma
 
 ## Off board from Azure Arc-enabled Azure VMware Solution
 
-This section demonstrates how to remove your VMware virtual machines (VMs) from Azure management services.
+This section demonstrates how to remove your VMware vSphere virtual machines (VMs) from Azure management services.
 
 If you've enabled guest management on your Arc-enabled Azure VMware Solution VMs and onboarded them to Azure management services by installing VM extensions on them, you'll need to uninstall the extensions to prevent continued billing. For example, if you installed an MMA extension to collect and send logs to an Azure Log Analytics workspace, you'll need to uninstall that extension. You'll also need to uninstall the Azure Connected Machine agent to avoid any problems installing the agent in future. 
 
@@ -382,23 +383,23 @@ To avoid problems onboarding the same VM to **Guest management**, we recommend y
 
 ## Remove Arc-enabled Azure VMware Solution vSphere resources from Azure
 
-When you activate Arc-enabled Azure VMware Solution resources in Azure, a representation is created for them in Azure. Before you can delete the vCenter resource in Azure, you'll need to delete all of the Azure resource representations you created for your vSphere resources. To delete the Azure resource representations you created, do the following steps: 
+When you activate Arc-enabled Azure VMware Solution resources in Azure, a representation is created for them in Azure. Before you can delete the vCenter Server resource in Azure, you'll need to delete all of the Azure resource representations you created for your vSphere resources. To delete the Azure resource representations you created, do the following steps: 
 
 1. Go to the Azure portal.
-1. Choose **Virtual machines** from Arc-enabled VMware resources in the private cloud.
+1. Choose **Virtual machines** from Arc-enabled VMware vSphere resources in the private cloud.
 1. Select all the VMs that have an Azure Enabled value as **Yes**.
-1. Select **Remove from Azure**. This step will start deployment and remove these resources from Azure. The resources will remain in your vCenter.
+1. Select **Remove from Azure**. This step will start deployment and remove these resources from Azure. The resources will remain in your vCenter Server.
     1. Repeat steps 2, 3 and 4 for **Resourcespools/clusters/hosts**, **Templates**, **Networks**, and **Datastores**.
 1. When the deletion completes, select **Overview**.
     1. Note the Custom location and the Azure Arc Resource bridge resources in the Essentials section.
 1. Select **Remove from Azure** to remove the vCenter resource from Azure.
-1. Go to vCenter resource in Azure and delete it.
+1. Go to vCenter Server resource in Azure and delete it.
 1. Go to the Custom location resource and select **Delete**.
 1. Go to the Azure Arc Resource bridge resources and select **Delete**. 
 
 At this point, all of your Arc-enabled VMware vSphere resources have been removed from Azure.
 
-## Delete Arc resources from vCenter
+## Delete Arc resources from vCenter Server
 
 For the final step, you'll need to delete the resource bridge VM and the VM template that were created during the onboarding process. Once that step is done, Arc won't work on the Azure VMware Solution SDDC. When you delete Arc resources from vCenter, it won't affect the Azure VMware Solution private cloud for the customer. 
 

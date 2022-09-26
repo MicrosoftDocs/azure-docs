@@ -57,6 +57,9 @@ To utilize the Azure BYOIP feature, you must perform the following steps prior t
   
     * After the ROA is complete and submitted, allow at least 24 hours for it to become available to Microsoft, where it will be verified to determine its authenticity and correctness as part of the provisioning process.
 
+> [!NOTE]
+> It is also recommended to create a ROA for any existing ASN that is advertising the range to avoid any issues during migration.
+
 ### Certificate readiness
 
 To authorize Microsoft to associate a prefix with a customer subscription, a public certificate must be compared against a signed message. 
@@ -84,7 +87,7 @@ The following steps show the steps required to prepare sample customer range (1.
     
     * [RIPE](https://www.ripe.net/manage-ips-and-asns/db/support/updating-the-ripe-database) - edit the "Remarks" of the inetnum record.
     
-    * [APNIC](https://www.apnic.net/manage-ip/using-whois/updating-whois/) - in order to edit the prefix record, contact helpdesk@apnic.net.
+    * [APNIC](https://www.apnic.net/manage-ip/using-whois/updating-whois/) - edit the “Remarks” of the inetnum record using MyAPNIC.
     
     * For ranges from either LACNIC or AFRINIC registries, create a support ticket with Microsoft.
      
@@ -182,7 +185,7 @@ az network custom-ip prefix update \
     --state commission 
 ```
 
-As before, the operation is asynchronous. Use [az network custom-ip prefix show](/cli/azure/network/custom-ip/prefix#az_network_custom_ip_prefix_show) to retrieve the status. The **CommissionedState** field will initially show the prefix as **Commissioning**, followed in the future by **Commissioned**. The advertisement rollout isn't binary and the range will be partially advertised while still in **Commissioning**.
+As before, the operation is asynchronous. Use [az network custom-ip prefix show](/cli/azure/network/custom-ip/prefix#az-network-custom-ip-prefix-show) to retrieve the status. The **CommissionedState** field will initially show the prefix as **Commissioning**, followed in the future by **Commissioned**. The advertisement rollout isn't binary and the range will be partially advertised while still in **Commissioning**.
 
 > [!NOTE]
 > The estimated time to fully complete the commissioning process is 3-4 hours.

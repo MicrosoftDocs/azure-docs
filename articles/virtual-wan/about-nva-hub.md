@@ -2,18 +2,17 @@
 title: 'About Network Virtual Appliances - Virtual WAN hub'
 titleSuffix: Azure Virtual WAN
 description: Learn about Network Virtual Appliances in a Virtual WAN hub.
-services: virtual-wan
-author: cherylmc
+author: wtnlee
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/02/2021
-ms.author: cherylmc
+ms.date: 09/14/2022
+ms.author: wellee
 ms.custom: references_regions
 # Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in a Virtual WAN hub.
 ---
 # About NVAs in a Virtual WAN hub
 
-Customers can deploy select Network Virtual Appliances (NVAs) directly into a Virtual WAN hub in a solution that is jointly managed by Microsoft Azure and third-party Network Virtual Appliance vendors. Not all Network Virtual Appliances in Azure Marketplace can be deployed into a Virtual WAN hub. For a full list of available partners, see the [Partners](#partner) section of this article.
+Customers can deploy select Network Virtual Appliances (NVAs) directly into a Virtual WAN hub in a solution that is jointly managed by Microsoft Azure and third-party Network Virtual Appliance vendors. Not all Network Virtual Appliances in Azure Marketplace can be deployed into a Virtual WAN hub. For a full list of available partners, see the [Partners](#partners) section of this article.
 
 ## Key benefits
 
@@ -32,7 +31,7 @@ Deploying NVAs into a Virtual WAN hub provides the following benefits:
 > [!IMPORTANT]
 > To ensure you get the best support for this integrated solution, make sure you have similar levels of support entitlement with both Microsoft and your Network Virtual Appliance provider.
 
-## <a name ="partner"></a> Partners
+## Partners
 
 [!INCLUDE [NVA partners](../../includes/virtual-wan-nva-hub-partners.md)]
 
@@ -56,7 +55,7 @@ Customers can deploy an Azure Firewall along side their connectivity-based NVAs.
 
 Customers can also deploy NVAs into a Virtual WAN hub that perform both SD-WAN connectivity and Next-Generation Firewall capabilities. Customers can connect on-premises devices to the NVA in the hub and also use the same appliance to inspect all North-South, East-West, and Internet-bound traffic. Routing to enable these scenarios can be configured via [Routing Intent and Routing Policies](./how-to-routing-policies.md).
 
-Partners that support these traffic flows are listed as **dual-role SD-WAN connectivity and security (Next-Generation Firewall) Network Virtual Appliances** in the [Partners section](#partner).
+Partners that support these traffic flows are listed as **dual-role SD-WAN connectivity and security (Next-Generation Firewall) Network Virtual Appliances** in the [Partners section](#partners).
 
 :::image type="content" source="./media/about-nva-hub/global-transit-ngfw.png" alt-text="Global transit architecture with third-party NVA." lightbox="./media/about-nva-hub/global-transit-ngfw.png":::
 
@@ -83,6 +82,24 @@ NVA Partners may create different resources depending on their appliance deploym
 * **Managed resource group** - Customers can't configure or change resources in this resource group directly, as this is controlled by the publisher of the managed application. This resource group will contain the **NetworkVirtualAppliances** resource.
 
 :::image type="content" source="./media/about-nva-hub/managed-app.png" alt-text="Managed Application resource groups":::
+
+
+### Managed resource group permissions
+
+By default, all managed resource groups have a deny-all Azure Active Directory assignment. Deny-all assignments prevent customers from calling write operations on any resources in the managed resource group, including Network Virtual Appliance resources.
+
+However, partners may create exceptions for specific actions that customers are allowed to perform on resources deployed in managed resource groups.
+
+Permissions on resources in existing managed resource groups aren't dynamically updated as new permitted actions are added by partners and require a manual refresh.
+
+To refresh permissions on the managed resource groups, customers can leverage the [Refresh Permissions REST API ](/rest/api/managedapplications/applications/refresh-permissions).
+
+> [!NOTE]
+> To properly apply new permissions, refresh permissions API must be called with an additional query parameter **targetVersion**. The value for targetVersion is provider-specific. Please reference your provider's documentation for the latest version number.
+
+```http-interactive
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Solutions/applications/{applicationName}/refreshPermissions?api-version=2019-07-01&targetVersion={targetVersion}
+```
 
 ### <a name="units"></a>NVA Infrastructure Units
 

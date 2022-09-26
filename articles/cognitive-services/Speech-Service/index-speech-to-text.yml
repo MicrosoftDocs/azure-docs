@@ -36,17 +36,15 @@ landingContent:
       links:
         - text: Choose speech recognition mode
           url: ./get-started-speech-to-text.md
-        - text: Change speech recognition source language
-          url: how-to-specify-source-language.md
         - text: Improve accuracy with Custom Speech
           url: ./custom-speech-overview.md
         - text: Use compressed audio input formats
           url: how-to-use-codec-compressed-audio-input-streams.md
-        - text: Migrate from v2.0 to v3.0 
-          url: migrate-v2-to-v3.md
+        - text: Migrate from v3.0 to v3.1
+          url: migrate-v3-0-to-v3-1.md
     - linkListType: concept
       links:
-        - text: Prepare data for Custom Speech
+        - text: Training and testing datasets
           url: how-to-custom-speech-test-and-train.md
         - text: Train a model for Custom Speech
           url: how-to-custom-speech-train-model.md
@@ -57,7 +55,7 @@ landingContent:
     - linkListType: reference
       links:
         - text: Language support
-          url: language-support.md#speech-to-text
+          url: language-support.md
         - text: Speech-to-text FAQ
           url: faq-stt.yml
         - text: Speech-to-text pricing

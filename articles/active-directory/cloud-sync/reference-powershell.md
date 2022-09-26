@@ -3,7 +3,7 @@ title: 'AADCloudSyncTools PowerShell module for Azure AD Connect cloud sync'
 description: This article describes how to install the Azure AD Connect cloud provisioning agent.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
@@ -30,7 +30,7 @@ Here are some details about what you need:
   ```
   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
   ```
-
+- The AADCloudSyncTools module might not work correctly if the Azure AD Connect cloud provisioning agent is not running or the configuration wizard has not finished successfully.
 
 ## Install the AADCloudSyncTools PowerShell module
 
@@ -53,8 +53,10 @@ Here are some details about what you need:
    Import-module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Utility\AADCloudSyncTools"
    ```
 
-
 ## AADCloudSyncTools cmdlets
+
+> [!NOTE]
+> Before using AADCloudSyncTools module make sure the Azure AD Connect cloud provisioning agent is running and the configuration wizard has finished successfully. To troubleshoot wizard issues, you can find trace logs in the folder *C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace*, see [Cloud sync troubleshooting](how-to-troubleshoot.md) for more information.
 
 ### Connect-AADCloudSyncTools
 
@@ -64,10 +66,16 @@ This cmdlet uses the MSAL.PS module to request a token for the Azure AD administ
 
 This cmdlet exports and packages all the troubleshooting data in a compressed file, as follows: 
 
-1. Sets verbose tracing and starts collecting data from the provisioning agent (same as `Start-AADCloudSyncToolsVerboseLogs`). You can find these trace logs in the folder *C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace*.
-2. Stops data collection after three minutes and disables verbose tracing (same as `Stop-AADCloudSyncToolsVerboseLogs`). You can specify a different duration by using `-TracingDurationMins` or completely skip verbose tracing by using `-SkipVerboseTrace`.
+1. Sets verbose tracing and starts collecting data from the provisioning agent (same as `Start-AADCloudSyncToolsVerboseLogs`).
+2. Stops data collection after three minutes and disables verbose tracing (same as `Stop-AADCloudSyncToolsVerboseLogs`). 
 3. Collects Event Viewer logs for the last 24 hours. 
-4. Compresses all the agent logs, verbose logs, and Event Viewer logs into a .zip file in the user's *Documents* folder. You can specify a different output folder by using `-OutputPath <folder path>`.
+4. Compresses all the agent logs, verbose logs, and Event Viewer logs into a .zip file in the user's *Documents* folder.
+
+You can use the following options to fine-tune your data collection:
+
+- `SkipVerboseTrace` to only export current logs without capturing verbose logs (default = false).
+- `TracingDurationMins` to specify a different capture duration (default = 3 minutes).
+- `OutputPath` to specify a different output path (default = user’s Documents folder).
 
 ### Get-AADCloudSyncToolsInfo
 

@@ -71,7 +71,7 @@ There are two solutions to the problem. The first one is that you simply adverti
 The second solution is that you continue to advertise both of the prefixes on both ExpressRoute circuits, and in addition you give us a hint of which prefix is close to which one of your offices. Because we support BGP AS Path prepending, you can configure the AS Path for your prefix to influence routing. In this example, you can lengthen the AS PATH for 172.2.0.0/31 in US East so that we will prefer the ExpressRoute circuit in US West for traffic destined for this prefix (as our network will think the path to this prefix is shorter in the west). Similarly you can lengthen the AS PATH for 172.2.0.2/31 in US West so that we'll prefer the ExpressRoute circuit in US East. Routing is optimized for both offices. With this design, if one ExpressRoute circuit is broken, Exchange Online can still reach you via another ExpressRoute circuit and your WAN. 
 
 > [!IMPORTANT]
-> We remove private AS numbers in the AS PATH for the prefixes received on Microsoft Peering and Private Peering when peering using a private AS number. You need to peer with a public AS and append public AS numbers in the AS PATH to influence routing for Microsoft Peering.
+> We remove private AS numbers in the AS PATH for the prefixes received on Microsoft Peering when peering using a private AS number. You need to peer with a public AS and append public AS numbers in the AS PATH to influence routing for Microsoft Peering.
 > 
 > 
 

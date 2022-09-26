@@ -1,9 +1,8 @@
 ---
-title: Acquire a token to call a web API using device code flow (desktop app) | Azure
-titleSuffix: Microsoft identity platform
+title: Acquire a token to call a web API using device code flow (desktop app)
 description: Learn how to build a desktop app that calls web APIs to acquire a token for the app using device code flow
 services: active-directory
-author: maliksahil
+author: Dickson-Mwendia
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,7 +10,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/25/2021
-ms.author: sahmalik
+ms.author: dmwendia
 ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer, I want to know how to write a desktop app that calls web APIs by using the Microsoft identity platform.
 ---
@@ -123,7 +122,7 @@ private static async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublic
     {
         // If you use a CancellationToken, and call the Cancel() method on it, then this *may* be triggered
         // to indicate that the operation was cancelled.
-        // See https://docs.microsoft.com/dotnet/standard/threading/cancellation-in-managed-threads
+        // See https://learn.microsoft.com/dotnet/standard/threading/cancellation-in-managed-threads
         // for more detailed information on how C# supports cancellation in managed threads.
     }
     catch (MsalClientException ex)

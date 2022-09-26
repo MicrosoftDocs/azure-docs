@@ -1,17 +1,13 @@
 ---
 title: Microsoft Defender for Cloud's main dashboard or 'overview' page
 description: Learn about the features of the Defender for Cloud overview page
-ms.date: 11/09/2021
+ms.date: 07/20/2022
 ms.topic: overview
 ---
 
 # Microsoft Defender for Cloud's overview page
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-When you open Microsoft Defender for Cloud, the first page to appear is the overview page.
-
-This interactive dashboard provides a unified view into the security posture of your hybrid cloud workloads. Additionally, it shows security alerts, coverage information, and more.
+Microsoft Defender for Cloud's overview page is an interactive dashboard that provides a unified view into the security posture of your hybrid cloud workloads. Additionally, it shows security alerts, coverage information, and more.  
 
 You can select any element on the page to get more detailed information.
 
@@ -33,7 +29,7 @@ The **top menu bar** offers:
 
 In the center of the page are the **feature tiles**, each linking to a high profile feature or dedicated dashboard:
 
-- **Secure score** - Defender for Cloud continually assesses your resources, subscriptions, and organization for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level. [Learn more](secure-score-security-controls.md).
+- **Security posture** - Defender for Cloud continually assesses your resources, subscriptions, and organization for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level. [Learn more](secure-score-security-controls.md).
 - **Workload protections** - This is the cloud workload protection platform (CWPP) integrated within Defender for Cloud for advanced, intelligent protection of your workloads running on Azure, on-premises machines, or other cloud providers. For each resource type, there's a corresponding Microsoft Defender plan. The tile shows the coverage of your connected resources (for the currently selected subscriptions) and the recent alerts, color-coded by severity. Learn more about [the enhanced security features](enhanced-security-features-overview.md).
 - **Regulatory compliance** - Defender for Cloud provides insights into your compliance posture based on continuous assessments of your Azure environment. Defender for Cloud analyzes risk factors in your environment according to security best practices. These assessments are mapped to compliance controls from a supported set of standards. [Learn more](regulatory-compliance-dashboard.md).
 - **Firewall Manager** - This tile shows the status of your hubs and networks from [Azure Firewall Manager](../firewall-manager/overview.md).

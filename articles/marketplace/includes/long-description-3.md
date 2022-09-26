@@ -22,4 +22,3 @@ Use HTML tags to format your description so it's more engaging. Most tags requir
 |   New line without new number (or bullet)  |  `<ol> & </ol>, <li> & </li>, <br>`  |  `<ol>`<br>`<li>`add text here`</li>`<br>`<li>`add text here`<br>`add text here`</li>`<br>`</ol>`  |  1. add text here<br>2. add text here<br>&nbsp;&nbsp;&nbsp;&nbsp;add text here   |
 |   New paragraph without new number (or bullet)  |  `<ol> & </ol>, <li> & </li>, <br>`  |  `<ol>`<br>`<li>`add text here`</li>`<br>`<li>`add text here`<br><br>`add text here`</li>`<br>`</ol>`  |  1. add text here<br>2. add text here<p>&nbsp;&nbsp;&nbsp;&nbsp;add text here   |
 |   Use headings  |  `<h1> & </h1>, <h2> & </h2>`, up to `<h6> & </h6>`  |  `<h1>`This is heading 1`</h1>`<br>`<h2>`This is heading 2`</h2>`<br>`<h3>`This is heading 3`</h3>`  | :::image type="content" source="../media/supported-html-tags/heading-levels.png" alt-text="Shows the H1, H2, and H3 heading levels."::: |
-| | | |
