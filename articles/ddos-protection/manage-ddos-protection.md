@@ -13,7 +13,7 @@ ms.custom: template-quickstart
 
 Get started with Azure DDoS Network Protection by using the Azure portal.
 
-A DDoS protection plan defines a set of virtual networks that have DDoS Network Protection enabled, across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions under a single AAD tenant to the same plan.
+A DDoS protection plan defines a set of virtual networks that have DDoS Network Protection enabled, across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions under a single Azure AD tenant to the same plan.
 
 In this quickstart, you'll create a DDoS protection plan and link it to a virtual network.
 
