@@ -48,14 +48,14 @@ To begin, create a configuration file named *applicationinsights.json*. Save it 
     "sampling": {
       "overrides": [
         {
-          "telemetryKind": "request",
+          "telemetryType": "request",
           "attributes": [
             ...
           ],
           "percentage": 0
         },
         {
-          "telemetryKind": "request",
+          "telemetryType": "request",
           "attributes": [
             ...
           ],
@@ -69,7 +69,7 @@ To begin, create a configuration file named *applicationinsights.json*. Save it 
 
 ## How it works
 
-`telemetryKind` must be one of `request`, `dependency`, `trace` (log), or `exception`.
+`telemetryType` must be one of `request`, `dependency`, `trace` (log), or `exception`.
 
 When a span is started, the type of span and the attributes present on it at that time are used to check if any of the sampling
 overrides match.
@@ -104,7 +104,7 @@ This will also suppress collecting any downstream spans (dependencies) that woul
     "sampling": {
       "overrides": [
         {
-          "telemetryKind": "request",
+          "telemetryType": "request",
           "attributes": [
             {
               "key": "http.url",
@@ -131,7 +131,7 @@ This will suppress collecting telemetry for all `GET my-noisy-key` redis calls.
     "sampling": {
       "overrides": [
         {
-          "telemetryKind": "dependency",
+          "telemetryType": "dependency",
           "attributes": [
             {
               "key": "db.system",
@@ -170,7 +170,7 @@ those will also be collected for all '/login' requests.
     "sampling": {
       "overrides": [
         {
-          "telemetryKind": "request",
+          "telemetryType": "request",
           "attributes": [
             {
               "key": "http.url",
