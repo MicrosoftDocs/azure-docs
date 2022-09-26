@@ -94,7 +94,7 @@ cd cli/jobs/pipelines-with-components/nyc_taxi_data_regression
 
 # [Python SDK](#tab/python)
 
-For the Python SDK example, use the `nyc_taxi_data_regression` sample from the the [examples repository](https://github.com/Azure/azureml-examples). The sample notebook, `share-models-components-environments.ipynb`, is available in the `sdk/resources/registry` folder. All the sample YAML for components, model training code, sample data for training and inference is available in `cli/jobs/pipelines-with-components/nyc_taxi_data_regression`. Change to the `sdk/resources/registry` directory and open the `share-models-components-environments.ipynb` notebook if you'd like to step through a notebook to try out the code in this document.
+For the Python SDK example, use the `nyc_taxi_data_regression` sample from the [examples repository](https://github.com/Azure/azureml-examples). The sample notebook, `share-models-components-environments.ipynb`, is available in the `sdk/resources/registry` folder. All the sample YAML for components, model training code, sample data for training and inference is available in `cli/jobs/pipelines-with-components/nyc_taxi_data_regression`. Change to the `sdk/resources/registry` directory and open the `share-models-components-environments.ipynb` notebook if you'd like to step through a notebook to try out the code in this document.
 
 ---
 
@@ -399,7 +399,7 @@ pipeline_job
 > [!TIP]
 > Notice that you are using `ml_client_workspace` to run the pipeline job whereas you had used `ml_client_registry` to use create environment and component.
 
-Since the component used in the training job is shared through a registry, you can submit the job to any workspace that you have access to in your organization, even across different subscriptions. For example, if you have `dev-workspace`, `test-workspace` and `prod-workspace`, you can connect to those workspaces and re-submit the job.
+Since the component used in the training job is shared through a registry, you can submit the job to any workspace that you have access to in your organization, even across different subscriptions. For example, if you have `dev-workspace`, `test-workspace` and `prod-workspace`, you can connect to those workspaces and resubmit the job.
 
 ---
 

@@ -34,7 +34,7 @@ AzureML registries enable you to create and use those assets in different worksp
 
 You need to decide the following information carefully before proceeding to create a registry:
 
-### Choosing a name
+### Choose a name
 
 Consider the following factors before picking a name.
 * Registries are meant to facilitate sharing of ML assets across teams within your organization across all workspaces. Choose a name that is reflective of the sharing scope. The name should help identify your group, division or organization. 
@@ -44,11 +44,11 @@ Consider the following factors before picking a name.
   * Alphanumerics, underscore, hyphen are allowed. No other special characters. No spaces - registry names are part of model, environment, and component IDs that can be referenced in code.  
   * Name can contain underscore or hyphen but can't start with an underscore or hyphen. Needs to start with an alphanumeric. 
 
-### Choosing Azure regions 
+### Choose Azure regions 
 
 Registries enable sharing of assets across workspaces. To do so, a registry replicates content across multiple Azure regions. You need to define the list of regions that a registry supports when creating the registry. Create a list of all regions in which you have workspaces today and plan to add in near future. This list is a good set of regions to start with. When creating a registry, you define a primary region and a set of additional regions. The primary region can't be changed after registry creation, but the additional regions can be updated at a later point.
 
-### Checking permissions
+### Check permissions
 
 Make sure you're the "Owner" or "Contributor" of the subscription or resource group in which you plan to create the registry. If you don't have one of these built-in roles, review the section on permissions toward the end of this article. 
 
@@ -57,7 +57,10 @@ Make sure you're the "Owner" or "Contributor" of the subscription or resource gr
 
 # [Azure CLI](#tab/cli)
 
-Create the YAML definition and name it `registry.yml`. Note that primary location of the registry in the below example is `eastus` which is specified twice in the YAML file: first with `location` and second under the `replication_locations` list. 
+Create the YAML definition and name it `registry.yml`.
+
+> [!NOTE]
+> The primary location is listed twice in the YAML file. In the following example, `eastus` is listed first as the primary location (`location` item) and also in the `replication_locations` list. 
 
 ```YAML
 name: DemoRegistry1
@@ -117,16 +120,20 @@ You can create registries in AzureML studio using the following steps:
 
 ---
 
-## Specifying storage account type and SKU (optional)
+## Specify storage account type and SKU (optional)
 
 > [!TIP]
-> Specifying storage account type and SKU is only available with the Azure CLI
+> Specifying the Azure Storage Account type and SKU is only available from the Azure CLI.
 
-Azure storage offers several types of storage accounts with different features and pricing. Review [types of storage accounts](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview#types-of-storage-accounts) to learn more. Once you figure out the the optimal storage account SKU that best suites your needs, [find the value for the appropriate SKU type](https://learn.microsoft.com/en-us/rest/api/storagerp/srp_sku_types) and specify it in the YAML file as the value of the `storage_account_type` field under `replication_locations` for each `location`. 
+Azure storage offers several types of storage accounts with different features and pricing. For more information, see the [Types of storage accounts](/azure/storage/common/storage-account-overview#types-of-storage-accounts) article. Once you identify the optimal storage account SKU that best suites your needs, [find the value for the appropriate SKU type](/rest/api/storagerp/srp_sku_types). In the YAML file, use your selected SKU type as the value of the `storage_account_type` field. This field is under each `location` in the `replication_locations` list.
 
-Next, decide if you want to create [Azure Blob storage](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction) account or [Azure Data Lake Storage Gen2](https://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction). Set `storage_account_hns` to `true` to create a Azure Data Lake Storage Gen2 account or `false` to create a Azure Blob storage account. HNS refers to the [hierarchical namespace](https://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-namespace) capability of Azure Data Lake Storage Gen2 accounts. 
+Next, decide if you want to use an [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction) account or [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction). To create Azure Data Lake Storage Gen2, set `storage_account_hns` to `true`. To create Azure Blob Storage, set `storage_account_hns` to `false`. The `storage_account_hns` field is under each `location` in the `replication_locations` list.
 
-Below is a sample YAML with advanced storage configuration:
+> [!NOTE]
+The `hns` portion of `storage_account_hns` refers to the [hierarchical namespace](/azure/storage/blobs/data-lake-storage-namespace) capability of Azure Data Lake Storage Gen2 accounts.
+
+Below is an example YAML that demonstrates this advanced storage configuration:
+
 ```YAML
 name: DemoRegistry2
 description: Registry with additional configuration for storage accounts
@@ -150,7 +157,7 @@ replication_locations:
 
 ## Add users to the registry 
 
-Decide if you want to allow users to only use assets (models, environments and components) from the registry or both use and create assets in the registry. Review [steps to assign a role](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-steps) if you are not familiar how to manage permissions using [Azure role-based access control](https://learn.microsoft.com/en-us/azure/role-based-access-control/overview).
+Decide if you want to allow users to only use assets (models, environments and components) from the registry or both use and create assets in the registry. Review [steps to assign a role](/azure/role-based-access-control/role-assignments-steps) if you aren't familiar how to manage permissions using [Azure role-based access control](/azure/role-based-access-control/overview).
 
 ### Allow users to use assets from the registry
 
@@ -171,7 +178,7 @@ Microsoft.MachineLearningServices/registries/assets/write | Create assets in reg
 Microsoft.MachineLearningServices/registries/assets/delete| Delete assets in registries
 
 > [!WARNING]
-> The built-in __Contributor__ and __Owner__ roles allow users to create, update and delete registries. You must create a custom role if you want the user to create and use assets from the registry, but not create or update registries. Review [custom roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/custom-roles) to learn how to create custom roles from permissions.
+> The built-in __Contributor__ and __Owner__ roles allow users to create, update and delete registries. You must create a custom role if you want the user to create and use assets from the registry, but not create or update registries. Review [custom roles](/azure/role-based-access-control/custom-roles) to learn how to create custom roles from permissions.
 
 ### Allow users to create and manage registries
 
