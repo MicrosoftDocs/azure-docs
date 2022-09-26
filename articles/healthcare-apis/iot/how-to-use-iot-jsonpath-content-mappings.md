@@ -5,16 +5,13 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 09/06/2022
+ms.date: 09/26/2022
 ms.author: jasteppe
 ---
 
 # How to use IotJsonPathContentTemplate mappings
 
 This article describes how to use IoTJsonPathContentTemplate mappings with the MedTech service [device mapping](how-to-use-device-mappings.md).
-
-> [!TIP]
-> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting the MedTech service Device and FHIR destination mappings. Export mappings for uploading to the MedTech service in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of the MedTech service.
 
 ## IotJsonPathContentTemplate
 
@@ -34,9 +31,26 @@ If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContent
 
 ### Examples
 
+With each of these examples, you're provided with:
+ 1. A valid IoT device message.
+ 2. An example of what the IoT device message will look like after being received and processed by the IoT Hub.
+ 3. A valid MedTech service device mapping for normalizing the provided IoT device message.
+ 4. An example of what the MedTech service device message will look like after normalization.
+
 **Heart rate**
 
-*Message*
+1. **A valid IoT device message**
+
+```json
+
+{“heartrate” : “78”}
+
+```
+
+> [!IMPORTANT]
+> To avoid device spoofing in device-to-cloud messages, Azure IoT Hub stamps all messages with additional properties. To learn more about these properties, see [Anti-spoofing properties](/azure/iot-hub/iot-hub-devguide-messages-construct#anti-spoofing-properties)
+
+2. **An example of what the IoT device message will look like after being received and processed by the IoT Hub.**
 
 ```json
 
@@ -54,7 +68,7 @@ If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContent
 
 ```
 
-*Template*
+3. **A valid MedTech service device mapping for normalizing the IoT device message.**
 
 ```json
 
@@ -80,9 +94,41 @@ If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContent
 
 ```
 
+4. **An example of what the MedTech service device message will look like after the normalization process.**
+
+```json
+
+[
+    {
+        "type": "heartrate",
+        "occurrenceTimeUtc": "2021-02-01T22:46:01.875Z",
+        "deviceId": "device123",
+        "properties": [
+            {
+                "name": "hr",
+                "value": "78"
+            }
+        ]
+    }
+]
+
+```
+
 **Blood pressure**
 
-*Message*
+1. **A valid IoT device message.**
+
+```json
+
+{
+    "systolic": "123",
+    "diastolic": "87",
+    "timestamp": "2021-02-01T22:46:01.8750000Z",
+}
+
+```
+
+2. **An example of what the IoT device message will look like after being received and processed by the IoT Hub.**
 
 ```json
 
@@ -101,7 +147,7 @@ If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContent
 
 ```
 
-*Template*
+3. **A valid MedTech service device mapping for normalizing the provided IoT device message.**
 
 ```json
 
@@ -132,10 +178,34 @@ If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContent
 
 ```
 
-> [!TIP]
-> The above IotJsonPathTemplate examples will work separately with your MedTech service device mapping or you can combine them into a single MedTech service device mapping as shown below. Additionally, the IotJasonPathTemplates can also be combined with with other template types such as [JasonPathContentTemplate mappings](how-to-use-jsonpath-content-mappings.md) to create and tune your MedTech service device mapping to meet your individual needs and scenarios. 
+4. **An example of what the MedTech service device message will look like after the normalization process.**
 
-*Template*
+```json
+
+[
+    {
+        "type": "bloodpressure",
+        "occurrenceTimeUtc": "2021-02-01T22:46:01.875Z",
+        "deviceId": "device123",
+        "properties": [
+            {
+                "name": "systolic",
+                "value": "123"
+            },
+            {
+                "name": "diastolic",
+                "value": "87"
+            }
+        ]
+    }
+]
+
+```
+
+> [!TIP]
+> The above IotJsonPathTemplate examples will work separately with your MedTech service device mapping or you can combine them into a single MedTech service device mapping as shown below. Additionally, the IotJasonPathTemplates can also be combined with with other template types such as [JasonPathContentTemplate mappings](how-to-use-jsonpath-content-mappings.md) to design and tune your MedTech service device mapping to meet your individual needs and scenarios. 
+
+**Combined heart rate and blood pressure MedTech service device mapping**
 
 ```json
 
