@@ -563,7 +563,7 @@ The more serverless SQL pool knows about your data, the faster it can execute qu
 
 The serverless SQL pool query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. 
 
-For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
+For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will pick a different plan.
 
 ### Automatic creation of statistics
 
@@ -572,13 +572,13 @@ Serverless SQL pool analyzes incoming user queries for missing statistics. If st
 The SELECT statement will trigger automatic creation of statistics.
 
 > [!NOTE]
-> Automatic creation of statistics is turned on for Parquet files. For CSV files,  you need to create statistics manually until automatic creation of CSV files statistics is supported.
+> Automatic creation of statistics is turned on for Parquet files. For CSV files, statistics will be automatically created if you use OPENROWSET. You need to create statistics manually you use CSV external tables.
 
 Automatic creation of statistics is done synchronously so you may incur slightly degraded query performance if your columns are missing statistics. The time to create statistics for a single column depends on the size of the files targeted.
 
 ### Manual creation of statistics
 
-Serverless SQL pool lets you create statistics manually. For CSV files, you have to create statistics manually because automatic creation of statistics isn't turned on for CSV files. 
+Serverless SQL pool lets you create statistics manually. For CSV external tables, you have to create statistics manually because automatic creation of statistics isn't turned on for CSV external tables.
 
 See the following examples for instructions on how to manually create statistics.
 
@@ -593,7 +593,7 @@ When statistics are stale, new ones will be created. The algorithm goes through 
 Manual stats are never declared stale.
 
 > [!NOTE]
-> Automatic recreation of statistics is turned on for Parquet files. For CSV files, you need to drop and create statistics manually until automatic creation of CSV files statistics is supported. Check the examples below on how to drop and create statistics.
+> Automatic recreation of statistics is turned on for Parquet files. For CSV files, statistics will be recreated if you use OPENROWSET. You need to drop and create statistics manually for CSV external tables. Check the examples below on how to drop and create statistics.
 
 One of the first questions to ask when you're troubleshooting a query is, **"Are the statistics up to date?"**
 

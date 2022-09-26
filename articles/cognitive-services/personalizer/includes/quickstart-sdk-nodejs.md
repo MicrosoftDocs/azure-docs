@@ -9,7 +9,13 @@ ms.topic: include
 ms.custom: cog-serv-seo-aug-2020
 ms.date: 08/27/2020
 ---
-[Reference documentation](/javascript/api/@azure/cognitiveservices-personalizer) |[Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/Personalizer)
+
+You will need to install the Personalizer client library forN ode.js to:
+* Authenticate the quickstart example client with a Personalizer resource in Azure.
+* Send context and action features to the Reward API, which will return the best action from the Personalizer model
+* Send a reward score to the Rank API and train the Personalizer model.
+
+[Reference documentation](/javascript/api/@azure/cognitiveservices-personalizer) |[Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [Quickstart code sample](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/Personalizer)
 
 ## Prerequisites
 
@@ -42,6 +48,9 @@ npm init -y
 Create a new Node.js application in your preferred editor or IDE named `sample.js` and create variables for your resource's endpoint and subscription key. 
 
 [!INCLUDE [Personalizer find resource info](find-azure-resource-info.md)]
+
+> [!IMPORTANT]
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
 
 ```javascript
 const uuidv1 = require('uuid/v1');
@@ -254,7 +263,7 @@ Add the following methods, which [get the content choices](#get-content-choices-
 
 ## Request the best action
 
-To complete the Rank request, the program asks the user's preferences to create content choices. The process can create content to exclude from the actions, shown as `excludeActions`. The Rank request needs the [actions](../concepts-features.md#actions-represent-a-list-of-options) and their features, currentContext features, excludeActions, and a unique rank event ID, to receive the ranked response.
+To make a Rank request, you will need to provide: a list of 'RankActions' (_actions_), a list of context features (_context_), an optional list of actions (_excludeActions_) to remove from consideration by Personalizer, and a unique event ID to receive the response.
 
 This quickstart has simple context features of time of day and user food preference. In production systems, determining and [evaluating](../concept-feature-evaluation.md) [actions and features](../concepts-features.md) can be a non-trivial matter.
 

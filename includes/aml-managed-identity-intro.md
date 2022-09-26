@@ -15,3 +15,6 @@ ms.date: 08/24/2020
 
 * A **system-assigned managed identity** is enabled directly on the Azure Machine Learning compute cluster. The life cycle of a system-assigned identity is directly tied to the compute cluster. If the compute cluster is deleted, Azure automatically cleans up the credentials and the identity in Azure AD.
 * A **user-assigned managed identity** is a standalone Azure resource provided through Azure Managed Identity service. You can assign a user-assigned managed identity to multiple resources, and it persists for as long as you want. This managed identity needs to be created beforehand and then passed as the identity_id as a required parameter.
+
+> [!NOTE]
+> Managed identity is supported on [compute clusters](../articles/machine-learning/concept-compute-target.md#azure-machine-learning-compute-managed), but is not supported on [compute instances](../articles/machine-learning/concept-compute-instance.md).  

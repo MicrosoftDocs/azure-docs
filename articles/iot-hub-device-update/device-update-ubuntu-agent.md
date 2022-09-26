@@ -77,8 +77,27 @@ For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/usi
     > [![Screenshot showing the DNS name of the iotedge vm.](../iot-edge/media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](../iot-edge/media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
    
     > [!TIP]
-    > If you want to SSH into this VM after setup, use the associated **DNS name** with the following command:
+    > To SSH into this VM after setup, use the associated **DNS name** with the following command:
     `ssh <adminUsername>@<DNS_Name>`.
+
+ 1. Open the configuration details (See how to [set up configuration file here](device-update-configuration-file.md) with the command below. Set your connectionType as 'AIS' and connectionData as empty string.
+
+   ```markdown
+   /etc/adu/du-config.json
+   ```
+
+ 5. Restart the Device Update agent by running the following command:
+
+   ```markdown
+    sudo systemctl restart adu-agent
+   ```
+
+Device Update for Azure IoT Hub software packages are subject to the following license terms:
+
+  * [Device update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE)
+  * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE)
+
+Read the license terms before you use a package. Your installation and use of a package constitutes your acceptance of these terms. If you don't agree with the license terms, don't use that package. 
 
 ### Manually prepare a device
 
@@ -103,7 +122,7 @@ Similar to the steps automated by the [cloud-init script](https://github.com/Azu
    /etc/adu/du-config.json
    ```
 
-1. Restart the Device Update agent by running the following command:
+5. Restart the Device Update agent by running the following command:
 
    ```markdown
     sudo systemctl restart adu-agent

@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 04/27/2022
 ---
  
-# Discover and assess servers for migration using Private Link
+# Discover and assess servers for migration using Private Link (Preview)
 
 This article describes how to create an Azure Migrate project, set up the Azure Migrate appliance, and use it to discover and assess servers for migration using [Azure Private Link](../private-link/private-endpoint-overview.md).  You can use the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link.
 
@@ -72,7 +72,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2160648) | 277C53620DB299F57E3AC5A65569E9720F06190A245476810B36BF651C8B795B
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 277C53620DB299F57E3AC5A65569E9720F06190A245476810B36BF651C8B795B
 
 > [!NOTE]
 > The same script can be used to set up an appliance with private endpoint connectivity for any of the chosen scenarios, such as VMware, Hyper-V, physical or other to deploy an appliance with the desired configuration.

@@ -1,24 +1,26 @@
 ---
-title: Managing the Azure Log Analytics agent 
+title: Manage the Azure Log Analytics agent 
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Log Analytics Windows or Linux agent deployed on a machine.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
+author: guywi-ms
+ms.author: guywild
 ms.date: 04/06/2022
-
+ms.reviewer: luki
 ---
 
-# Managing and maintaining the Log Analytics agent for Windows and Linux
+# Manage and maintain the Log Analytics agent for Windows and Linux
 
 After initial deployment of the Log Analytics Windows or Linux agent in Azure Monitor, you may need to reconfigure the agent, upgrade it, or remove it from the computer if it has reached the retirement stage in its lifecycle. You can easily manage these routine maintenance tasks manually or through automation, which reduces both operational error and expenses.
 
-## Upgrading agent
+[!INCLUDE [Log Analytics agent deprecation](../../../includes/log-analytics-agent-deprecation.md)]
 
-The Log Analytics agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on the deployment scenario and environment the VM is running in. The following methods can be used to upgrade the agent.
+## Upgrade the agent
 
-| Environment | Installation Method | Upgrade method |
+Upgrade to the latest release of the Log Analytics agent for Windows and Linux manually or automatically based on your deployment scenario and the environment the VM is running in:
+
+| Environment | Installation method | Upgrade method |
 |--------|----------|-------------|
-| Azure VM | Log Analytics agent VM extension for Windows/Linux | Agent is automatically upgraded by default [after the VM model changes](../../virtual-machines/extensions/features-linux.md#how-agents-and-extensions-are-updated), unless you configured your Azure Resource Manager template to opt out by setting the property *autoUpgradeMinorVersion* to **false**. |
+| Azure VM | Log Analytics agent VM extension for Windows/Linux | Agent is automatically upgraded [after the VM model changes](../../virtual-machines/extensions/features-linux.md#how-agents-and-extensions-are-updated), unless you configured your Azure Resource Manager template to opt out by setting the property _autoUpgradeMinorVersion_ to **false**. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true. Only Linux agent supports automatic update post deployment with _enableAutomaticUpgrade_ property(See [Enable Auto-Update for the Linux Agent](#enable-auto-update-for-the-linux-agent)). Major version upgrade is always manual(See [VirtualMachineExtensionInner.AutoUpgradeMinorVersion Property](https://docs.azure.cn/dotnet/api/microsoft.azure.management.compute.fluent.models.virtualmachineextensioninner.autoupgrademinorversion?view=azure-dotnet)). |
 | Custom Azure VM images | Manual install of Log Analytics agent for Windows/Linux | Updating VMs to the newest version of the agent needs to be performed from the command line running the Windows installer package or Linux self-extracting and installable shell script bundle.|
 | Non-Azure VMs | Manual install of Log Analytics agent for Windows/Linux | Updating VMs to the newest version of the agent needs to be performed from the command line running the Windows installer package or Linux self-extracting and installable shell script bundle. |
 
@@ -39,7 +41,7 @@ You can download the latest version of the Windows agent from your Log Analytics
 5. From the **Windows Servers** page, select the appropriate **Download Windows Agent** version to download depending on the processor architecture of the Windows operating system.
 
 >[!NOTE]
->During the upgrade of the Log Analytics agent for Windows, it does not support configuring or reconfiguring a workspace to report to. To configure the agent, you need to follow one of the supported methods listed under [Adding or removing a workspace](#adding-or-removing-a-workspace).
+>During the upgrade of the Log Analytics agent for Windows, it does not support configuring or reconfiguring a workspace to report to. To configure the agent, you need to follow one of the supported methods listed under [Add or remove a workspace](#add-or-remove-a-workspace).
 >
 
 #### To upgrade using the Setup Wizard
@@ -76,7 +78,38 @@ Run the following command to upgrade the agent.
 
 `sudo sh ./omsagent-*.universal.x64.sh --upgrade`
 
-## Adding or removing a workspace
+### Enable Auto-Update for the Linux Agent
+
+We recommend enabling [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) using these commands to update the agent automatically: 
+
+# [Powershell](#tab/PowerShellLinux)
+```powershell
+Set-AzVMExtension \
+  -ResourceGroupName myResourceGroup \
+  -VMName myVM \
+  -ExtensionName OmsAgentForLinux \
+  -ExtensionType OmsAgentForLinux \
+  -Publisher Microsoft.EnterpriseCloud.Monitoring \
+  -TypeHandlerVersion latestVersion \
+  -ProtectedSettingString '{"workspaceKey":"myWorkspaceKey"}' \
+  -SettingString '{"workspaceId":"myWorkspaceId","skipDockerProviderInstall": true}' \
+  -EnableAutomaticUpgrade $true
+```
+# [Azure CLI](#tab/CLILinux)
+```powershell
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name OmsAgentForLinux \
+  --publisher Microsoft.EnterpriseCloud.Monitoring \
+  --protected-settings '{"workspaceKey":"myWorkspaceKey"}' \
+  --settings '{"workspaceId":"myWorkspaceId","skipDockerProviderInstall": true}' \
+  --version latestVersion \
+  --enable-auto-upgrade true
+```
+---
+
+## Add or remove a workspace
 
 ### Windows agent
 The steps in this section are necessary when you want to not only reconfigure the Windows agent to report to a different workspace or to remove a workspace from its configuration, but also when you want to configure the agent to report to more than one workspace (commonly referred to as multi-homing). Configuring the Windows agent to report to multiple workspaces can only be performed after initial setup of the agent and using the methods described below.    
@@ -217,6 +250,15 @@ Perform the following steps if your Linux computers need to communicate through 
 2. Restart the agent by running the following command:
 
     ```
+    sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
+    ```
+    If you see "cURL failed to perform on this base url" in the log, you can try removing '\n' in proxy.conf EOF to resolve the failure:
+    ```
+    od -c /etc/opt/microsoft/omsagent/proxy.conf
+    cat /etc/opt/microsoft/omsagent/proxy.conf | tr -d '\n' > /etc/opt/microsoft/omsagent/proxy2.conf
+    rm /etc/opt/microsoft/omsagent/proxy.conf
+    mv /etc/opt/microsoft/omsagent/proxy2.conf /etc/opt/microsoft/omsagent/proxy.conf
+    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf
     sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
     ```
 

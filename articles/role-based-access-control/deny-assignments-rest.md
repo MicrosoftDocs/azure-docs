@@ -4,7 +4,7 @@ description: Learn how to list Azure deny assignments for users, groups, and app
 services: active-directory
 documentationcenter: na
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.assetid: 

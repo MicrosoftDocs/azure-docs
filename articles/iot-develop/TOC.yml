@@ -1,4 +1,4 @@
-﻿- name: IoT device development
+- name: IoT device development
   href: index.yml
 - name: Overview
   items:
@@ -44,19 +44,19 @@
       - name: Interact with a device from your solution
         href: tutorial-service.md
     - name: Securely connect IoT devices to the cloud
-      href: /learn/paths/securely-connect-iot-devices/?wt.mc_id=iothub_connect_docs_tutorials
+      href: /training/paths/securely-connect-iot-devices/?wt.mc_id=iothub_connect_docs_tutorials
     - name: Connect a multiple component device
       href: tutorial-multiple-components.md
     - name: Use MQTT to connect a device
       href: tutorial-use-mqtt.md
     - name: Connect a device module
       href: tutorial-migrate-device-to-module.md
-    - name: Preview — Connect and analyze data with Time Series Insights Gen2
-      href: tutorial-configure-tsi.md
 - name: Concepts
   items:
   - name: Connection options for device developers
     href: concepts-overview-connection-options.md
+  - name: C SDK and Embedded C SDK usage scenarios
+    href: concepts-using-c-sdk-and-embedded-c-sdk.md    
   - name: Overview of device types
     href: concepts-iot-device-types.md
   - name: Device certification

@@ -1,6 +1,6 @@
 ---
 title: Security recommendations for IoT Hub 
-description: Learn about the concept of security recommendations and how they are used in the Defender for IoT Hub.
+description: Learn about the concept of security recommendations and how they're used in the Defender for IoT Hub.
 ms.topic: conceptual
 ms.date: 11/09/2021
 ---

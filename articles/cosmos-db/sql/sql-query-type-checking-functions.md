@@ -1,12 +1,13 @@
 ---
 title: Type checking functions in Azure Cosmos DB query language
 description: Learn about type checking SQL system functions in Azure Cosmos DB.
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/26/2021
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ms.custom: query-reference
 ---
 # Type checking functions (Azure Cosmos DB)

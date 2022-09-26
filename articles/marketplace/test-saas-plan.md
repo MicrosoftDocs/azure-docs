@@ -1,7 +1,6 @@
 ---
 title: How to test a SaaS plan - Azure Marketplace
 description: Learn how to test a SaaS plan before publishing your offer live.
-ms.reviewer: dannyevers 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -83,7 +82,6 @@ _Query parameters:_
 | quantity | You can enter 1 for quantity as the test value |
 | dimension | Enter the name of the dimension defined in the metered plan |
 | planId | Enter the metered plan ID |
-|||
 
 ### View the response
 

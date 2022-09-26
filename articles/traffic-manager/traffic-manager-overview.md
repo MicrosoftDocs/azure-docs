@@ -2,13 +2,13 @@
 title: Azure Traffic Manager | Microsoft Docs
 description: This article provides an overview of Azure Traffic Manager. Find out if it's the right choice for load-balancing user traffic for your application.
 services: traffic-manager
-author: asudbring
+author: greg-lindsay
 ms.service: traffic-manager
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2021
-ms.author: allensu
+ms.author: greglin
 #Customer intent: As an IT admin, I want to learn about Traffic Manager and what I can use it for. 
 ---
 

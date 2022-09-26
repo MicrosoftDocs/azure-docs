@@ -13,6 +13,8 @@ Alternatively, check out [troubleshoot in the service](../cloud/troubleshoot.md)
 
 ---
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 This article covers troubleshooting steps for the Azure Video Analyzer edge module.
 
 ## Troubleshoot deployment issues

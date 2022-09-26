@@ -64,7 +64,7 @@ In the **Feature manager**, you can also change the state of a feature flag by c
 
 ## Access feature flags
 
-In the **Operations** menu, select **Feature manager**. You can select **Edits Columns** to add or remove columns, and change the column order.
+In the **Operations** menu, select **Feature manager**. You can select **Edit Columns** to add or remove columns, and change the column order.
 create a label, lock or delete the feature flag.
 :::image type="content" source="media/edit-columns-feature-flag.png" alt-text="Screenshot of the Azure platform. Edit feature flag columns." lightbox="media/edit-columns-feature-flag-expanded.png":::
 

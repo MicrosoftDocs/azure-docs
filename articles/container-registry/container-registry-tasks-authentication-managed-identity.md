@@ -8,7 +8,7 @@ manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 01/14/2020
-ms.author: danlep
+ms.author: tejaswikolli
 ---
 
 # Use an Azure-managed identity in ACR Tasks 
@@ -122,6 +122,8 @@ az acr task credential add \
 ```
 
 You can get the client ID of the identity by running the [az identity show][az-identity-show] command. The client ID is a GUID of the form `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+
+The `--use-identity` parameter is not optional, if the registry has public network access disabled and relies only on certain trusted services to run ACR tasks. See, [example of ACR Tasks](allow-access-trusted-services.md#example-acr-tasks) as a trusted service.
 
 ### 5. Run the task
 

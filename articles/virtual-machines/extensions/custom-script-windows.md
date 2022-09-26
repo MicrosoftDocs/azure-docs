@@ -36,6 +36,9 @@ The Custom Script Extension for Windows will run on these supported operating sy
 * Windows Server 2016 Core
 * Windows Server 2019
 * Windows Server 2019 Core
+* Windows Server 2022
+* Windows Server 2022 Core
+* Windows 11
 
 ### Script location
 
@@ -291,37 +294,8 @@ The response content cannot be parsed because the Internet Explorer engine is no
 
 If you deploy the Custom Script Extension from the Azure portal, you don't have control over the expiration of the SAS token for accessing the script in your storage account. The result is that the initial deployment works, but when the storage account's SAS token expires, any subsequent scaling operation fails because the Custom Script Extension can no longer access the storage account.
 
-We recommend that you use [PowerShell](/powershell/module/az.Compute/Add-azVmssExtension?view=azps-7.0.0), the [Azure CLI](/cli/azure/vmss/extension), or an Azure Resource Manager template when you deploy the Custom Script Extension on a virtual machine scale set. This way, you can choose to use a managed identity or have direct control of the expiration of the SAS token for accessing the script in your storage account for as long as you need.
+We recommend that you use [PowerShell](/powershell/module/az.Compute/Add-azVmssExtension?view=azps-7.0.0Fixed&preserve-view=true), the [Azure CLI](/cli/azure/vmss/extension), or an Azure Resource Manager template when you deploy the Custom Script Extension on a virtual machine scale set. This way, you can choose to use a managed identity or have direct control of the expiration of the SAS token for accessing the script in your storage account for as long as you need.
 
-## Classic VMs
-
-[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
-
-To deploy the Custom Script Extension on classic VMs, you can use the Azure portal or the classic Azure PowerShell cmdlets.
-
-### Azure portal
-
-1. Go to your classic VM resource. Select **Extensions** under **Settings**.
-1. Select **+ Add**. In the list of resources, select **Custom Script Extension**.
-1. On the **Install extension** page, select the local PowerShell file. Fill out any arguments, and then select **Ok**.
-
-### PowerShell
-
-You can use the [Set-AzureVMCustomScriptExtension](/powershell/module/servicemanagement/azure.service/set-azurevmcustomscriptextension) cmdlet to add the Custom Script Extension to an existing virtual machine:
-
-```powershell
-# define your file URI
-$fileUri = 'https://xxxxxxx.blob.core.windows.net/scripts/Create-File.ps1'
-
-# create vm object
-$vm = Get-AzureVM -Name <vmName> -ServiceName <cloudServiceName>
-
-# set extension
-Set-AzureVMCustomScriptExtension -VM $vm -FileUri $fileUri -Run 'Create-File.ps1'
-
-# update vm
-$vm | Update-AzureVM
-```
 
 ## Troubleshoot and support
 

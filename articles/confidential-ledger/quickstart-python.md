@@ -17,7 +17,7 @@ Microsoft Azure confidential ledger is a new and highly secure service for manag
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[API reference documentation](/python/api/overview/azure/keyvault-secrets-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confidentialledger) | [Package (Python Package Index) Management Library](https://pypi.org/project/azure-mgmt-confidentialledger/)| [Package (Python Package Index) Client Library](https://pypi.org/project/azure-confidentialledger/)
+[API reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-confidentialledger/latest/azure.confidentialledger.html) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/confidentialledger) | [Package (Python Package Index) Management Library](https://pypi.org/project/azure-mgmt-confidentialledger/)| [Package (Python Package Index) Client Library](https://pypi.org/project/azure-confidentialledger/)
 
 ## Prerequisites
 
@@ -82,7 +82,7 @@ from azure.mgmt.confidentialledger.models import ConfidentialLedger
 # import the data plane sdk
 
 from azure.confidentialledger import ConfidentialLedgerClient
-from azure.confidentialledger.identity_service import ConfidentialLedgerIdentityServiceClient
+from azure.confidentialledger.certificate import ConfidentialLedgerCertificateClient
 ```
 
 Next, we'll use the [DefaultAzureCredential Class](/python/api/azure-identity/azure.identity.defaultazurecredential) to authenticate the app.
@@ -159,7 +159,7 @@ Now that we have a ledger, we'll interact with it using the data plane client li
 First, we will generate and save a confidential ledger certificate.  
 
 ```python
-identity_client = ConfidentialLedgerIdentityServiceClient(identity_url)
+identity_client = ConfidentialLedgerCertificateClient(identity_url)
 network_identity = identity_client.get_ledger_identity(
      ledger_id=ledger_name
 )
@@ -179,18 +179,18 @@ ledger_client = ConfidentialLedgerClient(
 )
 ```
 
-We are prepared to write to the ledger.  We will do so using the `append_to_ledger` function.
+We are prepared to write to the ledger.  We will do so using the `create_ledger_entry` function.
 
 ```python
-append_result = ledger_client.append_to_ledger(entry_contents="Hello world!")
+append_result = ledger_client.create_ledger_entry(entry_contents="Hello world!")
 print(append_result.transaction_id)
 ```
 
 The print function will return the transaction ID of your write to the ledger, which can be used to retrieve the message you wrote to the ledger.
 
 ```python
-entry = ledger_client.get_ledger_entry(transaction_id=append_result.transaction_id)
-print(entry.contents)
+latest_entry = ledger_client.get_current_ledger_entry(transaction_id=append_result.transaction_id)
+print(f"Current entry (transaction id = {latest_entry['transactionId']}) in collection {latest_entry['collectionId']}: {latest_entry['contents']}")
 ```
 
 The print function will return "Hello world!", as that is the message in the ledger that that corresponds to the transaction ID.
@@ -209,7 +209,7 @@ from azure.mgmt.confidentialledger.models import ConfidentialLedger
 # import data plane sdk
 
 from azure.confidentialledger import ConfidentialLedgerClient
-from azure.confidentialledger.identity_service import ConfidentialLedgerIdentityServiceClient
+from azure.confidentialledger.certificate import ConfidentialLedgerCertificateClient
 from azure.confidentialledger import TransactionState
 
 # Set variables
@@ -250,10 +250,7 @@ ledger_properties = ConfidentialLedger(**properties)
 
 # Create a ledger
 
-foo = confidential_ledger_mgmt.ledger.begin_create(rg, ledger_name, ledger_properties)
-  
-# wait until ledger is created
-foo.wait()
+confidential_ledger_mgmt.ledger.begin_create(rg, ledger_name, ledger_properties)
 
 # Get the details of the ledger you just created
 
@@ -270,7 +267,7 @@ print (f"- ID: {myledger.id}")
 #
 # Create a CL client
 
-identity_client = ConfidentialLedgerIdentityServiceClient(identity_url)
+identity_client = ConfidentialLedgerCertificateClient(identity_url)
 network_identity = identity_client.get_ledger_identity(
      ledger_id=ledger_name
 )
@@ -287,20 +284,12 @@ ledger_client = ConfidentialLedgerClient(
 )
 
 # Write to the ledger
-append_result = ledger_client.append_to_ledger(entry_contents="Hello world!")
+append_result = ledger_client.create_ledger_entry(entry_contents="Hello world!")
 print(append_result.transaction_id)
   
-# Wait until transaction is committed on the ledger
-while True:
-    commit_result = ledger_client.get_transaction_status(append_result.transaction_id)
-    print(commit_result.state)
-    if (commit_result.state == TransactionState.COMMITTED):
-        break
-    time.sleep(1)
-
 # Read from the ledger
-entry = ledger_client.get_ledger_entry(transaction_id=append_result.transaction_id)
-print(entry.contents)
+entry = ledger_client.get_current_ledger_entry(transaction_id=append_result.transaction_id)
+print(f"Current entry (transaction id = {latest_entry['transactionId']}) in collection {latest_entry['collectionId']}: {latest_entry['contents']}")
 ```
 
 ## Clean up resources

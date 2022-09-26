@@ -1,6 +1,5 @@
 ---
 title: Handle errors and exceptions in MSAL4J
-titleSuffix: Microsoft identity platform
 description: Learn how to handle errors and exceptions, Conditional Access claims challenges, and retries in MSAL4J applications.
 services: active-directory
 author: mmacy
