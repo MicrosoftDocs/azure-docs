@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.topic: how-to
 author: alainli
 ms.author: alainli
-ms.date: 09/24/2022
+ms.date: 09/25/2022
 ms.custom: devx-track-python, sdkv2, cliv2, event-tier1-build-2022
 ---
 
@@ -71,6 +71,8 @@ For example, you could set numbers to `mini_batch_size` to partition your data *
 :::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines/iris-batch-prediction-using-parallel/pipeline.yml" range="14-41" highlight="5-8,18-19":::
 
 # [Python](#tab/python)
+
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 Declare `job_data_path` as one of the inputs. Bind it to `input_data` attribute.
 

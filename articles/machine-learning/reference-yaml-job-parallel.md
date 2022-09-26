@@ -9,7 +9,7 @@ ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022
 author: alainli
 ms.author: alainli
-ms.date: 09/24/2022
+ms.date: 09/25/2022
 ---
 
 # CLI (v2) parallel job YAML schema
