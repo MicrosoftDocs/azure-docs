@@ -52,7 +52,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ### Enable DDoS IP Protection 
 
-1. In the search box at the top of the portal, enter **public IP Address**. Select **public IP Address*** in the search results.
+1. In the search box at the top of the portal, enter **public IP Address**. Select **public IP Address** in the search results.
 1. Select **myStandardPublicIP**.
 1. In the **Overview** pane, select the **Properties** tab in the middle of the page.
 1. Select **DDoS protection**. 
@@ -71,7 +71,7 @@ First, check the details of your public IP address:
 1. View **Protection status** and verify your public IP is protected.
 
 
- To test DDoS Protection see, [Test with simulation partners](test-through-simulations.md).
+ To test DDoS Protection, see, [Test with simulation partners](test-through-simulations.md).
 
 ## Clean up resources
 
