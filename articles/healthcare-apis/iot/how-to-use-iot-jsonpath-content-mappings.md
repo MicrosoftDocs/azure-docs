@@ -202,49 +202,51 @@ A valid IoT device message.
 ```
 
 > [!TIP]
-> The provided IotJsonPathTemplate device mapping examples may be combine into a single MedTech service device mapping as shown below to work with each of the example IoT device messages. Additionally, the IotJasonPathTemplates can also be combined with with other template types such as [JasonPathContentTemplate mappings](how-to-use-jsonpath-content-mappings.md) to further expand your MedTech service device mapping. 
+> The IotJsonPathTemplate device mapping examples provided in this article may be combined into a single MedTech service device mapping as shown below.
+>
+>Additionally, the IotJasonPathTemplates can also be combined with with other template types such as [JasonPathContentTemplate mappings](how-to-use-jsonpath-content-mappings.md) to further expand your MedTech service device mapping. 
 
 *Combined heart rate and blood pressure MedTech service device mapping example.*
 
 ```json
 
 {
-    "templateType": "CollectionContent",
-    "template": [
-    {
-       "templateType": "IotJsonPathContentTemplate",
-       "template": {
-       "typeName": "heartrate",
-       "typeMatchExpression": "$..[?(@Body.heartRate)]",
-       "values": [
-           {
-             "required": "true",
-             "valueExpression": "$.Body.heartRate",
-             "valueName": "hr"
-           }
-         ]  
-      }
+   "templateType": "CollectionContent",
+   "template": [
+     {  
+        "templateType": "IotJsonPathContentTemplate",
+        "template": {
+        "typeName": "heartrate",
+        "typeMatchExpression": "$..[?(@Body.heartRate)]",
+        "values": [
+             {
+               "required": "true",
+               "valueExpression": "$.Body.heartRate",
+               "valueName": "hr"
+             }
+          ]  
+       }  
     },
     {
-       "templateType": "IotJsonPathContentTemplate",
-       "template": {
-       "typeName": "bloodpressure",
-       "typeMatchExpression": "$..[?(@Body.systolic && @Body.diastolic)]",
-       "values": [
-          {  
-            "required": "true",
-            "valueExpression": "$.Body.systolic",
-            "valueName": "systolic"
-          },
-          {
-            "required": "true",
-            "valueExpression": "$.Body.diastolic",
-            "valueName": "diastolic"
-          }
-        ]
-      }
-    }
-  ]
+        "templateType": "IotJsonPathContentTemplate",
+        "template": {
+        "typeName": "bloodpressure",
+        "typeMatchExpression": "$..[?(@Body.systolic && @Body.diastolic)]",
+        "values": [
+             {  
+               "required": "true",
+               "valueExpression": "$.Body.systolic",
+               "valueName": "systolic"
+             },
+             {
+               "required": "true",
+               "valueExpression": "$.Body.diastolic",
+               "valueName": "diastolic"
+             }
+         ]
+       }
+     }
+   ]
 }
 
 ```
