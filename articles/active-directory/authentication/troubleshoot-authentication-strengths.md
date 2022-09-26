@@ -48,6 +48,7 @@ Use the **Sign-ins** log to find additional information about the sign-in:
   :::image type="content" source="media/troubleshoot-authentication-strengths/sign-in-logs-authentication-details.png" alt-text="Screenshot showing the authentication strength in the Sign-ins log.":::
 
 - Under the **Conditional Access** tab, you can see which Conditional Access policy was applied. Click the name of the policy, and look under **Grant control** for the authentication strength that was enforced. 
+
   :::image type="content" source="media/troubleshoot-authentication-strengths/AuthStrengthsCASignInLogs.png" alt-text="Screenshot showing the authentication strength under "Conditional Access Policy details" in the Sign-ins log.":::
 
 ## My users can't use their FIDO2 key to sign in
@@ -59,7 +60,7 @@ An admin can restrict access to specific security keys. When a user tries to sig
 
 Some methods cannot be registered during sign-in or require additional configuration outside of the combined registration. For more information see [Registering authentication methods](concept-authentication-strengths.md#registering-authentication-methods]
  
-:::image type="content" border="true" source="./media/troubleshoot-authentication-strengths/MySecInfo-RegisterFIDO2.png" alt-text="Screenshot of a sign-in error when using a restricted FIDO2 security key."::: 
+:::image type="content" border="true" source="./media/troubleshoot-authentication-strengths/MySecInfo-RegisterFIDO2.png" alt-text="Screenshot of a sign-in error when they are unable to register the method."::: 
 
 ## Next steps
 
