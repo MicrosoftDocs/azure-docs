@@ -6,11 +6,20 @@ author: craigshoemaker
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 03/09/2022
+ms.date: 09/26/2022
 ms.author: cshoe
 ---
 
 # Billing in Azure Container Apps
+
+Billing in Azure Container apps is based on your [plan type](plans.md).
+
+| Plan type | Description |
+|--|--|
+| [Consumption](#consumption-plan) | Serverless environment where apps can scale to zero. You only pay for apps as they're running. |
+| [Premium](#premium-plan) | A fully managed, isolated environment with customized infrastructure and flexible cost control options. |
+
+## Consumption plan
 
 Azure Container Apps billing consists of two types of charges:
 
@@ -28,7 +37,7 @@ This article describes how to calculate the cost of running your container app. 
 > [!NOTE]
 > If you use Container Apps with [your own virtual network](networking.md#managed-resources) or your apps utilize other Azure resources, additional charges may apply.
 
-## Resource consumption charges
+### Resource consumption charges
 
 Azure Container Apps runs replicas of your application based on the [scaling rules and replica count limits](scale-app.md) you configure for each revision. You're charged for the amount of resources allocated to each replica while it's running.
 
@@ -41,16 +50,16 @@ The first 180,000 vCPU-seconds and 360,000 GiB-seconds in each subscription per 
 
 The rate you pay for resource consumption depends on the state of your container app's revisions and replicas. By default, replicas are charged at an *active* rate. However, in certain conditions, a replica can enter an *idle* state. While in an *idle* state, resources are billed at a reduced rate.
 
-### No replicas are running
+#### No replicas are running
 
 When a revision is scaled to zero replicas, no resource consumption charges are incurred.
 
-### Minimum number of replicas are running
+#### Minimum number of replicas are running
 
 Idle usage charges may apply when a revision is running under a specific set of circumstances. To be eligible for idle charges, a revision must meet the following criteria.
 
-- It is configured with a [minimum replica count](scale-app.md) greater than zero.
-- It is scaled to the minimum replica count.
+- It's configured with a [minimum replica count](scale-app.md) greater than zero.
+- It's scaled to the minimum replica count.
 
 Usage charges are calculated individually for each replica. A replica is considered idle when *all* of the following conditions are true:
 
@@ -60,14 +69,24 @@ Usage charges are calculated individually for each replica. A replica is conside
 - The replica is using less than 0.01 vCPU cores.
 - The replica is receiving less than 1,000 bytes per second of network traffic.
 
-When a replica is idle, resource consumption charges are calculated at the reduced idle rates. When a replica is not idle, the active rates apply.
+When a replica is idle, resource consumption charges are calculated at the reduced idle rates. When a replica isn't idle, the active rates apply.
 
-### More than the minimum number of replicas are running
+#### More than the minimum number of replicas are running
 
 When a revision is scaled above the [minimum replica count](scale-app.md), all of its running replicas are charged for resource consumption at the active rate.
 
-## Request charges
+### Request charges
 
 In addition to resource consumption, Azure Container Apps also charges based on the number of HTTP requests received by your container app.
 
 The first 2 million requests in each subscription per calendar month are free.
+
+## Premium plan
+
+Profile billing breaks down into the following categories:
+
+- **Profiles**: You're billed based on the number of running profiles. As profiles scale up, extra costs apply; as profiles scale down billing is reduced. Regardless of the profile type you select, there's a minimum resource requirement. You're billed, at a minimum, the equivalent of six vCPUs and 24Gib of memory.
+
+- **Cluster hour**: Billed on a per-hour basis, per profile.
+
+For best results, maximize use of your allocated resources by calculating the needs of your container apps. Often you can run multiple apps on a single profile.
