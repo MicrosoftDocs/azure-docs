@@ -1,5 +1,5 @@
 ---
-title: Send Prometetheus metrics to multiple Azure Monitor workspaces in Container insights
+title: Send Prometheus metrics to multiple Azure Monitor workspaces in Container insights
 description: Describes data collection rules required to send Prometheus metrics from a cluster in Container insights to multiple Azure Monitor workspaces.
 ms.topic: conceptual
 ms.date: 09/16/2022
@@ -106,7 +106,7 @@ relabel_configs:
 The source label is `__address__` because this label will always exist so this relabel config will always be applied. The target label will always be `microsoft_metrics_account` and its value should be replaced with the corresponding label value for the workspace.
 
 
-#### Example
+### Example
 
 If you want to configure three different jobs to send the metrics to three different workspaces, then include the following in each data collection rule:
 

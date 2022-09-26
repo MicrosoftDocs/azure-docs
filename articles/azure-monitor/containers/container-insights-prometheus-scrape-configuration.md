@@ -45,7 +45,7 @@ To further customize the default jobs to change properties such as collection fr
 ## Cluster alias
 The cluster label appended to every time series scraped will use the last part of the full ARM resourceID. For example, if the resource ID is `/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-name/providers/Microsoft.ContainerService/managedClusters/clustername`, the cluster label is `clustername`. 
 
-To override the cluster label in the time series scraped, update the setting `cluster_alias` to any string under `prometheus-collector-settings` in this [configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-settings-configmap.yaml). You can either create this configmap or edit an exsiting one.
+To override the cluster label in the time series scraped, update the setting `cluster_alias` to any string under `prometheus-collector-settings` in this [configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-settings-configmap.yaml). You can either create this configmap or edit an existing one.
 
 The new label will also show up in the grafana instance in the cluster dropdown instead of the default one.
 
@@ -80,8 +80,6 @@ The `scrape_config` setting `honor_labels` is `false` by default. It should be `
 
 
 ## Scraping metrics at high scale
-
-## Advanced Mode: Scraping custom targets with the Daemonset pods
 
 When you scrape custom targets, the scraping is done by the ama-metrics replicaset pod. For a cluster with a large number of nodes and pods running on it, custom scrape targets can be off-loaded to the daemonset. A [configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-prometheus-config-node-configmap.yaml) similar to the regular configmap can be created to have static scrape configs on each node. The scrape config should only target a single node and not try to use service discovery; otherwise each node will try to scrape all targets. The node-exporter config is a good example of using the `$NODE_IP` environment variable (already set for every prometheus-collector container) to target a specific endpoint on the node:
 
