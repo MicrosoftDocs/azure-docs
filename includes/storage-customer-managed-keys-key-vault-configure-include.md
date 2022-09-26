@@ -37,9 +37,13 @@ To create a new key vault with PowerShell, install version 2.0.0 or later of the
 The following example creates a new key vault with soft delete and purge protection enabled. The key vault's permission model is set to use Azure RBAC. Remember to replace the placeholder values in brackets with your own values.
 
 ```azurepowershell
-$keyVault = New-AzKeyVault -Name <key-vault> `
-    -ResourceGroupName <resource_group> `
-    -Location <location> `
+$kvName = "<key-vault>"
+$rgName = "<resource_group>"
+$location = "<location>"
+
+$keyVault = New-AzKeyVault -Name $kvName `
+    -ResourceGroupName $rgName `
+    -Location $location `
     -EnablePurgeProtection `
     -EnableRbacAuthorization
 ```
@@ -52,22 +56,41 @@ After you have created the key vault, you'll need to assign the **Key Vault Cryp
 New-AzRoleAssignment -SignInName "<user-email>" `
     -RoleDefinitionName "Key Vault Crypto Officer" `
     -Scope $keyVault.ResourceId
-    ```
+```
 
 For more information on how to assign an RBAC role with PowerShell, see [Assign Azure roles using Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 
 # [Azure CLI](#tab/azure-cli)
 
-To create a new key vault using Azure CLI, call [az keyvault create](/cli/azure/keyvault#az-keyvault-create). Remember to replace the placeholder values in brackets with your own values:
+To create a new key vault using Azure CLI, call [az keyvault create](/cli/azure/keyvault#az-keyvault-create). The following example creates a new key vault with soft delete and purge protection enabled. The key vault's permission model is set to use Azure RBAC. Remember to replace the placeholder values in brackets with your own values.
 
 ```azurecli
+kvName="<key-vault>"
+rgName="<resource_group>"
+location="eastus"
+
 az keyvault create \
-    --name <key-vault> \
-    --resource-group <resource_group> \
-    --location <region> \
-    --enable-purge-protection
+    --name $kvName \
+    --resource-group $rgName \
+    --location $location \
+    --enable-purge-protection \
+    --enable-rbac-authorization
 ```
 
 To learn how to enable purge protection on an existing key vault with Azure CLI, see [Azure Key Vault recovery overview](../articles/key-vault/general/key-vault-recovery.md?tabs=azure-cli).
+
+After you have created the key vault, you'll need to assign the **Key Vault Crypto Officer** role to yourself. This role enables you to create a key in the key vault. The following example assigns this role to a user, scoped to the key vault:
+
+```azurecli
+$kvResourceId = az keyvault show --resource-group <resource_group> \
+    --name <key-vault> \
+    --query id
+
+az role assignment create --assignee "<user-email>" \
+--role "Key Vault Crypto Officer" \
+--scope $kvResourceId
+```
+
+For more information on how to assign an RBAC role with Azure CLI, see [Assign Azure roles using Azure CLI](../articles/role-based-access-control/role-assignments-cli.md).
 
 ---
