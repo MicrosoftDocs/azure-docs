@@ -32,7 +32,6 @@ To get started, ensure the following prerequisites are met:
 - An Azure AD subscription. If you don't have one, you can create a [free Azure account](https://azure.microsoft.com/free/).
 - An Azure AD B2C tenant linked to the Azure subscription. You can learn more at [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md). 
 - Configure your application in the Azure portal. 
-- In the Grit Onboarding portal, create a super admin for the tenant.
 
 ## Scenario description
 
@@ -92,7 +91,7 @@ To learn how to assign admin roles, check the [tutorial.](https://app.archbee.co
 
 Use the Onboarding portal for one or more of your customers and their identity provider (IdP) that supports OpenID Connect (OIDC) and SAML. Onboard customers without an IdP, for local account authentication. For B2C applications, enable social authentications.
 
-The Onboarding portal defines the claims per application and per organization. Thereafter, the portal creates an endpoint URL for the sign-in and sign-up user flow.
+In the Grit Onboarding portal, create a super admin for the tenant. The Onboarding portal defines the claims per application and per organization. Thereafter, the portal creates an endpoint URL for the sign-in and sign-up user flow.
 
 To learn how to onboard an organization, check this [tutorial](https://app.archbee.com/doc/G_YZFq_VwvgMlmX-_efmX/8m90WVb2M6Yi0gCe7yor2).
 
@@ -104,7 +103,7 @@ Learn [how your customers can sign up, sign in, and manage their profiles](add-s
 
 ## Test the scenarios
 
-Check the authentication [scenarios](## Scenario description) in your applications. Use the Grit Admin portal to change roles and user properties. Provide delegated access to Admin portal by inviting users.
+Check the authentication [scenarios](##-Scenario-description) in your applications. Use the Grit Admin portal to change roles and user properties. Provide delegated access to Admin portal by inviting users.
 
 ## Next steps
 
