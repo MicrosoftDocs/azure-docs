@@ -71,11 +71,11 @@ In this example, the organization has a mix of cloud and on-premises infrastruct
 
 ![Hybrid deployment model](media/automate-user-provisioning-to-applications-introduction/hybrid-basic.png)
 
-1.The Azure AD provisioning service imports the user from Workday and creates an account in AD DS, enabling the user to access AD-integrated applications.
+1. The Azure AD provisioning service imports the user from Workday and creates an account in AD DS, enabling the user to access AD-integrated applications.
 
-2.Azure AD Connect Cloud Sync provisions the user into Azure AD, which enables the user to access SharePoint Online and their OneDrive files.
+2. Azure AD Connect Cloud Sync provisions the user into Azure AD, which enables the user to access SharePoint Online and their OneDrive files.
 
-3.The Azure AD provisioning service detects a new account was created in Azure AD. It then creates accounts in the SaaS and on-premises applications the user needs access to.
+3. The Azure AD provisioning service detects a new account was created in Azure AD. It then creates accounts in the SaaS and on-premises applications the user needs access to.
 
 ### Hybrid-advanced
 
@@ -83,9 +83,9 @@ In this example, the organization has users spread across multiple on-premises H
 
 ![Advanced hybrid deployment model](media/automate-user-provisioning-to-applications-introduction/hybrid-advanced.png)
 
-1.MIM imports user information from each HR stem. MIM determines which users are needed for those employees in different directories. MIM provisions those identities in Active Directory.
+1. MIM imports user information from each HR stem. MIM determines which users are needed for those employees in different directories. MIM provisions those identities in Active Directory.
 
-2.Azure AD Connect Sync then synchronizes those users and groups to Azure AD and provides users access to their resources.
+2. Azure AD Connect Sync then synchronizes those users and groups to Azure AD and provides users access to their resources.
 
 ## Next steps
 
