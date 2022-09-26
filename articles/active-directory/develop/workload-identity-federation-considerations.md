@@ -27,8 +27,6 @@ The following considerations apply to federated identity credentials on applicat
 
 Anyone with permissions to create an app registration and add a secret or certificate can add a federated identity credential to an app.  If the **Users can register applications** switch in the [User Settings](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) blade is set to **No**, however, you won't be able to create an app registration or configure the federated identity credential.  Find an admin to configure the federated identity credential on your behalf.  Anyone in the Application Administrator or Application Owner roles can do this.
 
-A maximum of 20 federated identity credentials can be added to an application or user-assigned managed identity.
-
 Federated identity credentials do not consume the Azure AD tenant service principal object quota.
 
 [!INCLUDE [federated credential configuration](./includes/federated-credential-configuration-considerations.md)]
@@ -67,7 +65,7 @@ While it is possible to create a federated identity credential with an Azure AD 
 
 The following considerations apply to federated identity credentials on applications and user-assigned managed identities.
 
-Creating a federated identity credential with an AWS *issuer* (the URL of the external identity provider) is not supported.
+The RS512 signing algorithm is not supported. Creating a federated identity credential with an AWS Cognito *issuer* (the URL of the external identity provider) is not supported.
 
 ## Time for federated credential changes to propagate
 
