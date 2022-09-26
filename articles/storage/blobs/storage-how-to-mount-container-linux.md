@@ -1,17 +1,17 @@
 ---
-title: How to mount Azure Blob storage as a file system on Linux with BlobFuse | Microsoft Docs
+title: How to mount Azure Blob storage as a file system on Linux with BlobFuse v1 | Microsoft Docs
 titleSuffix: Azure Blob Storage
-description: Learn how to mount an Azure Blob storage container with BlobFuse, a virtual file system driver on Linux.
+description: Learn how to mount an Azure Blob storage container with BlobFuse v1, a virtual file system driver on Linux.
 author: jimmart-dev
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 08/02/2022
+ms.date: 09/26/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
 
-# How to mount Blob storage as a file system with BlobFuse
+# How to mount Blob storage as a file system with BlobFuse v1
 
 ## Overview
 
@@ -31,7 +31,7 @@ This guide shows you how to use BlobFuse, and mount a Blob storage container on 
 > BlobFuse doesn't guarantee 100% POSIX compliance as it simply translates requests into [Blob REST APIs](/rest/api/storageservices/blob-service-rest-api). For example, rename operations are atomic in POSIX, but not in BlobFuse.
 > For a full list of differences between a native file system and BlobFuse, visit [the BlobFuse source code repository](https://github.com/azure/azure-storage-fuse).
 
-## Install BlobFuse on Linux
+## Install BlobFuse v1 on Linux
 
 BlobFuse binaries are available on [the Microsoft software repositories for Linux](/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) for Ubuntu, Debian, SUSE, CentOS, Oracle Linux and RHEL distributions. To install BlobFuse on those distributions, configure one of the repositories from the list. You can also build the binaries from source code following the [Azure Storage installation steps](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) if there are no binaries available for your distribution.
 
@@ -63,7 +63,7 @@ sudo apt-get update
 
 Similarly, change the URL to `.../ubuntu/16.04/...` or `.../ubuntu/18.04/...` to reference another Ubuntu version.
 
-### Install BlobFuse
+### Install BlobFuse v1
 
 On an Ubuntu/Debian distribution:
 
