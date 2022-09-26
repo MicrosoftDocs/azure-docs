@@ -72,18 +72,14 @@ If you want to automatically enable diagnostic logging on all public IPs within 
     | where Category == "DDoSProtectionNotifications"
     ```
 
-#### DDoSMitigationFlowLogs
-
-Now change the query to the following and keep the same time range and hit Run.
+1. To view **DDoSMitigationFlowLogs** change the query to the following and keep the same time range and hit Run.
 
     ```kusto
     AzureDiagnostics
     | where Category == "DDoSMitigationFlowLogs"
     ```
 
-#### DDoSMitigationReports
-
-Now change the query to the following and keep the same time range and hit Run.
+1. To view **DDoSMitigationReports** change the query to the following and keep the same time range and hit Run.
 
     ```kusto
     AzureDiagnostics
