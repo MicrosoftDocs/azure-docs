@@ -1,21 +1,12 @@
 ---
-title: Azure Service Fabric Application Level Monitoring | Microsoft Docs
+title: Azure Service Fabric Application Level Monitoring 
 description: Learn about application and service level events and logs used to monitor and diagnose Azure Service Fabric clusters.
-services: service-fabric
-documentationcenter: .net
-author: srrengar
-manager: chackdan
-editor: ''
-
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/21/2018
-ms.author: srrengar
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Application logging
@@ -28,11 +19,11 @@ For examples on how to use these suggestions, see [Add logging to your Service F
 
 ## Application Insights SDK
 
-Application Insights has a rich integration with Service Fabric out of the box. Users can add the AI Service Fabric nuget packages and receive data and logs created and collected viewable in the Azure portal. Additionally, users are encouraged to add their own telemetry in order to diagnose and debug their applications and track which services and parts of their application are used the most. The [TelemetryClient](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) class in the SDK provides many ways to track telemetry in your applications. Check out an example of how to instrument and add application insights to your application in our tutorial for [monitoring and diagnosing a .NET application](service-fabric-tutorial-monitoring-aspnet.md)
+Application Insights has a rich integration with Service Fabric out of the box. Users can add the AI Service Fabric nuget packages and receive data and logs created and collected viewable in the Azure portal. Additionally, users are encouraged to add their own telemetry in order to diagnose and debug their applications and track which services and parts of their application are used the most. The [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient) class in the SDK provides many ways to track telemetry in your applications. Check out an example of how to instrument and add application insights to your application in our tutorial for [monitoring and diagnosing a .NET application](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## EventSource
 
-When you create a Service Fabric solution from a template in Visual Studio, an **EventSource**-derived class (**ServiceEventSource** or **ActorEventSource**) is generated. A template is created, in which you can add events for your application or service. The **EventSource** name **must** be unique, and should be renamed from the default template string MyCompany-&lt;solution&gt;-&lt;project&gt;. Having multiple **EventSource** definitions that use the same name causes an issue at run time. Each defined event must have a unique identifier. If an identifier is not unique, a runtime failure occurs. Some organizations preassign ranges of values for identifiers to avoid conflicts between separate development teams. For more information, see [Vance's blog](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/) or the [MSDN documentation](https://msdn.microsoft.com/library/dn774985(v=pandp.20).aspx).
+When you create a Service Fabric solution from a template in Visual Studio, an **EventSource**-derived class (**ServiceEventSource** or **ActorEventSource**) is generated. A template is created, in which you can add events for your application or service. The **EventSource** name **must** be unique, and should be renamed from the default template string MyCompany-&lt;solution&gt;-&lt;project&gt;. Having multiple **EventSource** definitions that use the same name causes an issue at run time. Each defined event must have a unique identifier. If an identifier is not unique, a runtime failure occurs. Some organizations preassign ranges of values for identifiers to avoid conflicts between separate development teams. For more information, see [Vance's blog](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource) or the [MSDN documentation](/previous-versions/msp-n-p/dn774985(v=pandp.20)).
 
 ## ASP.NET Core logging
 

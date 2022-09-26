@@ -13,7 +13,7 @@ ms.author: junhan
 
 ![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/2.png)
 
-[Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) is a useful Visual Studio Code extension that makes IoT Hub management and IoT application development easier. It comes with management options that you can use to perform various tasks.
+In this article, you learn how to use Azure IoT Tools for Visual Studio Code with various management options on your development machine. [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) is a useful Visual Studio Code extension that makes IoT Hub management and IoT application development easier. It comes with management options that you can use to perform various tasks.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -30,20 +30,12 @@ Device twins are JSON documents that store device state information (metadata, c
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## What you learn
-
-You learn using Azure IoT Tools for Visual Studio Code with various management options on your development machine.
-
-## What you do
-
-Run Azure IoT Tools for Visual Studio Code with various management options.
-
-## What you need
+## Prerequisites
 
 * An active Azure subscription.
 * An Azure IoT hub under your subscription.
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or [open this link in Visual Studio Code](vscode:extension/vsciot-vscode.azure-iot-tools).
+* [Azure IoT Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or copy this URL and paste it into a browser window:`vscode:extension/vsciot-vscode.azure-iot-tools`.
 
 ## Sign in to access your IoT hub
 
@@ -66,7 +58,7 @@ Run Azure IoT Tools for Visual Studio Code with various management options.
 
 2. Enter the method name and payload in input box.
 
-3. Results will be shown in **OUTPUT** > **Azure IoT Hub Toolkit** view.
+3. Results will be shown in **OUTPUT** > **Azure IoT Hub** view.
 
 ## Read device twin
 
@@ -90,7 +82,7 @@ To send a message from your IoT hub to your device, follow these steps:
 
 2. Enter the message in input box.
 
-3. Results will be shown in **OUTPUT** > **Azure IoT Hub Toolkit** view.
+3. Results will be shown in **OUTPUT** > **Azure IoT Hub** view.
 
 ## Next steps
 

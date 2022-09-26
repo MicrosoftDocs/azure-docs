@@ -1,21 +1,12 @@
 ---
-title: Azure Service Fabric Event Analysis with Azure Monitor logs | Microsoft Docs
+title: Azure Service Fabric Event Analysis with Azure Monitor logs 
 description: Learn about visualizing and analyzing events using Azure Monitor logs for monitoring and diagnostics of Azure Service Fabric clusters.
-services: service-fabric
-documentationcenter: .net
-author: srrengar
-manager: chackdan
-editor: ''
-
-ms.assetid:
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 02/21/2019
-ms.author: srrengar
-
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Event analysis and visualization with Azure Monitor logs
@@ -48,7 +39,7 @@ In `Summary`, you will see tiles in the form of a graph for each of the solution
 
 The following image shows the home page of the Service Fabric Analytics solution. This home page provides a snapshot view of what's happening in your cluster.
 
-![Service Fabric solution](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
+![Screenshot that shows the home page of the Service Fabric Analytics solution.](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
 
  If you enabled diagnostics upon cluster creation, you can see events for 
 
@@ -110,7 +101,7 @@ The Kusto query language is powerful. Another valuable query you can run is to f
 ## Next steps
 
 * To enable infrastructure monitoring i.e. performance counters, head over to [adding the Log Analytics agent](service-fabric-diagnostics-oms-agent.md). The agent collects performance counters and adds them to your existing workspace.
-* For on-premises clusters, Azure Monitor logs offers a Gateway (HTTP Forward Proxy) that can be used to send data to Azure Monitor logs. Read more about that in [Connecting computers without Internet access to Azure Monitor logs using the Log Analytics gateway](../azure-monitor/platform/gateway.md).
-* Configure  [automated alerting](../log-analytics/log-analytics-alerts.md) to aid in detection and diagnostics.
-* Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Azure Monitor logs.
-* Get a more detailed overview of Azure Monitor logs and what it offers, read [What is Azure Monitor logs?](../operations-management-suite/operations-management-suite-overview.md).
+* For on-premises clusters, Azure Monitor logs offers a Gateway (HTTP Forward Proxy) that can be used to send data to Azure Monitor logs. Read more about that in [Connecting computers without Internet access to Azure Monitor logs using the Log Analytics gateway](../azure-monitor/agents/gateway.md).
+* Configure  [automated alerting](../azure-monitor/alerts/alerts-overview.md) to aid in detection and diagnostics.
+* Get familiarized with the [log search and querying](../azure-monitor/logs/log-query-overview.md) features offered as part of Azure Monitor logs.
+* Get a more detailed overview of Azure Monitor logs and what it offers, read [What is Azure Monitor logs?](../azure-monitor/overview.md).

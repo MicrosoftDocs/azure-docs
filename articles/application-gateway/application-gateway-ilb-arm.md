@@ -1,19 +1,20 @@
-﻿---
+---
 title: Use with Internal Load Balancer - Azure Application Gateway
-description: This page provides instructions to create, configure, start, and delete an Azure application gateway with internal load balancer (ILB) for Azure Resource Manager
+description: This article provides instructions to create, configure, start, and delete an Azure application gateway with internal load balancer (ILB)
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
-ms.topic: article
-ms.date: 11/13/2019
-ms.author: victorh
+ms.topic: how-to
+ms.date: 09/13/2022
+ms.author: greglin 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create an application gateway with an internal load balancer (ILB)
 
-Azure Application Gateway can be configured with an Internet-facing VIP or with an internal endpoint that is not exposed to the Internet, also known as an internal load balancer (ILB) endpoint. Configuring the gateway with an ILB is useful for internal line-of-business applications that are not exposed to the Internet. It's also useful for services and tiers within a multi-tier application that sit in a security boundary that is not exposed to the Internet but still require round-robin load distribution, session stickiness, or Secure Sockets Layer (SSL) termination.
+Azure Application Gateway Standard v1 can be configured with an Internet-facing VIP or with an internal endpoint that is not exposed to the Internet, also known as an internal load balancer (ILB) endpoint. Configuring the gateway with an ILB is useful for internal line-of-business applications that are not exposed to the Internet. It's also useful for services and tiers within a multi-tier application that sit in a security boundary that is not exposed to the Internet but still require round-robin load distribution, session stickiness, or Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), termination.
 
-This article walks you through the steps to configure an application gateway with an ILB.
+This article walks you through the steps to configure a Standard v1 Application Gateway with an ILB.
 
 ## Before you begin
 
@@ -34,7 +35,7 @@ This article walks you through the steps to configure an application gateway wit
 ## Create an application gateway
 
 The difference between using Azure Classic and Azure Resource Manager is the order in which you create the application gateway and the items that need to be configured.
-With Resource Manager, all items that make an application gateway is configured individually and then put together to create the application gateway resource.
+With Resource Manager, all items that make an application gateway are configured individually and then put together to create the application gateway resource.
 
 Here are the steps that are needed to create an application gateway:
 
@@ -45,7 +46,7 @@ Here are the steps that are needed to create an application gateway:
 
 ## Create a resource group for Resource Manager
 
-Make sure that you switch PowerShell mode to use the Azure Resource Manager cmdlets. More info is available at [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
+Make sure that you switch PowerShell mode to use the Azure Resource Manager cmdlets. More info is available at [Using Windows PowerShell with Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
 
 ### Step 1
 
@@ -253,10 +254,9 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 
 ## Next steps
 
-If you want to configure SSL offload, see [Configure an application gateway for SSL offload](application-gateway-ssl.md).
+If you want to configure SSL offload, see [Configure an application gateway for SSL offload](./tutorial-ssl-powershell.md).
 
 If you want more information about load balancing options in general, see:
 
-* [Azure Load Balancer](https://azure.microsoft.com/documentation/services/load-balancer/)
-* [Azure Traffic Manager](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
+* [Azure Load Balancer](/azure/load-balancer/)
+* [Azure Traffic Manager](/azure/traffic-manager/)

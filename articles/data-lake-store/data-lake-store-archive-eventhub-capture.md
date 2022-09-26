@@ -1,17 +1,12 @@
 ---
-title: Capture data from Event Hubs into Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Use Azure Data Lake Storage Gen1 to capture data from Event Hubs 
-services: data-lake-store
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: cgronlun
+title: Capture data from Event Hubs to Azure Data Lake Storage Gen1
+description: Learn how to use Azure Data Lake Storage Gen1 to capture data received by Azure Event Hubs. Begin by verifying the prerequisites.
 
+author: normesta
 ms.service: data-lake-store
-ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley
+ms.author: normesta
 
 ---
 # Use Azure Data Lake Storage Gen1 to capture data from Event Hubs
@@ -43,11 +38,11 @@ In this section, you create a folder within the account where you want to captur
 
     a. Click **Data Explorer**, select the root of the Data Lake Storage Gen1 account, and then click **Access**.
 
-    ![Assign permissions for the Data Lake Storage Gen1 root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-root.png "Assign permissions for the Data Lake Storage Gen1 root")
+    ![Screenshot of the Data explorer with the root of the account and the Access option called out.](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-root.png "Assign permissions for the Data Lake Storage Gen1 root")
 
     b. Under **Access**, click **Add**, click **Select User or Group**, and then search for `Microsoft.EventHubs`. 
 
-    ![Assign permissions for the Data Lake Storage Gen1 root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Assign permissions for the Data Lake Storage Gen1 root")
+    ![Screenshot of the Access page with the Add option, Select User or Group option, and Microsoft Eventhubs option called out.](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Assign permissions for the Data Lake Storage Gen1 root")
     
     Click **Select**.
 
@@ -56,7 +51,7 @@ In this section, you create a folder within the account where you want to captur
     > [!IMPORTANT]
     > When creating a new folder hierarchy for capturing data received by Azure Event Hubs, this is an easy way to ensure access to the destination folder.  However, adding permissions to all children of a top level folder with many child files and folders may take a long time.  If your root folder contains a large number of files and folders, it may be faster to add **Execute** permissions for `Microsoft.EventHubs` individually to each folder in the path to your final destination folder. 
 
-    ![Assign permissions for the Data Lake Storage Gen1 root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Assign permissions for the Data Lake Storage Gen1 root")
+    ![Screenshot of the Assign Permissions section with the Select Permissions option called out. The Select Permissions section is next to it with the Execute option, Add to option, and Add as option called out.](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Assign permissions for the Data Lake Storage Gen1 root")
 
     Click **OK**.
 
@@ -64,17 +59,17 @@ In this section, you create a folder within the account where you want to captur
 
     a. Click **Data Explorer**, select the folder in the Data Lake Storage Gen1 account, and then click **Access**.
 
-    ![Assign permissions for the Data Lake Storage Gen1 folder](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-folder.png "Assign permissions for the Data Lake Storage Gen1 folder")
+    ![Screenshot of the Data explorer with a folder in the account and the Access option called out.](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-permissions-to-folder.png "Assign permissions for the Data Lake Storage Gen1 folder")
 
     b. Under **Access**, click **Add**, click **Select User or Group**, and then search for `Microsoft.EventHubs`. 
 
-    ![Assign permissions for the Data Lake Storage Gen1 folder](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Assign permissions for the Data Lake Storage Gen1 folder")
+    ![Screenshot of the Data explorer Access page with the Add option, Select User or Group option, and Microsoft Eventhubs option called out.](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp.png "Assign permissions for the Data Lake Storage Gen1 folder")
     
     Click **Select**.
 
     c. Under **Assign Permissions**, click **Select Permissions**. Set **Permissions** to **Read, Write,** and **Execute**. Set **Add to** to **This folder and all children**. Finally, set **Add as** to **An access permission entry and a default permission entry**.
 
-    ![Assign permissions for the Data Lake Storage Gen1 folder](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp-folder.png "Assign permissions for the Data Lake Storage Gen1 folder")
+    ![Screenshot of the Assign Permissions section with the Select Permissions option called out. The Select Permissions section is next to it with the Read, Write, and Execute options, the Add to option, and the Add as option called out.](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp-folder.png "Assign permissions for the Data Lake Storage Gen1 folder")
     
     Click **OK**. 
 
@@ -84,11 +79,11 @@ In this section, you create an Event Hub within an Event Hubs namespace. You als
 
 1. From the **Overview** pane of the Event Hubs namespace, click **+ Event Hub**.
 
-    ![Create Event Hub](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "Create Event Hub")
+    ![Screenshot of the Overview pane with the Event Hub option called out.](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "Create Event Hub")
 
 1. Provide the following values to configure Event Hubs to capture data to Data Lake Storage Gen1.
 
-    ![Create Event Hub](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "Create Event Hub")
+    ![Screenshot of the Create Event Hub dialog box with the Name text box, the Capture option, the Capture Provider option, the Select Data Lake Store option, and the Data Lake Path option called out.](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "Create Event Hub")
 
     a. Provide a name for the Event Hub.
     

@@ -4,23 +4,30 @@ description: This topic describes the built-in automatic upgrade feature in Azur
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: amycolannino
 editor: ''
 
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
 ms.service: active-directory
-ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/26/2019
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect: Automatic upgrade
-This feature was introduced with build [1.1.105.0 (released February 2016)](reference-connect-version-history.md#111050).  This feature was updated in [build 1.1.561](reference-connect-version-history.md#115610) and now supports additional scenarios that were previously not supported.
+Azure AD Connect automatic upgrade is a feature that regularly checks for newer versions of Azure AD Connect. If your server is enabled for automatic upgrade and a newer version is found for which your server is eligible, it will perform an automatic upgrade to that newer version.
+Note that for security reasons the agent that performs the automatic upgrade validates the new build of Azure AD Connect based on the digital signature of the downloaded version.
+
+>[!NOTE]
+> Azure Active Directory (AD) Connect follows the [Modern Lifecycle Policy](/lifecycle/policies/modern). Changes for products and services  under the Modern Lifecycle Policy may be more frequent and require customers to be alert for forthcoming modifications to their product or service.
+>
+> Product governed by the Modern Policy follow a [continuous support and servicing model](/lifecycle/overview/product-end-of-support-overview). Customers must take the latest update to remain supported. 
+>
+> For products and services governed by the Modern Lifecycle Policy, Microsoft's policy is to provide a minimum 30 days' notification when customers are required to take action in order to avoid significant degradation to the normal use of the product or service.
 
 ## Overview
 Making sure your Azure AD Connect installation is always up to date has never been easier with the **automatic upgrade** feature. This feature is enabled by default for express installations and DirSync upgrades. When a new version is released, your installation is automatically upgraded.
@@ -46,6 +53,22 @@ Automatic upgrade is using Azure AD Connect Health for the upgrade infrastructur
 
 If the **Synchronization Service Manager** UI is running on the server, then the upgrade is suspended until the UI is closed.
 
+>[!NOTE]
+> Not all releases of Azure AD Connect are made available for auto upgrade. The release status indicates if a release is available for auto upgrade or for download only. If auto upgrade was enabled on your Azure AD Connect server then that server will automatically upgrade to the latest version of Azure AD Connect released for auto upgrade if **your configuration is [eligible](#auto-upgrade-eligibility)** for auto upgrade. For more information, see the article [Azure AD Connect: Version release history](reference-connect-version-history.md).
+
+## Auto-upgrade eligibility
+In order to eligible for an automatic upgrade, you must not meet any one of the following conditions:
+
+| Result Message | Description |
+| --- | --- |
+|UpgradeNotSupportedCustomizedSyncRules|You have added your own custom rules to the configuration.|
+|UpgradeNotSupportedInvalidPersistedState|The installation is not an Express settings or a DirSync upgrade.|
+|UpgradeNotSupportedNonLocalDbInstall|You are not using a SQL Server Express LocalDB database.|
+|UpgradeNotSupportedLocalDbSizeExceeded|Local DB size is greater than or equal to 8 GB|
+|UpgradeNotSupportedAADHealthUploadDisabled|Health data uploads have been disabled from the portal|
+
+
+
 ## Troubleshooting
 If your Connect installation does not upgrade itself as expected, then follow these steps to find out what could be wrong.
 
@@ -53,10 +76,14 @@ First, you should not expect the automatic upgrade to be attempted the first day
 
 If you think something is not right, then first run `Get-ADSyncAutoUpgrade` to ensure automatic upgrade is enabled.
 
+If the state is suspended, you can use the `Get-ADSyncAutoUpgrade -Detail` to view the reason.  The suspension reason can contain any string value but will usually contain the string value of the UpgradeResult, that is, `UpgradeNotSupportedNonLocalDbInstall` or `UpgradeAbortedAdSyncExeInUse`.  A compound value may also be returned, such as `UpgradeFailedRollbackSuccess-GetPasswordHashSyncStateFailed`.
+
+It is also possible to get a result that is not an UpgradeResult i.e. 'AADHealthEndpointNotDefined' or 'DirSyncInPlaceUpgradeNonLocalDb'.
+
 Then, make sure you have opened the required URLs in your proxy or firewall. Automatic update is using Azure AD Connect Health as described in the [overview](#overview). If you use a proxy, make sure Health has been configured to use a [proxy server](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). Also test the [Health connectivity](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) to Azure AD.
 
-With the connectivity to Azure AD verified, it is time to look into the eventlogs. Start the event viewer and look in the **Application** eventlog. Add an eventlog filter for the source **Azure AD Connect Upgrade** and the event id range **300-399**.  
-![Eventlog filter for automatic upgrade](./media/how-to-connect-install-automatic-upgrade/eventlogfilter.png)  
+With the connectivity to Azure AD verified, it is time to look into the eventlogs. Start the event viewer and look in the **Application** eventlog. Add an eventlog filter for the source **Azure AD Connect Upgrade** and the event ID range **300-399**.  
+![Screenshot that shows the "Filter Current Log" window with "Event sources" and the "Include/Exclude" Event IDs box highlighted.](./media/how-to-connect-install-automatic-upgrade/eventlogfilter.png)  
 
 You can now see the eventlogs associated with the status for automatic upgrade.  
 ![Eventlog filter for automatic upgrade](./media/how-to-connect-install-automatic-upgrade/eventlogresult.png)  
@@ -85,19 +112,11 @@ Here is a list of the most common messages you find. It does not list all, but t
 | UpgradeAbortedSyncExeInUse |The [synchronization service manager UI](how-to-connect-sync-service-manager-ui.md) is open on the server. |
 | UpgradeAbortedSyncOrConfigurationInProgress |The installation wizard is running or a sync was scheduled outside the scheduler. |
 | **UpgradeNotSupported** | |
-| UpgradeNotSupportedAdfsSignInMethod | You have selected Adfs as the sign-in method. |
 | UpgradeNotSupportedCustomizedSyncRules |You have added your own custom rules to the configuration. |
-| UpgradeNotSupportedDeviceWritebackEnabled |You have enabled the [device writeback](how-to-connect-device-writeback.md) feature. |
-| UpgradeNotSupportedGroupWritebackEnabled |You have enabled the [group writeback](how-to-connect-preview.md#group-writeback) feature. |
 | UpgradeNotSupportedInvalidPersistedState |The installation is not an Express settings or a DirSync upgrade. |
-| UpgradeNotSupportedMetaverseSizeExceeeded |You have more than 100,000 objects in the metaverse. |
-| UpgradeNotSupportedMultiForestSetup |You are connecting to more than one forest. Express setup only connects to one forest. |
 | UpgradeNotSupportedNonLocalDbInstall |You are not using a SQL Server Express LocalDB database. |
-| UpgradeNotSupportedNonMsolAccount |The [AD DS Connector account](reference-connect-accounts-permissions.md#ad-ds-connector-account) is not the default MSOL_ account anymore. |
-| UpgradeNotSupportedNotConfiguredSignInMethod | When setting up AAD Connect, you chose *Do Not Configure* when selecting the sign-on method. |
-| UpgradeNotSupportedPtaSignInMethod | You have selected Pass-through Authentication as the sign-in method. |
-| UpgradeNotSupportedStagingModeEnabled |The server is set to be in [staging mode](how-to-connect-sync-staging-server.md). |
-| UpgradeNotSupportedUserWritebackEnabled |You have enabled the [user writeback](how-to-connect-preview.md#user-writeback) feature. |
+|UpgradeNotSupportedLocalDbSizeExceeded|Local DB size is greater than or equal to 8 GB|
+|UpgradeNotSupportedAADHealthUploadDisabled|Health data uploads have been disabled from the portal|
 
 ## Next steps
 Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).

@@ -4,15 +4,14 @@ description: Understand the Connectors tab in the Synchronization Service Manage
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: amycolannino
 editor: ''
 
 ms.assetid: 60f1d979-8e6d-4460-aaab-747fffedfc1e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
@@ -21,7 +20,7 @@ ms.collection: M365-identity-device-management
 ---
 # Using connectors with the Azure AD Connect Sync Service Manager
 
-![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/connectors.png)
+![Screenshot that shows the Sync Service Manager.](./media/how-to-connect-sync-service-manager-ui-connectors/connectors.png)
 
 The Connectors tab is used to manage all systems the sync engine is connected to.
 
@@ -42,28 +41,28 @@ The Connectors tab is used to manage all systems the sync engine is connected to
 
 ### Delete
 The delete action is used for two different things.  
-![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
+![Screenshot that shows the "Delete Connector" window with "Delete connector space only" selected.](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
 
 The option **Delete connector space only** removes all data, but keep the configuration.
 
-The option **Delete Connector and connector space** removes the data and the configuration. This option is used when you do not want to connect to a forest anymore.
+The option **Delete Connector and connector space** removes the data, the configuration and all the sync rules associated with the connector. This option is used when you do not want to connect to a forest anymore.
 
 Both options sync all objects and update the metaverse objects. This action is a long running operation.
 
 ### Configure Run Profiles
 This option allows you to see the run profiles configured for a Connector.
 
-![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/configurerunprofiles.png)
+![Screenshot that shows the "Configure Run Profiles" window with "Delta Import" selected.](./media/how-to-connect-sync-service-manager-ui-connectors/configurerunprofiles.png)
 
 ### Search Connector Space
 The search connector space action is useful to find objects and troubleshoot data issues.
 
-![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearch.png)
+![Screenshot that shows the "Search Connector Space" window.](./media/how-to-connect-sync-service-manager-ui-connectors/cssearch.png)
 
 Start by selecting a **scope**. You can search based on data (RDN, DN, Anchor, Sub-Tree), or state of the object (all other options).  
-![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
+![Screenshot that shows the "Scope" drop-down menu.](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
 If you for example do a Sub-Tree search, you get all objects in one OU.  
-![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
+![Screenshot that shows an example of a "Sub-Tree" search.](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
 From this grid you can select an object, select **properties**, and [follow it](tshoot-connect-object-not-syncing.md) from the source connector space, through the metaverse, and to the target connector space.
 
 ### Changing the AD DS account password

@@ -14,6 +14,8 @@ ms.author: aahi
 
 # Bing Web Search SDK samples
 
+[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+
 The Bing Web Search SDK is available in Python, Node.js, C#, and Java. Code samples, prerequisites, and build instructions are provided on GitHub. The following scenarios are covered:
 
 * Query a single word and print the name and URL of the first result for web pages, images, news articles, and videos.
@@ -26,11 +28,11 @@ The Bing Web Search SDK is available in Python, Node.js, C#, and Java. Code samp
 Use these links to access the SDK for your preferred language.
 
 * Get started with [Python samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
-  * See also [Python libraries](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-websearch) for definitions and dependencies.
+  * See also [Python libraries](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-search-websearch) for definitions and dependencies.
 * Get started with [Node.js samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
   * See also [Node.js Web Search](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesWebSearch).
 * Get started with [.NET samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
   * [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0)
-  * See also [.NET libraries](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Search/BingWebSearch) for definitions and dependencies.
+  * See also [.NET libraries](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingWebSearch) for definitions and dependencies.
 * Get started with [Java samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
   * See also [Java libraries](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch) for definitions and dependencies.

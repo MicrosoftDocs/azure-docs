@@ -1,32 +1,28 @@
 ---
-title: Capture an image of a Linux VM in Azure using Azure CLI 
-description: Capture an image of an Azure VM to use for mass deployments by using the Azure CLI.
-services: virtual-machines-linux
-documentationcenter: ''
+title: Capture a managed image of a Linux VM using Azure CLI 
+description: Capture a managed image of an Azure VM to use for mass deployments by using the Azure CLI.
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: e608116f-f478-41be-b787-c2ad91b5a802
-ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: azurecli
-ms.topic: article
-ms.date: 10/08/2018
+ms.service: virtual-machines
+ms.subservice: imaging
+ms.topic: how-to
+ms.date: 08/27/2021
 ms.author: cynthn
-
+ms.custom: legacy, devx-track-azurecli
+ms.collection: linux
 ---
-# How to create an image of a virtual machine or VHD
+# How to create a managed image of a virtual machine or VHD
 
-<!-- generalize, image - extended version of the tutorial-->
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
-To create multiple copies of a virtual machine (VM) for use in Azure, capture an image of the VM or of the OS VHD. To create an image for deployment, you'll need to remove personal account information. In the following steps, you deprovision an existing VM, deallocate it and create an image. You can use this image to create VMs across any resource group within your subscription.
+To create multiple copies of a virtual machine (VM) for use in Azure for development and test, capture a managed image of the VM or of the OS VHD. To create, store and share images at scale, see [Azure Compute Galleries](../create-gallery.md).
 
-To create a copy of your existing Linux VM for backup or debugging, or to upload a specialized Linux VHD from an on-premises VM, see [Upload and create a Linux VM from custom disk image](upload-vhd.md).  
+One managed image supports up to 20 simultaneous deployments. Attempting to create more than 20 VMs concurrently, from the same managed image, may result in provisioning timeouts due to the storage performance limitations of a single VHD. To create more than 20 VMs concurrently, use an [Azure Compute Gallery](../shared-image-galleries.md) (formerly known as Shared Image Gallery) image configured with 1 replica for every 20 concurrent VM deployments.
 
-You can use the **Azure VM Image Builder (Public Preview)** service to build your custom image, no need to learn any tools, or setup build pipelines, simply providing an image configuration, and the Image Builder will create the Image. For more information, see [Getting Started with Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
+To create a managed image, you'll need to remove personal account information. In the following steps, you deprovision an existing VM, deallocate it and create an image. You can use this image to create VMs across any resource group within your subscription.
+
+To create a copy of your existing Linux VM for backup or debugging, or to upload a Linux VHD from an on-premises VM, see [Upload and create a Linux VM from custom disk](upload-vhd.md).  
+
+You can use **Azure VM Image Builder** to build your custom image, no need to learn any tools, or setup build pipelines, simply providing an image configuration, and the Image Builder will create the Image. For more information, see [Getting Started with Azure VM Image Builder](../image-builder-overview.md).
 
 You'll need the following items before creating an image:
 
@@ -40,7 +36,7 @@ For a simplified version of this article, and for testing, evaluating, or learni
 
 
 ## Step 1: Deprovision the VM
-First you'll deprovision the VM by using the Azure VM agent to delete machine-specific files and data. Use the `waagent` command with the `-deprovision+user` parameter on your source Linux VM. For more information, see the [Azure Linux Agent user guide](../extensions/agent-linux.md).
+First you'll deprovision the VM by using the Azure VM agent to delete machine-specific files and data. Use the `waagent` command with the `-deprovision+user` parameter on your source Linux VM. For more information, see the [Azure Linux Agent user guide](../extensions/agent-linux.md). This process can't be reversed.
 
 1. Connect to your Linux VM with an SSH client.
 2. In the SSH window, enter the following command:
@@ -61,8 +57,8 @@ Use the Azure CLI to mark the VM as generalized and capture the image. In the fo
    
     ```azurecli
     az vm deallocate \
-	  --resource-group myResourceGroup \
-	  --name myVM
+        --resource-group myResourceGroup \
+        --name myVM
     ```
 	
 	Wait for the VM to completely deallocate before moving on. This may take a few minutes to complete.  The VM is shut down during deallocation.
@@ -71,8 +67,8 @@ Use the Azure CLI to mark the VM as generalized and capture the image. In the fo
    
     ```azurecli
     az vm generalize \
-	  --resource-group myResourceGroup \
-	  --name myVM
+        --resource-group myResourceGroup \
+        --name myVM
     ```
 
 	A VM that has been generalized can no longer be restarted.
@@ -81,13 +77,15 @@ Use the Azure CLI to mark the VM as generalized and capture the image. In the fo
    
     ```azurecli
     az image create \
-	  --resource-group myResourceGroup \
-	  --name myImage --source myVM
+        --resource-group myResourceGroup \
+	--name myImage --source myVM
     ```
    
    > [!NOTE]
    > The image is created in the same resource group as your source VM. You can create VMs in any resource group within your subscription from this image. From a management perspective, you may wish to create a specific resource group for your VM resources and images.
    >
+   > If you are capturing an image of a generation 2 VM, also use the `--hyper-v-generation V2` parameter. for more information, see [Generation 2 VMs](../generation-2.md).
+   > 
    > If you would like to store your image in zone-resilient storage, you need to create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the `--zone-resilient true` parameter.
    
 This command returns JSON that describes the VM image. Save this output for later reference.
@@ -138,11 +136,4 @@ az vm show \
 ```
 
 ## Next steps
-You can create multiple VMs from your source VM image. To make changes to your image: 
-
-- Create a VM from your image.
-- Make any updates or configuration changes.
-- Follow the steps again to deprovision, deallocate, generalize, and create an image.
-- Use this new image for future deployments. You may delete the original image.
-
-For more information on managing your VMs with the CLI, see [Azure CLI](/cli/azure).
+To create, store and share images at scale, see [Azure Compute Galleries](../create-gallery.md).

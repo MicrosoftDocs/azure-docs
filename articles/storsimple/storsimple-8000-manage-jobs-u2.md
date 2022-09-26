@@ -9,15 +9,16 @@ editor: ''
 
 ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/29/2017
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Use the StorSimple Device Manager service to view and manage jobs (Update 3 and later)
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 The **Jobs** blade provides a single central portal for viewing and managing jobs that were started on devices connected to your StorSimple Device Manager service. You can view scheduled, running, completed, canceled, and failed jobs for multiple devices. Results are presented in a tabular format.
@@ -55,11 +56,11 @@ Perform the following steps to view the details of any job.
 
 2. In the **Jobs** blade, display the job(s) you are interested in by running a query with appropriate filters. You can search for completed, running, or canceled jobs.
 
-    ![Job blade](./media/storsimple-8000-manage-jobs-u2/jobs1.png)
+    ![Job blade 2](./media/storsimple-8000-manage-jobs-u2/jobs1.png)
 
 2. Select and click a job.
 
-    ![Job blade](./media/storsimple-8000-manage-jobs-u2/jobs3.png)
+    ![Job blade 3](./media/storsimple-8000-manage-jobs-u2/jobs3.png)
 
 3. In the job details blade, you can view the status, details, time statistics, and data statistics.
    
@@ -77,7 +78,7 @@ Perform the following steps to cancel a running job.
 
 2. Right-click on the selected job to invoke the context menu and click **Cancel**.
 
-    ![Job details](./media/storsimple-8000-manage-jobs-u2/jobs2.png)
+    ![Job details 2](./media/storsimple-8000-manage-jobs-u2/jobs2.png)
 
 3. When prompted for confirmation, click **Yes**. This job is now canceled.
 

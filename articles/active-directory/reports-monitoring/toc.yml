@@ -2,21 +2,27 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What are Azure AD reports?
+  - name: Azure AD reports
     href: overview-reports.md
-  - name: What is Azure AD monitoring?
+  - name: Azure AD monitoring
     href: overview-monitoring.md
-
-    
+  - name: Azure AD recommendations
+    href: overview-recommendations.md
+  - name: Flagged sign-ins
+    href: overview-flagged-sign-ins.md
+  - name: Service Health notifications
+    href: overview-service-health-notifications.md
+  - name: Sign-in diagnostic
+    href: overview-sign-in-diagnostics.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Download a sign-in report
-    href: quickstart-download-sign-in-report.md
-  - name: Download an audit report
-    href: quickstart-download-audit-report.md
-  - name: Configure named locations
-    href: quickstart-configure-named-locations.md
+  - name: Filter your audit log 
+    href: quickstart-filter-audit-log.md
+  - name: Analyze sign-ins 
+    href: quickstart-analyze-sign-in.md
+  - name: Access logs with the Graph API
+    href: quickstart-access-log-with-graph-api.md
   - name: Route logs to storage account
     href: quickstart-azure-monitor-route-logs-to-storage-account.md
 
@@ -26,46 +32,51 @@
     href: tutorial-access-api-with-certificates.md
   - name: Stream logs to event hub
     href: tutorial-azure-monitor-stream-logs-to-event-hub.md
-
+  - name: Log analytics wizard
+    href: tutorial-log-analytics-wizard.md
 
 - name: Concepts
   items:
-  - name: Plan a reporting and monitoring deployment
-    href: plan-monitoring-and-reporting.md
   - name: Audit logs
     href: concept-audit-logs.md
+  - name: New sign-in logs - preview
+    href: concept-all-sign-ins.md
   - name: Sign-in logs
     href: concept-sign-ins.md
-  - name: Usage and Insights report
-    href: concept-usage-insights-report.md
-  - name: Risky sign-ins
-    href: concept-risky-sign-ins.md
-  - name: Risk detections
-    href: concept-risk-events.md
-  - name: Users at risk
-    href: concept-user-at-risk.md
   - name: Provisioning logs
     href: concept-provisioning-logs.md
+  - name: Usage and Insights report
+    href: concept-usage-insights-report.md
   - name: Reporting APIs
     href: concept-reporting-api.md
   - name: Azure AD logs in Azure Monitor
     href: concept-activity-logs-azure-monitor.md
+  - name: Plan a reporting and monitoring deployment
+    href: plan-monitoring-and-reporting.md
+  - name: Sign-in diagnostics scenarios
+    href: concept-sign-in-diagnostics-scenarios.md
 
 - name: How-to guides
   expanded: true
   items:
   - name: Reports
     items:
-    - name: Find activity reports
-      href: howto-find-activity-reports.md
-    - name: Troubleshoot sign-in errors for a user
-      href: howto-troubleshoot-sign-in-errors.md
-    - name: Remediate users flagged for risk
-      href: howto-remediate-users-flagged-for-risk.md
+    - name: Access activity logs
+      href: howto-access-activity-logs.md
     - name: Configure prerequisites for Reporting API
       href: howto-configure-prerequisites-for-reporting-api.md
-    - name: How to use Azure AD workbooks
+    - name: Download logs
+      href: howto-download-logs.md
+    - name: Find activity reports
+      href: howto-find-activity-reports.md
+    - name: Manage inactive user accounts in Azure AD
+      href: howto-manage-inactive-user-accounts.md
+    - name: Troubleshoot sign-in errors for a user
+      href: howto-troubleshoot-sign-in-errors.md
+    - name: Use Azure AD workbooks
       href: howto-use-azure-monitor-workbooks.md
+    - name: View applied conditional access policies
+      href: how-to-view-applied-conditional-access-policies.md
 
   - name: Monitoring
     items:
@@ -90,29 +101,57 @@
       href: troubleshoot-missing-data-download.md
     - name: Cannot access Graph APIs for reporting
       href: troubleshoot-graph-api.md
-
+    - name: Audit data on verified domain change
+      href: troubleshoot-audit-data-verified-domain.md
 
 - name: Reference
   expanded: true
   items:
+  - name: Azure Active Directory SLA performance
+    href: reference-azure-ad-sla-performance.md
+  - name: Basic info in the sign-in logs
+    href: reference-basic-info-sign-in-logs.md
   - name: Azure AD PowerShell cmdlets for reporting
     href: reference-powershell-reporting.md
   - name: Audit logs API reference
-    href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit
+    href: /graph/api/resources/directoryaudit
   - name: Sign-in logs API reference
-    href: https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin
+    href: /graph/api/resources/signin
   - name: Audit activities
     href: reference-audit-activities.md
   - name: Data retention policies
     href: reference-reports-data-retention.md
   - name: Reporting latencies
     href: reference-reports-latencies.md
-  - name: Sign-in error codes
-    href: reference-sign-ins-error-codes.md
   - name: Frequently asked questions
-    href: reports-faq.md
-  - name: Audit log schema
-    href: reference-azure-monitor-audit-log-schema.md
+    href: reports-faq.yml
   - name: Sign-in log schema
     href: reference-azure-monitor-sign-ins-log-schema.md
 
+- name: Workbooks
+  items:
+    - name: Authentication prompts analysis
+      href: workbook-authentication-prompts-analysis.md
+    - name: Conditional access gap analyzer
+      href: workbook-conditional-access-gap-analyzer.md
+    - name: Cross-tenant access activity 
+      href: workbook-cross-tenant-access-activity.md
+    - name: Sign-ins using legacy authentication  
+      href: workbook-legacy authentication.md
+    - name: Risk analysis
+      href: workbook-risk-analysis.md
+    - name: Sensitive Operations Report 
+      href: workbook-sensitive-operations-report.md
+
+- name: Recommendations
+  items:
+    - name: Convert to conditional access MFA
+      href: recommendation-turn-off-per-user-mfa.md
+    - name: Integrate your third party apps
+      href: recommendation-integrate-third-party-apps.md
+    - name: Migrate to Microsoft authenticator
+      href: recommendation-migrate-to-authenticator.md
+    - name: Migrate apps from AD FS to Azure AD
+      href: recommendation-migrate-apps-from-adfs-to-azure-ad.md
+    - name: Minimize MFA prompts from known devices
+      href: recommendation-mfa-from-known-devices.md

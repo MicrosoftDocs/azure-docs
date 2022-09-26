@@ -1,9 +1,11 @@
 ---
-author: erhopf
+author: laujan
 ms.service: cognitive-services
+ms.subservice: translator-text
 ms.topic: include
 ms.date: 08/06/2019
-ms.author: erhopf
+ms.author: lajanuar
+ms.custom: devx-track-csharp
 ---
 
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
@@ -40,18 +42,18 @@ using Newtonsoft.Json;
 
 ## Get subscription information from environment variables
 
-Add the following lines to the `Program` class. These lines read your subscription key and endpoint from environment variables, and throws an error if you run into any issues.
+Add the following lines to the `Program` class. These lines read your key and endpoint from environment variables, and throws an error if you run into any issues.
 
 ```csharp
-private const string key_var = "TRANSLATOR_TEXT_SUBSCRIPTION_KEY";
-private static readonly string subscriptionKey = Environment.GetEnvironmentVariable(key_var);
+private const string key_var = "TRANSLATOR_TEXT_KEY";
+private static readonly string key = Environment.GetEnvironmentVariable(key_var);
 
 private const string endpoint_var = "TRANSLATOR_TEXT_ENDPOINT";
 private static readonly string endpoint = Environment.GetEnvironmentVariable(endpoint_var);
 
 static Program()
 {
-    if (null == subscriptionKey)
+    if (null == key)
     {
         throw new Exception("Please set/export the environment variable: " + key_var);
     }
@@ -130,7 +132,7 @@ request.RequestUri = new Uri(uri);
 request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
 
 // Add the authorization header
-request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+request.Headers.Add("Ocp-Apim-Subscription-Key", key);
 
 // Send request, get response
 var response = client.SendAsync(request).Result;
@@ -149,7 +151,7 @@ static string PrettyPrint(string s)
 }
 ```
 
-If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](../reference/v3-0-reference.md#authentication).
 
 ## Put it all together
 
@@ -199,11 +201,11 @@ dotnet run
 
 ## Clean up resources
 
-Make sure to remove any confidential information from your sample app's source code, like subscription keys.
+Make sure to remove any confidential information from your sample app's source code, like keys.
 
 ## Next steps
 
-Take a look at the API reference to understand everything you can do with the Translator Text API.
+Take a look at the API reference to understand everything you can do with the Translator.
 
 > [!div class="nextstepaction"]
-> [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+> [API reference](../reference/v3-0-reference.md)

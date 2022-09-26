@@ -15,6 +15,8 @@ ms.author: aahi
 
 # Resize and crop thumbnail images
 
+[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+
 Some answers from the Bing Search APIs include URLs to thumbnail images served by Bing, which you can resize and crop, and may contain query parameters. For example:
 
 `https://<host>/th?id=AMMS_92772df988...&w=110&h=73&rs=1&qlt=80&cdv=1&pid=16.1`

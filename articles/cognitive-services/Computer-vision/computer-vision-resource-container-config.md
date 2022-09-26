@@ -1,21 +1,21 @@
 ---
-title: Configure containers - Computer Vision
+title: Configure Read OCR containers - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: This article shows you how to configure both required and optional settings for Recognize Text containers in Computer Vision.
+description: This article shows you how to configure both required and optional settings for Read OCR containers in Computer Vision.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: dapine
+ms.topic: how-to
+ms.date: 04/09/2021
+ms.author: aahi
 ms.custom: seodec18
 ---
 
-# Configure Computer Vision Docker containers
+# Configure Read OCR Docker containers
 
-You configure the Computer Vision container's runtime environment by using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings. 
+You configure the Computer Vision Read OCR container's runtime environment by using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings. 
 
 ## Configuration settings
 
@@ -23,6 +23,23 @@ You configure the Computer Vision container's runtime environment by using the `
 
 > [!IMPORTANT]
 > The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](computer-vision-how-to-install-containers.md).
+
+The container also has the following container-specific configuration settings:
+
+|Required|Setting|Purpose|
+|--|--|--|
+|No|ReadEngineConfig:ResultExpirationPeriod| v2.0 containers only. Result expiration period in hours. The default is 48 hours. The setting specifies when the system should clear recognition results. For example, if `resultExpirationPeriod=1`, the system clears the recognition result 1 hour after the process. If `resultExpirationPeriod=0`, the system clears the recognition result after the result is retrieved.|
+|No|Cache:Redis| v2.0 containers only. Enables Redis storage for storing results. A cache is *required* if multiple read OCR containers are placed behind a load balancer.|
+|No|Queue:RabbitMQ|v2.0 containers only. Enables RabbitMQ for dispatching tasks. The setting is useful when multiple read OCR containers are placed behind a load balancer.|
+|No|Queue:Azure:QueueVisibilityTimeoutInMilliseconds | v3.x containers only. The time for a message to be invisible when another worker is processing it. |
+|No|Storage::DocumentStore::MongoDB|v2.0 containers only. Enables MongoDB for permanent result storage. |
+|No|Storage:ObjectStore:AzureBlob:ConnectionString| v3.x containers only. Azure blob storage connection string. |
+|No|Storage:TimeToLiveInDays| v3.x containers only. Result expiration period in days. The setting specifies when the system should clear recognition results. The default is 2 days, which means any result live for longer than that period is not guaranteed to be successfully retrieved. The value is integer and it must be between 1 day to 7 days.|
+|No|StorageTimeToLiveInMinutes| v3.2-model-2021-09-30-preview and new containers. Result expiration period in minutes. The setting specifies when the system should clear recognition results. The default is 2 days (2880 minutes), which means any result live for longer than that period is not guaranteed to be successfully retrieved. The value is integer and it must be between 60 minutes to 7 days (10080 minutes).|
+|No|Task:MaxRunningTimeSpanInMinutes| v3.x containers only. Maximum running time for a single request. The default is 60 minutes. |
+|No|EnableSyncNTPServer| v3.x containers only, except for v3.2-model-2021-09-30-preview and newer containers. Enables the NTP server synchronization mechanism, which ensures synchronization between the system time and expected task runtime. Note that this requires external network traffic. The default is `true`. |
+|No|NTPServerAddress| v3.x containers only, except for v3.2-model-2021-09-30-preview and newer containers. NTP server for the time sync-up. The default is `time.windows.com`. |
+|No|Mounts:Shared| v3.x containers only. Local folder for storing recognition result. The default is `/share`. For running container without using Azure blob storage, we recommend mounting a volume to this folder to ensure you have enough space for the recognition results. |
 
 ## ApiKey configuration setting
 
@@ -44,11 +61,11 @@ This setting can be found in the following place:
 
 * Azure portal: **Cognitive Services** Overview, labeled `Endpoint`
 
-Remember to add the `vision/v1.0` routing to the endpoint URI as shown in the following table. 
+Remember to add the `vision/<version>` routing to the endpoint URI as shown in the following table. 
 
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
-|Yes| `Billing` | String | Billing endpoint URI<br><br>Example:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
+|Yes| `Billing` | String | Billing endpoint URI<br><br>Example:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v3.2` |
 
 ## Eula setting
 
@@ -72,7 +89,7 @@ Use bind mounts to read and write data to and from the container. You can specif
 
 The Computer Vision containers don't use input or output mounts to store training or service data. 
 
-The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](computer-vision-how-to-install-containers.md#the-host-computer)'s mount location may not be accessible due to a conflict between permissions used by the Docker service account and the host mount location permissions. 
+The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](computer-vision-how-to-install-containers.md#host-computer-requirements)'s mount location may not be accessible due to a conflict between permissions used by the Docker service account and the host mount location permissions. 
 
 |Optional| Name | Data type | Description |
 |-------|------|-----------|-------------|
@@ -91,7 +108,7 @@ Replace {_argument_name_} with your own values:
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
 | **{API_KEY}** | The endpoint key of the `Computer Vision` resource on the Azure `Computer Vision` Keys page. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
-| **{ENDPOINT_URI}** | The billing endpoint value is available on the Azure `Computer Vision` Overview page.| See [gathering required parameters](computer-vision-how-to-install-containers.md#gathering-required-parameters) for explicit examples. |
+| **{ENDPOINT_URI}** | The billing endpoint value is available on the Azure `Computer Vision` Overview page.| See [gather required parameters](computer-vision-how-to-install-containers.md#gather-required-parameters) for explicit examples. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -101,28 +118,58 @@ Replace {_argument_name_} with your own values:
 
 ## Container Docker examples
 
-The following Docker examples are for the Read container.
+The following Docker examples are for the Read OCR container.
+
+
+# [Version 3.2](#tab/version-3-2)
 
 ### Basic example
 
-  ```docker
-  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-read \
-  Eula=accept \
-  Billing={ENDPOINT_URI} \
-  ApiKey={API_KEY} 
-  ```
+```bash
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2022-04-30 \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+
+```
 
 ### Logging example 
 
-  ```docker
-  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-read \
-  Eula=accept \
-  Billing={ENDPOINT_URI} \
-  ApiKey={API_KEY} \
-  Logging:Console:LogLevel:Default=Information
-  ```
+```bash
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2022-04-30 \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+Logging:Console:LogLevel:Default=Information
+```
+
+# [Version 2.0-preview](#tab/version-2)
+
+### Basic example
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+
+```
+
+### Logging example 
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+Logging:Console:LogLevel:Default=Information
+```
+
+---
 
 ## Next steps
 

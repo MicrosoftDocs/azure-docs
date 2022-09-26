@@ -1,21 +1,14 @@
 ---
-title: Azure Service Fabric reverse proxy diagnostics | Microsoft Docs
-description: Learn how to monitor and diagnose request processing at the reverse proxy.
-services: service-fabric
-documentationcenter: .net
-author: kavyako
-manager: vipulm
-
-ms.assetid:
+title: Azure Service Fabric reverse proxy diagnostics 
+description: Learn how to monitor and diagnose request processing at the reverse proxy for an Azure Service Fabric application.
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
-ms.date: 08/08/2017
-ms.author: kavyako
-
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Monitor and diagnose request processing at the reverse proxy
 
 Starting with the 5.7 release of Service Fabric, reverse proxy events are available for collection. 

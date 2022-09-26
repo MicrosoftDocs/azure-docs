@@ -1,36 +1,39 @@
 ---
-author: kgremban
+author: PatAltimore
 ms.service: iot-edge
 ms.topic: include
-ms.date: 04/25/2019
-ms.author: kgremban
+ms.date: 12/30/2019
+ms.author: patricka
 ---
 
 ## Create a container registry
 
 In this tutorial, you use the Azure IoT Tools extension to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.
 
-You can use any Docker-compatible registry to hold your container images. Two popular Docker registry services are [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). This tutorial uses Azure Container Registry.
+You can use any Docker-compatible registry to hold your container images. Two popular Docker registry services are [Azure Container Registry](../articles/container-registry/index.yml) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). This tutorial uses Azure Container Registry.
 
 If you don't already have a container registry, follow these steps to create a new one in Azure:
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Containers** > **Container Registry**.
 
-2. Provide the following values to create your container registry:
+1. Provide the following values to create your container registry:
 
    | Field | Value |
    | ----- | ----- |
-   | Registry name | Provide a unique name. |
    | Subscription | Select a subscription from the drop-down list. |
    | Resource group | We recommend that you use the same resource group for all of the test resources that you create during the IoT Edge quickstarts and tutorials. For example, **IoTEdgeResources**. |
+   | Registry name | Provide a unique name. |
    | Location | Choose a location close to you. |
-   | Admin user | Set to **Enable**. |
    | SKU | Select **Basic**. |
 
-5. Select **Create**.
+1. Select **Create**.
 
-6. After your container registry is created, browse to it, and then select **Access keys**.
+1. Select your newly-created container registry from the **Resources** section of your Azure portal home page to open it.
 
-7. Copy the values for **Login server**, **Username**, and **Password** and save them somewhere convenient. You use these values throughout this tutorial to provide access to the container registry.
+1. In the left pane of your container registry, select **Access keys** from the menu located under **Settings**.
 
-   ![Copy login server, username, and password for container registry](./media/iot-edge-create-container-registry/registry-access-key.png)
+   :::image type="content" source="media/iot-edge-create-container-registry/access-keys.png" alt-text="Screenshot of the Access Keys menu location.":::
+
+1. Enable **Admin user** with the toggle button and view the **Username** and **Password** for your container registry.
+
+1. Copy the values for **Login server**, **Username**, and **password** and save them somewhere convenient. You use these values throughout this tutorial to provide access to the container registry.

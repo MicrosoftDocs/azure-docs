@@ -1,20 +1,20 @@
 ---
 title: Azure CLI script sample - Filter VM network traffic | Microsoft Docs
-description: Azure CLI script sample - Filter inbound and outbound VM network traffic.
+description: Use an Azure CLI script to filter inbound and outbound virtual machine (VM) network traffic with front-end and back-end subnets.
 services: virtual-network
 documentationcenter: virtual-network
-author: KumudD
+author: mbender-ms
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 07/07/2017
-ms.author: kumud
+ms.author: mbender
 
 ---
 
-# Filter inbound and outbound VM network traffic
+# Use an Azure CLI script to filter inbound and outbound VM network traffic
 
 This script sample creates a virtual network with front-end and back-end subnets. Inbound network traffic to the front-end subnet is limited to HTTP, HTTPS and SSH, while outbound traffic to the Internet from the back-end subnet is not permitted. After running the script, you will have one virtual machine with two NICs. Each NIC is connected to a different subnet.
 

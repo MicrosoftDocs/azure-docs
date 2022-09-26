@@ -1,9 +1,11 @@
 ---
-author: erhopf
+author: laujan
 ms.service: cognitive-services
+ms.subservice: translator-text
 ms.topic: include
 ms.date: 08/06/2019
-ms.author: erhopf
+ms.custom: devx-track-java
+ms.author: lajanuar
 ---
 
 [!INCLUDE [Prerequisites](prerequisites-java.md)]
@@ -83,15 +85,15 @@ public class Detect {
 }
 ```
 
-Add these lines to the `Detect` class. You'll notice the subscription key and endpoint are being read from environment variables:
+Add these lines to the `Detect` class. You'll notice the key and endpoint are being read from environment variables:
 
 ```java
-private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");
+private static String key = System.getenv("TRANSLATOR_TEXT_KEY");
 private static String endpoint = System.getenv("TRANSLATOR_TEXT_ENDPOINT");
 String url = endpoint + "/detect?api-version=3.0";
 ```
 
-If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](../reference/v3-0-reference.md#authentication).
 
 ## Create a client and build a request
 
@@ -112,7 +114,7 @@ public String Post() throws IOException {
             "[{\n\t\"Text\": \"Salve mondo!\"\n}]");
     Request request = new Request.Builder()
             .url(url).post(body)
-            .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+            .addHeader("Ocp-Apim-Subscription-Key", key)
             .addHeader("Content-type", "application/json").build();
     Response response = client.newCall(request).execute();
     return response.body().string();
@@ -121,7 +123,7 @@ public String Post() throws IOException {
 
 ## Create a function to parse the response
 
-This simple function parses and prettifies the JSON response from the Translator Text service.
+This simple function parses and prettifies the JSON response from the Translator service.
 
 ```java
 // This function prettifies the json response.
@@ -168,7 +170,7 @@ gradle run
 After you run the sample, you should see the following printed to terminal:
 
 > [!NOTE]
-> Find the country/region abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+> Find the country/region abbreviation in this [list of languages](../language-support.md).
 
 ```json
 [
@@ -197,7 +199,7 @@ After you run the sample, you should see the following printed to terminal:
 
 ## Next steps
 
-Take a look at the API reference to understand everything you can do with the Translator Text API.
+Take a look at the API reference to understand everything you can do with the Translator.
 
 > [!div class="nextstepaction"]
-> [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+> [API reference](../reference/v3-0-reference.md)

@@ -1,9 +1,11 @@
 ---
-author: erhopf
+author: laujan
 ms.service: cognitive-services
+ms.subservice: translator-text
 ms.topic: include
 ms.date: 08/06/2019
-ms.author: erhopf
+ms.author: lajanuar
+ms.custom: devx-track-csharp
 ---
 
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
@@ -29,7 +31,7 @@ dotnet add package Newtonsoft.Json --version 11.0.2
 
 ## Select the C# language version
 
-This quickstart requires C# 7.1 or later. There are a few ways to change the C# version for your project. In this guide, we'll show you how to adjust the `translate-sample.csproj` file. For all available options, such as changing the language in Visual Studio, see [Select the C# language version](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
+This quickstart requires C# 7.1 or later. There are a few ways to change the C# version for your project. In this guide, we'll show you how to adjust the `translate-sample.csproj` file. For all available options, such as changing the language in Visual Studio, see [Select the C# language version](/dotnet/csharp/language-reference/configure-language-version).
 
 Open your project, then open `translate-sample.csproj`. Make sure that `LangVersion` is set to 7.1 or later. If there isn't a property group for the language version, add these lines:
 
@@ -54,11 +56,11 @@ using Newtonsoft.Json;
 
 ## Create classes for the JSON response
 
-Next, we're going to create a set of classes that are used when deserializing the JSON response returned by the Translator Text API.
+Next, we're going to create a set of classes that are used when deserializing the JSON response returned by the Translator.
 
 ```csharp
 /// <summary>
-/// The C# classes that represents the JSON returned by the Translator Text API.
+/// The C# classes that represents the JSON returned by the Translator.
 /// </summary>
 public class TranslationResult
 {
@@ -102,18 +104,18 @@ public class SentenceLength
 
 ## Get subscription information from environment variables
 
-Add the following lines to the `Program` class. These lines read your subscription key and endpoint from environment variables, and throws an error if you run into any issues.
+Add the following lines to the `Program` class. These lines read your key and endpoint from environment variables, and throws an error if you run into any issues.
 
 ```csharp
-private const string key_var = "TRANSLATOR_TEXT_SUBSCRIPTION_KEY";
-private static readonly string subscriptionKey = Environment.GetEnvironmentVariable(key_var);
+private const string key_var = "TRANSLATOR_TEXT_KEY";
+private static readonly string key = Environment.GetEnvironmentVariable(key_var);
 
 private const string endpoint_var = "TRANSLATOR_TEXT_ENDPOINT";
 private static readonly string endpoint = Environment.GetEnvironmentVariable(endpoint_var);
 
 static Program()
 {
-    if (null == subscriptionKey)
+    if (null == key)
     {
         throw new Exception("Please set/export the environment variable: " + key_var);
     }
@@ -127,12 +129,12 @@ static Program()
 
 ## Create a function to translate text
 
-In the `Program` class, create an asynchronous function called `TranslateTextRequest()`. This function takes four arguments: `subscriptionKey`, `host`, `route`, and `inputText`.
+In the `Program` class, create an asynchronous function called `TranslateTextRequest()`. This function takes four arguments: `key`, `host`, `route`, and `inputText`.
 
 ```csharp
 // This sample requires C# 7.1 or later for async/await.
-// Async call to the Translator Text API
-static public async Task TranslateTextRequest(string subscriptionKey, string endpoint, string route, string inputText)
+// Async call to the Translator
+static public async Task TranslateTextRequest(string key, string endpoint, string route, string inputText)
 {
   /*
    * The code for your call to the translation service will be added to this
@@ -182,7 +184,7 @@ request.Method = HttpMethod.Post;
 // Construct the URI and add headers.
 request.RequestUri = new Uri(endpoint + route);
 request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+request.Headers.Add("Ocp-Apim-Subscription-Key", key);
 
 // Send the request and get response.
 HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
@@ -203,7 +205,7 @@ foreach (TranslationResult o in deserializedOutput)
 }
 ```
 
-If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](../reference/v3-0-reference.md#authentication).
 
 ## Put it all together
 
@@ -215,19 +217,19 @@ static async Task Main(string[] args)
     // This is our main function.
     // Output languages are defined in the route.
     // For a complete list of options, see API reference.
-    // https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate
+    // https://learn.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate
     string route = "/translate?api-version=3.0&to=de&to=it&to=ja&to=th";
     // Prompts you for text to translate. If you'd prefer, you can
     // provide a string as textToTranslate.
     Console.Write("Type the phrase you'd like to translate? ");
     string textToTranslate = Console.ReadLine();
-    await TranslateTextRequest(subscriptionKey, endpoint, route, textToTranslate);
+    await TranslateTextRequest(key, endpoint, route, textToTranslate);
     Console.WriteLine("Press any key to continue.");
     Console.ReadKey();
 }
 ```
 
-You'll notice that in `Main`, you're declaring `subscriptionKey`, `endpoint`, and `route`. Additionally, you're prompting the user for input with `Console.Readline()` and assigning the value to `textToTranslate`.
+You'll notice that in `Main`, you're declaring `key`, `endpoint`, and `route`. Additionally, you're prompting the user for input with `Console.Readline()` and assigning the value to `textToTranslate`.
 
 ## Run the sample app
 
@@ -284,11 +286,11 @@ This message is built from the raw JSON, which will look like this:
 
 ## Clean up resources
 
-Make sure to remove any confidential information from your sample app's source code, like subscription keys.
+Make sure to remove any confidential information from your sample app's source code, like keys.
 
 ## Next steps
 
-Take a look at the API reference to understand everything you can do with the Translator Text API.
+Take a look at the API reference to understand everything you can do with the Translator.
 
 > [!div class="nextstepaction"]
-> [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+> [API reference](../reference/v3-0-reference.md)

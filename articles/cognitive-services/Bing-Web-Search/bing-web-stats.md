@@ -3,22 +3,24 @@ title: Add analytics to the Bing Web Search API
 titleSuffix: Azure Cognitive Services
 description: Bing Statistics provides analytics to the Bing Image Search API. Analytics include call volume, top query strings, geographic distribution, and more. 
 services: cognitive-services
-author: swhite-msft
+
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.author: scottwhi
+
 ms.custom: seodec2018
 ---
 
 # Add analytics to the Bing Search APIs
 
-Bing Statistics provides analytics for the Bing Search APIs. These analytics include call volume, top query strings, geographic distribution, and more. You can enable Bing Statistics in the [Azure portal](https://ms.portal.azure.com) by navigating to your Azure resource and clicking **Enable Bing Statistics**.
+[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+
+Bing Statistics provides analytics for the Bing Search APIs. These analytics include call volume, top query strings, geographic distribution, and more. You can enable Bing Statistics in the [Azure portal](https://portal.azure.com) by navigating to your Azure resource and clicking **Enable Bing Statistics**.
 
 > [!IMPORTANT]
-> * Bing Statistics is not available with free trial subscriptions, or resources on the free `F0` pricing tier.
+> * Bing Statistics is not available with resources on the free `F0` pricing tier.
 > * You may not use any data available via the Bing Statistics dashboard to create applications for distribution to third parties.
 > * Enabling Bing Statistics increases your subscription rate slightly. See [pricing](https://aka.ms/bingstatisticspricing) for details.
 
@@ -48,7 +50,7 @@ By default, the charts and graphs display all metrics and data that you have acc
 - **Time Frame**: The reporting period. You can specify:
   - **All**: Includes up to 13 months' worth of data  
   - **Past 24 hours**: Includes analytics from the last 24 hours  
-  - **Past week**: Includes analytics from the previous seven days  
+  - **Past week**: Includes analytics from the previous 7 days  
   - **Past month**: Includes analytics from the previous 30 days  
   - **A custom date range**: Includes analytics from the specified date range, if available  
 

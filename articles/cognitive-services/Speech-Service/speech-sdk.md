@@ -1,106 +1,78 @@
 ---
 title: About the Speech SDK - Speech service
 titleSuffix: Azure Cognitive Services
-description: The Speech Software Development Kit (SDK) gives your applications native access to the functions of the Speech service, making it easier to develop software. This article provides additional details about the SDK for Windows, Linux, and Android.
+description: The Speech software development kit (SDK) exposes many of the Speech service capabilities, making it easier to develop speech-enabled applications.
 services: cognitive-services
-author: erhopf
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 12/06/2019
-ms.author: wolfma
+ms.topic: overview
+ms.date: 09/16/2022
+ms.author: eur
 ---
 
-# About the Speech SDK
+# What is the Speech SDK?
 
-The Speech Software Development Kit (SDK) gives your applications access to the functions of the Speech service, making it easier to develop speech-enabled software. Currently, the SDKs provide access to **speech-to-text**, **text-to-speech**, **speech translation**, **intent recognition**, and **Bot Framework’s Direct Line Speech channel**. A general overview about the capabilities and supported platforms can be found on the documentation [entry page](https://aka.ms/csspeech).
+The Speech SDK (software development kit) exposes many of the [Speech service capabilities](overview.md), so you can develop speech-enabled applications. The Speech SDK is available [in many programming languages](quickstarts/setup-platform.md) and across platforms. The Speech SDK is ideal for both real-time and non-real-time scenarios, by using local devices, files, Azure Blob Storage, and input and output streams.
 
-[!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
+In some cases, you can't or shouldn't use the [Speech SDK](speech-sdk.md). In those cases, you can use REST APIs to access the Speech service. For example, use the [Speech-to-text REST API](rest-speech-to-text.md) for [batch transcription](batch-transcription.md) and [custom speech](custom-speech-overview.md).
 
-[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+## Supported languages
 
-## Get the SDK
+The Speech SDK supports the following languages and platforms:
 
-### Windows
+| Programming language | Reference | Platform support |
+|----------------------|----------|----------|
+| [C#](quickstarts/setup-platform.md?pivots=programming-language-csharp) <sup>1</sup> | [.NET](/dotnet/api/overview/azure/cognitiveservices/client/speechservice) | Windows, Linux, macOS, Mono, Xamarin.iOS, Xamarin.Mac, Xamarin.Android, UWP, Unity |
+| [C++](quickstarts/setup-platform.md?pivots=programming-language-cpp) <sup>2</sup> | [C++](/cpp/cognitive-services/speech/) | Windows, Linux, macOS |
+| [Go](quickstarts/setup-platform.md?pivots=programming-language-go) | [Go](https://github.com/Microsoft/cognitive-services-speech-sdk-go) | Linux | 
+| [Java](quickstarts/setup-platform.md?pivots=programming-language-java) | [Java](/java/api/com.microsoft.cognitiveservices.speech) | Android, Windows, Linux, macOS |
+| [JavaScript](quickstarts/setup-platform.md?pivots=programming-language-javascript) | [JavaScript](/javascript/api/microsoft-cognitiveservices-speech-sdk/) | Browser, Node.js |
+| [Objective-C](quickstarts/setup-platform.md?pivots=programming-language-objectivec) | [Objective-C](/objectivec/cognitive-services/speech/) | iOS, macOS |
+| [Python](quickstarts/setup-platform.md?pivots=programming-language-python) | [Python](/python/api/azure-cognitiveservices-speech/) | Windows, Linux, macOS |
+| [Swift](quickstarts/setup-platform.md?pivots=programming-language-swift) | [Objective-C](/objectivec/cognitive-services/speech/) <sup>3</sup> | iOS, macOS |
 
-For Windows, we support the following languages:
+<sup>1 C# code samples are available in the documentation. The Speech SDK for C# is based on .NET Standard 2.0, so it supports many platforms and programming languages. For more information, see [.NET implementation support](/dotnet/standard/net-standard#net-implementation-support).</sup>  
+<sup>2 C isn't a supported programming language for the Speech SDK.</sup>  
+<sup>3 The Speech SDK for Swift shares client libraries and reference documentation with the Speech SDK for Objective-C.</sup>  
 
-* C# (UWP and .NET), C++:
-  You can reference and use the latest version of our Speech SDK NuGet package. The package includes 32-bit and 64-bit client libraries and managed (.NET) libraries. The SDK can be installed in Visual Studio by using NuGet, [Microsoft.CognitiveServices.Speech](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech).
+[!INCLUDE [License Notice](~/articles/cognitive-services/Speech-Service/includes/cognitive-services-speech-service-license-notice.md)]
 
-* Java:
-  You can reference and use the latest version of our Speech SDK Maven package, which supports only Windows x64. In your Maven project, add `https://csspeechstorage.blob.core.windows.net/maven/` as an additional repository and reference `com.microsoft.cognitiveservices.speech:client-sdk:1.8.0` as a dependency.
+## Speech SDK demo
 
-### Linux
+The following video shows how to install the [Speech SDK for C#](quickstarts/setup-platform.md) and write a simple .NET console application for speech-to-text.
 
-> [!NOTE]
-> Currently, we support only Ubuntu 16.04, Ubuntu 18.04, and Debian 9 on the following target architectures:
-> - x86, x64, and ARM64 for C++ development
-> - x64 and ARM64 for Java
-> - x64 for .NET Core and Python
+> [!VIDEO c20d3b0c-e96a-4154-9299-155e27db7117]
 
-Make sure you have the required libraries installed by running the following shell commands:
+## Code samples
 
-On Ubuntu:
+Speech SDK code samples are available in the documentation and GitHub. 
 
-```sh
-sudo apt-get update
-sudo apt-get install libssl1.0.0 libasound2
-```
+### Docs samples
 
-On Debian 9:
+At the top of documentation pages that contain samples, options to select include C#, C++, Go, Java, JavaScript, Objective-C, Python, or Swift.
 
-```sh
-sudo apt-get update
-sudo apt-get install libssl1.0.2 libasound2
-```
+:::image type="content" source="./media/sdk/pivot-programming-languages-speech-sdk.png" alt-text="Screenshot showing how to select a programming language in the documentation.":::
 
-* C#:
-  You can reference and use the latest version of our Speech SDK NuGet package. To reference the SDK, add the following package reference to your project:
+If a sample is not available in your preferred programming language, you can select another programming language to get started and learn about the concepts, or see the reference and samples linked from the beginning of the article.
 
-  ```xml
-  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.8.0" />
-  ```
+### GitHub samples
 
-* Java:
-  You can reference and use the latest version of our Speech SDK Maven package. In your Maven project, add `https://csspeechstorage.blob.core.windows.net/maven/` as an additional repository and reference `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0` as a dependency.
+In depth samples are available in the [Azure-Samples/cognitive-services-speech-sdk](https://aka.ms/csspeech/samples) repository on GitHub. There are samples for C# (including UWP, Unity, and Xamarin), C++, Java, JavaScript (including Browser and Node.js), Objective-C, Python, and Swift. Code samples for Go are available in the [Microsoft/cognitive-services-speech-sdk-go](https://github.com/Microsoft/cognitive-services-speech-sdk-go) repository on GitHub.
 
-* C++: Download the SDK as a [.tar package](https://aka.ms/csspeech/linuxbinary) and unpack the files in a directory of your choice. The following table shows the SDK folder structure:
+## Help options
 
-  |Path|Description|
-  |-|-|
-  |`license.md`|License|
-  |`ThirdPartyNotices.md`|Third-party notices|
-  |`include`|Header files for C and C++|
-  |`lib/x64`|Native x64 library for linking with your application|
-  |`lib/x86`|Native x86 library for linking with your application|
+The [Microsoft Q&A](/answers/topics/azure-speech.html) and [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-speech) forums are available for the developer community to ask and answer questions about Azure Cognitive Speech and other services. Microsoft monitors the forums and replies to questions that the community has not yet answered. To make sure that we see your question, tag it with 'azure-speech'.  
 
-  To create an application, copy or move the required binaries (and libraries) into your development environment. Include them as required in your build process.
+You can suggest an idea or report a bug by creating an issue on GitHub:
+- [Azure-Samples/cognitive-services-speech-sdk](https://aka.ms/GHspeechissues)
+- [Microsoft/cognitive-services-speech-sdk-go](https://github.com/microsoft/cognitive-services-speech-sdk-go/issues)
+- [Microsoft/cognitive-services-speech-sdk-js](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues)
 
-### Android
-
-The Java SDK for Android is packaged as an [AAR (Android Library)](https://developer.android.com/studio/projects/android-library), which includes the necessary libraries and required Android permissions. It's hosted in a Maven repository at `https://csspeechstorage.blob.core.windows.net/maven/` as package `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0`.
-
-To consume the package from your Android Studio project, make the following changes:
-
-* In the project-level build.gradle file, add the following to the `repository` section:
-
-  ```gradle
-  maven { url 'https://csspeechstorage.blob.core.windows.net/maven/' }
-  ```
-
-* In the module-level build.gradle file, add the following to the `dependencies` section:
-
-  ```gradle
-  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.7.0'
-  ```
-
-The Java SDK is also part of the [Speech Devices SDK](speech-devices-sdk.md).
-
-[!INCLUDE [Get the samples](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+See also [Azure Cognitive Services support and help options](../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context) to get support, stay up-to-date, give feedback, and report bugs for Cognitive Services.
 
 ## Next steps
 
-* [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to recognize speech in C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+* [Install the SDK](quickstarts/setup-platform.md)
+* [Try the speech to text quickstart](./get-started-speech-to-text.md)

@@ -1,18 +1,12 @@
 ---
 title: Deploy OKD in Azure 
 description: Deploy OKD in Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: haroldwongms
 manager: joraio
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-linux
-
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/15/2019
 ms.author: haroldw
@@ -20,10 +14,12 @@ ms.author: haroldw
 
 # Deploy OKD in Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 You can use one of two ways to deploy OKD (formerly OpenShift Origin) in Azure:
 
 - You can manually deploy all the necessary Azure infrastructure components, and then follow the [OKD documentation](https://docs.okd.io).
-- You can also use an existing [Resource Manager template](https://github.com/Microsoft/openshift-origin) that simplifies the deployment of the OKD cluster.
+- You can also use an existing [Resource Manager template](https://github.com/openshift/origin) that simplifies the deployment of the OKD cluster.
 
 ## Deploy using the OKD template
 
@@ -35,7 +31,7 @@ Some common customization options include, but aren't limited to:
 - Naming conventions (variables in azuredeploy.json)
 - OpenShift cluster specifics, modified via hosts file (deployOpenShift.sh)
 
-The [OKD template](https://github.com/Microsoft/openshift-origin) has multiple branches available for different versions of OKD.  Based on your needs, you can deploy directly from the repo or you can fork the repo and make custom changes before deploying.
+The [OKD template](https://github.com/openshift/origin) has multiple branches available for different versions of OKD.  Based on your needs, you can deploy directly from the repo or you can fork the repo and make custom changes before deploying.
 
 Use the `appId` value from the service principal that you created earlier for the `aadClientId` parameter.
 
@@ -121,12 +117,12 @@ Different releases may have different parameters so please verify the necessary 
 
 
 > [!NOTE] 
-> The following command requires Azure CLI 2.0.8 or later. You can verify the CLI version with the `az --version` command. To update the CLI version, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> The following command requires Azure CLI 2.0.8 or later. You can verify the CLI version with the `az --version` command. To update the CLI version, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 The following example deploys the OKD cluster and all related resources into a resource group named openshiftrg, with a deployment name of myOpenShiftCluster. The template is referenced directly from the GitHub repo while using a local parameters file named azuredeploy.parameters.json.
 
 ```azurecli 
-az group deployment create -g openshiftrg --name myOpenShiftCluster \
+az deployment group create -g openshiftrg --name myOpenShiftCluster \
       --template-uri https://raw.githubusercontent.com/Microsoft/openshift-origin/master/azuredeploy.json \
       --parameters @./azuredeploy.parameters.json
 ```

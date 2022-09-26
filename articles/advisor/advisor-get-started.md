@@ -1,14 +1,9 @@
 ---
-title: Get started with Azure Advisor | Microsoft Docs
+title: Get started with Azure Advisor
 description: Get started with Azure Advisor.
-services: advisor
-author: kasparks
-ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
-ms.author: kasparks
+
 ---
 
 # Get started with Azure Advisor
@@ -28,7 +23,7 @@ Learn how to access Advisor through the Azure portal, get recommendations, and i
 
 1. The Advisor dashboard will display a summary of your recommendations for all selected subscriptions.  You can choose the subscriptions that you want recommendations to be displayed for using the subscription filter dropdown.
 
-1. To get recommendations for a specific category, click one of the tabs: **High Availability**, **Security**, **Performance**, or **Cost**. 
+1. To get recommendations for a specific category, click one of the tabs: **Reliability**, **Security**, **Performance**, or **Cost**. 
 
    ![Azure Advisor dashboard](./media/advisor-overview/advisor-dashboard.png)
 
@@ -125,7 +120,8 @@ The download option respects any filters you have applied to the Advisor dashboa
 To learn more about Advisor, see:
 
 - [Introduction to Azure Advisor](advisor-overview.md)
-- [Advisor High Availability recommendations](advisor-high-availability-recommendations.md)
+- [Advisor Reliability recommendations](advisor-high-availability-recommendations.md)
 - [Advisor Security recommendations](advisor-security-recommendations.md)
 - [Advisor Performance recommendations](advisor-performance-recommendations.md)
-- [Advisor Cost recommendations](advisor-performance-recommendations.md)
+- [Advisor Cost recommendations](advisor-cost-recommendations.md)
+- [Advisor Operational Excellence recommendations](advisor-operational-excellence-recommendations.md)

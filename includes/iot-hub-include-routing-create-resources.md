@@ -1,12 +1,12 @@
 ---
 title: include file
 description: include file
-author: robinsh
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: include
 ms.date: 03/25/2019
-ms.author: robinsh
+ms.author: kgremban
 ms.custom: include file
 ---
 ## Create base resources
@@ -17,7 +17,7 @@ Use the same resource group and location for all of the resources. Then at the e
 
 Below is a summary of the steps to be performed in the following sections: 
 
-1. Create a [resource group](../articles/azure-resource-manager/resource-group-overview.md).
+1. Create a [resource group](../articles/azure-resource-manager/management/overview.md).
 
 2. Create an IoT hub in the S1 tier. Add a consumer group to your IoT hub. The consumer group is used by the Azure Stream Analytics when retrieving data.
 

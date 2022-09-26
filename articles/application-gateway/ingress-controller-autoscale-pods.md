@@ -4,7 +4,7 @@ description: This article provides instructions on how to scale your AKS backend
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ---
@@ -18,13 +18,13 @@ In the following tutorial, we explain how you can use Application Gateway's `Avg
 We are going to use following two components:
 
 * [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter) - We will use the metric adapter to expose Application Gateway metrics through the metric server. The Azure Kubernetes Metric Adapter is an open source project under Azure, similar to the Application Gateway Ingress Controller. 
-* [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) - We will use HPA to use Application Gateway metrics and target a deployment for scaling.
+* [`Horizontal Pod Autoscaler`](../aks/concepts-scale.md#horizontal-pod-autoscaler) - We will use HPA to use Application Gateway metrics and target a deployment for scaling.
 
 ## Setting up Azure Kubernetes Metric Adapter
 
 1. We will first create an Azure AAD service principal and assign it `Monitoring Reader` access over Application Gateway's resource group. 
 
-    ```bash
+    ```azurecli
         applicationGatewayGroupName="<application-gateway-group-id>"
         applicationGatewayGroupId=$(az group show -g $applicationGatewayGroupName -o tsv --query "id")
         az ad sp create-for-rbac -n "azure-k8s-metric-adapter-sp" --role "Monitoring Reader" --scopes applicationGatewayGroupId
@@ -34,7 +34,7 @@ We are going to use following two components:
 
     ```bash
     kubectl create namespace custom-metrics
-    # use values from service principle created above to create secret
+    # use values from service principal created above to create secret
     kubectl create secret generic azure-k8s-metrics-adapter -n custom-metrics \
         --from-literal=azure-tenant-id=<tenantid> \
         --from-literal=azure-client-id=<clientid> \
@@ -87,9 +87,9 @@ kubectl get --raw "/apis/external.metrics.k8s.io/v1beta1/namespaces/default/appg
 
 ## Using the new metric to scale up the deployment
 
-Once we are able to expose `appgw-request-count-metric` through the metric server, we are ready to use [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) to scale up our target deployment.
+Once we are able to expose `appgw-request-count-metric` through the metric server, we are ready to use [`Horizontal Pod Autoscaler`](../aks/concepts-scale.md#horizontal-pod-autoscaler) to scale up our target deployment.
 
-In following example, we will target a sample deployment `aspnet`. We will scale up Pods when `appgw-request-count-metric` > 200 per Pod upto a max of `10` Pods.
+In following example, we will target a sample deployment `aspnet`. We will scale up Pods when `appgw-request-count-metric` > 200 per Pod up to a max of `10` Pods.
 
 Replace your target deployment name and apply the following auto scale configuration:
 ```yaml

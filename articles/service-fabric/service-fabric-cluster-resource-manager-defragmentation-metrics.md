@@ -1,22 +1,14 @@
 ---
-title: Defragmentation of Metrics in Azure Service Fabric | Microsoft Docs
-description: An overview of using defragmentation or packing as a strategy for metrics in Service Fabric
-services: service-fabric
-documentationcenter: .net
-author: masnider
-manager: chackdan
-editor: ''
-
-ms.assetid: e5ebfae5-c8f7-4d6c-9173-3e22a9730552
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Defragmentation of Metrics in Azure Service Fabric 
+description: Learn about using defragmentation, or packing, as a strategy for metrics in Service Fabric. This technique is useful for very large services.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 08/18/2017
-ms.author: masnider
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Defragmentation of metrics and load in Service Fabric
 The Service Fabric Cluster Resource Manager's default strategy for managing load metrics in the cluster is to distribute the load. Ensuring that nodes are evenly utilized avoids hot and cold spots that lead to both contention and wasted resources. Distributing workloads in the cluster is also the safest in terms of surviving failures since it ensures that a failure doesn’t take out a large percentage of a given workload. 
 
@@ -29,7 +21,7 @@ If there are many services and state to move around, then it could take a long t
 
 You can configure defragmentation metrics to have the Cluster Resource Manager to proactively try to condense the load of the services into fewer nodes. This helps ensure that there is almost always room for large services without reorganizing the cluster. Not having to reorganize the cluster allows creating large workloads quickly.
 
-Most people don’t need defragmentation. Services are usually be small, so it’s not hard to find room for them in the cluster. When reorganization is possible, it goes quickly, again because most services are small and can be moved quickly and in parallel. However, if you have large services and need them created quickly then the defragmentation strategy is for you. We'll discuss the tradeoffs of using defragmentation next. 
+Most people don’t need defragmentation. Services are usually small, so it’s not hard to find room for them in the cluster. When reorganization is possible, it goes quickly, again because most services are small and can be moved quickly and in parallel. However, if you have large services and need them created quickly then the defragmentation strategy is for you. We'll discuss the tradeoffs of using defragmentation next. 
 
 ## Defragmentation tradeoffs
 Defragmentation can increase impactfulness of failures, since more services are running on nodes that fail. Defragmentation can also increase costs, since resources in the cluster must be held in reserve, waiting for the creation of large workloads.
@@ -52,7 +44,7 @@ So what are those other conceptual tradeoffs? Here’s a quick table of things t
 | Enables lower data movement during creation |Failures can impact more services and cause more churn |
 | Allows rich description of requirements and reclamation of space |More complex overall Resource Management configuration |
 
-You can mix defragmented and normal metrics in the same cluster. The Cluster Resource Manager tries to consolidate the defragmentation metrics as much as possible while spreading out the others. The results of mixing defragmentation and balancing strategies depends on several factors, including:
+You can mix defragmented and normal metrics in the same cluster. The Cluster Resource Manager tries to consolidate the defragmentation metrics as much as possible while spreading out the others. The results of mixing defragmentation and balancing strategies depend on several factors, including:
   - the number of balancing metrics vs. the number of defragmentation metrics
   - Whether any service uses both types of metrics 
   - the metric weights
@@ -94,7 +86,7 @@ via ClusterConfig.json for Standalone deployments or Template.json for Azure hos
 
 
 ## Next steps
-- The Cluster Resource Manager has man options for describing the cluster. To find out more about them, check out this article on [describing a Service Fabric cluster](service-fabric-cluster-resource-manager-cluster-description.md)
+- The Cluster Resource Manager has many options for describing the cluster. To find out more about them, check out this article on [describing a Service Fabric cluster](service-fabric-cluster-resource-manager-cluster-description.md)
 - Metrics are how the Service Fabric Cluster Resource Manger manages consumption and capacity in the cluster. To learn more about metrics and how to configure them, check out [this article](service-fabric-cluster-resource-manager-metrics.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-defragmentation-metrics/balancing-defrag-compared.png

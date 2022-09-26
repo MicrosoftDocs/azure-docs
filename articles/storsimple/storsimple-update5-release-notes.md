@@ -1,23 +1,17 @@
 ---
-title: StorSimple 8000 Series Update 5 release notes | Microsoft Docs
+title: StorSimple 8000 Series Update 5 release notes
 description: Describes the new features, issues, and workarounds for StorSimple 8000 Series Update 5.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
 ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 11/13/2017
+ms.topic: conceptual
+ms.date: 08/22/2022
 ms.author: alkohli
 
 ---
 # StorSimple 8000 Series Update 5 release notes
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 

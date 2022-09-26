@@ -1,14 +1,15 @@
 ---
 title: Firewall rules - Azure Database for MariaDB
 description: Learn about using firewall rules to enable connections to your Azure Database for MariaDB server.
-author: ajlam
-ms.author: andrela
 ms.service: mariadb
+author: savjani
+ms.author: pariks
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 06/24/2022
 ---
 
 # Azure Database for MariaDB server firewall rules
+
 Firewalls prevent all access to your database server until you specify which computers have permission. The firewall grants access to the server based on the originating IP address of each request.
 
 To configure a firewall, create firewall rules that specify ranges of acceptable IP addresses. You can create firewall rules at the server level.
@@ -16,6 +17,7 @@ To configure a firewall, create firewall rules that specify ranges of acceptable
 **Firewall rules:** These rules enable clients to access your entire Azure Database for MariaDB server, that is, all the databases within the same logical server. Server-level firewall rules can be configured by using the Azure portal or Azure CLI commands. To create server-level firewall rules, you must be the subscription owner or a subscription contributor.
 
 ## Firewall overview
+
 All database access to your Azure Database for MariaDB server is by default blocked by the firewall. To begin using your server from another computer, you need to specify one or more server-level firewall rules to enable access to your server. Use the firewall rules to specify which IP address ranges from the Internet to allow. Access to the Azure portal website itself is not impacted by the firewall rules.
 
 Connection attempts from the Internet and Azure must first pass through the firewall before they can reach your Azure Database for MariaDB database, as shown in the following diagram:
@@ -23,6 +25,7 @@ Connection attempts from the Internet and Azure must first pass through the fire
 ![Example flow of how the firewall works](./media/concepts-firewall-rules/1-firewall-concept.png)
 
 ## Connecting from the Internet
+
 Server-level firewall rules apply to all databases on the Azure Database for MariaDB server.
 
 If the IP address of the request is within one of the ranges specified in the server-level firewall rules, then the connection is granted.
@@ -30,23 +33,29 @@ If the IP address of the request is within one of the ranges specified in the se
 If the IP address of the request is outside the ranges specified in any of the database-level or server-level firewall rules, then the connection request fails.
 
 ## Connecting from Azure
-To allow applications from Azure to connect to your Azure Database for MariaDB server, Azure connections must be enabled. For example, to host an Azure Web Apps application, or an application that runs in an Azure VM, or to connect from an Azure Data Factory data management gateway. The resources do not need to be in the same Virtual Network (VNet) or Resource Group for the firewall rule to enable those connections. When an application from Azure attempts to connect to your database server, the firewall verifies that Azure connections are allowed. There are a couple of methods to enable these types of connections. A firewall setting with starting and ending address equal to 0.0.0.0 indicates these connections are allowed. Alternatively, you can set the **Allow access to Azure services** option to **ON** in the portal from the **Connection security** pane and hit **Save**. If the connection attempt is not allowed, the request does not reach the Azure Database for MariaDB server.
+
+It is recommended that you find the outgoing IP address of any application or service and explicitly allow access to those individual IP addresses or ranges. For example, you can find the outgoing IP address of an Azure App Service or use a public IP tied to a virtual machine or other resource (see below for info on connecting with a virtual machine's private IP over service endpoints).
+
+If a fixed outgoing IP address isn't available for your Azure service, you can consider enabling connections from all Azure datacenter IP addresses. This setting can be enabled from the Azure portal by setting the **Allow access to Azure services** option to **ON** from the **Connection security** pane and hitting **Save**. From the Azure CLI, a firewall rule setting with starting and ending address equal to 0.0.0.0 does the equivalent. If the connection attempt is not allowed, the request does not reach the Azure Database for MariaDB server.
 
 > [!IMPORTANT]
-> This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
-> 
+> The **Allow access to Azure services** option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
+>
 
 ![Configure Allow access to Azure services in the portal](./media/concepts-firewall-rules/allow-azure-services.png)
 
 ### Connecting from a VNet
-To connect securely to your Azure Database for MariaDB server from a VNet, consider using [VNet service endpoints](./concepts-data-access-security-vnet.md). 
+
+To connect securely to your Azure Database for MariaDB server from a VNet, consider using [VNet service endpoints](./concepts-data-access-security-vnet.md).
 
 ## Programmatically managing firewall rules
-In addition to the Azure portal, firewall rules can be managed programmatically by using the Azure CLI. 
+
+In addition to the Azure portal, firewall rules can be managed programmatically by using the Azure CLI.
 
 See also [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-cli.md).
 
 ## Troubleshooting firewall issues
+
 Consider the following points when access to the Microsoft Azure Database for MariaDB server service does not behave as expected:
 
 * **Changes to the allow list have not taken effect yet:** There may be as much as a five-minute delay for changes to the Azure Database for MariaDB Server firewall configuration to take effect.
@@ -59,10 +68,17 @@ Consider the following points when access to the Microsoft Azure Database for Ma
 
    * Get static IP addressing instead for your client computers, and then add the IP addresses as firewall rules.
 
-* **Server's IP appears to be public:**
-Connections to the Azure Database for MariaDB server are routed through a publicly accessible Azure gateway. However, the actual server IP is protected by the firewall. For more information, visit the [connectivity architecture article](concepts-connectivity-architecture.md). 
+* **Server's IP appears to be public:** Connections to the Azure Database for MariaDB server are routed through a publicly accessible Azure gateway. However, the actual server IP is protected by the firewall. For more information, visit the [connectivity architecture article](concepts-connectivity-architecture.md).
+
+* **Cannot connect from Azure resource with allowed IP:** Check whether the **Microsoft.Sql** service endpoint is enabled for the subnet you are connecting from. If **Microsoft.Sql** is enabled, it indicates that you only want to use [VNet service endpoint rules](concepts-data-access-security-vnet.md) on that subnet.
+
+   For example, you may see the following error if you are connecting from an Azure VM in a subnet that has **Microsoft.Sql** enabled but has no corresponding VNet rule:
+   `FATAL: Client from Azure Virtual Networks is not allowed to access the server`
+
+* **Firewall rule is not available for IPv6 format:** The firewall rules must be in IPv4 format. If you specify firewall rules in IPv6 format, it will show the validation error.
 
 ## Next steps
+
 - [Create and manage Azure Database for MariaDB firewall rules using the Azure portal](./howto-manage-firewall-portal.md)
 - [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](./howto-manage-firewall-cli.md)
 - [VNet service endpoints in Azure Database for MariaDB](./concepts-data-access-security-vnet.md)

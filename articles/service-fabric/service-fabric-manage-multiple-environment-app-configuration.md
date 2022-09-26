@@ -1,24 +1,14 @@
 ---
-title: Manage applications for multiple environments in Azure Service Fabric | Microsoft Docs
+title: Manage apps for multiple environments
 description: Azure Service Fabric applications can be run on clusters that range in size from one machine to thousands of machines. In some cases, you will want to configure your application differently for those varied environments. This article covers how to define different application parameters per environment.
-services: service-fabric
-documentationcenter: .net
-author: mikkelhegn
-manager: msfussell
-editor: ''
-
-ms.assetid: f406eac9-7271-4c37-a0d3-0a2957b60537
-ms.service: service-fabric
-
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-
-ms.workload: NA
-ms.date: 02/23/2018
-ms.author: mikhegn
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Manage applications for multiple environments
 
 Azure Service Fabric clusters enable you to create clusters using anywhere from one to many thousands machines. In most cases, you find yourself having to deploy your application across multiple cluster configurations: your local development cluster, a shared development cluster and your production cluster. All of these clusters are considered different environments your code has to run in. Application binaries can run without modification across this wide spectrum, but you often want to configure the application differently.
@@ -47,9 +37,9 @@ The configuration you provide can be divided in two categories:
 
 When creating a named application instances in Service Fabric, you have the option to pass in parameters. The way you do it depends on how you create the application instance.
 
-  - In PowerShell, the [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet takes the application parameters as a hashtable.
-  - Using sfctl, The [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) command takes parameters as a JSON string. The install.sh script uses sfctl.
-  - Visual Studio provides you with a set of parameter files in the Parameters folder in the application project. These parameter files are used when publishing from Visual Studio, using Azure DevOps Services or Team Foundation Server. In Visual Studio, the parameter files are being passed on to the Deploy-FabricApplication.ps1 script.
+  - In PowerShell, the [`New-ServiceFabricApplication`](/powershell/module/servicefabric/new-servicefabricapplication) cmdlet takes the application parameters as a hashtable.
+  - Using sfctl, The [`sfctl application create`](./service-fabric-sfctl-application.md#sfctl-application-create) command takes parameters as a JSON string. The install.sh script uses sfctl.
+  - Visual Studio provides you with a set of parameter files in the Parameters folder in the application project. These parameter files are used when publishing from Visual Studio, using Azure DevOps Services or Azure DevOps Server. In Visual Studio, the parameter files are being passed on to the Deploy-FabricApplication.ps1 script.
 
 ## Next steps
 The following articles show you how to use some of the concepts described here:

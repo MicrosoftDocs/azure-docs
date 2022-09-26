@@ -5,13 +5,12 @@ services: active-directory
 keywords: what is Azure AD Connect, GDPR, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: amycolannino
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/21/2018
 ms.subservice: hybrid
 ms.author: billmath
@@ -58,10 +57,10 @@ To learn more about related Azure AD Connect GDPR requirements, see [this articl
 
 ### Note about Domain controller logs
 
-If audit logging is enabled, this product may generate security logs for your Domain Controllers. To learn more about configuring audit policies, read this [article](https://technet.microsoft.com/library/dd277403.aspx).
+If audit logging is enabled, this product may generate security logs for your Domain Controllers. To learn more about configuring audit policies, read this [article](/previous-versions/tn-archive/dd277403(v=technet.10)).
 
 ## Next steps
 
 * [Review the Microsoft Privacy policy on Trust Center](https://www.microsoft.com/trustcenter)
   - [**Troubleshoot**](tshoot-connect-sso.md) - Learn how to resolve common issues with the feature.
-  - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.
+  - [**UserVoice**](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789) - For filing new feature requests.

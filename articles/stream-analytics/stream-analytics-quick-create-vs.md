@@ -1,18 +1,22 @@
 ---
 title: Quickstart - Create an Azure Stream Analytics job using Visual Studio
 description: This quickstart shows you how to get started by creating a Stream Analytics job, configuring inputs, outputs, and defining a query with Visual Studio.
-author: mamccrea
-ms.author: mamccrea
+author: enkrumah
+ms.author: ebnkruma
 ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-
-#Customer intent: "As an IT admin/developer I want to create a Stream Analytics job, configure input and output & analyze data by using Visual Studio."
+ms.custom: mode-ui
+#Customer intent: As an IT admin/developer, I want to create a Stream Analytics job, configure input and output, and analyze data by using Visual Studio.
 ---
 
 # Quickstart: Create an Azure Stream Analytics job by using Visual Studio
 
 This quickstart shows you how to create and run a Stream Analytics job using Azure Stream Analytics tools for Visual Studio. The example job reads streaming data from an IoT Hub device. You define a job that calculates the average temperature when over 27° and writes the resulting output events to a new file in blob storage.
+
+> [!NOTE] 
+> - We strongly recommend using [**Stream Analytics tools for Visual Studio Code**](./quick-create-visual-studio-code.md) for best local development experience. There are known feature gaps in Stream Analytics tools for Visual Studio 2019 (version 2.6.3000.0) and it won't be improved going forward.
+> - Visual Studio and Visual Studio Code tools don't support jobs in the China East, China North, Germany Central, and Germany NorthEast regions.
 
 ## Before you begin
 
@@ -22,7 +26,7 @@ This quickstart shows you how to create and run a Stream Analytics job using Azu
 
 * Install Visual Studio 2019, Visual Studio 2015, or Visual Studio 2013 Update 4. Enterprise (Ultimate/Premium), Professional, and Community editions are supported. Express edition is not supported.
 
-* Follow the  [installation instructions](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) to install Stream Analytics tools for Visual Studio.
+* Follow the  [installation instructions](./stream-analytics-tools-for-visual-studio-install.md) to install Stream Analytics tools for Visual Studio.
 
 ## Prepare the input data
 
@@ -145,9 +149,9 @@ Notice the elements that are included in an Azure Stream Analytics project.
 
    ```sql
    SELECT *
-   INTO BlobOutput
-   FROM IoTHubInput
-   HAVING Temperature > 27
+   INTO Output
+   FROM Input
+   WHERE Temperature > 27
    ```
 
 ## Submit a Stream Analytics query to Azure

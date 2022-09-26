@@ -1,14 +1,14 @@
 ---
 title: 'Troubleshoot failover to Azure failures | Microsoft Docs'
 description: This article describes ways to troubleshoot common errors in failing over to Azure
-author: ponatara
+author: v-pgaddala
 manager: abhemraj
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 03/04/2019
-ms.author: mayg
+ms.date: 01/08/2020
+ms.author: v-pgaddala
 ---
 # Troubleshoot errors when failing over VMware VM or physical machine to Azure
 
@@ -20,7 +20,7 @@ Site Recovery was not able to create a failed over virtual machine in Azure. It 
 
 * There isn't sufficient quota available to create the virtual machine: You can check the available quota by going to Subscription -> Usage + quotas. You can open a [new support request](https://aka.ms/getazuresupport) to increase the quota.
 
-* You are trying to failover virtual machines of different size families in same availability set. Ensure that you choose same size family for all virtual machines in the same availability set. Change size by going to Compute and Network settings of the virtual machine and then retry failover.
+* You are trying to failover virtual machines of different size families in same availability set. Ensure that you choose same size family for all virtual machines in the same availability set. Change size by going to **Compute** settings of the virtual machine and then retry failover.
 
 * There is a policy on the subscription that prevents creation of a virtual machine. Change the policy to allow creation of a virtual machine and then retry failover.
 
@@ -32,7 +32,7 @@ Site Recovery was not able to create a network interface for the failed over vir
 
 Site Recovery was not able to create a failed over Classic virtual machine in Azure. It could happen because:
 
-* One of the resources such as a virtual network that is required for the virtual machine to be created doesn't exist. Create the virtual network as provided under Compute and Network settings of the virtual machine or modify the setting to a virtual network that already exists and then retry failover.
+* One of the resources such as a virtual network that is required for the virtual machine to be created doesn't exist. Create the virtual network as provided under Network settings of the virtual machine or modify the setting to a virtual network that already exists and then retry failover.
 
 ## Failover failed with Error ID 170010
 
@@ -48,9 +48,11 @@ To manually change the startup type of drivers for **Windows Guest OS**, follow 
 
     It gives the following result if hydration is required:
 
-        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
+    ```output
+    REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
 
-        This system doesn't meet no-hydration requirement.
+    This system doesn't meet no-hydration requirement.
+    ```
 
     In case the VM meets no-hydration requirement, the script will give the result "This system meets no-hydration requirement". In this case, all drivers and services are in the state as required by Azure and hydration on the VM is not required.
 
@@ -59,19 +61,25 @@ To manually change the startup type of drivers for **Windows Guest OS**, follow 
     `.\Script-no-hydration.ps1 -set`
     
     This will convert the startup type of drivers and will give the result like below:
-    
-        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0 
 
-        Updating registry:  REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc   start =  0 
+    ```output
+    REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
 
-        This system is now no-hydration compatible. 
+    Updating registry:  REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc   start =  0
+
+    This system is now no-hydration compatible.
+    ```
 
 ## Unable to connect/RDP/SSH to the failed over virtual machine due to grayed out Connect button on the virtual machine
 
+For detailed troubleshooting instructions on RDP issues, please see our documentation [here](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection).
+
+For detailed troubleshooting instructions on SSH issues, please see our documentation [here](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
+
 If the **Connect** button on the failed over VM in Azure is grayed out and you are not connected to Azure via an Express Route or Site-to-Site VPN connection, then,
 
-1. Go to **Virtual machine** > **Networking**, click on the name of required network interface.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
-2. Navigate to **Ip Configurations**, then click on the name field of required IP configuration. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
+1. Go to **Virtual machine** > **Networking**, click on the name of required network interface.  ![Screenshot shows the Networking page for a virtual machine with the network interface name selected.](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+2. Navigate to **Ip Configurations**, then click on the name field of required IP configuration. ![Screenshot shows the I P configurations page for the network interface with the I P configuration name selected.](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
 3. To enable Public IP address, click on **Enable**. ![Enable IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
 4. Click on **Configure required settings** > **Create new**. ![Create new](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
 5. Enter the name of public address, choose the default options for **SKU** and **assignment**, then click **OK**.
@@ -80,7 +88,7 @@ If the **Connect** button on the failed over VM in Azure is grayed out and you a
 
 ## Unable to connect/RDP/SSH - VM Connect button available
 
-If the **Connect** button on the failed over VM in Azure is available (not grayed out), then check **Boot diagnostics** on your Virtual Machine and check for errors as listed in [this article](../virtual-machines/windows/boot-diagnostics.md).
+If the **Connect** button on the failed over VM in Azure is available (not grayed out), then check **Boot diagnostics** on your Virtual Machine and check for errors as listed in [this article](/troubleshoot/azure/virtual-machines/boot-diagnostics).
 
 1. If the virtual machine has not started, try failing over to an older recovery point.
 2. If the application inside the virtual machine is not up, try failing over to an app-consistent recovery point.
@@ -100,6 +108,22 @@ If the **Connect** button on the failed over VM in Azure is available (not graye
 >[!Note]
 >Enabling any setting other than Boot Diagnostics would require Azure VM Agent to be installed in the virtual machine before the failover
 
+## Unable to open serial console after failover of a UEFI based machine into Azure
+
+If you are able to connect to the machine using RDP but cannot open serial console, follow the below steps:
+
+* If the machine OS is Red Hat or Oracle Linux 7.*/8.0, run the following command on the failover Azure VM with root permissions. Reboot the VM after the command.
+
+  ```console
+  grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+  ```
+
+* If the machine OS is CentOS 7.*, run the following command on the failover Azure VM with root permissions. Reboot the VM after the command.
+
+  ```console
+  grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
+  ```
+
 ## Unexpected shutdown message (Event ID 6008)
 
 When booting up a Windows VM post failover, if you receive an unexpected shutdown message on the recovered VM, it indicates that a VM shutdown state was not captured in the recovery point used for failover. This happens when you recover to a point when the VM had not been fully shut down.
@@ -110,7 +134,7 @@ This is normally not a cause for concern and can usually be ignored for unplanne
 
 This issue is indicated when you are unable to see the datastore in Azure the portal when trying to reprotect the virtual machine that has experienced a failover. This is because the Master target is not recognized as a virtual machine under vCenters added to Azure Site Recovery.
 
-For more information about reprotecting a vitual machine, see [Reprotect and fail back machines to an on-premises site after failover to Azure](vmware-azure-reprotect.md).
+For more information about reprotecting a virtual machine, see [Reprotect and fail back machines to an on-premises site after failover to Azure](vmware-azure-reprotect.md).
 
 To resolve the issue:
 
@@ -120,7 +144,7 @@ Manually create the Master target in the vCenter that manages your source machin
 > 
 > The discovery and refresh fabric operations can take up to 30 minutes to complete. 
 
-## Linux Master Target registration with CS fails with an SSL error 35 
+## Linux Master Target registration with CS fails with a TLS error 35 
 
 The Azure Site Recovery Master Target registration with the configuration server fails due to the Authenticated Proxy being enabled on the Master Target. 
  
@@ -140,7 +164,7 @@ To resolve the issue:
 
 2. If the output of the previous commands shows that either the http_proxy or https_proxy settings are defined, use one of the following methods to unblock the Master Target communications with configuration server:
    
-   - Download the [PsExec tool](https://aka.ms/PsExec).
+   - Download the [PsExec tool](/sysinternals/downloads/psexec).
    - Use the tool to access the System user context and determine whether the proxy address is configured. 
    - If the proxy is configured, open IE in a system user context using the PsExec tool.
   
@@ -154,7 +178,7 @@ To resolve the issue:
 
 
 ## Next steps
-- Troubleshoot [RDP connection to Windows VM](../virtual-machines/windows/troubleshoot-rdp-connection.md)
-- Troubleshoot [SSH connection to Linux VM](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
+- Troubleshoot [RDP connection to Windows VM](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection)
+- Troubleshoot [SSH connection to Linux VM](/troubleshoot/azure/virtual-machines/detailed-troubleshoot-ssh-connection)
 
-If you need more help, then post your query on [Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr) or leave a comment at the end of this document. We have an active community that should be able to assist you.
+If you need more help, then post your query on [Microsoft Q&A question page for Site Recovery](/answers/topics/azure-site-recovery.html) or leave a comment at the end of this document. We have an active community that should be able to assist you.

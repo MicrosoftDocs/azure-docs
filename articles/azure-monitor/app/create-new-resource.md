@@ -1,18 +1,20 @@
 ---
 title: Create a new Azure Application Insights resource | Microsoft Docs
 description: Manually set up Application Insights monitoring for a new live application.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
-ms.date: 12/02/2019
-
+ms.date: 02/10/2021 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.reviewer: dalek
 ---
 
 # Create an Application Insights resource
 
 Azure Application Insights displays data about your application in a Microsoft Azure *resource*. Creating a new resource is therefore part of [setting up Application Insights to monitor a new application][start]. After you have created your new resource, you can get its instrumentation key and use that to configure the Application Insights SDK. The instrumentation key links your telemetry to the resource.
+
+> [!IMPORTANT]
+> On **February 29th, 2024,** [support for classic Application Insights will end](https://azure.microsoft.com/updates/we-re-retiring-classic-application-insights-on-29-february-2024). [Transition to workspace-based Application Insights](convert-classic-resource.md) to take advantage of [new capabilities](create-workspace-resource.md#new-capabilities). Newer regions introduced after February 2021 do not support creating classic Application Insights resources.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## Sign in to Microsoft Azure
 
@@ -26,24 +28,24 @@ Sign in to the [Azure portal](https://portal.azure.com), and create an Applicati
 
    | Settings        |  Value           | Description  |
    | ------------- |:-------------|:-----|
-   | **Name**      | Unique value | Name that identifies the app you are monitoring. |
-   | **Resource Group**     | myResourceGroup      | Name for the new or existing resource group to host App Insights data. |
-   | **Location** | East US | Choose a location near you, or near where your app is hosted. |
+   | **Name**      | `Unique value` | Name that identifies the app you are monitoring. |
+   | **Resource Group**     | `myResourceGroup`      | Name for the new or existing resource group to host App Insights data. |
+   | **Region** | `East US` | Choose a location near you, or near where your app is hosted. |
+   | **Resource Mode** | `Classic` or `Workspace-based` | Workspace-based resources allow you to send your Application Insights telemetry to a common Log Analytics workspace. For more information, see the [article on workspace-based resources](create-workspace-resource.md).
 
 > [!NOTE]
-> While you can use the same resource name across different resource groups, it can be beneficial to use a globally unique name. This can be useful if you plan to [perform cross resource queries](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application) as it simplifies the required syntax.
+> While you can use the same resource name across different resource groups, it can be beneficial to use a globally unique name. This can be useful if you plan to [perform cross resource queries](../logs/cross-workspace-query.md#identifying-an-application) as it simplifies the required syntax.
 
 Enter the appropriate values into the required fields, and then select **Review + create**.
 
-![Enter values into required fields, and then select "review + create".](./media/create-new-resource/review-create.png)
+> [!div class="mx-imgBorder"]
+> ![Enter values into required fields, and then select "review + create".](./media/create-new-resource/review-create.png)
 
 When your app has been created, a new pane opens. This pane is where you see performance and usage data about your monitored application. 
 
 ## Copy the instrumentation key
 
-The instrumentation key identifies the resource that you want to associate your telemetry data with. You will need copy to add the instrumentation key to your application's code.
-
-![Click and copy the instrumentation key](./media/create-new-resource/instrumentation-key.png)
+The instrumentation key identifies the resource that you want to associate your telemetry data with. You will need to copy the instrumentation key and add it to your application's code.
 
 ## Install the SDK in your app
 
@@ -92,17 +94,17 @@ SamplingPercentage :
 TenantId           : {subid}
 ```
 
-For the full PowerShell documentation for this cmdlet, and to learn how to retrieve the instrumentation key consult the [Azure PowerShell documentation](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0).
+For the full PowerShell documentation for this cmdlet, and to learn how to retrieve the instrumentation key consult the [Azure PowerShell documentation](/powershell/module/az.applicationinsights/new-azapplicationinsights).
 
 ### Azure CLI (preview)
 
-To access the preview Application Insights Azure CLI commands you first need to run:
+To access the preview Application Insights Azure CLI commands, you first need to run:
 
 ```azurecli
  az extension add -n application-insights
 ```
 
-If you don't run the `az extension add` command you will see an error message that states: `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+If you don't run the `az extension add` command, you will see an error message that states: `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
 
 Now you can run the following to create your Application Insights resource:
 
@@ -118,13 +120,13 @@ az monitor app-insights component create --app
 #### Example
 
 ```azurecli
-az monitor app-insights component create --app demoApp --location westus2 --kind web -g demoRg --application-type web
+az monitor app-insights component create --app demoApp --location westus2 --kind web --resource-group demoRg --application-type web
 ```
 
 #### Results
 
 ```azurecli
-az monitor app-insights component create --app demoApp --location eastus --kind web -g demoApp  --application-type web
+az monitor app-insights component create --app demoApp --location eastus --kind web --resource-group demoApp --application-type web
 {
   "appId": "87ba512c-e8c9-48d7-b6eb-118d4aee2697",
   "applicationId": "demoApp",
@@ -149,16 +151,16 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 }
 ```
 
-For the full Azure CLI documentation for this command, and to learn how to retrieve the instrumentation key consult the [Azure CLI documentation](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
+For the full Azure CLI documentation for this command, and to learn how to retrieve the instrumentation key consult the [Azure CLI documentation](/cli/azure/monitor/app-insights/component#az-monitor-app-insights-component-create).
 
 ## Next steps
-* [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md)
-* [Explore metrics](../../azure-monitor/app/metrics-explorer.md)
-* [Write Analytics queries](../../azure-monitor/app/analytics.md)
+* [Diagnostic Search](./diagnostic-search.md)
+* [Explore metrics](../essentials/metrics-charts.md)
+* [Write Analytics queries](../logs/log-query-overview.md)
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[metrics]: ../../azure-monitor/app/metrics-explorer.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[api]: ./api-custom-events-metrics.md
+[diagnostic]: ./diagnostic-search.md
+[metrics]: ../essentials/metrics-charts.md
+[start]: ./app-insights-overview.md

@@ -3,17 +3,19 @@ title: Default insights tag - Bing Visual Search
 titleSuffix: Azure Cognitive Services
 description: Provides details about the default insights that Bing Visual Search returns about an image.
 services: cognitive-services
-author: swhite-msft
+
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: scottwhi
+
 ---
 
 # Default insights tag
+
+[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
 
 The default insights tag is the one with the `displayName` field set to an empty string. The following example shows the possible list of default insights (actions). The list of actions the response includes depends on the image. And for each action, the list of properties may vary by image, so check if the property exists before trying to use it.
 
@@ -421,4 +423,12 @@ The DocumentLevelSuggestions insight provides a list of suggested search terms b
 
 Check out [Examples of Bing insights usage](bing-insights-usage.md) to see how Bing might display the visual insights.
 
-To get started quickly with your first request, see the quickstarts: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
+To get started quickly with your first request, see the quickstarts:
+
+* [C#](quickstarts/csharp.md)
+
+* [Java](quickstarts/java.md)
+
+* [Node.js](quickstarts/nodejs.md)
+
+* [Python](quickstarts/python.md).

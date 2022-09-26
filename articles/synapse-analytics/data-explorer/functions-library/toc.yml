@@ -1,0 +1,85 @@
+items:
+- name: List of functions
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/functions-library?context=/azure/synapse-analytics/context/context
+- name: bartlett_test_fl()
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/bartlett-test-fl?context=/azure/synapse-analytics/context/context
+- name: binomial_test_fl()
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/binomial-test-fl?context=/azure/synapse-analytics/context/context
+- name: comb_fl()
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/comb-fl?context=/azure/synapse-analytics/context/context
+- name: factorial_fl()
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/factorial-fl?context=/azure/synapse-analytics/context/context
+- name: kmeans_fl()
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/kmeans-fl?context=/azure/synapse-analytics/context/context
+- name: ks_test_fl()
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/ks-test-fl?context=/azure/synapse-analytics/context/context
+- name: normality_test_fl()
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/normality-test-fl?context=/azure/synapse-analytics/context/context
+- name: levene_test_fl()
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/levene-test-fl?context=/azure/synapse-analytics/context/context
+- name: mann-whitney-u-test-fl()
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/mann-whitney-u-test-fl?context=/azure/synapse-analytics/context/context
+- name: perm_fl()
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/perm-fl?context=/azure/synapse-analytics/context/context
+- name: predict_fl()
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/predict-fl?context=/azure/synapse-analytics/context/context
+- name: predict_onnx_fl()
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/predict-onnx-fl?context=/azure/synapse-analytics/context/context
+- name: quantize_fl()
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/quantize-fl?context=/azure/synapse-analytics/context/context
+- name: series_dbl_exp_smoothing_fl()
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/series-dbl-exp-smoothing-fl?context=/azure/synapse-analytics/context/context
+- name: series_dot_product_fl()
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/series-dot-product-fl?context=/azure/synapse-analytics/context/context
+- name: series_downsample_fl()
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/series-downsample-fl?context=/azure/synapse-analytics/context/context
+- name: series_exp_smoothing_fl()
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/series-exp-smoothing-fl?context=/azure/synapse-analytics/context/context
+- name: series_fit_lowess_fl()
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/series-fit-lowess-fl?context=/azure/synapse-analytics/context/context
+- name: series_fit_poly_fl()
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/series-fit-poly-fl?context=/azure/synapse-analytics/context/context
+- name: series_fbprophet_forecast_fl()
+  displayName: functions library, prophet algorithm, predict
+  href: /azure/data-explorer/kusto/functions-library/series-fbprophet-forecast-fl?context=/azure/synapse-analytics/context/context
+- name: series_metric_fl()
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/series-metric-fl?context=/azure/synapse-analytics/context/context
+- name: series_moving_avg_fl()
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/series-moving-avg-fl?context=/azure/synapse-analytics/context/context
+- name: series_rate_fl()
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/series-rate-fl?context=/azure/synapse-analytics/context/context
+- name: series_rolling_fl()
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/series-rolling-fl?context=/azure/synapse-analytics/context/context
+- name: time_weighted_avg_fl()
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/time-weighted-avg-fl?context=/azure/synapse-analytics/context/context
+- name: two_sample_t_test_fl()
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/two-sample-t-test-fl?context=/azure/synapse-analytics/context/context
+- name: wilcoxon_test_fl()
+  displayName: functions library
+  href: /azure/data-explorer/kusto/functions-library/wilcoxon-test-fl?context=/azure/synapse-analytics/context/context

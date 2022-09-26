@@ -3,266 +3,120 @@ title: Language support - Speech service
 titleSuffix: Azure Cognitive Services
 description: The Speech service supports numerous languages for speech-to-text and text-to-speech conversion, along with speech translation. This article provides a comprehensive list of language support by service feature.
 services: cognitive-services
-author: erhopf
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.author: erhopf
-ms.custom: seodec18
+ms.date: 09/16/2022
+ms.author: eur
+ms.custom: references_regions
 ---
 
-# Language and region support for the Speech service
+# Language and voice support for the Speech service
 
-Language support varies by Speech service functionality. The following tables summarize language support for [Speech-to-text](#speech-to-text), [Text-to-speech](#text-to-speech), and [Speech translation](#speech-translation) service offerings.
+The following tables summarize language support for [speech-to-text](speech-to-text.md), [text-to-speech](text-to-speech.md), [pronunciation assessment](how-to-pronunciation-assessment.md), [speech translation](speech-translation.md), [speaker recognition](speaker-recognition-overview.md), and additional service features.
 
-## Speech-to-text
+## Supported languages
 
-Both the Microsoft Speech SDK and the REST API support the following languages (locales). To improve accuracy, customization is offered for a subset of the languages through uploading Audio + Human-labeled Transcripts or Related Text: Sentences.  Pronunciation customization is currently only available for `en-US` and `de-DE`. Learn more about customization [here](how-to-custom-speech.md).
+Language support varies by Speech service functionality. 
 
- Locale | Language | Supported | Customizable
-------|------------|-----------|-------------
-`ar-EG` | Arabic (Egypt), modern standard | Yes | Yes
-`ar-SA` | Arabic (Saudi Arabia) | Yes | Yes
-`ar-AE` | Arabic (UAE) | Yes | Yes
-`ar-KW` | Arabic (Kuwait) | Yes | Yes
-`ar-QA` | Arabic (Qatar) | Yes | Yes
-`ca-ES` | Catalan | Yes | No
-`da-DK` | Danish (Denmark) | Yes | No
-`de-DE` | German (Germany) | Yes | Yes
-`en-AU` | English (Australia) | Yes | Yes
-`en-CA` | English (Canada) | Yes | Yes
-`en-GB` | English (United Kingdom) | Yes | Yes
-`en-IN` | English (India) | Yes | Yes
-`en-NZ` | English (New Zealand) | Yes | Yes
-`en-US` | English (United States) | Yes | Yes
-`es-ES` | Spanish (Spain) | Yes | Yes
-`es-MX` | Spanish (Mexico) | Yes | Yes
-`fi-FI` | Finnish (Finland) | Yes | No
-`fr-CA` | French (Canada) | Yes | Yes
-`fr-FR` | French (France) | Yes | Yes
-`gu-IN` | Gujarati (Indian) | Yes | Yes
-`hi-IN` | Hindi (India) | Yes | Yes
-`it-IT` | Italian (Italy) | Yes | Yes
-`ja-JP` | Japanese (Japan) | Yes | Yes
-`ko-KR` | Korean (Korea) | Yes | Yes
-`mr-IN` | Marathi (India) | Yes | Yes
-`nb-NO` | Norwegian (Bokmål) (Norway) | Yes | No
-`nl-NL` | Dutch (Netherlands) | Yes | Yes
-`pl-PL` | Polish (Poland) | Yes | No
-`pt-BR` | Portuguese (Brazil) | Yes | Yes
-`pt-PT` | Portuguese (Portugal) | Yes | Yes
-`ru-RU` | Russian (Russia) | Yes | Yes
-`sv-SE` | Swedish (Sweden) | Yes | No
-`ta-IN` | Tamil (India) | Yes | Yes
-`te-IN` | Telugu (India) | Yes | Yes
-`zh-CN` | Chinese (Mandarin, simplified) | Yes | Yes
-`zh-HK` | Chinese (Cantonese, Traditional) | Yes | Yes
-`zh-TW` | Chinese (Taiwanese Mandarin) | Yes | Yes
-`th-TH` | Thai (Thailand) | Yes | No
-`tr-TR` | Turkey | Yes | Yes
+**Choose a Speech feature**
 
-## Text-to-speech
+# [Speech-to-text and Text-to-speech](#tab/stt-tts)
 
-Both the Microsoft Speech SDK and REST APIs support these voices, each of which supports a specific language and dialect, identified by locale.
+The table in this section summarizes the locales and voices supported for Speech-to-text and Text-to-speech. Please see the table footnotes for more details. 
+
+Additional remarks for Speech-to-text locales are included in the [Custom Speech](#custom-speech) section below. Additional remarks for Text-to-speech locales are included in the [Prebuilt neural voices](#prebuilt-neural-voices), [Voice styles and roles](#voice-styles-and-roles), and [Custom Neural Voice](#custom-neural-voice) sections below. 
+
+[!INCLUDE [Language support include](includes/language-support/stt-tts.md)]
+
+### Custom Speech
+
+To improve Speech-to-text recognition accuracy, customization is available for some languages and base models. Depending on the locale, you can upload audio + human-labeled transcripts, plain text, structured text, and pronunciation data. By default, plain text customization is supported for all available base models. To learn more about customization, see [Custom Speech](./custom-speech-overview.md).
+
+### Prebuilt neural voices
+
+Each prebuilt neural voice supports a specific language and dialect, identified by locale. You can try the demo and hear the voices on [this website](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
 
 > [!IMPORTANT]
-> Pricing varies for standard, custom and neural voices. Please visit the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page for additional information.
+> Pricing varies for Prebuilt Neural Voice (see *Neural* on the pricing page) and Custom Neural Voice (see *Custom Neural* on the pricing page). For more information, see the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page.
 
-### Neural voices
+Prebuilt neural voices are created from samples that use a 24-khz sample rate. All voices can upsample or downsample to other sample rates when synthesizing.
 
-Neural text-to-speech is a new type of speech synthesis powered by deep neural networks. When using a neural voice, synthesized speech is nearly indistinguishable from the human recordings.
+Please note that the following neural voices are retired.
 
-Neural voices can be used to make interactions with chatbots and voice assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, neural voices significantly reduce listening fatigue when users interact with AI systems.
+- The English (United Kingdom) voice `en-GB-MiaNeural` retired on October 30, 2021. All service requests to `en-GB-MiaNeural` will be redirected to `en-GB-SoniaNeural` automatically as of October 30, 2021. If you're using container Neural TTS, [download](speech-container-howto.md#get-the-container-image-with-docker-pull) and deploy the latest version. Starting from October 30, 2021, all requests with previous versions will not succeed.
+- The `en-US-JessaNeural` voice is retired and replaced by `en-US-AriaNeural`. If you were using "Jessa" before, convert  to "Aria." 
 
-For a full list of neural voices and regional availability, see [regions](regions.md#standard-and-neural-voices).
+### Voice styles and roles
 
-Locale | Language | Gender | Full service name mapping | Short voice name
---------|----------|--------|---------|------------
-`de-DE` | German (Germany) | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, KatjaNeural)" | "de-DE-KatjaNeural"
-`en-US` | English (US) | Male | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" | "en-US-GuyNeural"
-`en-US` | English (US) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" | "en-US-JessaNeural"
-`it-IT` | Italian (Italy) | Female |"Microsoft Server Speech Text to Speech Voice (it-IT, ElsaNeural)" | "it-IT-ElsaNeural"
-`zh-CN` | Chinese (Mainland) | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural)" | "zh-CN-XiaoxiaoNeural"
+In some cases, you can adjust the speaking style to express different emotions like cheerfulness, empathy, and calm. You can optimize the voice for different scenarios like customer service, newscast, and voice assistant. With roles, the same voice can act as a different age and gender.
 
-> [!NOTE]
-> You can use either the full service name mapping or the short voice name in your speech synthesis requests.
+To learn how you can configure and adjust neural voice styles and roles, see [Speech Synthesis Markup Language](speech-synthesis-markup.md#adjust-speaking-styles).
 
-### Standard voices
+Use the following table to determine supported styles and roles for each neural voice.
 
-More than 75 standard voices are available in over 45 languages and locales, which allow you to convert text into synthesized speech. For more information about regional availability, see [regions](regions.md#standard-and-neural-voices).
+[!INCLUDE [Language support include](includes/language-support/voice-styles-and-roles.md)]
 
-Locale | Language | Gender | Full service name mapping | Short name
--------|----------|---------|----------|----------
-<sup>&dagger;</sup>`ar-EG` | Arabic (Egypt) | Female | "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)" | "ar-EG-Hoda"
-`ar-SA` | Arabic (Saudi Arabia) | Male | "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)" | "ar-SA-Naayf"
-`bg-BG` | Bulgarian | Male | "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)" | "bg-BG-Ivan"
-`ca-ES` | Catalan (Spain) | Female | "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)" | "ca-ES-HerenaRUS"
-`cs-CZ` | Czech | Male | "Microsoft Server Speech Text to Speech Voice (cs-CZ, Jakub)" | "cs-CZ-Jakub"
-`da-DK` | Danish | Female | "Microsoft Server Speech Text to Speech Voice (da-DK, HelleRUS)" | "da-DK-HelleRUS"
-`de-AT` | German (Austria) | Male | "Microsoft Server Speech Text to Speech Voice (de-AT, Michael)" | "de-AT-Michael"
-`de-CH` | German (Switzerland) | Male | "Microsoft Server Speech Text to Speech Voice (de-CH, Karsten)" | "de-CH-Karsten"
-`de-DE` | German (Germany) | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, Hedda)" | "de-DE-Hedda"
-| | | Female | "Microsoft Server Speech Text to Speech Voice (de-DE, HeddaRUS)" | "de-DE-HeddaRUS"
-| | | Male | "Microsoft Server Speech Text to Speech Voice (de-DE, Stefan, Apollo)" | "de-DE-Stefan-Apollo"
-`el-GR` | Greek | Male | "Microsoft Server Speech Text to Speech Voice (el-GR, Stefanos)" | "el-GR-Stefanos"
-`en-AU` | English (Australia) | Female | "Microsoft Server Speech Text to Speech Voice (en-AU, Catherine)" | "en-AU-Catherine"
-| | | Female | "Microsoft Server Speech Text to Speech Voice (en-AU, HayleyRUS)" | "en-AU-HayleyRUS"
-`en-CA` | English (Canada) | Female | "Microsoft Server Speech Text to Speech Voice (en-CA, Linda)" | "en-CA-Linda"
-| | | Female | "Microsoft Server Speech Text to Speech Voice (en-CA, HeatherRUS)" | "en-CA-HeatherRUS"
-`en-GB` | English (UK) | Female | "Microsoft Server Speech Text to Speech Voice (en-GB, Susan, Apollo)" | "en-GB-Susan-Apollo"
-| | | Female | "Microsoft Server Speech Text to Speech Voice (en-GB, HazelRUS)" | "en-GB-HazelRUS"
-| | | Male | "Microsoft Server Speech Text to Speech Voice (en-GB, George, Apollo)" | "en-GB-George-Apollo"
-`en-IE` | English (Ireland) | Male | "Microsoft Server Speech Text to Speech Voice (en-IE, Sean)" | "en-IE-Sean"
-`en-IN` | English (India) | Female | "Microsoft Server Speech Text to Speech Voice (en-IN, Heera, Apollo)" | "en-IN-Heera-Apollo"
-| | | Female | "Microsoft Server Speech Text to Speech Voice (en-IN, PriyaRUS)" | "en-IN-PriyaRUS"
-| | | Male | "Microsoft Server Speech Text to Speech Voice (en-IN, Ravi, Apollo)" | "en-IN-Ravi-Apollo"
-`en-US` | English (US) | Female | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)" | "en-US-ZiraRUS"
-| | | Female | "Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)" | "en-US-JessaRUS"
-| | | Male | "Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)" | "en-US-BenjaminRUS"
-| | | Female | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" | "en-US-Jessa24kRUS"
-| | | Male | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)" | "en-US-Guy24kRUS"
-`es-ES` | Spanish (Spain) |Female | "Microsoft Server Speech Text to Speech Voice (es-ES, Laura, Apollo)" | "es-ES-Laura-Apollo"
-| | | Female | "Microsoft Server Speech Text to Speech Voice (es-ES, HelenaRUS)" | "es-ES-HelenaRUS"
-| | | Male | "Microsoft Server Speech Text to Speech Voice (es-ES, Pablo, Apollo)" | "es-ES-Pablo-Apollo"
-`es-MX` | Spanish (Mexico) | Female | "Microsoft Server Speech Text to Speech Voice (es-MX, HildaRUS)" | "es-MX-HildaRUS"
-| | | Male | "Microsoft Server Speech Text to Speech Voice (es-MX, Raul, Apollo)" | "es-MX-Raul-Apollo"
-`fi-FI` | Finnish | Female | "Microsoft Server Speech Text to Speech Voice (fi-FI, HeidiRUS)" | "fi-FI-HeidiRUS"
-`fr-CA` | French (Canada) |Female | "Microsoft Server Speech Text to Speech Voice (fr-CA, Caroline)" | "fr-CA-Caroline"
-| | | Female | "Microsoft Server Speech Text to Speech Voice (fr-CA, HarmonieRUS)" | "fr-CA-HarmonieRUS"
-`fr-CH` | French (Switzerland)| Male | "Microsoft Server Speech Text to Speech Voice (fr-CH, Guillaume)" | "fr-CH-Guillaume"
-`fr-FR` | French (France)| Female | "Microsoft Server Speech Text to Speech Voice (fr-FR, Julie, Apollo)" | "fr-FR-Julie-Apollo"
-| | | Female | "Microsoft Server Speech Text to Speech Voice (fr-FR, HortenseRUS)" | "fr-FR-HortenseRUS"
-| | | Male | "Microsoft Server Speech Text to Speech Voice (fr-FR, Paul, Apollo)" | "fr-FR-Paul-Apollo"
-`he-IL` | Hebrew (Israel) | Male| "Microsoft Server Speech Text to Speech Voice (he-IL, Asaf)" | "he-IL-Asaf"
-`hi-IN` | Hindi (India) | Female | "Microsoft Server Speech Text to Speech Voice (hi-IN, Kalpana, Apollo)" | "hi-IN-Kalpana-Apollo"
-| | | Female | "Microsoft Server Speech Text to Speech Voice (hi-IN, Kalpana)" | "hi-IN-Kalpana"
-| | | Male | "Microsoft Server Speech Text to Speech Voice (hi-IN, Hemant)" | "hi-IN-Hemant"
-`hr-HR` | Croatian | Male | "Microsoft Server Speech Text to Speech Voice (hr-HR, Matej)" | "hr-HR-Matej"
-`hu-HU` | Hungarian | Male | "Microsoft Server Speech Text to Speech Voice (hu-HU, Szabolcs)" | "hu-HU-Szabolcs"
-`id-ID` | Indonesian| Male | "Microsoft Server Speech Text to Speech Voice (id-ID, Andika)" | "id-ID-Andika"
-`it-IT` | Italian | Male | "Microsoft Server Speech Text to Speech Voice (it-IT, Cosimo, Apollo)" | "it-IT-Cosimo-Apollo"
-| | | Female | "Microsoft Server Speech Text to Speech Voice (it-IT, LuciaRUS)" | "it-IT-LuciaRUS"
-`ja-JP` | Japanese | Female | "Microsoft Server Speech Text to Speech Voice (ja-JP, Ayumi, Apollo)" | "ja-JP-Ayumi-Apollo"
-| | | Male | "Microsoft Server Speech Text to Speech Voice (ja-JP, Ichiro, Apollo)" | "ja-JP-Ichiro-Apollo"
-| | | Female | "Microsoft Server Speech Text to Speech Voice (ja-JP, HarukaRUS)" | "ja-JP-HarukaRUS"
-`ko-KR` | Korean | Female | "Microsoft Server Speech Text to Speech Voice (ko-KR, HeamiRUS)" | "ko-KR-HeamiRUS"
-`ms-MY` | Malay | Male | "Microsoft Server Speech Text to Speech Voice (ms-MY, Rizwan)" | "ms-MY-Rizwan"
-`nb-NO` | Norwegian | Female | "Microsoft Server Speech Text to Speech Voice (nb-NO, HuldaRUS)" | "nb-NO-HuldaRUS"
-`nl-NL` | Dutch | Female | "Microsoft Server Speech Text to Speech Voice (nl-NL, HannaRUS)" | "nl-NL-HannaRUS"
-`pl-PL` | Polish | Female | "Microsoft Server Speech Text to Speech Voice (pl-PL, PaulinaRUS)" | "pl-PL-PaulinaRUS"
-`pt-BR` | Portuguese (Brazil) | Female | "Microsoft Server Speech Text to Speech Voice (pt-BR, HeloisaRUS)" | "pt-BR-HeloisaRUS"
-| | | Male |"Microsoft Server Speech Text to Speech Voice (pt-BR, Daniel, Apollo)" | "pt-BR-Daniel-Apollo"
-`pt-PT` | Portuguese (Portugal) | Female | "Microsoft Server Speech Text to Speech Voice (pt-PT, HeliaRUS)" | "pt-PT-HeliaRUS"
-`ro-RO` | Romanian | Male | "Microsoft Server Speech Text to Speech Voice (ro-RO, Andrei)" | "ro-RO-Andrei"
-`ru-RU` |Russian| Female | "Microsoft Server Speech Text to Speech Voice (ru-RU, Irina, Apollo)" | "ru-RU-Irina-Apollo"
-| | | Male | "Microsoft Server Speech Text to Speech Voice (ru-RU, Pavel, Apollo)" | "ru-RU-Pavel-Apollo"
-| | | Female | "Microsoft Server Speech Text to Speech Voice (ru-RU, EkaterinaRUS)" | ru-RU-EkaterinaRUS
-`sk-SK` | Slovak | Male | "Microsoft Server Speech Text to Speech Voice (sk-SK, Filip)" | "sk-SK-Filip"
-`sl-SI` | Slovenian | Male | "Microsoft Server Speech Text to Speech Voice (sl-SI, Lado)" | "sl-SI-Lado"
-`sv-SE` | Swedish | Female | "Microsoft Server Speech Text to Speech Voice (sv-SE, HedvigRUS)" | "sv-SE-HedvigRUS"
-`ta-IN` | Tamil (India) | Male | "Microsoft Server Speech Text to Speech Voice (ta-IN, Valluvar)" | "ta-IN-Valluvar"
-`te-IN` | Telugu (India) | Female | "Microsoft Server Speech Text to Speech Voice (te-IN, Chitra)" | "te-IN-Chitra"
-`th-TH` | Thai | Male | "Microsoft Server Speech Text to Speech Voice (th-TH, Pattara)" | "th-TH-Pattara"
-`tr-TR` | Turkish | Female | "Microsoft Server Speech Text to Speech Voice (tr-TR, SedaRUS)" | "tr-TR-SedaRUS"
-`vi-VN` | Vietnamese | Male | "Microsoft Server Speech Text to Speech Voice (vi-VN, An)" | "vi-VN-An"
-`zh-CN` | Chinese (Mainland) | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, HuihuiRUS)" | "zh-CN-HuihuiRUS"
-| | | Female | "Microsoft Server Speech Text to Speech Voice (zh-CN, Yaoyao, Apollo)" | "zh-CN-Yaoyao-Apollo"
-| | | Male | "Microsoft Server Speech Text to Speech Voice (zh-CN, Kangkang, Apollo)" | "zh-CN-Kangkang-Apollo"
-`zh-HK` | Chinese (Hong Kong) | Female | "Microsoft Server Speech Text to Speech Voice (zh-HK, Tracy, Apollo)" | "zh-HK-Tracy-Apollo"
-| | | Female | "Microsoft Server Speech Text to Speech Voice (zh-HK, TracyRUS)" | "zh-HK-TracyRUS"
-| | | Male | "Microsoft Server Speech Text to Speech Voice (zh-HK, Danny, Apollo)" | "zh-HK-Danny-Apollo"
-`zh-TW` | Chinese (Taiwan) | Female | "Microsoft Server Speech Text to Speech Voice (zh-TW, Yating, Apollo)" | "zh-TW-Yating-Apollo"
-| | | Female | "Microsoft Server Speech Text to Speech Voice (zh-TW, HanHanRUS)" | "zh-TW-HanHanRUS"
-| | | Male | "Microsoft Server Speech Text to Speech Voice (zh-TW, Zhiwei, Apollo)" | "zh-TW-Zhiwei-Apollo"
+### Custom Neural Voice
 
-&dagger; *ar-EG supports Modern Standard Arabic (MSA).*
+Custom Neural Voice lets you create synthetic voices that are rich in speaking styles. You can create a unique brand voice in multiple languages and styles by using a small set of recording data. There are two Custom Neural Voice (CNV) project types: CNV Pro and CNV Lite (preview). 
 
-> [!NOTE]
-> You can use either the full service name mapping or the short voice name in your speech synthesis requests.
+Select the right locale that matches your training data to train a custom neural voice model. For example, if the recording data is spoken in English with a British accent, select `en-GB`. 
 
-### Customization
+With the cross-lingual feature (preview), you can transfer your custom neural voice model to speak a second language. For example, with the `zh-CN` data, you can create a voice that speaks `en-AU` or any of the languages with Cross-lingual support.  
 
-Voice customization is available for `de-DE`, `en-GB`, `en-IN`, `en-US`, `es-MX`, `fr-FR`, `it-IT`, `pt-BR`, and `zh-CN`. Select the right locale that matches the training data you have to train a custom voice model. For example, if the recording data you have is spoken in English with a British accent, select `en-GB`.
+# [Pronunciation assessment](#tab/pronunciation-assessment)
 
-> [!NOTE]
-> We do not support bi-lingual model training in Custom Voice, except for the Chinese-English bi-lingual. Select "Chinese-English bilingual" if you want to train a Chinese voice that can speak English as well. Voice training in all locales starts with a data set of 2,000+ utterances, except for the `en-US` and `zh-CN` where you can start with any size of training data.
+The table in this section summarizes the locales supported for Pronunciation assessment.
 
-## Speech translation
+[!INCLUDE [Language support include](includes/language-support/pronunciation-assessment.md)]
 
-The **Speech Translation** API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the Speech-to-text language table. The available target languages depend on whether the translation target is speech or text. You may translate incoming speech into more than [60 languages](https://www.microsoft.com/translator/business/languages/). A subset of languages are available for [speech synthesis](language-support.md#text-languages).
+# [Speech translation](#tab/speech-translation)
 
-### Text languages
+The table in this section summarizes the locales supported for Speech translation. Speech translation supports different languages for speech-to-speech and speech-to-text translation. The available target languages depend on whether the translation target is speech or text. 
 
-| Text language    | Language code |
-|:----------- |:-------------:|
-| Afrikaans      | `af`          |
-| Arabic       | `ar`          |
-| Bangla      | `bn`          |
-| Bosnian (Latin)      | `bs`          |
-| Bulgarian      | `bg`          |
-| Cantonese (Traditional)      | `yue`          |
-| Catalan      | `ca`          |
-| Chinese Simplified      | `zh-Hans`          |
-| Chinese Traditional      | `zh-Hant`          |
-| Croatian      | `hr`          |
-| Czech      | `cs`          |
-| Danish      | `da`          |
-| Dutch      | `nl`          |
-| English      | `en`          |
-| Estonian      | `et`          |
-| Fijian      | `fj`          |
-| Filipino      | `fil`          |
-| Finnish      | `fi`          |
-| French      | `fr`          |
-| German      | `de`          |
-| Greek      | `el`          |
-| Haitian Creole      | `ht`          |
-| Hebrew      | `he`          |
-| Hindi      | `hi`          |
-| Hmong Daw      | `mww`          |
-| Hungarian      | `hu`          |
-| Indonesian      | `id`          |
-| Italian      | `it`          |
-| Japanese      | `ja`          |
-| Kiswahili      | `sw`          |
-| Klingon      | `tlh`          |
-| Klingon (plqaD)      | `tlh-Qaak`          |
-| Korean      | `ko`          |
-| Latvian      | `lv`          |
-| Lithuanian      | `lt`          |
-| Malagasy      | `mg`          |
-| Malay      | `ms`          |
-| Maltese      | `mt`          |
-| Norwegian      | `nb`          |
-| Persian      | `fa`          |
-| Polish      | `pl`          |
-| Portuguese      | `pt`          |
-| Queretaro Otomi      | `otq`          |
-| Romanian      | `ro`          |
-| Russian      | `ru`          |
-| Samoan      | `sm`          |
-| Serbian (Cyrillic)      | `sr-Cyrl`          |
-| Serbian (Latin)      | `sr-Latn`          |
-| Slovak     | `sk`          |
-| Slovenian      | `sl`          |
-| Spanish      | `es`          |
-| Swedish      | `sv`          |
-| Tahitian      | `ty`          |
-| Tamil      | `ta`          |
-| Telugu      | `te`          |
-| Thai      | `th`          |
-| Tongan      | `to`          |
-| Turkish      | `tr`          |
-| Ukrainian      | `uk`          |
-| Urdu      | `ur`          |
-| Vietnamese      | `vi`          |
-| Welsh      | `cy`          |
-| Yucatec Maya      | `yua`          |
+#### Translate from language
 
+To set the input speech recognition language, specify the full locale with a dash (`-`) separator. See the [speech-to-text language table](?tabs=stt#supported-languages). The default language is `en-US` if you don't specify a language.
+
+#### Translate to text language
+
+To set the translation target language, with few exceptions you only specify the language code that precedes the locale dash (`-`) separator. For example, use `es` for Spanish (Spain) instead of `es-ES`. See the speech translation target language table below. The default language is `en` if you don't specify a language.
+
+[!INCLUDE [Language support include](includes/language-support/speech-translation.md)]
+
+# [Language identification](#tab/language-identification)
+
+The table in this section summarizes the locales supported for Language identification. With language identification, the Speech service compares speech at the language level, such as English and German. If you include multiple locales of the same language, for example, `en-IN` English (India) and `en-US` English (United States), we'll only compare `en` (English) with the other candidate languages.
+
+[!INCLUDE [Language support include](includes/language-support/language-identification.md)]
+
+# [Speaker recognition](#tab/speaker-recognition)
+
+The table in this section summarizes the locales supported for Speaker recognition. Speaker recognition is mostly language agnostic. The universal model for text-independent speaker recognition combines various data sources from multiple languages. We've tuned and evaluated the model on these languages and locales. For more information on speaker recognition, see the [overview](speaker-recognition-overview.md).
+
+[!INCLUDE [Language support include](includes/language-support/speaker-recognition.md)]
+
+# [Custom keyword](#tab/custom-keyword)
+
+The table in this section summarizes the locales supported for custom keyword and keyword verification.
+
+[!INCLUDE [Language support include](includes/language-support/custom-keyword.md)]
+
+# [Intent Recognition](#tab/intent-recognizer-pattern-matcher)
+
+The table in this section summarizes the locales supported for the Intent Recognizer Pattern Matcher.
+
+[!INCLUDE [Language support include](includes/language-support/intent-recognizer-pattern-matcher.md)]
+
+***
+
+## Get locales via API and SDK
+
+You can also get a list of locales and voices supported for each specific region or endpoint through the [Speech SDK](speech-sdk.md), [Speech-to-text REST API](rest-speech-to-text.md), [Speech-to-text REST API for short audio](rest-speech-to-text-short.md) and [Text-to-speech REST API](rest-text-to-speech.md#get-a-list-of-voices).
 
 ## Next steps
 
-* [Get your Speech service trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to recognize speech in C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)
+* [Region support](regions.md)

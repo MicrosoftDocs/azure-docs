@@ -1,81 +1,141 @@
 ---
-title: Create Recovery Services vaults
-description: In this article, learn how to create Recovery Services vaults that store the backups and recovery points.
-ms.reviewer: sogup
+title: Create and configure Recovery Services vaults
+description: Learn how to create and configure Recovery Services vaults, and how to restore in a secondary region by using Cross Region Restore.
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 08/06/2021
+ms.custom: references_regions 
 ---
 
-# Create a Recovery Services vault
+# Create and configure a Recovery Services vault
 
-A Recovery Services vault is an entity that stores the backups and recovery points created over time. The Recovery Services vault also contains the backup policies that are associated with the protected virtual machines.
+In this article, you'll create and configure an Azure Backup Recovery Services vault that stores backups and recovery points. You'll also use Cross Region Restore to restore in a secondary region.
 
-To create a Recovery Services vault:
-
-1. Sign in to your subscription in the [Azure portal](https://portal.azure.com/).
-
-2. On the left menu, select **All services**.
-
-    ![Select All services](./media/backup-create-rs-vault/click-all-services.png)
-
-3. In the **All services** dialog box, enter **Recovery Services**. The list of resources filters according to your input. In the list of resources, select **Recovery Services vaults**.
-
-    ![Enter and choose Recovery Services vaults](./media/backup-create-rs-vault/all-services.png)
-
-    The list of Recovery Services vaults in the subscription appears.
-
-4. On the **Recovery Services vaults** dashboard, select **Add**.
-
-    ![Add a Recovery Services vault](./media/backup-create-rs-vault/add-button-create-vault.png)
-
-    The **Recovery Services vault** dialog box opens. Provide values for the **Name**, **Subscription**, **Resource group**, and **Location**.
-
-    ![Configure the Recovery Services vault](./media/backup-create-rs-vault/create-new-vault-dialog.png)
-
-   - **Name**: Enter a friendly name to identify the vault. The name must be unique to the Azure subscription. Specify a name that has at least two, but not more than 50 characters. The name must start with a letter and consist only of letters, numbers, and hyphens.
-   - **Subscription**: Choose the subscription to use. If you're a member of only one subscription, you'll see that name. If you're not sure which subscription to use, use the default (suggested) subscription. There are multiple choices only if your work or school account is associated with more than one Azure subscription.
-   - **Resource group**: Use an existing resource group or create a new one. To see the list of available resource groups in your subscription, select **Use existing**, and then select a resource from the drop-down list box. To create a new resource group, select **Create new** and enter the name. For complete information about resource groups, see [Azure Resource Manager overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
-   - **Location**: Select the geographic region for the vault. To create a vault to protect virtual machines, the vault **must** be in the same region as the virtual machines.
-
-      > [!IMPORTANT]
-      > If you're not sure of the location of your VM, close the dialog box. Go to the list of virtual machines in the portal. If you have virtual machines in several regions, create a Recovery Services vault in each region. Create the vault in the first location, before you create the vault for another location. There's no need to specify storage accounts to store the backup data. The Recovery Services vault and the Azure Backup service handle that automatically.
-      >
-      >
-
-5. When you're ready to create the Recovery Services vault, select **Create**.
-
-    ![Create the Recovery Services vault](./media/backup-create-rs-vault/click-create-button.png)
-
-    It can take a while to create the Recovery Services vault. Monitor the status notifications in the **Notifications** area at the upper-right corner of the portal. After your vault is created, it's visible in the list of Recovery Services vaults. If you don't see your vault, select **Refresh**.
-
-     ![Refresh the list of backup vaults](./media/backup-create-rs-vault/refresh-button.png)
+[!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## Set storage redundancy
 
 Azure Backup automatically handles storage for the vault. You need to specify how that storage is replicated.
 
-1. From the **Recovery Services vaults** blade, click the new vault. Under the **Settings** section, click  **Properties**.
-2. In **Properties**, under **Backup Configuration**, click **Update**.
+> [!NOTE]
+> Be sure to change the storage replication type for a Recovery Services vault before you configure a backup in the vault. After you configure a backup, the option to modify is disabled.
+>
+> If you haven't yet configured the backup, complete the following steps to review and modify the settings. If you've already configured the backup and must change the storage replication type, [review these workarounds](#modify-default-settings).
 
-3. Select the storage replication type, and click **Save**.
+1. From the **Recovery Services vaults** pane, select the new vault. In the **Settings** section, select  **Properties**.
+1. In **Properties**, under **Backup Configuration**, select **Update**.
 
-     ![Set the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+1. For **Storage replication type**, select **Geo-redundant**, **Locally-redundant**, or **Zone-redundant**. Then select **Save**.
 
-   - We recommend that if you're using Azure as a primary backup storage endpoint, continue to use the default **Geo-redundant** setting.
-   - If you don't use Azure as a primary backup storage endpoint, then choose **Locally-redundant**, which reduces the Azure storage costs.
-   - Learn more about [geo](../storage/common/storage-redundancy-grs.md) and [local](../storage/common/storage-redundancy-lrs.md) redundancy.
+   ![Set the storage configuration for new vault](./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png)
+
+   Here are our recommendations for choosing a storage replication type:
+   
+   - If you're using Azure as a primary backup storage endpoint, continue to use the default [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage).
+   
+   - If you don't use Azure as a primary backup storage endpoint, choose [locally redundant storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) to reduce storage costs.
+   
+   - If you need data availability without downtime in a region, guaranteeing data residency, choose [zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage).
+
+>[!NOTE]
+>The storage replication settings for the vault aren't relevant for Azure file share backup, because the current solution is snapshot based and no data is transferred to the vault. Snapshots are stored in the same storage account as the backed-up file share.
+
+## Set Cross Region Restore
+
+The Cross Region Restore option allows you to restore data in a secondary, [Azure paired region](../availability-zones/cross-region-replication-azure.md). You can use Cross Region Restore to conduct drills when there's an audit or compliance requirement. You can also use it to restore the data if there's a disaster in the primary region.
+
+Before you begin, consider the following information:
+
+- Cross Region Restore is supported only for a Recovery Services vault that uses the [GRS replication type](#set-storage-redundancy).
+- Virtual machines (VMs) created through Azure Resource Manager and encrypted Azure VMs are supported. VMs created through the classic deployment model aren't supported. You can restore the VM or its disk.  
+- SQL Server or SAP HANA databases hosted on Azure VMs are supported. You can restore databases or their files.
+- Review the [support matrix](backup-support-matrix.md#cross-region-restore) for a list of supported managed types and regions.
+- Using Cross Region Restore will incur additional charges. [Learn more](https://azure.microsoft.com/pricing/details/backup/).
+- After you opt in, it might take up to 48 hours for the backup items to be available in secondary regions.
+- Cross Region Restore currently can't be reverted to GRS or LRS after the protection starts for the first time.
+- Currently, secondary region RPO is 36 hours. This is because the RPO in the primary region is 24 hours and can take up to 12 hours to replicate the backup data from the primary to the secondary region.
+
+A vault created with GRS redundancy includes the option to configure the Cross Region Restore feature. Every GRS vault has a banner that links to the documentation. 
+
+![Screenshot that shows the banner about backup configuration.](./media/backup-azure-arm-restore-vms/banner.png)
+
+To configure Cross Region Restore for the vault:
+
+1. From the portal, go to your Recovery Services vault, and then select **Properties** (under **Settings**).
+1. Under **Backup Configuration**, select **Update**.
+1. Under **Cross Region Restore**, select **Enable**.
+
+   ![Screenshot that shows the Backup Configuration pane and the toggle for enabling Cross Region Restore.](./media/backup-azure-arm-restore-vms/backup-configuration.png)
 
 > [!NOTE]
-> Changing **Storage Replication type** (Locally-redundant/ Geo-redundant) for a Recovery services vault has to be done before configuring backups in the vault. Once you configure backup, the option to modify is disabled and you cannot change the **Storage Replication type**.
+> If you have access to restricted paired regions and still can't view Cross Region Restore settings on the **Backup Configuration** pane, re-register the Recovery Services resource provider. To re-register the provider, go to your subscription in the Azure portal, go to **Resource provider** on the left pane, and then select **Microsoft.RecoveryServices** > **Re-register**.
 
-## Modifying default settings
+For more information about backup and restore with Cross Region Restore, see these articles:
 
-We highly recommend you review the default settings for **Storage Replication type** and **Security settings** before configuring backups in the vault. 
-* **Storage Replication type** by default is set to **Geo-redundant**. Once you configure the backup, the option to modify is disabled. Follow these [steps](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) to review and modify the settings. 
-* **Soft delete** by default is **Enabled** on newly created vaults to protect backup data from accidental or malicious deletes. Follow these [steps](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) to review and modify the settings.
+- [Cross Region Restore for Azure VMs](backup-azure-arm-restore-vms.md#cross-region-restore)
+- [Cross Region Restore for SQL Server databases](restore-sql-database-azure-vm.md#cross-region-restore)
+- [Cross Region Restore for SAP HANA databases](sap-hana-db-restore.md#cross-region-restore)
 
+## Set encryption settings
+
+By default, the data in the Recovery Services vault is encrypted through platform-managed keys. You don't need to take any explicit actions to enable this encryption. It applies to all workloads that are backed up to your Recovery Services vault. 
+
+You can choose to bring your own key (a *customer-managed key*) to encrypt the backup data in this vault. If you want to encrypt backup data by using your own key, you must specify the encryption key before any item is added to this vault. After you enable encryption with your key, it can't be reversed.
+
+To configure your vault to encrypt with customer-managed keys:
+
+1. Enable managed identity for your Recovery Services vault.
+1. Assign permissions to the vault to access the encryption key in Azure Key Vault.
+1. Enable soft delete and purge protection in Azure Key Vault.
+1. Assign the encryption key to the Recovery Services vault.
+
+You can find instructions for each of these steps in [this article](encryption-at-rest-with-cmk.md#configure-a-vault-to-encrypt-using-customer-managed-keys).
+
+## Modify default settings
+
+We highly recommend that you review the default settings for storage replication type and security before you configure backups in the vault.
+
+By default, **Soft delete** is set to **Enabled** on newly created vaults to help protect backup data from accidental or malicious deletions. To review and modify the settings, [follow these steps](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
+
+Before you decide to move from GRS to LRS, review the trade-offs between lower cost and higher data durability that fit your scenario. If you must move from GRS to LRS after you configure backup, you have the following two choices. Your choice will depend on your business requirements to retain the backup data.
+
+### Don't need to preserve previous backed-up data
+
+To help protect workloads in a new LRS vault, you need to delete the current protection and data in the GRS vault and reconfigure backups.
+
+> [!WARNING]
+> The following operation is destructive and can't be undone. All backup data and backup items associated with the protected server will be permanently deleted. Proceed with caution.
+
+To stop and delete current protection on the GRS vault:
+
+1. Follow [these steps](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal) to disable soft delete in the GRS vault's properties.
+
+1. Stop protection and delete backups from the existing GRS vault. On the vault dashboard menu, select **Backup Items**. If you need to move items that are listed here to the LRS vault, you must remove them and their backup data. See [Delete protected items in the cloud](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) and [Delete protected items on-premises](backup-azure-delete-vault.md#delete-protected-items-on-premises).
+
+1. If you're planning to move Azure file shares, SQL Server instances, or SAP HANA servers, you'll also need to unregister them. On the vault dashboard menu, select **Backup Infrastructure**. For steps beyond that, see [Unregister a storage account associated with Azure file shares](manage-afs-backup.md#unregister-a-storage-account), [Unregister a SQL Server instance](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), or [Unregister an SAP HANA instance](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
+
+1. After you remove Azure file shares, SQL Server instances, or SAP HANA servers from the GRS vault, continue to configure the backups for your workload in the new LRS vault.
+
+### Must preserve previous backed-up data
+
+If you need to keep the current protected data in the GRS vault and continue the protection in a new LRS vault, there are limited options for some of the workloads:
+
+- For Microsoft Azure Recovery Services (MARS), you can [stop protection with retained data](backup-azure-manage-mars.md#stop-protecting-files-and-folder-backup) and register the agent in the new LRS vault. Be aware that:
+
+  - The Azure Backup service will continue to retain all the existing recovery points of the GRS vault.
+  - You'll need to pay to keep the recovery points in the GRS vault.
+  - You'll be able to restore the backed-up data only for unexpired recovery points in the GRS vault.
+  - You'll need to create an initial replica of the data on the LRS vault.
+
+- For an Azure VM, you can [stop protection with retained data](backup-azure-manage-vms.md#stop-protecting-a-vm) for the VM in the GRS vault, move the VM to another resource group, and then help protect the VM in the LRS vault. For information about moving a VM to another resource group, see the [guidance and limitations](../azure-resource-manager/management/move-limitations/virtual-machines-move-limitations.md).
+
+  You can add a VM to only one vault at a time. However, the VM in the new resource group can be added to the LRS vault because it's considered a different VM. Be aware that:
+
+  - The Azure Backup service will retain the recovery points that have been backed up on the GRS vault.
+  - You'll need to pay to keep the recovery points in the GRS vault. See [Azure Backup pricing](azure-backup-pricing.md) for details.
+  - You'll be able to restore the VM, if needed, from the GRS vault.
+  - The first backup on the LRS vault of the VM in the new resource will be an initial replica.
 
 ## Next steps
 
-[Learn about](backup-azure-recovery-services-vault-overview.md) Recovery Services vaults.
-[Learn about](backup-azure-delete-vault.md) Delete Recovery Services vaults.
+- [Learn more about Recovery Services vaults](backup-azure-recovery-services-vault-overview.md)
+- [Delete Recovery Services vaults](backup-azure-delete-vault.md)

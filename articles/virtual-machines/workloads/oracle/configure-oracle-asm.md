@@ -1,36 +1,30 @@
 ---
 title: Set up Oracle ASM on an Azure Linux virtual machine | Microsoft Docs
 description: Quickly get Oracle ASM up and running in your Azure environment.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: romitgirdhar
-manager: gwallace
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-linux
-
+author: dbakevlar
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
-ms.date: 08/02/2018
-ms.author: rogirdh
+ms.date: 07/13/2022
+ms.author: kegorman
+
 ---
 
-# Set up Oracle ASM on an Azure Linux virtual machine  
+# Set up Oracle ASM on an Azure Linux virtual machine
 
-Azure virtual machines provide a fully configurable and flexible computing environment. This tutorial covers basic Azure virtual machine deployment combined with the installation and configuration of Oracle Automated Storage Management (ASM).  You learn how to:
+**Applies to:** :heavy_check_mark: Linux VMs 
+
+Azure virtual machines provide a fully configurable and flexible computing environment. This tutorial covers basic Azure virtual machine deployment combined with the installation and configuration of Oracle Automatic Storage Management (ASM).  You learn how to:
 
 > [!div class="checklist"]
 > * Create and connect to an Oracle Database VM
-> * Install and configure Oracle Automated Storage Management
+> * Install and configure Oracle Automatic Storage Management
 > * Install and configure Oracle Grid infrastructure
 > * Initialize an Oracle ASM installation
 > * Create an Oracle DB managed by ASM
 
-
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
+For an overview of the value proposition of ASM, see the [documentation at Oracle](https://aka.ms/oracle/asm).
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
 
@@ -61,7 +55,7 @@ The following example creates a VM named myVM that is a Standard_DS2_v2 size wit
 
 After you create the VM, Azure CLI displays information similar to the following example. Note the value for `publicIpAddress`. You use this address to access the VM.
 
-   ```azurecli
+   ```output
    {
      "fqdns": "",
      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -78,7 +72,7 @@ After you create the VM, Azure CLI displays information similar to the following
 
 To create an SSH session with the VM and configure additional settings, use the following command. Replace the IP address with the `publicIpAddress` value for your VM.
 
-```bash 
+```bash
 ssh <publicIpAddress>
 ```
 
@@ -160,7 +154,7 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
 
    The output of this command should look similar to the following, stopping with prompts to be answered.
 
-    ```bash
+    ```output
    Configuring the Oracle ASM library driver.
 
    This will configure the on-boot properties of the Oracle ASM library
@@ -176,14 +170,22 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
    Writing Oracle ASM library driver configuration: done
    ```
 
+   >[!NOTE]
+   >The `/usr/sbin/oracleasm configure -i` command asks for the user and group that default to owning the ASM driver access point. 
+   >The database will be running as the `grid` user and the `asmadmin` group.
+   >By selecting **Start Oracle ASM library driver on boot = 'y'**, the system will always load the module and mount the filesystem on boot.
+   >By selecting **Scan for Oracle ASM disks on boot = 'y'**, the system will always scan the Oracle ASM disks on boot.
+   >The last two configurations are very important, otherwise, you will run into disk reboot problems.
+
 2. View the disk configuration:
+
    ```bash
    cat /proc/partitions
    ```
 
    The output of this command should look similar to the following listing of available disks
 
-   ```bash
+   ```output
    8       16   14680064 sdb
    8       17   14678976 sdb1
    8        0   52428800 sda
@@ -208,9 +210,9 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
    fdisk /dev/sdc
    ```
    
-   Using the answers provided above, the output for the fdisk command should look like the following:
+   Using the answers provided above, the output for the `fdisk` command should look like the following:
 
-   ```bash
+   ```output
    Device contains not a valid DOS partition table, or Sun, SGI or OSF disklabel
    Building a new DOS disklabel with disk identifier 0xf865c6ca.
    Changes will remain in memory only, until you decide to write them.
@@ -244,7 +246,7 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
    Syncing disks.
    ```
 
-4. Repeat the preceding fdisk command for `/dev/sdd`, `/dev/sde`, and `/dev/sdf`.
+4. Repeat the preceding `fdisk` command for `/dev/sdd`, `/dev/sde`, and `/dev/sdf`.
 
 5. Check the disk configuration:
 
@@ -254,7 +256,7 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
 
    The output of the command should look like the following:
 
-   ```bash
+   ```output
    major minor  #blocks  name
 
      8       16   14680064 sdb
@@ -273,6 +275,10 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
      11       0    1048575 sr0
    ```
 
+   >[!NOTE]
+   >Note that, in the following configuration, please use the exact commands as this document shows. 
+   >Make sure you are calling the Oracle ASM service with `service oracleasm`.
+
 6. Check the Oracle ASM service status and start the Oracle ASM service:
 
    ```bash
@@ -281,8 +287,8 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
    ```
 
    The output of the command should look like the following:
-   
-   ```bash
+
+   ```output
    Checking if ASM is loaded: no
    Checking if /dev/oracleasm is mounted: no
    Initializing the Oracle ASMLib driver:                     [  OK  ]
@@ -296,26 +302,32 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
    service oracleasm createdisk DATA /dev/sdd1 
    service oracleasm createdisk DATA1 /dev/sde1 
    service oracleasm createdisk FRA /dev/sdf1
-   ```    
+   ```
 
    The output of the command should look like the following:
 
-   ```bash
+   ```output
    Marking disk "ASMSP" as an ASM disk:                       [  OK  ]
    Marking disk "DATA" as an ASM disk:                        [  OK  ]
    Marking disk "DATA1" as an ASM disk:                       [  OK  ]
    Marking disk "FRA" as an ASM disk:                         [  OK  ]
    ```
 
+   >[!NOTE]
+   >Disks are marked for ASMLib using a process described in [ASMLib Installation](https://www.oracle.com/linux/technologies/install-asmlib.html). 
+   >ASMLib learns what disk are marked during a process called disk scanning. ASMLib runs this scan every time it starts up. The system administrator can also force a scan via the `service oracleasm scandisks` command.
+   >ASMLib examines each disk in the system. It checks if the disk has been marked for ASMLib. Any disk that has been marked will be made available to ASMLib.
+   >You can visit documents [Configuring Storage Device Path Persistence Using Oracle ASMLIB](https://docs.oracle.com/en/database/oracle/oracle-database/19/cwlin/configuring-storage-device-path-persistence-using-oracle-asmlib.html#GUID-6B1DA5DB-2E93-4616-B517-18ABDEE72AE4) and [Configuring Oracle ASMLib on Multipath Disks](https://www.oracle.com/linux/technologies/multipath-disks.html) for more informations.
+
 8. List Oracle ASM disks:
 
    ```bash
    service oracleasm listdisks
-   ```   
+   ```
 
    The output of the command should list off the following Oracle ASM disks:
 
-   ```bash
+   ```output
     ASMSP
     DATA
     DATA1
@@ -345,11 +357,12 @@ For this tutorial, the default user is *grid* and the default group is *asmadmin
     chmod 600 /dev/sdf1
     ```
 
+
 ## Download and prepare Oracle Grid Infrastructure
 
 To download and prepare the Oracle Grid Infrastructure software, complete the following steps:
 
-1. Download Oracle Grid Infrastructure from the [Oracle ASM download page](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html). 
+1. Download Oracle Grid Infrastructure from the [Oracle ASM download page](https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html). 
 
    Under the download titled **Oracle Database 12c Release 1 Grid Infrastructure (12.1.0.2.0) for Linux x86-64**, download the two .zip files.
 
@@ -370,7 +383,7 @@ To download and prepare the Oracle Grid Infrastructure software, complete the fo
    ```
 
 4. Unzip the files. (Install the Linux unzip tool if it's not already installed.)
-   
+
    ```bash
    sudo yum install unzip
    sudo unzip linuxamd64_12102_grid_1of2.zip
@@ -378,7 +391,7 @@ To download and prepare the Oracle Grid Infrastructure software, complete the fo
    ```
 
 5. Change permission:
-   
+
    ```bash
    sudo chown -R grid:oinstall /opt/grid
    ```
@@ -389,7 +402,7 @@ To download and prepare the Oracle Grid Infrastructure software, complete the fo
    sudo chmod 777 /etc/waagent.conf  
    vi /etc/waagent.conf
    ```
-   
+
    Search for `ResourceDisk.SwapSizeMB` and change the value to **8192**. You will need to press `insert` to enter insert mode, type in the value of **8192** and then press `esc` to return to command mode. To write the changes and quit the file, type `:wq` and press `enter`.
    
    > [!NOTE]
@@ -500,7 +513,7 @@ To install Oracle Grid Infrastructure, complete the following steps:
 
 To set up your Oracle ASM installation, complete the following steps:
 
-1. Ensure you are still signed in as **grid**, from your X11 session. You might need to hit `enter` to revive the terminal. Then launch the Oracle Automated Storage Management Configuration Assistant:
+1. Ensure you are still signed in as **grid**, from your X11 session. You might need to hit `enter` to revive the terminal. Then launch the Oracle Automatic Storage Management Configuration Assistant:
 
    ```bash
    cd /u01/app/grid/product/12.1.0/grid/bin
@@ -532,7 +545,7 @@ To set up your Oracle ASM installation, complete the following steps:
    - Click `ok` to create the disk group.
    - Click `ok` to close the confirmation window.
 
-   ![Screenshot of the Create Disk Group dialog box](./media/oracle-asm/asm04.png)
+   ![Screenshot of the Create Disk Group dialog box and highlights the External (none) option.](./media/oracle-asm/asm04.png)
 
 6. Select **Exit** to close ASM Configuration Assistant.
 
@@ -549,6 +562,7 @@ The Oracle database software is already installed on the Azure Marketplace image
    cd /u01/app/oracle/product/12.1.0/dbhome_1/bin
    ./dbca
    ```
+
    Database Configuration Assistant opens.
 
 2. On the **Database Operation** page, click `Create Database`.
@@ -571,7 +585,7 @@ The Oracle database software is already installed on the Azure Marketplace image
 
 ## Delete the VM
 
-You have successfully configured Oracle Automated Storage Management on the Oracle DB image from the Azure Marketplace.  When you no longer need this VM, you can use the following command to remove the resource group, VM, and all related resources:
+You have successfully configured Oracle Automatic Storage Management on the Oracle DB image from the Azure Marketplace.  When you no longer need this VM, you can use the following command to remove the resource group, VM, and all related resources:
 
 ```azurecli
 az group delete --name myResourceGroup

@@ -1,14 +1,13 @@
 ---
 title: Configure API protocols - Azure Event Grid IoT Edge | Microsoft Docs 
-description: Configure API protocols exposed by Event Grid on IoT Edge.  
+description: Learn about the possible protocol configurations of an Event Grid module.  
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
-ms.reviewer: 
-ms.date: 10/03/2019
+ms.reviewer: spelluru
+ms.date: 02/15/2022
+ms.subservice: iot-edge
 ms.topic: article
-ms.service: event-grid
-services: event-grid
 ---
 
 # Configure Event Grid API protocols
@@ -22,13 +21,17 @@ This guide gives examples of the possible protocol configurations of an Event Gr
 
 See [Security and authentication](security-authentication.md) guide for all the possible configurations.
 
+> [!IMPORTANT]
+> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
+
+
 ## Expose HTTPS to IoT Modules on the same edge network
 
 ```json
  {
   "Env": [
-    "inbound:serverAuth:tlsPolicy=strict",
-    "inbound:serverAuth:serverCert:source=IoTEdge"
+    "inbound__serverAuth__tlsPolicy=strict",
+    "inbound__serverAuth__serverCert__source=IoTEdge"
   ]
 }
  ```
@@ -38,8 +41,8 @@ See [Security and authentication](security-authentication.md) guide for all the 
 ```json
  {
   "Env": [
-    "inbound:serverAuth:tlsPolicy=strict",
-    "inbound:serverAuth:serverCert:source=IoTEdge"
+    "inbound__serverAuth__tlsPolicy=strict",
+    "inbound__serverAuth__serverCert__source=IoTEdge"
   ],
   "HostConfig": {
     "PortBindings": {
@@ -61,8 +64,8 @@ See [Security and authentication](security-authentication.md) guide for all the 
 ```json
  {
   "Env": [
-    "inbound:serverAuth:tlsPolicy=enabled",
-    "inbound:serverAuth:serverCert:source=IoTEdge"
+    "inbound__serverAuth__tlsPolicy=enabled",
+    "inbound__serverAuth__serverCert__source=IoTEdge"
   ]
 }
  ```
@@ -72,8 +75,8 @@ See [Security and authentication](security-authentication.md) guide for all the 
 ```json
  {
   "Env": [
-    "inbound:serverAuth:tlsPolicy=enabled",
-    "inbound:serverAuth:serverCert:source=IoTEdge"
+    "inbound__serverAuth__tlsPolicy=enabled",
+    "inbound__serverAuth__serverCert__source=IoTEdge"
   ],
   "HostConfig": {
     "PortBindings": {

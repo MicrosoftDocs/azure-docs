@@ -1,51 +1,29 @@
 ---
 title: Sensor partner integration
 description: This article describes sensor partner integration.
-author: uhabiba04
+author: RiyazPishori
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: v-umha
+ms.author: riyazp
 ---
 
 # Sensor partner integration
 
-This article provides information about the Azure FarmBeats Translator component, which enables sensor partner integration.
+This article provides information about the Azure FarmBeats **Translator** component, which enables sensor partner integration.
 
-Using this component, partners can develop sensors that integrate with FarmBeats to use the API and send customer device data and telemetry to FarmBeats Datahub. Data is visualized by using the FarmBeats Accelerator. Data can be used for data fusion and for building machine learning/artificial intelligence models.
+Using this component, partners can integrate with FarmBeats using FarmBeats Datahub APIs and send customer device data and telemetry to FarmBeats Datahub. Once the data is available in FarmBeats, it is visualized using the FarmBeats Accelerator and can be used for data fusion and for building machine learning/artificial intelligence models.
 
-## Link a FarmBeats account
+## Before you start
 
-After you've purchased and deployed devices or sensors, you can access the device data and telemetry on your device partners' software as a service (SaaS) portal. Device partners enable you to link your account to your FarmBeats instance on Azure. The following credentials must be filled in by you or your system integrator:
+To develop the Translator component, you will need the following credentials that will enable access to the FarmBeats APIs.
 
-   - Display name (an optional field for users to define a name for this integration)
-   - API endpoint
-   - Tenant ID
-   - Client ID
-   - Client secret
-   - EventHub connection string
-   - Start date
+- API Endpoint
+- Tenant ID
+- Client ID
+- Client Secret
+- EventHub Connection String
 
-   > [!NOTE]
-   > The start date enables the historical data feed, that is, the data from the date specified by the user.
-
-## Unlink FarmBeats
-
-You have the ability to unlink an existing FarmBeats integration. Unlinking FarmBeats shouldn't delete any device or sensor metadata that was created in your datahub. Unlinking does the following:
-
-   - Stops telemetry flow.
-   - Deletes and erases the integration credentials on the device partner.
-
-## Edit FarmBeats integration
-
-You can edit the FarmBeats integration settings if the client secret or connection string changes. In this case, you can edit only the following fields:
-
-   - Display name (if applicable)
-   - Client secret (should be displayed in "2x8***********" format or the Show/Hide feature rather than clear text)
-   - Connection string (should be displayed in "2x8***********" format or Show/Hide feature rather than clear text)
-
-## View the last telemetry sent
-
-You can view the timestamp of the last telemetry that was sent, which is found under **Telemetry Sent**. This is the time at which the latest telemetry was successfully sent to FarmBeats.
+See this section for getting the above credentials: [Enable Device Integration](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats)
 
 ## Translator development
 
@@ -59,13 +37,13 @@ The telemetry data is mapped to a canonical message that's published on Azure Ev
 
 **API development**
 
-The APIs contain Swagger technical documentation. For more information on the APIs and their corresponding requests or responses, see [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
+The APIs contain Swagger technical documentation. For more information on the APIs and their corresponding requests or responses, see [Swagger](https://aka.ms/FarmBeatsSwagger).
 
 **Authentication**
 
 FarmBeats uses Microsoft Azure Active Directory authentication. Azure App Service provides built-in authentication and authorization support.
 
-For more information, see [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).
+For more information, see [Azure Active Directory](../../app-service/overview-authentication-authorization.md).
 
 FarmBeats Datahub uses bearer authentication, which needs the following credentials:
    - Client ID
@@ -81,22 +59,27 @@ headers = {"Authorization": "Bearer " + access_token, …} 
 The following sample Python code gives the access token, which can be used for subsequent API calls to FarmBeats.
 
 ```python
-import azure 
+import requests
+import json
+import msal
 
-from azure.common.credentials import ServicePrincipalCredentials 
-import adal 
-#FarmBeats API Endpoint 
-ENDPOINT = "https://<yourdatahub>.azurewebsites.net" [Azure website](https://<yourdatahub>.azurewebsites.net)
-CLIENT_ID = "<Your Client ID>"   
-CLIENT_SECRET = "<Your Client Secret>"   
-TENANT_ID = "<Your Tenant ID>" 
-AUTHORITY_HOST = 'https://login.microsoftonline.com' 
-AUTHORITY = AUTHORITY_HOST + '/' + TENANT_ID 
-#Authenticating with the credentials 
-context = adal.AuthenticationContext(AUTHORITY) 
-token_response = context.acquire_token_with_client_credentials(ENDPOINT, CLIENT_ID, CLIENT_SECRET) 
-#Should get an access token here 
-access_token = token_response.get('accessToken') 
+# Your service principal App ID
+CLIENT_ID = "<CLIENT_ID>"
+# Your service principal password
+CLIENT_SECRET = "<CLIENT_SECRET>"
+# Tenant ID for your Azure subscription
+TENANT_ID = "<TENANT_ID>"
+
+AUTHORITY_HOST = 'https://login.microsoftonline.com'
+AUTHORITY = AUTHORITY_HOST + '/' + TENANT_ID
+
+ENDPOINT = "https://<yourfarmbeatswebsitename-api>.azurewebsites.net"
+SCOPE = ENDPOINT + "/.default"
+
+context = msal.ConfidentialClientApplication(CLIENT_ID, authority=AUTHORITY, client_credential=CLIENT_SECRET)
+token_response = context.acquire_token_for_client(SCOPE)
+# We should get an access token here
+access_token = token_response.get('access_token')
 ```
 
 
@@ -107,13 +90,13 @@ Here are the most common request headers that need to be specified when you make
 
 **Header** | **Description and example**
 --- | ---
-Content-Type | The request format (Content-Type: application/<format>). For FarmBeats Datahub APIs, the format is JSON. Content-Type: application/json
-Authorization | Specifies the access token required to make an API call. Authorization: Bearer <Access-Token>
+Content-Type | The request format (Content-Type: `application/<format>`). For FarmBeats Datahub APIs, the format is JSON. Content-Type: application/json
+Authorization | Specifies the access token required to make an API call. Authorization: Bearer \<Access-Token\>
 Accept | The response format. For FarmBeats Datahub APIs, the format is JSON. Accept: application/json
 
 **API requests**
 
-To make a REST API request, you combine the HTTP (GET, POST, or PUT) method, the URL to the API service, the  Uniform Resource Identifier (URI) to a resource to query, submit data to, update, or delete, and one or more HTTP request headers. The URL to the API service is the API endpoint you provide. Here's a sample: https://\<yourdatahub-website-name>.azurewebsites.net
+To make a REST API request, you combine the HTTP (GET, POST, or PUT) method, the URL to the API service, the  Uniform Resource Identifier (URI) to a resource to query, submit data to, update, or delete, and one or more HTTP request headers. The URL to the API service is the API endpoint you provide. Here's a sample: `https://\<yourdatahub-website-name>.azurewebsites.net`
 
 Optionally, you can include query parameters on GET calls to filter, limit the size of, and sort the data in the responses.
 
@@ -143,25 +126,25 @@ FarmBeats Datahub has the following APIs that enable device partners to create a
 - /**SensorModel**: SensorModel corresponds to the metadata of the sensor, such as the manufacturer, the type of sensor, which is either analog or digital, and the sensor measure, such as ambient temperature and pressure.
 - /**Sensor**: Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID.
 
-  **DeviceModel** |  |
+  DeviceModel | Description |
   --- | ---
-  Type (node, gateway)  | 1 Star |
-  Manufacturer  | 2 Star |
+  Type (node, gateway)  | Type of the device - Node or Gateway |
+  Manufacturer  | Name of the manufacturer |
   ProductCode  | Device product code or model name or number. For example, EnviroMonitor#6800. |
   Ports  | Port name and type, which is digital or analog.  |
   Name  | Name to identify resource. For example, model name or product name. |
   Description  | Provide a meaningful description of the model. |
   Properties  | Additional properties from the manufacturer. |
-  **Device** |  |
+  **Device** | **Description** |
   DeviceModelId  |ID of the associated device model. |
   HardwareId   |Unique ID for the device, such as a MAC address.  |
   ReportingInterval |Reporting interval in seconds. |
   Location    |Device latitude (-90 to +90), longitude (-180 to 180), and elevation (in meters). |
   ParentDeviceId | ID of the parent device to which this device is connected. For example, if a node is connected to a gateway, the node has parentDeviceID as the gateway. |
-  Name  | Name to identify the resource. Device partners need to send a name that's consistent with the device name on the device partner side. If the device name is user defined on the device partner side, the same user-defined name should be propagated to FarmBeats.  |
+  Name  | Name to identify the resource. Device partners need to send a name that's consistent with the device name on the device partner side. If the device name is user-defined on the device partner side, the same user-defined name should be propagated to FarmBeats.  |
   Description  | Provide a meaningful description.  |
   Properties  |Additional properties from the manufacturer.  |
-  **SensorModel** |  |
+  **SensorModel** | **Description** |
   Type (analog, digital)  |Mention analog or digital sensor.|
   Manufacturer  | Name of manufacturer. |
   ProductCode  | Product code or model name or number. For example, RS-CO2-N01.  |
@@ -175,7 +158,7 @@ FarmBeats Datahub has the following APIs that enable device partners to create a
   Name  | Name to identify resource. For example, the model name or product name.
   Description  | Provide a meaningful description of the model.
   Properties  | Additional properties from the manufacturer.
-  **Sensor**  |  |
+  **Sensor**  | **Description** |
   HardwareId  | Unique ID for the sensor set by the manufacturer.
   SensorModelId  | ID of the associated sensor model.
   Location  | Sensor latitude (-90 to +90), longitude (-180 to 180), and elevation (in meters).
@@ -205,7 +188,7 @@ The Translator should have the ability to add new devices or sensors that were i
 
 ### Add new types and units
 
-FarmBeats supports adding new sensor measure types and units. For more information about the /ExtendedType API, see [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
+FarmBeats supports adding new sensor measure types and units. For more information about the /ExtendedType API, see [Swagger](https://aka.ms/FarmBeatsSwagger).
 
 ## Telemetry specifications
 
@@ -213,7 +196,7 @@ The telemetry data is mapped to a canonical message that's published on Azure Ev
 
 ## Send telemetry data to FarmBeats
 
-To send telemetry data to FarmBeats, create a client that sends messages to an event hub in FarmBeats. For more information about telemetry data, see [Sending telemetry to an event hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
+To send telemetry data to FarmBeats, create a client that sends messages to an event hub in FarmBeats. For more information about telemetry data, see [Sending telemetry to an event hub](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
 Here's a sample Python code that sends telemetry as a client to a specified event hub.
 
@@ -247,11 +230,11 @@ The canonical message format is as follows:
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         }
       ]
     }
@@ -300,11 +283,49 @@ For example, here's a telemetry message:
 
 ```
 
+> [!NOTE]
+> The following sections are related to other changes (eg. UI, error management etc.) that the sensor partner can refer to in developing the Translator component.
+
+
+## Link a FarmBeats account
+
+After customers have purchased and deployed devices or sensors, they can access the device data and telemetry on the device partners' software as a service (SaaS) portal. Device partners can enable customers to link their account to their FarmBeats instance on Azure by providing a way to input the following credentials:
+
+   - Display name (an optional field for users to define a name for this integration)
+   - API endpoint
+   - Tenant ID
+   - Client ID
+   - Client secret
+   - EventHub connection string
+   - Start date
+
+   > [!NOTE]
+   > The start date enables the historical data feed, that is, the data from the date specified by the user.
+
+## Unlink FarmBeats
+
+Device partners can enable customers to unlink an existing FarmBeats integration. Unlinking FarmBeats shouldn't delete any device or sensor metadata that was created in FarmBeats Datahub. Unlinking does the following:
+
+   - Stops telemetry flow.
+   - Deletes and erases the integration credentials on the device partner.
+
+## Edit FarmBeats integration
+
+Device partners can enable customers to edit the FarmBeats integration settings if the client secret or connection string changes. In this case, only the following fields are editable:
+
+   - Display name (if applicable)
+   - Client secret (should be displayed in "2x8***********" format or the Show/Hide feature rather than clear text)
+   - Connection string (should be displayed in "2x8***********" format or Show/Hide feature rather than clear text)
+
+## View the last telemetry sent
+
+Device partners can enable customers to view the timestamp of the last telemetry that was sent, which is found under **Telemetry Sent**. This is the time at which the latest telemetry was successfully sent to FarmBeats.
+
 ## Troubleshooting and error management
 
 **Troubleshoot option or support**
 
-If you're unable to receive device data or telemetry in the FarmBeats instance specified, the device partner should provide support and a mechanism for troubleshooting.
+If customer is unable to receive device data or telemetry in the FarmBeats instance specified, the device partner should provide support and a mechanism for troubleshooting.
 
 **Telemetry data retention**
 
@@ -312,7 +333,7 @@ The telemetry data should also be retained for a predefined time period so that 
 
 **Error management or error notification**
 
-If an error affects the device or sensor metadata or the data integration or telemetry data flow in the device partner system, you should receive a notification. A mechanism to resolve any errors should also be designed and implemented.
+If an error affects the device or sensor metadata or the data integration or telemetry data flow in the device partner system, customer should receive a notification. A mechanism to resolve any errors should also be designed and implemented.
 
 **Connection checklist**
 
@@ -324,4 +345,4 @@ Device manufacturers or partners can use the following checklist to ensure that 
 
 ## Next steps
 
-For more information about the REST API, see [REST API](references-for-azure-farmbeats.md#rest-api).
+For more information about the REST API, see [REST API](rest-api-in-azure-farmbeats.md).

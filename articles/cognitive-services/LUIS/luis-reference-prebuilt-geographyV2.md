@@ -3,14 +3,14 @@ title: Geography V2 prebuilt entity - LUIS
 titleSuffix: Azure Cognitive Services
 description: This article contains geographyV2 prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/04/2019
-ms.author: diberry
+
 ---
 
 # GeographyV2 prebuilt entity for a LUIS app
@@ -200,10 +200,10 @@ The following example shows the resolution of the **builtin.geographyV2** entity
     }
 ]
 ```
-* * * 
+* * *
 
 ## Next steps
 
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
-Learn about the [email](luis-reference-prebuilt-email.md), [number](luis-reference-prebuilt-number.md), and [ordinal](luis-reference-prebuilt-ordinal.md) entities. 
+Learn about the [email](luis-reference-prebuilt-email.md), [number](luis-reference-prebuilt-number.md), and [ordinal](luis-reference-prebuilt-ordinal.md) entities.

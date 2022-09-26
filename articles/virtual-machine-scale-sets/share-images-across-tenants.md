@@ -1,23 +1,24 @@
 ---
-title: Share gallery images across tenants in Azure | Microsoft Docs
-description: Learn how to share VM images across Azure tenants using Shared Image Galleries.
-services: virtual-machine-scale-sets
-author: cynthn
-manager: jeconnoc
-
+title: Share gallery images across tenants 
+description: Learn how to create scale sets using images that are shared across Azure tenants using Shared Image Galleries.
+author: sandeepraichura
+ms.author: saraic
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.subservice: shared-image-gallery
 ms.date: 04/05/2019
-ms.author: cynthn
+ms.reviewer: cynthn
+ms.custom: devx-track-azurecli
+
 ---
-# Share gallery VM images across Azure tenants
+# Share images across tenants with Azure Compute Gallery
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../includes/virtual-machines-share-images-across-tenants.md)]
 
-
 ## Create a scale set using Azure CLI
+
+> [!IMPORTANT]
+> You can't currently create a Flexible virtual machine scale set from an image shared by another tenant. 
 
 Sign in the service principal for tenant 1 using the appID, the app key, and the ID of tenant 1. You can use `az account show --query "tenantId"` to get the tenant IDs if needed.
 
@@ -47,4 +48,4 @@ az vmss create \
 
 ## Next steps
 
-If you run into any issues, you can [troubleshoot shared image galleries](troubleshooting-shared-images.md).
+If you run into any issues, you can [troubleshoot shared image galleries](../virtual-machines/troubleshooting-shared-images.md).

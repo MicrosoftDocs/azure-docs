@@ -4,15 +4,14 @@ description: Explains how Azure AD Connect sync works and how to customize.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: amycolannino
 editor: ''
 
 ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/08/2017
 ms.subservice: hybrid
 ms.author: billmath
@@ -25,6 +24,14 @@ The Azure Active Directory Connect synchronization services (Azure AD Connect sy
 This topic is the home for **Azure AD Connect sync** (also called **sync engine**) and lists links to all other topics related to it. For links to Azure AD Connect, see [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
 
 The sync service consists of two components, the on-premises **Azure AD Connect sync** component and the service side in Azure AD called **Azure AD Connect sync service**.
+>[!IMPORTANT]
+>Azure AD Connect Cloud Sync is a new offering from Microsoft designed to meet and accomplish your hybrid identity goals for synchronization of users, groups, and contacts to Azure AD. It accomplishes this by using the Azure AD Cloud provisioning agent instead of the Azure AD Connect application. Azure AD Cloud Sync is replacing Azure AD Connect sync, which will be retired after Cloud Sync has full functional parity with Connect sync. The remainder of this article is about AADConnect sync, but we encourage customers to review the features and advantages of Cloud Sync before deploying AADConnect sync. 
+>
+>To find out if you are already eligible for Cloud Sync, please verify your requirements in [this wizard](https://admin.microsoft.com/adminportal/home?Q=setupguidance#/modernonboarding/identitywizard).
+>
+>To learn more about Cloud Sync please read [this article](/azure/active-directory/cloud-sync/what-is-cloud-sync), or watch this [short video](https://www.microsoft.com/videoplayer/embed/RWJ8l5).
+>
+
 
 ## Azure AD Connect sync topics
 | Topic | What it covers and when to read |
@@ -48,13 +55,13 @@ The sync service consists of two components, the on-premises **Azure AD Connect 
 | [Implement password hash synchronization](how-to-connect-password-hash-synchronization.md) |Describes how password synchronization works, how to implement, and how to operate and troubleshoot. |
 | [Device writeback](how-to-connect-device-writeback.md) |Describes how device writeback works in Azure AD Connect. |
 | [Directory extensions](how-to-connect-sync-feature-directory-extensions.md) |Describes how to extend the Azure AD schema with your own custom attributes. |
-| [Office 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md) |Describes how to put the user's Office 365 resources in the same region as the user. |
+| [Microsoft 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md) |Describes how to put the user's Microsoft 365 resources in the same region as the user. |
 | **Sync Service** | |
 | [Azure AD Connect sync service features](how-to-connect-syncservice-features.md) |Describes the sync service side and how to change sync settings in Azure AD. |
 | [Duplicate attribute resiliency](how-to-connect-syncservice-duplicate-attribute-resiliency.md) |Describes how to enable and use **userPrincipalName** and **proxyAddresses** duplicate attribute values resiliency. |
 | **Operations and UI** | |
 | [Synchronization Service Manager](how-to-connect-sync-service-manager-ui.md) |Describes the Synchronization Service Manager UI, including [Operations](how-to-connect-sync-service-manager-ui-operations.md), [Connectors](how-to-connect-sync-service-manager-ui-connectors.md), [Metaverse Designer](how-to-connect-sync-service-manager-ui-mvdesigner.md), and [Metaverse Search](how-to-connect-sync-service-manager-ui-mvsearch.md) tabs. |
-| [Operational tasks and considerations](how-to-connect-sync-operations.md) |Describes operational concerns, such as disaster recovery. |
+| [Operational tasks and considerations](./how-to-connect-sync-staging-server.md) |Describes operational concerns, such as disaster recovery. |
 | **How To...** | |
 | [Reset the Azure AD account](how-to-connect-azureadaccount.md) |How to reset the credentials of the service account used to connect from Azure AD Connect sync to Azure AD. |
 | **More information and references** | |

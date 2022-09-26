@@ -17,4 +17,4 @@ ms.author: iainfou
 >   * [Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/mesosphere.enterprise-dcos?tab=Overview)
 >   * [Open Source edition](https://azuremarketplace.microsoft.com/marketplace/apps/mesosphere.dcos?tab=overview)
 >
-> If you want to use Kubernetes, see [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks).
+> If you want to use Kubernetes, see [Azure Kubernetes Service](../articles/aks/index.yml).

@@ -1,16 +1,10 @@
 ---
-title: Run a parallel workload - Azure Batch Python 
+title: Tutorial - Run a parallel workload using the Python API
 description: Tutorial - Process media files in parallel with ffmpeg in Azure Batch using the Batch Python client library
-services: batch
-author: laurenhughes
-manager: gwallace
-
-ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 11/29/2018
-ms.author: lahugh
-ms.custom: mvc
+ms.date: 12/13/2021
+ms.custom: mvc, devx-track-python
 ---
 
 # Tutorial: Run a parallel workload with Azure Batch using the Python API
@@ -31,7 +25,7 @@ In this tutorial, you convert MP4 media files in parallel to MP3 format using th
 
 ## Prerequisites
 
-* [Python version 2.7 or 3.3 or later](https://www.python.org/downloads/)
+* [Python version 2.7 or 3.6+](https://www.python.org/downloads/)
 
 * [pip](https://pip.pypa.io/en/stable/installing/) package manager
 
@@ -163,7 +157,7 @@ input_files = [
 
 Next, the sample creates a pool of compute nodes in the Batch account with a call to `create_pool`. This defined function uses the Batch [PoolAddParameter](/python/api/azure-batch/azure.batch.models.pooladdparameter) class to set the number of nodes, VM size, and a pool configuration. Here, a [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) object specifies an [ImageReference](/python/api/azure-batch/azure.batch.models.imagereference) to an Ubuntu Server 18.04 LTS image published in the Azure Marketplace. Batch supports a wide range of VM images in the Azure Marketplace, as well as custom VM images.
 
-The number of nodes and VM size are set using defined constants. Batch supports dedicated nodes and [low-priority nodes](batch-low-pri-vms.md), and you can use either or both in your pools. Dedicated nodes are reserved for your pool. Low-priority nodes are offered at a reduced price from surplus VM capacity in Azure. Low-priority nodes become unavailable if Azure does not have enough capacity. The sample by default creates a pool containing only 5 low-priority nodes in size *Standard_A1_v2*. 
+The number of nodes and VM size are set using defined constants. Batch supports dedicated nodes and [Spot nodes](batch-spot-vms.md), and you can use either or both in your pools. Dedicated nodes are reserved for your pool. Spot nodes are offered at a reduced price from surplus VM capacity in Azure. Spot nodes become unavailable if Azure does not have enough capacity. The sample by default creates a pool containing only 5 Spot nodes in size *Standard_A1_v2*. 
 
 In addition to physical node properties, this pool configuration includes a [StartTask](/python/api/azure-batch/azure.batch.models.starttask) object. The StartTask executes on each node as that node joins the pool, and each time a node is restarted. In this example, the StartTask runs Bash shell commands to install the ffmpeg package and dependencies on the nodes.
 
@@ -269,7 +263,7 @@ When no longer needed, delete the resource group, Batch account, and storage acc
 
 ## Next steps
 
-In this tutorial, you learned about how to:
+In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Authenticate with Batch and Storage accounts

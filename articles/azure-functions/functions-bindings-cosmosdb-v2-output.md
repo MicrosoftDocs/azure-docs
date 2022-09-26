@@ -1,0 +1,710 @@
+---
+title: Azure Cosmos DB output binding for Functions 2.x and higher
+description: Learn to use the Azure Cosmos DB output binding in Azure Functions.
+ms.topic: reference
+ms.date: 03/04/2022
+ms.devlang: csharp, java, javascript, powershell, python
+ms.custom: "devx-track-csharp, devx-track-python"
+zone_pivot_groups: programming-languages-set-functions-lang-workers
+---
+
+# Azure Cosmos DB output binding for Azure Functions 2.x and higher
+
+The Azure Cosmos DB output binding lets you write a new document to an Azure Cosmos DB database using the SQL API.
+
+For information on setup and configuration details, see the [overview](./functions-bindings-cosmosdb-v2.md).
+
+## Example
+
+Unless otherwise noted, examples in this article target version 3.x of the [Azure Cosmos DB extension](functions-bindings-cosmosdb-v2.md). For use with extension version 4.x, you need to replace the string `collection` in property and attribute names with `container`.
+
+::: zone pivot="programming-language-csharp"
+
+# [In-process](#tab/in-process)
+
+This section contains the following examples:
+
+* [Queue trigger, write one doc](#queue-trigger-write-one-doc-c)
+* [Queue trigger, write one doc (v4 extension)](#queue-trigger-write-one-doc-v4-c)
+* [Queue trigger, write docs using IAsyncCollector](#queue-trigger-write-docs-using-iasynccollector-c)
+
+The examples refer to a simple `ToDoItem` type:
+
+```cs
+namespace CosmosDBSamplesV2
+{
+    public class ToDoItem
+    {
+        public string id { get; set; }
+        public string Description { get; set; }
+    }
+}
+```
+
+<a id="queue-trigger-write-one-doc-c"></a>
+
+### Queue trigger, write one doc
+
+The following example shows a [C# function](functions-dotnet-class-library.md) that adds a document to a database, using data provided in message from Queue storage.
+
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
+using System;
+
+namespace CosmosDBSamplesV2
+{
+    public static class WriteOneDoc
+    {
+        [FunctionName("WriteOneDoc")]
+        public static void Run(
+            [QueueTrigger("todoqueueforwrite")] string queueMessage,
+            [CosmosDB(
+                databaseName: "ToDoItems",
+                collectionName: "Items",
+                ConnectionStringSetting = "CosmosDBConnection")]out dynamic document,
+            ILogger log)
+        {
+            document = new { Description = queueMessage, id = Guid.NewGuid() };
+
+            log.LogInformation($"C# Queue trigger function inserted one row");
+            log.LogInformation($"Description={queueMessage}");
+        }
+    }
+}
+```
+
+<a id="queue-trigger-write-one-doc-v4-c"></a>
+
+### Queue trigger, write one doc (v4 extension)
+
+Apps using Cosmos DB [extension version 4.x] or higher will have different attribute properties which are shown below. The following example shows a [C# function](functions-dotnet-class-library.md) that adds a document to a database, using data provided in message from Queue storage.
+
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
+using System;
+
+namespace CosmosDBSamplesV2
+{
+    public static class WriteOneDoc
+    {
+        [FunctionName("WriteOneDoc")]
+        public static void Run(
+            [QueueTrigger("todoqueueforwrite")] string queueMessage,
+            [CosmosDB(
+                databaseName: "ToDoItems",
+                containerName: "Items",
+                Connection = "CosmosDBConnection")]out dynamic document,
+            ILogger log)
+        {
+            document = new { Description = queueMessage, id = Guid.NewGuid() };
+
+            log.LogInformation($"C# Queue trigger function inserted one row");
+            log.LogInformation($"Description={queueMessage}");
+        }
+    }
+}
+```
+
+<a id="queue-trigger-write-docs-using-iasynccollector-c"></a>
+
+### Queue trigger, write docs using IAsyncCollector
+
+The following example shows a [C# function](functions-dotnet-class-library.md) that adds a collection of documents to a database, using data provided in a queue message JSON.
+
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
+
+namespace CosmosDBSamplesV2
+{
+    public static class WriteDocsIAsyncCollector
+    {
+        [FunctionName("WriteDocsIAsyncCollector")]
+        public static async Task Run(
+            [QueueTrigger("todoqueueforwritemulti")] ToDoItem[] toDoItemsIn,
+            [CosmosDB(
+                databaseName: "ToDoItems",
+                collectionName: "Items",
+                ConnectionStringSetting = "CosmosDBConnection")]
+                IAsyncCollector<ToDoItem> toDoItemsOut,
+            ILogger log)
+        {
+            log.LogInformation($"C# Queue trigger function processed {toDoItemsIn?.Length} items");
+
+            foreach (ToDoItem toDoItem in toDoItemsIn)
+            {
+                log.LogInformation($"Description={toDoItem.Description}");
+                await toDoItemsOut.AddAsync(toDoItem);
+            }
+        }
+    }
+}
+```
+
+[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+
+# [Isolated process](#tab/isolated-process)
+
+The following code defines a `MyDocument` type:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="37-46":::
+
+In the following example, the return type is an [`IReadOnlyList<T>`](/dotnet/api/system.collections.generic.ireadonlylist-1), which is a modified list of documents from trigger binding parameter:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="4-35":::
+
+# [C# Script](#tab/csharp-script)
+
+This section contains the following examples:
+
+* [Queue trigger, write one doc](#queue-trigger-write-one-doc-c-script)
+* [Queue trigger, write docs using IAsyncCollector](#queue-trigger-write-docs-using-iasynccollector-c-script)
+
+
+<a id="queue-trigger-write-one-doc-c-script"></a>
+
+### Queue trigger, write one doc
+
+The following example shows an Azure Cosmos DB output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function uses a queue input binding for a queue that receives JSON in the following format:
+
+```json
+{
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
+}
+```
+
+The function creates Azure Cosmos DB documents in the following format for each record:
+
+```json
+{
+    "id": "John Henry-123456",
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
+}
+```
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+    "name": "employeeDocument",
+    "type": "cosmosDB",
+    "databaseName": "MyDatabase",
+    "collectionName": "MyCollection",
+    "createIfNotExists": true,
+    "connectionStringSetting": "MyAccount_COSMOSDB",
+    "direction": "out"
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+Here's the C# script code:
+
+```cs
+    #r "Newtonsoft.Json"
+
+    using Microsoft.Azure.WebJobs.Host;
+    using Newtonsoft.Json.Linq;
+    using Microsoft.Extensions.Logging;
+
+    public static void Run(string myQueueItem, out object employeeDocument, ILogger log)
+    {
+      log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
+
+      dynamic employee = JObject.Parse(myQueueItem);
+
+      employeeDocument = new {
+        id = employee.name + "-" + employee.employeeId,
+        name = employee.name,
+        employeeId = employee.employeeId,
+        address = employee.address
+      };
+    }
+```
+
+<a id="queue-trigger-write-docs-using-iasynccollector-c-script"></a>
+
+### Queue trigger, write docs using IAsyncCollector
+
+To create multiple documents, you can bind to `ICollector<T>` or `IAsyncCollector<T>` where `T` is one of the supported types.
+
+This example refers to a simple `ToDoItem` type:
+
+```cs
+namespace CosmosDBSamplesV2
+{
+    public class ToDoItem
+    {
+        public string id { get; set; }
+        public string Description { get; set; }
+    }
+}
+```
+
+Here's the function.json file:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "toDoItemsIn",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "todoqueueforwritemulti",
+      "connectionStringSetting": "AzureWebJobsStorage"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "toDoItemsOut",
+      "databaseName": "ToDoItems",
+      "collectionName": "Items",
+      "connectionStringSetting": "CosmosDBConnection",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Here's the C# script code:
+
+```cs
+using System;
+using Microsoft.Extensions.Logging;
+
+public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> toDoItemsOut, ILogger log)
+{
+    log.LogInformation($"C# Queue trigger function processed {toDoItemsIn?.Length} items");
+
+    foreach (ToDoItem toDoItem in toDoItemsIn)
+    {
+        log.LogInformation($"Description={toDoItem.Description}");
+        await toDoItemsOut.AddAsync(toDoItem);
+    }
+}
+```
+
+---
+
+::: zone-end
+::: zone pivot="programming-language-java"
+
+* [Queue trigger, save message to database via return value](#queue-trigger-save-message-to-database-via-return-value-java)
+* [HTTP trigger, save one document to database via return value](#http-trigger-save-one-document-to-database-via-return-value-java)
+* [HTTP trigger, save one document to database via OutputBinding](#http-trigger-save-one-document-to-database-via-outputbinding-java)
+* [HTTP trigger, save multiple documents to database via OutputBinding](#http-trigger-save-multiple-documents-to-database-via-outputbinding-java)
+
+
+<a id="queue-trigger-save-message-to-database-via-return-value-java"></a>
+
+### Queue trigger, save message to database via return value
+
+The following example shows a Java function that adds a document to a database with data from a message in Queue storage.
+
+```java
+@FunctionName("getItem")
+@CosmosDBOutput(name = "database",
+  databaseName = "ToDoList",
+  collectionName = "Items",
+  connectionStringSetting = "AzureCosmosDBConnection")
+public String cosmosDbQueryById(
+    @QueueTrigger(name = "msg",
+      queueName = "myqueue-items",
+      connection = "AzureWebJobsStorage")
+    String message,
+    final ExecutionContext context)  {
+     return "{ id: \"" + System.currentTimeMillis() + "\", Description: " + message + " }";
+   }
+```
+<a id="http-trigger-save-one-document-to-database-via-return-value-java"></a>
+
+#### HTTP trigger, save one document to database via return value
+
+The following example shows a Java function whose signature is annotated with ```@CosmosDBOutput``` and has return value of type ```String```. The JSON document returned by the function will be automatically written to the corresponding CosmosDB collection.
+
+```java
+    @FunctionName("WriteOneDoc")
+    @CosmosDBOutput(name = "database",
+      databaseName = "ToDoList",
+      collectionName = "Items",
+      connectionStringSetting = "Cosmos_DB_Connection_String")
+    public String run(
+            @HttpTrigger(name = "req",
+              methods = {HttpMethod.GET, HttpMethod.POST},
+              authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<String>> request,
+            final ExecutionContext context) {
+
+        // Item list
+        context.getLogger().info("Parameters are: " + request.getQueryParameters());
+
+        // Parse query parameter
+        String query = request.getQueryParameters().get("desc");
+        String name = request.getBody().orElse(query);
+
+        // Generate random ID
+        final int id = Math.abs(new Random().nextInt());
+
+        // Generate document
+        final String jsonDocument = "{\"id\":\"" + id + "\", " +
+                                    "\"description\": \"" + name + "\"}";
+
+        context.getLogger().info("Document to be saved: " + jsonDocument);
+
+        return jsonDocument;
+    }
+```
+
+<a id="http-trigger-save-one-document-to-database-via-outputbinding-java"></a>
+
+### HTTP trigger, save one document to database via OutputBinding
+
+The following example shows a Java function that writes a document to CosmosDB via an ```OutputBinding<T>``` output parameter. In this example, the ```outputItem``` parameter needs to be annotated with ```@CosmosDBOutput```, not the function signature. Using ```OutputBinding<T>``` lets your function take advantage of the binding to write the document to CosmosDB while also allowing returning a different value to the function caller, such as a JSON or XML document.
+
+```java
+    @FunctionName("WriteOneDocOutputBinding")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req",
+              methods = {HttpMethod.GET, HttpMethod.POST},
+              authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<String>> request,
+            @CosmosDBOutput(name = "database",
+              databaseName = "ToDoList",
+              collectionName = "Items",
+              connectionStringSetting = "Cosmos_DB_Connection_String")
+            OutputBinding<String> outputItem,
+            final ExecutionContext context) {
+
+        // Parse query parameter
+        String query = request.getQueryParameters().get("desc");
+        String name = request.getBody().orElse(query);
+
+        // Item list
+        context.getLogger().info("Parameters are: " + request.getQueryParameters());
+
+        // Generate random ID
+        final int id = Math.abs(new Random().nextInt());
+
+        // Generate document
+        final String jsonDocument = "{\"id\":\"" + id + "\", " +
+                                    "\"description\": \"" + name + "\"}";
+
+        context.getLogger().info("Document to be saved: " + jsonDocument);
+
+        // Set outputItem's value to the JSON document to be saved
+        outputItem.setValue(jsonDocument);
+
+        // return a different document to the browser or calling client.
+        return request.createResponseBuilder(HttpStatus.OK)
+                      .body("Document created successfully.")
+                      .build();
+    }
+```
+
+<a id="http-trigger-save-multiple-documents-to-database-via-outputbinding-java"></a>
+
+### HTTP trigger, save multiple documents to database via OutputBinding
+
+The following example shows a Java function that writes multiple documents to CosmosDB via an ```OutputBinding<T>``` output parameter. In this example, the ```outputItem``` parameter is annotated with ```@CosmosDBOutput```, not the function signature. The output parameter, ```outputItem``` has a list of ```ToDoItem``` objects as its template parameter type. Using ```OutputBinding<T>``` lets your function take advantage of the binding to write the documents to CosmosDB while also allowing returning a different value to the function caller, such as a JSON or XML document.
+
+```java
+    @FunctionName("WriteMultipleDocsOutputBinding")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req",
+              methods = {HttpMethod.GET, HttpMethod.POST},
+              authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<String>> request,
+            @CosmosDBOutput(name = "database",
+              databaseName = "ToDoList",
+              collectionName = "Items",
+              connectionStringSetting = "Cosmos_DB_Connection_String")
+            OutputBinding<List<ToDoItem>> outputItem,
+            final ExecutionContext context) {
+
+        // Parse query parameter
+        String query = request.getQueryParameters().get("desc");
+        String name = request.getBody().orElse(query);
+
+        // Item list
+        context.getLogger().info("Parameters are: " + request.getQueryParameters());
+
+        // Generate documents
+        List<ToDoItem> items = new ArrayList<>();
+
+        for (int i = 0; i < 5; i ++) {
+          // Generate random ID
+          final int id = Math.abs(new Random().nextInt());
+
+          // Create ToDoItem
+          ToDoItem item = new ToDoItem(String.valueOf(id), name);
+
+          items.add(item);
+        }
+
+        // Set outputItem's value to the list of POJOs to be saved
+        outputItem.setValue(items);
+        context.getLogger().info("Document to be saved: " + items);
+
+        // return a different document to the browser or calling client.
+        return request.createResponseBuilder(HttpStatus.OK)
+                      .body("Documents created successfully.")
+                      .build();
+    }
+```
+
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBOutput` annotation on parameters that will be written to Cosmos DB.  The annotation parameter type should be ```OutputBinding<T>```, where T is either a native Java type or a POJO.
+
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+
+The following example shows an Azure Cosmos DB output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function uses a queue input binding for a queue that receives JSON in the following format:
+
+```json
+{
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
+}
+```
+
+The function creates Azure Cosmos DB documents in the following format for each record:
+
+```json
+{
+    "id": "John Henry-123456",
+    "name": "John Henry",
+    "employeeId": "123456",
+    "address": "A town nearby"
+}
+```
+
+Here's the binding data in the *function.json* file:
+
+```json
+{
+    "name": "employeeDocument",
+    "type": "cosmosDB",
+    "databaseName": "MyDatabase",
+    "collectionName": "MyCollection",
+    "createIfNotExists": true,
+    "connectionStringSetting": "MyAccount_COSMOSDB",
+    "direction": "out"
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+Here's the JavaScript code:
+
+```javascript
+    module.exports = async function (context) {
+
+      context.bindings.employeeDocument = JSON.stringify({
+        id: context.bindings.myQueueItem.name + "-" + context.bindings.myQueueItem.employeeId,
+        name: context.bindings.myQueueItem.name,
+        employeeId: context.bindings.myQueueItem.employeeId,
+        address: context.bindings.myQueueItem.address
+      });
+    };
+```
+
+For bulk insert form the objects first and then run the stringify function. Here's the JavaScript code:
+
+```javascript
+    module.exports = async function (context) {
+    
+        context.bindings.employeeDocument = JSON.stringify([
+        {
+            "id": "John Henry-123456",
+            "name": "John Henry",
+            "employeeId": "123456",
+            "address": "A town nearby"
+        },
+        {
+            "id": "John Doe-123457",
+            "name": "John Doe",
+            "employeeId": "123457",
+            "address": "A town far away"
+        }]);
+    };
+```
+
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
+
+The following example show how to write data to Cosmos DB using an output binding. The binding is declared in the function's configuration file (_functions.json_), and take data from a queue message and writes out to a Cosmos DB document.
+
+```json
+{ 
+  "name": "EmployeeDocument",
+  "type": "cosmosDB",
+  "databaseName": "MyDatabase",
+  "collectionName": "MyCollection",
+  "createIfNotExists": true,
+  "connectionStringSetting": "MyStorageConnectionAppSetting",
+  "direction": "out" 
+} 
+```
+
+In the _run.ps1_ file, the object returned from the function is mapped to an `EmployeeDocument` object, which is persisted in the database.
+
+```powershell
+param($QueueItem, $TriggerMetadata) 
+
+Push-OutputBinding -Name EmployeeDocument -Value @{ 
+    id = $QueueItem.name + '-' + $QueueItem.employeeId 
+    name = $QueueItem.name 
+    employeeId = $QueueItem.employeeId 
+    address = $QueueItem.address 
+} 
+```
+
+::: zone-end  
+::: zone pivot="programming-language-python"  
+
+The following example demonstrates how to write a document to an Azure Cosmos DB database as the output of a function.
+
+The binding definition is defined in *function.json* where *type* is set to `cosmosDB`.
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "out",
+      "name": "doc",
+      "databaseName": "demodb",
+      "collectionName": "data",
+      "createIfNotExists": "true",
+      "connectionStringSetting": "AzureCosmosDBConnectionString"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ]
+}
+```
+
+To write to the database, pass a document object to the `set` method of the database parameter.
+
+```python
+import azure.functions as func
+
+def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpResponse:
+
+    request_body = req.get_body()
+
+    doc.set(func.Document.from_json(request_body))
+
+    return 'OK'
+```
+
+::: zone-end 
+::: zone pivot="programming-language-csharp" 
+## Attributes
+
+Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file.
+
+# [Functions 2.x+](#tab/functionsv2/in-process)
+
+[!INCLUDE [functions-cosmosdb-output-attributes-v3](../../includes/functions-cosmosdb-output-attributes-v3.md)]
+
+# [Extension 4.x+ (preview)](#tab/extensionv4/in-process)
+
+[!INCLUDE [functions-cosmosdb-output-attributes-v4](../../includes/functions-cosmosdb-output-attributes-v4.md)]
+
+# [Functions 2.x+](#tab/functionsv2/isolated-process)
+
+[!INCLUDE [functions-cosmosdb-output-attributes-v3](../../includes/functions-cosmosdb-output-attributes-v3.md)]
+
+# [Extension 4.x+ (preview)](#tab/functionsv4/isolated-process)
+
+[!INCLUDE [functions-cosmosdb-output-attributes-v4](../../includes/functions-cosmosdb-output-attributes-v4.md)]
+
+# [Functions 2.x+](#tab/functionsv2/csharp-script)
+
+[!INCLUDE [functions-cosmosdb-output-settings-v3](../../includes/functions-cosmosdb-output-settings-v3.md)]
+
+# [Extension 4.x+ (preview)](#tab/functionsv4/csharp-script)
+
+[!INCLUDE [functions-cosmosdb-output-settings-v4](../../includes/functions-cosmosdb-output-settings-v4.md)]
+
+---
+::: zone-end  
+::: zone pivot="programming-language-java"  
+## Annotations
+
+From the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBOutput` annotation on parameters that write to Azure Cosmos DB. The annotation supports the following properties:
+
++ [name](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.name)
++ [connectionStringSetting](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.connectionstringsetting)
++ [databaseName](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.databasename)
++ [collectionName](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.collectionname)
++ [createIfNotExists](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.createifnotexists)
++ [dataType](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.datatype)
++ [partitionKey](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.partitionkey)
++ [preferredLocations](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.preferredlocations)
++ [useMultipleWriteLocations](/java/api/com.microsoft.azure.functions.annotation.cosmosdboutput.usemultiplewritelocations)
+
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+## Configuration
+
+The following table explains the binding configuration properties that you set in the *function.json* file, where properties differ by extension version:  
+
+# [Functions 2.x+](#tab/functionsv2)
+
+[!INCLUDE [functions-cosmosdb-settings-v3](../../includes/functions-cosmosdb-output-settings-v3.md)]
+
+# [Extension 4.x+ (preview)](#tab/extensionv4)
+
+[!INCLUDE [functions-cosmosdb-settings-v4](../../includes/functions-cosmosdb-output-settings-v4.md)]
+
+---
+::: zone-end  
+See the [Example section](#example) for complete examples.
+
+## Usage
+
+By default, when you write to the output parameter in your function, a document is created in your database. This document has an automatically generated GUID as the document ID. You can specify the document ID of the output document by specifying the id property in the JSON object passed to the output parameter.
+
+> [!NOTE]  
+> When you specify the ID of an existing document, it gets overwritten by the new output document.
+
+[!INCLUDE [functions-cosmosdb-connections](../../includes/functions-cosmosdb-connections.md)]    
+
+## Exceptions and return codes
+
+| Binding | Reference |
+|---|---|
+| CosmosDB | [CosmosDB Error Codes](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
+
+## Next steps
+
+- [Run a function when an Azure Cosmos DB document is created or modified (Trigger)](./functions-bindings-cosmosdb-v2-trigger.md)
+- [Read an Azure Cosmos DB document (Input binding)](./functions-bindings-cosmosdb-v2-input.md)
+
+[extension version 4.x]: ./functions-bindings-cosmosdb-v2.md?tabs=extensionv4

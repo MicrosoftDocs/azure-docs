@@ -8,7 +8,7 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.workload: identity
 ms.service: active-directory
-manager: daveba
+manager: amycolannino
 ms.collection: M365-identity-device-management
 ---
 
@@ -49,9 +49,9 @@ Alternate login ID allows you to configure a sign-in experience where users can 
 
 To enable Alternate login ID with Azure AD, no additional configurations steps are needed when using Azure AD Connect. Alternate ID can be configured directly from the wizard. See Azure AD sign-in configuration for your users under the section Sync. Under the **User Principal Name** drop-down, select the attribute for Alternate login ID.
 
-![Unverified domains](./media/plan-connect-userprincipalname/altloginid.png)  
+![Screenshot that highlights User Principal Name list where you select the Alternate login ID attribute.](./media/plan-connect-userprincipalname/altloginid.png)  
 
-For more information, see [Configure Alternate login ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) and [Azure AD sign-in configuration](how-to-connect-install-custom.md#azure-ad-sign-in-configuration)
+For more information, see [Configure Alternate login ID](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) and [Azure AD sign-in configuration](how-to-connect-install-custom.md#azure-ad-sign-in-configuration)
 
 ## Non-verified UPN Suffix
 If the on-premises UserPrincipalName attribute/Alternate login ID suffix is not verified with Azure AD Tenant, then the Azure AD UserPrincipalName attribute value is set to MOERA. Azure AD calculates the MOERA from the Azure AD MailNickName attribute and Azure AD initial domain as &lt;MailNickName&gt;&#64;&lt;initial domain&gt;.
@@ -76,6 +76,8 @@ When the updates to a user object are synchronized to the Azure AD Tenant, Azure
 >Azure AD recalculates the UserPrincipalName attribute value only in case an update to the on-premises UserPrincipalName attribute/Alternate login ID value is synchronized to the Azure AD Tenant. 
 >
 >Whenever Azure AD recalculates the UserPrincipalName attribute, it also recalculates the MOERA. 
+>
+>In case of verified domain change, Azure AD also recalculates the UserPrincipalName attribute. For more information, see [Troubleshoot: Audit data on verified domain change](https://docs.microsoft.com/azure/active-directory/reports-monitoring/troubleshoot-audit-data-verified-domain)
 
 ## UPN scenarios
 The following are example scenarios of how the UPN is calculated based on the given scenario.
@@ -88,7 +90,7 @@ On-Premises user object:
 - mailNickName		: &lt;not set&gt;
 - proxyAddresses		: {SMTP:us1@contoso.com}
 - mail			: us2@contoso.com
-- userPrincipalName	: us3@contoso.com`
+- userPrincipalName	: us3@contoso.com
 
 Synchronized the user object to Azure AD Tenant for the first time
 - Set Azure AD MailNickName attribute to primary SMTP address prefix.

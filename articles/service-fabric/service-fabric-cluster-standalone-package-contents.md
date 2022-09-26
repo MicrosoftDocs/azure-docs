@@ -1,20 +1,12 @@
 ---
-title: Azure Service Fabric Standalone Package for Windows Server | Microsoft Docs
+title: Azure Service Fabric Standalone Package for Windows Server 
 description: Description and contents of the Azure Service Fabric Standalone package for Windows Server.
-services: service-fabric
-documentationcenter: .net
-author: maburlik
-manager: chackdan
-editor: ''
-
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 8/10/2017
-ms.author: maburlik
-
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Contents of Service Fabric Standalone package for Windows Server
@@ -42,11 +34,11 @@ In the [downloaded](https://go.microsoft.com/fwlink/?LinkId=730690) Service Fabr
 | --- | --- |
 | ClusterConfig.Unsecure.DevCluster.json |A cluster configuration sample file that contains the settings for an unsecured, three-node, single-machine (or virtual machine) development cluster, including the information for each node in the cluster. |
 | ClusterConfig.Unsecure.MultiMachine.json |A cluster configuration sample file that contains the settings for an unsecured, multi-machine (or virtual machine) cluster, including the information for each machine in the cluster. |
-| ClusterConfig.Windows.DevCluster.json |A cluster configuration sample file that contains all the settings for a secure, three-node, single-machine (or virtual machine) development cluster, including the information for each node that is in the cluster. The cluster is secured by using [Windows identities](https://msdn.microsoft.com/library/ff649396.aspx). |
-| ClusterConfig.Windows.MultiMachine.json |A cluster configuration sample file that contains all the settings for a secure, multi-machine (or virtual machine) cluster using Windows security, including the information for each machine that is in the secure cluster. The cluster is secured by using [Windows identities](https://msdn.microsoft.com/library/ff649396.aspx). |
+| ClusterConfig.Windows.DevCluster.json |A cluster configuration sample file that contains all the settings for a secure, three-node, single-machine (or virtual machine) development cluster, including the information for each node that is in the cluster. The cluster is secured by using [Windows identities](/previous-versions/msp-n-p/ff649396(v=pandp.10)). |
+| ClusterConfig.Windows.MultiMachine.json |A cluster configuration sample file that contains all the settings for a secure, multi-machine (or virtual machine) cluster using Windows security, including the information for each machine that is in the secure cluster. The cluster is secured by using [Windows identities](/previous-versions/msp-n-p/ff649396(v=pandp.10)). |
 | ClusterConfig.x509.DevCluster.json |A cluster configuration sample file that contains all the settings for a secure, three-node, single-machine (or virtual machine) development cluster, including the information for each node in the cluster. The cluster is secured using x509 certificates. |
 | ClusterConfig.x509.MultiMachine.json |A cluster configuration sample file that contains all the settings for the secure, multi-machine (or virtual machine) cluster, including the information for each node in the secure cluster. The cluster is secured using x509 certificates. |
-| ClusterConfig.gMSA.Windows.MultiMachine.json |A cluster configuration sample file that contains all the settings for the secure, multi-machine (or virtual machine) cluster, including the information for each node in the secure cluster. The cluster is secured using [Group Managed Service Accounts](https://technet.microsoft.com/library/jj128431(v=ws.11).aspx). |
+| ClusterConfig.gMSA.Windows.MultiMachine.json |A cluster configuration sample file that contains all the settings for the secure, multi-machine (or virtual machine) cluster, including the information for each node in the secure cluster. The cluster is secured using [Group Managed Service Accounts](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11)). |
 
 ## Cluster Configuration Samples
 Latest versions of cluster configuration templates can be found at the GitHub page: [Standalone Cluster Configuration Samples](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).

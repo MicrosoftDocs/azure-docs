@@ -2,14 +2,13 @@
 title: "Features: Action and context - Personalizer" 
 titleSuffix: Azure Cognitive Services
 description: Personalizer uses features, information about actions and context, to make better ranking suggestions. Features can be very generic, or specific to an item.
-services: cognitive-services
-author: diberry
-manager: nitinme
+author: jcodella
+ms.author: jacodel
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.author: diberry
 ---
 
 # Features are information about actions and context
@@ -32,14 +31,16 @@ Personalizer does not prescribe, limit, or fix what features you can send for ac
 * There must be at least one feature for the context. Personalizer does not support an empty context. If you only send a fixed context every time, Personalizer will choose the action for rankings only regarding the features in the actions.
 * For categorical features, you don't need to define the possible values, and you don't need to pre-define ranges for numerical values.
 
+Features are sent as part of the JSON payload in a [Rank API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank) call. Each Rank call is associated with a personalization _event_. By default, Personalizer will automatically assign an event ID and return it in the Rank response. This default behavior is recommended for most users, however, if you need to create your own unique event ID (for example, using a GUID), then you can provide it in the Rank call as an argument. 
+
 ## Supported feature types
 
-Personalizer supports features of string, numeric, and boolean types.
+Personalizer supports features of string, numeric, and boolean types. It is very likely that your application will mostly use string features, with a few exceptions.
 
 ### How choice of feature type affects Machine Learning in Personalizer
 
-* **Strings**: For string types, every combination of key and value creates new weights in the Personalizer machine learning model. 
-* **Numeric**: You should use numerical values when the number should proportionally affect the personalization result. This is very scenario dependent. In a simplified example e.g. when personalizing a retail experience, NumberOfPetsOwned could be a feature that is numeric as you may want people with 2 or 3 pets to influence the personalization result twice or thrice as much as having 1 pet. Features that are based on numeric units but where the meaning isn't linear - such as Age, Temperature, or Person Height - are best encoded as strings, and the feature quality can typically be improved by using ranges. For example, Age could be encoded as "Age":"0-5", "Age":"6-10", etc.
+* **Strings**: For string types, every combination of key and value is treated as a One-Hot feature (e.g. genre:"ScienceFiction" and genre:"Documentary" would create two new  input features for the machine learning model.
+* **Numeric**: You should use numerical values when the number is a magnitude that should proportionally affect the personalization result. This is very scenario dependent. In a simplified example e.g. when personalizing a retail experience, NumberOfPetsOwned could be a feature that is numeric as you may want people with 2 or 3 pets to influence the personalization result twice or thrice as much as having 1 pet. Features that are based on numeric units but where the meaning isn't linear - such as Age, Temperature, or Person Height - are best encoded as strings. For example DayOfMonth would be a string with "1","2"..."31". If you have many categories The feature quality can typically be improved by using ranges. For example, Age could be encoded as "Age":"0-5", "Age":"6-10", etc.
 * **Boolean** values sent with value of "false" act as if they hadn't been sent at all.
 
 Features that are not present should be omitted from the request. Avoid sending features with a null value, because it will be processed as existing and with a value of "null" when training the model.
@@ -64,10 +65,10 @@ The following are examples of feature namespaces used by applications:
 You can name feature namespaces following your own conventions as long as they are valid JSON keys. Namespaces are used to organize features into distinct sets, and to disambiguate features with similar names. You can think of namespaces as a 'prefix' that is added to feature names. Namespaces cannot be nested.
 
 
-In the following JSON, `user`, `state`, and `device` are feature namespaces. 
+In the following JSON, `user`, `environment`, `device`, and `activity` are feature namespaces. 
 
 > [!Note]
-> Currently we strongly recommend using names for feature namespaces that are UTF-8 based and start with different letters. For example, `user`, `state`, and `device` start with `u`, `s`, and `d`. Currently having namespaces with same first characters could result in collisions in indexes used for machine learning.
+> Currently we strongly recommend using names for feature namespaces that are UTF-8 based and start with different letters. For example, `user`, `environment`, `device`, and `activity` start with `u`, `e`, `d`, and `a`. Currently having namespaces with same first characters could result in collisions in indexes used for machine learning.
 
 JSON objects can include nested JSON objects and simple property/values. An array can be included only if the array items are numbers. 
 
@@ -77,12 +78,14 @@ JSON objects can include nested JSON objects and simple property/values. An arra
         { 
             "user": {
                 "profileType":"AnonymousUser",
-                "latlong": [47.6, -122.1]
+                "latlong": ["47.6,-122.1"]
             }
         },
         {
-            "state": {
-                "timeOfDay": "noon",
+            "environment": {
+                "dayOfMonth": "28",
+                "monthOfYear": "8",
+                "timeOfDay": "13:00",
                 "weather": "sunny"
             }
         },
@@ -90,6 +93,13 @@ JSON objects can include nested JSON objects and simple property/values. An arra
             "device": {
                 "mobile":true,
                 "Windows":true
+            }
+        },
+        {
+            "activity" : {
+                "itemsInCart": 3,
+                "cartValue": 250,
+                "appliedCoupon": true
             }
         }
     ]
@@ -102,12 +112,15 @@ The string you use for naming the namespace must follow some restrictions:
 * It can't be unicode.
 * You can use some of the printable symbols with codes < 256 for the namespace names. 
 * You can't use symbols with codes < 32 (not printable), 32 (space), 58 (colon), 124 (pipe), and 126–140.
+* It should not start with an underscore "_" or the feature will be ignored.
 
 ## How to make feature sets more effective for Personalizer
 
 A good feature set helps Personalizer learn how to predict the action that will drive the highest reward. 
 
 Consider sending features to the Personalizer Rank API that follow these recommendations:
+
+* Use categorical and string types for features that are not a magnitude. 
 
 * There are enough features to drive personalization. The more precisely targeted the content needs to be, the more features are needed.
 
@@ -126,6 +139,8 @@ These following sections are common practices for improving features sent to Per
 It is possible to improve your feature sets by editing them to make them larger and more or less dense.
 
 For example, a timestamp down to the second is a very sparse feature. It could be made more dense (effective) by classifying times into "morning", "midday", "afternoon", etc.
+
+Location information also typically benefits from creating broader classifications. For example, a Latitude-Longitude coordinate such as Lat: 47.67402° N, Long: 122.12154° W is too precise, and forces the model to learn latitude and longitude as distinct dimensions. When you are trying to personalize based on location information, it helps to group location information in larger sectors. An easy way to do that is to choose an appropriate rounding precision for the Lat-Long numbers, and combine latitude and longitude into "areas" by making them into one string. For example, a good way to represent 47.67402° N, Long: 122.12154° W in regions approximately a few kilometers wide would be "location":"34.3 , 12.1".
 
 
 #### Expand feature sets with extrapolated information
@@ -146,16 +161,15 @@ For example:
 
 You can use several other [Azure Cognitive Services](https://www.microsoft.com/cognitive-services), like
 
-* [Entity Linking](../entitylinking/home.md)
-* [Text Analytics](../text-analytics/overview.md)
-* [Emotion](../emotion/home.md)
-* [Computer Vision](../computer-vision/home.md)
+* [Entity Linking](../text-analytics/index.yml)
+* [Language service](../language-service/index.yml)
+* [Emotion](../face/overview.md)
+* [Computer Vision](../computer-vision/overview.md)
 
 ## Actions represent a list of options
 
 Each action:
 
-* Has an _event_ ID. If you already have an event ID, you should submit that. If you do not have an event ID, do not send one, Personalizer creates one for you and returns it in the response of the Rank request. The ID is associated with the Rank event, not the user. If you create an ID, a GUID works best. 
 * Has a list of features.
 * The list of features can be large (hundreds) but we recommend evaluating feature effectiveness to remove features that aren't contributing to getting rewards. 
 * The features in the **actions** may or may not have any correlation with features in the **context** used by Personalizer.
@@ -314,6 +328,88 @@ JSON objects can include nested JSON objects and simple property/values. An arra
 }
 ```
 
+## Inference Explainability
+Personalizer can help you to understand which features of a chosen action are the most and least influential to then model during inference. When enabled, inference explainability includes feature scores from the underlying model into the Rank API response, so your application receives this information at the time of inference.
+Feature scores empower you to better understand the relationship between features and the decisions made by Personalizer. They can be used to provide insight to your end-users into why a particular recommendation was made, or to further analyze how the data is being used by the underlying model.
+
+Setting the service configuration flag IsInferenceExplainabilityEnabled in your service configuration enables Personalizer to include feature values and weights in the Rank API response. To update your current service configuration, use the [Service Configuration – Update API](/rest/api/personalizer/1.1preview1/service-configuration/update?tabs=HTTP). In the JSON request body, include your current service configuration and add the additional entry: “IsInferenceExplainabilityEnabled”: true. If you don’t know your current service configuration, you can obtain it from the [Service Configuration – Get API](/rest/api/personalizer/1.1preview1/service-configuration/get?tabs=HTTP)
+
+```JSON
+{
+  "rewardWaitTime": "PT10M",
+  "defaultReward": 0,
+  "rewardAggregation": "earliest",
+  "explorationPercentage": 0.2,
+  "modelExportFrequency": "PT5M",
+  "logMirrorEnabled": true,
+  "logMirrorSasUri": "https://testblob.blob.core.windows.net/container?se=2020-08-13T00%3A00Z&sp=rwl&spr=https&sv=2018-11-09&sr=c&sig=signature",
+  "logRetentionDays": 7,
+  "lastConfigurationEditDate": "0001-01-01T00:00:00Z",
+  "learningMode": "Online",
+  "isAutoOptimizationEnabled": true,
+  "autoOptimizationFrequency": "P7D",
+  "autoOptimizationStartDate": "2019-01-19T00:00:00Z",
+"isInferenceExplainabilityEnabled": true
+}
+```
+
+### How to interpret feature scores?
+Enabling inference explainability will add a collection to the JSON response from the Rank API called *inferenceExplanation*. This contains a list of feature names and values that were submitted in the Rank request, along with feature scores learned by Personalizer’s underlying model. The feature scores provide you with insight on how influential each feature was in the model choosing the action.
+
+```JSON
+
+{
+  "ranking": [
+    {
+      "id": "EntertainmentArticle",
+      "probability": 0.8
+    },
+    {
+      "id": "SportsArticle",
+      "probability": 0.10
+    },
+    {
+      "id": "NewsArticle",
+      "probability": 0.10
+    }
+  ],
+ "eventId": "75269AD0-BFEE-4598-8196-C57383D38E10",
+ "rewardActionId": "EntertainmentArticle",
+ "inferenceExplanation": [
+    {
+        "id”: "EntertainmentArticle",
+        "features": [
+            {
+                "name": "user.profileType",
+                "score": 3.0
+            },
+            {
+                "name": "user.latLong",
+                "score": -4.3
+            },
+            {
+                "name": "user.profileType^user.latLong",
+                "score" : 12.1
+            },
+        ]
+  ]
+}
+```
+
+In the example above, three action IDs are returned in the _ranking_ collection along with their respective probabilities scores. The action with the largest probability is the_ best action_ as determined by the model trained on data sent to the Personalizer APIs, which in this case is `"id": "EntertainmentArticle"`. The action ID can be seen again in the _inferenceExplanation_ collection, along with the feature names and scores determined by the model for that action and the features and values sent to the Rank API. 
+
+Recall that Personalizer will either return the _best action_ or an _exploratory action_ chosen by the exploration policy. The best action is the one that the model has determined has the highest probability of maximizing the average reward, whereas exploratory actions are chosen among the set of all possible actions provided in the Rank API call. Actions taken during exploration do not leverage the feature scores in determining which action to take, therefore **feature scores for exploratory actions should not be used to gain an understanding of why the action was taken.** [You can learn more about exploration here](/azure/cognitive-services/personalizer/concepts-exploration).
+
+For the best actions returned by Personalizer, the feature scores can provide general insight where:
+* Larger positive scores provide more support for the model choosing this action. 
+* Larger negative scores provide more support for the model not choosing this action.
+* Scores close to zero have a small effect on the decision to choose this action.
+
+### Important considerations for Inference Explainability
+* **Increased latency.** Currently, enabling _Inference Explainability_ may significantly increase the latency of Rank API calls due to processing of the feature information. Run experiments and measure the latency in your scenario to see if it satisfies your application’s latency requirements. 
+* **Correlated Features.** Features that are highly correlated with each other can reduce the utility of feature scores. For example, suppose Feature A is highly correlated with Feature B. It may be that Feature A’s score is a large positive value while Feature B’s score is a large negative value. In this case, the two features may effectively cancel each other out and have little to no impact on the model. While Personalizer is very robust to highly correlated features, when using _Inference Explainability_, ensure that features sent to Personalizer are not highly correlated
+* **Default exploration only.**	Currently, Inference Explainability supports only the default exploration algorithm at this time.
+
 ## Next steps
 
-[Reinforcement learning](concepts-reinforcement-learning.md) 
+[Reinforcement learning](concepts-reinforcement-learning.md)

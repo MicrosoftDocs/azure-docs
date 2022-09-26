@@ -1,22 +1,14 @@
 ---
-title: Balance your Azure Service Fabric cluster | Microsoft Docs
+title: Balance your Azure Service Fabric cluster 
 description: An introduction to balancing your cluster with the Service Fabric Cluster Resource Manager.
-services: service-fabric
-documentationcenter: .net
-author: masnider
-manager: chackdan
-editor: ''
-
-ms.assetid: 030b1465-6616-4c0b-8bc7-24ed47d054c0
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 08/18/2017
-ms.author: masnider
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Balancing your service fabric cluster
 The Service Fabric Cluster Resource Manager supports dynamic load changes, reacting to additions or removals of nodes or services. It also automatically corrects constraint violations, and proactively rebalances the cluster. But how often are these actions taken, and what triggers them?
 
@@ -27,7 +19,7 @@ There are three different categories of work that the Cluster Resource Manager p
 3. Balancing – this stage checks to see if rebalancing is necessary based on the configured desired level of balance for different metrics. If so it attempts to find an arrangement in the cluster that is more balanced.
 
 ## Configuring Cluster Resource Manager Timers
-The first set of controls around balancing are a set of timers. These timers govern how often the Cluster Resource Manager examines the cluster and takes corrective actions.
+The first set of controls around balancing is a set of timers. These timers govern how often the Cluster Resource Manager examines the cluster and takes corrective actions.
 
 Each of these different types of corrections the Cluster Resource Manager can make is controlled by a different timer that governs its frequency. When each timer fires, the task is scheduled. By default the Resource Manager:
 
@@ -173,7 +165,7 @@ via ClusterConfig.json for Standalone deployments or Template.json for Azure hos
 ]
 ```
 
-Balancing and activity thresholds are both tied to a specific metric - balancing is triggered only if both the Balancing Threshold and Activity Threshold is exceeded for the same metric.
+Balancing and activity thresholds are both tied to a specific metric - balancing is triggered only if both the Balancing Threshold and Activity Threshold are exceeded for the same metric.
 
 > [!NOTE]
 > When not specified, the Balancing Threshold for a metric is 1, and the Activity Threshold is 0. This means that the Cluster Resource Manager will try to keep that metric perfectly balanced for any given load. If you are using custom metrics it is recommended that you explicitly define your own balancing and activity thresholds for your metrics. 
@@ -194,7 +186,7 @@ Surely you can see where we’re going here: There's a chain! We don’t really 
 
 <center>
 
-![Balancing Services Together][Image4]
+![Diagram that shows how to balance services together.][Image4]
 </center>
 
 Because of this chain, it's possible that an imbalance in metrics 1-4 can cause replicas or instances belonging to services 1-3 to move around. We also know that an imbalance in Metrics 1, 2, or 3 can't cause movements in Service4. There would be no point since moving the replicas or instances belonging to Service4 around can do absolutely nothing to impact the balance of Metrics 1-3.
@@ -203,13 +195,14 @@ The Cluster Resource Manager automatically figures out what services are related
 
 <center>
 
-![Balancing Services Together][Image5]
+![Diagram that shows that Cluster Resource Manager determines what services are related.][Image5]
 </center>
 
 ## Next steps
 * Metrics are how the Service Fabric Cluster Resource Manger manages consumption and capacity in the cluster. To learn more about metrics and how to configure them, check out [this article](service-fabric-cluster-resource-manager-metrics.md)
 * Movement Cost is one way of signaling to the Cluster Resource Manager that certain services are more expensive to move than others. For more about movement cost, refer to [this article](service-fabric-cluster-resource-manager-movement-cost.md)
 * The Cluster Resource Manager has several throttles that you can configure to slow down churn in the cluster. They're not normally necessary, but if you need them you can learn about them [here](service-fabric-cluster-resource-manager-advanced-throttling.md)
+* The Cluster Resource Manager can recognize and handle subclustering (a situation that sometimes arises when you use placement constraints and balancing). To learn how subclustering can affect balancing and how you can handle it, see [here](cluster-resource-manager-subclustering.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
 [Image2]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png

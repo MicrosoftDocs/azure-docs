@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
+ms.custom: devx-track-python
 #Customer intent: As an data scientist, I want to connect my data in Azure Storage so that I can easily run analytics on it.
 ---
 
@@ -18,44 +19,40 @@ This tutorial shows you how to connect your Azure Databricks cluster to data sto
 In this tutorial, you will:
 
 > [!div class="checklist"]
-> * Create a Databricks cluster
-> * Ingest unstructured data into a storage account
-> * Run analytics on your data in Blob storage
+> - Create a Databricks cluster
+> - Ingest unstructured data into a storage account
+> - Run analytics on your data in Blob storage
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-* Create an Azure Data Lake Storage Gen2 account.
+- Create an Azure Data Lake Storage Gen2 account.
 
-  See [Create an Azure Data Lake Storage Gen2 account](data-lake-storage-quickstart-create-account.md).
+  See [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
-* Make sure that your user account has the [Storage Blob Data Contributor role](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) assigned to it.
+- Make sure that your user account has the [Storage Blob Data Contributor role](assign-azure-role-data-access.md) assigned to it.
 
-* Install AzCopy v10. See [Transfer data with AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- Install AzCopy v10. See [Transfer data with AzCopy v10](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-* Create a service principal. See [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+- Create a service principal. See [How to: Use the portal to create an Azure AD application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
   There's a couple of specific things that you'll have to do as you perform the steps in that article.
 
-  :heavy_check_mark: When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
+  :heavy_check_mark: When performing the steps in the [Assign the application to a role](../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
 
   > [!IMPORTANT]
   > Make sure to assign the role in the scope of the Data Lake Storage Gen2 storage account. You can assign a role to the parent resource group or subscription, but you'll receive permissions-related errors until those role assignments propagate to the storage account.
 
-  :heavy_check_mark: When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, app ID, and password values into a text file. You'll need those soon.
+  :heavy_check_mark: When performing the steps in the [Get values for signing in](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) section of the article, paste the tenant ID, app ID, and client secret values into a text file. You'll need those soon.
 
 ### Download the flight data
 
 This tutorial uses flight data from the Bureau of Transportation Statistics to demonstrate how to perform an ETL operation. You must download this data to complete the tutorial.
 
-1. Go to [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time).
+1. Download the [On_Time_Reporting_Carrier_On_Time_Performance_1987_present_2016_1.zip](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/tutorials/On_Time_Reporting_Carrier_On_Time_Performance_1987_present_2016_1.zip) file. This file contains the flight data.
 
-2. Select the **Prezipped File** check box to select all data fields.
-
-3. Select the **Download** button and save the results to your computer. 
-
-4. Unzip the contents of the zipped file and make a note of the file name and the path of the file. You need this information in a later step.
+2. Unzip the contents of the zipped file and make a note of the file name and the path of the file. You need this information in a later step.
 
 ## Create an Azure Databricks service
 
@@ -71,7 +68,7 @@ In this section, you create an Azure Databricks service by using the Azure porta
     |---------|---------|
     |**Workspace name**     | Provide a name for your Databricks workspace.  |
     |**Subscription**     | From the drop-down, select your Azure subscription.        |
-    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/resource-group-overview.md). |
+    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/management/overview.md). |
     |**Location**     | Select **West US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).       |
     |**Pricing Tier**     |  Select **Standard**.     |
 
@@ -96,7 +93,7 @@ In this section, you create an Azure Databricks service by using the Azure porta
     Fill in values for the following fields, and accept the default values for the other fields:
 
     - Enter a name for the cluster.
-     
+
     - Make sure you select the **Terminate after 120 minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
 
 4. Select **Create cluster**. After the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
@@ -121,11 +118,11 @@ Use AzCopy to copy data from your *.csv* file into your Data Lake Storage Gen2 a
    azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<container-name>/folder1/On_Time.csv
    ```
 
-   * Replace the `<csv-folder-path>` placeholder value with the path to the *.csv* file.
+   - Replace the `<csv-folder-path>` placeholder value with the path to the *.csv* file.
 
-   * Replace the `<storage-account-name>` placeholder value with the name of your storage account.
+   - Replace the `<storage-account-name>` placeholder value with the name of your storage account.
 
-   * Replace the `<container-name>` placeholder with any name that you want to give your container.
+   - Replace the `<container-name>` placeholder with the name of a container in your storage account.
 
 ## Create a container and mount it
 
@@ -143,11 +140,11 @@ In this section, you'll create a container and a folder in your storage account.
 
 5. Copy and paste the following code block into the first cell, but don't run this code yet.
 
-    ```Python
+    ```python
     configs = {"fs.azure.account.auth.type": "OAuth",
            "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
            "fs.azure.account.oauth2.client.id": "<appId>",
-           "fs.azure.account.oauth2.client.secret": "<password>",
+           "fs.azure.account.oauth2.client.secret": "<clientSecret>",
            "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant>/oauth2/token",
            "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
 
@@ -157,20 +154,7 @@ In this section, you'll create a container and a folder in your storage account.
     extra_configs = configs)
     ```
 
-18. In this code block, replace the `appId`, `password`, `tenant`, and `storage-account-name` placeholder values in this code block with the values that you collected while completing the prerequisites of this tutorial. Replace the `container-name` placeholder value with the name that you gave to the container on the previous step.
-
-Use these values to replace the mentioned placeholders.
-
-   * The `appId`, and `password` are from the app that you registered with active directory as part of creating a service principal.
-
-   * The `tenant-id` is from your subscription.
-
-   * The `storage-account-name` is the name of your Azure Data Lake Storage Gen2 storage account.
-
-   * Replace the `container-name` placeholder with any name that you want to give your container.
-
-   > [!NOTE]
-   > In a production setting, consider storing your password in Azure Databricks. Then, add a look up key to your code block instead of the password. After you've completed this quickstart, see the [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) article on the Azure Databricks Website to see examples of this approach.
+18. In this code block, replace the `appId`, `clientSecret`, `tenant`, and `storage-account-name` placeholder values in this code block with the values that you collected while completing the prerequisites of this tutorial. Replace the `container-name` placeholder value with the name of the container.
 
 19. Press the **SHIFT + ENTER** keys to run the code in this block.
 
@@ -178,7 +162,7 @@ Use these values to replace the mentioned placeholders.
 
 ### Use Databricks Notebook to convert CSV to Parquet
 
-In the notebook that you previously created, add a new cell, and paste the following code into that cell. 
+In the notebook that you previously created, add a new cell, and paste the following code into that cell.
 
 ```python
 # Use the previously established DBFS mount point to read the data.
@@ -218,7 +202,7 @@ Next, you can begin to query the data you uploaded into your storage account. En
 
 To create data frames for your data sources, run the following script:
 
-* Replace the `<csv-folder-path>` placeholder value with the path to the *.csv* file.
+- Replace the `<csv-folder-path>` placeholder value with the path to the *.csv* file.
 
 ```python
 # Copy this into a Cmd cell in your notebook.
@@ -285,5 +269,5 @@ When they're no longer needed, delete the resource group and all related resourc
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Extract, transform, and load data using Apache Hive on Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)

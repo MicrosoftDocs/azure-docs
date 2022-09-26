@@ -1,22 +1,14 @@
 ---
-title: Specify metrics and placement settings in Azure Service Fabric | Microsoft Docs
+title: Specify metrics and placement settings
 description: Learn how to describe a Service Fabric service by specifying metrics, placement constraints, and other placement policies.
-services: service-fabric
-documentationcenter: .net
-author: masnider
-manager: chackdan
-editor: ''
-
-ms.assetid: 16e135c1-a00a-4c6f-9302-6651a090571a
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 08/18/2017
-ms.author: masnider
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Configuring cluster resource manager settings for Service Fabric services
 The Service Fabric Cluster Resource Manager allows fine-grained control over the rules that govern every individual named service. Each named service can specify rules for how it should be allocated in the cluster. Each named service can also define the set of metrics that it wants to report, including how important they are to that service. Configuring services breaks down into three different tasks:
 

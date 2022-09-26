@@ -4,18 +4,13 @@ titleSuffix: Azure Network Watcher
 description: This article will describe how to use Azure CLI to analyze a virtual machines security with Security Group View.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor:
-
-ms.assetid: a986ff4f-7e0c-4994-95e1-4ac824986500
+author: damendo
 ms.service: network-watcher
-ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
+ms.author: damendo
 ---
 
 # Analyze your Virtual Machine security with Security Group View using Azure CLI
@@ -25,9 +20,13 @@ ms.author: kumud
 > - [Azure CLI](network-watcher-security-group-view-cli.md)
 > - [REST API](network-watcher-security-group-view-rest.md)
 
+> [!NOTE]
+> The Security Group View API is no longer being maintained and will be deprecated soon. Please use the [Effective Security Rules feature](./network-watcher-security-group-view-overview.md) which provides the same functionality.
+
+
 Security group view returns configured and effective network security rules that are applied to a virtual machine. This capability is useful to audit and diagnose Network Security Groups and rules that are configured on a VM to ensure traffic is being correctly allowed or denied. In this article, we show you how to retrieve the configured and effective security rules to a virtual machine using Azure CLI
 
-To perform the steps in this article, you need to [install the Azure command-line interface for Mac, Linux, and Windows (CLI)](/cli/azure/install-azure-cli).
+To perform the steps in this article, you need to [install the Azure CLI](/cli/azure/install-azure-cli) for Windows, Linux, or macOS.
 
 ## Before you begin
 

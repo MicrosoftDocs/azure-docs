@@ -5,26 +5,26 @@ services: app-service
 author: cephalin
 ms.service: app-service
 ms.topic: "include"
-ms.date: 10/24/2018
+ms.date: 05/02/2021
 ms.author: cephalin
-ms.custom: "include file"
+ms.custom: "include file", devx-track-azurecli
 ---
-In the Cloud Shell, create an App Service plan in the resource group with the [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) command.
 
-<!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
+In the Cloud Shell, create an App Service plan with the [`az appservice plan create`](/cli/azure/appservice/plan) command.
 
-The following example creates an App Service plan named `myAppServicePlan` in the **Basic** pricing tier (`--sku B1`) and in a Linux container (`--is-linux`).
+<!-- [!INCLUDE [app-service-plan](app-service-plan.md)] -->
+
+The following example creates an App Service plan named `myAppServicePlan` in the **Free** pricing tier:
 
 ```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1 --is-linux
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE --is-linux
 ```
 
 When the App Service plan has been created, the Azure CLI shows information similar to the following example:
 
-```json
+<pre>
 { 
-  "adminSiteName": null,
-  "appServicePlanName": "myAppServicePlan",
+  "freeOfferExpirationTime": null,
   "geoRegion": "West Europe",
   "hostingEnvironmentProfile": null,
   "id": "/subscriptions/0000-0000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan",
@@ -32,9 +32,9 @@ When the App Service plan has been created, the Azure CLI shows information simi
   "location": "West Europe",
   "maximumNumberOfWorkers": 1,
   "name": "myAppServicePlan",
-  < JSON data removed for brevity. >
+  &lt; JSON data removed for brevity. &gt;
   "targetWorkerSizeId": 0,
   "type": "Microsoft.Web/serverfarms",
   "workerTierName": null
 } 
-```
+</pre>

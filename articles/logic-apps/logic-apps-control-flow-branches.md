@@ -1,10 +1,10 @@
 ---
-title: Create or join parallel branches
-description: How to create or join parallel branches for workflows in Azure Logic Apps
+title: Create or join parallel branches for actions in workflows
+description: Learn how to create or merge parallel running branches for independent workflow actions in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 10/10/2018
 ---
 
@@ -59,7 +59,7 @@ and then choose **Add a parallel branch**.
 
 1. In the search box, find and select the action you want.
 
-   ![Find and select the action you want](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
+   ![Screenshot that shows the "Choose an action" window in the Logic App Designer.](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
 
    Your selected action now appears in the parallel branch, for example:
 
@@ -75,7 +75,7 @@ and then select **Add an action**.
 
 1. In the search box, find and select the action you want.
 
-   ![Find and select sequential action](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
+   ![Screenshot that shows the "Choose an action" window and search box in the Logic App Designer.](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
 
    Your selected action now appears within the current branch, for example:
 
@@ -206,13 +206,13 @@ structure in your logic app's JSON definition instead, for example:
 
 ## Get support
 
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* For questions, visit the [Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 * To submit or vote on features and suggestions, visit the 
 [Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 
-* [Run steps based on a condition (conditional statements)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Run steps based on different values (switch statements)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Run steps based on a condition (condition action)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Run steps based on different values (switch action)](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [Run and repeat steps (loops)](../logic-apps/logic-apps-control-flow-loops.md)
 * [Run steps based on grouped action status (scopes)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

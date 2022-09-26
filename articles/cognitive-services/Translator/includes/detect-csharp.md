@@ -1,9 +1,10 @@
 ---
-author: erhopf
+author: laujan
 ms.service: cognitive-services
+ms.subservice: translator-text
 ms.topic: include
 ms.date: 08/06/2019
-ms.author: erhopf
+ms.author: lajanuar
 ---
 
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
@@ -29,7 +30,7 @@ dotnet add package Newtonsoft.Json --version 11.0.2
 
 ## Select the C# language version
 
-This quickstart requires C# 7.1 or later. There are a few ways to change the C# version for your project. In this guide, we'll show you how to adjust the `detect-sample.csproj` file. For all available options, such as changing the language in Visual Studio, see [Select the C# language version](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
+This quickstart requires C# 7.1 or later. There are a few ways to change the C# version for your project. In this guide, we'll show you how to adjust the `detect-sample.csproj` file. For all available options, such as changing the language in Visual Studio, see [Select the C# language version](/dotnet/csharp/language-reference/configure-language-version).
 
 Open your project, then open `detect-sample.csproj`. Make sure that `LangVersion` is set to 7.1 or later. If there isn't a property group for the language version, add these lines:
 
@@ -54,11 +55,11 @@ using Newtonsoft.Json;
 
 ## Create classes for the JSON response
 
-Next, we're going to create a class that's used when deserializing the JSON response returned by the Translator Text API.
+Next, we're going to create a class that's used when deserializing the JSON response returned by the Translator.
 
 ```csharp
 /// <summary>
-/// The C# classes that represents the JSON returned by the Translator Text API.
+/// The C# classes that represents the JSON returned by the Translator.
 /// </summary>
 public class DetectResult
 {
@@ -79,18 +80,18 @@ public class AltTranslations
 
 ## Get subscription information from environment variables
 
-Add the following lines to the `Program` class. These lines read your subscription key and endpoint from environment variables, and throws an error if you run into any issues.
+Add the following lines to the `Program` class. These lines read your key and endpoint from environment variables, and throws an error if you run into any issues.
 
 ```csharp
-private const string key_var = "TRANSLATOR_TEXT_SUBSCRIPTION_KEY";
-private static readonly string subscriptionKey = Environment.GetEnvironmentVariable(key_var);
+private const string key_var = "TRANSLATOR_TEXT_KEY";
+private static readonly string key = Environment.GetEnvironmentVariable(key_var);
 
 private const string endpoint_var = "TRANSLATOR_TEXT_ENDPOINT";
 private static readonly string endpoint = Environment.GetEnvironmentVariable(endpoint_var);
 
 static Program()
 {
-    if (null == subscriptionKey)
+    if (null == key)
     {
         throw new Exception("Please set/export the environment variable: " + key_var);
     }
@@ -107,7 +108,7 @@ static Program()
 In the `Program` class, create a function called `DetectTextRequest()`. This class encapsulates the code used to call the Detect resource and prints the result to console.
 
 ```csharp
-static public async Task DetectTextRequest(string subscriptionKey, string endpoint, string route, string inputText)
+static public async Task DetectTextRequest(string key, string endpoint, string route, string inputText)
 {
   /*
    * The code for your call to the translation service will be added to this
@@ -156,7 +157,7 @@ request.Method = HttpMethod.Post;
 // Construct the URI and add headers.
 request.RequestUri = new Uri(endpoint + route);
 request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+request.Headers.Add("Ocp-Apim-Subscription-Key", key);
 
 // Send the request and get response.
 HttpResponseMessage response = await client.SendAsync(request).ConfigureAwait(false);
@@ -182,7 +183,7 @@ foreach (DetectResult o in deserializedOutput)
 }
 ```
 
-If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](../reference/v3-0-reference.md#authentication).
 
 ## Put it all together
 
@@ -196,7 +197,7 @@ static async Task Main(string[] args)
     // For a complete list of options, see API reference.
     string route = "/detect?api-version=3.0";
     string detectSentenceText = @"How are you doing today? The weather is pretty pleasant. Have you been to the movies lately?";
-    await DetectTextRequest(subscriptionKey, endpoint, route, detectSentenceText);
+    await DetectTextRequest(key, endpoint, route, detectSentenceText);
     Console.WriteLine("Press any key to continue.");
     Console.ReadKey();
 }
@@ -214,7 +215,7 @@ dotnet run
 After you run the sample, you should see the following printed to terminal:
 
 > [!NOTE]
-> Find the country/region abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+> Find the country/region abbreviation in this [list of languages](../language-support.md).
 
 ```bash
 The detected language is 'en'. Confidence is: 1.
@@ -261,11 +262,11 @@ This message is built from the raw JSON, which will look like this:
 
 ## Clean up resources
 
-Make sure to remove any confidential information from your sample app's source code, like subscription keys.
+Make sure to remove any confidential information from your sample app's source code, like keys.
 
 ## Next steps
 
-Take a look at the API reference to understand everything you can do with the Translator Text API.
+Take a look at the API reference to understand everything you can do with the Translator.
 
 > [!div class="nextstepaction"]
-> [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+> [API reference](../reference/v3-0-reference.md)

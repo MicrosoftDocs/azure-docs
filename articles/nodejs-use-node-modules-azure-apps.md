@@ -8,10 +8,10 @@ manager: rloutlaw
 editor: ''
 
 ms.assetid: c0e6cd3d-932d-433e-b72d-e513e23b4eb6
-ms.service: multiple
+ms.prod: azure-nodejs
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: routlaw
@@ -28,8 +28,8 @@ If you are already familiar with using Node.js modules, **package.json** and **n
 
 > [!NOTE]
 > Azure Virtual Machines are not discussed in this article, as the deployment experience in a VM is dependent on the operating system hosted by the Virtual Machine.
-> 
-> 
+>
+>
 
 ## Node.js Modules
 Modules are loadable JavaScript packages that provide specific functionality for your application. Modules are usually installed using the **npm** command-line tool, however some modules (such as the http module) are provided as part of the core Node.js package.
@@ -59,32 +59,31 @@ One potential problem with the **package.json** file is that it only specifies t
 
 > [!NOTE]
 > When deploying to Azure App Service, if your <b>package.json</b> file references a native module you might see an error similar to the following example when publishing the application using Git:
-> 
+>
 > npm ERR! module-name@0.6.0 install: 'node-gyp configure build'
-> 
+>
 > npm ERR! 'cmd "/c" "node-gyp configure build"' failed with 1
-> 
-> 
+>
+>
 
-### Using a npm-shrinkwrap.json file
+### Using an npm-shrinkwrap.json file
 The **npm-shrinkwrap.json** file is an attempt to address the module versioning limitations of the **package.json** file. While the **package.json** file only includes versions for the top-level modules, the **npm-shrinkwrap.json** file contains the version requirements for the full module dependency chain.
 
 When your application is ready for production, you can lock down version requirements and create an **npm-shrinkwrap.json** file by using the **npm shrinkwrap** command. This command will use the versions currently installed in the **node\_modules** folder, and record these versions to the **npm-shrinkwrap.json** file. After the application has been deployed to the hosting environment, the **npm install** command is used to parse the **npm-shrinkwrap.json** file and install all the dependencies listed. For more information, see [npm-shrinkwrap](https://docs.npmjs.com/cli/shrinkwrap).
 
 > [!NOTE]
 > When deploying to Azure App Service, if your <b>npm-shrinkwrap.json</b> file references a native module you might see an error similar to the following example when publishing the application using Git:
-> 
+>
 > npm ERR! module-name@0.6.0 install: 'node-gyp configure build'
-> 
+>
 > npm ERR! 'cmd "/c" "node-gyp configure build"' failed with 1
-> 
-> 
+>
+>
 
 ## Next steps
-Now that you understand how to use Node.js modules with Azure, learn how to [specify the Node.js version](https://github.com/squillace/staging/blob/master/articles/nodejs-specify-node-version-azure-apps.md), [build and deploy a Node.js web app](app-service/app-service-web-get-started-nodejs.md), and [How to use the Azure Command-Line Interface for Mac and Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
+Now that you understand how to use Node.js modules with Azure, learn how to [specify the Node.js version](https://github.com/squillace/nodejs-microservice), [build and deploy a Node.js web app](app-service/quickstart-nodejs.md), and [How to use the Azure Command-Line Interface for Mac and Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
 
-For more information, see the [Node.js Developer Center](/azure/javascript/).
+For more information, see the [Node.js Developer Center](/azure/developer/javascript/).
 
-[specify the Node.js version]: nodejs-specify-node-version-azure-apps.md
+[specify the Node.js version]: ./app-service/overview.md
 [How to use the Azure Command-Line Interface for Mac and Linux]:cli-install-nodejs.md
-[Custom Website Deployment Scripts with Kudu]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo

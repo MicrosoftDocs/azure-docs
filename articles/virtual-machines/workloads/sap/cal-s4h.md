@@ -3,163 +3,72 @@ title: Deploy SAP S/4HANA or BW/4HANA on an Azure VM | Microsoft Docs
 description: Deploy SAP S/4HANA or BW/4HANA on an Azure VM
 services: virtual-machines-linux
 documentationcenter: ''
-author: hermanndms
-manager: gwallace
+author: pepeters
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 keywords: ''
 
 ms.assetid: 44bbd2b6-a376-4b5c-b824-e76917117fa9
-ms.service: virtual-machines-linux
-
+ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/15/2016
-ms.author: hermannd
+ms.date: 06/26/2021
+ms.author: hobruche
 
 ---
-# Deploy SAP S/4HANA or BW/4HANA on Azure
-This article describes how to deploy S/4HANA on Azure by using the SAP Cloud Appliance Library (SAP CAL) 3.0. To deploy other SAP HANA-based solutions, such as BW/4HANA, follow the same steps.
+# SAP Cloud Appliance Library
 
-> [!NOTE]
-> For more information about the SAP CAL, go to the [SAP Cloud Appliance Library](https://cal.sap.com/) website. SAP also has a blog about the [SAP Cloud Appliance Library 3.0](https://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience).
-> 
-> [!NOTE]
-> As of May 29, 2017, you can use the Azure Resource Manager deployment model in addition to the less-preferred classic deployment model to deploy the SAP CAL. We recommend that you use the new Resource Manager deployment model and disregard the classic deployment model.
+[SAP Cloud Appliance Library](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) offers a quick and easy way to create SAP workloads in Azure. With a few clicks you can set up a fully configured demo environment from an Appliance Template or deploy a standardized system for an SAP product based on default or custom SAP software installation stacks. 
+This page lists the latest Appliance Templates and below the latest SAP S/4HANA stacks for production-ready deployments. 
 
-## Step-by-step process to deploy the solution
+For deployment of an appliance template you will need to authenticate with your S-User or P-User. You can create a P-User free of charge via the [SAP Community](https://community.sap.com/). 
 
-The following sequence of screenshots shows you how to deploy S/4HANA on Azure by using the SAP CAL. The process works the same way for other solutions, such as BW/4HANA.
 
-The **Solutions** page shows some of the SAP CAL HANA-based solutions available on Azure. **SAP S/4HANA 1610 FPS01, Fully-Activated Appliance** is in the middle row:
 
-![SAP CAL Solutions](./media/cal-s4h/s4h-pic-1c.png)
+[For details on Azure account creation see the SAP learning video and description](https://www.youtube.com/watch?v=iORePziUMBk&list=PLWV533hWWvDmww3OX9YPhjjS1l1n6o-H2&index=18)
 
-### Create an account in the SAP CAL
-1. To sign in to the SAP CAL for the first time, use your SAP S-User or other user registered with SAP. Then define an SAP CAL account that is used by the SAP CAL to deploy appliances on Azure. In the account definition, you need to:
+You will also find detailed answers to your questions related to SAP Cloud Appliance Library on Azure [SAP CAL FAQ](https://caldocs.hana.ondemand.com/caldocs/help/Azure_FAQs.pdf)
 
-    a. Select the deployment model on Azure (Resource Manager or classic).
+The online library is continuously updated with Appliances for demo, proof of concept and exploration of new business cases. For the most recent ones select “Create Appliance” here from the list – or visit [cal.sap.com](https://cal.sap.com/catalog#/applianceTemplates) for further templates.
 
-    b. Enter your Azure subscription. An SAP CAL account can be assigned to one subscription only. If you need more than one subscription, you need to create another SAP CAL account.
+## Deployment of appliances through SAP Cloud Appliance Library
 
-    c. Give the SAP CAL permission to deploy into your Azure subscription.
+| Appliance Templates | Link |
+| -------------- | :--------- |
+| **SAP S/4HANA 2021 FPS01, Fully-Activated Appliance**  April 26 2022 | [Create Appliance](https://cal.sap.com/registration?sguid=3f4931de-b15b-47f1-b93d-a4267296b8bc&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
+|This appliance contains SAP S/4HANA 2021 (FPS01) with pre-activated SAP Best Practices for SAP S/4HANA core functions, and further scenarios for Service, Master Data Governance (MDG), Portfolio Mgmt. (PPM), Human Capital Management (HCM), Analytics, Migration Cockpit, and more. User access happens via SAP Fiori, SAP GUI, SAP HANA Studio, Windows remote desktop, or the backend operating system for full administrative access. |  [Details]( https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/applianceTemplates/3f4931de-b15b-47f1-b93d-a4267296b8bc) ||
+| **SAP S/4HANA 2021 FPS02, Fully-Activated Appliance**  July 19 2022 | [Create Appliance](https://cal.sap.com/registration?sguid=3f4931de-b15b-47f1-b93d-a4267296b8bc&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
+|This appliance contains SAP S/4HANA 2021 (FPS02) with pre-activated SAP Best Practices for SAP S/4HANA core functions, and further scenarios for Service, Master Data Governance (MDG), Portfolio Mgmt. (PPM), Human Capital Management (HCM), Analytics, Migration Cockpit, and more. User access happens via SAP Fiori, SAP GUI, SAP HANA Studio, Windows remote desktop, or the backend operating system for full administrative access. |  [Details]( https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/applianceTemplates/3f4931de-b15b-47f1-b93d-a4267296b8bc) |
+| **SAP BW/4HANA 2021 including BW/4HANA Content 2.0 SP08 - Dev Edition**  May 11 2022 | [Create Appliance](https://cal.sap.com/registration?sguid=06725b24-b024-4757-860d-ac2db7b49577&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
+|This solution offers you an insight of SAP BW/4HANA. SAP BW/4HANA is the next generation Data Warehouse optimized for HANA. Beside the basic BW/4HANA options the solution offers a bunch of HANA optimized BW/4HANA Content and the next step of Hybrid Scenarios with SAP Data Warehouse Cloud. As the system is pre-configured you can start directly implementing your scenarios. |  [Details]( https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/applianceTemplates/06725b24-b024-4757-860d-ac2db7b49577) |
+| **SAP Business One 10.0 PL02, version for SAP HANA** August 04 2020  | [Create Appliance](https://cal.sap.com/registration?sguid=371edc8c-56c6-4d21-acb4-2d734722c712&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
+|Trusted by over 70,000 small and midsize businesses in 170+ countries, SAP Business One is a flexible, affordable, and scalable ERP solution with the power of SAP HANA. The solution is pre-configured using a 31-day trial license and has a demo database of your choice pre-installed. See the getting started guide to learn about the scope of the solution and how to easily add new demo databases. To secure your system against the CVE-2021-44228 vulnerability, apply SAP Support Note 3131789. For more information, see the Getting Started Guide of this solution (check the "Security Aspects" chapter). |  [Details](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/applianceTemplates/371edc8c-56c6-4d21-acb4-2d734722c712) |
+| **SAP Product Lifecycle Costing 4.0 SP4 Hotfix 3**  August 10 2022 | [Create Appliance](https://cal.sap.com/registration?sguid=61af97ea-be7e-4531-ae07-f1db561d0847&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
+|SAP Product Lifecycle Costing is a solution to calculate costs and other dimensions for new products or product related quotations in an early stage of the product lifecycle, to quickly identify cost drivers and to easily simulate and compare alternatives. |  [Details]( https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/applianceTemplates/61af97ea-be7e-4531-ae07-f1db561d0847) |
+| **SAP NetWeaver 7.5 SP15 on SAP ASE** January 20 2020  | [Create Appliance](https://cal.sap.com/registration?sguid=69efd5d1-04de-42d8-a279-813b7a54c1f6&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
+|SAP NetWeaver 7.5 SP15 on SAP ASE |  [Details](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/69efd5d1-04de-42d8-a279-813b7a54c1f6) |
 
-   > [!NOTE]
-   >  The next steps show how to create an SAP CAL account for Resource Manager deployments. If you already have an SAP CAL account that is linked to the classic deployment model, you *need* to follow these steps to create a new SAP CAL account. The new SAP CAL account needs to deploy in the Resource Manager model.
 
-1. Create a new SAP CAL account. The **Accounts** page shows three choices for Azure: 
 
-    a. **Microsoft Azure (classic)** is the classic deployment model and is no longer preferred.
+## Deployment of S/4HANA system for productive usage through SAP Cloud Appliance Library
 
-    b. **Microsoft Azure** is the new Resource Manager deployment model.
+You can now also deploy SAP S/4HANA systems with High Availability (HA), non-HA or single server architecture through SAP Cloud Appliance Library. The offering comprises default SAP S/4HANA software stacks including FPS levels as well as an integration into Maintenance Planner to enable creation and installation of custom SAP S/4HANA software stacks.
+The following links highlight the Product stacks that you can quickly deploy on Azure. Just select “Deploy System”.
 
-    c. **Windows Azure operated by 21Vianet** is an option in China that uses the classic deployment model.
-
-    To deploy in the Resource Manager model, select **Microsoft Azure**.
-
-    ![SAP CAL Account Details](./media/cal-s4h/s4h-pic-2a.png)
-
-1. Enter the Azure **Subscription ID** that can be found on the Azure portal.
-
-   ![SAP CAL Accounts](./media/cal-s4h/s4h-pic3c.png)
-
-1. To authorize the SAP CAL to deploy into the Azure subscription you defined, click **Authorize**. The following page appears in the browser tab:
-
-   ![Internet Explorer cloud services sign-in](./media/cal-s4h/s4h-pic4c.png)
-
-1. If more than one user is listed, choose the Microsoft account that is linked to be the coadministrator of the Azure subscription you selected. The following page appears in the browser tab:
-
-   ![Internet Explorer cloud services confirmation](./media/cal-s4h/s4h-pic5a.png)
-
-1. Click **Accept**. If the authorization is successful, the SAP CAL account definition displays again. After a short time, a message confirms that the authorization process was successful.
-
-1. To assign the newly created SAP CAL account to your user, enter your **User ID** in the text box on the right and click **Add**.
-
-   ![Account to user association](./media/cal-s4h/s4h-pic8a.png)
-
-1. To associate your account with the user that you use to sign in to the SAP CAL, click **Review**. 
+| All products | Link |
+| -------------- | :--------- |
+| **SAP S/4HANA 2021 FPS01 for Productive Deployments**   | [Deploy System](https://cal.sap.com/catalog#/products) |
+|This solution comes as a standard S/4HANA system installation including High Availability capabilities to ensure higher system uptime for productive usage. The system parameters can be customized during initial provisioning according to the requirements for the target system. |
+| **SAP S/4HANA 2021 FPS00 for Productive Deployments**   | [Deploy System](https://cal.sap.com/catalog#/products) |
+|This solution comes as a standard S/4HANA system installation including High Availability capabilities to ensure higher system uptime for productive usage. The system parameters can be customized during initial provisioning according to the requirements for the target system. |
  
-1. To create the association between your user and the newly created SAP CAL account, click **Create**.
+---
 
-   ![User to SAP CAL account association](./media/cal-s4h/s4h-pic9b.png)
+_Within a few hours, a healthy SAP S/4HANA appliance or product is deployed in Azure._
 
-You successfully created an SAP CAL account that is able to:
-
-- Use the Resource Manager deployment model.
-- Deploy SAP systems into your Azure subscription.
-
-Now you can start to deploy S/4HANA into your user subscription in Azure.
-
-> [!NOTE]
-> Before you continue, determine whether you have Azure vCPU quotas for Azure H-Series VMs. At the moment, the SAP CAL uses H-Series VMs of Azure to deploy some of the SAP HANA-based solutions. Your Azure subscription might not have any H-Series vCPU quotas for H-Series. If so, you might need to contact Azure support to get a quota of at least 16 H-Series vCPUs.
-> 
-> [!NOTE]
-> When you deploy a solution on Azure in the SAP CAL, you might find that you can choose only one Azure region. To deploy into Azure regions other than the one suggested by the SAP CAL, you need to purchase a CAL subscription from SAP. You also might need to open a message with SAP to have your CAL account enabled to deliver into Azure regions other than the ones initially suggested.
-
-### Deploy a solution
-
-Let's deploy a solution from the **Solutions** page of the SAP CAL. The SAP CAL has two sequences to deploy:
-
-- A basic sequence that uses one page to define the system to be deployed
-- An advanced sequence that gives you certain choices on VM sizes 
-
-We demonstrate the basic path to deployment here.
-
-1. On the **Account Details** page, you need to:
-
-    a. Select an SAP CAL account. (Use an account that is associated to deploy with the Resource Manager deployment model.)
-
-    b. Enter an instance **Name**.
-
-    c. Select an Azure **Region**. The SAP CAL suggests a region. If you need another Azure region and you don't have an SAP CAL subscription, you need to order a CAL subscription with SAP.
-
-    d. Enter a master **Password** for the solution of eight or nine characters. The password is used for the administrators of the different components.
-
-   ![SAP CAL Basic Mode: Create Instance](./media/cal-s4h/s4h-pic10a.png)
-
-1. Click **Create**, and in the message box that appears, click **OK**.
-
-   ![SAP CAL Supported VM Sizes](./media/cal-s4h/s4h-pic10b.png)
-
-1. In the **Private Key** dialog box, click **Store** to store the private key in the SAP CAL. To use password protection for the private key, click **Download**. 
-
-   ![SAP CAL Private Key](./media/cal-s4h/s4h-pic10c.png)
-
-1. Read the SAP CAL **Warning** message, and click **OK**.
-
-   ![SAP CAL Warning](./media/cal-s4h/s4h-pic10d.png)
-
-    Now the deployment takes place. After some time, depending on the size and complexity of the solution (the SAP CAL provides an estimate), the status is shown as active and ready for use.
-
-1. To find the virtual machines collected with the other associated resources in one resource group, go to the Azure portal: 
-
-   ![SAP CAL objects deployed in the new portal](./media/cal-s4h/sapcaldeplyment_portalview.png)
-
-1. On the SAP CAL portal, the status appears as **Active**. To connect to the solution, click **Connect**. Different options to connect to the different components are deployed within this solution.
-
-   ![SAP CAL Instances](./media/cal-s4h/active_solution.png)
-
-1. Before you can use one of the options to connect to the deployed systems, click **Getting Started Guide**. 
-
-   ![Connect to the Instance](./media/cal-s4h/connect_to_solution.png)
-
-    The documentation names the users for each of the connectivity methods. The passwords for those users are set to the master password you defined at the beginning of the deployment process. In the documentation, other more functional users are listed with their passwords, which you can use to sign in to the deployed system. 
-
-    For example, if you use the SAP GUI that's preinstalled on the Windows Remote Desktop machine, the S/4 system might look like this:
-
-   ![SM50 in the preinstalled SAP GUI](./media/cal-s4h/gui_sm50.png)
-
-    Or if you use the DBACockpit, the instance might look like this:
-
-   ![SM50 in the DBACockpit SAP GUI](./media/cal-s4h/dbacockpit.png)
-
-Within a few hours, a healthy SAP S/4 appliance is deployed in Azure.
-
-If you bought an SAP CAL subscription, SAP fully supports deployments through the SAP CAL on Azure. The support queue is BC-VCM-CAL.
-
-
-
+If you bought an SAP CAL subscription, SAP fully supports deployments through SAP CAL on Azure. The support queue is BC-VCM-CAL.
 
 
 

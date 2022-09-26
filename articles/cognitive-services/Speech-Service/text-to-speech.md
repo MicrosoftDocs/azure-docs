@@ -1,119 +1,102 @@
 ---
-title: Text-to-speech - Speech service
+title: Text-to-speech overview - Speech service
 titleSuffix: Azure Cognitive Services
-description: The text-to-speech feature in the Speech service enables your applications, tools, or devices to convert text into natural human-like synthesized speech. Choose preset voices or create your own custom voice.
+description: Get an overview of the benefits and capabilities of the text-to-speech feature of the Speech service.
 services: cognitive-services
-author: erhopf
+author: eric-urban
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 06/24/2019
-ms.author: erhopf
+ms.topic: overview
+ms.date: 09/16/2022
+ms.author: eur
+ms.custom: cog-serv-seo-aug-2020
+keywords: text to speech
 ---
 
 # What is text-to-speech?
 
-Text-to-speech from the Speech service enables your applications, tools, or devices to convert text into natural human-like synthesized speech. Choose from standard and neural voices, or create your own custom voice unique to your product or brand. 75+ standard voices are available in more than 45 languages and locales, and 5 neural voices are available in 4 languages and locales. For a full list, see [supported languages](language-support.md#text-to-speech).
+In this overview, you learn about the benefits and capabilities of the text-to-speech feature of the Speech service, which is part of Azure Cognitive Services.
 
-Text-to-speech technology allows content creators to interact with their users in different ways. Text-to-speech can improve accessibility by providing users with an option to interact with content audibly. Whether the user has a visual impairment, a learning disability, or requires navigation information while driving, text-to-speech can improve an existing experience. Text-to-speech is also a valuable add-on for voice bots and voice assistants.
-
-By leveraging Speech Synthesis Markup Language (SSML), an XML-based markup language, developers using the text-to-speech service can specify how input text is converted into synthesized speech. With SSML, you can adjust pitch, pronunciation, speaking rate, volume, and more. For more information, see [SSML](#speech-synthesis-markup-language-ssml).
-
-### Standard voices
-
-Standard voices are created using Statistical Parametric Synthesis and/or Concatenation Synthesis techniques. These voices are highly intelligible and sound natural. You can easily enable your applications to speak in more than 45 languages, with a wide range of voice options. These voices provide high pronunciation accuracy, including support for abbreviations, acronym expansions, date/time interpretations, polyphones, and more. Use standard voice to improve accessibility for your applications and services by allowing users to interact with your content audibly.
-
-### Neural voices
-
-Neural voices use deep neural networks to overcome the limits of traditional text-to-speech systems in matching the patterns of stress and intonation in spoken language, and in synthesizing the units of speech into a computer voice. Standard text-to-speech breaks down prosody into separate linguistic analysis and acoustic prediction steps that are governed by independent models, which can result in muffled voice synthesis. Our neural capability does prosody prediction and voice synthesis simultaneously, which results in a more fluid and natural-sounding voice.
-
-Neural voices can be used to make interactions with chatbots and voice assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, neural voices significantly reduce listening fatigue when you interact with AI systems.
-
-Neural voices support different styles, such as neutral and cheerful. For example, the Jessa (en-US) voice can speak cheerfully, which is optimized for warm, happy conversation. You can adjust the voice output, like tone, pitch, and speed using [Speech Synthesis Markup Language](speech-synthesis-markup.md). For a full list of available voices, see [supported languages](language-support.md#text-to-speech).
-
-To learn more about the benefits of neural voices, see [Microsoft’s new neural text-to-speech service helps machines speak like people](https://azure.microsoft.com/blog/microsoft-s-new-neural-text-to-speech-service-helps-machines-speak-like-people/).
-
-### Custom voices
-
-Voice customization lets you create a recognizable, one-of-a-kind voice for your brand. To create your custom voice font, you make a studio recording and upload the associated scripts as the training data. The service then creates a unique voice model tuned to your recording. You can use this custom voice font to synthesize speech. For more information, see [custom voices](how-to-customize-voice-font.md).
-
-## Speech Synthesis Markup Language (SSML)
-
-Speech Synthesis Markup Language (SSML) is an XML-based markup language that lets developers specify how input text is converted into synthesized speech using the text-to-speech service. Compared to plain text, SSML allows developers to fine-tune the pitch, pronunciation, speaking rate, volume, and more of the text-to-speech output. Normal punctuation, such as pausing after a period, or using the correct intonation when a sentence ends with a question mark are automatically handled.
-
-All text inputs sent to the text-to-speech service must be structured as SSML. For more information, see [Speech Synthesis Markup Language](speech-synthesis-markup.md).
-
-### Pricing note
-
-When using the text-to-speech service, you are billed for each character that is converted to speech, including punctuation. While the SSML document itself is not billable, optional elements that are used to adjust how the text is converted to speech, like phonemes and pitch, are counted as billable characters. Here's a list of what's billable:
-
-- Text passed to the text-to-speech service in the SSML body of the request
-- All markup within the text field of the request body in the SSML format, except for `<speak>` and `<voice>` tags
-- Letters, punctuation, spaces, tabs, markup, and all white-space characters
-- Every code point defined in Unicode
-
-For detailed information, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
-
-> [!IMPORTANT]
-> Each Chinese, Japanese, and Korean language character is counted as two characters for billing.
+Text-to-speech enables your applications, tools, or devices to convert text into humanlike synthesized speech. The text-to-speech capability is also known as speech synthesis. Use humanlike prebuilt neural voices out of the box, or create a custom neural voice that's unique to your product or brand. For a full list of supported voices, languages, and locales, see [Language and voice support for the Speech service](language-support.md?tabs=stt-tts).
 
 ## Core features
 
-This table lists the core features for text-to-speech:
+Text-to-speech includes the following features:
 
-| Use case                                  | SDK | REST  |
-| ----------------------------------------- | --- | ----- |
-| Convert text to speech.                   | Yes | Yes   |
-| Upload datasets for voice adaptation.     | No  | Yes\* |
-| Create and manage voice font models.      | No  | Yes\* |
-| Create and manage voice font deployments. | No  | Yes\* |
-| Create and manage voice font tests.       | No  | Yes\* |
-| Manage subscriptions.                     | No  | Yes\* |
+| Feature | Summary | Demo |
+| --- | --- | --- |
+| Prebuilt neural voice (called *Neural* on the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)) | Highly natural out-of-the-box voices. Create an Azure account and Speech service subscription, and then use the [Speech SDK](./get-started-text-to-speech.md) or visit the [Speech Studio portal](https://speech.microsoft.com/portal) and select prebuilt neural voices to get started. Check the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). | Check the [voice samples](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#overview) and determine the right voice for your business needs. |
+| Custom neural voice (called *Custom Neural* on the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)) | Easy-to-use self-service for creating a natural brand voice, with limited access for responsible use. Create an Azure account and Speech service subscription (with the S0 tier), and [apply](https://aka.ms/customneural) to use the custom neural feature. After you've been granted access, visit the [Speech Studio portal](https://speech.microsoft.com/portal) and select **Custom Voice** to get started. Check the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). | Check the [voice samples](https://aka.ms/customvoice). |
 
-\*_These services are available using the cris.ai endpoint. See [Swagger reference](https://westus.cris.ai/swagger/ui/index). These custom voice training and management APIs implement throttling that limits requests to 25 per 5 seconds, while the speech synthesis API itself implements throttling that allows 200 requests per second as the highest. When throttling occurs, you'll be notified via message headers._
+### More about neural text-to-speech features
 
-## Get started with text to speech
+The text-to-speech feature of the Speech service on Azure has been fully upgraded to the neural text-to-speech engine. This engine uses deep neural networks to make the voices of computers nearly indistinguishable from the recordings of people. With the clear articulation of words, neural text-to-speech significantly reduces listening fatigue when users interact with AI systems.
 
-We offer quickstarts designed to have you running code in less than 10 minutes. This table includes a list of text-to-speech quickstarts organized by language.
+The patterns of stress and intonation in spoken language are called _prosody_. Traditional text-to-speech systems break down prosody into separate linguistic analysis and acoustic prediction steps that are governed by independent models. That can result in muffled, buzzy voice synthesis.
 
-### SDK quickstarts
+Here's more information about neural text-to-speech features in the Speech service, and how they overcome the limits of traditional text-to-speech systems:
 
-| Quickstart (SDK) | Platform | API Reference |
-| ---------------- | -------- | ------------- |
-| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)  | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET Framework](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnet) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=uwp) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, Unity](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=unity) | Windows, Android | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-cpp&tabs=windows) | Windows | [Browse](https://aka.ms/csspeech/cppref) |
-| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-cpp&tabs=linux) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
-| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-java&tabs=jre) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/javaref) |
-| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-java&tabs=android) | Android | [Browse](https://aka.ms/csspeech/javaref) |
-| [Objective-C](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/objectivec-macos.md) | macOS | [Browse](https://aka.ms/csspeech/objectivecref) |
-| [Objective-C](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/objectivec-ios.md) | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
-| [Swift](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/swift-macos.md) | macOS | [Browse](https://aka.ms/csspeech/objectivecref) |
-| [Swift](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/swift-ios.md) | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
-| [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python) | Window, Linux, macOS | [Browse](https://aka.ms/csspeech/pythonref) |
+* **Real-time speech synthesis**: Use the [Speech SDK](./get-started-text-to-speech.md) or [REST API](rest-text-to-speech.md) to convert text-to-speech by using [prebuilt neural voices](language-support.md?tabs=stt-tts) or [custom neural voices](custom-neural-voice.md).
 
-### REST quickstarts
+* **Asynchronous synthesis of long audio**: Use the [Long Audio API](long-audio-api.md) to asynchronously synthesize text-to-speech files longer than 10 minutes (for example, audio books or lectures). Unlike synthesis performed via the Speech SDK or speech-to-text REST API, responses aren't returned in real time. The expectation is that requests are sent asynchronously, responses are polled for, and synthesized audio is downloaded when the service makes it available.
 
-| Quickstart (REST) | Platform | API reference |
-| ----------------- | -------- | ------------- |
-| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Node.js](quickstart-nodejs-text-to-speech.md) | Window, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Python](quickstart-python-text-to-speech.md) | Window, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+* **Prebuilt neural voices**: Microsoft neural text-to-speech capability uses deep neural networks to overcome the limits of traditional speech synthesis with regard to stress and intonation in spoken language. Prosody prediction and voice synthesis happen simultaneously, which results in more fluid and natural-sounding outputs. You can use neural voices to:
+
+  - Make interactions with chatbots and voice assistants more natural and engaging.
+  - Convert digital texts such as e-books into audiobooks.
+  - Enhance in-car navigation systems.
+
+  For a full list of platform neural voices, see [Language and voice support for the Speech service](language-support.md?tabs=stt-tts).
+
+* **Fine-tuning text-to-speech output with SSML**: Speech Synthesis Markup Language (SSML) is an XML-based markup language that's used to customize text-to-speech outputs. With SSML, you can adjust pitch, add pauses, improve pronunciation, change speaking rate, adjust volume, and attribute multiple voices to a single document.
+
+  You can use SSML to define your own lexicons or switch to different speaking styles. With the [multilingual voices](https://techcommunity.microsoft.com/t5/azure-ai/azure-text-to-speech-updates-at-build-2021/ba-p/2382981), you can also adjust the speaking languages via SSML. To fine-tune the voice output for your scenario, see [Improve synthesis with Speech Synthesis Markup Language](speech-synthesis-markup.md).
+
+* **Visemes**: [Visemes](how-to-speech-synthesis-viseme.md) are the key poses in observed speech, including the position of the lips, jaw, and tongue in producing a particular phoneme. Visemes have a strong correlation with voices and phonemes.
+
+  By using viseme events in Speech SDK, you can generate facial animation data. This data can be used to animate faces in lip-reading communication, education, entertainment, and customer service. Viseme is currently supported only for the `en-US` (US English) [neural voices](language-support.md?tabs=stt-tts).
+
+> [!NOTE]
+> We plan to retire the traditional/standard voices and non-neural custom voice in 2024. After that, we'll no longer support them. 
+> 
+> If your applications, tools, or products are using any of the standard voices and custom voices, you must migrate to the neural version. For more information, see [Migrate to neural voices](migration-overview-neural-voice.md).
+
+## Get started
+
+To get started with text-to-speech, see the [quickstart](get-started-text-to-speech.md). Text-to-speech is available via the [Speech SDK](speech-sdk.md), the [REST API](rest-text-to-speech.md), and the [Speech CLI](spx-overview.md).
 
 ## Sample code
 
-Sample code for text-to-speech is available on GitHub. These samples cover text-to-speech conversion in most popular programming languages.
+Sample code for text-to-speech is available on GitHub. These samples cover text-to-speech conversion in most popular programming languages:
 
-- [Text-to-speech samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
-- [Text-to-speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+* [Text-to-speech samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [Text-to-speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
-[!INCLUDE [speech-reference-doc-links](includes/speech-reference-doc-links.md)]
+## Custom neural voice
+
+In addition to prebuilt neural voices, you can create and fine-tune custom neural voices that are unique to your product or brand. All it takes to get started is a handful of audio files and the associated transcriptions. For more information, see [Get started with custom neural voice](how-to-custom-voice.md).
+
+## Pricing note
+
+When you use the text-to-speech feature, you're billed for each character that's converted to speech, including punctuation. Although the SSML document itself is not billable, optional elements that are used to adjust how the text is converted to speech, like phonemes and pitch, are counted as billable characters. Here's a list of what's billable:
+
+* Text passed to the text-to-speech feature in the SSML body of the request
+* All markup within the text field of the request body in the SSML format, except for `<speak>` and `<voice>` tags
+* Letters, punctuation, spaces, tabs, markup, and all white-space characters
+* Every code point defined in Unicode
+
+For detailed information, see [Speech service pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+
+> [!IMPORTANT]
+> Each Chinese character is counted as two characters for billing, including kanji used in Japanese, hanja used in Korean, or hanzi used in other languages.  
+
+## Reference docs
+
+* [Speech SDK](speech-sdk.md)
+* [REST API: Text-to-speech](rest-text-to-speech.md)
 
 ## Next steps
 
-- [Get a free Speech service subscription](get-started.md)
-- [Create custom voice fonts](how-to-customize-voice-font.md)
+* [Text to speech quickstart](get-started-text-to-speech.md)
+* [Get the Speech SDK](speech-sdk.md)

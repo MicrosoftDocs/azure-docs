@@ -1,22 +1,14 @@
-﻿---
-title: Visualizing your cluster using Azure Service Fabric Explorer | Microsoft Docs
-description: Service Fabric Explorer is an application for inspecting and managing cloud applications and nodes in a Microsoft Azure Service Fabric cluster.
-services: service-fabric
-documentationcenter: .net
-author: mikkelhegn
-manager: msfussell
-editor: ''
-
-ms.assetid: c875b993-b4eb-494b-94b5-e02f5eddbd6a
-ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2019
-ms.author: mikhegn
-
 ---
+title: Visualizing your cluster using Azure Service Fabric Explorer 
+description: Service Fabric Explorer is an application for inspecting and managing cloud applications and nodes in a Microsoft Azure Service Fabric cluster.
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
+---
+
 # Visualize your cluster with Service Fabric Explorer
 
 Service Fabric Explorer (SFX) is an open-source tool for inspecting and managing Azure Service Fabric clusters. Service Fabric Explorer is a desktop application for Windows, macOS and Linux.
@@ -58,7 +50,13 @@ To connect to a Service Fabric cluster, you need the clusters management endpoin
 You can control client access to your Service Fabric cluster either with certificates or using Azure Active Directory (AAD).
 
 If you attempt to connect to a secure cluster, then depending on the cluster's configuration you will be required to present a client certificate or sign in using AAD.
+## Video tutorial
 
+[<b>Check this page for a training video to learn how to use Service Fabric Explorer.</b>](/shows/building-microservices-applications-on-azure-service-fabric/service-fabric-explorer)
+
+[!NOTE]
+> This video shows Service Fabric Explorer hosted in a Service Fabric cluster, not the desktop version.
+>
 ## Understand the Service Fabric Explorer layout
 You can navigate through Service Fabric Explorer by using the tree on the left. At the root of the tree, the cluster dashboard provides an overview of your cluster, including a summary of application and node health.
 
@@ -111,7 +109,7 @@ You can also use Service Fabric Explorer to create application instances for a g
 ## Event Store
 EventStore is a feature offered by the platform that provides Service Fabric platform events available in the Service Fabric Explorer and through REST API. You can see a snapshot view of what's going on in your cluster for each entity e.g. node, service, application and query based on the time of the event. You can also Read more about the EventStore at the [EventStore Overview](service-fabric-diagnostics-eventstore.md).   
 
-![EventStore][sfx-eventstore]
+![Screenshot shows the Nodes pane with EVENTS selected.][sfx-eventstore]
 
 >[!NOTE]
 >As of Service Fabric version 6.4. EventStore is not enabled by default and must be enabled in the resource manager template
@@ -122,7 +120,7 @@ EventStore is a feature offered by the platform that provides Service Fabric pla
 ## Image Store Viewer
 Image store viewer is a feature offered if using Native Image Store that allows for viewing the current contents of the Image store and get file and folder information, along with removing files/folders.
 
-![Service Fabric Explorer cluster map][sfx-imagestore]
+![Screenshot that shows the Image Store Viewer.][sfx-imagestore]
 
 ## Backup and Restore
 Service Fabric Explorer offers the ability to interface with [Backup and Restore](./service-fabric-reliable-services-backup-restore.md). In order to see Backup and Restore features in SFX, advanced mode must be enabled.
@@ -137,7 +135,7 @@ The following operations are possible:
 * Trigger and track Backup of a partition.
 * Trigger and track Restore for a partition.
 
-For more on the Backup and Restore service, see the [REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore).
+For more on the Backup and Restore service, see the [REST API reference](/rest/api/servicefabric/sfclient-index-backuprestore).
 ## Next steps
 * [Managing your Service Fabric applications in Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Service Fabric application deployment using PowerShell](service-fabric-deploy-remove-applications.md)

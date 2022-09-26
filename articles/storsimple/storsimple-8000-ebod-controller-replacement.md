@@ -9,15 +9,16 @@ editor: ''
 
 ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/02/2017
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Replace an EBOD controller on your StorSimple device
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 This tutorial explains how to replace a faulty EBOD controller module on your Microsoft Azure StorSimple device. To replace an EBOD controller module, you need to:
@@ -31,7 +32,7 @@ Consider the following information before you begin:
 * The EBOD controller is hot-swappable and can be removed or replaced. Do not remove a failed module until you have a replacement. When you initiate the replacement process, you must finish it within 10 minutes.
 
 > [!IMPORTANT]
-> Before attempting to remove or replace any StorSimple component, make sure that you review the [safety icon conventions](storsimple-safety.md#safety-icon-conventions) and other [safety precautions](storsimple-safety.md).
+> Before attempting to remove or replace any StorSimple component, make sure that you review the [safety icon conventions](storsimple-8000-safety.md#safety-icon-conventions) and other [safety precautions](storsimple-8000-safety.md).
 
 ## Remove an EBOD controller
 Before replacing the failed EBOD controller module in your StorSimple device, make sure that the other EBOD controller module is active and running. The following procedure and table explain how to remove the EBOD controller module.

@@ -3,7 +3,13 @@ ms.service: logic-apps
 ms.topic: include
 author: ecfan
 ms.author: estfan
-ms.date: 09/18/2019
+ms.date: 08/02/2022
 ---
 
-When you use a trigger or action that accesses a service for the first time, the Logic Apps Designer prompts you to create a *connection* to that service. You can then provide the necessary connection information directly from your logic app inside the designer.
+When you add a trigger or action that connects to a service or system, and you don't have an existing or active connection, Azure Logic Apps prompts you to provide the connection information, which varies based on the connection type, for example:
+
+* Your account credentials
+* A name to use for the connection
+* The name for the server or system
+* The authentication type to use
+* A connection string

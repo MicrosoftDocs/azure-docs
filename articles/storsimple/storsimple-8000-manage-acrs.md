@@ -9,15 +9,16 @@ editor: ''
 
 ms.assetid: 
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Use the StorSimple Manager service to manage access control records
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 Access control records (ACRs) allow you to specify which hosts can connect to a volume on the StorSimple device. ACRs are set to a specific volume and contain the iSCSI Qualified Names (IQNs) of the hosts. When a host tries to connect to a volume, the device checks the ACR associated with that volume for the IQN name and if there is a match, then the connection is established. The access control records in the **Configuration** section of your StorSimple Device Manager service blade display all the access control records with the corresponding IQNs of the hosts.
@@ -59,11 +60,11 @@ Perform the following steps to add an ACR.
 
     3. Click **Add** to create the ACR.
 
-        ![Click add ACR](./media/storsimple-8000-manage-acrs/createacr2.png)
+        ![Click add ACR 2](./media/storsimple-8000-manage-acrs/createacr2.png)
 
 4.  The newly added ACR will display in the tabular listing of ACRs.
 
-    ![Click add ACR](./media/storsimple-8000-manage-acrs/createacr5.png)
+    ![Click add ACR 3](./media/storsimple-8000-manage-acrs/createacr5.png)
 
 
 ## Edit an access control record
@@ -85,11 +86,11 @@ Perform the following steps to edit an ACR.
 
 3. In the **Edit access control record** blade, provide a different IQN corresponding to another host.
 
-    ![Edit access control records](./media/storsimple-8000-manage-acrs/editacr2.png)
+    ![Edit access control records 2](./media/storsimple-8000-manage-acrs/editacr2.png)
 
 4. Click **Save**. When prompted for confirmation, click **Yes**. 
 
-    ![Edit access control records](./media/storsimple-8000-manage-acrs/editacr3.png)
+    ![Edit access control records 3](./media/storsimple-8000-manage-acrs/editacr3.png)
 
 5. You are notified when the ACR is updated. The tabular listing also updates to reflect the change.
 
@@ -105,23 +106,23 @@ Perform the following steps to delete an access control record.
 #### To delete an access control record
 1.  Go to your StorSimple Device Manager service, double-click the service name, and then within the **Configuration** section, click **Access control records**.
 
-    ![Go to access control records](./media/storsimple-8000-manage-acrs/createacr1.png)
+    ![Go to access control records 1b](./media/storsimple-8000-manage-acrs/createacr1.png)
 
 2. In the tabular listing of the access control records, click and select the ACR that you wish to delete.
 
-    ![Go to access control records](./media/storsimple-8000-manage-acrs/deleteacr1.png)
+    ![Go to access control records 2](./media/storsimple-8000-manage-acrs/deleteacr1.png)
 
 3. Right-click to invoke the context menu and select **Delete**.
 
-    ![Go to access control records](./media/storsimple-8000-manage-acrs/deleteacr2.png)
+    ![Go to access control records 3](./media/storsimple-8000-manage-acrs/deleteacr2.png)
 
 4. When prompted for confirmation, review the information and then click **Delete**.
 
-    ![Go to access control records](./media/storsimple-8000-manage-acrs/deleteacr3.png)
+    ![Go to access control records 4](./media/storsimple-8000-manage-acrs/deleteacr3.png)
 
 5. You are notified when the deletion completes. The tabular listing is updated to reflect the deletion.
 
-    ![Go to access control records](./media/storsimple-8000-manage-acrs/deleteacr5.png)
+    ![Go to access control records 5](./media/storsimple-8000-manage-acrs/deleteacr5.png)
 
 ## Next steps
 * Learn more about [managing StorSimple volumes](storsimple-8000-manage-volumes-u2.md).

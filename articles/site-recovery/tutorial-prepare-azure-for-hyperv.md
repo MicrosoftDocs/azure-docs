@@ -1,12 +1,9 @@
 ---
 title: Prepare Azure for Hyper-V disaster recovery with Azure Site Recovery
 description: Learn how to prepare Azure for disaster recovery of on-premises Hyper-V VMs by using Azure Site Recovery
-author: rayne-wiselman
 ms.service: site-recovery
-services: site-recovery
 ms.topic: tutorial
 ms.date: 11/14/2019
-ms.author: raynew
 ms.custom: MVC
 
 ---
@@ -51,14 +48,14 @@ Images of replicated machines are held in Azure storage. Azure VMs are created f
 2. In **Create storage account**, enter a name for the account.  The name you choose must be unique within Azure, be from 3 to 24 characters long, and only use lowercase letters and numbers. For this tutorial, use **contosovmsacct1910171607**.
 3. In **Deployment model**, select **Resource Manager**.
 4. In **Account kind**, select **Storage (general-purpose v1)**. Don't select blob storage.
-5. In **Replication**, select the default **Read-access geo-redundant storage** for storage redundancy. Leave the Secure transfer required setting as Disabled.
+5. In **Replication**, select the default **Read-access geo-redundant storage** for storage redundancy.
 6. In **Performance**, select **Standard**. Next, in **Access tier**, select the default option of **Hot**.
 7. In **Subscription**, choose the subscription in which you want to create the new storage account.
 8. In **Resource group**, enter a new resource group. An Azure resource group is a logical container in which Azure resources are deployed and managed. For this tutorial, use **ContosoRG**.
 9. In **Location**, choose the geographic location for your storage account. For this tutorial, use **West Europe**.
 10. Select **Create** to create the storage account.
 
-   ![Create a storage account](media/tutorial-prepare-azure/create-storageacct.png)
+   ![Screenshot of the Create a storage account options.](media/tutorial-prepare-azure/create-storageacct.png)
 
 ## Create a recovery services vault
 
@@ -69,7 +66,7 @@ Images of replicated machines are held in Azure storage. Azure VMs are created f
 3. In **Location**, select the region where the vault should be located. For this tutorial, use **West Europe**.
 4. To quickly access the vault from the dashboard, select **Pin to dashboard** > **Create**.
 
-![Create a new vault](./media/tutorial-prepare-azure/new-vault-settings.png)
+![Screenshot of the Create Recovery Services vault page.](./media/tutorial-prepare-azure/new-vault-settings.png)
 
 The new vault appears on **Dashboard** > **All resources**, and on the main **Recovery Services vaults** page.
 
@@ -86,15 +83,15 @@ When Azure VMs are created from storage after failover, they're joined to this n
 7. Leave the default options of basic DDoS protection, with no service endpoint on the network.
 8. Select **Create**.
 
-![Create a virtual network](media/tutorial-prepare-azure/create-network.png)
+![Screenshot of the Create virtual network options.](media/tutorial-prepare-azure/create-network.png)
 
 The virtual network takes a few seconds to create. After it's created, you'll see it in the Azure portal dashboard.
 
 ## Useful links
 
 Learn about:
-- [Azure networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
-- [Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)
+- [Azure networks](../virtual-network/virtual-networks-overview.md)
+- [Managed disks](../virtual-machines/managed-disks-overview.md)
 
 
 

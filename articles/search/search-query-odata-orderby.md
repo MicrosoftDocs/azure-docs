@@ -4,26 +4,18 @@ titleSuffix: Azure Cognitive Search
 description: Syntax and language reference documentation for using order-by in Azure Cognitive Search queries.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: bevloh
+ms.author: beloh
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 11/04/2019
-translation.priority.mt:
-  - "de-de"
-  - "es-es"
-  - "fr-fr"
-  - "it-it"
-  - "ja-jp"
-  - "ko-kr"
-  - "pt-br"
-  - "ru-ru"
-  - "zh-cn"
-  - "zh-tw"
+ms.topic: reference
+ms.date: 07/18/2022
 ---
+
 # OData $orderby syntax in Azure Cognitive Search
 
- You can use the [OData **$orderby** parameter](query-odata-filter-orderby-syntax.md) to apply a custom sort order for search results in Azure Cognitive Search. This article describes the syntax of **$orderby** in detail. For more general information about how to use **$orderby** when presenting search results, see [How to work with search results in Azure Cognitive Search](search-pagination-page-layout.md).
+In Azure Cognitive Search, the **$orderby** parameter specifies custom sort order for search results. This article describes the OData syntax of **$orderby** and provides examples.
+
+Field path construction and constants are described in the [OData language overview in Azure Cognitive Search](query-odata-filter-orderby-syntax.md). For more information about sorting and search results composition, see [How to work with search results in Azure Cognitive Search](search-pagination-page-layout.md).
 
 ## Syntax
 
@@ -45,7 +37,9 @@ An interactive syntax diagram is also available:
 > [!NOTE]
 > See [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md) for the complete EBNF.
 
-Each clause has sort criteria, optionally followed by a sort direction (`asc` for ascending or `desc` for descending). If you don't specify a direction, the default is ascending. The sort criteria can either be the path of a `sortable` field or a call to either the [`geo.distance`](search-query-odata-geo-spatial-functions.md) or the [`search.score`](search-query-odata-search-score-function.md) functions.
+Each clause has sort criteria, optionally followed by a sort direction (`asc` for ascending or `desc` for descending). If you don't specify a direction, the default is ascending. If there are null values in the field, null values appear first if the sort is `asc` and last if the sort is `desc`.
+
+The sort criteria can either be the path of a `sortable` field or a call to either the [`geo.distance`](search-query-odata-geo-spatial-functions.md) or the [`search.score`](search-query-odata-search-score-function.md) functions.
 
 If multiple documents have the same sort criteria and the `search.score` function isn't used (for example, if you sort by a numeric `Rating` field and three documents all have a rating of 4), ties will be broken by document score in descending order. When document scores are the same (for example, when there's no full-text search query specified in the request), then the relative ordering of the tied documents is indeterminate.
 
@@ -59,23 +53,31 @@ The syntax for `search.score` in **$orderby** is `search.score()`. The function 
 
 Sort hotels ascending by base rate:
 
+```odata-filter-expr
     $orderby=BaseRate asc
+```
 
 Sort hotels descending by rating, then ascending by base rate (remember that ascending is the default):
 
+```odata-filter-expr
     $orderby=Rating desc,BaseRate
+```
 
 Sort hotels descending by rating, then ascending by distance from the given coordinates:
 
+```odata-filter-expr
     $orderby=Rating desc,geo.distance(Location, geography'POINT(-122.131577 47.678581)') asc
+```
 
 Sort hotels in descending order by search.score and rating, and then in ascending order by distance from the given coordinates. Between two hotels with identical relevance scores and ratings, the closest one is listed first:
 
+```odata-filter-expr
     $orderby=search.score() desc,Rating desc,geo.distance(Location, geography'POINT(-122.131577 47.678581)') asc
+```
 
 ## Next steps  
 
 - [How to work with search results in Azure Cognitive Search](search-pagination-page-layout.md)
 - [OData expression language overview for Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
 - [OData expression syntax reference for Azure Cognitive Search](search-query-odata-syntax-reference.md)
-- [Search Documents &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Search Documents &#40;Azure Cognitive Search REST API&#41;](/rest/api/searchservice/Search-Documents)

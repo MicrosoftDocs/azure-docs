@@ -1,0 +1,99 @@
+### YamlMime:Landing
+
+title: Azure Cloud Services (extended support) documentation
+summary: Learn how to use Cloud Services to host and run highly available, scalable cloud applications and APIs. Shows how to manage virtual machine hosts and configure, patch, and install software.
+
+metadata:
+  title: Azure Cloud Services (extended support) documentation
+  description: Describes how to use Cloud Services to host and run highly available and scalable cloud applications and APIs.
+  ms.service: cloud-services-extended-support
+  service: cloud-services-extended-support
+  ms.topic: landing-page
+  author: mimckitt
+  ms.author: mimckitt
+  ms.date: 03/06/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About Cloud Services (extended support)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Cloud Services (extended support)?
+            url: overview.md
+          - text: Prerequisites for deployment
+            url: deploy-prerequisite.md
+          - text: Config files and packaging
+            url: cloud-services-model-and-package.md
+
+  # Card
+  - title: Tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deploy using PowerShell
+            url: deploy-powershell.md
+          - text: Deploy using the Azure portal
+            url: deploy-portal.md
+          - text: Deploy using ARM templates
+            url: deploy-template.md
+          - text: Deploy using Visual Studio
+            url: deploy-visual-studio.md
+
+  # Card
+  - title: Concepts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Available sizes
+            url: available-sizes.md
+          - text: Power and Provisioning States
+            url: states.md
+          - text: Frequently asked questions
+            url: faq.yml
+          - text: Guest OS release news
+            url: ../cloud-services/cloud-services-guestos-update-matrix.md?toc=/azure/cloud-services-extended-support/toc.json&bc=/azure/cloud-services-extended-support/breadcrumb/toc.json
+
+  # Card
+  - title: How-to Guides
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Extensions
+            url: extensions.md
+          - text: Enable alerts
+            url: enable-alerts.md
+          - text: Configure scaling
+            url: configure-scaling.md
+          - text: Certificates
+            url: certificates-and-key-vault.md
+
+  # Card
+  - title: Samples
+    linkLists:
+      - linkListType: sample
+        links:
+          - text: Sample Templates
+            url: https://github.com/Azure-Samples/cloud-services-extended-support
+          - text: Create a Cloud Service deployment
+            url: sample-create-cloud-service.md
+          - text: Retrieve information about a Cloud Service deployment
+            url: sample-get-cloud-service.md
+          - text: Update a Cloud Service deployment
+            url: sample-update-cloud-service.md
+          - text: Reset a Cloud Service deployment
+            url: sample-reset-cloud-service.md
+
+  # Card
+  - title: Schema Information
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Config Schema
+            url: schema-cscfg-file.md
+          - text: Definition Schema
+            url: schema-csdef-file.md
+          - text: Config Role Schema
+            url: schema-cscfg-role.md

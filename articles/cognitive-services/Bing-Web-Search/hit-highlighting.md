@@ -3,17 +3,19 @@ title: How to use decoration markers to highlight text - Bing Web Search API
 titleSuffix: Azure Cognitive Services
 description: Learn how to use text decorations and hit highlighting in your search results using the Bing Web Search API.
 services: cognitive-services
-author: swhite-msft
+
 manager: nitinme
 ms.assetid: 5365B568-EA55-4D97-8FBE-0AF60158D4D5
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.author: scottwhi
+
 ---
 
 # Using decoration markers to highlight text
+
+[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
 
 Bing supports hit highlighting, which marks query terms (or other terms that Bing finds relevant) in the display strings of some answers. For example, a webpage result's `name`, `displayUrl`, and `snippet` fields might contain marked query terms. 
 
@@ -29,7 +31,7 @@ Before displaying the result in your user interface, replace the Unicode charact
 
 ## Marker formatting
 
-Bing provides the option of using either Unicode characters or HTML tags as markers. To specify which markers to use, include the [textFormat](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat) query parameter: 
+Bing provides the option of using either Unicode characters or HTML tags as markers. To specify which markers to use, include the [textFormat](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat) query parameter: 
 
 | Value             | Marker                       |
 |-------------------|------------------------------|

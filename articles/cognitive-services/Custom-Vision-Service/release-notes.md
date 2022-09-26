@@ -3,14 +3,14 @@ title: Release Notes - Custom Vision Service
 titleSuffix: Azure Cognitive Services
 description: Get the latest information on new releases from the Custom Vision team.
 services: cognitive-services
-author: anrothMSFT
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: anroth
+ms.author: pafarley
 ---
 
 # Custom Vision Service Release Notes
@@ -37,7 +37,7 @@ ms.author: anroth
 
 - Custom Vision Service has entered General Availability on Azure!
 - Added Advanced Training feature with a new machine learning backend for improved performance, especially on challenging datasets and fine-grained classification. With advanced training, you can specify a compute time budget for training and Custom Vision will experimentally identify the best training and augmentation settings. For quick iterations, you can continue to use the existing fast training.
-- Introduced 3.0 APIs. Announced coming deprecation of pre-3.0 APIs on October 1, 2019. See the documentation quickstarts for [.Net](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/csharp-tutorial), [Python](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/python-tutorial), [Node](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/node-tutorial), [Java](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/java-tutorial), or [Go](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/go-tutorial) for examples on how to get started.
+- Introduced 3.0 APIs. Announced coming deprecation of pre-3.0 APIs on October 1, 2019. See the documentation [quickstarts](./quickstarts/image-classification.md) for examples on how to get started.
 - Replaced "Default Iterations" with Publish/Unpublish in the 3.0 APIs.
 - New model export targets have been added. Dockerfile export has been upgraded to support ARM for Raspberry Pi 3. Export support has been added to the [Vision AI Dev Kit.](https://visionaidevkit.com/).
 - Increased limit of Tags per project to 500 for S0 tier. Increased limit of Images per project to 100,000 for S0 tier.

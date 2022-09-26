@@ -1,16 +1,16 @@
 ---
 title: Schema updates June-1-2016
-description: Updated schema version 2016-06-01 for logic app definitions in Azure Logic Apps
+description: Updated schema version 2016-06-01 for logic app definitions in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-author: kevinlam1
-ms.author: klam
-ms.reviewer: estfan, logicappspm
-ms.topic: article
-ms.date: 07/25/2016
+ms.reviewer: estfan, azla
+ms.topic: conceptual
+ms.date: 08/20/2022
 ---
 
 # Schema updates for Azure Logic Apps - June 1, 2016
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 The [updated schema](https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json) 
 and API version for Azure Logic Apps includes key improvements that make logic apps more reliable and easier to use:
@@ -28,7 +28,7 @@ To upgrade your logic apps from the August 1, 2015 preview schema to the June 1,
 
 This schema includes scopes, which let you group actions together, 
 or nest actions inside each other. For example, a condition can contain another condition. 
-Learn more about [scope syntax](../logic-apps/logic-apps-loops-and-scopes.md), 
+Learn more about [scope syntax](./logic-apps-control-flow-loops.md), 
 or review this basic scope example:
 
 ```json
@@ -58,7 +58,7 @@ or review this basic scope example:
 In previous schema versions, conditions and loops were parameters 
 associated with a single action. This schema lifts this limitation, 
 so conditions and loops are now available as action types. 
-Learn more about [loops and scopes](../logic-apps/logic-apps-loops-and-scopes.md), 
+Learn more about [loops and scopes](./logic-apps-control-flow-loops.md), 
 [conditions](../logic-apps/logic-apps-control-flow-conditional-statement.md), 
 or review this basic example that shows a condition action:
 
@@ -169,7 +169,7 @@ However, the change automatically happens when you upgrade.
 The condition becomes a filter action that appears prior to 
 the **For each** loop, returning only an array of items 
 that match the condition, and passing that array to **For each** action. 
-For an example, see [Loops and scopes](../logic-apps/logic-apps-loops-and-scopes.md).
+For an example, see [Loops and scopes](./logic-apps-control-flow-loops.md).
 
 ### Resource tags
 

@@ -4,32 +4,35 @@ description: This topic describes the directory extensions feature in Azure AD C
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: amycolannino
 editor: ''
 
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
 ms.service: active-directory
-ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/12/2019
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 
 ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Directory extensions
-You can use directory extensions to extend the schema in Azure Active Directory (Azure AD) with your own attributes from on-premises Active Directory. This feature enables you to build LOB apps by consuming attributes that you continue to manage on-premises. These attributes can be consumed through [Azure AD Graph API directory extensions](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) or [Microsoft Graph](https://developer.microsoft.com/graph/). You can see the available attributes by using [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/) and [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), respectively. You can also use this feature to create dynamic groups in Azure AD.
+You can use directory extensions to extend the schema in Azure Active Directory (Azure AD) with your own attributes from on-premises Active Directory. This feature enables you to build LOB apps by consuming attributes that you continue to manage on-premises. These attributes can be consumed through [extensions](/graph/extensibility-overview
+). You can see the available attributes by using [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). You can also use this feature to create dynamic groups in Azure AD.
 
-At present, no Office 365 workload consumes these attributes.
+At present, no Microsoft 365 workload consumes these attributes.
+
+>[!IMPORTANT]
+>If you have exported a configuration that contains a custom rule used to synchronize directory extension attributes and you attempt to import this rule in to a new or existing installation of Azure AD Connect, the rule will be created during import, but the directory extension attributes will not be mapped.  You will need to re-select the directory extension attributes and re-associate them with the rule or recreate the rule entirely to fix this.
 
 ## Customize which attributes to synchronize with Azure AD
 
 You configure which additional attributes you want to synchronize in the custom settings path in the installation wizard.
 
->[!NOTE]
->The Available Attributes box is case-sensitive.
+> [!NOTE]
+> In Azure AD Connect versions earlier than 1.2.65.0, the search box for **Available Attributes** is case-sensitive.
 
 ![Schema extension wizard](./media/how-to-connect-sync-feature-directory-extensions/extension2.png)  
 
@@ -39,13 +42,16 @@ The installation shows the following attributes, which are valid candidates:
 * Single-valued attributes: String, Boolean, Integer, Binary
 * Multi-valued attributes: String, Binary
 
-
->[!NOTE]
-> Although Azure AD Connect supports synchronizing multi-valued Active Directory attributes to Azure AD as multi-valued directory extensions, there is currently no way to retrieve/consume the data uploaded in multi-valued directory extension attributes.
-
+> [!NOTE]
+> Not all features in Azure Active Directory support multi valued extension attributes. Please refer to the documentation of the feature in which you plan to use these attributes to confirm they are supported.
 The list of attributes is read from the schema cache that's created during installation of Azure AD Connect. If you have extended the Active Directory schema with additional attributes, you must [refresh the schema](how-to-connect-installation-wizard.md#refresh-directory-schema) before these new attributes are visible.
 
 An object in Azure AD can have up to 100 attributes for directory extensions. The maximum length is 250 characters. If an attribute value is longer, the sync engine truncates it.
+
+> [!NOTE]
+> It is not supported to sync constructed attributes, such as msDS-UserPasswordExpiryTimeComputed. If you upgrade from an old version of AADConnect you may still see these attributes show up in the installation wizard, you should not enable them though. Their value will not sync to Azure AD if you do. 
+> You can read more about constructed attributes in [this artice](/openspecs/windows_protocols/ms-adts/a3aff238-5f0e-4eec-8598-0a59c30ecd56).
+> You should also not attempt to sync [Non-replicated attributes](/windows/win32/ad/attributes), such as badPwdCount, Last-Logon, and Last-Logoff, as their values will not be synced to Azure AD.
 
 ## Configuration changes in Azure AD made by the wizard
 
@@ -57,22 +63,21 @@ Make sure you select **All applications** to see this app.
 
 The attributes are prefixed with **extension \_{ApplicationId}\_**. ApplicationId has the same value for all attributes in your Azure AD tenant. You will need this value for all other scenarios in this topic.
 
-## Viewing attributes using Graph
+## Viewing attributes using the Microsoft Graph API
 
-These attributes are now available through the Azure AD Graph API. You can query them by using [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/).
-
-![Azure AD Graph Explorer](./media/how-to-connect-sync-feature-directory-extensions/extension4.png)
-
-Or you can query the attributes through the Microsoft Graph API, by using [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer#).
+These attributes are now available through the Microsoft Graph API, by using [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer#).
 
 >[!NOTE]
-> In Microsoft Graph, you need to ask for the attributes to be returned. Explicitly select the attributes like this: https\://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division.
+> In the Microsoft Graph API, you need to ask for the attributes to be returned. Explicitly select the attributes like this: `https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division`.
 >
-> For more information, see [Microsoft Graph: Use query parameters](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
+> For more information, see [Microsoft Graph: Use query parameters](/graph/query-parameters#select-parameter).
+
+>[!NOTE]
+> It is not supported to sync attribute values from AADConnect to extension attributes that are not created by AADConnect. Doing so may produce performance issues and unexpected results. Only extension attributes that are created as shown in the above are supported for synchronization.
 
 ## Use the attributes in dynamic groups
 
-One of the more useful scenarios is to use these attributes in dynamic security or Office 365 groups.
+One of the more useful scenarios is to use these attributes in dynamic security or Microsoft 365 groups.
 
 1. Create a new group in Azure AD. Give it a good name and make sure the **Membership type** is **Dynamic User**.
 

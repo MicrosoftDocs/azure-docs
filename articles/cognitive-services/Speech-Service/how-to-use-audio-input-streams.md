@@ -1,39 +1,46 @@
 ---
 title: Speech SDK audio input stream concepts
 titleSuffix: Azure Cognitive Services
-description: An overview of the capabilities of the Speech SDK's audio input stream API.
+description: An overview of the capabilities of the Speech SDK audio input stream API.
 services: cognitive-services
 author: fmegen
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 07/05/2019
+ms.topic: how-to
+ms.date: 06/13/2022
 ms.author: fmegen
+ms.devlang: csharp
+ms.custom: devx-track-csharp
 ---
 
-# About the Speech SDK audio input stream API
+# How to use the audio input stream
 
-The Speech SDK's **Audio Input Stream** API provides a way to stream audio into the recognizers instead of using either the microphone or the input file APIs.
+The Speech SDK provides a way to stream audio into the recognizer as an alternative to microphone or file input.
 
-The following steps are required when using audio input streams:
+The following steps are required when you use audio input streams:
 
-- Identify the format of the audio stream. The format must be supported by the Speech SDK and the Speech service. Currently, only the following configuration is supported:
+- Identify the format of the audio stream. The format must be supported by the Speech SDK and the Azure Cognitive Services Speech service. Currently, only the following configuration is supported:
 
-  Audio samples in PCM format, one channel, 16000 samples per second, 32000 bytes per second, two block align (16 bit including padding for a sample), 16 bits per sample.
+  Audio samples are:
 
-  The corresponding code in the SDK to create the audio format looks like this:
+   - PCM format
+   - One channel
+   - 16 bits per sample, 8,000 or 16,000 samples per second (16,000 bytes or 32,000 bytes per second)
+   - Two-block aligned (16 bit including padding for a sample)
+
+  The corresponding code in the SDK to create the audio format looks like this example:
 
   ```csharp
   byte channels = 1;
   byte bitsPerSample = 16;
-  int samplesPerSecond = 16000;
+  int samplesPerSecond = 16000; // or 8000
   var audioFormat = AudioStreamFormat.GetWaveFormatPCM(samplesPerSecond, bitsPerSample, channels);
   ```
 
-- Make sure your code can provide the RAW audio data according to these specifications. If your audio source data doesn't match the supported formats, the audio must be transcoded into the required format.
+- Make sure that your code provides the RAW audio data according to these specifications. Also, make sure that 16-bit samples arrive in little-endian format. Signed samples are also supported. If your audio source data doesn't match the supported formats, the audio must be transcoded into the required format.
 
-- Create your own audio input stream class derived from `PullAudioInputStreamCallback`. Implement the `Read()` and `Close()` members. The exact function signature is language-dependent, but the code will look similar to this code sample:
+- Create your own audio input stream class derived from `PullAudioInputStreamCallback`. Implement the `Read()` and `Close()` members. The exact function signature is language-dependent, but the code looks similar to this code sample:
 
   ```csharp
    public class ContosoAudioStream : PullAudioInputStreamCallback {
@@ -44,12 +51,12 @@ The following steps are required when using audio input streams:
       }
 
       public int Read(byte[] buffer, uint size) {
-          // returns audio data to the caller.
-          // e.g. return read(config.YYY, buffer, size);
+          // Returns audio data to the caller.
+          // E.g., return read(config.YYY, buffer, size);
       }
 
       public void Close() {
-          // close and cleanup resources.
+          // Close and clean up resources.
       }
    };
   ```
@@ -62,7 +69,7 @@ The following steps are required when using audio input streams:
   var speechConfig = SpeechConfig.FromSubscription(...);
   var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
 
-  // run stream through recognizer
+  // Run stream through recognizer.
   var result = await recognizer.RecognizeOnceAsync();
 
   var text = result.GetText();
@@ -70,5 +77,5 @@ The following steps are required when using audio input streams:
 
 ## Next steps
 
-- [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-- [See how to recognize speech in C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+- [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
+- [See how to recognize speech in C#](./get-started-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet)

@@ -3,11 +3,12 @@ title: Create a custom probe using PowerShell
 titleSuffix: Azure Application Gateway
 description: Learn how to create a custom probe for Application Gateway by using PowerShell in Resource Manager
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
-ms.topic: article
-ms.date: 11/14/2019
-ms.author: victorh
+ms.topic: how-to
+ms.date: 07/09/2020
+ms.author: greglin 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Create a custom probe for Azure Application Gateway by using PowerShell for Azure Resource Manager
@@ -133,7 +134,7 @@ The following code snippet adds a probe to an existing application gateway.
 $getgw =  Get-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 # Create the probe object that will check health at http://contoso.com/path/path.htm
-$getgw = Add-AzApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name probe01 -Protocol Http -HostName 'contoso.com' -Path '/path/custompath.htm' -Interval 30 -Timeout 120 -UnhealthyThreshold 8
+$probe = Add-AzApplicationGatewayProbeConfig -ApplicationGateway $getgw -Name probe01 -Protocol Http -HostName 'contoso.com' -Path '/path/custompath.htm' -Interval 30 -Timeout 120 -UnhealthyThreshold 8
 
 # Set the backend HTTP settings to use the new probe
 $getgw = Set-AzApplicationGatewayBackendHttpSettings -ApplicationGateway $getgw -Name $getgw.BackendHttpSettingsCollection.name -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 120
@@ -192,5 +193,4 @@ DnsSettings              : {
 
 ## Next steps
 
-Learn to configure SSL offloading by visiting: [Configure SSL Offload](application-gateway-ssl-arm.md)
-
+Learn to configure TLS offloading by visiting: [Configure TLS Offload](./tutorial-ssl-powershell.md)

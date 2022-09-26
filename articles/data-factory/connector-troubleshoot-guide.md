@@ -1,414 +1,259 @@
 ---
-title: Troubleshoot Azure Data Factory Connectors
-description: Learn how to troubleshoot connector issues in Azure Data Factory. 
-services: data-factory
-author: linda33wj
+title: Troubleshoot connectors
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to troubleshoot connector issues in Azure Data Factory and Azure Synapse Analytics. 
+author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 11/26/2019
-ms.author: jingwang
-ms.reviewer: craigg
+ms.date: 06/29/2022
+ms.author: jianleishen
+ms.custom: synapse
 ---
 
-# Troubleshoot Azure Data Factory Connectors
+# Troubleshoot Azure Data Factory and Azure Synapse Analytics connectors
 
-This article explores common troubleshooting methods for connectors in Azure Data Factory.
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-## Azure Data Lake Storage
+This article describes how to troubleshoot connectors in Azure Data Factory and Azure Synapse Analytics.  
 
-### Error message: The remote server returned an error: (403) Forbidden
+## Connector specific problems
 
-- **Symptoms**: Copy activity fail with the following error: 
+You can refer to the troubleshooting pages for each connector to see problems specific to it with explanations of their causes and recommendations to resolve them.
 
-    ```
-    Message: The remote server returned an error: (403) Forbidden.. 
-    Response details: {"RemoteException":{"exception":"AccessControlException""message":"CREATE failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.)....
-    ```
+- [Azure Blob Storage](connector-troubleshoot-azure-blob-storage.md)
+- [Azure Cosmos DB (including SQL API connector)](connector-troubleshoot-azure-cosmos-db.md)
+- [Azure Data Lake (Gen1 and Gen2)](connector-troubleshoot-azure-data-lake.md)
+- [Azure Database for PostgreSQL](connector-troubleshoot-postgresql.md)
+- [Azure Files storage](connector-troubleshoot-azure-files.md)
+- [Azure Synapse Analytics, Azure SQL Database, and SQL Server](connector-troubleshoot-synapse-sql.md)
+- [DB2](connector-troubleshoot-db2.md)
+- [Delimited text format](connector-troubleshoot-delimited-text.md)
+- [Dynamics 365, Dataverse (Common Data Service), and Dynamics CRM](connector-troubleshoot-dynamics-dataverse.md)
+- [FTP, SFTP and HTTP](connector-troubleshoot-ftp-sftp-http.md)
+- [Hive](connector-troubleshoot-hive.md)
+- [Oracle](connector-troubleshoot-oracle.md)
+- [ORC format](connector-troubleshoot-orc.md)
+- [Parquet format](connector-troubleshoot-parquet.md)
+- [REST](connector-troubleshoot-rest.md)
+- [SharePoint Online list](connector-troubleshoot-sharepoint-online-list.md)
+- [XML format](connector-troubleshoot-xml.md)
 
-- **Cause**: One possible cause is that the service principal or managed identity you use doesn't have permission to access the certain folder/file.
+## General copy activity errors
 
-- **Resolution**: Grant corresponding permissions on all the folders and subfolders you need to copy. Refer to [this doc](connector-azure-data-lake-store.md#linked-service-properties).
+The errors below are general to the copy activity and could occur with any connector.
 
-### Error message: Failed to get access token by using service principal. ADAL Error: service_unavailable
+### Error code: JreNotFound
 
-- **Symptoms**:Copy activity fail with the following error:
+- **Message**: `Java Runtime Environment cannot be found on the Self-hosted Integration Runtime machine. It is required for parsing or writing to Parquet/ORC files. Make sure Java Runtime Environment has been installed on the Self-hosted Integration Runtime machine.`
 
-    ```
-    Failed to get access token by using service principal. 
-    ADAL Error: service_unavailable, The remote server returned an error: (503) Server Unavailable.
-    ```
+- **Cause**: The self-hosted IR can't find Java Runtime. Java Runtime is required for reading particular sources.
 
-- **Cause**: When the Service Token Server (STS) owned by Azure Active Directory is not unavailable, i.e., too
-busy to handle requests, it returns an HTTP error 503. 
+- **Recommendation**:  Check your integration runtime environment, see [Use Self-hosted Integration Runtime](./format-parquet.md#using-self-hosted-integration-runtime).
 
-- **Resolution**: Rerun the copy activity after several minutes.
 
-## Azure Cosmos DB
+### Error code: WildcardPathSinkNotSupported
 
-### Error message: Request size is too large
+- **Message**: `Wildcard in path is not supported in sink dataset. Fix the path: '%setting;'.`
 
-- **Symptoms**: You copy data into Azure Cosmos DB with default write batch size, and hit error *"**Request size is too large**"*.
+- **Cause**: The sink dataset doesn't support wildcard values.
 
-- **Cause**: Cosmos DB limits one single request's size to  2 MB. The formula is, Request Size = Single Document Size * Write Batch Size. If your document size is large, the default behavior will result in too large request size. You can tune the write batch size.
+- **Recommendation**:  Check the sink dataset, and rewrite the path without using a wildcard value.
 
-- **Resolution**: In copy activity sink, reduce the 'Write batch size' value (default value is 10000).
 
-### Error message: Unique index constraint violation
+### FIPS issue
 
-- **Symptoms**: When copying data into Cosmos DB, you hit the following error:
+- **Symptoms**: Copy activity fails on a FIPS-enabled self-hosted IR machine with the following error message: `This implementation is not part of the Windows Platform FIPS validated cryptographic algorithms.` 
 
-    ```
-    Message=Partition range id 0 | Failed to import mini-batch. 
-    Exception was Message: {"Errors":["Encountered exception while executing function. Exception = Error: {\"Errors\":[\"Unique index constraint violation.\"]}... 
-    ```
+- **Cause**: This error might occur when you copy data with connectors such as Azure Blob, SFTP, and so on. Federal Information Processing Standards (FIPS) defines a certain set of cryptographic algorithms that are allowed to be used. When FIPS mode is enabled on the machine, some cryptographic classes that copy activity depends on are blocked in some scenarios.
 
-- **Cause**: There are two possible causes:
+- **Resolution**: Learn [why we’re not recommending “FIPS Mode” anymore](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/why-we-8217-re-not-recommending-8220-fips-mode-8221-anymore/ba-p/701037), and evaluate whether you can disable FIPS on your self-hosted IR machine.
 
-    - If you use **Insert** as write behavior, this error means you source data have rows/objects with same ID.
+    Alternatively, if you only want to bypass FIPS and make the activity runs succeed, do the following:
 
-    - If you use **Upsert** as write behavior and you set another unique key to the container, this error means you source data have rows/objects with different IDs but same value for the defined unique key.
+    1. Open the folder where Self-hosted IR is installed. The path is usually *C:\Program Files\Microsoft Integration Runtime \<IR version>\Shared*.
 
-- **Resolution**: 
+    2. Open the *diawp.exe.config* file and then, at the end of the `<runtime>` section, add `<enforceFIPSPolicy enabled="false"/>`, as shown here:
 
-    - For cause1, set **Upsert** as write behavior.
-    - For cause 2, make sure each document has different value for defined unique key.
+        :::image type="content" source="./media/connector-troubleshoot-guide/disable-fips-policy.png" alt-text="Screenshot of a section of the diawp.exe.config file showing FIPS disabled.":::
 
-### Error message: Request rate is large
+    3. Save the file, and then restart the Self-hosted IR machine.
 
-- **Symptoms**: When copying data into Cosmos DB, you hit the following error:
+### Error code: JniException
 
-    ```
-    Type=Microsoft.Azure.Documents.DocumentClientException,
-    Message=Message: {"Errors":["Request rate is large"]}
-    ```
+- **Message**: `An error occurred when invoking Java Native Interface.`
 
-- **Cause**: The request units used is bigger than the available RU configured in Cosmos DB. Learn how
-Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-considerations).
+- **Cause**: If the error message contains "Cannot create JVM: JNI return code [-6][JNI call failed: Invalid arguments.]", the possible cause is that JVM can't be created because some illegal (global) arguments are set.
 
-- **Resolution**: Here are two solutions:
+- **Recommendation**: Log in to the machine that hosts *each node* of your self-hosted integration runtime. Check to ensure that the system variable is set correctly, as follows: `_JAVA_OPTIONS "-Xms256m -Xmx16g" with memory bigger than 8G`. Restart all the integration runtime nodes, and then rerun the pipeline.
 
-    1. **Increase the container RU** to bigger value in Cosmos DB, which will improve the copy activity performance, though incur more cost in Cosmos DB. 
+### Error code: GetOAuth2AccessTokenErrorResponse
 
-    2. Decrease **writeBatchSize** to smaller value (such as 1000) and set **parallelCopies** to smaller value such as 1, which will make copy run performance worse than current but will not incur more cost in Cosmos DB.
+- **Message**: `Failed to get access token from your token endpoint. Error returned from your authorization server: %errorResponse;.`
 
-### Column missing in column mapping
+- **Cause**: Your client ID or client secret is invalid, and the authentication failed in your authorization server.
 
-- **Symptoms**: When you import schema for Cosmos DB for column mapping, some columns are missing. 
+- **Recommendation**: Correct all OAuth2 client credential flow settings of your authorization server.
 
-- **Cause**: ADF infers the schema from the first 10 Cosmos DB documents. If some columns/properties don't have value in those documents, they won't be detected by ADF thus won't show up.
+### Error code: FailedToGetOAuth2AccessToken
 
-- **Resolution**: You can tune the query as below to enforce column to show up in result set with empty value: (assume: "impossible" column is missing in first 10 documents). Alternatively, you can manually add the column for mapping.
+- **Message**: `Failed to get access token from your token endpoint. Error message: %errorMessage;.`
 
-    ```sql
-    select c.company, c.category, c.comments, (c.impossible??'') as impossible from c
-    ```
+- **Cause**: OAuth2 client credential flow settings are invalid.
 
-### Error message: The GuidRepresentation for the reader is CSharpLegacy
+- **Recommendation**: Correct all OAuth2 client credential flow settings of your authorization server.
 
-- **Symptoms**: When copying data from Cosmos DB MongoAPI/MongoDB with UUID field, you hit the following error:
+### Error code: OAuth2AccessTokenTypeNotSupported
 
-    ```
-    Failed to read data via MongoDB client.,
-    Source=Microsoft.DataTransfer.Runtime.MongoDbV2Connector,Type=System.FormatException,
-    Message=The GuidRepresentation for the reader is CSharpLegacy which requires the binary sub type to be UuidLegacy not UuidStandard.,Source=MongoDB.Bson,’“,
-    ```
+- **Message**: `The toke type '%tokenType;' from your authorization server is not supported, supported types: '%tokenTypes;'.`
 
-- **Cause**: There are two ways to represent UUID in BSON - UuidStardard and UuidLegacy. By default, UuidLegacy is used to read data. You will hit error if your UUID data in MongoDB is UuidStandard.
+- **Cause**: Your authorization server is not supported.
 
-- **Resolution**: In MongoDB connection string, add option "**uuidRepresentation=standard**". For more information, see [MongoDB connection string](connector-mongodb.md#linked-service-properties).
+- **Recommendation**: Use an authorization server that can return tokens with supported token types.
 
-## SFTP
+### Error code: OAuth2ClientIdColonNotAllowed
 
-### Error message: Invalid SFTP credential provided for 'SshPublicKey' authentication type
+- **Message**: `The character colon(:) is not allowed in clientId for OAuth2ClientCredential authentication.`
 
-- **Symptoms**: You use `SshPublicKey` authentication and hit the following error:
+- **Cause**: Your client ID includes the invalid character colon (`:`).
 
-    ```
-    Invalid Sftp credential provided for 'SshPublicKey' authentication type
-    ```
+- **Recommendation**: Use a valid client ID.
 
-- **Cause**: There are 3 possible causes:
+### Error code: ManagedIdentityCredentialObjectNotSupported
 
-    1. If you use ADF authoring UI to author SFTP linked service, this error means the private key you choose to use is of wrong format. You may use a PKCS#8 format of SSH private key, while note that ADF only supports the traditional SSH Key format. More specifically, the difference between PKCS#8 format and traditional Key format is PKCS#8 key content starts with “*-----BEGIN ENCRYPTED PRIVATE KEY-----*” whereas traditional key format starts with “*-----BEGIN RSA PRIVATE KEY-----*”.
-    2. If you use Azure Key Vault to store the private key content or use programmatical way to author the SFTP linked service, this error means the private key content there is incorrect, likely it's not base64 encoded.
-    3. Invalid credential or private key content.
+- **Message**: `Managed identity credential is not supported in this version ('%version;') of Self Hosted Integration Runtime.`
 
-- **Resolution**: 
+- **Recommendation**: Check the supported version and upgrade the integration runtime to a higher version.
 
-    - For cause #1, run the following commands to convert the key to traditional key format, then use it in ADF authoring UI.
+### Error code: QueryMissingFormatSettingsInDataset
 
-        ```
-        # Decrypt the pkcs8 key and convert the format to traditional key format
-        openssl pkcs8 -in pkcs8_format_key_file -out traditional_format_key_file
+- **Message**: `The format settings are missing in dataset %dataSetName;.`
 
-        chmod 600 traditional_format_key_file
+- **Cause**: The dataset type is Binary, which is not supported.
 
-        # Re-encrypte the key file using passphrase
-        ssh-keygen -f traditional_format_key_file -p
-        ```
+- **Recommendation**: Use the DelimitedText, Json, Avro, Orc, or Parquet dataset instead.
 
-    - For cause #2, To generate such string, customer can use below 2 ways:
-    - Using third party base64 convert tool: paste the whole private key content to tools like [Base64 Encode and Decode](https://www.base64encode.org/), encode it to a base64 format string, then paste this string to key vault or use this value for authoring SFTP linked service programmatically.
-    - Using C# code:
+- **Cause**: For the file storage, the format settings are missing in the dataset.
 
-        ```c#
-        byte[] keyContentBytes = File.ReadAllBytes(privateKeyPath);
-        string keyContent = Convert.ToBase64String(keyContentBytes, Base64FormattingOptions.None);
-        ```
+- **Recommendation**: Deselect the "Binary copy" in the dataset, and set correct format settings.
 
-    - For cause #3, double check if the key file or password is correct using other tools to validate if you can use it to access the SFTP server properly.
-  
+### Error code: QueryUnsupportedCommandBehavior
 
-## Azure SQL Data Warehouse \ Azure SQL Database \ SQL Server
+- **Message**: `The command behavior "%behavior;" is not supported.`
 
-### Error code:  SqlFailedToConnect
+- **Recommendation**: Don't add the command behavior as a parameter for preview or GetSchema API request URL.
 
-- **Message**: `Cannot connect to SQL database: '%server;', Database: '%database;', User: '%user;'. Please check the linked service configuration is correct, and make sure the SQL database firewall allows the integration runtime to access.`
+### Error code: DataConsistencyFailedToGetSourceFileMetadata
 
-- **Cause**: If the error message contains "SqlException", SQL database throws the error indicating some specific operation failed.
+- **Message**: `Failed to retrieve source file ('%name;') metadata to validate data consistency.`
 
-- **Recommendation**:  Please search by SQL error code in this reference doc for more details: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, please contact Azure SQL support.
+- **Cause**: There is a transient issue on the sink data store, or retrieving metadata from the sink data store is not allowed.
 
-- **Cause**: If the error message contains "Client with IP address '...' is not allowed to access the server", and you are trying to connect to Azure SQL database, usually it is caused by Azure SQL database firewall issue.
+### Error code: DataConsistencyFailedToGetSinkFileMetadata
 
-- **Recommendation**:  In Azure SQL Server firewall configuration, enable "Allow Azure services and resources to access this server" option. Reference doc: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure.
+- **Message**: `Failed to retrieve sink file ('%name;') metadata to validate data consistency.`
 
+- **Cause**: There is a transient issue on the sink data store, or retrieving metadata from the sink data store is not allowed.
 
-### Error code:  SqlOperationFailed
+### Error code: DataConsistencyValidationNotSupportedForNonDirectBinaryCopy
 
-- **Message**: `A database operation failed. Please search error to get more details.`
+- **Message**: `Data consistency validation is not supported in current copy activity settings.`
 
-- **Cause**: If the error message contains "SqlException", SQL database throws the error indicating some specific operation failed.
+- **Cause**: The data consistency validation is only supported in the direct binary copy scenario.
 
-- **Recommendation**:  Please search by SQL error code in this reference doc for more details: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, please contact Azure SQL support.
+- **Recommendation**: Remove the 'validateDataConsistency' property in the copy activity payload.
 
-- **Cause**: If the error message contains "PdwManagedToNativeInteropException", usually it's caused by mismatch between source and sink column sizes.
+### Error code: DataConsistencyValidationNotSupportedForLowVersionSelfHostedIntegrationRuntime
 
-- **Recommendation**:  Please check the size of both source and sink columns. If you need further help, please contact Azure SQL support.
+- **Message**: `'validateDataConsistency' is not supported in this version ('%version;') of Self Hosted Integration Runtime.`
 
-- **Cause**: If the error message contains "InvalidOperationException", usually it's caused by invalid input data.
+- **Recommendation**: Check the supported integration runtime version and upgrade it to a higher version, or remove the 'validateDataConsistency' property from copy activities.
 
-- **Recommendation**:  To identify which row encounters the problem, please enable fault tolerance feature on copy activity, which can redirect problematic row(s) to a storage for further investigation. Reference doc: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance.
+### Error code: SkipMissingFileNotSupportedForNonDirectBinaryCopy
 
+- **Message**: `Skip missing file is not supported in current copy activity settings, it's only supported with direct binary copy with folder.`
 
-### Error code:  SqlUnauthorizedAccess
+- **Recommendation**: Remove 'fileMissing' of the skipErrorFile setting in the copy activity payload.
 
-- **Message**: `Cannot connect to '%connectorName;'. Detail Message: '%message;'`
+### Error code: SkipInconsistencyDataNotSupportedForNonDirectBinaryCopy
 
-- **Cause**: Credential is incorrect or the login account cannot access SQL database.
+- **Message**: `Skip inconsistency is not supported in current copy activity settings, it's only supported with direct binary copy when validateDataConsistency is true.`
 
-- **Recommendation**:  Please check the login account has enough permission to access the SQL database.
+- **Recommendation**: Remove 'dataInconsistency' of the skipErrorFile setting in the copy activity payload.
 
+### Error code: SkipForbiddenFileNotSupportedForNonDirectBinaryCopy
 
-### Error code:  SqlOpenConnectionTimeout
+- **Message**: `Skip forbidden file is not supported in current copy activity settings, it's only supported with direct binary copy with folder.`
 
-- **Message**: `Open connection to database timeout after '%timeoutValue;' seconds.`
+- **Recommendation**: Remove 'fileForbidden' of the skipErrorFile setting in the copy activity payload.
 
-- **Cause**: Could be SQL database transient failure.
+### Error code: SkipForbiddenFileNotSupportedForThisConnector
 
-- **Recommendation**:  Please retry to update linked service connection string with larger connection timeout value.
+- **Message**: `Skip forbidden file is not supported for this connector: ('%connectorName;').`
 
+- **Recommendation**: Remove 'fileForbidden' of the skipErrorFile setting in the copy activity payload.
 
-### Error code:  SqlAutoCreateTableTypeMapFailed
+### Error code: SkipInvalidFileNameNotSupportedForNonDirectBinaryCopy
 
-- **Message**: `Type '%dataType;' in source side cannot be mapped to a type that supported by sink side(colunm name:'%colunmName;') in auto-create table.`
+- **Message**: `Skip invalid file name is not supported in current copy activity settings, it's only supported with direct binary copy with folder.`
 
-- **Cause**: Auto creation table cannot meet source requirement.
+- **Recommendation**: Remove 'invalidFileName' of the skipErrorFile setting in the copy activity payload.
 
-- **Recommendation**:  Please update the column type in 'mappings', or manually create the sink table in target server.
+### Error code: SkipInvalidFileNameNotSupportedForSource
 
+- **Message**: `Skip invalid file name is not supported for '%connectorName;' source.`
 
-### Error code:  SqlDataTypeNotSupported
+- **Recommendation**: Remove 'invalidFileName' of the skipErrorFile setting in the copy activity payload.
 
-- **Message**: `A database operation failed. Please check the SQL errors.`
+### Error code: SkipInvalidFileNameNotSupportedForSink
 
-- **Cause**: If the issue happens on SQL source and the error is related to SqlDateTime overflow, the data value is over the logic type range (1/1/1753 12:00:00 AM - 12/31/9999 11:59:59 PM).
+- **Message**: `Skip invalid file name is not supported for '%connectorName;' sink.`
 
-- **Recommendation**:  Please cast the type to string in source SQL query, or in copy activity column mapping change the column type to 'String'.
+- **Recommendation**: Remove 'invalidFileName' of the skipErrorFile setting in the copy activity payload.
 
-- **Cause**: If the issue happens on SQL sink and the error is related to SqlDateTime overflow, the data value is over the allowed range in sink table.
+### Error code: SkipAllErrorFileNotSupportedForNonBinaryCopy
 
-- **Recommendation**:  Please update the corresponding column type to 'datetime2' type in sink table.
+- **Message**: `Skip all error file is not supported in current copy activity settings, it's only supported with binary copy with folder.`
 
+- **Recommendation**: Remove 'allErrorFile' in the skipErrorFile setting in the copy activity payload.
 
-### Error code:  SqlInvalidDbStoredProcedure
+### Error code: DeleteFilesAfterCompletionNotSupportedForNonDirectBinaryCopy
 
-- **Message**: `The specified Stored Procedure is not valid. It could be caused by that the stored procedure doesn't return any data. Invalid Stored Procedure script: '%scriptName;'.`
+- **Message**: `'deleteFilesAfterCompletion' is not support in current copy activity settings, it's only supported with direct binary copy.`
 
-- **Cause**: The specified Stored Procedure is not valid. It could be caused by that the stored procedure doesn't return any data.
+- **Recommendation**: Remove the 'deleteFilesAfterCompletion' setting or use direct binary copy.
 
-- **Recommendation**:  Please validate the stored procedure by SQL Tools. Make sure the stored procedure can return data.
+### Error code: DeleteFilesAfterCompletionNotSupportedForThisConnector
 
+- **Message**: `'deleteFilesAfterCompletion' is not supported for this connector: ('%connectorName;').`
 
-### Error code:  SqlInvalidDbQueryString
+- **Recommendation**: Remove the 'deleteFilesAfterCompletion' setting in the copy activity payload.
 
-- **Message**: `The specified SQL Query is not valid. It could be caused by that the query doesn't return any data. Invalid query: '%query;'`
+### Error code: FailedToDownloadCustomPlugins
 
-- **Cause**: The specified SQL Query is not valid. It could be caused by that the query doesn't return any data
+- **Message**: `Failed to download custom plugins.`
 
-- **Recommendation**:  Please validate the SQL Query by SQL Tools. Make sure the query can return data.
+- **Cause**: Invalid download links or transient connectivity issues.
 
+- **Recommendation**: Retry if the message shows that it's a transient issue. If the problem persists, contact the support team.
 
-### Error code:  SqlInvalidColumnName
+## General connector errors
 
-- **Message**: `Column '%column;' does not exist in the table '%tableName;', ServerName: '%serverName;', DatabaseName: '%dbName;'.`
+### Error code: UserErrorOdbcInvalidQueryString
 
-- **Cause**: Cannot find column. Possible configuration wrong.
+- **Message**: `The following ODBC Query is not valid: '%'.`
+ 
+- **Cause**: You provide a wrong or invalid query to fetch the data/schemas.
 
-- **Recommendation**:  Please verify column in the query, 'structure' in dataset, and 'mappings' in activity.
-
-
-### Error code:  SqlBatchWriteTimeout
-
-- **Message**: `Timeout in SQL write opertaion.`
-
-- **Cause**: Could be SQL database transient failure.
-
-- **Recommendation**:  If problem repro, please contact Azure SQL support.
-
-
-### Error code:  SqlBatchWriteRollbackFailed
-
-- **Message**: `Timeout in SQL write operation and rollback also fail.`
-
-- **Cause**: Could be SQL database transient failure.
-
-- **Recommendation**:  Please retry to update linked service connection string with larger connection timeout value.
-
-
-### Error code:  SqlBulkCopyInvalidColumnLength
-
-- **Message**: `SQL Bulk Copy failed due to received an invalid column length from the bcp client.`
-
-- **Cause**: SQL Bulk Copy failed due to received an invalid column length from the bcp client.
-
-- **Recommendation**:  To identify which row encounters the problem, please enable fault tolerance feature on copy activity, which can redirect problematic row(s) to a storage for further investigation. Reference doc: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance.
-
-
-### Error code:  SqlConnectionIsClosed
-
-- **Message**: `The connection is closed by SQL database.`
-
-- **Cause**: SQL connection is closed by SQL database when high concurrent run and sever terminate connection.
-
-- **Recommendation**:  Remote server close the SQL connection. Please retry. If problem repro, please contact Azure SQL support.
-
-### Error message: Conversion failed when converting from a character string to uniqueidentifier
-
-- **Symptoms**: When you copy data from tabular data source (such as SQL Server) into Azure SQL Data Warehouse using staged copy and PolyBase, you hit the following error:
-
-    ```
-    ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,
-    Message=Error happened when loading data into SQL Data Warehouse.,
-    Source=Microsoft.DataTransfer.ClientLibrary,Type=System.Data.SqlClient.SqlException,
-    Message=Conversion failed when converting from a character string to uniqueidentifier...
-    ```
-
-- **Cause**: Azure SQL Data Warehouse PolyBase cannot convert empty string to GUID.
-
-- **Resolution**: In Copy activity sink, under Polybase settings, set "**use type default**" option to false.
-
-### Error message: Expected data type: DECIMAL(x,x), Offending value
-
-- **Symptoms**: When you copy data from tabular data source (such as SQL Server) into SQL DW using staged copy and PolyBase, you hit the following error:
-
-    ```
-    ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,
-    Message=Error happened when loading data into SQL Data Warehouse.,
-    Source=Microsoft.DataTransfer.ClientLibrary,Type=System.Data.SqlClient.SqlException,
-    Message=Query aborted-- the maximum reject threshold (0 rows) was reached while reading from an external source: 1 rows rejected out of total 415 rows processed. (/file_name.txt) 
-    Column ordinal: 18, Expected data type: DECIMAL(x,x), Offending value:..
-    ```
-
-- **Cause**: Azure SQL Data Warehouse Polybase cannot insert empty string (null value) into decimal column.
-
-- **Resolution**: In Copy activity sink, under Polybase settings, set "**use type default**" option to false.
-
-### Error message: Java exception message:HdfsBridge::CreateRecordReader
-
-- **Symptoms**: You copy data into Azure SQL Data Warehouse using PolyBase, and hit the following error:
-
-    ```
-    Message=110802;An internal DMS error occurred that caused this operation to fail. 
-    Details: Exception: Microsoft.SqlServer.DataWarehouse.DataMovement.Common.ExternalAccess.HdfsAccessException, 
-    Message: Java exception raised on call to HdfsBridge_CreateRecordReader. 
-    Java exception message:HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.: Error [HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.] occurred while accessing external file.....
-    ```
-
-- **Cause**: The possible cause is that the schema (total column width) being too large (larger than 1 MB). Check the schema of the target SQL DW table by adding the size of all columns:
-
-    - Int -> 4 bytes
-    - Bigint -> 8 bytes
-    - Varchar(n),char(n),binary(n), varbinary(n) -> n bytes
-    - Nvarchar(n), nchar(n) -> n*2 bytes
-    - Date -> 6 bytes
-    - Datetime/(2), smalldatetime -> 16 bytes
-    - Datetimeoffset -> 20 bytes
-    - Decimal -> 19 bytes
-    - Float -> 8 bytes
-    - Money -> 8 bytes
-    - Smallmoney -> 4 bytes
-    - Real -> 4 bytes
-    - Smallint -> 2 bytes
-    - Time -> 12 bytes
-    - Tinyint -> 1 byte
-
-- **Resolution**: Reduce column width to be less than 1 MB
-
-- Or use bulk insert approach by disabling Polybase
-
-### Error message: The condition specified using HTTP conditional header(s) is not met
-
-- **Symptoms**: You use SQL query to pull data from Azure SQL Data Warehouse and hit the following error:
-
-    ```
-    ...StorageException: The condition specified using HTTP conditional header(s) is not met...
-    ```
-
-- **Cause**: Azure SQL Data Warehouse hit issue querying the external table in Azure Storage.
-
-- **Resolution**: Run the same query in SSMS and check if you see the same result. If yes, open a support ticket to Azure SQL Data Warehouse and provide your SQL DW server and database name to further troubleshoot.
-            
-
-## Azure Blob Storage
-
-### Error code:  AzureBlobOperationFailed
-
-- **Message**: `Blob operation Failed. ContainerName: %containerName;, path: %path;.`
-
-- **Cause**: Blob storage operation hit problem.
-
-- **Recommendation**:  Please check the error in details. Please refer to blob help document: https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codes. Contact storage team if need help.
-
-
-
-## Azure Data Lake Gen2
-
-### Error code:  AdlsGen2OperationFailed
-
-- **Message**: `ADLS Gen2 operation failed for: %adlsGen2Message;.%exceptionData;.`
-
-- **Cause**: ADLS Gen2 throws the error indicating operation failed.
-
-- **Recommendation**:  Please check the detailed error message thrown by ADLS Gen2. If it's caused by transient failure, please retry. If you need further help, please contact Azure Storage support and provide the request ID in error message.
-
-- **Cause**: When the error message contains 'Forbidden', the service principal or managed identity you use may not have enough permission to access the ADLS Gen2.
-
-- **Recommendation**:  Please refer to the help document: https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication.
-
-- **Cause**: When the error message contains 'InternalServerError', the error is returned by ADLS Gen2.
-
-- **Recommendation**:  It may be caused by transient failure, please retry. If the issue persists, please contact Azure Storage support and provide the request ID in error message.
-
+- **Recommendation**: Verify your query is valid and can return data/schemas. Use [Script activity](transform-data-using-script.md) if you want to execute non-query scripts and your data store is supported. Alternatively, consider to use stored procedure that returns a dummy result to execute your non-query scripts.
 
 ## Next steps
 
 For more troubleshooting help, try these resources:
 
-*  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
-*  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [MSDN forum](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)
-*  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
-*  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
-            
+- [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+- [Data Factory feature requests](/answers/topics/azure-data-factory.html)
+- [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+- [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
+- [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
+- [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)

@@ -1,0 +1,66 @@
+---
+title: Configure alerts in Azure Monitor for SAP solutions in Azure portal (preview)
+description: Learn how to use a browser method for configuring alerts in Azure Monitor for SAP solutions.
+author: sameeksha91
+ms.author: sakhare
+ms.topic: how-to
+ms.service: virtual-machines-sap
+ms.subservice: baremetal-sap
+ms.date: 07/28/2022
+#Customer intent: As a developer, I want to configure alerts in Azure Monitor for SAP solutions so that I can receive alerts and notifications about my SAP systems.
+---
+
+# Configure alerts in Azure Monitor for SAP solutions in Azure portal (preview)
+
+[!INCLUDE [Azure Monitor for SAP solutions public preview notice](./includes/preview-azure-monitor.md)]
+
+In this how-to guide, you'll learn how to configure alerts in Azure Monitor for SAP solutions (AMS). You can configure alerts and notifications from the [Azure portal](https://azure.microsoft.com/features/azure-portal) using its browser-based interface.
+
+This content applies to both versions of the service, AMS and AMS (classic).
+
+## Prerequisites
+
+- An Azure subscription.
+- A deployment of an AMS resource with at least one provider. You can configure providers for: 
+    - The SAP application (NetWeaver)
+    - SAP HANA
+    - Microsoft SQL Server
+    - High availability (HA) Pacemaker clusters
+    - IBM Db2 
+
+## Create an alert rule
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the Azure portal, browse and select your Azure Monitor for SAP solutions resource. Make sure you have at least one provider configured for this resource. 
+1. Navigate to the workbook you want to use. For example, SAP HANA. 
+1. Select a HANA instance.
+
+    :::image type="content" source="./media/ams-alerts/ams-alert-1.png" alt-text="Screenshot showing placement of alert button." lightbox="./media/ams-alerts/ams-alert-1.png":::
+  
+1. Select the **Alerts** button to view available **Alert Templates**.
+
+    :::image type="content" source="./media/ams-alerts/ams-alert-2.png" alt-text="Screenshot showing list of alert template." lightbox="./media/ams-alerts/ams-alert-2.png":::
+    
+1. Select **Create rule** to configure an alert of your choice.
+1. For **Alert threshold**, enter your alert threshold.
+1. For **Provider instance**, select a provider instance.
+1. For **Action group**, select or create an [action group](../../../azure-monitor/alerts/action-groups.md) to configure the notification setting. You can edit frequency and severity information according to your requirements.
+    
+1. Select **Enable alert rule** to create the alert rule.
+
+    :::image type="content" source="./media/ams-alerts/ams-alert-3.png" alt-text="Screenshot showing alert configuration page." lightbox="./media/ams-alerts/ams-alert-3.png":::
+    
+1.	Select **Deploy alert rule** to finish your alert rule configuration. You can choose to see the alert template by selecting **View template**.
+
+    :::image type="content" source="./media/ams-alerts/ams-alert-4.png" alt-text="Screenshot showing final step of alert configuration." lightbox="./media/ams-alerts/ams-alert-4.png":::
+    
+1.	Navigate to **Alert rules** to view the newly created alert rule. When and if alerts are fired, you can view them under **Fired alerts**.
+
+    :::image type="content" source="./media/ams-alerts/ams-alert-5.png" alt-text="Screenshot showing result of alert configuration." lightbox="./media/ams-alerts/ams-alert-5.png":::
+
+## Next steps
+
+Learn more about Azure Monitor for SAP solutions.
+
+> [!div class="nextstepaction"]
+> [Monitor SAP on Azure](monitor-sap-on-azure.md)

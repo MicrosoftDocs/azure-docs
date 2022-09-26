@@ -6,6 +6,8 @@
   items:
   - name: What is Event Grid on IoT Edge?
     href: overview.md  
+  - name: Transition from Event Grid on Azure IoT Edge to Azure IoT Edge 
+    href: transition.md
 - name: Tutorials
   items:
   - name: Publish and subscribe to events locally
@@ -24,6 +26,8 @@
   items:
   - name: Event Grid concepts
     href: concepts.md
+  - name: Event handlers and destinations
+    href: event-handlers.md
   - name: Security and authentication
     href: security-authentication.md
   - name: Event schemas
@@ -41,7 +45,9 @@
     - name: Linux
       href: persist-state-linux.md  
     - name: Windows
-      href: persist-state-windows.md  
+      href: persist-state-windows.md
+  - name: Monitor topics and subscriptions
+    href: monitor-topics-subscriptions.md
   - name: Configure API protocols
     href: configure-api-protocol.md  
   - name: Configure client authentication
@@ -60,3 +66,5 @@
     href: configure-event-grid.md
   - name: Module Twin configuration schema
     href: twin-json.md
+  - name: Release Notes
+    href: release-notes.md

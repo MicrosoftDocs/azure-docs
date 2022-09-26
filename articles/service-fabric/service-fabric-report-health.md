@@ -1,22 +1,14 @@
 ---
-title: Add custom Service Fabric health reports | Microsoft Docs
+title: Add custom Service Fabric health reports 
 description: Describes how to send custom health reports to Azure Service Fabric health entities. Gives recommendations for designing and implementing quality health reports.
-services: service-fabric
-documentationcenter: .net
-author: oanapl
-manager: chackdan
-editor: ''
-
-ms.assetid: 0a00a7d2-510e-47d0-8aa8-24c851ea847f
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 2/28/2018
-ms.author: oanapl
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Add custom Service Fabric health reports
 Azure Service Fabric introduces a [health model](service-fabric-health-introduction.md) designed to flag unhealthy cluster and application conditions on specific entities. The health model uses **health reporters** (system components and watchdogs). The goal is easy and fast diagnosis and repair. Service writers need to think upfront about health. Any condition that can impact health should be reported on, especially if it can help flag problems close to the root. The health information can save time and effort on debugging and investigation. The usefulness is especially clear once the service is up and running at scale in the cloud (private or Azure).
 
@@ -43,7 +35,7 @@ As mentioned, reporting can be done from:
 > 
 > 
 
-Once the health reporting design is clear, health reports can be sent easily. You can use [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) to report health if the cluster is not [secure](service-fabric-cluster-security.md) or if the fabric client has admin privileges. Reporting can be done through the API by using [FabricClient.HealthManager.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth), through PowerShell, or through REST. Configuration knobs batch reports for improved performance.
+Once the health reporting design is clear, health reports can be sent easily. You can use [FabricClient](/dotnet/api/system.fabric.fabricclient) to report health if the cluster is not [secure](service-fabric-cluster-security.md) or if the fabric client has admin privileges. Reporting can be done through the API by using [FabricClient.HealthManager.ReportHealth](/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth), through PowerShell, or through REST. Configuration knobs batch reports for improved performance.
 
 > [!NOTE]
 > Report health is synchronous, and it represents only the validation work on the client side. The fact that the report is accepted by the health client or the `Partition` or `CodePackageActivationContext` objects doesn't mean that it is applied in the store. It is sent asynchronously and possibly batched with other reports. The processing on the server may still fail: the sequence number could be stale, the entity on which the report must be applied has been deleted, etc.
@@ -63,7 +55,7 @@ The health reports are sent to the health manager through a health client, which
 > 
 
 The buffering on the client takes the uniqueness of the reports into consideration. For example, if a particular bad reporter is reporting 100 reports per second on the same property of the same entity, the reports are replaced with the last version. At most one such report exists in the client queue. If batching is configured, the number of reports sent to the health manager is just one per send interval. This report is the last added report, which reflects the most current state of the entity.
-Specify configuration parameters when `FabricClient` is created by passing [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) with the desired values for health-related entries.
+Specify configuration parameters when `FabricClient` is created by passing [FabricClientSettings](/dotnet/api/system.fabric.fabricclientsettings) with the desired values for health-related entries.
 
 The following example creates a fabric client and specifies that the reports should be sent when they are added. On timeouts and errors that can be retried, retries happen every 40 seconds.
 
@@ -77,7 +69,7 @@ var clientSettings = new FabricClientSettings()
 var fabricClient = new FabricClient(clientSettings);
 ```
 
-We recommend keeping the default fabric client settings, which set `HealthReportSendInterval` to 30 seconds. This setting ensures optimal performance due to batching. For critical reports that must be sent as soon as possible, use `HealthReportSendOptions` with Immediate `true` in [FabricClient.HealthClient.ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API. Immediate reports bypass the batching interval. Use this flag with care; we want to take advantage of the health client batching whenever possible. Immediate send is also useful when the fabric client is closing (for example, the process has determined invalid state and needs to shut down to prevent side effects). It ensures a best-effort send of the accumulated reports. When one report is added with Immediate flag, the health client batches all the accumulated reports since last send.
+We recommend keeping the default fabric client settings, which set `HealthReportSendInterval` to 30 seconds. This setting ensures optimal performance due to batching. For critical reports that must be sent as soon as possible, use `HealthReportSendOptions` with Immediate `true` in [FabricClient.HealthClient.ReportHealth](/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API. Immediate reports bypass the batching interval. Use this flag with care; we want to take advantage of the health client batching whenever possible. Immediate send is also useful when the fabric client is closing (for example, the process has determined invalid state and needs to shut down to prevent side effects). It ensures a best-effort send of the accumulated reports. When one report is added with Immediate flag, the health client batches all the accumulated reports since last send.
 
 Same parameters can be specified when a connection to a cluster is created through PowerShell. 
 The following example starts a connection to a local cluster:
@@ -120,12 +112,12 @@ For REST, the reports are sent to the Service Fabric gateway, which has an inter
 ## Report from within low privilege services
 If Service Fabric services do not have admin access to the cluster, you can report health on entities from the current context through `Partition` or `CodePackageActivationContext`.
 
-* For stateless services, use [IStatelessServicePartition.ReportInstanceHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatelessservicepartition.reportinstancehealth) to report on the current service instance.
-* For stateful services, use [IStatefulServicePartition.ReportReplicaHealth](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition.reportreplicahealth) to report on current replica.
-* Use [IServicePartition.ReportPartitionHealth](https://docs.microsoft.com/dotnet/api/system.fabric.iservicepartition.reportpartitionhealth) to report on the current partition entity.
-* Use [CodePackageActivationContext.ReportApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportapplicationhealth) to report on current application.
-* Use [CodePackageActivationContext.ReportDeployedApplicationHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth) to report on the current application deployed on the current node.
-* Use [CodePackageActivationContext.ReportDeployedServicePackageHealth](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth) to report on a service package for the application deployed on the current node.
+* For stateless services, use [IStatelessServicePartition.ReportInstanceHealth](/dotnet/api/system.fabric.istatelessservicepartition.reportinstancehealth) to report on the current service instance.
+* For stateful services, use [IStatefulServicePartition.ReportReplicaHealth](/dotnet/api/system.fabric.istatefulservicepartition.reportreplicahealth) to report on current replica.
+* Use [IServicePartition.ReportPartitionHealth](/dotnet/api/system.fabric.iservicepartition.reportpartitionhealth) to report on the current partition entity.
+* Use [CodePackageActivationContext.ReportApplicationHealth](/dotnet/api/system.fabric.codepackageactivationcontext.reportapplicationhealth) to report on current application.
+* Use [CodePackageActivationContext.ReportDeployedApplicationHealth](/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedapplicationhealth) to report on the current application deployed on the current node.
+* Use [CodePackageActivationContext.ReportDeployedServicePackageHealth](/dotnet/api/system.fabric.codepackageactivationcontext.reportdeployedservicepackagehealth) to report on a service package for the application deployed on the current node.
 
 > [!NOTE]
 > Internally, the `Partition` and the `CodePackageActivationContext` hold a health client configured with default settings. As explained for the [health client](service-fabric-report-health.md#health-client), reports are batched and sent on a timer. The objects should be kept alive to have a chance to send the report.
@@ -296,7 +288,7 @@ HealthEvents          :
 ```
 
 ### REST
-Send health reports using REST with POST requests that go to the desired entity and have in the body the health report description. For example, see how to send REST [cluster health reports](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-cluster) or [service health reports](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service). All entities are supported.
+Send health reports using REST with POST requests that go to the desired entity and have in the body the health report description. For example, see how to send REST [cluster health reports](/rest/api/servicefabric/report-the-health-of-a-cluster) or [service health reports](/rest/api/servicefabric/report-the-health-of-a-service). All entities are supported.
 
 ## Next steps
 Based on the health data, service writers and cluster/application administrators can think of ways to consume the information. For example, they can set up alerts based on health status to catch severe issues before they provoke outages. Administrators can also set up repair systems to fix issues automatically.
@@ -312,4 +304,3 @@ Based on the health data, service writers and cluster/application administrators
 [Monitor and diagnose services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Service Fabric application upgrade](service-fabric-application-upgrade.md)
-

@@ -1,22 +1,14 @@
 ---
-title: Configure secure Azure Service Fabric cluster connections | Microsoft Docs
+title: Configure secure Azure Service Fabric cluster connections 
 description: Learn how to use Visual Studio to configure secure connections that are supported by the Azure Service Fabric cluster.
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
 services: service-fabric
-documentationcenter: na
-author: cawaMS
-manager: paulyuk
-editor: tglee
-
-ms.assetid: 80501867-dd7a-4648-8bd6-d4f26b68402d
-ms.service: multiple
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: multiple
-ms.date: 8/04/2017
-ms.author: cawa
-
+ms.date: 07/14/2022
 ---
+
 # Configure secure connections to a Service Fabric cluster from Visual Studio
 Learn how to use Visual Studio to securely access an Azure Service Fabric cluster with access control policies configured.
 
@@ -40,9 +32,9 @@ The **Publish Service Fabric Application** dialog box automatically validates th
 3. Choose the **Publish...** command on the shortcut menu of the project to open the **Publish Azure Application** dialog box and then select the target cluster. The tool automatically resolves the connection and saves the secure connection parameters in the publish profile.
 4. Optional: You can edit the publish profile to specify a secure cluster connection.
    
-   Since you're manually editing the Publish Profile XML file to specify the certificate information, be sure to note the certificate store name, store location, and certificate thumbprint. You'll need to provide these values for the certificate's store name and store location. See [How to: Retrieve the Thumbprint of a Certificate](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx) for more information.
+   Since you're manually editing the Publish Profile XML file to specify the certificate information, be sure to note the certificate store name, store location, and certificate thumbprint. You'll need to provide these values for the certificate's store name and store location. See [How to: Retrieve the Thumbprint of a Certificate](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) for more information.
    
-   You can use the *ClusterConnectionParameters* parameters to specify the PowerShell parameters to use when connecting to the Service Fabric cluster. Valid parameters are any that are accepted by the Connect-ServiceFabricCluster cmdlet. See [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) for a list of available parameters.
+   You can use the *ClusterConnectionParameters* parameters to specify the PowerShell parameters to use when connecting to the Service Fabric cluster. Valid parameters are any that are accepted by the Connect-ServiceFabricCluster cmdlet. See [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) for a list of available parameters.
    
    If you’re publishing to a remote cluster, you need to specify the appropriate parameters for that specific cluster. The following is an example of connecting to a non-secure cluster:
    

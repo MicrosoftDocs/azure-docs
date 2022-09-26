@@ -1,6 +1,6 @@
 ---
 title: Core Reports from Verizon | Microsoft Docs
-description: 'You can view usage patterns for your CDN by using the following reports: Bandwidth, Data Transferred, Hits, Cache Statuses, Cache Hit Ratio, IPV4/IPV6 Data Transferred.'
+description: 'Learn how to access and view Verizon Core Reports via the Manage portal for Verizon profiles.'
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -11,8 +11,7 @@ ms.assetid: 5a0d9018-8bdb-48ff-84df-23648ebcf763
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 

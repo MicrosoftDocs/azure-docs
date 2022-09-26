@@ -2,18 +2,18 @@
 title: Container support
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/07/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 ## Create an Computer Vision resource
 
 1. Sign into the [Azure portal](https://portal.azure.com).
-1. Click [Create **Computer Vision**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) resource.
+1. Click [Create **Computer Vision**](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) resource.
 1. Enter all required settings:
 
     |Setting|Value|

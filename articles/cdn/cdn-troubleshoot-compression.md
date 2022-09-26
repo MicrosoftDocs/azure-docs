@@ -1,18 +1,17 @@
 ---
 title: Troubleshooting file compression in Azure CDN | Microsoft Docs
-description: Troubleshoot issues with Azure CDN file compression.
+description: Learn how to troubleshoot issues with file compression in Azure Content Delivery Network. This article covers several possible causes.
 services: cdn
 documentationcenter: ''
-author: zhangmanling
-manager: erikre
+author: sohamnc
+manager: danielgi
 editor: ''
 
 ms.assetid: a6624e65-1a77-4486-b473-8d720ce28f8b
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
 
@@ -26,7 +25,7 @@ If you need more help at any point in this article, you can contact the Azure ex
 Compression for your endpoint is enabled, but files are being returned uncompressed.
 
 > [!TIP]
-> To check whether your files are being returned compressed, you need to use a tool like [Fiddler](https://www.telerik.com/fiddler) or your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).  Check the HTTP response headers returned with your cached CDN content.  If there is a header named `Content-Encoding` with a value of **gzip**, **bzip2**, or **deflate**, your content is compressed.
+> To check whether your files are being returned compressed, you need to use a tool like [Fiddler](https://www.telerik.com/fiddler) or your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).  Check the HTTP response headers returned with your cached CDN content.  If there is a header named `Content-Encoding` with a value of **gzip**, **bzip2**, **brotli**, or **deflate**, your content is compressed.
 > 
 > ![Content-Encoding header](./media/cdn-troubleshoot-compression/cdn-content-header.png)
 > 
@@ -38,6 +37,7 @@ There are several possible causes, including:
 * The requested content is not eligible for compression.
 * Compression is not enabled for the requested file type.
 * The HTTP request did not include a header requesting a valid compression type.
+* Origin is sending chunked content.
 
 ## Troubleshooting steps
 > [!TIP]
@@ -49,7 +49,7 @@ There are several possible causes, including:
 First, we should do a quick sanity check on the request.  You can use your browser's [developer tools](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) to view the requests being made.
 
 * Verify the request is being sent to your endpoint URL, `<endpointname>.azureedge.net`, and not your origin.
-* Verify the request contains an **Accept-Encoding** header, and the value for that header contains **gzip**, **deflate**, or **bzip2**.
+* Verify the request contains an **Accept-Encoding** header, and the value for that header contains **gzip**, **deflate**, **brotli**, or **bzip2**.
 
 > [!NOTE]
 > **Azure CDN from Akamai** profiles only support **gzip** encoding.
@@ -106,8 +106,8 @@ Using your browser's developer tools, check the response headers to ensure the f
 
 To be eligible for compression, a file must meet the following size requirements:
 
-* Larger than 128 bytes.
-* Smaller than 1 MB.
+* Larger than 128 bytes (Content-Length: 128)
+* Smaller than 3 MB
 
 ### Check the request at the origin server for a **Via** header
 The **Via** HTTP header indicates to the web server that the request is being passed by a proxy server.  Microsoft IIS web servers by default do not compress responses when the request contains a **Via** header.  To override this behavior, perform the following:

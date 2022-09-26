@@ -1,22 +1,14 @@
 ---
-title: Manage Azure Service Fabric state | Microsoft Docs
-description: Learn how to access, save, and remove Service Fabric Reliable Actors state.
-services: service-fabric
-documentationcenter: .net
-author: vturecek
-manager: chackdan
-editor: ''
-
-ms.assetid: 37cf466a-5293-44c0-a4e0-037e5d292214
+title: Manage Azure Service Fabric state 
+description: Learn about accessing, saving, and removing state for an Azure Service Fabric Reliable Actor, and considerations when designing an application.
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 03/19/2018
-ms.author: vturecek
-
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Access, save, and remove Reliable Actors state
 [Reliable Actors](service-fabric-reliable-actors-introduction.md) are single-threaded objects that can encapsulate both logic and state and maintain state reliably. Every actor instance has its own [state manager](service-fabric-reliable-actors-state-management.md): a dictionary-like data structure that reliably stores key/value pairs. The state manager is a wrapper around a state provider. You can use it to store data regardless of which [persistence setting](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) is used.
 
@@ -322,6 +314,6 @@ class MyActorImpl extends FabricActor implements  MyActor
 
 ## Next steps
 
-State that's stored in Reliable Actors must be serialized before its written to disk and replicated for high availability. Learn more about [Actor type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
+State that's stored in Reliable Actors must be serialized before it's written to disk and replicated for high availability. Learn more about [Actor type serialization](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
 Next, learn more about [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md).

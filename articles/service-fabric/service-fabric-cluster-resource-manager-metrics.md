@@ -1,22 +1,14 @@
 ---
-title: Manage Azure Service Fabric app load using metrics | Microsoft Docs
+title: Manage Azure Service Fabric app load using metrics 
 description: Learn about how to configure and use metrics in Service Fabric to manage service resource consumption.
-services: service-fabric
-documentationcenter: .net
-author: masnider
-manager: chackdan
-editor: ''
-
-ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 08/18/2017
-ms.author: masnider
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Managing resource consumption and load in Service Fabric with metrics
 *Metrics* are the resources that your services care about and which are provided by the nodes in the cluster. A metric is anything that you want to manage in order to improve or monitor the performance of your services. For example, you might watch memory consumption to know if your service is overloaded. Another use is to figure out whether the service could move elsewhere where memory is less constrained in order to get better performance.
 
@@ -63,6 +55,11 @@ Metrics are configured on a per-named-service-instance basis when you’re creat
 Any metric has some properties that describe it: a name, a weight, and a default load.
 
 * Metric Name: The name of the metric. The metric name is a unique identifier for the metric within the cluster from the Resource Manager’s perspective.
+
+> [!NOTE]
+> Custom metric Name should not be any of the system metric names i.e servicefabric:/_CpuCores or servicefabric:/_MemoryInMB as it can lead to undefined behavior. Starting with Service Fabric version 9.1, for existing services with these custom metric names, a health warning is issued to indicate that the metric name is incorrect.
+>
+
 * Weight: Metric weight defines how important this metric is relative to the other metrics for this service.
 * Default Load: The default load is represented differently depending on whether the service is stateless or stateful.
   * For stateless services, each metric has a single property named DefaultLoad
@@ -123,7 +120,7 @@ serviceDescription.Metrics.Add(totalCountMetric);
 await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
-Powershell:
+PowerShell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("ConnectionCount,High,20,5”,"PrimaryCount,Medium,1,0”,"ReplicaCount,Low,1,1”,"Count,Low,1,1”)
@@ -142,15 +139,16 @@ Now, let's go through each of these settings in more detail and talk about the b
 ## Load
 The whole point of defining metrics is to represent some load. *Load* is how much of a given metric is consumed by some service instance or replica on a given node. Load can be configured at almost any point. For example:
 
-  - Load can be defined when a service is created. This is called _default load_.
-  - The metric information, including default loads, for a service can updated after the service is created. This is called _updating a service_. 
-  - The loads for a given partition can be reset to the default values for that service. This is called _resetting partition load_.
-  - Load can be reported on a per service object basis dynamically during runtime. This is called _reporting load_. 
-  
-All of these strategies can be used within the same service over its lifetime. 
+  - Load can be defined when a service is created. This type of load configuration is called _default load_.
+  - The metric information, including default loads, for a service can be updated after the service is created. This metric update is done by _updating a service_.
+  - The loads for a given partition can be reset to the default values for that service. This metric update is called _resetting partition load_.
+  - Load can be reported on a per service object basis, dynamically during runtime. This metric update is called _reporting load_.
+  - Load for partition's replicas or instances can also be updated by reporting load values through a Fabric API call. This metric update is called _reporting load for a partition_.
+
+All of these strategies can be used within the same service over its lifetime.
 
 ## Default load
-*Default load* is how much of the metric each service object (stateless instance or stateful replica) of this service consumes. The Cluster Resource Manager uses this number for the load of the service object until it receives other information, such as a dynamic load report. For simpler services, the default load is a static definition. The default load is never updated and is used for the lifetime of the service. Default loads works great for simple capacity planning scenarios where certain amounts of resources are dedicated to different workloads and do not change.
+*Default load* is how much of the metric each service object (stateless instance or stateful replica) of this service consumes. The Cluster Resource Manager uses this number for the load of the service object until it receives other information, such as a dynamic load report. For simpler services, the default load is a static definition. The default load is never updated and is used for the lifetime of the service. Default loads work great for simple capacity planning scenarios where certain amounts of resources are dedicated to different workloads and do not change.
 
 > [!NOTE]
 > For more information on capacity management and defining capacities for the nodes in your cluster, please see [this article](service-fabric-cluster-resource-manager-cluster-description.md#capacity).
@@ -180,6 +178,71 @@ this.Partition.ReportLoad(new List<LoadMetric> { new LoadMetric("CurrentConnecti
 
 A service can report on any of the metrics defined for it at creation time. If a service reports load for a metric that it is not configured to use, Service Fabric ignores that report. If there are other metrics reported at the same time that are valid, those reports are accepted. Service code can measure and report all the metrics it knows how to, and operators can specify the metric configuration to use without having to change the service code. 
 
+## Reporting load for a partition
+The previous section describes how service replicas or instances report load themselves. There is an additional option to dynamically report load for a partition's replicas or instances through Service Fabric API. When reporting load for a partition, you may report for multiple partitions at once.
+
+Those reports will be used in the exactly same way as load reports that are coming from the replicas or instances themselves. Reported values will be valid until new load values are reported, either by the replica or instance or by reporting a new load value for a partition.
+
+With this API, there are multiple ways to update load in the cluster:
+
+  - A stateful service partition can update its primary replica load.
+  - Both stateless and stateful services can update the load of all its secondary replicas or instances.
+  - Both stateless and stateful services can update the load of a specific replica or instance on a node.
+
+It is also possible to combine any of those updates per partition at the same time. Combination of load updates for a particular partition should be specified through the object PartitionMetricLoadDescription, which can contain corresponding list of load updates as it is shown in the example below. Load updates are represented through the object MetricLoadDescription, which can contain _current_ or _predicted_ load value for a metric, specified with a metric name.
+
+> [!NOTE]
+> _Predicted metric load values_ is currently a _preview feature_. It allows predicted load values to be reported and used at the Service Fabric side, but that feature is currently not enabled.
+>
+
+Updating loads for multiple partitions is possible with a single API call, in which case the output will contain a response per partition. In case partition update is not successfully applied for any reason, updates for that partition will be skipped, and corresponding error code for a targeted partition will be provided:
+
+  - PartitionNotFound - Specified partition ID doesn't exist.
+  - ReconfigurationPending - Partition is currently reconfiguring.
+  - InvalidForStatelessServices - An attempt was made to change the load of a primary replica for a partition belonging to a stateless service.
+  - ReplicaDoesNotExist - Secondary replica or instance does not exist on a specified node.
+  - InvalidOperation - Could happen in two cases: updating load for a partition that belongs to the System application or updating predicted load is not enabled.
+
+If some of those errors are returned, you can update the input for a specific partition and retry the update for it.
+
+Code:
+
+```csharp
+Guid partitionId = Guid.Parse("53df3d7f-5471-403b-b736-bde6ad584f42");
+string metricName0 = "CustomMetricName0";
+List<MetricLoadDescription> newPrimaryReplicaLoads = new List<MetricLoadDescription>()
+{
+    new MetricLoadDescription(metricName0, 100)
+};
+
+string nodeName0 = "NodeName0";
+List<MetricLoadDescription> newSpecificSecondaryReplicaLoads = new List<MetricLoadDescription>()
+{
+    new MetricLoadDescription(metricName0, 200)
+};
+
+OperationResult<UpdatePartitionLoadResultList> updatePartitionLoadResults =
+    await this.FabricClient.UpdatePartitionLoadAsync(
+        new UpdatePartitionLoadQueryDescription
+        {
+            PartitionMetricLoadDescriptionList = new List<PartitionMetricLoadDescription>()
+            {
+                new PartitionMetricLoadDescription(
+                    partitionId,
+                    newPrimaryReplicaLoads,
+                    new List<MetricLoadDescription>(),
+                    new List<ReplicaMetricLoadDescription>()
+                    {
+                        new ReplicaMetricLoadDescription(nodeName0, newSpecificSecondaryReplicaLoads)
+                    })
+            }
+        },
+        this.Timeout,
+        cancellationToken);
+```
+
+With this example, you will perform an update of the last reported load for a partition _53df3d7f-5471-403b-b736-bde6ad584f42_. Primary replica load for a metric _CustomMetricName0_ will be updated with value 100. At the same time, load for the same metric for a specific secondary replica located at the node _NodeName0_, will be updated with value 200.
+
 ### Updating a service's metric configuration
 The list of metrics associated with the service, and the properties of those metrics can be updated dynamically while the service is live. This allows for experimentation and flexibility. Some examples of when this is useful are:
 
@@ -201,7 +264,7 @@ Let’s take our previous example and see what happens when we add some custom m
 
 Let’s presume that we initially created the stateful service with the following command:
 
-Powershell:
+PowerShell:
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton –Metric @("MemoryInMb,High,21,11”,"PrimaryCount,Medium,1,0”,"ReplicaCount,Low,1,1”,"Count,Low,1,1”)

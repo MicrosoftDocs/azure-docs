@@ -1,1 +1,1 @@
-You need sufficient environment data captured before trying to create a new cloud anchor.
+As described earlier, you need sufficient environment data captured before trying to create a new cloud spatial anchor. That means `ReadyForCreateProgress` has to be above 1, though we recommend you wait until `RecommendedForCreateProgress` is above 1 to do so.

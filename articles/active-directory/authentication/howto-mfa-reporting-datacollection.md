@@ -1,29 +1,29 @@
 ---
-title: Azure MFA user data collection - Azure Active Directory
-description: What information is used to help authenticate users by Azure Multi-Factor Authentication?
+title: Azure AD user data collection - Azure Active Directory
+description: What information is used to help authenticate users by self-service password reset and Azure AD Multi-Factor Authentication?
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 11/21/2019
+ms.topic: how-to
+ms.date: 01/07/2021
 
-ms.author: iainfou
-author: iainfoulds
-manager: daveba
+ms.author: justinha
+author: justinha
+manager: amycolannino
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# Azure Multi-Factor Authentication user data collection
+# Azure AD user data collection for multifactor authentication and self-service password reset 
 
-This document explains how to find user information collected by Azure Multi-Factor Authentication Server (MFA Server) and Azure MFA (Cloud-based) in the event you would like to remove it.
+This document explains how to find user information collected by Azure Multi-Factor Authentication Server (MFA Server), Azure AD MFA (Cloud-based), and self-service password reset (SSPR) in the event you would like to remove it.
 
 [!INCLUDE [gdpr-hybrid-note](../../../includes/gdpr-hybrid-note.md)]
 
-## Information collected
+## MFA information collected
 
-MFA Server, the NPS Extension, and the Windows Server 2016 Azure MFA AD FS Adapter collect and store the following information for 90 days.
+MFA Server, the NPS Extension, and the Windows Server 2016 Azure AD MFA AD FS Adapter collect and store the following information for 90 days.
 
 Authentication Attempts (used for reporting and troubleshooting):
 
@@ -135,9 +135,9 @@ For MFA Server version 8.0 or higher the following process allows administrators
 - Log in to your MFA Server, navigate to the **Users** tab, select the user in question, and click the **Edit** button. Take screenshots (Alt-PrtScn) of each tab to provide the user their current MFA settings.
 - From the command line of the MFA Server, run the following command changing the path according to your installation `C:\Program Files\Multi-Factor Authentication Server\MultiFactorAuthGdpr.exe export <username>` to produce a JSON formatted file.
 - Administrators can also use the Web Service SDK GetUserGdpr operation as an option to export all MFA cloud service information collected for a given user or  incorporate into a larger reporting solution.
-- Search `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` and any backups for “\<username>” (include the quotes in the search) to find all instances of the user record being added or changed.
-   - These records can be limited (but not eliminated) by unchecking **“Log user changes”** in the MFA Server UX, Logging section, Log Files tab.
-   - If syslog is configured, and **“Log user changes”** is checked in the MFA Server UX, Logging section, Syslog tab, then the log entries can be gathered from syslog instead.
+- Search `C:\Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log` and any backups for "\<username>" (include the quotes in the search) to find all instances of the user record being added or changed.
+   - These records can be limited (but not eliminated) by unchecking **"Log user changes"** in the MFA Server UX, Logging section, Log Files tab.
+   - If syslog is configured, and **"Log user changes"** is checked in the MFA Server UX, Logging section, Syslog tab, then the log entries can be gathered from syslog instead.
 - Other occurrences of the username in MultiFactorAuthSvc.log and other MFA Server log files pertaining to authentication attempts are considered operational and duplicative to the information provided using MultiFactorAuthGdpr.exe export or Web Service SDK GetUserGdpr.
 
 ## Delete data from MFA Server
@@ -160,30 +160,36 @@ Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azu
 
 - It may take up to 30 days for data to be fully removed.
 
-## Gather data from Windows Server 2016 Azure MFA AD FS Adapter
+## Gather data from Windows Server 2016 Azure AD MFA AD FS Adapter
 
 Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) to make a request for Export. 
 
 - MFA information is included in the export, which may take hours or days to complete.
 - Occurrences of the username in the AD FS Tracing/Debug event logs (if enabled) are considered operational and duplicative to the information provided in the export.
 
-## Delete data from Windows Server 2016 Azure MFA AD FS Adapter
+## Delete data from Windows Server 2016 Azure AD MFA AD FS Adapter
 
 Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) to make a request for Account Close to delete all MFA cloud service information collected for this user.
 
 - It may take up to 30 days for data to be fully removed.
 
-## Gather data for Azure MFA
+## Gather data for Azure AD MFA
 
 Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) to make a request for Export.
 
 - MFA information is included in the export, which may take hours or days to complete.
 
-## Delete Data for Azure MFA
+## Delete data for Azure AD MFA
 
 Use the [Microsoft Privacy Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) to make a request for Account Close to delete all MFA cloud service information collected for this user.
 
 - It may take up to 30 days for data to be fully removed.
+
+## Delete data for self-service password reset
+
+Users can add answers to security questions as part of SSPR. Security questions and answers are hashed to prevent unauthorized access. Only the hashed data is saved, so the security questions and answers can't be exported. Users can go to [My sign-ins](https://mysignins.microsoft.com/security-info) to edit or delete them. The only other information saved for SSPR is the user email address. 
+
+Global Administrators can remove data collected for any user. On the **Users** page in Azure AD, click **Authentication methods** and select a user to remove their phone or email address. 
 
 ## Next steps
 

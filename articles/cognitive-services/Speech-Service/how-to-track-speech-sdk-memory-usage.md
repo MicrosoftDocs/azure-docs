@@ -3,14 +3,17 @@ title: How to track Speech SDK memory usage - Speech service
 titleSuffix: Azure Cognitive Services
 description: The Speech Service SDK supports numerous programming languages for speech-to-text and text-to-speech conversion, along with speech translation. This article discusses memory management tooling built into the SDK.
 services: cognitive-services
-author: erhopf
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/10/2019
 ms.author: rhurey
+ms.devlang: cpp, csharp, java, objective-c, python
+ms.custom: devx-track-csharp, ignite-fall-2021
 zone_pivot_groups: programming-languages-set-two
+ROBOTS: NOINDEX
 ---
 
 # How to track Speech SDK memory usage
@@ -64,7 +67,7 @@ config.setProperty("SPEECH-ObjectCountWarnThreshold", "10000");
 ::: zone pivot="programming-language-python"
 
 ```Python
-speech_config.set_property_by_name(“SPEECH-ObjectCountWarnThreshold", "10000")?
+speech_config.set_property_by_name("SPEECH-ObjectCountWarnThreshold", "10000")?
 ```
 
 ::: zone-end
@@ -89,8 +92,7 @@ Here's a sample error:
 ```terminal
 Runtime error: The maximum object count of 500 has been exceeded.
 The threshold can be adjusted by setting the SPEECH-ObjectCountErrorThreshold property on the SpeechConfig object.
-See http://https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-object-tracking-speech-sdk for more detailed information.
-Handle table dump by ojbect type:
+Handle table dump by object type:
 class Microsoft::CognitiveServices::Speech::Impl::ISpxRecognitionResult 0
 class Microsoft::CognitiveServices::Speech::Impl::ISpxRecognizer 0
 class Microsoft::CognitiveServices::Speech::Impl::ISpxAudioConfig 0
@@ -126,7 +128,7 @@ config.setProperty("SPEECH-ObjectCountErrorThreshold", "10000");
 ::: zone pivot="programming-language-python"
 
 ```Python
-speech_config.set_property_by_name(“SPEECH-ObjectCountErrorThreshold", "10000")?
+speech_config.set_property_by_name("SPEECH-ObjectCountErrorThreshold", "10000")?
 ```
 
 ::: zone-end
@@ -144,5 +146,4 @@ speech_config.set_property_by_name(“SPEECH-ObjectCountErrorThreshold", "10000"
 
 ## Next steps
 
-* [Get your Speech service trial subscription](get-started.md)
-* [Learn how to recognize speech using a microphone](quickstarts/speech-to-text-from-microphone.md)
+* [Learn more about the Speech SDK](speech-sdk.md)

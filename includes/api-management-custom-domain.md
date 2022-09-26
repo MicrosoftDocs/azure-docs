@@ -1,22 +1,31 @@
 ---
-author: vladvino
+author: dlepow
 ms.service: api-management
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: vlvinogr
+ms.date: 12/08/2021
+ms.author: danlep
 ---
-## How APIM Proxy Server responds with SSL certificates in the TLS handshake
+## How API Management proxy server responds with SSL certificates in the TLS handshake
 
-### Clients calling with SNI header
-If the customer has one or multiple custom domains configured for Proxy, APIM can respond to HTTPS requests from the custom domain(s) (for example, contoso.com) as well as default domain (for example, apim-service-name.azure-api.net). Based on the information in the Server Name Indication (SNI) header, APIM responds with appropriate server certificate.
+When configuring a custom domain for the Gateway endpoint, you can set additional properties that determine how API Management responds with a server certificate, depending on the client request.
+
+### Clients calling with Server Name Indication (SNI) header
+If you have one or multiple custom domains configured for the Gateway endpoint, API Management can respond to HTTPS requests from either:
+* Custom domain (for example, `contoso.com`)
+* Default domain (for example, `apim-service-name.azure-api.net`). 
+
+Based on the information in the SNI header, API Management responds with the appropriate server certificate.
 
 ### Clients calling without SNI header
-If the customer is using a client, which does not send the [SNI](https://tools.ietf.org/html/rfc6066#section-3) header, APIM creates responses based on the following logic:
+If you are using a client that does not send the [SNI](https://tools.ietf.org/html/rfc6066#section-3) header, API Management creates responses based on the following logic:
 
-* If the service has just one custom domain configured for Proxy, the Default Certificate is the certificate that was issued to the Proxy custom domain.
-* If the service has configured multiple custom domains for Proxy (only supported in the **Premium** tier), the customer can designate which certificate should be the default certificate. To set the default certificate, the [defaultSslBinding](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apimanagementservice/createorupdate#hostnameconfiguration) property should be set to true ("defaultSslBinding":"true"). If the customer does not set the property, the default certificate is the certificate issued to default Proxy domain hosted at *.azure-api.net.
+* **If the service has just one custom domain configured for Gateway**, the default certificate is the certificate issued to the Gateway's custom domain.
+* **If the service has configured multiple custom domains for Gateway (supported in the **Developer** and **Premium** tier)**, you can designate the default certificate by setting the [defaultSslBinding](/rest/api/apimanagement/current-ga/api-management-service/create-or-update#hostnameconfiguration) property to true (`"defaultSslBinding":"true"`). In the portal, select the **Default SSL binding** checkbox. 
+  
+  If you do not set the property, the default certificate is the certificate issued to the default Gateway domain hosted at `*.azure-api.net`.
 
 ## Support for PUT/POST request with large payload
 
-APIM Proxy server supports request with large payload when using client-side certificates in HTTPS (for example, payload > 40 KB). To prevent the server's request from freezing, customers can set the property ["negotiateClientCertificate": "true"](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/ApiManagementService/CreateOrUpdate#hostnameconfiguration) on the Proxy hostname. If the property is set to true, the client certificate is requested at SSL/TLS connection time, before any HTTP request exchange. Since the setting applies at the **Proxy Hostname** level, all connection requests ask for the client certificate. Customers can configure up to 20 custom domains for Proxy (only supported in the **Premium** tier) and work around this limitation.
+API Management proxy server supports requests with large payloads (>40 KB) when using client-side certificates in HTTPS. To prevent the server's request from freezing, you can set the [negotiateClientCertificate](/rest/api/apimanagement/current-ga/api-management-service/create-or-update#hostnameconfiguration) property to true (`"negotiateClientCertificate": "true"`) on the Gateway hostname. In the portal, select the **Negotiate client certificate** checkbox.
 
+If the property is set to true, the client certificate is requested at SSL/TLS connection time, before any HTTP request exchange. Since the setting applies at the **Gateway hostname** level, all connection requests ask for the client certificate. You can work around this limitation and configure up to 20 custom domains for Gateway (only supported in the **Premium** tier).

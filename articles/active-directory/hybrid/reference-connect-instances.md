@@ -4,14 +4,13 @@ description: This page documents special considerations for Azure AD instances.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: amycolannino
 editor: ''
 
 ms.assetid: f340ea11-8ff5-4ae6-b09d-e939c76355a3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 05/27/2019
 ms.subservice: hybrid
@@ -20,7 +19,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect: Special considerations for instances
-Azure AD Connect is most commonly used with the world-wide instance of Azure AD and Office 365. But there are also other instances and these have different requirements for URLs and other special considerations.
+Azure AD Connect is most commonly used with the world-wide instance of Azure AD and Microsoft 365. But there are also other instances and these have different requirements for URLs and other special considerations.
 
 ## Microsoft Cloud Germany
 The [Microsoft Cloud Germany](https://www.microsoft.de/cloud-deutschland) is a sovereign cloud operated by a German data trustee.

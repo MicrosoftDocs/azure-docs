@@ -1,11 +1,10 @@
 ---
 title: Using return value from an Azure Function
 description: Learn to manage return values for Azure Functions
-author: craigshoemaker
-
 ms.topic: reference
+ms.devlang: csharp, fsharp, java, javascript, powershell, python
+ms.custom: devx-track-csharp
 ms.date: 01/14/2019
-ms.author: cshoe
 ---
 
 # Using the Azure Function return value
@@ -116,14 +115,35 @@ Here's the output binding in the *function.json* file:
 }
 ```
 
-In JavaScript, the return value goes in the second parameter for `context.done`:
+Here's the JavaScript code:
 
 ```javascript
 module.exports = function (context, input) {
     var json = JSON.stringify(input);
     context.log('Node.js script processed queue message', json);
-    context.done(null, json);
+    return json;
 }
+```
+# [PowerShell](#tab/PowerShell)
+
+Here's the output binding in the *function.json* file:
+
+```json
+{
+    "name": "Response",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{blobname}"
+}
+```
+
+Here's the PowerShell code that uses the return value for an http output binding:
+
+```powershell
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = [HttpStatusCode]::OK
+    Body = $blobname
+    })
 ```
 
 # [Python](#tab/python)

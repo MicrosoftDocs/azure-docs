@@ -1,24 +1,18 @@
 ---
-title: StorSimple 8000 Series Update 3 release notes | Microsoft Docs
+title: StorSimple 8000 Series Update 3 release notes
 description: Describes the new features, issues, and workarounds for StorSimple 8000 Series Update 3.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
 ms.assetid: 2158aa7a-4ac3-42ba-8796-610d1adb984d
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 01/09/2018
+ms.topic: conceptual
+ms.date: 08/22/2022
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 
 ---
 # Update 3 release notes for your StorSimple 8000 series device
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 3. They also contain a list of the StorSimple software updates included in this release. 
@@ -82,11 +76,10 @@ The following table provides a summary of known issues in this release.
 | 22 |Updates |When applying Update 3, the **Maintenance** page in the Azure classic portal will display the following message related to Update 2 - "StorSimple 8000 series Update 2 includes the ability  for Microsoft to proactively collect log information from your device when we detect potential problems". This is misleading as it indicates that the device is being updated to Update 2. After the device is successfully updated to Update 3, this message will disappear. |This behavior will be fixed in a future release. |Yes |No |
 
 ## Controller and firmware updates in Update 3
-This release has LSI driver and firmware updates. For more information on how to install the LSI driver and firmware updates, see [install Update 3](storsimple-install-update-3.md) on your StorSimple device.
+This release has LSI driver and firmware updates. For more information on how to install the LSI driver and firmware updates, see [install Update 3](./index.yml) on your StorSimple device.
 
 ## Virtual device updates in Update 3
 This update cannot be applied to the StorSimple Cloud Appliance (also known as the virtual device). New virtual devices will need to be created. 
 
 ## Next step
-Learn how to [install Update 3](storsimple-install-update-3.md) on your StorSimple device.
-
+Learn how to [install Update 3](./index.yml) on your StorSimple device.

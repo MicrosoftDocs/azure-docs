@@ -1,22 +1,14 @@
 ---
-title: Service Fabric Backup and Restore | Microsoft Docs
-description: Conceptual documentation for Service Fabric Backup and Restore
-services: service-fabric
-documentationcenter: .net
-author: mcoskun
-manager: chackdan
-editor: subramar,zhol
-
-ms.assetid: 91ea6ca4-cc2a-4155-9823-dcbd0b996349
+title: Service Fabric Backup and Restore 
+description: Conceptual documentation for Service Fabric Backup and Restore, a service for configuring backup of Reliable Stateful services and Reliable Actors.
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/29/2018
-ms.author: mcoskun
-
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Backup and restore Reliable Services and Reliable Actors
 Azure Service Fabric is a high-availability platform that replicates the state across multiple nodes to maintain this high availability.  Thus, even if one node in the cluster fails, the services continue to be available. While this in-built redundancy provided by the platform may be sufficient for some, in certain cases it is desirable for the service to back up data (to an external store).
 
@@ -69,7 +61,7 @@ As shown below, `BackupAsync` takes in a `BackupDescription` object, where one c
 
 ```csharp
 
-BackupDescription myBackupDescription = new BackupDescription(backupOption.Incremental,this.BackupCallbackAsync);
+BackupDescription myBackupDescription = new BackupDescription(BackupOption.Incremental,this.BackupCallbackAsync);
 
 await this.BackupAsync(myBackupDescription);
 
@@ -154,7 +146,7 @@ For example, if it contains the full backup, the first incremental and the third
 > 
 
 ## Deleted or lost service
-If a service is removed, you must first re-create the service before the data can be restored.  It is important to create the service with the same configuration, for example, partitioning scheme, so that the data can be restored seamlessly.  Once the service is up, the API to restore data (`OnDataLossAsync` above) has to be invoked on every partition of this service. One way of achieving this is by using [FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx) on every partition.  
+If a service is removed, you must first re-create the service before the data can be restored.  It is important to create the service with the same configuration, for example, partitioning scheme, so that the data can be restored seamlessly.  Once the service is up, the API to restore data (`OnDataLossAsync` above) has to be invoked on every partition of this service. One way of achieving this is by using [FabricClient.TestManagementClient.StartPartitionDataLossAsync](/dotnet/api/system.fabric.fabricclient.testmanagementclient#System_Fabric_FabricClient_TestManagementClient_StartPartitionDataLossAsync_System_Guid_System_Fabric_PartitionSelector_System_Fabric_DataLossMode_) on every partition.  
 
 From this point, implementation is the same as the above scenario. Each partition needs to restore the latest relevant backup from the external store. One caveat is that the partition ID may have now changed, since the runtime creates partition IDs dynamically. Thus, the service needs to store the appropriate partition information and service name to identify the correct latest backup to restore from for each partition.
 
@@ -267,6 +259,5 @@ As part of the recovery process, operations starting from the "starting point" t
   - [Reliable Services quickstart](service-fabric-reliable-services-quick-start.md)
   - [Reliable Services notifications](service-fabric-reliable-services-notifications.md)
   - [Reliable Services configuration](service-fabric-reliable-services-configuration.md)
-  - [Developer reference for Reliable Collections](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+  - [Developer reference for Reliable Collections](/dotnet/api/microsoft.servicefabric.data.collections#microsoft_servicefabric_data_collections)
   - [Periodic backup and restore in Azure Service Fabric](service-fabric-backuprestoreservice-quickstart-azurecluster.md)
-

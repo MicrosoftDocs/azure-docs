@@ -1,21 +1,12 @@
 ---
-title: Azure Service Fabric CLI- sfctl sa-cluster | Microsoft Docs
-description: Describes the Service Fabric CLI sfctl standalone cluster commands.
-services: service-fabric
-documentationcenter: na
-author: jeffj6123
-manager: chackdan
-editor: ''
-
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: cli
+title: Azure Service Fabric CLI- sfctl sa-cluster
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for managing standalone clusters.
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
-ms.date: 9/17/2019
-ms.author: jejarry
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # sfctl sa-cluster
@@ -86,9 +77,9 @@ Validate the supplied configuration upgrade parameters and start upgrading the c
 ### Examples
 
 Start a cluster configuration update
-```	
-sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-	
-policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"	
+```
+sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-
+policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
 ```
 
 ## sfctl sa-cluster upgrade-status
@@ -115,4 +106,4 @@ Get the cluster configuration upgrade status details of a Service Fabric standal
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.
-- Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Learn how to use the Service Fabric CLI using the [sample scripts](./scripts/sfctl-upgrade-application.md).

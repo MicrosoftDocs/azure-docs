@@ -15,9 +15,11 @@ ms.author: aahi
 
 # Language and region support for Bing Spell Check API
 
+[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+
 These languages are supported by the Bing Spell Check API (only in `spell` mode).
 
-Please note that to work with any other language than `en-US`, the `mkt` should be set and either `Accept-Language` or `setLang` should be set as it has been described in [Spell Check API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+Please note that to work with any other language than `en-US`, the `mkt` should be set and either `Accept-Language` or `setLang` should be set as it has been described in [Spell Check API v7 reference](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
 
 | Language    | Language code |
 |:----------- |:-------------:|
@@ -64,5 +66,5 @@ Please note that to work with any other language than `en-US`, the `mkt` should 
 
 ## See also
 
-- [Cognitive Services Documentation page](https://docs.microsoft.com/azure/cognitive-services/)
+- [Cognitive Services Documentation page](../index.yml)
 - [Cognitive Services Product page](https://azure.microsoft.com/services/cognitive-services/)

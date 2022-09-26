@@ -1,21 +1,19 @@
 ---
-title: High availability for NFS on Azure VMs on SUSE Linux Enterprise Server | Microsoft Docs
+title: High availability for NFS on Azure VMs on SLES | Microsoft Docs
 description: High availability for NFS on Azure VMs on SUSE Linux Enterprise Server
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: mssedusch
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-
-ms.service: virtual-machines-windows
-
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
-ms.author: sedusch
+ms.date: 01/24/2022
+ms.author: radeltch
 
 ---
 
@@ -42,14 +40,18 @@ ms.author: sedusch
 [sles-for-sap-bp]:https://www.suse.com/documentation/sles-for-sap-12/
 [suse-ha-12sp3-relnotes]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP3/
 
-[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
-[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
-[template-file-server]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-file-server-md%2Fazuredeploy.json
+[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
+[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
+[template-file-server]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-file-server-md%2Fazuredeploy.json
 
 [sap-hana-ha]:sap-hana-high-availability.md
 
 This article describes how to deploy the virtual machines, configure the virtual machines, install the cluster framework, and install a highly available NFS server that can be used to store the shared data of a highly available SAP system.
 This guide describes how to set up a highly available NFS server that is used by two SAP systems, NW1 and NW2. The names of the resources (for example virtual machines, virtual networks) in the example assume that you have used the [SAP file server template][template-file-server] with resource prefix **prod**.
+
+
+> [!NOTE]
+> This article contains references to the terms *slave* and *master*, terms that Microsoft no longer uses. When the terms are removed from the software, we'll remove them from this article.
 
 Read the following SAP Notes and papers first
 
@@ -82,21 +84,12 @@ To achieve high availability, SAP NetWeaver requires an NFS server. The NFS serv
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-nfs/ha-suse-nfs.png)
 
-The NFS server uses a dedicated virtual hostname and virtual IP addresses for every SAP system that uses this NFS server. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the load balancer.        
+The NFS server uses a dedicated virtual hostname and virtual IP addresses for every SAP system that uses this NFS server. On Azure, a load balancer is required to use a virtual IP address. The presented configuration shows a load balancer with:
 
-* Frontend configuration
-  * IP address 10.0.0.4 for NW1
-  * IP address 10.0.0.5 for NW2
-* Backend configuration
-  * Connected to primary network interfaces of all virtual machines that should be part of the NFS cluster
-* Probe Port
-  * Port 61000 for NW1
-  * Port 61001 for NW2
-* Load balancing rules (if using basic load balancer)
-  * 2049 TCP for NW1
-  * 2049 UDP for NW1
-  * 2049 TCP for NW2
-  * 2049 UDP for NW2
+* Frontend IP address 10.0.0.4 for NW1
+* Frontend IP address 10.0.0.5 for NW2       
+* Probe port 61000 for NW1
+* Probe port 61001 for NW2
 
 ## Set up a highly available NFS server
 
@@ -138,7 +131,7 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
    SLES For SAP Applications 12 SP3 (BYOS) is used  
    Select Availability Set created earlier  
 1. Add one data disk for each SAP system to both virtual machines.
-1. Create a Load Balancer (internal). We recommend [standard load balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
+1. Create a Load Balancer (internal). We recommend [standard load balancer](../../../load-balancer/load-balancer-overview.md).  
    1. Follow these instructions to create standard Load balancer:
       1. Create the frontend IP addresses
          1. IP address 10.0.0.4 for NW1
@@ -149,15 +142,13 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
          1. IP address 10.0.0.5 for NW2
             * Repeat the steps above for NW2
       1. Create the backend pools
-         1. Connected to primary network interfaces of all virtual machines that should be part of the NFS cluster for NW1
+         1. Connected to primary network interfaces of all virtual machines that should be part of the NFS cluster
             1. Open the load balancer, select backend pools, and click Add
-            1. Enter the name of the new backend pool (for example **nw1-backend**)
+            1. Enter the name of the new backend pool (for example **nw-backend**)
             1. Select Virtual Network
             1. Click Add a virtual machine
             1. Select the virtual machines of the NFS cluster and their IP addresses.
             1. Click Add.
-         1. Connected to primary network interfaces of all virtual machines that should be part of the NFS cluster for NW2
-            * Repeat the steps above to create a backend pool for NW2
       1. Create the health probes
          1. Port 61000 for NW1
             1. Open the load balancer, select health probes, and click Add
@@ -169,60 +160,60 @@ You first need to create the virtual machines for this NFS cluster. Afterwards, 
       1. Load balancing rules
          1. Open the load balancer, select load-balancing rules and click Add
          1. Enter the name of the new load balancer rule (for example **nw1-lb**)
-         1. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-frontend**. **nw1-backend** and **nw1-hp**)
+         1. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-frontend**. **nw-backend** and **nw1-hp**)
          1. Select **HA Ports**.
-         1. Increase idle timeout to 30 minutes
          1. **Make sure to enable Floating IP**
          1. Click OK
          * Repeat the steps above to create load balancing rule for NW2
-   1. Alternatively, if your scenario requires basic load balancer, follow these instructions:
-      1. Create the frontend IP addresses
-         1. IP address 10.0.0.4 for NW1
-            1. Open the load balancer, select frontend IP pool, and click Add
-            1. Enter the name of the new frontend IP pool (for example **nw1-frontend**)
-            1. Set the Assignment to Static and enter the IP address (for example **10.0.0.4**)
-            1. Click OK
-         1. IP address 10.0.0.5 for NW2
-            * Repeat the steps above for NW2
-      1. Create the backend pools
-         1. Connected to primary network interfaces of all virtual machines that should be part of the NFS cluster for NW1
-            1. Open the load balancer, select backend pools, and click Add
-            1. Enter the name of the new backend pool (for example **nw1-backend**)
-            1. Click Add a virtual machine
-            1. Select the Availability Set you created earlier
-            1. Select the virtual machines of the NFS cluster
-            1. Click OK
-         1. Connected to primary network interfaces of all virtual machines that should be part of the NFS cluster for NW2
-            * Repeat the steps above to create a backend pool for NW2
-      1. Create the health probes
-         1. Port 61000 for NW1
-            1. Open the load balancer, select health probes, and click Add
-            1. Enter the name of the new health probe (for example **nw1-hp**)
-            1. Select TCP as protocol, port 610**00**, keep Interval 5 and Unhealthy threshold 2
-            1. Click OK
-         1. Port 61001 for NW2
-            * Repeat the steps above to create a health probe for NW2
-      1. Load balancing rules
-         1. 2049 TCP for NW1
-            1. Open the load balancer, select load balancing rules and click Add
-            1. Enter the name of the new load balancer rule (for example **nw1-lb-2049**)
-            1. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-frontend**)
-            1. Keep protocol **TCP**, enter port **2049**
-            1. Increase idle timeout to 30 minutes
-            1. **Make sure to enable Floating IP**
-            1. Click OK
-         1. 2049 UDP for NW1
-            * Repeat the steps above for port 2049 and UDP for NW1
-         1. 2049 TCP for NW2
-            * Repeat the steps above for port 2049 and TCP for NW2
-         1. 2049 UDP for NW2
-            * Repeat the steps above for port 2049 and UDP for NW2
-
-> [!Note]
-> When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+1. Alternatively, ***only if***  your scenario requires basic load balancer, follow these instructions follow these configuration steps instead to create basic load balancer:
+   1. Create the frontend IP addresses
+      1. IP address 10.0.0.4 for NW1
+         1. Open the load balancer, select frontend IP pool, and click Add
+         1. Enter the name of the new frontend IP pool (for example **nw1-frontend**)
+         1. Set the Assignment to Static and enter the IP address (for example **10.0.0.4**)
+         1. Click OK
+      1. IP address 10.0.0.5 for NW2
+         * Repeat the steps above for NW2
+   1. Create the backend pools
+      1. Connected to primary network interfaces of all virtual machines that should be part of the NFS cluster
+         1. Open the load balancer, select backend pools, and click Add
+         1. Enter the name of the new backend pool (for example **nw-backend**)
+         1. Click Add a virtual machine
+         1. Select the Availability Set you created earlier
+         1. Select the virtual machines of the NFS cluster
+         1. Click OK
+   1. Create the health probes
+      1. Port 61000 for NW1
+         1. Open the load balancer, select health probes, and click Add
+         1. Enter the name of the new health probe (for example **nw1-hp**)
+         1. Select TCP as protocol, port 610**00**, keep Interval 5 and Unhealthy threshold 2
+         1. Click OK
+      1. Port 61001 for NW2
+         * Repeat the steps above to create a health probe for NW2
+   1. Load balancing rules
+      1. 2049 TCP for NW1
+         1. Open the load balancer, select load balancing rules and click Add
+         1. Enter the name of the new load balancer rule (for example **nw1-lb-2049**)
+         1. Select the frontend IP address, backend pool, and health probe you created earlier (for example **nw1-frontend**)
+         1. Keep protocol **TCP**, enter port **2049**
+         1. Increase idle timeout to 30 minutes
+         1. **Make sure to enable Floating IP**
+         1. Click OK
+      1. 2049 UDP for NW1
+         * Repeat the steps above for port 2049 and UDP for NW1
+      1. 2049 TCP for NW2
+         * Repeat the steps above for port 2049 and TCP for NW2
+      1. 2049 UDP for NW2
+         * Repeat the steps above for port 2049 and UDP for NW2
 
 > [!IMPORTANT]
-> Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  
+
+> [!Note]
+> When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
+
+> [!IMPORTANT]
+> Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](../../../load-balancer/load-balancer-custom-probe-overview.md).
 
 ### Create Pacemaker cluster
 
@@ -470,9 +461,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    When using drbd to synchronize data from one host to another, a so called split brain can occur. A split brain is a scenario where both cluster nodes promoted the drbd device to be the primary and went out of sync. It might be a rare situation but you still want to handle and resolve a split brain as fast as possible. It is therefore important to be notified when a split brain happened.
 
-   Read [the official drbd documentation](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) on how to set up a split brain notification.
+   Read [the official drbd documentation](https://www.linbit.com/drbd-user-guide/users-guide-drbd-8-4/#s-split-brain-notification) on how to set up a split brain notification.
 
-   It is also possible to automatically recover from a split brain scenario. For more information, read [Automatic split brain recovery policies](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-automatic-split-brain-recovery-configuration)
+   It is also possible to automatically recover from a split brain scenario. For more information, read [Automatic split brain recovery policies](https://www.linbit.com/drbd-user-guide/users-guide-drbd-8-4/#s-automatic-split-brain-recovery-configuration)
    
 ### Configure Cluster Framework
 
@@ -480,7 +471,12 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    > [!IMPORTANT]
    > Recent testing revealed situations, where netcat stops responding to requests due to backlog and its limitation of handling only one connection. The netcat resource stops listening to the Azure Load balancer requests and the floating IP becomes unavailable.  
-   > For existing Pacemaker clusters, we recommend replacing netcat with socat, following the instructions in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128). Note that the change will require brief downtime.  
+   > For existing Pacemaker clusters, we recommended in the past replacing netcat with socat. Currently we recommend using azure-lb resource agent, which is part of package resource-agents, with the following package version requirements:
+   > - For SLES 12 SP4/SP5, the version must be at least resource-agents-4.3.018.a7fb5035-3.30.1.  
+   > - For SLES 15/15 SP1, the version must be at least resource-agents-4.3.0184.6ee15eb2-4.13.1.  
+   >
+   > Note that the change will require brief downtime.  
+   > For existing Pacemaker clusters, if the configuration was already changed to use socat as described in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), there is no requirement to switch immediately to azure-lb resource agent.
 
    <pre><code>sudo crm configure rsc_defaults resource-stickiness="200"
 
@@ -513,13 +509,10 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      params directory="/srv/nfs/<b>NW1</b>" \
      options="rw,no_root_squash,crossmnt" clientspec="*" fsid=1 wait_for_leasetime_on_stop=true op monitor interval="30s"
    
-   sudo crm configure primitive vip_<b>NW1</b>_nfs \
-     IPaddr2 \
-     params ip=<b>10.0.0.4</b> cidr_netmask=<b>24</b> op monitor interval=10 timeout=20
+   sudo crm configure primitive vip_<b>NW1</b>_nfs IPaddr2 \
+     params ip=<b>10.0.0.4</b> op monitor interval=10 timeout=20
    
-   sudo crm configure primitive nc_<b>NW1</b>_nfs \
-     anything \
-     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:<b>61000</b>,backlog=10,fork,reuseaddr /dev/null" op monitor timeout=20s interval=10 depth=0
+   sudo crm configure primitive nc_<b>NW1</b>_nfs azure-lb port=<b>61000</b>
    
    sudo crm configure group g-<b>NW1</b>_nfs \
      fs_<b>NW1</b>_sapmnt exportfs_<b>NW1</b> nc_<b>NW1</b>_nfs vip_<b>NW1</b>_nfs
@@ -556,15 +549,12 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo crm configure primitive exportfs_<b>NW2</b> \
      ocf:heartbeat:exportfs \
      params directory="/srv/nfs/<b>NW2</b>" \
-     options="rw,no_root_squash" clientspec="*" fsid=2 wait_for_leasetime_on_stop=true op monitor interval="30s"
+     options="rw,no_root_squash,crossmnt" clientspec="*" fsid=2 wait_for_leasetime_on_stop=true op monitor interval="30s"
    
-   sudo crm configure primitive vip_<b>NW2</b>_nfs \
-     IPaddr2 \
-     params ip=<b>10.0.0.5</b> cidr_netmask=<b>24</b> op monitor interval=10 timeout=20
+   sudo crm configure primitive vip_<b>NW2</b>_nfs IPaddr2 \
+     params ip=<b>10.0.0.5</b> op monitor interval=10 timeout=20
    
-   sudo crm configure primitive nc_<b>NW2</b>_nfs \
-     anything \
-     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:<b>61001</b>,backlog=10,fork,reuseaddr /dev/null" op monitor timeout=20s interval=10 depth=0
+   sudo crm configure primitive nc_<b>NW2</b>_nfs azure-lb port=<b>61001</b>
    
    sudo crm configure group g-<b>NW2</b>_nfs \
      fs_<b>NW2</b>_sapmnt exportfs_<b>NW2</b> nc_<b>NW2</b>_nfs vip_<b>NW2</b>_nfs
@@ -575,6 +565,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo crm configure colocation col-<b>NW2</b>_nfs_on_drbd inf: \
      g-<b>NW2</b>_nfs ms-drbd_<b>NW2</b>_nfs:Master
    </code></pre>
+
+   The `crossmnt` option in the `exportfs` cluster resources is present in our documentation for backward compatibility with older SLES versions.  
 
 1. **[1]** Disable maintenance mode
    
@@ -587,5 +579,4 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 * [Azure Virtual Machines planning and implementation for SAP][planning-guide]
 * [Azure Virtual Machines deployment for SAP][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
-* To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](hana-overview-high-availability-disaster-recovery.md).
 * To learn how to establish high availability and plan for disaster recovery of SAP HANA on Azure VMs, see [High Availability of SAP HANA on Azure Virtual Machines (VMs)][sap-hana-ha]

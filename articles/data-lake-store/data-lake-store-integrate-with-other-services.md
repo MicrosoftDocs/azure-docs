@@ -1,18 +1,12 @@
 ---
-title: Integrating Azure Data Lake Storage Gen1 with other Azure Services | Microsoft Docs
-description: Understand how Azure Data Lake Storage Gen1 integrates with other Azure services
-documentationcenter: ''
-services: data-lake-store
-author: twooley
-manager: mtillman
-editor: cgronlun
+title: Integrate Data Lake Storage Gen1 with other Azure services
+description: Understand how you can integrate Azure Data Lake Storage Gen1 with other Azure services.
 
-ms.assetid: 48a5d1f4-3850-4c22-bbc4-6d1d394fba8a
+author: normesta
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/29/2018
-ms.author: twooley
+ms.date: 06/03/2022
+ms.author: normesta
 
 ---
 # Integrating Azure Data Lake Storage Gen1 with other Azure services
@@ -23,7 +17,7 @@ You can provision an [Azure HDInsight](https://azure.microsoft.com/documentation
 
 For instructions on how to provision an HDInsight cluster with Data Lake Storage Gen1, see:
 
-* [Provision an HDInsight cluster with Data Lake Storage Gen1 using Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Provision an HDInsight cluster with Data Lake Storage Gen1 using Azure portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Provision an HDInsight cluster with Data Lake Storage Gen1 as default storage using Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 * [Provision an HDInsight cluster with Data Lake Storage Gen1 as additional storage using Azure PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
 
@@ -41,7 +35,7 @@ For instructions on how to use Azure Data Factory with Data Lake Storage Gen1, s
 Azure Data Lake Storage Gen1 provides a command-line tool, AdlCopy, that enables you to copy data from Azure Blob Storage into a Data Lake Storage Gen1 account. For more information, see [Copy data from Azure Storage Blobs to Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md).
 
 ## Copy data between Azure SQL Database and Data Lake Storage Gen1
-You can use Apache Sqoop to import and export data between Azure SQL Database and Data Lake Storage Gen1. For more information, see [Copy data between Data Lake Storage Gen1 and Azure SQL database using Sqoop](data-lake-store-data-transfer-sql-sqoop.md).
+You can use Apache Sqoop to import and export data between Azure SQL Database and Data Lake Storage Gen1. For more information, see [Copy data between Data Lake Storage Gen1 and Azure SQL Database using Sqoop](data-lake-store-data-transfer-sql-sqoop.md).
 
 ## Use Data Lake Storage Gen1 with Stream Analytics
 You can use Data Lake Storage Gen1 as one of the outputs to store data streamed using Azure Stream Analytics. For more information, see [Stream data from Azure Storage Blob into Data Lake Storage Gen1 using Azure Stream Analytics](data-lake-store-stream-analytics.md).
@@ -53,10 +47,7 @@ You can use Power BI to import data from a Data Lake Storage Gen1 account to ana
 You can register data from Data Lake Storage Gen1 into the Azure Data Catalog to make the data discoverable throughout the organization. For more information see [Register data from Data Lake Storage Gen1 in Azure Data Catalog](data-lake-store-with-data-catalog.md).
 
 ## Use Data Lake Storage Gen1 with SQL Server Integration Services (SSIS)
-You can use the Data Lake Storage Gen1 connection manager in SSIS to connect an SSIS package with Data Lake Storage Gen1. For more information, see [Use Data Lake Storage Gen1 with SSIS](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager).
-
-## Use Data Lake Storage Gen1 with SQL Data Warehouse
-You can use PolyBase to load data from Data Lake Storage Gen1 into SQL Data Warehouse. For more information see [Use Data Lake Storage Gen1 with SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md).
+You can use the Data Lake Storage Gen1 connection manager in SSIS to connect an SSIS package with Data Lake Storage Gen1. For more information, see [Use Data Lake Storage Gen1 with SSIS](/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager).
 
 ## Use Data Lake Storage Gen1 with Azure Event Hubs
 You can use Azure Data Lake Storage Gen1 to archive and capture data received by Azure Event Hubs. For more information see [Use Data Lake Storage Gen1 with Azure Event Hubs](data-lake-store-archive-eventhub-capture.md).
@@ -64,5 +55,4 @@ You can use Azure Data Lake Storage Gen1 to archive and capture data received by
 ## See also
 * [Overview of Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Get Started with Data Lake Storage Gen1 using Portal](data-lake-store-get-started-portal.md)
-* [Get started with Data Lake Storage Gen1 using PowerShell](data-lake-store-get-started-powershell.md)  
-
+* [Get started with Data Lake Storage Gen1 using PowerShell](data-lake-store-get-started-powershell.md)

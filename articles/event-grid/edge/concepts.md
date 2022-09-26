@@ -5,15 +5,18 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/03/2019
+ms.date: 02/15/2022
+ms.subservice: iot-edge
 ms.topic: article
-ms.service: event-grid
-services: event-grid
 ---
 
 # Event Grid concepts
 
 This article describes the main concepts in Azure Event Grid.
+
+> [!IMPORTANT]
+> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
+
 
 ## Events
 
@@ -45,7 +48,7 @@ See [REST API documentation](api.md) on how to manage subscriptions in Event Gri
 
 ## Event handlers
 
-From an Event Grid perspective, an event handler is the place where the event is sent. The handler takes further action to process the event. Event Grid supports several handler types. You can use a supported Azure service or your own web hook as the handler. Depending on the type of handler, Event Grid follows different mechanisms to guarantee the delivery of the event. If the destination event handler is an HTTP web hook, the event is retried when the handler returns a status code of `200 – OK`. For edge Hub, if the event is delivered without any exception, it is considered successful.
+From an Event Grid perspective, an event handler is the place where the event is sent. The handler takes further action to process the event. Event Grid supports several handler types. You can use a supported Azure service or your own web hook as the handler. Depending on the type of handler, Event Grid follows different mechanisms to guarantee the delivery of the event. If the destination event handler is an HTTP web hook, the event is retried until the handler returns a status code of `200 – OK`. For edge Hub, if the event is delivered without any exception, it is considered successful.
 
 ## Security
 

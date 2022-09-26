@@ -1,21 +1,14 @@
 ---
-title: Create an Azure Service Fabric cluster template | Microsoft Docs
+title: Create an Azure Service Fabric cluster template 
 description: Learn how to create a Resource Manager template for a Service Fabric cluster. Configure security, Azure Key Vault, and Azure Active Directory (Azure AD) for client authentication.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: chackdan
-ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 08/16/2018
-ms.author: atsenthi
-
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Create a Service Fabric cluster Resource Manager template
 
 An [Azure Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual machines into which your microservices are deployed and managed. A Service Fabric cluster running in Azure is an Azure resource and is deployed, managed, and monitored using the Resource Manager.  This article describes how create a Resource Manager template for a Service Fabric cluster running in Azure.  When the template is complete, you can [deploy the cluster on Azure](service-fabric-cluster-creation-via-arm.md).
@@ -90,7 +83,7 @@ The cluster authentication certificate must be configured in both the Service Fa
       "extensionProfile": {
         "extensions": [
           {
-            "name": "[concat('ServiceFabricNodeVmExt','_vmNodeType0Name')]",
+            "name": "[concat('ServiceFabricNodeVmExt_',variables('vmNodeType0Name'))]",
             "properties": {
               ...
               "settings": {
@@ -268,7 +261,7 @@ To learn about the JSON syntax and properties for the resources deployed in this
 <!-- Links -->
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [service-fabric-secure-cluster-5-node-1-nodetype]: https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure
-[resource-group-template-deploy]: https://azure.microsoft.com/documentation/articles/resource-group-template-deploy/
+[resource-group-template-deploy]: ../azure-resource-manager/templates/deploy-powershell.md
 
 <!-- Images -->
 [cluster-security-arm-dependency-map]: ./media/service-fabric-cluster-creation-create-template/cluster-security-arm-dependency-map.png

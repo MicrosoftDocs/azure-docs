@@ -1,22 +1,14 @@
 ---
-title:  Azure Service Fabric Java Client APIs | Microsoft Docs
+title:  Azure Service Fabric Java Client APIs 
 description: Generate and use Service Fabric Java client APIs using Service Fabric client REST API specification
-services: service-fabric
-documentationcenter: java
-author: rapatchi
-manager: chackdan
-editor: ''
-
-ms.assetid:
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: java
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/27/2017
-ms.author: rapatchi
-
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Azure Service Fabric Java Client APIs
 
 Service Fabric client APIs allows deploying and managing microservices based applications and containers in a Service Fabric cluster on Azure, on-premises, on local development machine or in other cloud. This article describes how to generate and use Service Fabric Java client APIs on top of the Service Fabric client REST APIs
@@ -56,7 +48,7 @@ Follow the steps mentioned below to generate Service Fabric Java client code usi
 	> If your cluster version is not 6.0.* then go to the appropriate directory in the stable folder.
 	>	
 
-5. Run the following autorest command to generate the java client code.
+5. Run the following autorest command to generate the Java client code.
 	
 	```bash
 	autorest --input-file= servicefabric.json --java --output-folder=[output-folder-name] --namespace=[namespace-of-generated-client]
@@ -67,7 +59,7 @@ Follow the steps mentioned below to generate Service Fabric Java client code usi
 	autorest --input-file=servicefabric.json --java --output-folder=java-rest-api-code --namespace=servicefabricrest
 	```
    
-   The following command takes ``servicefabric.json`` specification file as input and generates java client code in ``java-rest-api-	 code`` folder and encloses the code in  ``servicefabricrest`` namespace. After this step you would find two folders ``models``, ``implementation`` and two files ``ServiceFabricClientAPIs.java`` and ``package-info.java`` generated in the ``java-rest-api-code`` folder.
+   The following command takes ``servicefabric.json`` specification file as input and generates Java client code in ``java-rest-api-	 code`` folder and encloses the code in  ``servicefabricrest`` namespace. After this step you would find two folders ``models``, ``implementation`` and two files ``ServiceFabricClientAPIs.java`` and ``package-info.java`` generated in the ``java-rest-api-code`` folder.
 
 
 ## Include and use the generated client in your project
@@ -130,5 +122,4 @@ For every API you will find four overloads of implementation. If there are optio
 	* This variant of API call can be used if you want to use reactive asynchronous programming and deal with RAW rest response
 
 ## Next steps
-* Learn about [Service Fabric REST APIs](https://docs.microsoft.com/rest/api/servicefabric/)
-
+* Learn about [Service Fabric REST APIs](/rest/api/servicefabric/)

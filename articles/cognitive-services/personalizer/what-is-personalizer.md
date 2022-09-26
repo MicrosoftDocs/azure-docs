@@ -1,71 +1,127 @@
 ---
 title: What is Personalizer?
-titleSuffix: Azure Cognitive Services
-description: Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior. 
-services: cognitive-services
-author: diberry
-manager: nitinme
+description: Personalizer is a cloud-based service that allows you to choose the best experience to show to your users, learning from their real-time behavior.
+author: jcodella
+ms.author: jacodel
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 10/23/2019
-ms.author: diberry
-#Customer intent: 
+ms.date: 07/06/2022
+ms.custom: cog-serv-seo-aug-2020
+keywords: personalizer, Azure personalizer, machine learning 
 ---
 
 # What is Personalizer?
 
-Azure Personalizer is a cloud-based API service that allows your application to choose the best experience to show to your users, learning from their collective real-time behavior.
+Azure Personalizer helps your applications make smarter decisions at scale using **reinforcement learning**. Personalizer can determine the best actions to take in a variety of scenarios:
+* E-commerce: What product should be shown to customers to maximize the likelihood of a purchase?
+* Content recommendation: What article should be shown to increase the click-through rate?
+* Content design: Where should an advertisement be placed to optimize user engagement on a website?
+* Communication: When and how should a notification be sent to maximize the chance of a response?
 
-* Provide information about your users and content and receive the top action to show your users. 
-* No need to clean and label data before using Personalizer.
-* Provide feedback to Personalizer when it is convenient to you. 
-* View real-time analytics. 
+Personalizer processes information about the state of your application, scenario, and/or users (*contexts*), and a set of possible decisions and related attributes (*actions*) to determine the best decision to make. Feedback from your application (*rewards*) is sent to Personalizer to learn how to improve its decision-making ability in near-real time.
 
-See a demonstration of [how Personalizer works](https://personalizercontentdemo.azurewebsites.net/)
+To get started with the Personalizer, follow the [**quickstart guide**](quickstart-personalizer-sdk.md), or try Personalizer with this [interactive demo](https://personalizerdevdemo.azurewebsites.net/).
+
+
+This documentation contains the following types of articles:
+
+* [**Quickstarts**](quickstart-personalizer-sdk.md) provide step-by-step instructions to guide you through setup and sample code to start making API requests to the service.  
+* [**How-to guides**](how-to-settings.md) contain instructions for using Personalizer features and advanced capabilities.
+* [**Code samples**](https://github.com/Azure-Samples/cognitive-services-personalizer-samples) demonstrate how to use Personalizer and help you to easily interface your application with the service.
+* [**Tutorials**](tutorial-use-personalizer-web-app.md) are longer walk-throughs implementing Personalizer as a part of a broader business solution.  
+* [**Concepts**](how-personalizer-works.md) provide further detail on Personalizer features, capabilities, and fundamentals.
+
 
 ## How does Personalizer work?
 
-Personalizer uses machine learning models to discover what action to rank highest in a context. Your client application provides a list of possible actions, with information about them; and information about the context, which may include information about the user, device, etc. Personalizer determines the action to take. Once your client application uses the chosen action, it provides feedback to Personalizer in the form of a reward score. After the feedback is received, Personalizer automatically updates its own model used for future ranks. Over time, Personalizer will train one model that can suggest the best action to choose in each context based on their features.
+Personalizer uses reinforcement learning to select the best *action* for a given *context* across all users in order to maximize an average *reward*. 
+* **Context**: Information that describes the state of your application, scenario, or user that may be relevant to making a decision.
+    * Example: The location, device type, age, and favorite topics of users visiting a web site.
+* **Actions**: A discrete set of items that can be chosen, along with attributes describing each item. 
+    * Example: A set of news articles and the topics that are discussed in each article. 
+* **Reward**: A numerical score between 0 and 1 that indicates whether the decision was *bad* (0), or *good* (1)
+    * Example: A "1" indicates that a user clicked on the suggested article, whereas a "0" indicates the user did not.
 
-## How do I use the Personalizer?
+### Rank and Reward APIs
 
-![Using Personalizer to choose which video to show to a user](media/what-is-personalizer/personalizer-example-highlevel.png)
+Personalizer empowers you to take advantage of the power and flexibility of reinforcement learning using just two primary APIs.
 
-1. Choose an experience in your app to personalize.
-1. Create and configure an instance of the Personalization Service in the Azure portal. Each instance is a Personalizer Loop.
-1. Use the [Rank API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank) to call Personalizer with information (_features_) about your users, and the content (_actions_). You don't need to provide clean, labeled data before using Personalizer. APIs can be called directly or using SDKs available for different programming languages.
-1. In the client application, show the user the action selected by Personalizer.
-1. Use the [Reward API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) to provide feedback to Personalizer indicating if the user selected Personalizer's action. This is a _[reward score](concept-rewards.md)_.
-1. View analytics in the Azure portal to evaluate how the system is working and how your data is helping personalization.
+The **Rank** [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank) is called by your application each time there is a decision to be made. The application sends a JSON containing a set of actions, features that describe each action, and features that describe the current context. Each Rank API call is known as an **event** and noted with a unique _event ID_. Personalizer then returns the ID of the best action that maximizes the total average reward as determined by the underlying model. 
 
-## Where can I use Personalizer?
+The **Reward** [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) is called by your application whenever there is feedback that can help Personalizer learn if the action ID returned in the *Rank* call provided value. For example, if a user clicked on the suggested news article, or completed the purchase of a suggested product. A call to then Reward API can be in real-time (just after the Rank call is made) or delayed to better fit the needs of the scenario. The reward score is determined your business metrics and objectives, and can be generated by an algorithm or rules in your application. The score is a real-valued number between 0 and 1. 
 
-For example, your client application can add Personalizer to:
+###  Learning modes
 
-* Personalize what article is highlighted on a news website.    
-* Optimize ad placement on a website.
-* Display a personalized "recommended item" on a shopping website.
-* Suggest user interface elements such as filters to apply to a specific photo.
-* Choose a chat bot's response to clarify user intent or suggest an action.
-* Prioritize suggestions of what a user should do as the next step in a business process.
+* **[Apprentice mode](concept-apprentice-mode.md)** Similar to how an apprentice learns a craft from observing an expert, Apprentice mode enables Personalizer to learn by observing your application's current decision logic. This helps to mitigate the so-called "cold start" problem with a new untrained model, and allows you to validate the action and context features that are sent to Personalizer. In Apprentice mode, each call to the Rank API returns the _baseline action_ or _default action_, that is the action that the application would've taken without using Personalizer. This is sent by your application to Personalizer in the Rank API as the first item in the set of possible actions.
 
-Personalizer is not a service to persist and manage user profile information, or to log individual users' preferences or history. Personalizer learns from each interaction's features in the action of a context in a single model that can obtain maximum rewards when similar features occur. 
+* **Online mode** Personalizer will return the best action, given the context, as determined by the underlying RL model and explores other possible actions that may improve performance. Personalizer learns from feedback provided in calls to the Reward API.
 
-## Personalization for developers
+Note that Personalizer uses collective information across all users to learn the best actions based on the current context. The service does not:
+* Persist and manage user profile information. Unique user IDs should not be sent to Personalizer.
+* Log individual users' preferences or historical data.
 
-Personalizer Service has two APIs:
 
-* *Rank*: Use the Rank API to determine which _action_ to show, in the current _context_. Actions are sent as an array of JSON objects, with an ID and information (_features_) about each; context is sent as another JSON object. The API returns the actionId that your application should render to the user.
-* *Reward*: After your user interacts with your application, you measure how well the personalization worked as a number between 0 and 1 and send it as a [reward score](concept-rewards.md). 
+### Example scenarios
 
-![Basic sequence of events for Personalization](media/what-is-personalizer/personalization-intro.png)
+Here are a few examples where Personalizer can be used to select the best content to render for a user.
+
+|Content type|Actions {features}|Context features|Returned Reward Action ID<br>(display this content)|
+|--|--|--|--|
+|News articles|a. `The president...`, {national, politics, [text]}<br>b. `Premier League ...` {global, sports, [text, image, video]}<br> c. `Hurricane in the ...` {regional, weather, [text,image]}|Country='USA',<br>Recent_Topics=('politics', 'business'),<br>Month='October'<br>|a `The president...`|
+|Movies|1. `Star Wars` {1977, [action, adventure, fantasy], George Lucas}<br>2. `Hoop Dreams` {1994, [documentary, sports], Steve James}<br>3. `Casablanca` {1942, [romance, drama, war], Michael Curtiz}|Device='smart TV',<br>Screen_Size='large',<br>Favorite_Genre='classics'<br>|3. `Casablanca`|
+|E-commerce Products|i. `Product A` {3 kg, $$$$, deliver in 1 day}<br>ii. `Product B` {20 kg, $$, deliver in 7 days}<br>iii. `Product C` {3 kg, $$$, deliver in 2 days}| Device='iPhone',<br>Spending_Tier='low',<br>Month='June'|ii. `Product B`|
+
+
+## Scenario requirements
+
+Use Personalizer when your scenario has:
+
+* A limited set of actions or items to select from in each personalization event. We recommend no more than ~50 actions in each Rank API call. If you have a larger set of possible actions, we suggest using a [using a recommendation engine].(where-can-you-use-personalizer.md#how-to-use-personalizer-with-a-recommendation-solution) or another mechanism to reduce the list of actions prior to calling the Rank API. 
+* Information describing the actions (_action features_).
+* Information describing the current context (_contextual features_).
+* Sufficient data volume to enable Personalizer to learn. In general, we recommend a minimum of ~1,000 events per day to enable Personalizer learn effectively. If Personalizer doesn't receive sufficient data, the service takes longer to determine the best actions. 
+
+
+
+## Integrating Personalizer in an application
+
+1. [Design](concepts-features.md) and plan the **_actions_**, and **_context_**. Determine the how to interpret feedback as a **_reward_** score.
+1. Each [Personalizer Resource](how-to-settings.md) you create is defined as one _Learning Loop_. The loop will receive the both the Rank and Reward calls for that content or user experience and train an underlying RL model. There are 
+
+    |Resource type| Purpose|
+    |--|--|
+    |[Apprentice mode](concept-apprentice-mode.md) - `E0`| Train Personalizer to mimic your current decision-making logic without impacting your existing application, before using _Online mode_ to learn better policies in a production environment.|
+    |_Online mode_ - Standard, `S0`| Personalizer uses RL to determine best actions in production.|
+    |_Online mode_ - Free, `F0`| Try Personalizer in a limited non-production environment.|
+
+1. Add Personalizer to your application, website, or system:
+    1. Add a **Rank** call to Personalizer in your application, website, or system to determine the best action.
+    1. Use the the best action, as specified as a _reward action ID_ in your scenario.
+    1. Apply _business logic_ to user behavior or feedback data to determine the **reward** score. For example:
+
+    |Behavior|Calculated reward score|
+    |--|--|
+    |User selected a news article suggested by Personalizer |**1**|
+    |User selected a news article _not_ suggested by Personalizer |**0**|
+    |User hesitated to select a news article, scrolled around indecisively, and ultimately selected the news article suggested by Personalizer |**0.5**|
+
+    1. Add a **Reward** call sending a reward score between 0 and 1
+        * Immediately after feedback is received.
+        * Or sometime later in scenarios where delayed feedback is expected.
+    1. Evaluate your loop with an [offline evaluation](concepts-offline-evaluation.md) after a period of time when Personalizer has received significant data to make online decisions. An offline evaluation allows you to test and assess the effectiveness of the Personalizer Service without code changes or user impact.
+
+## Reference 
+
+* [Personalizer C#/.NET SDK](/dotnet/api/overview/azure/cognitiveservices/client/personalizer)
+* [Personalizer Go SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview)
+* [Personalizer JavaScript SDK](/javascript/api/@azure/cognitiveservices-personalizer/)
+* [Personalizer Python SDK](/python/api/overview/azure/cognitiveservices/personalizer)
+* [REST APIs](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank)
 
 ## Next steps
 
-* [What's new in Personalizer?](whats-new.md)
-* [How Personalizer works?](how-personalizer-works.md)
-* [What is Reinforcement Learning?](concepts-reinforcement-learning.md)
-* [Learn about features and actions for the Rank request](concepts-features.md)
-* [Learn about determining the score for the Reward request](concept-rewards.md)
-* [Use the interactive demo](https://personalizationdemo.azurewebsites.net/)
+> [!div class="nextstepaction"]
+> [How Personalizer works](how-personalizer-works.md)
+> [What is Reinforcement Learning?](concepts-reinforcement-learning.md)

@@ -1,17 +1,8 @@
 ---
 title: Azure Batch task fail event
 description: Reference for Batch task fail event. This event will be emitted in addition to a task complete event and can be used to detect when a task has failed.
-services: batch
-author: laurenhughes
-manager: gwallace
-
-ms.assetid: 
-ms.service: batch
-ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-compute
-ms.date: 08/15/2019
-ms.author: lahugh
+ms.topic: reference
+ms.date: 10/08/2020
 ---
 
 # Task fail event
@@ -23,27 +14,28 @@ ms.author: lahugh
 
 ```
 {
-	"jobId": "myJob",
-	"id": "myTask",
-	"taskType": "User",
-	"systemTaskVersion": 0,
-	"nodeInfo": {
-		"poolId": "pool-001",
-		"nodeId": "tvm-257509324_1-20160908t162728z"
-	},
-	"multiInstanceSettings": {
-		"numberOfInstances": 1
-	},
-	"constraints": {
-		"maxTaskRetryCount": 2
-	},
-	"executionInfo": {
-		"startTime": "2016-09-08T16:32:23.799Z",
-		"endTime": "2016-09-08T16:34:00.666Z",
-		"exitCode": 1,
-		"retryCount": 2,
-		"requeueCount": 0
-	}
+    "jobId": "myJob",
+    "id": "myTask",
+    "taskType": "User",
+    "systemTaskVersion": 0,
+    "requiredSlots": 1,
+    "nodeInfo": {
+        "poolId": "pool-001",
+        "nodeId": "tvm-257509324_1-20160908t162728z"
+    },
+    "multiInstanceSettings": {
+        "numberOfInstances": 1
+    },
+    "constraints": {
+        "maxTaskRetryCount": 2
+    },
+    "executionInfo": {
+        "startTime": "2016-09-08T16:32:23.799Z",
+        "endTime": "2016-09-08T16:34:00.666Z",
+        "exitCode": 1,
+        "retryCount": 2,
+        "requeueCount": 0
+    }
 }
 ```
 
@@ -53,8 +45,9 @@ ms.author: lahugh
 |`id`|String|The ID of the task.|
 |`taskType`|String|The type of the task. This can either be 'JobManager' indicating it is a job manager task or 'User' indicating it is not a job manager task. This event is not emitted for job preparation tasks, job release tasks or start tasks.|
 |`systemTaskVersion`|Int32|This is the internal retry counter on a task. Internally the Batch service can retry a task to account for transient issues. These issues can include internal scheduling errors or attempts to recover from compute nodes in a bad state.|
+|`requiredSlots`|Int32|The required slots to run the task.|
 |[`nodeInfo`](#nodeInfo)|Complex Type|Contains information about the compute node on which the task ran.|
-|[`multiInstanceSettings`](#multiInstanceSettings)|Complex Type|Specifies that the task is a Multi-Instance Task requiring multiple compute nodes.  See [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) for details.|
+|[`multiInstanceSettings`](#multiInstanceSettings)|Complex Type|Specifies that the task is a Multi-Instance Task requiring multiple compute nodes.  See [`multiInstanceSettings`](/rest/api/batchservice/get-information-about-a-task) for details.|
 |[`constraints`](#constraints)|Complex Type|The execution constraints that apply to this task.|
 |[`executionInfo`](#executionInfo)|Complex Type|Contains information about the execution of the task.|
 

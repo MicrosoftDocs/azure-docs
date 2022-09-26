@@ -3,18 +3,13 @@ title: View Azure virtual network topology | Microsoft Docs
 description: Learn how to view the resources in a virtual network, and the relationships between the resources.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor:
-
-ms.assetid: 
+author: damendo
 ms.service: network-watcher
-ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 05/09/2018
-ms.author: kumud
+ms.author: damendo
 ---
 
 # View the topology of an Azure virtual network
@@ -143,6 +138,10 @@ All resources returned in a topology have the following properties:
     - **AssociationType**: References the relationship between the child object and the parent. Valid values are *Contains* or *Associated*.
     - **Name**: The name of the referenced resource.
     - **ResourceId**:  - The URI of the resource referenced in the association.
+
+## Supported resources
+
+The Network Watcher Topology supports a limited set of resources. There are Virtual Network, Subnet, Network Interface, Network Security Group, Load Balancer, Load Balancer Health probe, Public IP, Virtual Network Peering, Virtual network gateway, VPN Gateway Connection, Virtual Machine, and Virtual Machine Scale Set.
 
 ## Next steps
 

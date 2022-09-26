@@ -1,22 +1,14 @@
 ---
-title: Differences between Cloud Services and Service Fabric | Microsoft Docs
+title: Differences between Cloud Services and Service Fabric 
 description: A conceptual overview for migrating applications from Cloud Services to Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: vturecek
-manager: chackdan
-editor: ''
-
-ms.assetid: 0b87b1d3-88ad-4658-a465-9f05a3376dee
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotNet
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/02/2017
-ms.author: vturecek
-
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Learn about the differences between Cloud Services and Service Fabric before migrating applications.
 Microsoft Azure Service Fabric is the next-generation cloud application platform for highly scalable, highly reliable distributed applications. It introduces many new features for packaging, deploying, upgrading, and managing distributed cloud applications. 
 
@@ -74,7 +66,7 @@ With direct communication, tiers can communicate directly through endpoint expos
 
 Service Fabric provides a service discovery mechanism, called the Naming Service, which can be used to resolve endpoint addresses of services. 
 
-![Service Fabric direct communication][6]
+![Diagram that shows how Service Fabric provides a service discovery mechanism, called the Naming Service, which can be used to resolve endpoint addresses of services.][6]
 
 ### Queues
 A common communication mechanism between tiers in stateless environments such as Cloud Services is to use an external storage queue to durably store work tasks from one tier to another. A common scenario is a web tier that sends jobs to an Azure Queue or Service Bus where Worker Role instances can dequeue and process the jobs.
@@ -86,7 +78,7 @@ The same communication model can be used in Service Fabric. This can be useful w
 ![Service Fabric direct communication][8]
 
 ## Parity
-[Cloud Services is similar to Service Fabric in degree of control versus ease of use, but it’s now a legacy service and Service Fabric is recommended for new development](https://docs.microsoft.com/azure/app-service/overview-compare); the following is an API comparison:
+[Cloud Services is similar to Service Fabric in degree of control versus ease of use, but it’s now a legacy service and Service Fabric is recommended for new development](/azure/architecture/guide/technology-choices/compute-decision-tree); the following is an API comparison:
 
 
 | **Cloud Service API** | **Service Fabric API** | **Notes** |

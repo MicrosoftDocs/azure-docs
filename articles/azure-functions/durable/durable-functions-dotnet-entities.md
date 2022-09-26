@@ -3,8 +3,9 @@ title: Developer's Guide to Durable Entities in .NET - Azure Functions
 description: How to work with durable entities in .NET with the Durable Functions extension for Azure Functions.
 author: sebastianburckhardt
 ms.topic: conceptual
-ms.date: 10/06/2019
+ms.date: 06/30/2021
 ms.author: azfuncdf
+ms.devlang: csharp
 #Customer intent: As a developer, I want to learn how to use Durable Entities in .NET so I can persist object state in a serverless context.
 ---
 
@@ -99,9 +100,9 @@ For example, we can modify the counter entity so it starts an orchestration when
 ```csharp
     public void Add(int amount) 
     {
-        if (this.Value < 100 && this.Value + amount > 100)
+        if (this.Value < 100 && this.Value + amount >= 100)
         {
-            Entity.Current.StartNewOrchestration("MilestoneReached", Entity.Current.EntityId)
+            Entity.Current.StartNewOrchestration("MilestoneReached", Entity.Current.EntityId);
         }
         this.Value += amount;      
     }
@@ -260,12 +261,13 @@ If only the entity key is specified and a unique implementation can't be found a
 As usual, all parameter and return types must be JSON-serializable. Otherwise, serialization exceptions are thrown at runtime.
 
 We also enforce some additional rules:
+* Entity interfaces must be defined in the same assembly as the entity class.
 * Entity interfaces must only define methods.
 * Entity interfaces must not contain generic parameters.
 * Entity interface methods must not have more than one parameter.
-* Entity interface methods must return `void`, `Task`, or `Task<T>` 
+* Entity interface methods must return `void`, `Task`, or `Task<T>`.
 
-If any of these rules are violated, an `InvalidOperationException` is thrown at runtime when the interface is used as a type argument to `SignalEntity` or `CreateProxy`. The exception message explains which rule was broken.
+If any of these rules are violated, an `InvalidOperationException` is thrown at runtime when the interface is used as a type argument to `SignalEntity`, `SignalEntityAsync`, or `CreateEntityProxy`. The exception message explains which rule was broken.
 
 > [!NOTE]
 > Interface methods returning `void` can only be signaled (one-way), not called (two-way). Interface methods returning `Task` or `Task<T>` can be either called or signalled. If called, they return the result of the operation, or re-throw exceptions thrown by the operation. However, when signalled, they do not return the actual result or exception from the operation, but just the default value.
@@ -359,7 +361,7 @@ public static Task Run([EntityTrigger] IDurableEntityContext ctx)
     {
         ctx.SetState(...);
     }
-    ctx.DispatchAsync<Counter>();
+    return ctx.DispatchAsync<Counter>();
 }
 ```
 
@@ -367,7 +369,7 @@ public static Task Run([EntityTrigger] IDurableEntityContext ctx)
 
 Unlike regular functions, entity class methods don't have direct access to input and output bindings. Instead, binding data must be captured in the entry-point function declaration and then passed to the `DispatchAsync<T>` method. Any objects passed to `DispatchAsync<T>` will be automatically passed into the entity class constructor as an argument.
 
-The following example shows how a `CloudBlobContainer` reference from the [blob input binding](../functions-bindings-storage-blob.md#input) can be made available to a class-based entity.
+The following example shows how a `CloudBlobContainer` reference from the [blob input binding](../functions-bindings-storage-blob-input.md) can be made available to a class-based entity.
 
 ```csharp
 public class BlobBackedEntity
@@ -423,7 +425,7 @@ public class HttpEntity
     [JsonIgnore]
     private readonly HttpClient client;
 
-    public class HttpEntity(IHttpClientFactory factory)
+    public HttpEntity(IHttpClientFactory factory)
     {
         this.client = factory.CreateClient();
     }
@@ -467,7 +469,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
             ctx.SetState(0);
             break;
         case "get":
-            ctx.Return(ctx.GetState<int>()));
+            ctx.Return(ctx.GetState<int>());
             break;
         case "delete":
             ctx.DeleteState();

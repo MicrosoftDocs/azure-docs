@@ -1,0 +1,10 @@
+- name: Docs
+  tocHref: /
+  topicHref: /
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Microsoft Purview
+    tocHref: /azure/sentinel/
+    topicHref: /azure/purview/index

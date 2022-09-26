@@ -3,7 +3,7 @@ title: How caching works | Microsoft Docs
 description: Caching is the process of storing data locally so that future requests for that data can be accessed more quickly.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: duongau
 manager: danielgi
 editor: ''
 
@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
-ms.author: magattus
+ms.date: 10/19/2021
+ms.author: duau
 
 ---
 # How caching works
@@ -61,7 +60,7 @@ Two headers can be used to define cache freshness: `Cache-Control` and `Expires`
 ## Cache-directive headers
 
 > [!IMPORTANT]
-> By default, an Azure CDN endpoint that is optimized for DSA ignores cache-directive headers and bypasses caching. For **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai** profiles, you can adjust how an Azure CDN endpoint treats these headers by using [CDN caching rules](cdn-caching-rules.md) to enable caching. For **Azure CDN Premium from Verizon** profiles only, you use the [rules engine](cdn-rules-engine.md) to enable caching.
+> By default, an Azure CDN endpoint that is optimized for DSA ignores cache-directive headers and bypasses caching. For **Azure CDN Standard from Verizon** and **Azure CDN Standard from Akamai** profiles, you can adjust how an Azure CDN endpoint treats these headers by using [CDN caching rules](cdn-caching-rules.md) to enable caching. For **Azure CDN Premium from Verizon** profiles only, you use the [rules engine](./cdn-verizon-premium-rules-engine.md) to enable caching.
 
 Azure CDN supports the following HTTP cache-directive headers, which define cache duration and cache sharing.
 
@@ -69,8 +68,9 @@ Azure CDN supports the following HTTP cache-directive headers, which define cach
 - Introduced in HTTP 1.1 to give web publishers more control over their content and to address the limitations of the `Expires` header.
 - Overrides the `Expires` header, if both it and `Cache-Control` are defined.
 - When used in an HTTP request from the client to the CDN POP, `Cache-Control` is ignored by all Azure CDN profiles, by default.
-- When used in an HTTP response from the client to the CDN POP:
+- When used in an HTTP response from the origin server  to the CDN POP:
      - **Azure CDN Standard/Premium from Verizon** and **Azure CDN Standard from Microsoft** support all `Cache-Control` directives.
+     - **Azure CDN Standard/Premium from Verizon** and **Azure CDN Standard from Microsoft** honors caching behaviors for Cache-Control directives in [RFC 7234 - Hypertext Transfer Protocol (HTTP/1.1): Caching (ietf.org)](https://tools.ietf.org/html/rfc7234#section-5.2.2.8).
      - **Azure CDN Standard from Akamai** supports only the following `Cache-Control` directives; all others are ignored:
          - `max-age`: A cache can store the content for the number of seconds specified. For example, `Cache-Control: max-age=5`. This directive specifies the maximum amount of time the content is considered to be fresh.
          - `no-cache`: Cache the content, but validate the content every time before delivering it from the cache. Equivalent to `Cache-Control: max-age=0`.
@@ -108,11 +108,11 @@ When the cache is stale, HTTP cache validators are used to compare the cached ve
 
 Not all resources can be cached. The following table shows what resources can be cached, based on the type of HTTP response. Resources delivered with HTTP responses that don't meet all of these conditions cannot be cached. For **Azure CDN Premium from Verizon** only, you can use the rules engine to customize some of these conditions.
 
-|                   | Azure CDN from Microsoft          | Azure CDN from Verizon | Azure CDN from Akamai        |
-|-------------------|-----------------------------------|------------------------|------------------------------|
-| HTTP status codes | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
-| HTTP methods      | GET, HEAD                         | GET                    | GET                          |
-| File size limits  | 300 GB                            | 300 GB                 | - General web delivery optimization: 1.8 GB<br />- Media streaming optimizations: 1.8 GB<br />- Large file optimization: 150 GB |
+|                       | Azure CDN from Microsoft          | Azure CDN from Verizon | Azure CDN from Akamai        |
+|-----------------------|-----------------------------------|------------------------|------------------------------|
+| **HTTP status codes** | 200, 203, 206, 300, 301, 410, 416 | 200                    | 200, 203, 300, 301, 302, 401 |
+| **HTTP methods**      | GET, HEAD                         | GET                    | GET                          |
+| **File size limits**  | 300 GB                            | 300 GB                 | - General web delivery optimization: 1.8 GB<br />- Media streaming optimizations: 1.8 GB<br />- Large file optimization: 150 GB |
 
 For **Azure CDN Standard from Microsoft** caching to work on a resource, the origin server must support any HEAD and GET HTTP requests and the content-length values must be the same for any HEAD and GET HTTP responses for the asset. For a HEAD request, the origin server must support the HEAD request, and must respond with the same headers as if it had received a GET request.
 
@@ -129,10 +129,11 @@ The following table describes the default caching behavior for the Azure CDN pro
 
 **CDN cache duration**: Specifies the amount of time for which a resource is cached on the Azure CDN. However, if **Honor origin** is Yes and the HTTP response from the origin server includes the cache-directive header `Expires` or `Cache-Control: max-age`, Azure CDN uses the duration value specified by the header instead. 
 
+> [!NOTE]
+> Azure CDN makes no guarantees about minimum amount of time that the object will be stored in the cache. Cached contents may be evicted from the CDN cache before they are expired if the contents are not requested as frequently to make room for more frequently requested contents.
+> 
+
 ## Next steps
 
 - To learn how to customize and override the default caching behavior on the CDN through caching rules, see [Control Azure CDN caching behavior with caching rules](cdn-caching-rules.md). 
 - To learn how to use query strings to control caching behavior, see [Control Azure CDN caching behavior with query strings](cdn-query-string.md).
-
-
-

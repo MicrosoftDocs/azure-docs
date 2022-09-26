@@ -3,13 +3,13 @@ title: Install Speech containers
 titleSuffix: Azure Cognitive Services
 description: Details the speech umbrella helm chart configuration options.
 services: cognitive-services
-author: IEvangelist
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 06/26/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: eur
 ---
 
 ### Speech (umbrella chart)

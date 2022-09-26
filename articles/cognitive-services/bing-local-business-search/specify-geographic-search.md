@@ -14,6 +14,8 @@ ms.author: rosh
 
 # Use geographic boundaries to filter results from the Bing Local Business Search API
 
+[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+
 The Bing Local Business Search API enables you to set boundaries on the specific geographic area you'd like to search by using the `localCircularView` or `localMapView` query parameters. Be sure to use only one parameter in your queries. 
 
 If a search term contains an explicit geographic location, The Bing Local Business API will automatically use it to set boundaries for the search results. For example, if the search term is `sailing in San Diego`, then `San Diego` will be used as the location and any other specified locations in the query parameters or user headers will be ignored. 

@@ -1,29 +1,21 @@
 ---
-title: Actors diagnostics and monitoring | Microsoft Docs
+title: Actors diagnostics and monitoring 
 description: This article describes the diagnostics and performance monitoring features in the Service Fabric Reliable Actors runtime, including the events and performance counters emitted by it.
-services: service-fabric
-documentationcenter: .net
-author: abhishekram
-manager: chackdan
-editor: vturecek
-
-ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 10/26/2017
-ms.author: abhisram
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Diagnostics and performance monitoring for Reliable Actors
-The Reliable Actors runtime emits [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) events and [performance counters](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). These provide insights into how the runtime is operating and help with troubleshooting and performance monitoring.
+The Reliable Actors runtime emits [EventSource](/dotnet/api/system.diagnostics.tracing.eventsource) events and [performance counters](/dotnet/api/system.diagnostics.performancecounter). These provide insights into how the runtime is operating and help with troubleshooting and performance monitoring.
 
 ## EventSource events
 The EventSource provider name for the Reliable Actors runtime is "Microsoft-ServiceFabric-Actors". Events from this event source appear in the [Diagnostics Events](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) window when the actor application is being [debugged in Visual Studio](service-fabric-debugging-your-application.md).
 
-Examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), [Semantic Logging](https://msdn.microsoft.com/library/dn774980.aspx), and the [Microsoft TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+Examples of tools and technologies that help in collecting and/or viewing EventSource events are [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), [Semantic Logging](/previous-versions/msp-n-p/dn774980(v=pandp.10)), and the [Microsoft TraceEvent Library](https://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ### Keywords
 All events that belong to the Reliable Actors EventSource are associated with one or more keywords. This enables filtering of events that are collected. The following keyword bits are defined.
@@ -45,7 +37,7 @@ The Reliable Actors runtime defines the following performance counter categories
 
 Each of the above categories has one or more counters.
 
-The [Windows Performance Monitor](https://technet.microsoft.com/library/cc749249.aspx) application that is available by default in the Windows operating system can be used to collect and view performance counter data. [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) is another option for collecting performance counter data and uploading it to Azure tables.
+The [Windows Performance Monitor](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc749249(v=ws.11)) application that is available by default in the Windows operating system can be used to collect and view performance counter data. [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) is another option for collecting performance counter data and uploading it to Azure tables.
 
 ### Performance counter instance names
 A cluster that has a large number of actor services or actor service partitions will have a large number of actor performance counter instances. The performance counter instance names can help in identifying the specific [partition](service-fabric-reliable-actors-platform.md#service-fabric-partition-concepts-for-actors) and actor method (if applicable) that the performance counter instance is associated with.
@@ -55,7 +47,7 @@ For the category `Service Fabric Actor`, the counter instance names are in the f
 
 `ServiceFabricPartitionID_ActorsRuntimeInternalID`
 
-*ServiceFabricPartitionID* is the string representation of the Service Fabric partition ID that the performance counter instance is associated with. The partition ID is a GUID, and its string representation is generated through the [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) method with format specifier "D".
+*ServiceFabricPartitionID* is the string representation of the Service Fabric partition ID that the performance counter instance is associated with. The partition ID is a GUID, and its string representation is generated through the [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) method with format specifier "D".
 
 *ActorRuntimeInternalID* is the string representation of a 64-bit integer that is generated by the Fabric Actors runtime for its internal use. This is included in the performance counter instance name to ensure its uniqueness and avoid conflict with other performance counter instance names. Users should not try to interpret this portion of the performance counter instance name.
 
@@ -74,7 +66,7 @@ For the category `Service Fabric Actor Method`, the counter instance names are i
 
 *ActorsRuntimeMethodId* is the string representation of a 32-bit integer that is generated by the Fabric Actors runtime for its internal use. This is included in the performance counter instance name to ensure its uniqueness and avoid conflict with other performance counter instance names. Users should not try to interpret this portion of the performance counter instance name.
 
-*ServiceFabricPartitionID* is the string representation of the Service Fabric partition ID that the performance counter instance is associated with. The partition ID is a GUID, and its string representation is generated through the [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) method with format specifier "D".
+*ServiceFabricPartitionID* is the string representation of the Service Fabric partition ID that the performance counter instance is associated with. The partition ID is a GUID, and its string representation is generated through the [`Guid.ToString`](/dotnet/api/system.guid.tostring#System_Guid_ToString_System_String_) method with format specifier "D".
 
 *ActorRuntimeInternalID* is the string representation of a 64-bit integer that is generated by the Fabric Actors runtime for its internal use. This is included in the performance counter instance name to ensure its uniqueness and avoid conflict with other performance counter instance names. Users should not try to interpret this portion of the performance counter instance name.
 
@@ -166,6 +158,6 @@ When a client invokes a method via an actor proxy object, it results in a reques
 
 ## Next steps
 * [How Reliable Actors use the Service Fabric platform](service-fabric-reliable-actors-platform.md)
-* [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Actor API reference documentation](/previous-versions/azure/dn971626(v=azure.100))
 * [Sample code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [EventSource providers in PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
+* [EventSource providers in PerfView](/archive/blogs/vancem/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource)

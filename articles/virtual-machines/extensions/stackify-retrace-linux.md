@@ -1,19 +1,16 @@
 ---
 title: Stackify Retrace Azure Linux Agent Extension 
 description: Deploy the Stackify Retrace Linux agent on a Linux virtual machine.
-services: virtual-machines-linux 
-documentationcenter: ''
-author:  darinhoward
-manager: gwallace 
-editor: ''
-
-ms.assetid: 
-ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services 
-ms.date: 04/12/2018
-ms.author: akjosh
+ms.service: virtual-machines
+ms.subservice: extensions
+ms.author: gabsta
+author: MsGabsta
+ms.collection: linux
+ms.date: 04/12/2018 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
+
 
 ---
 # Stackify Retrace Linux Agent Extension
@@ -182,7 +179,7 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | Error code | Meaning | Possible action |
 | :---: | --- | --- |
 | 10 | Install Error | wget is required |
-| 20 | Install Error | python is required |
+| 20 | Install Error | Python is required |
 | 30 | Install Error | sudo is required |
 | 40 | Install Error | activationKey is required |
 | 51 | Install Error | OS distro not supported |

@@ -2,21 +2,15 @@
 title: 'Atlassian Jira/Confluence admin guide - Azure Active Directory| Microsoft Docs'
 description: Admin guide to use Atlassian Jira and Confluence with Azure Active Directory (Azure AD)..
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
-
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/19/2018
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Atlassian Jira and Confluence admin guide for Azure Active Directory
 
@@ -65,23 +59,12 @@ Note the following information before you install the plug-in:
 
 The plug-in supports the following versions of Jira and Confluence:
 
-* Jira Core and Software: 6.0 to 7.12
-* Jira Service Desk: 3.0.0 to 3.5.0
-* JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
+* Jira Core and Software: 6.0 to 8.22.1
+* Jira Service Desk: 3.0.0 to 4.22.1
+* JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](./jira52microsoft-tutorial.md)
 * Confluence: 5.0 to 5.10
-* Confluence: 6.0.1
-* Confluence: 6.1.1
-* Confluence: 6.2.1
-* Confluence: 6.3.4
-* Confluence: 6.4.0
-* Confluence: 6.5.0
-* Confluence: 6.6.2
-* Confluence: 6.7.0
-* Confluence: 6.8.1
-* Confluence: 6.9.0
-* Confluence: 6.10.0
-* Confluence: 6.11.0
-* Confluence: 6.12.0
+* Confluence: 6.0.1 to 6.15.9
+* Confluence: 7.0.1 to 7.19.0
 
 ## Installation
 
@@ -143,7 +126,7 @@ The following image shows the configuration screen in both Jira and Confluence:
 
 * **You want to disable WebSudo (disable the secure administrator session)**:
 
-  * For Jira, secure administrator sessions (that is, password confirmation before accessing administration functions) are enabled by default. If you want to remove this ability in your Jira instance, specify the following line in your jira-config.properties file: `ira.websudo.is.disabled = true`
+  * For Jira, secure administrator sessions (that is, password confirmation before accessing administration functions) are enabled by default. If you want to remove this ability in your Jira instance, specify the following line in your jira-config.properties file: `jira.websudo.is.disabled = true`
 
   * For Confluence, follow the steps on the [Confluence support site](https://confluence.atlassian.com/doc/configuring-secure-administrator-sessions-218269595.html).
 
@@ -159,7 +142,7 @@ The following image shows the configuration screen in both Jira and Confluence:
 
 * **There's an "App not found" error in Azure AD**: See if the appropriate URL is mapped to the app in Azure AD.
 
-* **You need support**: Reach out to the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). The team responds in 24-48 business hours.
+* **You need support**: Reach out to the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com). The team responds in 24-48 business hours.
 
   You can also raise a support ticket with Microsoft through the Azure portal channel.
 
@@ -183,23 +166,12 @@ No. The plug-in supports only on-premises versions of Jira and Confluence.
 
 The plug-in supports these versions:
 
-* Jira Core and Software: 6.0 to 7.12
-* Jira Service Desk: 3.0.0 to 3.5.0
-* JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
+* Jira Core and Software: 6.0 to 8.22.1
+* Jira Service Desk: 3.0.0 to 4.22.1
+* JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](./jira52microsoft-tutorial.md)
 * Confluence: 5.0 to 5.10
-* Confluence: 6.0.1
-* Confluence: 6.1.1
-* Confluence: 6.2.1
-* Confluence: 6.3.4
-* Confluence: 6.4.0
-* Confluence: 6.5.0
-* Confluence: 6.6.2
-* Confluence: 6.7.0
-* Confluence: 6.8.1
-* Confluence: 6.9.0
-* Confluence: 6.10.0
-* Confluence: 6.11.0
-* Confluence: 6.12.0
+* Confluence: 6.0.1 to 6.15.9
+* Confluence: 7.0.1 to 7.19.0
 
 ### Is the plug-in free or paid?
 
@@ -211,7 +183,7 @@ A restart is not required. You can start using the plug-in immediately.
 
 ### How do I get support for the plug-in?
 
-You can reach out to the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) for any support needed for this plug-in. The team responds in 24-48 business hours.
+You can reach out to the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com) for any support needed for this plug-in. The team responds in 24-48 business hours.
 
 You can also raise a support ticket with Microsoft through the Azure portal channel.
 

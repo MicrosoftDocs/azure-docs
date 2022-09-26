@@ -1,20 +1,19 @@
 ---
-title: Federating multiple Azure AD with single AD FS - Azure
-description: In this document you will learn how to federate multiple Azure AD with a single AD FS.
+title: Federating multiple Azure AD with single AD FS
+description: In this document, you will learn how to federate multiple Azure AD with a single AD FS.
 keywords: federate, ADFS, AD FS, multiple tenants, single AD FS, one ADFS, multi-tenant federation, multi-forest adfs, aad connect, federation, cross-tenant federation
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: amycolannino
 editor: ''
 
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 07/17/2017
+ms.topic: how-to
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -22,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Federate multiple instances of Azure AD with single instance of AD FS
 
-A single high available AD FS farm can federate multiple forests if they have 2-way trust between them. These multiple forests may or may not correspond to the same Azure Active Directory. This article provides instructions on how to configure federation between a single AD FS deployment and more than one forests that sync to different Azure AD.
+A single high available AD FS farm can federate multiple forests if they have 2-way trust between them. These multiple forests may or may not correspond to the same Azure Active Directory. This article provides instructions on how to configure federation between a single AD FS deployment and multiple instances of Azure AD.
 
 ![Multi-tenant federation with single AD FS](./media/how-to-connect-fed-single-adfs-multitenant-federation/concept.png)
  
@@ -38,13 +37,13 @@ Consider a domain contoso.com in Azure Active Directory contoso.onmicrosoft.com 
 
 ## Step 1: Establish a two-way trust
  
-For AD FS in contoso.com to be able to authenticate users in fabrikam.com, a two-way trust is needed between contoso.com and fabrikam.com. Follow the guideline in this [article](https://technet.microsoft.com/library/cc816590.aspx) to create the two-way trust.
+For AD FS in contoso.com to be able to authenticate users in fabrikam.com, a two-way trust is needed between contoso.com and fabrikam.com. Follow the guideline in this [article](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc816590(v=ws.10)) to create the two-way trust.
  
 ## Step 2: Modify contoso.com federation settings 
  
-The default issuer set for a single domain federated to AD FS is "http\://ADFSServiceFQDN/adfs/services/trust", for example, `http://fs.contoso.com/adfs/services/trust`. Azure Active Directory requires unique issuer for each federated domain. Since the same AD FS is going to federate two domains, the issuer value needs to be modified so that it is unique for each domain AD FS federates with Azure Active Directory. 
+The default issuer set for a single domain federated to AD FS is "http\://ADFSServiceFQDN/adfs/services/trust", for example, `http://fs.contoso.com/adfs/services/trust`. Azure Active Directory requires unique issuer for each federated domain. Because AD FS is going to federate two domains, the issuer value needs to be modified so that it is unique. 
  
-On the AD FS server, open Azure AD PowerShell (ensure that the MSOnline module is installed) and perform the following steps:
+On the AD FS server, open Azure AD PowerShell (ensure that the MSOnline module is installed) and do the following steps:
  
 Connect to the Azure Active Directory that contains the domain contoso.com
     Connect-MsolService
@@ -58,10 +57,14 @@ Issuer in the domain federation setting will be changed to "http\://contoso.com/
 In Azure AD powershell session perform the following steps:
 Connect to Azure Active Directory that contains the domain fabrikam.com
 
-    Connect-MsolService
+```powershell
+Connect-MsolService
+```
 Convert the fabrikam.com managed domain to federated:
 
-    Convert-MsolDomainToFederated -DomainName fabrikam.com -Verbose -SupportMultipleDomain
+```powershell
+Convert-MsolDomainToFederated -DomainName fabrikam.com -Verbose -SupportMultipleDomain
+```
  
 The above operation will federate the domain fabrikam.com with the same AD FS. You can verify the domain settings by using Get-MsolDomainFederationSettings for both domains.
 

@@ -1,13 +1,15 @@
 ---
 title: Use Azure Blockchain Workbench data in Microsoft Excel
 description: Learn how to load and view Azure Blockchain Workbench Preview SQL DB data in Microsoft Excel.
-ms.date: 09/05/2019
-ms.topic: article
+ms.date: 02/18/2022
+ms.topic: how-to
 ms.reviewer: mmercuri
 #Customer intent: As a developer, I want to view Azure Blockchain Workbench data in Microsoft Excel for analysis.
 ---
 
 # View Azure Blockchain Workbench data with Microsoft Excel
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 You can use Microsoft Excel to view data in Azure Blockchain Workbench's SQL DB. This article provides the steps you need to:
 
@@ -23,7 +25,7 @@ To connect to a Blockchain Workbench database:
 2. On the **Data** tab, choose **Get Data**.
 3. Select **From Azure** and then select **From Azure SQL Database**.
 
-   ![Connect to Azure SQL database](./media/data-excel/connect-sql-db.png)
+   ![Connect to Azure SQL Database](./media/data-excel/connect-sql-db.png)
 
 4. In the **SQL Server database** dialog box:
 

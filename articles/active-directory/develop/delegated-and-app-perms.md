@@ -1,5 +1,5 @@
 ---
-title: Differences between delegated and app permissions | Azure
+title: Differences between delegated and app permissions
 description: Learn about delegated and application permissions, how they are used by clients and exposed by resources for applications you are developing with Azure AD
 services: active-directory
 author: rwike77
@@ -10,10 +10,9 @@ ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 09/27/2021
 ms.author: ryanwi
-
-ms.collection: M365-identity-device-management
+ROBOTS: NOINDEX
 ---
 
 # How to recognize differences between delegated and application permissions
@@ -25,4 +24,4 @@ ms.collection: M365-identity-device-management
 - For more depth, learn how resource applications expose [scopes](developer-glossary.md#scopes) and [application roles](developer-glossary.md#roles) to client applications, which manifest as delegated and application permissions respectively in the Azure portal. 
 
 ## Next steps
-[AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD Microsoft Q&A](/answers/topics/azure-active-directory.html)

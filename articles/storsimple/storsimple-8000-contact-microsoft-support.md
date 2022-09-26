@@ -1,23 +1,16 @@
 ---
-title: Create Support ticket or case for StorSimple 8000 series | Microsoft Docs
+title: Create Support ticket or case for StorSimple 8000 series
 description: Learn how to log support request and start a support session on your StorSimple 8000 series device.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/09/2018
+ms.topic: how-to
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Contact Microsoft Support
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 The StorSimple Device Manager provides the capability to **log a new support request** within the service summary blade. If you encounter any issues with your StorSimple solution, you can create a service request for technical support. In an online session with your support engineer, you may also need to start a support session on your StorSimple device. This article walks you through:
 
@@ -25,7 +18,7 @@ The StorSimple Device Manager provides the capability to **log a new support req
 * How to manage a support request lifecycle from within the portal.
 * How to start a support session in the Windows PowerShell interface of your StorSimple device.
 
-Review the [StorSimple 8000 Series Support SLAs and information](https://msdn.microsoft.com/library/mt433077.aspx) before you create a Support request.
+Review the [StorSimple 8000 Series Support SLAs and information](./storsimple-8000-support-options.md) before you create a Support request.
 
 ## Create a support request
 
@@ -43,7 +36,7 @@ Depending upon your [support plan](https://azure.microsoft.com/support/plans/), 
    3. Select a **Support plan** from the drop-down list if you have multiple plans associated with your subscription. You need a paid support plan to enable Technical Support.
    4. Click **Next**.
 
-       ![Contact MS Support via new portal](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
+       ![Contact MS Support via new portal 2](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
 
 3. In the **New support request** blade, select **Step 2 Problem**. In the **Problem** blade, do the following steps:
     
@@ -55,7 +48,7 @@ Depending upon your [support plan](https://azure.microsoft.com/support/plans/), 
     6. Check **Share diagnostic information**.
     7. Click **Next**.
 
-       ![Contact MS Support via new portal](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
+       ![Contact MS Support via new portal 3](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
 
 4. In the **New support request** blade, click **Step 3 Contact information**. In the **Contact information** blade, do the following steps:
 
@@ -63,7 +56,7 @@ Depending upon your [support plan](https://azure.microsoft.com/support/plans/), 
    2. In the Contact information, provide your name, email, optional contact, country/region. Select the **Save contact changes for future support requests** check box.
    3. Click **Create**.
    
-       ![Contact MS Support via new portal](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
+       ![Contact MS Support via new portal 4](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
 
       Microsoft Support will use this information to reach out to you for further information, diagnosis, and resolution.
       After you have submitted your request, a Support engineer will contact you as soon as possible to proceed with your request.
@@ -80,11 +73,11 @@ After creating a support ticket, you can manage the lifecycle of the ticket from
 
 2. A tabular listing of All the support requests is displayed in the **Help + support** blade.
 
-    ![Manage support requests](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
+    ![Manage support requests 2](./media/storsimple-8000-contact-microsoft-support/managesupport2.png)
 
 3. Select and click a support request. You can view the status and the details for this request. Click **+ New message** if you want to follow up on this request.
 
-    ![Manage support requests](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
+    ![Manage support requests 3](./media/storsimple-8000-contact-microsoft-support/managesupport3.png)
 
 ## Start a support session in Windows PowerShell for StorSimple
 

@@ -4,16 +4,15 @@ description: This topic describes the architecture of Azure AD Connect sync and 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: amycolannino
 editor: ''
 
 ms.assetid: 465bcbe9-3bdd-4769-a8ca-f8905abf426d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+ms.date: 01/05/2022
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -32,7 +31,7 @@ The sync engine encapsulates interaction with a connected data source within a m
 
 Connectors make API calls to exchange identity information (both read and write) with a connected data source. It is also possible to add a custom Connector using the extensible connectivity framework. The following illustration shows how a Connector connects a connected data source to the sync engine.
 
-![Arch1](./media/concept-azure-ad-connect-sync-architecture/arch1.png)
+![Diagram shows a connected data source and a sync engine associated by a line called Connector.](./media/concept-azure-ad-connect-sync-architecture/arch1.png)
 
 Data can flow in either direction, but it cannot flow in both directions simultaneously. In other words, a Connector can be configured to allow data to flow from the connected data source to sync engine or from sync engine to the connected data source, but only one of those operations can occur at any one time for one object and attribute. The direction can be different for different objects and for different attributes.
 
@@ -58,7 +57,7 @@ The **metaverse** is a storage area that contains the aggregated identity inform
 
 The following illustration shows the connector space namespace and the metaverse namespace within the sync engine.
 
-![Arch2](./media/concept-azure-ad-connect-sync-architecture/arch2.png)
+![Diagram shows a connected data source and a sync engine, which is separated into connector space and metaverse namespaces, associated by a line called Connector.](./media/concept-azure-ad-connect-sync-architecture/arch2.png)
 
 ## Sync engine identity objects
 The objects in the sync engine are representations of either objects in the connected data source or the integrated view that sync engine has of those objects. Every sync engine object must have a globally unique identifier (GUID). GUIDs provide data integrity and express relationships between objects.
@@ -93,13 +92,13 @@ A staging object can be an import object or an export object. The sync engine cr
 
 The following illustration shows an import object that represents an object in the connected data source.
 
-![Arch3](./media/concept-azure-ad-connect-sync-architecture/arch3.png)
+![Diagram shows an import object brought from the connected data source to the connector space namespace in the sync engine.](./media/concept-azure-ad-connect-sync-architecture/arch3.png)
 
 The sync engine creates an export object by using object information in the metaverse. Export objects are exported to the connected data source during the next communication session. From the perspective of the sync engine, export objects do not exist in the connected data source yet. Therefore, the anchor attribute for an export object is not available. After it receives the object from sync engine, the connected data source creates a unique value for the anchor attribute of the object.
 
 The following illustration shows how an export object is created by using identity information in the metaverse.
 
-![Arch4](./media/concept-azure-ad-connect-sync-architecture/arch4.png)
+![Diagram shows an export object brought from the metaverse to the connector space namespace, then to the connected data source.](./media/concept-azure-ad-connect-sync-architecture/arch4.png)
 
 The sync engine confirms the export of the object by reimporting the object from the connected data source. Export objects become import objects when sync engine receives them during the next import from that connected data source.
 
@@ -128,7 +127,7 @@ When a staging object becomes a joined object during synchronization, attributes
 
 A single connector space object can be linked to only one metaverse object. However, each metaverse object can be linked to multiple connector space objects in the same or in different connector spaces, as shown in the following illustration.
 
-![Arch5](./media/concept-azure-ad-connect-sync-architecture/arch5.png)
+![Diagram shows two connected data objects associated by connectors to a sync engine, which has joined objects and a disjoined object.](./media/concept-azure-ad-connect-sync-architecture/arch5.png)
 
 The linked relationship between the staging object and a metaverse object is persistent and can be removed only by rules that you specify.
 
@@ -153,7 +152,7 @@ During the export process, sync engine pushes out changes that are staged on sta
 
 The following illustration shows where each of the processes occurs as identity information flows from one connected data source to another.
 
-![Arch6](./media/concept-azure-ad-connect-sync-architecture/arch6.png)
+![Diagram shows the flow of identity information from connected data to connector space (import) to metaverse to connector space (synchonization) to connected data (export).](./media/concept-azure-ad-connect-sync-architecture/arch6.png)
 
 ### Import process
 During the import process, sync engine evaluates updates to identity information. Sync engine compares the identity information received from the connected data source with the identity information about a staging object and determines whether the staging object requires updates. If it is necessary to update the staging object with new data, the staging object is flagged as pending import.
@@ -170,6 +169,8 @@ When sync engine finds a staging object that matches by distinguished name but n
 
 * If the object located in the connector space has no anchor, then sync engine removes this object from the connector space and marks the metaverse object it is linked to as **retry provisioning on next synchronization run**. Then it creates the new import object.
 * If the object located in the connector space has an anchor, then sync engine assumes that this object has either been renamed or deleted in the connected directory. It assigns a temporary, new distinguished name for the connector space object so that it can stage the incoming object. The old object then becomes **transient**, waiting for the Connector to import the rename or deletion to resolve the situation.
+
+Transient objects are not always a problem, and you might see them even in a healthy environment. With [Azure AD Connect sync V2 endpoint API](how-to-connect-sync-endpoint-api-v2.md), transient objects should auto-resolve in subsequent delta synchronization cycles. A common example where you might find transient objects being generated occurs on Azure AD Connect servers installed in staging mode, when an admin permanently deletes an object directly in Azure AD using PowerShell and later synchronizes the object again.
 
 If sync engine locates a staging object that corresponds to the object specified in the Connector, it determines what kind of changes to apply. For example, sync engine might rename or delete the object in the connected data source, or it might only update the object’s attribute values.
 
@@ -189,7 +190,7 @@ Synchronization consists of two related processes:
 * Inbound synchronization, when the content of the metaverse is updated by using the data in the connector space.
 * Outbound synchronization, when the content of the connector space is updated by using data in the metaverse.
 
-By using the information staged in the connector space, the inbound synchronization process creates in the metaverse the integrated view of the data that is stored in the connected data sources. Either all staging objects or only those with a pending import information are aggregated, depending on how the rules are configured.
+By using the information staged in the connector space, the inbound synchronization process creates an integrated view of the data in the metaverse that is stored in the connected data sources. Either all staging objects or only those with a pending import information are aggregated, depending on how the rules are configured.
 
 The outbound synchronization process updates export objects when metaverse objects change.
 
@@ -248,7 +249,7 @@ For example, a process in the connected data source could change the object’s 
 
 The sync engine stores export and import status information about each staging object. If values of the attributes that are specified in the attribute inclusion list have changed since the last export, the storage of import and export status enables sync engine to react appropriately. Sync engine uses the import process to confirm attribute values that have been exported to the connected data source. A comparison between the imported and exported information, as shown in the following illustration, enables sync engine to determine whether the export was successful or if it needs to be repeated.
 
-![Arch7](./media/concept-azure-ad-connect-sync-architecture/arch7.png)
+![Diagram shows the synchronization of an object between connector space and connected data over the connector.](./media/concept-azure-ad-connect-sync-architecture/arch7.png)
 
 For example, if sync engine exports attribute C, which has a value of 5, to a connected data source, it stores C=5 in its export status memory. Each additional export on this object results in an attempt to export C=5 to the connected data source again because sync engine assumes that this value has not been persistently applied to the object (that is, unless a different value was imported recently from the connected data source). The export memory is cleared when C=5 is received during an import operation on the object.
 

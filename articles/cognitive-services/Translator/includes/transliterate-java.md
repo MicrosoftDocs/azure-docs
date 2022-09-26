@@ -1,9 +1,11 @@
 ---
-author: erhopf
+author: laujan
 ms.service: cognitive-services
+ms.subservice: translator-text
 ms.topic: include
 ms.date: 08/06/2019
-ms.author: erhopf
+ms.custom: devx-track-java
+ms.author: lajanuar
 ---
 
 [!INCLUDE [Prerequisites](prerequisites-java.md)]
@@ -83,14 +85,14 @@ public class Transliterate {
 }
 ```
 
-Add these lines to the `Transliterate` class. First, the subscription key and endpoint are being read from environment variables. Then, you'll notice that along with the `api-version`, two additional parameters have been appended to the `url`. These parameters are used to set the input language, and the scripts for transliteration. In this sample, it's set to Japanese (`jpan`) and Latin (`latn`). 
+Add these lines to the `Transliterate` class. First, the key and endpoint are being read from environment variables. Then, you'll notice that along with the `api-version`, two additional parameters have been appended to the `url`. These parameters are used to set the input language, and the scripts for transliteration. In this sample, it's set to Japanese (`jpan`) and Latin (`latn`). 
 
 ```java
-private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");
+private static String key = System.getenv("TRANSLATOR_TEXT_KEY");
 private static String endpoint = System.getenv("TRANSLATOR_TEXT_ENDPOINT");
 String url = endpoint + "/transliterate?api-version=3.0&language=ja&fromScript=jpan&toScript=latn";
 ```
-If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](../reference/v3-0-reference.md#authentication).
 
 ## Create a client and build a request
 
@@ -111,7 +113,7 @@ public String Post() throws IOException {
             "[{\n\t\"Text\": \"こんにちは\"\n}]");
     Request request = new Request.Builder()
             .url(url).post(body)
-            .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+            .addHeader("Ocp-Apim-Subscription-Key", key)
             .addHeader("Content-type", "application/json").build();
     Response response = client.newCall(request).execute();
     return response.body().string();
@@ -120,7 +122,7 @@ public String Post() throws IOException {
 
 ## Create a function to parse the response
 
-This simple function parses and prettifies the JSON response from the Translator Text service.
+This simple function parses and prettifies the JSON response from the Translator service.
 
 ```java
 // This function prettifies the json response.
@@ -175,7 +177,7 @@ gradle run
 
 ## Next steps
 
-Take a look at the API reference to understand everything you can do with the Translator Text API.
+Take a look at the API reference to understand everything you can do with the Translator.
 
 > [!div class="nextstepaction"]
-> [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+> [API reference](../reference/v3-0-reference.md)

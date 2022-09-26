@@ -1,129 +1,129 @@
 ---
-title: Connect data sources to Azure Sentinel | Microsoft Docs
-description: Learn how to connect data sources to Azure Sentinel.
-services: sentinel
-documentationcenter: na
-author: rkarlin
-manager: angrobe
-editor: ''
-
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
-ms.topic: overview
-ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/04/2019
-ms.author: rkarlin
-
+title: Microsoft Sentinel data connectors
+description: Learn about supported data connectors, like Microsoft 365 Defender (formerly Microsoft Threat Protection), Microsoft 365 and Office 365, Azure AD, ATP, and Defender for Cloud Apps to Microsoft Sentinel.
+author: yelevin
+ms.topic: conceptual
+ms.date: 07/14/2022
+ms.author: yelevin
 ---
-# Connect data sources
 
-To on-board Azure Sentinel, you first need to connect to your data sources. Azure Sentinel comes with a number of connectors for Microsoft solutions, available out of the box and providing real-time integration, including Microsoft Threat Protection solutions, and Microsoft 365 sources, including Office 365, Azure AD, Azure ATP, and Microsoft Cloud App Security, and more. In addition, there are built-in connectors to the broader security ecosystem for non-Microsoft solutions. You can also use common event format, Syslog or REST-API to connect your data sources with Azure Sentinel as well.  
+# Microsoft Sentinel data connectors
 
-1. On the menu, select **Data connectors**. This page lets you see the full list of connectors that Azure Sentinel provides and their status. Select the connector you want to connect and select **Open connector page**. 
+[!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-   ![Data collectors](./media/collect-data/collect-data-page.png)
+After you onboard Microsoft Sentinel into your workspace, you can use data connectors to start ingesting your data into Microsoft Sentinel. Microsoft Sentinel comes with many out of the box connectors for Microsoft services, which you can integrate in real time. For example, the Microsoft 365 Defender connector is a [service-to-service connector](#service-to-service-integration-for-data-connectors) that integrates data from Office 365, Azure Active Directory (Azure AD), Microsoft Defender for Identity, and Microsoft Defender for Cloud Apps.
 
-1. On the specific connector page, make sure you have fulfilled all the prerequisites and follow the instructions to connect the data to Azure Sentinel. It may take some time for the logs to start syncing with Azure Sentinel. After you connect, you see a summary of the data in the **Data received** graph, and connectivity status of the data types.
+You can also enable built-in connectors to the broader security ecosystem for non-Microsoft products. For example, you can use [Syslog](#syslog), [Common Event Format (CEF)](#common-event-format-cef), or [REST APIs](#rest-api-integration-for-data-connectors) to connect your data sources with Microsoft Sentinel.
 
-   ![Connect collectors](./media/collect-data/opened-connector-page.png)
-  
-1. Click the **Next steps** tab to get a list of out-of-the-box content Azure Sentinel provides for the specific data type.
+Learn about [types of Microsoft Sentinel data connectors](data-connectors-reference.md) or learn about the [Microsoft Sentinel solutions catalog](sentinel-solutions-catalog.md).
 
-   ![Data collectors](./media/collect-data/data-insights.png)
+The Microsoft Sentinel **Data connectors** page shows the full list of connectors and their status in your workspace.
+
+:::image type="content" source="media/collect-data/collect-data-page.png" alt-text="Screenshot of the data connectors gallery." lightbox="media/collect-data/collect-data-page.png":::
+
+<a name="agent-options"></a>
+<a name="data-connection-methods"></a>
+<a name="map-data-types-with-microsoft-sentinel-connection-options"></a>
+
+## Enable a data connector
+
+Select the connector you want to connect, and then select **Open connector page**.
+
+- Once you fulfill all the prerequisites listed in the **Instructions** tab, the connector page describes how to ingest the data to Microsoft Sentinel. It may take some time for data to start arriving. After you connect, you see a summary of the data in the **Data received** graph, and the connectivity status of the data types.
+        
+    :::image type="content" source="media/collect-data/opened-connector-page.png" alt-text="Screenshot showing how to configure data connectors." border="false":::   
  
+- In the **Next steps** tab, you'll see more content for the specific data type: Sample queries, visualization workbooks, and analytics rule templates to help you detect and investigate threats.
 
-## Data connection methods
+    :::image type="content" source="media/collect-data/data-insights.png" alt-text="Screenshot showing the data connecter Next steps tab." border="false":::    
 
-The following data connection methods are supported by Azure Sentinel:
+Learn about your specific data connector in the [data connectors reference](data-connectors-reference.md).
 
-- **Microsoft services**:<br> Microsoft services are connected natively, leveraging the Azure foundation for out-of-the box integration, the following solutions can be connected in a few clicks:
-    - [Office 365](connect-office-365.md)
-    - [Azure AD audit logs and sign-ins](connect-azure-active-directory.md)
-    - [Azure Activity](connect-azure-activity.md)
-    - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
-    - [Azure Security Center](connect-azure-security-center.md)
-    - [Azure Information Protection](connect-azure-information-protection.md)
-    - [Azure Advanced Threat Protection](connect-azure-atp.md)
-    - [Cloud App Security](connect-cloud-app-security.md)
-    - [Windows security events](connect-windows-security-events.md) 
-    - [Windows firewall](connect-windows-firewall.md)
+## REST API integration for data connectors
 
-- **External solutions via API**: Some data sources are connected using APIs that are provided by the connected data source. Typically, most security technologies provide a set of APIs through which event logs can be retrieved.The APIs connect to Azure Sentinel and gather specific data types and send them to Azure Log Analytics. Appliances connected via API include:
-    - [Barracuda](connect-barracuda.md)
-    - [Symantec](connect-symantec.md)
-    - [Citrix Analytics (Security)](connect-citrix-analytics.md)
+Many security technologies provide a set of APIs for retrieving log files, and some data sources can use those APIs to connect to Microsoft Sentinel.
 
-- **External solutions via agent**: Azure Sentinel can be connected to all other data sources that can perform real-time log streaming using the Syslog protocol, via an agent. <br>Most appliances use the Syslog protocol to send event messages that include the log itself and data about the log. The format of the logs varies, but most appliances support the Common Event Format (CEF) based formatting for logs data. <br>The Azure Sentinel agent, which is based on the Log Analytics agent, converts CEF formatted logs into a format that can be ingested by Log Analytics. Depending on the appliance type, the agent is installed either directly on the appliance, or on a dedicated Linux server. The agent for Linux receives events from the Syslog daemon over UDP, but if a Linux machine is expected to collect a high volume of Syslog events, they are sent over TCP from the Syslog daemon to the agent and from there to Log Analytics.
-    - Firewalls, proxies, and endpoints:
-        - [F5](connect-f5.md)
-        - [Check Point](connect-checkpoint.md)
-        - [Cisco ASA](connect-cisco.md)
-        - [Fortinet](connect-fortinet.md)
-        - [Palo Alto](connect-paloalto.md)
-        - [Other CEF appliances](connect-common-event-format.md)
-        - [Other Syslog appliances](connect-syslog.md)
-        - [Barracuda CloudGen Firewall](connect-barracuda-cloudgen-firewall.md)
-        - [ExtraHop Reveal(x)](connect-extrahop.md)
-        - [One Identity Safeguard](connect-one-identity.md)
-        - [Trend Micro Deep Security](connect-trend-micro.md)
-    - DLP solutions
-    - [Threat intelligence providers](connect-threat-intelligence.md)
-    - [DNS machines](connect-dns.md) - agent installed directly on the DNS machine
-    - Linux servers
-    - Other clouds
-    
-## Agent connection options<a name="agent-options"></a>
+Data connectors that use APIs either integrate from the provider side or integrate using Azure Functions, as described in the following sections.
 
-To connect your external appliance to Azure Sentinel, the agent must be deployed on a dedicated machine (VM or on premises) to support the communication between the appliance and Azure Sentinel. You can deploy the agent automatically or manually. Automatic deployment is only available if your dedicated machine is a new VM you are creating in Azure. 
+Learn more about data connectors in the [data connectors reference](data-connectors-reference.md).
 
+### REST API integration on the provider side
 
-![CEF in Azure](./media/connect-cef/cef-syslog-azure.png)
+An API integration built by the provider connects with the provider data sources and pushes data into Microsoft Sentinel custom log tables using the [Azure Monitor Data Collector API](../azure-monitor/logs/data-collector-api.md).
 
-Alternatively, you can deploy the agent manually on an existing Azure VM, on a VM in another cloud, or on an on-premises machine.
+To learn about REST API integration, read your provider documentation and [Connect your data source to Microsoft Sentinel's REST-API to ingest data](connect-rest-api-template.md).
 
-![CEF on premises](./media/connect-cef/cef-syslog-onprem.png)
+### REST API integration using Azure Functions
 
-## Map data types with Azure Sentinel connection options
+Integrations that use [Azure Functions](../azure-functions/index.yml) to connect with a provider API first format the data, and then send it to Microsoft Sentinel custom log tables using the [Azure Monitor Data Collector API](../azure-monitor/logs/data-collector-api.md). Learn how to [use Azure Functions to connect your data source to Microsoft Sentinel](connect-azure-functions-template.md).
 
+> [!IMPORTANT]
+> Integrations that use Azure Functions may have extra data ingestion costs, because you host Azure Functions on your Azure tenant. Learn more about [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
 
-| **Data type** | **How to connect** | **Data connector?** | **Comments** |
-|------|---------|-------------|------|
-| AWSCloudTrail | [Connect AWS](connect-aws.md) | V | |
-| AzureActivity | [Connect Azure Activity](connect-azure-activity.md) and [Activity logs overview](../azure-monitor/platform/activity-logs-overview.md)| V | |
-| AuditLogs | [Connect Azure AD](connect-azure-active-directory.md)  | V | |
-| SigninLogs | [Connect Azure AD](connect-azure-active-directory.md)  | V | |
-| AzureFirewall |[Azure Diagnostics](../firewall/tutorial-diagnostics.md) | V | |
-| InformationProtectionLogs_CL  | [Azure Information Protection reports](https://docs.microsoft.com/azure/information-protection/reports-aip)<br>[Connect Azure Information Protection](connect-azure-information-protection.md)  | V | This usually uses the **InformationProtectionEvents** function in addition to the data type. For more information, see [How to modify the reports and create custom queries](https://docs.microsoft.com/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)|
-| AzureNetworkAnalytics_CL  | [Traffic analytic schema](../network-watcher/traffic-analytics.md) [Traffic analytics](../network-watcher/traffic-analytics.md)  | | |
-| CommonSecurityLog  | [Connect CEF](connect-common-event-format.md)  | V | |
-| OfficeActivity | [Connect Office 365](connect-office-365.md) | V | |
-| SecurityEvents | [Connect Windows security events](connect-windows-security-events.md)  | V | For the Insecure Protocols workbooks, see [Insecure protocols workbook setup](https://blogs.technet.microsoft.com/jonsh/azure-sentinel-insecure-protocols-dashboard-setup/)  |
-| Syslog | [Connect Syslog](connect-syslog.md) | V | |
-| Microsoft Web Application Firewall (WAF) - (AzureDiagnostics) |[Connect Microsoft Web Application Firewall](connect-microsoft-waf.md) | V | |
-| SymantecICDx_CL | [Connect Symantec](connect-symantec.md) | V | |
-| ThreatIntelligenceIndicator  | [Connect threat intelligence](connect-threat-intelligence.md)  | V | |
-| VMConnection <br> ServiceMapComputer_CL<br> ServiceMapProcess_CL|  [Azure Monitor service map](../azure-monitor/insights/service-map.md)<br>[Azure Monitor VM insights onboarding](../azure-monitor/insights/vminsights-onboard.md) <br> [Enable Azure Monitor VM insights](../azure-monitor/insights/vminsights-enable-overview.md) <br> [Using Single VM On-boarding](../azure-monitor/insights/vminsights-enable-single-vm.md)<br>  [Using On-boarding Via Policy](../azure-monitor/insights/vminsights-enable-at-scale-policy.md)| X | VM insights workbook  |
-| DnsEvents | [Connect DNS](connect-dns.md) | V | |
-| W3CIISLog | [Connect IIS logs](../azure-monitor/platform/data-sources-iis-logs.md)  | X | |
-| WireData | [Connect Wire Data](../azure-monitor/insights/wire-data.md) | X | |
-| WindowsFirewall | [Connect Windows Firewall](connect-windows-firewall.md) | V | |
-| AADIP SecurityAlert  | [Connect Azure AD Identity Protection](connect-azure-ad-identity-protection.md)  | V | |
-| AATP SecurityAlert  | [Connect Azure ATP](connect-azure-atp.md) | V | |
-| ASC SecurityAlert  | [Connect Azure Security Center](connect-azure-security-center.md)  | V | |
-| MCAS SecurityAlert  | [Connect Microsoft Cloud App Security](connect-cloud-app-security.md)  | V | |
-| SecurityAlert | | | |
-| Sysmon (Event) | [Connect Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Connect Windows Events](../azure-monitor/platform/data-sources-windows-events.md) <br> [Get the Sysmon Parser](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/SysmonParser.txt)| X | Sysmon collection is not installed by default on virtual machines. For more information on how to install the Sysmon Agent, see [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon). |
-| ConfigurationData  | [Automate VM inventory](../automation/automation-vm-inventory.md)| X | |
-| ConfigurationChange  | [Automate VM tracking](../automation/change-tracking.md) | X | |
-| F5 BIG-IP | [Connect F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel.md)  | X | |
-| McasShadowItReporting  |  | X | |
-| Barracuda_CL | [Connect Barracuda](connect-barracuda.md) | V | |
+## Agent-based integration for data connectors
 
+Microsoft Sentinel can use the Syslog protocol to connect an agent to any data source that can perform real-time log streaming. For example, most on-premises data sources connect using agent-based integration.
+
+The following sections describe the different types of Microsoft Sentinel agent-based data connectors. Follow the steps in each Microsoft Sentinel data connector page to configure connections using agent-based mechanisms.
+
+Learn which firewalls, proxies, and endpoints connect to Microsoft Sentinel through CEF or Syslog in the [data connectors reference](data-connectors-reference.md).
+
+### Syslog
+
+You can stream events from Linux-based, Syslog-supporting devices into Microsoft Sentinel using the Log Analytics agent for Linux, formerly named the OMS agent. Depending on the device type, the agent is installed either directly on the device, or on a dedicated Linux-based log forwarder. The Log Analytics agent receives events from the Syslog daemon over UDP. If a Linux machine is expected to collect a high volume of Syslog events, it sends events over TCP from the Syslog daemon to the agent, and from there to Log Analytics. Learn how to [connect Syslog-based appliances to Microsoft Sentinel](connect-syslog.md).
+
+Here is a simple flow that shows how Microsoft Sentinel streams Syslog data.
+
+1. The device's built-in Syslog daemon collects local events of the specified types, and forwards the events locally to the agent. 
+1. The agent streams the events to your Log Analytics workspace. 
+1. After successful configuration, the data appears in the Log Analytics Syslog table.
+
+### Common Event Format (CEF)
+
+Log formats vary, but many sources support CEF-based formatting. The Microsoft Sentinel agent, which is actually the Log Analytics agent, converts CEF-formatted logs into a format that Log Analytics can ingest.
+
+For data sources that emit data in CEF, set up the Syslog agent and then configure the CEF data flow. After successful configuration, the data appears in the **CommonSecurityLog** table.
+
+Learn how to [connect CEF-based appliances to Microsoft Sentinel](connect-common-event-format.md).
+
+### Custom logs
+
+For some data sources, you can collect logs as files on Windows or Linux computers using the Log Analytics custom log collection agent.
+
+Follow the steps in each Microsoft Sentinel data connector page to connect using the Log Analytics custom log collection agent. After successful configuration, the data appears in custom tables.
+
+Learn how to [collect data in custom log formats to Microsoft Sentinel with the Log Analytics agent](connect-custom-logs.md).
+
+## Service-to-service integration for data connectors
+
+Microsoft Sentinel uses the Azure foundation to provide out-of-the-box, service-to-service support for Microsoft services and Amazon Web Services.
+
+Learn how to [connect to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md) or learn about data connector types in the [data connectors reference](data-connectors-reference.md).
+
+## Deploy data connectors as part of a solution
+
+[Microsoft Sentinel solutions](sentinel-solutions.md) provide packages of security content, including data connectors, workbooks, analytics rules, playbooks, and more. When you deploy a solution with a data connector, you get the data connector together with related content in the same deployment.
+
+Learn how to [centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md) or learn about the [Microsoft Sentinel solutions catalog](sentinel-solutions-catalog.md).
+
+## Data connector support
+
+Both Microsoft and other organizations author Microsoft Sentinel data connectors. Each data connector has one of these support types:
+
+| Support type| Description|
+|-------------|------------|
+|**Microsoft-supported**|Applies to:<ul><li>Data connectors for data sources where Microsoft is the data provider and author.</li><li>Some Microsoft-authored data connectors for non-Microsoft data sources.</li></ul>Microsoft supports and maintains data connectors in this category according to the [Microsoft Azure Support Plans](https://azure.microsoft.com/support/options/#overview).<br><br>Partners or the Community support data connectors that are authored by any party other than Microsoft.|
+|**Partner-supported**|Applies to data connectors authored by parties other than Microsoft.<br><br>The partner company provides support or maintenance for these data connectors. The partner company can be an Independent Software Vendor, a Managed Service Provider (MSP/MSSP), a Systems Integrator (SI), or any organization whose contact information is provided on the Microsoft Sentinel page for that data connector.<br><br>For any issues with a partner-supported data connector, contact the specified data connector support contact.|
+|**Community-supported**|Applies to data connectors authored by Microsoft or partner developers that don't have listed contacts for data connector support and maintenance on the specified data connector page in Microsoft Sentinel.<br><br>For questions or issues with these data connectors, you can [file an issue](https://github.com/Azure/Azure-Sentinel/issues/new/choose) in the [Microsoft Sentinel GitHub community](https://aka.ms/threathunters).|
+
+### Find the support contact for a data connector
+
+1. In the Microsoft Sentinel **Data connectors** page, select the relevant connector.
+1. To access support and maintenance for the connector, use the support contact link in the **Supported by** field on the side panel for the connecter. 
+
+  :::image type="content" source="media/collect-data/connectors.png" alt-text="Screenshot showing the Supported by field for a data connector in Microsoft Sentinel." lightbox="media/collect-data/connectors.png":::     
 
 ## Next steps
 
-- To get started with Azure Sentinel, you need a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
-- Learn how to [onboard your data to Azure Sentinel](quickstart-onboard.md), and [get visibility into your data, and potential threats](quickstart-get-visibility.md).
+- To get started with Microsoft Sentinel, you need a subscription to Microsoft Azure. If you don't have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
+- Learn how to [onboard your data to Microsoft Sentinel](quickstart-onboard.md) and [get visibility into your data and potential threats](get-visibility.md).

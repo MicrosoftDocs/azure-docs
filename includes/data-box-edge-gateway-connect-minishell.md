@@ -19,6 +19,8 @@ Follow these steps to remotely connect from a Windows client.
 
     `winrm quickconfig`
 
+    For more information, see [Installation and configuration for Windows Remote Management](/windows/win32/winrm/installation-and-configuration-for-windows-remote-management#quick-default-configuration).
+
 3. Assign a variable to the device IP address.
 
     $ip = "<device_ip>"
@@ -53,17 +55,17 @@ Follow these steps to remotely connect from a Windows client.
 
 On the Linux client that you'll use to connect:
 
-- [Install the latest PowerShell Core for Linux](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6) from GitHub to get the SSH remoting feature. 
+- [Install the latest PowerShell Core for Linux](/powershell/scripting/install/installing-powershell-core-on-linux) from GitHub to get the SSH remoting feature. 
 - [Install only the `gss-ntlmssp` package from the NTLM module](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). For Ubuntu clients, use the following command:
     - `sudo apt-get install gss-ntlmssp`
 
-For more information, go to [PowerShell remoting over SSH](https://docs.microsoft.com/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-6).
+For more information, go to [PowerShell remoting over SSH](/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core).
 
 Follow these steps to remotely connect from an NFS client.
 
 1. To open PowerShell session, type:
 
-    `sudo pwsh`
+    `pwsh`
  
 2. For connecting using the remote client, type:
 

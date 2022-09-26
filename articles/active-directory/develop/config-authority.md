@@ -1,9 +1,8 @@
 ---
-title: Configure identity providers (MSAL iOS/macOS) | Azure
-titleSuffix: Microsoft identity platform
+title: Configure identity providers (MSAL iOS/macOS)
 description: Learn how to use different authorities such as B2C, sovereign clouds, and guest users, with MSAL for iOS and macOS.
 services: active-directory
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,13 +10,12 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/28/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
-# How to: Configure MSAL for iOS and macOS to use different identity providers
+# Configure MSAL for iOS and macOS to use different identity providers
 
 This article will show you how to configure your Microsoft authentication library app for iOS and macOS (MSAL) for different authorities such as Azure Active Directory (Azure AD), Business-to-Consumer (B2C), sovereign clouds, and guest users.  Throughout this article, you can generally think of an authority as an identity provider.
 
@@ -26,7 +24,7 @@ This article will show you how to configure your Microsoft authentication librar
 `MSALPublicClientApplication` is configured with a default authority URL of `https://login.microsoftonline.com/common`, which is suitable for most Azure Active Directory (AAD) scenarios. Unless you're implementing advanced scenarios like national clouds, or working with B2C, you won't need to change it.
 
 > [!NOTE]
-> Modern authentication with Active Directory Federation Services as identity provider (ADFS) is not supported (see [ADFS for Developers](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios) for details). ADFS is supported through federation.
+> Modern authentication with Active Directory Federation Services as identity provider (ADFS) is not supported (see [ADFS for Developers](/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios) for details). ADFS is supported through federation.
 
 ## Change the default authority
 
@@ -237,11 +235,11 @@ The following are subclasses of `MSALAuthority` that you can instantiate dependi
 
 ### MSALAADAuthority
 
-`MSALAADAuthority` represents an AAD authority. The authority url should be in the following format, where `<port>` is optional: `https://<host>:<port>/<tenant>`
+`MSALAADAuthority` represents an AAD authority. The authority URL should be in the following format, where `<port>` is optional: `https://<host>:<port>/<tenant>`
 
 ### MSALB2CAuthority
 
-`MSALB2CAuthority` represents a B2C authority. By default, the B2C authority url should be in the following format, where `<port>` is optional: `https://<host>:<port>/tfp/<tenant>/<policy>`. However, MSAL also supports other arbitrary B2C authority formats.
+`MSALB2CAuthority` represents a B2C authority. By default, the B2C authority URL should be in the following format, where `<port>` is optional: `https://<host>:<port>/tfp/<tenant>/<policy>`. However, MSAL also supports other arbitrary B2C authority formats.
 
 ## Next steps
 

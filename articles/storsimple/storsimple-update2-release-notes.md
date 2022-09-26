@@ -1,23 +1,24 @@
 ---
 title: StorSimple 8000 Series Update 2 release notes | Microsoft Docs
-description: Describes the new features, issues, and workarounds for StorSimple 8000 Series Update 2.
+description: Describes the new features, issues, and work arounds for StorSimple 8000 Series Update 2.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: alkohli
 manager: carmonm
 editor: ''
 
 ms.assetid: e2c8bffd-7fc5-4b77-b632-a4f59edacc3a
 ms.service: storsimple
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
-ms.author: v-sharos
+ms.date: 08/23/2022
+ms.author: alkohli
 
 ---
 # StorSimple 8000 Series Update 2 release notes
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 The following release notes describe the new features and identify the critical open issues for StorSimple 8000 Series Update 2. They also contain a list of the StorSimple software, driver, and disk firmware updates included in this release. 
@@ -58,7 +59,7 @@ Update 2 introduces the following new features.
 * **Proactive Support** – Update 2 enables Microsoft to pull additional diagnostic information from the device. When our operations team identifies devices that are having problems, we are better equipped to collect information from the device and diagnose issues. **By accepting Update 2, you allow us to provide this proactive support**.    
 
 ## Issues fixed in Update 2
-The following tables provides a summary of issues that were fixed in Updates 2.    
+The following table provides a summary of issues that were fixed in Updates 2.    
 
 | No. | Feature | Issue | Applies to physical device | Applies to virtual device |
 | --- | --- | --- | --- | --- |
@@ -69,14 +70,14 @@ The following tables provides a summary of issues that were fixed in Updates 2.
 ## Known issues in Update 2
 The following table provides a summary of known issues in this release.
 
-| No. | Feature | Issue | Comments / workaround | Applies to physical device | Applies to virtual device |
+| No. | Feature | Issue | Comments / work around | Applies to physical device | Applies to virtual device |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Disk quorum |In rare instances, if the majority of disks in the EBOD enclosure of an 8600 device are disconnected resulting in no disk quorum, then the storage pool will go offline. It will stay offline even if the disks are reconnected. |You will need to reboot the device. If the issue persists, please contact Microsoft Support for next steps. |Yes |No |
 | 2 |Incorrect controller ID |When a controller replacement is performed, controller 0 may show up as controller 1. During controller replacement, when the image is loaded from the peer node, the controller ID can show up initially as the peer controller’s ID. In rare instances, this behavior may also be seen after a system reboot. |No user action is required. This situation will resolve itself after the controller replacement is complete. |Yes |No |
 | 3 |Storage accounts |Using the Storage service to delete the storage account is an unsupported scenario. This will lead to a situation in which user data cannot be retrieved. | |Yes |Yes |
 | 4 |Device failover |Multiple failovers of a volume container from the same source device to different target devices is not supported. Failover from a single dead device to multiple devices will make the volume containers on the first failed over device lose data ownership. After such a failover, these volume containers will appear or behave differently when you view them in the Azure classic portal. | |Yes |No |
 | 5 |Installation |During StorSimple Adapter for SharePoint installation, you need to provide a device IP in order for the install to finish successfully. | |Yes |No |
-| 6 |Web proxy |If your web proxy configuration has HTTPS as the specified protocol, then your device-to-service communication will be affected and the device will go offline. Support packages will also be generated in the process, consuming significant resources on your device. |Make sure that the web proxy URL has HTTP as the specified protocol. For more information, go to [Configure web proxy for your device](storsimple-configure-web-proxy.md). |Yes |No |
+| 6 |Web proxy |If your web proxy configuration has HTTPS as the specified protocol, then your device-to-service communication will be affected and the device will go offline. Support packages will also be generated in the process, consuming significant resources on your device. |Make sure that the web proxy URL has HTTP as the specified protocol. For more information, go to [Configure web proxy for your device](./storsimple-8000-configure-web-proxy.md). |Yes |No |
 | 7 |Web proxy |If you configure and enable web proxy on a registered device, then you will need to restart the active controller on your device. | |Yes |No |
 | 8 |High cloud latency and high I/O workload |When your StorSimple device encounters a combination of very high cloud latencies (order of seconds) and high I/O workload, the device volumes go into a degraded state and the I/Os may fail with a "device not ready" error. |You will need to manually reboot the device controllers or perform a device failover to recover from this situation. |Yes |No |
 | 9 |Azure PowerShell |When you use the StorSimple cmdlet **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** to select the first object so that you can create a new **VolumeContainer** object, the cmdlet returns all the objects. |Wrap the cmdlet in parentheses as follows: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** |Yes |Yes |
@@ -103,5 +104,4 @@ This release updates the driver and the disk firmware on your device.
 This update cannot be applied to the virtual device. New virtual devices will need to be created. 
 
 ## Next step
-Learn how to [install Update 2](storsimple-install-update-2.md) on your StorSimple device.
-
+Learn how to [install Update 2](./storsimple-8000-install-update-5.md) on your StorSimple device.

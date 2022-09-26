@@ -2,12 +2,12 @@
 title: Actions in the Standard rules engine for Azure CDN | Microsoft Docs
 description: Reference documentation for actions in the Standard rules engine for Azure Content Delivery Network (Azure CDN).
 services: cdn
-author: mdgattuso
+author: duongau
 
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 11/01/2019
-ms.author: magattus
+ms.date: 08/04/2020
+ms.author: duau
 
 ---
 
@@ -30,8 +30,8 @@ Use this action to overwrite the time to live (TTL) value of the endpoint for re
 Cache behavior |  Description              
 ---------------|----------------
 Bypass cache | When this option is selected and the rule matches, the content is not cached.
-Override | When this option is selected and the rule matches, the TTL value returned from your origin is overwritten with the value specified in the action.
-Set if missing | When this option is selected and the rule matches, if no TTL value was returned from your origin, the rule sets the TTL to the value specified in the action.
+Override | When this option is selected and the rule matches, the TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. For cache-control response header with values "no-cache", "private", "no-store", the action will not be applicable.
+Set if missing | When this option is selected and the rule matches, if no TTL value was returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. For cache-control response header with values "no-cache", "private", "no-store", the action will not be applicable.
 
 #### Additional fields
 
@@ -101,7 +101,7 @@ Use this action to rewrite the path of a request that's en route to your origin.
 
 Field | Description 
 ------|------------
-Source pattern | Define the source pattern in the URL path to replace. Currently, source pattern uses a prefix-based match. To match all URL paths, use a forward slash (**/**) as the source pattern value.
+Source pattern | Define the source pattern in the URL path to replace. To match all URL paths, use a forward slash (**/**) as the source pattern value.
 Destination | Define the destination path to use in the rewrite. The destination path overwrites the source pattern.
 Preserve unmatched path | If set to **Yes**, the remaining path after the source pattern is appended to the new destination path. 
 

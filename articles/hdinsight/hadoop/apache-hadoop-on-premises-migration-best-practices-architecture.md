@@ -1,13 +1,10 @@
 ---
 title: 'Architecture: On-premises Apache Hadoop to Azure HDInsight'
 description: Learn architecture best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: ashishth
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/06/2019
+ms.date: 07/18/2022
 ---
 
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight - architecture best practices
@@ -27,7 +24,7 @@ Azure HDInsight clusters are designed for a specific type of compute usage. Beca
 |IoT / Streaming|Kafka, Storm, Spark|
 |NoSQL Transactional processing|HBase|
 |Interactive and Faster queries with in-memory caching|Interactive Query|
-|Data Science|ML Services, Spark|
+|Data Science| Spark|
 
 The following table shows the different methods that can be used to create an HDInsight cluster.
 
@@ -38,9 +35,9 @@ The following table shows the different methods that can be used to create an HD
 |[Azure CLI (ver 1.0)](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
 |[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
 |[cURL](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)||X|X||
-|[.NET SDK](../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)||||X|
-|[Python SDK](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python)||||X|
-|[Java SDK](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable)||||X|
+|[.NET SDK](/dotnet/api/overview/azure/hdinsight)||||X|
+|[Python SDK](/python/api/overview/azure/hdinsight)||||X|
+|[Java SDK](/java/api/overview/azure/hdinsight)||||X|
 |[Azure Resource Manager templates](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)||X|||
 
 For more information, see the article [Cluster types in HDInsight](../hadoop/apache-hadoop-introduction.md).

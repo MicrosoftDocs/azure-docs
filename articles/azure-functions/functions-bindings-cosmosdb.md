@@ -1,11 +1,10 @@
 ---
 title: Azure Cosmos DB bindings for Functions 1.x
-description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions.
-author: craigshoemaker
-ms.author: cshoe
+description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions 1.x.
 ms.topic: reference
 ms.date: 11/21/2017
-ms.custom: seodec18
+ms.devlang: csharp, javascript
+ms.custom: "devx-track-csharp, seodec18"
 ---
 
 # Azure Cosmos DB bindings for Azure Functions 1.x
@@ -20,8 +19,6 @@ This article explains how to work with [Azure Cosmos DB](../cosmos-db/serverless
 > This article is for Azure Functions 1.x. For information about how to use these bindings in Functions 2.x and higher, see [Azure Cosmos DB bindings for Azure Functions 2.x](functions-bindings-cosmosdb-v2.md).
 >
 >This binding was originally named DocumentDB. In Functions version 1.x, only the trigger was renamed Cosmos DB; the input binding, output binding, and NuGet package retain the DocumentDB name.
-
-[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
 > Azure Cosmos DB bindings are only supported for use with the SQL API. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API, including [Azure Cosmos DB's API for MongoDB](../cosmos-db/mongodb-introduction.md), [Cassandra API](../cosmos-db/cassandra-introduction.md), [Gremlin API](../cosmos-db/graph-introduction.md), and [Table API](../cosmos-db/table-introduction.md).
@@ -129,10 +126,8 @@ Here's the binding data in the *function.json* file:
 Here's the JavaScript code:
 
 ```javascript
-    module.exports = function (context, documents) {
+    module.exports = async function (context, documents) {
         context.log('First document Id modified : ', documents[0].id);
-
-        context.done();
     }
 ```
 
@@ -175,9 +170,9 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
-|**type** || Must be set to `cosmosDBTrigger`. |
-|**direction** || Must be set to `in`. This parameter is set automatically when you create the trigger in the Azure portal. |
-|**name** || The variable name used in function code that represents the list of documents with changes. |
+|**type** | n/a | Must be set to `cosmosDBTrigger`. |
+|**direction** | n/a | Must be set to `in`. This parameter is set automatically when you create the trigger in the Azure portal. |
+|**name** | n/a | The variable name used in function code that represents the list of documents with changes. |
 |**connectionStringSetting**|**ConnectionStringSetting** | The name of an app setting that contains the connection string used to connect to the Azure Cosmos DB account being monitored. |
 |**databaseName**|**DatabaseName**  | The name of the Azure Cosmos DB database with the collection being monitored. |
 |**collectionName** |**CollectionName** | The name of the collection being monitored. |
@@ -209,6 +204,8 @@ The trigger doesn't indicate whether a document was updated or inserted, it just
 ## Input
 
 The Azure Cosmos DB input binding uses the SQL API to retrieve one or more Azure Cosmos DB documents and passes them to the input parameter of the function. The document ID or query parameters can be determined based on the trigger that invokes the function.
+
+## Input - example
 
 # [C#](#tab/csharp)
 
@@ -923,10 +920,9 @@ Here's the JavaScript code:
 
 ```javascript
     // Change input document contents using Azure Cosmos DB input binding, using context.bindings.inputDocumentOut
-    module.exports = function (context) {
-    context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
-    context.bindings.inputDocumentOut.text = "This was updated!";
-    context.done();
+    module.exports = async function (context) {
+        context.bindings.inputDocumentOut = context.bindings.inputDocumentIn;
+        context.bindings.inputDocumentOut.text = "This was updated!";
     };
 ```
 
@@ -973,7 +969,7 @@ Here's the *function.json* file:
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, req, toDoItem) {
+module.exports = async function (context, req, toDoItem) {
     context.log('JavaScript queue trigger function processed work item');
     if (!toDoItem)
     {
@@ -983,8 +979,6 @@ module.exports = function (context, req, toDoItem) {
     {
         context.log("Found ToDo item, Description=" + toDoItem.Description);
     }
-
-    context.done();
 };
 ```
 
@@ -1032,7 +1026,7 @@ Here's the *function.json* file:
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, req, toDoItem) {
+module.exports = async function (context, req, toDoItem) {
     context.log('JavaScript queue trigger function processed work item');
     if (!toDoItem)
     {
@@ -1042,8 +1036,6 @@ module.exports = function (context, req, toDoItem) {
     {
         context.log("Found ToDo item, Description=" + toDoItem.Description);
     }
-
-    context.done();
 };
 ```
 
@@ -1074,13 +1066,12 @@ The [configuration](#input---configuration) section explains these properties.
 Here's the JavaScript code:
 
 ```javascript
-    module.exports = function (context, input) {
+    module.exports = async function (context, input) {
         var documents = context.bindings.documents;
         for (var i = 0; i < documents.length; i++) {
             var document = documents[i];
             // operate on each document
         }
-        context.done();
     };
 ```
 
@@ -1110,9 +1101,9 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
-|**type**     || Must be set to `documentdb`.        |
-|**direction**     || Must be set to `in`.         |
-|**name**     || Name of the binding parameter that represents the document in the function.  |
+|**type**     | n/a | Must be set to `documentdb`.        |
+|**direction**     | n/a | Must be set to `in`.         |
+|**name**     | n/a | Name of the binding parameter that represents the document in the function.  |
 |**databaseName** |**DatabaseName** |The database containing the document.        |
 |**collectionName** |**CollectionName** | The name of the collection that contains the document. |
 |**id**    | **Id** | The ID of the document to retrieve. This property supports [binding expressions](./functions-bindings-expressions-patterns.md). Don't set both the **id** and **sqlQuery** properties. If you don't set either one, the entire collection is retrieved. |
@@ -1141,6 +1132,8 @@ Updates are not made automatically upon function exit. Instead, use `context.bin
 ## Output
 
 The Azure Cosmos DB output binding lets you write a new document to an Azure Cosmos DB database using the SQL API.
+
+## Output - example
 
 # [C#](#tab/csharp)
 
@@ -1398,7 +1391,7 @@ The [configuration](#output---configuration) section explains these properties.
 Here's the JavaScript code:
 
 ```javascript
-    module.exports = function (context) {
+    module.exports = async function (context) {
 
       context.bindings.employeeDocument = JSON.stringify({
         id: context.bindings.myQueueItem.name + "-" + context.bindings.myQueueItem.employeeId,
@@ -1406,8 +1399,6 @@ Here's the JavaScript code:
         employeeId: context.bindings.myQueueItem.employeeId,
         address: context.bindings.myQueueItem.address
       });
-
-      context.done();
     };
 ```
 
@@ -1449,9 +1440,9 @@ The following table explains the binding configuration properties that you set i
 
 |function.json property | Attribute property |Description|
 |---------|---------|----------------------|
-|**type**     || Must be set to `documentdb`.        |
-|**direction**     || Must be set to `out`.         |
-|**name**     || Name of the binding parameter that represents the document in the function.  |
+|**type**     | n/a | Must be set to `documentdb`.        |
+|**direction**     | n/a | Must be set to `out`.         |
+|**name**     | n/a | Name of the binding parameter that represents the document in the function.  |
 |**databaseName** | **DatabaseName**|The database containing the collection where the document is created.     |
 |**collectionName** |**CollectionName**  | The name of the collection where the document is created. |
 |**createIfNotExists**  |**CreateIfNotExists**    | A boolean value to indicate whether the collection is created when it doesn't exist. The default is *false* because new collections are created with reserved throughput, which has cost implications. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).  |
@@ -1472,7 +1463,7 @@ By default, when you write to the output parameter in your function, a document 
 
 | Binding | Reference |
 |---|---|
-| CosmosDB | [CosmosDB Error Codes](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
+| CosmosDB | [CosmosDB Error Codes](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
 ## Next steps
 

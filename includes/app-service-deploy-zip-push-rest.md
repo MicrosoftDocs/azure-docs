@@ -2,8 +2,9 @@
 author: cephalin
 ms.service: app-service
 ms.topic: include
-ms.date: 08/12/2019
-ms.author: cephalin
+ms.date: 03/22/2022
+ms.author: cephalin 
+ms.custom: devx-track-azurepowershell
 ---
 ## <a name="rest"></a>Deploy ZIP file with REST APIs 
 
@@ -13,7 +14,7 @@ For the HTTP BASIC authentication, you need your App Service deployment credenti
 
 ### With cURL
 
-The following example uses the cURL tool to deploy a .zip file. Replace the placeholders `<username>`, `<password>`, `<zip_file_path>`, and `<app_name>`. When prompted by cURL, type in the password.
+The following example uses the cURL tool to deploy a .zip file. Replace the placeholders `<deployment_user>`, `<zip_file_path>`, and `<app_name>`. When prompted by cURL, type in the password.
 
 ```bash
 curl -X POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
@@ -23,6 +24,23 @@ This request triggers push deployment from the uploaded .zip file. You can revie
 
 ```bash
 curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/deployments
+```
+
+#### Asynchronous zip deployment
+
+While deploying synchronously you may receive errors related to connection timeouts. Add `?isAsync=true` to the URL to deploy asynchronously. You will receive a response as soon as the zip file is uploaded with a `Location` header pointing to the pollable deployment status URL. When polling the URL provided in the `Location` header, you will receive a HTTP 202 (Accepted) response while the process is ongoing and a HTTP 200 (OK) response once the archive has been expanded and the deployment has completed successfully.
+
+#### Azure AD authentication
+
+An alternative to using HTTP BASIC authentication for the zip deployment is to use an Azure AD identity. Azure AD identity may be needed if [HTTP BASIC authentication is disabled for the SCM site](../articles/app-service/deploy-configure-credentials.md#disable-basic-authentication).
+
+A valid Azure AD access token for the the user or service principal performing the deployment will be required. An access token can be retrieved using the Azure CLI's `az account get-access-token` command.  The access token will be used in the Authentication header of the HTTP POST request.
+
+```bash
+curl -X POST \
+    --data-binary @"<zip_file_path>" \
+    -H "Authorization: Bearer <access_token>" \
+    "https://<app_name>.scm.azurewebsites.net/api/zipdeploy"
 ```
 
 ### With PowerShell

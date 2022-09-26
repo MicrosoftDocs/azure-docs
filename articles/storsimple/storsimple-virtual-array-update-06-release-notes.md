@@ -9,15 +9,16 @@ editor: ''
 
 ms.assetid: 
 ms.service: storsimple
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/24/2017
+ms.date: 08/19/2022
 ms.author: alkohli
 
 ---
 # StorSimple Virtual Array Update 0.6 release notes
+
+[!INCLUDE [storsimple-1200-eol-banner](../../includes/storsimple-1200-eol-banner.md)]
 
 ## Overview
 
@@ -88,5 +89,4 @@ Looking for an older release note? Go to:
 * [StorSimple Virtual Array Update 0.4 Release Notes](storsimple-virtual-array-update-04-release-notes.md)
 * [StorSimple Virtual Array Update 0.3 Release Notes](storsimple-ova-update-03-release-notes.md)
 * [StorSimple Virtual Array Update 0.1 and 0.2 Release Notes](storsimple-ova-update-01-release-notes.md)
-* [StorSimple Virtual Array General Availability Release Notes](storsimple-ova-pp-release-notes.md)
-
+* [StorSimple Virtual Array General Availability Release Notes]()

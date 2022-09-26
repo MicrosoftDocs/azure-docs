@@ -1,11 +1,11 @@
 ---
 title: Supported versions - Azure Database for MariaDB
 description: Learn which versions of the MariaDB server are supported in the Azure Database for MariaDB service.
-author: ajlam
-ms.author: andrela
 ms.service: mariadb
+author: savjani
+ms.author: pariks
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 06/24/2022
 ---
 # Supported Azure Database for MariaDB server versions
 
@@ -20,18 +20,19 @@ Azure Database for MariaDB currently supports the following version:
 
 ## MariaDB Version 10.2
 
-Patch version: 10.2.25
+Patch version: 10.2.32
 
-Refer to the [MariaDB documentation](https://mariadb.com/kb/en/library/mariadb-10225-release-notes/) to learn more about improvements and fixes in this version.
+Refer to the [MariaDB documentation](https://mariadb.com/kb/en/mariadb-10232-release-notes/) to learn more about improvements and fixes in this version.
 
 ## MariaDB Version 10.3
 
-Patch version: 10.3.16
+Patch version: 10.3.23
 
-Refer to the [MariaDB documentation](https://mariadb.com/kb/en/library/mariadb-10316-release-notes/) to learn more about improvements and fixes in this version.
+Refer to the [MariaDB documentation](https://mariadb.com/kb/en/mariadb-10323-release-notes/) to learn more about improvements and fixes in this version.
 
 ## Managing updates and upgrades
-The service automatically manages upgrades for patch updates. For example, 10.2.21 to 10.2.23.  
+
+The service automatically manages upgrades for patch updates. For example, 10.2.21 to 10.2.23.
 
 Currently, minor and major version upgrades aren't supported. For example, upgrading from MariaDB 10.2 to MariaDB 10.3 isn't supported. If you'd like to upgrade from 10.2 to 10.3, take a [dump and restore](./howto-migrate-dump-restore.md) it to a server that was created with the new engine version.
 

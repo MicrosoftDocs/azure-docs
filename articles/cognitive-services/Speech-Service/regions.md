@@ -3,57 +3,81 @@ title: Regions - Speech service
 titleSuffix: Azure Cognitive Services
 description: A list of available regions and endpoints for the Speech service, including speech-to-text, text-to-speech, and speech translation.
 services: cognitive-services
-author: mahilleb-msft
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/05/2019
-ms.author: panosper
-ms.custom: seodec18
+ms.date: 09/16/2022
+ms.author: eur
+ms.custom: references_regions, ignite-fall-2021
 ---
 
 # Speech service supported regions
 
-The Speech service allows your application to convert audio to text, perform speech translation, and covert text to speech. The service is available in multiple regions with unique endpoints for the Speech SDK and REST APIs.
+The Speech service allows your application to convert audio to text, perform speech translation, and convert text to speech. The service is available in multiple regions with unique endpoints for the Speech SDK and REST APIs. You can perform custom configurations to your speech experience, for all regions, at the [Speech Studio](https://aka.ms/speechstudio/).
 
-Make sure that you use the endpoint that matches the region for your subscription.
+Keep in mind the following points:
 
-## Speech SDK
+* If your application uses a [Speech SDK](speech-sdk.md), you provide the region identifier, such as `westus`, when you create a `SpeechConfig`. Make sure the region matches the region of your subscription.
+* If your application uses one of the Speech service REST APIs, the region is part of the endpoint URI you use when making requests.
+* Keys created for a region are valid only in that region. If you attempt to use them with other regions, you get authentication errors.
 
-In the [Speech SDK](speech-sdk.md), regions are specified as a string
-(for example, as a parameter to `SpeechConfig.FromSubscription` in the Speech SDK for C#).
+> [!NOTE]
+> Speech service doesn't store or process customer data outside the region the customer deploys the service instance in.
 
-### Speech-to-text, text-to-speech, and translation
+## Speech service
 
-The Speech SDK is available in these regions for **speech recognition**, **text-to-speech**, and **translation**:
+The following regions are supported for Speech service features such as speech-to-text, text-to-speech, pronunciation assessment, and translation. The geographies are listed in alphabetical order.
 
-| Region           | Speech SDK Parameter | Speech Customization Portal    |
-| ---------------- | -------------------- | ------------------------------ |
-| West US          | `westus`             | https://westus.cris.ai         |
-| West US 2        | `westus2`            | https://westus2.cris.ai        |
-| East US          | `eastus`             | https://eastus.cris.ai         |
-| East US 2        | `eastus2`            | https://eastus2.cris.ai        |
-| Central US       | `centralus`          | https://centralus.cris.ai      |
-| North Central US | `northcentralus`     | https://northcentralus.cris.ai |
-| South Central US | `southcentralus`     | https://southcentralus.cris.ai |
-| Central India    | `centralindia`       | https://centralindia.cris.ai   |
-| East Asia        | `eastasia`           | https://eastasia.cris.ai       |
-| Southeast Asia   | `southeastasia`      | https://southeastasia.cris.ai  |
-| Japan East       | `japaneast`          | https://japaneast.cris.ai      |
-| Korea Central    | `koreacentral`       | https://koreacentral.cris.ai   |
-| Australia East   | `australiaeast`      | https://australiaeast.cris.ai  |
-| Canada Central   | `canadacentral`      | https://canadacentral.cris.ai  |
-| North Europe     | `northeurope`        | https://northeurope.cris.ai    |
-| West Europe      | `westeurope`         | https://westeurope.cris.ai     |
-| UK South         | `uksouth`            | https://uksouth.cris.ai        |
-| France Central   | `francecentral`      | https://francecentral.cris.ai  |
+| Geography | Region | Region identifier |
+| ----- | ----- | ----- |
+| Africa | South Africa North | `southafricanorth` <sup>6</sup>|
+| Asia Pacific | East Asia | `eastasia` <sup>5</sup>|
+| Asia Pacific | Southeast Asia | `southeastasia` <sup>1,2,3,4,5</sup>|
+| Asia Pacific | Australia East | `australiaeast` <sup>1,2,3,4</sup>|
+| Asia Pacific | Central India | `centralindia` <sup>1,2,3,4,5</sup>|
+| Asia Pacific | Japan East | `japaneast` <sup>2,5</sup>|
+| Asia Pacific | Japan West | `japanwest` |
+| Asia Pacific | Korea Central | `koreacentral` <sup>2</sup>|
+| Canada | Canada Central | `canadacentral` <sup>1</sup>|
+| Europe | North Europe | `northeurope` <sup>1,2,4,5</sup>|
+| Europe | West Europe | `westeurope` <sup>1,2,3,4,5</sup>|
+| Europe | France Central | `francecentral` |
+| Europe | Germany West Central | `germanywestcentral` |
+| Europe | Norway East | `norwayeast` |
+| Europe | Switzerland North | `switzerlandnorth` <sup>6</sup>|
+| Europe | Switzerland West | `switzerlandwest` |
+| Europe | UK South | `uksouth` <sup>1,2,3,4</sup>|
+| Middle East | UAE North | `uaenorth` <sup>6</sup>|
+| South America | Brazil South | `brazilsouth` <sup>6</sup>|
+| US | Central US | `centralus` |
+| US | East US | `eastus` <sup>1,2,3,4,5</sup>|
+| US | East US 2 | `eastus2` <sup>1,2,4,5</sup>|
+| US | North Central US | `northcentralus` <sup>1,4,6</sup>|
+| US | South Central US | `southcentralus` <sup>1,2,3,4,5,6</sup>|
+| US | West Central US | `westcentralus` <sup>5</sup>|
+| US | West US | `westus` <sup>2,5</sup>|
+| US | West US 2 | `westus2` <sup>1,2,4,5</sup>|
+| US | West US 3 | `westus3` |
 
-### Intent recognition
+<sup>1</sup> The region has dedicated hardware for Custom Speech training. If you plan to train a custom model with audio data, use one of the regions with dedicated hardware for faster training. Then you can [copy the trained model](how-to-custom-speech-train-model.md#copy-a-model) to another region.
 
-Available regions for **intent recognition** via the Speech SDK are the following:
+<sup>2</sup> The region is available for Custom Neural Voice training. You can copy a trained neural voice model to other regions for deployment.
 
-| Global region | Region           | Speech SDK Parameter |
+<sup>3</sup> The Long Audio API is available in the region.
+
+<sup>4</sup> The region supports custom keyword advanced models.
+
+<sup>5</sup> The region supports keyword verification.
+
+<sup>6</sup> The region does not support Speaker Recognition.
+
+## Intent recognition
+
+Available regions for intent recognition via the Speech SDK are in the following table.
+
+| Global region | Region           | Region identifier |
 | ------------- | ---------------- | -------------------- |
 | Asia          | East Asia        | `eastasia`           |
 | Asia          | Southeast Asia   | `southeastasia`      |
@@ -68,34 +92,22 @@ Available regions for **intent recognition** via the Speech SDK are the followin
 | North America | West US 2        | `westus2`            |
 | South America | Brazil South     | `brazilsouth`        |
 
-This is a subset of the publishing regions supported by the [Language Understanding service (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
+This is a subset of the publishing regions supported by the [Language Understanding service (LUIS)](../luis/luis-reference-regions.md).
 
-### Voice assistants
+## Voice assistants
 
-The [Speech SDK](speech-sdk.md) supports **voice assistant** capabilities in these regions:
+The [Speech SDK](speech-sdk.md) supports voice assistant capabilities through [Direct Line Speech](./direct-line-speech.md) for regions in the following table.
 
-| Region         | Speech SDK Parameter |
-| -------------- | -------------------- |
-| West US        | `westus`             |
-| West US 2      | `westus2`            |
-| East US        | `eastus`             |
-| East US 2      | `eastus2`            |
-| West Europe    | `westeurope`         |
-| North Europe   | `northeurope`        |
-| Southeast Asia | `southeastasia`      |
-
-## REST APIs
-
-The Speech service also exposes REST endpoints for speech-to-text and text-to-speech requests.
-
-### Speech-to-text
-
-For speech-to-text reference documentation, see [Speech-to-text REST API](rest-speech-to-text.md).
-
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
-
-### Text-to-speech
-
-For text-to-speech reference documentation, see [Text-to-speech REST API](rest-text-to-speech.md).
-
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+| Global region | Region           | Region identifier    |
+| ------------- | ---------------- | -------------------- |
+| North America | West US          | `westus`             |
+| North America | West US 2        | `westus2`            |
+| North America | East US          | `eastus`             |
+| North America | East US 2        | `eastus2`            |
+| North America | West Central US  | `westcentralus`      |
+| North America | South Central US | `southcentralus`     |
+| Europe        | West Europe      | `westeurope`         |
+| Europe        | North Europe     | `northeurope`        |
+| Asia          | East Asia        | `eastasia`           |
+| Asia          | Southeast Asia   | `southeastasia`      |
+| India         | Central India    | `centralindia`       |

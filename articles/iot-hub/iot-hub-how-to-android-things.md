@@ -1,16 +1,16 @@
 ---
 title: Develop for Android Things platform using Azure IoT SDKs | Microsoft Docs
 description: Developer guide - Learn about how to develop on Android Things using Azure IoT Hub SDKs.
-author: robinsh
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: robinsh
+ms.author: kgremban
 ---
 # Develop for Android Things platform using Azure IoT SDKs
 
-[Azure IoT Hub SDKs](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) provide first tier support for popular platforms such as Windows, Linux, OSX, MBED, and mobile platforms like Android and iOS.  As part of our commitment to enable greater choice and flexibility in IoT deployments, the Java SDK also supports [Android Things](https://developer.android.com/things/) platform.  Developers can leverage the benefits of Android Things operating system on the device side, while using [Azure IoT Hub](about-iot-hub.md) as the central message hub that scales to millions of simultaneously connected devices.
+[Azure IoT Hub SDKs](./iot-hub-devguide-sdks.md) provide first tier support for popular platforms such as Windows, Linux, OSX, MBED, and mobile platforms like Android and iOS.  As part of our commitment to enable greater choice and flexibility in IoT deployments, the Java SDK also supports [Android Things](https://developer.android.com/things/) platform.  Developers can leverage the benefits of Android Things operating system on the device side, while using [Azure IoT Hub](about-iot-hub.md) as the central message hub that scales to millions of simultaneously connected devices.
 
 This tutorial outlines the steps to build a device side application on Android Things using the Azure IoT Java SDK.
 
@@ -22,7 +22,7 @@ This tutorial outlines the steps to build a device side application on Android T
 
 * Latest version of [Git](https://git-scm.com/)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Create an IoT hub
 
@@ -39,14 +39,14 @@ A device must be registered with your IoT hub before it can connect. In this qui
    **MyAndroidThingsDevice** : This is the name given for the registered device. Use MyAndroidThingsDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
+    az extension add --name azure-iot
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyAndroidThingsDevice
     ```
 
 2. Run the following commands in Azure Cloud Shell to get the *device connection string* for the device you just registered. Replace `YourIoTHubName` below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyAndroidThingsDevice --output table
+    az iot hub device-identity connection-string show --hub-name YourIoTHubName --device-id MyAndroidThingsDevice --output table
     ```
 
     Make a note of the device connection string, which looks like:
@@ -97,4 +97,3 @@ az iot hub monitor-events --device-id MyAndroidThingsDevice --hub-name YourIoTHu
 
 * Learn about [how to manage connectivity and reliable messaging](iot-hub-reliability-features-in-sdks.md) using the IoT Hub SDKs.
 * Learn about how to [develop for mobile platforms](iot-hub-how-to-develop-for-mobile-devices.md) such as iOS and Android.
-* [Azure IoT SDK platform support](iot-hub-device-sdk-platform-support.md)

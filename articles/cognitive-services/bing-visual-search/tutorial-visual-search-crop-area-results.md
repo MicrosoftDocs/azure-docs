@@ -8,11 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 11/29/2019
+ms.date: 03/31/2019
 ms.author: aahi
+ms.devlang: csharp
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Crop an image with the Bing Visual Search SDK for C#
+
+[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
 
 The Bing Visual Search SDK enables you to crop an image before finding similar online images. This application crops a single person from an image containing several people, and then returns search results containing similar images found online.
 
@@ -48,7 +52,7 @@ This image is cropped by creating an `ImageInfo` object from the crop area, and 
 
 ```csharp
 CropArea CropArea = new CropArea(top: (float)0.01, bottom: (float)0.30, left: (float)0.01, right: (float)0.20);
-string imageURL = "https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/media/ms_srleaders.jpg";
+string imageURL = "https://learn.microsoft.com/azure/cognitive-services/bing-visual-search/media/ms_srleaders.jpg";
 ImageInfo imageInfo = new ImageInfo(cropArea: CropArea, url: imageURL);
 
 VisualSearchRequest visualSearchRequest = new VisualSearchRequest(imageInfo: imageInfo);
@@ -76,8 +80,8 @@ Console.WriteLine("\r\n" + "ActionType: " + i.ActionType + " -> WebSearchUrl: " 
 
 The complete application returns:
 
-|ActionType  |URL  | |
-|---------|---------|---------|
+|ActionType  |URL  |
+|---------|---------|
 |PagesIncluding WebSearchURL     |         |
 |MoreSizes WebSearchURL     |         |  
 |VisualSearch WebSearchURL    |         |
@@ -108,4 +112,4 @@ Getting the actual image URLs requires a cast that reads an `ActionType` as `Ima
 > [Create a Visual Search single-page web app](tutorial-bing-visual-search-single-page-app.md)
 
 ## See also
-> [What is the Bing Visual Search API?](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview)
+> [What is the Bing Visual Search API?](./overview.md)

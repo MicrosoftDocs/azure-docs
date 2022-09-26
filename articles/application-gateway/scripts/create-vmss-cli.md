@@ -3,9 +3,9 @@ title: Azure CLI Script Sample - Manage web traffic | Microsoft Docs
 description: Azure CLI Script Sample - Manage web traffic with an application gateway and a virtual machine scale set.
 services: application-gateway
 documentationcenter: networking
-author: vhorne
-manager: jpconnock
-editor: tysonn
+author: greg-lindsay
+
+
 tags: azure-resource-manager
 
 ms.service: application-gateway
@@ -13,8 +13,8 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/29/2018
-ms.author: victorh
-ms.custom: mvc
+ms.author: greglin
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Manage web traffic using the Azure CLI
@@ -43,16 +43,16 @@ This script uses the following commands to create the deployment. Each item in t
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Creates a resource group in which all resources are stored. |
-| [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | Creates a virtual network. |
-| [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) | Creates a subnet in a virtual network. |
-| [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest) | Creates the public IP address for the application gateway. |
-| [az network application-gateway create](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest) | Create an application gateway. |
-| [az vmss create](https://docs.microsoft.com/cli/azure/vmss) | Creates a virtual machine scale set. |
-| [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip) | Gets the public IP address of the application gateway. |
+| [az group create](/cli/azure/group) | Creates a resource group in which all resources are stored. |
+| [az network vnet create](/cli/azure/network/vnet) | Creates a virtual network. |
+| [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) | Creates a subnet in a virtual network. |
+| [az network public-ip create](/cli/azure/network/public-ip) | Creates the public IP address for the application gateway. |
+| [az network application-gateway create](/cli/azure/network/application-gateway) | Create an application gateway. |
+| [az vmss create](/cli/azure/vmss) | Creates a virtual machine scale set. |
+| [az network public-ip show](/cli/azure/network/public-ip) | Gets the public IP address of the application gateway. |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure/overview).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure/overview).
 
 Additional application gateway CLI script samples can be found in the [Azure Windows VM documentation](../cli-samples.md).

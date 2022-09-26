@@ -2,12 +2,13 @@
 title: 'Azure ExpressRoute: Configure Global Reach'
 description: This article helps you link ExpressRoute circuits together to make a private network between your on-premises networks and enable Global Reach.
 services: expressroute
-author: jaredr80
+author: duongau
 
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/25/2019
-ms.author: jaredro
+ms.author: duau 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -35,7 +36,7 @@ Before you start configuration, confirm the following:
 1. To start the configuration, sign in to your Azure account and select the subscription that you want to use.
 
    [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
-2. Identify the ExpressRoute circuits that you want use. You can enable ExpressRoute Global Reach between any two ExpressRoute circuits as long as they're located in the supported countries/regions and were created at different peering locations. 
+2. Identify the ExpressRoute circuits that you want use. You can enable ExpressRoute Global Reach between the private peering of any two ExpressRoute circuits, as long as they're located in the supported countries/regions and were created at different peering locations. 
 
    * If your subscription owns both circuits, you can choose either circuit to run the configuration in the following sections.
    * If the two circuits are in different Azure subscriptions, you need authorization from one Azure subscription. Then you pass in the authorization key when you run the configuration command in the other Azure subscription.
@@ -64,6 +65,14 @@ Enable connectivity between your on-premises networks. There are separate sets o
      ```azurepowershell-interactive
      Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering $ckt_2.Peerings[0].Id -AddressPrefix '__.__.__.__/29'
      ```
+     
+     > [!NOTE]
+     > If you wish to enable IPv6 support for ExpressRoute Global Reach, you must specify a /125 IPv6 subnet for *-AddressPrefix* and an *-AddressPrefixType* of *IPv6*.
+     
+     ```azurepowershell-interactive
+     Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering $ckt_2.Peerings[0].Id -AddressPrefix '__.__.__.__/125' -AddressPrefixType IPv6
+     ```
+
 3. Save the configuration on circuit 1 as follows:
 
    ```azurepowershell-interactive
@@ -90,6 +99,14 @@ If the two circuits are not in the same Azure subscription, you need authorizati
    ```azurepowershell-interactive
    Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering "circuit_2_private_peering_id" -AddressPrefix '__.__.__.__/29' -AuthorizationKey '########-####-####-####-############'
    ```
+   
+     > [!NOTE]
+     > If you wish to enable IPv6 support for ExpressRoute Global Reach, you must specify a /125 IPv6 subnet for *-AddressPrefix* and an *-AddressPrefixType* of *IPv6*.
+
+   ```azurepowershell-interactive
+   Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering $ckt_2.Peerings[0].Id -AddressPrefix '__.__.__.__/125' -AddressPrefixType IPv6 -AuthorizationKey '########-####-####-####-############'
+   ```
+     
 3. Save the configuration on circuit 1.
 
    ```azurepowershell-interactive
@@ -102,24 +119,46 @@ When the previous operation completes, you will have connectivity between your o
 
 Use the following command to verify the configuration on the circuit where the configuration was made (for example, circuit 1 in the previous example).
 ```azurepowershell-interactive
-$ckt1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
+$ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
 ```
 
-If you simply run *$ckt1* in PowerShell, you see *CircuitConnectionStatus* in the output. It tells you whether the connectivity is established, "Connected", or "Disconnected". 
+If you simply run *$ckt_1* in PowerShell, you see *CircuitConnectionStatus* in the output. It tells you whether the connectivity is established, "Connected", or "Disconnected". 
 
 ## Disable connectivity
 
 To disable connectivity between your on-premises networks, run the commands against the circuit where the configuration was made (for example, circuit 1 in the previous example).
 
 ```azurepowershell-interactive
-$ckt1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
+$ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
 Remove-AzExpressRouteCircuitConnectionConfig -Name "Your_connection_name" -ExpressRouteCircuit $ckt_1
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
+```
+
+> [!NOTE]
+> To delete an IPv6 Global Reach connection, you must specify an *-AddressPrefixType* of *IPv6* like in the following command.
+
+```azurepowershell-interactive
+$ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
+Remove-AzExpressRouteCircuitConnectionConfig -Name "Your_connection_name" -ExpressRouteCircuit $ckt_1 -AddressPrefixType IPv6
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
 ```
 
 You can run the Get operation to verify the status.
 
 After the previous operation is complete, you no longer have connectivity between your on-premises network through your ExpressRoute circuits.
+
+## Update connectivity configuration
+
+To update the Global Reach connectivity configuration run the following command against one of the ExpressRoute circuits.
+
+```azurepowershell-interactive
+$ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
+$ckt_2 = Get-AzExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGroupName "Your_resource_group"
+$addressSpace = 'aa:bb::0/125'
+$addressPrefixType = 'IPv6'
+Set-AzExpressRouteCircuitConnectionConfig -Name "Your_connection_name" -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering $ckt_2.Peerings[0].Id -AddressPrefix $addressSpace -AddressPrefixType $addressPrefixType
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
+```
 
 ## Next steps
 1. [Learn more about ExpressRoute Global Reach](expressroute-global-reach.md)

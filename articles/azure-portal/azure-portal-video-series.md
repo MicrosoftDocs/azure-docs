@@ -1,35 +1,27 @@
 ---
 title: Azure portal how-to video series
-description: Find video demos for how to work with Azure services in the portal
-services: azure-portal
-keywords: 
-author: kfollis
-ms.author: kfollis
-ms.date: 10/16/2019
-ms.topic: conceptual
-
-ms.service: azure-portal
-manager: mtillman
+description: Find video demos for how to work with Azure services in the portal. View and link directly to the latest how-to videos.
+ms.date: 08/25/2022
+ms.topic: how-to
 ---
+
 # Azure portal how-to video series
 
-The Azure portal how-to video series showcases how to work with Azure services in the Azure portal. Each week the Azure portal team adds to the video playlist. These interactive demos can help you be more efficient and productive.
+The [Azure portal how-to video series](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR) showcases how to work with Azure services in the Azure portal. Each week the Azure portal team adds to the video playlist. These interactive demos can help you be more efficient and productive.
 
 ## Featured video
 
-In this featured video, we explore how to diagnose and solve the most common problems with Azure resources.
+In this featured video, we show you how to create a storage account in the Azure portal.
 
-> [!VIDEO https://www.youtube.com/embed/FgfcSdHErus]
+> [!VIDEO https://www.youtube.com/embed/AhuNgBafmUo]
 
-[Troubleshoot common problems with Azure resources](https://www.youtube.com/watch?v=FgfcSdHErus)
+[How to create a storage account](https://www.youtube.com/watch?v=AhuNgBafmUo)
 
-Catch up on these recent videos you may have missed:
+Catch up on these videos you may have missed:
 
-|   |   |   |
+| [How to use search in the Azure portal](https://www.youtube.com/watch?v=PcHF_DzsETA) | [How to check your subscription's secure score](https://www.youtube.com/watch?v=yqb3qvsjqXY)  | [How to find and use Translator](https://www.youtube.com/watch?v=6xBHkHkFmZ4) |
 | ------| ------ | ------ |
-| [![Image of YouTube video about cost management](https://i.ytimg.com/vi/mfxysF-kTFA/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDSzqNnsCYuKxe8kjbZFoM-FwB_vw)](http://www.youtube.com/watch?v=mfxysF-kTFA) | [![Image of YouTube video about applying budgets to subscriptions](https://i.ytimg.com/vi/UrkHiUx19Po/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAymEmnvYBmUSIJ_I7BU30ipAcsNA)](http://www.youtube.com/watch?v=UrkHiUx19Po) | [![Image of YouTube video about making the most of Azure Advisor](https://i.ytimg.com/vi/ANz3cCiFsJw/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLA_2QjNx26-LIkEzo22KBUsB2zSAg)](http://www.youtube.com/watch?v=ANz3cCiFsJw) |
-| [How to use Cost Management](https://www.youtube.com/watch?v=mfxysF-kTFA) | [How to Apply Budgets to Subscriptions](https://www.youtube.com/watch?v=UrkHiUx19Po) | [How to make the most of Azure Advisor](https://www.youtube.com/watch?v=ANz3cCiFsJw) |
-
+| [![Image of YouTube video about how to use search in the Azure portal](https://i.ytimg.com/vi/PcHF_DzsETA/hqdefault.jpg)](http://www.youtube.com/watch?v=PcHF_DzsETA) | [![Image of YouTube video about how to check your subscription's secure score](https://i.ytimg.com/vi/yqb3qvsjqXY/hqdefault.jpg)](https://www.youtube.com/watch?v=yqb3qvsjqXY) | [![Image of YouTube video about how to find and use Translator](https://i.ytimg.com/vi/6xBHkHkFmZ4/hqdefault.jpg)](http://www.youtube.com/watch?v=6xBHkHkFmZ4) |
 
 ## Video playlist
 
@@ -38,3 +30,4 @@ Explore the [Azure portal how-to series](https://www.youtube.com/playlist?list=P
 ## Next steps
 
 Explore hundreds of videos for Azure services in the [video library](https://azure.microsoft.com/resources/videos/index/?tag=microsoft-azure-portal).
+

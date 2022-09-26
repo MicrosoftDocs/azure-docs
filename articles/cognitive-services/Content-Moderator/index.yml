@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page # Required
   author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
   ms.author: pafarley #Required; microsoft alias of author; optional team alias.
-  ms.date: 10/24/2019 #Required; mm/dd/yyyy format.
+  ms.date: 10/27/2021 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -26,11 +26,15 @@ landingContent:
         links:
           - text: What is Content Moderator?
             url: overview.md
+      - linkListType: learn
+        links:
+          - text: Microsoft Learn training
+            url: /training/modules/intro-to-content-moderator/
       - linkListType: video
         links:
           - text: Video moderation with Content Moderator
-            url: https://channel9.msdn.com/Shows/AI-Show/Video-Moderation-with-Content-Moderator?term=content%20moderator&lang-en=true
-
+            url: /Shows/AI-Show/Video-Moderation-with-Content-Moderator?term=content%20moderator&lang-en=true
+      
   - title: Analyze image content
     linkLists:
       - linkListType: concept
@@ -40,11 +44,13 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: dotnet-sdk-quickstart.md
+            url: client-libraries.md?pivots=programming-language-csharp
           - text: Using the Python SDK
-            url: python-sdk-quickstart.md
+            url: client-libraries.md?pivots=programming-language-python
           - text: Using the Java SDK
-            url: java-sdk-quickstart.md
+            url: client-libraries.md?pivots=programming-language-java
+          - text: Using the REST API
+            url: client-libraries.md?pivots=programming-language-rest-api
       - linkListType: how-to-guide
         links:
           - text: Using the API console
@@ -61,7 +67,7 @@ landingContent:
           - text: Using the .NET SDK
             url: image-lists-quickstart-dotnet.md
           - text: Using the Python SDK
-            url: python-sdk-quickstart.md
+            url: ./client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python
       - linkListType: how-to-guide
         links:
           - text: Using the API console
@@ -76,9 +82,11 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: dotnet-sdk-quickstart.md
+            url: ./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp
           - text: Using the Python SDK
-            url: python-sdk-quickstart.md
+            url: ./client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python
+          - text: Using the REST API
+            url: ./client-libraries.md?pivots=programming-language-rest-api
       - linkListType: how-to-guide
         links:
           - text: Using the API console
@@ -91,7 +99,7 @@ landingContent:
           - text: Using the .NET SDK
             url: term-lists-quickstart-dotnet.md
           - text: Using the Python SDK
-            url: python-sdk-quickstart.md
+            url: ./client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python
       - linkListType: how-to-guide
         links:
           - text: Using the API console
@@ -103,65 +111,35 @@ landingContent:
         links:
           - text: Using the .NET SDK
             url: video-moderation-api.md
-      - linkListType: tutorial
-        links:
-          - text: Video and transcript moderation
-            url: video-transcript-moderation-review-tutorial-dotnet.md
       - linkListType: video
         links:
           - text: Video moderation with Content Moderator
-            url: https://channel9.msdn.com/Shows/AI-Show/Video-Moderation-with-Content-Moderator?term=content%20moderator&lang-en=true
-
-  - title: Use reviews, workflows, and jobs
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Review tool
-            url: Review-Tool-User-Guide/human-in-the-loop.md
-          - text: Reviews, workflows, and jobs
-            url: review-api.md
-      - linkListType: quickstart
-        links:
-          - text: Create reviews with the Python SDK
-            url: python-sdk-quickstart.md
-      - linkListType: how-to-guide
-        links:
-          - text: Define and use reviews (Review tool)
-            url: Review-Tool-User-Guide/review-moderated-images.md
-          - text: Define and use workflows (Review tool)
-            url: Review-Tool-User-Guide/workflows.md
-          - text: Define and use jobs (API console)
-            url: try-review-api-job.md
+            url: /Shows/AI-Show/Video-Moderation-with-Content-Moderator?term=content%20moderator&lang-en=true
 
   - title: Reference
     linkLists:
       - linkListType: reference
         links:
           - text: Content Moderator API
-            url: https://docs.microsoft.com/azure/cognitive-services/content-moderator/api-reference
+            url: ./api-reference.md
           - text: .NET SDK
-            url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-dotnet
+            url: /dotnet/api/overview/azure/cognitiveservices/client/contentmoderator
           - text: Python SDK
-            url: https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/?view=azure-python
+            url: /python/api/azure-cognitiveservices-vision-contentmoderator/
           - text: Java SDK
-            url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable
+            url: /java/api/overview/azure/cognitiveservices/client/contentmoderator
           - text: Node.js SDK
-            url: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-contentmoderator
+            url: /javascript/api/@azure/cognitiveservices-contentmoderator
           - text: Go SDK
             url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator
           - text: Azure PowerShell
-            url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+            url: /powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)
-            url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+            url: /cli/azure/cognitiveservices
      
   - title: Help and feedback
     linkLists:
-      - linkListType: reference
-        links:
-          - text: UserVoice
-            url: https://cognitive.uservoice.com/forums/559960-content-moderator
-          - text: Knowledge Base
-            url: https://cognitive.uservoice.com/knowledgebase/topics/132073-content-moderator
-          - text: Stack Overflow
-            url: https://stackoverflow.com/questions/tagged/microsoft-cognitive
-          
+    - linkListType: reference
+      links:
+        - text: Support and help options
+          url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-moderator/context/context

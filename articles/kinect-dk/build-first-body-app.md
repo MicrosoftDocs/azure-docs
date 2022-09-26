@@ -1,21 +1,20 @@
 ---
 title: 'Quickstart: Build an Azure Kinect body tracking application'
-description: Step by step instructions to build your first Azure Kinect body tracking application 
+description: Step by step instructions to build your first Azure Kinect body tracking application
 author: qm13
 ms.author: quentinm
 ms.reviewer: yijwan
-ms.prod: kinect-dk
+ms.service: azure-kinect-developer-kit
 ms.date: 06/26/2019
 ms.topic: quickstart
 keywords: kinect, azure, sensor, sdk, body, tracking, joint, application, first
-
+ms.custom: mode-other
 #Customer intent: As an Azure Kinect DK developer, I want to create a new Azure Kinect DK application.
-
 ---
 
 # Quickstart: Build an Azure Kinect body tracking application
 
-Getting started with the Body Tracking SDK? This quickstart will get you up and running with body tracking!
+Getting started with the Body Tracking SDK? This quickstart will get you up and running with body tracking! You can find more examples in this [Azure-Kinect-Sample repo](https://github.com/microsoft/Azure-Kinect-Samples/tree/master/body-tracking-samples).
 
 ## Prerequisites
 
@@ -28,11 +27,11 @@ Getting started with the Body Tracking SDK? This quickstart will get you up and 
   - [k4a_device_stop_cameras()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga4fa0e0a011a7105309ad97f081a5d6b8.html#ga4fa0e0a011a7105309ad97f081a5d6b8)
   - [k4a_device_close()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga7a3931d9a690b3971caaac83b43f9423.html#ga7a3931d9a690b3971caaac83b43f9423)
 - Review the documentation on the following Body Tracking SDK functions:
-  - [k4abt_tracker_create()](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/0.9.x/group__btfunctions_ga1aa71481b8441def94de11b29e0e3cbc.html#ga1aa71481b8441def94de11b29e0e3cbc)
-  - [k4abt_tracker_enqueue_capture()](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/0.9.x/group__btfunctions_ga093becd9bb4a63f5f4d56f58097a7b1e.html#ga093becd9bb4a63f5f4d56f58097a7b1e)
-  - [k4abt_tracker_pop_result()](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/0.9.x/group__btfunctions_gaaf446fb1579cbbe0b6af824ee0a7458b.html#gaaf446fb1579cbbe0b6af824ee0a7458b)
-  - [k4abt_tracker_shutdown()](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/0.9.x/group__btfunctions_ga94036969ef94cbc414c78b3f6d04bfa5.html#ga94036969ef94cbc414c78b3f6d04bfa5)
-  - [k4abt_tracker_destroy()](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/0.9.x/group__btfunctions_gab2c9afca092130976cd66077c0557ed1.html#gab2c9afca092130976cd66077c0557ed1)
+  - [k4abt_tracker_create()](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/group__btfunctions_ga1aa71481b8441def94de11b29e0e3cbc.html#ga1aa71481b8441def94de11b29e0e3cbc)
+  - [k4abt_tracker_enqueue_capture()](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/group__btfunctions_ga093becd9bb4a63f5f4d56f58097a7b1e.html#ga093becd9bb4a63f5f4d56f58097a7b1e)
+  - [k4abt_tracker_pop_result()](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/group__btfunctions_gaaf446fb1579cbbe0b6af824ee0a7458b.html#gaaf446fb1579cbbe0b6af824ee0a7458b)
+  - [k4abt_tracker_shutdown()](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/group__btfunctions_ga94036969ef94cbc414c78b3f6d04bfa5.html#ga94036969ef94cbc414c78b3f6d04bfa5)
+  - [k4abt_tracker_destroy()](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/group__btfunctions_gab2c9afca092130976cd66077c0557ed1.html#gab2c9afca092130976cd66077c0557ed1)
 
 ## Headers
 
@@ -85,7 +84,8 @@ You can find more information on retrieving image data on [this page](retrieve-i
 
 ```C
 // Capture a depth frame
-k4a_device_get_capture(device, &capture, TIMEOUT_IN_MS);
+k4a_capture_t sensor_capture;
+k4a_device_get_capture(device, &sensor_capture, TIMEOUT_IN_MS);
 ```
 
 ## Enqueue the capture and pop the results
@@ -116,7 +116,7 @@ if (pop_frame_result == K4A_WAIT_RESULT_SUCCEEDED)
 
 ## Access the body tracking result data
 
-The body tracking results for each sensor capture are stored in a body frame [k4abt_frame_t](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/0.9.x/structk4abt__frame__t.html) structure. Each body frame contains three key components: a collection of body structs, a 2D body index map, and the input capture.
+The body tracking results for each sensor capture are stored in a body frame [k4abt_frame_t](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/1.x.x/structk4abt__frame__t.html) structure. Each body frame contains three key components: a collection of body structs, a 2D body index map, and the input capture.
 
 Your first body tracking application only accesses the number of detected bodies. Refer to [access data in body frame](access-data-body-frame.md) for detailed explanation of data in a body frame.
 

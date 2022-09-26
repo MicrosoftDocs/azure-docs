@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: iot-fundamentals
- author: robinsh
+ author: kgremban
  ms.service: iot-fundamentals
  ms.topic: include
  ms.date: 04/24/2018
- ms.author: robinsh
+ ms.author: kgremban
  ms.custom: include file
 ---
 
@@ -34,11 +34,11 @@ The [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/) provi
 
 Microsoft Azure offers a complete cloud solution, one that combines a constantly growing collection of integrated cloud services—analytics, machine learning, storage, security, networking, and web—with an industry-leading commitment to the protection and privacy of your data. Microsoft's [assume breach](https://azure.microsoft.com/blog/red-teaming-using-cutting-edge-threat-simulation-to-harden-the-microsoft-enterprise-cloud/) strategy uses a dedicated *red team* of software security experts who simulate attacks, testing the ability of Azure to detect, protect against emerging threats, and recover from breaches. Microsoft's [global incident response](https://www.microsoft.com/en-us/TrustCenter/Security/DesignOpSecurity) team works around the clock to mitigate the effects of attacks and malicious activity. The team follows established procedures for incident management, communication, and recovery, and uses discoverable and predictable interfaces with internal and external partners.
 
-Microsoft's systems provide continuous intrusion detection and prevention, service attack prevention, regular penetration testing, and forensic tools that help identify and mitigate threats. [Multi-factor authentication](../articles/active-directory/authentication/multi-factor-authentication.md) provides an extra layer of security for end users to access the network. And for the application and the host provider, Microsoft offers access control, monitoring, anti-malware, vulnerability scanning, patches, and configuration management.
+Microsoft's systems provide continuous intrusion detection and prevention, service attack prevention, regular penetration testing, and forensic tools that help identify and mitigate threats. [Multi-factor authentication](../articles/active-directory/authentication/concept-mfa-howitworks.md) provides an extra layer of security for end users to access the network. And for the application and the host provider, Microsoft offers access control, monitoring, anti-malware, vulnerability scanning, patches, and configuration management.
 
 The solution accelerators take advantage of the security and privacy built into the Azure platform along with the SDL and OSA processes for secure development and operation of all Microsoft software. These procedures provide infrastructure protection, network protection, and identity and management features fundamental to the security of any solution.
 
-The [Azure IoT Hub](../articles/iot-hub/about-iot-hub.md) within the [IoT solution accelerators](../articles/iot-fundamentals/iot-introduction.md) offers a fully-managed service that enables reliable and secure bi-directional communication between IoT devices and Azure services such as [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) and [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md) by using per-device security credentials and access control.
+The [Azure IoT Hub](../articles/iot-hub/about-iot-hub.md) within the [IoT solution accelerators](../articles/iot-fundamentals/iot-introduction.md) offers a fully-managed service that enables reliable and secure bi-directional communication between IoT devices and Azure services such as [Azure Machine Learning](../articles/machine-learning/classic/index.yml) and [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md) by using per-device security credentials and access control.
 
 To best communicate security and privacy features built into the Azure IoT solution accelerators, this article breaks down the suite into the three primary security areas.
 
@@ -48,7 +48,7 @@ To best communicate security and privacy features built into the Azure IoT solut
 
 The solution accelerators secure devices while they are out in the field by providing a unique identity key for each device, which can be used by the IoT infrastructure to communicate with the device while it is in operation. The process is quick and easy to set up. The generated key with a user-selected device ID forms the basis of a token used in all communication between the device and the Azure IoT Hub.
 
-Device IDs can be associated with a device during manufacturing (that is, flashed in a hardware trust module) or can use an existing fixed identity as a proxy (for example CPU serial numbers). Since changing this identifying information in the device is not simple, it is important to introduce logical device IDs in case the underlying device hardware changes but the logical device remains the same. In some cases, the association of a device identity can happen at device deployment time (for example, an authenticated field engineer physically configures a new device while communicating with the solution backend). The [Azure IoT Hub identity registry](../articles/iot-hub/iot-hub-devguide.md) provides secure storage of device identities and security keys for a solution. Individual or groups of device identities can be added to an allow list, or a block list, enabling complete control over device access.
+Device IDs can be associated with a device during manufacturing (that is, flashed in a hardware trust module) or can use an existing fixed identity as a proxy (for example CPU serial numbers). Since changing this identifying information in the device is not simple, it is important to introduce logical device IDs in case the underlying device hardware changes but the logical device remains the same. In some cases, the association of a device identity can happen at device deployment time (for example, an authenticated field engineer physically configures a new device while communicating with the solution backend). The [Azure IoT Hub identity registry](../articles/iot-hub/iot-hub-devguide.md) provides secure storage of device identities and security keys for a solution. Individual or groups of device identities can be added to an allowlist, or a blocklist, enabling complete control over device access.
 
 Azure IoT Hub access control policies in the cloud enable activation and disabling any device identity, providing a way to disassociate a device from an IoT deployment when required. This association and disassociation of devices is based on each device identity.
 
@@ -80,11 +80,14 @@ Additional connection security features include:
 
 From encrypted communications to processing data in the cloud, the solution accelerators help keep data secure. It provides flexibility to implement additional encryption and management of security keys.
 
-Using Azure Active Directory (AAD) for user authentication and authorization, Azure IoT solution accelerators can provide a policy-based authorization model for data in the cloud, enabling easy access management that can be audited and reviewed. This model also enables near-instant revocation of access to data in the cloud, and of devices connected to the Azure IoT solution accelerators.
+>[!NOTE]
+>Azure IoT Hub doesn't store or process customer data outside of the geography where you deploy the service instance. For more information, see [Cross-region replication in Azure](../articles/availability-zones/cross-region-replication-azure.md).
+
+Using Azure Active Directory (Azure AD) for user authentication and authorization, Azure IoT solution accelerators can provide a policy-based authorization model for data in the cloud, enabling easy access management that can be audited and reviewed. This model also enables near-instant revocation of access to data in the cloud, and of devices connected to the Azure IoT solution accelerators.
 
 Once data is in the cloud, it can be processed and stored in any user-defined workflow. Access to each part of the data is controlled with Azure Active Directory, depending on the storage service used.
 
-All keys used by the IoT infrastructure are stored in the cloud in secure storage, with the ability to roll over in case keys need to be reprovisioned. Data can be stored in [Azure Cosmos DB](../articles/cosmos-db/introduction.md) or in [SQL databases](../articles/sql-database/sql-database-faq.md), enabling definition of the level of security desired. Additionally, Azure provides a way to monitor and audit all access to your data to alert you of any intrusion or unauthorized access.
+All keys used by the IoT infrastructure are stored in the cloud in secure storage, with the ability to roll over in case keys need to be reprovisioned. Data can be stored in [Azure Cosmos DB](../articles/cosmos-db/introduction.md) or in [SQL Database](/azure/azure-sql/database/sql-database-paas-overview), enabling definition of the level of security desired. Additionally, Azure provides a way to monitor and audit all access to your data to alert you of any intrusion or unauthorized access.
 
 ## Conclusion
 

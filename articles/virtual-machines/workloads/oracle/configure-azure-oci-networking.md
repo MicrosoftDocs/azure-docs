@@ -1,40 +1,43 @@
 ---
 title: Connect Azure ExpressRoute with Oracle Cloud Infrastructure | Microsoft Docs
 description: Connect Azure ExpressRoute with Oracle Cloud Infrastructure (OCI) FastConnect to enable cross-cloud Oracle application solutions
-documentationcenter: virtual-machines
-author: romitgirdhar
-manager: gwallace
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
-ms.service: virtual-machines-linux
-
+author: dbakevlar
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
-ms.date: 08/02/2019
-ms.author: rogirdh
+ms.date: 03/16/2020
+ms.author: rogardle
+
 ---
 
 # Set up a direct interconnection between Azure and Oracle Cloud Infrastructure  
 
-To create an [integrated multi-cloud experience](oracle-oci-overview.md) (preview), Microsoft and Oracle offer direct interconnection between Azure and Oracle Cloud Infrastructure (OCI) through [ExpressRoute](../../../expressroute/expressroute-introduction.md) and [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm). Through the ExpressRoute and FastConnect interconnection, customers can experience low latency, high throughput, private direct connectivity between the two clouds.
+**Applies to:** :heavy_check_mark: Linux VMs 
+
+To create an [integrated multi-cloud experience](oracle-oci-overview.md), Microsoft and Oracle offer direct interconnection between Azure and Oracle Cloud Infrastructure (OCI) through [ExpressRoute](../../../expressroute/expressroute-introduction.md) and [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm). Through the ExpressRoute and FastConnect interconnection, customers can experience low latency, high throughput, private direct connectivity between the two clouds.
 
 > [!IMPORTANT]
-> The connection between Microsoft Azure and OCI is in the preview stage. To establish low latency connectivity between Azure and OCI, your Azure subscription must first be enabled for this capability. You must enroll in the preview by completing this short [survey form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). You will receive an email back once your subscription has been enrolled. You aren't able to use the capability until you receive a confirmation email. You may also contact your Microsoft representative to be enabled for this preview. Access to the preview capability is subject to availability and restricted by Microsoft in its sole discretion. Completion of the survey does not guarantee access. This preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for Microsoft Azure Previews for details. Some aspects of this feature may change prior to general availability (GA).
+> Oracle has certified these applications to run in Azure when using the Azure / Oracle Cloud interconnect solution:
+> * E-Business Suite
+> * JD Edwards EnterpriseOne
+> * PeopleSoft
+> * Oracle Retail applications
+> * Oracle Hyperion Financial Management
 
 The following image shows a high-level overview of the interconnection:
 
-![Cross-cloud network connection](media/configure-azure-oci-networking/azure-oci-connect.png)
+![Cross-cloud network connection](https://user-images.githubusercontent.com/37556655/115093592-bced0180-9ecf-11eb-976d-9d4c7a1be2a8.png)
+
+> [!NOTE]
+> The ExpressRoute connection seen in the diagram is a regular [ExpressRoute circuit](../../../expressroute/expressroute-introduction.md) and supports all fuctionalities such as Global Reach.
+> 
 
 ## Prerequisites
 
 * To establish connectivity between Azure and OCI, you must have an active Azure subscription and an active OCI tenancy.
 
-* Connectivity is only possible where an Azure ExpressRoute peering location is in proximity to or in the same peering location as the OCI FastConnect. See [preview limitations](oracle-oci-overview.md#preview-limitations).
-
-* Your Azure subscription must be enabled for this preview capability.
+* Connectivity is only possible where an Azure ExpressRoute peering location is in proximity to or in the same peering location as the OCI FastConnect. See [Region Availability](oracle-oci-overview.md#region-availability).
 
 ## Configure direct connectivity between ExpressRoute and FastConnect
 
@@ -78,7 +81,7 @@ Once you have completed the network configuration, you can verify the validity o
 
 ## Automation
 
-Microsoft has created Terraform scripts to enable automated deployment of the network interconnect. The Terraform scripts need to authenticate with Azure before execution, because they require adequate permissions on the Azure subscription. Authentication can be performed using an [Azure Active Directory service principal](../../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) or using the Azure CLI. For more information, see the [Terraform documentation](https://www.terraform.io/docs/providers/azurerm/auth/azure_cli.html).
+Microsoft has created Terraform scripts to enable automated deployment of the network interconnect. The Terraform scripts need to authenticate with Azure before execution, because they require adequate permissions on the Azure subscription. Authentication can be performed using an [Azure Active Directory service principal](../../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) or using the Azure CLI. For more information, see the [Terraform documentation](https://www.terraform.io/cli/auth).
 
 The Terraform scripts and related documentation to deploy the inter-connect can be found in this [GitHub repository](https://aka.ms/azureociinterconnecttf).
 
@@ -90,7 +93,7 @@ Installing agents on both the clouds, you can leverage Azure [Network Performanc
 
 To delete the interconnect, the following steps must be followed, in the specific order given. Failure to do so will result in a "failed state" ExpressRoute circuit.
 
-1. Delete the ExpressRoute connection. Delete the connection by clicking the **Delete** icon on the page for your connection. For more information, see the [ExpressRoute documentation](../../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#delete-a-connection-to-unlink-a-vnet).
+1. Delete the ExpressRoute connection. Delete the connection by clicking the **Delete** icon on the page for your connection. For more information, see the [ExpressRoute documentation](../../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#clean-up-resources).
 1. Delete the Oracle FastConnect from the Oracle Cloud Console.
 1. Once the Oracle FastConnect circuit has been deleted, you can delete the Azure ExpressRoute circuit.
 

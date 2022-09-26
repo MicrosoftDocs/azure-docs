@@ -1,21 +1,12 @@
 ---
-title: Develop unit tests for stateful services in Azure Service Fabric | Microsoft Docs
-description: Learn how to develop unit tests for Service Fabric Stateful Services.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: vturecek
-
-ms.assetid: 
+title: Develop unit tests for stateful services
+description: Learn about unit testing in Azure Service Fabric for stateful services, and special considerations to keep in mind during development.
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
 ms.service: service-fabric
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 09/04/2018
-ms.author: atsenthi
-
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Create unit tests for Stateful Services

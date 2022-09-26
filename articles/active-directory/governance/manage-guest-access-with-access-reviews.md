@@ -1,19 +1,18 @@
 ---
-title: Manage guest access with access reviews - Azure Active Directory | Microsoft Docs
+title: Manage guest access with access reviews - Azure AD
 description: Manage guest users as members of a group or assigned to an application with Azure Active Directory access reviews
 services: active-directory
 documentationcenter: ''
-author: msaburnley
-manager: daveba
+author: amsliu
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 12/13/2018
-ms.author: ajburnle
+ms.date: 08/23/2021
+ms.author: amsliu
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
@@ -21,22 +20,27 @@ ms.collection: M365-identity-device-management
 # Manage guest access with Azure AD access reviews
 
 
-With Azure Active Directory (Azure AD), you can easily enable collaboration across organizational boundaries by using the [Azure AD B2B feature](../b2b/what-is-b2b.md). Guest users from other tenants can be [invited by administrators](../b2b/add-users-administrator.md) or by [other users](../b2b/what-is-b2b.md). This capability also applies to social identities such as Microsoft accounts.
+With Azure Active Directory (Azure AD), you can easily enable collaboration across organizational boundaries by using the [Azure AD B2B feature](../external-identities/what-is-b2b.md). Guest users from other tenants can be [invited by administrators](../external-identities/add-users-administrator.md) or by [other users](../external-identities/what-is-b2b.md). This capability also applies to social identities such as Microsoft accounts.
 
 You also can easily ensure that guest users have appropriate access. You can ask the guests themselves or a decision maker to participate in an access review and recertify (or attest) to the guests' access. The reviewers can give their input on each user's need for continued access, based on suggestions from Azure AD. When an access review is finished, you can then make changes and remove access for guests who no longer need it.
 
 > [!NOTE]
-> This document focuses on reviewing guest users' access. If you want to review all users' access, not just guests, see [Manage user access with access reviews](manage-user-access-with-access-reviews.md). If you want to review users' membership in administrative roles, such as global administrator, see [Start an access review in Azure AD Privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md).
+> This document focuses on reviewing guest users' access. If you want to review all users' access, not just guests, see [Manage user access with access reviews](manage-user-access-with-access-reviews.md). If you want to review users' membership in administrative roles, such as global administrator, see [Start an access review in Azure AD Privileged Identity Management](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md).
 
 ## Prerequisites
 
 - Azure AD Premium P2
 
-For more information, see [Which users must have licenses?](access-reviews-overview.md#which-users-must-have-licenses).
+For more information, [License requirements](access-reviews-overview.md#license-requirements).
 
 ## Create and perform an access review for guests
 
-First, as a global administrator or user administrator, go to the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) to ensure that access reviews is ready for your organization.
+First, you must be assigned one of the following roles:
+- global administrator
+- User administrator
+- (Preview) Microsoft 365 or Azure AD Security Group owner of the group to be reviewed
+
+Then, go to the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) to ensure that access reviews is ready for your organization.
 
 Azure AD enables several scenarios for reviewing guest users.
 
@@ -44,6 +48,10 @@ You can review either:
 
  - A group in Azure AD that has one or more guests as members.
  - An application connected to Azure AD that has one or more guest users assigned to it. 
+
+When reviewing guest user access to Microsoft 365 groups, you can either create a review for each group individually, or turn on automatic, recurring access reviews of guest users across all Microsoft 365 groups. The following video provides more information on recurring access reviews of guest users: 
+
+> [!VIDEO https://www.youtube.com/embed/3D2_YW2DwQ8]
 
 You can then decide whether to ask each guest to review their own access or to ask one or more users to review every guest's access.
 
@@ -111,15 +119,14 @@ In some organizations, guests might not be aware of their group memberships.
 
 4. After the reviewers give input, stop the access review. For more information, see [Complete an access review of groups or applications](complete-access-review.md).
 
-5. Remove guest access for guests who were denied, didn't complete the review, or didn't previously accept their invitation. If some of the guests are contacts who were selected to participate in the review or they didn't previously accept an invitation, you can disable their accounts by using the Azure portal or PowerShell. If the guest no longer needs access and isn't a contact, you can remove their user object from your directory by using the Azure portal or PowerShell to delete the guest user object.
+5. You can automatically delete the guest users Azure AD B2B accounts as part of an access review when you are configuring an Access review for **Select Team + Groups**. This option is not available for **All Microsoft 365 groups with guest users**.
+
+![Screenshot showing page to create access review.](media/manage-guest-access-with-access-reviews/new-access-review.png)
+
+To do so, select **Auto apply results to resource** as this will automatically remove the user from the resource. **If reviewer don't respond** should be set to **Remove access** and **Action to apply on denied guest users** should also be set to **Block from signing in for 30 days then remove user from the tenant**.
+
+This will immediately block sign in to the guest user account and then automatically delete their Azure AD B2B account after 30 days.
 
 ## Next steps
 
 [Create an access review of groups or applications](create-access-review.md)
-
-
-
-
-
-
-

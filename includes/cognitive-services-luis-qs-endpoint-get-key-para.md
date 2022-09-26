@@ -2,14 +2,14 @@
 title: include file
 description: include file 
 services: cognitive-services
-author: diberry
-manager: cgronlun
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
 ms.date: 08/16/2018
-ms.author: diberry
+ms.author: aahi
 ---
 
 Access to the prediction endpoint is provided with an endpoint key. For the purposes of this quickstart, use the free starter key associated with your LUIS account. 

@@ -1,0 +1,54 @@
+- name: Update management center documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Update management center
+    href: overview.md
+  - name: Support matrix
+    href: support-matrix.md
+  - name: Onboarding preview features
+    href: enable-machines.md
+- name: Quickstarts
+  items:
+  - name: Check and install on-demand updates
+    href: quickstart-on-demand.md
+- name: Concepts
+  items:
+  - name: Update and maintenance options
+    href: updates-maintenance-schedules.md
+  - name: Assessment options
+    href: assessment-options.md
+  - name: Query resources with Azure Resource Graph
+    href: query-logs.md 
+  - name: Manage updates on multiple machines
+    href: manage-multiple-machines.md  
+- name: Samples
+  items:
+  - name: Azure Resource Graph queries
+    href: sample-query-logs.md
+- name: How-to guides
+  items:
+  - name: Deploy
+    items:
+    - name: Configure Windows Update client
+      href: configure-wu-agent.md
+  - name: Manage
+    items:
+    - name: Check update compliance 
+      href: view-updates.md
+    - name: Deploy updates and track results
+      href: deploy-updates.md
+    - name: Schedule updates
+      href: scheduled-patching.md
+    - name: Manage update settings
+      href: manage-update-settings.md
+    - name: Manage updates for Azure VMs using REST API
+      href: manage-vms-programmatically.md
+    - name: Manage updates for Arc-enabled servers using REST API
+      href: manage-arc-enabled-servers-programmatically.md
+    - name: Automate assessment at scale using Policy
+      href: periodic-assessment-at-scale.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot issues
+      href: troubleshoot.md

@@ -3,13 +3,13 @@ title: Use Speech service containers with Kubernetes and Helm
 titleSuffix: Azure Cognitive Services
 description: Using Kubernetes and Helm to define the speech-to-text and text-to-speech container images, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises.
 services: cognitive-services
-author: IEvangelist
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: dapine
+ms.topic: how-to
+ms.date: 07/22/2021
+ms.author: eur
 ---
 
 # Use Speech service containers with Kubernetes and Helm
@@ -20,13 +20,13 @@ One option to manage your Speech containers on-premises is to use Kubernetes and
 
 The following prerequisites before using Speech containers on-premises:
 
-|Required|Purpose|
-|--|--|
+| Required | Purpose |
+|----------|---------|
 | Azure Account | If you don't have an Azure subscription, create a [free account][free-azure-account] before you begin. |
 | Container Registry access | In order for Kubernetes to pull the docker images into the cluster, it will need access to the container registry. |
 | Kubernetes CLI | The [Kubernetes CLI][kubernetes-cli] is required for managing the shared credentials from the container registry. Kubernetes is also needed before Helm, which is the Kubernetes package manager. |
-| Helm CLI | As part of the [Helm CLI][helm-install] install, you'll also need to initialize Helm, which will install [Tiller][tiller-install]. |
-|Speech resource |In order to use these containers, you must have:<br><br>A _Speech_ Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's **Speech** Overview and Keys pages and are required to start the container.<br><br>**{API_KEY}**: resource key<br><br>**{ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+| Helm CLI | Install the [Helm CLI][helm-install], which is used to to install a helm chart (container package definition). |
+|Speech resource |In order to use these containers, you must have:<br><br>A _Speech_ Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's **Speech** Overview and Keys pages and are required to start the container.<br><br>**{API_KEY}**: resource key<br><br>**{ENDPOINT_URI}**: endpoint URI example is: `https://eastus.api.cognitive.microsoft.com/sts/v1.0`|
 
 ## The recommended host computer configuration
 
@@ -41,47 +41,6 @@ Refer to the [Speech service container host computer][speech-container-host-comp
 
 The host computer is expected to have an available Kubernetes cluster. See this tutorial on [deploying a Kubernetes cluster](../../aks/tutorial-kubernetes-deploy-cluster.md) for a conceptual understanding of how to deploy a Kubernetes cluster to a host computer.
 
-### Sharing Docker credentials with the Kubernetes cluster
-
-To allow the Kubernetes cluster to `docker pull` the configured image(s) from the `mcr.microsoft.com` container registry, you need to transfer the docker credentials into the cluster. Execute the [`kubectl create`][kubectl-create] command below to create a *docker-registry secret* based on the credentials provided from the container registry access prerequisite.
-
-From your command-line interface of choice, run the following command. Be sure to replace the `<username>`, `<password>`, and `<email-address>` with the container registry credentials.
-
-```console
-kubectl create secret docker-registry mcr \
-    --docker-server=mcr.microsoft.com \
-    --docker-username=<username> \
-    --docker-password=<password> \
-    --docker-email=<email-address>
-```
-
-> [!NOTE]
-> If you already have access to the `mcr.microsoft.com` container registry, you could create a Kubernetes secret using the generic flag instead. Consider the following command that executes against your Docker configuration JSON.
-> ```console
->  kubectl create secret generic mcr \
->      --from-file=.dockerconfigjson=~/.docker/config.json \
->      --type=kubernetes.io/dockerconfigjson
-> ```
-
-The following output is printed to the console when the secret has been successfully created.
-
-```console
-secret "mcr" created
-```
-
-To verify that the secret has been created, execute the [`kubectl get`][kubectl-get] with the `secrets` flag.
-
-```console
-kubectl get secrets
-```
-
-Executing the `kubectl get secrets` prints all the configured secrets.
-
-```console
-NAME    TYPE                              DATA    AGE
-mcr     kubernetes.io/dockerconfigjson    1       30s
-```
-
 ## Configure Helm chart values for deployment
 
 Visit the [Microsoft Helm Hub][ms-helm-hub] for all the publicly available helm charts offered by Microsoft. From the Microsoft Helm Hub, you'll find the **Cognitive Services Speech On-Premises Chart**. The **Cognitive Services Speech On-Premises** is the chart we'll install, but we must first create an `config-values.yaml` file with explicit configurations. Let's start by adding the Microsoft repository to our Helm instance.
@@ -94,7 +53,6 @@ Next, we'll configure our Helm chart values. Copy and paste the following YAML i
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
-
 # speech-to-text configurations
 speechToText:
   enabled: true
@@ -102,7 +60,7 @@ speechToText:
   optimizeForAudioFile: true
   image:
     registry: mcr.microsoft.com
-    repository: azure-cognitive-services/speech-to-text
+    repository: azure-cognitive-services/speechservices/speech-to-text
     tag: latest
     pullSecrets:
       - mcr # Or an existing secret
@@ -118,7 +76,7 @@ textToSpeech:
   optimizeForTurboMode: true
   image:
     registry: mcr.microsoft.com
-    repository: azure-cognitive-services/text-to-speech
+    repository: azure-cognitive-services/speechservices/speech-to-text
     tag: latest
     pullSecrets:
       - mcr # Or an existing secret
@@ -144,10 +102,9 @@ The provided *Helm charts* pull the docker images of the Speech service, both te
 To install the *helm chart* we'll need to execute the [`helm install`][helm-install-cmd] command, replacing the `<config-values.yaml>` with the appropriate path and file name argument. The `microsoft/cognitive-services-speech-onpremise` Helm chart referenced below is available on the [Microsoft Helm Hub here][ms-helm-hub-speech-chart].
 
 ```console
-helm install microsoft/cognitive-services-speech-onpremise \
+helm install onprem-speech microsoft/cognitive-services-speech-onpremise \
     --version 0.1.1 \
-    --values <config-values.yaml> \
-    --name onprem-speech
+    --values <config-values.yaml> 
 ```
 
 Here is an example output you might expect to see from a successful install execution:
@@ -267,7 +224,7 @@ For more details on installing applications with Helm in Azure Kubernetes Servic
 <!-- LINKS - external -->
 [free-azure-account]: https://azure.microsoft.com/free
 [git-download]: https://git-scm.com/downloads
-[azure-cli]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli]: /cli/azure/install-azure-cli
 [docker-engine]: https://www.docker.com/products/docker-engine
 [kubernetes-cli]: https://kubernetes.io/docs/tasks/tools/install-kubectl
 [helm-install]: https://helm.sh/docs/intro/install/
@@ -281,6 +238,6 @@ For more details on installing applications with Helm in Azure Kubernetes Servic
 [ms-helm-hub-speech-chart]: https://hub.helm.sh/charts/microsoft/cognitive-services-speech-onpremise
 
 <!-- LINKS - internal -->
-[speech-container-host-computer]: speech-container-howto.md#the-host-computer
+[speech-container-host-computer]: speech-container-howto.md#host-computer-requirements-and-recommendations
 [installing-helm-apps-in-aks]: ../../aks/kubernetes-helm.md
 [cog-svcs-containers]: ../cognitive-services-container-support.md

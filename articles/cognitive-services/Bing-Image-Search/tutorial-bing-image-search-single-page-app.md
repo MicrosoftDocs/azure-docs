@@ -8,11 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 03/05/2020
 ms.author: aahi
+ms.devlang: javascript
+ms.custom: devx-track-js
 ---
 
 # Tutorial: Create a single-page app using the Bing Image Search API
+
+[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
 
 The Bing Image Search API enables you to search the web for high-quality, relevant images. Use this tutorial to build a single-page web application that can send search queries to the API, and display the results within the webpage. This tutorial is similar to the [corresponding tutorial](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md) for Bing Web Search.
 
@@ -24,14 +28,10 @@ The tutorial app illustrates how to:
 > * Display and page through search results
 > * Request and handle an API subscription key, and Bing client ID.
 
-The full source code for this tutorial is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Image-Search).
-
 ## Prerequisites
 
 * The latest version of [Node.js](https://nodejs.org/).
 * The [Express.js](https://expressjs.com/) framework for Node.js. Installation instructions for the source code are available in the GitHub sample readme file.
-
-[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## Manage and store user subscription keys
 
@@ -111,9 +111,9 @@ By default, the `onsubmit` handler returns `false`, keeping the form from being 
 
 ![[Bing Image Search form]](media/cognitive-services-bing-images-api/image-search-spa-form.png)
 
-The Bing Image Search API offers several [filter query parameters](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#filter-query-parameters) to narrow and filter search results. The HTML form in this application uses and displays the following parameter options:
+The Bing Image Search API offers several [filter query parameters](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#filter-query-parameters) to narrow and filter search results. The HTML form in this application uses and displays the following parameter options:
 
-|              |                                                                                                                                                                                    |
+| Option | Description |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `where`      | A drop-down menu for selecting the market (location and language) used for the search.                                                                                             |
 | `query`      | The text field in which to enter the search terms.                                                                                                                                 |
@@ -385,15 +385,18 @@ For development purposes, you can make the Bing Web Search API request through a
 
 It's easy to install a CORS proxy to allow our tutorial app to access the client ID header. First, if you don't already have it, [install Node.js](https://nodejs.org/en/download/). Then issue the following command in a command window:
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-Next, change the Bing Web Search endpoint in the HTML file to:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+Next, change the Bing Web Search endpoint in the HTML file to:\
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Finally, start the CORS proxy with the following command:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Leave the command window open while you use the tutorial app; closing the window stops the proxy. In the expandable HTTP Headers section below the search results, you can now see the `X-MSEdge-ClientID` header (among others) and verify that it is the same for each request.
 
@@ -404,4 +407,4 @@ Leave the command window open while you use the tutorial app; closing the window
 
 ## See also
 
-* [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Bing Image Search API reference](/rest/api/cognitiveservices/bing-images-api-v7-reference)

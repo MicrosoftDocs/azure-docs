@@ -1,87 +1,121 @@
 ---
 title: Release notes for Azure HDInsight 
-description: Latest release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, R Server, Hive, and more.
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
-ms.custom: hdinsightactive
+description: Latest release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, Hive, and more.
+ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 08/01/2022
 ---
-# Release notes
+
+# Azure HDInsight release notes
 
 This article provides information about the **most recent** Azure HDInsight release updates. For information on earlier releases, see [HDInsight Release Notes Archive](hdinsight-release-notes-archive.md).
 
 ## Summary
 
-Azure HDInsight is one of the most popular services among enterprise customers for open-source Apache Hadoop and Apache Spark analytics on Azure.
+Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
+If you would like to subscribe on release notes, watch releases on [this GitHub repository](https://github.com/hdinsight/release-notes/releases).
 
-## Release date: 11/07/2019
+## Release date: 08/10/2022
 
-This release applies both for HDInsight 3.6 and 4.0.
+This release applies to HDInsight 4.0.  HDInsight release is made available to all regions over several days.
 
-> [!IMPORTANT]  
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).
+HDInsight uses safe deployment practices, which involve gradual region deployment. It may take up to 10 business days for a new release or a new version to be available in all regions.
 
 
-## New features
+![Icon_showing_new_features](media/hdinsight-release-notes/icon-for-new-feature.png) 
+## New Feature
 
-### HDInsight Identity Broker (HIB) (Preview)
+**1. Attach external disks in HDI Hadoop/Spark clusters**
 
-HDInsight Identity Broker (HIB) enables users to sign in to Apache Ambari using multi-factor authentication (MFA) and get the required Kerberos tickets without needing password hashes in Azure Active Directory Domain Services (AAD-DS). Currently HIB is only available for clusters deployed through ARM template.
+HDInsight cluster comes with pre-defined disk space based on SKU. This space may not be sufficient in large job scenarios. 
 
-### Kafka Rest API Proxy (Preview)
+This new feature allows you to add more disks in cluster, which will be used as node manager local directory. Add number of disks to worker nodes during HIVE and Spark cluster creation, while the  selected disks will be part of node manager’s local directories.
 
-Kafka Rest API Proxy provides one-click deployment of highly available REST proxy with Kafka cluster via secured AAD authorization and OAuth protocol. 
+> [!NOTE]
+> The added disks are only configured for node manager local directories.
+> 
 
-### Auto scale
+For more information, [see here](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#configuration--pricing)
 
-Autoscale for Azure HDInsight is now generally available across all regions for Apache Spark and Hadoop cluster types. This feature makes it possible to manage big data analytics workloads in a more cost-efficient and productive way. Now you can optimize use of your HDInsight clusters and only pay for what you need.
+**2. Selective logging analysis**
 
-Depending on your requirements, you can choose between load-based and schedule-based autoscaling. Load-based Autoscale can scale the cluster size up and down based on the current resource needs while schedule-based Autoscale can change the cluster size based on a predefined schedule. 
+Selective logging analysis is now available on all regions for public preview. You can connect your cluster to a log analytics workspace. Once enabled, you can see the logs and metrics like HDInsight Security Logs, Yarn Resource Manager, System Metrics etc. You can monitor workloads and see how they're affecting cluster stability. Selective logging allows you to enable/disable all the tables or enable selective tables in log analytics workspace. You can adjust the source type for each table, since in new version of Geneva monitoring one table has multiple sources.
 
-Autoscale support for HBase and LLAP workload is also public preview. For more information, see [Automatically scale Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-autoscale-clusters).
+1. The Geneva monitoring system uses mdsd(MDS daemon) which is a monitoring agent and fluentd for collecting logs using unified logging layer.
+1. Selective Logging uses script action to disable/enable tables and their log types. Since it doesn't open any new ports or change any existing security setting hence, there are no security changes.
+1. Script Action runs in parallel on all specified nodes and changes the configuration files for disabling/enabling tables and their log types.
 
-### HDInsight Accelerated Writes for Apache HBase 
+For more information, [see here](/azure/hdinsight/selective-logging-analysis)
 
-Accelerated Writes uses Azure premium SSD managed disks to improve performance of the Apache HBase Write Ahead Log (WAL). For more information, see [Azure HDInsight Accelerated Writes for Apache HBase](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes).
 
-### Custom Ambari DB
+![Icon_showing_bug_fixes](media/hdinsight-release-notes/icon-for-bugfix.png) 
+## Fixed
 
-HDInsight now offers a new capacity to enable customers to use their own SQL DB for Ambari. Now customers can choose the right SQL DB for Ambari and  easily upgrade it based on their own business growth requirement. The deployment is done with an Azure Resource Manager template. For more information, see [Set up HDInsight clusters with a custom Ambari DB](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db).
+#### **Log analytics**
 
-### F-series virtual machines are now available with HDInsight
+Log Analytics integrated with Azure HDInsight running OMS version 13 requires an upgrade to OMS version 14 to apply the latest security updates.
+Customers using older version of cluster with OMS version 13 need to install OMS version 14 to meet the security requirements. (How to check current version & Install 14) 
 
-F-series virtual machines(VMs) are good choice to get started with HDInsight with light processing requirements. At a lower per-hour list price, the F-series is the best value in price-performance in the Azure portfolio based on the Azure Compute Unit (ACU) per vCPU. For more information, see [Selecting the right VM size for your Azure HDInsight cluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-selecting-vm-size).
+**How to check your current OMS version**
 
-## Deprecation
+1. Log in to the cluster using SSH.
+1. Run the following command in your SSH Client.
 
-### G-series virtual machine deprecation
-From this release, G-series VMs are no longer offered in HDInsight.
+```
+sudo /opt/omi/bin/ominiserver/ --version
+```
+![Screenshot showing how to check OMS Upgrade](media/hdinsight-release-notes/check-oms-version.png)
 
-### Dv1 virtual machine deprecation
-From this release, the use of Dv1 VMs with HDInsight is deprecated. Any customer request for Dv1 will be served with Dv2 automatically. There is no price difference between Dv1 and Dv2 VMs.
+**How to upgrade your OMS version from 13 to 14**
 
-## Behavior changes
+1. Log in to the [Azure portal](https://portal.azure.com/) 
+1. From the resource group, select the HDInsight cluster resource 
+1. Click **Script actions** 
+1. From **Submit script action** panel, choose **Script type** as custom 
+1. Paste the following link in the Bash script URL box
+https://hdiconfigactions.blob.core.windows.net/log-analytics-patch/OMSUPGRADE14.1/omsagent-vulnerability-fix-1.14.12-0.sh 
+1. Select **Node type(s)**
+1. Click **Create** 
 
-### Cluster managed disk size change
-HDInsight provides managed disk space with the cluster. From this release, the managed disk size of each node in the new created cluster is changed to 128 GB.
+![Screenshot showing how to do OMS Upgrade](media/hdinsight-release-notes/oms-upgrade.png)
 
-## Upcoming changes
-The following changes will happen in the upcoming releases. 
+1. Verify the successful installation of the patch using the following steps:  
 
-### Moving to Azure virtual machine scale sets
-HDInsight now uses Azure virtual machines to provision the cluster. Starting from December, HDInsight will use Azure virtual machine scale sets instead. See more about [Azure virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+  1. Log in to the cluster using SSH.
+  1. Run the following command in your SSH Client.
 
-### HBase 2.0 to 2.1
-In the upcoming HDInsight 4.0 release, HBase version will be upgraded from version 2.0 to 2.1.
+  ```
+  sudo /opt/omi/bin/ominiserver/ --version
+  ```
 
-### A-series virtual machine deprecation for ESP cluster
-A-series VMs could cause ESP cluster issues due to relatively low CPU and memory capacity. In the upcoming release, A-series VMs will be deprecated for creating new ESP clusters.
+### Other bug fixes
 
-## Bug fixes
-HDInsight continues to make cluster reliability and performance improvements. 
+1. Yarn log’s CLI failed to retrieve the logs if any TFile is corrupt or empty. 
+2. Resolved invalid service principal details error while getting the OAuth token from Azure Active Directory.
+3. Improved cluster creation reliability when 100+ worked nodes are configured.
 
-## Component version change
-There is no component version change for this release. You could find the current component versions for HDInsight 4.0 and HDInsight 3.6 [here](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
+### Open source bug fixes
+
+#### TEZ bug fixes
+
+|Bug Fixes|Apache JIRA|
+|---|---|
+|Tez Build Failure: FileSaver.js not found|[TEZ-4411](https://issues.apache.org/jira/browse/TEZ-4411)|
+|Wrong FS Exception when warehouse and scratchdir are on different FS|[TEZ-4406](https://issues.apache.org/jira/browse/TEZ-4406)|
+|TezUtils.createConfFromByteString on Configuration larger than 32 MB throws com.google.protobuf.CodedInputStream exception|[TEZ-4142](https://issues.apache.org/jira/browse/TEZ-4142)|
+|TezUtils::createByteStringFromConf should use snappy instead of DeflaterOutputStream|[TEZ-4113](https://issues.apache.org/jira/browse/TEZ-4411)|
+|Update protobuf dependency to 3.x|[TEZ-4363](https://issues.apache.org/jira/browse/TEZ-4363)|
+
+#### Hive bug fixes
+
+|Bug Fixes|Apache JIRA|
+|---|---|
+|Perf optimizations in ORC split-generation| [HIVE-21457](https://issues.apache.org/jira/browse/HIVE-21457)|
+|Avoid reading table as ACID when table name is starting with "delta", but table isn't transactional and BI Split Strategy is used| [HIVE-22582](https://issues.apache.org/jira/browse/HIVE-22582)|
+|Remove an FS#exists call from AcidUtils#getLogicalLength|[HIVE-23533](https://issues.apache.org/jira/browse/HIVE-23533)|
+|Vectorized OrcAcidRowBatchReader.computeOffset and bucket optimization|[HIVE-17917](https://issues.apache.org/jira/browse/HIVE-17917)|
+
+### Known issues
+
+HDInsight is compatible with Apache HIVE 3.1.2. Due to a bug in this release, the Hive version is shown as 3.1.0 in hive interfaces. However, there's no impact on the functionality.

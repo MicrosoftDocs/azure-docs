@@ -1,21 +1,10 @@
 ---
 title: 'Quickstart: Receive events using Apache Storm - Azure Event Hubs'
 description: 'Quickstart: This article provides information on how to receive events from Azure Event Hubs using Apache Storm.'
-services: event-hubs
-documentationcenter: ''
-author: ShubhaVijayasarathy
-manager: timlt
-editor: ''
-
-ms.assetid: 
-ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: java
-ms.devlang: multiple
 ms.topic: quickstart
-ms.custom: seodec18
-ms.date: 11/05/2019
-ms.author: shvija
+ms.date: 09/28/2021
+ms.devlang: java
+ms.custom: mode-other
 ---
 
 # Quickstart: Receive events from Event Hubs using Apache Storm
@@ -29,22 +18,18 @@ Before you start with the quickstart, **create an Event Hubs namespace and an ev
 
 ## Create project and add code
 
-This tutorial uses an [HDInsight Storm][HDInsight Storm] installation, which comes with the Event Hubs spout already available.
-
-1. Follow the [HDInsight Storm - Get Started](../hdinsight/storm/apache-storm-overview.md) procedure to create a new HDInsight cluster, and connect to it via Remote Desktop.
-2. Copy the `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` file to your local development environment. This contains the events-storm-spout.
-3. Use the following command to install the package into the local Maven store. This enables you to add it as a reference in the Storm project in a later step.
+1. Use the following command to install the package into the local Maven store. This enables you to add it as a reference in the Storm project in a later step.
 
     ```shell
     mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
     ```
-4. In Eclipse, create a new Maven project (click **File**, then **New**, then **Project**).
+1. In Eclipse, create a new Maven project (click **File**, then **New**, then **Project**).
    
     ![File -> New -> Project][12]
-5. Select **Use default Workspace location**, then click **Next**
-6. Select the **maven-archetype-quickstart** archetype, then click **Next**
-7. Insert a **GroupId** and **ArtifactId**, then click **Finish**
-8. In **pom.xml**, add the following dependencies in the `<dependency>` node.
+1. Select **Use default Workspace location**, then click **Next**
+1. Select the **maven-archetype-quickstart** archetype, then click **Next**
+1. Insert a **GroupId** and **ArtifactId**, then click **Finish**
+1. In **pom.xml**, add the following dependencies in the `<dependency>` node.
 
     ```xml  
     <dependency>
@@ -76,7 +61,7 @@ This tutorial uses an [HDInsight Storm][HDInsight Storm] installation, which com
     </dependency>
     ```
 
-9. In the **src** folder, create a file called **Config.properties** and copy the following content, substituting the `receive rule key` and `event hub name` values:
+1. In the **src** folder, create a file called **Config.properties** and copy the following content, substituting the `receive rule key` and `event hub name` values:
 
 	```java
 	eventhubspout.username = ReceiveRule
@@ -92,7 +77,7 @@ This tutorial uses an [HDInsight Storm][HDInsight Storm] installation, which com
 	eventhub.receiver.credits = 10
 	```
     The value for **eventhub.receiver.credits** determines how many events are batched before releasing them to the Storm pipeline. For the sake of simplicity, this example sets this value to 10. In production, it should usually be set to higher values; for example, 1024.
-10. Create a new class called **LoggerBolt** with the following code:
+1 . Create a new class called **LoggerBolt** with the following code:
     
 	```java
 	import java.util.Map;
@@ -243,10 +228,10 @@ You can learn more about Event Hubs by visiting the following links:
 
 * [Event Hubs overview][Event Hubs overview]
 * [Create an event hub](event-hubs-create.md)
-* [Event Hubs FAQ](event-hubs-faq.md)
+* [Event Hubs FAQ](event-hubs-faq.yml)
 
 <!-- Links -->
-[Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[Event Hubs overview]: ./event-hubs-about.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
 [HDInsight Storm with Event Hub example]: https://github.com/Azure-Samples/hdinsight-java-storm-eventhub
 

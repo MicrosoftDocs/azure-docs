@@ -1,0 +1,918 @@
+---
+title: Azure Tables input bindings for Azure Functions
+description: Understand how to use Azure Tables input bindings in Azure Functions.
+ms.topic: reference
+ms.date: 03/04/2022
+ms.devlang: csharp, java, javascript, powershell, python
+ms.custom: "devx-track-csharp, devx-track-python"
+zone_pivot_groups: programming-languages-set-functions-lang-workers
+---
+
+# Azure Tables input bindings for Azure Functions
+
+Use the Azure Tables input binding to read a table in an Azure Storage or Cosmos DB account.
+
+For information on setup and configuration details, see the [overview](./functions-bindings-storage-table.md).
+
+## Example
+
+::: zone pivot="programming-language-csharp"
+
+The usage of the binding depends on the extension package version and the C# modality used in your function app, which can be one of the following:
+
+# [In-process](#tab/in-process)
+
+An [in-process class library](functions-dotnet-class-library.md) is a compiled C# function runs in the same process as the Functions runtime.
+ 
+# [Isolated process](#tab/isolated-process)
+
+An [isolated process class library](dotnet-isolated-process-guide.md) compiled C# function runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0.   
+   
+# [C# script](#tab/csharp-script)
+
+C# script is used primarily when creating C# functions in the Azure portal.
+
+---
+
+Choose a version to see examples for the mode and version. 
+
+# [Combined Azure Storage extension](#tab/storage-extension/in-process)
+
+The following example shows a [C# function](./functions-dotnet-class-library.md) that reads a single table row. For every message sent to the queue, the function will be triggered.
+
+The row key value `{queueTrigger}` binds the row key to the message metadata, which is the message string.
+
+```csharp
+public class TableStorage
+{
+    public class MyPoco
+    {
+        public string PartitionKey { get; set; }
+        public string RowKey { get; set; }
+        public string Text { get; set; }
+    }
+
+    [FunctionName("TableInput")]
+    public static void TableInput(
+        [QueueTrigger("table-items")] string input, 
+        [Table("MyTable", "MyPartition", "{queueTrigger}")] MyPoco poco, 
+        ILogger log)
+    {
+        log.LogInformation($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
+    }
+}
+```
+
+Use a `CloudTable` method parameter to read the table by using the Azure Storage SDK. Here's an example of a function that queries an Azure Functions log table:
+
+```csharp
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
+using Microsoft.Azure.Cosmos.Table;
+using System;
+using System.Threading.Tasks;
+
+namespace FunctionAppCloudTable2
+{
+    public class LogEntity : TableEntity
+    {
+        public string OriginalName { get; set; }
+    }
+    public static class CloudTableDemo
+    {
+        [FunctionName("CloudTableDemo")]
+        public static async Task Run(
+            [TimerTrigger("0 */1 * * * *")] TimerInfo myTimer, 
+            [Table("AzureWebJobsHostLogscommon")] CloudTable cloudTable,
+            ILogger log)
+        {
+            log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
+
+            TableQuery<LogEntity> rangeQuery = new TableQuery<LogEntity>().Where(
+                TableQuery.CombineFilters(
+                    TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, 
+                        "FD2"),
+                    TableOperators.And,
+                    TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.GreaterThan, 
+                        "t")));
+
+            // Execute the query and loop through the results
+            foreach (LogEntity entity in 
+                await cloudTable.ExecuteQuerySegmentedAsync(rangeQuery, null))
+            {
+                log.LogInformation(
+                    $"{entity.PartitionKey}\t{entity.RowKey}\t{entity.Timestamp}\t{entity.OriginalName}");
+            }
+        }
+    }
+}
+```
+
+For more information about how to use CloudTable, see [Get started with Azure Table storage](../cosmos-db/tutorial-develop-table-dotnet.md).
+
+If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).
+
+# [Table API extension](#tab/table-api/in-process)
+
+The following example shows a [C# function](./functions-dotnet-class-library.md) that reads a single table row. For every message sent to the queue, the function will be triggered.
+
+The row key value `{queueTrigger}` binds the row key to the message metadata, which is the message string.
+
+```csharp
+public class TableStorage
+{
+    public class MyPoco : ITableEntity
+    {
+        public string Text { get; set; }
+
+        public string PartitionKey { get; set; }
+        public string RowKey { get; set; }
+        public DateTimeOffset? Timestamp { get; set; }
+        public ETag ETag { get; set; }
+    }
+
+
+    [FunctionName("TableInput")]
+    public static void TableInput(
+        [QueueTrigger("table-items")] string input, 
+        [Table("MyTable", "MyPartition", "{queueTrigger}")] MyPoco poco, 
+        ILogger log)
+    {
+        log.LogInformation($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
+    }
+}
+```
+
+Use a `TableClient` method parameter to read the table by using the Azure SDK. Here's an example of a function that queries an Azure Functions log table:
+
+```csharp
+using Microsoft.Azure.WebJobs;
+using Microsoft.Extensions.Logging;
+using Azure.Data.Tables;
+using System;
+using System.Threading.Tasks;
+using Azure;
+namespace FunctionAppCloudTable2
+{
+    public class LogEntity : ITableEntity
+    {
+        public string OriginalName { get; set; }
+
+        public string PartitionKey { get; set; }
+        public string RowKey { get; set; }
+        public DateTimeOffset? Timestamp { get; set; }
+        public ETag ETag { get; set; }
+    }
+    public static class CloudTableDemo
+    {
+        [FunctionName("CloudTableDemo")]
+        public static async Task Run(
+            [TimerTrigger("0 */1 * * * *")] TimerInfo myTimer,
+            [Table("AzureWebJobsHostLogscommon")] TableClient tableClient,
+            ILogger log)
+        {
+            log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
+            AsyncPageable<LogEntity> queryResults = tableClient.QueryAsync<LogEntity>(filter: $"PartitionKey eq 'FD2' and RowKey gt 't'");
+            await foreach (LogEntity entity in queryResults)
+            {
+                log.LogInformation($"{entity.PartitionKey}\t{entity.RowKey}\t{entity.Timestamp}\t{entity.OriginalName}");
+            }
+        }
+    }
+}
+```
+For more information about how to use `TableClient`, see the [Azure.Data.Tables API Reference](/dotnet/api/azure.data.tables.tableclient).
+
+# [Functions 1.x](#tab/functionsv1/in-process)
+
+The following example shows a [C# function](./functions-dotnet-class-library.md) that reads a single table row. For every message sent to the queue, the function will be triggered.
+
+The row key value `{queueTrigger}` binds the row key to the message metadata, which is the message string.
+
+```csharp
+public class TableStorage
+{
+    public class MyPoco
+    {
+        public string PartitionKey { get; set; }
+        public string RowKey { get; set; }
+        public string Text { get; set; }
+    }
+
+    [FunctionName("TableInput")]
+    public static void TableInput(
+        [QueueTrigger("table-items")] string input, 
+        [Table("MyTable", "MyPartition", "{queueTrigger}")] MyPoco poco, 
+        ILogger log)
+    {
+        log.LogInformation($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
+    }
+}
+```
+
+The following example shows a [C# function](./functions-dotnet-class-library.md) that reads multiple table rows where the `MyPoco` class derives from `TableEntity`.
+
+```csharp
+public class TableStorage
+{
+    public class MyPoco : TableEntity
+    {
+        public string Text { get; set; }
+    }
+
+    [FunctionName("TableInput")]
+    public static void TableInput(
+        [QueueTrigger("table-items")] string input, 
+        [Table("MyTable", "MyPartition")] IQueryable<MyPoco> pocos, 
+        ILogger log)
+    {
+        foreach (MyPoco poco in pocos)
+        {
+            log.LogInformation($"PK={poco.PartitionKey}, RK={poco.RowKey}, Text={poco.Text}");
+        }
+    }
+}
+```
+
+# [Combined Azure Storage extension](#tab/storage-extension/isolated-process)
+
+The following `MyTableData` class represents a row of data in the table: 
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Table/TableFunction.cs" range="31-38" :::
+
+The following function, which is started by a Queue Storage trigger, reads a row key from the queue, which is used to get the row from the input table. The expression `{queueTrigger}` binds the row key to the message metadata, which is the message string.
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Table/TableFunction.cs" range="12-29" ::: 
+
+The following Queue-triggered function returns the first 5 entities as an `IEnumerable<T>`, with the partition key value set as the queue message.  
+
+```csharp
+[Function("TestFunction")]
+public static void Run([QueueTrigger("myqueue", Connection = "AzureWebJobsStorage")] string partition,
+    [TableInput("inTable", "{queueTrigger}", Take = 5, Filter = "Text eq 'test'", 
+    Connection = "AzureWebJobsStorage")] IEnumerable<MyTableData> tableInputs,
+    FunctionContext context)
+{
+    var logger = context.GetLogger("TestFunction");
+    logger.LogInformation(partition);
+    foreach (MyTableData tableInput in tableInputs)
+    {
+        logger.LogInformation($"PK={tableInput.PartitionKey}, RK={tableInput.RowKey}, Text={tableInput.Text}");
+    }
+}
+```
+The `Filter` and `Take` properties are used to limit the number of entities returned.
+
+# [Table API extension (preview)](#tab/table-api/isolated-process)
+
+The Table API extension does not currently support isolated process. You will instead need to use the combined Azure Storage extension.
+
+# [Functions 1.x](#tab/functionsv1/isolated-process)
+
+Functions version 1.x doesn't support isolated process.
+
+# [Combined Azure Storage extension](#tab/storage-extension/csharp-script)
+
+The following example shows a table input binding in a *function.json* file and [C# script](./functions-reference-csharp.md) code that uses the binding. The function uses a queue trigger to read a single table row. 
+
+The *function.json* file specifies a `partitionKey` and a `rowKey`. The `rowKey` value `{queueTrigger}` indicates that the row key comes from the queue message string.
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "personEntity",
+      "type": "table",
+      "tableName": "Person",
+      "partitionKey": "Test",
+      "rowKey": "{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+Here's the C# script code:
+
+```csharp
+public static void Run(string myQueueItem, Person personEntity, ILogger log)
+{
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"Name in Person entity: {personEntity.Name}");
+}
+
+public class Person
+{
+    public string PartitionKey { get; set; }
+    public string RowKey { get; set; }
+    public string Name { get; set; }
+}
+```
+
+To read more than one row, use a `CloudTable` method parameter to read the table by using the Azure Storage SDK. Here's an example of a function that queries an Azure Functions log table:
+
+```json
+{
+  "bindings": [
+    {
+      "name": "myTimer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 */1 * * * *"
+    },
+    {
+      "name": "cloudTable",
+      "type": "table",
+      "connection": "AzureWebJobsStorage",
+      "tableName": "AzureWebJobsHostLogscommon",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+```csharp
+#r "Microsoft.WindowsAzure.Storage"
+using Microsoft.WindowsAzure.Storage.Table;
+using System;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
+
+public static async Task Run(TimerInfo myTimer, CloudTable cloudTable, ILogger log)
+{
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
+
+    TableQuery<LogEntity> rangeQuery = new TableQuery<LogEntity>().Where(
+    TableQuery.CombineFilters(
+        TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, 
+            "FD2"),
+        TableOperators.And,
+        TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.GreaterThan, 
+            "a")));
+
+    // Execute the query and loop through the results
+    foreach (LogEntity entity in 
+    await cloudTable.ExecuteQuerySegmentedAsync(rangeQuery, null))
+    {
+        log.LogInformation(
+            $"{entity.PartitionKey}\t{entity.RowKey}\t{entity.Timestamp}\t{entity.OriginalName}");
+    }
+}
+
+public class LogEntity : TableEntity
+{
+    public string OriginalName { get; set; }
+}
+```
+
+For more information about how to use CloudTable, see [Get started with Azure Table storage](../cosmos-db/tutorial-develop-table-dotnet.md).
+
+If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).
+
+# [Table API extension (preview)](#tab/table-api/csharp-script)
+
+Version 3.x of the extension bundle doesn't currently include the Table API bindings. For now, you need to instead use version 2.x of the extension bundle, which uses the combined Azure Storage extension.
+
+# [Functions 1.x](#tab/functionsv1/csharp-script)
+
+The following example shows a table input binding in a *function.json* file and [C# script](./functions-reference-csharp.md) code that uses the binding. The function uses a queue trigger to read a single table row. 
+
+The *function.json* file specifies a `partitionKey` and a `rowKey`. The `rowKey` value `{queueTrigger}` indicates that the row key comes from the queue message string.
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "personEntity",
+      "type": "table",
+      "tableName": "Person",
+      "partitionKey": "Test",
+      "rowKey": "{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+Here's the C# script code:
+
+```csharp
+public static void Run(string myQueueItem, Person personEntity, ILogger log)
+{
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"Name in Person entity: {personEntity.Name}");
+}
+
+public class Person
+{
+    public string PartitionKey { get; set; }
+    public string RowKey { get; set; }
+    public string Name { get; set; }
+}
+```
+
+The following example shows a table input binding in a *function.json* file and [C# script](./functions-reference-csharp.md) code that uses the binding. The function uses `IQueryable<T>` to read entities for a partition key that is specified in a queue message. `IQueryable<T>` is only supported by version 1.x of the Functions runtime.
+
+Here's the *function.json* file:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "tableBinding",
+      "type": "table",
+      "connection": "MyStorageConnectionAppSetting",
+      "tableName": "Person",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+The C# script code adds a reference to the Azure Storage SDK so that the entity type can derive from `TableEntity`:
+
+```csharp
+#r "Microsoft.WindowsAzure.Storage"
+using Microsoft.WindowsAzure.Storage.Table;
+using Microsoft.Extensions.Logging;
+
+public static void Run(string myQueueItem, IQueryable<Person> tableBinding, ILogger log)
+{
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
+    foreach (Person person in tableBinding.Where(p => p.PartitionKey == myQueueItem).ToList())
+    {
+        log.LogInformation($"Name: {person.Name}");
+    }
+}
+
+public class Person : TableEntity
+{
+    public string Name { get; set; }
+}
+```
+
+---
+
+::: zone-end
+::: zone pivot="programming-language-java"
+
+The following example shows an HTTP triggered function which returns a list of person objects who are in a specified partition in Table storage. In the example, the partition key is extracted from the http route, and the tableName and connection are from the function settings. 
+
+```java
+public class Person {
+    private String PartitionKey;
+    private String RowKey;
+    private String Name;
+
+    public String getPartitionKey() { return this.PartitionKey; }
+    public void setPartitionKey(String key) { this.PartitionKey = key; }
+    public String getRowKey() { return this.RowKey; }
+    public void setRowKey(String key) { this.RowKey = key; }
+    public String getName() { return this.Name; }
+    public void setName(String name) { this.Name = name; }
+}
+
+@FunctionName("getPersonsByPartitionKey")
+public Person[] get(
+        @HttpTrigger(name = "getPersons", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.FUNCTION, route="persons/{partitionKey}") HttpRequestMessage<Optional<String>> request,
+        @BindingName("partitionKey") String partitionKey,
+        @TableInput(name="persons", partitionKey="{partitionKey}", tableName="%MyTableName%", connection="MyConnectionString") Person[] persons,
+        final ExecutionContext context) {
+
+    context.getLogger().info("Got query for person related to persons with partition key: " + partitionKey);
+
+    return persons;
+}
+```
+
+The TableInput annotation can also extract the bindings from the json body of the request, like the following example shows.
+
+```java
+@FunctionName("GetPersonsByKeysFromRequest")
+public HttpResponseMessage get(
+        @HttpTrigger(name = "getPerson", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.FUNCTION, route="query") HttpRequestMessage<Optional<String>> request,
+        @TableInput(name="persons", partitionKey="{partitionKey}", rowKey = "{rowKey}", tableName="%MyTableName%", connection="MyConnectionString") Person person,
+        final ExecutionContext context) {
+
+    if (person == null) {
+        return request.createResponseBuilder(HttpStatus.NOT_FOUND)
+                    .body("Person not found.")
+                    .build();
+    }
+
+    return request.createResponseBuilder(HttpStatus.OK)
+                    .header("Content-Type", "application/json")
+                    .body(person)
+                    .build();
+}
+```
+
+The following example uses a filter to query for persons with a specific name in an Azure Table, and limits the number of possible matches to 10 results.
+
+```java
+@FunctionName("getPersonsByName")
+public Person[] get(
+        @HttpTrigger(name = "getPersons", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.FUNCTION, route="filter/{name}") HttpRequestMessage<Optional<String>> request,
+        @BindingName("name") String name,
+        @TableInput(name="persons", filter="Name eq '{name}'", take = "10", tableName="%MyTableName%", connection="MyConnectionString") Person[] persons,
+        final ExecutionContext context) {
+
+    context.getLogger().info("Got query for person related to persons with name: " + name);
+
+    return persons;
+}
+```
+
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+
+The following example shows a  table input binding in a *function.json* file and [JavaScript code](functions-reference-node.md) that uses the binding. The function uses a queue trigger to read a single table row. 
+
+The *function.json* file specifies a `partitionKey` and a `rowKey`. The `rowKey` value "{queueTrigger}" indicates that the row key comes from the queue message string.
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "personEntity",
+      "type": "table",
+      "tableName": "Person",
+      "partitionKey": "Test",
+      "rowKey": "{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+The [configuration](#configuration) section explains these properties.
+
+Here's the JavaScript code:
+
+```javascript
+module.exports = async function (context, myQueueItem) {
+    context.log('Node.js queue trigger function processed work item', myQueueItem);
+    context.log('Person entity name: ' + context.bindings.personEntity.Name);
+};
+```
+
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
+
+The following function uses a queue trigger to read a single table row as input to a function.
+
+In this example, the binding configuration specifies an explicit value for the table's `partitionKey` and uses an expression to pass to the `rowKey`. The `rowKey` expression, `{queueTrigger}`, indicates that the row key comes from the queue message string.
+
+Binding configuration in _function.json_:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "MyQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "PersonEntity",
+      "type": "table",
+      "tableName": "Person",
+      "partitionKey": "Test",
+      "rowKey": "{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+PowerShell code in _run.ps1_:
+
+```powershell
+param($MyQueueItem, $PersonEntity, $TriggerMetadata)
+Write-Host "PowerShell queue trigger function processed work item: $MyQueueItem"
+Write-Host "Person entity name: $($PersonEntity.Name)"
+```
+
+::: zone-end  
+::: zone pivot="programming-language-python"  
+
+The following function uses an HTTP trigger to read a single table row as input to a function.
+
+In this example, binding configuration specifies an explicit value for the table's `partitionKey` and uses an expression to pass to the `rowKey`. The `rowKey` expression, `{id}` indicates that the row key comes from the `{id}` part of the route in the request.
+
+Binding configuration in the _function.json_ file:
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "messageJSON",
+      "type": "table",
+      "tableName": "messages",
+      "partitionKey": "message",
+      "rowKey": "{id}",
+      "connection": "AzureWebJobsStorage",
+      "direction": "in"
+    },
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ],
+      "route": "messages/{id}"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Python code in the *\_\_init\_\_.py* file:
+
+```python
+import json
+
+import azure.functions as func
+
+def main(req: func.HttpRequest, messageJSON) -> func.HttpResponse:
+
+    message = json.loads(messageJSON)
+    return func.HttpResponse(f"Table row: {messageJSON}")
+```
+
+With this simple binding, you can't programmatically handle a case in which no row that has a row key ID is found. For more fine-grained data selection, use the [storage SDK](/azure/developer/python/sdk/examples/azure-sdk-example-storage-use?tabs=cmd).
+
+---
+
+::: zone-end  
+::: zone pivot="programming-language-csharp"
+
+## Attributes
+
+Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attributes to define the function. C# script instead uses a function.json configuration file.
+
+# [In-process](#tab/in-process)
+
+In [C# class libraries](functions-dotnet-class-library.md), the `TableAttribute` supports the following properties:
+
+| Attribute property |Description|
+|---------|---------|
+| **TableName** | The name of the table.| 
+| **PartitionKey** |Optional. The partition key of the table entity to read. See the [usage](#usage) section for guidance on how to use this property.| 
+|**RowKey** | Optional. The row key of a single table entity to read. Can't be used with `Take` or `Filter`. | 
+|**Take** | Optional. The maximum number of entities to return. Can't be used with `RowKey`. | 
+|**Filter** | Optional. An OData filter expression for the entities to return from the table. Can't be used with `RowKey`.| 
+|**Connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
+
+The attribute's constructor takes the table name, partition key, and row key, as shown in the following example:
+
+```csharp
+[FunctionName("TableInput")]
+public static void Run(
+    [QueueTrigger("table-items")] string input, 
+    [Table("MyTable", "Http", "{queueTrigger}")] MyPoco poco, 
+    ILogger log)
+{
+    ...
+}
+```
+
+You can set the `Connection` property to specify the connection to the table service, as shown in the following example:
+
+```csharp
+[FunctionName("TableInput")]
+public static void Run(
+    [QueueTrigger("table-items")] string input, 
+    [Table("MyTable", "Http", "{queueTrigger}", Connection = "StorageConnectionAppSetting")] MyPoco poco, 
+    ILogger log)
+{
+    ...
+}
+```
+
+[!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
+
+# [Isolated process](#tab/isolated-process)
+
+In [C# class libraries](dotnet-isolated-process-guide.md), the `TableInputAttribute` supports the following properties:
+
+| Attribute property |Description|
+|---------|---------|
+| **TableName** | The name of the table.| 
+| **PartitionKey** |Optional. The partition key of the table entity to read. | 
+|**RowKey** | Optional. The row key of the table entity to read. | 
+| **Take** | Optional. The maximum number of entities to read into an [`IEnumerable<T>`]. Can't be used with `RowKey`.| 
+|**Filter** | Optional. An OData filter expression for entities to read into an [`IEnumerable<T>`]. Can't be used with `RowKey`. | 
+|**Connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
+
+# [C# script](#tab/csharp-script)
+
+C# script uses a function.json file for configuration instead of attributes.
+
+The following table explains the binding configuration properties for C# script that you set in the *function.json* file. 
+
+|function.json property | Description|
+|---------|----------------------|
+|**type** |  Must be set to `table`. This property is set automatically when you create the binding in the Azure portal.|
+|**direction** |  Must be set to `in`. This property is set automatically when you create the binding in the Azure portal. |
+|**name** |  The name of the variable that represents the table or entity in function code. | 
+|**tableName** |  The name of the table.| 
+|**partitionKey** | Optional. The partition key of the table entity to read. | 
+|**rowKey** |Optional. The row key of the table entity to read. Can't be used with `take` or `filter`.| 
+|**take** | Optional. The maximum number of entities to return. Can't be used with `rowKey`. |
+|**filter** | Optional. An OData filter expression for the entities to return from the table. Can't be used with `rowKey`.| 
+|**connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
+
+---
+
+::: zone-end  
+::: zone pivot="programming-language-java"  
+## Annotations
+
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@TableInput` annotation on parameters whose value would come from Table storage.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`. This annotation supports the following elements:
+
+| Element |Description|
+|---------|---------|
+| **[TableInputName](/java/api/com.microsoft.azure.functions.annotation.tableinput.name)** | The name of the table. | 
+ **[PartitionKey](/java/api/com.microsoft.azure.functions.annotation.tableinput.partitionkey)** |Optional. The partition key of the table entity to read. | 
+|**[RowKey](/java/api/com.microsoft.azure.functions.annotation.tableinput.rowkey)** | The row key of the table entity to read. | 
+|**[Take](/java/api/com.microsoft.azure.functions.annotation.tableinput.take)** | Optional. The maximum number of entities to read.| 
+|**[Filter](/java/api/com.microsoft.azure.functions.annotation.tableinput.filter)** | Optional. An OData filter expression for table input. | 
+|**[Connection](/java/api/com.microsoft.azure.functions.annotation.tableinput.connection)** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
+
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+## Configuration
+
+The following table explains the binding configuration properties that you set in the *function.json* file.
+
+|function.json property | Description|
+|---------|----------------------|
+|**type** |  Must be set to `table`. This property is set automatically when you create the binding in the Azure portal.|
+|**direction** |  Must be set to `in`. This property is set automatically when you create the binding in the Azure portal. |
+|**name** |  The name of the variable that represents the table or entity in function code. | 
+|**tableName** |  The name of the table.| 
+|**partitionKey** | Optional. The partition key of the table entity to read. | 
+|**rowKey** |Optional. The row key of the table entity to read. Can't be used with `take` or `filter`.| 
+|**take** | Optional. The maximum number of entities to return. Can't be used with `rowKey`. |
+|**filter** | Optional. An OData filter expression for the entities to return from the table. Can't be used with `rowKey`.| 
+|**connection** | The name of an app setting or setting collection that specifies how to connect to the table service. See [Connections](#connections). |
+
+::: zone-end  
+[!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+[!INCLUDE [functions-table-connections](../../includes/functions-table-connections.md)]
+
+## Usage
+
+::: zone pivot="programming-language-csharp"  
+
+The usage of the binding depends on the extension package version, and the C# modality used in your function app, which can be one of the following:
+
+# [In-process](#tab/in-process)
+
+An in-process class library is a compiled C# function that runs in the same process as the Functions runtime.
+ 
+# [Isolated process](#tab/isolated-process)
+
+An isolated process class library compiled C# function runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0.  
+   
+# [C# script](#tab/csharp-script)
+
+C# script is used primarily when creating C# functions in the Azure portal.
+
+---
+
+Choose a version to see usage details for the mode and version. 
+
+# [Combined Azure Storage extension](#tab/storage-extension/in-process)
+
+To return a specific entity by key, use a binding parameter that derives from [TableEntity](/dotnet/api/azure.data.tables.tableentity).  
+
+To execute queries that return multiple entities, bind to a [CloudTable] object. You can then use this object to create and execute queries against the bound table. Note that [CloudTable] and related APIs belong to the [Microsoft.Azure.Cosmos.Table](/dotnet/api/microsoft.azure.cosmos.table) namespace.  
+
+# [Table API extension](#tab/table-api/in-process)
+
+To return a specific entity by key, use a binding parameter that derives from [TableEntity](/dotnet/api/azure.data.tables.tableentity).  
+
+To execute queries that return multiple entities, bind to a [TableClient] object. You can then use this object to create and execute queries against the bound table. Note that [TableClient] and related APIs belong to the [Azure.Data.Tables](/dotnet/api/azure.data.tables) namespace.
+
+# [Functions 1.x](#tab/functionsv1/in-process)
+
+To return a specific entity by key, use a binding parameter that derives from [TableEntity]. The specific `TableName`, `PartitionKey`, and `RowKey` are used to try and get a specific entity from the table. 
+
+To execute queries that return multiple entities, bind to an [`IQueryable<T>`] of a type that inherits from [TableEntity]. 
+
+# [Combined Azure Storage extension](#tab/storage-extension/isolated-process)
+
+To return a specific entity by key, use a plain-old CLR object (POCO). The specific `TableName`, `PartitionKey`, and `RowKey` are used to try and get a specific entity from the table.
+
+ When returning multiple entities as an [`IEnumerable<T>`], you can instead use `Take` and `Filter` properties to restrict the result set.
+
+# [Table API extension (preview)](#tab/table-api/isolated-process)
+
+The Table API extension does not currently support isolated process. You will instead need to use the combined Azure Storage extension.
+
+# [Functions 1.x](#tab/functionsv1/isolated-process)
+
+Functions version 1.x doesn't support isolated process.
+
+# [Combined Azure Storage extension](#tab/storage-extension/csharp-script)
+
+To return a specific entity by key, use a binding parameter that derives from [TableEntity](/dotnet/api/azure.data.tables.tableentity).  
+
+To execute queries that return multiple entities, bind to a [CloudTable] object. You can then use this object to create and execute queries against the bound table. Note that [CloudTable] and related APIs belong to the [Microsoft.Azure.Cosmos.Table](/dotnet/api/microsoft.azure.cosmos.table) namespace.  
+
+# [Table API extension (preview)](#tab/table-api/csharp-script)
+
+Version 3.x of the extension bundle doesn't currently include the Table API bindings. For now, you need to instead use version 2.x of the extension bundle, which uses the combined Azure Storage extension.
+
+# [Functions 1.x](#tab/functionsv1/csharp-script)
+
+To return a specific entity by key, use a binding parameter that derives from [TableEntity]. The specific `TableName`, `PartitionKey`, and `RowKey` are used to try and get a specific entity from the table. 
+
+To execute queries that return multiple entities, bind to an [`IQueryable<T>`] of a type that inherits from [TableEntity]. 
+
+---
+
+::: zone-end  
+::: zone pivot="programming-language-java"
+The [TableInput](/java/api/com.microsoft.azure.functions.annotation.tableinput) attribute gives you access to the table row that triggered the function.
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+Set the `filter` and `take` properties. Don't set `partitionKey` or `rowKey`. Access the input table entity (or entities) using `context.bindings.<BINDING_NAME>`. The deserialized objects have `RowKey` and `PartitionKey` properties.
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
+Data is passed to the input parameter as specified by the `name` key in the *function.json* file. Specifying The `partitionKey` and `rowKey` allows you to filter to specific records. 
+::: zone-end  
+::: zone pivot="programming-language-python"  
+Table data is passed to the function as a JSON string. De-serialize the message by calling `json.loads` as shown in the input [example](#example).
+::: zone-end  
+
+For specific usage details, see [Example](#example). 
+
+## Next steps
+
+* [Write table data from a function](./functions-bindings-storage-table-output.md)
+
+[TableInputAttribute]: /dotnet/api/microsoft.azure.webjobs.tableinputattribute
+[CloudTable]: /dotnet/api/microsoft.azure.cosmos.table.cloudtable
+[TableEntity]: /dotnet/api/azure.data.tables.tableentity
+[`IQueryable<T>`]: /dotnet/api/system.linq.iqueryable-1
+[`IEnumerable<T>`]: /dotnet/api/system.collections.generic.ienumerable-1

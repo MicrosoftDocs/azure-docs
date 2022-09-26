@@ -11,7 +11,6 @@ ms.subservice: security-develop
 services: azure
 
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
-ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ---
@@ -54,7 +53,7 @@ the development lifecycle helps you catch issues early, and it helps you
 reduce your development costs.
 
 We follow the phases of the Microsoft [Security Development Lifecycle
-(SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx)
+(SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10))
 to introduce activities and Azure services that you can use to fulfill
 secure software development practices in each phase of the lifecycle.
 
@@ -90,19 +89,19 @@ Use the following resources to learn more about developing secure
 applications and to help secure your applications on Azure:
 
 [Microsoft Security Development Lifecycle
-(SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx)
+(SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10))
 – The SDL is a software development process from Microsoft that helps
 developers build more secure software. It helps you address security
 compliance requirements while reducing development costs.
 
 [Open Web Application Security Project
-(OWASP)](https://www.owasp.org/index.php/Main_Page) – OWASP is an online
+(OWASP)](https://www.owasp.org/) – OWASP is an online
 community that produces freely available articles, methodologies,
 documentation, tools, and technologies in the field of web application
 security.
 
 [Pushing Left, Like a
-Boss](https://code.likeagirl.io/pushing-left-like-a-boss-part-1-80f1f007da95?WT.mc_id=docs-blog-tajanca)
+Boss](https://wehackpurple.com/pushing-left-like-a-boss-part-1/)
 – A series of online articles that outlines
 different types of application security activities that developers should complete to create more secure code.
 
@@ -125,10 +124,12 @@ architects, developers, and testers who build and deploy secure Azure
 solutions.
 
 [Security and Compliance Blueprints on
-Azure](https://servicetrust.microsoft.com/ViewPage/BlueprintOverview) –
+Azure](../../governance/blueprints/samples/azure-security-benchmark-foundation/index.md) –
 Azure Security and Compliance Blueprints are resources that can help you
 build and launch cloud-powered applications that comply with stringent
 regulations and standards.
+
+
 
 ## Next steps
 In the following articles, we recommend security controls and activities that can help you design, develop, and deploy secure applications.

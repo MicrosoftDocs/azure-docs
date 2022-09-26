@@ -3,13 +3,13 @@ title: 'Quickstart: Translate speech-to-text, Java (Windows, Linux) - Speech ser
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
-author: erhopf
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 12/09/2019
-ms.author: erhopf
+ms.author: eur
 ---
 
 ## Prerequisites
@@ -17,9 +17,8 @@ ms.author: erhopf
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=jre)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=jre)
+> * [Create a Speech resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=jre)
 
 ## Add sample code
 
@@ -46,7 +45,7 @@ Before you get started, make sure to:
        {
            // Creates an instance of a speech translation config with specified
            // subscription key and service region. Replace with your own subscription key
-           // and service region (e.g., "westus").
+           // and region identifier from here: https://aka.ms/speech/sdkregion
 
            int exitCode = 1;
            SpeechTranslationConfig config = SpeechTranslationConfig.fromSubscription(("YourSubscriptionKey",  "YourServiceRegion");
@@ -95,7 +94,7 @@ Before you get started, make sure to:
                if (cancellation.getReason() == CancellationReason.Error) {
                    System.out.println("CANCELED: ErrorCode=" + cancellation.getErrorCode());
                    System.out.println("CANCELED: ErrorDetails=" + cancellation.getErrorDetails());
-                   System.out.println("CANCELED: Did you update the subscription info?");
+                   System.out.println("CANCELED: Did you set the speech resource key and region values?");
                }
            }
 
@@ -118,7 +117,7 @@ Before you get started, make sure to:
 
 1. Replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md).
 
 1. Save changes to the project.
 

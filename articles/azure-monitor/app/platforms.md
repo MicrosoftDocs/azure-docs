@@ -1,53 +1,59 @@
 ---
 title: 'Application Insights: languages, platforms, and integrations | Microsoft Docs'
 description: Languages, platforms, and integrations available for Application Insights
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
-ms.date: 07/18/2019
-
-ms.reviewer: olegan
+ms.date: 10/29/2021
+ms.reviewer: mmcc
 ---
 
 # Supported languages
 
-* [C#|VB (.NET)](../../azure-monitor/app/asp-net.md)
-* [Java](../../azure-monitor/app/java-get-started.md)
-* [JavaScript](../../azure-monitor/app/javascript.md)
-* [Node.JS](../../azure-monitor/app/nodejs.md)
-* [Python (preview)](../../azure-monitor/app/opencensus-python.md)
+* [C#|VB (.NET)](./asp-net.md)
+* [Java](./java-in-process-agent.md)
+* [JavaScript](./javascript.md)
+* [Node.js](./nodejs.md)
+* [Python](./opencensus-python.md)
 
 ## Supported platforms and frameworks
 
-### Instrumentation for already-deployed applications (codeless, agent-based)
-* [Azure VM and Azure virtual machine scale sets](../../azure-monitor/app/azure-vm-vmss-apps.md)
-* [Azure App Service](../../azure-monitor/app/azure-web-apps.md)
-* [ASP.NET - for apps that are already live](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Azure Cloud Services](../../azure-monitor/app/cloudservices.md), including both web and worker roles
-* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
-### Instrumentation through code (SDKs)
-* [ASP.NET](../../azure-monitor/app/asp-net.md)
-* [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
-* [Android](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
-* [iOS](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
-* [Java EE](../../azure-monitor/app/java-get-started.md)
-* [Node.JS](https://www.npmjs.com/package/applicationinsights)
-* [Python (preview)](../../azure-monitor/app/opencensus-python.md)
-* [Universal Windows app](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
-* [Windows desktop applications, services, and worker roles](../../azure-monitor/app/windows-desktop.md)
+### Azure Service Integration (Portal Enablement, ARM Deployments)
+* [Azure VM and Azure virtual machine scale sets](./azure-vm-vmss-apps.md)
+* [Azure App Service](./azure-web-apps.md)
+* [Azure Functions](../../azure-functions/functions-monitoring.md)
+* [Azure Cloud Services](./azure-web-apps-net-core.md), including both web and worker roles
+
+### Auto-instrumentation (enable without code changes)
+* [ASP.NET - for web apps hosted with IIS](./status-monitor-v2-overview.md)
+* [ASP.NET Core - for web apps hosted with IIS](./status-monitor-v2-overview.md)
+* [Java](./java-in-process-agent.md)
+
+### Manual instrumentation / SDK (some code changes required)
+* [ASP.NET](./asp-net.md)
+* [ASP.NET Core](./asp-net-core.md)
+* [Node.js](./nodejs.md)
+* [Python](./opencensus-python.md)
+* [JavaScript - Web](./javascript.md)
+  * [React](./javascript-react-plugin.md)
+  * [React Native](./javascript-react-native-plugin.md)
+  * [Angular](./javascript-angular-plugin.md)
+* [Windows desktop applications, services, and worker roles](./windows-desktop.md)
+* [Universal Windows app](../app/mobile-center-quickstart.md) (App Center)
+* [Android](../app/mobile-center-quickstart.md) (App Center)
+* [iOS](../app/mobile-center-quickstart.md) (App Center)
+
+> [!NOTE]
+> OpenTelemetry-based instrumentation is available in PREVIEW state for [C#, Node.js, and Python](opentelemetry-enable.md). Please review the limitations noted at the beginning of each langauge's official documentation. Those who require a full-feature experience should use the existing Application Insights SDKs.
 
 ## Logging frameworks
-* [ILogger](https://docs.microsoft.com/azure/azure-monitor/app/ilogger)
-* [Log4Net, NLog, or System.Diagnostics.Trace](../../azure-monitor/app/asp-net-trace-logs.md)
-* [Java, Log4J, or Logback](../../azure-monitor/app/java-trace-logs.md)
+* [ILogger](./ilogger.md)
+* [Log4Net, NLog, or System.Diagnostics.Trace](./asp-net-trace-logs.md)
+* [Log4J, Logback, or java.util.logging](./java-in-process-agent.md#autocollected-logs)
 * [LogStash plugin](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
-* [Azure Monitor](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
+* [Azure Monitor](/archive/blogs/msoms/application-insights-connector-in-oms)
 
 ## Export and data analysis
-* [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
-* [Stream Analytics](../../azure-monitor/app/export-power-bi.md)
+* [Power BI](https://powerbi.microsoft.com/blog/explore-your-application-insights-data-with-power-bi/)
+* [Stream Analytics](./export-power-bi.md)
 
 ## Unsupported SDKs
-We're aware that several other community-supported SDKs exist. However, Azure Monitor only provides support when using the supported SDKs listed on this page. We’re constantly assessing opportunities to expand our support for other languages, so follow our [GitHub Announcements](https://github.com/microsoft/ApplicationInsights-Announcements/issues) page to receive the latest SDK news. 
+Several other community-supported Application Insights SDKs exist. However, Azure Monitor only provides support when using the supported instrumentation options listed on this page. We're constantly assessing opportunities to expand our support for other languages. Follow [Azure Updates for Application Insights](https://azure.microsoft.com/updates/?query=application%20insights) for the latest SDK news.

@@ -1,22 +1,14 @@
 ---
-title: Reliable Actors state management | Microsoft Docs
+title: Reliable Actors state management 
 description: Describes how Reliable Actors state is managed, persisted, and replicated for high availability.
-services: service-fabric
-documentationcenter: .net
-author: vturecek
-manager: chackdan
-editor: ''
-
-ms.assetid: 37cf466a-5293-44c0-a4e0-037e5d292214
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/02/2017
-ms.author: vturecek
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
+
 # Reliable Actors state management
 Reliable Actors are single-threaded objects that can encapsulate both logic and state. Because actors run on Reliable Services, they can maintain state reliably by using the same persistence and replication mechanisms. This way, actors don't lose their state after failures, upon reactivation after garbage collection, or when they are moved around between nodes in a cluster due to resource balancing or upgrades.
 
@@ -119,7 +111,7 @@ This is critical for performance and resource usage of your application. Wheneve
 ### Correctly manage the actor's life-cycle
 You should have clear policy about managing the size of state in each partition of an actor service. Your actor service should have a fixed number of actors and reuse them as much as possible. If you continuously create new actors, you must delete them once they are done with their work. The actor framework stores some metadata about each actor that exists. Deleting all the state of an actor does not remove metadata about that actor. You must delete the actor (see [deleting actors and their state](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) to remove all the information about it stored in the system. As an extra check, you should query the actor service (see [enumerating actors](service-fabric-reliable-actors-enumerate.md)) once in a while to make sure the number of actors are within the expected range.
  
-If you ever see that database file size of an Actor Service is increasing beyond the expected size, make sure that you are following the preceding guidelines. If you are following these guidelines and are still database file size issues, you should [open a support ticket](service-fabric-support.md) with the product team to get help.
+If you ever see that database file size of an Actor Service is increasing beyond the expected size, make sure that you are following the preceding guidelines. If you are following these guidelines and are still experiencing database file size issues, you should [open a support ticket](service-fabric-support.md) with the product team to get help.
 
 ## Next steps
 

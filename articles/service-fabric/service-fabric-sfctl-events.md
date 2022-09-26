@@ -1,27 +1,18 @@
 ---
-title: Azure Service Fabric CLI- sfctl events | Microsoft Docs
+title: Azure Service Fabric CLI- sfctl events 
 description: Describes the Service Fabric CLI sfctl events commands.
-services: service-fabric
-documentationcenter: na
-author: jeffj6123
-manager: chackdan
-editor: ''
-
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
-ms.date: 9/17/2019
-ms.author: jejarry
-
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # sfctl events
 Retrieve events from the events store (if EventStore service is already installed).
 
-The EventStore system service can be added through a config upgrade to any SFRP cluster running >=6.4. Please check the following url\: https\://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-eventstore.
+The EventStore system service can be added through a config upgrade to any SFRP cluster running >=6.4. To check, see [EventStore overview](/azure/service-fabric/service-fabric-diagnostics-eventstore).
 
 ## Commands
 
@@ -331,4 +322,3 @@ The response is list of ServiceEvent objects.
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
 | --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
-

@@ -1,20 +1,12 @@
 ---
-title: Create a Windows container app on Service Fabric in Azure | Microsoft Docs
+title:  Create a Windows container application on Service Fabric in Azure
 description: In this quickstart, you create your first Windows container application on Azure Service Fabric.  
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: jpconnock
-editor: 'vturecek'
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 07/10/2019
-ms.author: atsenthi
-ms.custom: mvc
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 
 # Quickstart: Deploy Windows containers to Service Fabric
@@ -91,7 +83,7 @@ Also in the *ApplicationManifest.xml* file, change **PasswordEncrypted** to **fa
 
 The following sample script creates a five-node Service Fabric cluster secured with an X.509 certificate. The command creates a self-signed certificate and uploads it to a new key vault. The certificate is also copied to a local directory. You can learn more about creating a cluster using this script in [Create a Service Fabric cluster](scripts/service-fabric-powershell-create-secure-cluster-cert.md).
 
-If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/overview).
+If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/).
 
 Before you run the following script, in PowerShell run `Connect-AzAccount` to create a connection with Azure.
 
@@ -154,7 +146,7 @@ Open a browser and navigate to the address that you put into the **Connection En
 
 ## Clean up
 
-You continue to incur charges while the cluster is running. Consider [deleting your cluster](service-fabric-cluster-delete.md).
+You continue to incur charges while the cluster is running. Consider [deleting your cluster](./service-fabric-tutorial-delete-cluster.md).
 
 ## Next steps
 
@@ -165,10 +157,10 @@ In this quickstart, you learned how to:
 * Build and package the Service Fabric application
 * Deploy the container application to Azure
 
-To learn more about working with Windows containers in Service Fabric, continue to the tutorial for Windows container apps.
+To learn more about working with Windows containers in Service Fabric, continue to the tutorial for Windows container applications.
 
 > [!div class="nextstepaction"]
-> [Create a Windows container app](./service-fabric-host-app-in-a-container.md)
+> [Create a Windows container application](./service-fabric-host-app-in-a-container.md)
 
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png

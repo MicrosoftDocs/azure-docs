@@ -1,22 +1,14 @@
 ---
-title: Tutorial creating the infrastructure for a Service Fabric cluster on AWS - Azure Service Fabric | Microsoft Docs
+title: Create infrastructure for a cluster on AWS
 description: In this tutorial, you learn how to set up the AWS infrastructure to run a Service Fabric cluster.
-services: service-fabric
-documentationcenter: .net
-author: dkkapur
-manager: chackdan
-editor: ''
-
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 05/11/2018
-ms.author: dekapur
-ms.custom: mvc
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
+
 # Tutorial: Create AWS infrastructure to host a Service Fabric cluster
 
 Service Fabric standalone clusters offer you the option to choose your own environment and create a cluster as part of the "any OS, any cloud" approach that Service Fabric is taking. In this tutorial series, you create a standalone cluster hosted on AWS and install an application into it.

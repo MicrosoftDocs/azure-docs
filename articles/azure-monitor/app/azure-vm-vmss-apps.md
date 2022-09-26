@@ -1,55 +1,58 @@
 ---
 title: Monitor performance on Azure VMs - Azure Application Insights
 description: Application performance monitoring for Azure VM and Azure virtual machine scale sets. Chart load and response time, dependency information, and set alerts on performance.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
-ms.date: 08/26/2019
-
+ms.date: 08/19/2022
+ms.devlang: csharp, java, javascript, python
+ms.custom: devx-track-azurepowershell
+ms.reviewer: abinetabate
 ---
 
 # Deploy the Azure Monitor Application Insights Agent on Azure virtual machines and Azure virtual machine scale sets
 
-Enabling monitoring on your .NET based web applications running on [Azure virtual machines](https://azure.microsoft.com/services/virtual-machines/) and [Azure virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/) is now easier than ever. Get all the benefits of using Application Insights without modifying your code.
+Enabling monitoring for your .NET or Java based web applications running on [Azure virtual machines](https://azure.microsoft.com/services/virtual-machines/) and [Azure virtual machine scale sets](../../virtual-machine-scale-sets/index.yml) is now easier than ever. Get all the benefits of using Application Insights without modifying your code.
 
 This article walks you through enabling Application Insights monitoring using the Application Insights Agent and provides preliminary guidance for automating the process for large-scale deployments.
+> [!IMPORTANT]
+> **Java** based applications running on Azure VMs and VMSS are monitored with **[Application Insights Java 3.0 agent](./java-in-process-agent.md)**, which is generally available.
 
 > [!IMPORTANT]
-> Azure Application Insights Agent for .NET is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Some features might not be supported, and some might have constrained capabilities.
+> Azure Application Insights Agent for ASP.NET and ASP.NET Core applications running on **Azure VMs and VMSS** is currently in public preview. For monitoring your ASP.NET  applications running **on-premises**, use the [Azure Application Insights Agent for on-premises servers](./status-monitor-v2-overview.md), which is generally available and fully supported.
+> The preview version for Azure VMs and VMSS is provided without a service-level agreement, and we don't recommend it for production workloads. Some features might not be supported, and some might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Enable Application Insights
 
-There are two ways to enable application monitoring for Azure virtual machines and Azure virtual machine scale sets hosted applications:
-
-* **Codeless** via Application Insights Agent
-    * This method is the easiest to enable, and no advanced configuration is required. It is often referred to as "runtime" monitoring.
-
-    * For Azure virtual machines and Azure virtual machine scale sets we recommend at a minimum enabling this level of monitoring. After that, based on your specific scenario, you can evaluate whether manual instrumentation is needed.
-
-    * The Application Insights Agent auto-collects the same dependency signals out-of-the-box as the .NET SDK. See [Dependency auto-collection](https://docs.microsoft.com/azure/azure-monitor/app/auto-collect-dependencies#net) to learn more.
-        > [!NOTE]
-        > Currently only .Net IIS-hosted applications are supported. Use an SDK to instrument ASP.NET Core, Java, and Node.js applications hosted on an Azure virtual machines and virtual machine scale sets.
-
-* **Code-based** via SDK
-
-    * This approach is much more customizable, but it requires [adding a dependency on the Application Insights SDK NuGet packages](https://docs.microsoft.com/azure/azure-monitor/app/asp-net). This method, also means you have to manage the updates to the latest version of the packages yourself.
-
-    * If you need to make custom API calls to track events/dependencies not captured by default with agent-based monitoring, you would need to use this method. Check out the [API for custom events and metrics article](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) to learn more.
+Auto-instrumentation is easy to enable with no advanced configuration required.
 
 > [!NOTE]
-> If both agent based monitoring and manual SDK based instrumentation is detected only the manual instrumentation settings will be honored. This is to prevent duplicate data from being sent. To learn more about this check out the [troubleshooting section](#troubleshooting) below.
+> Auto-instrumentation is available for ASP.NET, ASP.NET Core IIS-hosted applications and Java. Use an SDK to instrument Node.js and Python applications hosted on an Azure virtual machines and virtual machine scale sets.
+
+### [.NET](#tab/net)
+
+The Application Insights Agent auto-collects the same dependency signals out-of-the-box as the .NET SDK. See [Dependency auto-collection](./auto-collect-dependencies.md#net) to learn more.
+
+### [Java](#tab/Java)
+
+For Java, **[Application Insights Java 3.0 agent](./java-in-process-agent.md)** is the recommended approach. The most popular libraries and frameworks, as well as logs and dependencies are [auto-collected](./java-in-process-agent.md#autocollected-requests), with a multitude of [other configurations](./java-standalone-config.md)
+
+### [Node.js](#tab/nodejs)
+
+To instrument your Node.js application, use the [SDK](./nodejs.md).
+
+### [Python](#tab/python)
+
+To monitor Python apps, use the [SDK](./opencensus-python.md).
+
+---
 
 ## Manage Application Insights Agent for .NET applications on Azure virtual machines using PowerShell
 
 > [!NOTE]
-> Before installing the Application Insights Agent, you'll need an instrumentation key. [Create a new Application Insights Resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) or copy the instrumentation key from an existing application insights resource.
+> Before installing the Application Insights Agent, you'll need a connection string. [Create a new Application Insights Resource](./create-new-resource.md) or copy the connection string from an existing application insights resource.
 
 > [!NOTE]
-> New to powershell? Check out the [Get Started Guide](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azps-2.5.0).
+> New to PowerShell? Check out the [Get Started Guide](/powershell/azure/get-started-azureps).
 
 Install or update the Application Insights Agent as an extension for Azure virtual machines
 ```powershell
@@ -61,8 +64,9 @@ $publicCfgJsonString = '
         {
           "appFilter": ".*",
           "machineFilter": ".*",
+          "virtualPathFilter": ".*",
           "instrumentationSettings" : {
-            "instrumentationKey": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+            "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/" # Application Insights connection string, create new Application Insights resource if you don't have one. https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.insights%2Fcomponents
           }
         }
       ]
@@ -76,7 +80,7 @@ Set-AzVMExtension -ResourceGroupName "<myVmResourceGroup>" -VMName "<myVmName>" 
 ```
 
 > [!NOTE]
-> You may install or update the Application Insights Agent as an extension across multiple Virtual Machines at-scale using a Powershell loop.
+> You may install or update the Application Insights Agent as an extension across multiple Virtual Machines at-scale using a PowerShell loop.
 
 Uninstall Application Insights Agent extension from Azure virtual machine
 ```powershell
@@ -98,12 +102,12 @@ Get-AzResource -ResourceId "/subscriptions/<mySubscriptionId>/resourceGroups/<my
 # Location          : southcentralus
 # ResourceId        : /subscriptions/<mySubscriptionId>/resourceGroups/<myVmResourceGroup>/providers/Microsoft.Compute/virtualMachines/<myVmName>/extensions/ApplicationMonitoring
 ```
-You may also view installed extensions in the [Azure virtual machine blade](https://docs.microsoft.com/azure/virtual-machines/extensions/overview) in the Portal.
+You may also view installed extensions in the [Azure virtual machine section](../../virtual-machines/extensions/overview.md) in the Portal.
 
 > [!NOTE]
-> Verify installation by clicking on Live Metrics Stream within the Application Insights Resource associated with the instrumentation key you used to deploy the Application Insights Agent Extension. If you are sending data from multiple Virtual Machines, select the target Azure virtual machines under Server Name. It may take up to a minute for data to begin flowing.
+> Verify installation by clicking on Live Metrics Stream within the Application Insights Resource associated with the connection string you used to deploy the Application Insights Agent Extension. If you are sending data from multiple Virtual Machines, select the target Azure virtual machines under Server Name. It may take up to a minute for data to begin flowing.
 
-## Manage Application Insights Agent for .NET applications on Azure virtual machine scale sets using powershell
+## Manage Application Insights Agent for .NET applications on Azure virtual machine scale sets using PowerShell
 
 Install or update the Application Insights Agent as an extension for Azure virtual machine scale set
 ```powershell
@@ -115,8 +119,9 @@ $publicCfgHashtable =
         @{
           "appFilter"= ".*";
           "machineFilter"= ".*";
-          "instrumentationSettings"= @{
-            "instrumentationKey"= "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"; # Application Insights Instrumentation Key, create new Application Insights resource if you don't have one. https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.insights%2Fcomponents
+          "virtualPathFilter"= ".*";
+          "instrumentationSettings" = @{
+            "connectionString"= "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/" # Application Insights connection string, create new Application Insights resource if you don't have one. https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/microsoft.insights%2Fcomponents
           }
         }
       )
@@ -127,7 +132,7 @@ $privateCfgHashtable = @{};
 
 $vmss = Get-AzVmss -ResourceGroupName "<myResourceGroup>" -VMScaleSetName "<myVmssName>"
 
-Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ApplicationMonitoring" -Publisher "Microsoft.Azure.Diagnostics" -Type "ApplicationMonitoringWindows" -TypeHandlerVersion "2.8" -Setting $publicCfgHashtable -ProtectedSetting $privateCfgHashtable
+Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ApplicationMonitoringWindows" -Publisher "Microsoft.Azure.Diagnostics" -Type "ApplicationMonitoringWindows" -TypeHandlerVersion "2.8" -Setting $publicCfgHashtable -ProtectedSetting $privateCfgHashtable
 
 Update-AzVmss -ResourceGroupName $vmss.ResourceGroupName -Name $vmss.Name -VirtualMachineScaleSet $vmss
 
@@ -166,12 +171,28 @@ Get-AzResource -ResourceId /subscriptions/<mySubscriptionId>/resourceGroups/<myR
 Find troubleshooting tips for Application Insights Monitoring Agent Extension for .NET applications running on Azure virtual machines and virtual machine scale sets.
 
 > [!NOTE]
-> .NET Core, Java, and Node.js applications are only supported on Azure virtual machines and Azure virtual machine scale sets via manual SDK based instrumentation and therefore the steps below do not apply to these scenarios.
+> .NET Core, Node.js, and Python applications are only supported on Azure virtual machines and Azure virtual machine scale sets via manual SDK based instrumentation and therefore the steps below do not apply to these scenarios.
 
 Extension execution output is logged to files found in the following directories:
 ```Windows
 C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.ApplicationMonitoringWindows\<version>\
 ```
+
+## Release notes
+
+### 2.8.44
+
+- Updated ApplicationInsights .NET/.NET Core SDK to 2.20.1 - red field.
+- Enabled SQL query collection.
+- Enabled support for Azure Active Directory authentication.
+
+### 2.8.42
+
+- Updated ApplicationInsights .NET/.NET Core SDK to 2.18.1 - red field.
+
+### 2.8.41
+
+- Added ASP.NET Core Auto-Instrumentation feature.
 
 ## Next steps
 * Learn how to [deploy an application to an Azure virtual machine scale set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-deploy-app.md).

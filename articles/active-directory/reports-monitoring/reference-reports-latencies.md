@@ -4,17 +4,16 @@ description: Learn about the amount of time it takes for reporting events to sho
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: amycolannino
 editor: ''
 
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
 ms.service: active-directory
-ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/13/2019
+ms.date: 08/26/2022
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -51,8 +50,8 @@ If you already have activities data with your free license, then you can see it 
 
 There are two types of security reports:
 
-- [Risky sign-ins](concept-risky-sign-ins.md) - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. 
-- [Users flagged for risk](concept-user-at-risk.md) - A risky user is an indicator for a user account that might have been compromised. 
+- [Risky sign-ins](../identity-protection/overview-identity-protection.md) - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. 
+- [Users flagged for risk](../identity-protection/overview-identity-protection.md) - A risky user is an indicator for a user account that might have been compromised. 
 
 The following table lists the latency information for security reports.
 
@@ -81,4 +80,4 @@ The following table lists the latency information for risk detections.
 
 * [Azure AD reports overview](overview-reports.md)
 * [Programmatic access to Azure AD reports](concept-reporting-api.md)
-* [Azure Active Directory risk detections](concept-risk-events.md)
+* [Azure Active Directory risk detections](../identity-protection/overview-identity-protection.md)

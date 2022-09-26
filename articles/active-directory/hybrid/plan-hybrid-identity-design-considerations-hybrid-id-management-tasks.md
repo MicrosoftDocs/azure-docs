@@ -1,14 +1,13 @@
 ---
 title: Hybrid identity design - management tasks Azure | Microsoft Docs
-description: With Conditional Access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application.
+description: Azure AD checks the specific conditions you pick when authenticating the user and before allowing access to the application with Conditional Access control.
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: daveba
+manager: amycolannino
 editor: ''
 ms.assetid: 65f80aea-0426-4072-83e1-faf5b76df034
 ms.service: active-directory
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity

@@ -5,15 +5,18 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/03/2019
+ms.subservice: iot-edge
+ms.date: 02/15/2022
 ms.topic: article
-ms.service: event-grid
-services: event-grid
 ---
 
 
 # REST API
 This article describes the REST APIs of Azure Event Grid on IoT Edge
+
+> [!IMPORTANT]
+> On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date. For more information, see [Transition from Event Grid on Azure IoT Edge to Azure IoT Edge](transition.md). 
+
 
 ## Common API behavior
 
@@ -26,28 +29,28 @@ Event Grid on IoT Edge has the following APIs exposed over HTTP (port 5888) and 
 ### Request query string
 All API requests require the following query string parameter:
 
-```?api-version=2019-01-01-preview```
+`?api-version=2019-01-01-preview`
 
 ### Request content type
 All API requests must have a **Content-Type**.
 
 In case of **EventGridSchema** or **CustomSchema**, the value of Content-Type can be one of the following values:
 
-```Content-Type: application/json```
+`Content-Type: application/json`
 
-```Content-Type: application/json; charset=utf-8```
+`Content-Type: application/json; charset=utf-8`
 
 In case of **CloudEventSchemaV1_0** in structured mode, the value of Content-Type can be one of the following values:
 
-```Content-Type: application/cloudevents+json```
+`Content-Type: application/cloudevents+json`
     
-```Content-Type: application/cloudevents+json; charset=utf-8```
+`Content-Type: application/cloudevents+json; charset=utf-8`
     
-```Content-Type: application/cloudevents-batch+json```
+`Content-Type: application/cloudevents-batch+json`
     
-```Content-Type: application/cloudevents-batch+json; charset=utf-8```
+`Content-Type: application/cloudevents-batch+json; charset=utf-8`
 
-In case of **CloudEventSchemaV1_0** in binary mode, refer to [documentation](https://github.com/cloudevents/spec/blob/master/http-protocol-binding.md) for details.
+In case of **CloudEventSchemaV1_0** in binary mode, refer to [documentation](https://github.com/cloudevents/spec/blob/main/cloudevents/bindings/http-protocol-binding.md) for details.
 
 ### Error response
 All APIs return an error with the following payload:
@@ -179,6 +182,7 @@ Samples in this section use `EndpointType=Webhook;`. The json samples for `Endpo
             "eventExpiryInMinutes": 120,
             "maxDeliveryAttempts": 50
         },
+        "persistencePolicy": "true",
         "destination":
         {
             "endpointType": "WebHook",
@@ -682,3 +686,93 @@ SasKey:
 TopicName:
 - If the Subscription.EventDeliverySchema is set to EventGridSchema, the value from this field is put into every event's Topic field before being forwarded to Event Grid in the cloud.
 - If the Subscription.EventDeliverySchema is set to CustomEventSchema, this property is ignored and the custom event payload is forwarded exactly as it was received.
+
+## Set up Event Hubs as a destination
+
+To publish to an Event Hub, set the `endpointType` to `eventHub` and provide:
+
+* connectionString: Connection string for the specific Event Hub you're targeting generated via a Shared Access Policy.
+
+    >[!NOTE]
+    > The connection string must be entity specific. Using a namespace connection string will not work. You can generate an entity specific connection string by navigating to the specific Event Hub you would like to publish to in the Azure Portal and clicking **Shared access policies** to generate a new entity specific connecection string.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "eventHub",
+              "properties": {
+                "connectionString": "<your-event-hub-connection-string>"
+              }
+            }
+          }
+        }
+    ```
+
+## Set up Service Bus Queues as a destination
+
+To publish to a Service Bus Queue, set the `endpointType` to `serviceBusQueue` and provide:
+
+* connectionString: Connection string for the specific Service Bus Queue you're targeting generated via a Shared Access Policy.
+
+    >[!NOTE]
+    > The connection string must be entity specific. Using a namespace connection string will not work. Generate an entity specific connection string by navigating to the specific Service Bus Queue you would like to publish to in the Azure Portal and clicking **Shared access policies** to generate a new entity specific connecection string.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "serviceBusQueue",
+              "properties": {
+                "connectionString": "<your-service-bus-queue-connection-string>"
+              }
+            }
+          }
+        }
+    ```
+
+## Set up Service Bus Topics as a destination
+
+To publish to a Service Bus Topic, set the `endpointType` to `serviceBusTopic` and provide:
+
+* connectionString: Connection string for the specific Service Bus Topic you're targeting generated via a Shared Access Policy.
+
+    >[!NOTE]
+    > The connection string must be entity specific. Using a namespace connection string will not work. Generate an entity specific connection string by navigating to the specific Service Bus Topic you would like to publish to in the Azure Portal and clicking **Shared access policies** to generate a new entity specific connecection string.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "serviceBusTopic",
+              "properties": {
+                "connectionString": "<your-service-bus-topic-connection-string>"
+              }
+            }
+          }
+        }
+    ```
+
+## Set up Storage Queues as a destination
+
+To publish to a Storage Queue, set the  `endpointType` to `storageQueue` and provide:
+
+* queueName: Name of the Storage Queue you're publishing to.
+* connectionString: Connection string for the Storage Account the Storage Queue is in.
+
+  >[!NOTE]
+  > Unlike Event Hubs, Service Bus Queues, and Service Bus Topics, the connection string used for Storage Queues is not entity specific. Instead, it must be the connection string for the Storage Account.
+
+  ```json
+  {
+    "properties": {
+      "destination": {
+        "endpointType": "storageQueue",
+        "properties": {
+          "queueName": "<your-storage-queue-name>",
+          "connectionString": "<your-storage-account-connection-string>"
+        }
+      }
+    }
+  }
+  ```

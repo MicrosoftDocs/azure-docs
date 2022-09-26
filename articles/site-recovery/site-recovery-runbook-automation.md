@@ -1,12 +1,12 @@
-﻿---
+---
 title: Add Azure Automation runbooks to Site Recovery recovery plans
 description: Learn how to extend recovery plans with Azure Automation for disaster recovery using Azure Site Recovery.
-author: rajani-janaki-ram
-manager: gauravd
+author: v-pgaddala
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/18/2019
-ms.author: rajanaki
+ms.author: v-pgaddala
+ms.date: 08/10/2022
 ---
 
 # Add Azure Automation runbooks to recovery plans
@@ -52,6 +52,9 @@ When a script runs, it injects a recovery plan context to the runbook. The conte
 | RoleName |The name of the Azure VM. |
 | RecoveryPointId|The timestamp for the VM recovery. |
 
+>[!Note]
+>The value for variable 'FailoverDirection' will be 'PrimaryToSecondary' in case of failover and 'SecondaryToPrimary' in case of failback.
+
 The following example shows a context variable:
 
 ```
@@ -92,7 +95,7 @@ Aman Sharma's blog over at [Harvesting Clouds](http://harvestingclouds.com) has 
 
 ## Before you start
 
-- If you're new to Azure Automation, you can [sign up](https://azure.microsoft.com/services/automation/) and [download sample scripts](https://azure.microsoft.com/documentation/scripts/).
+- If you're new to Azure Automation, you can [sign up](https://azure.microsoft.com/services/automation/) and [download sample scripts](https://azure.microsoft.com/documentation/scripts/). For more information, see [Automation runbooks - known issues and limitations](../automation/automation-runbook-types.md#powershell-runbooks).
 - Ensure that the Automation account has the following modules:
     - AzureRM.profile
     - AzureRM.Resources
@@ -121,7 +124,7 @@ Aman Sharma's blog over at [Harvesting Clouds](http://harvestingclouds.com) has 
 
 You can use a single runbook script in multiple recovery plans, by using external variables. 
 
-- You use [Azure Automation variables](../automation/automation-variables.md) to store parameters for running a recovery plan.
+- You use [Azure Automation variables](../automation/shared-resources/variables.md) to store parameters for running a recovery plan.
 - By adding the recovery plan name as a prefix to the variable, you can create individual variables for each recovery plan. Then, use the variables as parameters.
 - You can change a parameter without changing the script, but still change the way the script works.
 
@@ -191,7 +194,7 @@ In some scenarios you might not be able to create separate variables for each re
 - For example, a SharePoint recovery has two front ends. A basic line-of-business (LOB) application has only one front end.
 - In this scenario you can't create separate variables for each recovery plan.
 
-In the following example, we create a [complex variable](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureautomationvariable) in the Azure Automation account.
+In the following example, we create a [complex variable](/powershell/module/servicemanagement/azure.service/set-azureautomationvariable) in the Azure Automation account.
 
 We do this by specifying multiple values, using Azure PowerShell.
 
@@ -251,14 +254,8 @@ To deploy sample scripts to your Automation account, click the **Deploy to Azure
 This video provides another example. It demonstrates how to recover a two-tier WordPress application to Azure:
 
 
-> [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/One-click-failover-of-a-2-tier-WordPress-application-using-Azure-Site-Recovery/player]
-
-
 ## Next steps
 
-- Learn about an [Azure Automation Run As account](../automation/automation-create-runas-account.md)
+- Learn about an [Azure Automation Run As account](../automation/manage-runas-account.md)
 - Review [Azure Automation sample scripts](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=User&f%5B0%5D.Value=SC%20Automation%20Product%20Team&f%5B0%5D.Text=SC%20Automation%20Product%20Team).
 - [Learn more](site-recovery-failover.md) about running failovers.
-
-
-

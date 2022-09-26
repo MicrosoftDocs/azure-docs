@@ -4,12 +4,11 @@ description: Identify the company’s business needs that will lead you to defin
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: daveba
+manager: amycolannino
 editor: ''
 
 ms.assetid: de690978-84ef-41ad-9dfe-785722d343a1
 ms.service: active-directory
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
@@ -55,7 +54,7 @@ You also need to be aware of the cloud services that your company might have. Pe
 * Is this integration currently in production or is it a pilot?
 
 > [!NOTE]
-> Cloud Discovery analyzes your traffic logs against Microsoft Cloud App Security's cloud app catalog of over 16,000 cloud apps that are ranked and scored based on more than 70 risk factors, to provide you with ongoing visibility into cloud use, Shadow IT, and the risk Shadow IT poses into your organization.To get started see [Set up Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
+> Cloud Discovery analyzes your traffic logs against the Microsoft Defender for Cloud Apps catalog of over 16,000 cloud apps that are ranked and scored based on more than 70 risk factors, to provide you with ongoing visibility into cloud use, Shadow IT, and the risk Shadow IT poses into your organization.To get started see [Set up Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 > 
 > 
 
@@ -68,10 +67,10 @@ Next, you need to evaluate the identity integration requirements. This evaluatio
   * Your company has an on-premises applications (either built in-house or 3rd party) that uses SAML or similar federation capabilities.
   * MFA via Smart Cards. RSA SecurID, etc.
   * Client access rules that address the questions below:
-    1. Can I block all external access to Office 365 based on the IP address of the client?
-    2. Can I block all external access to Office 365, except Exchange ActiveSync?
-    3. Can I block all external access to Office 365, except for browser-based apps (OWA, SPO)
-    4. Can I block all external access to Office 365 for members of designated AD groups
+    1. Can I block all external access to Microsoft 365 based on the IP address of the client?
+    2. Can I block all external access to Microsoft 365, except Exchange ActiveSync?
+    3. Can I block all external access to Microsoft 365, except for browser-based apps (OWA, SPO)
+    4. Can I block all external access to Microsoft 365 for members of designated AD groups
 * Security/auditing concerns
 * Already existing investment in federated authentication
 * What name will our organization use for our domain in the cloud?
@@ -108,4 +107,3 @@ You also have to evaluate the user requirements. This evaluation is important to
 
 ## See also
 [Design considerations overview](plan-hybrid-identity-design-considerations-overview.md)
-

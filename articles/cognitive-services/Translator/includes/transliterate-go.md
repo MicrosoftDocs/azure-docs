@@ -1,9 +1,10 @@
 ---
-author: erhopf
+author: laujan
 ms.service: cognitive-services
+ms.subservice: translator-text
 ms.topic: include
 ms.date: 08/06/2019
-ms.author: erhopf
+ms.author: lajanuar
 ---
 
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
@@ -30,22 +31,22 @@ import (
 
 ## Create the main function
 
-This sample will try to read your Translator Text subscription key and endpoint from these environment variables: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` and `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `subscriptionKey` and `endpoint` as strings and comment out the conditional statements.
+This sample will try to read your Translator key and endpoint from these environment variables: `TRANSLATOR_TEXT_KEY` and `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `key` and `endpoint` as strings and comment out the conditional statements.
 
 Copy this code into your project:
 
 ```go
 func main() {
     /*
-    * Read your subscription key from an env variable.
+    * Read your key from an env variable.
     * Please note: You can replace this code block with
-    * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
+    * var key = "YOUR_KEY" if you don't
     * want to use env variables. If so, be sure to delete the "os" import.
     */
-    if "" == os.Getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY") {
-      log.Fatal("Please set/export the environment variable TRANSLATOR_TEXT_SUBSCRIPTION_KEY.")
+    if "" == os.Getenv("TRANSLATOR_TEXT_KEY") {
+      log.Fatal("Please set/export the environment variable TRANSLATOR_TEXT_KEY.")
     }
-    subscriptionKey := os.Getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY")
+    key := os.Getenv("TRANSLATOR_TEXT_KEY")
     if "" == os.Getenv("TRANSLATOR_TEXT_ENDPOINT") {
       log.Fatal("Please set/export the environment variable TRANSLATOR_TEXT_ENDPOINT.")
     }
@@ -54,18 +55,18 @@ func main() {
     /*
      * This calls our breakSentence function, which we'll
      * create in the next section. It takes a single argument,
-     * the subscription key.
+     * the key.
      */
-    transliterate(subscriptionKey, uri)
+    transliterate(key, uri)
 }
 ```
 
 ## Create a function to transliterate text
 
-Let's create a function to transliterate text. This function will take a single argument, your Translator Text subscription key.
+Let's create a function to transliterate text. This function will take a single argument, your Translator key.
 
 ```go
-func transliterate(subscriptionKey string, uri string) {
+func transliterate(key string, uri string) {
     /*  
      * In the next few sections, we'll add code to this
      * function to make a request and handle the response.
@@ -78,7 +79,7 @@ Next, let's construct the URL. The URL is built using the `Parse()` and `Query()
 Copy this code into the `transliterate` function.
 
 ```go
-// Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
+// Build the request URL. See: https://go.dev/pkg/net/url/#example_URL_Parse
 u, _ := url.Parse(uri)
 q := u.Query()
 q.Add("language", "ja")
@@ -88,7 +89,7 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> For more information about endpoints, routes, and request parameters, see [Translator Text API 3.0: Transliterate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
+> For more information about endpoints, routes, and request parameters, see [Translator 3.0: Transliterate](../reference/v3-0-transliterate.md).
 
 ## Create a struct for your request body
 
@@ -106,7 +107,7 @@ b, _ := json.Marshal(body)
 
 ## Build the request
 
-Now that you've encoded the request body as JSON, you can build your POST request, and call the Translator Text API.
+Now that you've encoded the request body as JSON, you can build your POST request, and call the Translator.
 
 ```go
 // Build the HTTP POST request
@@ -115,17 +116,17 @@ if err != nil {
     log.Fatal(err)
 }
 // Add required headers to the request
-req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
+req.Header.Add("Ocp-Apim-Subscription-Key", key)
 req.Header.Add("Content-Type", "application/json")
 
-// Call the Translator Text API
+// Call the Translator
 res, err := http.DefaultClient.Do(req)
 if err != nil {
     log.Fatal(err)
 }
 ```
 
-If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](../reference/v3-0-reference.md#authentication).
 
 ## Handle and print the response
 
@@ -144,7 +145,7 @@ fmt.Printf("%s\n", prettyJSON)
 
 ## Put it all together
 
-That's it, you've put together a simple program that will call the Translator Text API and return a JSON response. Now it's time to run your program:
+That's it, you've put together a simple program that will call the Translator and return a JSON response. Now it's time to run your program:
 
 ```console
 go run transliterate-text.go
@@ -165,7 +166,7 @@ If you'd like to compare your code against ours, the complete sample is availabl
 
 ## Next steps
 
-Take a look at the API reference to understand everything you can do with the Translator Text API.
+Take a look at the API reference to understand everything you can do with the Translator.
 
 > [!div class="nextstepaction"]
-> [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+> [API reference](../reference/v3-0-reference.md)

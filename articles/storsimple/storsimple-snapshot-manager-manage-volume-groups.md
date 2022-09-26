@@ -3,21 +3,23 @@ title: StorSimple Snapshot Manager volume groups | Microsoft Docs
 description: Describes how to use the StorSimple Snapshot Manager MMC snap-in to create and manage volume groups.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: alkohli
 manager: carmonm
 editor: ''
 
 ms.assetid: 7a232414-6a28-4b81-bd7b-cf61e28b33d7
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/05/2017
-ms.author: v-sharos
+ms.date: 08/22/2022
+ms.author: alkohli
 
 ---
 # Use StorSimple Snapshot Manager to create and manage volume groups
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
+
 ## Overview
 You can use the **Volume Groups** node on the **Scope** pane to assign volumes to volume groups, view information about a volume group, schedule backups, and edit volume groups.
 
@@ -103,7 +105,7 @@ Use the following procedure to edit a volume group.
 #### To edit a volume group
 1. Click the desktop icon to start StorSimple Snapshot Manager.
 2. In the **Scope** pane, expand the **Volume Groups** node, right-click a volume group name, and then click **Edit**.
-3. The **Create a volume group **dialog box appears. You can change the **Name**, **Applications**, and **Volumes** entries.
+3. The **Create a volume group** dialog box appears. You can change the **Name**, **Applications**, and **Volumes** entries.
 4. Click **OK** to save your changes.
 
 ## Delete a volume group

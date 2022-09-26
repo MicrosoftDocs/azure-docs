@@ -14,6 +14,8 @@ ms.author: aahi
 
 # What are the Bing Search APIs?
 
+[!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
+
 The Bing Search APIs let you build web-connected apps and services that find webpages, images, news, locations, and more without advertisements. By sending search requests using the Bing Search REST APIs or SDKs, you can get relevant information and content for web searches. Use this article to learn about the different Bing search APIs and how you can integrate cognitive searches into your applications and services. Pricing and rate limits may vary between APIs.
 
 ## The Bing Web Search API

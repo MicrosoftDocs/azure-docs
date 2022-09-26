@@ -3,18 +3,18 @@ title: Configure Speech containers
 titleSuffix: Azure Cognitive Services
 description: Speech service provides each container with a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
 services: cognitive-services
-author: IEvangelist
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 11/07/2019
-ms.author: dapine
+ms.topic: how-to
+ms.date: 07/22/2021
+ms.author: eur
 ---
 
 # Configure Speech service containers
 
-Speech containers enable customers to build one speech application architecture that is optimized to take advantage of both robust cloud capabilities and edge locality. The four speech containers we support now are, **speech-to-text**, **custom-speech-to-text**, **text-to-speech**, and **custom-text-to-speech**.
+Speech containers enable customers to build one speech application architecture that is optimized to take advantage of both robust cloud capabilities and edge locality. The five speech containers we support now are, **speech-to-text**, **custom-speech-to-text**, **text-to-speech**, **neural-text-to-speech** and **custom-text-to-speech**.
 
 The **Speech** container runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings.
 
@@ -47,7 +47,7 @@ This setting can be found in the following place:
 
 | Required | Name | Data type | Description |
 | -------- | ---- | --------- | ----------- |
-| Yes | `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gathering required parameters](speech-container-howto.md#gathering-required-parameters). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../cognitive-services-custom-subdomains.md). |
+| Yes | `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gather required parameters](speech-container-howto.md#gather-required-parameters). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 ## Eula setting
 
@@ -71,7 +71,7 @@ Use bind mounts to read and write data to and from the container. You can specif
 
 The Standard Speech containers don't use input or output mounts to store training or service data. However, custom speech containers rely on volume mounts.
 
-The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](speech-container-howto.md#the-host-computer)'s mount location may not be accessible due to a conflict between permissions used by the docker service account and the host mount location permissions.
+The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](speech-container-howto.md#host-computer-requirements-and-recommendations)'s mount location may not be accessible due to a conflict between permissions used by the docker service account and the host mount location permissions.
 
 | Optional | Name | Data type | Description |
 | -------- | ---- | --------- | ----------- |
@@ -99,7 +99,7 @@ The volume mount setting consists of three color `:` separated fields:
 This command mounts the host machine _C:\input_ directory to the containers _/usr/local/models_ directory.
 
 > [!IMPORTANT]
-> The volume mount settings are only applicable to **Custom Speech-to-text** and **Custom Text-to-speech** containers. The standard **Speech-to-text** and **Text-to-speech** containers do not use volume mounts.
+> The volume mount settings are only applicable to **Custom Speech-to-text** and **Custom Text-to-speech** containers. The **Speech-to-text**, **Neural Text-to-speech** and **Text-to-speech** containers do not use volume mounts.
 
 ## Example docker run commands
 
@@ -113,7 +113,7 @@ Replace {_argument_name_} with your own values:
 | Placeholder | Value | Format or example |
 | ----------- | ----- | ----------------- |
 | **{API_KEY}** | The endpoint key of the `Speech` resource on the Azure `Speech` Keys page.   | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`                                                                                  |
-| **{ENDPOINT_URI}** | The billing endpoint value is available on the Azure `Speech` Overview page. | See [gathering required parameters](speech-container-howto.md#gathering-required-parameters) for explicit examples. |
+| **{ENDPOINT_URI}** | The billing endpoint value is available on the Azure `Speech` Overview page. | See [gather required parameters](speech-container-howto.md#gather-required-parameters) for explicit examples. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -131,7 +131,7 @@ The following Docker examples are for the Speech container.
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
-containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
+mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -141,7 +141,7 @@ ApiKey={API_KEY}
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
-containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text \
+mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} \
@@ -155,7 +155,7 @@ Logging:Console:LogLevel:Default=Information
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
 -v {VOLUME_MOUNT}:/usr/local/models \
-containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text \
+mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text \
 ModelId={MODEL_ID} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -167,7 +167,7 @@ ApiKey={API_KEY}
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
 -v {VOLUME_MOUNT}:/usr/local/models \
-containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text \
+mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text \
 ModelId={MODEL_ID} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -181,7 +181,7 @@ Logging:Console:LogLevel:Default=Information
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
-containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
+mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -191,7 +191,7 @@ ApiKey={API_KEY}
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
-containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
+mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} \
@@ -205,7 +205,7 @@ Logging:Console:LogLevel:Default=Information
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 -v {VOLUME_MOUNT}:/usr/local/models \
-containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
+mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech \
 ModelId={MODEL_ID} \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -217,8 +217,54 @@ ApiKey={API_KEY}
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 -v {VOLUME_MOUNT}:/usr/local/models \
-containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
+mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech \
 ModelId={MODEL_ID} \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+Logging:Console:LogLevel:Default=Information
+```
+
+## [Neural Text-to-speech](#tab/ntts)
+
+### Basic example for Neural Text-to-speech
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
+mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+### Logging example for Neural Text-to-speech
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
+mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+Logging:Console:LogLevel:Default=Information
+```
+
+## [Speech Language Identification](#tab/lid)
+
+### Basic example for Speech language identification
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
+mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+### Logging example for Speech language identification
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
+mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} \

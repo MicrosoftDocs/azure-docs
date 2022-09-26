@@ -1,217 +1,197 @@
 ---
-title: Speech-to-text API reference (REST) - Speech service
+title: Speech-to-text REST API - Speech service
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the speech-to-text REST API. In this article, you'll learn about authorization options, query options, how to structure a request and receive a response.
+description: Get reference documentation for Speech-to-text REST API.
 services: cognitive-services
-author: erhopf
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 12/09/2019
-ms.author: erhopf
+ms.topic: reference
+ms.date: 09/10/2022
+ms.author: eur
+ms.devlang: csharp
+ms.custom: devx-track-csharp
 ---
 
 # Speech-to-text REST API
 
-As an alternative to the [Speech SDK](speech-sdk.md), the Speech service allows you to convert speech-to-text using a REST API. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use.
+Speech-to-text REST API is used for [Batch transcription](batch-transcription.md) and [Custom Speech](custom-speech-overview.md). 
 
-Before using the speech-to-text REST API, understand:
+> [!IMPORTANT]
+> Speech-to-text REST API v3.1 is currently in public preview. Once it's generally available, version 3.0 of the [Speech to Text REST API](rest-speech-to-text.md) will be deprecated. For more information, see the [Migrate code from v3.0 to v3.1 of the REST API](migrate-v3-0-to-v3-1.md) guide.
 
-* Requests that use the REST API and transmit audio directly can only contain up to 60 seconds of audio.
-* The speech-to-text REST API only returns final results. Partial results are not provided.
+> [!div class="nextstepaction"]
+> [See the Speech to Text API v3.1 preview reference documentation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/)
 
-If sending longer audio is a requirement for your application, consider using the [Speech SDK](speech-sdk.md) or a file-based REST API, like [batch transcription](batch-transcription.md).
+> [!div class="nextstepaction"]
+> [See the Speech to Text API v3.0 reference documentation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/)
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
+Use Speech-to-text REST API to:
 
-## Regions and endpoints
+- [Custom Speech](custom-speech-overview.md): With Custom Speech, you can upload your own data, test and train a custom model, compare accuracy between models, and deploy a model to a custom endpoint. Copy models to other subscriptions if you want colleagues to have access to a model that you built, or if you want to deploy a model to more than one region.
+- [Batch transcription](batch-transcription.md): Transcribe audio files as a batch from multiple URLs or an Azure container. 
 
-These regions are supported for speech-to-text transcription using the REST API. Make sure that you select the endpoint that matches your subscription region.
+Speech-to-text REST API includes such features as:
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)] 
+- Get logs for each endpoint if logs have been requested for that endpoint.
+- Request the manifest of the models that you create, to set up on-premises containers.
+- Upload data from Azure storage accounts by using a shared access signature (SAS) URI.
+- Bring your own storage. Use your own storage accounts for logs, transcription files, and other data.
+- Some operations support webhook notifications. You can register your webhooks where notifications are sent.
 
-## Query parameters
+## Datasets
 
-These parameters may be included in the query string of the REST request.
+Datasets are applicable for [Custom Speech](custom-speech-overview.md). You can use datasets to train and test the performance of different models. For example, you can compare the performance of a model trained with a specific dataset to the performance of a model trained with a different dataset.
 
-| Parameter | Description | Required / Optional |
-|-----------|-------------|---------------------|
-| `language` | Identifies the spoken language that is being recognized. See [Supported languages](language-support.md#speech-to-text). | Required |
-| `format` | Specifies the result format. Accepted values are `simple` and `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and `Duration`. Detailed responses include multiple results with confidence values and four different representations. The default setting is `simple`. | Optional |
-| `profanity` | Specifies how to handle profanity in recognition results. Accepted values are `masked`, which replaces profanity with asterisks, `removed`, which removes all profanity from the result, or `raw`, which includes the profanity in the result. The default setting is `masked`. | Optional |
+See [Upload training and testing datasets](how-to-custom-speech-upload-data.md?pivots=rest-api) for examples of how to upload datasets. This table includes all the operations that you can perform on datasets.
 
-## Request headers
+|Path|Method|Version 3.1 (Preview)|Version 3.0|
+|---------|---------|---------|---------|
+|`/datasets`|GET|[Datasets_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Datasets_List)|[GetDatasets](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetDatasets)|
+|`/datasets`|POST|[Datasets_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Datasets_Create)|[CreateDataset](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset)|
+|`/datasets/{id}`|DELETE|[Datasets_Delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Datasets_Delete)|[DeleteDataset](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteDataset)|
+|`/datasets/{id}`|GET|[Datasets_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Datasets_Get)|[GetDataset](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetDataset)|
+|`/datasets/{id}`|PATCH|[Datasets_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Datasets_Update)|[UpdateDataset](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateDataset)|
+|`/datasets/{id}/blocks:commit`|POST|[Datasets_CommitBlocks](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Datasets_CommitBlocks)|Not applicable|
+|`/datasets/{id}/blocks`|GET|[Datasets_GetDatasetBlocks](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Datasets_GetDatasetBlocks)|Not applicable|
+|`/datasets/{id}/blocks`|PUT|[Datasets_UploadBlock](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Datasets_UploadBlock)|Not applicable|
+|`/datasets/{id}/files`|GET|[Datasets_ListFiles](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Datasets_ListFiles)|[GetDatasetFiles](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetDatasetFiles)|
+|`/datasets/{id}/files/{fileId}`|GET|[Datasets_GetFile](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Datasets_GetFile)|[GetDatasetFile](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetDatasetFile)|
+|`/datasets/locales`|GET|[Datasets_ListSupportedLocales](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Datasets_ListSupportedLocales)|[GetSupportedLocalesForDatasets](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetSupportedLocalesForDatasets)|
+|`/datasets/upload`|POST|[Datasets_Upload](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Datasets_Upload)|[UploadDatasetFromForm](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UploadDatasetFromForm)|
 
-This table lists required and optional headers for speech-to-text requests.
+## Endpoints
 
-|Header| Description | Required / Optional |
-|------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | Your Speech service subscription key. | Either this header or `Authorization` is required. |
-| `Authorization` | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Either this header or `Ocp-Apim-Subscription-Key` is required. |
-| `Content-type` | Describes the format and codec of the provided audio data. Accepted values are `audio/wav; codecs=audio/pcm; samplerate=16000` and `audio/ogg; codecs=opus`. | Required |
-| `Transfer-Encoding` | Specifies that chunked audio data is being sent, rather than a single file. Only use this header if chunking audio data. | Optional |
-| `Expect` | If using chunked transfer, send `Expect: 100-continue`. The Speech service acknowledges the initial request and awaits additional data.| Required if sending chunked audio data. |
-| `Accept` | If provided, it must be `application/json`. The Speech service provides results in JSON. Some request frameworks provide an incompatible default value. It is good practice to always include `Accept`. | Optional, but recommended. |
+Endpoints are applicable for [Custom Speech](custom-speech-overview.md). You must deploy a custom endpoint to use a Custom Speech model.  
 
-## Audio formats
+See [Deploy a model](how-to-custom-speech-deploy-model.md?pivots=rest-api) for examples of how to manage deployment endpoints. This table includes all the operations that you can perform on endpoints.
 
-Audio is sent in the body of the HTTP `POST` request. It must be in one of the formats in this table:
+|Path|Method|Version 3.1 (Preview)|Version 3.0|
+|---------|---------|---------|---------|
+|`/endpoints`|GET|[Endpoints_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Endpoints_List)|[GetEndpoints](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetEndpoints)|
+|`/endpoints`|POST|[Endpoints_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Endpoints_Create)|[CreateEndpoint](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateEndpoint)|
+|`/endpoints/{id}`|DELETE|[Endpoints_Delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Endpoints_Delete)|[DeleteEndpoint](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteEndpoint)|
+|`/endpoints/{id}`|GET|[Endpoints_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Endpoints_Get)|[GetEndpoint](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetEndpoint)|
+|`/endpoints/{id}`|PATCH|[Endpoints_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Endpoints_Update)|[UpdateEndpoint](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateEndpoint)|
+|`/endpoints/{id}/files/logs`|DELETE|[Endpoints_DeleteLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Endpoints_DeleteLogs)|[DeleteEndpointLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteEndpointLogs)|
+|`/endpoints/{id}/files/logs`|GET|[Endpoints_ListLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Endpoints_ListLogs)|[GetEndpointLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetEndpointLogs)|
+|`/endpoints/{id}/files/logs/{logId}`|DELETE|[Endpoints_DeleteLog](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Endpoints_DeleteLog)|[DeleteEndpointLog](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteEndpointLog)|
+|`/endpoints/{id}/files/logs/{logId}`|GET|[Endpoints_GetLog](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Endpoints_GetLog)|[GetEndpointLog](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetEndpointLog)|
+|`/endpoints/base/{locale}/files/logs`|DELETE|[Endpoints_DeleteBaseModelLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Endpoints_DeleteBaseModelLogs)|[DeleteBaseModelLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteBaseModelLogs)|
+|`/endpoints/base/{locale}/files/logs`|GET|[Endpoints_ListBaseModelLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Endpoints_ListBaseModelLogs)|[GetBaseModelLogs](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModelLogs)|
+|`/endpoints/base/{locale}/files/logs/{logId}`|DELETE|[Endpoints_DeleteBaseModelLog](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Endpoints_DeleteBaseModelLog)|[DeleteBaseModelLog](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteBaseModelLog)|
+|`/endpoints/base/{locale}/files/logs/{logId}`|GET|[Endpoints_GetBaseModelLog](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Endpoints_GetBaseModelLog)|[GetBaseModelLog](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModelLog)|
+|`/endpoints/locales`|GET|[Endpoints_ListSupportedLocales](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Endpoints_ListSupportedLocales)|[GetSupportedLocalesForEndpoints](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetSupportedLocalesForEndpoints)|
 
-| Format | Codec | Bitrate | Sample Rate |
-|--------|-------|---------|-------------|
-| WAV | PCM | 16-bit | 16 kHz, mono |
-| OGG | OPUS | 16-bit | 16 kHz, mono |
+## Evaluations
 
->[!NOTE]
->The above formats are supported through REST API and WebSocket in the Speech service. The [Speech SDK](speech-sdk.md) currently only supports the WAV format with PCM codec.
+Evaluations are applicable for [Custom Speech](custom-speech-overview.md). You can use evaluations to compare the performance of different models. For example, you can compare the performance of a model trained with a specific dataset to the performance of a model trained with a different dataset.
 
-## Sample request
+See [Test recognition quality](how-to-custom-speech-inspect-data.md?pivots=rest-api) and [Test accuracy](how-to-custom-speech-evaluate-data.md?pivots=rest-api) for examples of how to test and evaluate Custom Speech models. This table includes all the operations that you can perform on evaluations.
 
-The sample below includes the hostname and required headers. It's important to note that the service also expects audio data, which is not included in this sample. As mentioned earlier, chunking is recommended, however, not required.
+|Path|Method|Version 3.1 (Preview)|Version 3.0|
+|---------|---------|---------|---------|
+|`/evaluations`|GET|[Evaluations_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Evaluations_List)|[GetEvaluations](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetEvaluations)|
+|`/evaluations`|POST|[Evaluations_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Evaluations_Create)|[CreateEvaluation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateEvaluation)|
+|`/evaluations/{id}`|DELETE|[Evaluations_Delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Evaluations_Delete)|[DeleteEvaluation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteEvaluation)|
+|`/evaluations/{id}`|GET|[Evaluations_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Evaluations_Get)|[GetEvaluation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetEvaluation)|
+|`/evaluations/{id}`|PATCH|[Evaluations_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Evaluations_Update)|[UpdateEvaluation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateEvaluation)|
+|`/evaluations/{id}/files`|GET|[Evaluations_ListFiles](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Evaluations_ListFiles)|[GetEvaluationFiles](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetEvaluationFiles)|
+|`/evaluations/{id}/files/{fileId}`|GET|[Evaluations_GetFile](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Evaluations_GetFile)|[GetEvaluationFile](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetEvaluationFile)|
+|`/evaluations/locales`|GET|[Evaluations_ListSupportedLocales](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Evaluations_ListSupportedLocales)|[GetSupportedLocalesForEvaluations](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetSupportedLocalesForEvaluations)|
 
-```HTTP
-POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
-Accept: application/json;text/xml
-Content-Type: audio/wav; codecs=audio/pcm; samplerate=16000
-Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
-Host: westus.stt.speech.microsoft.com
-Transfer-Encoding: chunked
-Expect: 100-continue
-```
+## Health status
 
-## HTTP status codes
+Health status provides insights about the overall health of the service and sub-components.
 
-The HTTP status code for each response indicates success or common errors.
+|Path|Method|Version 3.1 (Preview)|Version 3.0|
+|---------|---------|---------|---------|
+|`/healthstatus`|GET|[HealthStatus_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/HealthStatus_Get)|[GetHealthStatus](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetHealthStatus)|
 
-| HTTP status code | Description | Possible reason |
-|------------------|-------------|-----------------|
-| 100 | Continue | The initial request has been accepted. Proceed with sending the rest of the data. (Used with chunked transfer.) |
-| 200 | OK | The request was successful; the response body is a JSON object. |
-| 400 | Bad request | Language code not provided, not a supported language, invalid audio file, etc. |
-| 401 | Unauthorized | Subscription key or authorization token is invalid in the specified region, or invalid endpoint. |
-| 403 | Forbidden | Missing subscription key or authorization token. |
+## Models
 
-## Chunked transfer
+Models are applicable for [Custom Speech](custom-speech-overview.md) and [Batch Transcription](batch-transcription.md). You can use models to transcribe audio files. For example, you can use a model trained with a specific dataset to transcribe audio files. 
 
-Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency. It allows the Speech service to begin processing the audio file while it is transmitted. The REST API does not provide partial or interim results.
+See [Train a model](how-to-custom-speech-train-model.md?pivots=rest-api) and [Custom Speech model lifecycle](how-to-custom-speech-model-and-endpoint-lifecycle.md?pivots=rest-api) for examples of how to train and manage Custom Speech models. This table includes all the operations that you can perform on models.
 
-This code sample shows how to send audio in chunks. Only the first chunk should contain the audio file's header. `request` is an HTTPWebRequest object connected to the appropriate REST endpoint. `audioFile` is the path to an audio file on disk.
+|Path|Method|Version 3.1 (Preview)|Version 3.0|
+|---------|---------|---------|---------|
+|`/models`|GET|[Models_ListCustomModels](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Models_ListCustomModels)|[GetModels](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModels)|
+|`/models`|POST|[Models_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Models_Create)|[CreateModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateModel)|
+|`/models/{id}:copyto`<sup>1</sup>|POST|[Models_CopyTo](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Models_CopyTo)|[CopyModelToSubscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription)|
+|`/models/{id}`|DELETE|[Models_Delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Models_Delete)|[DeleteModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteModel)|
+|`/models/{id}`|GET|[Models_GetCustomModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Models_GetCustomModel)|[GetModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModel)|
+|`/models/{id}`|PATCH|[Models_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Models_Update)|[UpdateModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateModel)|
+|`/models/{id}/files`|GET|[Models_ListFiles](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Models_ListFiles)|Not applicable|
+|`/models/{id}/files/{fileId}`|GET|[Models_GetFile](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Models_GetFile)|Not applicable|
+|`/models/{id}/manifest`|GET|[Models_GetCustomModelManifest](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Models_GetCustomModelManifest)|[GetModelManifest](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModelManifest)|
+|`/models/base`|GET|[Models_ListBaseModels](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Models_ListBaseModels)|[GetBaseModels](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModels)|
+|`/models/base/{id}`|GET|[Models_ListBaseModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Models_ListBaseModel)|[GetBaseModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel)|
+|`/models/base/{id}/manifest`|GET|[Models_GetBaseModelManifest](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Models_GetBaseModelManifest)|[GetBaseModelManifest](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModelManifest)|
+|`/models/locales`|GET|[Models_ListSupportedLocales](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Models_ListSupportedLocales)|[GetSupportedLocalesForModels](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetSupportedLocalesForModels)|
 
-```csharp
+## Projects
 
-    HttpWebRequest request = null;
-    request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
-    request.SendChunked = true;
-    request.Accept = @"application/json;text/xml";
-    request.Method = "POST";
-    request.ProtocolVersion = HttpVersion.Version11;
-    request.Host = host;
-    request.ContentType = @"audio/wav; codecs=audio/pcm; samplerate=16000";
-    request.Headers["Ocp-Apim-Subscription-Key"] = args[1];
-    request.AllowWriteStreamBuffering = false;
+Projects are applicable for [Custom Speech](custom-speech-overview.md). Custom Speech projects contain models, training and testing datasets, and deployment endpoints. Each project is specific to a [locale](language-support.md?tabs=stt-tts). For example, you might create a project for English in the United States.
 
-using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
-{
-    /*
-    * Open a request stream and write 1024 byte chunks in the stream one at a time.
-    */
-    byte[] buffer = null;
-    int bytesRead = 0;
-    using (Stream requestStream = request.GetRequestStream())
-    {
-        /*
-        * Read 1024 raw bytes from the input audio file.
-        */
-        buffer = new Byte[checked((uint)Math.Min(1024, (int)fs.Length))];
-        while ((bytesRead = fs.Read(buffer, 0, buffer.Length)) != 0)
-        {
-            requestStream.Write(buffer, 0, bytesRead);
-        }
+See [Create a project](how-to-custom-speech-create-project.md?pivots=rest-api) for examples of how to create projects. This table includes all the operations that you can perform on projects.
 
-        // Flush
-        requestStream.Flush();
-    }
-}
-```
+|Path|Method|Version 3.1 (Preview)|Version 3.0|
+|---------|---------|---------|---------|
+|`/projects`|GET|[Projects_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Projects_List)|[GetProjects](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects)|
+|`/projects`|POST|[Projects_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Projects_Create)|[CreateProject](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateProject)|
+|`/projects/{id}`|DELETE|[Projects_Delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Projects_Delete)|[DeleteProject](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteProject)|
+|`/projects/{id}`|GET|[Projects_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Projects_Get)|[GetProject](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProject)|
+|`/projects/{id}`|PATCH|[Projects_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Projects_Update)|[UpdateProject](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateProject)|
+|`/projects/{id}/datasets`|GET|[Projects_ListDatasets](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Projects_ListDatasets)|[GetDatasetsForProject](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetDatasetsForProject)|
+|`/projects/{id}/endpoints`|GET|[Projects_ListEndpoints](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Projects_ListEndpoints)|[GetEndpointsForProject](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetEndpointsForProject)|
+|`/projects/{id}/evaluations`|GET|[Projects_ListEvaluations](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Projects_ListEvaluations)|[GetEvaluationsForProject](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetEvaluationsForProject)|
+|`/projects/{id}/models`|GET|[Projects_ListModels](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Projects_ListModels)|[GetModelsForProject](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModelsForProject)|
+|`/projects/{id}/transcriptions`|GET|[Projects_ListTranscriptions](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Projects_ListTranscriptions)|[GetTranscriptionsForProject](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptionsForProject)|
+|`/projects/locales`|GET|[Projects_ListSupportedLocales](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Projects_ListSupportedLocales)|[GetSupportedProjectLocales](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetSupportedProjectLocales)|
 
-## Response parameters
 
-Results are provided as JSON. The `simple` format includes these top-level fields.
+## Transcriptions
 
-| Parameter | Description  |
-|-----------|--------------|
-|`RecognitionStatus`|Status, such as `Success` for successful recognition. See next table.|
-|`DisplayText`|The recognized text after capitalization, punctuation, inverse text normalization (conversion of spoken text to shorter forms, such as 200 for "two hundred" or "Dr. Smith" for "doctor smith"), and profanity masking. Present only on success.|
-|`Offset`|The time (in 100-nanosecond units) at which the recognized speech begins in the audio stream.|
-|`Duration`|The duration (in 100-nanosecond units) of the recognized speech in the audio stream.|
+Transcriptions are applicable for [Batch Transcription](batch-transcription.md). Batch transcription is used to transcribe a large amount of audio in storage. You should send multiple files per request or point to an Azure Blob Storage container with the audio files to transcribe.
 
-The `RecognitionStatus` field may contain these values:
+See [Create a transcription](batch-transcription-create.md?pivots=rest-api) for examples of how to create a transcription from multiple audio files. This table includes all the operations that you can perform on transcriptions.
 
-| Status | Description |
-|--------|-------------|
-| `Success` | The recognition was successful and the `DisplayText` field is present. |
-| `NoMatch` | Speech was detected in the audio stream, but no words from the target language were matched. Usually means the recognition language is a different language from the one the user is speaking. |
-| `InitialSilenceTimeout` | The start of the audio stream contained only silence, and the service timed out waiting for speech. |
-| `BabbleTimeout` | The start of the audio stream contained only noise, and the service timed out waiting for speech. |
-| `Error` | The recognition service encountered an internal error and could not continue. Try again if possible. |
+|Path|Method|Version 3.1 (Preview)|Version 3.0|
+|---------|---------|---------|---------|
+|`/transcriptions`|GET|[Transcriptions_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Transcriptions_List)|[GetTranscriptions](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions)|
+|`/transcriptions`|POST|[Transcriptions_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Transcriptions_Create)|[CreateTranscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateTranscription)|
+|`/transcriptions/{id}`|DELETE|[Transcriptions_Delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Transcriptions_Delete)|[DeleteTranscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription)|
+|`/transcriptions/{id}`|GET|[Transcriptions_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Transcriptions_Get)|[GetTranscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscription)|
+|`/transcriptions/{id}`|PATCH|[Transcriptions_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Transcriptions_Update)|[UpdateTranscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateTranscription)|
+|`/transcriptions/{id}/files`|GET|[Transcriptions_ListFiles](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Transcriptions_ListFiles)|[GetTranscriptionFiles](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptionFiles)|
+|`/transcriptions/{id}/files/{fileId}`|GET|[Transcriptions_GetFile](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Transcriptions_GetFile)|[GetTranscriptionFile](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptionFile)|
+|`/transcriptions/locales`|GET|[Transcriptions_ListSupportedLocales](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/Transcriptions_ListSupportedLocales)|[GetSupportedLocalesForTranscriptions](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetSupportedLocalesForTranscriptions)|
 
-> [!NOTE]
-> If the audio consists only of profanity, and the `profanity` query parameter is set to `remove`, the service does not return a speech result.
 
-The `detailed` format includes the same data as the `simple` format, along with `NBest`, a list of alternative interpretations of the same recognition result. These results are ranked from most likely to least likely. The first entry is the same as the main recognition result.  When using the `detailed` format, `DisplayText` is provided as `Display` for each result in the `NBest` list.
+## Web hooks
 
-Each object in the `NBest` list includes:
+Web hooks are applicable for [Custom Speech](custom-speech-overview.md) and [Batch Transcription](batch-transcription.md). In particular, web hooks apply to [datasets](#datasets), [endpoints](#endpoints), [evaluations](#evaluations), [models](#models), and [transcriptions](#transcriptions). Web hooks can be used to receive notifications about creation, processing, completion, and deletion events.
 
-| Parameter | Description |
-|-----------|-------------|
-| `Confidence` | The confidence score of the entry from 0.0 (no confidence) to 1.0 (full confidence) |
-| `Lexical` | The lexical form of the recognized text: the actual words recognized. |
-| `ITN` | The inverse-text-normalized ("canonical") form of the recognized text, with phone numbers, numbers, abbreviations ("doctor smith" to "dr smith"), and other transformations applied. |
-| `MaskedITN` | The ITN form with profanity masking applied, if requested. |
-| `Display` | The display form of the recognized text, with punctuation and capitalization added. This parameter is the same as `DisplayText` provided when format is set to `simple`. |
+This table includes all the web hook operations that are available with the speech-to-text REST API.
 
-## Sample responses
+|Path|Method|Version 3.1 (Preview)|Version 3.0|
+|---------|---------|---------|---------|
+|`/webhooks`|GET|[WebHooks_List](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/WebHooks_List)|[GetHooks](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetHooks)|
+|`/webhooks`|POST|[WebHooks_Create](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/WebHooks_Create)|[CreateHook](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateHook)|
+|`/webhooks/{id}:ping`<sup>1</sup>|POST|[WebHooks_Ping](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/WebHooks_Ping)|[PingHook](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/PingHook)|
+|`/webhooks/{id}:test`<sup>2</sup>|POST|[WebHooks_Test](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/WebHooks_Test)|[TestHook](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/TestHook)|
+|`/webhooks/{id}`|DELETE|[WebHooks_Delete](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/WebHooks_Delete)|[DeleteHook](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteHook)|
+|`/webhooks/{id}`|GET|[WebHooks_Get](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/WebHooks_Get)|[GetHook](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetHook)|
+|`/webhooks/{id}`|PATCH|[WebHooks_Update](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-1-preview1/operations/WebHooks_Update)|[UpdateHook](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateHook)|
 
-A typical response for `simple` recognition:
+<sup>1</sup> The `/webhooks/{id}/ping` operation (includes '/') in version 3.0 is replaced by the `/webhooks/{id}:ping` operation (includes ':') in version 3.1.
 
-```json
-{
-  "RecognitionStatus": "Success",
-  "DisplayText": "Remind me to buy 5 pencils.",
-  "Offset": "1236645672289",
-  "Duration": "1236645672289"
-}
-```
-
-A typical response for `detailed` recognition:
-
-```json
-{
-  "RecognitionStatus": "Success",
-  "Offset": "1236645672289",
-  "Duration": "1236645672289",
-  "NBest": [
-      {
-        "Confidence" : "0.87",
-        "Lexical" : "remind me to buy five pencils",
-        "ITN" : "remind me to buy 5 pencils",
-        "MaskedITN" : "remind me to buy 5 pencils",
-        "Display" : "Remind me to buy 5 pencils.",
-      },
-      {
-        "Confidence" : "0.54",
-        "Lexical" : "rewind me to buy five pencils",
-        "ITN" : "rewind me to buy 5 pencils",
-        "MaskedITN" : "rewind me to buy 5 pencils",
-        "Display" : "Rewind me to buy 5 pencils.",
-      }
-  ]
-}
-```
+<sup>2</sup> The `/webhooks/{id}/test` operation (includes '/') in version 3.0 is replaced by the `/webhooks/{id}:test` operation (includes ':') in version 3.1.
 
 ## Next steps
 
-- [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-- [Customize acoustic models](how-to-customize-acoustic-models.md)
-- [Customize language models](how-to-customize-language-model.md)
+- [Create a Custom Speech project](how-to-custom-speech-create-project.md)
+- [Get familiar with batch transcription](batch-transcription.md)
+

@@ -7,14 +7,13 @@ manager: lakoch
 editor: v-dabosl
 
 ms.assetid: f1ffde66-98f0-4c3e-ad94-fee1f97cae03
-ms.service: security
-ms.subservice: security-fundamentals
-ms.devlang: na
+ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2017
-ms.author: barclayn
+ms.author: terrylan
 
 ---
 # How to Log a Security Event Support Ticket

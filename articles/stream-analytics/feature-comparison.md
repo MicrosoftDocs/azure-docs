@@ -1,8 +1,8 @@
 ---
 title: Azure Stream Analytics feature comparison
 description: This article compares the features supported for Azure Stream Analytics cloud and IoT Edge jobs in the Azure portal, Visual Studio, and Visual Studio Code.
-author: mamccrea
-ms.author: mamccrea
+author: an-emma
+ms.author: raan
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
@@ -10,7 +10,10 @@ ms.date: 06/27/2019
 
 # Azure Stream Analytics feature comparison
 
-With Azure Stream Analytics, you can create streaming solutions in the cloud and at the IoT Edge using [Azure portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md), and [Visual Studio Code](quick-create-vs-code.md). The tables in this article show which features are supported by each platform for both job types.
+With Azure Stream Analytics, you can create streaming solutions in the cloud and at the IoT Edge using [Azure portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md), and [Visual Studio Code](quick-create-visual-studio-code.md). The tables in this article show which features are supported by each platform for both job types.
+
+> [!NOTE]
+> Visual Studio and Visual Studio Code tools don't support jobs in the China East, China North, Germany Central, and Germany NorthEast regions.
 
 ## Cloud job features
 
@@ -20,29 +23,26 @@ With Azure Stream Analytics, you can create streaming solutions in the cloud and
 |Cross platform     |Mac</br>Linux</br>Windows         |Windows        |Mac</br>Linux</br>Windows          |
 |Script authoring     |Yes         |Yes         |Yes         |
 |Script Intellisense     |Syntax highlighting         |Syntax highlighting</br>Code completion</br>Error marker         |Syntax highlighting</br>Code completion</br>Error marker         |
-|Define inputs, outputs, and job configurations     |Yes         |Yes         |Yes         |
-|Blob output partitioning     |Yes         |Yes         |Yes         |
-|Power BI as output     |Yes         |Yes         |No         |
-|SQL database reference data     |Yes         |Yes         |Yes         |
-|Custom message properties     |Yes         |No         |No         |
+|Define all types of inputs, outputs, and job configurations     |Yes         |Yes         |Yes         |
+|Source control     |No         |Yes         |Yes         |
+|CI/CD support     |Partial         |Yes         |Yes         |
 |Share inputs and outputs across multiple queries     |No         |Yes         |Yes         |
-|C# custom code function and Deserializer||Yes|No|
-|JavaScript UDF and UDA     |Yes         |Yes         |Windows only         |
-|Machine Learning Service     |Yes, but the query cannot be tested        |Yes         |No         |
-|Machine Learning Studio     |Yes, but the query cannot be tested        |Yes |No         |
-|Compatibility level     |1.0</br>1.1</br>1.2  (default)         |1.0</br>1.1</br>1.2 (default)           |1.0</br>1.1</br>1.2 (default)           |
-|Built-in ML-based Anomaly Detection functions     |Yes         |Yes         |Yes         |
-|Built-in GeoSpatial functions     |Yes         |Yes         |Yes         |
-|Query testing with a sample file     |Yes         |Yes         |Yes         |
-|Live data local testing     |No         |Yes (with query diagram)        |Yes      |
+|Query testing with a sample file     |Yes         |Yes        |Yes         |
+|Live data local testing     |No         |Yes       |Yes      |
 |List jobs and view job entities     |Yes         |Yes        |Yes         |
 |Export a job to a local project     |No         |Yes         |Yes         |
 |Submit, start, and stop jobs     |Yes         |Yes         |Yes         |
-|Source control     |No         |Yes         |Yes         |
-|CI/CD support     |Partial         |Yes         |Yes         |
-|View job metrics and diagram     |Yes         |Yes         |Open in portal         |
-|View job runtime errors     |Yes         |Yes         |No         |
-|Diagnostic logs     |Yes         |No         |No         |
+|View job metrics and diagram     |Yes         |Yes         |Yes         |
+|View job runtime errors     |Yes         |Yes         |Yes         |
+|Resource logs     |Yes         |No         |Yes         |
+|Custom message properties     |Yes         |Yes         |Yes       |
+|C# custom code function and Deserializer|Read-only mode|Yes|Yes|
+|JavaScript UDF and UDA     |Yes         |Yes         |Windows only         |
+|Azure Machine Learning      |Yes        |Yes         |Yes         |
+|Compatibility level     |1.0</br>1.1</br>1.2  (default)         |1.0</br>1.1</br>1.2 (default)           |1.0</br>1.1</br>1.2 (default)           |
+|Built-in ML-based Anomaly Detection functions     |Yes         |Yes         |Yes         |
+|Built-in GeoSpatial functions     |Yes         |Yes         |Yes         |
+
 
 
 ## IoT Edge job features
