@@ -75,7 +75,7 @@ Has the following privileges: collStats, createCollection, createIndex, dbStats,
 ### dbOwner
 Has the following privileges: collStats, createCollection, createIndex, dbStats, dropCollection, dropDatabase, dropIndex, listCollections, listIndexes, reIndex, find, insert, killCursors, listIndexes, listCollections, remove, update
 
-## Azure CLI Setup 
+## Azure CLI Setup (Quickstart)
 We recommend using the cmd when using Windows.
 
 1. Make sure you have latest CLI version(not extension) installed locally. try `az upgrade` command.
@@ -189,25 +189,6 @@ az cosmosdb mongodb user definition exists --account-name <account-name> --resou
 #### Delete user
 ```powershell
 az cosmosdb mongodb user definition delete --account-name <account-name> --resource-group <resource-group-name> --id test.myName
-```
-
-## <a id="disable-local-auth"></a> Enforcing RBAC as the only authentication method
-
-In situations where you want to force clients to connect to Azure Cosmos DB through RBAC exclusively, you have the option to disable the account's primary/secondary keys. When doing so, any incoming request using either a primary/secondary key or a resource token will be actively rejected.
-
-### Using Azure Resource Manager templates
-
-When creating or updating your Azure Cosmos DB account using Azure Resource Manager templates, set the `disableLocalAuth` property to `true`:
-
-```json
-"resources": [
-    {
-        "type": " Microsoft.DocumentDB/databaseAccounts",
-        "properties": {
-            "disableLocalAuth": true,
-        },
-    },
- ]
 ```
 
 ## Limitations
