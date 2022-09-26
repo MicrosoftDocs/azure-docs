@@ -13,14 +13,14 @@ ms.custom: devx-track-python, mode-api
 
 # Quickstart: Azure Blob Storage client library for Python
 
-Get started with the Azure Blob Storage client library for Python to manage blobs and containers. You'll follow steps to install the package and try out example code for basic tasks.
+Get started with the Azure Blob Storage client library for Python to manage blobs and containers. Follow steps to install the package and try out example code for basic tasks.
 
 [API reference documentation](/python/api/azure-storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [Package (PyPi)](https://pypi.org/project/azure-storage-blob/) | [Samples](../common/storage-samples-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An Azure Storage account. [Create a storage account](../common/storage-account-create.md).
+- An Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure Storage account - [create a storage account](../common/storage-account-create.md).
 - [Python](https://www.python.org/downloads/) 2.7 or 3.6+.
 
 ## Setting up
