@@ -934,7 +934,7 @@ sections:
       - question: |
           What is the status of OpenTelemetry?
         answer: |
-          A complete observability solution includes all three pillars of observability. The OpenTelemetry community has been committing heavily to [Distributed Tracing](https://medium.com/opentelemetry/opentelemetry-specification-v1-0-0-tracing-edition-72dd08936978) and the specifications as well as supported language implementations have been marked as stable. [Metrics](https://medium.com/opentelemetry/opentelemetry-metrics-roadmap-f4276fd070cf) and [Logs](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/logs/overview.md) are still in progress. Azure Monitor is working on an OpenTelemetry-based supported telemetry solution that includes Distributed Tracing only with plans to add the other pillars as they mature in the OpenTelemetry community.
+          A complete observability solution includes all three pillars of observability. The OpenTelemetry Community released stable [Distributed Tracing](https://medium.com/opentelemetry/opentelemetry-specification-v1-0-0-tracing-edition-72dd08936978) in February 2021 and released stable [Metrics](https://opentelemetry.io/blog/2022/metrics-announcement/) in March 2022. Azure Monitor's OpenTelemetry-based offering includes these two pillars. The OpenTelemetry Community is actively working to stabilize the [Logging]https://github.com/open-telemetry/opentelemetry-specification/tree/main/specification/logs) specifrication, and we plan to include logging in our OpenTelemetry-based offerings as the OpenTelemetry matures.
 
       - question: |
           How can I test out OpenTelemetry?
