@@ -115,7 +115,7 @@ You can change the default behavior of a function by optionally specifying the `
 
 # [V2](#tab/V2)
 
-During Preview, the entry point will always be in the file `function_app.py`. However, functions within the project can be stored in different files, and be referenced through blueprints.
+During Preview, the entry point will always be in the file `function_app.py`. However, functions within the project can be stored in different files, and be referenced through [blueprints](#blueprints).
 
 ---
 
@@ -185,7 +185,7 @@ The recommended folder structure for a Python Functions project looks like the f
 The main project folder (<project_root>) can contain the following files:
 * *.venv/*: (Optional) Contains a Python virtual environment used by local development.
 * *.vscode/*: (Optional) Contains store VSCode configuration. To learn more, see [VSCode setting](https://code.visualstudio.com/docs/getstarted/settings).
-* *function_app.py*: This is the default location for all functions within the project.
+* *function_app.py*: This is the default location for all functions and their related triggers and bindings.
 * *additional_functions.py*: (Optional) Any additional Python files that contain functions (usually for logical grouping) that are referenced in `function_app.py` through blueprints.
 * *tests/*: (Optional) Contains the test cases of your function app.
 * *.funcignore*: (Optional) Declares files that shouldn't get published to Azure. Usually, this file contains `.vscode/` to ignore your editor setting, `.venv/` to ignore local Python virtual environment, `tests/` to ignore test cases, and `local.settings.json` to prevent local app settings being published.
@@ -200,18 +200,16 @@ When you deploy your project to a function app in Azure, the entire contents of 
 ---
 ## Blueprints
 
-The V2 programming model is introducing blueprints which will allow for
+The V2 programming model is introducing blueprints. A blueprint is a new class instantiated to register functions besides the function application. The functions registered in blueprint instances are not indexed directly by function runtime. Note that to get the functions indexed, the function app needs to register the functions from blueprint instances.
+
+Blueprints will allow for
 * Breaking up the function app into modular components enabling you to define functions in multiple Python files and divide them into different components per file
 * Extensible public function app interfaces to build and reuse your own API’s
 
-A blueprint is a new class instantiated to register user functions besides the function application. The functions registered in blueprint instances are not indexed directly by function runtime. To get the functions indexed, function app needs to register the functions from blueprint instances.
 
-Blueprints enable functions to be written in any Python file and promote logical grouping across of functions across function applications.
+Following is an example of using blueprints:
 
-
-Blueprint example usage: 
-
-`http_blueprint.py` – an http function is first defined and added to a blueprint object 
+In `http_blueprint.py` a http function is first defined and added to a blueprint object.
 
 ```python
 import logging 
@@ -246,7 +244,7 @@ def default_template(req: func.HttpRequest) -> func.HttpResponse:
         ) 
 ```
  
-`function_app.py` – the blueprint object is imported and its functions are registered to function app.  
+In `function_app.py` the blueprint object is imported and its functions are registered to function app.  
 
 ```python
 import azure.functions as func 
@@ -288,10 +286,6 @@ from __app__.shared_code import my_first_helper_function #(deprecated __app__ im
 ```python
 from ..shared_code import my_first_helper_function #(deprecated beyond top-level relative import)
 ```
-
-# [V2](#tab/V2)
-
-Blueprints in the programming model support the import experience. Addditionally, usage of blueprints promotes logical grouping of functions within the function application, and enable customers to leverage multiple Python files to store functions.
 
 ---
 
@@ -353,7 +347,7 @@ When the function is invoked, the HTTP request is passed to the function as `req
 
 # [V2](#tab/V2)
 
-Inputs are divided into two categories in Azure Functions: trigger input and other input. Although they're defined using different decorators, usage is identical in Python code. Connection strings or secrets for trigger and input sources map to values in the `local.settings.json` file when running locally, and the application settings when running in Azure.
+Inputs are divided into two categories in Azure Functions: trigger input and other input. Although they're defined using different decorators, usage is similar in Python code. Connection strings or secrets for trigger and input sources map to values in the `local.settings.json` file when running locally, and the application settings when running in Azure.
 
 As an example, the following code demonstrates the difference between the two:
 
@@ -397,6 +391,8 @@ Note that at this time, only specific triggers and bindings are supported by the
 | CosmosDB | x | x | x |
 | Blob | x | x | x |
 | Event Grid | x |   | x |
+
+To learn more about defining triggers and bindings in the V2 model, see this [documentation](https://github.com/Azure/azure-functions-python-library/blob/dev/docs/ProgModelSpec.pyi).
 
 ---
 
@@ -720,7 +716,7 @@ For a full example, see [Using Flask Framework with Azure Functions](/samples/az
 
 # [V2](#tab/V2)
 
-You can leverage WSGI and ASGI-compatible frameworks such as Flask and FastAPI with your HTTP-triggered Python functions. This section shows how to modify your functions to support these frameworks.
+You can leverage ASGI and WSGI-compatible frameworks such as Flask and FastAPI with your HTTP-triggered Python functions. The following examples demonstrate how to do so.
 
 `AsgiFunctionApp`: Top level function app class for constructing ASGI HTTP functions. 
 
@@ -816,7 +812,7 @@ def main(req):
 
 ## Environment variables
 
-# [Default](#tab/default)
+# [V1](#tab/V1)
 
 In Functions, [application settings](functions-app-settings.md), such as service connection strings, are exposed as environment variables during execution. There are two main ways to access these settings in your code. 
 
@@ -843,7 +839,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 For local development, application settings are [maintained in the local.settings.json file](functions-develop-local.md#local-settings-file).
 
-# [Preview](#tab/preview)
+# [V2](#tab/V2)
 
 In Functions, [application settings](functions-app-settings.md), such as service connection strings, are exposed as environment variables during execution. There are two main ways to access these settings in your code. 
 

@@ -11,6 +11,6 @@ ms.custom: devx-track-python, devdivchpfy22
 
 Azure Functions will be releasing new programming models for certain development languages, with the goal of driving fewer Functions specific concepts and more language centric principles. 
 
-The goal is to create an experience that is more idomatic and help customers be more productive from day one. 
+The goal is to create an experience that can help customers be more productive from day one.
 
-We are starting this initative with the release of the V2 programming model for Python. To learn more about it, see the Developer Reference Guide.
+We are starting this initative with the release of the V2 programming model for Python. To learn more about it, see the [Developer Reference Guide](functions-reference-python).

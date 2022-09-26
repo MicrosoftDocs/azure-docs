@@ -35,6 +35,8 @@ Before you begin, you must have the following requirements in place:
 
 + [Python versions that are supported by Azure Functions](supported-languages.md#languages-by-runtime-version).
 
++ An existing storage account OR a storage emulator such as [Azurite](https://learn.microsoft.com/azure/storage/common/storage-use-azurite?tabs=visual-studio)
+
 ### Prerequisite check
 
 Verify your prerequisites, which depend on whether you're using Azure CLI or Azure PowerShell for creating Azure resources.
@@ -145,8 +147,6 @@ If desired, you can skip to [Run the function locally](#run-the-function-locally
 `function_app.py` is the entry point to the function and where functions will be stored and/or referenced. This file will include configuration of triggers and bindings through decorators, and the function content itself. 
 
 For more information, see [Azure Functions HTTP triggers and bindings](./functions-bindings-http-webhook.md?tabs=python).
-
-## Running the function locally
 
 Due to the way extensions are loaded currently, before running the function locally, you must either
 

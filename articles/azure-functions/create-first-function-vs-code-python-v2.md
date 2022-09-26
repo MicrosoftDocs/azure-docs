@@ -13,15 +13,13 @@ adobe-target-content: ./create-first-function-vs-code-python-uiex
 
 # Quickstart: Create a function in Azure with the Python V2 Programming Model using Visual Studio Code
 
-[!INCLUDE [functions-language-selector-quickstart-vs-code](../../includes/functions-language-selector-quickstart-vs-code.md)]
-
 In this article, you use Visual Studio Code to create a Python function with the V2 programming model that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
-There's also a [CLI-based version](create-first-function-cli-python.md) of this article.
+There's also a [CLI-based version](create-first-function-cli-python-v2.md) of this article.
 
-In this example, you use the V2 programming model which is currently in Preview. Learn more about the V2 programming model here. check-pystein
+In this example, you use the V2 programming model which is currently in Preview. To learn more about the V2 programming model, the [Developer Reference Guide](functions-reference-python).
 
 ## Configure your environment
 
@@ -39,9 +37,11 @@ Before you begin, make sure that you have the following requirements in place:
 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) version 1.8.1 or later for Visual Studio Code.
 
++ An existing storage account OR a storage emulator such as [Azurite](https://learn.microsoft.com/azure/storage/common/storage-use-azurite?tabs=visual-studio)
+
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 
-In this section, you use Visual Studio Code to create a local Azure Functions project in Python. Later in this article, you'll publish your function code to Azure.
+In this section, you use Visual Studio Code to create a local Azure Functions project in Python using the V2 programming model. Later in this article, you'll publish your function code to Azure.
 
 1. Choose the Azure icon in the Activity bar. Then in the **Workspace (local)** area, select the **+** button, choose **Create Function** in the dropdown. When prompted, choose **Create new project**.
 
@@ -67,9 +67,9 @@ Once opening the Command Palette, select the function trigger you'd like to use 
 
 ![VS Code Template Options](.media/create-first-function-vs-code-python-v2/vscode_template_options)
 
-* Select "Preview Template" to learn more about the trigger and see sample code directly in the IDE.
+* Select "Preview Template" to learn more about the trigger and see sample code directly in VS Code.
 * Select "Append to 'function_app.py'" if you are ready to use the template to create the function
-* Select "Append to selected file..." if you are interested in using blueprints
+* Select "Append to selected file..." if you are interested in using [blueprints](functions-reference-python#blueprints)
 
 For this tutorial, we recommend uncommenting the code in the initial 'function_app.py' file to ensure simplicty.
 

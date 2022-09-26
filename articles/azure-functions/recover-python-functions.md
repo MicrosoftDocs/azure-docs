@@ -19,7 +19,7 @@ Following is a list of troubleshooting guides for common issues in Python functi
 * [Python exited with code 137](#troubleshoot-python-exited-with-code-137)
 * [Python exited with code 139](#troubleshoot-python-exited-with-code-139)
 
-## Troubleshoot could not load file or assembly
+## Troubleshoot "could not load file or assembly"
 
 If you are facing this error, it may be the case that you are using the V2 programming model. This error is due to a known issue that will be resolved in an upcoming release.
 
@@ -64,7 +64,7 @@ rmdir <insert path>/.azure-functions-core-tools
 ---
 
 
-## Troubleshoot unable to resolve the Azure Storage connection named Storage
+## Troubleshoot "unable to resolve the Azure Storage connection named Storage"
 
 This specific error may ready:
 
