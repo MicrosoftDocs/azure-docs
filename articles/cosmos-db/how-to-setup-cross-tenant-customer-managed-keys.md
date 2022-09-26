@@ -21,32 +21,11 @@ This article walks through how to configure encryption with customer-managed key
 
 To use the preview, you must register for the Azure Active Directory federated client identity feature in the service provider's tenant. Follow these instructions to register with Azure PowerShell or Azure CLI:
 
-### [Azure CLI](#tab/azure-cli)
+### [Portal](#tab/azure-portal)
 
-To register with Azure CLI, use the [az feature register](/cli/azure/feature#az-feature-register) command.
+Not yet supported.
 
-```azurecli
-az feature register \
-    --name FederatedClientIdentity \
-    --namespace Microsoft.Storage
-```
-
-To check the status of your registration with Azure CLI, use [az feature show](/cli/azure/feature#az-feature-show).
-
-```azurecli
-az feature show \
-    --name FederatedClientIdentity \
-    --namespace Microsoft.Storage
-```
-
-After your registration is approved, you must re-register the Azure Storage resource provider. To re-register the resource provider with Azure CLI, use [az provider register](/cli/azure/provider#az-provider-register).
-
-```azurecli
-az provider register \
-    --namespace 'Microsoft.Storage'
-```
-
-### [Azure PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 To register with Azure PowerShell, use the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) cmdlet.
 
@@ -75,6 +54,31 @@ $parameters = @{
     ProviderNamespace = "Microsoft.Storage"
 }
 Register-AzResourceProvider @parameters
+```
+
+### [Azure CLI](#tab/azure-cli)
+
+To register with Azure CLI, use the [az feature register](/cli/azure/feature#az-feature-register) command.
+
+```azurecli
+az feature register \
+    --name FederatedClientIdentity \
+    --namespace Microsoft.Storage
+```
+
+To check the status of your registration with Azure CLI, use [az feature show](/cli/azure/feature#az-feature-show).
+
+```azurecli
+az feature show \
+    --name FederatedClientIdentity \
+    --namespace Microsoft.Storage
+```
+
+After your registration is approved, you must re-register the Azure Storage resource provider. To re-register the resource provider with Azure CLI, use [az provider register](/cli/azure/provider#az-provider-register).
+
+```azurecli
+az provider register \
+    --namespace 'Microsoft.Storage'
 ```
 
 ---
