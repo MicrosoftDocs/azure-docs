@@ -47,7 +47,7 @@ Once you create the Application Insights instance, it creates an associated appl
 The following table highlights a few locations in the portal you can use to inspect aspects of your application's API endpoints.
 
 > [!NOTE]
-> For more information on Application Insights usage, see [Where do I see my telemetry?](../azure-monitor/app/app-insights-overview.md#where-do-i-see-my-telemetry).
+> For more information on Application Insights usage, see the [App insights overview](../azure-monitor/app/app-insights-overview.md).
 
 | Type | Menu location | Description |
 |--- | --- | --- |
