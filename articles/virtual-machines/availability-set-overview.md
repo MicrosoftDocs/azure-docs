@@ -6,7 +6,7 @@ ms.author: mimckitt
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 09/26/2022
-
+ms.custom: engagement-fy23
 ---
 
 # Availability sets overview
