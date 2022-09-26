@@ -108,7 +108,9 @@ iscsicli LoginTarget $yourStorageTargetIQN t $yourStorageTargetPortalHostName $y
 
 ### Linux
 
-First, get the information from the volume you'd like to connect to using the following command:
+Before you can connect to a volume, you'll need to get **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort** from your Azure resources.
+
+Run the following commands to get these values:
 
 ```azurecli
 az elastic-san volume-group list -e $sanName -g $resourceGroupName -v $searchedVolumeGroup -n $searchedVolume
