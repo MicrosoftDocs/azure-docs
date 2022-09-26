@@ -198,7 +198,7 @@ The output from the preceding example with the default values is:
 ### Quickstart examples
 
 The following example is extracted from a quickstart template, [SQL Server VM with performance optimized storage settings
-](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.attestation/attestation-provider-create\main.bicep):
+](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.attestation/attestation-provider-create/main.bicep):
 
 ```bicep
 @description('Array containing DNS Servers')
@@ -639,8 +639,8 @@ The output from the preceding example with the default values is:
 
 ### Quickstart examples
 
-The following example is extracted from a quickstart template, [SQL Server VM with performance optimized storage settings
-](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts//microsoft.apimanagement/api-management-create-with-external-vnet-publicip):
+The following example is extracted from a quickstart template, [Deploy API Management in external VNet with public IP
+](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-external-vnet-publicip):
 
 ```bicep
 @description('Numbers for availability zones, for example, 1,2,3.')
@@ -804,6 +804,49 @@ The output from the preceding example with the default values is:
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | rangeOutput | Array | [5, 6, 7] |
+
+### Quickstart examples
+
+The following example is extracted from a quickstart template, [2 VMs in VNET - Internal Load Balancer and LB rules
+](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/2-vms-internal-load-balancer):
+
+```bicep
+...
+var numberOfInstances = 2
+
+resource networkInterface 'Microsoft.Network/networkInterfaces@2021-05-01' = [for i in range(0, numberOfInstances): {
+  name: '${networkInterfaceName}${i}'
+  location: location
+  properties: {
+    ...
+  }
+}]
+
+resource vm 'Microsoft.Compute/virtualMachines@2021-11-01' = [for i in range(0, numberOfInstances): {
+  name: '${vmNamePrefix}${i}'
+  location: location
+  properties: {
+    ...
+  }
+}]
+```
+
+The Bicep file creates two networkInterface and two virtualMachine resources.
+
+More examples can be found in these quickstart Bicep files:
+
+- [Multi VM Template with Managed Disk](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-copy-managed-disks)
+- [Create a VM with multiple empty StandardSSD_LRS Data Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-with-standardssd-disk)
+- [Create a Firewall and FirewallPolicy with Rules and Ipgroups](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/azurefirewall-create-with-firewallpolicy-apprule-netrule-ipgroups)
+- [Create an Azure Firewall with IpGroups](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/azurefirewall-create-with-ipgroups-and-linux-jumpbox)
+- [Create a sandbox setup of Azure Firewall with Zones](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/azurefirewall-with-zones-sandbox)
+- [Create an Azure Firewall with multiple IP public addresses](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/fw-docs-qs)
+- [Create a standard load-balancer](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/load-balancer-standard-create)
+- [Azure Traffic Manager VM example](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/traffic-manager-vm)
+- [Create A Security Automation for specific Alerts](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.security/securitycenter-create-automation-for-alertnamecontains)
+- [SQL Server VM with performance optimized storage settings](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sqlvirtualmachine/sql-vm-new-storage)
+- [Create a storage account with multiple Blob containers](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.storage/storage-multi-blob-container)
+- [Create a storage account with multiple file shares](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.storage/storage-multi-file-share)
 
 ## skip
 
