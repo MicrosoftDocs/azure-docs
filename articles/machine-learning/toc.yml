@@ -122,6 +122,9 @@
         - name: MLOps capabilities
           displayName: deploy, deployment, publish, production, operationalize, operationalization
           href: concept-model-management-and-deployment.md
+        - name: Registries
+          displayName: collaborate share
+          href: concept-machine-learning-registries-mlops.md
         - name: ML pipelines
           href: concept-ml-pipelines.md
         - name: ML components
@@ -263,6 +266,8 @@
           href: how-to-workspace-diagnostic-api.md
         - name: Customer-managed keys
           href: how-to-setup-customer-managed-keys.md
+    - name: Create and manage registries
+    href: how-to-manage-registries.md
     - name: Create & manage compute resources
       items:
         - name: Compute instance
@@ -307,6 +312,9 @@
       href: how-to-integrate-azure-policy.md
 - name: How-to guides
   items: 
+    - name: Share models, components, and pipelines
+      displayName: collaborate share
+      href: how-to-share-models-pipelines-across-workspaces-with-registries.md
     - name: Search for assets
       displayName: find, filter
       href: how-to-search-assets.md
