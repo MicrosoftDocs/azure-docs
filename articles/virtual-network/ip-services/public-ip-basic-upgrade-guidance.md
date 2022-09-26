@@ -19,17 +19,19 @@ We recommend the following approach to upgrade to Standard SKU Public IP address
 
 1. Learn about some of the [key differences](#basic-sku-vs-standard-sku) between Basic Public IP and Standard Public IP. 
 1. Identify the basic public IP to upgrade.
+1. Determine if you would need Zone Redundancy. 
+    1. If you need a zone redundant public IP address, create a new Standard Public IP address using [Portal](create-public-ip-portal.md), [PowerShell](create-public-ip-powershell.md), [CLI](create-public-ip-cli.md), or [ARM template](create-public-ip-template.md).
+    1. If you do not need a zone redundant public IP address, use the [following upgrade options](#upgrade-using-portal-powershell-and-azure-cli). 
 1. Create a migration plan for planned downtime.
-1. Depending on the usage of Public IPs, perform the upgrade based on the following chart:
+1. Depending on the service associated with your Basic Public IP addresses, perform the upgrade based on the following table:
 
-    | Service using Basic Public IP | Decision path |
+    | Service using Basic Public IP addresses | Decision path |
     | ------ | ------ |
-    |Zone Redundancy | Create a new standard IP. |
-    | No Zone Redundancy | Use script to upgrade to standard IP. |
-    | Load Balancer |  |
-    | VPN Gateway | Cannot dissociate and upgrade. You will need to create a new VPN GW.|
-    | App Gateway | Cannot dissociate and upgrade. You will need to create a new App Gateway. |
-1. Verify your application and workloads are receiving traffic through the Standard Load Balancer.
+    | Virtual Machine or Virtual Machine Scale Sets | use the [following upgrade options](#upgrade-using-portal-powershell-and-azure-cli). |
+    | Load Balancer (Basic) | use the [following upgrade options](#upgrade-using-portal-powershell-and-azure-cli).   |
+    | VPN Gateway (Basic) | Cannot dissociate and upgrade. Create a [new VPN gateway with a SKU type other than Basic](../../vpn-gateway/tutorial-create-gateway-portal.md). |
+    | Application Gateway (v1) | Cannot dissociate and upgrade. Use this [migration script to migrate from v1 to v2](../../application-gateway/migrate-v1-v2.md).  |
+1. Verify your application and workloads are receiving traffic through the Standard Public IP address. Then delete your Basic Public IP address resource. 
 
 ## Basic SKU vs. Standard SKU 
 
