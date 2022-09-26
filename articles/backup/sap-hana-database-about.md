@@ -93,7 +93,7 @@ A database consistent snapshot based approach helps to solve both issues and pro
 Azure Backup uses managed disk snapshots. Azure Backup stores these in a Resource Group you specify. Managed disk snapshots use standard HDDs storage irrespective of the storage type of the disk and you're charged as per [Managed disk snapshot pricing](https://azure.microsoft.com/pricing/details/managed-disks/). The first disk snapshot is a full snapshot and all subsequent ones are incremental that consist only of the changes since the last snapshot. 
 
 >[!Note]
->There're no backup storage costs for snapshots since they are NOT transferred to Recovery Services vault.
+>There are no backup storage costs for snapshots since they are NOT transferred to Recovery Services vault.
 #### BackInt streams
 
 As per SAP recommendation, it's mandatory to have weekly fulls for all the databases within an Instance, which is protected by snapshot. So, you'll be charged for all protected databases within the Instance (Protected instance pricing + backup storage pricing) as per [Azure Backup pricing for SAP HANA databases](https://azure.microsoft.com/pricing/details/backup/).
