@@ -8,18 +8,18 @@ ms.date: 03/29/2021
 
 # Sustainable software engineering principles in Azure Kubernetes Service (AKS)
 
-
-The [sustainability guidance in the Microsoft Azure Well-Architected Framework](/azure/architecture/framework/sustainability/sustainability-get-started) aims to address the challenges of building sustainable workloads on Azure. This article provides practical guidance for applying Well-Architected best practices as a technical foundation for building and operating sustainable solutions on AKS.
-
+The sustainable software engineering principles are a set of competencies to help you define, build, and run sustainable applications. The overall goal is to reduce the carbon footprint in every aspect of your application. [The Principles of Sustainable Software Engineering][principles-sse] has an overview of the principles of sustainable software engineering.
 
 Sustainable software engineering is a shift in priorities and focus. In many cases, the way most software is designed and run highlights fast performance and low latency. Meanwhile, sustainable software engineering focuses on reducing as much carbon emission as possible. Consider:
 
 * Applying sustainable software engineering principles can give you faster performance or lower latency, such as by lowering total network travel. 
 * Reducing carbon emissions may cause slower performance or increased latency, such as delaying low-priority workloads. 
 
-Before applying sustainable software engineering principles to your application, review the priorities, needs, and trade-offs of your application.
+The [sustainability guidance in the Microsoft Azure Well-Architected Framework (WAF)](/azure/architecture/framework/sustainability/) aims to address the challenges of building sustainable workloads on Azure.
 
-## Get started with sustainability software engineering
+This article provides practical guidance for applying Well-Architected best practices as a technical foundation for building and operating sustainable solutions on AKS.
+
+## Get started with WAF sustainability guidance
 
 * [What is a sustainable workload](/azure/architecture/framework/sustainability/sustainability-get-started)
 * [Design Methodology for building sustainable workloads](/azure/architecture/framework/sustainability/sustainability-design-methodology)
@@ -43,21 +43,30 @@ Decisions made in one design area can impact or influence decisions across the e
 
 We recommend that readers familiarize themselves with these design areas, reviewing provided considerations and recommendations to better understand the consequences of encompassed decisions.
 
-## Design areas for AKS clusters
+## Sustainability Design areas for AKS clusters
 
-* **Application Platform**: AKS is the Platform
-* **Security**: regarding cluster security configuration and integration with Monitoring & SIEM.
-* **Storage** : regarding implementation of storage classes & Backup retention policies.
-* **Testing** : regarding Testing procedures for Cluster development lifecycle
-* **Network and connectivity** : regarding cluster network design (availability zones, Network routing, etc.) and configuration (service mesh,..)
+|Design area|Description|
+|---|---|
+|Application design|N/A|
+|Application platform|**AKS is the Platform**|
+|Testing|Testing procedures for Cluster development lifecycle|
+|Operational procedures|Governance related Area, not a technical consideration|
+|Storage|Design of storage classes & Backup retention policies.|
+|Network and connectivity|Cluster network design (availability zones, Network routing, etc.) and configuration (service mesh,..)|
+|Security|Cluster security configuration and integration with Monitoring & SIEM.|
 
 
-## Design areas for AKS workloads
+## Sustainability Design areas for AKS workloads
 
-* **Application Design** : regarding code optimization recommendations for applications.
-* **Storage** : regarding application design (stateful Vs Stateless) ; and defining storage requirements
-* **Testing** : regarding Testing procedures for Application development lifecycle
-* **Network and connectivity** : regarding overall networking architecture (use of CDNs, caching mecanisms, etc.)
+|Design area|Description|
+|---|---|
+|Application design|Application Code optimization recommendations for applications.|
+|Application platform|N/A|
+|Testing|Testing procedures for Cluster development lifecycle|
+|Operational procedures|Governance related Area, not a technical consideration|
+|Storage|Application design (stateful Vs Stateless) ; and defining storage requirements|
+|Network and connectivity|Overall networking architecture (use of CDNs, caching mecanisms, etc.)|
+|Security|Application logging / verbosity|
 
 
 ## Operational Procedures
