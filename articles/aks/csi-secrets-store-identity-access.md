@@ -5,7 +5,7 @@ author: nickomang
 ms.author: nickoman
 ms.service: container-service
 ms.topic: article
-ms.date: 09/23****/2022
+ms.date: 09/23/2022
 ms.custom: devx-track-azurecli
 ---
 
