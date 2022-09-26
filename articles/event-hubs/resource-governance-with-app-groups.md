@@ -332,7 +332,7 @@ Azure Event Hubs supports [runtime audit logs](monitor-event-hubs-reference.md#r
     ```
 5. Select the **Chart** section on Log Analytics workspace and plot a chart between time generated on Y axis and count of messages sent on x axis.  
 
-    :::image type="content" source="./media/resource-governance-with-app-groups/azure-monitor-logs.png" lightbox="./media/resource-governance-with-app-groups/azure-monitor-logs.png" alt-text="Screenshot of the Application Groups page in the Azure portal.":::
+    :::image type="content" source="./media/resource-governance-with-app-groups/azure-monitor-logs.png" lightbox="./media/resource-governance-with-app-groups/azure-monitor-logs.png" alt-text="Screenshot of the Azure Monitor logs page in the Azure portal.":::
 
 ## Publish or consume events 
 Once you successfully add throttling policies to the application group, you can test the throttling behavior by either publishing or consuming events using client applications that are part of the `contosoAppGroup` application group. To test, you can use either an [AMQP client](event-hubs-dotnet-standard-getstarted-send.md) or a [Kafka client](event-hubs-quickstart-kafka-enabled-event-hubs.md) application and same SAS policy name or Azure AD application ID that's used to create the application group. 
