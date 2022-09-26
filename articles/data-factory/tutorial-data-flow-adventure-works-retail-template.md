@@ -6,7 +6,7 @@ ms.author: aamerril
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.custom: seo-lt-2021
-ms.date: 10/18/2021
+ms.date: 09/26/2022
 ---
 
 # AdventureWorks template documentation
