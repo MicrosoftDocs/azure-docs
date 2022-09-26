@@ -306,6 +306,8 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 }
 ```
 
+## Authentication
+
 [!INCLUDE [](includes/cognitive-services-speech-service-rest-auth.md)]
 
 ## Next steps
