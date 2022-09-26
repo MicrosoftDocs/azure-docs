@@ -68,7 +68,8 @@ This integration is composed of the following components:
 
 Use the guidance provided in the following sections to get started with configuration.
 
-### Step 1 - Infrastructure setup
+### Step 1 - Setup infrastructure 
+
 
 To get started with setup:
 
