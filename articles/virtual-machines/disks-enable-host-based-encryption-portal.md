@@ -4,7 +4,7 @@ description: Use encryption at host to enable end-to-end encryption on your Azur
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/17/2021
+ms.date: 09/26/2022
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
@@ -26,51 +26,6 @@ Temporary disks and ephemeral OS disks are encrypted at rest with platform-manag
 ### Supported VM sizes
 
 Legacy VM Sizes are not supported. You can find the list of supported VM sizes by either using the [Azure PowerShell module](windows/disks-enable-host-based-encryption-powershell.md#finding-supported-vm-sizes) or [Azure CLI](linux/disks-enable-host-based-encryption-cli.md#finding-supported-vm-sizes).
-
-## Prerequisites
-
-You must enable the feature for your subscription before you use the EncryptionAtHost property for your VM/VMSS. Follow the steps below to enable the feature for your subscription:
-
-1. **Azure portal**: Select the Cloud Shell icon on the [Azure portal](https://portal.azure.com):
-
-    ![Icon to launch the Cloud Shell from the Azure portal](../Cloud-Shell/media/overview/portal-launch-icon.png)
-    
-1.	Execute the following command to register the feature for your subscription
-    
-    ### [Azure PowerShell](#tab/azure-powershell)
-
-    ```powershell
-     Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute" 
-    ```
-    
-    ### [Azure CLI](#tab/azure-cli)
-    
-    ```azurecli
-    az feature register --name EncryptionAtHost  --namespace Microsoft.Compute 
-    ```
-    
-    ---
-
-1.	Confirm that the registration state is **Registered** (takes a few minutes) using the command below before trying out the feature.
-    
-    ### [Azure PowerShell](#tab/azure-powershell)
-
-    ```powershell
-     Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"  
-    ```
-    
-    ### [Azure CLI](#tab/azure-cli)
-    
-    ```azurecli
-    az feature show --name EncryptionAtHost --namespace Microsoft.Compute
-    ```
-    
-    ---
-
-Sign in to the Azure portal using the [provided link](https://aka.ms/diskencryptionupdates).
-
-> [!IMPORTANT]
-> You must use the [provided link](https://aka.ms/diskencryptionupdates) to access the Azure portal. Encryption at host is not currently visible in the public Azure portal without using the link.
 
 ## Deploy a VM with platform-managed keys
 
