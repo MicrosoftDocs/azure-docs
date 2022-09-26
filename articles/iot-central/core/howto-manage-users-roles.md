@@ -21,7 +21,7 @@ To learn how to manage users and roles by using the IoT Central REST API, see [H
 
 ## Add users
 
-Every user must have a user account before they can sign in and access an application. IoT Central currently supports Microsoft user accounts, Azure Active Directory accounts, and Azure Active Directory service principals. IoT Central doesn't currently support Azure Active Directory groups. To learn more, see [Microsoft account help](https://support.microsoft.com/products/microsoft-account?category=manage-account) and  [Quickstart: Add new users to Azure Active Directory](../../active-directory/fundamentals/add-users-azure-active-directory.md).
+Every user must have a user account before they can sign in and access an application. IoT Central supports Microsoft user accounts, Azure Active Directory accounts, Azure Active Directory groups, and Azure Active Directory service principals. To learn more, see [Microsoft account help](https://support.microsoft.com/products/microsoft-account?category=manage-account) and  [Quickstart: Add new users to Azure Active Directory](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 1. To add a user to an IoT Central application, go to the **Users** page in the **Permissions** section.
 
