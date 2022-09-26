@@ -32,7 +32,7 @@ The following diagram shows how to use shared secrets or credentials to authenti
 
 1. Add the security information in a secrets store in either of two ways:
 
-    * Add the secret information in Azure Key Vault. Follow the steps in [Parameterize load tests with secrets](./how-to-parameterize-load-tests.md#use-azure-key-vault-to-store-load-test-secrets) to store a secret and authorize your load testing resource to read its value.
+    * Add the secret information in Azure Key Vault. Follow the steps in [Parameterize load tests with secrets](./how-to-parameterize-load-tests.md) to store a secret and authorize your load testing resource to read its value.
 
     * Add the secret information as a secret in CI/CD ([GitHub Actions secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) or [Azure Pipelines secret variables](/azure/devops/pipelines/process/set-secret-variables)).
 
