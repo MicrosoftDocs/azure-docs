@@ -1,6 +1,6 @@
 ---
-title: Azure VM Disaster Recovery - High Churn Support (Public Preview) 
-description: Describes how to protect your Azure VMs having high churning workloads using Azure Site Recovery 
+title: Azure VM Disaster Recovery - High Churn support (Public Preview) 
+description: Describes how to protect your Azure VMs having high churning workloads 
 services: site-recovery
 author: v-pgaddala
 manager: gaggupta
@@ -13,21 +13,23 @@ ms.author: v-pgaddala
 
 # Azure VM Disaster Recovery - High Churn Support (Public Preview)
 
-Azure Site Recovery now supports churn (data change rate) up to 100 MB/s per VM. You will be able to protect your Azure VMs having high churning workloads (like databases) using Azure Site Recovery which earlier could not be protected efficiently because Azure Site Recovery has churn limits up to 54 MB/s per VM. You may achieve better RPO performance for your high churning workloads. 
+Azure Site Recovery supports churn (data change rate) up to 100 MB/s per VM. You will be able to protect your Azure VMs having high churning workloads (like databases) using Azure Site Recovery which earlier could not be protected efficiently because Azure Site Recovery has churn limits up to 54 MB/s per VM. You may achieve better RPO performance for your high churning workloads. 
 
 ## Prerequisites 
 
 - Available only for DR of Azure VMs. 
-- VM SKUs with RAM of min 32GB is recommended. 
+- Recommend VM SKUs with RAM of min 32GB. 
 - Source disks must be Managed Disks.
-- Will be available only for source VMs in regions where Premium Blob storage accounts are available. For more information, see [supported regions for Premium Blob storage](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=storage&regions=all).
+- Available only for source VMs in regions where Premium Blob storage accounts are available. For more information, see [supported regions for Premium Blob storage](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=storage&regions=all).
 
-The following table summarizes Site Recovery limits:
+## Limitations
 
-- These limits are based on our tests, doesn't cover all possible application I/O combinations. 
+- These limits are based on our tests and doesn't cover all possible application I/O combinations. 
 - Actual results may vary based on your app I/O mix. 
 - There are two limits to consider, per disk data churn and per virtual machine data churn. 
 - Limit per virtual machine data churn - 100 MB/s. 
+
+The following table summarizes Site Recovery limits: 
 
 |Target Disk Type|Avg I/O Size|Avg Churn Supported|
 |---|---|---|
@@ -52,9 +54,9 @@ The following table summarizes Site Recovery limits:
 
 1. Select source VMs on which you want to enable replication. To enable replication, follow the steps [here](https://learn.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication).
 
-2. Under **Replication Settings** > **Storage**, select **View/edit storage configuration**. **Customize target settings** page opens.
+2. Under **Replication Settings** > **Storage**, select **View/edit storage configuration**. The **Customize target settings** page opens.
 
-3. Under **Churn for the VM**,  
+3. Under **Churn for the VM**, there are two options: 
 
    - **Normal Churn** (default option) - You can get up to 54 MB/s per VM. Select Normal Churn to use Standard storage accounts only for Cache Storage. Hence, Cache storage dropdown will list only Standard storage accounts. 
 
