@@ -69,10 +69,6 @@ The [Azure Machine Learning studio](https://ml.azure.com) offers multiple author
 
 * Data labeling: Use Azure Machine Learning data labeling to efficiently coordinate [image labeling](how-to-create-image-labeling-projects.md) or [text labeling](how-to-create-text-labeling-projects.md) projects.
 
-<<<<<<< HEAD
-If you're an ML Studio (classic) user, [learn about Studio (classic) deprecation and the difference between it and Azure Machine Learning studio](overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio).
-=======
->>>>>>> d77cc51f9bfaaf4fdd44221f114a786c2af28c44
 
 ## Enterprise-readiness and security
 
