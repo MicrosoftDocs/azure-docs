@@ -36,7 +36,8 @@ To get started, ensure the following prerequisites are met:
 
 ## Scenario description
 
-Contoso does business with end customers and large enterprises, like Fabrikam_big1 and Fabrikam_big2. There are small enterprise customers like Fabrikam_small1 and Fabrikam_small2 and direct business is done with end customers like Smith1 and Smith2.
+Contoso does business with end customers and large enterprises, like Fabrikam_big1 and Fabrikam_big2. There're small enterprise customers like Fabrikam_small1 and Fabrikam_small2 and direct business is done with end customers like Smith1 and Smith2.
+
 
 *Contoso* has web and mobile applications and develops new applications. The applications rely on user shared profile data such as, first name, last name, address, and email. They want to centralize the profile data, so applications aren't collecting and storing the data. They want to store the profile information in accordance with certain compliance and regulations.
 
