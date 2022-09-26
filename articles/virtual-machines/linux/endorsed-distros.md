@@ -1,6 +1,6 @@
 ---
 title: Linux distributions endorsed on Azure
-description: Learn about Linux on Azure-endorsed distributions, including guidelines for Ubuntu, CentOS, Oracle, and SUSE.
+description: Learn about Linux on Azure-endorsed distributions, including information about Ubuntu, CentOS, Oracle, Flatcar, Debian, Red Hat, and SUSE,.
 services: virtual-machines
 author: mattmcinnes
 ms.service: virtual-machines
@@ -9,7 +9,7 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 07/24/2022
 ms.author: guybo
-ms.reviewer: cynthn
+ms.reviewer: danielsollondon; cynthn
 ---
 
 # Endorsed Linux distributions on Azure
@@ -79,7 +79,7 @@ Kinvolk is the team behind Flatcar Container Linux, continuing the original Core
 
 [https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html)
 
-Oracle's strategy is to offer a broad portfolio of solutions for public and private clouds. The strategy gives customers choice and flexibility in how they deploy Oracle software in Oracle clouds and other clouds. Oracle's partnership with Microsoft enables customers to deploy Oracle software in Microsoft public and private clouds with the confidence of certification and support from Oracle.  Oracle's commitment and investment in Oracle public and private cloud solutions is unchanged.
+Oracle's strategy is to offer a broad portfolio of solutions for public and private clouds. The strategy gives customers choice and flexibility in how they deploy Oracle software in Oracle clouds and other clouds. Oracle's partnership with Microsoft enables customers to deploy Oracle software to Microsoft public and private clouds with the confidence of certification and support from Oracle.  Oracle's commitment and investment in Oracle public and private cloud solutions is unchanged.
 
 ### Red Hat
 
