@@ -40,7 +40,7 @@ administration and development platform for PostgreSQL.
 
    * **Host name/address**: Obtain this value from the **Overview** page for your
      cluster in the Azure portal. It's listed there as **Coordinator name**.
-     It will be of the form, `c.myservergroup.postgres.database.azure.com`.
+     It will be of the form, `c.<clustername>.postgres.database.azure.com`.
    * **Maintenance database**: use the value `citus`.
    * **Username**: use the value `citus`.
    * **Password**: the connection password.
@@ -66,9 +66,9 @@ interactively, issue them to PostgreSQL, and see the query results.
 
    :::image type="content" source="media/quickstart-connect-psql/get-connection-string.png" alt-text="Screenshot that shows copying the psql connection string.":::
 
-   The **psql** string is of the form `psql "host=c.servergroup.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require"`. Notice that the host name starts with a `c.`, for example `c.demo.postgres.database.azure.com`. This prefix indicates the coordinator node of the cluster. The default `dbname` and `username` are `citus` and can't be changed.
+   The **psql** string is of the form `psql "host=c.<clustername>.postgres.database.azure.com port=5432 dbname=citus user=citus password=<your_password> sslmode=require"`. Notice that the host name starts with a `c.`, for example `c.demo.postgres.database.azure.com`. This prefix indicates the coordinator node of the cluster. The default `dbname` and `username` are `citus` and can't be changed.
 
-1. In the connection string you copied, replace `{your_password}` with your administrative password.
+1. In the connection string you copied, replace `<your_password>` with your administrative password.
 
 1. In a local terminal prompt, paste the psql connection string, and then press Enter.
 
