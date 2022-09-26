@@ -186,6 +186,7 @@ The following rule groups and rules are available when using Web Application Fir
 |920170|GET or HEAD Request with Body Content.|
 |920171|GET or HEAD Request with Transfer-Encoding.|
 |920180|POST request missing Content-Length Header.|
+|920181|Content-Length and Transfer-Encoding headers present 99001003|
 |920190|Range: Invalid Last Byte Value.|
 |920200|Range: Too many fields (6 or more)|
 |920201|Range: Too many fields for pdf request (35 or more)|
@@ -212,6 +213,7 @@ The following rule groups and rules are available when using Web Application Fir
 |920450|HTTP header is restricted by policy|
 |920470|Illegal Content-Type header|
 |920480|Request content type charset is not allowed by policy|
+|920500|Attempt to access a backup or working file|
 
 ### <a name="drs921-21"></a> PROTOCOL-ATTACK
 
@@ -224,6 +226,9 @@ The following rule groups and rules are available when using Web Application Fir
 |921150|HTTP Header Injection Attack via payload (CR/LF detected)|
 |921151|HTTP Header Injection Attack via payload (CR/LF detected)|
 |921160|HTTP Header Injection Attack via payload (CR/LF and header-name detected)|
+|921190|HTTP Splitting (CR/LF in request filename detected)|
+|921200|LDAP Injection Attack|
+
 
 ### <a name="drs930-21"></a> LFI - Local File Inclusion
 |RuleId|Description|
@@ -319,10 +324,8 @@ The following rule groups and rules are available when using Web Application Fir
 |RuleId|Description|
 |---|---|
 |942100|SQL Injection Attack Detected via libinjection|
-|942110|SQL Injection Attack: Common Injection Testing Detected|
 |942120|SQL Injection Attack: SQL Operator Detected|
 |942140|SQL Injection Attack: Common DB Names Detected|
-|942150|SQL Injection Attack|
 |942160|Detects blind sqli tests using sleep() or benchmark().|
 |942170|Detects SQL benchmark and sleep injection attempts including conditional queries|
 |942180|Detects basic SQL authentication bypass attempts 1/3|
@@ -333,7 +336,6 @@ The following rule groups and rules are available when using Web Application Fir
 |942230|Detects conditional SQL injection attempts|
 |942240|Detects MySQL charset switch and MSSQL DoS attempts|
 |942250|Detects MATCH AGAINST, MERGE and EXECUTE IMMEDIATE injections|
-|942260|Detects basic SQL authentication bypass attempts 2/3|
 |942270|Looking for basic sql injection. Common attack string for mysql, oracle, and others.|
 |942280|Detects Postgres pg_sleep injection, waitfor delay attacks and database shutdown attempts|
 |942290|Finds basic MongoDB SQL injection attempts|
@@ -350,8 +352,6 @@ The following rule groups and rules are available when using Web Application Fir
 |942390|SQL Injection Attack|
 |942400|SQL Injection Attack|
 |942410|SQL Injection Attack|
-|942430|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)|
-|942440|SQL Comment Sequence Detected.|
 |942450|SQL Hex Encoding Identified|
 |942460|Meta-Character Anomaly Detection Alert - Repetitive Non-Word Characters|
 |942470|SQL Injection Attack|
@@ -384,7 +384,7 @@ The following rule groups and rules are available when using Web Application Fir
 |99005002|Web Shell Interaction Attempt (POST)|
 |99005003|Web Shell Upload Attempt (POST) - CHOPPER PHP|
 |99005004|Web Shell Upload Attempt (POST) - CHOPPER ASPX|
-|99005006|Spring4Shell Interaction Attempt|
+|99005005|Web Shell Interaction Attempt|
 
 ### <a name="drs9903-21"></a> MS-ThreatIntel-AppSec
 |RuleId|Description|
@@ -397,14 +397,25 @@ The following rule groups and rules are available when using Web Application Fir
 |---|---|
 |99031001|SQL Injection Attack: Common Injection Testing Detected|
 |99031002|SQL Comment Sequence Detected.|
+|99031003|SQL Injection Attack|
+|99031004|Detects basic SQL authentication bypass attempts 2/3|
 
 ### <a name="drs99001-21"></a> MS-ThreatIntel-CVEs
 |RuleId|Description|
 |---|---|
 |99001001|Attempted F5 tmui (CVE-2020-5902) REST API Exploitation with known credentials|
-|99001014|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
-|99001015|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
-|99001016|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)
+|99001002|Attempted Citrix NSC_USER directory traversal [CVE-2019-19781](https://www.cve.org/CVERecord?id=CVE-2019-19781)|
+|99001003|Attempted Atlassian Confluence Widget Connector exploitation [CVE-2019-3396](https://www.cve.org/CVERecord?id=CVE-2019-3396)|
+|99001004|Attempted Pulse Secure custom template exploitation [CVE-2020-8243](https://www.cve.org/CVERecord?id=CVE-2019-8243)|
+|99001005|Attempted SharePoint type converter exploitation [CVE-2020-0932](https://www.cve.org/CVERecord?id=CVE-2019-0932)|
+|99001006|Attempted Pulse Connect directory traversal [CVE-2019-11510](https://www.cve.org/CVERecord?id=CVE-2019-11510)|
+|99001007|Attempted Junos OS J-Web local file inclusion [CVE-2020-1631](https://www.cve.org/CVERecord?id=CVE-2019-1631)|
+|99001008|Attempted Fortinet path traversal [CVE-2018-13379](https://www.cve.org/CVERecord?id=CVE-2019-13379)|
+|99001009|Attempted Apache struts ognl injection [CVE-2017-5638](https://www.cve.org/CVERecord?id=CVE-2019-5638)|
+|99001010|Attempted Apache struts ognl injection [CVE-2017-12611](https://www.cve.org/CVERecord?id=CVE-2019-12611)|
+|99001011|Attempted Oracle WebLogic path traversal [CVE-2020-14882](https://www.cve.org/CVERecord?id=CVE-2019-14882)|
+|99001012|Attempted Telerik WebUI insecure deserialization exploitation [CVE-2019-18935](https://www.cve.org/CVERecord?id=CVE-2019-18935)|
+|99001013|Attempted SharePoint insecure XML deserialization [CVE-2019-0604](https://www.cve.org/CVERecord?id=CVE-2019-0604)|
 
 > [!NOTE]
 > When reviewing your WAF's logs, you might see rule ID 949110. The description of the rule might include *Inbound Anomaly Score Exceeded*.
