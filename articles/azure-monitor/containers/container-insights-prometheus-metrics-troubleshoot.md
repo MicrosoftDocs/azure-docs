@@ -51,7 +51,7 @@ Port forward into either the replicaset or the daemonset to check the config, se
 
 Run the command `kubectl port-forward <ama-metrics pod> -n kube-system 9090`.
 
-:::image type="content" source="/media/container-insights-prometheus-metrics-troubleshoot/port-forward.png" lightbox="/media/container-insights-prometheus-metrics-troubleshoot/port-forward.png" alt-text="Screenshot showing port forwarding.":::
+:::image type="content" source="media/container-insights-prometheus-metrics-troubleshoot/port-forward.png" lightbox="media/container-insights-prometheus-metrics-troubleshoot/port-forward.png" alt-text="Screenshot showing port forwarding.":::
 
 Open a browser to the address `127.0.0.1:9090/config`. This will have the full scrape configs. Check that the job is listed.
 
