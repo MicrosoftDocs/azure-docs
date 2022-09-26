@@ -20,7 +20,7 @@ ms.custom: seo-lt-2019
 You can migrate an instance of Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server by using Azure Database Migration Service (DMS), a fully managed service designed to enable seamless migrations from multiple database sources to Azure data platforms. In this tutorial, we’ll perform an online migration of a sample database from an Azure Database for MySQL single server to a MySQL flexible server (both running version 5.7) using a DMS migration activity.
 
 > [!NOTE]
-> DMS online migration is now in preview. DMS supports migration for MySQL versions 5.7 and 8.0, and also supports migration from lower version MySQL servers (v5.7 and above) to higher version servers. In addition, DMS supports cross-region, cross-resource group, and cross-subscription migrations, so you can select a different region, resource group, and subscription for the target server than that specified for your source server.
+> DMS online migration is now in preview. DMS supports migration for MySQL versions 5.7 and 8.0, and also supports migration from lower version MySQL servers (v5.7 and above) to higher version servers. In addition, DMS supports cross-region, cross-resource group, and cross-subscription migrations, so you can select a region, resource group, and subscription for the target server that is different than what is specified for your source server.
 
 In this tutorial, you'll learn how to:
 
@@ -71,7 +71,7 @@ As you prepare for the migration, be sure to consider the following limitations.
 
 DMS supports cross-region, cross-resource group, and cross-subscription migrations, so you're free to select appropriate region, resource group and subscription for your target flexible server. Before you create your target flexible server, consider the following configuration guidance to help ensure faster data loads using DMS.
 
-* Select the compute size and compute tier for the target flexible server based on the source single server’s pricing tier and VCores as in the following table:
+* Select the compute size and compute tier for the target flexible server based on the source single server’s pricing tier and VCores based on the detail in the following table.
 
     | Single Server Pricing Tier | Single Server VCores | Flexible Server Compute Size | Flexible Server Compute Tier |
     | ------------- | ------------- |:-------------:|:-------------:|
