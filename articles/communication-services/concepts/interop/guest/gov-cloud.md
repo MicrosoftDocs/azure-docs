@@ -1,7 +1,7 @@
 ---
 title: Support for government clouds
 titleSuffix: An Azure Communication Services concept document
-description: Azure Communication Services support for government clouds accounts
+description: Support for external user from Azure Communication Services connecting to Microsoft Teams in government clouds
 author: tinaharter
 ms.author: tinaharter
 ms.date: 9/22/2022
