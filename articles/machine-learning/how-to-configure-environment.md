@@ -71,8 +71,6 @@ Create a workspace configuration file in one of the following methods:
         from azure.ai.ml import MLClient
         from azure.identity import DefaultAzureCredential
 
-
-
         #Enter details of your AzureML workspace
         subscription_id = '<SUBSCRIPTION_ID>'
         resource_group = '<RESOURCE_GROUP>'
