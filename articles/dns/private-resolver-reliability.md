@@ -10,39 +10,41 @@ ms.date: 09/26/2022 #Required; mm/dd/yyyy format.
 #Customer intent: As a customer, I want to understand reliability support for Azure DNS Private Resolver. I need to avoid failures and respond to them so that I can minimize down time and data loss.
 ---
 
-# What is reliability in Azure DNS Private Resolver?
+# Resiliency in Azure DNS Private Resolver
 
-This article describes reliability support in [Azure DNS Private Resolver](dns-private-resolver-overview.md), and covers both regional resiliency with availability zones and cross-region resiliency with disaster recovery. For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+This article describes reliability support in Azure DNS Private Resolver, and covers both regional resiliency with [availability zones](#availability-zones) and cross-region resiliency with disaster recovery. For a more comprehensive overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
-## Introduction
+## Azure DNS Private Resolver
 
-Azure DNS Private Resolver enables you to query Azure DNS private zones from an on-premises environment, and vice versa, without deploying VM based DNS servers. You no longer need to provision IaaS based solutions on your virtual networks to resolve names registered on Azure private DNS zones. You can configure conditional forwarding of domains back to on-premises, multicloud and public DNS servers. 
+[Azure DNS Private Resolver](dns-private-resolver-overview.md) enables you to query Azure DNS private zones from an on-premises environment, and vice versa, without deploying VM based DNS servers. You no longer need to provision IaaS based solutions on your virtual networks to resolve names registered on Azure private DNS zones. You can configure conditional forwarding of domains back to on-premises, multicloud and public DNS servers. 
 
-Azure DNS Private Resolver supports availability zones without any further configuration!
+Azure DNS Private Resolver supports availability zones without any further configuration! When the service is provisioned, it's deployed across the different Availability Zones, and will provide zonal resiliency out of the box.
+
+## Availability zones
 
 Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. If a local zone fails, availability zones are designed with redundancy. If one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones.  Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Regions and availability zones](/azure/availability-zones/az-overview).
 
-Azure availability zones-enabled services are designed to provide the right level of reliability and flexibility. They can be configured in two ways. They can be either zone redundant, with automatic replication across zones, or zonal, with instances pinned to a specific zone. You can also combine these approaches. For more information on zonal vs. zone-redundant architecture, see [Build solutions with availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
+Azure availability zones-enabled services are designed to provide the right level of reliability and flexibility. They can be configured in two ways:
+- They can be zone redundant, with automatic replication across zones.
+- They can be zonal, with instances pinned to a specific zone. 
 
-## Availability zone support
-
-Azure DNS Private Resolver supports Availability Zones without any other configuration required. When the service is provisioned, it's deployed across the different Availability Zones and will provide zonal resiliency out of the box.
+You can also combine these approaches. For more information on zonal vs. zone-redundant architecture, see [Build solutions with availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability).
 
 ### Prerequisites
 
-The regions listed in this location [include availability zone support](/azure/availability-zones/az-region.md#azure-regions-with-availability-zones). You won't need to take any other action beyond provisioning the service.
+See [Azure regions with availability zones](/azure/availability-zones/az-region#azure-regions-with-availability-zones). The regions listed in this location include availability zone support. If your Azure DNS Private Resolver is located in one of the regions listed, you don't need to take any other action beyond provisioning the service.
 
-There are no increased SLAs for [Azure DNS Private Resolver]. For more information on the Azure DNS Private Resolver SLAs, see [SLA for Azure DNS](https://azure.microsoft.com/support/legal/sla/dns/v1_1/).
+There are no increased SLAs for Azure DNS Private Resolver. For more information, see [SLA for Azure DNS](https://azure.microsoft.com/support/legal/sla/dns/v1_1/).
+
+#### Create a resource with Availability Zones enabled
+
+To enable AZ support, you do not need take further steps beyond provisioning the service. Just create the private resolver in the region with AZ support, and it will be available across all AZs.
 
 For detailed steps on how to provision the service, see [Create an Azure private DNS Resolver using the Azure portal](dns-private-resolver-get-started-portal.md).
 
-#### Create a resource with availability zone enabled
-
-For Azure DNS Private Resolver, you do not need to do any other steps. Just [create the resource](dns-private-resolver-get-started-portal.md) in the region with AZ support and it will be available across all AZs
-
 ### Fault tolerance
 
-- During a zone-wide outage, no action is required during zone recovery, Offering will self-heal and re-balance itself to take advantage of the healthy zone automatically. 
+- During a zone-wide outage, no action is required during zone recovery. The service will self-heal and rebalance to take advantage of the healthy zone automatically. 
 - The service is provisioned across all the AZs.
 
 ## Disaster recovery: cross-region failover
@@ -51,9 +53,7 @@ For cross-region failover in Azure DNS Private Resolver, see [Set up DNS failove
 
 ### Cross-region disaster recovery in multi-region geography
 
-In the event of a regional outage, we recommend using the same pattern as the failover described above.
-
-When there's a regional failure, if you have [Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md), it will enable you to keep resolving names on the other active regions and also increase the resiliency of your workloads. 
+In the event of a regional outage, we recommend using the same design as that described in [Set up DNS failover using private resolvers](tutorial-dns-private-resolver-failover.md). If you have configured this failover design, you can keep resolving names on the other active regions and also increase the resiliency of your workloads. 
 
 All instances of Azure DNS Private Resolver run as Active-Active within the same region.
 
