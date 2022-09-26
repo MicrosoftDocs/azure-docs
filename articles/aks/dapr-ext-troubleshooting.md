@@ -19,7 +19,7 @@ This article details some common error messages you may encounter while installi
 If the extension fails to create or update without an error message, you can inspect where the creation of the extension failed by running the `az k8s-extension list` command. For example, if a wrong key is used in the configuration-settings, such as `global.ha=false` instead of `global.ha.enabled=false`: 
 
 ```azure-cli-interactive
-az k8s-extension list --cluster-type managedClusters --cluster-name myAKSCluster --resource-group myResourceGroup
+az k8s-extension list --cluster-type managedClusters --cluster-name myCluster --resource-group myResourceGroup
 ```
 
 The below JSON is returned, and the error message is captured in the `message` property.
@@ -36,8 +36,27 @@ The below JSON is returned, and the error message is captured in the `message` p
 ],
 ```
 
-You can also try the following steps:
+Another example:
 
+```azurecli
+az k8s-extension list --cluster-type managedClusters --cluster-name myCluster --resource-group myResourceGroup
+```
+
+```json
+"statuses": [
+    {
+      "code": "InstallationFailed",
+      "displayStatus": null,
+      "level": null,
+      "message": "The extension operation failed with the following error: unable to add the configuration with configId {extension:microsoft-dapr} due to error: {error while adding the CRD configuration: error {failed to get the immutable configMap from the elevated namespace with err: configmaps 'extension-immutable-values' not found }}. (Code: ExtensionOperationFailed)",
+      "time": null
+    }
+  ]
+```
+
+For these cases, possible remediation actions are to:
+
+- Force delete and [reinstall the Dapr extension](./dapr.md). 
 - [Restart your AKS or Arc for Kubernetes cluster](./start-stop-cluster.md).
 - Make sure you've [registered the `KubernetesConfiguration` service provider](./dapr.md#register-the-kubernetesconfiguration-service-provider).
 - See if you're encountering an error [installing the `microsoft.flux` extension](../azure-arc/kubernetes/troubleshooting.md#flux-v2---error-installing-the-microsoftflux-extension).
@@ -53,7 +72,6 @@ You're installing the Dapr extension and [targeting a specific version](./dapr.m
 Code: ExtensionOperationFailed
 Message: The extension operation failed with the following error:  Failed to resolve the extension version from the given values.
 ```
-
 
 Try installing again, making sure to use a [supported version of Dapr](./dapr.md#dapr-versions). 
 
