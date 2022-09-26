@@ -135,7 +135,7 @@ To select and restore the required point-in-time for System DB, follow these ste
 
 1. On **Restore Point**, choose **Select**.
 
-   :::image type="content" source="./media/sap-hana-database-instances-restore/restore-system-database-restore-point.png" alt-text="Screenshot showing to select restore points of system database instance for restore.":::
+   :::image type="content" source="./media/sap-hana-database-instances-restore/restore-logs-over-snapshot-restore-point.png" alt-text="Screenshot showing how to select log restore points of system database instance for restore.":::
 
 1. On the **Select restore point** pane, select the restore point and select **OK**.
 
@@ -143,9 +143,6 @@ To select and restore the required point-in-time for System DB, follow these ste
    >The logs appears after the snapshot point that you previously restored.
 
 1. Select **OK**.
-
->[!Note]
->After restoring system database, you need to run the pre-registration script on the target VM to update the user credentials.
 
 
 ### Restore tenant database
@@ -174,13 +171,14 @@ Follow these steps:
 
 1. In **Restore Point**, choose **Select**.
 
-   :::image type="content" source="./media/sap-hana-database-instances-restore/restore-system-database-restore-point.png" alt-text="Screenshot showing to select HANA tenant database recovery point.":::
+   :::image type="content" source="./media/sap-hana-database-instances-restore/log-over-snapshots-for-tenant-database-restore-point.png" alt-text="Screenshot showing how to select restore point of log over snapshots for tenant database.":::
 
-1. In the **Select restore point** pane, select a recovery point, and then select **OK**.
+1. On the **Select restore point** pane, select the restore point and select **OK**.
 
-1. Select **Attach and mount snapshot** to attach the disks to the VM.
+   >[!Note]
+   >The logs appear after the snapshot point that you previously restored.
 
-1. Select **OK** to create disks from snapshots, attach them to the target VM and mount them.
+1. Select **OK**.
 
 >[!Note]
 >Ensure that you restore all tenant databases as per SAP HANA guidelines.
