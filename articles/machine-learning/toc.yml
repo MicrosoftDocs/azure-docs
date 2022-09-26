@@ -267,7 +267,7 @@
         - name: Customer-managed keys
           href: how-to-setup-customer-managed-keys.md
     - name: Create and manage registries
-    href: how-to-manage-registries.md
+      href: how-to-manage-registries.md
     - name: Create & manage compute resources
       items:
         - name: Compute instance

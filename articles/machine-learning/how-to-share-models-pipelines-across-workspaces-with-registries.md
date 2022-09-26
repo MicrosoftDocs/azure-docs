@@ -683,7 +683,7 @@ ml_client_workspace.online_endpoints.begin_delete(name=online_endpoint_name)
 
 ---
 
-If you aren't going use the registry, you should delete the registry. Refer to the <todo> document to delete the registry.
+
 
 
 
