@@ -87,7 +87,7 @@ To update or deploy the workload, you add the following [annotation][pod-annotat
 
 Update the pod with the annotation by performing the following steps.
 
-1. Copy the following manifest snippet of an init container in your Pod specification to specify the proxy port for the workload identity sidecar.
+1. Copy the following YAML snippet of an init container in your Pod specification to specify the proxy port for the workload identity sidecar.
 
     ```yml
     initContainers:
@@ -106,7 +106,7 @@ Update the pod with the annotation by performing the following steps.
         value: "8000"
     ```
 
-2. Copy the following manifest snippet to specify the injected proxy sidecar for the containers object.
+2. Add the following YAML snippet to specify the injected proxy sidecar for the containers object.
 
     ```yml
     - name: proxy
@@ -114,6 +114,42 @@ Update the pod with the annotation by performing the following steps.
       ports:
       - containerPort: 8000
     ```
+
+The following is an example of the complete pod annotation that includes both snippets:
+
+```yml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: httpbin-pod
+  labels:
+    app: httpbin
+spec:
+  serviceAccountName: workload-identity-sa
+  initContainers:
+  - name: init-networking
+    image: mcr.microsoft.com/oss/azure/workload-identity/proxy-init:v0.13.0
+    securityContext:
+      capabilities:
+        add:
+        - NET_ADMIN
+        drop:
+        - ALL
+      privileged: true
+      runAsUser: 0
+    env:
+    - name: PROXY_PORT
+      value: "8000"
+  containers:
+  - name: nginx
+    image: nginx:alpine
+    ports:
+    - containerPort: 80
+  - name: proxy
+    image: mcr.microsoft.com/oss/azure/workload-identity/proxy:v0.13.0
+    ports:
+    - containerPort: 8000
+```
 
 ## Next steps
 
