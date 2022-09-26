@@ -8,7 +8,7 @@
     {
         "source_path_from_root": "/articles/machine-learning/how-to-train-sdk.md",
         "redirect_url": "/azure/machine-learning/how-to-train",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-train-with-rest.md",
