@@ -44,6 +44,7 @@ API Management offers both managed and self-hosted gateways:
 
     * Each self-hosted gateway is associated with a **Gateway** resource in a cloud-based API Management instance from which it receives configuration updates and communicates status. 
 
+[!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-deprecation.md.md)]
 
 ## Feature comparison: Managed versus self-hosted gateways
 
@@ -52,7 +53,6 @@ The following table compares features available in the managed gateway versus th
 > [!NOTE]
 > * Some features of managed and self-hosted gateways are supported only in certain [service tiers](api-management-features.md) or with certain [deployment environments](self-hosted-gateway-overview.md#packaging) for self-hosted gateways.
 > * See also self-hosted gateway [limitations](self-hosted-gateway-overview.md#limitations).
-
 
 ### Infrastructure
 

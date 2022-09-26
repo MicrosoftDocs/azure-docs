@@ -15,6 +15,9 @@ ms.author: tomkerkhove
 
 This article explains how to migrate existing self-hosted gateway deployments to self-hosted gateway v2.
 
+> [!IMPORTANT]
+> Support for Azure API Management self-hosted gateway version 0 and version 1 container images is ending on 1 October 2023, along with its corresponding Configuration API v1. [Learn more in our deprecation documentation](./../../breaking-changes/self-hosted-gateway-v0-v1-retirement-oct-2023.md)
+
 ## What's new?
 
 As we strive to make it easier for customers to deploy our self-hosted gateway, we've **introduced a new configuration API** that removes the dependency on Azure Storage, unless you're using [API inspector](api-management-howto-api-inspector.md) or quotas.
@@ -111,6 +114,45 @@ In order to make the migration easier, we have introduced new Azure Advisor reco
 - **Use Configuration API v2 for self-hosted gateways** recommendation - Identifies Azure API Management instances where the usage of Configuration API v1 for self-hosted gateway was identified.
 
 We highly recommend customers to use ["All Recommendations" overview in Azure Advisor](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/All) to determine if a migration is required. Use the filtering options to see if one of the above recommendations is present.
+
+### Use Azure Resource Graph to identify Azure API Management instances
+
+This Azure Resource Graph query provides you with a list of impacted Azure API Management instances:
+
+```kusto
+AdvisorResources
+| where type == 'microsoft.advisor/recommendations'
+| where properties.impactedField == 'Microsoft.ApiManagement/service' and properties.category == 'OperationalExcellence'
+| extend
+    recommendationTitle = properties.shortDescription.solution
+| where recommendationTitle == 'Use self-hosted gateway v2' or recommendationTitle == 'Use Configuration API v2 for self-hosted gateways'
+| extend
+    instanceName = properties.impactedValue,
+    recommendationImpact = properties.impact,
+    recommendationMetadata = properties.extendedProperties,
+    lastUpdated = properties.lastUpdated
+| project tenantId, subscriptionId, resourceGroup, instanceName, recommendationTitle, recommendationImpact, recommendationMetadata, lastUpdated
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az graph query -q "AdvisorResources | where type == 'microsoft.advisor/recommendations' | where properties.impactedField == 'Microsoft.ApiManagement/service' and properties.category == 'OperationalExcellence' | extend recommendationTitle = properties.shortDescription.solution | where recommendationTitle == 'Use self-hosted gateway v2' or recommendationTitle == 'Use Configuration API v2 for self-hosted gateways' | extend instanceName = properties.impactedValue, recommendationImpact = properties.impact, recommendationMetadata = properties.extendedProperties, lastUpdated = properties.lastUpdated | project tenantId, subscriptionId, resourceGroup, instanceName, recommendationTitle, recommendationImpact, lastUpdated"
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Search-AzGraph -Query "AdvisorResources | where type == 'microsoft.advisor/recommendations' | where properties.impactedField == 'Microsoft.ApiManagement/service' and properties.category == 'OperationalExcellence' | extend recommendationTitle = properties.shortDescription.solution | where recommendationTitle == 'Use self-hosted gateway v2' or recommendationTitle == 'Use Configuration API v2 for self-hosted gateways' | extend instanceName = properties.impactedValue, recommendationImpact = properties.impact, recommendationMetadata = properties.extendedProperties, lastUpdated = properties.lastUpdated | project tenantId, subscriptionId, resourceGroup, instanceName, recommendationTitle, recommendationImpact, lastUpdated"
+```
+
+# [Portal](#tab/azure-portal)
+
+:::image type="icon" source="./../articles/governance/resource-graph/media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
+- Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/AdvisorResources%0A%7C%20where%20type%20%3D%3D%20%27microsoft.advisor%2Frecommendations%27%0A%7C%20where%20properties.impactedField%20%3D%3D%20%27Microsoft.ApiManagement%2Fservice%27%20and%20properties.category%20%3D%3D%20%27OperationalExcellence%27%0A%7C%20extend%0A%20%20%20%20recommendationTitle%20%3D%20properties.shortDescription.solution%0A%7C%20where%20recommendationTitle%20%3D%3D%20%27Use%20self-hosted%20gateway%20v2%27%20or%20recommendationTitle%20%3D%3D%20%27Use%20Configuration%20API%20v2%20for%20self-hosted%20gateways%27%0A%7C%20extend%0A%20%20%20%20instanceName%20%3D%20properties.impactedValue%2C%0A%20%20%20%20recommendationImpact%20%3D%20properties.impact%2C%0A%20%20%20%20recommendationMetadata%20%3D%20properties.extendedProperties%2C%0A%20%20%20%20lastUpdated%20%3D%20properties.lastUpdated%0A%7C%20project%20tenantId%2C%20subscriptionId%2C%20resourceGroup%2C%20instanceName%2C%20recommendationTitle%2C%20recommendationImpact%2C%20recommendationMetadata%2C%20lastUpdated" target="_blank">portal.azure.com</a>
+- Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/AdvisorResources%0A%7C%20where%20type%20%3D%3D%20%27microsoft.advisor%2Frecommendations%27%0A%7C%20where%20properties.impactedField%20%3D%3D%20%27Microsoft.ApiManagement%2Fservice%27%20and%20properties.category%20%3D%3D%20%27OperationalExcellence%27%0A%7C%20extend%0A%20%20%20%20recommendationTitle%20%3D%20properties.shortDescription.solution%0A%7C%20where%20recommendationTitle%20%3D%3D%20%27Use%20self-hosted%20gateway%20v2%27%20or%20recommendationTitle%20%3D%3D%20%27Use%20Configuration%20API%20v2%20for%20self-hosted%20gateways%27%0A%7C%20extend%0A%20%20%20%20instanceName%20%3D%20properties.impactedValue%2C%0A%20%20%20%20recommendationImpact%20%3D%20properties.impact%2C%0A%20%20%20%20recommendationMetadata%20%3D%20properties.extendedProperties%2C%0A%20%20%20%20lastUpdated%20%3D%20properties.lastUpdated%0A%7C%20project%20tenantId%2C%20subscriptionId%2C%20resourceGroup%2C%20instanceName%2C%20recommendationTitle%2C%20recommendationImpact%2C%20recommendationMetadata%2C%20lastUpdated" target="_blank">portal.azure.us</a>
+- Azure China 21Vianet portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/AdvisorResources%0A%7C%20where%20type%20%3D%3D%20%27microsoft.advisor%2Frecommendations%27%0A%7C%20where%20properties.impactedField%20%3D%3D%20%27Microsoft.ApiManagement%2Fservice%27%20and%20properties.category%20%3D%3D%20%27OperationalExcellence%27%0A%7C%20extend%0A%20%20%20%20recommendationTitle%20%3D%20properties.shortDescription.solution%0A%7C%20where%20recommendationTitle%20%3D%3D%20%27Use%20self-hosted%20gateway%20v2%27%20or%20recommendationTitle%20%3D%3D%20%27Use%20Configuration%20API%20v2%20for%20self-hosted%20gateways%27%0A%7C%20extend%0A%20%20%20%20instanceName%20%3D%20properties.impactedValue%2C%0A%20%20%20%20recommendationImpact%20%3D%20properties.impact%2C%0A%20%20%20%20recommendationMetadata%20%3D%20properties.extendedProperties%2C%0A%20%20%20%20lastUpdated%20%3D%20properties.lastUpdated%0A%7C%20project%20tenantId%2C%20subscriptionId%2C%20resourceGroup%2C%20instanceName%2C%20recommendationTitle%2C%20recommendationImpact%2C%20recommendationMetadata%2C%20lastUpdated" target="_blank">portal.azure.cn</a>
 
 ## Known limitations
 
