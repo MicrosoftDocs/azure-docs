@@ -30,7 +30,7 @@ In your virtual network, enable the Storage service endpoint on your subnet. Thi
 
 1. Navigate to your virtual network and select **Service Endpoints**.
 1. Select **+ Add** and for **Service** select **Microsoft.Storage**.
-1. Select any policies you like, as well as the subnet you deploy your Elastic SAN into and select **Add**.
+1. Select any policies you like, and the subnet you deploy your Elastic SAN into and select **Add**.
 
 :::image type="content" source="media/elastic-san-create/elastic-san-service-endpoint.png" alt-text="Screenshot of the virtual network service endpoint page, adding the storage service endpoint." lightbox="media/elastic-san-create/elastic-san-service-endpoint.png":::
 
@@ -51,7 +51,7 @@ az network vnet subnet update --resource-group "myresourcegroup" --vnet-name "my
 
 Now that you've enabled the service endpoint, configure the network security settings on your volume groups. You can grant network access to a volume group from one or more Azure virtual networks.
 
-By default, no network access is allowed to any volumes in a volume group. Adding a virtual network to your volume group lets you to establish iSCSI connections from clients in the same virtual network and subnet to the volumes in the volume group. For more details on networking, see [Configure Elastic SAN networking (preview)](elastic-san-networking.md).
+By default, no network access is allowed to any volumes in a volume group. Adding a virtual network to your volume group lets you establish iSCSI connections from clients in the same virtual network and subnet to the volumes in the volume group. For more information on networking, see [Configure Elastic SAN networking (preview)](elastic-san-networking.md).
 
 # [Portal](#tab/azure-portal)
 

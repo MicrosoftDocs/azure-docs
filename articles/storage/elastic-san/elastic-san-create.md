@@ -17,7 +17,7 @@ This article explains how to deploy and configure an elastic storage area networ
 
 - Sign up for the preview at [https://aka.ms/ElasticSANPreviewSignUp](https://aka.ms/ElasticSANPreviewSignUp).
     You'll receive an email when your subscription has been enrolled in the preview.
-- If you're using Azure Powershell, use `Install-Module -Name Az.Elastic-SAN -Scope CurrentUser -Repository PSGallery -Force -RequiredVersion .10-preview` to install the preview module.
+- If you're using Azure PowerShell, use `Install-Module -Name Az.Elastic-SAN -Scope CurrentUser -Repository PSGallery -Force -RequiredVersion .10-preview` to install the preview module.
 - If you're using Azure CLI, install version `2.41.0`. For installation instructions, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Limitations
