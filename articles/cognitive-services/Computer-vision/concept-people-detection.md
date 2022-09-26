@@ -28,24 +28,27 @@ The following JSON response illustrates what the Analyze API returns when descri
 
 ```json
 {
-   "kind":"imageAnalysisResult",
-   "metadata":{
-      "height":473,
-      "width":1260
-   },
-   "peopleResult":{
-      "people":[
-         {
-            "rectangle":{
-               "x":660,
-               "y":0,
-               "w":582,
-               "h":473
-            },
-            "confidence":0.9680353999137878
-         }
-      ]
-   }
+    "metadata":
+    {
+        "width": 1260,
+        "height": 473
+    },
+    "peopleResult":
+    {
+        "values":
+        [
+            {
+                "boundingBox":
+                {
+                    "x": 660,
+                    "y": 0,
+                    "w": 582,
+                    "h": 473
+                },
+                "confidence": 0.9680353999137878
+            }
+        ]
+    }
 }
 ```
 

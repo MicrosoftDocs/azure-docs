@@ -95,59 +95,37 @@ The following JSON response illustrates what the Analyze API returns when detect
 
 ```json
 {
-   "kind":"imageAnalysisResult",
-   "metadata":{
-      "height":473,
-      "width":1260
-   },
-   "detectResult":{
-      "objects":[
-         {
-            "boundingBox":{
-               "x":730,
-               "y":66,
-               "w":135,
-               "h":85
+    "metadata":
+    {
+        "width": 1260,
+        "height": 473
+    },
+    "objectsResult":
+    {
+        "values":
+        [
+            {
+                "name": "kitchen appliance",
+                "confidence": 0.501,
+                "boundingBox": {"x":730,"y":66,"w":135,"h":85}
             },
-            "name":"kitchen appliance",
-            "confidence":0.501
-         },
-         {
-            "boundingBox":{
-               "x":523,
-               "y":377,
-               "w":185,
-               "h":46
+            {
+                "name": "computer keyboard",
+                "confidence": 0.51,
+                "boundingBox": {"x":523,"y":377,"w":185,"h":46}
             },
-            "name":"computer keyboard",
-            "confidence":0.51
-         },
-         {
-            "boundingBox":{
-               "x":471,
-               "y":218,
-               "w":289,
-               "h":226
+            {
+                "name": "Laptop",
+                "confidence": 0.85,
+                "boundingBox": {"x":471,"y":218,"w":289,"h":226}
             },
-            "name":"Laptop",
-            "confidence":0.85,
-            "parent":{
-               "name":"computer",
-               "confidence":0.851
+            {
+                "name": "person",
+                "confidence": 0.855,
+                "boundingBox": {"x":654,"y":0,"w":584,"h":473}
             }
-         },
-         {
-            "boundingBox":{
-               "x":654,
-               "y":0,
-               "w":584,
-               "h":473
-            },
-            "name":"person",
-            "confidence":0.855
-         }
-      ]
-   }
+        ]
+    }
 }
 ```
 ---

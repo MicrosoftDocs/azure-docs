@@ -143,107 +143,109 @@ The following JSON response illustrates what Computer Vision returns when taggin
 
 ```json
 {
-   "kind":"imageAnalysisResult",
-   "metadata":{
-      "height":200,
-      "width":300
-   },
-   "tagResult":{
-      "tags":[
-         {
-            "name":"grass",
-            "confidence":0.9960499405860901
-         },
-         {
-            "name":"outdoor",
-            "confidence":0.9956876635551453
-         },
-         {
-            "name":"building",
-            "confidence":0.9893627166748047
-         },
-         {
-            "name":"property",
-            "confidence":0.9853052496910095
-         },
-         {
-            "name":"plant",
-            "confidence":0.9791355729103088
-         },
-         {
-            "name":"sky",
-            "confidence":0.976455569267273
-         },
-         {
-            "name":"home",
-            "confidence":0.9732913374900818
-         },
-         {
-            "name":"house",
-            "confidence":0.9726771116256714
-         },
-         {
-            "name":"real estate",
-            "confidence":0.972320556640625
-         },
-         {
-            "name":"yard",
-            "confidence":0.9480281472206116
-         },
-         {
-            "name":"siding",
-            "confidence":0.945357620716095
-         },
-         {
-            "name":"porch",
-            "confidence":0.9410697221755981
-         },
-         {
-            "name":"cottage",
-            "confidence":0.9143695831298828
-         },
-         {
-            "name":"tree",
-            "confidence":0.9111745357513428
-         },
-         {
-            "name":"farmhouse",
-            "confidence":0.8988940119743347
-         },
-         {
-            "name":"window",
-            "confidence":0.894851803779602
-         },
-         {
-            "name":"lawn",
-            "confidence":0.894050121307373
-         },
-         {
-            "name":"backyard",
-            "confidence":0.8931854963302612
-         },
-         {
-            "name":"garden buildings",
-            "confidence":0.8859137296676636
-         },
-         {
-            "name":"roof",
-            "confidence":0.8695330619812012
-         },
-         {
-            "name":"driveway",
-            "confidence":0.8670969009399414
-         },
-         {
-            "name":"land lot",
-            "confidence":0.856428861618042
-         },
-         {
-            "name":"landscaping",
-            "confidence":0.8540748357772827
-         }
-      ]
-   }
+    "metadata":
+    {
+        "width": 300,
+        "height": 200
+    },
+    "tagsResult":
+    {
+        "values":
+        [
+            {
+                "name": "grass",
+                "confidence": 0.9960499405860901
+            },
+            {
+                "name": "outdoor",
+                "confidence": 0.9956876635551453
+            },
+            {
+                "name": "building",
+                "confidence": 0.9893627166748047
+            },
+            {
+                "name": "property",
+                "confidence": 0.9853052496910095
+            },
+            {
+                "name": "plant",
+                "confidence": 0.9791355729103088
+            },
+            {
+                "name": "sky",
+                "confidence": 0.976455569267273
+            },
+            {
+                "name": "home",
+                "confidence": 0.9732913374900818
+            },
+            {
+                "name": "house",
+                "confidence": 0.9726771116256714
+            },
+            {
+                "name": "real estate",
+                "confidence": 0.972320556640625
+            },
+            {
+                "name": "yard",
+                "confidence": 0.9480281472206116
+            },
+            {
+                "name": "siding",
+                "confidence": 0.945357620716095
+            },
+            {
+                "name": "porch",
+                "confidence": 0.9410697221755981
+            },
+            {
+                "name": "cottage",
+                "confidence": 0.9143695831298828
+            },
+            {
+                "name": "tree",
+                "confidence": 0.9111745357513428
+            },
+            {
+                "name": "farmhouse",
+                "confidence": 0.8988940119743347
+            },
+            {
+                "name": "window",
+                "confidence": 0.894851803779602
+            },
+            {
+                "name": "lawn",
+                "confidence": 0.894050121307373
+            },
+            {
+                "name": "backyard",
+                "confidence": 0.8931854963302612
+            },
+            {
+                "name": "garden buildings",
+                "confidence": 0.8859137296676636
+            },
+            {
+                "name": "roof",
+                "confidence": 0.8695330619812012
+            },
+            {
+                "name": "driveway",
+                "confidence": 0.8670969009399414
+            },
+            {
+                "name": "land lot",
+                "confidence": 0.856428861618042
+            },
+            {
+                "name": "landscaping",
+                "confidence": 0.8540748357772827
+            }
+        ]
+    }
 }
 ```
 ---

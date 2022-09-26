@@ -61,26 +61,21 @@ The following JSON response illustrates what the Analyze API returns when descri
 
 ```json
 {
-   "kind":"imageAnalysisResult",
-   "metadata":{
-      "height":300,
-      "width":239
-   },
-   "describeResult":{
-      "description":{
-         "tags":[
-            "outdoor",
-            "city",
-            "white"
-         ],
-         "captions":[
+    "metadata":
+    {
+        "width": 239,
+        "height": 300
+    },
+    "descriptionResult":
+    {
+        "values":
+        [
             {
-               "text":"a city with tall buildings",
-               "confidence":0.3551448881626129
+                "text": "a city with tall buildings",
+                "confidence": 0.3551448881626129
             }
-         ]
-      }
-   }
+        ]
+    }
 }
 ```
 ---
