@@ -1,11 +1,11 @@
 ---
 title: Control what a user can do at the file level - Azure file shares
-description: Learn how to configure Windows ACLs permissions for on-premises AD DS authentication to Azure file shares. Allowing you to take advantage of granular access control.
+description: Learn how to configure Windows ACLs permissions for on-premises AD DS authentication to Azure file shares, allowing you to take advantage of granular access control.
 author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 03/16/2022
+ms.date: 09/26/2022
 ms.author: kendownie
 ---
 
@@ -13,7 +13,7 @@ ms.author: kendownie
 
 Before you begin this article, make sure you completed the previous article, [Assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md) to ensure that your share-level permissions are in place.
 
-After you assign share-level permissions with Azure RBAC, you must configure proper Windows ACLs at the root, directory, or file level, to take advantage of granular access control. The Azure RBAC share-level permissions act as a high-level gatekeeper that determines whether a user can access the share. While the Windows ACLs operate at a more granular level to control what operations the user can do at the directory or file level. Both share-level and file/directory level permissions are enforced when a user attempts to access a file/directory, so if there is a difference between either of them, only the most restrictive one will be applied. For example, if a user has read/write access at the file-level, but only read at a share-level, then they can only read that file. The same would be true if it was reversed, and a user had read/write access at the share-level, but only read at the file-level, they can still only read the file.
+After you assign share-level permissions with Azure role-based access control (RBAC), you must configure proper Windows ACLs at the root, directory, or file level, to take advantage of granular access control. The Azure RBAC share-level permissions act as a high-level gatekeeper that determines whether a user can access the share, while the Windows access control lists (ACLs) operate at a more granular level to control what operations the user can do at the directory or file level. Both share-level and file/directory level permissions are enforced when a user attempts to access a file/directory, so if there's a difference between either of them, only the most restrictive one will be applied. For example, if a user has read/write access at the file level, but only read at a share level, then they can only read that file. The same would be true if it was reversed: if a user had read/write access at the share-level, but only read at the file-level, they can still only read the file.
 
 
 ## Applies to
@@ -26,7 +26,6 @@ After you assign share-level permissions with Azure RBAC, you must configure pro
 ## Azure RBAC permissions
 
 The following table contains the Azure RBAC permissions related to this configuration:
-
 
 | Built-in role  | NTFS permission  | Resulting access  |
 |---------|---------|---------|
@@ -42,8 +41,6 @@ The following table contains the Azure RBAC permissions related to this configur
 |     |  Read & execute  |  Read & execute |
 |     |  Read            |  Read   |
 |     |  Write           |  Write  |
-
-
 
 ## Supported permissions
 
@@ -69,25 +66,22 @@ The following permissions are included on the root directory of a file share:
 |`NT AUTHORITY\Authenticated Users`|All users in AD that can get a valid Kerberos token.|
 |`CREATOR OWNER`|Each object either directory or file has an owner for that object. If there are ACLs assigned to `CREATOR OWNER` on that object, then the user that is the owner of this object has the permissions to the object defined by the ACL.|
 
-
 ## Mount a file share from the command prompt
 
-Use the Windows `net use` command to mount the Azure file share. Remember to replace the placeholder values in the following example with your own values. For more information about mounting file shares, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
+Use the PowerShell script below to mount the Azure file share. Remember to replace the placeholder values in the following example with your own values. For more information about mounting file shares, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
 
 > [!NOTE]
-> You may see the *Full Control** ACL applied to a role already. This typically already offers the ability to assign permissions. However, because there are access checks at two levels (the share-level and the file-level), this is restricted. Only users who have the **SMB Elevated Contributor** role and create a new file or folder can assign permissions on those specific new files or folders without the use of the storage account key. All other permission assignment requires mounting the share with the storage account key, first.
+> You may see the *Full Control** ACL applied to a role already. This typically already offers the ability to assign permissions. However, because there are access checks at two levels (the share level and the file level), this is restricted. Only users who have the **SMB Elevated Contributor** role and create a new file or folder can assign permissions on those specific new files or folders without the use of the storage account key. All other permission assignment requires mounting the share with the storage account key first.
 
 ```
 $connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445
-if ($connectTestResult.TcpTestSucceeded)
-{
-  net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> /user:Azure\<storage-account-name> <storage-account-key>
-} 
-else 
-{
-  Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN,   Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
+if ($connectTestResult.TcpTestSucceeded) {
+   cmd.exe /C "cmdkey /add:`"<storage-account-name>.file.core.windows.net`" /user:`"Azure\<storage-account-name>`" /pass:`"<storage-account-key>`""
+   New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\data"
+} else {
+   Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not 
+   blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
 }
-
 ```
 
 If you experience issues in connecting to Azure Files, refer to [the troubleshooting tool we published for Azure Files mounting errors on Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/).
@@ -110,20 +104,19 @@ For more information on how to use icacls to set Windows ACLs and on the differe
 
 ### Configure Windows ACLs with Windows File Explorer
 
-Use Windows File Explorer to grant full permission to all directories and files under the file share, including the root directory. If you are not able to load the AD domain information correctly in Windows File Explorer, this is likely due to trust configuration in your on-prem AD environment. The client machine was not able to reach the AD domain controller registered for Azure Files authentication. In this case, use icacls for configurating Windows ACLs.
+Use Windows File Explorer to grant full permission to all directories and files under the file share, including the root directory. If you are not able to load the AD domain information correctly in Windows File Explorer, this is likely due to trust configuration in your on-premises AD environment. The client machine was not able to reach the AD domain controller registered for Azure Files authentication. In this case, use icacls for configuring Windows ACLs.
 
 1. Open Windows File Explorer and right click on the file/directory and select **Properties**.
 1. Select the **Security** tab.
 1. Select **Edit..** to change permissions.
 1. You can change the permissions of existing users or select **Add...** to grant permissions to new users.
 1. In the prompt window for adding new users, enter the target username you want to grant permissions to in the **Enter the object names to select** box, and select **Check Names** to find the full UPN name of the target user.
-1.    Select **OK**.
-1.    In the **Security** tab, select all permissions you want to grant your new user.
-1.    Select **Apply**.
-
+1. Select **OK**.
+1. In the **Security** tab, select all permissions you want to grant your new user.
+1. Select **Apply**.
 
 ## Next steps
 
-Now that the feature is enabled and configured, continue to the next article, where you mount your Azure file share from a domain-joined VM.
+Now that the feature is enabled and configured, continue to the next article to learn how to mount your Azure file share from a domain-joined VM.
 
 [Part four: mount a file share from a domain-joined VM](storage-files-identity-ad-ds-mount-file-share.md)
