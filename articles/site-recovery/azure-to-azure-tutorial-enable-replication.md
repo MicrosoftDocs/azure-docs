@@ -174,8 +174,8 @@ Site Recovery retrieves the VMs associated with the selected subscription/resour
 
 1. In **Manage**, do the following:
     1. Under **Replication policy**,
-       - **Replication policy**: Select the replication policy. Defines the settings for recovery point retention history and app-consistent snapshot frequency. By default, Site Recovery creates a new replication policy with default settings of 24 hours for recovery point retention and 60 minutes for app-consistent snapshot frequency.
-       - **Replication group**: Create replication group.
+       - **Replication policy**: Select the replication policy. Defines the settings for recovery point retention history and app-consistent snapshot frequency. By default, Site Recovery creates a new replication policy with default settings of 24 hours for recovery point retention.
+       - **Replication group**: Create replication group to replicate VMs together to generate Multi-VM consistent recovery points. Note that enabling multi-VM consistency can impact workload performance and should only be used if machines are running the same workload and you need consistency across multiple machines.
     1. Under **Extension settings**, 
        - Select **Update settings** and **Automation account**.
 
