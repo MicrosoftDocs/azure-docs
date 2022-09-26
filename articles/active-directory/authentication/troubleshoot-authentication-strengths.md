@@ -19,16 +19,18 @@ ms.collection: M365-identity-device-management
 
 This topic covers errors you might see when you use Azure Active Directory (Azure AD) authentication strength and how to resolve them.  
 
-## A user is getting prompted for additional authentication methods, but they don't see the methods I expect
+## A user is asked to sign in with another method, but they don't see a method they expect
 
-To evaluate if a method can be used, we consider which authentication methods the user has registered and enabled for by the Authentication method policy. For more information, see [How Conditional Access Authentication strengths policies are used in combination with Authentication methods policy](concept-authentication-strengths.md#how-conditional-access-authentication-strengths-policies-are-used-in-combination-with-authentication-methods-policy).
+<!---What could be a good example?--->
+
+Users can sign in only by using authentication methods they have registered and enabled in the Authentication methods policy. For more information, see [How Conditional Access Authentication strengths policies are used in combination with Authentication methods policy](concept-authentication-strengths.md#how-conditional-access-authentication-strengths-policies-are-used-in-combination-with-authentication-methods-policy).
 
 To verify if a method can be used:
 
 1. Check which authentication strength is required. Click **Security** > **Authentication methods** > **Authentication strengths**. 
 1. Check if the user is enabled for a required method:
-   1. First, check the unified Authentication methods policy. See if the user is enabled for any method required by authentication strength. Click **Security** > **Authentication methods** > **Policies**.
-   1. If you use the legacy Authentication methods policy, check if the tenant is enabled for any method required for the authentication strength. Click **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings**. 
+   1. Check the Authentication methods policy to see if the user is enabled for any method required by the authentication strength. Click **Security** > **Authentication methods** > **Policies**.
+   1. As needed, check if the tenant is enabled for any method required for the authentication strength. Click **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings**. 
 1. Check which authentication methods are registered for the user in the Authentication methods policy. Click **Users and groups** > _username_ > **Authentication methods**. 
 
 If the user is registered for an enabled method that meets the authentication strength, they might need to use another method that isn't available after primary authentication, such as Windows Hello for Business or certificate-based authentication. For more information, see [How each authentication method works](concept-authentication-methods.md#how-each-authentication-method-works). The user will need to restart the session and choose **Sign-in options** and select a method required by the authentication strength.
@@ -38,7 +40,6 @@ If the user is registered for an enabled method that meets the authentication st
 If authentication strength requires a method a user can’t use (for example, they are not enabled for the method in the unified authentication method policy), the user is blocked from sign-in.
 
 Follow the steps outlined in the [previous question](/troubleshoot-authentication-strengths.md#a-user-is-prompted-to-use-a-different-authentication-method-but-they-dont-see-how-to-register-that-method) to identify which method the user is required to use by authentication strengths, and which method the user is enabled for by the unified authentication method policy. 
-
 
 ## How to check which authentication strength was enforced during sign-in
 Use the **Sign-ins** log to find additional information about the sign-in: 
