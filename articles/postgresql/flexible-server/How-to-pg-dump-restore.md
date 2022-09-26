@@ -47,7 +47,7 @@ Perform vacuum analyze of the tables which are identified or deemed necessary.
 vacuum(analyze, verbose) <table_name> 
 ```
 
-### Use Of PITR Server
+### Use Of PITR[Point In Time Recovery] Server
 
 Pg dump can be carried out on a online/live server.It makes consistent backups even if the database is being used.It does not block other users from using the database.It is suggested to consider the database size and other business/customer needs before pg_dump process is started.Small DBs might be a good candidate to carry out pg dump online on the production server without stopping the actual production server.For large databases you could create PITR (Point In Time Recovery) server from the actual production server and carry out the pg_dump process on the PITR server.Running pg_dump on a PITR would be a cold run process but the trade off for this would be one would not be concerned with additional CPU/IO utilization that comes with pg_dump process on the actual production server.You can run pg_dump on a PITR server without any impact of production server and drop the PITR server once pg_dump process is completed.
 
