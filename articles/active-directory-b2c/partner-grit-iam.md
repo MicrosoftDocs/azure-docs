@@ -103,7 +103,7 @@ Learn [how your customers can sign up, sign in, and manage their profiles](add-s
 
 ## Test the scenarios
 
-Check the authentication [scenarios](##-Scenario-description) in your applications. Use the Grit Admin portal to change roles and user properties. Provide delegated access to Admin portal by inviting users.
+Check the authentication [scenarios](#-scenario-description) in your applications. Use the Grit Admin portal to change roles and user properties. Provide delegated access to Admin portal by inviting users.
 
 ## Next steps
 
