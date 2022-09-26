@@ -41,7 +41,7 @@ Check the Azure CLI extensions you've installed:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_list":::
 
-Remove any existing installation of the of `ml` extension and also the CLI v1 `azure-cli-ml` extension:
+Remove any existing installation of the `ml` extension and also the CLI v1 `azure-cli-ml` extension:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_remove":::
 
