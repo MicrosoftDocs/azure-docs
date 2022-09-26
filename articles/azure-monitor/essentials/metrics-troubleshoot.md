@@ -73,10 +73,10 @@ Azure metrics charts use dashed line style to indicate that there is a missing v
 ## Units of measure in metrics charts
 
 Azure monitor metrics uses SI based prefixes. Metrics will only be using IEC prefixes if the resource provider has chosen an appropriate unit for a metric.
-For ex: The resource provider Network interface(resource name: rarana-vm816) has no metric unit defined for "Packets Sent". The prefix used for the metric value here is k representing kilo (1000), a SI prefix. 
+For ex: The resource provider Network interface (resource name: rarana-vm816) has no metric unit defined for "Packets Sent". The prefix used for the metric value here is k representing kilo (1000), a SI prefix. 
 ![Screenshot that shows metric value with prefix kilo.](./media/metrics-troubleshoot/prefix-si.png)
 
-The resource provider Storage account(resource name: ibabichvm) has metric unit defined for "Blob Capacity" as bytes. Hence, the prefix used is mebi (1024^2), an IEC prefix.
+The resource provider Storage account (resource name: ibabichvm) has metric unit defined for "Blob Capacity" as bytes. Hence, the prefix used is mebi (1024^2), an IEC prefix.
 ![Screenshot that shows metric value with prefix mebi.](./media/metrics-troubleshoot/prefix-iec.png)
 
 SI uses decimal
