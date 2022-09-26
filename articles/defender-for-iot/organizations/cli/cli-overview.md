@@ -5,35 +5,50 @@ ms.date: 09/07/2022
 ms.topic: conceptual
 ---
 
-# CLI command reference overview
+# Getting started
 
-This article provides an introduction to the Microsoft Defender for CLI tools, which privileged users can use for advanced troubleshooting and support.
+This article provides an introduction to the Microsoft Defender for IoT appliance CLI command line interface. The command line interface (CLI) is a text-based user interface which privileged users can use for advanced configuration, troubleshooting and support.
 
-<!--MORE ABOUT WHO THE AUDIENCE IS AND WHAT ITS USED FOR. WHY DO WE CARE?-->
+## Logon and Authentication
 
-## Access the CLI
+There are several ways to connect to the CLI. Once connected, log on to the CLI with the admin credentials. Connection via SSH is available on all appliance platforms. Connect to the CLI using a terminal emulator and SSH. 
+- On a Windows system, use PuTTY or similar. 
+- On a Mac system use Terminal. 
+- On a virtualized appliance, in addition to SSH you can access the CLI via the vSphere client or Hyper-V manager.
+Connect to the appliance management interface IP address on port 22.
 
-The Defender for IoT CLI is only open to the privileged users installed together with the OT network sensor and on-premises management console software installation. On the sensor, this includes the *cyberx*, *support*, and *cyberx_host* users. On the on-premises management console, this includes the *cyberx* and *support* users.
+## Priviledged CLI users
 
-Access the CLI via a terminal, such as Putty, by signing into the sensor or on-premises management console as one of the privileged users. We recommend that you use the *support* user for CLI access whenever possible.
+CLI access is only available to the privileged users pre-defined in the appliance software. 
+- On the sensor, this includes the *cyberx*, *support*, and *cyberx_host* users.
+- On the on-premises management console, this includes the *cyberx* and *support* users.
 
-<!-- warning for CLI usage section -->
+> [!NOTE]
+> We recommend that you use the *support* user for CLI access whenever possible.
 
-Privileged users have access to specific containers in the sensor and on-premises management console installations. The following table describes that access in detail:
+Privileged users have access to specific functionality within the appliance, the following table describes that access in detail:
 
 |Name  |Connects to  |Permissions  |
 |---------|---------|---------|
-|**cyberx**     |   The sensor or on-premises management console's `sensor_app` container      | Serves as a root user within the main application container. <br><br>Used for troubleshooting with advanced root access.<br><br>Can access the container filesystem, commands, and dedicated CLI commands for controlling OT monitoring      |
-|**support**     |   The sensor or on-premises management console's `sensor_app` container       | Serves as a locked-down, user shell for dedicated CLI tools<br><br>Has no filesystem access<br><br>Can access only  dedicated CLI commands for controlling OT monitoring   |
-|**cyberx_host**     | The on-premises management console's host OS        | Serves as a root user in the on-premises management console's host OS<br><br>Used for support scenarios with containers and filesystem access <!--this doesn't make sense - isn't this user not installed on the cm? something's missing-->       |
+|**support**     |   The sensor or on-premises management console's `configuration shell`        | Powerful administrative account that can perform all of the tasks that would need to be undertaken using the command line<br>- Manage Log Files<br>- Start and stop services<br><br>Has no filesystem access   |
+|**cyberx**     |    The sensor or on-premises management console's `shell (root)`       | Serves as a root user and has unlimited privileges on the appliance and should be used only for the following tasks:<br>- Changing default passwords<br>- Troubleshooting<br>-filesystem access      |
+|**cyberx_host**     | OT Sensor host OS `shell (root)`         | Serves as a root user and has unlimited privileges on the appliance host OS<br><br>Used for network configuration, control of application containers and filesystem access |
 
-## CLI command references
+> [!NOTE]
+> Additional users are not supported and will not have the correct permissions to perform CLI commands.
 
-CLI commands are available for the following types of operations:
+## CLI Reference
 
-- [Appliance management commands](cli-appliance.md) <!--: what do these do?>
-- [Configuration commands](cli-configuration.md) <!--: what do these do?>
-- [On-premises management console commands](cli-management.md) <!--: what do these do?>
+The following list gives a high-level overview of the functions available from the command line interface.
+
+### OT Sensor Appliance
+- [Appliance management](cli-appliance.md)  
+- [Configuration commands](cli-configuration.md)  
+
+### On-premises management console commands
+- [Appliance management](cli-cm-appliance-mgmt.md)  
+- [Configuration commands](cli-cm-configuration.md)  
+- [Sensor Management](cli-cm-sensor-mgmt)
 
 ## Sign out of the CLI
 
@@ -48,8 +63,8 @@ To sign out manually, run one of the following commands:
 |**cyberx_host**     |   `cyberx_host-xsense-logout`      |
 
 ## Next steps
+More control and monitoring of cloud connected sensors in [Sites and Sensors](how-to-manage-sensors-on-the-cloud.md)
 
-<!--need to add something intelligent here-->
 
 For more information, see:
 
