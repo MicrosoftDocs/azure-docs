@@ -20,6 +20,10 @@ ms.author: askaur
 - [Java Development Kit (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
+## Create Event Grid subscription for Incoming Call
+
+Follow [this how-to guide](../../../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md) to create your Event Grid subscription for the `IncomingCall` event.
+
 ## Create a new Java application
 
 Open your terminal or command window and navigate to the directory where you would like to create your Java application. Run the command below to generate the Java project from the maven-archetype-quickstart template.
@@ -104,7 +108,7 @@ You'll need a Communication Services user to try out the functionality of adding
 
 ## Update App.java with code
 
-In your editor of choice, open App.java file and update it with the following code. For more addition details, see the comments in the code snipped below.
+In your editor of choice, open App.java file and update it with the following code. For more addition details, see the comments in the code snippet below.
 ```Java
 package com.communication.quickstart;
 import java.net.URI;
@@ -141,19 +145,18 @@ public class App
             Logger.getAnonymousLogger().info(request.body());
             List<EventGridEvent> eventGridEvents = EventGridEvent.fromString(request.body());
             for (EventGridEvent eventGridEvent : eventGridEvents) {
-                JsonObject data = new Gson().fromJson(eventGridEvent.getData().toString(), JsonObject.class);
-                // When registering an Event Grid subscription, Event Grid sends a specific request to validate the ownership of the endpoint
+                JsonObject data = new Gson().fromJson(eventGridEvent.getData().toString(), JsonObject.class);                
                 if (eventGridEvent.getEventType().equals("Microsoft.EventGrid.SubscriptionValidationEvent")) {
                     String validationCode = data.get("validationCode").getAsString();
                     return "{\"validationResponse\": \"" + validationCode + "\"}";
                 }
-                // Answer the incoming call and pass the callbackUri where ServerCalling events will be delivered
+                // Answer the incoming call and pass the callbackUri where Call Automation events will be delivered
                 String incomingCallContext = data.get("incomingCallContext").getAsString();
                 client.answerCall(incomingCallContext, callbackUri);
             }
             return "";
         });
-        // Endpoint to receive CallingServer events
+        // Endpoint to receive Call Automation events
         post("/api/callback", (request, response) -> {
             Logger.getAnonymousLogger().info(request.body());
             List<CallAutomationEventBase> acsEvents = EventHandler.parseEventList(request.body());
@@ -163,9 +166,11 @@ public class App
             for (CallAutomationEventBase acsEvent : acsEvents) {
                 if (acsEvent.getClass() == CallConnectedEvent.class) {
                     CallConnectedEvent event = (CallConnectedEvent) acsEvent;
+                    
                     // Call was answered and is now established
                     String callConnectionId = event.getCallConnectionId();
                     CallConnection callConnection = client.getCallConnection(callConnectionId);
+    
                     // Play audio to participants in the call
                     CallMedia callMedia = callConnection.getCallMedia();
                     FileSource fileSource = new FileSource().setUri("<Audio file URL>");
@@ -180,9 +185,11 @@ public class App
                     callMedia.startRecognizing(recognizeDtmfOptions);
                 } else if (event.getClass() == RecognizeCompleted.class) {
                     RecognizeCompleted event = (RecognizeCompleted) acsEvent;
+
                     // Add participant to the call after recognize has completed playing.
                     String callConnectionId = event.getCallConnectionId();
                     CallConnection callConnection = client.getCallConnection(callConnectionId);
+
                     // Invite other participants to the call
                     List<CommunicationIdentifier> participants = new ArrayList<>(
                         Arrays.asList(new CommunicationUserIdentifier("[acsUserId]")));
@@ -217,31 +224,3 @@ mvn compile
 mvn package
 mvn exec:java -Dexec.mainClass=com.communication.quickstart.App -Dexec.cleanupDaemonThreads=false -Dexec.args=<ngrokBaseUri>
 ```
-
-## Subscribe to Event Grid IncomingCall event using a webhook
-
-Call Automation uses Event Grid to deliver the `IncomingCall` event. In this section, we configure a webhook to receive events from the Event Grid.
-
-1. Find the following identifiers used in the next step: Azure subscription ID, resource group name, Communication Services resource name.
-2. Since the `IncomingCall` event isn't yet published in the Azure portal, you need run the following Azure CLI command to configure an event subscription (replace with your identifiers and Ngrok URI).
-```console
-az eventgrid event-subscription create --name <eventSubscriptionName> \
-    --endpoint-type webhook \
-    --endpoint <ngrokUri> \
-    --included-event-types Microsoft.Communication.IncomingCall \
-    --source-resource-id "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Communication/CommunicationServices/<acsResourceName>"
-```
-
-## Test the scenario
-
-Now, given that all setup is completed, you can test your application:
-
-1. Call the number you acquired in the prerequisites section of this guide.
-2. The incoming call event is sent to the application’s `/api/incomingCall` endpoint. Application answers the call using Call Automation SDK.
-3. `CallConnected` event is delivered to `/api/callback` endpoint.
-4. Play audio and request user input from targeted phone number.
-5. When the input has been received and recognized, a `RecognizeCompleted` event is received.
-6. Application adds a participant to the call (web app user created earlier in this quickstart).
-7. User accepts the invitation to join the call. 
-8. `AddParticipantsSucceeded` event is delivered to `/api/callback` endpoint.
-9. After all participants have left the call, `CallDisconnected` event is delivered to `/api/callback` endpoint.

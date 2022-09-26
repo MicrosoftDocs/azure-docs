@@ -16,7 +16,8 @@ ms.custom: private_preview
 
 The play action provided through the call automation SDK allows you to play audio prompts to participants in the call. This action can be accessed through the server-side implementation of your application. The play action allows you to provide ACS access to your pre-recorded audio files with support for authentication. 
 
-``Note: ACS currently only supports files of WAV, mono, 16KHz format.``
+> [!NOTE]
+> ACS currently only supports WAV files formatted as mono channel audio recorded at 16KHz.
 
 The Play action allows you to provide access to a pre-recorded audio file of WAV format that ACS can access with support for authentication.
 
@@ -39,7 +40,7 @@ As part of compliance requirements in various industries, vendors are expected t
 
 ## How the play action workflow looks
 
-![Screenshot of flow for play action.](./play-action-flow.png)
+![Screenshot of flow for play action.](./media/play-action-flow.png)
 
 ## Known Issues/Limitations
 - Play action isn't enabled to work with Teams Interoperability.

@@ -23,44 +23,16 @@ ms.author: askaur
 - The [ARMClient application](https://github.com/projectkudu/ARMClient), used to configure the Event Grid subscription.
 - Obtain the NuGet package from the [Azure SDK Dev Feed](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed)
 
-## Configure an Event Grid subscription
+## Create Event Grid subscription for Incoming Call
 
-The Call Automation platform uses Event Grid to deliver the IncomingCall event to a subscription of your choice. For this guide, we'll use a web hook subscription pointing to your NGROK application proxy address.
-
-1. Locate and copy the following to be used in the armclient command-line statement below:
-    - Azure subscription ID
-    - Resource group name
-
-    On the picture below you can see the required fields:
-
-    :::image type="content" source="./../../media/call-automation/portal.png" alt-text="Screenshot of Communication Services resource page on Azure portal.":::
-
-2. Communication Service resource name
-3. Determine your local development HTTP port used by your web service application.
-4. Start NGROK by issuing the following command from a command prompt.
-
-    ```console
-    ngrok http <https://localhost:<your_web_service_port>>
-    ```
-
-    This command will produce a public URI you can use to receive the events from the Event Grid subscription.
-
-5. Optional: Determine an API route path for the incoming call event together with your NGROK URI that will be used in the armclient command-line statement below, for example: `https://ff2f-75-155-253-232.ngrok.io/api/incomingcall`.
-6. Event Grid web hooks require a valid reachable endpoint before they can be created. As such, start your web service application and run the commands below.
-7. Since the `IncomingCall` event isn't yet published in the portal, you must run the following command-line statements to configure your subscription:
-
-    ``` console
-    armclient login
-
-    armclient put "/subscriptions/<your_azure_subscription_guid>/resourceGroups/<your_resource_group_name>/providers/Microsoft.Communication/CommunicationServices/<your_acs_resource_name>/providers/Microsoft.EventGrid/eventSubscriptions/<subscription_name>?api-version=2022-06-15" "{'properties':{'destination':{'properties':{'endpointUrl':'<your_ngrok_uri>'},'endpointType':'WebHook'},'filter':{'includedEventTypes': ['Microsoft.Communication.IncomingCall']}}}" -verbose
-    ```
+Follow [this how-to guide](../../../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md) to create your Event Grid subscription for the `IncomingCall` event.
 
 ## Create a new C# application
 
 In the console window of your operating system, use the `dotnet` command to create a new web application.
 
 ```console
-dotnet new web -n MyApplication
+    dotnet new web -n MyApplication
 ```
 
 ## Install the NuGet package
@@ -124,40 +96,32 @@ app.MapPost("/api/calls/{contextId}", async (
     foreach (var cloudEvent in cloudEvents)
     {
         CallAutomationEventBase @event = CallAutomationEventParser.Parse(cloudEvent);
-        if (@event == typeof(CallConnected))
-        {
-            // recognize pin input of 123
-            var playSource = new FileSource("<INSERT_AUDIO_FILE_URI>");
-            var recognizeOptions = new CallMediaRecognizeDtmfOptions(new PhoneNumberIdentifier("<Target-Participant-Phone-Number>"), 3)
-            {
-                InterruptPrompt = true,
-                InterToneTimeoutInSeconds = TimeSpan.FromSeconds(10),
-                StopTones = new DtmfTone[] { DtmfTone.Pound },
-                InitialSilenceTimeoutInSeconds = TimeSpan.FromSeconds(5),
-                RecognizeOptions = recognizeOptions,
-                Prompt = playSource
-            }
+        if (@event is CallConnected)
+        {            
+            // play audio then recognize 3-digit DTMF input with pound (#) stop tone
+            var recognizeOptions =
+                new CallMediaRecognizeDtmfOptions(new PhoneNumberIdentifier("<Target-Participant-Phone-Number>"), 3)
+                {
+                    InterruptPrompt = true,
+                    InterToneTimeout = TimeSpan.FromSeconds(10),                    
+                    InitialSilenceTimeout = TimeSpan.FromSeconds(5),
+                    Prompt = new FileSource(new Uri("<INSERT_AUDIO_FILE_URI>")),
+                    StopTones = new [] { DtmfTone.Pound },
+                    OperationContext = "MainMenu"
+                };
             await client.GetCallConnection(@event.CallConnectionId)
                 .GetCallMedia()
                 .StartRecognizingAsync(recognizeOptions);
         }
-        if @event == typeof(RecognizeCompleted))
+        if (@event is RecognizeCompleted { OperationContext: "MainMenu" })
         {
+            // this RecognizeCompleted correlates to the previous action as per the OperationContext value
             await client.GetCallConnection(@event.CallConnectionId)
                 .AddParticipantsAsync(new List<CommunicationIdentifier>() { new CommunicationUserIdentifier("<ACS_USER_ID>")});
         }
-    }
-    
+    }    
     return Results.Ok();
 }).Produces(StatusCodes.Status200OK);
 
 app.Run();
 ```
-
-## Testing the application
-
-1. Place a call to the number you acquired in the Azure portal (see prerequisites above).
-2. Your Event Grid subscription to the `IncomingCall` should execute and call your web server.
-3. The call will be answered, and an asynchronous web hook callback will be sent to the NGROK callback URI.
-4. When the call is connected, a `CallConnected` event will be sent to your web server, wrapped in a `CloudEvent` schema and can be easily deserialized using the Call Automation SDK parser. At this point the application will request audio to be played and input from a targeted phone number.
-5. When the input has been received and recognized, the web server will make a request to add a participant to the call.
