@@ -34,23 +34,23 @@ If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContent
 With each of these examples, you're provided with:
  1. A valid IoT device message.
  2. An example of what the IoT device message will look like after being received and processed by the IoT Hub.
- 3. A valid MedTech service device mapping for normalizing the provided IoT device message.
+ 3. A valid MedTech service device mapping for normalizing the IoT device message after IoT Hub processing.
  4. An example of what the MedTech service device message will look like after normalization.
 
 **Heart rate**
 
-1. **A valid IoT device message**
+A valid IoT device message.
 
 ```json
 
-{“heartrate” : “78”}
+   {“heartrate” : “78”}
 
 ```
 
 > [!IMPORTANT]
 > To avoid device spoofing in device-to-cloud messages, Azure IoT Hub stamps all messages with additional properties. To learn more about these properties, see [Anti-spoofing properties](/azure/iot-hub/iot-hub-devguide-messages-construct#anti-spoofing-properties)
 
-2. **An example of what the IoT device message will look like after being received and processed by the IoT Hub.**
+*An example of what the IoT device message will look like after being received and processed by the IoT Hub.*
 
 ```json
 
@@ -68,7 +68,7 @@ With each of these examples, you're provided with:
 
 ```
 
-3. **A valid MedTech service device mapping for normalizing the IoT device message.**
+*A valid MedTech service device mapping for normalizing the IoT device message after IoT Hub processing.*
 
 ```json
 
@@ -94,7 +94,7 @@ With each of these examples, you're provided with:
 
 ```
 
-4. **An example of what the MedTech service device message will look like after the normalization process.**
+*An example of what the MedTech service device message will look like after the normalization process.*
 
 ```json
 
@@ -116,7 +116,7 @@ With each of these examples, you're provided with:
 
 **Blood pressure**
 
-1. **A valid IoT device message.**
+*A valid IoT device message.*
 
 ```json
 
@@ -128,7 +128,7 @@ With each of these examples, you're provided with:
 
 ```
 
-2. **An example of what the IoT device message will look like after being received and processed by the IoT Hub.**
+*An example of what the IoT device message will look like after being received and processed by the IoT Hub.*
 
 ```json
 
@@ -147,7 +147,7 @@ With each of these examples, you're provided with:
 
 ```
 
-3. **A valid MedTech service device mapping for normalizing the provided IoT device message.**
+*A valid MedTech service device mapping for normalizing the IoT device message after IoT Hub processing.*
 
 ```json
 
@@ -178,7 +178,7 @@ With each of these examples, you're provided with:
 
 ```
 
-4. **An example of what the MedTech service device message will look like after the normalization process.**
+*An example of what the MedTech service device message will look like after the normalization process.*
 
 ```json
 
@@ -203,9 +203,9 @@ With each of these examples, you're provided with:
 ```
 
 > [!TIP]
-> The above IotJsonPathTemplate examples will work separately with your MedTech service device mapping or you can combine them into a single MedTech service device mapping as shown below. Additionally, the IotJasonPathTemplates can also be combined with with other template types such as [JasonPathContentTemplate mappings](how-to-use-jsonpath-content-mappings.md) to design and tune your MedTech service device mapping to meet your individual needs and scenarios. 
+> The provided IotJsonPathTemplate device mapping examples may be combine into a single MedTech service device mapping as shown below to work with each of the example IoT device messages. Additionally, the IotJasonPathTemplates can also be combined with with other template types such as [JasonPathContentTemplate mappings](how-to-use-jsonpath-content-mappings.md) to further expand your MedTech service device mapping. 
 
-**Combined heart rate and blood pressure MedTech service device mapping**
+*Combined heart rate and blood pressure MedTech service device mapping example.*
 
 ```json
 
