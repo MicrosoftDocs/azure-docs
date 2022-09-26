@@ -178,14 +178,14 @@ Currently federated identity credential properties are not supported by [Azure P
 
 ## Throttling limits
 
-The following considerations apply to federated identity credentials on user-assigned managed identities.
+The following considerations apply to federated identity credentials on user-assigned managed identities.  The following table describes limits on requests to the user-assigned managed identities REST APIS:
 
 | Operation         | Requests-per-second per Azure AD tenant    | Requests-per-second per subscription    | Requests-per-second per resource    |
 |-------------------|----------------|----------------|----------------|
-| FederatedIdentityCredentialPutRequest | 10 | 2 | 0.25 |
-| FederatedIdentityCredentialGetRequest | 30 | 10 | 0.5 |
-| FederatedIdentityCredentialsListRequest | 15 | 5 | 0.25 |
-| FederatedIdentityCredentialDeleteRequest | 10 | 2 | 0.25 |
+| [Create or update](/rest/api/managedidentity/user-assigned-identities/create-or-update) requests | 10 | 2 | 0.25 |
+| [Get](/rest/api/managedidentity/user-assigned-identities/get) requests | 30 | 10 | 0.5 |
+| [List by resource group](/rest/api/managedidentity/user-assigned-identities/list-by-resource-group) or [List by subscription](/rest/api/managedidentity/user-assigned-identities/list-by-subscription) requests | 15 | 5 | 0.25 |
+| [Delete](/rest/api/managedidentity/user-assigned-identities/delete) requests | 10 | 2 | 0.25 |
 
 ## Errors
 
