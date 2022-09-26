@@ -102,10 +102,22 @@ az cosmosdb mongodb user definition create --account-name <YOUR_DB_ACCOUNT> --re
 
 
 ## Authenticate using pymongo
-Sending the appName parameter is required to authenticate as a user. Here is an example of how to do so:
 ```python
 from pymongo import MongoClient
 client = MongoClient("mongodb://<YOUR_HOSTNAME>:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000", username="<YOUR_USER>", password="<YOUR_PASSWORD>", authSource='<YOUR_DATABASE>', authMechanism='SCRAM-SHA-256', appName="<YOUR appName FROM CONNECTION STRING IN AZURE PORTAL>")
+```
+
+## Authenticate using Node.js driver
+```javascript
+connectionString = "mongodb://" + "<YOUR_USER>" + ":" + "<YOUR_PASSWORD>" + "@" + "<YOUR_HOSTNAME>" + ":" + port + "/?ssl=true&retrywrites=false&replicaSet=globaldb&appname=@" + "<YOUR_USER>" + "@";
+var client = await mongodb.MongoClient.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
+```
+
+## Authenticate using Java driver
+```java
+connectionString = "mongodb://" + "<YOUR_USER>" + ":" + "<YOUR_PASSWORD>" + "@" + "<YOUR_HOSTNAME>" + ":" + port + "/?ssl=true&retrywrites=false&replicaSet=globaldb&appname=@" + "<YOUR_USER>" + "@";
+MongoClientURI uri = new MongoClientURI(connectionString);
+MongoClient client = new MongoClient(uri);
 ```
 
 ## Azure CLI RBAC Commands
