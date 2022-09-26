@@ -22,33 +22,29 @@ keywords:
 - Access granted to the Azure OpenAI service in the desired Azure subscription
 
     Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
-- The following Python libraries: os, requests, json
-- An Azure OpenAI Service resource with a model deployed
+- An Azure OpenAI resource with a deployed model
     
-    If you don't have a resource/model the process is documented in our [resource deployment guide](../how-to/create-resource.md)
+    For more information about creating a resource and deploying a model, see [Create a resource and deploy a model using Azure OpenAI](../how-to/create-resource.md).
+- The following Python libraries: os, requests, json
 
 ## Fine-tuning workflow
 
-The fine-tuning workflow requires the following steps:
+The fine-tuning workflow when using the Python SDK with Azure OpenAI requires the following steps:
 
-1. Prepare your training data
-1. Choose a base model
+1. Prepare your training and validation data
+1. Select a base model
 1. Upload your training data
-1. Train a new fine-tuned model
-1. Deploy your fine-tuned model
-1. Use your fine-tuned model
+1. Train your new customized model
+1. Check the status of your customized model
+1. Deploy your customized model for use
+1. Use your customized model
+1. Optionally, analyze your customized model for performance and fit
 
-## Prepare your training data
-
-Training data is used by the fine-tuning process to customize a base model for your desired performance. Training data consists of a single JSONL document, in which each line is a prompt-completion pair that represents a single training example. 
-
-You can also provide optional validation data, which uses the same format as your training data, to evaluate how well your fine-tuned model performs against your validation data at periodic intervals during the training process.
-
-### Formatting your training and validation data
+## Prepare your training and validation data
 
 Your training data and validation data sets consist of input & output examples for how you would like the model to perform.
 
-The training and validation data you use **must** be formatted as a JSON lines (JSONL) document in which each line represents a single prompt-completion pair. The OpenAI command-line interface (CLI) includes [a data preparation tool](#openai-cli-data-preparation-tool) that validates, gives suggestions, and reformats your training data into a JSONL file ready for fine-tuning.
+The training and validation data you use **must** be formatted as a JSON Lines (JSONL) document in which each line represents a single prompt-completion pair. The OpenAI command-line interface (CLI) includes [a data preparation tool](#openai-cli-data-preparation-tool) that validates, gives suggestions, and reformats your training data into a JSONL file ready for fine-tuning.
 
 Here's an example of the training data format:
 
@@ -58,47 +54,67 @@ Here's an example of the training data format:
 {"prompt": "<prompt text>", "completion": "<ideal generated text>"}
 ```
 
-For more information about formatting your training data, see [Learn how to prepare your dataset for fine-tuning](../how-to/prepare-dataset.md).
+In addition to the JSONL format, training and validation data files must be encoded in UTF-8 and include a byte-order mark (BOM), and the file must be less than 200 MB in size. For more information about formatting your training data, see [Learn how to prepare your dataset for fine-tuning](../how-to/prepare-dataset.md).
 
-### Creating your training and validation data
+### Creating your training and validation datasets
 
-Designing your prompts and completions for fine-tuning is different from designing your prompts for use with any of [our GPT-3 base models](../concepts/models.md#gpt-3-models). Prompts for completions calls often use either detailed instructions or few-shot learning techniques and consist of multiple examples. For fine-tuning, we recommend that each training example consists of a single input prompt and its desired completion output. You don't need to give detailed instructions or multiple completions examples for the same prompt.
+Designing your prompts and completions for fine-tuning is different from designing your prompts for use with any of [our GPT-3 base models](../concepts/models.md#gpt-3-models). Prompts for completion calls often use either detailed instructions or few-shot learning techniques, and consist of multiple examples. For fine-tuning, we recommend that each training example consists of a single input prompt and its desired completion output. You don't need to give detailed instructions or multiple completion examples for the same prompt.
 
 The more training examples you have, the better. We recommend having at least 200 training examples. In general, we've found that each doubling of the dataset size leads to a linear increase in model quality.
-
-If you create validation data for your fine-tuned model, your training data and validation data should be mutually exclusive.
 
 For more information about preparing training data for various tasks, see [Learn how to prepare your dataset for fine-tuning](../how-to/prepare-dataset.md).
 
 ### OpenAI CLI data preparation tool
 
-We recommend using OpenAI's command-line interface (CLI) to assist with many of the data preparation steps. OpenAI has developed a tool which validates, gives suggestions, and reformats your data into a JSONL file ready for fine-tuning.
+We recommend using OpenAI's command-line interface (CLI) to assist with many of the data preparation steps. OpenAI has developed a tool that validates, gives suggestions, and reformats your data into a JSONL file ready for fine-tuning.
 
-To install the CLI, run the following command:
+To install the CLI, run the following Python command:
 
 ```console
 pip install --upgrade openai 
 ```
-To analyze your training data with the data preparation tool, run the following command:
+To analyze your training data with the data preparation tool, run the following Python command, replacing `<LOCAL_FILE>` with the full path and file name of the training data file to be analyzed:
 
 ```console
 openai tools fine_tunes.prepare_data -f <LOCAL_FILE>
 ```
 
-This tool accepts different data formats, with the only requirement that they contain a prompt and a completion column/key. You can pass a CSV, TSV, XLSX, JSON, or JSONL file, and the tool reformats your training data and saves output into a JSONL file ready for fine-tuning, after guiding you through the process of implementing suggested changes.
+This tool accepts files in the following data formats, if they contain a prompt and a completion column/key:
+
+- Comma-separated values (CSV)
+- Tab-separated values (TSV)
+- Microsoft Excel workbook (XLSX)
+- JavaScript Object Notation (JSON)
+- JSON Lines (JSONL)
+ 
+The tool reformats your training data and saves output into a JSONL file ready for fine-tuning, after guiding you through the process of implementing suggested changes.
 
 ## Select a base model
 
-You can create a customized model from one of the following available base models:
+The first step in creating a customized model is to choose a base model. The choice influences both the performance and the cost of your model. You can create a customized model from one of the following available base models:
+
 - `ada`
 - `babbage`
 - `curie`
-- `davinci`
-- `code-cushman-001`
+- `code-cushman-001`*
+- `davinci`*
+    * available by request
 
 For more information about our base models, see [Models](../concepts/models.md).
 
 ## Upload your training data
+
+The next step is to either choose existing prepared training data or upload new prepared training data to use when customizing your model. 
+
+If your training data has already been uploaded to the service, select **Choose dataset**, and then select the file from the list shown in the **Training data** pane. Otherwise, select either **Local file** to [upload training data from a local file](#to-upload-training-data-from-a-local-file), or **Azure blob or other shared web locations** to [import training data from Azure Blob or another shared web location](#to-import-training-data-from-an-azure-blob-store).
+
+For large data files, we recommend you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed.
+
+> [!NOTE]
+> Training data files must be formatted as JSONL files, encoded in UTF-8 with a byte-order mark (BOM), and less than 200 MB in size.
+
+Breakpoint
+
 
 Once you've prepared your training data, you can upload your files to the service. We offer two ways to do this:
 
