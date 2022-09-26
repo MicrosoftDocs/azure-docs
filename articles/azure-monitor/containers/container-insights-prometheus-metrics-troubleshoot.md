@@ -33,8 +33,6 @@ Run the command `kubectl logs <ama-metrics pod> -n kube-system -c addon-token-ad
 
 Run the command `kubectl logs <ama-metrics pod> -n kube-system -c prometheus-collector`.
 
-:::image type="content" source="media/container-insights-prometheus-metrics-troubleshoot/collector-logs.png" lightbox="media/container-insights-prometheus-metrics-troubleshoot/collector-logs.png" alt-text="Screenshot showing collector log.":::
-
 
 - At startup, any initial errors will be printed in red. Warnings will be printed in yellow. To view colors, you require at least PowerShell version 7 or a linux distribution.
 - If there's an issue getting the auth token.
@@ -51,7 +49,6 @@ Port forward into either the replicaset or the daemonset to check the config, se
 
 Run the command `kubectl port-forward <ama-metrics pod> -n kube-system 9090`.
 
-:::image type="content" source="media/container-insights-prometheus-metrics-troubleshoot/port-forward.png" lightbox="media/container-insights-prometheus-metrics-troubleshoot/port-forward.png" alt-text="Screenshot showing port forwarding.":::
 
 Open a browser to the address `127.0.0.1:9090/config`. This will have the full scrape configs. Check that the job is listed.
 
@@ -82,8 +79,6 @@ The metrics addon can be configured to run in debug mode by changing the setting
 
 
 An extra server is created that hosts all the metrics scraped. Run `kubectl port-forward <ama-metrics pod> -n kube-system 9091` and go to `127.0.0.1:9091/metrics` in a browser to see if the metrics were scraped by the OpenTelemetry Collector. This can be done for both the replicaset and daemonset pods if advanced mode is enabled 
-
-:::image type="content" source="media/container-insights-prometheus-metrics-troubleshoot/debug-mode-metrics.png" lightbox="media/container-insights-prometheus-metrics-troubleshoot/debug-mode-metrics.png" alt-text="Screenshot showing debug mode.":::
 
 
 
