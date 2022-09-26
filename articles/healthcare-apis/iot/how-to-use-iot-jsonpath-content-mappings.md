@@ -22,7 +22,7 @@ The assumption, when using this template, is the messages being evaluated were s
 When you're using these SDKs, the device identity and the timestamp of the message are known.
 
 >[!IMPORTANT]
->Make sure that you're using a device identifier from Azure Iot Hub or Azure IoT Central that is registered as an identifier for a device resource on the destination FHIR service.
+>Make sure that you're using a device identifier from Azure Iot Hub or Azure IoT Central that is registered as an identifier for a device resource on the destination Fast Healthcare Interoperability Resource (FHIR&#174;) service.
 
 If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContentTemplate, assuming that you're using custom properties in the message body for the device identity or measurement timestamp.
 
@@ -32,10 +32,10 @@ If you're using Azure IoT Hub Device SDKs, you can still use the JsonPathContent
 ### Examples
 
 With each of these examples, you're provided with:
- 1. A valid IoT device message.
- 2. An example of what the IoT device message will look like after being received and processed by the IoT Hub.
- 3. A valid MedTech service device mapping for normalizing the IoT device message after IoT Hub processing.
- 4. An example of what the MedTech service device message will look like after normalization.
+ * A valid IoT device message.
+ * An example of what the IoT device message will look like after being received and processed by the IoT Hub.
+ * A valid MedTech service device mapping for normalizing the IoT device message after IoT Hub processing.
+ * An example of what the MedTech service device message will look like after normalization.
 
 **Heart rate**
 
@@ -43,7 +43,7 @@ A valid IoT device message.
 
 ```json
 
-   {“heartrate” : “78”}
+{“heartrate” : “78”}
 
 ```
 
@@ -63,8 +63,8 @@ A valid IoT device message.
     },
     "SystemProperties": {
         "iothub-connection-device-id" : "device123"
-    }
-}
+   }
+}     
 
 ```
 
@@ -99,17 +99,17 @@ A valid IoT device message.
 ```json
 
 [
-    {
-        "type": "heartrate",
-        "occurrenceTimeUtc": "2021-02-01T22:46:01.875Z",
-        "deviceId": "device123",
-        "properties": [
-            {
-                "name": "hr",
-                "value": "78"
-            }
-        ]
-    }
+  {
+    "type": "heartrate",
+    "occurrenceTimeUtc": "2021-02-01T22:46:01.875Z",
+    "deviceId": "device123",
+    "properties": [
+      {
+         "name": "hr",
+         "value": "78"
+      }
+    ]
+  }
 ]
 
 ```
@@ -121,9 +121,8 @@ A valid IoT device message.
 ```json
 
 {
-    "systolic": "123",
-    "diastolic": "87",
-    "timestamp": "2021-02-01T22:46:01.8750000Z",
+  "systolic": "123",
+  "diastolic": "87"
 }
 
 ```
@@ -136,13 +135,13 @@ A valid IoT device message.
    "Body": {
    "systolic": "123",
    "diastolic" : "87"
-      },
-      "Properties": {
-         "iothub-creation-time-utc" : "2021-02-01T22:46:01.8750000Z"
-      },
-      "SystemProperties": {
-         "iothub-connection-device-id" : "device123"
-    }
+    },
+     "Properties": {
+       "iothub-creation-time-utc" : "2021-02-01T22:46:01.8750000Z"
+    },
+     "SystemProperties": {
+        "iothub-connection-device-id" : "device123"
+   }
 }   
 
 ```
@@ -183,21 +182,21 @@ A valid IoT device message.
 ```json
 
 [
-    {
-        "type": "bloodpressure",
-        "occurrenceTimeUtc": "2021-02-01T22:46:01.875Z",
-        "deviceId": "device123",
+   {
+     "type": "bloodpressure",
+     "occurrenceTimeUtc": "2021-02-01T22:46:01.875Z",
+     "deviceId": "device123",
         "properties": [
             {
-                "name": "systolic",
-                "value": "123"
+               "name": "systolic",
+               "value": "123"
             },
-            {
-                "name": "diastolic",
-                "value": "87"
-            }
-        ]
-    }
+         {
+            "name": "diastolic",
+            "value": "87"
+         }
+      ]
+   }
 ]
 
 ```
