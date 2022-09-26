@@ -63,7 +63,7 @@ To get a bearer token for a service principal, see [Service principal authentica
 To get an API token, you can use the IoT Central UI or a REST API call. Administrators associated with the root organization and users assigned to the correct role can create API tokens.
 
 > [!TIP]
-> Create an delete operations on API tokens are recorded in the [audit log](howto-use-audit-logs.md).
+> Create and delete operations on API tokens are recorded in the [audit log](howto-use-audit-logs.md).
 
 In the IoT Central UI:
 
