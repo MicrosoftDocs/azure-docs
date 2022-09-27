@@ -6,7 +6,7 @@ manager: joannapea
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
-ms.date: 08/24/2022
+ms.date: 09/26/2022
 ms.author: stevehow
 ms.reviewer: joanpo
 ms.custom: seo-lt-2019
@@ -32,11 +32,13 @@ In this article, you learn how to restore an existing dedicated SQL pool in Azur
 
 8. Select either **Automatic Restore Points** or **User-Defined Restore Points**. 
 
-    ![Restore points](../media/sql-pools/restore-point.PNG)
+   ![Restore points](../media/sql-pools/restore-point.PNG)
 
-    If the dedicated SQL pool doesn't have any automatic restore points, wait a few hours, or create a user defined restore point before restoring. For User-Defined Restore Points, select an existing one or create a new one.
+   If the dedicated SQL pool doesn't have any automatic restore points, wait a few hours, or create a user defined restore point before restoring. For User-Defined Restore Points, select an existing one or create a new one.
 
-    If you are restoring a geo-backup, select the workspace located in the source region and the dedicated SQL pool you want to restore. 
+   If you are restoring a geo-backup, select the workspace located in the source region and the dedicated SQL pool you want to restore.
+
+   You cannot perform an in-place restore of a SQL pool with the same name as an existing pool. Regardless of the SQL pool being within the same workspace or a different workspace. If you'd like to restore from a user-defined restore point in another workspace, you need to use the "Create new SQL pool" function.
 
 9. Select **Review + Create**.
 
@@ -48,7 +50,7 @@ In this article, you learn how to restore an existing dedicated SQL pool in Azur
 
     ![ Restore Overview](../media/sql-pools/restore-sqlpool-01.png)
 
-4. Select either **Automatic Restore Points** or **User-Defined Restore Points**. 
+4. Select either **Automatic Restore Points** or **User-Defined Restore Points**.
 
     If the dedicated SQL pool doesn't have any automatic restore points, wait a few hours or create a user-defined restore point before restoring. 
 
