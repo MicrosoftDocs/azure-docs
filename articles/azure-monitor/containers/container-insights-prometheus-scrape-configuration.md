@@ -10,10 +10,10 @@ ms.reviewer: aul
 
 This article provides instructions on customizing metrics scraping for a Kubernetes cluster with the metrics addon in Azure Monitor.
 
-Three different configmaps can be configured to change the default settings of the metrics addon. Read more about:
-- [ama-metrics-settings-configmap](container-insights-prometheus-scrape-configuration.md#metrics-addon-settings-configmap)
-- [ama-metrics-prometheus-config](container-insights-prometheus-scrape-configuration.md#configure-custom-prometheus-scrape-jobs)
-- [ama-metrics-prometheus-config-node](container-insights-prometheus-scrape-configuration.md#scraping-metrics-from-the-daemonset)
+Three different configmaps can be configured to change the default settings of the metrics addon. These configmaps are:
+- ama-metrics-settings-configmap
+- ama-metrics-prometheus-config
+- ama-metrics-prometheus-config-node
 
 ## Metrics addon settings configmap
 
@@ -70,24 +70,13 @@ To view every metric that is being scraped for debugging purposes, the metrics a
 
 ## Configure custom Prometheus scrape jobs
 
-You can configure the metrics addon to scrape targets other than the default ones, using the same configuration format is the same as the [Prometheus configuration file](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#configuration-file). See the [configuration tips and examples](container-insights-prometheus-scrape-configuration.md#prometheus-configuration-tips-and-examples) for more details.
+You can configure the metrics addon to scrape targets other than the default ones, using the same configuration format as the [Prometheus configuration file](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#configuration-file).
 
-create this [configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-prometheus-config-configmap.yaml) and update the `prometheus-config` section with your custom configuration.
+Follow the instructions to [create, validate, and apply the configmap](container-insights-prometheus-scrape-validate.md) for your cluster.
 
-> [!NOTE]
-> `global` section is optional. `scrape_configs` section with 1 or more scrape jobs under it is required in custom scrape config.
+### Advanced Setup: Configure custom Prometheus scrape jobs for the daemonset
 
-Before applying the configuration as a configmap, validate it using the [promconfigvalidator tool](container-insights-prometheus-scrape-validate.md), which is the same tool that is run at the container startup to perform validation of custom configuration. If the config isn't valid, then the custom configuration given won't be used by the agent.
-
-Any other unsupported sections need to be removed from the config before applying as a configmap. If not, the promconfigvalidator tool validation will fail, and the custom scrape configuration won't be applied
-
-The `scrape_config` setting `honor_labels` is `false` by default. It should be `true` for scrape configs where labels that are normally added by Prometheus, such as `job` and `instance`, are already labels of the scraped metrics and shouldn't be overridden. This setting is only applicable for cases like [federation](https://prometheus.io/docs/prometheus/latest/federation/) or scraping the [Pushgateway](https://github.com/prometheus/pushgateway), where the scraped metrics already have `job` and `instance` labels. For more information, see the [Prometheus documentation](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config).
-
-
-
-### Scraping metrics from the daemonset
-
-When you scrape custom targets, the scraping is done by the ama-metrics replicaset pod. For a cluster with a large number of nodes and pods running on it, some of the applicable custom scrape targets can be off-loaded from the single ama-metrics replica pod to the ama-metrics daemonset pod . A [configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-prometheus-config-node-configmap.yaml) similar to the regular configmap can be created to have static scrape configs on each node. The scrape config should only target a single node and not try to use service discovery; otherwise each node will try to scrape all targets. The node-exporter config is a good example of using the `$NODE_IP` environment variable (already set for every prometheus-collector container) to target a specific endpoint on the node:
+The `ama-metrics` replicaset pod consumes the custom Prometheus config and scrapes the specified targets. For a cluster with a large number of nodes and pods and a large volume of metrics to scrape, some of the applicable custom scrape targets can be off-loaded from the single `ama-metrics` replicaset pod to the `ama-metrics` daemonset pod. The [ama-metrics-prometheus-config-node configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-prometheus-config-node-configmap.yaml), similar to the regular configmap, can be created to have static scrape configs on each node. The scrape config should only target a single node and should not use service discovery; otherwise each node will try to scrape all targets and will make many calls to the Kubernetes API server. The `node-exporter` config below is one of the default targets for the daemonset pods. It uses the `$NODE_IP` environment variable which is already set for every ama-metrics addon container to target a specific port on the node:
 
   ```yaml
   - job_name: node
@@ -105,7 +94,7 @@ When you scrape custom targets, the scraping is done by the ama-metrics replicas
     - targets: ['$NODE_IP:9100']
   ```
 
-Custom scrape targets can follow the same format using `static_configs` with targets using the `$NODE_IP` environment variable and specifying the port to scrape. Each pod of the daemonset will take the config and scrape and send the metrics for that node.
+Custom scrape targets can follow the same format using `static_configs` with targets using the `$NODE_IP` environment variable and specifying the port to scrape. Each pod of the daemonset will take the config, scrape the metrics, and send them for that node.
 
 
 

@@ -12,84 +12,109 @@ Routing metrics to more Azure Monitor Workspaces can be done through the creatio
 
 ## Send same metrics to multiple Azure Monitor workspaces
 
-You can create multiple Data Collection Rules that point to the same Data Collection Endpoint for metrics to be sent to additional Azure Monitor Workspaces from the same Kubernetes cluster. Currently, this is only available through ARM template deployments [link to Kaveesh's doc]. In your ARM template, add additional DCRs for your additional Azure Monitor Workspaces. Replace `<dcr-name-1>`, `<azure-monitor-workspace-location-1>`, `<dcr-name-2>`, `<azure-monitor-workspace-location-2>`, `<dce-resource-id>` in the sample below:
+You can create multiple Data Collection Rules that point to the same Data Collection Endpoint for metrics to be sent to additional Azure Monitor Workspaces from the same Kubernetes cluster. Currently, this is only available through onboarding through Resource Manager templates. You can follow the [regular onboarding process](container-insights-prometheus-metrics-addon.md#resource-managertabresource-manager) and then edit the same Resource Manager templates to add additional DCRs for your additional Azure Monitor Workspaces. You will need to edit the template to add an additional parameters for every additional Azure Monitor workspace, add another DCR for every additional Azure Monitor workspace, and add an additional Azure Monitor workspace integration for Grafana.
 
-```json
-{
-  "type": "Microsoft.Insights/dataCollectionRules",
-  "apiVersion": "2021-09-01-preview",
-  "name": "<dcr-name-1>",
-  "location": "<azure-monitor-workspace-location-1>",
-  "kind": "Linux",
-  "properties": {
-    "dataCollectionEndpointId": "<dce-resource-id>",
-    "dataFlows": [
-      {
-        "destinations": ["MonitoringAccount1"],
-        "streams": ["Microsoft-PrometheusMetrics"]
-      }
-    ],
-    "dataSources": {
-      "prometheusForwarder": [
-        {
-          "name": "PrometheusDataSource",
-          "streams": ["Microsoft-PrometheusMetrics"],
-          "labelIncludeFilter": {}
-        }
+- Add the following parameters:
+  ```json
+  "parameters": {
+    "azureMonitorWorkspaceResourceId2": {
+      "type": "string"
+    },
+    "azureMonitorWorkspaceLocation2": {
+      "type": "string",
+      "defaultValue": "",
+      "allowedValues": [
+        "eastus2euap",
+        "centraluseuap",
+        "centralus",
+        "eastus",
+        "eastus2",
+        "northeurope",
+        "southcentralus",
+        "southeastasia",
+        "uksouth",
+        "westeurope",
+        "westus",
+        "westus2"
       ]
     },
-    "description": "DCR for Azure Monitor Metrics Profile (Managed Prometheus)",
-    "destinations": {
-      "monitoringAccounts": [
+  ...
+  }
+  ```
+
+- Add an additional DCR with the same Data Collection Endpoint. You *must* replace `<dcrName>`:
+  ```json
+  {
+    "type": "Microsoft.Insights/dataCollectionRules",
+    "apiVersion": "2021-09-01-preview",
+    "name": "<dcrName>",
+    "location": "[parameters('azureMonitorWorkspaceLocation2')]",
+    "kind": "Linux",
+    "properties": {
+      "dataCollectionEndpointId": "[resourceId('Microsoft.Insights/dataCollectionEndpoints/', variables('dceName'))]",
+      "dataFlows": [
         {
-          "accountResourceId": "<azure-monitor-workspace-resource-id-1>",
-          "name": "MonitoringAccount1"
+          "destinations": ["MonitoringAccount2"],
+          "streams": ["Microsoft-PrometheusMetrics"]
         }
-      ]
-    }
-  },
-  "dependsOn": [
-    "<dce-resource-id>"
-  ]
-},
-{
-  "type": "Microsoft.Insights/dataCollectionRules",
-  "apiVersion": "2021-09-01-preview",
-  "name": "<dcr-name-2>",
-  "location": "<azure-monitor-workspace-location-2>",
-  "kind": "Linux",
-  "properties": {
-    "dataCollectionEndpointId": "<dce-resource-id>",
-    "dataFlows": [
-      {
-        "destinations": ["MonitoringAccount2"],
-        "streams": ["Microsoft-PrometheusMetrics"]
+      ],
+      "dataSources": {
+        "prometheusForwarder": [
+          {
+            "name": "PrometheusDataSource",
+            "streams": ["Microsoft-PrometheusMetrics"],
+            "labelIncludeFilter": {}
+          }
+        ]
+      },
+      "description": "DCR for Azure Monitor Metrics Profile (Managed Prometheus)",
+      "destinations": {
+        "monitoringAccounts": [
+          {
+            "accountResourceId": "[parameters('azureMonitorWorkspaceResourceId2')]",
+            "name": "MonitoringAccount2"
+          }
+        ]
       }
-    ],
-    "dataSources": {
-      "prometheusForwarder": [
-        {
-          "name": "PrometheusDataSource",
-          "streams": ["Microsoft-PrometheusMetrics"],
-          "labelIncludeFilter": {}
-        }
-      ]
     },
-    "description": "DCR for Azure Monitor Metrics Profile (Managed Prometheus)",
-    "destinations": {
-      "monitoringAccounts": [
-        {
-          "accountResourceId": "<azure-monitor-workspace-resource-id-2>",
-          "name": "MonitoringAccount2"
+    "dependsOn": [
+      "[resourceId('Microsoft.Insights/dataCollectionEndpoints/', variables('dceName'))]"
+    ]
+  }
+  ```
+
+
+- Add an additional Grafana integration:
+  ```json
+  {
+        "type": "Microsoft.Dashboard/grafana",
+        "apiVersion": "2022-08-01",
+        "name": "[split(parameters('grafanaResourceId'),'/')[8]]",
+        "sku": {
+          "name": "[parameters('grafanaSku')]"
+        },
+        "location": "[parameters('grafanaLocation')]",
+        "properties": {
+          "grafanaIntegrations": {
+            "azureMonitorWorkspaceIntegrations": [
+              // Existing azureMonitorWorkspaceIntegrations values (if any)
+              // {
+              //   "azureMonitorWorkspaceResourceId": "<value>"
+              // },
+              // {
+              //   "azureMonitorWorkspaceResourceId": "<value>"
+              // },
+              {
+                "azureMonitorWorkspaceResourceId": "[parameters('azureMonitorWorkspaceResourceId')]"
+              },
+              {
+                "azureMonitorWorkspaceResourceId": "[parameters('azureMonitorWorkspaceResourceId2')]"
+              }
+            ]
+          }
         }
-      ]
-    }
-  },
-  "dependsOn": [
-    "<dce-resource-id>"
-  ]
-}
-```
+      }
+  ```
 
 ## Send different metrics to different Azure Monitor workspaces
 
