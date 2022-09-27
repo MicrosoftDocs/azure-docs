@@ -202,7 +202,7 @@ _Green Software Foundation alignment: [Hardware efficiency](sustainability-desig
 
 **Recommendation:**
 
-- Delete any orphaned workloads or resources if they're no longer necessary.
+- Use |ImageCleaner](/azure/aks/image-cleaner) to clean up stale images on your Azure Kubernetes Service cluster
 
 ## Next step
 
