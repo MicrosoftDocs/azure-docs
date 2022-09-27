@@ -7,7 +7,7 @@ author: jasonshave
 ms.service: azure-communication-services
 ms.topic: include
 ms.date: 09/26/2022
-ms.author: jasonshave
+ms.author: jassha
 ms.custom: private_preview
 ---
 

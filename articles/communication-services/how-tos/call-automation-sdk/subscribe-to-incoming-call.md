@@ -3,7 +3,7 @@ title: Subscribe to IncomingCall for Call Automation
 titleSuffix: An Azure Communication Services how-to guide
 description: Learn how to subscribe to the IncomingCall event from Event Grid for the Call Automation SDK
 author: jasonshave
-ms.author: jasonshave
+ms.author: jassha
 ms.service: azure-communication-services
 ms.subservice: call-automation
 ms.topic: how-to 
