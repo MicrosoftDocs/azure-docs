@@ -84,7 +84,7 @@ _Green Software Foundation alignment: [Carbon awareness](sustainability-design-p
 
 - Where you have the data available to you, plan your deployments to maximize compute utilization for running [batch workloads](/azure/architecture/data-guide/big-data/batch-processing) during low-carbon intensity periods.
 
- - For example : running specific workloads at night may be more beneficial when renewable sources are at their peak
+ - For example : Time scheduling recurrent workloads (CronJobs) at night may be more beneficial when renewable sources are at their peak
 
 **Potential tradeoffs**
    - Time Scheduling constraints for workloads having several dependencies.
