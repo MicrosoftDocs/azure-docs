@@ -256,59 +256,29 @@ The following is the input format needed to generate predictions on any task usi
 }
 ```
 
-This json is a dictionary with outer key `input_data` and inner keys `columns`, `data` as described in the following table. The endpoint accepts json string as input in the above format so that this json string can be decoded to json to create a dataframe of samples required by scoring script. Each input image in the `request_json["input_data"]["data"]` defined in the json format above is a [base64 encoded string](https://docs.python.org/3/library/base64.html#base64.encodebytes).
+This json is a dictionary with outer key `input_data` and inner keys `columns`, `data` as described in the following table. The endpoint accepts a json string in the above format and converts it into a dataframe of samples required by the scoring script. Each input image in the `request_json["input_data"]["data"]` section of the json is a [base64 encoded string](https://docs.python.org/3/library/base64.html#base64.encodebytes).
 
 
 | Key       | Description  |
 | -------- |----------|
 | `input_data`<br> (outer key) | It is an outer key in json request. `input_data` is a dictionary that accepts input image samples <br>`Required, Dictionary` |
-| `columns`<br> (inner key) | Column names to be used to create dataframe in scoring script. It accepts only one column with `image` as column name.<br>`Required, List` |
+| `columns`<br> (inner key) | Column names to use to create dataframe. It accepts only one column with `image` as column name.<br>`Required, List` |
 | `data`<br> (inner key) | List of base64 encoded images <br>`Required, List`|
 
 
 After we [deploy the mlflow model](how-to-auto-train-image-models.md#register-and-deploy-model), we can use the following code snippet to get predictions for all tasks.
 
+[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=create_inference_request)]
 
-```python
-# Get the details for online endpoint
-endpoint = ml_client.online_endpoints.get(name=online_endpoint_name)
+[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=dump_inference_request)]
 
-# Create request json
-import base64
-import json
-
-sample_image = "./test_image.jpg"
-
-def read_image(image_path):
-    with open(image_path, "rb") as f:
-        return f.read()
-
-request_json = {
-    "input_data": {
-        "columns": ["image"],
-        "data": [base64.encodebytes(read_image(sample_image)).decode("utf-8")],
-    }
-}
-
-request_file_name = "sample_request_data.json"
-
-with open(request_file_name, "w") as request_file:
-    json.dump(request_json, request_file)
-
-resp = ml_client.online_endpoints.invoke(
-    endpoint_name=online_endpoint_name,
-    deployment_name=deployment.name,
-    request_file=request_file_name,
-)
-predictions = json.loads(resp)
-```
-
+[!Notebook-python[] (~/azureml-examples-v2samplesreorg/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=invoke_inference)]
 
 ### Output format
 
 Predictions made on model endpoints follow different structure depending on the task type. This section explores the output data formats for multi-class, multi-label image classification, object detection, and instance segmentation tasks.
 
-The following schemas are defined for the case of one input image.
+The following schemas are applicable when the input request contains one image.
 
 #### Image classification
 
