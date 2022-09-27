@@ -15,9 +15,9 @@ ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022
 
 # Manage Azure Machine Learning environments with the CLI (v2)
 
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
 > * [v1](./v1/how-to-use-environments.md)
 > * [v2 (current version)](how-to-manage-environments-v2.md)
 
@@ -37,17 +37,17 @@ In this article, learn how to create and manage Azure ML environments using the 
 
 ### Clone examples repository
 
-To run the training examples, first clone the examples repository. For the CLI examples,change into the `cli` directory. For the SDK examples, change into the `SDK` directory:
+To run the training examples, first clone the examples repository. For the CLI examples, change into the `cli` directory. For the SDK examples, change into the `SDK` directory:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="git_clone":::
 
-Note that `--depth 1` clones only the latest commit to the repository which reduces time to complete the operation.
+Note that `--depth 1` clones only the latest commit to the repository, which reduces time to complete the operation.
 
 ## Curated environments
 
 There are two types of environments in Azure ML: curated and custom environments. Curated environments are predefined environments containing popular ML frameworks and tooling. Custom environments are user-defined and can be created via `az ml environment create`.
 
-Curated environments are provided by Azure ML and are available in your workspace by default. Azure ML routinely updates these environments with the latest framework version releases and maintains them for bug fixes and security patches. They are backed by cached Docker images, which reduces job preparation cost and model deployment time.
+Curated environments are provided by Azure ML and are available in your workspace by default. Azure ML routinely updates these environments with the latest framework version releases and maintains them for bug fixes and security patches. They're backed by cached Docker images, which reduce job preparation cost and model deployment time.
 
 You can use these curated environments out of the box for training or deployment by referencing a specific environment using the `azureml:<curated-environment-name>:<version>` or `azureml:<curated-environment-name>@latest` syntax. You can also use them as reference for your own custom environments by modifying the Dockerfiles that back these curated environments.
 
@@ -69,7 +69,7 @@ For the YAML reference documentation for Azure ML environments, see [CLI (v2) en
 
 To define an environment from a Docker image, provide the image URI of the image hosted in a registry such as Docker Hub or Azure Container Registry. 
 
-# [Azure CLI](#tabs/cli)
+# [Azure CLI](#tab/cli)
 
 The following example is a YAML specification file for an environment defined from a Docker image. An image from the official PyTorch repository on Docker Hub is specified via the `image` property in the YAML file.
 
@@ -81,7 +81,7 @@ To create the environment:
 az ml environment create --file assets/environment/docker-image.yml
 ```
 
-# [Python SDK](#tabs/sdk)
+# [Python SDK](#tab/sdk)
 
 The following example creates an environment from a Docker image. An image from the official PyTorch repository on Docker Hub is specified via the `image` property.
 
@@ -105,7 +105,7 @@ ml_client.environments.create_or_update(env_docker_image)
 
 Instead of defining an environment from a prebuilt image, you can also define one from a Docker [build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context). To do so, specify the directory that will serve as the build context. This directory should contain a Dockerfile and any other files needed to build the image.
 
-# [Azure CLI](#tabs/cli)
+# [Azure CLI](#tab/cli)
 
 The following example is a YAML specification file for an environment defined from a build context. The local path to the build context folder is specified in the `build.path` field, and the relative path to the Dockerfile within that build context folder is specified in the `build.dockerfile_path` field. If `build.dockerfile_path` is omitted in the YAML file, Azure ML will look for a Dockerfile named `Dockerfile` at the root of the build context.
 
@@ -119,7 +119,7 @@ To create the environment:
 az ml environment create --file assets/environment/docker-context.yml
 ```
 
-# [Python SDK](#tabs/sdk)
+# [Python SDK](#tab/sdk)
 
 In the following example, the local path to the build context folder is specified in the `path' parameter. Azure ML will look for a Dockerfile named `Dockerfile` at the root of the build context.
 
@@ -140,9 +140,9 @@ Azure ML will start building the image from the build context when the environme
 
 You can define an environment using a standard conda YAML configuration file that includes the dependencies for the conda environment. See [Creating an environment manually](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually) for information on this standard format.
 
-You must also specify a base Docker image for this environment. Azure ML will build the conda environment on top of the Docker image provided. If you install some Python dependencies in your Docker image, those packages will not exist in the execution environment thus causing runtime failures. By default, Azure ML will build a Conda environment with dependencies you specified, and will execute the job in that environment instead of using any Python libraries that you installed on the base image.
+You must also specify a base Docker image for this environment. Azure ML will build the conda environment on top of the Docker image provided. If you install some Python dependencies in your Docker image, those packages won't exist in the execution environment thus causing runtime failures. By default, Azure ML will build a Conda environment with dependencies you specified, and will execute the job in that environment instead of using any Python libraries that you installed on the base image.
 
-## [Azure CLI](#tabs/cli)
+## [Azure CLI](#tab/cli)
 
 The following example is a YAML specification file for an environment defined from a conda specification. Here the relative path to the conda file from the Azure ML environment YAML file is specified via the `conda_file` property. You can alternatively define the conda specification inline using the `conda_file` property, rather than defining it in a separate file.
 
@@ -154,7 +154,7 @@ To create the environment:
 az ml environment create --file assets/environment/docker-image-plus-conda.yml
 ```
 
-## [Python SDK](#tabs/sdk)
+## [Python SDK](#tab/sdk)
 
 The relative path to the conda file is specified using the `conda_file` parameter.
 
@@ -180,13 +180,13 @@ The SDK and CLI (v2) also allow you to manage the lifecycle of your Azure ML env
 
 List all the environments in your workspace:
 
-# [Azure CLI](#tabs/cli)
+# [Azure CLI](#tab/cli)
 
 ```cli
 az ml environment list
 ```
 
-# [Python SDK](#tabs/sdk)
+# [Python SDK](#tab/sdk)
 
 ```python
 envs = ml_client.environments.list()
@@ -198,13 +198,13 @@ for env in envs:
 
 List all the environment versions under a given name:
 
-# [Azure CLI](#tabs/cli)
+# [Azure CLI](#tab/cli)
 
 ```cli
 az ml environment list --name docker-image-example
 ```
 
-# [Python SDK](#tabs/sdk)
+# [Python SDK](#tab/sdk)
 
 ```python
 envs = ml_client.environments.list(name="docker-image-example")
@@ -222,7 +222,7 @@ Get the details of a specific environment:
 az ml environment list --name docker-image-example --version 1
 ```
 
-# [Python SDK](#tabs/sdk)
+# [Python SDK](#tab/sdk)
 
 ```python
 env = ml_client.environments.get(name="docker-image-example", version="1")
@@ -234,13 +234,13 @@ print(env)
 
 Update mutable properties of a specific environment:
 
-# [Azure CLI](#tabs/cli)
+# [Azure CLI](#tab/cli)
 
 ```cli
 az ml environment update --name docker-image-example --version 1 --set description="This is an updated description."
 ```
 
-# [Python SDK](#tabs/sdk)
+# [Python SDK](#tab/sdk)
 
 ```python
 env.description="This is an updated description."
@@ -259,13 +259,13 @@ Archiving an environment container will archive all versions of the environment 
 
 Archive an environment container:
 
-# [Azure CLI](#tabs/cli)
+# [Azure CLI](#tab/cli)
 
 ```cli
 az ml environment archive --name docker-image-example
 ```
 
-# [Python SDK](#tabs/sdk)
+# [Python SDK](#tab/sdk)
 
 ```python
 ml_client.environments.archive(name="docker-image-example")
@@ -275,13 +275,13 @@ ml_client.environments.archive(name="docker-image-example")
             
 Archive a specific environment version:
 
-# [Azure CLI](#tabs/cli)
+# [Azure CLI](#tab/cli)
 
 ```cli
 az ml environment archive --name docker-image-example --version 1
 ```
 
-# [Python SDK](#tabs/sdk)
+# [Python SDK](#tab/sdk)
 
 ```python
 ml_client.environments.archive(name="docker-image-example", version="1")
@@ -291,17 +291,17 @@ ml_client.environments.archive(name="docker-image-example", version="1")
 
 You can restore an archived environment to no longer hide it from list queries.
 
-If an entire environment container is archived, you can restore that archived container. You cannot restore only a specific environment version if the entire environment container is archived - you will need to restore the entire container.
+If an entire environment container is archived, you can restore that archived container. You can't restore only a specific environment version if the entire environment container is archived - you'll need to restore the entire container.
 
 Restore an environment container:
 
-# [Azure CLI](#tabs/cli)
+# [Azure CLI](#tab/cli)
 
 ```cli
 az ml environment restore --name docker-image-example
 ``` 
 
-# [Python SDK](#tabs/sdk)
+# [Python SDK](#tab/sdk)
 
 ```python
 ml_client.environments.restore(name="docker-image-example")
@@ -313,13 +313,13 @@ If only individual environment version(s) within an environment container are ar
 
 Restore a specific environment version:
 
-# [Azure CLI](#tabs/cli)
+# [Azure CLI](#tab/cli)
 
 ```cli
 az ml environment restore --name docker-image-example --version 1
 ``` 
 
-# [Python SDK](#tabs/sdk)
+# [Python SDK](#tab/sdk)
 
 ```python
 ml_client.environments.restore(name="docker-image-example", version="1")
@@ -329,11 +329,11 @@ ml_client.environments.restore(name="docker-image-example", version="1")
 
 ## Use environments for training
 
-# [Azure CLI](#tabs/cli)
+# [Azure CLI](#tab/cli)
 
-To use an environment for a training job, specify the `environment` field of the job YAML configuration. You can either reference an existing registered Azure ML environment via `environment: azureml:<environment-name>:<environment-version>` or `environment: azureml:<environment-name>@latest` (to reference the latest version of an environment), or define an environment specification inline. If defining an environment inline, do not specify the `name` and `version` fields, as these environments are treated as "unregistered" environments and are not tracked in your environment asset registry.
+To use an environment for a training job, specify the `environment` field of the job YAML configuration. You can either reference an existing registered Azure ML environment via `environment: azureml:<environment-name>:<environment-version>` or `environment: azureml:<environment-name>@latest` (to reference the latest version of an environment), or define an environment specification inline. If defining an environment inline, don't specify the `name` and `version` fields, as these environments are treated as "unregistered" environments and aren't tracked in your environment asset registry.
 
-# [Python SDK](#tabs/sdk)
+# [Python SDK](#tab/sdk)
 
 To use an environment for a training job, specify the `environment` property of the [command](/python/api/azure-ai-ml/azure.ai.ml#azure-ai-ml-command).
 
@@ -348,13 +348,13 @@ For more information on how to use environments in jobs, see [Train models](how-
 
 ## Use environments for model deployments
 
-# [Azure CLI](#tabs/cli)
+# [Azure CLI](#tab/cli)
 
 You can also use environments for your model deployments for both online and batch scoring. To do so, specify the `environment` field in the deployment YAML configuration.
 
 For more information on how to use environments in deployments, see [Deploy and score a machine learning model by using a managed online endpoint](how-to-deploy-managed-online-endpoints.md).
 
-# [Python SDK](#tabs/sdk)
+# [Python SDK](#tab/sdk)
 
 You can also use environments for your model deployments. For more information, see [Deploy and score a machine learning model](how-to-deploy-managed-online-endpoint-sdk-v2.md).
 
