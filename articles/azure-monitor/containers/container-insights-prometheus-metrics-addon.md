@@ -207,6 +207,8 @@ Please assign the `Monitoring Data Reader` role to the Grafana System Assigned I
             }
         }
     ````
+
+
 5. Deploy the template with the parameter file using any valid method for deploying Resource Manager templates. See [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates) for examples.
 
 ---
