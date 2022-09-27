@@ -2,7 +2,7 @@
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/04/2022
+ms.date: 09/27/2022
 ms.author: rogarana
 ---
 You can attach a number of data disks to an Azure virtual machine (VM). Based on the scalability and performance targets for a VM's data disks, you can determine the number and type of disk that you need to meet your performance and capacity requirements.
@@ -18,7 +18,9 @@ The following table illustrates the default and maximum limits of the number of 
 > | --- | --- |
 > | Standard managed disks | 50,000 |
 > | Standard SSD managed disks | 50,000 |
-> | Premium managed disks | 50,000 |
+> | Premium SSD managed disks | 50,000 |
+> | Premium SSD v2 managed disks  | 1,000 |
+> | Ultra disks | 1,000 |
 > | Standard_LRS snapshots<sup>1</sup> | 75,000 |
 > | Standard_ZRS snapshots<sup>1</sup> | 75,000 |
 > | Managed image | 50,000 |
