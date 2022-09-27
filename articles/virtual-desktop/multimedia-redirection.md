@@ -37,7 +37,7 @@ To install the host component on your session hosts, you can install the MSI man
 
 1. Sign in to a session host as a local administrator.
 
-1. Download the [MMR host MSI installer](http://aka.ms/avdmmr/msi).
+1. Download the [MMR host MSI installer](https://aka.ms/avdmmr/msi).
 
 1. Open the file that you downloaded to run the setup wizard.
 
