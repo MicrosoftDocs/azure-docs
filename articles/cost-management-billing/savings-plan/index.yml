@@ -34,6 +34,8 @@ landingContent:
       links:
       - text: Buy a savings plan
         url: buy-savings-plan.md
+      - text: Reservation trade ins
+        url: reservation-trade-in.md
       - text: Renew a savings plan
         url: renew-savings-plan.md
 

@@ -1,7 +1,7 @@
 ---
-title: Automatically renew your Azure savings plan
+title: Self-service trade-in for Azure savings plans
 titleSuffix: Microsoft Cost Management
-description: Learn how you can automatically renew an Azure saving plan to continue getting discounts.
+description: Learn how you can trade in your reservations for an Azure saving plan.
 author: bandersmsft
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
@@ -11,15 +11,15 @@ ms.date: 09/23/2022
 ms.author: banders
 ---
 
-## Self-service trade-in for Azure Savings Plans
+## Self-service trade-in for Azure savings plans
 
 Azure Savings Plans provide flexibility to help meet your evolving needs by providing discounted rates for VMs, dedicated hosts, container instances, Azure premium functions and Azure app services, across all supported regions. As a result, unlike reservations, savings plans don't support exchanges.
 
-If you find Azure VM reservations, Dedicated Hosts, Azure App Services, don't provide the necessary flexibility you require, you can trade these reservations for a savings plan.
+If you find that your Azure VMs, Dedicated Hosts, or Azure App Services reservations, don't provide the necessary flexibility you require, you can trade these reservations for a savings plan.
 
 The ability to exchange Azure VM reservations will retire in the future. For more information, see [Self-service exchanges and refunds for Azure Reservations](../reservations/exchange-and-refund-azure-reservations.md).
 
-When you trade-in a reservation and purchase a savings plan, you can select a savings plan term of either one-year to three-year.
+When you trade in a reservation and purchase a savings plan, you can select a savings plan term of either one-year to three-year.
 
 The following reservations aren't eligible to be traded in for savings plans:
 
