@@ -74,8 +74,8 @@ _Green Software Foundation alignment: [Energy efficiency](sustainability-design-
 - Consider deploying to data centers close to the consumer.
 
 **Potential tradeoffs**
-   - Time Scheduling constraints for workloads having several dependencies.
-   - 
+   - For choosing the right region, Evaluate carbon efficiency, cost, latency, and compliance requirements.
+
 ### Run batch workloads during low-carbon intensity periods
 
 _Green Software Foundation alignment: [Carbon awareness](sustainability-design-principles.md#carbon-awareness)_
@@ -83,9 +83,12 @@ _Green Software Foundation alignment: [Carbon awareness](sustainability-design-p
 **Recommendation:**
 
 - Where you have the data available to you, plan your deployments to maximize compute utilization for running [batch workloads](/azure/architecture/data-guide/big-data/batch-processing) during low-carbon intensity periods.
-- Potential tradeoffs may include the effort and time it takes to move to a low-carbon region. Additionally, migrating data between data centers may not be carbon efficient, and the cost for new regions-including low—carbon regions—may be more expensive.
 
-running specific workloads at night may be more beneficial when renewable sources are at their peak
+ - For example : running specific workloads at night may be more beneficial when renewable sources are at their peak
+
+**Potential tradeoffs**
+   - Time Scheduling constraints for workloads having several dependencies.
+
 
 ### Containerize workloads where applicable
 
