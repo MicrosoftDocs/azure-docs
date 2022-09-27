@@ -23,9 +23,9 @@ We recommend the following approach to upgrade to Standard SKU Public IP address
     1. If you need a zone redundant public IP address, create a new Standard Public IP address using [Portal](create-public-ip-portal.md), [PowerShell](create-public-ip-powershell.md), [CLI](create-public-ip-cli.md), or [ARM template](create-public-ip-template.md).
     1. If you do not need a zone redundant public IP address, use the [following upgrade options](#upgrade-using-portal-powershell-and-azure-cli). 
 1. Create a migration plan for planned downtime.
-1. Depending on the service associated with your Basic Public IP addresses, perform the upgrade based on the following table:
+1. Depending on the resource associated with your Basic Public IP addresses, perform the upgrade based on the following table:
 
-    | Service using Basic Public IP addresses | Decision path |
+    | Resource using Basic Public IP addresses | Decision path |
     | ------ | ------ |
     | Virtual Machine or Virtual Machine Scale Sets | use the [following upgrade options](#upgrade-using-portal-powershell-and-azure-cli). |
     | Load Balancer (Basic) | use the [following upgrade options](#upgrade-using-portal-powershell-and-azure-cli).   |
@@ -40,6 +40,7 @@ This section lists out some key differences between these two Public IP addresse
 |""| Standard Public IP SKU | Basic Public IP SKU |
 |---------|---------|---------|
 | **Idle Timeout** | Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes. | Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes. |
+| **Allocation method** | Static. | For IPv4: Dynamic or Static; For IPv6: Dynamic. |
 | **Security** | Secure by default model and be closed to inbound traffic when used as a frontend. Allow traffic with [network security group](../network-security-groups-overview.md#network-security-groups) is required (for example, on the NIC of a virtual machine with a Standard SKU Public IP attached). | Open by default. Network security groups are recommended but optional for restricting inbound or outbound traffic. |
 | **[Availability zones](../../availability-zones/az-overview.md)** | Supported. Standard IPs can be non-zonal, zonal, or zone-redundant. Zone redundant IPs can only be created in [regions where three availability zones](../../availability-zones/az-region.md) are live. IPs created before zones are live won't be zone redundant. | Not supported |
 | **[Routing preference](routing-preference-overview.md)** | Supported to enable more granular control of how traffic is routed between Azure and the Internet. | Not supported. |

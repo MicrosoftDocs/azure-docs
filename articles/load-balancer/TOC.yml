@@ -4,8 +4,6 @@
   items:
   - name: What is Azure Load Balancer?
     href: load-balancer-overview.md
-  - name: Upgrade guidance from basic to standard load balancer
-    href: load-balancer-basic-upgrade-guidance.md
 - name: Quickstarts
   items:
   - name: Create a public load balancer
