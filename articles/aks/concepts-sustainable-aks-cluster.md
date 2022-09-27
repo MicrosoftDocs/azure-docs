@@ -21,7 +21,7 @@ Designing and building sustainable workloads requires understanding the platform
 
 
 ### Review platform and service updates regularly 
-- _sustainability design principle: [Energy efficiency](sustainability-design-principles.md#energy-efficiency)_
+_sustainability design principle: [Energy efficiency](sustainability-design-principles.md#energy-efficiency)_
 
 
 |**Recommendations:** | _WAF Pillars alignment_ | 
@@ -46,16 +46,10 @@ _Green Software Foundation alignment: [Carbon efficiency](sustainability-design-
 Deploy your workloads to Regions powered by renewable and low-carbon energy sources | _Cost Optimization_
 
 -  **Potential tradeoffs**
-  - In addition to carbon efficiency, Evaluate the cost, latency, and compliance requirements.
-  - Migrating data between data centers may not be carbon efficient.
-  - Consider the cost for new regions, including low-carbon regions, which may be more expensive.
-  - If the workloads are latency sensitive, moving to a lower carbon region may not be an option.
-
-
-**Recommendation:**
-
-- Use less carbon because the data centers where you deploy the workload are more likely to be powered by renewable and low-carbon energy sources.
-
+   - In addition to carbon efficiency, Evaluate the cost, latency, and compliance requirements.
+   - Migrating data between data centers may not be carbon efficient.
+   - Consider the cost for new regions, including low-carbon regions, which may be more expensive.
+   - If the workloads are latency sensitive, moving to a lower carbon region may not be an option.
 
 
 ### Process when the carbon intensity is low
