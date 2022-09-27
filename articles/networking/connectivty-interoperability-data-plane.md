@@ -460,7 +460,7 @@ Trace complete.
 
 ### Path to the branch VNet, on-premises Location 1, and the remote VNet
 
-As we discuss in the [control plane analysis][Control-Analysis], the on-premises Location 1 has no visibility to the branch VNet, to on-premises Location 1, or to the remote VNet per the network configuration. 
+As we discuss in the [control plane analysis][Control-Analysis], the on-premises Location 2 has no visibility to the branch VNet, to on-premises Location 1, or to the remote VNet per the network configuration. 
 
 ## Data path from the remote VNet
 
