@@ -1,12 +1,12 @@
 ---
 title: Enable private access - Azure Cosmos DB for PostgreSQL
-description: How to set up private link in a cluster for Azure Cosmos DB for PostgreSQL
+description: See how to set up private link in a cluster for Azure Cosmos DB for PostgreSQL.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 01/14/2022
+ms.date: 09/24/2022
 ---
 
 # Enable private access in Azure Cosmos DB for PostgreSQL
@@ -22,65 +22,53 @@ network and subnet. For an example of setting up prerequisites, see the
 ## Create a cluster with a private endpoint
 
 1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
-
-2. Select **Databases** from the **New** page, and select **Azure Cosmos DB for PostgreSQL**
-   from the **Databases** page.
-
-3. Select the **Create** button under **Azure Cosmos DB for PostgreSQL cluster**.
-
-4. Fill out the new server details form with your resource group, desired
-   cluster name, location, and database user password.
-
-5. Select **Configure cluster**, choose the desired plan, and select
-   **Save**.
-
-6. Select **Next: Networking** at the bottom of the page.
-
-7. Select **Private access**.
-
-8. A screen appears called **Create private endpoint**. Choose appropriate values
-   for your existing resources, and click **OK**:
-
-	- **Resource group**
-	- **Location**
-	- **Name**
-	- **Target sub-resource**
-	- **Virtual network**
-	- **Subnet**
-	- **Integrate with private DNS zone**
-
-9. After creating the private endpoint, select **Review + create** to create
-   your cluster.
+1. On the **Create a resource** page, select **Databases**, and then select **Azure Cosmos DB**.
+1. On the **Select API option** page, on the **PostgreSQL** tile, select **Create**.
+1. On the **Create an Azure Cosmos DB for PostgreSQL cluster** page, select or create a **Resource group**, enter a **Cluster name** and **Location**, and enter and confirm the administrator **Password**.
+1. Select **Next: Networking**.
+1. On the **Networking** tab, for **Connectivity method**, select **Private access**.
+1. On the **Create private endpoint** screen, enter or select appropriate values for:
+   - **Resource group**
+   - **Location**
+   - **Name**
+   - **Target sub-resource**
+   - **Virtual network**
+   - **Subnet**
+   - **Integrate with private DNS zone**
+1. Select **OK**.
+1. After you create the private endpoint, select **Review + create** and then select **Create** to create your cluster.
 
 ## Enable private access on an existing cluster
 
 To create a private endpoint to a node in an existing cluster, open the
 **Networking** page for the cluster.
 
-1. Select **+ Add private endpoint**.
+1. Select **Add private endpoint**.
 
-   :::image type="content" source="media/howto-private-access/networking.png" alt-text="Networking screen":::
+   :::image type="content" source="media/howto-private-access/networking.png" alt-text="Screenshot of selecting Add private endpoint on the Networking screen.":::
 
-2. In the **Basics** tab, confirm the **Subscription**, **Resource group**, and
-   **Region**. Enter a **Name** for the endpoint, such as `my-cluster-eq`.
+2. On the **Basics** tab of the **Create a private endpoint** screen, confirm the **Subscription**, **Resource group**, and
+   **Region**. Enter a **Name** for the endpoint, such as *my-cluster-1*, and a **Network interface name**, such as *my-cluster-1-nic*.
 
-	> [!NOTE]
-	>
-	> Unless you have a good reason to choose otherwise, we recommend picking a
-	> subscription and region that match those of your cluster.  The
-	> default values for the form fields may not be correct; check them and
-	> update if necessary.
+   > [!NOTE]
+   >
+   > Unless you have a good reason to choose otherwise, we recommend picking a
+   > subscription and region that match those of your cluster. The
+   > default values for the form fields might not be correct. Check them and
+   > update if necessary.
 
-3. Select **Next: Resource >**. In the **Target sub-resource** choose the target
-   node of the cluster. Generally `coordinator` is the desired node.
+3. Select **Next: Resource**. For **Target sub-resource**, choose the target
+   node of the cluster. Usually **coordinator** is the desired node.
 
-4. Select **Next: Configuration >**. Choose the desired **Virtual network** and
-   **Subnet**. Customize the **Private DNS integration** or accept its default
-   settings.
+4. Select **Next: Virtual Network**. Choose the desired **Virtual network** and
+   **Subnet**. Under **Private IP configuration**, select **Statically allocate IP address** or keep the default, **Dynamically allocate IP address**.
 
-5. Select **Next: Tags >** and add any desired tags.
+1. Select **Next: DNS**.
+1. Under **Private DNS integration**, for **Integrate with private DNS zone**, keep the default **Yes** or select **No**.
 
-6. Finally, select **Review + create >**. Review the settings and select
+5. Select **Next: Tags**, and add any desired tags.
+
+6. Select **Review + create**. Review the settings, and select
    **Create** when satisfied.
 
 ## Next steps
