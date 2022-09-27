@@ -40,115 +40,109 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
 1. Obtain `kubeconfig` for the fleet cluster:
 
-	```bash
-	export GROUP=<your_resource_group_name>
-	export FLEET=<your_fleet_name>
-	az fleet get-credentials -n $FLEET -g $GROUP
-	```
+    ```bash
+    export GROUP=<your_resource_group_name>
+    export FLEET=<your_fleet_name>
+    az fleet get-credentials -n $FLEET -g $GROUP
+    ```
 
 1. Create a namespace on the fleet cluster:
 
     ```bash
-	kubectl create ns kuard-demo
-	```
+    kubectl create ns kuard-demo
+    ```
 
-    Output:
+    Output will look similar to the following:
 
     ```bash
-	namespace/kuard-demo created
-	```
+    namespace/kuard-demo created
+    ```
 
 1. Apply a `ClusterResourcePlacement` to propagate this namespace from the fleet cluster to all member clusters:
 
     ```bash
-	kubectl apply -f https://raw.githubusercontent.com/Azure/AKS/master/examples/fleet/kuard/kuard-crp.yaml
-	```
- 
-    Output:
+    kubectl apply -f https://raw.githubusercontent.com/Azure/AKS/master/examples/fleet/kuard/kuard-crp.yaml
+    ```
+
+    Output will look similar to the following:
 
     ```bash
-	clusterresourceplacement.fleet.azure.com/kuard created
-	```
+    clusterresourceplacement.fleet.azure.com/kuard created
+    ```
 
 1. Apply the Deployment, Service, ServiceExport objects:
 
-	```bash
-	kubectl apply -f https://raw.githubusercontent.com/Azure/AKS/master/examples/fleet/kuard/kuard-export-service.yaml
-	```
+    ```bash
+    kubectl apply -f https://raw.githubusercontent.com/Azure/AKS/master/examples/fleet/kuard/kuard-export-service.yaml
+    ```
 
-	The `ServiceExport` specification in the above file allows you to export a service from member clusters to the Fleet resource. Once successfully exported, service and and all its endpoints will be synced to the hub, which other member clusters and Fleet resource-scoped load balancers can then consume.
-
-
-    Output:
+    The `ServiceExport` specification in the above file allows you to export a service from member clusters to the Fleet resource. Once successfully exported, service and and all its endpoints will be synced to the hub, which other member clusters and Fleet resource-scoped load balancers can then consume. The output will look similar to the following:
 
     ```bash
-	deployment.apps/kuard created
+    deployment.apps/kuard created
     service/kuard created
     serviceexport.networking.fleet.azure.com/kuard created
-	```
+    ```
 
 ## Create MultiClusterService to load balance across the service endpoints in multiple member clusters
-
 
 1. Change kubeconfig context to one of the member clusters:
 
     ```bash
     export GROUP=<your_resource_group_name>
-	export MEMBER_AKS=<your_member_aks_cluster_name>
-	az aks get-credentials -n $MEMBER_AKS -g $GROUP
-	```
+    export MEMBER_AKS=<your_member_aks_cluster_name>
+    az aks get-credentials -n $MEMBER_AKS -g $GROUP
+    ```
 
 1. Verify that the service is successfully exported by running the following command:
 
-	```bash
-	kubectl get serviceexport kuard --namespace kuard-demo
-	```
+    ```bash
+    kubectl get serviceexport kuard --namespace kuard-demo
+    ```
 
-    Output:
+    Output will look similar to the following:
 
     ```bash
-	NAME    IS-VALID   IS-CONFLICTED   AGE
+    NAME    IS-VALID   IS-CONFLICTED   AGE
     kuard   True       False           81s
-	```    
+    ```
 
-	You should see that the service is valid for export (`IS-VALID` field is `true`) and has no conflicts with other exports (`IS-CONFLICT` is `false`). 
+    You should see that the service is valid for export (`IS-VALID` field is `true`) and has no conflicts with other exports (`IS-CONFLICT` is `false`).
 
-	> [!NOTE]
-	> It may take a minute or two for the ServiceExport to be propagated.
-
+    > [!NOTE]
+    > It may take a minute or two for the ServiceExport to be propagated.
 
 1. Apply the MultiClusterService to load balance across the service endpoints in multiple member clusters:
 
-	```bash
+    ```bash
     kubectl apply -f https://raw.githubusercontent.com/Azure/AKS/master/examples/fleet/kuard/kuard-mcs.yaml
     ```
 
-    Output:
+    Output will look similar to the following:
 
     ```bash
-	multiclusterservice.networking.fleet.azure.com/kuard created
-	```
+    multiclusterservice.networking.fleet.azure.com/kuard created
+    ```
 
 1. Verify the MultiClusterService is valid by running the following command:
 
-	```bash
-	kubectl get mcs kuard --namespace kuard-demo
-	```
+    ```bash
+    kubectl get mcs kuard --namespace kuard-demo
+    ```
 
     The output should look similar to the following:
 
-	```
+    ```bash
     NAME    SERVICE-IMPORT   EXTERNAL-IP     IS-VALID   AGE
     kuard   kuard            <a.b.c.d>         True       40s
-	```
+    ```
 
-	
-	The `IS-VALID` field should be `true` in the output. Check out the external load balancer IP address (`EXTERNAL-IP`) in the output. It may take a while before the import is fully processed and the IP address becomes available.
+    The `IS-VALID` field should be `true` in the output. Check out the external load balancer IP address (`EXTERNAL-IP`) in the output. It may take a while before the import is fully processed and the IP address becomes available.
 
 1. Run the following command multiple times using the External IP address from above:
 
     ```bash
-	curl <a.b.c.d>:8080 | grep hostname 
-	```
+    curl <a.b.c.d>:8080 | grep hostname 
+    ```
 
     Notice that the hostname, which corresponds to the pod serving the request, is changing across these requests and that these pods are from different member clusters of the Fleet resource.
