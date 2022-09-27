@@ -10,14 +10,14 @@ ms.service: azure-maps
 services: azure-maps
 ---
 
-# Create custom styles for indoor maps (Preview)
+# Create custom styles for indoor maps (preview)
 
 When you create an indoor map using Azure Maps Creator, default styles are applied. This article discusses how to customize these styling elements.
 
 ## Prerequisites
 
-1. Understanding of [Creator concepts](creator-indoor-maps.md).
-1. An Azure Maps Creator [tileset][tileset]. If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps][tutorial] tutorial helpful.
+- Understanding of [Creator concepts](creator-indoor-maps.md).
+- An Azure Maps Creator [tileset][tileset]. If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps][tutorial] tutorial helpful.
 
 ## Create custom styles using Creators visual editor
 
@@ -83,7 +83,7 @@ To change the background color for all units in the specified layer, put your mo
 
 Open the color palette and select the color you wish to change the selected unit to.
 
-:::image type="content" source="./media/creator-indoor-maps/style-editor/visual-editor-select-color-palate.png" alt-text="A screenshot of the color pallet in the visual style editor." lightbox="./media/creator-indoor-maps/style-editor/visual-editor-select-color-palate.png":::
+:::image type="content" source="./media/creator-indoor-maps/style-editor/visual-editor-select-color-palette.png" alt-text="A screenshot of the color pallet in the visual style editor." lightbox="./media/creator-indoor-maps/style-editor/visual-editor-select-color-palette.png":::
 
 #### Base map
 

@@ -1,5 +1,5 @@
 ---
-title: Use the Azure Maps Indoor Maps module with Microsoft Creator services with custom styles (Preview)
+title: Use the Azure Maps Indoor Maps module with Microsoft Creator services with custom styles (preview)
 description: Learn how to use the Microsoft Azure Maps Indoor Maps module to render maps by embedding the module's JavaScript libraries.
 author: stevemunk
 ms.author: v-munksteve
@@ -10,7 +10,7 @@ services: azure-maps
 ms.custom: devx-track-js
 ---
 
-# Use the Azure Maps Indoor Maps module with custom styles (Preview)
+# Use the Azure Maps Indoor Maps module with custom styles (preview)
 
 The Azure Maps Web SDK includes the *Azure Maps Indoor* module, enabling you to render indoor maps created in Azure Maps Creator services.
 
@@ -18,10 +18,10 @@ When you create an indoor map using Azure Maps Creator, default styles are appli
 
 ## Prerequisites
 
-1. [Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
-1. [Azure Maps Creator resource](how-to-manage-creator.md)
-1. [Subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account).
-1. [Map configuration][mapConfiguration] alias or ID. If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps][tutorial] tutorial helpful.
+- [Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
+- [Azure Maps Creator resource](how-to-manage-creator.md)
+- [Subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account).
+- [Map configuration][mapConfiguration] alias or ID. If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps][tutorial] tutorial helpful.
 
 You'll need the map configuration `alias` (or `mapConfigurationId`) to render indoor maps with custom styles via the Azure Maps Indoor Maps module.
 
@@ -88,7 +88,7 @@ const map = new atlas.Map("map-id", {
 
 To load the indoor map style of the tiles, you must instantiate the *Indoor Manager*. Instantiate the *Indoor Manager* by providing the *Map object*. If you wish to support [dynamic map styling](indoor-map-dynamic-styling.md), you must pass the `statesetId`. The `statesetId` variable name is case-sensitive. Your code should like the JavaScript below.
 
-```javascript
+```javascriptf
 const statesetId = "<statesetId>";
 
 const indoorManager = new atlas.indoor.IndoorManager(map, {
@@ -110,7 +110,7 @@ if (statesetId.length > 0) {
 }
 ```
 
-## Indoor Level Picker Control
+## Indoor level picker control
 
  The *Indoor Level Picker* control allows you to change the level of the rendered map. You can optionally initialize the *Indoor Level Picker* control via the *Indoor Manager*. Here's the code to initialize the level control picker:
 
@@ -119,7 +119,7 @@ const levelControl = new atlas.control.LevelControl({ position: "top-right" });
 indoorManager.setOptions({ levelControl });
 ```
 
-## Indoor Events
+## Indoor events
 
  The *Azure Maps Indoor* module supports *Map object* events. The *Map object* event listeners are invoked when a level or facility has changed. If you want to run code when a level or a facility have changed, place your code inside the event listener. The code below shows how event listeners can be added to the *Map object*.
 
@@ -139,7 +139,7 @@ map.events.add("facilitychanged", indoorManager, (eventData) => {
 
 The `eventData` variable holds information about the level or facility that invoked the `levelchanged` or `facilitychanged` event, respectively. When a level changes, the `eventData` object will contain the `facilityId`, the new `levelNumber`, and other metadata. When a facility changes, the `eventData` object will contain the new `facilityId`, the new `levelNumber`, and other metadata.
 
-## Example: Custom Styling: Consume map configuration in WebSDK (Preview)
+## Example: custom styling: consume map configuration in WebSDK (preview)
 
 When you create an indoor map using Azure Maps Creator, default styles are applied. Azure Maps Creator now also supports customizing your indoor styles. For more information, see [Create custom styles for indoor maps](how-to-create-custom-styles.md). Creator also offers a [visual style editor][visual style editor].
 

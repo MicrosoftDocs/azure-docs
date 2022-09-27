@@ -340,7 +340,7 @@ To check the status of the tileset creation process and retrieve the `tilesetId`
 
     :::image type="content" source="./media/tutorial-creator-indoor-maps/tileset-id.png" alt-text="A screenshot of Postman highlighting the tileset ID that is part of the value of the resource location URL in the responses header.":::
 
-## The map configuration (Preview)
+## The map configuration (preview)
 
 Once your tileset creation completes, you can get the `mapConfigurationId` using the [tileset get](/rest/api/maps/v20220901preview/tileset/get) HTTP request:
 
