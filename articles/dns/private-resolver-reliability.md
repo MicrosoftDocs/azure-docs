@@ -15,7 +15,7 @@ ms.date: 09/27/2022 #Required; mm/dd/yyyy format.
 This article describes reliability support in Azure DNS Private Resolver, and covers both regional resiliency with [availability zones](#availability-zones) and cross-region resiliency with disaster recovery. 
 
 > [!NOTE]
-> Azure DNS Private Resolver supports availability zones without any further configuration! When the service is provisioned, it's deployed across the different Availability Zones, and will provide zone resiliency out of the box.
+> Azure DNS Private Resolver supports availability zones without any further configuration! When the service is provisioned, it's deployed across the different availability zones, and will provide zone resiliency out of the box.
 
 For a comprehensive overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
@@ -31,9 +31,9 @@ For more information about availability zones, see [Regions and availability zon
 
 For a list of regions that support availability zones, see [Azure regions with availability zones](/azure/availability-zones/az-region#azure-regions-with-availability-zones). If your Azure DNS Private Resolver is located in one of the regions listed, you don't need to take any other action beyond provisioning the service.
 
-#### Enabling Availability Zones with private resolver
+#### Enabling availability zones with private resolver
 
-To enable AZ support for Azure DNS Private Resolver, you do not need take further steps beyond provisioning the service. Just create the private resolver in the region with AZ support, and it will be available across all AZs.
+To enable AZ support for Azure DNS Private Resolver, you do not need to take further steps beyond provisioning the service. Just create the private resolver in the region with AZ support, and it will be available across all AZs.
 
 For detailed steps on how to provision the service, see [Create an Azure private DNS Resolver using the Azure portal](dns-private-resolver-get-started-portal.md).
 
