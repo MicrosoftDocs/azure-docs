@@ -28,6 +28,8 @@ items:
       href: device-update-control-access.md
     - name: Device Update limits
       href: device-update-limits.md
+    - name: Monitor Device Update for IoT Hub
+      href: monitor-device-update-iot-hub.md
   - name: Devices 
     items:
     - name: Device Update agent
@@ -59,7 +61,9 @@ items:
     - name: Proxy updates
       href: device-update-proxy-updates.md
     - name: Multi-step updates
-      href: device-update-multi-step-updates.md  
+      href: device-update-multi-step-updates.md
+    - name: Region mapping for BCDR
+      href: device-update-region-mapping.md  
   - name: Updating disconnected devices
     items:
     - name: Support for disconnected devices

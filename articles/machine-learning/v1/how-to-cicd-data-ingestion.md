@@ -106,7 +106,7 @@ steps:
     artifact: di-notebooks
 ```
 
-The pipeline uses [flake8](https://pypi.org/project/flake8/) to do the Python code linting. It runs the unit tests defined in the source code and publishes the linting and test results so they're available in the Azure Pipeline execution screen.
+The pipeline uses [flake8](https://pypi.org/project/flake8/) to do the Python code linting. It runs the unit tests defined in the source code and publishes the linting and test results so they're available in the Azure Pipelines execution screen.
 
 If the linting and unit testing is successful, the pipeline will copy the source code to the artifact repository to be used by the subsequent deployment steps.
 
@@ -209,7 +209,7 @@ The values in the JSON file are default values configured in the pipeline defini
 
 The Continuous Delivery process takes the artifacts and deploys them to the first target environment. It makes sure that the solution works by running tests. If successful, it continues to the next environment. 
 
-The CD Azure Pipeline consists of multiple stages representing the environments. Each stage contains [deployments](/azure/devops/pipelines/process/deployment-jobs) and [jobs](/azure/devops/pipelines/process/phases?tabs=yaml) that perform the following steps:
+The CD Azure Pipelines consists of multiple stages representing the environments. Each stage contains [deployments](/azure/devops/pipelines/process/deployment-jobs) and [jobs](/azure/devops/pipelines/process/phases?tabs=yaml) that perform the following steps:
 
 * Deploy a Python Notebook to Azure Databricks workspace
 * Deploy an Azure Data Factory pipeline 

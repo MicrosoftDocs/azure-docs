@@ -110,7 +110,7 @@ To enable monitoring of your AKS cluster in the Azure portal from Azure Monitor,
 
 3. On the **Monitor - containers** page, select **Unmonitored clusters**.
 
-4. From the list of unmonitored clusters, find the container in the list and click **Enable**.
+4. From the list of unmonitored clusters, find the cluster in the list and click **Enable**.
 
 5. On the **Onboarding to Container insights** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it from the drop-down list.
     The list preselects the default workspace and location that the AKS container is deployed to in the subscription.
@@ -179,7 +179,7 @@ The Log Analytics workspace must be created before you deploy the Resource Manag
 
   - For **aksResourceId** and **aksResourceLocation**, use the values on the **AKS Overview** page for the AKS cluster. 
   - For **workspaceResourceId**, use the resource ID of your Log Analytics workspace.
-  - For **resourceTagValues**, match the existing tag values specified for the existing Container insights extension DCR of the cluster and the name of the data collection rule, which will be MSCI-\<clusterName\>-\<clusterRegion\> and this resource created in Log Analytics Workspace Resource Group. If this first-time onboarding, you can set the arbitrary tag values.
+  - For **resourceTagValues**, match the existing tag values specified for the existing Container insights extension DCR of the cluster and the name of the data collection rule, which will be MSCI-\<clusterName\>-\<clusterRegion\> and this resource created in AKS clusters Resource Group. If this first-time onboarding, you can set the arbitrary tag values.
 
 
 **If you don't want to enable [managed identity authentication (preview)](container-insights-onboard.md#authentication)**

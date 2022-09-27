@@ -11,7 +11,7 @@ ms.date: 11/30/2021
 
 # Monitor metrics on Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for PostgreSQL provides various monitoring options to provide insight into the behavior of your server.
 
@@ -45,7 +45,6 @@ The following metrics are available for PostgreSQL flexible server:
 | txlogs_storage_used | Transaction Log Storage Used | Bytes | Amount of storage space used by the transaction logs. | 
 | write_throughput | Write Throughput | Bytes | Bytes written per second to disk. |
 | write_iops | Write IOPS | Count | Number of data disk I/O write operations per second. |
-| Write Throughput Bytes/Sec | Write Throughput | Bytes | Bytes write per second from disk. |
 
 ## Server logs
 Azure Database for PostgreSQL allows you to configure and access Postgres' standard logs. To learn more about logs, visit the [logging concepts doc](concepts-logging.md).

@@ -121,7 +121,7 @@ If you aren't using CAE-capable clients, your default access token lifetime will
 
 ### User condition change flow
 
-In the following example, a Conditional Access administrator has configured a location based Conditional Access policy to only allow access from specific IP ranges:
+In the following example, a Conditional Access Administrator has configured a location based Conditional Access policy to only allow access from specific IP ranges:
 
 ![User condition event flow](./media/concept-continuous-access-evaluation/user-condition-change-flow.png)
 

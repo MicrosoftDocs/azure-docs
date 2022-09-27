@@ -18,9 +18,10 @@ In this article, you'll learn about the scaling tool that uses an Azure Automati
 
 Before you start setting up the scaling tool, make sure you have the following things ready:
 
-- An [Azure Virtual Desktop host pool](create-host-pools-azure-marketplace.md)
-- Session host pool VMs configured and registered with the Azure Virtual Desktop service
-- A user with the [Contributor role](../role-based-access-control/role-assignments-portal.md) assigned on the Azure subscription
+- An [Azure Virtual Desktop host pool](create-host-pools-azure-marketplace.md).
+- Session host pool VMs configured and registered with the Azure Virtual Desktop service.
+- A user with the [Contributor role](../role-based-access-control/role-assignments-portal.md) assigned on the Azure subscription.
+- A Log Analytics workspace (optional).
 
 The machine you use to deploy the tool must have:
 
@@ -78,7 +79,7 @@ First, you'll need an Azure Automation account to run the PowerShell runbook. Th
 
 1. If you haven't created an automation account before, the cmdlet's output will include an encrypted webhook URI in the automation account variable. Make sure to keep a record of the URI because you'll use it as a parameter when you set up the execution schedule for the Azure Logic App. If you're updating an existing automation account, you can retrieve the webhook URI using [PowerShell to access variables](../automation/shared-resources/variables.md#powershell-cmdlets-to-access-variables).
 
-1. If you specified the parameter **WorkspaceName** for Log Analytics, the cmdlet's output will also include the Log Analytics Workspace ID and its Primary Key. Make sure to remember the URI because you'll need to use it again later as a parameter when you set up the execution schedule for the Azure Logic App.
+1. If you specified the parameter **WorkspaceName** for Log Analytics, the cmdlet's output will also include the Log Analytics Workspace ID and its Primary Key. Make a note of the Workspace ID and Primary Key because you'll need to use them again later with parameters when you set up the execution schedule for the Azure Logic App.
 
 1. After you've set up your Azure Automation account, sign in to your Azure subscription and check to make sure your Azure Automation account and the relevant runbook have appeared in your specified resource group, as shown in the following image:
 
@@ -162,7 +163,7 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
     $AutoAccount = Get-AzAutomationAccount | Out-GridView -OutputMode:Single -Title "Select the Azure Automation account"
     $AutoAccountConnection = Get-AzAutomationConnection -ResourceGroupName $AutoAccount.ResourceGroupName -AutomationAccountName $AutoAccount.AutomationAccountName | Out-GridView -OutputMode:Single -Title "Select the Azure RunAs connection asset"
     
-    $WebhookURI = Read-Host -Prompt "Enter the webhook URI that has already been generated for this Azure Automation account. The URI is stored as encrypted in the above Automation Account variable. To retrieve the value, see https://docs.microsoft.com/azure/automation/shared-resources/variables?tabs=azure-powershell#powershell-cmdlets-to-access-variables"
+    $WebhookURI = Read-Host -Prompt "Enter the webhook URI that has already been generated for this Azure Automation account. The URI is stored as encrypted in the above Automation Account variable. To retrieve the value, see https://learn.microsoft.com/azure/automation/shared-resources/variables?tabs=azure-powershell#powershell-cmdlets-to-access-variables"
     
     $Params = @{
          "AADTenantId"                   = $AADTenantId                             # Optional. If not specified, it will use the current Azure context

@@ -7,7 +7,7 @@ author: tomarchermsft
 manager: routlaw
 tags: azure-cloud-shell
 
-ms.service: azure
+ms.service: azure-resource-manager
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article

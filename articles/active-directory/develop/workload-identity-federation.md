@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/27/2022
+ms.date: 08/29/2022
 ms.author: ryanwi
 ms.reviewer: shkhalid, udayh, vakarand
 ms.custom: aaddev 
@@ -57,6 +57,6 @@ The Microsoft identity platform stores only the first 25 signing keys when they'
 ## Next steps
 Learn more about how workload identity federation works:
 - How Azure AD uses the [OAuth 2.0 client credentials grant](v2-oauth2-client-creds-grant-flow.md#third-case-access-token-request-with-a-federated-credential) and a client assertion issued by another IdP to get a token.
-- How to create, delete, get, or update [federated identity credentials](/graph/api/resources/federatedidentitycredentials-overview?view=graph-rest-beta&preserve-view=true) on an app registration using Microsoft Graph.
+- How to create, delete, get, or update [federated identity credentials](/graph/api/resources/federatedidentitycredentials-overview) on an app registration using Microsoft Graph.
 - Read the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure) to learn more about configuring your GitHub Actions workflow to get an access token from Microsoft identity provider and access Azure resources.
 - For information about the required format of JWTs created by external identity providers, read about the [assertion format](active-directory-certificate-credentials.md#assertion-format).
