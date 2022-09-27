@@ -22,7 +22,7 @@ In general, there are two approaches for automatic document summarization: extra
 
 **Extractive summarization**: a feature that produces a summary by extracting sentences that collectively represent the most important or relevant information within the original content.
 
-Abstractive summarization is a feature that produces a summary by extracting chapter titles and compiling summaries from input novel chapters.
+**Abstractive summarization**: a feature that produces a summary by extracting chapter titles and compiling summaries from input novel chapters.
 
 These features are designed to shorten content that users consider too long to read. Extractive summarization condenses articles, papers, or documents to key sentences, and abstractive summarization condenses novel chapters.
 
