@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/14/2022
+ms.date: 09/27/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -66,6 +66,7 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- September 27, 2022: Minor changes in [HA for SAP ASCS/ERS with NFS simple mount](./high-availability-guide-suse-nfs-simple-mount.md) on SLES 15 for SAP Applications to adjust mount instructions
 - September 14, 2022 Release of updated SAP on Oracle guide with new and updated content [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms_guide_oracle.md)
 - September 8, 2022: Change in [SAP HANA scale-out HSR with Pacemaker on Azure VMs on SLES](./sap-hana-high-availability-scale-out-hsr-suse.md) to add instructions for deploying /hana/shared (only) on NFS on Azure Files
 - September 6, 2022: Add managed identity for pacemaker fence agent [Set up Pacemaker on SUSE Linux Enterprise Server (SLES) in Azure](high-availability-guide-suse-pacemaker.md) on SLES and [Setting up Pacemaker on RHEL in Azure](high-availability-guide-rhel-pacemaker.md) RHEL

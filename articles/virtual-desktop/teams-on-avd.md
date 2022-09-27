@@ -35,13 +35,20 @@ This section will show you how to install the Teams desktop app on your Windows 
 
 To enable media optimization for Teams, set the following registry key on the host VM:
 
-1. From the start menu, run **RegEdit** as an administrator. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams**. Create the Teams key if it doesn't already exist.
+1. From the start menu, run **Registry Editor** as an administrator. Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams`. Create the Teams key if it doesn't already exist. 
 
 2. Create the following value for the Teams key:
 
-| Name             | Type   | Data/Value  |
-|------------------|--------|-------------|
-| IsWVDEnvironment | DWORD  | 1           |
+   | Name             | Type   | Data/Value  |
+   |------------------|--------|-------------|
+   | IsWVDEnvironment | DWORD  | 1           |
+
+Alternatively, you can create the registry entry by running the following commands from an elevated PowerShell session:
+
+```powershell
+New-Item -Path "HKLM:\SOFTWARE\Microsoft\Teams" -Force
+New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Teams" -Name IsWVDEnvironment -PropertyType DWORD -Value 1 -Force
+```
 
 ### Install the Teams WebSocket Service
 
