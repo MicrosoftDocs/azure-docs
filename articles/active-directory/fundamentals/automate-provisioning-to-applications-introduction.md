@@ -37,7 +37,7 @@ Thousands of organizations are running Azure AD cloud-hosted services, with its 
 
 ![Typical deployment of MIM](media/automate-user-provisioning-to-applications-introduction/typical-mim-deployment.png)
 
- Use the following table to find content specific to your scenario. For example, if you want employee and contractor identities management from an HR system to Active Directory (AD) or Azure Active Directory (Azure AD), follow the link to *Connect identities with your system of record*.
+ Use the following table to find content specific to your scenario. For example, if you want employee and contractor identities management from an HR system to Active Directory Domain Services (AD DS) or Azure Active Directory (Azure AD), follow the link to *Connect identities with your system of record*.
 
 | What | From | To | Read |
 | - | - | - | - |
@@ -83,7 +83,7 @@ In this example, the organization has users spread across multiple on-premises H
 
 ![Advanced hybrid deployment model](media/automate-user-provisioning-to-applications-introduction/hybrid-advanced.png)
 
-1. MIM imports user information from each HR stem. MIM determines which users are needed for those employees in different directories. MIM provisions those identities in Active Directory.
+1. MIM imports user information from each HR stem. MIM determines which users are needed for those employees in different directories. MIM provisions those identities in AD DS.
 
 2. Azure AD Connect Sync then synchronizes those users and groups to Azure AD and provides users access to their resources.
 
