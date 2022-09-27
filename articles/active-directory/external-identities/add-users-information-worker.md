@@ -35,7 +35,7 @@ After an app is configured for self-service, application owners can use their ow
 1. Open your Access Panel by going to `https://myapps.microsoft.com`.
 2. Point to the app, select the ellipses (**...**), and then select **Manage app**.
  
- :::image type="content" source="/media/add-users-iw/access-panel-manage-app.png" alt-text="Screenshot showing the Manage app sub-menu for the Salesforce app":::
+ :::image type="content" source="media/add-users-iw/access-panel-manage-app.png" alt-text="Screenshot showing the Manage app sub-menu for the Salesforce app":::
 
 3. At the top of the users list, select **+**.
    
