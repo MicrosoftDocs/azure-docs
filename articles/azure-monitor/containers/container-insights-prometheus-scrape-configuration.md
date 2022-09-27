@@ -24,10 +24,10 @@ The following table has a list of all the default targets that the Container ins
 | apiserver | bool | `false` | Scrape the kubernetes api server in the k8s cluster without any extra scrape config. |
 | prometheuscollectorhealth | bool | `false` | Scrape info about the prometheus-collector container such as the amount and size of timeseries scraped. |
 
-If you want to turn on the scraping of the default targets that aren't enabled by default, create this [configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-settings-configmap.yaml) or edit an existing one, and update the targets listed under `default-scrape-settings-enabled` to `true`.
+If you want to turn on the scraping of the default targets that aren't enabled by default, create `ama-metrics-settings-configmap` [configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-settings-configmap.yaml) or edit an existing one, and update the targets listed under `default-scrape-settings-enabled` to `true`.
 
 ## Customizing default targets
-By default, only minimal metrics are ingested as described in [Minimal ingestion profile]([minimal-ingestion-profile](container-insights-prometheus-scrape-configuration-minimal.md). To filter out metrics for any default targets, edit the settings under `default-targets-metrics-keep-list` in this [configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-settings-configmap.yaml) or edit an existing one. This setting is per job. 
+By default, for all the dfault targets, only minimal metrics are ingested as described in [Minimal ingestion profile](container-insights-prometheus-scrape-configuration-minimal.md). To filter in (allow) additional metrics for any default targets, edit the settings under `default-targets-metrics-keep-list` in this [configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-settings-configmap.yaml) or edit an existing one. This setting is per job.
 
 For example, `kubelet` is the metric filtering setting for the default target kubelet. Use the following to filter IN metrics collected for the default targets using regex based filtering. 
 
@@ -43,9 +43,9 @@ To further customize the default jobs to change properties such as collection fr
 
 
 ## Cluster alias
-The cluster label appended to every time series scraped will use the last part of the full ARM resourceID. For example, if the resource ID is `/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-name/providers/Microsoft.ContainerService/managedClusters/clustername`, the cluster label is `clustername`. 
+The cluster label appended to every time series scraped will use the last part of the full AKS cluster's ARM resourceID. For example, if the resource ID is `/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-name/providers/Microsoft.ContainerService/managedClusters/clustername`, the cluster label is `clustername`. 
 
-To override the cluster label in the time series scraped, update the setting `cluster_alias` to any string under `prometheus-collector-settings` in this [configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-settings-configmap.yaml). You can either create this configmap or edit an existing one.
+To override the cluster label in the time series scraped, update the setting `cluster_alias` to any string under `prometheus-collector-settings` in `ama-metrics-settings-configmap` [configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-settings-configmap.yaml). You can either create this configmap or edit an existing one.
 
 The new label will also show up in the grafana instance in the cluster dropdown instead of the default one.
 
@@ -53,7 +53,7 @@ The new label will also show up in the grafana instance in the cluster dropdown 
 > Only alphanumeric characters are allowed. Any other characters else will be replaced with `_`. This is to ensure that different components that consume this label will adhere to the basic alphanumeric convention.
 
 ## Debug mode 
-The metrics addon agent can be configured to run in debug mode by updating the setting `enabled` to `true` under the `debug-mode` setting in this [configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-settings-configmap.yaml). You can either create this configmap or edit an existing one. See [Troubleshoot collection of Prometheus metrics](container-insights-prometheus-metrics-troubleshoot.md#debug-mode) for more details.
+The metrics addon agent can be configured to run in debug mode by updating the setting `enabled` to `true` under the `debug-mode` setting in `ama-metrics-settings-configmap` [configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-settings-configmap.yaml). You can either create this configmap or edit an existing one. See [Troubleshoot collection of Prometheus metrics](container-insights-prometheus-metrics-troubleshoot.md#debug-mode) for more details.
 
 
 
@@ -71,6 +71,9 @@ scrape_configs:
   ...
 ```
 
+> [!NOTE]
+> `global` section is optional. `scrape_configs` section with 1 or more scrape jobs under it is required in custom scrape config.
+
 Before applying the configuration as a configmap, validate it using the [promconfigvalidator tool](container-insights-prometheus-scrape-validate.md), which is the same tool that is run at the container startup to perform validation of custom configuration. If the config isn't valid, then the custom configuration given won't be used by the agent.
 
 Any other unsupported sections need to be removed from the config before applying as a configmap. If not, the promconfigvalidator tool validation will fail, and the custom scrape configuration won't be applied
@@ -81,7 +84,7 @@ The `scrape_config` setting `honor_labels` is `false` by default. It should be `
 
 ## Scraping metrics at high scale
 
-When you scrape custom targets, the scraping is done by the ama-metrics replicaset pod. For a cluster with a large number of nodes and pods running on it, custom scrape targets can be off-loaded to the daemonset. A [configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-prometheus-config-node-configmap.yaml) similar to the regular configmap can be created to have static scrape configs on each node. The scrape config should only target a single node and not try to use service discovery; otherwise each node will try to scrape all targets. The node-exporter config is a good example of using the `$NODE_IP` environment variable (already set for every prometheus-collector container) to target a specific endpoint on the node:
+When you scrape custom targets, the scraping is done by the ama-metrics replicaset pod. For a cluster with a large number of nodes and pods running on it, some of the applicable custom scrape targets can be off-loaded from the single ama-metrics replica pod to the ama-metrics daemonset pod . A [configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-prometheus-config-node-configmap.yaml) similar to the regular configmap can be created to have static scrape configs on each node. The scrape config should only target a single node and not try to use service discovery; otherwise each node will try to scrape all targets. The node-exporter config is a good example of using the `$NODE_IP` environment variable (already set for every prometheus-collector container) to target a specific endpoint on the node:
 
   ```yaml
   - job_name: node
@@ -103,12 +106,7 @@ Custom scrape targets can follow the same format using `static_configs` with tar
 
 
 
-
-
-
-
-
-## Configuration File
+## Configuration File for custom scrape config
 The configuration format is the same as the [Prometheus configuration file](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#configuration-file). Currently supported are the following sections:
 ```yaml
 global:
@@ -118,11 +116,14 @@ global:
     <labelname1>: <labelvalue>
     <labelname2>: <labelvalue>
 scrape_configs:
-  - <scrape_config1>
-  - <scrape_config2>
+  - <job-x>
+  - <job-y>
 ```
 
 Any other unsupported sections need to be removed from the config before applying as a configmap; otherwise the custom configuration will fail validation and won't be applied.
+
+> [!NOTE]
+> When custom scrape configuration fails to apply due to validation errors, default scrape configuration will continue to be used.
 
 ## Scrape Configs
 The currently supported methods of target discovery for a [scrape config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config) are either [`static_configs`](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#static_config) or [`kubernetes_sd_configs`](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#kubernetes_sd_config) for specifying or discovering targets.

@@ -236,11 +236,11 @@ items:
           href: containers/container-insights-prometheus-scrape-default.md
         - name: Custom configuration
           href: containers/container-insights-prometheus-scrape-configuration.md
-        - name: Create and validate config filters
+        - name: Create and validate custom scrape config
           href: containers/container-insights-prometheus-scrape-validate.md
         - name: Minimal ingestion profile
           href: containers/container-insights-prometheus-scrape-configuration-minimal.md
-        - name: Send to multiple workspaces
+        - name: Send to multiple metric workspaces
           href: containers/container-insights-prometheus-multiple-workspaces.md
     - name: Metrics explorer
       items:
