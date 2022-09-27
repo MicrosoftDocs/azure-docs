@@ -348,12 +348,20 @@ For more information on how to use environments in jobs, see [Train models](how-
 
 ## Use environments for model deployments
 
+# [Azure CLI](#tabs/cli)
+
 You can also use environments for your model deployments for both online and batch scoring. To do so, specify the `environment` field in the deployment YAML configuration.
 
 For more information on how to use environments in deployments, see [Deploy and score a machine learning model by using a managed online endpoint](how-to-deploy-managed-online-endpoints.md).
 
+# [Python SDK](#tabs/sdk)
+
+You can also use environments for your model deployments. For more information, see [Deploy and score a machine learning model](how-to-deploy-managed-online-endpoint-sdk-v2.md).
+
+---
+
 ## Next steps
 
-- [Train models (create jobs) with the CLI (v2)](how-to-train-cli.md)
+- [Train models (create jobs)](how-to-train-model.md)
 - [Deploy and score a machine learning model by using a managed online endpoint](how-to-deploy-managed-online-endpoints.md)
 - [Environment YAML schema reference](reference-yaml-environment.md)

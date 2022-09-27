@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/06/2022
+ms.date: 09/26/2022
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: amycolannino
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 Within a Conditional Access policy, an administrator can use access controls to grant or block access to resources.
 
-:::image type="content" source="media/concept-conditional-access-session/conditional-access-session.png" alt-text="Screenshot of a Conditional Access policy with a grant control that requires multifactor authentication." lightbox="media/concept-conditional-access-session/conditional-access-session.png":::
+:::image type="content" source="media/concept-conditional-access-grant/conditional-access-grant.png" alt-text="Screenshot of a Conditional Access policy with a grant control that requires multifactor authentication." lightbox="media/concept-conditional-access-grant/conditional-access-grant.png":::
 
 ## Block access
 
