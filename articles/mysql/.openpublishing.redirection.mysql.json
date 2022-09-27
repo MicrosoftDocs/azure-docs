@@ -746,6 +746,7 @@
         "redirect_document_id": true
     },
     {
+<<<<<<< HEAD
         "source_path_from_root": "/articles/mysql/single-server/how-to-decide-on-right-migration-tools.md",
         "redirect_url": "/azure/mysql/migrate/how-to-decide-on-right-migration-tools",
         "redirect_document_id": true
@@ -760,5 +761,11 @@
         "redirect_url": "/azure/mysql/migrate/concepts-migrate-mydumper-myloader",
         "redirect_document_id": true
     }
+=======
+        "source_path_from_root": "/articles/mysql/flexible-server/how-to-upgrade.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-major-version-upgrade",
+        "redirect_document_id": true
+    }    
+>>>>>>> 56f998219bd1217afb6b70ed59a12f7ec7a9be2e
   ]
 }
