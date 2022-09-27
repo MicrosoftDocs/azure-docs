@@ -78,7 +78,7 @@ sections:
       - question: |
           Is there any effect on Azure Cosmos DB transactional store provisioned RUs?
         answer: |
-          Azure Cosmos DB guarantees performance isolation between the transactional and analytical workloads. Enabling the analytical store on a container will not impact the RU/s provisioned on the Azure Cosmos DB transactional store. The transactions (read & write) and storage costs for the analytical store will be charged separately. See the [pricing for Azure Cosmos DB analytical store](analytical-store-introduction.md) for more details.
+          Azure Cosmos DB guarantees performance isolation between the transactional and analytical workloads. Enabling the analytical store on a container will not impact the RU/s provisioned on the Azure Cosmos DB transactional store. The transactions (read & write) and storage costs for the analytical store will be charged separately. See the [pricing for Azure Cosmos DB analytical store](analytical-store-introduction.md#analytical-store-pricing) for more details.
           
       - question: |
           Can I restrict network access to Azure Cosmos DB analytical store?
@@ -124,7 +124,7 @@ sections:
       - question: |
           Are there any scenarios where the items from the transactional store are not automatically propagated to the analytical store?
         answer: |
-          If specific items in your container violate the [well-defined schema for analytics](analytical-store-introduction.md), they will not be included in the analytical store. If you have scenarios blocked by well-defined schema for analytics, email the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com) for help.
+          If specific items in your container violate the [well-defined schema for analytics](analytical-store-introduction.md#analytical-schema), they will not be included in the analytical store. If you have scenarios blocked by well-defined schema for analytics, email the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com) for help.
           
       - question: |
           Can I partition the data in analytical store differently from transactional store?
@@ -173,7 +173,7 @@ sections:
       - question: |
           What is the billing model of Azure Synapse Link for Azure Cosmos DB?
         answer: |
-          The billing model of Azure Synapse Link includes the costs incurred by using the Azure Cosmos DB analytical store and the Synapse runtime. To learn more, see the [Azure Cosmos DB analytical store pricing](analytical-store-introduction.md) and [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/synapse-analytics/) articles.
+          The billing model of Azure Synapse Link includes the costs incurred by using the Azure Cosmos DB analytical store and the Synapse runtime. To learn more, see the [Azure Cosmos DB analytical store pricing](analytical-store-introduction.md#analytical-store-pricing) and [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/synapse-analytics/) articles.
           
       - question: |
           What is the billing impact if I enable Synapse Link in my Azure Cosmos DB database account?
