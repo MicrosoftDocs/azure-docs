@@ -93,7 +93,7 @@ The tiles or the Troubleshoot link show the available diagnostics for the catego
 
 ## Diagnostic report
 
-After you choose to investigate the issue further by clicking on a topic, you can view more details about the topic often supplemented with graphs and markdowns. Diagnostic report can be a powerful tool for pinpointing the problem with your app. The following is the Overview for Availability and Performance:
+After you choose to investigate the issue further by clicking on a topic, you can view more details about the topic often supplemented with graphs and markdowns. Diagnostic report can be a powerful tool for pinpointing the problem with your app. The following is the Web App Down from Availability and Performance:
 
 ![App Service Diagnose and solve problems Availability and Performance category homepage with Web App Down diagnostic selected, which displays an availability chart, Organic SLA percentage and Observations and Solutions for problems that were detected.](./media/app-service-diagnostics/full-diagnostic-report-5.png)
 
