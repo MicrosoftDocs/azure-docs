@@ -128,7 +128,7 @@ _Green Software Foundation alignment: [Hardware efficiency](sustainability-desig
 
 **Recommendation:**
 
-- By utilizing [SPOT Node pools](/azure/aks/spot-node-pool), you take advantage of unused capacity in Azure data centers while getting a significant discount on the VM.
+- Use [SPOT Node pools](/azure/aks/spot-node-pool), to take advantage of unused capacity in Azure data centers while getting a significant discount on the VM.
 
 **Potential tradeoffs**
 
