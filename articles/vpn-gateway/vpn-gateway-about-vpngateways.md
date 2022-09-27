@@ -83,6 +83,6 @@ Subscribe to the RSS feed and view the latest VPN Gateway feature updates on the
 ## Next steps
 
 - [Tutorial: Create and manage a VPN Gateway](tutorial-create-gateway-portal.md).
-- [Learn module: Introduction to Azure VPN Gateway](/learn/modules/intro-to-azure-vpn-gateway).
-- [Learn module: Connect your on-premises network to Azure with VPN Gateway](/learn/modules/connect-on-premises-network-with-vpn-gateway/).
+- [Learn module: Introduction to Azure VPN Gateway](/training/modules/intro-to-azure-vpn-gateway).
+- [Learn module: Connect your on-premises network to Azure with VPN Gateway](/training/modules/connect-on-premises-network-with-vpn-gateway/).
 - [Subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).

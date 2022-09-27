@@ -123,14 +123,16 @@
         displayName: replication, read replica
       - name: Read replicas
         href: flexible-server/concepts-read-replicas.md
-    - name: Security
-      items:
-      - name: Data encryption with a customer managed key
-        href: flexible-server/concepts-customer-managed-key-mysql-flexible-server.md
     - name: Backup & Restore
       items:
       - name: Backup & Restore concepts
         href: flexible-server/concepts-backup-restore.md
+    - name: Security
+      items:
+      - name: Azure AD Authentication
+        href: flexible-server/concepts-azure-ad-authentication.md     
+      - name: Data encryption
+        href: flexible-server/concepts-customer-managed-key.md        
   - name: Integrations
     items:
     - name: Power BI
@@ -253,7 +255,15 @@
       - name: Troubleshoot Connection errors
         href: flexible-server/how-to-troubleshoot-common-connection-issues.md
       - name: Troubleshoot CLI errors
-        href: flexible-server/how-to-troubleshoot-cli-errors.md       
+        href: flexible-server/how-to-troubleshoot-cli-errors.md
+    - name: Security
+      items:
+      - name: Configure Azure AD Authentication
+        href: flexible-server/how-to-azure-ad.md      
+      - name: Data encryption with Azure portal
+        href: flexible-server/how-to-data-encryption-portal.md
+      - name: Data encryption with Azure CLI
+        href: flexible-server/how-to-data-encryption-cli.md           
   - name: Samples
     items:
     - name: Azure CLI samples

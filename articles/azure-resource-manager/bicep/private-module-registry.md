@@ -13,7 +13,7 @@ To work with module registries, you must have [Bicep CLI](./install.md) version 
 
 ### Training resources
 
-If you would rather learn about parameters through step-by-step guidance, see [Share Bicep modules by using private registries](/learn/modules/share-bicep-modules-using-private-registries).
+If you would rather learn about parameters through step-by-step guidance, see [Share Bicep modules by using private registries](/training/modules/share-bicep-modules-using-private-registries).
 
 ## Configure private registry
 
