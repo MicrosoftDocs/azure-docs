@@ -79,7 +79,7 @@ A conversion can be accomplished in one of two ways:
 #### Customer-initiated conversion (preview)
 
 > [!IMPORTANT]
-> Customer initiated conversion is currently in preview and available in all public ZRS regions except for the following:
+> Customer-initiated conversion is currently in preview and available in all public ZRS regions except for the following:
 >
 > - (Europe) West Europe
 > - (Europe) UK South

@@ -132,7 +132,7 @@ There are two ways to initiate a conversion:
 #### Customer-initiated conversion (preview)
 
 > [!IMPORTANT]
-> Customer initiated conversion is currently in preview and available in all public ZRS regions except for the following:
+> Customer-initiated conversion is currently in preview and available in all public ZRS regions except for the following:
 >
 > - (Europe) West Europe
 > - (Europe) UK South
