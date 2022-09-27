@@ -11,6 +11,7 @@ items:
   - name: What's new (recent months)
     href: whats-new.md
   - name: What's new (archived months)
+    href: whats-new-archive.md
   - name: Compare current version to version 1
     href: compare-versions.md
     displayName: timeout

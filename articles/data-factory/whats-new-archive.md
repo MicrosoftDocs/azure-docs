@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: concepts
 ms.topic: overview
 ms.custom: references_regions
-ms.date: 01/21/2022
+ms.date: 09/27/2022
 ---
 # What's new archive for Azure Data Factory
 
