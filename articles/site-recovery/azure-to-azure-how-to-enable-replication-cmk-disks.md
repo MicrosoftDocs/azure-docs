@@ -62,7 +62,7 @@ As an example, the primary Azure region is East Asia, and the secondary region i
         >- You cannot change the availability type - single instance, availability set or availability zone, after you enable replication. You must disable and enable replication to change the availability type.     
     1. **Capacity reservation**: Capacity Reservation lets you purchase capacity in the recovery region, and then failover to that capacity. You can either create a new Capacity Reservation Group or use an existing one. For more information, see [how capacity reservation works](https://learn.microsoft.com/azure/virtual-machines/capacity-reservation-overview).
     
-    1. **Storage encryption settings**: Site Recovery needs the disk encryption set(s) to be used for replica and target managed disks. You must pre-create Disk encryption sets in the target subscription and the target region before enabling the replication. By default, a Disk encryption set is not selected. You must select **View/edit configuration** to choose a Disk encryption set per source disk.
+    1. **Storage encryption settings**: Site Recovery needs the disk encryption set(s)(DES) to be used for replica and target managed disks. You must pre-create Disk encryption sets in the target subscription and the target region before enabling the replication. By default, a Disk encryption sets is not selected. You must select **View/edit configuration** to choose a Disk encryption sets per source disk.
     
         :::image type="enable replication parameters" source="./media/azure-to-azure-how-to-enable-replication-cmk-disks/enable-vm-replication.png" alt-text="Screenshot that displays the enable replication parameters.":::
 
@@ -85,12 +85,12 @@ As an example, the primary Azure region is East Asia, and the secondary region i
 
 Follow these steps to modify the Site Recovery default target settings.
 
-1. Select **Customize** next to "Storage encryption settings" to select the target DES for every customer-managed key (CMK) enabled source managed disk. At the time of selection, you will also be able to see which target key vault the DES is associated with.
+1. Select **View/edit configuration** next to **Storage encryption settings** to select the target DES for every customer-managed key (CMK) enabled source managed disk. At the time of selection, you will also be able to see which target key vault the DES is associated with.
 
 1. Select **Create target resource** > **Enable Replication**.
 1. After the VMs are enabled for replication, you can check the VMs' health status under **Replicated items**.
 
-![Screenshot that shows where to check the VMs' health status.](./media/azure-to-azure-how-to-enable-replication-cmk-disks/cmk-customize-target-disk-properties.png)
+:::image type="VMs' health status" source="./media/azure-to-azure-how-to-enable-replication-cmk-disks/cmk-customize-target-disk-properties.png" alt-text="Screenshot that shows where to check the VMs' health status.":::
 
 >[!NOTE]
 >During initial replication, the status might take some time to refresh, without apparent progress. Click **Refresh**  to get the latest status.
