@@ -166,7 +166,9 @@ The following table lists the recommended alert rules that you can enable for ei
 Common properties across all of these alert rules include:
 
 - All alert rules are evaluated once per minute and they look back at last 5 minutes of data.
+- All alert rules are disabled by default.
 - Alerts rules don't have an action group assigned to them by default. You can add an [action group](../alerts/action-groups.md) to the alert either by selecting an existing action group or creating a new action group while editing the alert rule.
+- You can modify the threshold for alert rules by directly editing the template and redeploying it. Refer to the guidance provided in each alert rule before modifying its threshold.
 
 The following metrics have unique behavior characteristics:
 
