@@ -79,10 +79,6 @@ Connect an Azure Monitor workspace to an [Azure Managed Grafana](../../managed-g
 3. Click **Linked Grafana workspaces**.
 4. Select a Grafana workspace or **Create new** to create a new one.
 
-### [CLI](#tab/cli)
-To be completed.
-
-
 ### [Resource Manager](#tab/resource-manager)
 To be completed.
 
