@@ -376,9 +376,6 @@
         - name: Set up software environments
           displayName: pip, Conda, anaconda
           href: how-to-use-environments.md
-        - name: Use private Python packages
-          displayName: pip, Conda, anaconda
-          href: how-to-use-private-python-packages.md
         - name: Set input & output directories
           displayName: large data, write, experiment files, size limit
           href: how-to-save-write-experiment-files.md
@@ -425,13 +422,13 @@
           - name: Outsource labeling tasks
             href: how-to-outsource-data-labeling.md
     - name: Train models
-      items: 
+      items:
+        - name: Train a model (SDK, CLI, REST)
+          href: how-to-train-model.md
         - name: Train with the job creation UI
           href: how-to-train-with-ui.md
         - name: Train with the Python SDK
           items:
-          - name: Train with SDK v2 (preview)
-            href: how-to-train-sdk.md
           - name: Tune hyperparameters
             displayName: parameter, hyperparameter, hyperdrive
             href: how-to-tune-hyperparameters.md
@@ -451,10 +448,6 @@
           - name: Use Key Vault when training
             displayName: secrets keyvault job
             href: how-to-use-secrets-in-runs.md
-        - name: Train with the CLI v2
-          href: how-to-train-cli.md
-        - name: Train with the REST API
-          href: how-to-train-with-rest.md
         - name: Track & monitor training
           items:
             - name: Monitor training jobs
@@ -529,9 +522,6 @@
             - name: Inference image models with ONNX model
               displayName: automl, image, image model, computer vision
               href: how-to-inference-onnx-automl-image-models.md
-            - name: Explain automated ML models
-              displayName: SDK, interpret, interpret, explain, explainability, interpretability, automated ML, automl, auto ml
-              href: how-to-machine-learning-interpretability-automl.md
             - name: Troubleshoot automated ML
               href: how-to-troubleshoot-auto-ml.md
     - name: Deploy models
