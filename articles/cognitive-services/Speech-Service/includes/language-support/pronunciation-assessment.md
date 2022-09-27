@@ -9,10 +9,12 @@ ms.author: eur
 
 | Language | Locale (BCP-47) |
 |--|--|
-|Chinese (Mandarin, Simplified)|`zh-CN`<sup>Public preview</sup> |
+|Chinese (Mandarin, Simplified)|`zh-CN`<sup>General available</sup> |
 |English (Australia)|`en-AU`<sup>Public preview</sup> |
-|English (United Kingdom)|`en-GB`<sup>Public preview</sup> |
+|English (India)|`en-IN`<sup>Public preview</sup> |
+|English (United Kingdom)|`en-GB`<sup>General available</sup> |
 |English (United States)|`en-US`<sup>General available</sup>|
+|French (Canada)|`fr-CA`<sup>Public preview</sup> |
 |French (France)|`fr-FR`<sup>Public preview</sup> |
 |German (Germany)|`de-DE`<sup>Public preview</sup> |
 |Spanish (Spain)|`es-ES`<sup>Public preview</sup> |
