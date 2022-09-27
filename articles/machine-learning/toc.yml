@@ -746,7 +746,7 @@
               href: reference-yaml-job-sweep.md
             - name: Pipeline
               href: reference-yaml-job-pipeline.md
-            - name: Parallal
+            - name: Parallel
               href: reference-yaml-job-parallel.md 
         - name: Datastore
           items: 

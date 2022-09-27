@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.topic: how-to
 author: alainli
 ms.author: alainli
-ms.date: 09/26/2022
+ms.date: 09/27/2022
 ms.custom: devx-track-python, sdkv2, cliv2, event-tier1-build-2022
 ---
 
@@ -16,14 +16,14 @@ ms.custom: devx-track-python, sdkv2, cliv2, event-tier1-build-2022
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-Parallel job lets users accelerate their job execution by distributing repeated tasks on powerful multi-nodes compute clusters. For example, take the scenario where you are running a object detection model on large set of images. With Azure ML Parallel job, you can easily distribute your images to run custom code in parallel on a specific compute cluster. Parallelization could significantly reduce the time cost. Also by using Azure ML parallel job you can simplify and automate your process to make it more efficient.
+Parallel job lets users accelerate their job execution by distributing repeated tasks on powerful multi-nodes compute clusters. For example, take the scenario where you're running an object detection model on large set of images. With Azure ML Parallel job, you can easily distribute your images to run custom code in parallel on a specific compute cluster. Parallelization could significantly reduce the time cost. Also by using Azure ML parallel job you can simplify and automate your process to make it more efficient.
 
 ## Prerequisite
 
 Azure ML parallel job can only be used as one of steps in a pipeline job. Thus, it's important to be familiar with using pipelines. To learn more about Azure ML pipelines, see the following articles.
 
-1. Understand what is a [Azure Machine Learning pipeline](concept-ml-pipelines.md)
-2. Understand how to use Azure ML pipeline with [CLI v2](how-to-create-component-pipelines-cli.md) and [SDK v2](how-to-create-component-pipeline-python.md).
+- Understand what is a [Azure Machine Learning pipeline](concept-ml-pipelines.md)
+- Understand how to use Azure ML pipeline with [CLI v2](how-to-create-component-pipelines-cli.md) and [SDK v2](how-to-create-component-pipeline-python.md).
 
 ## Why are parallel jobs needed?
 
@@ -32,7 +32,7 @@ In the real world, ML engineers always have scale requirements on their training
 - Delay pressure caused by long execution time.
 - Manual intervention to handle unexpected issues to keep the task proceeding.
 
-The core value of Azure ML parallel job is to split a single serial task into mini-batches and dispatch those mini-batches to multiple computes to execute in parallel. By using parallel jobs we can:
+The core value of Azure ML parallel job is to split a single serial task into mini-batches and dispatch those mini-batches to multiple computes to execute in parallel. By using parallel jobs, we can:
 
  - Significantly reduce end-to-end execution time.
  - Use Azure ML parallel job's automatic error handling settings.
