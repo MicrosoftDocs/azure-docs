@@ -141,16 +141,16 @@ location: eastus
 replication_locations:
   - location: eastus
     storage_config:
-      - storage_account_hns: False
-        storage_account_type: Standard_LRS
+      storage_account_hns: False
+      storage_account_type: Standard_LRS
   - location: eastus2
     storage_config:
-      - storage_account_hns: False
-        storage_account_type: Standard_LRS
+      storage_account_hns: False
+      storage_account_type: Standard_LRS
   - location: westus
     storage_config:
-      - storage_account_hns: False
-        storage_account_type: Standard_LRS
+      storage_account_hns: False
+      storage_account_type: Standard_LRS
 ```
 
 ## Add users to the registry 
