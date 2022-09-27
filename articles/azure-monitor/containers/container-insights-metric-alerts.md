@@ -8,10 +8,10 @@ ms.reviewer: aul
 
 # Create metric alert rules in Container insights (preview)
 
-Metric alerts in Azure Monitor proactively identify issues related system resources of your Azure resources, including monitored Kubernetes clusters. Rather than create your own metric alert rules for your Kubernetes cluster, Container insights provides the following options for using pre-configured metric alert rules based on either [Prometheus metrics](#prometheus-metric-alert-rules) or [custom metrics](#custom-metric-alert-rules).
+Metric alerts in Azure Monitor proactively identify issues related to system resources of your Azure resources, including monitored Kubernetes clusters. Container insights provides pre-configured alert rules so that you don't have to create your own. You can choose to enable alert rules based on the following data:
 
-- [Prometheus metrics](#prometheus-metric-alert-rules): Alert rules that use metrics stored in Azure Monitor managed service for Prometheus (preview). You can choose from two sets of alert rules that either matches the set for custom metrics or that are the most common alert rules from the Prometheus community.
-- [Custom metrics](#custom-metric-alert-rules): Alert rules that use custom metrics collected for you Kubernetes cluster. You can use the Azure portal to enable and customize a recommended set of rules. 
+- [Prometheus metrics](#prometheus-metric-alert-rules): Alert rules that use metrics stored in Azure Monitor managed service for Prometheus (preview). You can choose from two sets of alert rules that are either the most common alert rules from the Prometheus community or that match the [set of rules for custom metrics](#enable-and-configure-prometheus-metric-alert-rules).
+- [Custom metrics](#custom-metric-alert-rules): Alert rules that use custom metrics collected for your Kubernetes cluster. You can use the Azure portal to enable and customize a recommended set of rules. 
 
 ## Prerequisites
 
@@ -138,7 +138,7 @@ The following table lists the recommended alert rules that you can enable for Ku
 | OOM Killed Containers | OOM Killed Containers | Calculates number of OOM killed containers. | 0 |
 | Pods ready % | Pods ready % | Calculates the average ready state of pods. | 80% |
 | Completed job count | Completed job count | Calculates number of jobs completed more than six hours ago. | 0 |
-| Daily Data Cap Breach | When data cap is breached| When the total data ingestion to your Log Analytics workspace exceeds the [designated quota](../logs/daily-cap.md). This is a [log alert rule](../alerts/) that is not available with Prometheus metric alerts. |
+| Daily Data Cap Breach | When data cap is breached| When the total data ingestion to your Log Analytics workspace exceeds the [designated quota](../logs/daily-cap.md). This is a [log alert rule](../alerts/alert-types.md#log-alerts) that is not available with Prometheus metric alerts. |
 
 The following alert-based metrics have unique behavior characteristics:
 
@@ -150,6 +150,10 @@ The following alert-based metrics have unique behavior characteristics:
 - `pvUsageExceededPercentage` metric is sent when the persistent volume usage percentage exceeds the configured threshold (the default threshold is 60%). `pvUsageThresholdViolated` metric is equal to 0 when the PV usage percentage is below the threshold and is equal 1 if the usage is above the threshold. This threshold is exclusive of the alert condition threshold specified for the corresponding alert rule.
 - `pvUsageExceededPercentage` metric is sent when the persistent volume usage percentage exceeds the configured threshold (the default threshold is 60%). *pvUsageThresholdViolated* metric is equal to 0 when the PV usage percentage is below the threshold and is equal 1 if the usage is above the threshold. This threshold is exclusive of the alert condition threshold specified for the corresponding alert rule. 
 
+There are common properties across all of these alert rules:
+
+- All alert rules are evaluated once per minute and they look back at last 5 minutes of data.
+- Alerts rules do not have an action group assigned to them by default. You can add an [action group](../alerts/action-groups.md) to the alert either by selecting an existing action group or creating a new action group while editing the alert rule.
  
 **Prometheus only**
 - If you want to collect `pvUsageExceededPercentage` and analyze it from [metrics explorer](../essentials/metrics-getting-started.md), you should  configure the threshold to a value lower than your alerting threshold. The configuration related to the collection settings for persistent volume utilization thresholds can be overridden in the ConfigMaps file under the section `alertable_metrics_configuration_settings.pv_utilization_thresholds`. See [Configure alertable metrics ConfigMaps](#configure-alertable-metrics-in-configmaps) for details related to configuring your ConfigMap configuration file. Collection of persistent volume metrics with claims in the *kube-system* namespace are excluded by default. To enable collection in this namespace, use the section `[metric_collection_settings.collect_kube_system_pv_metrics]` in the ConfigMap file. See [Metric collection settings](./container-insights-agent-config.md#metric-collection-settings) for details.
@@ -157,7 +161,7 @@ The following alert-based metrics have unique behavior characteristics:
 
 
 ### Community alert rules
-hand-picked alerts from Prometheus community that we recommend you to try, by manually importing the ARM template found here. Below are the alerts defined in this template. Source code for these mixin alerts can be found here
+These are hand-picked alerts from Prometheus community. Source code for these mixin alerts can be found in [GitHub](https://github.com/Azure/prometheus-collector/tree/main/mixins).
 
 - KubeJobNotCompleted
 - KubeJobFailed
@@ -175,24 +179,6 @@ hand-picked alerts from Prometheus community that we recommend you to try, by ma
 - KubeNodeReadinessFlapping
 - KubeletTooManyPods
 - KubeNodeUnreachable
-
-## Custom metric alert rules
-This section describes creating [metric alert rules](../alerts/alerts-types.md#metric-alerts) that use [custom metrics](container-insights-update-metrics.md) collected from your Kubernetes cluster.
-
-
-
-### Alert rules overview
-The following table lists the current set of recommended custom metric alert rules.
-
-
-
-There are common properties across all of these alert rules:
-
-- All alert rules are evaluated once per minute and they look back at last 5 minutes of data.
-- Alerts rules do not have an action group assigned to them by default. You can add an [action group](../alerts/action-groups.md) to the alert either by selecting an existing action group or creating a new action group while editing the alert rule.
-
-### Thresholds
-You can modify the threshold for alert rules by directly editing them. However, refer to the guidance provided in each alert rule before modifying its threshold.
 
 
 
