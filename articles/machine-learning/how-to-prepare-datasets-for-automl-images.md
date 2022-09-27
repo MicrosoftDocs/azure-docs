@@ -81,7 +81,7 @@ az ml data create -f [PATH_TO_YML_FILE] --workspace-name [YOUR_AZURE_WORKSPACE] 
 
 # [Studio](#tab/Studio)
 
-![Animation showing how to register a dataset from local files](media\how-to-prepare-datasets-for-automl-images\ui-dataset-local.mp4)
+![Animation showing how to register a dataset from local files](media\how-to-prepare-datasets-for-automl-images\ui-dataset-local.gif)
 
 ---
 
@@ -114,7 +114,7 @@ my_data = Data(
 
 # [Studio](#tab/Studio)
 
-![Animation showing how to register a dataset from data already present in datastore](media\how-to-prepare-datasets-for-automl-images\ui-dataset-local.mp4)
+![Animation showing how to register a dataset from data already present in datastore](media\how-to-prepare-datasets-for-automl-images\ui-dataset-local.gif)
 
 ---
 
