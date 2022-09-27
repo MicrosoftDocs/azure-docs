@@ -48,10 +48,11 @@ Use these steps to configure the logging options for your Container Apps environ
 
 When you select **Azure Monitor** as your logs destination, you must configure the destination details. Select **Diagnostic settings** from the left side menu of the Container Apps Environment window in the portal.
 
+:::image type="content" source="media/observability/log-opts-diag-setting-menu-item.png" alt-text="Screenshot Diagnostic setting menu item.":::
+
 Destination details are saved as *diagnostic settings*.  You can create up to five diagnostic settings for your container app environment. You can configure different log categories for each diagnostic setting. For example, create one diagnostic setting to send the system logs category to one destination, and another to send the container console logs category to another destination.
 
 To create a new *diagnostic setting*:
-
 
 1. Select **Add diagnostic setting**.
     :::image type="content" source="media/observability/diag-setting-new-diag-setting.png" alt-text="Screenshot Diagnostic setting Add new diagnostic setting":::
