@@ -6,7 +6,7 @@ author: mlee3gsd
 ms.service:  synapse-analytics 
 ms.topic: overview
 ms.subservice: spark
-ms.date: 11/19/2020 
+ms.date: 09/26/2022
 ms.author: martinle
 ms.reviewer: nirav
 zone_pivot_groups: programming-languages-spark-all-minus-sql
