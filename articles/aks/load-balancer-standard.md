@@ -4,9 +4,9 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to use a public load balancer with a Standard SKU to expose your services with Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 11/14/2020
-ms.author: jpalma
-author: palma21
+ms.date: 9/27/2022
+ms.author: pahealy
+author: phealy
 
 #Customer intent: As a cluster operator or developer, I want to learn how to create a service in AKS that uses an Azure Load Balancer with a Standard SKU.
 ---
@@ -86,6 +86,76 @@ When using the Standard SKU public load balancer, there's a set of options that 
 
 > [!IMPORTANT]
 > Only one outbound IP option (managed IPs, bring your own IP, or IP Prefix) can be used at a given time.
+
+### Change the outbound pool type (PREVIEW)
+
+AKS nodes can be referenced in the load balancer backend pools by either their IP configuration (VMSS based membership) or by their IP address only. Utilizing the IP address based backend pool membership provides higher efficiencies when updating services and provisioning load balancers, especially at high node counts. Provisioning new clusters with IP based backend pools and converting existing clusters is now supported. When combined with NAT Gateway or user-defined routing egress types, provisioning of new nodes and services will be more performant.
+
+Two different pool membership types are available:
+
+- `nodeIPConfiguration` - legacy VMSS IP configuration based pool membership type
+- `nodeIP` - IP-based membership type
+
+#### Requirements
+
+* The `aks-preview` extension must be at least version 0.5.103.
+* The AKS cluster must be version 1.23 or newer.
+* The AKS cluster must be using standard load balancers and virtual machine scale sets.
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+#### Install the aks-preview CLI extension
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+#### Register the `IPBasedLoadBalancerPreview` preview feature
+
+To create an AKS cluster with API Server VNet Integration, you must enable the `IPBasedLoadBalancerPreview` feature flag on your subscription.
+
+Register the `IPBasedLoadBalancerPreview` feature flag by using the `az feature register` command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "IPBasedLoadBalancerPreview"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the `az feature list` command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/IPBasedLoadBalancerPreview')].{Name:name,State:properties.state}"
+```
+
+When the feature has been registered, refresh the registration of the *Microsoft.ContainerService* resource provider by using the `az provider register` command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+#### Create a new AKS cluster with IP-based outbound pool membership
+
+```azurecli-interactive
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --load-balancer-backend-pool-type=nodeIP
+```
+
+#### Update an existing AKS cluster to use IP-based outbound pool membership
+
+> [!WARNING]
+> This operation will cause a temporary disruption to incoming service traffic in the cluster. The impact time will increase with larger clusters that have many nodes.
+
+```azurecli-interactive
+az aks update \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --load-balancer-backend-pool-type=nodeIP
+```
 
 ### Scale the number of managed outbound public IPs
 
