@@ -110,7 +110,7 @@ Yes, for both public and internal load balancers, the module ensures that front 
 The upgrade normally takes a few minutes for the script to finish. The following factors may lead to longer upgrade times:
 - Complexity of your load balancer configuration
 - Number of backend pool members
-- Instance count of associated Virtual Machine Scale Sets. 
+- Instance count of associated Virtual Machine Scale Sets.
 Keep the downtime in mind and plan for failover if necessary.
 
 ### Does the script migrate my backend pool members from my basic load balancer to the newly created standard load balancer?
@@ -157,6 +157,9 @@ The script migrates the following from the Basic load balancer to the Standard l
   - All backend pools will be migrated to the new Standard load balancer
   - All virtual machine scale set network interfaces and IP configurations will be migrated to the new Standard load balancer
   - If there's a virtual machine scale set using Rolling Upgrade policy, the script will update the virtual machine scale set upgrade policy to "Manual" during the migration process and revert it back to "Rolling" after the migration is completed.
+
+>[!NOTE]
+> Network security group are not configured as part of Internal Load Balancer upgrade. To learn more about NSGs, see [Network security groups](/azure/virtual-network/network-security-groups-overview)
 
 ### What happens if my upgrade fails mid-migration?
 
