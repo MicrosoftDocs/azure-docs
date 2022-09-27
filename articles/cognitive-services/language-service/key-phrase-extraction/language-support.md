@@ -42,7 +42,7 @@ Total supported language codes: 94
 | Burmese               |     `my`      |                2022-10-01                 |                    |
 | Catalan               |     `ca`      |                2020-07-01                 |                    |
 | Chinese-Simplified    |     `zh-hans` |                2021-06-01                 |                    |
-| Chinese-Traditional   |     `zh-hant  |                2022-10-01                 |                    |
+| Chinese-Traditional   |     `zh-hant` |                2022-10-01                 |                    |
 | Croatian              |     `hr`      |                2020-07-01                 |                    |
 | Czech                 |     `cs`      |                2022-10-01                 |                    |
 | Danish                |     `da`      |                2019-10-01                 |                    |
