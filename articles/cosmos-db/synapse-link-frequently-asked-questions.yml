@@ -91,13 +91,12 @@ sections:
           Can I use customer-managed keys with the Azure Cosmos DB analytical store?
         answer: |
           You can seamlessly encrypt the data across transactional and analytical stores using the same customer-managed keys in an automatic and transparent manner. 
-          To use customer-managed keys with the analytical store, you need to use your Azure Cosmos DB account's system-assigned managed identity in your Azure Key Vault access policy. This is described [here](how-to-setup-cmk.md
-          using-managed-identity). You should then be able to enable the analytical store on your account.
+          To use customer-managed keys with the analytical store, you need to use your Azure Cosmos DB account's system-assigned managed identity in your Azure Key Vault access policy. This is described [here](how-to-setup-cmk.md#using-managed-identity). You should then be able to enable the analytical store on your account.
           
       - question: |
           Are delete and update operations on the transactional store reflected in the analytical store?
         answer: |
-          Yes, deletes and updates to the data in the transactional store will be reflected in the analytical store. You can configure the Time to Live (TTL) on the container to include historical data so that the analytical store retains all versions of items that satisfy the analytical TTL criteria. See the [overview of analytical TTL](analytical-store-introduction.md) for more details.
+          Yes, deletes and updates to the data in the transactional store will be reflected in the analytical store. You can configure the Time to Live (TTL) on the container to include historical data so that the analytical store retains all versions of items that satisfy the analytical TTL criteria. See the [overview of analytical TTL](analytical-store-introduction.md#analytical-ttl) for more details.
           
       - question: |
           Can I connect to analytical store from analytics engines other than Azure Synapse Analytics?
@@ -255,4 +254,4 @@ additionalContent: |
   
   * Learn about the [benefits of Azure Synapse Link](synapse-link.md#synapse-link-benefits)
 
-  * Learn about the [integration between Azure Synapse Link and Azure Cosmos DB](synapse-link.md).
+  * Learn about the [integration between Azure Synapse Link and Azure Cosmos DB](synapse-link.md#synapse-link-integration).
