@@ -77,7 +77,7 @@ az ml data create -f [PATH_TO_YML_FILE] --workspace-name [YOUR_AZURE_WORKSPACE] 
 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-[!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=upload-data)]
+[!Notebook-python[] (~/azureml-examples-main/sdk/python/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=upload-data)]
 
 # [Studio](#tab/Studio)
 
@@ -114,7 +114,7 @@ my_data = Data(
 
 # [Studio](#tab/Studio)
 
-![Animation showing how to register a dataset from data already present in datastore](media\how-to-prepare-datasets-for-automl-images\ui-dataset-local.gif)
+![Animation showing how to register a dataset from data already present in datastore](media\how-to-prepare-datasets-for-automl-images\ui-dataset-datastore.gif)
 
 ---
 
@@ -124,7 +124,7 @@ If your training data is in a different format (like, pascal VOC or COCO), [help
 
 
 ### Using pre-labeled training data from Azure Blob storage
-If you have your labelled training data present in a container in Azure Blob storage, then you can access it directly from there by [creating a datastore referring to that container](how-to-prepare-datasets-for-automl-images.md#create-an-azure-blob-datastore). Once you have created a datastore in AML workspace, linked to a existing container in blob, you'll have to update authentication details for that datastore. You'll have to select subscription id, resource group and provide either Account Key or SAS token.
+If you have your labelled training data present in a container in Azure Blob storage, then you can access it directly from there by [creating a datastore referring to that container](how-to-datastore.md#create-an-azure-blob-datastore). Once you have created a datastore in AML workspace, linked to a existing container in blob, you'll have to update authentication details for that datastore. You'll have to select subscription id, resource group and provide either Account Key or SAS token.
 
 ![Update Authentication for Datastore.](media/how-to-prepare-datasets-for-automl-images/update-datastore-authentication.png)
 
