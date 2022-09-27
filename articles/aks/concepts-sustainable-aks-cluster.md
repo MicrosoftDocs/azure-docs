@@ -41,10 +41,10 @@ _Green Software Foundation alignment: [Carbon efficiency](sustainability-design-
 
 
 **Recommendations:**
- - Deploy your workloads to Regions powered by renewable and low-carbon energy sources | _Cost Optimization_
+ - Deploy your workloads to Regions powered by renewable and low-carbon energy sources  _Cost Optimization_
 
 **Potential tradeoffs**
-   - In addition to carbon efficiency, Evaluate the cost, latency, and compliance requirements.
+   - For choosing the right region, Evaluate carbon efficiency, cost, latency, and compliance requirements.
    - Migrating data between data centers may not be carbon efficient.
    - Consider the cost for new regions, including low-carbon regions, which may be more expensive.
    - If the workloads are latency sensitive, moving to a lower carbon region may not be an option.
@@ -59,6 +59,9 @@ _Green Software Foundation alignment: [Carbon efficiency](sustainability-design-
 - Where you have the data available, consider optimizing workloads when knowing that the energy mix comes mostly from renewable energy sources.
 - If your application(s) allow it, consider moving workloads dynamically when the energy conditions change.
   - For example, running specific workloads at night may be more beneficial when renewable sources are at their peak.
+
+**Potential tradeoffs**
+   - Time Scheduling constraints for workloads having several dependencies.
 
 ### Choose data centers close to the customer
 
