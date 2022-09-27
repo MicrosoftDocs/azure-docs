@@ -198,7 +198,7 @@ You've tested and published your runbook, but so far it doesn't do anything usef
    Connect-AzAccount -Identity
     
    # set and store context
-   $AzureContext = Set-AzContext –SubscriptionId “<SubscriptionID>”   
+   $AzureContext = Set-AzContext –SubscriptionId "<SubscriptionID>"   
    }
    ```
 
