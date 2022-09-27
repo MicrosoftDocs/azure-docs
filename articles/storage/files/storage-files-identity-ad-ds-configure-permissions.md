@@ -5,7 +5,7 @@ author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 09/26/2022
+ms.date: 09/27/2022
 ms.author: kendownie
 ---
 
@@ -66,21 +66,20 @@ The following permissions are included on the root directory of a file share:
 |`NT AUTHORITY\Authenticated Users`|All users in AD that can get a valid Kerberos token.|
 |`CREATOR OWNER`|Each object either directory or file has an owner for that object. If there are ACLs assigned to `CREATOR OWNER` on that object, then the user that is the owner of this object has the permissions to the object defined by the ACL.|
 
-## Mount a file share from the command prompt
+## Mount the file share using PowerShell
 
-Use the PowerShell script below to mount the Azure file share. Remember to replace the placeholder values in the following example with your own values. For more information about mounting file shares, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
+Use the PowerShell script below to mount the Azure file share as drive Z: using the storage account key. The script will check to see if this storage account is accessible via TCP port 445, which is the port SMB uses. If port 445 is available, your file share will be mounted. Remember to replace the placeholder values with your own values. For more information about mounting Azure file shares, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md). This script will only work on Windows Server 2012 and above.
 
 > [!NOTE]
 > You may see the **Full Control** ACL applied to a role already. This typically already offers the ability to assign permissions. However, because there are access checks at two levels (the share level and the file level), this is restricted. Only users who have the **SMB Elevated Contributor** role and create a new file or folder can assign permissions on those specific new files or folders without the use of the storage account key. All other permission assignment requires mounting the share with the storage account key first.
 
-```
+```powershell
 $connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445
 if ($connectTestResult.TcpTestSucceeded) {
-   cmd.exe /C "cmdkey /add:`"<storage-account-name>.file.core.windows.net`" /user:`"Azure\<storage-account-name>`" /pass:`"<storage-account-key>`""
-   New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\data"
+    cmd.exe /C "cmdkey /add:`"<storage-account-name>.file.core.windows.net`" /user:`"localhost\<storage-account-name>`" /pass:`"<storage-account-key>`""
+    New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\<file-share-name>"
 } else {
-   Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not 
-   blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
+    Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
 }
 ```
 
