@@ -55,13 +55,13 @@ Currently, you can add custom security attributes for the following Azure AD obj
 - Azure AD enterprise applications (service principals)
 - Managed identities for Azure resources
 
-## How do custom security attributes compare with directory schema extensions?
+## How do custom security attributes compare with directory extensions?
 
-Here are some ways that custom security attributes compare with [directory schema extensions](../develop/active-directory-schema-extensions.md):
+Here are some ways that custom security attributes compare with [directory extensions](../develop/active-directory-schema-extensions.md):
 
-- Directory schema extensions cannot be used for authorization scenarios and attributes because the access control for the extension attributes is tied to the Azure AD object. Custom security attributes can be used for authorization and attributes needing access control because the custom security attributes can be managed and protected through separate permissions.
-- Directory schema extensions are tied to an application and share the lifecycle of an application. Custom security attributes are tenant wide and not tied to an application.
-- Directory schema extensions support assigning a single value to an attribute. Custom security attributes support assigning multiple values to an attribute.
+- Directory extensions cannot be used for authorization scenarios and attributes because the access control for the extension attributes is tied to the Azure AD object. Custom security attributes can be used for authorization and attributes needing access control because the custom security attributes can be managed and protected through separate permissions.
+- Directory extensions are tied to an application and share the lifecycle of an application. Custom security attributes are tenant wide and not tied to an application.
+- Directory extensions support assigning a single value to an attribute. Custom security attributes support assigning multiple values to an attribute.
 
 ## Steps to use custom security attributes
 
