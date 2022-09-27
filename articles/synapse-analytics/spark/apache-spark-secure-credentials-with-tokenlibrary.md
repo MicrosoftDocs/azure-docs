@@ -9,7 +9,7 @@ ms.subservice: spark
 ms.date: 11/19/2020 
 ms.author: martinle
 ms.reviewer: nirav
-zone_pivot_groups: programming-languages-spark-all-minus-sql
+zone_pivot_groups: programming-languages-spark-all-minus-sql-r
 ---
 
 

@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.subservice: spark
 ms.date: 02/15/2022
 ms.reviewer: euang
-zone_pivot_groups: programming-languages-spark-all-minus-sql
+zone_pivot_groups: programming-languages-spark-all-minus-sql-r
 ---
 
 # Hyperspace: An indexing subsystem for Apache Spark
