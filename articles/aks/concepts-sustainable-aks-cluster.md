@@ -57,11 +57,13 @@ _Green Software Foundation alignment: [Carbon efficiency](sustainability-design-
 **Recommendation:**
 
 - Where you have the data available, consider optimizing workloads when knowing that the energy mix comes mostly from renewable energy sources.
-- If your application(s) allow it, consider moving workloads dynamically when the energy conditions change.
-  - For example, running specific workloads at night may be more beneficial when renewable sources are at their peak.
+- If your application(s) allow it, consider scheduling & scaling workloads dynamically when the energy conditions change. For example:
+  - Scaling down Deployments _when enegry mix is high in carbon_, and scaling up when it is low
+  - Pausing Jobs _when enegry mix is high in carbon_, and resuming execution when it is low  
 
 **Potential tradeoffs**
-   - Time Scheduling constraints for workloads having several dependencies.
+   - Consider Time Scheduling constraints, for when workloads execution needs to be finished.
+   - Target workloads need to have a resilient design and tolerate interruptions
 
 ### Choose data centers close to the customer
 
@@ -71,6 +73,9 @@ _Green Software Foundation alignment: [Energy efficiency](sustainability-design-
 
 - Consider deploying to data centers close to the consumer.
 
+**Potential tradeoffs**
+   - Time Scheduling constraints for workloads having several dependencies.
+   - 
 ### Run batch workloads during low-carbon intensity periods
 
 _Green Software Foundation alignment: [Carbon awareness](sustainability-design-principles.md#carbon-awareness)_
@@ -79,6 +84,8 @@ _Green Software Foundation alignment: [Carbon awareness](sustainability-design-p
 
 - Where you have the data available to you, plan your deployments to maximize compute utilization for running [batch workloads](/azure/architecture/data-guide/big-data/batch-processing) during low-carbon intensity periods.
 - Potential tradeoffs may include the effort and time it takes to move to a low-carbon region. Additionally, migrating data between data centers may not be carbon efficient, and the cost for new regions-including low—carbon regions—may be more expensive.
+
+running specific workloads at night may be more beneficial when renewable sources are at their peak
 
 ### Containerize workloads where applicable
 
