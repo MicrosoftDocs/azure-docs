@@ -7,6 +7,7 @@ ms.author: shasb
 ms.service: kubernetes-fleet
 ms.custom: template-quickstart, mode-other, devx-track-azurecli
 ms.devlang: azurecli
+ms.topic: quickstart
 ---
 
 # Quickstart: Create an Azure Kubernetes Fleet Manager resource and join member clusters (preview)
@@ -53,7 +54,7 @@ Get started with Azure Kubernetes Fleet Manager (Fleet) by using the Azure CLI t
 
 ## Create a resource group
 
-An [Azure resource group](../azure-resource-manager/management/overview.md) is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are prompted to specify a location. This location is:
+An [Azure resource group](../azure-resource-manager/management/overview.md) is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're prompted to specify a location. This location is:
 
 * The storage location of your resource group metadata.
 * Where your resources will run in Azure if you don't specify another region during resource creation.
@@ -82,7 +83,7 @@ The following output example resembles successful creation of the resource group
 
 ## Create a Fleet resource
 
-A Fleet resource can be created to subsequently group your AKS clusters as member clusters. This resource enables multi-cluster scenarios, such as Kubernetes object propagation to member clusters and north-south load balancing across endpoints deployed on these multiple member clusters.
+A Fleet resource can be created to later group your AKS clusters as member clusters. This resource enables multi-cluster scenarios, such as Kubernetes object propagation to member clusters and north-south load balancing across endpoints deployed on these multiple member clusters.
 
 Create a Fleet resource using the [az fleet create](/cli/azure/fleet#az-fleet-create) command:
 
@@ -270,7 +271,7 @@ An Azure Kubernetes Fleet Manager resource is itself a Kubernetes cluster that y
     az role assignment create --role "${ROLE}" --assignee ${IDENTITY} --scope ${FLEET_ID}
     ```
 
-    For the above command, for the `ROLE` environment variable, you can use one of the following four built in role-definitions as value:
+    For the above command, for the `ROLE` environment variable, you can use one of the following four built-in role definitions as value:
 
     * Azure Kubernetes Fleet Manager RBAC Reader
     * Azure Kubernetes Fleet Manager RBAC Writer

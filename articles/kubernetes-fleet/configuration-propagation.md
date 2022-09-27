@@ -69,7 +69,7 @@ An example of selecting a resource by label is given below.
     kubectl get namespace hello-world
     ```
 
-    > [!INFO]
+    > [!TIP]
     > The above steps describe an example using one way of selecting the resources to be propagated (*<group, version, kind>* and labels). More methods and their examples can be found in this [sample repository](https://github.com/Azure/AKS/tree/2022-09-11/examples/fleet/helloworld).
 
 ## Target cluster selection
@@ -80,7 +80,7 @@ The `ClusterResourcePlacement` custom resource can also be used to limit propaga
 * Specify label(s) via `PlacementPolicy` -> `Affinity` -> `ClusterAffinity` -> `ClusterSelectorTerm` -> `LabelSelector` to choose clusters. If multiple labels are present, then the labels are evaluated via the `OR` method to select clusters.
 * Specify a list of cluster names and a list of labels to select clusters.
 
-An example of targeting a specific cluster by name is given below :
+An example of targeting a specific cluster by name is given below:
 
 1. Create a sample namespace by running the following command:
 
@@ -90,7 +90,6 @@ An example of targeting a specific cluster by name is given below :
 
 1. Create the following `ClusterResourcePlacement` in a file named `crp.yaml`:
 
-  where contents of `crp.yaml`:
 
   ```yaml
   apiVersion: fleet.azure.com/v1alpha1
@@ -109,7 +108,7 @@ An example of targeting a specific cluster by name is given below :
           - aks-member-3
   ```
 
-  and apply it to the cluster:
+  Apply this `ClusterResourcePlacement` to the cluster:
 
   ```bash
   kubectl apply -f crp.yaml
@@ -124,7 +123,7 @@ An example of targeting a specific cluster by name is given below :
   You'll observe that the namespace has been propagated only to `cluster-a`, but not the other clusters.
 
 
-> [!INFO]
+> [!TIP]
 > The above steps gave an example of one method of identifying the target clusters specifically by name. More methods and their examples can be found in this [sample repository](https://github.com/Azure/AKS/tree/2022-09-11/examples/fleet/helloworld).
 
 ## Next steps
