@@ -3,7 +3,7 @@ title: Troubleshoot Multimedia redirection on Azure Virtual Desktop - Azure
 description: Known issues and troubleshooting instructions for multimedia redirection for Azure Virtual Desktop (preview).
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 09/15/2022
+ms.date: 09/27/2022
 ms.author: helohr
 manager: femila
 ---
@@ -39,7 +39,7 @@ The following issues are ones we're already aware of, so you won't need to repor
 
 - When you resize the video window, the window's size will adjust faster than the video itself. You'll also see this issue when minimizing and maximizing the window.
 
-- When the display scale factor of the screen isn't at 100% and you've set the video window to a certain size, you might see a gray patch on the screen. In most cases, you can get rid of the gray patch by resizing the window.
+- You might run into issue where you are stuck in the loading state on every video site. This is a known issue that we're currently investigating. To temporarily mitigate this issue, enter "logoff" into the Windows Start text field to sign out of Azure Virtual Desktop and restart the session.
 
 ### The MSI installer doesn't work
 
