@@ -628,6 +628,8 @@
               href: how-to-use-sweep-in-pipeline.md
             - name: Build and debug pipelines (UI)
               href: how-to-use-pipeline-ui.md
+            - name: How to use parallel job in pipeline
+              href: how-to-use-parallel-job-in-pipeline.md  
             - name: Designer (drag-n-drop)
               items: 
                 - name: Log metrics
@@ -715,7 +717,7 @@
         - name: Model
           href: reference-yaml-model.md
         - name: Schedule
-          href: reference-yaml-schedule.md 
+          href: reference-yaml-schedule.md
         - name: Compute
           items: 
             - name: Compute cluster (AmlCompute)
@@ -734,6 +736,8 @@
               href: reference-yaml-job-sweep.md
             - name: Pipeline
               href: reference-yaml-job-pipeline.md
+            - name: Parallel
+              href: reference-yaml-job-parallel.md 
         - name: Datastore
           items: 
             - name: Azure Blob
