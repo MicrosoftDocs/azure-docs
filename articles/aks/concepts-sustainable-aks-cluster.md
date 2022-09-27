@@ -121,6 +121,7 @@ _Green Software Foundation alignment: [Hardware efficiency](sustainability-desig
 **Potential tradeoffs**
  - [Virtual node pools limitations](/azure/aks/virtual-nodes#known-limitations)
 
+
 ### Use SPOT VMs where possible
 
 _Green Software Foundation alignment: [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency)_
@@ -128,8 +129,12 @@ _Green Software Foundation alignment: [Hardware efficiency](sustainability-desig
 **Recommendation:**
 
 - By utilizing [SPOT Node pools](/azure/aks/spot-node-pool), you take advantage of unused capacity in Azure data centers while getting a significant discount on the VM.
+
+**Potential tradeoffs**
+
 - Consider the tradeoff: When Azure needs the capacity back, the VMs get evicted. Learn more about the SPOT VM [eviction policy](/azure/virtual-machines/spot-vms#eviction-policy).
 - [Spot node pools limitations](/azure/aks/spot-node-pool#limitations) 
+
 
 ### Turn off workloads outside of business hours
 
@@ -137,8 +142,14 @@ _Green Software Foundation alignment: [Energy efficiency](sustainability-design-
 
 **Recommendation:**
 
-- Dev and testing workloads should be turned off or downsized when not used. Instead of leaving them running, consider shutting them off outside regular business hours.
-  - Learn more about [starting/stopping VMs during off-hours](/azure/automation/automation-solution-vm-management).
+- For Dev and Testing clusters, use cluster stop / start, for shutting them down outside regular business hours.
+- For Production clusters, use [Keda Cron scaler](https://keda.sh/docs/2.7/scalers/cron/), to shut down applications (scale to zero), outside regular business hours.
+
+**Potential tradeoffs**
+
+- Keda Cron scaler, helps scale applications based on time. It is best to design your applications to scale based on demand (or scaling events : traffic, queue length, etc.).
+
+
 
 ### Utilize auto-scaling and bursting capabilities
 
