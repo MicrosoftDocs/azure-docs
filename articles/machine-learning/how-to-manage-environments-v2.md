@@ -30,7 +30,7 @@ In this article, learn how to create and manage Azure ML environments using the 
 
 ## Prerequisites
 
-[!INCLUDE [sdk/cliv2](../../machine-learning-cli-sdk-v2-prereqs.md)]
+[!INCLUDE [sdk/cliv2](../../includes/machine-learning-cli-sdk-v2-prereqs.md)]
 
 > [!TIP]
 > For a full-featured development environment, use Visual Studio Code and the [Azure Machine Learning extension](how-to-setup-vs-code.md) to [manage Azure Machine Learning resources](how-to-manage-resources-vscode.md) and [train machine learning models](tutorial-train-deploy-image-classification-model-vscode.md).
