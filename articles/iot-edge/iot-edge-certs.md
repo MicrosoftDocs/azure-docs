@@ -4,7 +4,7 @@ description: Azure IoT Edge uses certificate to validate devices, modules, and l
 author: jlian
 
 ms.author: jlian
-ms.date: 09/21/2022
+ms.date: 09/27/2022
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -26,22 +26,22 @@ IoT Edge uses different types of certificates for different purposes. This artic
 - You should have a basic understanding of public key cryptography, key pairs, and how a public key and private key can encrypt or decrypt data. For more information about how IoT Edge uses public key cryptography, see [Tutorial: Understanding Public Key Cryptography and X.509 Public Key Infrastructure](../iot-hub/tutorial-x509-introduction.md).
 - You should have a basic understanding about how IoT Edge relates to IoT Hub. For more information, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
-## Certificate scenario
+## Single device scenario
 
 To help understand IoT Edge certificate concepts, imagine a simple scenario where an IoT Edge device named *EdgeGateway* connects to an Azure IoT Hub named *ContosoIotHub*. In this example, all authentication is done with X.509 certificate authentication rather than symmetric keys. To establish trust in this scenario, we need to guarantee the hub and message are authentic. Can we answer questions like *"Is this message genuine?"* and *"Is the identity of the IoT Hub correct?"*. The scenario can be illustrated as follows:
 
 :::image type="content" source="./media/iot-edge-certs/trust-scenario.svg" alt-text="Trust scenario state diagram showing connection between IoT Edge device and IoT Hub.":::
 
-<!-- ```mermaid
+<!-- mermaid
 stateDiagram-v2
     EdgeGateway - -> ContosoIotHub
     note right of EdgeGateway: Verify hub identity - "Are you ContosoIotHub?"
     note left of ContosoIotHub: Verify genuine message - "Is this message from EdgeGateway?"
-``` -->
+-->
 
 We'll explain the answers to each question and then expand the example in later sections of the article.
 
-## Verify IoT Hub identity
+## Device verifies IoT Hub identity
 
 How does *EdgeGateway* verify it's communicating with the genuine *ContosoIotHub*? When *EdgeGateway* wants to talk to the cloud, it uses the connection string to connect to the endpoint *ContosoIoTHub.azure-devices.net*. To make sure the endpoint is authentic, IoT Edge needs *ContosoIoTHub* to show an ID. Ideally, the ID is issued by an authority *EdgeGateway* trusts. To verify IoT Hub identity, IoT Edge and IoT Hub use the **TLS handshake** protocol to verify an IoT Hub's server identity. A *TLS handshake* is illustrated in the following diagram. To keep the example simple, some details have been omitted. To learn more about the *TLS handshake* protocol, see [this cool link]().
 
@@ -50,7 +50,7 @@ How does *EdgeGateway* verify it's communicating with the genuine *ContosoIotHub
 
 :::image type="content" source="./media/iot-edge-certs/verify-hub-identity.svg" alt-text="Sequence diagram showing certificate exchange from IoT Hub to IoT Edge device with certificate verification with the trusted root store on the IoT Edge device.":::
 
-<!-- ```mermaid
+<!-- mermaid
 sequenceDiagram
     participant EdgeGateway
     participant ContosoIotHub
@@ -60,7 +60,7 @@ sequenceDiagram
     EdgeGateway->>EdgeGateway: Check trusted root certificate store
     note over EdgeGateway, ContosoIotHub: Cryptographic algorithm
     EdgeGateway->>ContosoIotHub: Looks good 🙂, let's connect
-``` -->
+-->
 
 In this context, you don't need to know the details of the *cryptographic algorithm*. It's important to understand that the algorithm ensures both the client and the server are in possession of the private key that is paired with the public key. It verifies that the presenter of the certificate didn't copy or steal it. If we use a photo ID as an example, your face matches the photo on the ID. If someone steals your ID, they can't use it for identification because your face is unique and difficult to reproduce. In the case of cryptographic keys, the key pair is related and unique. Instead of the matching a face to a photo ID, the cryptographic algorithm uses the key pair to verify identity.
 
@@ -68,7 +68,7 @@ In our scenario, *ContosoIotHub* shows the following certificate chain:
 
 :::image type="content" source="./media/iot-edge-certs/hub-certificate-chain.svg" alt-text="Flow diagram showing intermediate and root certificate authority chain for IoT Hub.":::
 
-<!-- ```mermaid
+<!-- mermaid
 flowchart TB
     id3["📃 CN = Baltimore CyberTrust Root (Root CA)"]
     id2["📃 CN = Microsoft IT TLS CA 1 (Intermediate CA)"]
@@ -76,7 +76,7 @@ flowchart TB
     
     id2-- Issued by -- -> id3
     id1-- Issued by -- -> id2
-``` -->
+-->
 
 The root certificate authority (CA) is the [Baltimore CyberTrust Root](https://baltimore-cybertrust-root.chain-demos.digicert.com/info/index.html) certificate. This root certificate is signed by DigiCert, and is widely trusted and stored in many operating systems. For example, both Ubuntu and Windows include it in the default certificate store. 
 
@@ -96,13 +96,13 @@ In summary, *EdgeGateway* can verify and trust *ContosoIotHub's* identity becaus
 - The server certificate is trusted in the OS certificate store
 - Data encrypted with *ContosoIotHub's* public key can be decrypted by *ContosoIotHub*, proving its possession of the private key
 
-## Verify IoT Edge gateway identity
+## Hub verifies device identity
 
 How does *ContosoIotHub* verify it's communicating with *EdgeGateway*? Verification is done using **TLS client authentication**. This step this happens together with the *TLS handshake*. For simplicity, we'll skip some steps in the following diagram. For more information about the TLS protocol, see [link]().
 
 :::image type="content" source="./media/iot-edge-certs/verify-edge-identity.svg" alt-text="Sequence diagram showing certificate exchange from IoT Edge device to IoT Hub with certificate thumbprint check verification on IoT Hub.":::
 
-<!--```mermaid
+<!-- mermaid
 sequenceDiagram
     participant EdgeGateway
     participant ContosoIotHub
@@ -112,7 +112,7 @@ sequenceDiagram
     ContosoIotHub->>ContosoIotHub: Check if certificate thumbprint matches record
     note over EdgeGateway, ContosoIotHub: *Cryptographic magic happens*
     ContosoIotHub->>EdgeGateway: Great, let's connect
-```-->
+-->
 
 In this case, IoT Edge provides its **IoT Edge device identity certificate**. From ContosoIotHub perspective, it needs to check if the thumbprint of the provided certificate matches its record. When you provision an IoT Edge device in IoT Hub, you provide a thumbprint. The thumbprint is what IoT Hub uses to verify the certificate.
 
@@ -146,35 +146,37 @@ In summary, *ContosoIotHub* can trust *EdgeGateway* because:
 
 ### Certificate use for module identity operations
 
-In the certificate verification diagrams, it may appear IoT Edge only uses the certificate to talk to IoT Hub. IoT Edge consists of several modules. As a result, IoT Edge uses the certificate to manage module identities for modules that send messages. The modules *don't* use the certificate to authenticate to IoT Hub, but rather use SAS keys derived from the private key that are generated by IoT Edge security manager. These SAS keys don't change even if the device identity certificate expires. If that happens, `edgeHub` for example will continue to run indefinitely and the only thing that would fail would be the module identity operations.
+In the certificate verification diagrams, it may appear IoT Edge only uses the certificate to talk to IoT Hub. IoT Edge consists of several modules. As a result, IoT Edge uses the certificate to manage module identities for modules that send messages. The modules don't use the certificate to authenticate to IoT Hub, but rather use SAS keys derived from the private key that are generated by IoT Edge security manager. These SAS keys don't change even if the device identity certificate expires. If the certificate expires, *edgeHub* for example continues to run and only the module identity operations fail.
 
-This may sound a bit weird, but it's secure because the SAS key is derived from a secret (which lives in the TPM when in prod) and IoT Edge handles it without human intervention. Like no human would be emailing the SAS key or sending them over chat like you might if you were to use SAS key (connection string) directly with IoT Hub.
+The interaction between modules and IoT Hub is secure because the SAS key is derived from a secret and IoT Edge manages the key without the risk of human intervention. In production, the SAS key is stored and protected in the TPM.
 
-## The example gets bigger
+## Nested device scenario
 
-You now have a good understanding of a simple IoT Edge <-> IoT Hub interaction. But IoT Edge can also act as a gateway for downstream devices or other IoT Edge devices. These communication channels must also be encrypted and trusted. It also gets a lot more complicated here. So we have to expand the scenario to a more complicated situation.
+You now have a good understanding of a simple interaction IoT Edge between and IoT Hub. But, IoT Edge can also act as a gateway for downstream devices or other IoT Edge devices. These communication channels must also be encrypted and trusted. Because of the added complexity, we have to expand our example scenario to include a downstream device.
 
-We add *TempSensor* (a regular IoT device), which connects to parent *EdgeGateway* (an IoT Edge device), which connects to *ContosoIotHub* (an IoT Hub instance in Azure). Like before, all authentication is done with X.509 certificate authentication. We now have two more unanswered questions:
+We add a regular IoT device named *TempSensor*, which connects to parent IoT Edge device *EdgeGateway*. *EdgeGateway* connects to IoT Hub *ContosoIotHub*. Similar to before, all authentication is done with X.509 certificate authentication. Our new scenario raises two new questions: *"Is this an authentic message from TempSensor?"* and *"Is the identity of the EdgeGateway correct?"*. The scenario can be illustrated as follows:
 
-```mermaid
+:::image type="content" source="./media/iot-edge-certs/trust-scenario-ext.svg" alt-text="Trust scenario state diagram showing connection between IoT Edge device, an IoT Edge gateway, and IoT Hub.":::
+
+<!-- mermaid
 stateDiagram-v2
     TempSensor
-    note right of TempSensor: 🆕3. Am I really talking to EdgeGateway?
+    note right of TempSensor: 🆕 Is the identity of EdgeGateway correct?
 
-    TempSensor --> EdgeGateway
-    note left of EdgeGateway: 🆕4. Is this really from TempSensor?
-    note right of EdgeGateway: ✅1. Am I really talking to ContosoIotHub?
+    TempSensor - -> EdgeGateway
+    note left of EdgeGateway: 🆕 Is this an authentic message from TempSensor?
+    note right of EdgeGateway: ✅ Is the identity of ContosoIotHub correct?
 
-    EdgeGateway --> ContosoIotHub
-    note left of ContosoIotHub: ✅2. Is this really from EdgeGateway?
-```
-
-From here let's tackle the two questions, then we can do a recap.
+    EdgeGateway - -> ContosoIotHub
+    note left of ContosoIotHub: ✅ Is this an authentic message from EdgeGateway?
+-->
 
 > [!TIP]
-> Here, TempSensor is a "regular IoT device" here but it could also be an IoT Edge device as the child. Concepts are the same.
+> *TempSensor* is an IoT device in the scenario. The certificate concept is the same if *TempSensor* is a child IoT Edge device of parent *EdgeGateway*.
 
-## Part 3: *Am I really talking to EdgeGateway?*
+## Device verifies gateway identity
+
+How does *TempSensor* verify itAs a device, am I really talking to EdgeGateway?*
 
 This is the really hard part and by FAR the part that causes the most confusion. 
 
