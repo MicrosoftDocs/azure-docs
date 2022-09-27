@@ -30,7 +30,21 @@ In this tutorial:
 
 At the end of this tutorial, you'll have created the folder structure below (listed in order of creation), along with the *.js* and *.html* files by copying the code blocks in the upcoming sections.
 
-![a text depiction of the intended SPA folder structure](./media/tutorial-v2-javascript-spa/single-page-application-folder-structure-v2.png)
+```txt
+sampleApp/
+├── package.json
+├── package-lock.json
+├── node_modules/
+│   └── ...    
+├── server.js
+└── JavaScriptSPA/
+    ├── index.html
+    ├── ui.js
+    ├── authConfig.js
+    ├── authPopup.js
+    ├── graphConfig.js
+    └── graph.js
+```
 
 ## Prerequisites
 
@@ -132,7 +146,14 @@ npm init
 
 You now have a server to serve the SPA. At this point, the folder structure should look like this:
 
-![a text depiction of the current SPA folder structure](./media/tutorial-v2-javascript-spa/single-page-application-folder-structure-1.png)
+```txt
+sampleApp/
+├── package.json
+├── package-lock.json
+├── node_modules/
+│   └── ...    
+└── server.js
+```
 
 In the next steps you'll create a new folder for the JavaScript SPA, and set up the user interface (UI).
 
