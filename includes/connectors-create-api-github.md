@@ -20,7 +20,7 @@ ms.date: 03/02/2019
 
    ![Sign in with your GitHub credentials](./media/connectors-create-api-github/github-connector-sign-in-credentials.png)
 
-1. Provide your GitHub user name and password. To confirm access from Azure Logic Apps to your GitHub account, authorize Microsoft (**aaptapps**) to create the connection.
+1. Provide your GitHub user name and password. To confirm access to your GitHub account, authorize Azure Logic Apps (**aaptapps**) to create the connection.
 
    ![Provide credentials and confirm authorization](./media/connectors-create-api-github/github-connector-authorize.png)   
 
