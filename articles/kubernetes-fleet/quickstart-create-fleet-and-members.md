@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.service: kubernetes-fleet
 ms.custom: template-quickstart, mode-other, devx-track-azurecli
 ms.devlang: azurecli
+ms.topic: quickstart
 ---
 
 # Quickstart: Create an Azure Kubernetes Fleet Manager resource and join member clusters (preview)
@@ -45,6 +46,7 @@ Get started with Azure Kubernetes Fleet Manager (Fleet) by using the Azure CLI t
 * Set the following environment variables:
 
     ```azure-cli
+    export SUBSCRIPTION_ID=<subscription_id>
     export LOCATION=<your_location>
     export GROUP=<your_resource_group_name>
     export FLEET=<your_fleet_name>
@@ -53,7 +55,7 @@ Get started with Azure Kubernetes Fleet Manager (Fleet) by using the Azure CLI t
 
 ## Create a resource group
 
-An [Azure resource group](../azure-resource-manager/management/overview.md) is a logical group in which Azure resources are deployed and managed. When you create a resource group, you are prompted to specify a location. This location is:
+An [Azure resource group](../azure-resource-manager/management/overview.md) is a logical group in which Azure resources are deployed and managed. When you create a resource group, you're prompted to specify a location. This location is:
 
 * The storage location of your resource group metadata.
 * Where your resources will run in Azure if you don't specify another region during resource creation.
@@ -82,7 +84,7 @@ The following output example resembles successful creation of the resource group
 
 ## Create a Fleet resource
 
-A Fleet resource can be created to subsequently group your AKS clusters as member clusters. This resource enables multi-cluster scenarios, such as Kubernetes object propagation to member clusters and north-south load balancing across endpoints deployed on these multiple member clusters.
+A Fleet resource can be created to later group your AKS clusters as member clusters. This resource enables multi-cluster scenarios, such as Kubernetes object propagation to member clusters and north-south load balancing across endpoints deployed on these multiple member clusters.
 
 Create a Fleet resource using the [az fleet create](/cli/azure/fleet#az-fleet-create) command:
 
@@ -126,12 +128,64 @@ Fleet currently supports joining existing AKS clusters as member clusters.
 
 1. If you already have existing AKS clusters that you want to join to the fleet resource, you can skip to Step 2. If not, you can create two AKS clusters using the following commands:
 
+    **Create virtual network and subnets**
+
     ```azurecli-interactive
-    az aks create -g ${GROUP} -n member-aks-1 --enable-managed-identity --node-count 1 --enable-addons monitoring --enable-msi-auth-for-monitoring  --generate-ssh-keys
+    export VNET=fleet
+    export MEMBER_1_SUBNET=member-1
+    export MEMBER_2_SUBNET=member-2
+    
+    az network vnet create \
+        --name $VNET \
+        -g $RESOURCE_GROUP \
+        --address-prefixes 10.0.0.0/8
+    
+    az network vnet subnet create \
+        --vnet-name $VNET \
+        --name $MEMBER_1_SUBNET \
+        -g $RESOURCE_GROUP \
+        --address-prefixes 10.1.0.0/16
+    
+    az network vnet subnet create \
+        --vnet-name $VNET \
+        --name $MEMBER_2_SUBNET \
+        -g $RESOURCE_GROUP \
+        --address-prefixes 10.2.0.0/16
+
+    ```
+
+    **Create AKS clusters**
+
+    ```azurecli-interactive
+    export MEMBER_CLUSTER_1=member-1
+
+    az aks create \
+        -g $GROUP \
+        -n $MEMBER_CLUSTER_1 \
+        --enable-managed-identity \
+        --node-count 2 \
+        --enable-addons monitoring \
+        --enable-msi-auth-for-monitoring  \
+        --generate-ssh-keys \
+        --network-plugin azure \
+        --vnet-subnet-id "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$GROUP/providers/Microsoft.Network/virtualNetworks/$VNET/subnets/$MEMBER_1_SUBNET" \
+        --yes
     ```
 
     ```azurecli-interactive
-    az aks create -g ${GROUP} -n member-aks-2 --enable-managed-identity --node-count 1 --enable-addons monitoring --enable-msi-auth-for-monitoring  --generate-ssh-keys
+    export MEMBER_CLUSTER_2=member-2
+
+    az aks create \
+        -g $GROUP \
+        -n $MEMBER_CLUSTER_2 \
+        --enable-managed-identity \
+        --node-count 2 \
+        --enable-addons monitoring \
+        --enable-msi-auth-for-monitoring  \
+        --generate-ssh-keys \
+        --network-plugin azure \
+        --vnet-subnet-id "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$GROUP/providers/Microsoft.Network/virtualNetworks/$VNET/subnets/$MEMBER_2_SUBNET" \
+        --yes
     ```
 
 1. Obtain the `id` for a cluster you want to join as a member cluster to the Fleet resource:
@@ -217,7 +271,7 @@ An Azure Kubernetes Fleet Manager resource is itself a Kubernetes cluster that y
     az role assignment create --role "${ROLE}" --assignee ${IDENTITY} --scope ${FLEET_ID}
     ```
 
-    For the above command, for the `ROLE` environment variable, you can use one of the following four built in role-definitions as value:
+    For the above command, for the `ROLE` environment variable, you can use one of the following four built-in role definitions as value:
 
     * Azure Kubernetes Fleet Manager RBAC Reader
     * Azure Kubernetes Fleet Manager RBAC Writer

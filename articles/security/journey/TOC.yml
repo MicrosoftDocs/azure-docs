@@ -171,8 +171,8 @@
       href: ../fundamentals/encryption-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Double encryption
       href: ../fundamentals/double-encryption.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-    - name: Sunset for SHA-1 OCSP signing?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-      href: ../fundamentals/ocsp-sha-1-sunset.md
+    - name: Sunset for SHA-1 OCSP signing
+      href: ../fundamentals/ocsp-sha-1-sunset.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: TLS certificate changes
       href: ../fundamentals/tls-certificate-changes.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Disk encryption
@@ -216,6 +216,8 @@
       href: ../fundamentals/antimalware-code-samples.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Virtual machine security overview
       href: ../fundamentals/virtual-machines-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Automatic VM guest patching
+      href: /azure/virtual-machines/automatic-vm-guest-patching?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Best practices - IaaS workloads
       href: ../fundamentals/iaas.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Azure Marketplace images

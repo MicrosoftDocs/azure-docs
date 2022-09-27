@@ -18,7 +18,7 @@ You can create an Azure Database for MySQL Flexible Server in one of three diffe
 
 | Resource / Tier | **Burstable** | **General Purpose** | **Business Critical** |
 |:---|:----------|:--------------------|:---------------------|
-| VM series| [B-series](https://docs.microsoft.com/azure/virtual-machines/sizes-b-series-burstable) | [Ddsv4-series](https://docs.microsoft.com/azure/virtual-machines/ddv4-ddsv4-series#ddsv4-series) | [Edsv4](https://docs.microsoft.com/azure/virtual-machines/edv4-edsv4-series#edsv4-series)/[Edsv5-series](https://docs.microsoft.com/azure/virtual-machines/edv5-edsv5-series#edsv5-series)*|
+| VM series| [B-series](/azure/virtual-machines/sizes-b-series-burstable) | [Ddsv4-series](/azure/virtual-machines/ddv4-ddsv4-series#ddsv4-series) | [Edsv4](/azure/virtual-machines/edv4-edsv4-series#edsv4-series)/[Edsv5-series](/azure/virtual-machines/edv5-edsv5-series#edsv5-series)*|
 | vCores | 1, 2, 4, 8, 12, 16, 20 | 2, 4, 8, 16, 32, 48, 64 | 2, 4, 8, 16, 32, 48, 64, 80, 96 |
 | Memory per vCore | Variable | 4 GiB | 8 GiB * |
 | Storage size | 20 GiB to 16 TiB | 20 GiB to 16 TiB | 20 GiB to 16 TiB |

@@ -5,7 +5,7 @@ services: active-directory
 author: mmacy
 manager: CelesteDG
 
-ms.date: 08/01/2022
+ms.date: 09/01/2022
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
@@ -17,6 +17,23 @@ ms.custom: has-adal-ref
 # Microsoft identity platform docs: What's new
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
+
+## August 2022
+
+### Updated articles
+
+- [Access Azure AD protected resources from an app in Google Cloud (preview)](workload-identity-federation-create-trust-gcp.md)
+- [Claims challenges, claims requests, and client capabilities](claims-challenge.md)
+- [Configure an app's publisher domain](howto-configure-publisher-domain.md)
+- [Configure an app to trust an external identity provider](workload-identity-federation-create-trust.md)
+- [How to use Continuous Access Evaluation enabled APIs in your applications](app-resilience-continuous-access-evaluation.md)
+- [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md)
+- [Microsoft identity platform UserInfo endpoint](userinfo.md)
+- [OpenID Connect on the Microsoft identity platform](v2-protocols-oidc.md)
+- [Publisher verification](publisher-verification-overview.md)
+- [Protected web API: Code configuration](scenario-protected-web-api-app-configuration.md)
+- [Provide optional claims to your app](active-directory-optional-claims.md)
+- [Using directory extension attributes in claims](active-directory-schema-extensions.md)
 
 ## July 2022
 
@@ -44,18 +61,3 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 - [Microsoft identity platform refresh tokens](refresh-tokens.md)
 - [Single-page application: Acquire a token to call an API](scenario-spa-acquire-token.md)
 - [Tutorial: Sign in users and call the Microsoft Graph API in an Electron desktop app](tutorial-v2-nodejs-desktop.md)
-
-## May 2022
-
-### Updated articles
-
-- [Developer guide to Conditional Access authentication context](developer-guide-conditional-access-authentication-context.md)
-- [Migrate confidential client applications from ADAL.NET to MSAL.NET](msal-net-migration-confidential-client.md)
-- [Protected web API: App registration](scenario-protected-web-api-app-registration.md)
-- [Quickstart: Sign in users and call the Microsoft Graph API from an Android app](mobile-app-quickstart-portal-android.md)
-- [Quickstart: Sign in users and call the Microsoft Graph API from an iOS or macOS app](mobile-app-quickstart-portal-ios.md)
-- [Set up your application's Azure AD test environment](test-setup-environment.md)
-- [Single sign-on SAML protocol](single-sign-on-saml-protocol.md)
-- [Single sign-on with MSAL.js](msal-js-sso.md)
-- [Tutorial: Sign in users and acquire a token for Microsoft Graph in a Node.js & Express web app](tutorial-v2-nodejs-webapp-msal.md)
-- [What's new for authentication?](reference-breaking-changes.md)

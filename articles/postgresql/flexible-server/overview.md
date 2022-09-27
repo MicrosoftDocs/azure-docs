@@ -91,14 +91,14 @@ The flexible server comes with a [built-in PgBouncer](concepts-pgbouncer.md), a 
 
 One advantage of running your workload in Azure is global reach. The flexible server is currently available in the following Azure regions:
 
-| Region | V3/V4 compute availability | Zone-redundant HA | Geo-Redundant backup (Preview) |
+| Region | V3/V4 compute availability | Zone-redundant HA | Geo-Redundant backup |
 | --- | --- | --- | --- |
 | Australia East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Australia Southeast | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Brazil South | :heavy_check_mark: (v3 only) | :x: | :x: |
 | Canada Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 
 | Canada East | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| Central India | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: |
+| Central India | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | China East 3 | :heavy_check_mark: | :x: | :x:|
 | China North 3 | :heavy_check_mark: | :x: | :x:|
@@ -158,6 +158,10 @@ The service runs the community version of PostgreSQL. This allows full applicati
 **1. Will Flexible Server replace Single Server? Will Single Server be retired soon?**
 
 We continue to support Single Server and encourage you to adopt Flexible Server which has richer capabilities such as zone resilient HA, predictable performance, maximum control, custom maintenance window, cost optimization controls and simplified developer experience suitable for your enterprise workloads. If we decide to retire any service, feature, API or SKU, you'll receive advance notice including a migration or transition path. Learn more about Microsoft Lifecycle policies [here](/lifecycle/faq/general-lifecycle).
+
+**2. What is Microsoft’s policy to address PostgreSQL engine defects?**
+
+Please refer to  Microsoft’s current policy [here](../../postgresql/flexible-server/concepts-supported-versions.md#managing-postgresql-engine-defects)
 
 
 ## Contacts

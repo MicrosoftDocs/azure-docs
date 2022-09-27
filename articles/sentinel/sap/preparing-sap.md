@@ -64,19 +64,19 @@ To deploy the CRs, follow the steps outlined below:
 
 1. Transfer the CR files to the SAP system.  
     Alternatively, you can download the files directly onto the SAP system from the SSH prompt. Use the following commands:  
-    - Download NLPK900202
+    - Download NPLK900202
         ```bash
         wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900202.NPL
         wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900202.NPL
         ```
 
-    - Download NLPK900201
+    - Download NPLK900201
         ```bash
         wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900201.NPL
         wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900201.NPL
         ```
 
-    - Download NLPK900271
+    - Download NPLK900271
         ```bash
         wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900271.NPL
         wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900271.NPL

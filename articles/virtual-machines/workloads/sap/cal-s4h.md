@@ -3,7 +3,7 @@ title: Deploy SAP S/4HANA or BW/4HANA on an Azure VM | Microsoft Docs
 description: Deploy SAP S/4HANA or BW/4HANA on an Azure VM
 services: virtual-machines-linux
 documentationcenter: ''
-author: hobru
+author: pepeters
 manager: timlt
 editor: ''
 tags: azure-resource-manager
@@ -37,16 +37,16 @@ The online library is continuously updated with Appliances for demo, proof of co
 
 | Appliance Templates | Link |
 | -------------- | :--------- |
-| **SAP Focused Run 3.0 FP03 (configured)** July 28 2022  | [Create Appliance](https://cal.sap.com/registration?sguid=517c6359-6b26-458d-b816-ca25c3e5af7d&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
-|SAP Focused Run is designed specifically for businesses that need high-volume system and application monitoring, alerting, and analytics. It's a powerful solution for service providers, who want to host all their customers in one central, scalable, safe, and automated environment. It also addresses customers with advanced needs regarding system management, user monitoring, integration monitoring, and configuration and security analytics. |  [Details](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/applianceTemplates/517c6359-6b26-458d-b816-ca25c3e5af7d) |
-| **System Conversion for SAP S/4HANA – SAP S/4HANA 2021 FPS01 after technical conversion** July 27 2022  | [Create Appliance](https://cal.sap.com/registration?sguid=93895065-7267-4d51-945b-9300836f6a80&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
-|Third solution after performing a technical system conversion from SAP ERP to SAP S/4HANA before additional configuration. It has been tested and prepared as converted from SAP EHP7 for SAP ERP 6.0 to SAP S/4HANA 2020 FPS01. |  [Details](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/applianceTemplates/93895065-7267-4d51-945b-9300836f6a80) |
-| **SAP Focused Run 3.0 FP03, unconfigured** July 21 2022  | [Create Appliance](https://cal.sap.com/registration?sguid=4c38b6ff-d598-4dbc-8f39-fdcf96ae0beb&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
-|SAP Focused Run is designed specifically for businesses that need high-volume system and application monitoring, alerting, and analytics. It's a powerful solution for service providers, who want to host all their customers in one central, scalable, safe, and automated environment. It also addresses customers with advanced needs regarding system management, user monitoring, integration monitoring, and configuration and security analytics. |  [Details](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/applianceTemplates/4c38b6ff-d598-4dbc-8f39-fdcf96ae0beb) | 
+| **SAP S/4HANA 2021 FPS01, Fully-Activated Appliance**  April 26 2022 | [Create Appliance](https://cal.sap.com/registration?sguid=3f4931de-b15b-47f1-b93d-a4267296b8bc&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
+|This appliance contains SAP S/4HANA 2021 (FPS01) with pre-activated SAP Best Practices for SAP S/4HANA core functions, and further scenarios for Service, Master Data Governance (MDG), Portfolio Mgmt. (PPM), Human Capital Management (HCM), Analytics, Migration Cockpit, and more. User access happens via SAP Fiori, SAP GUI, SAP HANA Studio, Windows remote desktop, or the backend operating system for full administrative access. |  [Details]( https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/applianceTemplates/3f4931de-b15b-47f1-b93d-a4267296b8bc) ||
 | **SAP S/4HANA 2021 FPS02, Fully-Activated Appliance**  July 19 2022 | [Create Appliance](https://cal.sap.com/registration?sguid=3f4931de-b15b-47f1-b93d-a4267296b8bc&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
 |This appliance contains SAP S/4HANA 2021 (FPS02) with pre-activated SAP Best Practices for SAP S/4HANA core functions, and further scenarios for Service, Master Data Governance (MDG), Portfolio Mgmt. (PPM), Human Capital Management (HCM), Analytics, Migration Cockpit, and more. User access happens via SAP Fiori, SAP GUI, SAP HANA Studio, Windows remote desktop, or the backend operating system for full administrative access. |  [Details]( https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/applianceTemplates/3f4931de-b15b-47f1-b93d-a4267296b8bc) |
- | **System Conversion for SAP S/4HANA – Source system SAP ERP6.0 before running SUM** July 05 2022  | [Create Appliance](https://cal.sap.com/registration?sguid=b28b67f3-ebab-4b03-bee9-1cd57ddb41b6&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
-|Second solution for performing a system conversion from SAP ERP to SAP S/4HANA after preparation steps before running Software Update Manager. It has been tested and prepared to be converted from SAP EHP7 for SAP ERP 6.0 to SAP S/4HANA 2021 FPS01  |  [Details](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/applianceTemplates/b28b67f3-ebab-4b03-bee9-1cd57ddb41b6) |
+| **SAP BW/4HANA 2021 including BW/4HANA Content 2.0 SP08 - Dev Edition**  May 11 2022 | [Create Appliance](https://cal.sap.com/registration?sguid=06725b24-b024-4757-860d-ac2db7b49577&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
+|This solution offers you an insight of SAP BW/4HANA. SAP BW/4HANA is the next generation Data Warehouse optimized for HANA. Beside the basic BW/4HANA options the solution offers a bunch of HANA optimized BW/4HANA Content and the next step of Hybrid Scenarios with SAP Data Warehouse Cloud. As the system is pre-configured you can start directly implementing your scenarios. |  [Details]( https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/applianceTemplates/06725b24-b024-4757-860d-ac2db7b49577) |
+| **SAP Business One 10.0 PL02, version for SAP HANA** August 04 2020  | [Create Appliance](https://cal.sap.com/registration?sguid=371edc8c-56c6-4d21-acb4-2d734722c712&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
+|Trusted by over 70,000 small and midsize businesses in 170+ countries, SAP Business One is a flexible, affordable, and scalable ERP solution with the power of SAP HANA. The solution is pre-configured using a 31-day trial license and has a demo database of your choice pre-installed. See the getting started guide to learn about the scope of the solution and how to easily add new demo databases. To secure your system against the CVE-2021-44228 vulnerability, apply SAP Support Note 3131789. For more information, see the Getting Started Guide of this solution (check the "Security Aspects" chapter). |  [Details](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/applianceTemplates/371edc8c-56c6-4d21-acb4-2d734722c712) |
+| **SAP Product Lifecycle Costing 4.0 SP4 Hotfix 3**  August 10 2022 | [Create Appliance](https://cal.sap.com/registration?sguid=61af97ea-be7e-4531-ae07-f1db561d0847&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
+|SAP Product Lifecycle Costing is a solution to calculate costs and other dimensions for new products or product related quotations in an early stage of the product lifecycle, to quickly identify cost drivers and to easily simulate and compare alternatives. |  [Details]( https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/applianceTemplates/61af97ea-be7e-4531-ae07-f1db561d0847) |
 | **SAP NetWeaver 7.5 SP15 on SAP ASE** January 20 2020  | [Create Appliance](https://cal.sap.com/registration?sguid=69efd5d1-04de-42d8-a279-813b7a54c1f6&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
 |SAP NetWeaver 7.5 SP15 on SAP ASE |  [Details](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/solutions/69efd5d1-04de-42d8-a279-813b7a54c1f6) |
 
@@ -61,12 +61,12 @@ The following links highlight the Product stacks that you can quickly deploy on 
 | -------------- | :--------- |
 | **SAP S/4HANA 2021 FPS01 for Productive Deployments**   | [Deploy System](https://cal.sap.com/catalog#/products) |
 |This solution comes as a standard S/4HANA system installation including High Availability capabilities to ensure higher system uptime for productive usage. The system parameters can be customized during initial provisioning according to the requirements for the target system. |
-| **SAP S/4HANA 2021 FPS00 for Productive Deployments, Initial Shipment Stack**   | [Deploy System](https://cal.sap.com/catalog#/products) |
+| **SAP S/4HANA 2021 FPS00 for Productive Deployments**   | [Deploy System](https://cal.sap.com/catalog#/products) |
 |This solution comes as a standard S/4HANA system installation including High Availability capabilities to ensure higher system uptime for productive usage. The system parameters can be customized during initial provisioning according to the requirements for the target system. |
  
 ---
 
-_Within a few hours, a healthy SAP S/4 appliance is deployed in Azure._
+_Within a few hours, a healthy SAP S/4HANA appliance or product is deployed in Azure._
 
 If you bought an SAP CAL subscription, SAP fully supports deployments through SAP CAL on Azure. The support queue is BC-VCM-CAL.
 

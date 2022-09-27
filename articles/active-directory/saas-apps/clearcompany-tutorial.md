@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/09/2021
+ms.date: 09/12/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with ClearCompany
@@ -47,6 +47,8 @@ To configure the integration of ClearCompany into Azure AD, you need to add Clea
 1. In the **Add from the gallery** section, type **ClearCompany** in the search box.
 1. Select **ClearCompany** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for ClearCompany
 
 Configure and test Azure AD SSO with ClearCompany using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in ClearCompany.
@@ -70,10 +72,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following step:
+4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    In the **Identifier** text box, type the URL:
+    a. In the **Identifier** text box, type the URL:
     `https://api.clearcompany.com`
+
+    b. In the **Reply URL** text box, type the URL:
+    `https://api.clearcompany.com/v1/auth/sso/saml`
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -129,15 +134,15 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to ClearCompany Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to ClearCompany Sign-on URL where you can initiate the login flow.  
 
-* Go to ClearCompany Sign-on URL directly and initiate the login flow from there.
+* Go to ClearCompany Sign on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the ClearCompany for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the ClearCompany tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the ClearCompany for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+You can also use Microsoft My Apps to test the application in any mode. When you click the ClearCompany tile in the My Apps, if configured in SP mode you would be redirected to the application sign-on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the ClearCompany for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
