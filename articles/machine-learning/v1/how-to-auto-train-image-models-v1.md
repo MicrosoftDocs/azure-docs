@@ -520,6 +520,6 @@ Review detailed code examples and use cases in the [GitHub notebook repository f
 
 ## Next steps
 
-* [Tutorial: Train an object detection model (preview) with AutoML and Python](../tutorial-auto-train-image-models.md).
+* [Tutorial: Train an object detection model with AutoML and Python](../tutorial-auto-train-image-models.md).
 * [Make predictions with ONNX on computer vision models from AutoML](../how-to-inference-onnx-automl-image-models.md) 
 * [Troubleshoot automated ML experiments](../how-to-troubleshoot-auto-ml.md).

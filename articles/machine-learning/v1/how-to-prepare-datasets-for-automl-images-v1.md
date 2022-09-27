@@ -87,4 +87,4 @@ print("Training dataset name: " + training_dataset.name)
 
 * [Train computer vision models with automated machine learning](../how-to-auto-train-image-models.md).
 * [Train a small object detection model with automated machine learning](../how-to-use-automl-small-object-detect.md). 
-* [Tutorial: Train an object detection model (preview) with AutoML and Python](../tutorial-auto-train-image-models.md).
+* [Tutorial: Train an object detection model with AutoML and Python](../tutorial-auto-train-image-models.md).

@@ -13,7 +13,7 @@ ms.date: 05/26/2022
 ms.custom: devx-track-python, automl, event-tier1-build-2022
 ---
 
-# Tutorial: Train an object detection model (preview) with AutoML and Python
+# Tutorial: Train an object detection model with AutoML and Python
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
@@ -21,8 +21,6 @@ ms.custom: devx-track-python, automl, event-tier1-build-2022
 > * [v1](v1/tutorial-auto-train-image-models-v1.md)
 > * [v2 (current version)](tutorial-auto-train-image-models.md)
 
->[!IMPORTANT]
-> The features presented in this article are in preview. They should be considered [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview features that might change at any time.
 
 In this tutorial, you learn how to train an object detection model using Azure Machine Learning automated ML with the Azure Machine Learning CLI extension v2 or the Azure Machine Learning Python SDK v2.
 This object detection model identifies whether the image contains objects, such as a can, carton, milk bottle, or water bottle.

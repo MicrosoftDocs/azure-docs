@@ -68,4 +68,4 @@ Try these tutorials:
 
 - [Train and deploy an image classification model with MNIST](tutorial-train-deploy-notebook.md)
 
-- [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md)
+- [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md)

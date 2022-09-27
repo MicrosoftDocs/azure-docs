@@ -113,6 +113,6 @@ The following hyperparameters are for object detection and instance segmentation
 
 ## Next steps
 
-* Learn how to [Set up AutoML to train computer vision models with Python (preview)](how-to-auto-train-image-models.md).
+* Learn how to [Set up AutoML to train computer vision models with Python](how-to-auto-train-image-models.md).
 
-* [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
+* [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md).
