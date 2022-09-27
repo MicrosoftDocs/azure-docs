@@ -551,6 +551,9 @@
       - name: Bulk Data Load Best Practices 
         href: flexible-server/how-to-bulkload_data.md
         displayName: Bulk Data Load Best Practices
+      - name: Troubleshoot high CPU utilization
+        href: flexible-server/how-to-high-cpu-utilization.md
+        displayName: Troubleshoot high CPU utilization
   - name: How-to guides
     items:
     - name: Manage a server
