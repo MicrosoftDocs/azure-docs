@@ -37,7 +37,7 @@ As you create your container app, the *App settings* tab includes the **Containe
 
 The workload profile selector allows you to choose from profiles meant for general purpose loads to compute-optimized configurations.
 
-After you select a profile, you can adjust the allocated CPU and memory resources assigned to the app being created. Often you'll deploy multiple apps to an instance of a workload profile, depending on the resources requirements each app. Workload profile can scale out by adding more instances, up to the limits you can set.
+After you select a profile, you can adjust the allocated CPU and memory resources assigned to the app being created. Often you'll deploy multiple apps to an instance of a workload profile, depending on the resources requirements each app. A profile can scale out by adding more instances, up to the limits you can set.
 
 :::image type="content" source="media/workload-profiles/azure-container-apps-select-workload.png" alt-text="Select a workload profile for your Premium plan container app.":::
 
@@ -45,14 +45,14 @@ After you select a profile, you can adjust the allocated CPU and memory resource
 
 To view or adjust your workload profiles:
 
-1. Open your Container Apps **environment** in the Azure portal.
+1. Open your Container Apps environment in the Azure portal.
 1. Select **Workload profile** on the navigation bar.
 
 The workload profile window shows the profiles available to an environment.
 
 :::image type="content" source="media/workload-profiles/azure-container-apps-adjust-workload.png" alt-text="The workload editor allows you to define the instance configuration for a profile.":::
 
-Shown in this view are the instances of each profile in use, which represent billable resources. You can change the minimum and maximum number of instances in use by each profile. Adjusting instance values allows you to control an environment's costs. You're also able to view a profile's running apps by selecting the value in the **# of apps** column.
+Shown in this view are the instances of each profile in use, which represent billable resources. You can change the minimum and maximum number of instances in use by each profile. Adjusting instance values allows you to control an environment's costs. You're also able to view a profile's running apps by selecting the value in the **# of Apps** column.
 
 ## Next steps
 
