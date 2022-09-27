@@ -14,8 +14,9 @@ Azure Monitor managed service for Prometheus is a component of [Azure Monitor Me
 ## Data sources
 Azure Monitor managed service for Prometheus can currently collect data from any of the following data sources.
 
-- Azure Kubernetes service (AKS). Configure the Azure Monitor managed service for Prometheus AKS add-on to scrape metrics from an AKS cluster.
+- Azure Kubernetes service (AKS). [Configure the Azure Monitor managed service for Prometheus AKS add-on](../containers/container-insights-prometheus-metrics-addon.md) to scrape metrics from an AKS cluster.
 - Any Kubernetes cluster running self-managed Prometheus using [remote-write](https://prometheus.io/docs/practices/remote_write/#remote-write-tuning). In this configuration, metrics are collected by a local Prometheus server for each cluster and then consolidated in Azure Monitor managed service for Prometheus.
+
 
 ## Grafana integration
 The primary method for visualizing Prometheus metrics is [Azure Managed Grafana](../../managed-grafana/overview.md). Connect your Azure Monitor workspace to a Grafana workspace so that it can be used as a data source in a Grafana dashboard. You then have access to multiple prebuilt dashboards that use Prometheus metrics and the ability to create any number of custom dashboards.
@@ -24,9 +25,7 @@ The primary method for visualizing Prometheus metrics is [Azure Managed Grafana]
 Azure Monitor managed service for Prometheus adds a new Prometheus metric alert type for creating alerts using PromQL queries. You can view fired and resolved Prometheus alerts in the Azure portal along with other alert types. Prometheus alerts are configured with the same [alert rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) used by Prometheus.
 
 ## Enable
-### Prerequisites
-
-- [Azure Monitor workspace](azure-monitor-workspace-overview.md) - Prometheus metrics are stored in an Azure Monitor workspace. You can either create a workspace or have one created as part of the onboarding process described below.
+The only requirement to enable Azure Monitor managed service for Prometheus is to create an [Azure Monitor workspace](azure-monitor-workspace-overview.md), which is where Prometheus metrics are stored. Once this workspace is created, you can onboard services that collect Prometheus metrics such as Container insights for your AKS cluster as described in [Send Kubernetes metrics to Azure Monitor managed service for Prometheus with Container insights](../containers/container-insights-prometheus-metrics-addon.md).
 
 ### Service limits
 See [Azure Monitor service limits](../service-limits.md) for any service limits related to Azure Monitor managed service for Prometheus.
@@ -39,6 +38,7 @@ See [Azure Monitor service limits](../service-limits.md) for any service limits 
 - Metrics addon doesn't work on AKS clusters configured with HTTP proxy. 
 
 ## Prometheus references
+Following are links to Prometheus documentation.
 
 - [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/)
 - [Grafana](https://prometheus.io/docs/visualization/grafana/)
@@ -49,5 +49,5 @@ See [Azure Monitor service limits](../service-limits.md) for any service limits 
 
 ## Next steps
 
-
-- [Configure alerting and recording rules groups](prometheus-metrics-rule-groups.md)
+- [Collect Prometheus metrics for your AKS cluster](../containers/container-insights-prometheus-metrics-addon.md).
+- [Configure alerting and recording rules groups](prometheus-metrics-rule-groups.md).
