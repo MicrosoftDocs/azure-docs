@@ -281,7 +281,7 @@ items:
           - name: User privacy
             href: concepts/interop/guest/privacy.md
           - name: Government clouds
-            href: concepts/interop/guest/gov-cloud.md
+            href: concepts/interop/guest/government-cloud.md
           - name: Known issues
             href: concepts/interop/guest/limitations.md            
       - name: Communication as Teams user
@@ -307,7 +307,7 @@ items:
           - name: Firewall configuration
             href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
           - name: Government clouds
-            href: concepts/interop/teams-user/gov-cloud.md
+            href: concepts/interop/teams-user/government-cloud.md
   - name: Network Traversal (TURN)
     href: concepts/network-traversal.md    
   - name: Data residency and user privacy
