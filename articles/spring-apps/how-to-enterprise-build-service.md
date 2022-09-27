@@ -180,9 +180,7 @@ Follow these steps to view the current buildpack bindings:
 
 ### Create a buildpack binding
 
-To create a buildpack binding, select **Unbound** on the **Edit Bindings** page, and then select **Save**.
-
-:::image type="content" source="media/enterprise/how-to-enterprise-build-service/bound-service-binding.png" alt-text="Screenshot of Azure portal showing the Edit binding for Dynatrace pane." lightbox="media/enterprise/how-to-enterprise-build-service/bound-service-binding.png":::
+To create a buildpack binding, select **Unbound** on the **Edit Bindings** page, specify binding properties, and then select **Save**.
 
 ### Unbind a buildpack binding
 
