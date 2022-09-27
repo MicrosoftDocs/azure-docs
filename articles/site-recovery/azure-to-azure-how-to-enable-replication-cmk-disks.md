@@ -63,6 +63,9 @@ As an example, the primary Azure region is East Asia, and the secondary region i
     1. **Capacity reservation**: Capacity Reservation lets you purchase capacity in the recovery region, and then failover to that capacity. You can either create a new Capacity Reservation Group or use an existing one. For more information, see [how capacity reservation works](https://learn.microsoft.com/azure/virtual-machines/capacity-reservation-overview).
     
     1. **Storage encryption settings**: Site Recovery needs the disk encryption set(s)(DES) to be used for replica and target managed disks. You must pre-create Disk encryption sets in the target subscription and the target region before enabling the replication. By default, a Disk encryption sets is not selected. You must select **View/edit configuration** to choose a Disk encryption sets per source disk.
+       
+       >[!Note]
+       >Ensure that the Target DES is present in the Target Resource Group, and that the Target DES has Get, Wrap Key, Unwrap Key access to a Key Vault in the same region.
     
         :::image type="enable replication parameters" source="./media/azure-to-azure-how-to-enable-replication-cmk-disks/enable-vm-replication.png" alt-text="Screenshot that displays the enable replication parameters.":::
 
