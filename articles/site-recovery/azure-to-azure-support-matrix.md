@@ -325,8 +325,6 @@ The following table summarizes Site Recovery limits.
 - There are two limits to consider, per disk data churn and per virtual machine data churn.
 - The current limit for per virtual machine data churn is 54 MB/s, regardless of size.
 
->[!Note]
->High churn support is now available in Azure Site Recovery where churn limit per virtual machine has increased up to 100 MB/s. For more information, see [Azure VM Disaster Recovery - High Churn Support](https://learn.microsoft.com/azure/site-recovery/concepts-azure-to-azure-high-churn-support).
 
 **Storage target** | **Average source disk I/O** |**Average source disk data churn** | **Total source disk data churn per day**
 ---|---|---|---
@@ -336,6 +334,10 @@ Premium P10 or P15 disk | 16 KB | 4 MB/s |    336 GB per disk
 Premium P10 or P15 disk | 32 KB or greater | 8 MB/s | 672 GB per disk
 Premium P20 or P30 or P40 or P50 disk | 8 KB    | 5 MB/s | 421 GB per disk
 Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |20 MB/s | 1684 GB per disk
+
+
+>[!Note]
+>High churn support is now available in Azure Site Recovery where churn limit per virtual machine has increased up to 100 MB/s. For more information, see [Azure VM Disaster Recovery - High Churn Support](https://learn.microsoft.com/azure/site-recovery/concepts-azure-to-azure-high-churn-support).
 
 ## Replicated machines - networking
 **Setting** | **Support** | **Details**

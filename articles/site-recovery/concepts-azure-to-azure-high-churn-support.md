@@ -13,15 +13,16 @@ ms.author: v-pgaddala
 
 # Azure VM Disaster Recovery - High Churn Support (Public Preview)
 
-Azure Site Recovery supports churn (data change rate) up to 100 MB/s per VM. You will be able to protect your Azure VMs having high churning workloads (like databases) using Azure Site Recovery which earlier could not be protected efficiently because Azure Site Recovery has churn limits up to 54 MB/s per VM. You may achieve better RPO performance for your high churning workloads. 
-
->[!Note]
->- Available only for DR of Azure VMs. 
->- Recommend VM SKUs with RAM of min 32GB. 
->- Source disks must be Managed Disks.
->- Available only for source VMs in regions where Premium Blob storage accounts are available. For more information, see [supported regions for Premium Blob storage](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=storage&regions=all).
+Azure Site Recovery now supports churn (data change rate) up to 100 MB/s per VM. You will be able to protect your Azure VMs having high churning workloads (like databases) using Azure Site Recovery which earlier could not be protected efficiently because Azure Site Recovery has churn limits up to 54 MB/s per VM. You may be able to achieve better RPO performance for your high churning workloads. 
 
 ## Limitations
+
+- Available only for DR of Azure VMs. 
+- Recommend VM SKUs with RAM of min 32GB. 
+- Source disks must be Managed Disks.
+- Available only for source VMs in regions where Premium Blob storage accounts are available. For more information, see [supported regions for Premium Blob storage](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=storage&regions=all).
+
+## Data change limits
 
 - These limits are based on our tests and don't cover all possible application I/O combinations. 
 - Actual results may vary based on your app I/O mix. 
@@ -60,9 +61,9 @@ The following table summarizes Site Recovery limits:
 
 3. Under **Churn for the VM**, there are two options: 
 
-   - **Normal Churn** (default option) - You can get up to 54 MB/s per VM. Select Normal Churn to use Standard storage accounts only for Cache Storage. Hence, Cache storage dropdown will list only Standard storage accounts. 
+   - **Normal Churn** (default option) - You can get up to 54 MB/s per VM. Select Normal Churn to use *Standard* storage accounts only for Cache Storage. Hence, Cache storage dropdown will list only *Standard* storage accounts. 
 
-   - **High Churn** - You can get up to 100 MB/s per VM. Select High Churn to use Premium Block Blob storage accounts only for Cache Storage. Hence, Cache storage dropdown will list only Premium Block blob storage accounts. 
+   - **High Churn** - You can get up to 100 MB/s per VM. Select High Churn to use *Premium Block Blob* storage accounts only for Cache Storage. Hence, Cache storage dropdown will list only *Premium Block blob* storage accounts. 
    
         :::image type="Churn" source="media/concepts-azure-to-azure-high-churn-support/churn.png" alt-text="Screenshot of churn.":::
 
@@ -74,7 +75,7 @@ The following table summarizes Site Recovery limits:
 
    :::image type="Churn top level" source="media/concepts-azure-to-azure-high-churn-support/churn-top-level.png" alt-text="Screenshot of churn top level.":::
 
-5. Select cache storage account and then select **Confirm Selection**. 
+5. After you select High Churn for the VM, you will see Premium Block Blob options only available for cache storage account. Select cache storage account and then select **Confirm Selection**. 
 
    :::image type="Cache storage" source="media/concepts-azure-to-azure-high-churn-support/cache-storage.png" alt-text="Screenshot of Cache storage.":::
 
@@ -109,6 +110,6 @@ The following table summarizes Site Recovery limits:
 
 ## Cost Implications  
 
-- Normal Churn uses Standard page Blob storage accounts whereas **High Churn** uses Premium Block Blob storage accounts which may have cost implications. For more information, see [pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
-- More data changes may get replicated to target for High churn VMs compared to Normal churn. This may lead to more network cost.
+- **High Churn** uses *Premium Block Blob* storage accounts which may have cost implications as compared to **Normal Churn** which uses *Standard* storage accounts. For more information, see [pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+- For High churn VMs, more data changes may get replicated to target for **High churn** compared to **Normal churn**. This may lead to more network cost.
 
