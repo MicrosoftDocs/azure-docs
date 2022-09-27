@@ -479,7 +479,7 @@ productDirectory:
     # Card
     - title: Azure Kubernetes Fleet Manager (Fleet)
       summary: Enable multi-cluster and at-scale scenarios for Azure Kubernetes Service clusters
-      imageSrc: ./media/index/logo_kubernetes_fleet.svg
+      imageSrc: ./media/index/Kubernetes_Fleet_Manager.svg
       azureCategories:
         - compute
         - containers
