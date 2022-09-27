@@ -109,7 +109,7 @@ The next step is to either choose existing prepared training data or upload new 
 - [From a local file](../reference.md#upload-a-file)
 - [Import from an Azure Blob store or other web location](../reference.md#import-a-file-from-azure-blob)
 
-For large data files, we recommend you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed. For more information about Azure Blob storage, see [What is Azure Blob storage?](/storage/blobs/storage-blobs-overview.md)
+For large data files, we recommend you import from an Azure Blob store. Large files can become unstable when uploaded through multipart forms because the requests are atomic and can't be retried or resumed. For more information about Azure Blob storage, see [What is Azure Blob storage?](/azure/storage/blobs/storage-blobs-overview)
 
 > [!NOTE]
 > Training data files must be formatted as JSONL files, encoded in UTF-8 with a byte-order mark (BOM), and less than 200 MB in size.
