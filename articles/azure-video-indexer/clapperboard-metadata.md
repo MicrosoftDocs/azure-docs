@@ -47,7 +47,7 @@ In the following example the board contains the following fields:
 |date|FILTER (in this case the board contains no date)|
 |director|John|
 |production|Prod name|
-|scene|FPS|
+|scene|1|
 |take|99|
 
 #### View the insight
