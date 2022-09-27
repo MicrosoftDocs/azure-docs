@@ -1533,7 +1533,7 @@ items:
   - name: Quickstarts
     items:
     - name: Connect a Microsoft Purview Account
-      href: ./catalog-and-governance/quickstart-connect-azure-purview.md
+      href: ./catalog-and-governance/quickstart-connect-azure-purview.md#set-up-authentication
   - name: How-to guides
     items:
     - name: Access a secured Microsoft Purview account
