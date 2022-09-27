@@ -138,25 +138,3 @@ public class App
 ## Run the code
 
 To run your Java application, run maven compile, package, and execute commands. By default, SparkJava runs on port 4567, so the endpoint will be available at `http://localhost:4567/api/incomingCall`.
-
-## Subscribe to Event Grid IncomingCall event using a webhook
-
-Azure Communication Services use Event Grid to deliver the `IncomingCall` event. In this guide, we'll configure a webhook to receive events from the Event Grid. Ngrok utility will help make our localhost endpoint reachable to the internet through a public URI.
-
-1. Find the following identifiers used in the next steps: Azure subscription ID, resource group name, Communication Services resource name.
-2. Determine the URI of the local incomingCall endpoint. By default, it should be `http://localhost:4567/api/incomingCall` where the port is 4567.
-3. Install and start ngrok with the following command.
-
-    ```console
-    ngrok http <port>
-    ```
-
-    This command will create a public URI like `https://ff2f-75-155-253-232.ngrok.io/`.
-4. Since the IncomingCall event isn't yet published in the Azure portal, you need run the following Azure CLI command to configure an event subscription (replace with your identifiers and ngrok URI).
-    ```console
-    az eventgrid event-subscription create --name <eventSubscriptionName> \
-    --endpoint-type webhook \
-    --endpoint <ngrokUri> \
-    --included-event-types Microsoft.Communication.IncomingCall \
-    --source-resource-id "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Communication/CommunicationServices/<acsResourceName>"
-    ```

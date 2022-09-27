@@ -23,10 +23,6 @@ ms.author: askaur
 - The [ARMClient application](https://github.com/projectkudu/ARMClient), used to configure the Event Grid subscription.
 - Obtain the NuGet package from the [Azure SDK Dev Feed](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed)
 
-## Create Event Grid subscription for Incoming Call
-
-Follow [this how-to guide](../../../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md) to create your Event Grid subscription for the `IncomingCall` event.
-
 ## Create a new C# application
 
 In the console window of your operating system, use the `dotnet` command to create a new web application.

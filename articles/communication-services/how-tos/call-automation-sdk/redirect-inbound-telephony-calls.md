@@ -20,6 +20,10 @@ zone_pivot_groups: acs-csharp-java
 
 Get started with Azure Communication Services by using the Call Automation SDKs to build automated calling workflows that listen for and manage inbound calls placed to a phone number or received via Direct Routing.
 
+## Create Event Grid subscription for Incoming Call
+
+Follow [this how-to guide](../../../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md) to create your Event Grid subscription for the `IncomingCall` event.
+
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Redirect inbound call with .NET](./includes/redirect-inbound-telephony-calls-csharp.md)]
 ::: zone-end
@@ -27,6 +31,14 @@ Get started with Azure Communication Services by using the Call Automation SDKs 
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Redirect inbound call with Java](./includes/redirect-inbound-telephony-calls-java.md)]
 ::: zone-end
+
+## Testing the application
+
+1. Place a call to the number you acquired in the Azure portal (see prerequisites above).
+2. Your Event Grid subscription to the IncomingCall should execute and call your web server.
+3. The call will be redirected to the endpoint(s) you specified in your application.
+
+Since this call flow involves a redirected call instead of answering it, pre-call web hook callbacks to notify your application the other endpoint accepted the call aren't published.
 
 ## Clean up resources
 

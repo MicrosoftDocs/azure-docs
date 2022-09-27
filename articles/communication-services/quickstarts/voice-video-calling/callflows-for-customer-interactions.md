@@ -24,6 +24,10 @@ In this quickstart, you'll learn how to build an application that uses the Azure
 - playing an audio file
 - adding a communication user to the call such as a customer service agent who uses a web application built using Calling SDKs to connect to Azure Communication Services
 
+## Create Event Grid subscription for Incoming Call
+
+Follow [this how-to guide](../../../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md) to create your Event Grid subscription for the `IncomingCall` event.
+
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Call flows for customer interactions with .NET](./includes/call-automation/Callflow-for-customer-interactions-csharp.md)]
 ::: zone-end
