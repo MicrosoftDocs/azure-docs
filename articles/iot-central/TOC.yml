@@ -242,6 +242,8 @@
           href: core/howto-administer.md
         - name: Manage users and roles
           href: core/howto-manage-users-roles.md
+        - name: Use audit logs
+          href: core/howto-use-audit-logs.md
         - name: Manage organizations
           href: core/howto-create-organizations.md
         - name: Customize application UI
