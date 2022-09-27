@@ -62,6 +62,9 @@ Use the following procedure to replicate Azure VMs to another Azure region. As a
        - **Failover subnet**: Select the failover subnet.
     1. **Storage**: By default, Site Recovery creates a new target storage account by mimicking your source VM storage configuration. If a storage account already exists, it's reused. Select **Veiw/edit storage configuration**. **Customize target settings** page opens.
        - **Cache storage**: Site Recovery needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating them to the target location. This storage account should be Standard. High churn support (Public Preview) is now available in Azure Site Recovery. You can create a Premium Block Blob type of storage accounts that can be used as cache storage account to get high churn limits. By default, Normal Churn option is selected. For more information, see [Azure VM Disaster Recovery - High Churn Support](https://learn.microsoft.com/azure/site-recovery/concepts-azure-to-azure-high-churn-support).
+       
+        
+         :::image type="Cache storage" source="./media/azure-to-azure-how-to-enable-replication/cache-storage.png" alt-text="Screenshot of customize target settings.":::    
     
     1. **Availability options**: Select appropriate availability option for your VM in the target region. If an availability set that was created by Site Recovery already exists, it's reused. Select **View/edit availability options** to view or edit the availability options.
         >[!NOTE]
