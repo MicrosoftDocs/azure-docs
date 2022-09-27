@@ -129,7 +129,7 @@ A replication policy defines the retention history of recovery points, and the f
 - Retain recovery points for 1 day.
 - App-consistent snapshots are disabled and are not created by default.
 
-[Learn more](azure-to-azure-how-to-enable-replication.md#customize-target-resources) about replication settings.
+[Learn more](azure-to-azure-how-to-enable-replication.md) about replication settings.
 
 ### What's a crash-consistent recovery point?
 
