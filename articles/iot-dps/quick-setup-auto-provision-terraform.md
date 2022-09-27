@@ -25,9 +25,9 @@ This quickstart was tested with the following Terraform and Terraform provider v
 In this article, you learn how to:
 
 - Create a Storage Account & Storage Container
-- Create an Event Hub, Namespace, & Authorization Rule
+- Create an Event Hubs, Namespace, & Authorization Rule
 - Create an IoT Hub
-- Link IoT Hub to Storage Account endpoint & Event Hub endpoint
+- Link IoT Hub to Storage Account endpoint & Event Hubs endpoint
 - Create an IoT Hub Shared Access Policy
 - Create a DPS Resource
 - Link DPS & IoT Hub
@@ -45,8 +45,6 @@ In this article, you learn how to:
 1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
 
 1. Create a file named `providers.tf` and insert the following code:
-
-    [!code-terraform[master](<!-- ~/terraform_samples/<path-to-file>/providers.tf-->)]
 
    ```terraform
    terraform {
@@ -70,8 +68,6 @@ In this article, you learn how to:
    ```
 
 1. Create a file named `main.tf` and insert the following code:
-
-    [!code-terraform[master](<!-- ~/terraform_samples/<path-to-file>/main.tf-->)]
 
    ```terraform
    resource "random_pet" "rg_name" {
@@ -328,7 +324,7 @@ If you specified a different filename for the `-out` parameter, use that same fi
 ## Verify the results
 
 **Azure CLI**
-Run [az iot dps show](/cli/azure/iot/dps?view=azure-cli-latest#az-iot-dps-show) to display the Azure DPS resource.
+Run [az iot dps show](/cli/azure/iot/dps#az-iot-dps-show) to display the Azure DPS resource.
 
    ```azurecli
    az iot dps show \
@@ -337,7 +333,7 @@ Run [az iot dps show](/cli/azure/iot/dps?view=azure-cli-latest#az-iot-dps-show) 
    ```
 
 **Azure PowerShell**
-Run [Get-AzIoTDeviceProvisioningService](/powershell/module/az.deviceprovisioningservices/get-aziotdeviceprovisioningservice?view=azps-8.3.0) to display the Azure DPS resource.
+Run [Get-AzIoTDeviceProvisioningService](/powershell/module/az.deviceprovisioningservices/get-aziotdeviceprovisioningservice) to display the Azure DPS resource.
 
    ```powershell
    Get-AzIoTDeviceProvisioningService `
@@ -349,7 +345,9 @@ The names of the resource group and the DPS instance are displayed in the terraf
 
 ## Clean up resources
 
-[!INCLUDE [terraform-plan-destroy.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan-destroy.md)]
+Other articles build upon the resources that you created in this quickstart. If you plan to continue on to subsequent quickstart or to the tutorials, keep the resources created in this quickstart.
+
+If you want to delete the resources created in this quickstart, use the following commands:
 
 1. Run [terraform plan](https://www.terraform.io/cli/commands/plan) and specify the `destroy` flag.
 
