@@ -9,7 +9,7 @@ metadata:
   ms.author: cynthn
   ms.reviewer: edewe
 
-title:Common questions asked about deprecated images
+title: Common questions asked about deprecated images
 summary: |
   This article answers commonly asked questions about the deprecation of Azure Marketplace images.
   
@@ -20,20 +20,21 @@ sections:
       - question: I got an email that my image is scheduled for deprecation, what does this mean?
         answer: | 
           You might have received an email telling you that your Virtual machine is running on images that are scheduled for deprecation or already deprecated as seen in the diagram below. There are several reasons an image can be deprecated by the publisher which might be due to security issues or the image reaching end of life.
+          
           An image can be deprecated on the version, plan or offer level: 
-
+          
           - Deprecation of an image version - The removal of an individual VM image version 
-
+          
           - Deprecation of a plan or SKU - The removal of a plan or SKU and subsequently all images within the plan 
 
           - Deprecation of an offer - The removal of an entire VM offer, including all plans within the offer and subsequently all images within each plan. 
 
       - question: I received an email that my workloads are running on images that are scheduled for deprecation. What does this mean and does deprecation impact my existing workloads?  
-        answer: 
-        Before the scheduled deprecation date: 
-        You can continue to deploy new VM/VMSS instances up until the deprecation date. 
-        After the scheduled deprecation date: 
-        You will not be able to deploy new instances using the affected images. If the plan is scheduled for deprecation, all image versions within the plan will no longer be available and if the entire offer is scheduled for deprecation, all plans within the offer will no longer be available following deprecation. 
+        answer: |
+        - Before the scheduled deprecation date - you can continue to deploy new VM/VMSS instances up until the deprecation date.
+        
+        - After the scheduled deprecation date - You will not be able to deploy new instances using the affected images. If the plan is scheduled for deprecation, all image versions within the plan will no longer be available and if the entire offer is scheduled for deprecation, all plans within the offer will no longer be available following deprecation. 
+        
         Active VM instances will not be impacted. 
         
         New VM instances cannot be created from any of the impacted images. 
@@ -45,7 +46,7 @@ sections:
         If you want your VMSS to scale out after the deprecation date, you will need to identify the VMSS running on the deprecated image and then migrate your workload to a supported image. (The steps to identify and migrate your workload are outlined below). If you want to remain on the image after deprecation, you can create your own custom image and migrate to it (Steps outlined below). If you already have auto updates configured for your VM/VMSS, you will only be impacted when an Offer or plan version is deprecated (No impact on image version deprecation). 
 
       - question: How can I identify the VM/VMSS instances in my subscription that are running on images that are scheduled for deprecation? 
-        answer: 
+        answer: |
         You can search for the scheduled or deprecated image in your subscription (Your subscription ID and name is provided at the bottom of the email notification you received) in the following ways: 
         
         If you are notified that an image is deprecated on only the Offer or plan (SKU) level: 
