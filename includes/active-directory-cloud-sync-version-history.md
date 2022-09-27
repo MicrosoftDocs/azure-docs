@@ -17,9 +17,9 @@ You can download the latest version of the agent using [this link](https://downl
 Release date: September 23, 2022
 
 ### New or changed functionality
-
- - Required for [SSPR](../articles/active-directory/authentication/tutorial-enable-cloud-sync-sspr-writeback.md) General Availablility
- - Added support for password writeback in disconnected forests
+ - Required for [cloud sync SSPR](../articles/active-directory/authentication/tutorial-enable-cloud-sync-sspr-writeback.md) writeback General Availablility.
+ - Added support for password writeback in disconnected forests.
+ - 
 ### Fixed issues
 
  - Various bug fixes to support SSPR with cloud sync
