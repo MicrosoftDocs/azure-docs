@@ -93,6 +93,9 @@ In addition to choosing between manual and automatic mode, there are several opt
 |--disable-image-cleaner|Disable the ImageCleaner feature for an AKS cluster|Yes, unless enable is specified|
 |--image-cleaner-interval-hours|This parameter determines the interval time (in hours) ImageCleaner will use to run. The default value is one week, the minimum value is 24 hours and the maximum is three months.|No|
 
+> [!NOTE]
+> After disabling ImageCleaner, the old configuration still exists. That means, if you enable the feature agagin without setting the parameter, the value is old one rather than default one. 
+
 ## Enable ImageCleaner on your AKS cluster
 
 To create a new AKS cluster using the default interval, use [az aks create][az-aks-create]:
