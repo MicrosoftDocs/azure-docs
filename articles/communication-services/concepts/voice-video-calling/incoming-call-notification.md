@@ -28,7 +28,7 @@ First, we need to define which scenarios can trigger an `IncomingCall` event. Th
 Given the above examples, the following scenarios will trigger an `IncomingCall` event sent to Event Grid:
 
 | Source | Destination | 
-|--|--|
+| ------ | ----------- |
 | Client calling SDK | Azure Communication Services identity |
 | Client calling SDK | PSTN number owned by your Azure Communication Services resource  |
 | Call Automation SDK | Azure Communication Services identity |
@@ -46,7 +46,7 @@ This architecture has the following benefits:
 
 - Using Event Grid subscription filters, you can route the `IncomingCall` notification to specific applications.
 - PSTN number assignment and routing logic can exist in your application versus being statically configured online.
-- As identified in the above [calling scenarios](#calling-scenarios) section, your application can be notified even when users make calls between each other. You can then combine this with the [Call Recording API's](../voice-video-calling/call-recording.md) to meet compliance needs.
+- As identified in the above [calling scenarios](#calling-scenarios) section, your application can be notified even when users make calls between each other. You can then combine this scenario together with the [Call Recording APIs](../voice-video-calling/call-recording.md) to meet compliance needs.
 
 To subscribe to the `IncomingCall` notification from Event Grid, [follow this how-to guide](../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md).
 

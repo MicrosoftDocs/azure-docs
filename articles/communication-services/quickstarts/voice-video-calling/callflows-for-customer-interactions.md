@@ -37,7 +37,7 @@ In this quickstart, you'll learn how to build an application that uses the Azure
 1. Place a call to the number you acquired in the Azure portal (see prerequisites above).
 2. Your Event Grid subscription to the `IncomingCall` should execute and call your web server.
 3. The call will be answered, and an asynchronous web hook callback will be sent to the NGROK callback URI.
-4. When the call is connected, a `CallConnected` event will be sent to your web server, wrapped in a `CloudEvent` schema and can be easily deserialized using the Call Automation SDK parser. At this point the application will request audio to be played and input from a targeted phone number.
+4. When the call is connected, a `CallConnected` event will be sent to your web server, wrapped in a `CloudEvent` schema and can be easily deserialized using the Call Automation SDK parser. At this point, the application will request audio to be played and input from a targeted phone number.
 5. When the input has been received and recognized, the web server will make a request to add a participant to the call.
 
 ## Clean up resources
