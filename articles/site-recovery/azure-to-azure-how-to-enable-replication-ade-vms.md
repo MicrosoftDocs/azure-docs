@@ -106,7 +106,9 @@ Use the following procedure to replicate Azure Disk Encryption-enabled VMs to an
     1. **Availability options**: Select appropriate availability option for your VM in the target region. If an availability set that was created by Site Recovery already exists, it's reused. Select **View/edit availability options** to view or edit the availability options.
     1. **Capacity Reservation**: Capacity Reservation lets you purchase capacity in the recovery region, and then failover to that capacity. You can either create a new Capacity Reservation Group or use an existing one. For more information, see [how capacity reservation works](https://learn.microsoft.com/azure/virtual-machines/capacity-reservation-overview).
     
-    1. **Encryption settings**: By default, Site Recovery creates a new key vault in the target region. It has an *asr* suffix that's based on the source VM encryption settings. If a key vault that was created by Azure Site Recovery already exists, it's reused. Select **View/edit configuration** to choose target disk encryption key vault.
+    1. **Encryption settings**: Select **View/edit configuration** to configure the Disk Encryption and Key Encryption key Vaults.
+        - **Disk encryption key vaults**: By default, Site Recovery creates a new key vault in the target region. It has an *asr* suffix that's based on the source VM disk encryption keys. If a key vault that was created by Azure Site Recovery already exists, it's reused.
+        - **Key encryption key vaults**: By default, Site Recovery creates a new key vault in the target region. The name has an *asr* suffix that's based on the source VM key encryption keys. If a key vault created by Azure Site Recovery already exists, it's reused.
     
        :::image type="enable replication parameters" source="./media/azure-to-azure-how-to-enable-replication-ade-vms/enable-vm-replication.png" alt-text="Screenshot that displays the enable replication parameters.":::
 
