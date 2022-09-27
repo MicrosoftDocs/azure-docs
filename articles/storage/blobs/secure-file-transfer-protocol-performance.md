@@ -30,6 +30,11 @@ For WinSCP, you can use a maximum of 9 concurrent connections to upload multiple
 
 > [!IMPORTANT]
 > Concurrent uploads will only improve performance when uploading multiple files at the same time. Using multiple connections to upload a single file is not supported.
+  
+- Under the **Preferences** dialog, under **Logging**, if the **Enable session logging on level** is checked, select **Reduced** or **Normal**.
+
+> [!CAUTION]
+> Logging level **Debug 1** or **Debug 2** significantly reduces session operation performance.
 
 ## Use premium block blob storage accounts
 

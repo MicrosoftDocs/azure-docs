@@ -744,6 +744,11 @@
         "source_path_from_root": "/articles/mysql/flexible-server/concepts-compute-storage.md",
         "redirect_url": "/azure/mysql/flexible-server/concepts-service-tiers-storage",
         "redirect_document_id": true
-    }
+    },
+    {
+        "source_path_from_root": "/articles/mysql/flexible-server/how-to-upgrade.md",
+        "redirect_url": "/azure/mysql/single-server/how-to-major-version-upgrade",
+        "redirect_document_id": true
+    }    
   ]
 }
