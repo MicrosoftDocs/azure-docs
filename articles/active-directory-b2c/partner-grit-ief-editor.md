@@ -14,6 +14,7 @@ ms.reviewer: kengaderdus
 ms.subservice: B2C 
 ---
 
+
 # Tutorial: Edit Identity Experience Framework XML with Grit Visual Identity Experience Framework Editor
 
 In this tutorial, you'll learn how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Grit Software Systems Visual Identity Experience Framework (IEF) Editor](https://www.gritiam.com/iefeditor), a tool that saves time during authentication deployment. It supports multiple languages without the need to write code. It also has a no code debugger for user journeys.
