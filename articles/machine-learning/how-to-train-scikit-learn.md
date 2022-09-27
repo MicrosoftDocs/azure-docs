@@ -43,69 +43,89 @@ You can run this code in either an Azure Machine Learning compute instance, or y
 
 ## Set up the experiment
 
-This section sets up the training experiment by loading the required Python packages, initializing a workspace, defining the training environment, and preparing the training script.
+This section sets up the training experiment by loading the required Python packages, connecting to a workspace, creating a compute resource to run a training job, and creating an environment to run the job.
 
-### Initialize a workspace
+### Connect to the workspace
 
-The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create.
+First, you'll need to connect to your Azure Machine Learning workspace. The [AzureML workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create when you use Azure Machine Learning.
 
-First, you'll need to connect to your Azure ML workspace. The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning.
+We are using `DefaultAzureCredential` to get access to the workspace. `DefaultAzureCredential` should be capable of handling most Azure SDK authentication scenarios.
 
-We are using DefaultAzureCredential to get access to workspace. DefaultAzureCredential should be capable of handling most Azure SDK authentication scenarios.
-
-Reference for more available credentials if it does not work for you: configure credential example, azure-identity reference doc.
-
- <!-- In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace) object. -->
-
-<!-- Create a workspace object from the `config.json` file created in the [prerequisites section](#prerequisites). -->
+<!-- M.A: link to "configure credential example" is missing (broken in notebook) -->
+If this credential does not work for you, see configure credential example and [`azure-identity reference documentation`](/python/api/azure-identity/azure.identity?view=azure-python) for more available credentials.
 
 [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=credential)]
 
-
-### Prepare scripts
-
-In this tutorial, the [training script **train_iris.py**](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train_iris.py) is already provided for you. In practice, you should be able to take any custom training script as is and run it with Azure ML without having to modify your code.
-
-Notes:
-- The provided training script shows how to log some metrics to your Azure ML run using the `Run` object within the script.
-- The provided training script uses example data from the  `iris = datasets.load_iris()` function.  To use and access your own data, see [how to train with datasets](v1/how-to-train-with-datasets.md) to make data available during training.
-
-### Define your environment
-
-To define the Azure ML [Environment](concept-environments.md) that encapsulates your training script's dependencies, you can either define a custom environment or use and Azure ML curated environment.
-
-#### Use a curated environment
-Optionally, Azure ML provides prebuilt, [curated environments](resource-curated-environments.md) if you don't want to define your own environment. 
-
-If you want to use a curated environment, you can run the following command instead:
+If you prefer to use a browser to sign in and authenticate, you can use the following code instead:
 
 ```python
-from azureml.core import Environment
+# Handle to the workspace
+from azure.ai.ml import MLClient
 
-sklearn_env = Environment.get(workspace=ws, name='AzureML-Tutorial')
+# Authentication package
+from azure.identity import InteractiveBrowserCredential
+
+credential = InteractiveBrowserCredential()
 ```
+
+Next, get a handle to the workspace by providing your Subscription ID, Resource Group name, and Workspace name. To find your Subscription ID and Resource Group:
+
+1. Select your workspace name from the upper-right corner of the Azure Machine Learning Studio toolbar.
+2. Copy the value for Resource group and Subscription ID into the code.
+
+[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=ml_client)]
+
+The result of this example script is a workspace handle that you'll use to manage other resources and jobs.
+
+Note:
+
+- Creating `MLClient` will not connect the client to the workspace. The client initialization is lazy and will wait for the first time it needs to make a call. In this article, this will happen during compute creation.
+
+### Create a Compute Resource to run the job
+
+AzureML needs a compute resource to run a job. This resource can be single or multi-node machines with Linux or Windows OS, or a specific compute fabric like Spark.
+
+<!-- MA: find proper way to link to the marketing page (second link) -->
+In the following example script, we provision a Linux [`compute cluster`](/azure/machine-learning/how-to-create-attach-compute-cluster?tabs=python). You can see the [`Azure Machine Learning pricing`](https://azure.microsoft.com/en-us/pricing/details/machine-learning/) page for the full list of VM sizes and prices. Also, we only need a basic cluster for this example. Let's pick a Standard_DS3_v2 model with 2 vCPU cores and 7 GB RAM to create an AzureML Compute.
+
+[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=cpu_compute_target)]
+
+### Create a job environment
+
+To run an AzureML job, you'll need an environment. An AzureML [Environment](concept-environments.md) encapsulates the dependencies (such as software runtime and libraries) needed to run your machine learning training script on your compute resource. This environment is similar to a Python environment on your local machine.
+
+AzureML allows you to use either a curated (or ready-made) environment or define a custom environment using a Docker image or a Conda configuration. This article uses a custom environment.
 
 #### Create a custom environment
 
-You can also create your own your own custom environment. Define your conda dependencies in a YAML file; in this example the file is named `conda_dependencies.yml`.
+To create your custom environment, you'll define your Conda dependencies in a YAML file. First, create a directory for storing the file. In this example, we've named the directory `dependencies_dir.yml`.
 
-```yaml
-dependencies:
-  - python=3.6.2
-  - scikit-learn
-  - numpy
-  - pip:
-    - azureml-defaults
-```
+[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=make_env_folder)]
 
-Create an Azure ML environment from this Conda environment specification. The environment will be packaged into a Docker container at runtime.
-```python
-from azureml.core import Environment
+Then, create the file in the dependencies directory. In this example, we've named the file `conda.yml`.
 
-sklearn_env = Environment.from_conda_specification(name='sklearn-env', file_path='conda_dependencies.yml')
-```
+[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=make_conda_file)]
+
+The specification contains some usual packages (such as numpy and pip) that you'll use in your job.
+
+Next, use the YAML file to create and register this custom environment in your workspace.
+
+[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=custom_environment)]
 
 For more information on creating and using environments, see [Create and use software environments in Azure Machine Learning](how-to-use-environments.md).
+
+### Data for training
+
+<!-- ### Prepare scripts
+
+For this tutorial, we've provided the [training script **train_iris.py**](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train_iris.py) for you. In practice, you should be able to take any custom training script as is and run it with AzureML without having to modify your code.
+
+Notes:
+
+The provided training script,
+- Shows how to log some metrics to your AzureML run using the `Run` object .
+- Uses example data from the  `iris = datasets.load_iris()` function.  To use and access your own data, see [how to train with datasets](v1/how-to-train-with-datasets.md) to make data available during training. -->
+
 
 ## Configure and submit your training run
 
