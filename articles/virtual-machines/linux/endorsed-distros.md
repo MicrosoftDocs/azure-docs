@@ -2,13 +2,13 @@
 title: Linux distributions endorsed on Azure
 description: Learn about Linux on Azure-endorsed distributions, including information about Ubuntu, CentOS, Oracle, Flatcar, Debian, Red Hat, and SUSE.
 services: virtual-machines
-author: mattmcinnes
+author: danielsollondon
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: conceptual
 ms.date: 07/24/2022
 ms.author: guybo
-ms.reviewer: danielsollondon; cynthn
+ms.reviewer: cynthn
 ms.custom: engagement-fy23
 ---
 
