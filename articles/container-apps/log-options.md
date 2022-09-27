@@ -32,7 +32,6 @@ When *None* or the *Azure Monitor* destination is selected, the **Logs** menu it
 
 ## Configure options via the Azure portal
 
-
 Use these steps to configure the logging options for your Container Apps environment in the Azure portal:
 
 1. Go to the **Logging Options** on your Container Apps environment window in the portal.
@@ -62,12 +61,13 @@ To create a new *diagnostic setting*:
 1. Select the log **Category groups** or **Categories** you want to send to this destination.  You can select one or more categories.  
 
 1. Select one or more **Destination details**:
-    - **Send to Log Analytics workspace**:  Select from the existing Log Analytics workspaces in your subscription.
+    - **Send to Log Analytics workspace**:  Select from existing Log Analytics workspaces in your subscription.
     :::image type="content" source="media/observability/diag-setting-log-analytics-console-log.png" alt-text="Screenshot diagnostic settings Log Analytics destination.":::
     - **Archive to a storage account**:  You can choose from existing storage accounts in your subscription.  When the individual log categories are selected, you can set the **Retention (days)** for each category.
     :::image type="content" source="media/observability/diag-setting-storage-acct.png" alt-text="Screenshot Diagnostic settings storage destination.":::
-    - **Stream to an event hub**:  Select from existing Azure event hubs.  
-    - **Send to a partner solution**: Select from existing Azure partner solutions.  
+    - **Stream to an event hub**:  Select from Azure event hubs that exist in your subscription.  
+    :::image type="content" source="media/observability/diag-settings-event-hub.png" alt-text="Screenshot Diagnostic settings event hub destination.":::
+    - **Send to a partner solution**: Select from Azure partner solutions that exist in your subscription.  
 1. Select **Save**.
 
 For more information about Diagnostic settings, see [Diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md).
