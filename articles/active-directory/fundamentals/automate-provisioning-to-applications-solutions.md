@@ -53,7 +53,7 @@ Use the numbered sections in the next two section to cross reference the followi
 
 1. For users in AD that need access to Office 365 or other applications that are connected to Azure AD, Azure AD Connect cloud sync is the first solution to explore. It provides a lightweight solution to create users in Azure AD, manage password rests, and synchronize groups. Configuration and management are primarily done in the cloud, minimizing your on-premises footprint. It provides high-availability and automatic failover, ensuring password resets and synchronization continue, even if there's an issue with on-premises servers.
 
-1. For complex, large-scale AD to Azure AD sync needs such as synchronizing groups over 50 K and device sync, customers can use Azure AD Connect sync to meet their needs.
+1. For complex, large-scale AD to Azure AD sync needs such as synchronizing groups over 50,000 and device sync, customers can use Azure AD Connect sync to meet their needs.
 
 **Synchronize identities from Azure AD into AD**
 

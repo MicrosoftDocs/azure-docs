@@ -19,15 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Introduction
 
-These articles are for:
-
-* Architects
-
-* Microsoft partners
-
-* IT professionals
-
-The article provides information for decision makers addressing identity [provisioning](https://www.gartner.com/en/information-technology/glossary/user-provisioning) needs in their organizations, or the organizations they're working with. The content focuses on automating user provisioning for access to applications across all systems in your organization.
+The article helps architects, Microsoft partners, and IT professionals with information addressing identity [provisioning](https://www.gartner.com/en/information-technology/glossary/user-provisioning) needs in their organizations, or the organizations they're working with. The content focuses on automating user provisioning for access to applications across all systems in your organization.
 
 Employees in an organization rely on many applications to perform their work. These applications often require IT admins or application owners to provision accounts before an employee can start accessing them. Organizations also need to manage the lifecycle of these accounts and keep them up to date with the latest information and remove accounts when users don't require them anymore.
 
