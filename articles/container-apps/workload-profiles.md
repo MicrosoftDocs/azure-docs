@@ -17,9 +17,9 @@ Profiles are configured to fit the needs of your applications.
 
 | Profile type  | Description | Potential use |
 |--|--|--|
-| General purpose | Balance of memory and hardware resources  | Line-of-business applications |
+| General purpose | Balance of memory and compute resources  | Line-of-business applications |
 | General purpose: _Memory optimized_ | Increased memory resources | Large large in-memory data, in-memory machine learning models |
-| General purpose: _Compute optimized_ | Increased hardware resources | Cryptography |
+| General purpose: _Compute optimized_ | Increased compute resources | Cryptography |
 
 ## Resource consumption
 
@@ -35,7 +35,7 @@ When demand for new apps, or additional replicas of an existing app, exceeds the
 
 As you create your container app, the *App settings* tab includes the **Container resource allocation** section. Here, you can select from a list of different workload profiles that are customized to meet different needs.
 
-The workload profile selector allows you to choose from profiles meant for general purpose computing loads to hardware-optimized specific configurations.
+The workload profile selector allows you to choose from profiles meant for general purpose loads to compute-optimized specific configurations.
 
 After you select a profile, you can adjust the allocated CPU and memory resources assigned to the app being created. Often you will be able to deploy multiple apps to an instance of a workload profile, it just depends on how many resources each app needs and how many resources the workload profile provide. But the workload profile can scale out by adding additional instances, up to the limits you can set.
 

@@ -15,8 +15,8 @@ Azure Container Apps features two different plan types.
 
 | Plan type | Description |
 |--|--|
-| Consumption | Serverless environment where apps can scale to zero. You only pay for apps as they're running. |
-| Premium | A fully managed, isolated environment with customized infrastructure and flexible cost control options. |
+| Consumption | Serverless environment where apps can scale to zero. You only pay for compute apps as they're running. |
+| Premium | A fully managed, isolated environment with customized compute options with flexible cost control options. |
 
 ## Consumption plan
 
@@ -36,9 +36,9 @@ Use the Premium plan when you need:
 
 - **Environment isolation**: Single tenancy in a Container Apps environment.
 
-- **Custom infrastructure**: Run your apps on customized hardware where you can pick among different levels of CPU and memory resources.
+- **Custom infrastructure**: Run your apps on customized compute options where you can pick among different levels of CPU and memory resources.
 
-- **Cost control**: Traditional serverless architecture can result in unexpected costs. With the Premium plan, you can set infrastructure scaling [restrictions](workload-profiles.md#resource-consumption) to help you better control costs.
+- **Cost control**: Traditional serverless compute options optimize for scale in response to events and may not provide cost control options. With the Premium plan, you can set infrastructure scaling [restrictions](workload-profiles.md#resource-consumption) to help you better control costs.
 
     The Premium plan can be more cost effective when you're running higher scale deployments.
 
@@ -46,5 +46,7 @@ Use the Premium plan when you need:
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Workload profiles](workload-profiles.md)
+Deploy your first app with:
+
+- [Azure Portal](get-started-portal.md)
+- [Azure CLI](get-started.md)

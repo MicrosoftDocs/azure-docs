@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: container-apps
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 09/26/2022
+ms.date: 09/27/2022
 ms.author: cshoe
 ---
 
@@ -16,8 +16,8 @@ Billing in Azure Container apps is based on your [plan type](plans.md).
 
 | Plan type | Description |
 |--|--|
-| [Consumption](#consumption-plan) | Serverless environment where apps can scale to zero. You only pay for apps as they're running. |
-| [Premium](#premium-plan) | A fully managed, isolated environment with customized infrastructure and flexible cost control options. |
+| [Consumption](#consumption-plan) | Serverless environment where you're only billed for running apps. |
+| [Premium](#premium-plan) | A fully managed environment with customized compute options that feature flexible cost control options. Charges apply to resources allocated to each running replica. |
 
 ## Consumption plan
 
