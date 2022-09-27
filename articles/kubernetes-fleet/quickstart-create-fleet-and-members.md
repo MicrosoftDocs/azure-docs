@@ -89,7 +89,7 @@ Create a Fleet resource using the [az fleet create](/cli/azure/fleet#az-fleet-cr
 az fleet create -n ${FLEET} -g ${GROUP}
 ```
 
-Output:
+The output will look similar to the following:
 
 ```json
 {
@@ -118,7 +118,6 @@ Output:
   "type": "Microsoft.ContainerService/fleets"
 }
 ```
-
 
 ## Join member clusters
 
@@ -152,7 +151,7 @@ Fleet currently supports joining existing AKS clusters as member clusters.
     az fleet member create -g ${GROUP} --fleet-name ${FLEET} -n ${MEMBER_NAME} --member-cluster-id ${MEMBER_RESOURCE_ID}
     ```
 
-    Output:
+    The output will look similar to the following:
 
     ```json
     {
@@ -180,7 +179,7 @@ Fleet currently supports joining existing AKS clusters as member clusters.
     az fleet member list -g ${GROUP} --fleet-name ${FLEET} -o table
     ```
 
-    Output:
+    If successful, the output will look similar to the following:
     
     ```json
     ClusterResourceId                                                                                                                                Name          ClusterResourceId                                                                                                                                Name          ProvisioningState    ResourceGroup
@@ -199,7 +198,7 @@ An Azure Kubernetes Fleet Manager resource is itself a Kubernetes cluster that y
     az fleet get-credentials -n ${FLEET} -g ${GROUP}
     ```
 
-    Output:
+    The output will look similar to the following:
 
     ```bash
     Merged "hub" as current context in /home/shasb/.kube/config
@@ -225,7 +224,7 @@ An Azure Kubernetes Fleet Manager resource is itself a Kubernetes cluster that y
     * Azure Kubernetes Fleet Manager RBAC Cluster Admin
 
 
-    Output:
+    You should see output similar to the following:
 
     ```bash
     {
@@ -250,7 +249,7 @@ An Azure Kubernetes Fleet Manager resource is itself a Kubernetes cluster that y
     kubectl get memberclusters
     ```
 
-    Output:
+    If successful, the output will look similar to the following:
 
     ```bash
     NAME            JOINED   AGE
@@ -260,4 +259,4 @@ An Azure Kubernetes Fleet Manager resource is itself a Kubernetes cluster that y
 
 ## Next steps
 
-* [Kubernetes configuration propagation](./configuration-propagation.md)
+* Learn how to use [Kubernetes configuration propagation](./configuration-propagation.md)

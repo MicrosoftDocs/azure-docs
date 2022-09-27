@@ -31,37 +31,37 @@ An example of selecting a resource by label is given below.
 
 1. Create a sample namespace by running the following command:
 
-  ```bash
-  kubectl create ns hello-world
-  ```
+    ```bash
+    kubectl create ns hello-world
+    ```
 
 1. Create the following `ClusterResourcePlacement` in a file called `crp.yaml`. Notice we're selecting clusters in the `westcentralus` region:
 
-  ```yaml
-  apiVersion: fleet.azure.com/v1alpha1
-    kind: ClusterResourcePlacement
-    metadata:
-      name: hello-world
-    spec:
-      resourceSelectors:
-        - group: ""
-          version: v1
-          kind: Namespace
-          name: hello-world
-      policy:
-        affinity:
-          clusterAffinity:
-            clusterSelectorTerms:
-              - labelSelector:
-                  matchLabels:
-                    fleet.azure.com/location: westcentralus
-  ```
+    ```yaml
+    apiVersion: fleet.azure.com/v1alpha1
+      kind: ClusterResourcePlacement
+      metadata:
+        name: hello-world
+      spec:
+        resourceSelectors:
+          - group: ""
+            version: v1
+            kind: Namespace
+            name: hello-world
+        policy:
+          affinity:
+            clusterAffinity:
+              clusterSelectorTerms:
+                - labelSelector:
+                    matchLabels:
+                      fleet.azure.com/location: westcentralus
+    ```
 
 1. Apply the `ClusterResourcePlacement`:
 
-  ```bash
-  kubectl apply -f crp.yaml
-  ```
+    ```bash
+    kubectl apply -f crp.yaml
+    ```
 
 1. On each member cluster in the `westcetralus` region, you can verify that the namespace has been propagated:
 
