@@ -19,19 +19,11 @@ ms.date: 06/29/2022
 Azure Cosmos DB for PostgreSQL is a managed service that
 allows you to run horizontally scalable PostgreSQL databases in the cloud.
 
-## Prerequisites
-
-To follow this quickstart, you'll first need to:
-
-* Create a [free account](https://azure.microsoft.com/free/) (If you don't have
-  an Azure subscription).
-* Sign in to the [Azure portal](https://portal.azure.com).
-
-## Get started
+## Create a cluster
 
 [!INCLUDE [create-db](includes/create-db.md)]
 
-## Next steps
+## Next step
 
 With your cluster created, it's time to connect with a SQL client.
 
