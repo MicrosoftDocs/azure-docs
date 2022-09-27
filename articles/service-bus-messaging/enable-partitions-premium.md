@@ -21,7 +21,8 @@ Service Bus partitions enable queues and topics, or messaging entities, to be pa
 > - Metrics are currently only available on an aggregated namespace level, not for individual partitions.
 
 ## Using Azure portal
-When creating a **namespace** in the Azure portal, set the **Partitioning** to **Enabled** and choose the number of partitions.
+When creating a **namespace** in the Azure portal, set the **Partitioning** to **Enabled** and choose the number of partitions, as shown in the following image. 
+:::image type="content" source="./media/enable-partitions/create-namespace.png" alt-text="Enable partitioning at the time of the namespace creation":::
 
 ## Using Azure Resource Manager template
 To **create a namespace with partitioning enabled**, set `partitions` to a number larger than 1 in the namespace properties section. In the example below a partitioned namespace is created with 4 partitions, and 1 messaging unit assigned to each partition. For more information, see [Microsoft.ServiceBus namespaces template reference](/azure/templates/microsoft.servicebus/namespaces?tabs=json). 
