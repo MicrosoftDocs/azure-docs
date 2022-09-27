@@ -194,7 +194,7 @@ To use an environment for a training job, specify the `environment` field of the
 
 When you submit a training job, the building of a new environment can take several minutes. The duration depends on the size of the required dependencies. The environments are cached by the service. So as long as the environment definition remains unchanged, you incur the full setup time only once.
 
-For more information on how to use environments in jobs, see [Train models with the CLI (v2)](how-to-train-cli.md).
+For more information on how to use environments in jobs, see [Train models](how-to-train-model.md).
 
 ## Use environments for model deployments
 
@@ -204,6 +204,6 @@ For more information on how to use environments in deployments, see [Deploy and 
 
 ## Next steps
 
-- [Train models (create jobs) with the CLI (v2)](how-to-train-cli.md)
+- [Train models (create jobs)](how-to-train-model.md)
 - [Deploy and score a machine learning model by using a managed online endpoint](how-to-deploy-managed-online-endpoints.md)
 - [Environment YAML schema reference](reference-yaml-environment.md)

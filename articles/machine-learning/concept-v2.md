@@ -120,11 +120,11 @@ The Azure Machine Learning Python SDK v1 doesn't have a planned deprecation date
 * Get started with CLI v2
 
     * [Install and set up CLI (v2)](how-to-configure-cli.md)
-    * [Train models with the CLI (v2)](how-to-train-cli.md)
+    * [Train models with the CLI (v2)](how-to-train-model.md)
     * [Deploy and score models with managed online endpoint](how-to-deploy-managed-online-endpoints.md)
     
 * Get started with SDK v2
 
     * [Install and set up SDK (v2)](https://aka.ms/sdk-v2-install)
-    * [Train models with the Azure ML Python SDK v2 (preview)](how-to-train-sdk.md)
+    * [Train models with the Azure ML Python SDK v2 (preview)](how-to-train-model.md)
     * [Tutorial: Create production ML pipelines with Python SDK v2 (preview) in a Jupyter notebook](tutorial-pipeline-python-sdk.md)
