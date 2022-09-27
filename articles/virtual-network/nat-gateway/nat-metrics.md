@@ -34,8 +34,8 @@ NAT gateway resources provide the following multi-dimensional metrics in Azure M
 | Bytes | Bytes processed inbound and outbound | Sum | Direction (In; Out), Protocol (6 TCP; 17 UDP) |
 | Packets | Packets processed inbound and outbound | Sum | Direction (In; Out), Protocol (6 TCP; 17 UDP) |
 | Dropped packets | Packets dropped by the NAT gateway | Sum | / |
-| SNAT Connection Count | Number of new SNAT connections over a given interval of time | Sum | Connection State, Protocol (6 TCP; 17 UDP) |
-| Total SNAT connection count | Total number of active SNAT connections (~ SNAT ports currently in use by NAT gateway) | Sum | Protocol (6 TCP; 17 UDP) |
+| SNAT Connection Count | Number of new SNAT connections over a given interval of time | Sum | Connection State (Attempted, Established, Failed, Closed, Timed Out), Protocol (6 TCP; 17 UDP) |
+| Total SNAT connection count | Total number of active SNAT connections | Sum | Protocol (6 TCP; 17 UDP) |
 | Data path availability (Preview) | Availability of the data path of the NAT gateway. Used to determine whether the NAT gateway endpoints are available for outbound traffic flow. | Avg | Availability (0, 100) |
 
 ## Where to find my NAT gateway metrics
@@ -122,7 +122,7 @@ Reasons for why you may see dropped packets:
 
 ### SNAT connection count
 
-The SNAT connection count metric shows you the number of newly used SNAT ports within a specified time frame. 
+The SNAT connection count metric shows you the number of new SNAT connections within a specified time frame. 
 
 Use this metric to: 
 
@@ -240,7 +240,7 @@ To create the alert, use the following steps:
 
 5. From the **Aggregation type** drop-down menu, select **Total**. 
 
-6. In the **Threshold value** box, enter a percentage value that the Total SNAT connection count must drop below before an alert is fired. When deciding what threshold value to use, keep in mind how much you've scaled out your NAT gateway outbound connectivity with public IP addresses. For more information, see [Scale NAT gateway](./nat-gateway-resource.md#scale-nat-gateway). 
+6. In the **Threshold value** box, enter a percentage value that the Total SNAT connection count must drop below before an alert is fired. When deciding what threshold value to use, keep in mind how much you've scaled out your NAT gateway outbound connectivity with public IP addresses. For more information, see [Scale NAT gateway](./nat-gateway-resource.md#scalability). 
 
 7. From the **Unit** drop-down menu, select **Count**. 
 

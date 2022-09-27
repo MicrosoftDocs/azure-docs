@@ -3,9 +3,9 @@ title: Manage action groups in the Azure portal
 description: Find out how to create and manage action groups. Learn about notifications and actions that action groups enable, such as email, webhooks, and Azure Functions.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 06/06/2022
-ms.author: dukek
-ms.reviewer: dukek
+ms.date: 09/07/2022
+ms.author: jagummersall
+ms.reviewer: jagummersall
 ms.custom: references_regions
 
 ---
@@ -43,7 +43,16 @@ An action group is a **global** service, so there's no dependency on a specific 
 
 ### Configure basic action group settings
 
-1. Under **Project details**, select values for **Subscription** and **Resource group**. The action group is saved in the subscription and resource group that you select.
+1. Under **Project details**
+   - Select values for **Subscription** and **Resource group**.
+   - Select the region
+
+      | Option | Behavior |
+      | ------ | -------- |
+      | Global | The action groups service decides where to store the action group. The action group is persisted in at least two regions to ensure regional resiliency. Processing of actions may be done in any [geographic region](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview).<br></br>Voice, SMS and email actions performed as the result of [service health alerts](/azure/service-health/alerts-activity-log-service-notifications-portal) are resilient to Azure live-site-incidents. |
+      | Regional | The action group is stored within the selected region. The action group is [zone-redundant](/azure/availability-zones/az-region#highly-available-services). Processing of actions is performed within the region.</br></br>Use this option if you want to ensure that the processing of your action group is performed within a specific [geographic boundary](https://azure.microsoft.com/explore/global-infrastructure/geographies/#overview). |
+   
+   The action group is saved in the subscription, region and resource group that you select.
 
 1. Under **Instance details**, enter values for **Action group name** and **Display name**. The display name is used in place of a full action group name when the group is used to send notifications.
 

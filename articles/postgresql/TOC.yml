@@ -16,11 +16,11 @@
     items:
       - name: Single Server to Flexible Server migration (preview)
         items:
-          - name: Single to Flexible server migration (Preview) - Concepts
+          - name: Single to Flexible server migration tool (Preview) - Concepts
             href: migrate/concepts-single-to-flexible.md
-          - name: Single to Flexible server migration (Preview) - Migrate using portal
+          - name: Single to Flexible server migration tool (Preview) - Using portal
             href: migrate/how-to-migrate-single-to-flexible-portal.md
-          - name: Single to Flexible server migration (Preview)- Migrate using CLI
+          - name: Single to Flexible server migration tool (Preview)- Using CLI
             href: migrate/how-to-migrate-single-to-flexible-cli.md
           - name: Single to Flexible server migration (Preview) - Set up Azure AD app using portal
             href: migrate/how-to-set-up-azure-ad-app-portal.md
@@ -637,112 +637,42 @@
       href: hyperscale/quickstart-create-portal.md
     - name: Connect
       href: hyperscale/quickstart-connect-psql.md
-    - name: Model and load data
+    - name: Distribute tables
       href: hyperscale/quickstart-distribute-tables.md
     - name: Run queries
       href: hyperscale/quickstart-run-queries.md
-  - name: How-to guides
-    items:
-    - name: Connect and query
-      href: hyperscale/howto-connect.md
-    - name: App stacks
-      items:
-        - name: Overview
-          href: hyperscale/howto-app-stacks-overview.md
-        - name: Python
-          href: hyperscale/howto-app-stacks-python.md
-        - name: Node.js
-          href: hyperscale/howto-app-stacks-nodejs.md
-        - name: C#
-          href: hyperscale/howto-app-stacks-csharp.md
-        - name: Java
-          href: hyperscale/howto-app-stacks-java.md
-        - name: Ruby
-          href: hyperscale/howto-app-stacks-ruby.md
     - name: Build scalable apps
       items:
-      - name: Overview
-        href: hyperscale/howto-build-scalable-apps-overview.md
-      - name: Fundamental concepts
-        href: hyperscale/howto-build-scalable-apps-concepts.md
-      - name: Classify workload
-        href: hyperscale/howto-build-scalable-apps-classify.md
-      - name: Model multi-tenant apps
-        href: hyperscale/howto-build-scalable-apps-model-multi-tenant.md
-      - name: Model real-time apps
-        href: hyperscale/howto-build-scalable-apps-model-real-time.md
-      - name: Model high-throughput apps
-        href: hyperscale/howto-build-scalable-apps-model-high-throughput.md
-    - name: Ingest data
-      items:
-      - name: Azure Stream Analytics (ASA)
-        href: hyperscale/howto-ingest-azure-stream-analytics.md
-      - name: Azure Data Factory (ADF)
-        href: hyperscale/howto-ingest-azure-data-factory.md
-    - name: Administer
-      items:
-      - name: Create users
-        href: hyperscale/howto-create-users.md
-      - name: Schedule maintenance
-        href: hyperscale/howto-maintenance.md
-      - name: Restart server group
-        href: hyperscale/howto-restart.md
-      - name: Monitor
+      - name: Data modeling
         items:
-        - name: View metrics
-          href: hyperscale/howto-monitoring.md
-        - name: Create alerts on metrics
-          href: hyperscale/howto-alert-on-metric.md
-          dispalyName: alerts on hyperscale
-        - name: Access database logs
-          href: hyperscale/howto-logging.md
-          displayName: log, hyperscale
-      - name: Upgrade server group
-        href: hyperscale/howto-upgrade.md
-    - name: Scale
-      items:
-      - name: Server group size
+        - name: Overview
+          href: hyperscale/quickstart-build-scalable-apps-overview.md
+        - name: Concepts
+          href: hyperscale/quickstart-build-scalable-apps-concepts.md
+        - name: Classify workload
+          href: hyperscale/quickstart-build-scalable-apps-classify.md
+        - name: Workloads
+          items:
+            - name: Multi-tenant apps
+              href: hyperscale/quickstart-build-scalable-apps-model-multi-tenant.md
+            - name: Real-time apps
+              href: hyperscale/quickstart-build-scalable-apps-model-real-time.md
+            - name: High-throughput apps
+              href: hyperscale/quickstart-build-scalable-apps-model-high-throughput.md
+      - name: App stacks
         items:
-        - name: Pick initial size
-          href: hyperscale/howto-scale-initial.md
-        - name: Scale server group
-          href: hyperscale/howto-scale-grow.md
-      - name: Rebalance shards
-        href: hyperscale/howto-scale-rebalance.md
-      - name: Change compute quotas
-        href: hyperscale/howto-compute-quota.md
-      - name: Manage read replicas
-        href: hyperscale/howto-read-replicas-portal.md
-    - name: Availability and resilience
-      items:
-      - name: Configure high availability
-        href: hyperscale/howto-high-availability.md
-      - name: Manage read replicas
-        href: hyperscale/howto-read-replicas-portal.md
-        displayName: replication, read replica
-      - name: Restore server group
-        href: hyperscale/howto-restore-portal.md
-    - name: Security and data access
-      items:
-      - name: Manage public access
-        href: hyperscale/howto-manage-firewall-using-portal.md
-        displayName: firewall rule, hyperscale
-      - name: Manage private access
-        href: hyperscale/howto-private-access.md
-        displayName: network, private link
-      - name: Configure SSL
-        href: hyperscale/howto-ssl-connection-security.md
-        displayName: hyperscale, ssl
-    - name: Troubleshoot
-      items:
-      - name: Troubleshoot connection errors
-        href: hyperscale/howto-troubleshoot-common-connection-issues.md
-        displayName: connection errors, hyperscale
-      - name: Troubleshoot read-only access
-        href: hyperscale/howto-troubleshoot-read-only.md
-        displayName: read-only, hyperscale
-      - name: Useful diagnostic queries
-        href: hyperscale/howto-useful-diagnostic-queries.md
+        - name: Overview
+          href: hyperscale/quickstart-app-stacks-overview.md
+        - name: Python
+          href: hyperscale/quickstart-app-stacks-python.md
+        - name: Node.js
+          href: hyperscale/quickstart-app-stacks-nodejs.md
+        - name: C#
+          href: hyperscale/quickstart-app-stacks-csharp.md
+        - name: Java
+          href: hyperscale/quickstart-app-stacks-java.md
+        - name: Ruby
+          href: hyperscale/quickstart-app-stacks-ruby.md
   - name: Tutorials
     items:
       - name: Model data
@@ -815,10 +745,86 @@
       items:
       - name: Monitoring
         href: hyperscale/concepts-monitoring.md
+      - name: Performance tuning
+        href: hyperscale/concepts-performance-tuning.md
       - name: Audit logs
         href: hyperscale/concepts-audit.md
     - name: Columnar storage
       href: hyperscale/concepts-columnar.md
+  - name: How-to guides
+    items:
+    - name: Connect and query
+      href: hyperscale/howto-connect.md
+    - name: Ingest data
+      items:
+      - name: Azure Stream Analytics (ASA)
+        href: hyperscale/howto-ingest-azure-stream-analytics.md
+      - name: Azure Data Factory (ADF)
+        href: hyperscale/howto-ingest-azure-data-factory.md
+    - name: Manage
+      items:
+      - name: Create users
+        href: hyperscale/howto-create-users.md
+      - name: Schedule maintenance
+        href: hyperscale/howto-maintenance.md
+      - name: Restart server group
+        href: hyperscale/howto-restart.md
+      - name: Upgrade server group
+        href: hyperscale/howto-upgrade.md
+    - name: Monitor
+      items:
+      - name: View metrics
+        href: hyperscale/howto-monitoring.md
+      - name: Create alerts on metrics
+        href: hyperscale/howto-alert-on-metric.md
+        dispalyName: alerts on hyperscale
+      - name: Access database logs
+        href: hyperscale/howto-logging.md
+        displayName: log, hyperscale
+    - name: Scale
+      items:
+      - name: Server group size
+        items:
+        - name: Pick initial size
+          href: hyperscale/howto-scale-initial.md
+        - name: Scale server group
+          href: hyperscale/howto-scale-grow.md
+      - name: Rebalance shards
+        href: hyperscale/howto-scale-rebalance.md
+      - name: Change compute quotas
+        href: hyperscale/howto-compute-quota.md
+      - name: Scale with read replicas
+        href: hyperscale/howto-read-replicas-portal.md
+    - name: Availability and resilience
+      items:
+      - name: Configure high availability
+        href: hyperscale/howto-high-availability.md
+      - name: Manage read replicas
+        href: hyperscale/howto-read-replicas-portal.md
+        displayName: replication, read replica
+      - name: Restore server group
+        href: hyperscale/howto-restore-portal.md
+    - name: Security and data access
+      items:
+      - name: Manage public access
+        href: hyperscale/howto-manage-firewall-using-portal.md
+        displayName: firewall rule, hyperscale
+      - name: Manage private access
+        href: hyperscale/howto-private-access.md
+        displayName: network, private link
+      - name: Configure SSL
+        href: hyperscale/howto-ssl-connection-security.md
+        displayName: hyperscale, ssl
+    - name: Troubleshoot
+      items:
+      - name: Troubleshoot connection errors
+        href: hyperscale/howto-troubleshoot-common-connection-issues.md
+        displayName: connection errors, hyperscale
+      - name: Troubleshoot read-only access
+        href: hyperscale/howto-troubleshoot-read-only.md
+        displayName: read-only, hyperscale
+      - name: Useful diagnostic queries
+        href: hyperscale/howto-useful-diagnostic-queries.md
   - name: Reference
     items:
       - name: Product updates
@@ -878,8 +884,8 @@
      href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/
   - name: Deployment templates
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql
   - name: Azure Roadmap

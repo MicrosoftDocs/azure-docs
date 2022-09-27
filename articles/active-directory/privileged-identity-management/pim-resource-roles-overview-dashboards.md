@@ -4,7 +4,7 @@ description: Describes how to use a resource dashboard to perform an access revi
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity

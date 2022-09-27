@@ -44,7 +44,16 @@ With self-service data access workflow, data consumers can not only find data as
 
 A default self-service data access workflow template is provided with every Microsoft Purview account. The default template can be amended to add more approvers and/or set the approver's email address. For more details refer [Create and enable self-service data access workflow](./how-to-workflow-self-service-data-access-hybrid.md).
 
-Whenever a data consumer requests access to a dataset, the notification is sent to the workflow approver(s). The approver(s) can view the request and approve it either from Microsoft Purview portal or from within the email notification. When the request is approved, a policy is auto-generated and applied against the respective data source. Self-service data access policy gets auto-generated only if the data source is registered for **Data Use Management**. The pre-requisites mentioned within the [Data Use Management](./how-to-enable-data-use-management.md#prerequisites) have to be satisfied.  
+Whenever a data consumer requests access to a dataset, the notification is sent to the workflow approver(s). The approver(s) can view the request and approve it either from Microsoft Purview portal or from within the email notification. When the request is approved, a policy is auto-generated and applied against the respective data source. Self-service data access policy gets auto-generated only if the data source is registered for **Data Use Management**. The pre-requisites mentioned within the [Data Use Management](./how-to-enable-data-use-management.md#prerequisites) have to be satisfied.
+
+Data consumer can access the requested dataset using tools such as PowerBI or Azure Synapse Analytics workspace.
+
+>[!NOTE]
+> Users will not be able to browse to the asset using the Azure Portal or Storage explorer if the only permission granted is read/modify access at the file or folder level of the storage account.
+
+> [!CAUTION]
+> Folder level permission is required to access data in ADLS Gen 2 using PowerBI.
+> Additionally, resource sets are not supported by self-service policies. Hence, folder level permission needs to be granted to access resource set files such as CSV or parquet. 
 
 ## Next steps
 

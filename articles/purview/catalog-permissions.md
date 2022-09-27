@@ -56,7 +56,8 @@ The Microsoft Purview governance portal uses a set of predefined roles to contro
 
 :::image type="content" source="media/catalog-permissions/catalog-permission-role.svg" alt-text="Chart showing Microsoft Purview governance portal roles" lightbox="media/catalog-permissions/catalog-permission-role.svg":::
 >[!NOTE]
-> **\*Data source administrator permissions on Policies** - Data source administrators are also able to publish data policies.
+> **\*Data curator** - Data curators can read insights only if they are assigned data curator at the root collection level.
+> **\*\*Data source administrator permissions on Policies** - Data source administrators are also able to publish data policies.
 
 ## Understand how to use the Microsoft Purview governance portal's roles and collections
 

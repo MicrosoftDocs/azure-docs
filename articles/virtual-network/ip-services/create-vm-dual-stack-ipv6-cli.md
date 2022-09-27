@@ -7,7 +7,7 @@ ms.author: allensu
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 11/11/2021
+ms.date: 08/11/2022
 ms.custom: template-how-to, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -63,13 +63,15 @@ Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public
     --resource-group myResourceGroup \
     --name myPublicIP-Ipv4 \
     --sku Standard \
-    --version IPv4
+    --version IPv4 \
+    --zone 1 2 3
 
   az network public-ip create \
     --resource-group myResourceGroup \
     --name myPublicIP-Ipv6 \
     --sku Standard \
-    --version IPv6
+    --version IPv6 \
+    --zone 1 2 3
 
 ```
 ## Create a network security group
@@ -151,7 +153,7 @@ Use [az network nic ip-config create](/cli/azure/network/nic/ip-config#az-networ
     --public-ip-address myPublicIP-IPv6
 ```
 
-### Create VM
+### Create virtual machine
 
 Use [az vm create](/cli/azure/vm#az-vm-create) to create the virtual machine.
 
@@ -178,7 +180,7 @@ Use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-i
     --output tsv
 ```
 
-```azurecli
+```bash
 user@Azure:~$ az network public-ip show \
 >     --resource-group myResourceGroup \
 >     --name myPublicIP-IPv4 \
@@ -195,7 +197,7 @@ user@Azure:~$ az network public-ip show \
     --output tsv
 ```
 
-```azurecli
+```bash
 user@Azure:~$ az network public-ip show \
 >     --resource-group myResourceGroup \
 >     --name myPublicIP-IPv6 \

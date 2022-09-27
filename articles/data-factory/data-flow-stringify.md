@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 10/06/2021
+ms.date: 08/04/2022
 ---
 
 # Stringify transformation in mapping data flow

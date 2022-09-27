@@ -36,7 +36,6 @@ Individual keys, secrets, and certificates permissions should be used
 only for specific scenarios:
 
 -   Sharing individual secrets between multiple applications, e.g., one application needs to access data from the other application
--   Cross-tenant encryption with customer key, e.g., ISV using a key from a customer key vault to encrypt its data
 
 More about Azure Key Vault management guidelines, see:
 
@@ -57,7 +56,11 @@ More about Azure Key Vault management guidelines, see:
 | Key Vault Crypto User  | Perform cryptographic operations using keys. Only works for key vaults that use the 'Azure role-based access control' permission model. | 12338af0-0e69-4776-bea7-57ae8d297424 |
 | Key Vault Reader | Read metadata of key vaults and its certificates, keys, and secrets. Cannot read sensitive values such as secret contents or key material. Only works for key vaults that use the 'Azure role-based access control' permission model. | 21090545-7ca7-4776-b22c-e363652d74d2 |
 | Key Vault Secrets Officer| Perform any action on the secrets of a key vault, except manage permissions. Only works for key vaults that use the 'Azure role-based access control' permission model. | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
-| Key Vault Secrets User | Read secret contents. Only works for key vaults that use the 'Azure role-based access control' permission model. | 4633458b-17de-408a-b874-0445c86b69e6 |
+| Key Vault Secrets User | Read secret contents including secret portion of a certificate with private key. Only works for key vaults that use the 'Azure role-based access control' permission model. | 4633458b-17de-408a-b874-0445c86b69e6 |
+
+> [!NOTE]
+> There is no 'Key Vault Certificate User` because applications require secrets portion of certificate with private key. 'Key Vault Secrets User` role should be used for applications to retrieve certificate.
+
 
 For more information about Azure built-in roles definitions, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
@@ -199,6 +202,9 @@ For full details, see [Assign Azure roles using Azure PowerShell](../../role-bas
 
 ### Secret scope role assignment
 
+> [!NOTE]
+> Key vault secret, certificate, key scope role assignments should only be used for limited scenarios described [here](rbac-guide.md?i#best-practices-for-individual-keys-secrets-and-certificates-role-assignments) to comply with security best practices.
+
 1. Open a previously created secret.
 
 1. Click the Access control(IAM) tab
@@ -333,6 +339,11 @@ For more Information about how to create custom roles, see:
 -   Key Vault data plane RBAC is not supported in multi tenant scenarios like with Azure Lighthouse
 -   2000 Azure role assignments per subscription
 -   Role assignments latency: at current expected performance, it will take up to 10 minutes (600 seconds) after role assignments is changed for role to be applied
+
+## Frequently Asked Questions:
+
+### Can I use Key Vault role-based access control (RBAC) permission model object-scope assignments to provide isolation for application teams within Key Vault?
+No. RBAC permission model allows to assign access to individual objects in Key Vault to user or application, but any administrative operations like network access control, monitoring, and objects management require vault level permissions which will then expose secure information to operators across application teams.
 
 ## Learn more
 

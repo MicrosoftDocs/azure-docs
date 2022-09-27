@@ -3,10 +3,10 @@ title: Upgrade Azure SQL Managed Instance indirectly connected to Azure Arc usin
 description: Article describes how to upgrade an indirectly connected Azure Arc-enabled SQL Managed Instance using Kubernetes tools
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 ms.custom: event-tier1-build-2022
-author: grrlgeek
-ms.author: jeschult
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 07/07/2022    
 ms.topic: how-to
