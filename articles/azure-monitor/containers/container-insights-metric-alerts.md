@@ -10,8 +10,8 @@ ms.reviewer: aul
 
 Metric alerts in Azure Monitor proactively identify issues related to system resources of your Azure resources, including monitored Kubernetes clusters. Container insights provides pre-configured alert rules so that you don't have to create your own. You can choose to enable alert rules based on the following data:
 
-- [Prometheus metrics](#prometheus-metric-alert-rules): Alert rules that use metrics stored in [Azure Monitor managed service for Prometheus (preview)](../essentials/prometheus-metrics-overview.md). You can choose from two sets of alert rules that are either the most common alert rules from the Prometheus community or that match the [set of rules for custom metrics](#enable-and-configure-prometheus-metric-alert-rules).
-- [Custom metrics](#custom-metric-alert-rules): Alert rules that use [custom metrics collected for your Kubernetes cluster](container-insights-custom-metrics.md). You can use the Azure portal to enable and customize a recommended set of rules.
+- [Prometheus metrics](#enable-and-configure-prometheus-metric-alert-rules): Alert rules that use metrics stored in [Azure Monitor managed service for Prometheus (preview)](../essentials/prometheus-metrics-overview.md). You can choose from two sets of alert rules that are either the most common alert rules from the Prometheus community or that match the set of rules for custom metrics.
+- [Custom metrics](#enable-and-configure-custom-metric-alert-rules): Alert rules that use [custom metrics collected for your Kubernetes cluster](container-insights-custom-metrics.md). You can use the Azure portal to enable and customize a recommended set of rules.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ Metric alerts in Azure Monitor proactively identify issues related to system res
 There are two sets of Prometheus metric alert rules available. The details list of each is below in [Alert rule details](#alert-rule-details).
 
 - Community alert rules. These are hand-picked alert rules from the Prometheus community. 
-- Recommended alerts. These are the equivalent of the custom metric alert rules. Use this set if you are migrating from custom metrics to Prometheus metrics.
+- Recommended alerts. These are the equivalent of the custom metric alert rules. Use this set if you're migrating from custom metrics to Prometheus metrics.
 
 
 The only method currently available for creating recommended Prometheus metric alert rules is a Resource Manager template. 
@@ -147,12 +147,12 @@ The following table lists the recommended alert rules that you can enable for Ku
 | OOM Killed Containers | OOM Killed Containers | Calculates number of OOM killed containers. | 0 |
 | Pods ready % | Pods ready % | Calculates the average ready state of pods. | 80% |
 | Completed job count | Completed job count | Calculates number of jobs completed more than six hours ago. | 0 |
-| | Daily Data Cap Breach | When the total data ingestion to your Log Analytics workspace exceeds the [designated quota](../logs/daily-cap.md). This is a [log alert rule](../alerts/alert-types.md#log-alerts) that is not enabled with Prometheus metric alerts. |
+| | Daily Data Cap Breach | When the total data ingestion to your Log Analytics workspace exceeds the [designated quota](../logs/daily-cap.md). This is a [log alert rule](../alerts/alerts-types.md#log-alerts) that isn't enabled with Prometheus metric alerts. |
 
 Common properties across all of these alert rules include:
 
 - All alert rules are evaluated once per minute and they look back at last 5 minutes of data.
-- Alerts rules do not have an action group assigned to them by default. You can add an [action group](../alerts/action-groups.md) to the alert either by selecting an existing action group or creating a new action group while editing the alert rule.
+- Alerts rules don't have an action group assigned to them by default. You can add an [action group](../alerts/action-groups.md) to the alert either by selecting an existing action group or creating a new action group while editing the alert rule.
 
 The following metrics have unique behavior characteristics:
 
@@ -193,7 +193,7 @@ These are hand-picked alerts from Prometheus community. Source code for these mi
 
 
 ## View alerts
-To view alerts created for the enabled rules, in the **Recommended alerts** pane select **View in alerts**. You are redirected to the alert menu for the AKS cluster, where you can see all the alerts currently created for your cluster.
+To view alerts created for the enabled rules, in the **Recommended alerts** pane select **View in alerts**. you're redirected to the alert menu for the AKS cluster, where you can see all the alerts currently created for your cluster.
 
 
 
