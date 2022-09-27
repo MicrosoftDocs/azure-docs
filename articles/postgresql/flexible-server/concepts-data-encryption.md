@@ -84,23 +84,13 @@ Here are recommendations for configuring a customer-managed key:
 
 * Keep a copy of the customer-managed key in a secure place, or escrow it to the escrow service.
 
-* If Key Vault generates the key, create a key backup before using the key for the first time. You can only restore the backup to Key Vault. For more information about the backup command, see [Backup-AzKeyVaultKey](/powershell/module/az.keyVault/backup-azkeyVaultkey).
-
-## Inaccessible customer-managed key condition
-
-When you configure data encryption with a customer-managed key in Key Vault, continuous access to this key is required for the server to stay online. If the server loses access to the customer-managed key in Key Vault, the server begins denying all connections within 10 minutes. The server issues a corresponding error message, and changes the server state to *Inaccessible*. Some of the reason why the server can reach this state are:
-
-* If we create a Point In Time Restore server for your Azure Database for PostgreSQL Single server, which has data encryption enabled, the newly created server will be in *Inaccessible* state. You can fix the server state through [Azure portal](how-to-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) or [CLI](how-to-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
-* If we create a read replica for your Azure Database for PostgreSQL Single server, which has data encryption enabled, the replica server will be in *Inaccessible* state. You can fix the server state through [Azure portal](how-to-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) or [CLI](how-to-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
-* If you delete the KeyVault, the Azure Database for PostgreSQL Single server will be unable to access the key and will move to *Inaccessible* state. Recover the [Key Vault](../../key-vault/general/key-vault-recovery.md) and revalidate the data encryption to make the server *Available*.
-* If we delete the key from the KeyVault, the Azure Database for PostgreSQL Single server will be unable to access the key and will move to *Inaccessible* state. Recover the [Key](../../key-vault/general/key-vault-recovery.md) and revalidate the data encryption to make the server *Available*.
-* If the key stored in the Azure KeyVault expires, the key will become invalid and the Azure Database for PostgreSQL Single server will transition into *Inaccessible* state. Extend the key expiry date using Azure CLI and then revalidate the data encryption to make the server *Available*.
+* If Key Vault generates the key, create a key backup before using the key for the first time. You can only restore the backup to Key Vault. 
 
 ### Accidental key access revocation from Key Vault
 
 It might happen that someone with sufficient access rights to Key Vault accidentally disables server access to the key by:
 
-* Revoking the key vault's get, wrapKey, and unwrapKey permissions from the server.
+* Revoking the key vault's list, get, wrapKey, and unwrapKey permissions from the server.
 * Deleting the key.
 * Deleting the key vault.
 * Changing the key vault's firewall rules.
