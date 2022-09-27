@@ -92,7 +92,7 @@ These example code snippets show you how to do the following tasks with the Azur
 - [List the blobs in a container](#list-the-blobs-in-a-container)
 - [Download blobs](#download-blobs)
 - [Delete a container](#delete-a-container)
-d
+
 ### Get the connection string for authentication
 
 The code below retrieves the storage account connection string from the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
