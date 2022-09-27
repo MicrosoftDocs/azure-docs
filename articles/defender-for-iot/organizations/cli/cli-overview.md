@@ -17,7 +17,7 @@ There are several ways to connect to the CLI. Once connected, log on to the CLI 
 - On a virtualized appliance, in addition to SSH you can access the CLI via the vSphere client or Hyper-V manager.
 Connect to the appliance management interface IP address on port 22.
 
-## Priviledged CLI users
+## Priviledged CLI users (OT monitoring)
 
 On OT monitoring appliances, CLI access is only available to the privileged users pre-defined in the appliance software (part of the hardend OS). 
 - On the sensor, this includes the *cyberx*, *support*, and *cyberx_host* users.
