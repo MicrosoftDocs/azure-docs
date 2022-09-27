@@ -87,7 +87,7 @@ A conversion can be accomplished in one of two ways:
 > - (North America) East US
 > - (North America) East US 2
 >
-> To opt in to the preview, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md) and specify **CustomerInitiatedMigration** as the feature name.
+> To opt in to the preview, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md) and specify **CustomerInitiatedMigration** as the feature name.
 >
 > This preview version is provided without a service level agreement, and might not be suitable for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
