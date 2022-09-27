@@ -77,8 +77,8 @@ Azure Migrate is classified as customer managed Disaster Recovery, which means A
 While using different capabilities, it's recommended that you export the software inventory, dependency analysis, and assessment report for an offline backup.
 
 In the event of a regional failure or outage in the Azure region that your project is created in:
-•	You may not be able to access your Azure Migrate projects, assessments, and other reports for the duration of the outage. However, you can use the offline copies that you've exported. 
-•	Any in-progress replication and/or migration will be paused and you might have to restart it post the outage.
+- You may not be able to access your Azure Migrate projects, assessments, and other reports for the duration of the outage. However, you can use the offline copies that you've exported. 
+- Any in-progress replication and/or migration will be paused and you might have to restart it post the outage.
 
 ## How do I get started?
 
