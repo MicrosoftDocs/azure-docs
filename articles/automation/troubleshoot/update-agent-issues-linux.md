@@ -46,22 +46,37 @@ When the checks are finished, the results are returned in the window. The check 
 
 The operating system check verifies if the Hybrid Runbook Worker is running one of the [supported operating systems](../update-management/operating-system-requirements.md#supported-operating-systems).
 
+### Dmidecode Check
+
+To verify if a VM is an Azure VM, check for Asset tag value using the below command:
+
+`sudo dmidecode`
+
+If the asset tag is different than 7783-7084-3265-9085-8269-3286-77, then reboot VM to initiate re-registration. 
+
+
 ## Monitoring agent service health checks
 
 ### Monitoring Agent
-Install Azure Log Analytics Linux agent and ensure it communicates the required endpoints. For more information, see [Install Log Analytics agent on Linux computers](../azure-monitor/agents/agent-linux.md).
 
-This task checks if the folder is present - */etc/opt/microsoft/omsagent/conf/omsadmin.conf*
+To fix this, install Azure Log Analytics Linux agent and ensure it communicates the required endpoints. For more information, see [Install Log Analytics agent on Linux computers](../azure-monitor/agents/agent-linux.md).
+
+This task checks if the folder is present - 
+
+*/etc/opt/microsoft/omsagent/conf/omsadmin.conf*
 
 ### Monitoring Agent Status
- To fix this issue, you must start the OMS Agent service by using the following command: 
+ 
+To fix this issue, you must start the OMS Agent service by using the following command: 
 
  `sudo /opt/microsoft/omsagent/bin/service_control restart`
 
 To validate you can perform process check using the below command: 
 
-`process_name = "omsagent"`</br>
-`ps aux | grep %s | grep -v grep" % (process_name)`. 
+```
+process_name = "omsagent" 
+ps aux | grep %s | grep -v grep" % (process_name) 
+```
 
 For more information, see [Troubleshoot issues with the Log Analytics agent for Linux](../azure/azure-monitor/agents/agent-linux-troubleshoot).
 
@@ -72,55 +87,51 @@ To fix this issue, purge the OMS Agent completely and reinstall it with the [wor
 
 Validate that there are no more multihoming by checking the directories under this path:
 
- */var/opt/microsoft/omsagent*. </br> 
+ */var/opt/microsoft/omsagent*. 
 
 As they are the directories of workspaces, the number of directories equals the number of workspaces on-boarded to OMSAgent.
 
 ### Hybrid Runbook Worker
 To fix the issue, run the following command: 
 
-`sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/ PerformRequiredConfigurationChecks.py` 
+```
+sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/ PerformRequiredConfigurationChecks.py
+```
 
-This command forces the omsconfig agent to talk to Azure Monitor and retrieve the latest configuration. </br> 
+This command forces the omsconfig agent to talk to Azure Monitor and retrieve the latest configuration. 
 
 Validate to check if the following two paths exists:
-`/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/VERSION </br> /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/configuration.py`
 
+```
+/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/VERSION </br> /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/configuration.py
+```
 
 ### Hybrid Runbook Worker Status
 
 This check makes sure the Hybrid Runbook Worker is running on the machine. The processes in the example below should be present if the Hybrid Runbook Worker is running correctly.
 
-```bash
+`ps -ef | grep python`
+
+
+```
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
 nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/state/automationworker/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
 nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/<workspaceId>/state/automationworker/diy/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
 ```
 
-It verifies if the Log Analytics agent for Linux has the Hybrid Runbook Worker package. This package is required for Update Management to work and to learn more, see [Log Analytics agent for Linux isn't running](hybrid-runbook-worker.md#oms-agent-not-running).
-
 Update Management downloads Hybrid Runbook Worker packages from the operations endpoint. Therefore, if the Hybrid Runbook Worker is not running and the [operations endpoint](#operations-endpoint) check fails, the update can fail.
 
 To fix this issue, run the following command:
 
-`sudo su omsagent -c python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py`
+```
+sudo su omsagent -c python /opt/microsoft/omsconfig/Scripts/PerformRequiredConfigurationChecks.py
+```
 
 This command forces the omsconfig agent to talk to Azure Monitor and retrieve the latest configuration. 
 
 If the issue still persists, run the [omsagent Log Collector tool](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/tools/LogCollector/OMS_Linux_Agent_Log_Collector.md)
 
 
-### Log Analytics agent
-
-This check ensures that the Log Analytics agent for Linux is installed. For instructions on how to install it, see [Install the agent for Linux](../../azure-monitor/vm/monitor-virtual-machine.md#agents).
-
-### Log Analytics agent status
-
-This check ensures that the Log Analytics agent for Linux is running. If the agent isn't running, you can run the following command to attempt to restart it. For more information on troubleshooting the agent, see [Linux - Troubleshoot Hybrid Runbook Worker issues](hybrid-runbook-worker.md#linux).
-
-```bash
-sudo /opt/microsoft/omsagent/bin/service_control restart
-```
 
 ## Connectivity checks
 
@@ -136,7 +147,9 @@ To fix this issue, allow access to IP **169.254.169.254**. For more information,
 
 After the network changes, you can either rerun the Troubleshooter or run the below commands to validate: 
 
- `curl -H \"Metadata: true\" http://169.254.169.254/metadata/instance?api-version=2018-02-01`
+```
+ curl -H \"Metadata: true\" http://169.254.169.254/metadata/instance?api-version=2018-02-01
+```
 
 ### General internet connectivity
 
@@ -179,10 +192,16 @@ Curl on provided OMS endpoint
 
 ### Software Repositories
 
-Fix this issue by allowing the [prerequisite URLs](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory).
+Fix this issue by allowing the [prerequisite Repo URL for RHEL](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory).
 
 Post making Network changes you can either rerun the Troubleshooter or
-Curl on software repositories configured in package manager. Refreshing repos sudo apt-get update would be helpful.
+Curl on software repositories configured in package manager. Refreshing repos sudo apt-get update would be helpful to confirm the communication as well.
+
+`sudo apt-get check`
+`sudo yum check-update`
+
+> [!NOTE]
+> The check is available only in offline mode.
 
 ## <a name="troubleshoot-offline"></a>Troubleshoot offline
 
