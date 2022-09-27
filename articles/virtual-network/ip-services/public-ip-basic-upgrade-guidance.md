@@ -1,6 +1,6 @@
 ---
 
-title: Upgrading a Basic public IP address to Standard SKU - Guidance
+title: Upgrading a basic public IP address to standard SKU - Guidance
 description: Overview of upgrade options and guidance for migrating basic public IP to standard public IP for future basic public IP address retirement
 author: mbender-ms
 ms.service: load-balancer
@@ -10,7 +10,7 @@ ms.date: 09/19/2022
 #customer-intent: As an cloud engineer with Basic public IP services, I need guidance and direction on migrating my workloads off basic to Standard SKUs
 ---
 
-# Upgrading a Basic public IP address to Standard SKU - Guidance
+# Upgrading a basic public IP address to standard SKU - Guidance
 
 In this article, we'll discuss guidance for upgrading your Basic SKU public IPs to Standard SKU. Standard public IPs are recommended for all production instances and provide many [key differences](#basic-sku-vs-standard-sku) to your infrastructure.
 ## Steps to complete the upgrade 
@@ -33,7 +33,7 @@ We recommend the following approach to upgrade to Standard SKU public IP address
     | Application Gateway (v1) | Cannot dissociate and upgrade. Use this [migration script to migrate from v1 to v2](../../application-gateway/migrate-v1-v2.md).  |
 1. Verify your application and workloads are receiving traffic through the Standard SKU public IP address. Then delete your Basic SKU public IP address resource. 
 
-## Basic SKU vs. Standard SKU 
+## Basic SKU vs. standard SKU 
 
 This section lists out some key differences between these two SKUs.
 
@@ -56,7 +56,7 @@ Use the Azure portal, Azure PowerShell, or Azure CLI to help upgrade from Basic 
 - [Upgrade a public IP address - Azure PowerShell](public-ip-upgrade-powershell.md)
 - [Upgrade a public IP address - Azure CLI](public-ip-upgrade-cli.md)
 
-## Next Steps
+## Next steps
 
 For guidance on upgrading Basic Load Balancer to Standard SKUs, see:
 

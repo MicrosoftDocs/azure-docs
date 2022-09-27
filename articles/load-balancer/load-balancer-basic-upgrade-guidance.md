@@ -1,5 +1,5 @@
 ---
-title: Upgrading from Basic Load Balancer - Guidance
+title: Upgrading from basic Load Balancer - Guidance
 description: Upgrade guidance for migrating Basic Load Balancer to Standard Load Balancer
 author: mbender-ms
 ms.service: load-balancer
@@ -9,9 +9,9 @@ ms.date: 09/19/2022
 #customer-intent: As an cloud engineer with basic Load Balancer services, I need guidance and direction on migrating my workloads off basic to standard SKUs
 ---
 
-# Upgrading from Basic Load Balancer - Guidance
+# Upgrading from basic Load Balancer - Guidance
 
-In this article, we'll discuss guidance for upgrading your Basic Load Balancer instances to Standard Load Balancer. Standard Load Balancer is recommend for all production instances and provides many [key differences](#basic-load-balancer-sku-vs-standard-load-balancer-sku) to your infrastructure.
+In this article, we'll discuss guidance for upgrading your Basic Load Balancer instances to Standard Load Balancer. Standard Load Balancer is recommended for all production instances and provides many [key differences](#basic-load-balancer-sku-vs-standard-load-balancer-sku) to your infrastructure.
 ## Steps to complete the upgrade
 
 We recommend the following approach for upgrading to Standard Load Balancer:
@@ -22,7 +22,7 @@ We recommend the following approach for upgrading to Standard Load Balancer:
 1. Perform migration with [automated PowerShell scripts](#upgrade-using-automated-scripts) for your scenario or create a new Standard Load Balancer with the Basic Load Balancer configurations.
 1. Verify your application and workloads are receiving traffic through the Standard Load Balancer. Then delete your Basic Load Balancer resource. 
 
-## Basic Load Balancer SKU vs. Standard Load Balancer SKU 
+## Basic Load Balancer SKU vs. standard Load Balancer SKU 
 
 This section lists out some key differences between these two Load Balancer SKUs. 
 
