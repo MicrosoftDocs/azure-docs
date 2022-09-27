@@ -420,7 +420,7 @@ r = requests.delete(api_base + 'openai/fine-tunes/' + job_id,
 You can optionally delete training and validation files you've uploaded for training, and result files generated during training, from your Azure OpenAI subscription. You can use the following methods to delete your training, validation, and result files:
 
 - <a href="https://learn.microsoft.com/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio#delete-your-training-files">Azure OpenAI Studio</a>
- [REST APIs](../reference.md#delete-a-file) 
+- [REST APIs](../reference.md#delete-a-file) 
 - Python SDK
 
 The following Python example uses the REST API to delete the training, validation, and result files for your customized model.
