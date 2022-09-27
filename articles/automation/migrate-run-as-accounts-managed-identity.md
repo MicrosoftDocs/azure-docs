@@ -168,7 +168,7 @@ To check if Run As account is used in Graphical Runbooks:
 
 1. Examine the parameters used by the cmdlet.
 
-    :::image type="content" source="./media/migrate-run-as-account-managed-identity/activity-parameter configuration.png" alt-text="Screenshot to examine the parameters used by cmdlet":::
+    :::image type="content" source="./media/migrate-run-as-account-managed-identity/activity-parameter-configuration.png" alt-text="Screenshot to examine the parameters used by cmdlet":::
 
 1. For use with the Run As account, it will use the *ServicePrinicipalCertificate* parameter set *ApplicationId* and *Certificate Thumbprint* will be from the RunAsAccountConnection.
 
@@ -176,9 +176,10 @@ To check if Run As account is used in Graphical Runbooks:
  
 
 ### How to edit graphical Runbook to use managed identity
+
 You must test the managed identity to verify if the Graphical runbook is working as expected by creating a copy of your production runbook to use the managed identity and updating your test graphical runbook code to authenticate by using the managed identity. You can add this functionality to a graphical runbook by adding `Connect-AzAccount` cmdlet.
 
-Listed below is an example to guide on how a graphical runbook that uses Run As account use managed identities:
+Listed below is an example to guide on how a graphical runbook that uses Run As account uses managed identities:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Open the Automation account and select **Process Automation**, **Runbooks**.
