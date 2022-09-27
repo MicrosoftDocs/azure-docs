@@ -21,7 +21,7 @@ Billing in Azure Container apps is based on your [plan type](plans.md).
 
 ## Consumption plan
 
-Azure Container Apps billing consists of two types of charges:
+Azure Container Apps consumption plan billing consists of two types of charges:
 
 - **[Resource consumption](#resource-consumption-charges)**: The amount of resources allocated to your container app on a per-second basis, billed in vCPU-seconds and GiB-seconds.
 - **[HTTP requests](#request-charges)**: The number of HTTP requests your container app receives.
@@ -83,10 +83,16 @@ The first 2 million requests in each subscription per calendar month are free.
 
 ## Premium plan
 
-Profile billing breaks down into the following categories:
+Azure Container Apps premium plan billing consists of two types of charges:
 
-- **Profiles**: You're billed based on the number of running profiles. As profiles scale up, extra costs apply; as profiles scale down billing is reduced. Regardless of the profile type you select, there's a minimum resource requirement. You're billed, at a minimum, the equivalent of six vCPUs and 24Gib of memory.
+- **[Resource consumption](#workload-profiles)**: The amount of resources all the workload profile instances specify. Billed on a per-second basis in vCPU-seconds and GiB-seconds.
+- **Premium environment cost**: A fixed cost for the Premium environment.
 
-- **Cluster hour**: Billed on a per-hour basis, per profile.
+This article describes how to calculate the cost of running your container app. For pricing details in your account's currency, see [Azure Container Apps Pricing](https://azure.microsoft.com/pricing/details/container-apps/).
 
-For best results, maximize use of your allocated resources by calculating the needs of your container apps. Often you can run multiple apps on a single profile.
+> [!NOTE]
+> The Container Apps premium plan requires you to use [your own virtual network](networking.md#managed-resources), additional charges may apply.
+
+- **Workload Profiles**: You're billed based on the number of instances of each workload profile in use. As profiles scale out, extra costs apply for the additional instances; as profiles scale in billing is reduced. Regardless of the profile type(s) you select, there's a minimum resource requirement of 6 vCPUs and 24Gibs of memory.
+
+For best results, maximize the use of your allocated resources by calculating the needs of your container apps. Often you can run multiple apps on a single instance of a workload profile.
