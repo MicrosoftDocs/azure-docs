@@ -263,7 +263,7 @@ For the properties of your key vault, use the following guidelines:
 
 Once your key vault is created, navigate to the resource in Azure portal. On the left navigation menu of the resource blade, under Settings, click **Keys**. On the view for "Keys," click "Generate/Import" to generate a new key. Use any unique Name for this key, and any other preferences based on your requirements. Make sure to capture key name and version for subsequent steps.
 
-![Generate a new key](./media/container-instances-encrypt-data/generate-key.png)
+![Screenshot of key creation settings, PNG.](./media/container-instances-encrypt-data/generate-key.png)
 
 ### Create a user-assigned managed identity for your container group
 Create an identity in your subscription using the [az identity create](/cli/azure/identity#az-identity-create) command. You can use the same resource group used to create the key vault, or use a different one.
