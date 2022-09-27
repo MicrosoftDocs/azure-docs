@@ -19,7 +19,7 @@ In this article, you'll learn how to migrate a load balancer with NIC-based back
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An existing standard Load Balancer in the subscription, with NIC-based backend pools.
-- <!-- prerequisite n -->
+
 ## What is IP-based Load Balancer 
 
 IP-based load balancers reference the private IP address of the resource in the backend pool rather than the resource’s NIC. IP-based load balancers enable the pre-allocation of private IP addresses in a backend pool, without having to create the backend resources themselves in advance.
