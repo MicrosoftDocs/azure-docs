@@ -20,15 +20,20 @@ Designing and building sustainable workloads requires understanding the platform
 ## Application Platform Design (AKS cluster)
 
 
-### Review platform and service updates regularly
+### Review platform and service updates regularly 
+_sustainability design principle: [Energy efficiency](sustainability-design-principles.md#energy-efficiency)_
 
-_Green Software Foundation alignment: [Energy efficiency](sustainability-design-principles.md#energy-efficiency)_
 
-**Recommendation:**
+|**Recommendations:** | _WAF Pillars alignment_ | 
+|---|---|
+|- Configure [Automatic **Cluster Ugrade**](/azure/aks/auto-upgrade-cluster)  | _Operational Excellence_
+|- Configure [Automatic **Linux node updates**](/azure/aks/node-updates-kured) | _Operational Excellence_
 
-- Configure [Cluster Auto-Ugrade](/azure/aks/auto-upgrade-cluster) 
-  - _WAF Pillars alignment: Operational Excellence_
-- Consider backward compatibility and hardware reusability. An upgrade may not be the most efficient solution if the hardware or the OS isn't supported.
+
+-  **Potential tradeoffs**
+   - Consider backward compatibility and hardware reusability. An upgrade may not be the most efficient solution if the hardware or the OS isn't supported.
+
+
 
 ### Deploy to low-carbon regions
 
