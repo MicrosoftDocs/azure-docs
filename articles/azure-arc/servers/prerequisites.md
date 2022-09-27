@@ -1,7 +1,7 @@
 ---
 title: Connected Machine agent prerequisites
 description: Learn about the prerequisites for installing the Connected Machine agent for Azure Arc-enabled servers.
-ms.date: 09/14/2022
+ms.date: 09/27/2022
 ms.topic: conceptual 
 ---
 
@@ -28,7 +28,7 @@ The following versions of the Windows and Linux operating system are officially 
   * Azure Editions are supported when running as a virtual machine on Azure Stack HCI
 * Windows IoT Enterprise
 * Azure Stack HCI
-* Ubuntu 16.04, 18.04, and 20.04 LTS
+* Ubuntu 16.04, 18.04, 20.04, and 22.04 LTS
 * Debian 10
 * CentOS Linux 7 and 8
 * SUSE Linux Enterprise Server (SLES) 12 and 15
@@ -36,9 +36,8 @@ The following versions of the Windows and Linux operating system are officially 
 * Amazon Linux 2
 * Oracle Linux 7 and 8
 
-> [!NOTE] 
+> [!NOTE]
 > On Linux, Azure Arc-enabled servers install several daemon processes. We only support using systemd to manage these processes. In some environments, systemd may not be installed or available, in which case Arc-enabled servers are not supported, even if the distribution is otherwise supported. These environments include **Windows Subsystem for Linux** (WSL) and most container-based systems, such as Kubernetes or Docker. The Azure Connected Machine agent can be installed on the node that runs the containers but not inside the containers themselves.
-
 
 > [!WARNING]
 > If the Linux hostname or Windows computer name uses a reserved word or trademark, attempting to register the connected machine with Azure will fail. For a list of reserved words, see [Resolve reserved resource name errors](../../azure-resource-manager/templates/error-reserved-resource-name.md).
