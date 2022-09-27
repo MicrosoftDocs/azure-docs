@@ -380,7 +380,7 @@ The schema representation type decision must be made at the same time that Synap
 > [!NOTE]
 > In the command above, replace `New-AzCosmosDBAccount` with `Update-AzCosmosDBAccount` for existing accounts.
 > 
-## <a id="analytical-ttl"></a> Analytical Time-to-Live (TTL)
+## Analytical Time-to-Live (TTL)
 
 Analytical TTL (ATTL) indicates how long data should be retained in your analytical store, for a container.
 
