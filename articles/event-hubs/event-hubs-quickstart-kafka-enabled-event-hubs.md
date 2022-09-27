@@ -57,7 +57,7 @@ Azure Event Hubs supports using Azure Active Directory (Azure AD) to authorize r
             :::image type="content" source="./media/event-hubs-quickstart-kafka-enabled-event-hubs/add-vm-identity.png" alt-text="Screenshot showing the Add role assignment -> Select managed identities page.":::      
     1. Select **Review + Assign**.
 
-        :::image type="content" source="./media/event-hubs-quickstart-kafka-enabled-event-hubs/add-vm-identity.png" alt-text="Screenshot showing the Add role assignment -> Select managed identities page.":::
+        :::image type="content" source="./media/event-hubs-quickstart-kafka-enabled-event-hubs/review-assign.png" alt-text="Screenshot showing the Add role assignment -> Select managed identities page.":::
 1. Restart the VM and log in back to the VM for which you configured the managed identity. 
 1. Clone the [Azure Event Hubs for Kafka repository](https://github.com/Azure/azure-event-hubs-for-kafka).
 1. Navigate to `azure-event-hubs-for-kafka/tutorials/oauth/java/managedidentity/consumer`.
