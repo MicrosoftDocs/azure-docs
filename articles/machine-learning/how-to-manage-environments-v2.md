@@ -1,19 +1,19 @@
 ---
-title: 'Manage Azure Machine Learning environments with the CLI (v2)'
+title: 'Manage Azure Machine Learning environments with the CLI & SDK (v2)'
 titleSuffix: Azure Machine Learning
-description: Learn how to manage Azure ML environments using Azure CLI extension for Machine Learning.
+description: Learn how to manage Azure ML environments using Python SDK and Azure CLI extension for Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 author: blackmist
 ms.author: larryfr
-ms.date: 03/31/2022
+ms.date: 09/27/2022
 ms.reviewer: nibaccam
 ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022
 ---
 
-# Manage Azure Machine Learning environments with the CLI (v2)
+# Manage Azure Machine Learning environments with the CLI & SDK (v2)
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
@@ -30,7 +30,7 @@ In this article, learn how to create and manage Azure ML environments using the 
 
 ## Prerequisites
 
-[!INCLUDE (sdk/cliv2)[../../machine-learning-cli-sdk-v2-prereqs.md]]
+[!INCLUDE [sdk/cliv2](../../machine-learning-cli-sdk-v2-prereqs.md)]
 
 > [!TIP]
 > For a full-featured development environment, use Visual Studio Code and the [Azure Machine Learning extension](how-to-setup-vs-code.md) to [manage Azure Machine Learning resources](how-to-manage-resources-vscode.md) and [train machine learning models](tutorial-train-deploy-image-classification-model-vscode.md).
