@@ -10,7 +10,6 @@ ms.date: 08/02/2022
 At this time, a test or preview build is not available for the next release.
 -->
 
-
 The current test release published on September 27, 2022.
 
 |Component|Value|
@@ -30,7 +29,7 @@ New for this release:
 -->
 
 - Arc-enabled SQL managed instance
-  - New reprovision replica task provides users a way to rebuild a broken sql instance replica. More infromation [below](#reprovision-replica).
+  - New reprovision replica task lets you rebuild a broken sql instance replica. For more information, see [Reprovision replica](#reprovision-replica).
 
 <!--
 - Arc-enabled PostgreSQL server
@@ -40,51 +39,53 @@ New for this release:
   - Columns for release information added to the following commands: `az sql mi-arc list` this makes it easy to see what instance may need to be updated.
   - Alternately you can run `az arcdata dc list-upgrades'
 
+### Reprovision replica
 
-# Reprovision Replica
+The reprovision replica task lets you rebuild a broken sql instance replica. It is intended to be used for a replica that is failing to synchronize, perhaps due to corruption of the data on the persistent volumes (PV) for that instance, or due to some recurring SQL issue, for example.
 
-The reprovision replica task provides users a way to rebuild a broken sql instance replica. It is intended to be used for a replica that is failing to synchronize, perhaps due to corruption of the data on the PV(s) for that instance, or due to some recurring SQL issue, etc.
+Support for reprovisioning of a replica is provided only via `az` CLI and kube-native. There is no portal support.
 
-Support for reprovisioning of a replica is provided only via az cli and kube-native. There is no portal support.
+#### Prerequisites
 
-## Prerequisites
 Reprovisioning can only be performed on a multi-replica instance.
 
-## How to request a reprovision
+#### Request a reprovision replica
 
-### Via CLI
+Request provisioning [via `az` CLI](#via-az-cli) or [via `kubectl`](#via-kubectl).
 
-```
+##### Via `az` CLI
+
+```az
 az sql mi-arc reprovision-replica -n <instance_name-replica_number> -k <namespace> --use-k8s
 ```
 
 For example, for replica 2 of instance mySqlInstance in namespace arc, the command would be:
 
-```
+```az
 az sql mi-arc reprovision-replica -n mySqlInstance-2 -k arc --use-k8s
 ```
 
-This will run until completion at which point the message displayed by the cli will be:
+This runs until completion at which point the console returns:
 
-```
+```az
 sql-reprov-replica-mySqlInstance-2-1664217002.376132 is Ready
 ```
 
-Note that the name of the thing that is ready, is the kubernetes task. At this point you can either examine the task:
+The name of the thing that is ready, is the kubernetes task. At this point you can either examine the task:
 
-```
+```console
 kubectl describe SqlManagedInstanceReprovisionReplicaTask sql-reprov-replica-mySqlInstance-2-1664217002.376132 -n arc
 ```
 
-or delete it:
+Or delete it:
 
-```
+```console
 kubectl delete SqlManagedInstanceReprovisionReplicaTask sql-reprov-replica-mySqlInstance-2-1664217002.376132 -n arc
 ```
 
-There is an optional --no-wait parameter for the cli. If you send the request with --no-wait, the output will include the name of the task to be monitored. For example:
+There is an optional `--no-wait` parameter for the command. If you send the request with `--no-wait`, the output will include the name of the task to be monitored. For example:
 
-```
+```az
 az sql mi-arc reprovision-replica -n mySqlInstance-2 -k arc --use-k8s --no-wait
 Reprovisioning replica mySqlInstance-2 in namespace `arc`. Please use
 `kubectl get -n arc SqlManagedInstanceReprovisionReplicaTask sql-reprov-replica-mySqlInstance-2-1664217434.531035`
@@ -93,10 +94,11 @@ to check its status or
 to view all reprovision tasks.
 ```
 
-### Via kubectl
+#### Via kubectl
+
 The CRD for reprovision replica is fairly simple. You can create a yaml file with this structure:
 
-```
+```yaml
 apiVersion: tasks.sql.arcdata.microsoft.com/v1beta1
 kind: SqlManagedInstanceReprovisionReplicaTask
 metadata:
@@ -108,7 +110,7 @@ spec:
 
 To use the same example as above, mySqlinstance replica 2, the payload would be:
 
-```
+```yaml
 apiVersion: tasks.sql.arcdata.microsoft.com/v1beta1
 kind: SqlManagedInstanceReprovisionReplicaTask
 metadata:
@@ -119,21 +121,23 @@ spec:
 ```
 
 Once the yaml is applied via kubectl apply, you can monitor or delete the task via kubectl:
-```
+
+```console
 kubectl get -n arc SqlManagedInstanceReprovisionReplicaTask my-reprovision-task-mySqlInstance-2
 kubectl describe -n arc SqlManagedInstanceReprovisionReplicaTask my-reprovision-task-mySqlInstance-2
 kubectl delete -n arc SqlManagedInstanceReprovisionReplicaTask my-reprovision-task-mySqlInstance-2
 ```
 
-## Limitations
+#### Limitations
 
-* The task should reject attempts to reprovision the current primary replica. If the current primary is believed to be corrupted and in need of reprovisioning, the user should fail over to a different primary and then request the reprovisioning.
+- The task should reject attempts to reprovision the current primary replica. If the current primary is believed to be corrupted and in need of reprovisioning, the user should fail over to a different primary and then request the reprovisioning.
 
-* Reprovisioning of multiple replicas in the same instance will serialize; the tasks will accumulate and be held in "Creating" state until the currently active task finishes *and is deleted*. There is no auto-cleanup of a completed task, so this serialization will affect the user even if they run the az command synchronously and wait for it to complete before requesting another reprovision. In all cases they will have to remove the task via kubectl before another reprovision on the same instance can run. **There is no warning about this, either in the az cli or in kubectl.**
+- Reprovisioning of multiple replicas in the same instance will serialize; the tasks will accumulate and be held in "Creating" state until the currently active task finishes *and is deleted*. There is no auto-cleanup of a completed task, so this serialization will affect the user even if they run the az command synchronously and wait for it to complete before requesting another reprovision. In all cases they will have to remove the task via kubectl before another reprovision on the same instance can run. **There is no warning about this, either in the az cli or in kubectl.**
 
 
-More about that second limitation: If you have multiple requests to reprovision a replica in one instance, you may see something like this in the output from a kubectl get SqlManagedInstanceReprovisionReplicaTask:
-```
+More about that second limitation: If you have multiple requests to reprovision a replica in one instance, you may see something like this in the output from a `kubectl get SqlManagedInstanceReprovisionReplicaTask`:
+
+```console
 kubectl get SqlManagedInstanceReprovisionReplicaTask -n arc
 NAME                                                     STATUS      AGE
 sql-reprov-replica-c-sql-djlexlmty-1-1664217344.304601   Completed   13m
@@ -141,6 +145,4 @@ sql-reprov-replica-c-sql-kkncursza-1-1664217002.376132   Completed   19m
 sql-reprov-replica-c-sql-kkncursza-1-1664217434.531035   Creating    12m
 ```
 
-That last entry for replica c-sql-kkncursza-1, ```sql-reprov-replica-c-sql-kkncursza-1-1664217434.531035```, will stay in state Creating until the completed one ```sql-reprov-replica-c-sql-kkncursza-1-1664217002.376132``` is removed.
-
-
+That last entry for replica c-sql-kkncursza-1, `sql-reprov-replica-c-sql-kkncursza-1-1664217434.531035`, will stay in status `Creating` until the completed one `sql-reprov-replica-c-sql-kkncursza-1-1664217002.376132` is removed.
