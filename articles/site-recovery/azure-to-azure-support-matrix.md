@@ -234,7 +234,7 @@ Availability sets | Supported | If you enable replication for an Azure VM with t
 Availability zones | Supported |
 Dedicated Hosts | Not supported |
 Hybrid Use Benefit (HUB) | Supported | If the source VM has a HUB license enabled, a test failover or failed over VM also uses the HUB license.
-Virtual machine scale set (VMSS) Flex | Availability scenario - supported. Scalability scenario - not supported. |
+Virtual machine scale set Flex | Availability scenario - supported. Scalability scenario - not supported. |
 Azure gallery images - Microsoft published | Supported | Supported if the VM runs on a supported operating system.
 Azure Gallery images - Third party published | Supported | Supported if the VM runs on a supported operating system.
 Custom images - Third party published | Supported | Supported if the VM runs on a supported operating system.
