@@ -38,7 +38,7 @@ In addition,
 Regularly regenerating keys is a common security precaution. Like most Azure services requiring a subscription key, API Management generates keys in pairs. Each application using the service can switch from *key A* to *key B* and regenerate key A with minimal disruption, and vice versa.
 > [!NOTE]
 > * API Management doesn't provide built-in features to manage the lifecycle of subscription keys, such as setting expiration dates or automatically rotating keys. You can develop workflows to automate these processes using tools such as Azure PowerShell or the Azure SDKs. 
-> * To enforce time-limited access to APIs, you may be able to use policies with subscription keys, or use a mechanism that provides built-in expiration such as token-based authentication.
+> * To enforce time-limited access to APIs, API publishers may be able to use policies with subscription keys, or use a mechanism that provides built-in expiration such as token-based authentication.
 
 ## Scope of subscriptions
 
