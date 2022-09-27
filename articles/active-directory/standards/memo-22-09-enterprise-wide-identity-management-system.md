@@ -33,7 +33,7 @@ Memorandum 22-09 requires agencies to develop a plan to consolidate their identi
 
 ## Why Azure Active Directory?
 
-Azure Active Directory (Azure AD) provides the capabilities necessary to implement the recommendations from memorandum 22-09. It also provides broad identity controls that support Zero Trust initiatives. Today, If your agency uses Microsoft Office 365 or Azure, you already have Azure AD as an identity provider(IdP) and you can connect your applications and resources to Azure AD as your enterprise-wide identity system. 
+Azure Active Directory (Azure AD) provides the capabilities necessary to implement the recommendations from memorandum 22-09. It also provides broad identity controls that support Zero Trust initiatives. Today, If your agency uses Microsoft Office 365 or Azure, you already have Azure AD as an identity provider (IdP) and you can connect your applications and resources to Azure AD as your enterprise-wide identity system. 
 
 ## Single sign-on requirements
 
