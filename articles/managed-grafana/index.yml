@@ -43,7 +43,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Configure permissions
+          - text: Modify permissions
             url: how-to-permissions.md
           - text: Share an instance
             url: how-to-share-grafana-workspace.md
@@ -55,11 +55,9 @@ landingContent:
         links:
           - text: Service reliability
             url: high-availability.md
-          - text: Control Plane
+          - text: Control plane APIs
             url: /rest/api/managed-grafana
-          - text: Data Plane
-            url: https://aka.ms/managed-grafana-dataplane
-          - text: Grafana Enterprise
-            url: https://grafana.com/docs/grafana/latest/enterprise
+          - text: Data plane APIs
+            url: https://aka.ms/managed-grafana/docs/http-api
           - text: Grafana UI
             url: grafana-app-ui.md

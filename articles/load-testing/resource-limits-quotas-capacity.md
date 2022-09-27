@@ -44,14 +44,14 @@ The following limits apply on a per-region, per-subscription basis.
 
 ### Data retention
 
-When you run a load test, Azure Load Testing stores both client-side and [server-side metrics](./how-to-monitor-server-side-metrics.md) for the test run. Azure Load Testing has a per-test-run limit on the retention period for this data:
+Azure Load Testing captures metrics, test results, and logs for each test run. The following data retention limits apply:
 
-| Resource  | Limit |
-|---------|---------|
-| Server-side metrics | 90 days |
-| Client-side metrics | 365 days |
-
-The test run associated with the load test isn't removed.
+| Resource | Limit | Notes |
+|----------|-------|-------|
+| Server-side metrics | 90 days | Learn how to [configure server-side metrics](./how-to-monitor-server-side-metrics.md). |
+| Client-side metrics | 365 days | |
+| Test results | 6 months | Learn how to [export test results](./how-to-export-test-results.md). |
+| Test log files | 6 months | Learn how to [download the logs for troubleshooting tests](./how-to-find-download-logs.md). |
 
 ## Request quota increases
 

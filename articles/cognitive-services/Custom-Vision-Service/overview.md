@@ -34,8 +34,8 @@ This documentation contains the following types of articles:
 <!--* The [conceptual articles](Vision-API-How-to-Topics/call-read-api.md) provide in-depth explanations of the service's functionality and features.-->
 
 For a more structured approach, follow a Learn module for Custom Vision:
-* [Classify images with the Custom Vision service](/learn/modules/classify-images-custom-vision/)
-* [Classify endangered bird species with Custom Vision](/learn/modules/cv-classify-bird-species/)
+* [Classify images with the Custom Vision service](/training/modules/classify-images-custom-vision/)
+* [Classify endangered bird species with Custom Vision](/training/modules/cv-classify-bird-species/)
 
 ## How it works
 

@@ -1,12 +1,12 @@
 ---
 title: Configure database settings in Azure API for FHIR
 description: This article describes how to configure Database settings in Azure API for FHIR
-author: ginalee-dotcom
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference 
 ms.date: 06/03/2022
-ms.author: ranku
+ms.author: kesheth
 ---
 # Configure database settings 
 

@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 08/30/2022
+ms.date: 09/14/2022
 
 ms.author: justinha
 author: justinha
@@ -160,9 +160,11 @@ Depending on user activity, the data file can become outdated quickly. Any chang
 ### Install MFA Server update
 Run the new installer on the Primary MFA Server. Before you upgrade a server, remove it from load balancing or traffic sharing with other MFA Servers. You don't need to uninstall your current MFA Server before running the installer. The installer performs an in-place upgrade using the current installation path (for example, C:\Program Files\Multi-Factor Authentication Server). If you're prompted to install a Microsoft Visual C++ 2015 Redistributable update package, accept the prompt. Both the x86 and x64 versions of the package are installed. It isn't required to install updates for User portal, Web SDK, or AD FS Adapter.
 
-After the installation is complete, it can take several minutes for the datafile to be upgraded. During this time, the User portal may have issues connecting to the MFA Service. **Don't restart the MFA Service, or the MFA Server during this time.** This behavior is normal. Once the upgrade is complete, the primary server’s main service will again be functional. 
+After the installation is complete, it can take several minutes for the datafile to be upgraded. During this time, the User portal may have issues connecting to the MFA Service. **Don't restart the MFA Service, or the MFA Server during this time.** This behavior is normal. Once the upgrade is complete, the primary server’s main service will again be functional.
 
-You can check \Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log to make sure the upgrade is complete. You should see **Completed performing tasks to upgrade from 23 to 24**.
+You can check \Program Files\Multi-Factor Authentication Server\Logs\MultiFactorAuthSvc.log to see progress and make sure the upgrade is complete. **Completed performing tasks to upgrade from 23 to 24**.
+
+If you have thousands of users, you might schedule the upgrade during a maintenance window and take the User portal offline during this time. To estimate how long the upgrade will take, plan on around 4 minutes per 10,000 users. You can minimize the time by cleaning up disabled or inactive users prior to the upgrade.
 
 >[!NOTE]
 >After you run the installer on your primary server, secondary servers may begin to log **Unhandled SB** entries. This is due to schema changes made on the primary server that will not be recognized by secondary servers. These errors are expected. In environments with 10,000 users or more, the amount of log entries can increase significantly. To mitigate this issue, you can increase the file size of your MFA Server logs, or upgrade your secondary servers. 
