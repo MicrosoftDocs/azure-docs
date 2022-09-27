@@ -28,7 +28,7 @@
     href: tutorial-configure-networking.md
   - name: 4 - Access a private cloud
     href: tutorial-access-private-cloud.md
-  - name: 5 - Create an NSX-T network segment
+  - name: 5 - Create an NSX-T Data Center network segment
     href: tutorial-nsx-t-network-segment.md
   - name: 6 - Peer on-premises to private cloud
     href: tutorial-expressroute-global-reach-private-cloud.md
