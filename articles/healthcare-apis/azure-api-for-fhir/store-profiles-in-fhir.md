@@ -1,12 +1,12 @@
 ---
 title: Store profiles in Azure API for FHIR
 description: This article describes how to store profiles in Azure API for FHIR.
-author: ginalee-dotcom
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 06/03/2022
-ms.author: mikaelw
+ms.author: kesheth
 ---
 
 # Store profiles in Azure API for FHIR
