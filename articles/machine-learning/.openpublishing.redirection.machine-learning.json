@@ -1,6 +1,10 @@
 {
     "redirections": [ 
-        
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-use-managed-identities.md",
+        "redirect_url": "/azure/machine-learning/how-to-identity-based-service-authentication",
+        "redirect_document_id": true
+    },
     {
         "source_path_from_root": "/articles/machine-learning/tutorial-convert-ml-experiment-to-production.md",
         "redirect_url": "/azure/machine-learning/v1/how-to-convert-ml-experiment-to-production",
@@ -3440,6 +3444,16 @@
         "source_path_from_root": "/articles/machine-learning/v1/how-to-differential-privacy.md",
         "redirect_url": "/azure/machine-learning/concept-responsible-ml#privacy-and-security",
         "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-machine-learning-interpretability-automl.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-machine-learning-interpretability-automl",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-use-private-python-packages.md",
+        "redirect_url": "/azure/machine-learning/v1/how-to-use-private-python-packages",
+        "redirect_document_id": true
     }
 ]
 }

@@ -29,7 +29,7 @@ Learn more about the connectivity of our gateway, our new infrastructure require
 
 ## Prerequisites
 
-Before you can migrate to self-hosted gateway v2, you need to ensure your infrastructure [meets the requirements](self-hosted-gateway-overview.md#gateway-v2-requirements).
+Before you can migrate to self-hosted gateway v2, you need to ensure your infrastructure [meets the requirements](self-hosted-gateway-overview.md#fqdn-dependencies).
 
 ## Migrating to self-hosted gateway v2
 
@@ -55,8 +55,8 @@ Currently, Azure API Management provides the following Configuration APIs for se
 
 | Configuration Service | URL | Supported | Requirements |
 | --- | --- | --- | --- |
-| v2 | `{name}.configuration.azure-api.net` | Yes | [Link](self-hosted-gateway-overview.md#gateway-v2-requirements) |
-| v1 | `{name}.management.azure-api.net/subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/Microsoft.ApiManagement/service/{name}?api-version=2021-01-01-preview` | No | [Link](self-hosted-gateway-overview.md#gateway-v1-requirements) |
+| v2 | `{name}.configuration.azure-api.net` | Yes | [Link](self-hosted-gateway-overview.md#fqdn-dependencies) |
+| v1 | `{name}.management.azure-api.net/subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/Microsoft.ApiManagement/service/{name}?api-version=2021-01-01-preview` | No | [Link](self-hosted-gateway-overview.md#fqdn-dependencies) |
 
 Customer must use the new Configuration API v2 by changing their deployment scripts to use the new URL and meet infrastructure requirements.
 
