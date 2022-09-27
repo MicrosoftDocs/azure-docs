@@ -354,7 +354,7 @@
         href: configure-netweaver-azure-monitor-sap-solutions.md
       - name: Configure SAP HANA provider
         href: configure-hana-azure-monitor-sap-solutions.md
-      - name: Configure Microsoft SQL Server pProvider
+      - name: Configure Microsoft SQL Server provider
         href: configure-sql-server-azure-monitor-sap-solutions.md
       - name: Configure High-availability cluster (Pacemaker) provider
         href: configure-ha-cluster-azure-monitor-sap-solutions.md
@@ -442,8 +442,8 @@
     items:
     - name: Azure HANA Large Instances control through Azure portal
       href: hana-li-portal.md
-    - name: HA Setup with STONITH
-      href: ha-setup-with-stonith.md
+    - name: HA Setup with fencing device
+      href: ha-setup-with-fencing-device.md
     - name: OS Backup
       href: large-instance-os-backup.md
     - name: OS Backup HLI TYPE - 2
