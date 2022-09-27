@@ -32,7 +32,7 @@ Check the service overview page to find out how many indexes, indexers, and data
 
 ## Create and load an index
 
-Search queries iterate over an [*index*](search-what-is-an-index.md) that contains searchable data, metadata, and additional constructs that optimize certain search behaviors.
+Search queries iterate over an [*index*](search-what-is-an-index.md) that contains searchable data, metadata, and other constructs that optimize certain search behaviors.
 
 For this tutorial, we use a built-in sample dataset that can be crawled using an [*indexer*](search-indexer-overview.md) via the [**Import data** wizard](search-import-data-portal.md). An indexer is a source-specific crawler that can read metadata and content from supported Azure data sources. Normally, indexers are used programmatically, but in the portal, you can access them through the **Import data** wizard. 
 
@@ -40,11 +40,11 @@ For this tutorial, we use a built-in sample dataset that can be crawled using an
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
-1. [Find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, click **Import data** on the command bar to create and populate a search index.
+1. [Find your search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, select **Import data** on the command bar to create and populate a search index.
 
    :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command in the command bar." border="true":::
 
-1. In the wizard, click **Connect to your data** > **Samples** > **hotels-sample**. This data source is built-in. If you were creating your own data source, you would need to specify a name, type, and connection information. Once created, it becomes an "existing data source" that can be reused in other import operations.
+1. In the wizard, select **Connect to your data** > **Samples** > **hotels-sample**. This data source is built-in. If you were creating your own data source, you would need to specify a name, type, and connection information. Once created, it becomes an "existing data source" that can be reused in other import operations.
 
    :::image type="content" source="media/search-get-started-portal/import-datasource-sample.png" alt-text="Screenshot of the select sample dataset page in the wizard.":::
 
@@ -63,7 +63,7 @@ We'll skip this step for now, and move directly on to **Customize target index**
 
 ### Step 3 - Configure index
 
-For the built-in hotels sample index, a default index schema is defined for you. With the exception of a few advanced filter examples, queries in the documentation and samples that target the hotel-samples index will run on this index definition:
+For the built-in hotels sample index, a default index schema is defined for you. Except for a few advanced filter examples, queries in the documentation and samples that target the hotel-samples index will run on this index definition:
 
 :::image type="content" source="media/search-get-started-portal/hotelsindex.png" alt-text="Screenshot of the generated hotels index definition in the wizard.":::
 
@@ -88,17 +88,17 @@ By default, the wizard scans the data source for unique identifiers as the basis
 
 ### Step 4 - Configure indexer
 
-Still in the **Import data** wizard, click **Indexer** > **Name**, and type a name for the indexer.
+Still in the **Import data** wizard, select **Indexer** > **Name**, and type a name for the indexer.
 
 This object defines an executable process. You could put it on recurring schedule, but for now use the default option to run the indexer once, immediately.
 
-Click **Submit** to create and simultaneously run the indexer.
+Select **Submit** to create and simultaneously run the indexer.
 
   :::image type="content" source="media/search-get-started-portal/hotels-indexer.png" alt-text="Screenshot of the hotels indexer definition in the wizard.":::
 
 ## Monitor progress
 
-The wizard should take you to the Indexers list where you can monitor progress. For self-navigation, go to the Overview page and click the **Indexers** tab.
+The wizard should take you to the Indexers list where you can monitor progress. For self-navigation, go to the Overview page and select the **Indexers** tab.
 
 It can take a few minutes for the portal to update the page, but you should see the newly created indexer in the list, with status indicating "in progress" or success, along with the number of documents indexed.
 
@@ -106,13 +106,13 @@ It can take a few minutes for the portal to update the page, but you should see 
 
 ## Check results
 
-The service overview page provides links to the resources created in your Azure Cognitive Search service.  To view the index you just created, click **Indexes** from the list of links. 
+The service overview page provides links to the resources created in your Azure Cognitive Search service.  To view the index you just created, select **Indexes** from the list of links. 
 
 Wait for the portal page to refresh. After a few minutes, you should see the index with a document count and storage size.
 
    :::image type="content" source="media/search-get-started-portal/indexes-list.png" alt-text="Screenshot of the Indexes list on the service dashboard.":::
 
-From this list, you can click on the *hotels-sample* index that you just created, view the index schema. and optionally add new fields. 
+From this list, you can select on the *hotels-sample* index that you just created, view the index schema. and optionally add new fields. 
 
 The **Fields** tab shows the index schema. If you're writing queries and need to check whether a field is filterable or sortable, this tab shows you the attributes.
 
@@ -175,7 +175,7 @@ If you're using a free service, remember that the limit is three indexes, indexe
 
 ## Next steps
 
-Use a portal wizard to generate a ready-to-use web app that runs in a browser. You can try this wizard out on the small index you just created, or use one of the built-in sample data sets for a richer search experience.
+Use a portal wizard to generate a ready-to-use web app that runs in a browser. You can try out this wizard on the small index you just created, or use one of the built-in sample data sets for a richer search experience.
 
 > [!div class="nextstepaction"]
 > [Create a demo app in the portal](search-create-app-portal.md)
