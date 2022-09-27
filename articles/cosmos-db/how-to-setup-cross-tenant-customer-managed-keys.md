@@ -113,7 +113,30 @@ Deploy an ARM template with the following specific parameters:
 
 Here's an example of a template segment with the three parameters configured:
 
-:::code language="json" source="resources/cross-tenant-customer-managed-keys-sample-template.json" highlight="4-9,19,20":::
+```json
+{
+  "kind": "GlobalDocumentDB",
+  "location": "East US 2",
+  "identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-identity": {}
+    }
+  },
+  "properties": {
+    "locations": [
+      {
+        "locationName": "East US 2",
+        "failoverPriority": 0,
+        "isZoneRedundant": false
+      }
+    ],
+    "databaseAccountOfferType": "Standard",
+    "keyVaultKeyUri": "https://my-vault.vault.azure.com/keys/my-key",
+    "defaultIdentity": "UserAssignedIdentity=/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-identity&FederatedClientId=11111111-1111-1111-1111-111111111111"
+  }
+}
+```
 
 > [!IMPORTANT]
 > This feature is not yet supported in Azure PowerShell, Azure CLI, or the Azure portal.
