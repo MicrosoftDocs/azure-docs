@@ -23,10 +23,6 @@ compliant with the specific standard.
 
 ### October 2022
 
-- **Function app slots should have authentication enabled**
-  - New policy created
-- **App Service app slots should have authentication enabled**
-  - New policy created
 - **Function app slots should have remote debugging turned off**
   - New policy created
 - **App Service app slots should have remote debugging turned off**
@@ -36,8 +32,6 @@ compliant with the specific standard.
 - **Function app slots should use the latest TLS version**
   - New policy created
 - **App Service app slots should use the latest TLS version**
-  - New policy created
-- **App Service app slots should use private link**
   - New policy created
 - **App Service app slots should have resource logs enabled**
   - New policy created
@@ -67,6 +61,18 @@ compliant with the specific standard.
   - New policy created
 - **Configure Function app slots to disable public network access**
   - New policy created
+- **Configure App Service app slots to turn off remote debugging**
+  - New policy created
+- **Configure Function app slots to turn off remote debugging**
+  - New policy created
+- **Configure App Service app slots to use the latest TLS version**
+  - New policy created
+- **Configure Function app slots to use the latest TLS version**
+  - New policy created
+- **App Service apps should use latest 'HTTP Version'**
+  - Updated scope to include Windows apps
+- **Function apps should use latest 'HTTP Version'**
+  - Updated scope to include Windows apps
 
 ### September 2022
 
