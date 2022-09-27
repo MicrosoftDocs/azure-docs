@@ -147,7 +147,7 @@ _Green Software Foundation alignment: [Energy efficiency](sustainability-design-
 
 **Potential tradeoffs**
 
-- Keda Cron scaler, helps scale applications based on time. It is best to design your applications to scale based on demand (or scaling events : traffic, queue length, etc.).
+- Keda Cron scaler, helps scale applications based on time. It is best to design your applications to scale based on demand (traffic, queue length, etc.).
 
 
 
@@ -160,8 +160,12 @@ _Green Software Foundation alignment: [Hardware efficiency](sustainability-desig
 https://learn.microsoft.com/en-us/azure/aks/scale-cluster?tabs=azure-cli#scale-user-node-pools-to-0
 - Review [auto-scaling](/azure/architecture/best-practices/auto-scaling) guidance for Azure workloads.
 - Review the [B-series burstable virtual machine sizes](/azure/virtual-machines/sizes-b-series-burstable).
+
+**Potential tradeoffs**
+
 - Consider that it may require tuning to prevent unnecessary scaling during short bursts of high demand, as opposed to a static increase in demand.
 - Consider the application architecture as part of scaling considerations. For example, [logical components should scale independently](sustainability-application-design.md#evaluate-moving-monoliths-to-a-microservice-architecture) to match the demand of that component, as opposed to scaling the entire application if only a portion of the components needs scaling.
+
 
 ### Match the scalability needs
 
