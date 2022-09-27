@@ -351,7 +351,7 @@ if (r.json())["status"] == 'succeeded':
     result_file_headers = {'api-key': api_key}
 
     print(f'Downloading result file: {result_file_id}')
-    # Write the byte array returned by the REST API method to 
+    # Write the file contents returned by the REST API method to 
     # a local file in the working directory.
     with open(result_file_name, "w") as file:
         r = requests.get(api_base + 'openai/files/' + result_file_id + "/content", 
