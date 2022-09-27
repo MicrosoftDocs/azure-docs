@@ -205,7 +205,7 @@
     - name: Upgrade an internal load balancer - Outbound connections required
       href: upgrade-internalbasic-to-publicstandard.md
     - name: Upgrade from Basic to Standard for Virtual Machine Scale Sets
-      href: upgrade-basic-standard-vm-scale-set.md
+      href: upgrade-basic-standard-virtual-machine-scale-sets.md
   - name: Using multiple IP configurations
     items:
     - name: Azure portal
