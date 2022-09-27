@@ -1535,24 +1535,6 @@ items:
     href: policy-reference.md
   - name: Legacy and retired features
     items:
-    - name: Classic autoscale & metrics API
-      href: ./essentials/classic-api-retirement-metrics-autoscale.md
-    - name: NULL values in exported metrics
-      href: essentials/metrics-supported-export-diagnostic-settings.md
-    - name: Disk metrics deprecation
-      href: essentials/portal-disk-metrics-deprecation.md
-    - name: Unix metrics
-      href: app/java-2x-collectd.md
-    - name: Micrometer Metrics
-      displayName: java
-      href: app/java-2x-micrometer.md
-    - name: Change to blob storage format
-      displayName: Diagnostic settings
-      href: essentials/resource-logs-blob-format.md
-    - name: Classic alerting & monitoring
-      href: alerts/monitoring-classic-retirement.md
-    - name: Switch to current log alert API
-      href: alerts/alerts-log-api-switch.md
     - name: Monitoring solutions 
       items:
       - name: Overview
@@ -1612,8 +1594,24 @@ items:
             href: logs/app-insights-connector.md
           - name: Key Vault Analytics (deprecated)
             href: insights/azure-key-vault-deprecated.md
-    - name: OMS portal deprecation
-      href: logs/oms-portal-transition.md
+    - name: Classic autoscale & metrics API
+      href: ./essentials/classic-api-retirement-metrics-autoscale.md
+    - name: NULL values in exported metrics
+      href: essentials/metrics-supported-export-diagnostic-settings.md
+    - name: Disk metrics deprecation
+      href: essentials/portal-disk-metrics-deprecation.md
+    - name: Unix metrics
+      href: app/java-2x-collectd.md
+    - name: Micrometer Metrics
+      displayName: java
+      href: app/java-2x-micrometer.md
+    - name: Change to blob storage format
+      displayName: Diagnostic settings
+      href: essentials/resource-logs-blob-format.md
+    - name: Classic alerting & monitoring
+      href: alerts/monitoring-classic-retirement.md
+    - name: Switch to current log alert API
+      href: alerts/alerts-log-api-switch.md
     - name: Views (deprecated)
       items:
       - name: View Designer

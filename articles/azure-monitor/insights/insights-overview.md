@@ -4,14 +4,14 @@ description: Lists available Azure Monitor "Insights" and other Azure product in
 ms.topic: conceptual
 author: rboucher
 ms.author: robb
-ms.date: 04/05/2022
+ms.date: 10/15/2022
 ms.reviewer: robb
 ---
 # Azure Monitor Insights Overview
 
 Some services have a curated monitoring experience. That is, Microsoft provides customized functionality meant to act as a starting point for monitoring those services. These experiences are collectively known as *curated visualizations* with the larger more complex of them being called *Insights*.
 
-The experiences collect and analyze a subset of logs and metrics. Depending on the service, they might also provide out-of-the-box alerting. They present this telemetry in a visual layout. The visualizations vary in size and scale.
+The experiences collect and analyze a subset of available telemetry for a given service(s). Depending on the service, the experiences might also provide out-of-the-box alerting. They present the telemetry in a visual layout. The visualizations vary in size and scale.
 
 Some visualizations are considered part of Azure Monitor and follow the support and service level agreements for Azure. They're supported in all Azure regions where Azure Monitor is available. Other curated visualizations provide less functionality, might not scale, and might have different agreements. Some might be based solely on Azure Monitor Workbooks, while others might have an extensive custom experience.
 
