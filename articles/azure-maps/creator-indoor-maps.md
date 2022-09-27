@@ -154,15 +154,7 @@ Example layer in the style.json file:
 
 The map configuration is an array of configurations. Each configuration consists of a [basemap][basemap] and one or more layers, each layer consisting of a [style][style] + [tileset][tileset] tuple.
 
-<!------------------------------  Option #1  --------------------------------------------------------------->
-The map configuration is used when you [Instantiate the Indoor Manager][instantiate-indoor-manager] of a Map object when developing  applications in Azure Maps. It's referenced using the `mapConfigurationId` or `alias`. Map configurations are immutable. Anytime you make a change using the visual editor and save it using the same `alias` as an existing map configuration, your existing map configuration, including the `mapConfigurationId`, is replaced with a new one. This will result in errors in code referencing that `mapConfigurationId` since the ID will no longer point to an existing map configuration. The alias is constant and can be used to reference your map configuration regardless of how many times the map configuration it points to has changed. It is recommended to use the `alias` property when referencing a map configuration in your code.
-
-> [!NOTE]
-> When using the [map configuration][map-config-api] Rest API to create a new map configuration using the same value for the `alias` property as an existing map configuration, a new configuration is created with a new `mapConfigurationId` and the alias will point to that new map configuration. The old map configuration is not deleted and can still be accessed using the same `mapConfigurationId`. If you reference a map configuration in your code using the `mapConfigurationId`, you will not see the new map configuration because it will be pointing to the original one.
-
-<!------------------------------  Option #2  ---------------------------------------------------------------
-The map configuration is used when you [Instantiate the Indoor Manager][instantiate-indoor-manager] of a Map object when developing a map application. It's referenced using the `mapConfigurationId` or `alias`. Each time you change a map configuration, its ID changes but its alias remains the same. It is recommended to reference the map configuration by its alias in your applications.
------------------------------------------------------------------------------------------------------------->
+The map configuration is used when you [Instantiate the Indoor Manager][instantiate-indoor-manager] of a Map object when developing applications in Azure Maps. It's referenced using the `mapConfigurationId` or `alias`. Map configurations are immutable. When making changes to an existing map configuration, a new map configuration will be created, resulting in a different `mapConfingurationId`. Anytime you create a map configuration using an alias already used by an existing map configuration, it will always point to the new map configuration.
 
 Below is an example of a map configuration JSON showing the default configurations. See the table below for a description of each element of the file:
 
