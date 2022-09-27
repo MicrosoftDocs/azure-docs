@@ -56,7 +56,7 @@ Create database RetailCosmosDB
 
 Next, create multiple views across different Synapse Link enabled Azure Cosmos containers. Views will allow you to use T-SQL to join and query Azure Cosmos DB data sitting in different containers.  Make sure to select the **RetailCosmosDB** database when creating the views.
 
-The following scripts show how to create views on each container. For simplicity, let’s use the [automatic schema inference](analytical-store-introduction.md#analytical-schema) feature of serverless SQL pool over Synapse Link enabled containers:
+The following scripts show how to create views on each container. For simplicity, let’s use the [automatic schema inference](analytical-store-introduction.md) feature of serverless SQL pool over Synapse Link enabled containers:
 
 
 ### RetailSales view:
