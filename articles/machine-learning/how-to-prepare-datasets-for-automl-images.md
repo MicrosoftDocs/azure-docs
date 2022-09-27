@@ -48,11 +48,11 @@ It helps to create, manage, and monitor data labeling tasks for
 If you already have a data labeling project and you want to use that data, you can [export your labeled data as an Azure ML Dataset](how-to-create-image-labeling-projects.md#export-the-labels). You can then access the exported dataset under the 'Datasets' tab in Azure ML Studio, and download the underlying JSONL file from the Dataset details page under Data sources. The downloaded JSONL file can then be used to create an `MLTable` that can be used by automated ML for training computer vision models.
 
 ### Using pre-labeled training data from local machine
-If you have previously labeled data that you would like to use to train your model, you will first need to upload the images to the default Azure Blob Storage of your Azure ML Workspace and register it as a data asset. 
+If you have previously labeled data that you would like to use to train your model, you will first need to upload the images to the default Azure Blob Storage of your Azure ML Workspace and register it as a [data asset](how-to-create-data-assets.md). 
 
 Below scripts uploads the image data on your local machine at path "./data/odFridgeObjects" to datastore in Azure Blob Storage. Thereafter, it creates a new data asset with the name "fridge-items-images-object-detection" in your Azure ML Workspace. 
 
-If there already exists a data asset with name "fridge-items-images-object-detection" in your Azure ML Workspace, then it'll update its version number of data asset and make it point to new location in datastore in Azure Blob Storage where we uploaded the image data.
+If there already exists a data asset with name "fridge-items-images-object-detection" in your Azure ML Workspace, then it will update version number of the data asset and point it to the new location where the image data uploaded.
 
 # [Azure CLI](#tab/cli)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
@@ -114,9 +114,7 @@ If your training data is in a different format (like, pascal VOC or COCO), [help
 
 
 ### Using pre-labeled training data from Azure Blob storage
-If you have your labelled training data present in a container in Azure Blob storage, then you can access it directly from there by [creating a datastore referring to that container](how-to-prepare-datasets-for-automl-images.md#create-an-azure-blob-datastore). Once you have created a datastore in AML workspace, linked to a existing container in blob, you'll have to update authentication details for that datastore. You'll have to select subscription id, resource group and provide either Account Key or SAS token.
-
-![Update Authentication for Datastore.](media/how-to-prepare-datasets-for-automl-images/update-datastore-authentication.png)
+If you have your labelled training data present in a container in Azure Blob storage, then you can access it directly from there by [creating a datastore referring to that container](how-to-datastore.md#create-an-azure-blob-datastore). 
 
 ## Create MLTable
 
