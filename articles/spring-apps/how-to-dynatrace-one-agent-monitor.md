@@ -85,7 +85,7 @@ To add the key/value pairs using the Azure portal, use the following steps:
 
 1. Navigate to the list of your existing applications.
 
-   :::image type="content" source="media/dynatrace-oneagent/existing-applications.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps Apps section." lightbox="media/dynatrace-oneagent/existing-applications.png":::
+   :::image type="content" source="media/dynatrace-oneagent/existing-applications.png" alt-text="Screenshot of the Azure portal showing the Azure Spring Apps section." lightbox="media/dynatrace-oneagent/existing-applications.png":::
 
 1. Select an application to navigate to the **Overview** page of the application.
 

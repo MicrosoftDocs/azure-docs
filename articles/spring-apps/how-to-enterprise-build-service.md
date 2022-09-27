@@ -153,10 +153,6 @@ To edit service bindings for the builder, select **Edit**. After a builder is bo
 > [!NOTE]
 > When configuring environment variables for APM bindings, use key names without a prefix. For example, do not use a `DT_` prefix for a Dynatrace binding. Tanzu APM buildpacks will transform the key name to the original environment variable name with a prefix.
 
-The following example shows Dynatrace properties.
-
-:::image type="content" source="media/enterprise/how-to-enterprise-build-service/bound-service-binding.png" alt-text="Screenshot of Azure portal showing the Edit binding for Dynatrace pane." lightbox="media/enterprise/how-to-enterprise-build-service/bound-service-binding.png":::
-
 ## Manage buildpack bindings
 
 You can manage buildpack bindings with the Azure portal or the Azure CLI.
