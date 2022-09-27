@@ -195,6 +195,7 @@ _Green Software Foundation alignment: [Energy efficiency](sustainability-design-
 
 - Evaluate if the Ampere Altra Arm-based VMs is a good option for your workloads.
 - Read more about [Azure Virtual Machines with Ampere Altra Arm–based processors](https://azure.microsoft.com/blog/azure-virtual-machines-with-ampere-altra-arm-based-processors-generally-available/) on Azure.
+- Monitor your AKS clusters having Arm nodes [with container insights](https://azure.microsoft.com/en-us/updates/public-preview-monitoring-for-ampere-altra-arm-based-vms-and-aks-clusters/)
 
 ### Delete zombie workloads
 
