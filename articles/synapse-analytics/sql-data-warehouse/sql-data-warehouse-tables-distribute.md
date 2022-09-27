@@ -5,7 +5,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 08/09/2022
+ms.date: 09/27/2022
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: 
