@@ -14,7 +14,7 @@ ms.date: 10/21/2021
 
 # Interpretability: Model explainability in automated ML (preview)
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to get explanations for automated machine learning (automated ML) models in Azure Machine Learning using the Python SDK. Automated ML helps you understand feature importance of the models that are generated. 
 
@@ -30,7 +30,7 @@ In this article, you learn how to:
 ## Prerequisites
 
 - Interpretability features. Run `pip install azureml-interpret` to get the necessary package.
-- Knowledge of building automated ML experiments. For more information on how to use the Azure Machine Learning SDK, complete this [object detection model tutorial](tutorial-auto-train-image-models.md) or see how to [configure automated ML experiments](how-to-configure-auto-train.md).
+- Knowledge of building automated ML experiments. For more information on how to use the Azure Machine Learning SDK, complete this [object detection model tutorial](../tutorial-auto-train-image-models.md) or see how to [configure automated ML experiments](../how-to-configure-auto-train.md).
 
 ## Interpretability during training for the best model
 
@@ -315,8 +315,8 @@ You can visualize the feature importance chart in your workspace in [Azure Machi
 
 [![Machine Learning Interpretability Architecture](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png)](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png#lightbox)
 
-For more information on the explanation dashboard visualizations and specific plots, please refer to the [how-to doc on interpretability](how-to-machine-learning-interpretability-aml.md).
+For more information on the explanation dashboard visualizations and specific plots, please refer to the [how-to doc on interpretability](../how-to-machine-learning-interpretability-aml.md).
 
 ## Next steps
 
-For more information about how you can enable model explanations and feature importance in areas other than automated ML, see [more techniques for model interpretability](how-to-machine-learning-interpretability.md).
+For more information about how you can enable model explanations and feature importance in areas other than automated ML, see [more techniques for model interpretability](../how-to-machine-learning-interpretability.md).
