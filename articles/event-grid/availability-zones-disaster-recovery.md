@@ -56,7 +56,7 @@ Event Grid’s automatic failover has different RPOs and RTOs for your metadata 
 - **Data RTO**: Same as above.
 
 > [!IMPORTANT]
-> - There is no service level agreement (SLA) for server-side disaster recovery. If the paired region has no extra capacity to take on the additional traffic, Event Grid cannot initiate failover. Service level objectives are best effort only. 
+> - In case of server-side disaster recovery, if the paired region has no extra capacity to take on the additional traffic, Event Grid cannot initiate failover. The recovery is done on a best-effort basis.
 > - The cost for using this feature  is: $0. 
 > - Geo-disaster recovery is not supported for partner namespaces and partner topics. 
 
