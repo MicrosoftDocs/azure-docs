@@ -10,6 +10,7 @@ ms.topic: reference
 ms.service: machine-learning
 ms.subservice: core
 ms.date: 09/27/2022
+ms.metadata: product-dependency
 ---
 
 # Service limits in Azure Machine Learning
