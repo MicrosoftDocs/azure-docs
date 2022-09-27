@@ -98,7 +98,7 @@ items:
         href: configure-public-ip-bastion.md
     - name: Upgrade a public IP address
       items:
-      - name: Upgrade guidance for basic public IP SKUs
+      - name: Upgrade guidance for Basic SKU public IP addresses
         href: public-ip-basic-upgrade-guidance.md
       - name: Upgrade a public IP address - Portal
         href: public-ip-upgrade-portal.md
