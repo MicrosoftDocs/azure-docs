@@ -37,16 +37,11 @@ To enable media optimization for Teams, set the following registry key on the ho
 
 1. From the start menu, run **Registry Editor** as an administrator. Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams`. Create the Teams key if it doesn't already exist. 
 
-   ```powershell
-   New-Item -Path "HKLM:\SOFTWARE\Microsoft\Teams" -Force
-   ```
-
 2. Create the following value for the Teams key:
 
    | Name             | Type   | Data/Value  |
    |------------------|--------|-------------|
    | IsWVDEnvironment | DWORD  | 1           |
-
 
 Alternatively, you can create the registry entry by running the following commands from an elevated PowerShell session:
 
