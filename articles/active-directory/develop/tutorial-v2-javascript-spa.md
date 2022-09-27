@@ -32,18 +32,19 @@ At the end of this tutorial, you'll have created the folder structure below (lis
 
 ```txt
 sampleApp/
+├── JavaScriptSPA/
+│   ├── authConfig.js
+│   ├── authPopup.js
+│   ├── graph.js
+│   ├── graphConfig.js
+│   ├── index.html
+│   └── ui.js
 ├── package.json
 ├── package-lock.json
 ├── node_modules/
 │   └── ...    
-├── server.js
-└── JavaScriptSPA/
-    ├── index.html
-    ├── ui.js
-    ├── authConfig.js
-    ├── authPopup.js
-    ├── graphConfig.js
-    └── graph.js
+└── server.js
+ 
 ```
 
 ## Prerequisites
