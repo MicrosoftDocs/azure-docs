@@ -18,7 +18,7 @@ Release date: September 23, 2022
 
 ### New or changed functionality
 
- - Required for SSPR General Availablility
+ - Required for [SSPR](../articles/active-directory/authentication/tutorial-enable-cloud-sync-sspr-writeback.md) General Availablility
  - Added support for password writeback in disconnected forests
 ### Fixed issues
 
