@@ -39,7 +39,7 @@ With each of these examples, you're provided with:
 
 **Heart rate**
 
-A valid IoT device message.
+*A valid IoT device message.*
 
 ```json
 
@@ -204,7 +204,7 @@ A valid IoT device message.
 > [!TIP]
 > The IotJsonPathTemplate device mapping examples provided in this article may be combined into a single MedTech service device mapping as shown below.
 >
->Additionally, the IotJasonPathTemplates can also be combined with with other template types such as [JasonPathContentTemplate mappings](how-to-use-jsonpath-content-mappings.md) to further expand your MedTech service device mapping. 
+> Additionally, the IotJasonPathTemplates can also be combined with with other template types such as [JasonPathContentTemplate mappings](how-to-use-jsonpath-content-mappings.md) to further expand your MedTech service device mapping. 
 
 *Combined heart rate and blood pressure MedTech service device mapping example.*
 
