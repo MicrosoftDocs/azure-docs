@@ -95,15 +95,15 @@ The minimum size of the subnet in which API Management can be deployed is /29, w
 
 * For Basic, Standard, or Premium SKUs:  
 
-  * **/29 subnet**: 8 possible IPs - 5 reserved Azure IPs - 2 API Management IPs for one instance - 1 IP for internal load balancer, if used in internal mode = 0 remaining IPs left for scaling units.  
+  * **/29 subnet**: 8 possible IP addresses - 5 reserved Azure IP addresses - 2 API Management IP addresses for one instance - 1 IP for internal load balancer, if used in internal mode = 0 remaining IP addresses left for scaling units.  
   
-  * **/28 subnet**: 16 possible IPs - 5 reserved Azure IPs - 2 API Management IPs for one instance - 1 IP for internal load balancer, if used in internal mode = 8 remaining IPs left for four scale-out units (2 IPs/scale-out unit) for a total of five units. **This subnet efficiently maximizes Basic and Standard SKU scale-out limits.**  
+  * **/28 subnet**: 16 possible IP addresses - 5 reserved Azure IP addresses - 2 API Management IP addresses for one instance - 1 IP for internal load balancer, if used in internal mode = 8 remaining IP addresses left for four scale-out units (2 IP addresses/scale-out unit) for a total of five units. **This subnet efficiently maximizes Basic and Standard SKU scale-out limits.**  
   
-  * **/27 subnet**: 32 possible IPs - 5 reserved Azure IPs - 2 API Management IPs for one instance - 1 IP for internal load balancer, if used in internal mode = 24 remaining IPs left for twelve scale-out units (2 IPs/scale-out unit) for a total of thirteen units. **This subnet efficiently maximizes the soft-limit Premium SKU scale-out limit.**  
+  * **/27 subnet**: 32 possible IP addresses - 5 reserved Azure IP addresses - 2 API Management IP addresses for one instance - 1 IP for internal load balancer, if used in internal mode = 24 remaining IP addresses left for twelve scale-out units (2 IP addresses/scale-out unit) for a total of thirteen units. **This subnet efficiently maximizes the soft-limit Premium SKU scale-out limit.**  
   
-  * **/26 subnet**: 64 possible IPs - 5 reserved Azure IPs - 2 API Management IPs for one instance - 1 IP for internal load balancer, if used in internal mode = 56 remaining IPs left for twenty-eight scale-out units (2 IPs/scale-out unit) for a total of twenty-nine units. It is possible, with an Azure Support ticket, to scale the Premium SKU past twelve units. If you foresee such high demand, consider the /26 subnet.  
+  * **/26 subnet**: 64 possible IP addresses - 5 reserved Azure IP addresses - 2 API Management IP addresses for one instance - 1 IP for internal load balancer, if used in internal mode = 56 remaining IP addresses left for twenty-eight scale-out units (2 IP addresses/scale-out unit) for a total of twenty-nine units. It is possible, with an Azure Support ticket, to scale the Premium SKU past twelve units. If you foresee such high demand, consider the /26 subnet.  
   
-  * **/25 subnet**: 128 possible IPs - 5 reserved Azure IPs - 2 API Management IPs for one instance - 1 IP for internal load balancer, if used in internal mode = 120 remaining IPs left for sixty scale-out units (2 IPs/scale-out unit) for a total of sixty-one units. This is an extremely large, theoretical number of scale-out units. 
+  * **/25 subnet**: 128 possible IP addresses - 5 reserved Azure IP addresses - 2 API Management IP addresses for one instance - 1 IP for internal load balancer, if used in internal mode = 120 remaining IP addresses left for sixty scale-out units (2 IP addresses/scale-out unit) for a total of sixty-one units. This is an extremely large, theoretical number of scale-out units. 
 
 ### Routing
 
