@@ -1694,6 +1694,19 @@ Users with this role can't change the credentials or reset MFA for members and o
 > | microsoft.directory/users/password/update | Reset passwords for all users |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 
+## Permissions Management Administrator
+
+Assign the Permissions Management Administrator role to users who need to do the following tasks:
+
+- Manage all aspects of Entry Permissions Management, when the service is present
+
+Learn more about Permissions Management roles and polices at [View information about roles/policies](../cloud-infrastructure-entitlement-management/how-to-view-role-policy.md).
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.permissionsManagement/allEntities/allProperties/allTasks | Manage all aspects of Entra Permissions Management |
+
 ## Power BI Administrator
 
 Users with this role have global permissions within Microsoft Power BI, when the service is present, as well as the ability to manage support tickets and monitor service health. More information at [Understanding the Power BI Administrator role](/power-bi/service-admin-role).
