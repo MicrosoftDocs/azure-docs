@@ -2,11 +2,11 @@
 title: include file
 description: include file
 services: service-bus-relay
-author: clemensv
+author: spelluru
 ms.service: service-bus-relay
 ms.topic: include
-ms.date: 08/16/2018
-ms.author: clemensv
+ms.date: 09/27/2022
+ms.author: spelluru
 ms.custom: include file
 
 ---
