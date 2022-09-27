@@ -34,7 +34,7 @@ The rest of the document covers the steps required to encrypt your ACI deploymen
 
 This article reviews two flows for encrypting data with a customer-managed key:
 1. Encrypt data with a customer-managed key stored in a standard Azure Key Vault
-2. Encrypt data with a customer-managed key stored in a network-proteted Azure Key Vault with [Trusted Services](../key-vault/general/network-security.md) enabled.
+2. Encrypt data with a customer-managed key stored in a network-protected Azure Key Vault with [Trusted Services](../key-vault/general/network-security.md) enabled.
 
 ## Encrypt data with a customer-managed key stored in a standard Azure Key Vault
 
@@ -286,7 +286,7 @@ spID=$(az identity show \
 
 ### Set access policy
 
-Create a new access policy for allowing the user-assigned identity to access abd unwrap your Key for encryption purposes.
+Create a new access policy for allowing the user-assigned identity to access and unwrap your key for encryption purposes.
 
 ```azurecli-interactive
 az keyvault set-policy \
@@ -316,17 +316,17 @@ az keyvault update \
 ### Modify your JSON deployment template
 
 > [!IMPORTANT]
-> Encrypting deployment data with a customer-managed key is available in the latest API version (2022-09-01) that is currently rolling out. This API version is only available via ARM or REST. If you have any issues with this, please reach out to Azure Support.
+> Encrypting deployment data with a customer-managed key is available in the 2022-09-01 API version or newer. The 2022-09-01 API version is only available via ARM or REST. If you have any issues with this, please reach out to Azure Support.
 
 Once the key vault key and access policy are set up, add the following properties to your ACI deployment template. Learn more about deploying ACI resources with a template in the [Tutorial: Deploy a multi-container group using a Resource Manager template](./container-instances-multi-container-group.md). 
 * Under `resources`, set `apiVersion` to `2022-09-01`.
 * Under the container group properties section of the deployment template, add an `encryptionProperties`, which contains the following values:
-  * `vaultBaseUrl`: the DNS Name of your key vault, can be found  on the overview blade of the key vault resource in Portal
+  * `vaultBaseUrl`: the DNS Name of your key vault. This can be found on the overview blade of the key vault resource in Portal
   * `keyName`: the name of the key generated earlier
   * `keyVersion`: the current version of the key. This can be found by clicking into the key itself (under "Keys" in the Settings section of your key vault resource)
   * `identity`: this is the resource URI of the Managed Identity instance created earlier
 * Under the container group properties, add a `sku` property with value `Standard`. The `sku` property is required in API version 2022-09-01.
-* Under resources, add the `identity` object required to use Managed Identity with ACI, whichcontainsthe following values:
+* Under resources, add the `identity` object required to use Managed Identity with ACI, which contains the following values:
   * `type`: the type of the identity being used (either user-assigned or system-assigned). This case will be set to "UserAssigned"
   * `userAssignedIdentities`: the resourceURI of the same user-assigned identity used above in the `encryptionProperties` object. 
 
