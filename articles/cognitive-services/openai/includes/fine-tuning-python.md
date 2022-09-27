@@ -114,7 +114,7 @@ For large data files, we recommend you import from an Azure Blob store. Large fi
 > [!NOTE]
 > Training data files must be formatted as JSONL files, encoded in UTF-8 with a byte-order mark (BOM), and less than 200 MB in size.
 
-The following Python example locally creates sample training and validation dataset files, then uploads the local files and prints the returned file IDs. Make sure to save the IDs returned by the example, because you'll need them for the fine-tuning training job creation.
+The following Python example locally creates sample training and validation dataset files, then uploads the local files using the Python SDK and retrieves the returned file IDs. Make sure to save the IDs returned by the example, because you'll need them for the fine-tuning training job creation.
 
 > [!IMPORTANT]
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../key-vault/general/overview.md). See the Cognitive Services [security](../../cognitive-services-security.md) article for more information.
@@ -177,7 +177,7 @@ while train_status not in ["succeeded", "failed"] or valid_status not in ["succe
 
 ## Create a customized model
 
-After you've uploaded your training and validation files, you're ready to start the fine-tune job. The following Python code shows an example of how to create a new fine-tune job:
+After you've uploaded your training and validation files, you're ready to start the fine-tune job. The following Python code shows an example of how to create a new fine-tune job with the Python SDK:
 
 ```python
 # This example defines a fine-tune job that creates a customized model based on curie, 
@@ -211,25 +211,25 @@ You can either use default values for the hyperparameters of the fine-tune job, 
 After you've started a fine-tune job, it may take some time to complete. Your job may be queued behind other jobs on our system, and training your model can take minutes or hours depending on the model and dataset size. The following Python example checks the status of your fine-tune job by retrieving information about your job using the job ID returned from the previous example:
 
 ```python
-    # Get the status of our fine-tune job.
-    status = openai.FineTune.retrieve(id=job_id)["status"]
+# Get the status of our fine-tune job.
+status = openai.FineTune.retrieve(id=job_id)["status"]
 
-    # If the job isn't yet done, poll it every 2 seconds.
-    if status not in ["succeeded", "failed"]:
-        print(f'Job not in terminal status: {status}. Waiting.')
-        while status not in ["succeeded", "failed"]:
-            time.sleep(2)
-            status = openai.FineTune.retrieve(id=job_id)["status"]
-            print(f'Status: {status}')
-    else:
-        print(f'Fine-tune job {job_id} finished with status: {status}')
+# If the job isn't yet done, poll it every 2 seconds.
+if status not in ["succeeded", "failed"]:
+    print(f'Job not in terminal status: {status}. Waiting.')
+    while status not in ["succeeded", "failed"]:
+        time.sleep(2)
+        status = openai.FineTune.retrieve(id=job_id)["status"]
+        print(f'Status: {status}')
+else:
+    print(f'Fine-tune job {job_id} finished with status: {status}')
 
-    # Check if there are other fine-tune jobs in the subscription. 
-    # Your fine-tune job may be queued, so this is helpful information to have
-    # if your fine-tune job hasn't yet started.
-    print('Checking other fine-tune jobs in the subscription.')
-    result = openai.FineTune.list()
-    print(f'Found {len(result)} fine-tune jobs.')
+# Check if there are other fine-tune jobs in the subscription. 
+# Your fine-tune job may be queued, so this is helpful information to have
+# if your fine-tune job hasn't yet started.
+print('Checking other fine-tune jobs in the subscription.')
+result = openai.FineTune.list()
+print(f'Found {len(result)} fine-tune jobs.')
 ```
 
 ## Deploy a customized model
@@ -249,17 +249,17 @@ When the fine-tune job has succeeded, the value of `fine_tuned_model` in the res
 The following Python example shows how to use the deployment API included with Azure OpenAI to create a model deployment for your customized model. The deployment API generates a name for the deployment of your customized model.
 
 ```python
-    # Retrieve the name of the customized model from the fine-tune job.
-    result = openai.FineTune.retrieve(id=job_id)
-    if result["status"] == 'succeeded':
-        model = result["fine_tuned_model"]
+# Retrieve the name of the customized model from the fine-tune job.
+result = openai.FineTune.retrieve(id=job_id)
+if result["status"] == 'succeeded':
+    model = result["fine_tuned_model"]
 
-    # Create the deployment for the customized model, using the standard scale type without specifying a scale
-    # capacity.
-    print(f'Creating a new deployment with model: {model}')
-    result = openai.Deployment.create(model=model, scale_settings={"scale_type":"standard", "capacity": None})
-    # Retrieve the deployment job ID from the results.
-    deployment_id = result["id"]
+# Create the deployment for the customized model, using the standard scale type without specifying a scale
+# capacity.
+print(f'Creating a new deployment with model: {model}')
+result = openai.Deployment.create(model=model, scale_settings={"scale_type":"standard", "capacity": None})
+# Retrieve the deployment job ID from the results.
+deployment_id = result["id"]
 ```
 
 ### Deploy a model with Azure CLI
@@ -292,8 +292,6 @@ az cognitiveservices account deployment create
 
 Once your customized model has been deployed, you can use it like any other deployed model. For example, you can send a completion call to your deployed model, as shown in the following Python example. You can continue to use the same parameters with your customized model, such as temperature and frequency penalty, as you can with other deployed models. 
 
-To run this example, replace `deployment_id` with the name or ID of your deployed model.
-
 ```python
 print('Sending a test completion job')
 start_phrase = 'When I go to the store, I want a'
@@ -306,22 +304,23 @@ print(f'"{start_phrase} {text}"')
 
 Azure OpenAI attaches a result file, named `results.csv`, to each fine-tune job once it's completed. You can use the result file to analyze the training and validation performance of your customized model. The file ID for the result file is listed for each customized model, and you can use the Python SDK to retrieve the file ID and download the result file for analysis.
 
-The following Python example retrieves the file ID of the first result file attached to the fine-tune job for your customized model, and then uses the Python SDK to download the file, named "results.csv", to your working directory for analysis.
+The following Python example retrieves the file ID of the first result file attached to the fine-tune job for your customized model, and then uses the Python SDK to download the file to your working directory for analysis.
 
 ```python
-    # Retrieve the file ID of the first result file from the fine-tune job for
-    # the customized model.
-    result = openai.FineTune.retrieve(id=job_id)
-    if result["status"] == 'succeeded':
-        result_file_id = result.result_files[0].id
+# Retrieve the file ID of the first result file from the fine-tune job for
+# the customized model.
+result = openai.FineTune.retrieve(id=job_id)
+if result["status"] == 'succeeded':
+    result_file_id = result.result_files[0].id
+    result_file_name = result.result_files[0].filename
 
-    # Download the result file.
-    print(f'Downloading result file: {result_file_id}')
-    # Write the byte array returned by the File.download() method to 
-    # a file named "results.csv".
-    with open("results.csv", "wb") as file:
-        result = openai.File.download(id=result_file_id)
-        file.write(result)
+# Download the result file.
+print(f'Downloading result file: {result_file_id}')
+# Write the byte array returned by the File.download() method to 
+# a local file in the working directory.
+with open(result_file_name, "wb") as file:
+    result = openai.File.download(id=result_file_id)
+    file.write(result)
 ```
 
 The result file is a CSV file containing a header row and a row for each training step performed by the fine-tune job.  The result file contains the following columns:
@@ -355,9 +354,9 @@ You can use various methods to delete the deployment for your customized model:
 The following Python example uses the Python SDK to delete the deployment for your customized model.
 
 ```python
-    # Delete the deployment for the customized model
-    print(f'Deleting deployment ID: {deployment_id}')
-    result = openai.Deployment.delete(sid=deployment_id)
+# Delete the deployment for the customized model
+print(f'Deleting deployment ID: {deployment_id}')
+result = openai.Deployment.delete(sid=deployment_id)
 ```
 
 ### Delete your customized model
@@ -374,9 +373,9 @@ Similarly, you can use various methods to delete your customized model:
 The following Python example uses the Python SDK to delete the deployment for your customized model.
 
 ```python
-    # Delete the customized model
-    print(f'Deleting customized model ID: {job_id}')
-    result = openai.FineTune.delete(sid=job_id)
+# Delete the customized model
+print(f'Deleting customized model ID: {job_id}')
+result = openai.FineTune.delete(sid=job_id)
 ```
 
 ### Delete your training files
@@ -387,7 +386,7 @@ You can optionally delete training and validation files you've uploaded for trai
  [REST APIs](../reference.md#delete-a-file) 
 - Python SDK
 
-The following Python example uses the Python SDK to delete the uploaded training and validation dataset files for our customized model.
+The following Python example uses the Python SDK to delete the training, validation, and result files for your customized model.
 
 ```python
 print('Checking for existing uploaded files.')
@@ -401,7 +400,7 @@ print(f'Found {len(files)} total uploaded files in the subscription.')
 # files with file names that match your training dataset file and
 # validation dataset file names.
 for item in files:
-    if item["filename"] in [training_file_name, validation_file_name]:
+    if item["filename"] in [training_file_name, validation_file_name, result_file_name]:
         results.append(item["id"])
 print(f'Found {len(results)} already uploaded files that match our files')
 
