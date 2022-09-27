@@ -44,7 +44,7 @@ For more information, see the [Microsoft Security Response Center blog](https://
 
 The new **IoT OT Threat Monitoring with Defender for IoT** solution available in the [Microsoft Sentinel content hub](sentinel-solutions-catalog.md#microsoft) provides further support for the Microsoft Sentinel integration with Microsoft Defender for IoT, bridging gaps between IT and OT security challenges, and empowering SOC teams with enhanced abilities to efficiently and effectively detect and respond to OT threats.
 
-For more information, see [Tutorial: Integrate Microsoft Sentinel and Microsoft Defender for IoT](iot-solution.md).
+For more information, see [Tutorial: Investigate Microsoft Defender for IoT devices with Microsoft Sentinel](iot-advanced-threat-monitoring.md).
 
 
 ### Ingest GitHub logs into your Microsoft Sentinel workspace (Public preview)
