@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
 
-#  Migrate from federation to Azure AD certificate-based authentication (CBA)
+# Migrate from federation to Azure AD certificate-based authentication (CBA)
 
 This article explains how to migrate from a federated servers such as Active Directory Federation Services (AD FS) to cloud authentication using Azure Active Directory (Azure AD) certificate-based authentication (CBA).
 
