@@ -20,7 +20,7 @@ ms.custom: language-service-summarization, ignite-fall-2021
 
 In general, there are two approaches for automatic document summarization: extractive and abstractive. This API provides both.
 
-Extractive summarization is a feature that produces a summary by extracting sentences that collectively represent the most important or relevant information within the original content.
+**Extractive summarization**: a feature that produces a summary by extracting sentences that collectively represent the most important or relevant information within the original content.
 
 Abstractive summarization is a feature that produces a summary by extracting chapter titles and compiling summaries from input novel chapters.
 
