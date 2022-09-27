@@ -5,7 +5,7 @@ ms.service: web-application-firewall
 author: vhorne
 ms.author: victorh
 ms.topic: conceptual
-ms.date: 09/22/2022
+ms.date: 09/27/2022
 ---
 
 # Web Application Firewall DRS rule groups and rules
@@ -324,8 +324,10 @@ The following rule groups and rules are available when using Web Application Fir
 |RuleId|Description|
 |---|---|
 |942100|SQL Injection Attack Detected via libinjection|
+|942110|SQL Injection Attack: Common Injection Testing Detected|
 |942120|SQL Injection Attack: SQL Operator Detected|
 |942140|SQL Injection Attack: Common DB Names Detected|
+|942150|SQL Injection Attack|
 |942160|Detects blind sqli tests using sleep() or benchmark().|
 |942170|Detects SQL benchmark and sleep injection attempts including conditional queries|
 |942180|Detects basic SQL authentication bypass attempts 1/3|
@@ -336,6 +338,7 @@ The following rule groups and rules are available when using Web Application Fir
 |942230|Detects conditional SQL injection attempts|
 |942240|Detects MySQL charset switch and MSSQL DoS attempts|
 |942250|Detects MATCH AGAINST, MERGE and EXECUTE IMMEDIATE injections|
+|942260|Detects basic SQL authentication bypass attempts 2/3|
 |942270|Looking for basic sql injection. Common attack string for mysql, oracle, and others.|
 |942280|Detects Postgres pg_sleep injection, waitfor delay attacks and database shutdown attempts|
 |942290|Finds basic MongoDB SQL injection attempts|
@@ -352,6 +355,8 @@ The following rule groups and rules are available when using Web Application Fir
 |942390|SQL Injection Attack|
 |942400|SQL Injection Attack|
 |942410|SQL Injection Attack|
+|942430|Restricted SQL Character Anomaly Detection (args): # of special characters exceeded (12)|
+|942440|SQL Comment Sequence Detected|
 |942450|SQL Hex Encoding Identified|
 |942460|Meta-Character Anomaly Detection Alert - Repetitive Non-Word Characters|
 |942470|SQL Injection Attack|
@@ -385,6 +390,7 @@ The following rule groups and rules are available when using Web Application Fir
 |99005003|Web Shell Upload Attempt (POST) - CHOPPER PHP|
 |99005004|Web Shell Upload Attempt (POST) - CHOPPER ASPX|
 |99005005|Web Shell Interaction Attempt|
+|99005006|Spring4Shell Interaction Attempt|
 
 ### <a name="drs9903-21"></a> MS-ThreatIntel-AppSec
 |RuleId|Description|
@@ -416,6 +422,9 @@ The following rule groups and rules are available when using Web Application Fir
 |99001011|Attempted Oracle WebLogic path traversal [CVE-2020-14882](https://www.cve.org/CVERecord?id=CVE-2019-14882)|
 |99001012|Attempted Telerik WebUI insecure deserialization exploitation [CVE-2019-18935](https://www.cve.org/CVERecord?id=CVE-2019-18935)|
 |99001013|Attempted SharePoint insecure XML deserialization [CVE-2019-0604](https://www.cve.org/CVERecord?id=CVE-2019-0604)|
+|99001014|Attempted Spring Cloud routing-expression injection [CVE-2022-22963](https://www.cve.org/CVERecord?id=CVE-2022-22963)|
+|99001015|Attempted Spring Framework unsafe class object exploitation [CVE-2022-22965](https://www.cve.org/CVERecord?id=CVE-2022-22965)|
+|99001016|Attempted Spring Cloud Gateway Actuator injection [CVE-2022-22947](https://www.cve.org/CVERecord?id=CVE-2022-22947)|
 
 > [!NOTE]
 > When reviewing your WAF's logs, you might see rule ID 949110. The description of the rule might include *Inbound Anomaly Score Exceeded*.
