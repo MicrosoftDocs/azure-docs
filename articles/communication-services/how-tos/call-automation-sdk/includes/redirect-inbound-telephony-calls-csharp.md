@@ -1,6 +1,6 @@
 ---
 title: include file
-description: C# call automation quickstart for PSTN calls
+description: C# call automation how-to for PSTN calls
 services: azure-communication-services
 author: ashwinder
 ms.service: azure-communication-services
@@ -15,7 +15,7 @@ ms.author: askaur
 
 - An Azure account with an active subscription.
 - A deployed Communication Service resource.
-- [Acquire a PSTN phone number from the Communication Service resource](../../get-phone-number.md?pivots=programming-language-csharp).
+- [Acquire a PSTN phone number from the Communication Service resource](../../../quickstarts/telephony/get-phone-number.md).
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - A [web service application](/aspnet/core/web-api) to handle web hook callback events.
 - Optional: [NGROK application](https://ngrok.com/) to proxy HTTP/S requests to a local development machine.

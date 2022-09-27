@@ -1,6 +1,6 @@
 ---
 title: include file
-description: Java Call Automation quickstart for PSTN calls
+description: Java Call Automation how-to for PSTN calls
 services: azure-communication-services
 author: ashwinder
 ms.service: azure-communication-services
@@ -13,9 +13,10 @@ ms.author: askaur
 
 ## Prerequisites
 
-- Azure account with an active subscription.
-- Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../create-communication-resource.md?tabs=windows&pivots=platform-azp).
-- [NGROK](https://ngrok.com/) to proxy HTTP/S requests to a local development machine.
+- An Azure account with an active subscription.
+- A deployed Communication Service resource.
+- [Acquire a PSTN phone number from the Communication Service resource](../../../quickstarts/telephony/get-phone-number.md).
+- Optional: [NGROK application](https://ngrok.com/) to proxy HTTP/S requests to a local development machine.
 - [Java Development Kit (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
