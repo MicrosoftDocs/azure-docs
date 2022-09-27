@@ -1261,7 +1261,7 @@ items:
     href: industry-sap-connectors.md
   - name: SAP templates
     href: industry-sap-templates.md
-  - name: SAP change data capture (CDC) solution (preview)
+  - name: SAP change data capture (CDC) capabilities (preview)
     items:
     - name: Overview and architecture
       href: sap-change-data-capture-introduction-architecture.md
