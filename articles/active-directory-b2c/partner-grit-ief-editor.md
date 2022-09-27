@@ -1,7 +1,7 @@
 ---
 title: Tutorial: Edit identity experience framework XML with Grit Visual Identity Experience Framework (IEF) Editor
 titleSuffix: Azure AD B2C
-description: Learn how to integrate Azure AD B2C authentication with the Grit Visual Identity Experience Framework (IEF) Editor
+description: Learn how to integrate Azure AD B2C authentication with the Grit Visual IEF Editor
 services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
