@@ -63,6 +63,23 @@ Choose your tool based on what you want to do:
 
 Review the supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
 
+## What does Azure Migrate do to ensure data residency?
+
+When you create a project, you select a geography of your choice. The project and related resources are created in one of the regions in the geography, as allocated by the Azure Migrate service. 
+See the metadata storage locations for each geography [here](https://learn.microsoft.com/en-us/azure/migrate/migrate-support-matrix#public-cloud).
+
+Azure Migrate does not move or store customer data outside of the region allocated, guaranteeing data residency and resiliency in the same geography. 
+
+## Does Azure Migrate offer Backup and Disaster Recovery?
+
+Azure Migrate is classified as customer managed Disaster Recovery, which means Azure Migrate does not offer to recover data from an alternate region and offer it to customers when the project region is not available.
+
+While using different capabilities, it is recommended that you export the software inventory, dependency analysis, and assessment report for an offline backup.
+
+In the event of a regional failure or outage in the Azure region that your project is created in:
+•	You may not be able to access your Azure Migrate projects, assessments, and other reports for the duration of the outage. However, you can use the offline copies that you have exported. 
+•	Any in-progress replication and/or migration will be paused and you might have to restart it post the outage.
+
 ## How do I get started?
 
 Identify the tool you need, and then add the tool to an Azure Migrate project.
