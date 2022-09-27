@@ -80,7 +80,7 @@ az ml data create -f [PATH_TO_YML_FILE] --workspace-name [YOUR_AZURE_WORKSPACE] 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=upload-data)]
 ---
 
-If you already have your data present in an existing datastore and want to create data asset out of it, you can do so by providing path to the data in datastore as shown below, instead of providing path on your local machine.
+If you already have your data present in an existing datastore and want to create data asset out of it, you can do so by providing path to the data in datastore, instead of providing path of your local machine. Update the code in [above section](how-to-prepare-datasets-for-automl-images.md#using-pre-labeled-training-data-from-local-machine) with below snippet.
 
 # [Azure CLI](#tab/cli)
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
@@ -91,7 +91,7 @@ Create a .yml file with the following configuration.
 $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
 name: fridge-items-images-object-detection
 description: Fridge-items images Object detection
-path: azureml://subscriptions/<fmy-subscription-id>/resourcegroups/<my-resource-group>/workspaces/<my-workspace>/datastores/<my-datastore>/paths/<path_to_image_data_folder>
+path: azureml://subscriptions/<my-subscription-id>/resourcegroups/<my-resource-group>/workspaces/<my-workspace>/datastores/<my-datastore>/paths/<path_to_image_data_folder>
 type: uri_folder
 ```
 
