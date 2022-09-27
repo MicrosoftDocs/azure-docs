@@ -28,7 +28,7 @@ Many companies that migrate from Active Directory to Azure AD start with an envi
 
 [![Architectural diagram that depicts the common technologies contained in the pillars of applications, devices, and users.](media/road-to-cloud-posture/road-to-the-cloud-start.png)](media/road-to-cloud-posture/road-to-the-cloud-start.png#lightbox)
 
-Microsoft has modeled five states of transformation that commonly align with the business goals of customers. As the goals of customers mature, it's typical for them to shift from one state to the next at a pace that suits their resources and culture. This approach closely follows [Active Directory in Transition: Gartner Survey Results and Analysis](https://www.gartner.com/en/documents/4006741).
+Microsoft has modeled five states of transformation that commonly align with the business goals of customers. As the goals of customers mature, it's typical for them to shift from one state to the next at a pace that suits their resources and culture.
 
 The five states have exit criteria to help you determine where your environment resides today. Some projects, such as application migration, span all five states. Other projects span a single state.
 
