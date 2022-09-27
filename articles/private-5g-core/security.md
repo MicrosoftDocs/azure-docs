@@ -39,7 +39,7 @@ If you elect to use a CMK, you will need to:
 
 Additionally, we recommend that you [configure cryptographic key auto-rotation in Azure Key Vault](https://learn.microsoft.com/azure/key-vault/keys/how-to-configure-key-rotation).  
 
-> [!ATTENTION]
+> [!IMPORTANT]
 > Once a SIM group is created, you cannot change the encryption type. However, if the SIM group uses CMK, you can update the key used for encryption.
 
 ## Write-only SIM credentials
