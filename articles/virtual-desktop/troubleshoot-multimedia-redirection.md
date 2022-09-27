@@ -24,7 +24,7 @@ This article describes known issues and troubleshooting instructions for multime
 
 The following issues are ones we're already aware of, so you won't need to report them:
 
-- In the first browser tab a user opens, the extension pop-up might show a message that says, “The extension is not loaded”, or a mmessage that says video playback or calling redirection isn't supported while redirection is working correctly in the tab. You can resolve this issue by opening a second tab. 
+- In the first browser tab a user opens, the extension pop-up might show a message that says, “The extension is not loaded”, or a message that says video playback or calling redirection isn't supported while redirection is working correctly in the tab. You can resolve this issue by opening a second tab. 
 
 - Multimedia redirection only works on the [Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop#install-the-client), not the web client.
 
@@ -45,11 +45,11 @@ The following issues are ones we're already aware of, so you won't need to repor
 
 - Installing the extension on host machines with the MSI installer will either prompt users to accept the extension the first time they open the browser or display a warning or error message. If users deny this prompt, it can cause the extension to not load. To avoid this issue, install the extensions by [editing the group policy](multimedia-redirection.md#install-the-browser-extension-using-group-policy).
 
-- Sometimes the host and client version number disappears from the extension status message, which prevents the extension from loading on websites that support it. If you've installed the extension correctly, this issue is because your host machine doesn't have the latest C++ redistributable installed. To fix this issue, install the [latest supported Visual C++ Redistributable downloads](/cpp/windows/latest-supported-vc-redist).
+- Sometimes the host and client version number disappears from the extension status message, which prevents the extension from loading on websites that support it. If you've installed the extension correctly, this issue is because your host machine doesn't have the latest C++ Redistributable installed. To fix this issue, install the [latest supported Visual C++ Redistributable downloads](/cpp/windows/latest-supported-vc-redist).
 
 ### Video playback redirection
 
-- Video playback redirection only works on the [Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop#install-the-client), not the web client or other platforms such as MacOS, Linux, and so on.
+- Video playback redirection only works on the [Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop#install-the-client), not the web client or other platforms such as macOS, Linux, and so on.
 
 - Video playback redirection doesn't currently support protected content, so videos from Pluralsight and Netflix won't work.
 
