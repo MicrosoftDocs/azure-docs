@@ -142,7 +142,7 @@ _Green Software Foundation alignment: [Energy efficiency](sustainability-design-
 
 **Recommendation:**
 
-- For Dev and Testing clusters, use cluster stop / start, for shutting them down outside regular business hours.
+- For Dev and Testing clusters, use [cluster stop / start], for shutting them down outside regular business hours.
 - For Production clusters, use [Keda Cron scaler](https://keda.sh/docs/2.7/scalers/cron/), to shut down applications (scale to zero), outside regular business hours.
 
 **Potential tradeoffs**
@@ -157,6 +157,7 @@ _Green Software Foundation alignment: [Hardware efficiency](sustainability-desig
 
 **Recommendation:**
 
+https://learn.microsoft.com/en-us/azure/aks/scale-cluster?tabs=azure-cli#scale-user-node-pools-to-0
 - Review [auto-scaling](/azure/architecture/best-practices/auto-scaling) guidance for Azure workloads.
 - Review the [B-series burstable virtual machine sizes](/azure/virtual-machines/sizes-b-series-burstable).
 - Consider that it may require tuning to prevent unnecessary scaling during short bursts of high demand, as opposed to a static increase in demand.
