@@ -34,7 +34,7 @@ Collect all of the following values for the mobile network resource that will re
    |The mobile country code for the private mobile network.     |**Network configuration: Mobile country code (MCC)**|
    |The mobile network code for the private mobile network.     |**Network configuration: Mobile network code (MNC)**|
 
-## Collect SIM and SIM Group values
+## Collect SIM and SIM group values
 
 Each SIM resource represents a physical SIM or eSIM that will be served by the private mobile network. Each SIM group represents a collection of these SIMs.
 
