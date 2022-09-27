@@ -14,7 +14,7 @@ ms.author: dayshen
 
 Azure SignalR Service can access your Key Vault in private network through Shared Private Endpoints. In this way you don't have to expose your Key Vault on public network.
 
-   :::image type="content" alt-text="Diagram showing architecture of shared private endpoint." source="media\howto-shared-private-endpoints-keyvault\shared-private-endpoint-overview.png" :::
+   :::image type="content" alt-text="Diagram showing architecture of shared private endpoint." source="media\howto-shared-private-endpoints-key-vault\shared-private-endpoint-overview.png" :::
 
 ## Shared Private Link Resources Management
 
@@ -35,17 +35,17 @@ The rest of the examples show how the *contoso-signalr* service can be configure
 1. In the menu pane, select **Networking**. Switch to **Private access** tab.
 1. Click **Add shared private endpoint**.
 
-   :::image type="content" alt-text="Screenshot of shared private endpoints management." source="media\howto-shared-private-endpoints-keyvault\portal-shared-private-endpoints-management.png" lightbox="media\howto-shared-private-endpoints-keyvault\portal-shared-private-endpoints-management.png" :::
+   :::image type="content" alt-text="Screenshot of shared private endpoints management." source="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-management.png" lightbox="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-management.png" :::
 
 1. Fill in a name for the shared private endpoint.
 1. Select the target linked resource either by selecting from your owned resources or by filling a resource ID.
 1. Click **Add**.
 
-   :::image type="content" alt-text="Screenshot of adding a shared private endpoint." source="media\howto-shared-private-endpoints-keyvault\portal-shared-private-endpoints-add.png" :::
+   :::image type="content" alt-text="Screenshot of adding a shared private endpoint." source="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-add.png" :::
 
 1. The shared private endpoint resource will be in **Succeeded** provisioning state. The connection state is **Pending** approval at target resource side.
 
-   :::image type="content" alt-text="Screenshot of an added shared private endpoint." source="media\howto-shared-private-endpoints-keyvault\portal-shared-private-endpoints-added.png" lightbox="media\howto-shared-private-endpoints-keyvault\portal-shared-private-endpoints-added.png" :::
+   :::image type="content" alt-text="Screenshot of an added shared private endpoint." source="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-added.png" lightbox="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-added.png" :::
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -92,13 +92,13 @@ Wait until the status changes to "Succeeded" before proceeding to the next steps
 
 1. In the Azure portal, select the **Networking** tab of your Key Vault and navigate to **Private endpoint connections**. After the asynchronous operation has succeeded, there should be a request for a private endpoint connection with the request message from the previous API call.
 
-   :::image type="content" alt-text="Screenshot of the Azure portal, showing the Private endpoint connections pane." source="media\howto-shared-private-endpoints-keyvault\portal-keyvault-approve-private-endpoint.png" :::
+   :::image type="content" alt-text="Screenshot of the Azure portal, showing the Private endpoint connections pane." source="media\howto-shared-private-endpoints-key-vault\portal-key-vault-approve-private-endpoint.png" :::
 
 1. Select the private endpoint that Azure SignalR Service created. Click **Approve**.
 
    Make sure that the private endpoint connection appears as shown in the following screenshot. It could take one to two minutes for the status to be updated in the portal.
 
-   :::image type="content" alt-text="Screenshot of the Azure portal, showing an Approved status on the Private endpoint connections pane." source="media\howto-shared-private-endpoints-keyvault\portal-keyvault-approved-private-endpoint.png" :::
+   :::image type="content" alt-text="Screenshot of the Azure portal, showing an Approved status on the Private endpoint connections pane." source="media\howto-shared-private-endpoints-key-vault\portal-key-vault-approved-private-endpoint.png" :::
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -141,7 +141,7 @@ It takes minutes for the approval to be propagated to Azure SignalR Service. You
 
 #### [Azure portal](#tab/azure-portal)
 
-   :::image type="content" alt-text="Screenshot of an approved shared private endpoint." source="media\howto-shared-private-endpoints-keyvault\portal-shared-private-endpoints-approved.png" lightbox="media\howto-shared-private-endpoints-keyvault\portal-shared-private-endpoints-approved.png" :::
+   :::image type="content" alt-text="Screenshot of an approved shared private endpoint." source="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-approved.png" lightbox="media\howto-shared-private-endpoints-key-vault\portal-shared-private-endpoints-approved.png" :::
 
 #### [Azure CLI](#tab/azure-cli)
 
