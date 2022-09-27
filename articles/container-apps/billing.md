@@ -85,7 +85,7 @@ The first 2 million requests in each subscription per calendar month are free.
 
 Azure Container Apps premium plan billing consists of two types of charges:
 
-- **[Resource consumption](#workload-profiles)**: The amount of resources all the workload profile instances specify. Billed on a per-second basis in vCPU-seconds and GiB-seconds.
+- **[Resource consumption](workload-profiles.md)**: The amount of resources all the workload profile instances specify. Billed on a per-second basis in vCPU-seconds and GiB-seconds.
 - **Premium environment cost**: A fixed cost for the Premium environment.
 
 This article describes how to calculate the cost of running your container app. For pricing details in your account's currency, see [Azure Container Apps Pricing](https://azure.microsoft.com/pricing/details/container-apps/).

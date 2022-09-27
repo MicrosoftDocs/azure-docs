@@ -48,5 +48,5 @@ Use the Premium plan when you need:
 
 Deploy your first app with:
 
-- [Azure portal](get-started-portal.md)
+- [Azure portal](quickstart-portal.md)
 - [Azure CLI](get-started.md)
