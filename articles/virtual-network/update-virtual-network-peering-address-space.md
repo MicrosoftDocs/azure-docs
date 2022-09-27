@@ -9,6 +9,7 @@ ms.date: 07/10/2022
 ms.custom: template-how-to
 #Customer Intent: As a cloud engineer, I need to update the address space for peered virtual networks without incurring downtime from the current address spaces. I wish to do this in the Azure Portal.
 ---
+
 # Updating the address space for a peered virtual network - Portal
 
 In this article, you'll learn how to update a peered virtual network by adding or deleting an address space without incurring downtime interruptions using the Azure portal. This feature is useful when you need to grow or resize the virtual networks in Azure after scaling your workloads.
@@ -26,8 +27,8 @@ In this section, you'll modify the address range prefix for an existing address 
 1. On the **Address space** page, change the address range prefix per your requirements, and select **Save** when finished.
 :::image type="content" source="media/update-virtual-network-peering-address-space/update-address-prefix-thumb.png" alt-text="Image of the Address Space page for changing a sugnet's prefix" lightbox="media/update-virtual-network-peering-address-space/update-address-prefix-full.png":::
 1. Select **Peerings** under Settings and select the checkbox for the peering requiring synchronization.
-1. Select **Sync from the task bar.
-:::image type="content" source="media/update-virtual-network-peering-address-space/sync-peering-thumb.png" alt-text="Image of the Peerings page where you re-syncronize a peering connection." lightbox="media/update-virtual-network-peering-address-space/sync-peering-full.png":::
+1. Select **Sync** from the task bar.
+   :::image type="content" source="media/update-virtual-network-peering-address-space/sync-peering-thumb.png" alt-text="Image of the Peerings page where you re-syncronize a peering connection." lightbox="media/update-virtual-network-peering-address-space/sync-peering-full.png":::
 1. Select the name of the other peered virtual network under **Peer**.
 1. Under **Settings** of the peered virtual network, select **Address space** and verify that the Address space listed has been updated.
 :::image type="content" source="media/update-virtual-network-peering-address-space/verify-address-space-thumb.png" alt-text="Image the Address Space page where you verify the address space has changed." lightbox="media/update-virtual-network-peering-address-space/verify-address-space-full.png":::
@@ -67,5 +68,6 @@ In this task, you'll delete an IP address range from an address space. First, yo
 ## Next steps
 - [Learn how to Create, change, or delete an Azure virtual network peering]()
 - [Links]()
+
 
 
