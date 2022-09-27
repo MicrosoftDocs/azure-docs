@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 # Migrate from existing Run As accounts to managed identity
 
 > [!IMPORTANT]
-> Azure Automation Run As Account will retire on **September 30, 2023**, and there will be no support provided beyond this date. From now through **September 30, 2023**, you can continue to use the Azure Automation Run As Account. However, we recommend you to transition to [managed identities](/automation-security-overview.md#managed-identities) before **September 30, 2023**. See the official announcement here.
+> Azure Automation Run As Account will retire on **September 30, 2023**, and there will be no support provided beyond this date. From now through **September 30, 2023**, you can continue to use the Azure Automation Run As Account. However, we recommend you to transition to [managed identities](/automation-security-overview.md#managed-identities) before **September 30, 2023**.
 
 See the [frequently asked questions](/automation/automation-managed-identity.md) for more information about migration cadence and support timeline for Run As account creation and certificate renewal.
 
@@ -158,6 +158,22 @@ foreach ($ResourceGroup in $ResourceGroups)
 
 ## Graphical runbooks
 
+### How to check if Graphical Runbook is used in Run As Account
+
+To check if graphical runbooks are used in Run As Account:
+1. Check each of the activities within the runbook to see if they use the Run As Account when calling any logon cmdlets/aliases. For example, `Add-AzRmAccount/Connect-AzRmAccount/Add-AzAccount/Connect-AzAccount`
+    
+    :::image type="content" source="./media/migrate-run-as-account-managed-identity/check-graphical-runbook-use-run-as-inline.png" alt-text="Screenshot to check if graphical runbook uses Run As." lightbox="./media/migrate-run-as-account-managed-identity/check-graphical-runbook-use-run-as-expanded.png":::
+
+1. Examine the parameters used by the cmdlet.
+
+    :::image type="content" source="./media/migrate-run-as-account-managed-identity/activity-parameter configuration.png" alt-text="Screenshot to examine the parameters used by cmdlet":::
+
+1. Use the *ServicePrinicipalCertificate* parameter set with Run As Account.
+
+    :::image type="content" source="./media/migrate-run-as-account-managed-identity/parameter-sets-inline.png" alt-text="Screenshot to check the parameter sets." lightbox="./media/migrate-run-as-account-managed-identity/parameter-sets-expanded.png"::: 
+
+### How to edit graphical Runbook to use managed identity
 You must test the managed identity to verify if the Graphical runbook is working as expected by creating a copy of your production runbook to use the managed identity and updating your test graphical runbook code to authenticate by using the managed identity. You can add this functionality to a graphical runbook by adding `Connect-AzAccount` cmdlet.
 
 Listed below is an example to guide on how a graphical runbook that uses Run As account use managed identities:
