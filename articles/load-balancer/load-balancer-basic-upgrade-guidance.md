@@ -14,13 +14,13 @@ ms.date: 09/19/2022
 In this article, we'll discuss guidance for upgrading your Basic Load Balancer instances to Standard Load Balancer. Standard Load Balancer is recommend for all production instances and provides many [key differences](#basic-load-balancer-sku-vs-standard-load-balancer-sku) to your infrastructure.
 ## Steps to complete the upgrade
 
-We recommend the following approach to upgrade to Standard Load Balancer:
+We recommend the following approach for upgrading to Standard Load Balancer:
 
 1. Learn about some of the [key differences](#basic-load-balancer-sku-vs-standard-load-balancer-sku) between Basic Load Balancer and Standard Load Balancer. 
-1. Identify the Basic load balancer to upgrade. 
+1. Identify the Basic Load Balancer to upgrade. 
 1. Create a migration plan for planned downtime. 
 1. Perform migration with [automated PowerShell scripts](#upgrade-using-automated-scripts) for your scenario or create a new Standard Load Balancer with the Basic Load Balancer configurations.
-1. Verify your application and workloads are receiving traffic through the standard load balancer. Then delete your basic load balancer resource. 
+1. Verify your application and workloads are receiving traffic through the Standard Load Balancer. Then delete your Basic Load Balancer resource. 
 
 ## Basic Load Balancer SKU vs. Standard Load Balancer SKU 
 
@@ -48,6 +48,8 @@ This section lists out some key differences between these two Load Balancer SKUs
 | **[NAT Gateway Support](../virtual-network/nat-gateway/nat-overview.md)** | Both Standard ILB and Standard Public Load Balancer are supported via Nat Gateway | Not supported |
 | **[Private Link Support](../private-link/private-link-overview.md)** | Standard ILB is supported via Private Link | Not supported |
 | **[Global tier (Preview)](cross-region-overview.md)** | Standard Load Balancer supports the Global tier for Public LBs enabling cross-region load balancing | Not supported |
+
+For information on limits, see [Load Balancer limits](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer).
 
 ## Upgrade using automated scripts 
 
