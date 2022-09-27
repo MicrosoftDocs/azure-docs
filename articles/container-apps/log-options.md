@@ -27,22 +27,23 @@ You can choose between these logs destinations:
     - An Azure event hub for data ingestion and analytic services. For more information, see [Azure Event Hubs](../event-hubs/event-hubs-about.md).
     - An Azure partner monitoring solution such as, Datadog, Elastic, Logz.io and others.  For more information, see [Partner solutions](../partner-solutions/overview.md).  
 - **None**: You can disable the storage of log data. You'll still be able to view current container console log data via the **Logs stream** feature in your container app.  For more information, see [Log streaming](log-streaming.md).
+
 When *None* or the *Azure Monitor* destination is selected, the **Logs** menu item providing Log Analytics query editor in your Container Apps page in the Azure portal is disabled.  If you have chosen a Log Analytics workspace outside your Container Apps environment as your logs destination, you can use the Azure Monitor Logs page in the Azure portal.
 
 ## Configure options via the Azure portal
 
-TODO: Need to verify steps and get screenshots.
 
 Use these steps to configure the logging options for your Container Apps environment in the Azure portal:
 
-1.Go to the **Logging Options** on your Container Apps environment window in the portal.
+1. Go to the **Logging Options** on your Container Apps environment window in the portal.
     :::image type="content" source="media/observability/log-opts-screenshot-log-analytics.png" alt-text="Screenshot of logs destinations.":::
 1. You can choose from the following **Logs Destination** options:
     - **Log Analytics**: With this option, you select an existing Log Analytics workspace to store your log data.  Your logs can be viewed through Log Analytics queries.  To learn more about Log Analytics, see [Azure Monitor Log Analytics](log-monitoring.md).
     - **Azure Monitor**: Azure Monitor routes your logs to a destination. When you select this option, you must select **Diagnostic settings** to complete the configuration after you select **Save** on this page.
     - **None**:  This option disables the storage of log data.
 1. Select **Save**.
-1. If you have selected **Azure Monitor** as your logs destination, you must configure **Diagnostic settings**.  The **Diagnostic settings** item will appear below **Logging options** menu item.
+    :::image type="content" source="media/observability/log-opts-screenshot-page-save-button.png" alt-text="Screenshot Logging options page.":::
+1. If you have selected **Azure Monitor** as your logs destination, you must configure **Diagnostic settings**.  The **Diagnostic settings** item will appear below the **Logging options** menu item.
 
 ### Diagnostic settings
 
