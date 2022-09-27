@@ -409,7 +409,7 @@ for id in results:
     openai.File.delete(sid = id)
 ```
 
-## Next Steps
+## Next steps
 
 - Explore the full REST API Reference documentation to learn more about all the fine-tuning capabilities. You can find the [full REST documentation here](../reference.md).
 - Explore more of the [Python SDK operations here](https://github.com/openai/openai-python/blob/main/examples/azure/finetuning.ipynb).
