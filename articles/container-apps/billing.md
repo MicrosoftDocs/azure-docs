@@ -93,6 +93,6 @@ This article describes how to calculate the cost of running your container app. 
 > [!NOTE]
 > The Container Apps premium plan requires you to use [your own virtual network](networking.md#managed-resources), additional charges may apply.
 
-- **Workload Profiles**: You're billed based on the number of instances of each workload profile in use. As profiles scale out, extra costs apply for the additional instances; as profiles scale in billing is reduced. Regardless of the profile type(s) you select, there's a minimum resource requirement of 6 vCPUs and 24Gibs of memory.
+- **Workload Profiles**: You're billed based on the number of instances of each workload profile in use. As profiles scale out, extra costs apply for the extra instances; as profiles scale in billing is reduced. Regardless of the profile type(s) you select, there's a minimum resource requirement of 6 vCPUs and 24Gibs of memory.
 
 For best results, maximize the use of your allocated resources by calculating the needs of your container apps. Often you can run multiple apps on a single instance of a workload profile.
