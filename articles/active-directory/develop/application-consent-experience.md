@@ -2,7 +2,7 @@
 title: Azure AD app consent experiences
 description: Learn more about the Azure AD consent experiences to see how you can use it when managing and developing applications on Azure AD
 services: active-directory
-author: rwike77
+author: omondiatieno
 manager: CelesteDG
 
 ms.service: active-directory
@@ -10,16 +10,14 @@ ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/18/2022
-ms.author: ryanwi
-ms.reviewer: jesakowi, asteen
+ms.date: 09/26/2022
+ms.author: jomondi
+ms.reviewer: jesakowi, asteen, jawoods
 ---
 
-# Understanding Azure AD application consent experiences
+# Consent experience for applications in Azure Active Directory
 
 Learn more about the Azure Active Directory (Azure AD) application consent user experience. So you can intelligently manage applications for your organization and/or develop applications with a more seamless consent experience.
-
-## Consent and permissions
 
 Consent is the process of a user granting authorization to an application to access protected resources on their behalf. An admin or user can be asked for consent to allow access to their organization/individual data.
 
@@ -50,9 +48,12 @@ The following diagram and table provide information about the building blocks of
 | 10 | https://myapps.microsoft.com | This is the link where users can review and remove any non-Microsoft applications that currently have access to their data. |
 | 11 | Report it here | This link is used to report a suspicious app if you don't trust the app, if you believe the app is impersonating another app, if you believe the app will misuse your data, or for some other reason. |
 
-## App requires a permission within the user's scope of authority
+## Common scenarios and consent experiences
 
-A common consent scenario is that the user accesses an app which requires a permission set that is within the user's scope of authority. The user is directed to the user consent flow.
+The following section describes the common scenarios and the expected consent experience for each of them.
+### App requires a permission within the user's scope of authority
+
+In this consent scenario, the user accesses an app which requires a permission set that is within the user's scope of authority. The user is directed to the user consent flow.
 
 Admins will see an additional control on the traditional consent prompt that will allow them consent on behalf of the entire tenant. The control will be defaulted to off, so only when admins explicitly check the box will consent be granted on behalf of the entire tenant. As of today, this check box will only show for the Global Admin role, so Cloud Admin and App Admin will not see this checkbox.
 
@@ -62,9 +63,9 @@ Users will see the traditional consent prompt.
 
 :::image type="content" source="./media/application-consent-experience/consent_prompt_1b.png" alt-text="Screenshot that shows the traditional consent prompt.":::
 
-## App requires a permission outside of the user's scope of authority
+### App requires a permission outside of the user's scope of authority
 
-Another common consent scenario is that the user accesses an app which requires at least one permission that is outside the user's scope of authority.
+In this consent scenario, the user accesses an app which requires at least one permission that is outside the user's scope of authority.
 
 Admins will see an additional control on the traditional consent prompt that will allow them consent on behalf of the entire tenant.
 
@@ -74,9 +75,9 @@ Non-admin users will be blocked from granting consent to the application, and th
 
 :::image type="content" source="./media/application-consent-experience/consent_prompt_2b.png" alt-text="Screenshot of the consent prompt telling the user to ask an admin for access to the app.":::
 
-## User is directed to the admin consent flow
+### User is directed to the admin consent flow
 
-Another common scenario is when the user navigates to or is directed to the admin consent flow.
+In this consent scenario, the user navigates to or is directed to the admin consent flow.
 
 Admin users will see the admin consent prompt. The title and the permission descriptions changed on this prompt, the changes highlight the fact that accepting this prompt will grant the app access to the requested data on behalf of the entire tenant.
 
