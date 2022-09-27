@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/20/2022
+ms.date: 09/27/2022
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
@@ -228,10 +228,15 @@ Use the following steps to activate an Azure Stack Edge device. Note that a devi
    Set-Login "https://<IP address>" "Password"
    ```
 
+1. Set the ActivationKey property.
+
+   ```azurepowershell
+   $ActivationKey = "<activation key>"
+   ```
 1. Create an activation object and set the activation property.
 
    ```azurepowershell
-   $activation = New-Object PsObject -Property @{activationKey=$activationKey; cik=""}
+   $activation = New-Object PsObject -Property @{activationkey=$AactivationKey; ServiceEncryptionKey=""}
    ```
 
 1. Create a package with the activation object and activation key.
@@ -260,7 +265,7 @@ Use the following steps to activate an Azure Stack Edge device. Note that a devi
 
    Here's an example of output showing device activation status:
 
-   ![PowerShell output showing Azure Stack Edge device activation status](./media/azure-stack-edge-zero-touch-provisioning/azure-stack-edge-device-activation.png)
+   ![PowerShell output showing Azure Stack Edge device activation status.](./media/azure-stack-edge-zero-touch-provisioning/azure-stack-edge-device-activation.png)
 
 ## Quickly fetch or change device configuration settings
 
@@ -310,6 +315,9 @@ Use the following steps to sign into the device and run device diagnostics to ve
    ```azurepowershell
    Get-DeviceDiagnostic | to-json
    ```
+   Here's an example of output showing device diagnostics:
+
+   ![PowerShell output showing Azure Stack Edge device diagnostics.](./media/azure-stack-edge-zero-touch-provisioning/azure-stack-edge-zero-touch-provisioning-diagnostics-sample-output.png)
 
 ## Troubleshooting
 
