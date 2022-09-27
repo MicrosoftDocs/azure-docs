@@ -2,7 +2,7 @@
 title: Exploring captured Avro files in Azure Event Hubs
 description: This article provides the schema of Avro files captured by Azure Event Hubs and a list of tools to explore them. 
 ms.topic: article
-ms.date: 07/06/2022
+ms.date: 09/26/2022
 ---
 
 # Exploring captured Avro files in Azure Event Hubs
@@ -14,7 +14,7 @@ The Avro files produced by Event Hubs Capture have the following Avro schema:
 :::image type="content" source="./media/event-hubs-capture-overview/event-hubs-capture3.png" alt-text="Image showing the schema of Avro files captured by Azure Event Hubs.":::
 
 ## Azure Storage Explorer
-You can view captured files in any tool such as [Azure Storage Explorer][Azure Storage Explorer]. You can download files locally to work on them. 
+You can verify that captured files were created in the Azure Storage account using tools such as [Azure Storage Explorer][Azure Storage Explorer]. You can download files locally to work on them. 
 
 An easy way to explore Avro files is by using the [Avro Tools][Avro Tools] jar from Apache. You can also use [Apache Drill][Apache Drill] for a lightweight SQL-driven experience or [Apache Spark][Apache Spark] to perform complex distributed processing on the ingested data. 
 
