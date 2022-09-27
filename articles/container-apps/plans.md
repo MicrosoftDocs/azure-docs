@@ -42,7 +42,7 @@ Use the Premium plan when you need:
 
     The Premium plan can be more cost effective when you're running higher scale deployments.
 
-- **Secure network egress**: Access to a user defined routing (UDR) which enables scanning and filtering of all outbound traffic.
+- **Secure network egress**: Access to a [user defined routing](https://aka.ms/container-apps-udr) (UDR) which enables scanning and filtering of all outbound traffic.
 
 ## Next steps
 
