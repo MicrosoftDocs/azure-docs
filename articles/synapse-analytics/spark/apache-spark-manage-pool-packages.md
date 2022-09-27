@@ -11,7 +11,7 @@ ms.subservice: spark
 
 # Manage libraries for Apache Spark pools in Azure Synapse Analytics
 
-Once you have identified the Scala, Java, R, or Python packages that you would like to use or update for your Spark application, you can install or remove them into a Spark pool. Pool-level libraries are available to all notebooks and jobs running on the pool.
+Once you have identified the Scala, Java, R (Preview), or Python packages that you would like to use or update for your Spark application, you can install or remove them into a Spark pool. Pool-level libraries are available to all notebooks and jobs running on the pool.
 
 There are two primary ways to install a library on a Spark pool:
 -  Install a workspace library that has been uploaded as a workspace package.
