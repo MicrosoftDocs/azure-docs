@@ -9,7 +9,7 @@ ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022
 author: alainli
 ms.author: alainli
-ms.date: 09/25/2022
+ms.date: 09/26/2022
 ---
 
 # CLI (v2) parallel job YAML schema
@@ -21,7 +21,7 @@ ms.date: 09/25/2022
 > * [v2 (current version)](reference-yaml-job-pipeline.md)
 
 > [!IMPORTANT]
-> Current parallel job can only be used as a single step inside an Azure ML pipeline job. Thus, there is no source JSON schema for parallel job at this time. This document lists the valid keys and their values when creating a parallel job in a pipeline.
+> Parallel job can only be used as a single step inside an Azure ML pipeline job. Thus, there is no source JSON schema for parallel job at this time. This document lists the valid keys and their values when creating a parallel job in a pipeline.
 
 [!INCLUDE [schema note](../../includes/machine-learning-preview-old-json-schema-note.md)]
 

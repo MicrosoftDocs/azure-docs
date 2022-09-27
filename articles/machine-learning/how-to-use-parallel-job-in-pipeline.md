@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.topic: how-to
 author: alainli
 ms.author: alainli
-ms.date: 09/25/2022
+ms.date: 09/26/2022
 ms.custom: devx-track-python, sdkv2, cliv2, event-tier1-build-2022
 ---
 
@@ -153,7 +153,7 @@ Sample code to set two attributes:
 > Run(mini_batch) function requires a return of either a dataframe, list, or tuple item. Parallel job will use the count of that return to measure the success items under that mini-batch. Ideally mini-batch count should be equal to the return list count if all items have well processed in this mini-batch.
 
 > [!IMPORTANT]
-> If you want to parse arguments in Init() or Run(mini_batch) function, use "parse_known_args" instead of "parse_args" for avoiding exceptions. See this example for entry script with argument parser: [iris_score](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/parallel-run/Code/iris_score.py)
+> If you want to parse arguments in Init() or Run(mini_batch) function, use "parse_known_args" instead of "parse_args" for avoiding exceptions. See the [iris_score](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/parallel-run/Code/iris_score.py) example for entry script with argument parser.
 
 ### Consider automation settings
 
@@ -242,13 +242,13 @@ You can submit your pipeline job with parallel step by using `jobs.create_or_upd
 
 ---
 
-Once you submit your pipeline job, the SDK or CLI widget will give you a web URL link to Studio UI. The link will guide you to the pipeline graph view by default. Double select the parallel step to open the right panel of your parallel job.
+Once you submit your pipeline job, the SDK or CLI widget will give you a web URL link to the Studio UI. The link will guide you to the pipeline graph view by default. Double select the parallel step to open the right panel of your parallel job.
 
 To check the settings of your parallel job, navigate to **Parameters** tab, expand **Run settings**, and check **Parallel** section:
 
 :::image type="content" source="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-settings.png" alt-text="Screenshot of Azure ML studio on the jobs tab showing the parallel job settings." lightbox ="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-settings.png":::
 
-To debug the failure of your parallel job, navigate to **Outputs + Logs** tab, expand **logs** folder from output directories on the left, and check **job_result.txt** to understand why the parallel job is failed. For more detail about logging structure of parallel job, refer to **readme.txt** under the same folder.
+To debug the failure of your parallel job, navigate to **Outputs + Logs** tab, expand **logs** folder from output directories on the left, and check **job_result.txt** to understand why the parallel job is failed. For more detail about logging structure of parallel job, see the **readme.txt** under the same folder.
 
 :::image type="content" source="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-result.png" alt-text="Screenshot of Azure ML studio on the jobs tab showing the parallel job results." lightbox ="./media/how-to-use-parallel-job-in-pipeline/screenshot-for-parallel-job-result.png":::
 
@@ -264,4 +264,4 @@ To debug the failure of your parallel job, navigate to **Outputs + Logs** tab, e
 
 - For the detailed yaml schema of parallel job, see the [YAML reference for parallel job](reference-yaml-job-parallel.md).
 - For how to onboard your data into MLTABLE, see [Create a mltable data asset](how-to-create-register-data-assets.md#create-a-mltable-data-asset).
-- For how to regularly trigger your pipeline, see [how to schedule pipeline](how-to-schedule-pipeline-job.md)
+- For how to regularly trigger your pipeline, see [how to schedule pipeline](how-to-schedule-pipeline-job.md).
