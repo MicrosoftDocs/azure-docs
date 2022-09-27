@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/22/2022
+ms.date: 09/27/2022
 ms.author: jeedes
 
 ---
@@ -121,11 +121,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure workhub SSO
 
-To configure single sign-on on **workhub** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [workhub support team](mailto:team_bkp@bitkey.jp). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **workhub** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [workhub support team](mailto:support_work@bitkey.jp). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create workhub test user
 
-In this section, you create a user called Britta Simon at workhub. Work with [workhub support team](mailto:team_bkp@bitkey.jp) to add the users in the workhub platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon at workhub. Work with [workhub support team](mailto:support_work@bitkey.jp) to add the users in the workhub platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
