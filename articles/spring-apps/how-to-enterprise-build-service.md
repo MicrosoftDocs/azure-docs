@@ -151,7 +151,7 @@ To edit service bindings for the builder, select **Edit**. After a builder is bo
 :::image type="content" source="media/enterprise/how-to-enterprise-build-service/edit-binding.png" alt-text="Screenshot of Azure portal showing the Build Service page with the Edit binding link highlighted." lightbox="media/enterprise/how-to-enterprise-build-service/edit-binding.png":::
 
 > [!NOTE]
-> When configuring environment variables for APM bindings, use key names without a prefix. For example, do not use a *DT_* prefix for a Dynatrace binding. Tanzu APM buildpacks will transform the key name to the original environment variable name with a prefix.
+> When configuring environment variables for APM bindings, use key names without a prefix. For example, do not use a `DT_` prefix for a Dynatrace binding. Tanzu APM buildpacks will transform the key name to the original environment variable name with a prefix.
 
 The following example shows Dynatrace properties.
 
@@ -180,7 +180,7 @@ Follow these steps to view the current buildpack bindings:
 
 ### Create a buildpack binding
 
-To create a buildpack binding, select **Unbound** on **Edit Bindings** page, and then select **Save** .
+To create a buildpack binding, select **Unbound** on the **Edit Bindings** page, and then select **Save**.
 
 :::image type="content" source="media/enterprise/how-to-enterprise-build-service/bound-service-binding.png" alt-text="Screenshot of Azure portal showing the Edit binding for Dynatrace pane." lightbox="media/enterprise/how-to-enterprise-build-service/bound-service-binding.png":::
 
@@ -190,11 +190,11 @@ You can unbind a buildpack binding by using the **Unbind binding** command, or b
 
 To use the **Unbind binding** command, select the **Bound** hyperlink, and then select **Unbind binding**.
 
-:::image type="content" source="media/enterprise/how-to-enterprise-build-service/unbound-service-binding-operation1.png" alt-text="Screenshot of Azure portal showing the Unbind binding command.":::
+:::image type="content" source="media/enterprise/how-to-enterprise-build-service/unbind-binding-command.png" alt-text="Screenshot of Azure portal showing the Unbind binding command.":::
 
 To unbind a buildpack binding by editing binding properties, select **Edit Binding**, and then select **Unbind**.
 
-:::image type="content" source="media/enterprise/how-to-enterprise-build-service/unbound-service-binding-operation2.png" alt-text="Screenshot of Azure portal showing binding properties.":::
+:::image type="content" source="media/enterprise/how-to-enterprise-build-service/unbind-binding-properties.png" alt-text="Screenshot of Azure portal showing binding properties.":::
 
 When you unbind a binding, the bind status changes from **Bound** to **Unbound**.
 
