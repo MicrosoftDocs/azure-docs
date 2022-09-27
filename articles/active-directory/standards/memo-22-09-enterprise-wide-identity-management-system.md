@@ -41,12 +41,12 @@ The memo requires that users sign in once and then directly access applications.
 
 ## Integration across agencies
 
-[Azure AD B2B collaboration](../external-identities/what-is-b2b.md) helps you meet the requirement to facilitate integration/collaboration among agencies. Whether the users reside in different Microsoft tenant in the same cloud, [tenant on another microsoft cloud](../external-identities/b2b-government-national-clouds), or a [non Azure AD tenant (SAML/WS-Fed identity provider)](..//external-identities/direct-federation).
+[Azure AD B2B collaboration](../external-identities/what-is-b2b.md) helps you meet the requirement to facilitate integration/collaboration among agencies. Whether the users reside in different Microsoft tenant in the same cloud, [tenant on another microsoft cloud](../external-identities/b2b-government-national-clouds.md), or a [non Azure AD tenant (SAML/WS-Fed identity provider)](..//external-identities/direct-federation.md).
 
 Azure AD cross-tenant access settings allow agencies to manage how they collaborate with other Azure AD organizations and other Microsoft Azure clouds. It does this by:
 
-    - Limiting what other Microsoft tenants your users can access.
-    - Granular settings to control access for external users including enforcement of multifactor authentication (MFA) and device signal.
+- Limiting what other Microsoft tenants your users can access.
+- Granular settings to control access for external users including enforcement of multifactor authentication (MFA) and device signal.
 
 ## Connecting applications
 
