@@ -1000,21 +1000,8 @@ items:
       href: vm/vminsights-troubleshoot.md
   - name: Activity logs
     href: essentials/activity-log-insights.md
-  - name: Azure Cache for Redis
-    href: ../azure-cache-for-redis/redis-cache-insights-overview.md?toc=/azure/azure-monitor/toc.json
-  - name: Azure Cosmos DB
-    href: ../cosmos-db/cosmosdb-insights-overview.md?toc=/azure/azure-monitor/toc.json
-  - name: Azure Data Explorer
-    href: /azure/data-explorer/data-explorer-insights?toc=/azure/azure-monitor/toc.json
   - name: Log Analytics workspace
     href: logs/log-analytics-workspace-insights-overview.md
-  - name: Networks
-    href: ../network-watcher/network-insights-overview.md?toc=/azure/azure-monitor/toc.json
-  - name: Key Vault
-    href: ../key-vault/key-vault-insights-overview.md?toc=/azure/azure-monitor/toc.json
-  - name: Storage
-    displayName: storage, monitor, insights, storage accounts, azure storage
-    href: ../storage/common/storage-insights-overview.md?toc=/azure/azure-monitor/toc.json
   - name: Resource groups
     href: insights/resource-group-insights.md
 - name: Visualizations
@@ -1121,7 +1108,7 @@ items:
         href: app/export-power-bi.md
   - name: Grafana
     href: visualize/grafana-plugin.md
-- name: Analyize
+- name: Analyze Data
   items:
   - name: Metrics explorer
     items:
@@ -1255,7 +1242,7 @@ items:
       items:
       - name: Track web outages
         href: change/tutorial-outages.md
-- name: Response
+- name: Respond and take action
   items:
   - name: Alerts
     items:
