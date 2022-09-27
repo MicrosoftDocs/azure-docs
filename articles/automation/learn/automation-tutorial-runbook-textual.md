@@ -184,7 +184,7 @@ You've tested and published your runbook, but so far it doesn't do anything usef
 
 1. Select **Overview** and then **Edit** to open the textual editor.
 
-1. Replace all of the existing code with the following:
+1. Replace the existing code with the following:
 
    ```powershell
    workflow MyFirstRunbook-Workflow
