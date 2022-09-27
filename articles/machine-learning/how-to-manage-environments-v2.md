@@ -25,20 +25,19 @@ ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022
 
 Azure Machine Learning environments define the execution environments for your jobs or deployments and encapsulate the dependencies for your code. Azure ML uses the environment specification to create the Docker container that your training or scoring code runs in on the specified compute target. You can define an environment from a conda specification, Docker image, or Docker build context.
 
-In this article, learn how to create and manage Azure ML environments using the CLI (v2).
+In this article, learn how to create and manage Azure ML environments using the SDK & CLI (v2).
 
 
 ## Prerequisites
 
-- To use the CLI, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
-- [Install and set up the Azure CLI extension for Machine Learning](how-to-configure-cli.md)
+[!INCLUDE (sdk/cliv2)[../../machine-learning-cli-sdk-v2-prereqs.md]]
 
 > [!TIP]
 > For a full-featured development environment, use Visual Studio Code and the [Azure Machine Learning extension](how-to-setup-vs-code.md) to [manage Azure Machine Learning resources](how-to-manage-resources-vscode.md) and [train machine learning models](tutorial-train-deploy-image-classification-model-vscode.md).
 
 ### Clone examples repository
 
-To run the training examples, first clone the examples repository and change into the `cli` directory:
+To run the training examples, first clone the examples repository. For the CLI examples,change into the `cli` directory. For the SDK examples, change into the `SDK` directory:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="git_clone":::
 
@@ -56,7 +55,9 @@ You can see the set of available curated environments in the Azure ML studio UI,
 
 ## Create an environment
 
-You can define an environment from a conda specification, Docker image, or Docker build context. Configure the environment using a YAML specification file and create the environment using the following CLI command:
+You can define an environment from a conda specification, Docker image, or Docker build context. 
+
+The Azure CLI allows you to define the environment using a YAML specification file and create the environment using the following CLI command:
 
 ```cli
 az ml environment create --file my_environment.yml
@@ -68,6 +69,9 @@ For the YAML reference documentation for Azure ML environments, see [CLI (v2) en
 
 To define an environment from a Docker image, provide the image URI of the image hosted in a registry such as Docker Hub or Azure Container Registry. 
 
+# [Python SDK](#tabs/sdk)
+
+# [Azure CLI](#tabs/cli)
 The following example is a YAML specification file for an environment defined from a Docker image. An image from the official PyTorch repository on Docker Hub is specified via the `image` property in the YAML file.
 
 :::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image.yml":::
