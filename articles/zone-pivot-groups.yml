@@ -748,6 +748,8 @@ groups:
     title: Scala
   - id: programming-language-csharp
     title: C#
+  - id: programming-language-r
+    title: R
 - id: aml-control-methods
   # Owner: gopalv
   title: Azure Machine Learning control plane
