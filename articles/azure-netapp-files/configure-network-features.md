@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 08/11/2022
+ms.date: 09/27/2022
 ms.custom: references_regions
 ms.author: anfdocs
 ---
@@ -49,6 +49,10 @@ Two settings are available for network features:
     * If the Standard volume capability is not available for the region, the Network Features field of the Create a Volume page defaults to *Basic*, and you cannot modify the setting.
 
 * The ability to locate storage compatible with the desired type of network features depends on the VNet specified.  If you cannot create a volume because of insufficient resources, you can try a different VNet for which compatible storage is available.
+
+* You cannot create a standard volume from the snapshot of a basic volume.
+
+* Conversion between Basic and Standard networking features in either direction is not currently supported.
   
 ## Register the feature 
 
