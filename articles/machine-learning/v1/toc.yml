@@ -75,6 +75,9 @@
     - name: Manage resources VS Code
       displayName: vscode,resources
       href: ../how-to-manage-resources-vscode.md
+    - name: Git integration
+      displayName: github gitlab
+      href: ../concept-train-model-git-integration.md
 - name: Tutorials (v1)
   expanded: true
   items:
@@ -115,6 +118,9 @@
     href: how-to-manage-workspace-cli.md
   - name: Set up software environments CLI (v1)
     href: how-to-use-environments.md
+  - name: Use private Python packages
+    displayName: pip, Conda, anaconda
+    href: how-to-use-private-python-packages.md
   - name: Create & manage compute resources
   - name: Workspace Diagnostics
     href: how-to-workspace-diagnostic-api.md
@@ -262,6 +268,9 @@
       href: how-to-prepare-datasets-for-automl-images-v1.md
     - name: Reinforcement learning
       href: how-to-use-reinforcement-learning.md
+    - name: Explain automated ML models
+      displayName: SDK, interpret, interpret, explain, explainability, interpretability, automated ML, automl, auto ml
+      href: how-to-machine-learning-interpretability-automl.md
   - name: Deploy models
     items:
     - name: Where and how to deploy
