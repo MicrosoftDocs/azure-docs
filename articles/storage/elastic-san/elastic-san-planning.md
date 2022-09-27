@@ -90,3 +90,7 @@ Only the following iSCSI commands are currently supported:
 - VERIFY (16)
 - SYNCHRONIZE CACHE (10)
 - SYNCHRONIZE CACHE (16)
+
+## Next steps
+
+[Deploy an Elastic SAN (preview)](elastic-san-create.md)

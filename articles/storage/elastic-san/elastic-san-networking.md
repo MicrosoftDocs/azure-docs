@@ -198,3 +198,7 @@ Currently, you must use either the Azure PowerShell module or Azure CLI to manag
     ```
 
 ---
+
+## Next steps
+
+[Plan for deploying an Elastic SAN (preview)](elastic-san-planning.md)

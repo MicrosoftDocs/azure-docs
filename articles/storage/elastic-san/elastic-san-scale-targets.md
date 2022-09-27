@@ -78,3 +78,7 @@ The performance of an individual volume is determined by its capacity. The maxim
 | Minimum volume capacity | 1 GiB |
 | Maximum total IOPS | 64,000 |
 | Maximum total MB/s | 1,024 |
+
+## Next steps
+
+[Plan for deploying an Elastic SAN (preview)](elastic-san-planning.md)

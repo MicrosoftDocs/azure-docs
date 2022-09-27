@@ -60,3 +60,7 @@ Remove-AzElasticSan -ResourceGroupName $resourceGroupName -Name $sanName
 az elastic-san delete -n $sanName -g $resourceGroupName
 ```
 ---
+
+## Next steps
+
+[Plan for deploying an Elastic SAN (preview)](elastic-san-planning.md)

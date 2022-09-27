@@ -80,4 +80,4 @@ The status of items in this table may change over time.
 
 ## Next steps
 
-[Deploy an Elastic SAN](elastic-san-create.md)
+[Plan for deploying an Elastic SAN (preview)](elastic-san-planning.md)
