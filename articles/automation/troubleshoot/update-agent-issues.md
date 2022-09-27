@@ -44,24 +44,26 @@ Results are shown on the page when they're ready. The checks sections show what'
 
 ### Operating system
 
-The operating system check verifies whether the Hybrid Runbook Worker is running [one of the supported operating systems.](../update-management/operating-system-requirements.md#windows)  
-one of the supported operating systems
+The operating system check verifies whether the Hybrid Runbook Worker is running [one of the supported operating systems](../update-management/operating-system-requirements.md#windows). 
+
 
 ### .NET 4.6.2
 
 The .NET Framework check verifies that the system has [.NET Framework 4.6.2](https://dotnet.microsoft.com/download/dotnet-framework/net462) or later installed.
 
-Install .NET Framework 4.6 or later. </br> Download the [.NET Framework](https://www.docs.microsoft.com/dotnet/framework/install/guide-for-developers).
+To fix, install .NET Framework 4.6 or later. </br> Download the [.NET Framework](https://www.docs.microsoft.com/dotnet/framework/install/guide-for-developers).
 
 ### WMF 5.1
 
-The WMF check verifies that the system has the required version of the Windows Management Framework (WMF). To fix, you need to download and install [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616) as it requires Windows PowerShell 5.1 for Azure Update Management to work.
+The WMF check verifies that the system has the required version of the Windows Management Framework (WMF). 
+
+To fix, you need to download and install [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616) as it requires Windows PowerShell 5.1 for Azure Update Management to work.
 
 ### TLS 1.2
 
 This check determines whether you're using TLS 1.2 to encrypt your communications. TLS 1.0 is no longer supported by the platform. Use TLS 1.2 to communicate with Update Management.
 
-Follow the steps to [Enable TLS 1.2](../agents/agent-windows?tabs=setup-wizard.md#configure-agent-to-use-tls-12)
+To fix, follow the steps to [Enable TLS 1.2](../agents/agent-windows?tabs=setup-wizard.md#configure-agent-to-use-tls-12).
 
 ## Monitoring agent service health checks
 
@@ -73,7 +75,7 @@ To fix the issue, start **HealthService** service
 ### Hybrid Runbook Worker
 To fix the issue, do a force re-registration of Hybrid Runbook Worker.
 
-`Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force *restart-service healthservice`</br> 
+`Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force *Restart-service healthservice`</br> 
 
 >[!NOTE]
 > This will remove the user Hybrid worker from the machine. Ensure to check and re-register it afterwards. There is no action needed if the machine has only the System Hybrid Runbook worker. 
@@ -84,13 +86,17 @@ Raise a support ticket if the issue is not fixed still.
 
 ### Monitoring Agent Service
 
-Check the event id 4502 (error event) in **Operations Manager** event logs and check the description.</br> To troubleshoot, run the [MMA Agent Troubleshooter](../azure-monitor/agents/agent-windows-troubleshoot.md).
+Check the event id 4502 (error event) in **Operations Manager** event logs and check the description.
+
+To troubleshoot, run the [MMA Agent Troubleshooter](../azure-monitor/agents/agent-windows-troubleshoot.md).
 
 
 ### VMs linked workspace
 See [Network requirements](./azure-monitor/agents/agent-windows-troubleshoot.md#connectivity-issues).
 
-To validate: Check VMs connected workspace or Heartbeat table of corresponding log analytics `Heartbeat | where Computer =~ ""`
+To validate: Check VMs connected workspace or Heartbeat table of corresponding log analytics.
+
+`Heartbeat | where Computer =~ ""`
 
 ### Windows update service status
 
@@ -98,44 +104,9 @@ To validate: Check VMs connected workspace or Heartbeat table of corresponding l
 
 `Start-Service -Name wuauserv -ErrorAction SilentlyContinue`
 
-### Machine key folder
-
-Grant the SYSTEM account the required permissions (Read, Write & Modify or Full Control) on folder *C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys*. 
-
-Use the below commands to check the permissions on the folder:
-
- `$folder = C:\\ProgramData\\Microsoft\\Crypto\\RSA\\MachineKeys`
-
-`(Get-Acl $folder).Access |? {($_.IdentityReference -match $User) -or ($_.IdentityReference -match "Everyone")} | Select IdentityReference, FileSystemRights`
-
-### Automatically reboot after install
-
-Remove the registry keys from: 
-
-*HKLM:\Software\Policies\Microsoft\Windows\WindowsUpdate\AU* 
-
-Configure reboot according to Update Management schedule configuration. 
-
-`AlwaysAutoRebootAtScheduledTime`
-`AlwaysAutoRebootAtScheduledTimeMinutes`
-
-For more information, see [Configure reboot settings](./automation/update-management/configure-wuagent.md#configure-reboot-settings)
-
-
-### WSUS Server configuration
-
-If the environment is set to get updates from WSUS, ensure that iot is approved in WSUS before the update deployment. For more information, see [WSUS configuration settings](./automation/update-management/configure-wuagent.md#make-wsus-configuration-settings).
-
-If your environment is not using WSUS, ensure that you remove the WSUS server settings and [reset Windows Update Component](./windows/deployment/update/windows-update-resources.md#how-do-i-reset-windows-update-components).
-
-
-### Automatically download and install
-
-To fix the issue, disable the AutoUpdate feature. Set it to Disabled in the local group policy **Configure Automatic Updates**.
-
-For more information, see [Configure automatic updates](./windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates.md#configure-automatic-updates)
-
 ## Connectivity checks
+
+The troubleshooter currently doesn't route traffic through a proxy server if one is configured.
 
 ### Registration endpoint
 
@@ -146,10 +117,11 @@ Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to 
 Allow the [prerequisite URLs](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory). 
 After the network changes, you can either rerun the Troubleshooter or run the below commands to validate: 
 
-#add the workspace id 
-`$workspaceId - ""`
-`$endpoint = $workspaceId.agentsvc.azure-automation.net`
-`Test-NetConnection -ComputerName $endpoint -Port 443 -WarningAction SilentlyContinue).TcpTestSucceeded`
+```
+$workspaceId =- ""  
+$endpoint = $workspaceId + “.agentsvc.azure-automation.net”  
+(Test-NetConnection -ComputerName $endpoint -Port 443 -WarningAction SilentlyContinue).TcpTestSucceeded 
+```
 
 ### Operations endpoint
 
@@ -158,10 +130,16 @@ This check determines whether the agent can properly communicate with the Job Ru
 Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to communicate with the Job Runtime Data Service. For a list of addresses and ports to open, see [Network planning](../automation-hybrid-runbook-worker.md#network-planning).
 
 Allow the [prerequisite URLs](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory). After the network changes, you can either rerun the Troubleshooter or run the below commands to validate: 
+ 
+```
+$jrdsEndpointLocationMoniker = “” 
 
-`$endpoint = $jrdsEndpointLocationMoniker-jobruntimedata-prod-su1.azure-automation.net` 
-`# $jrdsEndpointLocationMoniker should be based on automation account location (jpe/ase/scus) etc.` 
-`Test-NetConnection -ComputerName $endpoint -Port 443 -WarningAction SilentlyContinue).TcpTestSucceeded`
+# $jrdsEndpointLocationMoniker should be based on automation account location (jpe/ase/scus) etc.  
+
+$endpoint = $jrdsEndpointLocationMoniker + “-jobruntimedata-prod-su1.azure-automation.net” 
+
+(Test-NetConnection -ComputerName $endpoint -Port 443 -WarningAction SilentlyContinue).TcpTestSucceeded  
+```
 
 ### Https connection
 Simplifies the ongoing management of your network security rules. Allow the [prerequisite URLs](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory).
@@ -169,7 +147,7 @@ Simplifies the ongoing management of your network security rules. Allow the [pre
 After the network changes, you can either rerun the Troubleshooter or run the below commands to validate:
 
 `$uri = "https://eus2-jobruntimedata-prod-su1.azure-automation.net"`
-`*Invoke-WebRequest -URI $uri -UseBasicParsing > $null`
+`*Invoke-WebRequest -URI $uri -UseBasicParsing `
 
 
 ### Proxy settings
@@ -177,7 +155,12 @@ After the network changes, you can either rerun the Troubleshooter or run the be
 If the proxy is enabled, ensure that you have access to the [prerequisite URLs](../automation-network-configuration#update-management-and-change-tracking-and-inventory). 
 
 To check if the proxy is set correctly, use the below commands: 
-`netsh winhttp show proxy` or check the registry key **ProxyEnable** is set to 1 in `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings` 
+
+`netsh winhttp show proxy` 
+
+or check the registry key **ProxyEnable** is set to 1 in 
+
+`HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings` 
 
 
 ### IMDS endpoint connectivity
@@ -185,6 +168,7 @@ To check if the proxy is set correctly, use the below commands:
 To fix the issue, allow access to IP **169.254.169.254** </br> For more information see, [access Azure instance metadata service](../virtual-machines/windows/instance-metadata-service.md#access-azure-instance-metadata-service). 
 
 After the network changes, you can either rerun the Troubleshooter or run the below commands to validate: 
+
 `Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://169.254.169.254/metadata/instance?api-version=2018-02-01`
 
 ## VM service health checks
@@ -203,8 +187,7 @@ To learn more about this event, see the [Event 4502 in the Operations Manager lo
 
 ## Access permissions checks
 
-> [!NOTE]
-> The troubleshooter currently doesn't route traffic through a proxy server if one is configured.
+
 
 ### Crypto folder access
 
