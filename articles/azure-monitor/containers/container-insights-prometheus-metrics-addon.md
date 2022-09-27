@@ -13,14 +13,14 @@ This article describes how to configure Container insights to send Prometheus me
 ## Prerequisites
 
 - The following resource providers must be registered in the subscription of the AKS cluster and the Azure Monitor Workspace.
-  - Microsoft.ContainerService 
+  - Microsoft.ContainerService
   - Microsoft.Insights
   - Microsoft.AlertsManagement
 
-
+Please register the `AKS-PrometheusAddonPreview` in the Azure Kubernetes clusters subscription to try out this feature.
 
 ## Enable Prometheus metric collection
-Use any of the following methods to install the metrics addon on your cluster and send Prometheus metrics to an Azure Monitor workspace. 
+Use any of the following methods to install the metrics addon on your cluster and send Prometheus metrics to an Azure Monitor workspace.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -150,6 +150,19 @@ If you're using an existing Azure Managed Grafana instance that already has been
 }
 ```
 
+### Retrieve System Assigned identity for Grafana resource
+If you're using an existing Azure Managed Grafana instance that already has been linked to an Azure Monitor workspace then you need the list of Grafana integrations. Open the **Overview** page for the Azure Managed Grafana instance and select the JSON view. Copy the value of the `principalId` field for the `SystemAssigned` identity.
+
+```json
+"identity": {
+        "principalId": "00000000-0000-0000-0000-000000000000",
+        "tenantId": "00000000-0000-0000-0000-000000000000",
+        "type": "SystemAssigned"
+    },
+```
+
+Please assign the `Monitoring Data Reader` role to the Grafana System Assigned Identity i.e. the principalId on the Azure Monitor Workspace resource. This will let the Azure Managed Grafana resource read data from the Azure Monitor Workspace and is a requirement for viewing the metrics.
+
 ### Download and edit template and parameter file
 
 1. Download the template at [https://aka.ms/aks-enable-azuremonitormetrics](https://aka.ms/aks-enable-azuremonitormetrics) and save it as **existingClusterOnboarding.json**.
@@ -167,8 +180,8 @@ If you're using an existing Azure Managed Grafana instance that already has been
     | `grafanaResourceId` | Resource ID for the managed Grafana instance. Retrieve from the **JSON view** on the **Overview** page for the Grafana instance. |
     | `grafanaLocation`   | Location for the managed Grafana instance. Retrieve from the **JSON view** on the **Overview** page for the Grafana instance. |
     | `grafanaSku`        | SKU for the managed Grafana instance. Retrieve from the **JSON view** on the **Overview** page for the Grafana instance. Use the **sku.name**. |
-    
-    
+
+
 4. Open the template file and update the `grafanaIntegrations` property at the end of the file with the values that you retrieved from the Grafana instance. This will be similar to the following:
 
     ```json
@@ -197,9 +210,10 @@ If you're using an existing Azure Managed Grafana instance that already has been
         }
     ````
 
----
 
 5. Deploy the template with the parameter file using any valid method for deploying Resource Manager templates. See [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates) for examples.
+
+---
 
 
 

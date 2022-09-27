@@ -224,8 +224,6 @@ items:
       items: 
       - name: Overview
         href: essentials/prometheus-metrics-overview.md
-      - name: Configure remote write
-        href: essentials/prometheus-remote-write.md
       - name: Rule groups
         href: essentials/prometheus-metrics-rule-groups.md
       - name: Troubleshoot collection

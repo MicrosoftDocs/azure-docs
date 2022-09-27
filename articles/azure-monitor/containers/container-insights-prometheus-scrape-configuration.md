@@ -52,7 +52,6 @@ apiserver = "mymetric.*"
 
 To further customize the default jobs to change properties such as collection frequency or labels, disable the corresponding default target by setting the configmap value for the target to `false`  and then apply the job using custom configmap. For details on custom configuration, see [Customize scraping of Prometheus metrics in Container insights](container-insights-prometheus-scrape-configuration.md#configure-custom-prometheus-scrape-jobs).
 
-
 ### Cluster alias
 The cluster label appended to every time series scraped will use the last part of the full AKS cluster's ARM resourceID. For example, if the resource ID is `/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-name/providers/Microsoft.ContainerService/managedClusters/clustername`, the cluster label is `clustername`. 
 
@@ -95,10 +94,6 @@ The `ama-metrics` replicaset pod consumes the custom Prometheus config and scrap
   ```
 
 Custom scrape targets can follow the same format using `static_configs` with targets using the `$NODE_IP` environment variable and specifying the port to scrape. Each pod of the daemonset will take the config, scrape the metrics, and send them for that node.
-
-
-
-
 
 
 

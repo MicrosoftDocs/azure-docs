@@ -43,10 +43,6 @@ In addition to the methods below, you may be given the option to create a new Az
 4. Provide a **Name** and a **Region** for the workspace.
 5. Click **Review + create** to create the workspace.
 
-### [CLI](#tab/cli)
-To be completed.
-
-
 ### [Resource Manager](#tab/resource-manager)
 To be completed.
 
@@ -65,10 +61,6 @@ When you delete an Azure Monitor workspace, no soft-delete operation is performe
 
     :::image type="content" source="media/azure-monitor-workspace-overview/delete-azure-monitor-workspace.png" lightbox="media/azure-monitor-workspace-overview/delete-azure-monitor-workspace.png" alt-text="Screenshot of Azure Monitor workspaces delete button.":::
 
-### [CLI](#tab/cli)
-To be completed.
-
-
 ### [Resource Manager](#tab/resource-manager)
 To be completed.
 
@@ -86,10 +78,6 @@ Connect an Azure Monitor workspace to an [Azure Managed Grafana](../../managed-g
 2. Select your workspace.
 3. Click **Linked Grafana workspaces**.
 4. Select a Grafana workspace or **Create new** to create a new one.
-
-### [CLI](#tab/cli)
-To be completed.
-
 
 ### [Resource Manager](#tab/resource-manager)
 To be completed.
