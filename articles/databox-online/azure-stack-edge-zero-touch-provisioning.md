@@ -102,9 +102,9 @@ Use the following steps to sign into a device, change the password, and fetch th
    Get-DeviceConfiguration | to-json
    ```
 
-## Apply a partial configuration to a device
+## Apply initial configuration to a device
 
-Use the following steps to prepare a JSON package with the configuration to apply to devices.
+Use the following steps to prepare a JSON file with the configuration to apply to one or more devices.
 
 > [!NOTE]
 > Use a config.json file that meets the needs of your organization. A [sample config.json file is available here](Need URL to file in repo).
@@ -163,7 +163,9 @@ Run the following cmdlets in PowerShell:
 
    ![PowerShell output showing Azure Stack Edge successful update.](./media/azure-stack-edge-zero-touch-provisioning/azure-stack-edge-zero-touch-provisioning-json-success.png)
 
-## Apply a full configuration to a device, without device activation
+1. After saving device configuration settings to a JSON file, you can use steps in the following section to apply those device configuration settings to one or more devices. 
+
+## Apply a configuration to a device using a JSON file, without device activation
 
 Once a config.json file has been created, as in the previous example, with the desired configuration, use the JSON file to change configuration settings on one or more devices.
 
@@ -218,7 +220,7 @@ Run the following cmdlets in PowerShell:
 
 ## Activate a device
 
-Use the following steps to activate an Azure Stack Edge device. Note that a device activation can't be undone, and a device activation key can't be reused or applied to a different device.
+Use the following steps to activate an Azure Stack Edge device. Note that device activation can't be undone, and a device activation key can't be reused or applied to a different device.
 
 1. Retrieve the activation key for your device. For detailed steps, see [Create a management resource, and Get the activation key](azure-stack-edge-gpu-deploy-prep.md#create-a-management-resource-for-each-device) sections.
 
