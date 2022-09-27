@@ -25,7 +25,7 @@ Use this article to find the natural languages supported by Key Phrase Analysis.
 Total supported language codes: 94
 
 | Language              | Language code |        Starting with model version        |       Notes        |
-|:---------------------:|:-------------:|:-----------------------------------------:|:------------------:|
+|-----------------------|---------------|-------------------------------------------|--------------------|
 | Afrikaans             |     `af`      |                2020-07-01                 |                    |
 | Albanian              |     `sq`      |                2022-10-01                 |                    |
 | Amharic               |     `am`      |                2022-10-01                 |                    |
