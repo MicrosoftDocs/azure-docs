@@ -65,7 +65,7 @@ PS C:\> Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -R
     - *ResourceGroupName [string] Required* - This parameter is the name of the resource group containing the Basic load balancer
     - *RecoveryBackupPath [string] Optional* - This parameter allows you to specify an alternative path in which to store the Basic load balancer ARM template backup file (defaults to the current working directory)
     - *FailedMigrationRetryFilePathLB [string] Optional* - This parameter allows you to specify a path to a Basic load balancer backup state file when retrying a failed upgrade (defaults to current working directory)
-    - *FailedMigrationRetryFilePathVMSS [string] Optional* - This parameter allows you to specify a path to a virtual machine scale set (virtual machine scale set) backup state file when retrying a failed upgrade (defaults to current working directory)
+    - *FailedMigrationRetryFilePathVMSS [string] Optional* - This parameter allows you to specify a path to a virtual machine scale set backup state file when retrying a failed upgrade (defaults to current working directory)
 
 4. Run the Upgrade command.
 
@@ -134,7 +134,7 @@ The script migrates the following from the Basic load balancer to the Standard l
 - Inbound NAT Rules:
   - All NAT rules will be migrated to the new Standard load balancer
 - Outbound Rules:
-  - Basic load balancers don't support configured outbound rules. The script will create an outbound rule in the Standard load balancer to preserve the outbound behavior of the Basic load balancer. For more information about Outbound connectivity, see [Outbound-only load balancer configuration](/azure/load-balancer/egress-only).
+  - Basic load balancers don't support configured outbound rules. The script will create an outbound rule in the Standard load balancer to preserve the outbound behavior of the Basic load balancer. For more information about outbound rules, see [Outbound rules](/azure/load-balancer/outbound-rules).
 - Network security group
   - Basic load balancer doesn't require a network security group to allow outbound connectivity. In case there's no network security group associated with the virtual machine scale set, a new network security group will be created to preserve the same functionality. This new network security group will be associated to the virtual machine scale set backend pool member network interfaces. It will allow the same load balancing rules ports and protocols and preserve the outbound connectivity.
 - Backend pools:
@@ -142,7 +142,7 @@ The script migrates the following from the Basic load balancer to the Standard l
   - All virtual machine scale set network interfaces and IP configurations will be migrated to the new Standard load balancer
   - If a virtual machine scale set is using Rolling Upgrade policy, the script will update the virtual machine scale set upgrade policy to "Manual" during the migration process and revert it back to "Rolling" after the migration is completed.
 
-**Private Load Balancer:**
+**Internal Load Balancer:**
 
 - Private frontend IP configuration
   - Converts the public IP to a static IP, if dynamic
