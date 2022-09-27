@@ -119,7 +119,7 @@ _Green Software Foundation alignment: [Hardware efficiency](sustainability-desig
 - Leverage [Virtual node pools](/aks/virtual-nodes) to optimize infrastructure usage, and ultimately hardware efficiency and costs.
 
 **Potential tradeoffs**
- - [Virtual node pools limitations(/azure/aks/virtual-nodes#known-limitations
+ - [Virtual node pools limitations](/azure/aks/virtual-nodes#known-limitations)
 
 ### Use SPOT VMs where possible
 
