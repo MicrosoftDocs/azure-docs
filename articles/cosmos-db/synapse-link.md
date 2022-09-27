@@ -141,7 +141,7 @@ Synapse Link enables you to run near real-time analytics over your mission-criti
 
 ## Pricing
 
-The billing model of Azure Synapse Link includes the costs incurred by using the Azure Cosmos DB analytical store and the Synapse runtime. To learn more, see the [Azure Cosmos DB analytical store pricing](analytical-store-introduction.md) and [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/synapse-analytics/) articles.
+The billing model of Azure Synapse Link includes the costs incurred by using the Azure Cosmos DB analytical store and the Synapse runtime. To learn more, see the [Azure Cosmos DB analytical store pricing](analytical-store-introduction.md#analytical-store-pricing) and [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/synapse-analytics/) articles.
 
 ## Next steps
 
