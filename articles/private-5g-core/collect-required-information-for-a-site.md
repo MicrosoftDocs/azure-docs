@@ -59,14 +59,16 @@ Collect all the values in the following table to define the packet core instance
 
 ## Collect data network values
 
-Collect all the values in the following table to define the packet core instance's connection to the data network over the user plane interface.
+You can configure up to three data networks per site. During site creation, you'll be able to choose whether to attach an existing data network or create a new one.
+
+For each data network that you want to configure, collect all the values in the following table. These values define the packet core instance's connection to the data network over the user plane interface, so you need to collect them whether you're creating the data network or using an existing one.
 
 > [!IMPORTANT]
 > Where noted, you must use the same values you used when deploying the AKS-HCI cluster on your Azure Stack Edge Pro device. You did this as part of the steps in [Order and set up your Azure Stack Edge Pro device(s)](complete-private-mobile-network-prerequisites.md#order-and-set-up-your-azure-stack-edge-pro-devices).
 
    |Value  |Field name in Azure portal  |
    |---------|---------|
-   | The name of the data network.                  |**Data network name**|
+   | The name of the data network. This could be an existing data network or a new one you'll create during packet core configuration.                  |**Data network name**|
    | The name for the user plane interface on the data network. For 5G, this interface is the N6 interface, whereas for 4G, it's the SGi interface. The name must match the corresponding virtual network name on port 6 on your Azure Stack Edge Pro device. | **N6 interface name** (for 5G) or **SGi interface name** (for 4G). |
    | The network address of the data subnet in CIDR notation. You identified this address in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses) and it must match the value you used when deploying the AKS-HCI cluster.                  | **N6 subnet** (for 5G) or **SGi subnet** (for 4G). |
    |The data subnet default gateway. You identified this in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses) and it must match the value you used when deploying the AKS-HCI cluster.                               | **N6 gateway** (for 5G) or **SGi gateway** (for 4G). |

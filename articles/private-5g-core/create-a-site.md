@@ -40,6 +40,7 @@ In this step, you'll create the mobile network site resource representing the ph
 1. You'll now see the **Packet core** configuration tab.
 
     :::image type="content" source="media/create-a-site/create-site-packet-core-tab.png" alt-text="Screenshot of the Azure portal showing the Packet core configuration tab for a site resource.":::
+    <!-- TODO: Update screenshot after release of Simpler ASE Install feature -->
 
 1. In the **Packet core** section, set the fields as follows:
 
@@ -58,12 +59,16 @@ In this step, you'll create the mobile network site resource representing the ph
         - **S1-MME subnet** must match **S1-U subnet**.
         - **S1-MME gateway** must match **S1-U gateway**.
 
-1. In the **Attached data networks** section, select **Add data network**. Use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields. Note the following:
+1. In the **Attached data networks** section, select **Attach data network**. Choose whether you want to use an existing data network or create a new one, then use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the fields. Note the following:
     - **N6 interface name** (if this site will support 5G UEs) or **SGi interface name** (if this site will support 4G UEs) must match the corresponding virtual network name on port 6 on your Azure Stack Edge Pro device.
     - If you decided not to configure a DNS server, clear the **Specify DNS addresses for UEs?** checkbox.
 
-    :::image type="content" source="media/create-a-site/create-site-add-data-network.png" alt-text="Screenshot of the Azure portal showing the Add data network screen.":::
+    :::image type="content" source="media/create-a-site/create-site-attach-data-network.png" alt-text="Screenshot of the Azure portal showing the Attach data network screen.":::
+    <!-- TODO: Update screenshot after release of Simpler ASE Install feature -->
 
+    When you have finished filling out the fields, select **Attach**.
+
+1. Repeat the previous step for each additional data network you want to configure.
 1. Select **Submit**. Note that you can only connect the packet core instance to a single data network.
 1. Select **Review + create**.
 1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation.
@@ -81,8 +86,9 @@ In this step, you'll create the mobile network site resource representing the ph
     - A **Mobile Network Site** resource representing the site as a whole.
     - A **Packet Core Control Plane** resource representing the control plane function of the packet core instance in the site.
     - A **Packet Core Data Plane** resource representing the data plane function of the packet core instance in the site.
-    - An **Attached Data Network** resource representing the site's view of the data network.
-
+    - One or more **Data Network** resources representing the data networks (if you chose to create new data networks).
+    - One or more **Attached Data Network** resources providing configuration for the packet core instance's connection to the data networks.
+  
     :::image type="content" source="media/create-a-site/site-related-resources.png" alt-text="Screenshot of the Azure portal showing a resource group containing a site and its related resources." lightbox="media/create-a-site/site-related-resources.png":::
 
 ## Next steps

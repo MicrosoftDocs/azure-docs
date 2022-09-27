@@ -55,7 +55,7 @@ Four Azure resources are defined in the template.
     | **Region** | Select **East US**. |
     | **Location** | Enter *eastus*. |
     | **Existing Mobile Network Name** | Enter the name of the mobile network resource representing your private mobile network. |
-    | **Existing Data Network Name** | Enter the name of the data network to which your private mobile network connects. |
+    | **Existing Data Network Name** | Enter the name of a data network to which your private mobile network connects. |
     | **Site Name** | Enter a name for your site.|
     | **Site Plan** | Enter the billing plan for your site. This can be one of: G1, G2, G3, G4, or G5. |
     | **Platform Type** | Ensure **AKS-HCI** is selected. |

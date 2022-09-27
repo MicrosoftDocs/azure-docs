@@ -114,7 +114,7 @@ The following Azure resources are defined in the template.
 
     - A **Mobile Network** resource representing the private mobile network as a whole.
     - A **Slice** resource representing a network slice.
-    - A **Data Network** resource representing the data network.
+    - A **Data Network** resource representing a data network.
     - A **Mobile Network Site** resource representing the site as a whole.
     - A **Packet Core Control Plane** resource representing the control plane function of the packet core instance in the site.
     - A **Packet Core Data Plane** resource representing the data plane function of the packet core instance in the site.
