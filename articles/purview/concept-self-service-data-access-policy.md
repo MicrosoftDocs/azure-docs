@@ -52,6 +52,10 @@ Data consumer can access the requested dataset using tools such as PowerBI or Az
 > Users will not be able to browse to the asset using the Azure Portal or Storage explorer if the only permission granted is read/modify access at the file or folder 
 > level of the storage account.
 
+> [!CAUTION]
+> Folder level permission is required to access data in ADLS Gen 2 using PowerBI.
+> Additionally, resource sets are not supported by self-service policies. Hence, folder level permission needs to be granted to access resource set files such as CSV or parquet. 
+
 ## Next steps
 
 If you would like to preview these features in your environment, follow the link below.
