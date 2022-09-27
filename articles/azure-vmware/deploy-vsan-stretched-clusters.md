@@ -1,5 +1,5 @@
 ---
-title: Deploy vSAN stretched clusters
+title: Deploy vSAN stretched clusters (Preview)
 description: Learn how to deploy vSAN stretched clusters.
 ms.topic: how-to
 ms.service: azure-vmware
@@ -48,7 +48,7 @@ It should be noted that these types of failures, although rare, fall outside the
 
 ## Deploy a stretched cluster private cloud
 
-Currently, Azure VMware Solution stretched clusters is in a limited availability phase. In the limited availability phase, you must contact Microsoft to request and qualify for support.
+Currently, Azure VMware Solution stretched clusters is in the (preview) phase. While in the (preview) phase, you must contact Microsoft to request and qualify for support.
 
 ## Prerequisites
 
@@ -120,7 +120,7 @@ Azure VMware Solution stretched clusters are available in the following regions:
 
 As of now, the only 3 regions listed above are planned for support of stretched clusters.
 
-### What kind of SLA does Azure VMware Solution provide with the stretched clusters limited availability release?
+### What kind of SLA does Azure VMware Solution provide with the stretched clusters (preview) release?
 
 A private cloud created with a vSAN stretched cluster is designed to offer a 99.99% infrastructure availability commitment when the following conditions exist:
 - A minimum of 6 nodes are deployed in the cluster (3 in each availability zone)
@@ -137,7 +137,7 @@ No. A stretched cluster is created between two availability zones, while the thi
 - Scale out and scale-in of stretched clusters can only happen in pairs. A minimum of 6 nodes and a maximum of 16 nodes are supported in a stretched cluster environment.
 - Customer workload VMs are restarted with a medium vSphere HA priority. Management VMs have the highest restart priority.
 - The solution relies on vSphere HA and vSAN for restarts and replication. Recovery time objective (RTO) is determined by the amount of time it takes vSphere HA to restart a VM on the surviving AZ after the failure of a single AZ.
-- Preview features for standard private cloud environments aren't supported in a stretched cluster environment. For example, external storage options like disk pools and Azure NetApp Files (ANF), Customer Management Keys, Public IP via NSX-T Data Center Edge, and others.
+- Preview and GA features for standard private cloud environments aren't supported in a stretched cluster environment. For example, external storage options like disk pools and Azure NetApp Files (ANF), Customer Management Keys, Public IP via NSX-T Data Center Edge, and others.
 - Disaster recovery addons like, VMware SRM, Zerto, and JetStream are currently not supported in a stretched cluster environment.
 
 ### What kind of latencies should I expect between the availability zones (AZs)?
@@ -154,7 +154,7 @@ Customers will be charged based on the number of nodes deployed within the priva
 
 ### Will I be charged for the witness node and for inter-AZ traffic?
 
-No. While in limited availability, customers won't see a charge for the witness node and the inter-AZ traffic. The witness node is entirely service managed, and Azure VMware Solution provides the required lifecycle management of the witness node. As the entire solution is service managed, the customer only needs to identify the appropriate SPBM policy to set for the workload virtual machines. The rest is managed by Microsoft.
+No. While in (preview), customers won't see a charge for the witness node and the inter-AZ traffic. The witness node is entirely service managed, and Azure VMware Solution provides the required lifecycle management of the witness node. As the entire solution is service managed, the customer only needs to identify the appropriate SPBM policy to set for the workload virtual machines. The rest is managed by Microsoft.
 
 ### Which SKUs are available?
 
