@@ -10,7 +10,7 @@ ms.date: 09/26/2022
 ms.custom: template-how-to
 ---
 
-# Modify the packet core instance in a site - Azure portal
+# Modify the packet core instance in a site
 
 Each Azure Private 5G Core Preview site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). In this how-to guide, you'll learn how to modify a packet core instance configuration using the Azure portal. You'll also learn how to attach and detach data networks associated with the packet core instance.
 
@@ -31,24 +31,31 @@ To view the site's packet core instance:
 1. Select the site containing the packet core instance you want to modify.
 1. Under the **Network function** heading, select the name of the **Packet Core Control Plane** resource shown next to **Packet Core**.
 
-    :::image type="content" source="media/upgrade-packet-core-azure-portal/packet-core-field.png" alt-text="Screenshot of the Azure portal showing the Packet Core field.":::
+    :::image type="content" source="media/packet-core-field.png" alt-text="Screenshot of the Azure portal showing the Packet Core field.":::
 
 ## Modify the packet core configuration
 
-Refer to [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) and [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) for the packet core configuration values you can modify in this step.
+Refer to [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) and [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) for the configuration values you can modify in this step.
 
 To modify the packet core configuration:
 
 1. If you haven't already, navigate to the **Packet Core Control Plane** resource as described in [View the packet core instance](#view-the-packet-core-instance).
-2. Select **Modify packet core**.
-3. In the **Configuration** tab, fill out the fields with the new values.
-4. If you also want to attach or detach a data network, go to ... .
+1. Select **Modify packet core**.
+1. In the **Configuration** tab, fill out the fields with the new values.
 
-## Add and delete attached data networks
+    :::image type="content" source="media/modify-packet-core/modify-packet-core-configuration-tab.png" alt-text="Screenshot of the Azure portal showing the Configuration tab in the Modify packet core window.":::
+    <!-- TODO: Update screenshot after bug where 4G and 5G names are swapped is fixed. -->
+
+1. If you also want to attach or detach a data network, go to ... .
+
+## Add and delete attached data network
 
 1. If you haven't already, navigate to the **Packet Core Control Plane** resource as described in [View the packet core instance](#view-the-packet-core-instance).
 1. Select **Modify packet core**.
 1. Select the **Data networks** tab.
+
+    :::image type="content" source="media/modify-packet-core/modify-packet-core-data-networks-tab.png" alt-text="Screenshot of the Azure portal showing the Data networks tab in the Modify packet core window.":::
+
 1. To attach a new data network, follow ... . To remove an attached data network, follow ... .
 
 ### Attach a data network to the packet core instance

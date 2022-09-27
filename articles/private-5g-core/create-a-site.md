@@ -66,7 +66,7 @@ In this step, you'll create the mobile network site resource representing the ph
     :::image type="content" source="media/create-a-site/create-site-attach-data-network.png" alt-text="Screenshot of the Azure portal showing the Attach data network screen.":::
     <!-- TODO: Update screenshot after release of Simpler ASE Install feature -->
 
-    When you have finished filling out the fields, select **Attach**.
+    Once you've finished filling out the fields, select **Attach**.
 
 1. Repeat the previous step for each additional data network you want to configure.
 1. Select **Submit**. Note that you can only connect the packet core instance to a single data network.
