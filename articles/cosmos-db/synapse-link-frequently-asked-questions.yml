@@ -162,12 +162,12 @@ sections:
       - question: |
           After setting the container level  analytical TTL on an Azure Cosmos DB container, can I change to a different value later?
         answer: |
-          Yes, analytical TTL can be updated to any valid value. See the [Analytical TTL](analytical-store-introduction.md) article for more details about analytical TTL.
+          Yes, analytical TTL can be updated to any valid value. See the [Analytical TTL](analytical-store-introduction.md#analytical-ttl) article for more details about analytical TTL.
           
       - question: |
           Can I update or delete an item from the analytical store after it has been TTL’d out from the transactional store?
         answer: |
-          All transactional updates and deletes are copied to the analytical store but if the item has been purged from the transactional store, then it cannot be updated in the analytical store. To learn more, see the [Analytical TTL](analytical-store-introduction.md) article.
+          All transactional updates and deletes are copied to the analytical store but if the item has been purged from the transactional store, then it cannot be updated in the analytical store. To learn more, see the [Analytical TTL](analytical-store-introduction.md#analytical-ttl) article.
           
   - name: Billing
     questions:
