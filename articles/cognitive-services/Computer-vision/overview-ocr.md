@@ -32,7 +32,7 @@ This documentation contains the following types of articles:
 * The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions. -->
 
 For a more structured approach, follow a Learn module for OCR.
-* [Read Text in Images and Documents with the Computer Vision Service](/learn/modules/read-text-images-documents-with-computer-vision-service/)
+* [Read Text in Images and Documents with the Computer Vision Service](/training/modules/read-text-images-documents-with-computer-vision-service/)
 
 ## Read API 
 
