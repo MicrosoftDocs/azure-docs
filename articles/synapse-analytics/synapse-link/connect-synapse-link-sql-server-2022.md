@@ -6,7 +6,7 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
 ms.custom: event-tier1-build-2022
-ms.date: 05/09/2022
+ms.date: 09/27/2022
 ms.author: sngun
 ms.reviewer: sngun, wiassaf
 ---
