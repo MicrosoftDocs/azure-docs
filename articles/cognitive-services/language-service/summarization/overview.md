@@ -34,7 +34,7 @@ As an example, consider the following paragraph of text:
 
 The document summarization feature would simplify the text into the following key sentences:
 
-Extractive summarization:
+**Extractive summarization**:
 - "Document summarization uses natural language processing techniques to generate a summary for documents."
 - "There are two general approaches to auto summarization, extractive and abstractive."
 - "Extractive summarization extracts sentences that collectively represent the most important or relevant information within the original content and abstractive summarization generates a summary with concise, coherent sentences or words words which is not simply extract sentences from the original document."
