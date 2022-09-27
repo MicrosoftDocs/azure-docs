@@ -114,9 +114,12 @@ _Green Software Foundation alignment: [Hardware efficiency](sustainability-desig
 **Recommendation:**
 
 - Build cloud native Apps, and leverage Cloud Platforms that optimize scaling, availability, and performance, ultimately optimizing the hardware efficiency.
-- Build serverless Applications using Keda (AKS addon)
-- Build Microservices Applications using Dapr (AKS addon)
-- Leverage serverless node pools to optimize hardware efficiency and costs.
+- Build serverless Applications using [Keda (AKS addon)](/azure/aks/keda-about)
+- Build Microservices Applications using [Dapr (AKS addon)](/azure/aks/dapr)
+- Leverage [Virtual node pools](/aks/virtual-nodes) to optimize infrastructure usage, and ultimately hardware efficiency and costs.
+
+**Potential tradeoffs**
+ - [Virtual node pools limitations(/azure/aks/virtual-nodes#known-limitations
 
 ### Use SPOT VMs where possible
 
@@ -124,8 +127,9 @@ _Green Software Foundation alignment: [Hardware efficiency](sustainability-desig
 
 **Recommendation:**
 
-- By utilizing [SPOT VMs](/azure/virtual-machines/spot-vms), you take advantage of unused capacity in Azure data centers while getting a significant discount on the VM.
+- By utilizing [SPOT Node pools](/azure/aks/spot-node-pool), you take advantage of unused capacity in Azure data centers while getting a significant discount on the VM.
 - Consider the tradeoff: When Azure needs the capacity back, the VMs get evicted. Learn more about the SPOT VM [eviction policy](/azure/virtual-machines/spot-vms#eviction-policy).
+- [Spot node pools limitations](/azure/aks/spot-node-pool#limitations) 
 
 ### Turn off workloads outside of business hours
 
