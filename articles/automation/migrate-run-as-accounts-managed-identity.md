@@ -158,9 +158,10 @@ foreach ($ResourceGroup in $ResourceGroups)
 
 ## Graphical runbooks
 
-### How to check if Graphical Runbook is used in Run As Account
+### How to check if Run As account is used in Graphical Runbooks
 
-To check if graphical runbooks are used in Run As Account:
+To check if Run As account is used in Graphical Runbooks:
+
 1. Check each of the activities within the runbook to see if they use the Run As Account when calling any logon cmdlets/aliases. For example, `Add-AzRmAccount/Connect-AzRmAccount/Add-AzAccount/Connect-AzAccount`
     
     :::image type="content" source="./media/migrate-run-as-account-managed-identity/check-graphical-runbook-use-run-as-inline.png" alt-text="Screenshot to check if graphical runbook uses Run As." lightbox="./media/migrate-run-as-account-managed-identity/check-graphical-runbook-use-run-as-expanded.png":::
@@ -169,9 +170,10 @@ To check if graphical runbooks are used in Run As Account:
 
     :::image type="content" source="./media/migrate-run-as-account-managed-identity/activity-parameter configuration.png" alt-text="Screenshot to examine the parameters used by cmdlet":::
 
-1. Use the *ServicePrinicipalCertificate* parameter set with Run As Account.
+1. For use with the Run As account, it will use the *ServicePrinicipalCertificate* parameter set *ApplicationId* and *Certificate Thumbprint* will be from the RunAsAccountConnection.
 
-    :::image type="content" source="./media/migrate-run-as-account-managed-identity/parameter-sets-inline.png" alt-text="Screenshot to check the parameter sets." lightbox="./media/migrate-run-as-account-managed-identity/parameter-sets-expanded.png"::: 
+    :::image type="content" source="./media/migrate-run-as-account-managed-identity/parameter-sets-inline.png" alt-text="Screenshot to check the parameter sets." lightbox="./media/migrate-run-as-account-managed-identity/parameter-sets-expanded.png":::
+ 
 
 ### How to edit graphical Runbook to use managed identity
 You must test the managed identity to verify if the Graphical runbook is working as expected by creating a copy of your production runbook to use the managed identity and updating your test graphical runbook code to authenticate by using the managed identity. You can add this functionality to a graphical runbook by adding `Connect-AzAccount` cmdlet.
