@@ -1,6 +1,6 @@
 ---
 title: Create a trust relationship between a user-assigned managed identity and an external identity provider
-description: Set up a trust relationship between an user-assigned managed identity in Azure AD and an external identity provider.  This allows a software workload outside of Azure to access Azure AD protected resources without using secrets or certificates. 
+description: Set up a trust relationship between a user-assigned managed identity in Azure AD and an external identity provider.  This allows a software workload outside of Azure to access Azure AD protected resources without using secrets or certificates. 
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/19/2022
+ms.date: 09/26/2022
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: shkhalide, udayh, vakarand
 zone_pivot_groups: identity-wif-mi-methods
-#Customer intent: As an application developer, I want to configure a federated credential on an user-assigned managed identity so I can create a trust relationship with an external identity provider and use workload identity federation to access Azure AD protected resources without managing secrets.
+#Customer intent: As an application developer, I want to configure a federated credential on a user-assigned managed identity so I can create a trust relationship with an external identity provider and use workload identity federation to access Azure AD protected resources without managing secrets.
 ---
 
 # Configure a user-assigned managed identity to trust an external identity provider (preview)
 
 This article describes how to manage a federated identity credential on a user-assigned managed identity in Azure Active Directory (Azure AD).  The federated identity credential creates a trust relationship between a user-assigned managed identity and an external identity provider (IdP).  Configuring a federated identity credential on a system-assigned managed identity is not supported.
 
-After you configure your user-assigned managed identity to trust an external IdP, configure your external software workload to exchange a token from the external IdP for an access token from Microsoft identity platform. Using that access token, the external workload accesses Azure AD protected resources without needing to manage secrets (in supported scenarios).  To learn more about the token exchange workflow, read about [workload identity federation](workload-identity-federation.md).  
+After you configure your user-assigned managed identity to trust an external IdP, configure your external software workload to exchange a token from the external IdP for an access token from Microsoft identity platform. The external workload uses the access token to access Azure AD protected resources without needing to manage secrets (in supported scenarios).  To learn more about the token exchange workflow, read about [workload identity federation](workload-identity-federation.md).  
 
 In this article, you learn how to create, list, and delete federated identity credentials on a user-assigned managed identity.
 
@@ -45,7 +45,7 @@ To learn more about supported regions, time to propagate federated credential up
 
 ## Configure a federated identity credential on a user-assigned managed identity
 
-In the [Azure portal](https://portal.azure.com), portal navigate to the user-assigned managed identity you created.  Under **Settings** in the left nav bar, select **Federated credentials (preview)** and then **Add Credential**.
+In the [Azure portal](https://portal.azure.com), navigate to the user-assigned managed identity you created.  Under **Settings** in the left nav bar, select **Federated credentials (preview)** and then **Add Credential**.
 
 In the **Federated credential scenario** dropdown box, select your scenario.
 
@@ -145,15 +145,15 @@ Click **Add** to configure the federated credential.
 
 ## List federated identity credentials on a user-assigned managed identity
 
-In the [Azure portal](https://portal.azure.com), portal navigate to the user-assigned managed identity you created.  Under **Settings** in the left nav bar and select **Federated credentials (preview)**.
+In the [Azure portal](https://portal.azure.com), navigate to the user-assigned managed identity you created.  Under **Settings** in the left nav bar and select **Federated credentials (preview)**.
 
-The list of federated identity credentials configured on that user-assigned managed identity are listed.
+The federated identity credentials configured on that user-assigned managed identity are listed.
 
 ## Delete a federated identity credential from a user-assigned managed identity
 
-In the [Azure portal](https://portal.azure.com), portal navigate to the user-assigned managed identity you created.  Under **Settings** in the left nav bar and select **Federated credentials (preview)**.
+In the [Azure portal](https://portal.azure.com), navigate to the user-assigned managed identity you created.  Under **Settings** in the left nav bar and select **Federated credentials (preview)**.
 
-The list of federated identity credentials configured on that user-assigned managed identity are listed.
+The federated identity credentials configured on that user-assigned managed identity are listed.
 
 To delete a specific federated identity credential, select the **Delete** icon for that credential.
 
@@ -276,7 +276,7 @@ Resource Manager templates help you deploy new or modified resources defined by 
 - Use a [custom template from Azure Marketplace](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) to create a template from scratch or base it on an existing common or [quickstart template](https://azure.microsoft.com/resources/templates/).
 - Derive from an existing resource group by exporting a template. You can export them from either [the original deployment](../../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates) or from the [current state of the deployment](../../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates).
 - Use a local [JSON editor (such as VS Code)](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md), and then upload and deploy by using PowerShell or the Azure CLI.
-- Use the Visual Studio [Azure Resource Group project](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) to create and deploy a template. 
+- Use the Visual Studio [Azure Resource Group project](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) to create and deploy a template.
 
 ## Configure a federated identity credential on a user-assigned managed identity
 
@@ -286,9 +286,9 @@ All of the template parameters are mandatory.
 
 There is a limit of 3-120 characters for a federated identity credential name length. It must be alphanumeric, dash, underscore. First symbol is alphanumeric only.  
 
-You must add exactly 1 audience to a federated identity credential, this gets verified during token exchange. Please use “api://AzureADTokenExchange” as the default value.
+You must add exactly 1 audience to a federated identity credential, this gets verified during token exchange. Use “api://AzureADTokenExchange” as the default value.
 
-List, Get, and Delete operations are not available with template. Please refer to Azure CLI for this.  By default, all child federated identity credentials are created in parallel which triggers concurrency detection logic and causes the deployment to fail with a 409-conflict HTTP status code. To create them sequentially, specify a chain of dependencies using the *dependsOn* property. 
+List, Get, and Delete operations are not available with template. Refer to Azure CLI for these operations.  By default, all child federated identity credentials are created in parallel, which triggers concurrency detection logic and causes the deployment to fail with a 409-conflict HTTP status code. To create them sequentially, specify a chain of dependencies using the *dependsOn* property.
 
 Make sure that any kind of automation creates federated identity credentials under the same parent identity sequentially. Federated identity credentials under different managed identities can be created in parallel without any restrictions.
 
@@ -403,10 +403,9 @@ Make sure that any kind of automation creates federated identity credentials und
     az account get-access-token
     ```
 
-
 ## Configure a federated identity credential on a user-assigned managed identity
 
-[Create or update a federated identity credential]() on the specified user-assigned managed identity.
+Create or update a federated identity credential on the specified user-assigned managed identity.
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/provider
@@ -445,7 +444,7 @@ PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/
 
 ## List federated identity credentials on a user-assigned managed identity
 
-[List all the federated identity credentials]() on the specified user-assigned managed identity.
+List all the federated identity credentials on the specified user-assigned managed identity.
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>/<RESOURCE NAME>/federatedIdentityCredentials?api-version=2022-01-31-preview' -H "Content-Type: application/json" -X GET -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -465,7 +464,7 @@ https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RES
 
 ## Get a federated identity credential on a user-assigned managed identity
 
-[Get a federated identity credentials]() on the specified user-assigned managed identity.
+Get a federated identity credential on the specified user-assigned managed identity.
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>/<RESOURCE NAME>/federatedIdentityCredentials/<FEDERATED IDENTITY CREDENTIAL RESOURCENAME>?api-version=2022-01-31-preview' -X GET -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -485,7 +484,7 @@ https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RES
 
 ## Delete a federated identity credential from a user-assigned managed identity
 
-[Delete a federated identity credentials]() on the specified user-assigned managed identity.
+Delete a federated identity credentials on the specified user-assigned managed identity.
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>/<RESOURCE NAME>/federatedIdentityCredentials/<FEDERATED IDENTITY CREDENTIAL RESOURCENAME>?api-version=2022-01-31-preview' -X DELETE -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: include
-ms.date: 07/29/2022
+ms.date: 09/26/2022
 ms.author: ryanwi
 ms.reviewer: shkhalid, udayh, vakarand
 ms.custom: aaddev
@@ -31,10 +31,10 @@ When you configure a federated identity credential, there are several important 
     > [!IMPORTANT]
     > If you accidentally add the incorrect external workload information in the *subject* setting the federated identity credential is created successfully without error.  The error does not become apparent until the token exchange fails.
 
-- *audiences* lists the audiences that can appear in the external token.  Required. You must add a single audience value which has a limit of 600 characters. The recommended value is "api://AzureADTokenExchange". It says what Microsoft identity platform must accept in the `aud` claim in the incoming token.  This value represents Azure AD in your external identity provider and has no fixed value across identity providers - you may need to create a new application registration in your IdP to serve as the audience of this token.  
+- *audiences* lists the audiences that can appear in the external token.  Required. You must add a single audience value, which has a limit of 600 characters. The recommended value is "api://AzureADTokenExchange". It says what Microsoft identity platform must accept in the `aud` claim in the incoming token.  
 
-- *name* is the unique identifier for the federated identity credential. Required.  This field has a character limit of 3-120 characters and must be URL friendly. Alphanumeric, dash, or underscore characters are supported, the first character must be alphanumeric only.  It is immutable once created.
+- *name* is the unique identifier for the federated identity credential. Required.  This field has a character limit of 3-120 characters and must be URL friendly. Alphanumeric, dash, or underscore characters are supported, the first character must be alphanumeric only.  It's immutable once created.
 
-- *description* is the user-provided description of the federated identity credential.  Optional. The description is not validated or checked by Azure AD. This field has a limit of 600 characters.
+- *description* is the user-provided description of the federated identity credential.  Optional. The description isn't validated or checked by Azure AD. This field has a limit of 600 characters.
 
-Wildcard characters are not supported in any federated identity credential property value.
+Wildcard characters aren't supported in any federated identity credential property value.
