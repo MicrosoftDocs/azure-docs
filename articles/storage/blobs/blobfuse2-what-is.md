@@ -115,6 +115,10 @@ However, there are some key differences in the way BlobFuse2 behaves:
 
   BlobFuse2 doesn't support extended-attributes (x-attrs) operations.
 
+- **Write-streaming**:
+
+  Concurrent read- and write-streaming of large file data can produce unpredictable results.
+
 ### Data integrity
 
 When a file is written to, the data is first persisted into cache on a local disk. The data is written to blob storage only after the file handle is closed. If there's an issue attempting to persist the data to blob storage, you receive an error message.

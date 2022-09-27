@@ -110,7 +110,7 @@ To build the BlobFuse2 binaries from source:
 You can configure BlobFuse2 with a variety of settings. Some of the common settings used include:
 
 - Logging location and options
-- Temporary cache file path
+- Temporary file path for caching or streaming
 - Information about the Azure storage account and blob container to be mounted
 
 The settings can be configured in a yaml configuration file, using environment variables, or as parameters passed to the BlobFuse2 commands. The preferred method is to use the yaml configuration file.
@@ -128,7 +128,7 @@ The basic steps for configuring BlobFuse2 in preparation for mounting are:
 1. [Create an empty directory for mounting the blob container](#create-an-empty-directory-for-mounting-the-blob-container)
 1. [Authorize access to your storage account](#authorize-access-to-your-storage-account)
 
-### Configure a temporary path for caching
+### Configure a temporary path for caching or streaming
 
 BlobFuse2 provides native-like performance by requiring a temporary path in the file system to buffer and cache any open files. For this temporary path, choose the most performant disk available, or use a ramdisk for the best performance.
 
