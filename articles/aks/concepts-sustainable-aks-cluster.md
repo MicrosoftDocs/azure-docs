@@ -26,10 +26,9 @@ _Green Software Foundation alignment: [Energy efficiency](sustainability-design-
 
 **Recommendation:**
 
-- Upgrade to newer and more efficient services as they become available.
+- Configure [Cluster Auto-Ugrade](/azure/aks/auto-upgrade-cluster) 
+  - _WAF Pillars alignment: Operational Excellence_
 - Consider backward compatibility and hardware reusability. An upgrade may not be the most efficient solution if the hardware or the OS isn't supported.
-- Make use of [Azure Automation Update Management](/azure/automation/update-management/manage-updates-for-vm) to ensure software updates are deployed to Azure VMs.
-
 
 ### Deploy to low-carbon regions
 
