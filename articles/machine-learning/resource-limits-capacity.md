@@ -3,8 +3,8 @@ title: Service limits
 titleSuffix: Azure Machine Learning
 description: Service limits used for capacity planning and maximum limits on requests and responses for Azure Machine Learning.
 services: machine-learning
-author: larryfr
-ms.author: blackmist
+author: blackmist
+ms.author: larryfr
 ms.reviewer: mldocs
 ms.topic: reference
 ms.service: machine-learning
