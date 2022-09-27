@@ -21,6 +21,9 @@ Designing and building sustainable workloads requires understanding the platform
 
 
 ### Review platform and service updates regularly 
+
+Platform updates enable you to use the latest functionality and features to help increase efficiency. Running on outdated software can result in running a suboptimal workload with unnecessary performance issues. New software tends to be more efficient in general.
+
 _sustainability design principles: [Energy efficiency](sustainability-design-principles.md#energy-efficiency)_
 
 
@@ -35,6 +38,8 @@ _sustainability design principles: [Energy efficiency](sustainability-design-pri
 
 
 ### Deploy to low-carbon regions
+
+Learn about what Azure regions have a lower carbon footprint than others to make better-informed decisions about where and how our workloads process data.
 
 _sustainability design principles: [Carbon efficiency](sustainability-design-principles.md#carbon-efficiency)_
 
@@ -52,6 +57,8 @@ _sustainability design principles: [Carbon efficiency](sustainability-design-pri
 
 ### Process when the carbon intensity is low
 
+Some regions on the planet are more carbon intense than others. Therefore it's essential to consider where we deploy our workloads and combine this with other business requirements.
+
 _sustainability design principles: [Carbon efficiency](sustainability-design-principles.md#carbon-efficiency), [Carbon awareness](sustainability-design-principles.md#carbon-awareness)_
 
 **Recommendation:**
@@ -67,6 +74,8 @@ _sustainability design principles: [Carbon efficiency](sustainability-design-pri
 
 ### Choose data centers close to the customer
 
+Deploying cloud workloads to data centers is easy. However, consider the distance from a data center to the customer. Network traversal increases if the data center is a greater distance from the consumer.
+
 _sustainability design principles: [Energy efficiency](sustainability-design-principles.md#energy-efficiency)_
 
 **Recommendation:**
@@ -77,6 +86,8 @@ _sustainability design principles: [Energy efficiency](sustainability-design-pri
    - For choosing the right region, Evaluate carbon efficiency, cost, latency, and compliance requirements.
 
 ### Run batch workloads during low-carbon intensity periods
+
+Proactively designing batch processing of workloads can help with scheduling intensive work during low-carbon periods.
 
 _sustainability design principles: [Carbon awareness](sustainability-design-principles.md#carbon-awareness)_
 
@@ -91,6 +102,8 @@ _sustainability design principles: [Carbon awareness](sustainability-design-prin
 
 
 ### Containerize workloads where applicable
+
+Consider options for containerizing workloads to reduce unnecessary resource allocation and to utilize the deployed resources better.
 
 _sustainability design principles: [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency)_
 
@@ -109,6 +122,8 @@ _sustainability design principles: [Hardware efficiency](sustainability-design-p
 
 ### Evaluate moving to PaaS and serverless workloads
 
+Managed services are highly optimized and operate on more efficient hardware than other options, contributing to a lower carbon impact.
+
 _sustainability design principles: [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency), [Energy efficiency](sustainability-design-principles.md#energy-efficiency)_
 
 **Recommendation:**
@@ -124,6 +139,8 @@ _sustainability design principles: [Hardware efficiency](sustainability-design-p
 
 ### Use SPOT VMs where possible
 
+Think about the unused capacity in Azure data centers. Utilizing the otherwise wasted capacity—at significantly reduced prices—the workload contributes to a more sustainable platform design.
+
 _sustainability design principles: [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency)_
 
 **Recommendation:**
@@ -137,6 +154,8 @@ _sustainability design principles: [Hardware efficiency](sustainability-design-p
 
 
 ### Turn off workloads outside of business hours
+
+Ensuring workloads use all the allocated resources helps deliver a more sustainable workload. Oversized services are a common cause of more carbon emissions.
 
 _sustainability design principles: [Energy efficiency](sustainability-design-principles.md#energy-efficiency), [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency)_
 
@@ -152,6 +171,8 @@ _sustainability design principles: [Energy efficiency](sustainability-design-pri
 
 
 ### Utilize auto-scaling and bursting capabilities
+
+It's not uncommon with oversized compute workloads where much of the capacity is never utilized, ultimately leading to a waste of energy. 
 
 _sustainability design principles: [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency)_
 
@@ -171,6 +192,8 @@ https://learn.microsoft.com/en-us/azure/aks/scale-cluster?tabs=azure-cli#scale-u
 
 ### Match the scalability needs
 
+Consider the platform and whether it meets the scalability needs of the solution. For example, having provisioned resources with a dedicated allocation may lead to unused or underutilized compute resources.
+
 _sustainability design principles: [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency)_
 
 **Recommendation:**
@@ -188,6 +211,8 @@ _sustainability design principles: [Hardware efficiency](sustainability-design-p
 - Consider and prefer services that allow dynamic tier scaling where possible.
 
 ### Evaluate Ampere Altra Arm-based processors for Virtual Machines
+
+The Arm-based VMs represent a cost-effective and power-efficient option that doesn't compromise on the required performance.
 
 _sustainability design principles: [Energy efficiency](sustainability-design-principles.md#energy-efficiency)_
 
