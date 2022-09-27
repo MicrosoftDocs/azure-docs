@@ -362,7 +362,7 @@ For more information, see the [SquaredUp website](https://squaredup.com/).
 
 ## Sumo Logic
 
-![Sumo Logic logo.](./media/partners/SumoLogic.png)
+![Sumo Logic logo.](./media/partners/sumologic.png)
 
 Sumo Logic is a secure, cloud-native analytics service for machine data. It delivers real-time, continuous intelligence from structured, semistructured, and unstructured data across the entire application lifecycle and stack. 
 
@@ -372,7 +372,7 @@ For more information, see the [Sumo Logic documentation](https://www.sumologic.c
 
 ## Turbonomic
 
-![Turbonomic logo.](./media/partners/Turbonomic.png)
+![Turbonomic logo.](./media/partners/turbonomic.png)
 
 Turbonomic delivers workload automation for hybrid clouds by simultaneously optimizing performance, cost, and compliance in real time. Turbonomic helps organizations be elastic in their Azure estate by continuously optimizing the estate. Applications constantly get the resources they require to deliver their SLA, and nothing more, across compute, storage, and network for the IaaS and PaaS layer. 
 
@@ -382,7 +382,7 @@ For more information, see the [Turbonomic introduction](https://turbonomic.com/)
 
 ## Zenduty
 
-![Zenduty logo.](./media/partners/Zenduty.png)
+![Zenduty logo.](./media/partners/zenduty.png)
 
 Zenduty is a novel collaborative incident management platform providing end-to-end incident alerting, on-call management and response orchestration, giving teams greater control and automation over the incident management lifecycle. Zenduty is ideal for always-on services, helping teams orchestrate incident response for creating better user experiences and brand value, centralising all incoming alerts through predefined notification rules to ensure that the right people are notified at the right time.
 
