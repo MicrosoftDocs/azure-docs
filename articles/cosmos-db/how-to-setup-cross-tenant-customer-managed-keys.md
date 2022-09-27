@@ -97,13 +97,16 @@ az provider register \
 
 Up to this point, you've configured the multi-tenant application on the service provider's tenant. You've also installed the application on the customer's tenant and configured the key vault and key on the customer's tenant. Next you can create an Azure Cosmos DB account on the service provider's tenant and configure customer-managed keys with the key from the customer's tenant.
 
-You must use an existing user-assigned managed identity to authorize access to the key vault when you configure customer-managed keys while creating the Azure Cosmos DB account. The user-assigned managed identity must have appropriate permissions to access the key vault. As the key vault is on another tenant, we'll use the multi tenant application created previously and register the user assigned managed identity as a federated identity of this multi-tenant application. For more information, see the [Phase 3 - The service provider encrypts data in an Azure resource using the customer-managed key](#phase-3---the-service-provider-encrypts-data-in-an-azure-resource-using-the-customer-managed-key) section of this article.
+When creating an Azure Cosmos DB account with customer-managed keys, we must ensure that it has access to the keys the customer used. In single-tenant scenarios, either give direct key vault access to the Azure Cosmos DB principal or use a specific managed identity. In a cross-tenant scenario, we can no longer depend on direct access to the key vault as it is in another tenant managed by the customer. This constraint is the reason in the previous sections we created a cross-tenant application and registered a managed identity inside the application to give it access to the customer's key vault. This managed identity, coupled with the cross-tenant application ID, is what we'll use when creating the cross-tenant CMK Azure Cosmos DB Account. For more information, see the [Phase 3 - The service provider encrypts data in an Azure resource using the customer-managed key](#phase-3---the-service-provider-encrypts-data-in-an-azure-resource-using-the-customer-managed-key) section of this article.
 
 Whenever a new version of the key is available in the key vault, it will be automatically updated on the Azure Cosmos DB account.
 
 ## Using Azure Resource Manager JSON templates
 
 Deploy an ARM template with the following specific parameters:
+
+> [!NOTE]
+> If you are recreating this sample in one of your Azure Resource Manager templates, use an `apiVersion` of `2022-05-15`.
 
 | Parameter | Description | Example value |
 | --- | --- | --- |
