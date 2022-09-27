@@ -16,7 +16,7 @@ ms.custom: language-service-summarization, ignite-fall-2021
 # How to use document summarization (preview)
 
 > [!IMPORTANT] 
-> The extractive and abstractive summarization features are preview capabilities provided “AS IS” and “WITH ALL FAULTS.” As such, Extractive and abstractive summarization (preview) should not be implemented or deployed in any production use. The customer is solely responsible for any use of extractive or abstractive summarization. 
+> The summarization features described in this documentation are preview capabilities provided “AS IS” and “WITH ALL FAULTS.” As such, Extractive and abstractive summarization (preview) should not be implemented or deployed in any production use. The customer is solely responsible for any use of extractive or abstractive summarization. 
 
 In general, there are two approaches for automatic document summarization: extractive and abstractive. This API provides both.
 
