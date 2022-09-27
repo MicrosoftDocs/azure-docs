@@ -43,10 +43,6 @@ In addition to the methods below, you may be given the option to create a new Az
 4. Provide a **Name** and a **Region** for the workspace.
 5. Click **Review + create** to create the workspace.
 
-### [CLI](#tab/cli)
-To be completed.
-
-
 ### [Resource Manager](#tab/resource-manager)
 To be completed.
 
