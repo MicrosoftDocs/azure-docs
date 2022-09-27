@@ -4,7 +4,7 @@ description: Learn how to migrate your Azure storage accounts to availability zo
 author: anaharris-ms
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/21/2022
+ms.date: 09/27/2022
 ms.author: anaharris 
 ms.reviewer: anaharris
 ms.custom: references_regions
@@ -79,7 +79,7 @@ A conversion can be accomplished in one of two ways:
 #### Customer-initiated conversion (preview)
 
 > [!IMPORTANT]
-> Customer-initiated conversion is currently in preview, but is not available in the following regions:
+> Customer initiated conversion is currently in preview and available in all public ZRS regions except for the following:
 >
 > - (Europe) West Europe
 > - (Europe) UK South
@@ -87,7 +87,9 @@ A conversion can be accomplished in one of two ways:
 > - (North America) East US
 > - (North America) East US 2
 >
-> To opt in to the preview, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md)
+> To opt in to the preview, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md).
+>
+> **Note!:** If you filter by name on the preview page, the filter must contain text from a preview feature's name, not the display name or description. For this preview, the name is **"CustomerInitiatedMigration"** and the Display name or Description is "Customer-Initiated LRS-> ZRS Account Migration".
 >
 > This preview version is provided without a service level agreement, and might not be suitable for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

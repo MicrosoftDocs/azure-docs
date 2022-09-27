@@ -141,7 +141,8 @@ There are two ways to initiate a conversion:
 > - (North America) East US 2
 >
 > To opt in to the preview, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md).
-> **Note!:** If you filter by name, the filter must contain text from a preview feature's name, not the display name. For this preview the name is "CustomerInitiatedMigration" and the Display name or Description is "Customer-Initiated LRS-> ZRS Account Migration".
+>
+> **Note!:** If you filter by name on the preview page, the filter must contain text from a preview feature's name, not the display name or description. For this preview, the name is **"CustomerInitiatedMigration"** and the Display name or Description is "Customer-Initiated LRS-> ZRS Account Migration".
 >
 > This preview version is provided without a service level agreement, and might not be suitable for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
