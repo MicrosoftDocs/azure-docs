@@ -38,7 +38,7 @@ When a Spark instance starts, these libraries are included automatically. More p
 
 ## Workspace packages
 
-When your team develops custom applications or models, you might develop various code artifacts like *.whl* or *.jar* files to package your code.
+When your team develops custom applications or models, you might develop various code artifacts like *.whl*, *.jar*, or *tar.gz* files to package your code.
 
 In Synapse, workspace packages can be custom or private *.whl* or *.jar* files. You can upload these packages to your workspace and later assign them to a specific serverless Apache Spark pool. Once assigned, these workspace packages are installed automatically on all Spark pool sessions.
 
@@ -72,6 +72,7 @@ To learn more about how to manage session-scoped packages, see the following art
 
 - [Python session packages: ](./apache-spark-manage-session-packages.md#session-scoped-python-packages) At the start of a session, provide a Conda *environment.yml* to install more Python packages from popular repositories. 
 - [Scala/Java session packages: ](./apache-spark-manage-session-packages.md#session-scoped-java-or-scala-packages) At the start of your session, provide a list of *.jar* files to install using `%%configure`.
+- [R session packages: ] (./apache-spark-manage-session-packages.md##session-scoped-r-packages-preview) Within your session, you can install packages across all nodes within your Spark pool using `install.packages` or `devtools`. 
 
 ## Manage your packages outside Synapse Analytics UI
 

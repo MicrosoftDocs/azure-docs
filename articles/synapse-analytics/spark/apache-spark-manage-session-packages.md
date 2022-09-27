@@ -12,7 +12,7 @@ ms.subservice: spark
 
 # Manage session-scoped packages
 
-In addition to pool level packages, you can also specify session-scoped libraries at the beginning of a notebook session. Session-scoped libraries let you specify and use custom Python environments or jar packages within a notebook session.
+In addition to pool level packages, you can also specify session-scoped libraries at the beginning of a notebook session. Session-scoped libraries let you specify and use custom Python environments, jar, and R packages within a notebook session.
 
 When using session-scoped libraries, it is important to keep the following points in mind:
 

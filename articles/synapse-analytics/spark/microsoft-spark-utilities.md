@@ -15,7 +15,7 @@ ms.custom: subject-rbac-steps
 
 # Introduction to Microsoft Spark Utilities
 
-Microsoft Spark Utilities (MSSparkUtils) is a builtin package to help you easily perform common tasks. You can use MSSparkUtils to work with file systems, to get environment variables, to chain notebooks together, and to work with secrets. MSSparkUtils are available in `PySpark (Python)`, `Scala`, `.NET Spark (C#)`, and `R` notebooks and Synapse pipelines.
+Microsoft Spark Utilities (MSSparkUtils) is a builtin package to help you easily perform common tasks. You can use MSSparkUtils to work with file systems, to get environment variables, to chain notebooks together, and to work with secrets. MSSparkUtils are available in `PySpark (Python)`, `Scala`, `.NET Spark (C#)`, and `R (Preview)` notebooks and Synapse pipelines.
 
 ## Pre-requisites
 
@@ -848,8 +848,6 @@ mssparkutils.credentials.help()
 ```csharp
 Credentials.Help()
 ```
-
-::: zone-end
 
 ::: zone-end
 

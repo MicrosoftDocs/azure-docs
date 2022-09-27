@@ -738,7 +738,7 @@ groups:
   - id: programming-language-java
     title: Java
 - id: programming-languages-spark-all-minus-sql
-# Owner: euang
+# Owner: midesa
   title: Programming languages
   prompt: Choose a language
   pivots:
