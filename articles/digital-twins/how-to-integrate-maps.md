@@ -23,14 +23,16 @@ This guide will cover:
 
 1. Configuring your Azure Digital Twins instance to send twin update events to a function in [Azure Functions](../azure-functions/functions-overview.md).
 2. Creating a function to update an Azure Maps indoor maps feature stateset.
-3. How to store your maps ID and feature stateset ID in the Azure Digital Twins graph.
+3. Storing your maps ID and feature stateset ID in the Azure Digital Twins graph.
 
 ### Prerequisites
 
-* Follow the Azure Digital Twins in [Connect an end-to-end solution](./tutorial-end-to-end.md).
-    * You'll be extending this twin with another endpoint and route. You'll also be adding another function to your function app from that tutorial. 
-* Follow the Azure Maps tutorials (beginning with [Use Creator to create indoor maps](../azure-maps/tutorial-creator-indoor-maps.md)) to create an Azure Maps indoor map with a *feature stateset*.
-    * [Feature statesets](../azure-maps/creator-indoor-maps.md#feature-statesets) are collections of dynamic properties (states) assigned to dataset features such as rooms or equipment. In the Azure Maps tutorial above, the feature stateset stores room status that you'll be displaying on a map.
+Before proceeding with this article, start by setting up your individual Azure Digital Twins and Azure Maps resources.
+
+* For Azure Digital Twins: Follow the instructions in [Connect an end-to-end solution](./tutorial-end-to-end.md) to set up an Azure Digital Twins instance with a sample twin graph and simulated data flow.
+    * In this article, you'll extend that solution with another endpoint and route. You'll also add another function to the function app from that tutorial.
+* For Azure Maps: Follow the instructions in [Use Creator to create indoor maps](../azure-maps/tutorial-creator-indoor-maps.md) and [Create a feature stateset](../azure-maps/tutorial-creator-feature-stateset.md) to create an Azure Maps indoor map with a *feature stateset*.
+    * [Feature statesets](../azure-maps/creator-indoor-maps.md#feature-statesets) are collections of dynamic properties (states) assigned to dataset features such as rooms or equipment. In the Azure Maps instructions above, the feature stateset stores room status that you'll be displaying on a map.
     * You'll need your Azure Maps **subscription key**, feature **stateset ID**, and **mapConfiguration**.
 
 ### Topology
