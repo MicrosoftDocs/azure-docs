@@ -35,17 +35,33 @@ When you create an Event Hubs namespace, the Kafka endpoint for the namespace is
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 1. Enable a system-assigned managed identity for the virtual machine. For more information about configuring managed identity on a VM, see [Configure managed identities for Azure resources on a VM using the Azure portal](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code.
-2. Using the **Access control** page of the Event Hubs namespace you created, assign **Azure Event Hubs Data Owner** role to the VM's managed identity. 
+
+    :::image type="content" source="./media/event-hubs-quickstart-kafka-enabled-event-hubs/enable-identity-vm.png" alt-text="Screenshot of the Identity tab of a virtual machine page in the Azure portal.":::
+1. Using the **Access control** page of the Event Hubs namespace you created, assign **Azure Event Hubs Data Owner** role to the VM's managed identity. 
 Azure Event Hubs supports using Azure Active Directory (Azure AD) to authorize requests to Event Hubs resources. With Azure AD, you can use Azure role-based access control (Azure RBAC) to grant permissions to a security principal, which may be a user, or an application service principal.    
     1. In the Azure portal, navigate to your Event Hubs namespace. Go to "Access Control (IAM)" in the left navigation.    
     2. Select + Add and select `Add role assignment`.    
-    3. In the Role tab, select `Azure Event Hubs Data Owner` and select the Next button.    
-    4. In the `Members` tab, select the `Managed Identity` radio button for type to assign access to.    
-    5. Select the `+Select members` link. In the Managed Identity dropdown, select Virtual Machine and select your virtual machine's managed identity.    
-    6. Select `Review + Assign`.
-1. Log in to the VM for which you configured the managed identity, and clone the [Azure Event Hubs for Kafka repository](https://github.com/Azure/azure-event-hubs-for-kafka).
+    
+        :::image type="content" source="./media/event-hubs-quickstart-kafka-enabled-event-hubs/add-role-assignment-menu.png" alt-text="Screenshot of the Access Control page of an Event Hubs namespace.":::        
+    1. In the Role tab, select **Azure Event Hubs Data Owner**, and select the **Next** button.    
+    
+        :::image type="content" source="./media/event-hubs-quickstart-kafka-enabled-event-hubs/select-event-hubs-owner-role.png" alt-text="Screenshot showing the selection of the Azure Event Hubs Data Owner role.":::        
+    1. In the **Members** tab, select the **Managed Identity** in the **Assign access to** section.    
+    1. Select the **+Select members** link. 
+    1. On the **Select managed identities** page, follow these steps:
+        1. Select the **Azure subscription** that has the VM.
+        1. For **Managed identity**, select **Virtual machine**
+        1. Select your virtual machine's managed identity. 
+        1. Click **Select** at the bottom of the page.
+        
+            :::image type="content" source="./media/event-hubs-quickstart-kafka-enabled-event-hubs/add-vm-identity.png" alt-text="Screenshot showing the Add role assignment -> Select managed identities page.":::      
+    1. Select **Review + Assign**.
+
+        :::image type="content" source="./media/event-hubs-quickstart-kafka-enabled-event-hubs/add-vm-identity.png" alt-text="Screenshot showing the Add role assignment -> Select managed identities page.":::
+1. Restart the VM and log in back to the VM for which you configured the managed identity. 
+1. Clone the [Azure Event Hubs for Kafka repository](https://github.com/Azure/azure-event-hubs-for-kafka).
 1. Navigate to `azure-event-hubs-for-kafka/tutorials/oauth/java/managedidentity/consumer`.
-6. Switch to the `src/main/resources/` folder, and open `consumer.config`. Replace `namespacename` with the name of your Event Hubs namespace. 
+1. Switch to the `src/main/resources/` folder, and open `consumer.config`. Replace `namespacename` with the name of your Event Hubs namespace. 
 
     ```xml
     bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
@@ -57,13 +73,13 @@ Azure Event Hubs supports using Azure Active Directory (Azure AD) to authorize r
 
     > [!NOTE]
     > You can find all the OAuth samples for Event Hubs for Kafka [here](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
-7. Run the consumer code and process events from event hub using your Kafka clients:
+7. Switch back to the **Consumer** folder where the pom.xml file is and, and run the consumer code and process events from event hub using your Kafka clients:
 
     ```java
     mvn clean package
     mvn exec:java -Dexec.mainClass="TestConsumer"                                    
     ```
-1. Navigate to `azure-event-hubs-for-kafka/tutorials/oauth/java/managedidentity/producer`.
+1. Launch another command prompt window, and navigate to `azure-event-hubs-for-kafka/tutorials/oauth/java/managedidentity/producer`.
 1. Switch to the `src/main/resources/` folder, and open `producer.config`. Replace `mynamespace` with the name of your Event Hubs namespace.       
 4. Switch back to the **Producer** folder where the `pom.xml` file is and, run the producer code and stream events into Event Hubs:
    
@@ -73,6 +89,8 @@ Azure Event Hubs supports using Azure Active Directory (Azure AD) to authorize r
     ```    
 
     You should see messages about events sent in the producer window. Now, check the consumer app window to see the messages that it receives from the event hub.
+
+      :::image type="content" source="./media/event-hubs-quickstart-kafka-enabled-event-hubs/producer-consumer-output.png" alt-text="Screenshot showing the Producer and Consumer app windows showing the events.":::
 
 ### [Connection string](#tab/connection-string)
 
