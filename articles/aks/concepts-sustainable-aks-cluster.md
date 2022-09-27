@@ -30,7 +30,7 @@ _sustainability design principle: [Energy efficiency](sustainability-design-prin
 
 
 **Potential tradeoffs**
-   - Consider backward compatibility and hardware reusability. An upgrade may not be the most efficient solution if the hardware or the OS isn't supported.
+   - Consider backward compatibility and hardware reusability. An upgrade may not be the most efficient solution if the software or the OS isn't supported.
 
 
 
