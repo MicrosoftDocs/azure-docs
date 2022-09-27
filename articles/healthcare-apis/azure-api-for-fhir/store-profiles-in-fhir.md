@@ -68,11 +68,11 @@ Profiles are also specified by various Implementation Guides (IGs). Some common 
 
 To store profiles in Azure API for FHIR, you can `PUT` the `StructureDefinition` with the profile content in the body of the request. An update or a conditional update are both good methods to store profiles on the FHIR service. Use the conditional update if you are unsure which to use.
 
-`PUT http://<your Azure API for FHIR base URL>/StructureDefinition/profile-id`
+Standard `PUT`: `PUT http://<your Azure API for FHIR base URL>/StructureDefinition/profile-id`
 
 **or**
 
-`PUT http://<your Azure API for FHIR base URL>/StructureDefinition?url=http://sample-profile-url`
+Conditional update: `PUT http://<your Azure API for FHIR base URL>/StructureDefinition?url=http://sample-profile-url`
 
 ```
 { 
