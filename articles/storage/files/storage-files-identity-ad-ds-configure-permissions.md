@@ -72,7 +72,7 @@ The following permissions are included on the root directory of a file share:
 Run the PowerShell script below or [use the Azure portal](storage-files-quick-create-use-windows.md#map-the-azure-file-share-to-a-windows-drive) to connect to the Azure file share using the storage account key and map it to drive Z: on Windows. If Z: is already in use, replace it with an available drive letter. The script will check to see if this storage account is accessible via TCP port 445, which is the port SMB uses. Remember to replace the placeholder values with your own values. For more information, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
 
 > [!NOTE]
-> You may see the **Full Control** ACL applied to a role already. This typically already offers the ability to assign permissions. However, because there are access checks at two levels (the share level and the file level), this is restricted. Only users who have the **SMB Elevated Contributor** role and create a new file or folder can assign permissions on those specific new files or folders without the use of the storage account key. All other permission assignment requires mounting the share with the storage account key first.
+> You might see the **Full Control** ACL applied to a role already. This typically already offers the ability to assign permissions. However, because there are access checks at two levels (the share level and the file/directory level), this is restricted. Only users who have the **SMB Elevated Contributor** role and create a new file or directory can assign permissions on those new files or directories without using the storage account key. All other file/directory permission assignment requires connecting to the share using the storage account key first.
 
 ```powershell
 $connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445
@@ -88,7 +88,7 @@ If you experience issues connecting to Azure Files on Windows, refer to [this tr
 
 ## Configure Windows ACLs
 
-After you've connected to your file share, you must configure the Windows ACLs. You can do this using either Windows File Explorer or [icacls](/windows-server/administration/windows-commands/icacls).
+After you've connected to your Azure file share, you must configure the Windows ACLs. You can do this using either Windows File Explorer or [icacls](/windows-server/administration/windows-commands/icacls).
 
 If you have directories or files in on-premises file servers with Windows DACLs configured against the AD DS identities, you can copy it over to Azure Files persisting the ACLs with traditional file copy tools like Robocopy or [Azure AzCopy v 10.4+](https://github.com/Azure/azure-storage-azcopy/releases). If your directories and files are tiered to Azure Files through Azure File Sync, your ACLs are carried over and persisted in their native format.
 
