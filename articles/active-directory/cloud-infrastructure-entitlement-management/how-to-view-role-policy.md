@@ -3,7 +3,7 @@ title: View information about roles/ policies in the Remediation dashboard in Pe
 description: How to view and filter information about roles/ policies in the Remediation dashboard in Permissions Management.
 services: active-directory
 author: jenniferf-skc
-manager: rkarlin
+manager: amycolannino
 ms.service: ciem
 ms.workload: identity
 ms.topic: how-to

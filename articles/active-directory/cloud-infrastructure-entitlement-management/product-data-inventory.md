@@ -3,7 +3,7 @@ title: Display an inventory of created resources and licenses for your authoriza
 description: How to display an inventory of created resources and licenses for your authorization system in Permissions Management.
 services: active-directory
 author: jenniferf-skc
-manager: rkarlin
+manager: amycolannino
 ms.service: ciem
 ms.workload: identity
 ms.topic: how-to

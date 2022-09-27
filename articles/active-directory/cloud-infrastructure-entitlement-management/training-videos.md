@@ -3,7 +3,7 @@ title: Permissions Management training videos
 description: Permissions Management training videos.
 services: active-directory
 author: jenniferf-skc
-manager: rkarlin
+manager: amycolannino
 ms.service: ciem
 ms.workload: identity
 ms.topic: how-to

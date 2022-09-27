@@ -3,7 +3,7 @@ title: View analytic information about groups in Permissions Management
 description: How to view analytic information about groups in Permissions Management.
 services: active-directory
 author: jenniferf-skc
-manager: rkarlin
+manager: amycolannino
 ms.service: ciem
 ms.workload: identity
 ms.topic: how-to

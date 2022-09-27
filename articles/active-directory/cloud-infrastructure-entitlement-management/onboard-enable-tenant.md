@@ -3,7 +3,7 @@ title:  Enable Permissions Management in your organization
 description: How to enable Permissions Management in your organization.
 services: active-directory
 author: jenniferf-skc
-manager: rkarlin
+manager: amycolannino
 ms.service: ciem
 ms.workload: identity
 ms.topic: how-to

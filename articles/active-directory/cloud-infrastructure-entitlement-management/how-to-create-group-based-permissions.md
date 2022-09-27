@@ -3,7 +3,7 @@ title: Select group-based permissions settings in Permissions Management with th
 description: How to select group-based permissions settings in Permissions Management with the User management dashboard.
 services: active-directory
 author: jenniferf-skc
-manager: rkarlin
+manager: amycolannino
 ms.service: ciem
 ms.workload: identity
 ms.topic: how-to

@@ -3,7 +3,7 @@ title: Manage users and groups with the User management dashboard in Permissions
 description: How to manage users and groups in the User management dashboard in Permissions Management.
 services: active-directory
 author: jenniferf-skc
-manager: rkarlin
+manager: amycolannino
 ms.service: ciem
 ms.workload: identity
 ms.topic: overview

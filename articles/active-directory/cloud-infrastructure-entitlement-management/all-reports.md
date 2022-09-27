@@ -3,7 +3,7 @@ title: View a list and description of all system reports available in Permission
 description: View a list and description of all system reports available in Permissions Management.
 services: active-directory
 author: jenniferf-skc
-manager: rkarlin
+manager: amycolannino
 ms.service: ciem
 ms.workload: identity
 ms.topic: overview

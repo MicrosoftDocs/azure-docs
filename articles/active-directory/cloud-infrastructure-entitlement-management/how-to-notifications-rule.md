@@ -3,7 +3,7 @@ title: View notification settings for a rule in the Autopilot dashboard in Permi
 description: How to view notification settings for a rule  in the Autopilot dashboard in Permissions Management.
 services: active-directory
 author: jenniferf-skc
-manager: rkarlin
+manager: amycolannino
 ms.service: ciem
 ms.workload: identity
 ms.topic: how-to

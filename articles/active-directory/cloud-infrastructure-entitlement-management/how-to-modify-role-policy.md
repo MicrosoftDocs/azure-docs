@@ -3,7 +3,7 @@ title: Modify a role/policy in the Remediation dashboard in Permissions Manageme
 description: How to modify a role/policy in the Remediation dashboard in Permissions Management.
 services: active-directory
 author: jenniferf-skc
-manager: rkarlin
+manager: amycolannino
 ms.service: ciem
 ms.workload: identity
 ms.topic: how-to

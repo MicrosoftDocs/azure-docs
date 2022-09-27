@@ -2,7 +2,7 @@
 title: View roles and identities that can access account information from an external account
 description: How to view information about identities that can access accounts from an external account in Permissions Management.
 services: active-directory
-manager: rkarlin
+manager: amycolannino
 ms.service: ciem
 ms.topic: how-to
 author: jenniferf-skc

@@ -3,7 +3,7 @@ title: View analytic information about active resources in Permissions Managemen
 description: How to view usage analytics about active resources in Permissions Management.
 services: active-directory
 author: jenniferf-skc
-manager: rkarlin
+manager: amycolannino
 ms.service: ciem
 ms.workload: identity
 ms.topic: how-to

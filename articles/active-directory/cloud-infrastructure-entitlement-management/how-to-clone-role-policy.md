@@ -3,7 +3,7 @@ title: Clone a role/policy in the Remediation dashboard in Permissions Managemen
 description: How to clone a role/policy in the Just Enough Permissions (JEP) Controller.
 services: active-directory
 author: jenniferf-skc
-manager: rkarlin
+manager: amycolannino
 ms.service: ciem
 ms.workload: identity
 ms.topic: how-to

@@ -3,7 +3,7 @@ title: View key statistics and data about your authorization system in Permissio
 description: How to view statistics and data about your authorization system in the Permissions Management.
 services: active-directory
 author: jenniferf-skc
-manager: rkarlin
+manager: amycolannino
 ms.service: ciem
 ms.workload: identity
 ms.topic: overview

@@ -3,7 +3,7 @@ title: Generate an on-demand report from a query in the Audit dashboard in Permi
 description: How to generate an on-demand report from a query in the **Audit** dashboard in Permissions Management.
 services: active-directory
 author: jenniferf-skc
-manager: rkarlin
+manager: amycolannino
 ms.service: ciem
 ms.workload: identity
 ms.topic: how-to

@@ -3,7 +3,7 @@ title: Permissions Management glossary
 description:  Permissions Management glossary
 services: active-directory
 author: jenniferf-skc
-manager: rkarlin
+manager: amycolannino
 ms.service: ciem
 ms.workload: identity
 ms.topic: conceptual

@@ -3,7 +3,7 @@ title: Generate, view, and apply rule recommendations in the Autopilot dashboard
 description: How to generate, view, and apply rule recommendations in the Autopilot dashboard in Permissions Management.
 services: active-directory
 author: jenniferf-skc
-manager: rkarlin
+manager: amycolannino
 ms.service: ciem
 ms.workload: identity
 ms.topic: how-to

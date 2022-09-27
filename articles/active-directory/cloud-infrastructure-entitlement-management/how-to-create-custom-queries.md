@@ -3,7 +3,7 @@ title: Create a custom query in Permissions Management
 description: How to create a custom query in the Audit dashboard in Permissions Management.
 services: active-directory
 author: jenniferf-skc
-manager: rkarlin
+manager: amycolannino
 ms.service: ciem
 ms.workload: identity
 ms.topic: how-to

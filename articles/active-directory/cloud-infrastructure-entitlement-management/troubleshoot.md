@@ -3,7 +3,7 @@ title: Troubleshoot issues with Permissions Management
 description: Troubleshoot issues with Permissions Management
 services: active-directory
 author: jenniferf-skc
-manager: rkarlin
+manager: amycolannino
 ms.service: ciem
 ms.workload: identity
 ms.topic: troubleshooting

@@ -3,7 +3,7 @@ title: Create and view activity alerts and alert triggers in Permissions Managem
 description: How to create and view activity alerts and alert triggers in Permissions Management.
 services: active-directory
 author: jenniferf-skc
-manager: rkarlin
+manager: amycolannino
 ms.service: ciem
 ms.workload: identity
 ms.topic: how-to
