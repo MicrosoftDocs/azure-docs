@@ -68,7 +68,7 @@ You must enable the feature for your subscription before you use the EncryptionA
 
 ## Deploy a VM with platform-managed keys
 
-1. Sign in to the [Azure portal](https://aka.ms/diskencryptionupdates).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Virtual Machines** and select **+ Add** to create a VM.
 1. Create a new virtual machine, select an appropriate region and a supported VM size.
 1. Fill in the other values on the **Basic** pane as you like, then proceed to the **Disks** pane.
@@ -98,7 +98,7 @@ Once the feature is enabled, you'll need to set up an Azure Key Vault and a disk
 
 Now that you've setup an Azure Key Vault and disk encryption set, you can deploy a VM and it will use encryption at host.
 
-1. Sign in to the [Azure portal](https://aka.ms/diskencryptionupdates).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Virtual Machines** and select **+ Add** to create a VM.
 1. Create a new virtual machine, select an appropriate region and a supported VM size.
 1. Fill in the other values on the **Basic** pane as you like, then proceed to the **Disks** pane.
