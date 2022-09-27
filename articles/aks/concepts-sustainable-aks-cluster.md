@@ -24,13 +24,12 @@ Designing and building sustainable workloads requires understanding the platform
 _sustainability design principle: [Energy efficiency](sustainability-design-principles.md#energy-efficiency)_
 
 
-|**Recommendations:** | _WAF Pillars alignment_ | 
-|---|---|
-|Configure [Automatic **Cluster Ugrade**](/azure/aks/auto-upgrade-cluster)  | _Operational Excellence_
-|Configure [Automatic **Linux node updates**](/azure/aks/node-updates-kured) | _Operational Excellence_
+**Recommendations:**
+ - Configure [Automatic **Cluster Ugrade**](/azure/aks/auto-upgrade-cluster)  _opexec
+ - Configure [Automatic **Linux node updates**](/azure/aks/node-updates-kured) _opn exc
 
 
--  **Potential tradeoffs**
+**Potential tradeoffs**
    - Consider backward compatibility and hardware reusability. An upgrade may not be the most efficient solution if the hardware or the OS isn't supported.
 
 
@@ -41,11 +40,10 @@ _Green Software Foundation alignment: [Carbon efficiency](sustainability-design-
 
 
 
-|**Recommendations:** | _WAF Pillars alignment_ | 
-|---|---|
-Deploy your workloads to Regions powered by renewable and low-carbon energy sources | _Cost Optimization_
+**Recommendations:**
+ - Deploy your workloads to Regions powered by renewable and low-carbon energy sources | _Cost Optimization_
 
--  **Potential tradeoffs**
+**Potential tradeoffs**
    - In addition to carbon efficiency, Evaluate the cost, latency, and compliance requirements.
    - Migrating data between data centers may not be carbon efficient.
    - Consider the cost for new regions, including low-carbon regions, which may be more expensive.
