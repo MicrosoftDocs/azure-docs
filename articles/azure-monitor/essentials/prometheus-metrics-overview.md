@@ -32,10 +32,11 @@ Azure Monitor managed service for Prometheus adds a new Prometheus metric alert 
 See [Azure Monitor service limits](../service-limits.md) for any service limits related to Azure Monitor managed service for Prometheus.
 
 ## Limitations
-- Metrics addon does not natively run on Windows nodes  in AKS clusters. It runs (both daemonset & replicaset) on Linux nodes in the cluster, and can scrape windows targets (nodes,pods etc). 
-- Private Links are not supported for Prometheuus metrics collection into Azure monitor workspace
-- CPU/Memory requests/limits cannot be changed for metrics addon. If changed, they will be reconciled/replaced by original values in a few seconds
-- Azure monitor managed service for Prometheus is only supported in public clouds
+- Metrics addon doesn't natively run on Windows nodes in AKS clusters. Both the daemonset and replicaset run on Linux nodes in the cluster and can scrape windows targets such as nodes and pods.
+- Private Links are not supported for Prometheus metrics collection into Azure monitor workspace.
+- CPU and Memory requests andlimits can't be changed for metrics addon. If changed, they will be reconciled and replaced by original values in a few seconds.
+- Azure monitor managed service for Prometheus is only supported in public clouds.
+- Metrics addon doesn't work on AKS clusters configured with HTTP proxy. 
 
 ## Prometheus references
 
