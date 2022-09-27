@@ -51,7 +51,7 @@ To migrate from an Automation Run As account to a managed identity for your runb
     - If you're using Az modules, update to the latest version by following the steps in the [Update Azure PowerShell modules](automation-update-azure-modules.md#update-az-modules) article. 
     - If you're using AzureRM modules, update `AzureRM.Profile` to the latest version and replace it by using the `Add-AzureRMAccount` cmdlet with `Connect-AzureRMAccount –Identity`.
     
-    To understand the changes that are required to the runbook code before you can use managed identities, use the [sample scripts](#sample-scripts).
+    To understand the changes to the runbook code that are required before you can use managed identities, use the [sample scripts](#sample-scripts).
 
 1. When you're sure that the runbook is running successfully by using managed identities, you can safely [delete the Run As account](/azure/automation/delete-run-as-account) if no other runbook is using that account.
 
