@@ -138,6 +138,12 @@ items:
         href: road-to-the-cloud-migrate.md
     - name: Parallel identity options
       href: azure-active-directory-parallel-identity-options.md
+    - name: Automate identity provisioning to applications
+      items:
+      - name: Automate identity provisioning to applications introduction
+        href: automate-provisioning-to-applications-introduction.md
+      - name: Solutions to automate identity provisioning to applications
+        href: automate-provisioning-to-applications-solutions.md
     - name: Multi-tenant user management
       items:
       - name: Multi-tenant user management introduction

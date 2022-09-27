@@ -213,5 +213,5 @@ If your Azure Machine Learning compute cluster appears stuck at resizing (0 -> 0
 
 Use your compute cluster to:
 
-* [Submit a training run](./how-to-train-sdk.md) 
+* [Submit a training run](./how-to-train-model.md) 
 * [Run batch inference](./tutorial-pipeline-batch-scoring-classification.md).
