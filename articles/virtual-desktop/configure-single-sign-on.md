@@ -32,7 +32,9 @@ Single sign-on is available on session hosts using the following operating syste
 
 You can enable SSO for connections to Azure Active Directory (AD)-joined VMs. You can also use SSO to access Hybrid Azure AD-joined VMs, but only after creating a Kerberos Server object. Azure Virtual Desktop doesn't support this solution with VMs joined to Azure AD Domain Services.
 
-You can use the [Windows Desktop client](user-documentation/connect-windows-7-10.md) on local PCs running Windows 10 or later. There's no requirement for the local PC to be joined to a domain or Azure AD. You can also have a single sign-on experience when using the [web client](user-documentation/connect-web.md).
+You can use the [Windows Desktop client](user-documentation/connect-windows-7-10.md) on local PCs running Windows 10 or later. There's no requirement for the local PC to be joined to a domain or Azure AD. 
+
+Single sign-on experience when using the [web client](user-documentation/connect-web.md) is not currently supported.
 
 SSO is currently supported in the Azure Public cloud.
 
