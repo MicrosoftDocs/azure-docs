@@ -78,6 +78,11 @@ az ml data create -f [PATH_TO_YML_FILE] --workspace-name [YOUR_AZURE_WORKSPACE] 
  [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!Notebook-python[] (~/azureml-examples-main/sdk/jobs/automl-standalone-jobs/automl-image-object-detection-task-fridge-items/automl-image-object-detection-task-fridge-items.ipynb?name=upload-data)]
+
+# [Studio](#tab/Studio)
+
+![Animation showing how to register a dataset from local files](media\how-to-prepare-datasets-for-automl-images\ui-dataset-local.mp4)
+
 ---
 
 If you already have your data present in an existing datastore and want to create data asset out of it, you can do so by providing path to the data in datastore as shown below, instead of providing path on your local machine.
@@ -106,6 +111,11 @@ my_data = Data(
     name="fridge-items-images-object-detection",
 )
 ```
+
+# [Studio](#tab/Studio)
+
+![Animation showing how to register a dataset from data already present in datastore](media\how-to-prepare-datasets-for-automl-images\ui-dataset-local.mp4)
+
 ---
 
 Next, you will need to get the label annotations in JSONL format. The schema of labeled data depends on the computer vision task at hand. Refer to [schemas for JSONL files for AutoML computer vision experiments](reference-automl-images-schema.md) to learn more about the required JSONL schema for each task type.
