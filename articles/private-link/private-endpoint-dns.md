@@ -54,11 +54,11 @@ For Azure services, use the recommended zone names as described in the following
 | Storage account (Microsoft.Storage/storageAccounts) / File (file, file_secondary) | privatelink.file.core.windows.net | file.core.windows.net |
 | Storage account (Microsoft.Storage/storageAccounts) / Web (web, web_secondary) | privatelink.web.core.windows.net | web.core.windows.net |
 | Azure Data Lake File System Gen2 (Microsoft.Storage/storageAccounts) / Data Lake File System Gen2 (dfs, dfs_secondary) | privatelink.dfs.core.windows.net | dfs.core.windows.net |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Sql | privatelink.documents.azure.com | documents.azure.com |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / MongoDB | privatelink.mongo.cosmos.azure.com | mongo.cosmos.azure.com |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Cassandra | privatelink.cassandra.cosmos.azure.com | cassandra.cosmos.azure.com |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Gremlin | privatelink.gremlin.cosmos.azure.com | gremlin.cosmos.azure.com |
-| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Table | privatelink.table.cosmos.azure.com | table.cosmos.azure.com |
+| Azure Cosmos DB (Microsoft.DocumentDb/databaseAccounts) / Sql | privatelink.documents.azure.com | documents.azure.com |
+| Azure Cosmos DB (Microsoft.DocumentDb/databaseAccounts) / MongoDB | privatelink.mongo.cosmos.azure.com | mongo.cosmos.azure.com |
+| Azure Cosmos DB (Microsoft.DocumentDb/databaseAccounts) / Cassandra | privatelink.cassandra.cosmos.azure.com | cassandra.cosmos.azure.com |
+| Azure Cosmos DB (Microsoft.DocumentDb/databaseAccounts) / Gremlin | privatelink.gremlin.cosmos.azure.com | gremlin.cosmos.azure.com |
+| Azure Cosmos DB (Microsoft.DocumentDb/databaseAccounts) / Table | privatelink.table.cosmos.azure.com | table.cosmos.azure.com |
 | Azure Batch (Microsoft.Batch/batchAccounts) / batchAccount | privatelink.batch.azure.com | {region}.batch.azure.com |
 | Azure Batch (Microsoft.Batch/batchAccounts) / nodeManagement | privatelink.batch.azure.com | {region}.service.batch.azure.com |
 | Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) / postgresqlServer | privatelink.postgres.database.azure.com | postgres.database.azure.com |
