@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 09/01/2022
+ms.date: 09/27/2022
 ms.author: danlep
 ---
 # Configure Front Door Standard/Premium in front of Azure API Management
