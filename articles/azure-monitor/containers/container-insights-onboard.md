@@ -118,6 +118,7 @@ The following table lists the additional firewall configuration required for man
 |Agent resource| Purpose | Port |
 |--------------|------|---|
 | `global.handler.control.monitor.azure.com` | Access control service | 443 |
+| `<cluster-region-name>.ingest.monitor.azure.com` | Azure monitor managed service for Prometheus - metrics ingestion endpoint (DCE) | 443 |
 | `<cluster-region-name>.handler.control.monitor.azure.com` | Fetch data collection rules for specific AKS cluster | 443 |
 
 **Azure China 21Vianet cloud**
