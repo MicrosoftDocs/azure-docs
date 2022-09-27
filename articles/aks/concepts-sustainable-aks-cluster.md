@@ -158,8 +158,10 @@ _Green Software Foundation alignment: [Hardware efficiency](sustainability-desig
 **Recommendation:**
 
 https://learn.microsoft.com/en-us/azure/aks/scale-cluster?tabs=azure-cli#scale-user-node-pools-to-0
-- Review [auto-scaling](/azure/architecture/best-practices/auto-scaling) guidance for Azure workloads.
-- Review the [B-series burstable virtual machine sizes](/azure/virtual-machines/sizes-b-series-burstable).
+- Use Keda to scale your applications based on demand.
+- Use Cluster Auto-scaler to scale your cluster based on Demand.
+- Use Virtual Nodes to rapidly scale to Serverless Nodes (that scale to zero when there is no demand)
+- Review the [B-series burstable virtual machine sizes](https://azure.microsoft.com/en-in/blog/introducing-burstable-vm-support-in-aks/).
 
 **Potential tradeoffs**
 
