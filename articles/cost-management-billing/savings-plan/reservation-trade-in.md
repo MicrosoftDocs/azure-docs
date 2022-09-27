@@ -11,7 +11,7 @@ ms.date: 09/23/2022
 ms.author: banders
 ---
 
-## Self-service trade-in for Azure savings plans
+# Self-service trade-in for Azure savings plans
 
 Azure Savings Plans provide flexibility to help meet your evolving needs by providing discounted rates for VMs, dedicated hosts, container instances, Azure premium functions and Azure app services, across all supported regions. As a result, unlike reservations, savings plans don't support exchanges.
 
@@ -31,7 +31,7 @@ The following reservations aren't eligible to be traded in for savings plans:
 - SUSE Linux plans
 
 > [!NOTE]
-> - You must have owner access on the Reservation Order to trade in an existing reservation**. You can [Add or change users who can manage a savings plan](../manage-savings-plan.md#who-can-manage-a-savings-plan-by-default).
+> - You must have owner access on the Reservation Order to trade in an existing reservation**. You can [Add or change users who can manage a savings plan](manage-savings-plan.md#who-can-manage-a-savings-plan-by-default).
 > - Microsoft is not currently charging early termination fees for reservation trade ins. We might charge the fees made in the future. We currently don't have a date for enabling the fee.
 
 ## How to trade in an existing reservation
