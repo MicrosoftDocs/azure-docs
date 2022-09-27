@@ -17,8 +17,8 @@ In this article, you'll learn how to migrate a load balancer with NIC-based back
 
 ## Prerequisites
 
-- <!-- prerequisite 1 -->
-- <!-- prerequisite 2 -->
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An existing standard Load Balancer in the subscription, with NIC-based backend pools.
 - <!-- prerequisite n -->
 ## What is IP-based Load Balancer 
 
@@ -33,8 +33,20 @@ To migrate a load balancer with NIC-based backend pools to IP-based with VMs (no
 POST URL: https://management.azure.com/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Network/loadBalancers/{lbName}/migrateToIpBased?api-version=2022-01-01
 
 ```
+### URI Parameters  
 
-Request: List (string) of backend pools to be migrated.
+| Name | In | Required | Type | Description | 
+|---- | ---- | ---- | ---- | ---- |
+|Sub | Path | True | String | The subscription credentials which uniquely identify the Microsoft Azure subscription. The subscription ID forms part of the URI for every service call. |
+| Rg | Path | True | String | The name of the resource group. |
+| LbName | Path | True | String | The name of the load balancer. |
+| api-version | Query | True | String | Client API Version |
+
+### Request Body 
+
+| Name | Type | Description |
+| ---- | ---- | ---- |
+| Backend Pools | String | A list of backend pools to migrate. Note if request body is specified, all backend pools will be migrated. |
 
 A full example using the CLI to migrate all backend pools in a load balancer is shown here: 
 
