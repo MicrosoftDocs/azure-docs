@@ -5,12 +5,12 @@ ms.service: deployment-environments
 ms.topic: conceptual
 ms.author: meghaanand
 author: anandmeg
-ms.date: 09/20/2022
+ms.date: 09/27/2022
 ---
 
 # Key concepts for new Azure Deployment Environments Preview users
 
-Learn about the key concepts and components of Azure Deployment Environments preview. This can help you to more effectively deploy environments for your scenarios.
+Learn about the key concepts and components of Azure Deployment Environments Preview. This can help you to more effectively deploy environments for your scenarios.
 
 > [!IMPORTANT]
 > Azure Deployment Environments is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -31,13 +31,13 @@ Environment is a collection of Azure resources on which your application is depl
 
 [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md) are used in Azure Deployment Environments to provide elevation-of-privilege capabilities. Identities will help provide self-serve capabilities to your development teams without them needing any access to the target subscriptions in which the Azure resources are created. The managed identity attached to the dev center needs to be granted appropriate access to the target subscriptions and Azure Deployment Environments will use that identity to perform the deployment on behalf of the developer.
 
-## Environment types
+## Dev center Environment Types
 
-You can use Environment types to define the type of environments the development teams can create, for example, Dev, Test, SandBox, Pre-Production, Production, etc. Azure Deployment Environments provides the flexibility to name the Environment Types as per the nomenclature used in your enterprise. When you create an Environment Type, you'll be able to apply different settings to different Environment Types in a certain Project.
+You can use environment types to define the type of environments the development teams can create, for example, dev, test, sandbox, pre-production, or production. Azure Deployment Environments provides the flexibility to name the environment types as per the nomenclature used in your enterprise. When you create an environment type, you'll be able to apply different settings to different environment types in a certain project.
 
-## Mappings
+## Project Environment Types 
 
-Mappings will help you pre-configure the target subscription in which Azure resources will be created per Project, per Environment type. You'll be able to provide different subscriptions for different environment types in a given Project. Mappings will allow you to automatically apply the right set of policies on different environments and abstract the Azure related concepts from your development teams.
+Project Environment Types are a subset of the environment types configured per dev center and help you pre-configure the different types of environments specific development teams can create. You'll be able to configure the target subscription in which Azure resources are created per project per environment type. Project environment types will allow you to automatically apply the right set of policies on different environments and help abstract the Azure governance related concepts from your development teams. The service also provides the flexibility to pre-configure the [managed identity](concept-environments-key-concepts.md#identities) that'll be used to perform the deployment and the access levels the development teams will get after a specific environment is created.
 
 ## Catalogs
 
@@ -46,6 +46,8 @@ Catalogs help you provide a set of curated 'infra-as-code' templates for your de
 ## Catalog Items
 
 A Catalog Item is a combination of an 'infra-as-code' template (Azure Resource Manager (ARM) template) and a manifest file. The environment definition will be defined in the ARM template and the manifest will be used to provide metadata about the template. The Catalog Items that you provide in the Catalog will be used by your development teams to create environments in Azure.
+
+## Azure Resource Manager (ARM) templates
 
 [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/overview.md) help you implement the infrastructure as code for your Azure solutions by defining the infrastructure and configuration for your project, the resources to deploy, and the properties of those resources.
 
