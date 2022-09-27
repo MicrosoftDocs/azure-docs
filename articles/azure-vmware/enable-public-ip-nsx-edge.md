@@ -38,6 +38,9 @@ With this capability, you have the following features:
 The architecture shows Internet access to and from your Azure VMware Solution private cloud using a Public IP directly to the NSX Edge.
 :::image type="content" source="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png" alt-text="Diagram that shows architecture of Internet access to and from your Azure VMware Solution Private Cloud using a Public IP directly to the NSX Edge." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip-expanded.png":::
 
+>[!IMPORTANT]
+>The use of Public IP down to the NSX Edge is not compatible with reverse DNS Lookup. 
+
 ## Configure a Public IP in the Azure portal
 1. Log on to the Azure portal.
 1. Search for and select Azure VMware Solution.
@@ -67,7 +70,7 @@ There are three options for configuring your reserved Public IP down to the NSX 
 A Sourced Network Translation Service (SNAT) with Port Address Translation (PAT) is used to allow many VMs to one SNAT service. This connection means you can provide Internet connectivity for many VMs.
 
 >[!IMPORTANT]
-> To enable SNAT for your specified address ranges, you must [configure a gateway firewall rule](#gateway-firewall-used-to-filter-traffic-to-vms-at-t1-gateways) and SNAT for the specific address ranges you desire. If you don't want SNAT enabled for specific address ranges, you must create a [No-NAT rule](#no-nat-rule-for-specific-address-ranges) for the address ranges to exclude. For your SNAT service to work as expected, the No-NAT rule should be a lower priority than the SNAT rule.
+> To enable SNAT for your specified address ranges, you must [configure a gateway firewall rule](#gateway-firewall-used-to-filter-traffic-to-vms-at-t1-gateways) and SNAT for the specific address ranges you desire. If you don't want SNAT enabled for specific address ranges, you must create a [No-NAT rule](#no-network-address-tranlation-rule-for-specific-address-ranges) for the address ranges to exclude. For your SNAT service to work as expected, the No-NAT rule should be a lower priority than the SNAT rule.
 
 **Add rule**
 1.	From your Azure VMware Solution private cloud, select **vCenter Credentials**
@@ -89,15 +92,15 @@ A Sourced Network Translation Service (SNAT) with Port Address Translation (PAT)
 Logging can be enabled by way of the logging slider. For more information on NSX-T NAT configuration and options, see the 
 [NSX-T NAT Administration Guide](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-7AD2C384-4303-4D6C-A44A-DEF45AA18A92.html)
 
-### No NAT rule for specific address ranges
+### No Network Address Tranlation rule for specific address ranges
 
-A No NAT rule can be used to exclude certain matches from performing Network Address Translation.  This policy can be used to allow private IP traffic to bypass the NAT rule.
-
+A No SNAT rule in NSX manager can be used to exclude certain matches from performing Network Address Translation. This policy can be used to allow private IP traffic to bypass existing network translation rules.
 1. From your Azure VMware Solution private cloud, select **vCenter Credentials**.
-2.	Locate your NSX-T URL and credentials.
-3.	Log in to **VMWare NSX-T** and then select **NAT Rules**. 
+1. Locate your NSX-T URL and credentials.
+1. Log in to **VMWare NSX-T** and then select **NAT Rules**. 
 1. Select the T1 Router and then select **ADD NAT RULE**.
-1. The **Source IP** is the range of addreses you do not want to be translated and **Destination IP** is the range of IP addresses that you do not want the "Source IP" to reach.         
+1. Select **NO SNAT** rule as the type of NAT rule.
+1. Select the **Source IP** as the range of addresses you do not want to be translated. The **Destination IP** should be any internal addresses you are reaching from the range of Source IP ranges.
 1. Select **SAVE**.
 
 ### Inbound Internet Access for VMs

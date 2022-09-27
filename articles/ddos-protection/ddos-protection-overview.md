@@ -35,11 +35,11 @@ DDoS Protection Standard applies three auto-tuned mitigation policies (TCP SYN, 
  
 ## SKUs
 
-Azure DDoS Protection has two available SKUs. DDoS Protection Basic and DDoS Protection Standard. For more information about configuring DDoS Protection Standard, see [Quickstart: Create and configure Azure DDoS Protection Standard](manage-ddos-protection.md).
+Azure DDoS Protection has one available SKU named DDoS Protection Standard. For more information about configuring DDoS Protection Standard, see [Quickstart: Create and configure Azure DDoS Protection Standard](manage-ddos-protection.md).
 
-The following table shows features and corresponding SKUs.
+The following table shows features. 
 
-| Feature |  DDoS Protection Basic | DDoS Protection Standard |
+| Feature |   DDoS infrastructure protection | DDoS Protection Standard |
 |---|---|---|
 | Active traffic monitoring & always on detection| Yes |  Yes|
 | Automatic attack mitigation | Yes | Yes |
@@ -95,4 +95,4 @@ For frequently asked questions, see the [DDoS Protection FAQ](ddos-faq.yml).
 ## Next steps
 
 * [Quickstart: Create a DDoS Protection Plan](manage-ddos-protection.md)
-* [Learn module: Introduction to Azure DDoS Protection](/learn/modules/introduction-azure-ddos-protection/)
+* [Learn module: Introduction to Azure DDoS Protection](/training/modules/introduction-azure-ddos-protection/)
