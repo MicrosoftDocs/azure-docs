@@ -67,7 +67,7 @@ To create a new key vault using Azure CLI, call [az keyvault create](/cli/azure/
 ```azurecli
 kvName="<key-vault>"
 rgName="<resource_group>"
-location="eastus"
+location="<location>"
 
 az keyvault create \
     --name $kvName \
@@ -82,13 +82,13 @@ To learn how to enable purge protection on an existing key vault with Azure CLI,
 After you have created the key vault, you'll need to assign the **Key Vault Crypto Officer** role to yourself. This role enables you to create a key in the key vault. The following example assigns this role to a user, scoped to the key vault:
 
 ```azurecli
-$kvResourceId = az keyvault show --resource-group <resource_group> \
-    --name <key-vault> \
-    --query id
+kvResourceId=$(az keyvault show --resource-group $rgName \
+    --name $kvName \
+    --query id)
 
 az role assignment create --assignee "<user-email>" \
---role "Key Vault Crypto Officer" \
---scope $kvResourceId
+    --role "Key Vault Crypto Officer" \
+    --scope $kvResourceId
 ```
 
 For more information on how to assign an RBAC role with Azure CLI, see [Assign Azure roles using Azure CLI](../articles/role-based-access-control/role-assignments-cli.md).

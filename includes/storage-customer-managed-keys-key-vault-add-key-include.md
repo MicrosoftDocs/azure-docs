@@ -25,8 +25,10 @@ To learn how to add a key with the Azure portal, see [Quickstart: Set and retrie
 To add a key with PowerShell, call [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey). Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
 
 ```azurepowershell
+$keyName = "<key-name>"
+
 $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName `
-    -Name <key> `
+    -Name $keyName `
     -Destination 'Software'
 ```
 
@@ -35,9 +37,11 @@ $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName `
 To add a key with Azure CLI, call [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create). Remember to replace the placeholder values in brackets with your own values.
 
 ```azurecli
+keyName="<key-name>"
+
 az keyvault key create \
-    --name <key> \
-    --vault-name <key-vault>
+    --name $keyName \
+    --vault-name $kvName
 ```
 
 ---

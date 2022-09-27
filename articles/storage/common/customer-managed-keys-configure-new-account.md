@@ -46,8 +46,8 @@ The following example shows how to retrieve the user-assigned managed identity a
 $userIdentity = Get-AzUserAssignedIdentity -Name <user-assigned-identity> -ResourceGroupName <resource-group>
 
 New-AzRoleAssignment -ObjectId $userIdentity.PrincipalId `
--RoleDefinitionName "Key Vault Crypto Service Encryption User" `
--Scope $keyVault.ResourceId
+    -RoleDefinitionName "Key Vault Crypto Service Encryption User" `
+    -Scope $keyVault.ResourceId
 ```
 
 ### [Azure CLI](#tab/azure-cli)
