@@ -27,7 +27,7 @@ You can buy a savings plan in the Azure portal.
 
 ## Why buy a savings plan?
 
-If you have consistent compute spend, buying a savings plan gives you the option to reduce your costs. For example, when you continuously run instances of a service without a savings plan, you're charged at pay-as-you-go rates. When you buy a savings plan, your compute usage (up to your hourly commitment amount) is immediately eligible for the savings plan discount. Usage covered by a savings plan receive discounted rates, not the pay-as-you-go rates.
+If you have consistent compute spend, buying a savings plan gives you the option to reduce your costs. For example, when you continuously run instances of a service without a savings plan, you're charged at pay-as-you-go rates. When you buy a savings plan, your compute usage (up to your hourly commitment amount) is immediately eligible for the savings plan discount. Usage covered by a savings plan receives discounted rates, not the pay-as-you-go rates.
 
 ## How savings plan discount is applied
 
