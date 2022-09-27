@@ -15,7 +15,7 @@ ms.custom: sdkv1, event-tier1-build-2022
 
 # Use private Python packages with Azure Machine Learning
 
-[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to use private Python packages securely within Azure Machine Learning. Use cases for private Python packages include:
 
@@ -29,7 +29,7 @@ The private packages are used through [Environment](/python/api/azureml-core/azu
 ## Prerequisites
 
  * The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/install)
- * An [Azure Machine Learning workspace](quickstart-create-resources.md)
+ * An [Azure Machine Learning workspace](../quickstart-create-resources.md)
 
 ## Use small number of packages for development and testing
 
@@ -89,7 +89,7 @@ The environment is now ready to be used in training runs or web service endpoint
 
 You can consume packages from an Azure storage account within your organization's firewall. The storage account can hold a curated set of packages or an internal mirror of publicly available packages.
 
-To set up such private storage, see [Secure an Azure Machine Learning workspace and associated resources](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts). You must also [place the Azure Container Registry (ACR) behind the VNet](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
+To set up such private storage, see [Secure an Azure Machine Learning workspace and associated resources](../how-to-secure-workspace-vnet.md#secure-azure-storage-accounts). You must also [place the Azure Container Registry (ACR) behind the VNet](../how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
 
 > [!IMPORTANT]
 > You must complete this step to be able to train or deploy models using the private package repository.
@@ -98,4 +98,4 @@ After completing these configurations, you can reference the packages in the Azu
 
 ## Next steps
 
- * Learn more about [enterprise security in Azure Machine Learning](concept-enterprise-security.md)
+ * Learn more about [enterprise security in Azure Machine Learning](../concept-enterprise-security.md)
