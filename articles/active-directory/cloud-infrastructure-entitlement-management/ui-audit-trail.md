@@ -8,7 +8,7 @@ ms.service: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/23/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # Use queries to see how users access information

@@ -8,7 +8,7 @@ ms.service: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # Attach and detach policies for Amazon Web Services (AWS) identities

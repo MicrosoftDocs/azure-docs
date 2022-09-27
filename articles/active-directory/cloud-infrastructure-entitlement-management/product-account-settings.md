@@ -7,7 +7,7 @@ ms.service: ciem
 ms.topic: overview
 author: kenwith
 ms.date: 02/23/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # View personal and organization information

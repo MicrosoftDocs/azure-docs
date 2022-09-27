@@ -8,7 +8,7 @@ ms.service: ciem
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 02/23/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # Troubleshoot issues with Permissions Management

@@ -7,7 +7,7 @@ ms.service: ciem
 ms.topic: how-to
 author: kenwith
 ms.date: 02/23/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # View roles and identities that can access account information from an external account
