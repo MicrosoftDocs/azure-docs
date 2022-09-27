@@ -20,7 +20,9 @@ This tutorial assumes a basic understanding of Kubernetes concepts. For more inf
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-- This article requires version 2.32.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+- This article requires version 2.40.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 - You have installed the latest version of the `aks-preview` extension, version 0.5.102 or later.
 
@@ -141,9 +143,9 @@ To add a secret to the vault, you need to run the Azure CLI [az keyvault secret 
 az keyvault secret set --vault-name "${KEYVAULT_NAME}" --name "${KEYVAULT_SECRET_NAME}" --value 'Hello!' 
 ```
 
-## Create a Managed Identity and grant permissions to access the secret
+## Create a managed identity and grant permissions to access the secret
 
-Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription. Then use the [az identity create][az-identity-create] command to create a Managed Identity.
+Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription. Then use the [az identity create][az-identity-create] command to create a managed identity.
 
 ```azurecli
 az account set --subscription "${SUBSCRIPTION}"
@@ -153,7 +155,7 @@ az account set --subscription "${SUBSCRIPTION}"
 az identity create --name "${UAID}" --resource-group "${RESOURCE_GROUP}" --location "${LOCATION}" --subscription "${SUBSCRIPTION}"
 ```
 
-Next, you need to set an access policy for the Managed Identity to access the Key Vault secret by running the following commands:
+Next, you need to set an access policy for the managed identity to access the Key Vault secret by running the following commands:
 
 ```bash
 export USER_ASSIGNED_CLIENT_ID="$(az identity show --resource-group "${RESOURCE_GROUP}" --name "${UAID}" --query 'clientId' -otsv)"
@@ -195,10 +197,10 @@ Serviceaccount/workload-identity-sa created
 
 ## Establish federated identity credential
 
-Use the [az identity federated-credential create][az-identity-federated-credential-create] command to create the federated identity credential between the Managed Identity, the service account issuer, and the subject.
+Use the [az identity federated-credential create][az-identity-federated-credential-create] command to create the federated identity credential between the managed identity, the service account issuer, and the subject.
 
 ```azurecli
-az identity federated-credential create --name ${FICID} --identity-name ${UAID} --resource-group ${RESOURCE_GROUP} --issuer ${AKS_OIDC_ISSUER} --subject ${SERVICE_ACCOUNT_NAMESPACE}:${SERVICE_ACCOUNT_NAME}
+az identity federated-credential create --name ${FICID} --identity-name ${UAID} --resource-group ${RESOURCE_GROUP} --issuer ${AKS_OIDC_ISSUER} --subject system:serviceaccount:${SERVICE_ACCOUNT_NAMESPACE}:${SERVICE_ACCOUNT_NAME}
 ```
 
 > [!NOTE]

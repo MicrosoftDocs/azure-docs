@@ -3,7 +3,7 @@ title: Use an Azure AD workload identities (preview) on Azure Kubernetes Service
 description: Learn about Azure Active Directory workload identity (preview) for Azure Kubernetes Service (AKS) and how to migrate your application to authenticate using this identity.  
 services: container-service
 ms.topic: article
-ms.date: 09/26/2022
+ms.date: 09/27/2022
 author: mgoedtel
 
 ---
@@ -16,17 +16,19 @@ Today with Azure Kubernetes Service (AKS), you can assign [managed identities at
 - Supports Kubernetes clusters hosted in any cloud or on-premises
 - Supports both Linux and Windows workloads
 - Removes the need for Custom Resource Definitions and pods that intercept [Azure Instance Metadata Service][azure-instance-metadata-service] (IMDS) traffic
-- Avoids the complicated and error-prone installation steps such as cluster role assignment from the previous iteration.
+- Avoids the complicated and error-prone installation steps such as cluster role assignment from the previous iteration
 
 Azure AD workload identity works especially well with the Azure Identity client library using the [Azure SDK][azure-sdk-download] and the [Microsoft Authentication Library][microsoft-authentication-library] (MSAL) if you're using [application registration][azure-ad-application-registration]. Your workload can use any of these libraries to seamlessly authenticate and access Azure cloud resources.
 
 This article helps you understand this new authentication feature, and reviews the options available to plan your migration phases and project strategy.
 
-## Before you begin
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-- Kubernetes supports Azure AD workload identities on version 1.24 and higher.
+## Dependencies
 
-- The Azure CLI version 2.32.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+- AKS supports Azure AD workload identities on version 1.24 and higher.
+
+- The Azure CLI version 2.40.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 - The `aks-preview` extension version 0.5.102 or later.
 
@@ -65,7 +67,7 @@ Azure AD workload identity supports the following mappings related to a service 
 > [!NOTE]
 > If the service account annotations are updated, you need to restart the pod for the changes to take effect.
 
-If you've used an Azure AD pod-identity, think of a service account as an Azure Identity, except a service account is part of the core Kubernetes API, rather than a [Custom Resource Definition][custom-resource-definition] (CRD). The following describe a list of available labels and annotations that can be used to configure the behavior when exchanging the service account token for an Azure AD access token.
+If you've used [Azure AD pod-managed identity][use-azure-ad-pod-identity], think of a service account as an Azure Identity, except a service account is part of the core Kubernetes API, rather than a [Custom Resource Definition][custom-resource-definition] (CRD). The following describes a list of available labels and annotations that can be used to configure the behavior when exchanging the service account token for an Azure AD access token.
 
 ### Service account labels
 
@@ -88,7 +90,7 @@ If you've used an Azure AD pod-identity, think of a service account as an Azure 
 |`azure.workload.identity/service-account-token-expiration` |Represents the `expirationSeconds` field for the projected service account token. It's an optional field that you configure to prevent any downtime caused by errors during service account token refresh. Kubernetes service account token expiry is not correlated with Azure AD tokens. Azure AD tokens expire in 24 hours after they're issued. <sup>1</sup> |3600<br> Supported range is 3600-86400. |
 |`azure.workload.identity/skip-containers` |Represents a semi-colon-separated list of containers to skip adding projected service account token volume. For example `container1;container2`. |By default, the projected service account token volume is added to all containers if the service account is labeled with `azure.workload.identity/use: true`. |
 |`azure.workload.identity/inject-proxy-sidecar` |Injects a proxy init container and proxy sidecar into the pod. The proxy sidecar is used to intercept token requests to IMDS and acquire an Azure AD token on behalf of the user with federated identity credential. |true |
-|`azure.workload.idenityt/proxy-sidecar-port` |Represents the port of the proxy sidecar. |8080 |
+|`azure.workload.identity/proxy-sidecar-port` |Represents the port of the proxy sidecar. |8080 |
 
  <sup>1</sup> Takes precedence if the service account is also annotated.
 
@@ -96,7 +98,7 @@ If you've used an Azure AD pod-identity, think of a service account as an Azure 
 
 You can configure workload identity on a cluster that is currently running pod-managed identity. You can use the same configuration you've implemented for pod-managed identity today, you just need to annotate the service account within the namespace with the identity. It enables workload identity to inject the annotations into the pods. Depending on which Azure Identity client library the application is using with pod-managed identity already, you have two approaches to run that application using a workload identity.
 
-To help streamline and ease the migration process, we've developed a migration sidecar that converts the IDMS transactions your application makes over to [OpenID Connect][openid-connect-overview] (OIDC). The migration sidecar isn't intended to be a long-term solution, but a way to get up and running quickly on workload identity. Running the migration sidecar within your application proxies the application IMDS transactions over to OIDC. The alternative approach is to upgrade to [Azure Identity][azure-identity-libraries] client library version 1.6 or later, which supports OIDC authentication.
+To help streamline and ease the migration process, we've developed a migration sidecar that converts the IMDS transactions your application makes over to [OpenID Connect][openid-connect-overview] (OIDC). The migration sidecar isn't intended to be a long-term solution, but a way to get up and running quickly on workload identity. Running the migration sidecar within your application proxies the application IMDS transactions over to OIDC. The alternative approach is to upgrade to [Azure Identity][azure-identity-libraries] client library version 1.6 or later, which supports OIDC authentication.
 
 The following table summarizes our migration or deployment recommendations for workload identity.
 

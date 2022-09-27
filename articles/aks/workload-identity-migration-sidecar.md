@@ -3,7 +3,7 @@ title: Modernize your Azure Kubernetes Service (AKS) application with a workload
 description: In this Azure Kubernetes Service (AKS) article, you learn how to configure your Azure Kubernetes Service pod to authenticate with the workload identity sidecar.
 services: container-service
 ms.topic: article
-ms.date: 09/26/2022
+ms.date: 09/27/2022
 ---
 
 # Modernize application authentication with workload identity sidecar
@@ -12,11 +12,17 @@ If your Kubernetes application running on Azure Kubernetes Service (AKS) is usin
 
 This article shows you how to set up your pod to authenticate using a workload identity as an short-term migration solution.
 
-## Create a Managed Identity
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+## Before you begin
+
+- The Azure CLI version 2.40.0 or later. Run `az --version` to find the version, and run `az upgrade` to upgrade the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+
+## Create a managed identity
 
 If you don't have a managed identity already created and assigned to your pod, perform the following steps to create and assign it the necessary rights to storage, Key Vault, or whatever resources your application needs to authenticate with in Azure.
 
-1. Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription. Then use the [az identity create][az-identity-create] command to create a Managed Identity.
+1. Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription. Then use the [az identity create][az-identity-create] command to create a managed identity.
 
     ```azurecli
     az account set --subscription "subscriptionID"
@@ -36,7 +42,7 @@ If you don't have a managed identity already created and assigned to your pod, p
 
 ## Create Kubernetes service account
 
-If you don't already have a dedicated Kubernetes service account created for this application(s), perform the following steps to create and then annotate it with the client ID of the Managed Identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replace the values for the cluster name and the resource group name.
+If you don't already have a dedicated Kubernetes service account created for this application(s), perform the following steps to create and then annotate it with the client ID of the managed identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replace the values for the cluster name and the resource group name.
 
 ```azurecli
 az aks get-credentials -n myAKSCluster -g "${RESOURCE_GROUP}"
@@ -66,10 +72,10 @@ Serviceaccount/workload-identity-sa created
 
 ## Establish federated identity credential
 
-Use the [az identity federated-credential create][az-identity-federated-credential-create] command to create the federated identity credential between the Managed Identity, the service account issuer, and the subject. Replace the values `resourceGroupName`, `userAssignedIdentityName`, `federatedIdentityName`, `serviceAccountNamespace`, and `serviceAccountName`.
+Use the [az identity federated-credential create][az-identity-federated-credential-create] command to create the federated identity credential between the managed identity, the service account issuer, and the subject. Replace the values `resourceGroupName`, `userAssignedIdentityName`, `federatedIdentityName`, `serviceAccountNamespace`, and `serviceAccountName`.
 
 ```azurecli
-az identity federated-credential create --name federatedIdentityName --identity-name userAssignedIdentityName --resource-group resourceGroupName --issuer ${AKS_OIDC_ISSUER} --subject serviceAccountNamespace:serviceAccountName
+az identity federated-credential create --name federatedIdentityName --identity-name userAssignedIdentityName --resource-group resourceGroupName --issuer ${AKS_OIDC_ISSUER} --subject system:serviceaccount:serviceAccountNamespace:serviceAccountName
 ```
 
 > [!NOTE]
@@ -77,12 +83,12 @@ az identity federated-credential create --name federatedIdentityName --identity-
 
 ## Deploy the workload
 
-To update or deploy the workload, add these pod annotations only if you want to use the migration sidecar. You add inject the following [annotation][pod-annotations] values in order to leverage the sidecar in your pod specification:
+To update or deploy the workload, add these pod annotations only if you want to use the migration sidecar. You inject the following [annotation][pod-annotations] values to use the sidecar in your pod specification:
 
 * `azure.workload.identity/inject-proxy-sidecar` - value is `true` or `false`
-* `azure.workload.identity/proxy-sidecar-port` - value is the desired port you want the sidecar to communicate with. The default value is `8080`. 
+* `azure.workload.identity/proxy-sidecar-port` - value is the desired port you want the sidecar to communicate with. The default value is `8080`.
 
-The webhook that is already running adds the following YAML snippets to the pod deployment (Link to example reference in the overview article - table). The following example, is the complete pod annotation:
+The webhook that is already running adds the following YAML snippets to the pod deployment. The following example, is the complete pod annotation:
 
 ```yml
 apiVersion: v1
@@ -139,6 +145,22 @@ proxy "msg"="successfully acquired token"
 proxy "msg"="received token request"
 ```
 
+## Remove pod-managed identity
+
+After you've completed your testing and verified authentication is working using the sidecar, you can remove the Azure AD pod-managed identity from your clusterand then remove the identity.
+
+1. Run the [az aks pod-identity delete][az-aks-pod-identity-delete] command to remove the identity from your pod.
+
+    ```azurecli
+    az aks pod-identity delete --name podIdentityName --namespace podIdentityNamespace --resource-group myResourceGroup --cluster-name myAKSCluster
+    ```
+
+2. Run the [az identity delete][az-identity-delete] command to remove the managed identity. To delete a user-assigned managed identity, your account needs the [Managed Identity Contributor][managed-identity-contributor] role assignment.
+
+    ```azurecli
+    az identity delete -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME}
+    ```  
+
 ## Next steps
 
 This article showed you how to set up your pod to authenticate using a workload identity as a migration option. For more information about Azure AD workload identity (preview), see the following [Overview][workload-identity-overview] article.
@@ -150,6 +172,9 @@ This article showed you how to set up your pod to authenticate using a workload 
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [workload-identity-overview]: workload-identity-overview.md
 [az-identity-federated-credential-create]: /cli/azure/identity/federated-credential#az-identity-federated-credential-create
+[az-aks-pod-identity-delete]: /cli/azure/aks/pod-identity#az-aks-pod-identity-delete
+[az-identity-delete]: /cli/azure/identity#az-identity-delete
+[managed-identity-contributor]: ../role-based-access-control/built-in-roles.md#managed-identity-contributor
 
 <!-- EXTERNAL LINKS -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
