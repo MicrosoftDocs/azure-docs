@@ -136,7 +136,7 @@ Currently, buildpack binding only supports binding the buildpacks listed below. 
   - [ElasticAPM Partner Buildpack](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html#elastic-apm).
   - [Elastic Configuration](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html).
 
-Not all Tanzu Buildpacks support all service binding types. The following table shows the binding types that are supported by Tanzu Buildpacks and Tanzu Partner Buildpacks when they are configured correctly.
+Not all Tanzu Buildpacks support all service binding types. The following table shows the binding types that are supported by Tanzu Buildpacks and Tanzu Partner Buildpacks.
 
 |Buildpack|ApplicationInsights|NewRelic|AppDynamics|Dynatrace|ElasticAPM|
 |---------|-------------------|--------|-----------|---------|----------|
@@ -190,7 +190,7 @@ You can unbind a buildpack binding by using the **Unbind binding** command, or b
 
 To use the **Unbind binding** command, select the **Bound** hyperlink, and then select **Unbind binding**.
 
-:::image type="content" source="media/enterprise/how-to-enterprise-build-service/unbound-service-binding-operation1.png" alt-text="Screenshot of Azure portal showing the Unbind binding command..":::
+:::image type="content" source="media/enterprise/how-to-enterprise-build-service/unbound-service-binding-operation1.png" alt-text="Screenshot of Azure portal showing the Unbind binding command.":::
 
 To unbind a buildpack binding by editing binding properties, select **Edit Binding**, and then select **Unbind**.
 
