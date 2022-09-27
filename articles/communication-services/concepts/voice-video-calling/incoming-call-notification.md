@@ -54,5 +54,6 @@ To subscribe to the `IncomingCall` notification from Event Grid, [follow this ho
 
 You can use advanced filters in your Event Grid subscription to route an `IncomingCall` notification to a specific endpoint such as a Webhook subscription. That endpoint application can then make a decision to **redirect** the call using the Call Automation SDK to another Azure Communication Services identity or to the PSTN.
 
-If you need to 
+## Number assignment
 
+Since the `IncomingCall` notification doesn't have a specific destination other than the Event Grid subscription you've created, you are free to associate any particular number to any endpoint in Azure Communication Services. For example, if you acquired a PSTN phone number of `+14255551212` and want to assign it to a user with an identity of `375f0e2f-e8db-4449-9bf7-2054b02e42b4` in your application, you will maintain a mapping of that number to the identity. When an `IncomingCall` notification is sent matching the phone number in the **to** field, you will invoke the `Redirect` API and supply the identity of the user. In other words, you maintain the number assignment within your application and route or answer calls at runtime.
