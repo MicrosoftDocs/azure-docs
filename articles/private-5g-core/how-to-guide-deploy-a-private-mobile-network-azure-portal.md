@@ -48,7 +48,7 @@ In this step, you'll create the Mobile Network resource representing your privat
     :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/create-private-mobile-network-sims-tab.png" alt-text="Screenshot of the Azure portal showing the SIMs configuration tab.":::
 
 1. If you're provisioning SIMs at this point, you'll need to take the following additional steps.
-   1. If you want to use the default service and SIM policy, set **Do you wish to create a basic, default SIM policy and assign it these SIMs?** to **Yes**, and then enter the name of the data network into the **Data network name** field that appears. 
+   1. If you want to use the default service and SIM policy, set **Do you wish to create a basic, default SIM policy and assign it to these SIMs?** to **Yes**, and then enter the name of the data network into the **Data network name** field that appears. 
    1. Under **Enter SIM group information**, set **SIM group name** to your chosen name for the SIM group to which your SIMs will be added.
    1. Under **Enter encryption details for SIM group**, set **Encryption type** to your chosen encryption type. Once the SIM group is created, you cannot change the encryption type.
    1. If you selected **Customer-managed keys (CMK)**, set the **Key URI** and **User-assigned identity** to those the the SIM group will use for encryption.

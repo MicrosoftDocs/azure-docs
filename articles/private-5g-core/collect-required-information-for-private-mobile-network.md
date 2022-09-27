@@ -34,13 +34,13 @@ Collect all of the following values for the mobile network resource that will re
    |The mobile country code for the private mobile network.     |**Network configuration: Mobile country code (MCC)**|
    |The mobile network code for the private mobile network.     |**Network configuration: Mobile network code (MNC)**|
 
-## Collect SIM and SIM Group values
+## Collect SIM and SIM group values
 
 Each SIM resource represents a physical SIM or eSIM that will be served by the private mobile network. Each SIM must be a member of exactly one SIM group. If you only have a small number of SIMs, you may want to add them all to the same SIM group. Alternatively, you can create multiple SIM groups to sort your SIMs. For example, you could categorize your SIMs by their purpose (such as SIMs used by specific UE types like cameras or cellphones), or by their on-site location.
 
 As part of creating your private mobile network, you can provision one or more SIMs that will use it. If you decide not to provision SIMs at this point, you can do so after deploying your private mobile network using the instructions in [Provision SIMs](provision-sims-azure-portal.md). Likewise, if you need more than one SIM group, you can create additional SIM groups after you've deployed your private mobile network using the instructions in [Manage SIM groups](manage-sim-groups.md).
 
-If you want to provision SIMs as part of deploying your private mobile network, take the following steps.
+If you want to provision SIMs as part of deploying your private mobile network:
 
 1. Choose one of the following encryption types for for the new SIM group to which all of the SIMs you provision will be added:  
 Note that once the SIM group is created, the encryption type cannot be changed.
