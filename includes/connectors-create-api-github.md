@@ -6,11 +6,9 @@ ms.author: estfan
 ms.date: 03/02/2019
 ---
 
-1. In the [Azure portal](https://portal.azure.com), open yourlogic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. In the designer search box, enter **github**.
-
-   All workflows must start with a trigger. If your workflow is blank, select the trigger that you want to use. If your workflow already has a trigger, select the action that you want to use.
+1. In the designer search box, enter **github**. If your workflow is blank, select the trigger that you want to use. If your workflow already has a trigger, select the action that you want to use.
    
    This example continues with a GitHub trigger.
 
