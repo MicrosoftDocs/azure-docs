@@ -1,3 +1,13 @@
+---
+title: How to transition to using the grafana.azure.com domain
+description: Learn how to verify that your Azure Managed Grafana workspace is using the correct domain for its endpoint
+ms.service: managed-grafana
+ms.topic: how-to
+author: msoumar-ms
+ms.author: msoumar
+ms.date: 09/27/2022
+--- 
+
 # Transition to using the grafana.azure.com domain
 If you have an Azure Managed Grafana workspace that was created on or before 17 April 2022, it is accessible through two URL’s - one ending in azgrafana.io, and one ending in grafana.azure.com. Both links are identical and point to the same workspace. To avoid losing access to your Grafana workspace, you’ll need to verify that you can access your workspace through the grafana.azure.com endpoint, and that any links you may have that point to your workspace are using this endpoint as well. 
 
