@@ -23,7 +23,8 @@ For more information on using the KMS plugin, see [Encrypting Secret Data at Res
 * Azure CLI version 2.39.0 or later. Run `az --version` to find your version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 > [!WARNING]
-> KMS only supports Konnectivity. You can use `kubectl get po -n kube-system` to check if a 'konnectivity-agent-xxx' pod is running.
+> KMS only supports Konnectivity and Vnet Integration. 
+> You can use `kubectl get po -n kube-system` to check if a `konnectivity-agent-xxx` pod is running which means the AKS cluster is using Konnectivity. While for Vnet Integration, you can run 'az aks cluster show -g -n' to check if the `enableVnetIntegration` is `true`.
 
 ## Limitations
 
