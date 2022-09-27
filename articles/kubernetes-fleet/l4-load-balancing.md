@@ -72,18 +72,9 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
 1. Apply the Deployment, Service, ServiceExport objects:
 
-<<<<<<< HEAD
     ```bash
     kubectl apply -f https://raw.githubusercontent.com/Azure/AKS/master/examples/fleet/kuard/kuard-export-service.yaml
     ```
-=======
-	```bash
-	kubectl apply -f https://raw.githubusercontent.com/Azure/AKS/master/examples/fleet/kuard/kuard-export-service.yaml
-	```
-
-	The `ServiceExport` specification in the above file allows you to export a service from member clusters to the Fleet resource. Once successfully exported, service and all its endpoints will be synced to the hub, which other member clusters and Fleet resource-scoped load balancers can then consume.
-
->>>>>>> c4a2db14b946f5dc16c8d87842a1f17655086fe6
 
     The `ServiceExport` specification in the above file allows you to export a service from member clusters to the Fleet resource. Once successfully exported, service and and all its endpoints will be synced to the hub, which other member clusters and Fleet resource-scoped load balancers can then consume. The output will look similar to the following:
 
@@ -141,22 +132,12 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
     The output should look similar to the following:
 
-<<<<<<< HEAD
     ```bash
-=======
-    ```
->>>>>>> c4a2db14b946f5dc16c8d87842a1f17655086fe6
     NAME    SERVICE-IMPORT   EXTERNAL-IP     IS-VALID   AGE
     kuard   kuard            <a.b.c.d>         True       40s
     ```
 
-<<<<<<< HEAD
     The `IS-VALID` field should be `true` in the output. Check out the external load balancer IP address (`EXTERNAL-IP`) in the output. It may take a while before the import is fully processed and the IP address becomes available.
-=======
-    ```
-
-	The `IS-VALID` field should be `true` in the output. Check out the external load balancer IP address (`EXTERNAL-IP`) in the output. It may take a while before the import is fully processed and the IP address becomes available.
->>>>>>> c4a2db14b946f5dc16c8d87842a1f17655086fe6
 
 1. Run the following command multiple times using the External IP address from above:
 
