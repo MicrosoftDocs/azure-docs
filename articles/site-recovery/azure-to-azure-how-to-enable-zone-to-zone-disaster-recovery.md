@@ -90,7 +90,7 @@ Log in to the Azure portal.
 1. If you want to make changes to the replication settings, click on ‘Next: Advanced settings’.
 1. Change the settings away from default wherever appropriate. For users of Azure to Azure Disaster Recovery, this page might seem familiar. More details on the options presented on this blade can be found [here](./azure-to-azure-tutorial-enable-replication.md)
     
-    :::image type="Advanced Settings page" source="./media/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery/zonal-disaster-recovery-basic-settings.png" alt-text="Screenshot of Advanced Settings page.":::
+    :::image type="Advanced Settings page" source="./media/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery/zonal-disaster-recovery-advanced-settings.png" alt-text="Screenshot of Advanced Settings page.":::
 
 1. Click on ‘Next: Review + Start replication’ and then ‘Start replication’.
 
