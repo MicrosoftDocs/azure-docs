@@ -84,22 +84,19 @@ public class SpringBootApp {
 > as sources for Application Insights Java configuration.
 
 Programmatic enablement supports all the same [configuration options](./java-standalone-config.md)
-as the JVM argument enablement, with the following differences:
+as the JVM argument enablement, with the following differences below.
 
-By default, the configuration file `applicationinsights.json` is read from the classpath.
+#### Configuration file location
 
-You can also place the `applicationinsights.json` outside of your spring boot jar and specify
-the file path using either
+By default, when enabling Application Insights Java programmatically, the configuration file `applicationinsights.json`
+will be read from the classpath.
 
-* `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable, or
-* `applicationinsights.configuration.file` Java system property
+See [configuration file path configuration options](./java-standalone-config.md#configuration-file-path)
+to change this location.
 
-If you specify a relative path, it will be resolved relative to the directory from where the JVM is launched (user directory).
+#### Self-diagnostic log file location
 
-### Self-diagnostics
+By default, when enabling Application Insights Java programmatically, the `applicationinsights.log` file containing
+the agent logs will be located in the directory from where the JVM is launched (user directory).
 
-By default, the `applicationinsights.log` file containing the agent logs is located in the directory
-from where the JVM is launched (user directory).
-
-See [self-diagnostic configuration options](./java-standalone-config.md#self-diagnostics)
-for how to change this location and other self-diagnostics configuration options.
+See [self-diagnostic configuration options](./java-standalone-config.md#self-diagnostics) to change this location.
