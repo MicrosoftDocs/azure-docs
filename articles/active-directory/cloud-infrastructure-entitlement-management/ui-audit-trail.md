@@ -2,7 +2,7 @@
 title: Use queries to see how users access information in an authorization system in Permissions Management
 description: How to use queries to see how users access information in an authorization system in Permissions Management.
 services: active-directory
-author: kenwith
+author: jenniferf-skc
 manager: rkarlin
 ms.service: ciem
 ms.workload: identity

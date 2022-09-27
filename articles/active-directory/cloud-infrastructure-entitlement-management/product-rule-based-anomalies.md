@@ -2,7 +2,7 @@
 title: Create and view rule-based anomalies and anomaly triggers in Permissions Management
 description: How to create and view rule-based anomalies and anomaly triggers in Permissions Management.
 services: active-directory
-author: kenwith
+author: jenniferf-skc
 manager: rkarlin
 ms.service: ciem
 ms.workload: identity

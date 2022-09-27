@@ -2,7 +2,7 @@
 title: Create a rule in the Autopilot dashboard in Permissions Management
 description: How to create a rule in the Autopilot dashboard in Permissions Management.
 services: active-directory
-author: kenwith
+author: jenniferf-skc
 manager: rkarlin
 ms.service: ciem
 ms.workload: identity

@@ -2,7 +2,7 @@
 title: Generate and download the Permissions analytics report in Permissions Management
 description: How to generate and download the Permissions analytics report in Permissions Management.
 services: active-directory
-author: kenwith
+author: jenniferf-skc
 manager: rkarlin
 ms.service: ciem
 ms.workload: identity

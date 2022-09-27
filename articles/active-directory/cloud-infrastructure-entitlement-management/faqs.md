@@ -2,7 +2,7 @@
 title: Frequently asked questions (FAQs) about Permissions Management
 description: Frequently asked questions (FAQs) about Permissions Management.
 services: active-directory
-author: kenwith
+author: jenniferf-skc
 manager: rkarlin
 ms.service: ciem
 ms.workload: identity

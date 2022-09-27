@@ -2,7 +2,7 @@
 title: Create and view statistical anomalies and anomaly triggers in Permissions Management
 description: How to create and view statistical anomalies and anomaly triggers in the Statistical Anomaly tab in Permissions Management.
 services: active-directory
-author: kenwith
+author: jenniferf-skc
 manager: rkarlin
 ms.service: ciem
 ms.workload: identity

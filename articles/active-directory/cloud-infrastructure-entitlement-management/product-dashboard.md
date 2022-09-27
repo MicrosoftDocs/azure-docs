@@ -2,7 +2,7 @@
 title: View data about the activity in your authorization system in Permissions Management
 description: How to view data about the activity in your authorization system in the Permissions Management Dashboard in Permissions Management.
 services: active-directory
-author: kenwith
+author: jenniferf-skc
 manager: rkarlin
 ms.service: ciem
 ms.workload: identity

@@ -2,7 +2,7 @@
 title: Set and view configuration settings in Permissions Management
 description: How to view the Permissions Management API integration settings and create service accounts and roles.
 services: active-directory
-author: kenwith
+author: jenniferf-skc
 manager: rkarlin
 ms.service: ciem
 ms.workload: identity

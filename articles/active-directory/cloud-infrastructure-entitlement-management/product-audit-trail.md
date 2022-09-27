@@ -2,7 +2,7 @@
 title: Filter and query user activity in Permissions Management
 description: How to filter and query user activity in Permissions Management.
 services: active-directory
-author: kenwith
+author: jenniferf-skc
 manager: rkarlin
 ms.service: ciem
 ms.workload: identity

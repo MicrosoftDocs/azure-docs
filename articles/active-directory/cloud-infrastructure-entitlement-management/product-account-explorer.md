@@ -5,7 +5,7 @@ services: active-directory
 manager: rkarlin
 ms.service: ciem
 ms.topic: how-to
-author: kenwith
+author: jenniferf-skc
 ms.date: 02/23/2022
 ms.author: jfields
 ---

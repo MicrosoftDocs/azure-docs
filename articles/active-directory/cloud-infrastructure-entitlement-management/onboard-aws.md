@@ -2,7 +2,7 @@
 title:  Onboard an Amazon Web Services (AWS) account on Permissions Management
 description: How to onboard an Amazon Web Services (AWS) account on Permissions Management.
 services: active-directory
-author: kenwith
+author: jenniferf-skc
 manager: rkarlin
 ms.service: ciem
 ms.workload: identity

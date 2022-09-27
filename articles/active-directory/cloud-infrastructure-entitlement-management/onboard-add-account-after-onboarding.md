@@ -2,7 +2,7 @@
 title: Add an account /subscription/ project to Permissions Management after onboarding is complete
 description: How to add an account/ subscription/ project to Permissions Management after onboarding is complete.
 services: active-directory
-author: kenwith
+author: jenniferf-skc
 manager: rkarlin
 ms.service: ciem
 ms.workload: identity

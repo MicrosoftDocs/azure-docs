@@ -2,7 +2,7 @@
 title: View information about active and completed tasks in Permissions Management
 description: How to view information about active and completed tasks in the Activities pane in Permissions Management.
 services: active-directory
-author: kenwith
+author: jenniferf-skc
 manager: rkarlin
 ms.service: ciem
 ms.workload: identity

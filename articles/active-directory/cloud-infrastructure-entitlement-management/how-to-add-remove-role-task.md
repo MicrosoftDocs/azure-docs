@@ -2,7 +2,7 @@
 title: Add and remove roles and tasks for groups, users, and service accounts for Microsoft Azure and Google Cloud Platform (GCP) identities in the Remediation dashboard in Permissions Management
 description: How to attach and detach permissions for groups, users, and service accounts for Microsoft Azure and Google Cloud Platform (GCP) identities in the Remediation dashboard in Permissions Management.
 services: active-directory
-author: kenwith
+author: jenniferf-skc
 manager: rkarlin
 ms.service: ciem
 ms.workload: identity

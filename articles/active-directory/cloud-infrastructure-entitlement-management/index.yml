@@ -7,7 +7,7 @@ metadata:
   title: Permissions Management
   description: Learn how to use Permissions Management and Cloud Infrastructure Entitlement Management (CIEM)
   services: active-directory
-  author: kenwith
+  author: jenniferf-skc
   manager: rkarlin
   ms.service: ciem
   ms.workload: identity

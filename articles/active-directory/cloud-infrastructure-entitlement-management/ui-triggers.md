@@ -2,7 +2,7 @@
 title: View information about activity triggers in Permissions Management
 description: How to view information about activity triggers in the Activity triggers dashboard in Permissions Management.
 services: active-directory
-author: kenwith
+author: jenniferf-skc
 manager: rkarlin
 ms.service: ciem
 ms.workload: identity
