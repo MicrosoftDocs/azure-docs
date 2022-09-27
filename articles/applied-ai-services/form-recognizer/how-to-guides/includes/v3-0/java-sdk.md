@@ -151,16 +151,230 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 ## Read model
 
+```java
+import com.azure.ai.formrecognizer.*;
+
+import com.azure.ai.formrecognizer.documentanalysis.models.*;
+import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClient;
+import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClientBuilder;
+
+import com.azure.core.credential.AzureKeyCredential;
+import com.azure.core.util.polling.SyncPoller;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Arrays;
+import java.time.LocalDate;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class FormRecognizer {
+    //use your `key` and `endpoint` environment variables
+    private static final String key = System.getenv("FR_KEY");
+    private static final String endpoint = System.getenv("FR_ENDPOINT");
+```
+
+### Read model output
+
+Visit the Azure samples repository on GitHub to view the [read model output]()
+
 ## Layout model
+
+```java
+import com.azure.ai.formrecognizer.*;
+
+import com.azure.ai.formrecognizer.documentanalysis.models.*;
+import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClient;
+import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClientBuilder;
+
+import com.azure.core.credential.AzureKeyCredential;
+import com.azure.core.util.polling.SyncPoller;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Arrays;
+import java.time.LocalDate;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class FormRecognizer {
+    //use your `key` and `endpoint` environment variables
+    private static final String key = System.getenv("FR_KEY");
+    private static final String endpoint = System.getenv("FR_ENDPOINT");
+```
+
+### Layout model output
+
+Visit the Azure samples repository on GitHub to view the [layout model output]()
 
 ## General document model
 
-## W2 model
+```java
+import com.azure.ai.formrecognizer.*;
+
+import com.azure.ai.formrecognizer.documentanalysis.models.*;
+import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClient;
+import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClientBuilder;
+
+import com.azure.core.credential.AzureKeyCredential;
+import com.azure.core.util.polling.SyncPoller;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Arrays;
+import java.time.LocalDate;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class FormRecognizer {
+    //use your `key` and `endpoint` environment variables
+    private static final String key = System.getenv("FR_KEY");
+    private static final String endpoint = System.getenv("FR_ENDPOINT");
+```
+
+### General document model output 
+
+Visit the Azure samples repository on GitHub to view the [general document model output]()
+
+## W-2 model
+
+```java
+import com.azure.ai.formrecognizer.*;
+
+import com.azure.ai.formrecognizer.documentanalysis.models.*;
+import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClient;
+import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClientBuilder;
+
+import com.azure.core.credential.AzureKeyCredential;
+import com.azure.core.util.polling.SyncPoller;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Arrays;
+import java.time.LocalDate;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class FormRecognizer {
+    //use your `key` and `endpoint` environment variables
+    private static final String key = System.getenv("FR_KEY");
+    private static final String endpoint = System.getenv("FR_ENDPOINT");
+```
+
+### W-2 tax model output
+
+Visit the Azure samples repository on GitHub to view the [w-2 tax model output]()
 
 ## Invoice model
 
+```java
+import com.azure.ai.formrecognizer.*;
+
+import com.azure.ai.formrecognizer.documentanalysis.models.*;
+import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClient;
+import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClientBuilder;
+
+import com.azure.core.credential.AzureKeyCredential;
+import com.azure.core.util.polling.SyncPoller;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Arrays;
+import java.time.LocalDate;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class FormRecognizer {
+    //use your `key` and `endpoint` environment variables
+    private static final String key = System.getenv("FR_KEY");
+    private static final String endpoint = System.getenv("FR_ENDPOINT");
+```
+
+### Invoice model output
+
+Visit the Azure samples repository on GitHub to view the [invoice model output]()
+
 ## Receipt-model
+
+```java
+import com.azure.ai.formrecognizer.*;
+
+import com.azure.ai.formrecognizer.documentanalysis.models.*;
+import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClient;
+import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClientBuilder;
+
+import com.azure.core.credential.AzureKeyCredential;
+import com.azure.core.util.polling.SyncPoller;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Arrays;
+import java.time.LocalDate;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class FormRecognizer {
+    //use your `key` and `endpoint` environment variables
+    private static final String key = System.getenv("FR_KEY");
+    private static final String endpoint = System.getenv("FR_ENDPOINT");
+```
+
+Visit the Azure samples repository on GitHub to view the [receipt model output]
 
 ## ID document model
 
+```java
+import com.azure.ai.formrecognizer.*;
+
+import com.azure.ai.formrecognizer.documentanalysis.models.*;
+import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClient;
+import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClientBuilder;
+
+import com.azure.core.credential.AzureKeyCredential;
+import com.azure.core.util.polling.SyncPoller;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Arrays;
+import java.time.LocalDate;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class FormRecognizer {
+    //use your `key` and `endpoint` environment variables
+    private static final String key = System.getenv("FR_KEY");
+    private static final String endpoint = System.getenv("FR_ENDPOINT");
+```
+
+### ID document output
+
+Visit the Azure samples repository on GitHub to view the [ID document model output]()
+
 ## Business card model
+
+```java
+import com.azure.ai.formrecognizer.*;
+
+import com.azure.ai.formrecognizer.documentanalysis.models.*;
+import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClient;
+import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClientBuilder;
+
+import com.azure.core.credential.AzureKeyCredential;
+import com.azure.core.util.polling.SyncPoller;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Arrays;
+import java.time.LocalDate;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class FormRecognizer {
+    //use your `key` and `endpoint` environment variables
+    private static final String key = System.getenv("FR_KEY");
+    private static final String endpoint = System.getenv("FR_ENDPOINT");
+```
+
+### Business card model output
+
+Visit the Azure samples repository on GitHub to view the [business card model output]()

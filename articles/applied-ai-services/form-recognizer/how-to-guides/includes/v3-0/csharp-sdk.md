@@ -130,7 +130,7 @@ ms.custom: devx-track-csharp
 using Azure;
 using Azure.AI.FormRecognizer.DocumentAnalysis;
 
-//get your `key` and `endpoint` environment variables and create your `AzureKeyCredential` and `DocumentAnalysisClient` instance
+//use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentAnalysisClient` instances
 string key = Environment.GetEnvironmentVariable("FR_KEY");
 string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
 AzureKeyCredential credential = new AzureKeyCredential(key);
@@ -198,7 +198,7 @@ Visit the Azure samples repository on GitHub to view the [read model output](htt
 using Azure;
 using Azure.AI.FormRecognizer.DocumentAnalysis;
 
-//get your `key` and `endpoint` environment variables and create your `AzureKeyCredential` and `DocumentAnalysisClient` instance
+//use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentAnalysisClient` instances
 string key = Environment.GetEnvironmentVariable("FR_KEY");
 string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
 AzureKeyCredential credential = new AzureKeyCredential(key);
@@ -298,7 +298,7 @@ Visit the Azure samples repository on GitHub to view the [layout model output](h
 using Azure;
 using Azure.AI.FormRecognizer.DocumentAnalysis;
 
-//get your `key` and `endpoint` environment variables and create your `AzureKeyCredential` and `DocumentAnalysisClient` instance
+//use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentAnalysisClient` instances
 string key = Environment.GetEnvironmentVariable("FR_KEY");
 string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
 AzureKeyCredential credential = new AzureKeyCredential(key);
@@ -394,14 +394,14 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 Visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/csharp-general-document-model-output.md).
 
-## W2 model
+## W-2 model
 
 ```csharp
 
 using Azure;
 using Azure.AI.FormRecognizer.DocumentAnalysis;
 
-//get your `key` and `endpoint` environment variables and create your `AzureKeyCredential` and `DocumentAnalysisClient` instance
+//use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentAnalysisClient` instances
 string key = Environment.GetEnvironmentVariable("FR_KEY");
 string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
 AzureKeyCredential credential = new AzureKeyCredential(key);
@@ -514,7 +514,7 @@ Visit the Azure samples repository on GitHub to view the [w2 model output](https
 using Azure;
 using Azure.AI.FormRecognizer.DocumentAnalysis;
 
-//get your `key` and `endpoint` environment variables and create your `AzureKeyCredential` and `DocumentAnalysisClient` instance
+//use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentAnalysisClient` instances
 string key = Environment.GetEnvironmentVariable("FR_KEY");
 string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
 AzureKeyCredential credential = new AzureKeyCredential(key);
@@ -627,7 +627,7 @@ Visit the Azure samples repository on GitHub to view the [invoice model output](
 using Azure;
 using Azure.AI.FormRecognizer.DocumentAnalysis;
 
-//get your `key` and `endpoint` environment variables and create your `AzureKeyCredential` and `DocumentAnalysisClient` instance
+//use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentAnalysisClient` instances
 string key = Environment.GetEnvironmentVariable("FR_KEY");
 string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
 AzureKeyCredential credential = new AzureKeyCredential(key);
@@ -722,7 +722,7 @@ Visit the Azure samples repository on GitHub to view the [receipt model output](
 using Azure;
 using Azure.AI.FormRecognizer.DocumentAnalysis;
 
-//get your `key` and `endpoint` environment variables and create your `AzureKeyCredential` and `DocumentAnalysisClient` instance
+//use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentAnalysisClient` instances
 string key = Environment.GetEnvironmentVariable("FR_KEY");
 string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
 AzureKeyCredential credential = new AzureKeyCredential(key);
@@ -823,7 +823,7 @@ if (identityDocument.Fields.TryGetValue("Sex", out DocumentField sexfield))
 
 ### ID document model output
 
-Visit the Azure samples repository on GitHub to view the [id document output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/csharp-id-document-model-output.md).
+Visit the Azure samples repository on GitHub to view the [id-document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/csharp-id-document-model-output.md).
 
 ## Business card model
 
@@ -831,7 +831,7 @@ Visit the Azure samples repository on GitHub to view the [id document output](ht
 using Azure;
 using Azure.AI.FormRecognizer.DocumentAnalysis;
 
-//get your `key` and `endpoint` environment variables and create your `AzureKeyCredential` and `DocumentAnalysisClient` instance
+//use your `key` and `endpoint` environment variables to create your `AzureKeyCredential` and `DocumentAnalysisClient` instances
 string key = Environment.GetEnvironmentVariable("FR_KEY");
 string endpoint = Environment.GetEnvironmentVariable("FR_ENDPOINT");
 AzureKeyCredential credential = new AzureKeyCredential(key);
