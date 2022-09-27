@@ -31,19 +31,7 @@ You land on the Azure IoT Central Application Manager page. Azure IoT Central ke
 
 ![Create Manager for CSPs](media/howto-create-and-manage-applications-csp/image3.png)
 
-To create an Azure IoT Central application, select **Build** in the left menu. Choose one of the industry templates, or choose **Custom app** to create an application from scratch. This will load the Application Creation page. You must complete all the fields on this page and then choose **Create**. You find more information about each of the fields below.
-
-![Screenshot that shows the "Build your IoT application" page with the "Build" button selected.](media/howto-create-and-manage-applications-csp/image4.png)
-
-![Create Application Page for CSPs](media/howto-create-and-manage-applications-csp/image4-1.png)
-
-![Create Application Page for CSPs Billing Info](media/howto-create-and-manage-applications-csp/image4-2.png)
-
-## Pricing plan
-
-You can only create applications that use a standard pricing plan as a CSP. To showcase Azure IoT Central to your customer, you can create an application that uses the free pricing plan separately. Learn more about the free and standard pricing plans on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
-
-You can only create applications that use a standard pricing plan as a CSP. To showcase Azure IoT Central to your customer, you can create an application that uses the free pricing plan separately. Learn more about the free and standard pricing plans on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
+To create an Azure IoT Central application, select **Build** in the left menu. Choose one of the industry templates, or choose **Custom app** to create an application from scratch. This will load the Application Creation page. You must complete all the fields on this page and then choose **Create**. 
 
 ## Application name
 

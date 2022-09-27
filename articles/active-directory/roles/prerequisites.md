@@ -4,7 +4,7 @@ description: Prerequisites to use PowerShell or Graph Explorer for Azure Active 
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/14/2022
+ms.date: 09/09/2022
 ms.author: jeedes
 
 ---
@@ -48,6 +48,8 @@ To configure the integration of Headspace into Azure AD, you need to add Headspa
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Headspace** in the search box.
 1. Select **Headspace** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Headspace
 
@@ -97,6 +99,18 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     | email | user.mail |
     | family_name | user.surname |
     | userName | user.userprincipalname |
+
+1. In order to fill Headspace's requirements, please follow the steps below to correctly configure the necessary Attributes & Claims:
+
+	1. Click the pencil or **Edit** in the Attributes & Claims modal which should open a new page.
+
+	2. Update the claims to match the below image, see step 3 for configuring `email`.
+	
+    ![Screenshot shows the image of Headspace attributes.](./media/headspace-tutorial/claims.png "Attributes")
+
+	3. Open to manage the `email` claim and select **Transform** as the Source type and configure the transformation to match the screenshot below.
+	
+    ![Screenshot shows the image of Headspace email claim.](./media/headspace-tutorial/email-attribute.png "Attributes")
     
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (PEM)** and select **Download** to download the certificate and save it on your computer.
 

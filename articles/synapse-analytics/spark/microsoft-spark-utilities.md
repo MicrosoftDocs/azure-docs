@@ -930,12 +930,12 @@ Env.Help()
 
 Get result:
 ```
-GetUserName(): returns user name
-GetUserId(): returns unique user id
-GetJobId(): returns job id
-GetWorkspaceName(): returns workspace name
-GetPoolName(): returns Spark pool name
-GetClusterId(): returns cluster id
+getUserName(): returns user name
+getUserId(): returns unique user id
+getJobId(): returns job id
+getWorkspaceName(): returns workspace name
+getPoolName(): returns Spark pool name
+getClusterId(): returns cluster id
 ```
 
 ### Get user name

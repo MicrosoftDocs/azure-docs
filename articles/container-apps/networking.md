@@ -40,7 +40,7 @@ As you begin to design the network around your container app, refer to [Plan vir
 :::image type="content" source="media/networking/azure-container-apps-virtual-network.png" alt-text="Diagram of how Azure Container Apps environments use an existing V NET, or you can provide your own.":::
 
 <!--
-https://docs.microsoft.com/azure/azure-functions/functions-networking-options
+https://learn.microsoft.com/azure/azure-functions/functions-networking-options
 
 https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-container-apps-virtual-network-integration/ba-p/3096932
 -->
@@ -149,7 +149,8 @@ The second URL grants access to the log streaming service and the console. If ne
 
 ## Ports and IP addresses
 
-The subnet associated with a Container App Environment must have a CIDR prefix of /23.
+>[!NOTE]
+> The subnet associated with a Container App Environment requires a CIDR prefix of /23.
 
 The following ports are exposed for inbound connections.
 

@@ -23,17 +23,17 @@ You can get these recommendations on the **Operational Excellence** tab of the A
 
 ## Spring Cloud
 
-### Update your outdated Azure Spring Cloud SDK to the latest version
+### Update your outdated Azure Spring Apps SDK to the latest version
 
-We have identified API calls from an outdated Azure Spring Cloud SDK. We recommend upgrading to the latest version for the latest fixes, performance improvements, and new feature capabilities.
+We have identified API calls from an outdated Azure Spring Apps SDK. We recommend upgrading to the latest version for the latest fixes, performance improvements, and new feature capabilities.
 
-Learn more about [Spring Cloud Service - SpringCloudUpgradeOutdatedSDK (Update your outdated Azure Spring Cloud SDK to the latest version)](../spring-cloud/index.yml).
+Learn more about [Spring Cloud Service - SpringCloudUpgradeOutdatedSDK (Update your outdated Azure Spring Apps SDK to the latest version)](../spring-apps/index.yml).
 
-### Update Azure Spring Cloud API Version
+### Update Azure Spring Apps API Version
 
-We have identified API calls from outdated Azure Spring Cloud API for resources under this subscription. We recommend switching to the latest Spring Cloud API version. You need to update your existing code to use the latest API version. Also, you need to upgrade your Azure SDK and Azure CLI to the latest version. This ensures you receive the latest features and performance improvements.
+We have identified API calls from outdated Azure Spring Apps API for resources under this subscription. We recommend switching to the latest Spring Cloud API version. You need to update your existing code to use the latest API version. Also, you need to upgrade your Azure SDK and Azure CLI to the latest version. This ensures you receive the latest features and performance improvements.
 
-Learn more about [Spring Cloud Service - UpgradeAzureSpringCloudAPI (Update Azure Spring Cloud API Version)](../spring-cloud/index.yml).
+Learn more about [Spring Cloud Service - UpgradeAzureSpringCloudAPI (Update Azure Spring Apps API Version)](../spring-apps/index.yml).
 
 ## Automation
 

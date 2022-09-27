@@ -28,6 +28,32 @@ Azure Machine Learning allows you to work with different types of models. In thi
 * The Azure Machine Learning [SDK v2 for Python](https://aka.ms/sdk-v2-install).
 * The Azure Machine Learning [CLI v2](how-to-configure-cli.md).
 
+## Supported paths
+
+When you provide a model you want to register, you'll need to specify a `path` parameter that points to the data or job location. Below is a table that shows the different data locations supported in Azure Machine Learning and examples for the `path` parameter:
+
+
+|Location  | Examples  |
+|---------|---------|
+|A path on your local computer     | `mlflow-model/model.pkl`         |
+|A path on an AzureML Datastore   |   `azureml://datastores/<datastore-name>/paths/<path_on_datastore>`      |
+|A path from an AzureML job   |   `azureml://jobs/<job-name>/outputs/<output-name>/paths/<path-to-model-relative-to-the-named-output-location>`      |
+|A path from an MLflow job   |   `runs:/<run-id>/<path-to-model-relative-to-the-root-of-the-artifact-location>`      |
+
+## Supported modes
+
+When you run a job with model inputs/outputs, you can specify the *mode* - for example, whether you would like the model to be read-only mounted or downloaded to the compute target. The table below shows the possible modes for different type/mode/input/output combinations:
+
+Type | Input/Output | `direct` | `download` | `ro_mount` 
+------ | ------ | :---: | :---: | :---: | 
+`custom` file | Input  |  ✓ |   |    | 
+`custom` folder | Input  |  ✓ | ✓  |  ✓  | 
+`mlflow`   | Input |  |  ✓  | ✓ |
+`custom` file | Output  | ✓  |  ✓ |   ✓ |  
+`custom` folder   | Output | ✓  | ✓  | ✓   |
+`mlflow`    | Output | ✓  |  ✓ |   ✓ | 
+
+
 ## Create a model in the model registry
 
 [Model registration](concept-model-management-and-deployment.md) allows you to store and version your models in the Azure cloud, in your workspace. The model registry helps you organize and keep track of your trained models.
@@ -40,7 +66,7 @@ The code snippets in this section cover how to:
 
 These snippets use `custom` and `mlflow`.
 
-- `custom` is a type that refers to a model file.
+- `custom` is a type that refers to a model file or folder trained with a custom standard not currently supported by Azure ML.
 - `mlflow` is a type that refers to a model trained with [mlflow](how-to-use-mlflow-cli-runs.md). MLflow trained models are in a folder that contains the *MLmodel* file, the *model* file, the *conda dependencies* file, and the *requirements.txt* file.
 
 ### Register your model as an asset in Machine Learning by using the CLI
@@ -71,7 +97,7 @@ You can create a model from a cloud path by using any one of the following suppo
 az ml model create --name my-model --version 1 --path azureml://datastores/myblobstore/paths/models/cifar10/cifar.pt
 ```
 
-The examples use the shorthand `azureml` scheme for pointing to a path on the `datastore` by using the syntax `azureml://datastores/${{datastore-name}}/paths/${{path_on_datastore}}`.
+The examples use the shorthand `azureml` scheme for pointing to a path on the `datastore` by using the syntax `azureml://datastores/<datastore-name>/paths/<path_on_datastore>`.
 
 For a complete example, see the [CLI reference](/cli/azure/ml/model).
 

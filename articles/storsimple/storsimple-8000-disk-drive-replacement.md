@@ -12,11 +12,13 @@ ms.service: storsimple
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 8/25/2017
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Replace a disk drive on your StorSimple 8000 series device
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 This tutorial explains how you can remove and replace a malfunctioning or failed hard disk drive on a Microsoft Azure StorSimple device. To replace a disk drive, you need to:

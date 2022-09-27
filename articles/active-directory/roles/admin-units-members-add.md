@@ -4,7 +4,7 @@ description: Add users, groups, or devices to an administrative unit in Azure Ac
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles

@@ -1,13 +1,13 @@
 ---
 title: Secure a dedicated SQL pool (formerly SQL DW)
 description: Tips for securing a dedicated SQL pool (formerly SQL DW) and developing solutions in Azure Synapse Analytics.
-author: nanditavalsan
+author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 04/17/2018
-ms.author: nanditav
+ms.author: wiassaf
 ms.reviewer: wiassaf
 ms.custom: seo-lt-2019
 tags: azure-synapse

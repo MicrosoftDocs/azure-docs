@@ -236,7 +236,7 @@ Here's an example of the output:
     sqlcmd -S <server-name>.database.windows.net -d <db-name> -U <aad-user-name> -P "<aad-password>" -G -l 30
     ```
 
-1. In the SQL prompt for the database you want, run the following commands to grant the permissions your app needs. For example, 
+1. In the SQL prompt for the database you want, run the following commands to grant the minimum permissions your app needs. For example, 
 
     ```sql
     CREATE USER [<identity-name>] FROM EXTERNAL PROVIDER;

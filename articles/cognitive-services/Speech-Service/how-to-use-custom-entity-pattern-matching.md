@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 11/15/2021
 ms.author: chschrae
 ms.devlang: cpp, csharp
-zone_pivot_groups: programming-languages-set-nine
+zone_pivot_groups: programming-languages-set-thirteen
 ms.custom: devx-track-cpp, devx-track-csharp, mode-other
 ---
 
@@ -51,4 +51,8 @@ Be sure you have the following items before you begin this guide:
 
 ::: zone pivot="programming-language-cpp"
 [!INCLUDE [cpp](includes/how-to/intent-recognition/cpp/pattern-matching.md)]
+::: zone-end
+
+::: zone pivot="programming-language-java"
+[!INCLUDE [java](includes/how-to/intent-recognition/java/pattern-matching.md)]
 ::: zone-end

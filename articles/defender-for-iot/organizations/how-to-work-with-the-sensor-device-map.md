@@ -103,9 +103,7 @@ You can display devices from saved filters in the Device map. For more informati
 
 ### Map zoom views
 
-Working with map views helps expedite forensics when analyzing large networks.
-
-Three device detail views can be displayed:
+Working with map views helps expedite forensics when analyzing large networks. Map views include the following options:
 
   - [Bird’s-eye view](#birds-eye-view)
 
