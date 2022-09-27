@@ -225,7 +225,7 @@ You can use integrated BI experience in Azure Cosmos DB portal, to build BI dash
 
 If you want to use advance T-SQL views with joins across your containers or build BI dashboards in import](/power-bi/connect-data/service-dataset-modes-understand#import-mode) mode, see how to use [Serverless SQL pool to analyze Azure Cosmos DB data with Synapse Link](synapse-link-power-bi.md) article.
 
-## <a id="Best"></a> Improve Performance with Best Practices
+## <a id="best"></a> Improve Performance with Best Practices
 
 ### Custom Partitioning
 
