@@ -47,7 +47,7 @@ To get started with the IEF Editor, ensure the following prerequisites are met:
 
 ## Scenario descriptions
 
-The following sections illustrate two Visual IEF Editor scenarios for *Contoso* and *Fabrikam*.
+The following sections describe two Visual IEF Editor scenarios for *Contoso* and *Fabrikam*.
 
 ### Case 1 - Contoso: IEF logic, make changes, and enable features
 
@@ -57,12 +57,12 @@ The *Contoso* enterprise uses Azure AD B2C, and has an extensive IEF deployment.
 - Making changes to IEF.
 - Enabling features such as, fraud protection, identity protection, and biometrics.
 
-When IEF files are loaded into Visual IEF Editor, a list of user journeys appears with a flow chart for each journey. User journey elements contain useful data and functionality. Search eases the process of tracing through IEF logic, and enabling needed features. Modified files are:
+When IEF files are loaded into Visual IEF Editor, a list of user journeys appears with a flow chart for each journey. The user journey elements contain useful data and functionalities. Search eases the process of tracing through IEF logic, and enables needed features. The modified files can be:
 
-- Downloaded to a local machine
-- Uploaded to GitHub
-- Run through CI/CD
-- Deployed to a lower environment for testing
+- Downloaded to a local machine.
+- Uploaded to GitHub.
+- Run through CI/CD.
+- Deployed to a lower environment for testing.
 
 ### Case 2 - Fabrikam: Fast implementation
 
@@ -72,7 +72,7 @@ When IEF files are loaded into Visual IEF Editor, a list of user journeys appear
 - Discover functionalities without learning IEF
 
 >[!NOTE]
->This scenario is in private preview. For access, or questions, go to [Grit IAM Solutions](https://www.gritiam.com/). Scroll down and select **CONTACT**.
+>This scenario is in private preview. For access, or questions, contact [Grit IAM Solutions support](https://www.gritiam.com/).
 
 Fabrikam has a set of pre-built templates with intuitive charts that show user flows. You can use Visual IEF Editor to modify templates and then deploy them into a lower environment, or upload them to GitHub for CI/CD.
 
