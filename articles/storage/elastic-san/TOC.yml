@@ -26,5 +26,5 @@ items:
     href: elastic-san-delete.md
 - name: Samples
   items:
-  - name: Create more than one volume
+  - name: Create elastic SAN volumes in a batch
     href: elastic-san-batch-create-sample.md
