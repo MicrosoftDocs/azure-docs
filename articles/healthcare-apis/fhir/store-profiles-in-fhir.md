@@ -1,12 +1,12 @@
 ---
 title: Store profiles in FHIR service in Azure Health Data Services
 description: This article describes how to store profiles in the FHIR service
-author: ginalee-dotcom
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 06/06/2022
-ms.author: mikaelw
+ms.author: kesheth
 ---
 
 # Store profiles in FHIR service

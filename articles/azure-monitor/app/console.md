@@ -43,7 +43,7 @@ telemetryClient.TrackTrace("Hello World!");
 You may initialize and configure Application Insights from the code or using `ApplicationInsights.config` file. Make sure initialization happens as early as possible.
 
 > [!NOTE]
-> Instructions referring to **ApplicationInsights.config** are only applicable to apps that are targeting the .NET Framework, and do not apply to .NET Core applications.
+> - **ApplicationInsights.config** is not supported by .NET Core applications.
 
 ### Using config file 
 

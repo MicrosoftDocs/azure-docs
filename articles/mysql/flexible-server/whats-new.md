@@ -23,6 +23,7 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 > This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ## September 2022
+
 - **Read replica for HA enabled Azure Database for MySQL - Flexible Server (General Availability)**
 
   The read replica feature allows you to replicate data from an Azure Database for MySQL flexible server to a read-only server. You can replicate the source server to up to 10 replicas. This functionality is now extended to support HA enabled servers within same region.[Learn more](concepts-read-replicas.md)
