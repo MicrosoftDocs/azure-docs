@@ -484,7 +484,6 @@ In this step, we will provision two SIMs and assign a SIM policy to each one. Th
 
 1. Select **Browse** and then select the JSON file you created at the start of this step.
 1. Under **SIM group name**, select **Create new** and then enter **SIMGroup1** into the field that appears.
-1. Under **Enter encryption details for SIM group**, keep **Microsoft-managed keys (MMK)** selected.
 1. Select **Add**.
 1. The Azure portal will now begin deploying the SIM group and SIMs. When the deployment is complete, select **Go to resource group**.
 
