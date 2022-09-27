@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/24/2021
+ms.date: 09/27/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Keeper Password Manager
@@ -87,8 +87,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     * For on-premises SSO: `https://<KEEPER_FQDN>/sso-connect/saml/sso`
 
     c. For **Sign on URL**, type a URL using one of the following patterns:
-    * For cloud SSO: `https://keepersecurity.com/api/rest/sso/saml/sso/<CLOUD_INSTANCE_ID>`
+    * For cloud SSO: `https://keepersecurity.com/api/rest/sso/ext_login/<CLOUD_INSTANCE_ID>`
     * For on-premises SSO: `https://<KEEPER_FQDN>/sso-connect/saml/login`
+
+    d. For **Sign out URL**, type a URL using one of the following patterns:
+    * For cloud SSO: `https://keepersecurity.com/api/rest/sso/saml/slo/<CLOUD_INSTANCE_ID>`
+    * There are no configuration for on-premises SSO.
 
 	> [!NOTE]
 	> These values aren't real. Update these values with the actual Identifier,Reply URL and Sign on URL. To get these values, contact the [Keeper Password Manager Client support team](https://keepersecurity.com/contact.html). You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
