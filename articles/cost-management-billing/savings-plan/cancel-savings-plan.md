@@ -13,8 +13,8 @@ ms.date: 09/23/2022
 
 # Azure saving plan cancellation is not allowed
 
-Insert intro text.
+Savings plans cannot be refunded or cancelled, nor can they be exchanged for a reservation.
 
 ## Next steps
 
-- Add link here
+- Learn more about savings plan at [What are Azure savings plans for compute?](savings-plan-compute-overview.md)
