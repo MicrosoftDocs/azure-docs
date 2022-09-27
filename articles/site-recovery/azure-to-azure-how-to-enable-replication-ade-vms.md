@@ -128,16 +128,7 @@ Use the following procedure to replicate Azure Disk Encryption-enabled VMs to an
 
    :::image type="review" source="./media/azure-to-azure-how-to-enable-replication-ade-vms/review.png" alt-text="Screenshot that displays the review tab.":::
 
-
-## Customize target resources
-
-Follow these steps to modify the Site Recovery default target settings.
-
-1. Select **View/edit configuration** next to *Encryption settings* to choose target disk encryption key vault.
-1. Select **Create target resource** > **Enable Replication**.
-1. After the VMs are enabled for replication, you can check the VMs' health status under **Replicated items**.
-
->[!NOTE]
+[!NOTE]
 >During initial replication, the status might take some time to refresh, without apparent progress. Click **Refresh**  to get the latest status.
 
 ## Update target VM encryption settings
