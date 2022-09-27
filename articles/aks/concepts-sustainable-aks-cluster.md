@@ -12,7 +12,7 @@ ms.custom:
 ---
 # Sustainable Design considerations for AKS Clusters
 
-Designing and building sustainable workloads requires understanding the platform where you're deploying the applications. Review the considerations and recommendations in this section to know how to make better informed platform-related decisions around sustainability.
+Designing and building sustainable workloads requires understanding the platform where you're deploying the applications. Review the considerations and recommendations in this section to know how to make better informed AKS design and configuration decisions around sustainability.
 
 > [!IMPORTANT]
 > This article is part of the [Azure Well-Architected sustainable workload](index.yml) series. If you aren't familiar with this series, we recommend you start with [what is a sustainable workload?](sustainability-get-started.md#what-is-a-sustainable-workload)
@@ -21,12 +21,12 @@ Designing and building sustainable workloads requires understanding the platform
 
 
 ### Review platform and service updates regularly 
-_sustainability design principle: [Energy efficiency](sustainability-design-principles.md#energy-efficiency)_
+_sustainability design principles: [Energy efficiency](sustainability-design-principles.md#energy-efficiency)_
 
 
 **Recommendations:**
- - Configure [Automatic **Cluster Ugrade**](/azure/aks/auto-upgrade-cluster)  _opexec
- - Configure [Automatic **Linux node updates**](/azure/aks/node-updates-kured) _opn exc
+ - Configure [Automatic **Cluster Ugrade**](/azure/aks/auto-upgrade-cluster) 
+ - Configure [Automatic **Linux node updates**](/azure/aks/node-updates-kured)
 
 
 **Potential tradeoffs**
@@ -36,7 +36,7 @@ _sustainability design principle: [Energy efficiency](sustainability-design-prin
 
 ### Deploy to low-carbon regions
 
-_Green Software Foundation alignment: [Carbon efficiency](sustainability-design-principles.md#carbon-efficiency)_
+_sustainability design principles: [Carbon efficiency](sustainability-design-principles.md#carbon-efficiency)_
 
 
 
@@ -52,7 +52,7 @@ _Green Software Foundation alignment: [Carbon efficiency](sustainability-design-
 
 ### Process when the carbon intensity is low
 
-_Green Software Foundation alignment: [Carbon efficiency](sustainability-design-principles.md#carbon-efficiency), [Carbon awareness](sustainability-design-principles.md#carbon-awareness)_
+_sustainability design principles: [Carbon efficiency](sustainability-design-principles.md#carbon-efficiency), [Carbon awareness](sustainability-design-principles.md#carbon-awareness)_
 
 **Recommendation:**
 
@@ -67,7 +67,7 @@ _Green Software Foundation alignment: [Carbon efficiency](sustainability-design-
 
 ### Choose data centers close to the customer
 
-_Green Software Foundation alignment: [Energy efficiency](sustainability-design-principles.md#energy-efficiency)_
+_sustainability design principles: [Energy efficiency](sustainability-design-principles.md#energy-efficiency)_
 
 **Recommendation:**
 
@@ -78,7 +78,7 @@ _Green Software Foundation alignment: [Energy efficiency](sustainability-design-
 
 ### Run batch workloads during low-carbon intensity periods
 
-_Green Software Foundation alignment: [Carbon awareness](sustainability-design-principles.md#carbon-awareness)_
+_sustainability design principles: [Carbon awareness](sustainability-design-principles.md#carbon-awareness)_
 
 **Recommendation:**
 
@@ -92,7 +92,7 @@ _Green Software Foundation alignment: [Carbon awareness](sustainability-design-p
 
 ### Containerize workloads where applicable
 
-_Green Software Foundation alignment: [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency)_
+_sustainability design principles: [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency)_
 
 **Recommendation:**
 
@@ -109,7 +109,7 @@ _Green Software Foundation alignment: [Hardware efficiency](sustainability-desig
 
 ### Evaluate moving to PaaS and serverless workloads
 
-_Green Software Foundation alignment: [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency), [Energy efficiency](sustainability-design-principles.md#energy-efficiency)_
+_sustainability design principles: [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency), [Energy efficiency](sustainability-design-principles.md#energy-efficiency)_
 
 **Recommendation:**
 
@@ -124,7 +124,7 @@ _Green Software Foundation alignment: [Hardware efficiency](sustainability-desig
 
 ### Use SPOT VMs where possible
 
-_Green Software Foundation alignment: [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency)_
+_sustainability design principles: [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency)_
 
 **Recommendation:**
 
@@ -138,7 +138,7 @@ _Green Software Foundation alignment: [Hardware efficiency](sustainability-desig
 
 ### Turn off workloads outside of business hours
 
-_Green Software Foundation alignment: [Energy efficiency](sustainability-design-principles.md#energy-efficiency), [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency)_
+_sustainability design principles: [Energy efficiency](sustainability-design-principles.md#energy-efficiency), [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency)_
 
 **Recommendation:**
 
@@ -153,7 +153,7 @@ _Green Software Foundation alignment: [Energy efficiency](sustainability-design-
 
 ### Utilize auto-scaling and bursting capabilities
 
-_Green Software Foundation alignment: [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency)_
+_sustainability design principles: [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency)_
 
 **Recommendation:**
 
@@ -171,7 +171,7 @@ https://learn.microsoft.com/en-us/azure/aks/scale-cluster?tabs=azure-cli#scale-u
 
 ### Match the scalability needs
 
-_Green Software Foundation alignment: [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency)_
+_sustainability design principles: [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency)_
 
 **Recommendation:**
 
@@ -189,7 +189,7 @@ _Green Software Foundation alignment: [Hardware efficiency](sustainability-desig
 
 ### Evaluate Ampere Altra Arm-based processors for Virtual Machines
 
-_Green Software Foundation alignment: [Energy efficiency](sustainability-design-principles.md#energy-efficiency)_
+_sustainability design principles: [Energy efficiency](sustainability-design-principles.md#energy-efficiency)_
 
 **Recommendation:**
 
