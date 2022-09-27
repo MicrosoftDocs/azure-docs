@@ -50,7 +50,7 @@ For more information, see [Choose an Azure saving plan commitment amount](choo
 
 ## Buying a savings plan
 
-You can purchase savings plans from the Azure portal. For more information, see [Buy a savings plan](../buy-savings-plan.md).
+You can purchase savings plans from the Azure portal. For more information, see [Buy a savings plan](buy-savings-plan.md).
 
 ## How is a savings plan billed?
 
@@ -63,7 +63,7 @@ By default, the following users can view and manage savings plans:
 - The person who buys a savings plan, and the account administrator of the billing subscription used to buy the savings plan are added to the savings plan order.
 - Enterprise Agreement and Microsoft Customer Agreement billing administrators.
 
-To allow other people to manage savings plans, see [Manage savings plan resources](manage-savings-plan.dm).
+To allow other people to manage savings plans, see [Manage savings plan resources](manage-savings-plan.md).
 
 ## Get savings plan details and utilization after purchase
 
@@ -75,7 +75,7 @@ For more information about savings plan permissions in the Azure portal, see [
 
 After you buy an Azure savings plan, you can update the scope to apply savings plan to a different subscription and change who can manage the savings plan.
 
-For more information, see [Manage Azure savings plans](manage-savings-plan).
+For more information, see [Manage Azure savings plans](manage-savings-plan.md).
 
 ## Cancellation and refund policy
 

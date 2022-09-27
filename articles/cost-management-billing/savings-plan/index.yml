@@ -62,8 +62,8 @@ landingContent:
     linkLists:
     - linkListType: how-to-guide
       links:
-      - text: View savings plan utilization
-        url: view-utilization.md
+      - text: View savings plan cost and usage
+        url: utilization-cost-reports.md
       - text: view amortized savings plan costs
         url: view-amortized-costs.md
       - text: Charge back Azure savings plan costs
