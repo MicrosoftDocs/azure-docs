@@ -17,6 +17,8 @@ Azure Monitor managed service for Prometheus can currently collect data from any
 - Azure Kubernetes service (AKS). Configure the Azure Monitor managed service for Prometheus AKS add-on to scrape metrics from an AKS cluster.
 - Any Kubernetes cluster running self-managed Prometheus using [remote-write](https://prometheus.io/docs/practices/remote_write/#remote-write-tuning). In this configuration, metrics are collected by a local Prometheus server for each cluster and then consolidated in Azure Monitor managed service for Prometheus.
 
+
+
 ## Grafana integration
 The primary method for visualizing Prometheus metrics is [Azure Managed Grafana](../../managed-grafana/overview.md). Connect your Azure Monitor workspace to a Grafana workspace so that it can be used as a data source in a Grafana dashboard. You then have access to multiple prebuilt dashboards that use Prometheus metrics and the ability to create any number of custom dashboards.
 
@@ -24,9 +26,7 @@ The primary method for visualizing Prometheus metrics is [Azure Managed Grafana]
 Azure Monitor managed service for Prometheus adds a new Prometheus metric alert type for creating alerts using PromQL queries. You can view fired and resolved Prometheus alerts in the Azure portal along with other alert types. Prometheus alerts are configured with the same [alert rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/) used by Prometheus.
 
 ## Enable
-### Prerequisites
-
-- [Azure Monitor workspace](azure-monitor-workspace-overview.md) - Prometheus metrics are stored in an Azure Monitor workspace. You can either create a workspace or have one created as part of the onboarding process described below.
+The only requirement to enable Azure Monitor managed service for Prometheus is to create an [Azure Monitor workspace](azure-monitor-workspace-overview.md), which is where Prometheus metrics are stored. One this workspace is created, you can onboard services that collect Prometheus metrics.
 
 ### Service limits
 See [Azure Monitor service limits](../service-limits.md) for any service limits related to Azure Monitor managed service for Prometheus.
