@@ -137,7 +137,7 @@ Grafana is an open-source application that enables you to visualize metric data 
 
 ## InfluxData
 
-![InfluxData logo.](./media/partners/Influxdata.png)
+![InfluxData logo.](./media/partners/influxdata.png)
 
 InfluxData is the creator of InfluxDB, the open-source time series database. Its technology is purpose built to handle the massive volumes of time-stamped data produced by Internet of Things (IoT) devices, applications, networks, containers, and computers. 
 
