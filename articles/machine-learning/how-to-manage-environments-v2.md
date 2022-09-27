@@ -39,7 +39,9 @@ In this article, learn how to create and manage Azure ML environments using the 
 
 To run the training examples, first clone the examples repository. For the CLI examples, change into the `cli` directory. For the SDK examples, change into the `SDK` directory:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="git_clone":::
+```azurecli
+git clone --depth 1 https://github.com/Azure/azureml-examples
+```
 
 Note that `--depth 1` clones only the latest commit to the repository, which reduces time to complete the operation.
 
