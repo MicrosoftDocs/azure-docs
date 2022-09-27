@@ -878,7 +878,7 @@ This section explains how to collect custom telemetry from your application.
 
 You may want to collect metrics beyond what is collected by [instrumentation libraries](#instrumentation-libraries).
 
-The OpenTelemetry API offers six metric "intruments" to cover a varity of metric scenarios.
+The OpenTelemetry API offers six metric "instruments" to cover a variety of metric scenarios.
 The following table shows how OpenTelemetry's instruments map to Azure Monitor's [five aggregation types](/essentials/metrics-aggregation-explained.md#aggregation-types):
 
 | OpenTelemetry Instrument   | Azure Monitor Aggregation Type |
