@@ -34,9 +34,9 @@ When performing data integration and ETL processes, your jobs can often perform 
 | [Azure Cosmos DB (SQL API)](connector-azure-cosmos-db.md) | &nbsp; | ✓ | &nbsp; |
 | [Azure Database for MySQL](connector-azure-database-for-mysql.md) | &nbsp; | ✓ | &nbsp; |
 | [Azure Database for PostgreSQL](connector-azure-database-for-postgresql.md) | &nbsp; | ✓ | &nbsp; |
-| [Azure SQL Database](connector-azure-sql-database.md) | &nbsp; | ✓ | [✓](tutorial-incremental-copy-portal.md) |
-| [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md) | &nbsp; | ✓ | [✓](tutorial-incremental-copy-change-data-capture-feature-portal.md) |
-| [Azure SQL Server](connector-sql-server.md) | &nbsp; | ✓ | [✓](tutorial-incremental-copy-multiple-tables-portal.md) |
+| [Azure SQL Database](connector-azure-sql-database.md) | ✓ | ✓ | [✓](tutorial-incremental-copy-portal.md) |
+| [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md) | ✓ | ✓ | [✓](tutorial-incremental-copy-change-data-capture-feature-portal.md) |
+| [Azure SQL Server](connector-sql-server.md) | ✓ | ✓ | [✓](tutorial-incremental-copy-multiple-tables-portal.md) |
 | [Common data model](format-common-data-model.md) | &nbsp; | ✓    | &nbsp;     |
 | [SAP CDC](connector-sap-change-data-capture.md) | ✓ | ✓ | ✓ |
 
