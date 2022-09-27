@@ -189,6 +189,11 @@
     "source_path": "service-bus-tutorial-topics-subscriptions-powershell.md",
     "redirect_url": "/azure/service-bus-messaging/service-bus-quickstart-powershell",
     "redirect_document_id": false
+  },
+  {
+    "source_path": "enable-partitions.md",
+    "redirect_url": "/azure/service-bus-messaging/enable-partitions-basic-standard",
+    "redirect_document_id": false
   }
 ]
 }
