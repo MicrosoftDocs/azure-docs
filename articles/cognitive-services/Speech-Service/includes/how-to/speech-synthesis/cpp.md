@@ -19,10 +19,10 @@ Specify the language or voice of [`SpeechConfig`](/cpp/cognitive-services/speech
 ```cpp
 void synthesizeSpeech()
 {
-    auto config = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
+    auto speechConfig = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
     // Set either the `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`.
-    config->SetSpeechSynthesisLanguage("en-US"); 
-    config->SetSpeechSynthesisVoiceName("en-US-JennyNeural");
+    speechConfig->SetSpeechSynthesisLanguage("en-US"); 
+    speechConfig->SetSpeechSynthesisVoiceName("en-US-JennyNeural");
 }
 ```
 
@@ -49,19 +49,19 @@ To start, create an `AudioConfig` instance to automatically write the output to 
 ```cpp
 void synthesizeSpeech()
 {
-    auto config = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
+    auto speechConfig = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
     auto audioConfig = AudioConfig::FromWavFileOutput("path/to/write/file.wav");
 }
 ```
 
-Next, instantiate a `SpeechSynthesizer` instance. Pass your `config` object and the `audioConfig` object as parameters. Then, the process of executing speech synthesis and writing to a file is as simple as running `SpeakTextAsync()` with a string of text.
+Next, instantiate a `SpeechSynthesizer` instance. Pass your `speechConfig` object and the `audioConfig` object as parameters. Then, the process of executing speech synthesis and writing to a file is as simple as running `SpeakTextAsync()` with a string of text.
 
 ```cpp
 void synthesizeSpeech()
 {
-    auto config = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
+    auto speechConfig = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
     auto audioConfig = AudioConfig::FromWavFileOutput("path/to/write/file.wav");
-    auto synthesizer = SpeechSynthesizer::FromConfig(config, audioConfig);
+    auto synthesizer = SpeechSynthesizer::FromConfig(speechConfig, audioConfig);
     auto result = synthesizer->SpeakTextAsync("A simple test to write to a file.").get();
 }
 ```
@@ -75,8 +75,8 @@ To output synthesized speech to the current active output device such as a speak
 ```cpp
 void synthesizeSpeech()
 {
-    auto config = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
-    auto synthesizer = SpeechSynthesizer::FromConfig(config);
+    auto speechConfig = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
+    auto synthesizer = SpeechSynthesizer::FromConfig(speechConfig);
     auto result = synthesizer->SpeakTextAsync("I'm excited to try text to speech").get();
 }
 ```
@@ -99,8 +99,8 @@ This time, save the result to a [`SpeechSynthesisResult`](/cpp/cognitive-service
 ```cpp
 void synthesizeSpeech()
 {
-    auto config = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
-    auto synthesizer = SpeechSynthesizer::FromConfig(config, NULL);
+    auto speechConfig = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
+    auto synthesizer = SpeechSynthesizer::FromConfig(speechConfig, NULL);
 
     auto result = synthesizer->SpeakTextAsync("Getting the response as an in-memory stream.").get();
     auto stream = AudioDataStream::FromResult(result);
@@ -129,10 +129,10 @@ In this example, you specify the high-fidelity RIFF format `Riff24Khz16BitMonoPc
 ```cpp
 void synthesizeSpeech()
 {
-    auto config = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
-    config->SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat::Riff24Khz16BitMonoPcm);
+    auto speechConfig = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
+    speechConfig->SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat::Riff24Khz16BitMonoPcm);
 
-    auto synthesizer = SpeechSynthesizer::FromConfig(config, NULL);
+    auto synthesizer = SpeechSynthesizer::FromConfig(speechConfig, NULL);
     auto result = synthesizer->SpeakTextAsync("A simple test to write to a file.").get();
 
     auto stream = AudioDataStream::FromResult(result);
@@ -163,8 +163,8 @@ Next, you need to change the speech synthesis request to reference your XML file
 ```cpp
 void synthesizeSpeech()
 {
-    auto config = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
-    auto synthesizer = SpeechSynthesizer::FromConfig(config, NULL);
+    auto speechConfig = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
+    auto synthesizer = SpeechSynthesizer::FromConfig(speechConfig, NULL);
 
     std::ifstream file("./ssml.xml");
     std::string ssml, line;

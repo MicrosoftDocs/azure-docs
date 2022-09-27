@@ -20,10 +20,10 @@ Specify the language or voice of `SpeechConfig` to match your input text and use
 ```csharp
 static async Task SynthesizeAudioAsync()
 {
-    var config = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
+    var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
     // Set either the `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`.
-    config.SpeechSynthesisLanguage = "en-US"; 
-    config.SpeechSynthesisVoiceName = "en-US-JennyNeural";
+    speechConfig.SpeechSynthesisLanguage = "en-US"; 
+    speechConfig.SpeechSynthesisVoiceName = "en-US-JennyNeural";
 }
 ```
 
@@ -50,19 +50,19 @@ To start, create an `AudioConfig` instance to automatically write the output to 
 ```csharp
 static async Task SynthesizeAudioAsync()
 {
-    var config = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
+    var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
     using var audioConfig = AudioConfig.FromWavFileOutput("path/to/write/file.wav");
 }
 ```
 
-Next, instantiate a `SpeechSynthesizer` instance with another `using` statement. Pass your `config` object and the `audioConfig` object as parameters. Then, the process of executing speech synthesis and writing to a file is as simple as running `SpeakTextAsync()` with a string of text.
+Next, instantiate a `SpeechSynthesizer` instance with another `using` statement. Pass your `speechConfig` object and the `audioConfig` object as parameters. Then, the process of executing speech synthesis and writing to a file is as simple as running `SpeakTextAsync()` with a string of text.
 
 ```csharp
 static async Task SynthesizeAudioAsync()
 {
-    var config = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
+    var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
     using var audioConfig = AudioConfig.FromWavFileOutput("path/to/write/file.wav");
-    using var synthesizer = new SpeechSynthesizer(config, audioConfig);
+    using var synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
     await synthesizer.SpeakTextAsync("I'm excited to try text-to-speech");
 }
 ```
@@ -76,8 +76,8 @@ To output synthesized speech to the current active output device such as a speak
 ```csharp
 static async Task SynthesizeAudioAsync()
 {
-    var config = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
-    using var synthesizer = new SpeechSynthesizer(config);
+    var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
+    using var synthesizer = new SpeechSynthesizer(speechConfig);
     await synthesizer.SpeakTextAsync("I'm excited to try text to speech");
 }
 ```
@@ -100,8 +100,8 @@ This time, save the result to a [`SpeechSynthesisResult`](/dotnet/api/microsoft.
 ```csharp
 static async Task SynthesizeAudioAsync()
 {
-    var config = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
-    using var synthesizer = new SpeechSynthesizer(config, null);
+    var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
+    using var synthesizer = new SpeechSynthesizer(speechConfig, null);
 
     var result = await synthesizer.SpeakTextAsync("I'm excited to try text-to-speech");
     using var stream = AudioDataStream.FromResult(result);
@@ -130,10 +130,10 @@ In this example, you specify the high-fidelity RIFF format `Riff24Khz16BitMonoPc
 ```csharp
 static async Task SynthesizeAudioAsync()
 {
-    var config = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
-    config.SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
+    var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
+    speechConfig.SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
 
-    using var synthesizer = new SpeechSynthesizer(config, null);
+    using var synthesizer = new SpeechSynthesizer(speechConfig, null);
     var result = await synthesizer.SpeakTextAsync("I'm excited to try text-to-speech");
 
     using var stream = AudioDataStream.FromResult(result);
@@ -167,8 +167,8 @@ Next, you need to change the speech synthesis request to reference your XML file
 ```csharp
 public static async Task SynthesizeAudioAsync()
 {
-    var config = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
-    using var synthesizer = new SpeechSynthesizer(config, null);
+    var speechConfig = SpeechConfig.FromSubscription("YourSpeechKey", "YourSpeechRegion");
+    using var synthesizer = new SpeechSynthesizer(speechConfig, null);
 
     var ssml = File.ReadAllText("./ssml.xml");
     var result = await synthesizer.SpeakSsmlAsync(ssml);

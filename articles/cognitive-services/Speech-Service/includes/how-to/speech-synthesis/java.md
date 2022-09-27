@@ -22,8 +22,8 @@ Specify the language or voice of [`SpeechConfig`](/java/api/com.microsoft.cognit
 public static void main(String[] args) {
     SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSpeechKey", "YourSpeechRegion");
     // Set either the `SpeechSynthesisVoiceName` or `SpeechSynthesisLanguage`.
-    config.setSpeechSynthesisLanguage("en-US"); 
-    config.setSpeechSynthesisVoiceName("en-US-JennyNeural");
+    speechConfig.setSpeechSynthesisLanguage("en-US"); 
+    speechConfig.setSpeechSynthesisVoiceName("en-US-JennyNeural");
 }
 ```
 

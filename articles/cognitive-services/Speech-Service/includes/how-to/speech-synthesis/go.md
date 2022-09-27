@@ -67,13 +67,13 @@ func main() {
 		return
 	}
 	defer audioConfig.Close()
-	config, err := speech.NewSpeechConfigFromSubscription(subscription, region)
+	speechConfig, err := speech.NewSpeechConfigFromSubscription(subscription, region)
 	if err != nil {
 		fmt.Println("Got an error: ", err)
 		return
 	}
-	defer config.Close()
-	speechSynthesizer, err := speech.NewSpeechSynthesizerFromConfig(config, audioConfig)
+	defer speechConfig.Close()
+	speechSynthesizer, err := speech.NewSpeechSynthesizerFromConfig(speechConfig, audioConfig)
 	if err != nil {
 		fmt.Println("Got an error: ", err)
 		return
@@ -195,13 +195,13 @@ func main() {
 	subscription := "YourSpeechKey"
 	region := "YourSpeechRegion"
 
-	config, err := speech.NewSpeechConfigFromSubscription(subscription, region)
+	speechConfig, err := speech.NewSpeechConfigFromSubscription(subscription, region)
 	if err != nil {
 		fmt.Println("Got an error: ", err)
 		return
 	}
-	defer config.Close()
-	speechSynthesizer, err := speech.NewSpeechSynthesizerFromConfig(config, nil)
+	defer speechConfig.Close()
+	speechSynthesizer, err := speech.NewSpeechSynthesizerFromConfig(speechConfig, nil)
 	if err != nil {
 		fmt.Println("Got an error: ", err)
 		return
