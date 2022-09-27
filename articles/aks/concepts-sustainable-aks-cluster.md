@@ -176,8 +176,15 @@ _Green Software Foundation alignment: [Hardware efficiency](sustainability-desig
 **Recommendation:**
 
 - Separate applications into different node pools allowing independent scalling.
-- Resize node pools to match your application demand.
-- Consider this tradeoff: Some services require a higher tier to access certain features and capabilities regardless of resource utilization.
+- Align node SKU selection and managed disk size with applications requirements.
+- [Resize node pools](/azure/aks/resize-node-pool) to maximise your applications density (and maximise your nodes usage).
+- Use AKS [advanced scheduler features](azure/aks/operator-best-practices-advanced-scheduler) to optimize scheduling your applications (pods), to nodes
+- Perform [ongoing load testing activities](/azure/load-testing/overview-what-is-azure-load-testing) that exercise both the pod and cluster autoscaler.
+- Enforce Kubernetes [Resource Quotas](/azure/aks/operator-best-practices-scheduler#enforce-resource-quotas)
+- [Monitor & Optimize](/azure/azure-monitor/containers/container-insights-overview)
+
+**Potential tradeoffs**
+- Some services require a higher tier to access certain features and capabilities regardless of resource utilization.
 - Consider and prefer services that allow dynamic tier scaling where possible.
 
 ### Evaluate Ampere Altra Arm-based processors for Virtual Machines
