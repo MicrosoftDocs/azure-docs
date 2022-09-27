@@ -18,7 +18,7 @@ Multimedia redirection (MMR) gives you smooth video playback while watching vide
 > [!NOTE]
 > Multimedia redirection isn't supported on Azure Virtual Desktop for Microsoft 365 Government (GCC), GCC-High environments, and Microsoft 365 DoD.
 >
-> Multimedia redirection on Azure Virtual Desktop is only available for the Windows Desktop client version 1.2.3573 or later on Windows 11, Windows 10, or Windows 10 IoT Enterprise devices.
+> Multimedia redirection on Azure Virtual Desktop is only available for the [Windows Desktop client, version 1.2.3573 or later](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew). on Windows 11, Windows 10, or Windows 10 IoT Enterprise devices.
 >
 > The preview version of multimedia redirection for Azure Virtual Desktop has restricted playback to sites we've tested.
 
