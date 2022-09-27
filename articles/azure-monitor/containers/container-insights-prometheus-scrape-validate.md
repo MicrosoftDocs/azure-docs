@@ -16,7 +16,7 @@ Create a Prometheus scrape configuration file named *prometheus-config*. See [Pr
 In *prometheus-config*, configuration file, add any custom scrape jobs. See the [Prometheus configuration docs](https://prometheus.io/docs/prometheus/latest/configuration/configuration/) for more information. Your config file will list the scrape configs under the section scrape_configs and can optionally use the global section for setting the global scrape_interval, scrape_timeout, and evaluation_interval. 
 
 > [!TIP]
-> Changes to global section will impact default config and custom config.
+> Changes to global section will impact the default configs and the custom config.
 
 Following is a sample scrape config file.
 

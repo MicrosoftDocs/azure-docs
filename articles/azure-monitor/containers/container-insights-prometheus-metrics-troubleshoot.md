@@ -10,7 +10,7 @@ ms.reviewer: aul
 
 Follow the steps in this article to determine the cause of Prometheus metrics not being collected as expected.
 
-## Pods Status
+## Pod status
 
 Check the pod status with the command `kubectl get pods -n kube-system | grep ama-metrics` and check the status of the pods.
 
@@ -18,10 +18,12 @@ Check the pod status with the command `kubectl get pods -n kube-system | grep am
 
 If pod state is `Running` but has restarts, run `kubectl describe pod <ama-metrics pod> -n kube-system`.
 
-If the reason for the restart is `OOMKilled`, the pod cannot keep up with the volume of metrics. The memory limit can be increased using the values in the helm chart for both the replicaset and the daemonset. Pod restarts are expected if configmap changes have been made.
+If the reason for the restart is `OOMKilled`, the pod cannot keep up with the volume of metrics. Pod restarts are expected if configmap changes have been made.
 
-## Container Logs
-View the container logs with the command `kubectl get logs <ama-metrics pod> -n kube-system`.
+Run the command `kubectl describe pod ama-metrics -n kube-system`. This should provide the reason for any restarts. If `otelcollector` is not running, the container may have been OOM-killed. See the scale recommendations for the volume of metrics.
+
+## Container logs
+View the container logs with the command `kubectl logs <ama-metrics pod> -n kube-system`.
 
 - Check there are no errors with parsing the Prometheus config, merging with any default scrape targets enabled, and validating the full config.
 - Check if there are errors from MetricsExtension for authenticating with the MDM account.
@@ -38,9 +40,6 @@ Run the command `kubectl logs <ama-metrics pod> -n kube-system -c prometheus-col
 - If there's an issue getting the auth token.
     - The message *No configuration present for the AKS resource* will be logged every 5 minutes. 
     * The pod will restart every 15 minutes to try again with the error: *No configuration present for the AKS resource*.
-
-
-Run the command `kubectl describe pod ama-metrics -n kube-system`. This should provide the reason for any restarts. If `otelcollector` is not running, the container may have been OOM-killed. See the scale recommendations for the volume of metrics.
 
 
 ## Prometheus interface
