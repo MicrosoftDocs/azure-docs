@@ -95,7 +95,7 @@ There are three levels of validation included in the certification process for e
 
 #### Publisher business eligibility
 
-Each offer type checks a set of required base eligibility criteria. This criteria may include publisher MPN status, competencies held, competency levels, and so on.
+Each offer type checks a set of required base eligibility criteria. This criteria may include publisher Microsoft Cloud Partner Program status, competencies held, competency levels, and so on.
 
 #### Content validation
 

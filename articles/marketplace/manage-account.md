@@ -78,8 +78,8 @@ You can also select the **Update** link to change your contact info, such as pub
 
 In the left-menu, under **Organization profile**, select **Identifiers** to see the following information:
 
-- **MPN IDs**: Any MPN IDs associated with your account
-- **CSP**: MPN IDs associated with the CSP program for this account.
+- **MPN IDs**: Any Partner IDs associated with your account
+- **CSP**: Partner IDs associated with the CSP program for this account.
 - **Publisher**: Seller IDs associated with your account
 - **Tracking GUIDs**: Any tracking GUIDs associated with your account
 
