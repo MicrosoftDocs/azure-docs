@@ -233,15 +233,24 @@ If you completed the above steps correctly, you can check your devices are confi
 
 Run the configuration and connectivity checks on your devices. For the **top layer device**:
 
-   ```bash
-   sudo iotedge check
-   ```
+```bash
+sudo iotedge check
+```
+
+>[!NOTE]
+>On a newly provisioned device, you may see an error related to IoT Edge Hub:
+>
+>**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
+>
+>**Could not check current state of edgeHub container**
+>
+>This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
 
 For the **lower layer device**, the diagnostics image needs to be manually passed in the command:
 
-   ```bash
-   sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:443/azureiotedge-diagnostics:1.2
-   ```
+```bash
+sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:443/azureiotedge-diagnostics:1.2
+```
 
 On your **top layer device**, expect to see an output with several passing evaluations. You may see some warnings about logs policies and, depending on your network, DNS policies.
 

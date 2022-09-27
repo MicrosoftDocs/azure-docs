@@ -2,13 +2,13 @@
 title: View information about roles/ policies in the Remediation dashboard in Permissions Management
 description: How to view and filter information about roles/ policies in the Remediation dashboard in Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
+author: jenniferf-skc
+manager: amycolannino
 ms.service: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # View information about roles/ policies in the Remediation dashboard
