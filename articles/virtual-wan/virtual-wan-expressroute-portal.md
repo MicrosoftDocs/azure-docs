@@ -94,7 +94,7 @@ In this section, you create the peering connection between your hub and a VNet. 
 Once the gateway is created, you can connect an [ExpressRoute circuit](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) to it.
 
 * ExpressRoute Standard or Premium circuits that are in ExpressRoute Global Reach-supported locations can connect to a Virtual WAN ExpressRoute gateway and enjoy all Virtual WAN transit capabilities (VPN-to-VPN, VPN-to-ExpressRoute, and ExpressRoute-to-ExpressRoute transit).
-[SID: NEED TO REWORD? Check with Madhu]
+
 * ExpressRoute Standard and Premium circuits that are in non-Global Reach locations can connect to Azure resources, but won't be able to use Virtual WAN transit capabilities. ExpressRoute Local is also supported with Azure Virtual WAN virtual hubs.
 
 

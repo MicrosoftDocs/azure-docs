@@ -19,7 +19,7 @@ The following steps describe setting up single Network Policy on the NPS server.
 
 1. Open the **Network Policy Server** management console, and right click **Network Policies -> New** to create a new Network Policy.
 
-   :::image type="content" source="./media/user-groups-radius/nps.png" alt-text="Screenshot of new network policy." lightbox="./media/user-groups-radius/nps.png":::
+   :::image type="content" source="./media/user-groups-radius/network-policy-server.png" alt-text="Screenshot of new network policy." lightbox="./media/user-groups-radius/network-policy-server.png":::
 
 1. In the wizard, select **Access granted** to ensure your RADIUS server can send Access-Accept messages after authentication users. Then, click **Next**.
 
@@ -45,7 +45,7 @@ The following steps describe setting up single Network Policy on the NPS server.
 
  1. On the **Add Vendor Specific Attribute** page, scroll to select **Vendor-Specific**.
 
-   :::image type="content" source="./media/user-groups-radius/vendor-specific.png" alt-text="Screenshot of the Add Vendor Specific Attribute page with Vendor-Specific selected." lightbox="./media/user-groups-radius/vendor-specific.png":::
+    :::image type="content" source="./media/user-groups-radius/vendor-specific.png" alt-text="Screenshot of the Add Vendor Specific Attribute page with Vendor-Specific selected." lightbox="./media/user-groups-radius/vendor-specific.png":::
 
 1. Click **Add** to open the **Attribute Information** page. Then, click **Add** to open the **Vendor-Specific Attribute Information** page. Select **Select from list** and select **Microsoft**. Select **Yes. It conforms**. Then, click **Configure Attribute**.
 
