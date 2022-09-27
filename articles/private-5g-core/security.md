@@ -34,10 +34,10 @@ In addition to Platform-Managed Keys, you have the option of using Microsoft Man
 
 If you elect to use a CMK, you will need to:
 
-- [create the CMK](https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-setup-customer-managed-keys) with activation and expiration dates and make a note of the key's URI,
-- and [create a user-assigned identity](https://learn.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp) with read, wrap, and unwrap access to the key within your [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
+- [create the CMK](https://learn.microsoft.com/azure/cosmos-db/how-to-setup-customer-managed-keys) with activation and expiration dates and make a note of the key's URI,
+- and [create a user-assigned identity](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp) with read, wrap, and unwrap access to the key within your [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
 
-Additionally, we recommend that you [configure cryptographic key auto-rotation in Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/keys/how-to-configure-key-rotation).  
+Additionally, we recommend that you [configure cryptographic key auto-rotation in Azure Key Vault](https://learn.microsoft.com/azure/key-vault/keys/how-to-configure-key-rotation).  
 
 > [!ATTENTION]
 > Once a SIM group is created, you cannot change the encryption type. However, if the SIM group uses CMK, you can update the key used for encryption.
