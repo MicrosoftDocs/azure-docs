@@ -19,8 +19,8 @@ Azure Synapse Link is available for Azure Cosmos DB SQL API or for Azure Cosmos 
 * [Enable Azure Synapse Link for your Azure Cosmos DB accounts](#enable-synapse-link)
 * [Enable Azure Synapse Link for your containers](#update-analytical-ttl)
 * [Connect your Azure Cosmos database to an Azure Synapse workspace](#connect-to-cosmos-database)
-* [Query the analytical store using Azure Synapse Spark Pool](#query-analytical-store-spark)
-* [Query the analytical store using Azure Synapse serverless SQL pool](#query-analytical-store-sql-on-demand)
+* [Query analytical store using Azure Synapse Analytics](#query)
+* [Improve performance with Best Practices](#best)
 * [Use Azure Synapse serverless SQL pool to analyze and visualize data in Power BI](#analyze-with-powerbi)
 
 You can also checkout the training module on how to [configure Azure Synapse Link for Azure Cosmos DB.](/training/modules/configure-azure-synapse-link-with-azure-cosmos-db/)
@@ -77,6 +77,9 @@ Use `EnableAnalyticalStorage true` for both **create** or **update** operations.
 * [Create a new Azure Cosmos DB account with Synapse Link enabled](/powershell/module/az.cosmosdb/new-azcosmosdbaccount#description)
 * [Update an existing Azure Cosmos DB account to enable Synapse Link](/powershell/module/az.cosmosdb/update-azcosmosdbaccount)
 
+#### Azure Resource Manager template
+
+This [Azure Resource Manager template](./manage-with-templates.md#azure-cosmos-account-with-analytical-store) creates a Synapse Link enabled Azure Cosmos DB account for SQL API. This template creates a Core (SQL) API account in one region with a container configured with analytical TTL enabled, and an option to use manual or autoscale throughput. To deploy this template, click on **Deploy to Azure** on the readme page.
 
 ## <a id="update-analytical-ttl"></a> Enable Azure Synapse Link for your containers
 
@@ -189,7 +192,7 @@ except exceptions.CosmosResourceExistsError:
     print('A container with already exists')
 ```
 
-## <a id="disable-analytical-store"></a> Optional - Disable analytical store in a SQL API container
+## Optional - Disable analytical store in a SQL API container
 
 Analytical store can be disabled in SQL API containers using Azure CLI or PowerShell, by setting `analytical TTL` to `0`.
 
@@ -204,13 +207,15 @@ Analytical store can be disabled in SQL API containers using Azure CLI or PowerS
 
 Use the instructions in [Connect to Azure Synapse Link](../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md) on how to access an Azure Cosmos DB database from Azure Synapse Analytics Studio with Azure Synapse Link.
 
-## <a id="query-analytical-store-spark"></a> Query analytical store using Apache Spark for Azure Synapse Analytics
+## <a id="query"></a> Query analytical store using Azure Synapse Analytics
+
+### Query analytical store using Apache Spark for Azure Synapse Analytics
 
 Use the instructions in the [Query Azure Cosmos DB analytical store using Spark 3](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark-3.md) article on how to query with Synapse Spark 3. That article gives some examples on how you can interact with the analytical store from Synapse gestures. Those gestures are visible when you right-click on a container. With gestures, you can quickly generate code and tweak it to your needs. They are also perfect for discovering data with a single click.
 
 For Spark 2 integration use the instruction in the [Query Azure Cosmos DB analytical store using Spark 2](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) article.
 
-## <a id="query-analytical-store-sql-on-demand"></a> Query the analytical store using serverless SQL pool in Azure Synapse Analytics
+### Query the analytical store using serverless SQL pool in Azure Synapse Analytics
 
 Serverless SQL pool allows you to query and analyze data in your Azure Cosmos DB containers that are enabled with Azure Synapse Link. You can analyze data in near real-time without impacting the performance of your transactional workloads. It offers a familiar T-SQL syntax to query data from the analytical store and integrated connectivity to a wide range of BI and ad-hoc querying tools via the T-SQL interface. To learn more, see the [Query analytical store using serverless SQL pool](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) article.
 
@@ -220,13 +225,16 @@ You can use integrated BI experience in Azure Cosmos DB portal, to build BI dash
 
 If you want to use advance T-SQL views with joins across your containers or build BI dashboards in import](/power-bi/connect-data/service-dataset-modes-understand#import-mode) mode, see how to use [Serverless SQL pool to analyze Azure Cosmos DB data with Synapse Link](synapse-link-power-bi.md) article.
 
-## Configure custom partitioning
+## <a id="Best"></a> Improve Performance with Best Practices
+
+### Custom Partitioning
 
 Custom partitioning enables you to partition analytical store data on fields that are commonly used as filters in analytical queries resulting in improved query performance. To learn more, see the [introduction to custom partitioning](custom-partitioning-analytical-store.md) and [how to configure custom partitioning](configure-custom-partitioning.md) articles.
 
-## Azure Resource Manager template
+### Synapse SQL Serverless best practices for Azure Synapse Link for Cosmos DB
 
-The [Azure Resource Manager template](./manage-with-templates.md#azure-cosmos-account-with-analytical-store) creates a Synapse Link enabled Azure Cosmos DB account for SQL API. This template creates a Core (SQL) API account in one region with a container configured with analytical TTL enabled, and an option to use manual or autoscale throughput. To deploy this template, click on **Deploy to Azure** on the readme page.
+Use [this](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/best-practices-for-integrating-serverless-sql-pool-with-cosmos/ba-p/3257975) mandatory best practices for your SQL serverless queries.
+
 
 ## <a id="cosmosdb-synapse-link-samples"></a> Getting started with Azure Synapse Link - Samples
 
