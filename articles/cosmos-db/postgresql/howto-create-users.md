@@ -27,7 +27,7 @@ Since Azure Cosmos DB for PostgreSQL is a managed PaaS service, only Microsoft c
 `postgres` superuser role. For limited administrative access, Azure Cosmos DB for PostgreSQL
 provides the `citus` role.
 
-## The Citus role
+## The citus role
 
 Permissions for the `citus` role:
 
