@@ -142,7 +142,7 @@ _Green Software Foundation alignment: [Energy efficiency](sustainability-design-
 
 **Recommendation:**
 
-- For Dev and Testing clusters, use [cluster stop / start], for shutting them down outside regular business hours.
+- For Dev and Testing clusters, use [cluster stop / start](/azure/aks/start-stop-cluster) and (node pool stop / start)(/azure/aks/start-stop-nodepools), for shutting them down outside regular business hours.
 - For Production clusters, use [Keda Cron scaler](https://keda.sh/docs/2.7/scalers/cron/), to shut down applications (scale to zero), outside regular business hours.
 
 **Potential tradeoffs**
