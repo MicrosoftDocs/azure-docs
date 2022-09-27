@@ -92,9 +92,9 @@ Use the following procedure to replicate Azure Disk Encryption-enabled VMs to an
 
 1. In **Replication settings**, you can configure the following settings.
     1. Under **Location and Resource group**,
-        - **Target location**: Select the location where your source virtual machine data must be replicated. Site Recovery provides a list of suitable target regions based on the selected machine's location. We recommend that you use the same location as the Recovery Services vault's location.
+        - **Target location**: Select the location where your source virtual machine data will be replicated. Site Recovery provides a list of suitable target regions based on the selected machine's location. We recommend that you use the same location as the Recovery Services vault's location.
         - **Target subscription**: Select the target subscription that's used for disaster recovery. By default, the target subscription is the same as the source subscription.
-        - **Target resource group**: Select the resource group to which all your replicated virtual machines belong. By default, Site Recovery creates a new resource group in the target region with an *asr* suffix in the name. If the resource group created by Site Recovery already exists, it's reused. The location of the target resource group can be any Azure region except the region where the source virtual machines are hosted.
+        - **Target resource group**: Select the resource group to which all your replicated virtual machines belong. By default, Site Recovery creates a new resource group in the target region. The name gets the *asr* suffix. If a resource group already exists that was created by Azure Site Recovery, it's reused. You can also choose to customize it, as shown in the following section. The location of the target resource group can be any Azure region except the region where the source virtual machines are hosted.
         >[!Note]
         > You can also create a new target resource group by selecting **Create New**.
     1. Under **Network**,
@@ -106,8 +106,12 @@ Use the following procedure to replicate Azure Disk Encryption-enabled VMs to an
     1. **Availability options**: Select appropriate availability option for your VM in the target region. If an availability set that was created by Site Recovery already exists, it's reused. Select **View/edit availability options** to view or edit the availability options.
     1. **Capacity Reservation**: Capacity Reservation lets you purchase capacity in the recovery region, and then failover to that capacity. You can either create a new Capacity Reservation Group or use an existing one. For more information, see [how capacity reservation works](https://learn.microsoft.com/azure/virtual-machines/capacity-reservation-overview).
     
-       :::image type="enable replication parameters" source="./media/azure-to-azure-how-to-enable-replication-ade-vms/enable-vm-replication.png" alt-text="Screenshot that displays the enable replication parameters.":::
+    1. **Encryption settings**: Select **View/edit configuration** to configure the Disk Encryption and Key Encryption key Vaults.
+        - **Disk encryption key vaults**: By default, Site Recovery creates a new key vault in the target region. It has an *asr* suffix that's based on the source VM disk encryption keys. If a key vault that was created by Azure Site Recovery already exists, it's reused.
+        - **Key encryption key vaults**: By default, Site Recovery creates a new key vault in the target region. The name has an *asr* suffix that's based on the source VM key encryption keys. If a key vault created by Azure Site Recovery already exists, it's reused.
     
+       :::image type="enable replication parameters" source="./media/azure-to-azure-how-to-enable-replication-ade-vms/enable-vm-replication.png" alt-text="Screenshot that displays the enable replication parameters.":::
+
 1. Select **Next**.
 1. In **Manage**, do the following:
     1. Under **Replication policy**,
@@ -124,19 +128,7 @@ Use the following procedure to replicate Azure Disk Encryption-enabled VMs to an
 
    :::image type="review" source="./media/azure-to-azure-how-to-enable-replication-ade-vms/review.png" alt-text="Screenshot that displays the review tab.":::
 
-
-## Customize target resources
-
-Follow these steps to modify the Site Recovery default target settings.
-
-1. Select **Customize** next to *Encryption settings* to modify the following default settings:
-   - For **Target disk encryption key vault**, select the target disk encryption key vault from the list of key vaults in the target location of the subscription.
-   - For **Target key encryption key vault**, select the target key encryption key vault from the list of key vaults in the target location of the subscription.
-
-1. Select **Create target resource** > **Enable Replication**.
-1. After the VMs are enabled for replication, you can check the VMs' health status under **Replicated items**.
-
->[!NOTE]
+[!NOTE]
 >During initial replication, the status might take some time to refresh, without apparent progress. Click **Refresh**  to get the latest status.
 
 ## Update target VM encryption settings

@@ -84,17 +84,6 @@ As an example, the primary Azure region is East Asia, and the secondary region i
 
    :::image type="review" source="./media/azure-to-azure-how-to-enable-replication-cmk-disks/review.png" alt-text="Screenshot that displays the review tab.":::
 
-## Customize target resources
-
-Follow these steps to modify the Site Recovery default target settings.
-
-1. Select **View/edit configuration** next to **Storage encryption settings** to select the target DES for every customer-managed key (CMK) enabled source managed disk. At the time of selection, you will also be able to see which target key vault the DES is associated with.
-
-1. Select **Create target resource** > **Enable Replication**.
-1. After the VMs are enabled for replication, you can check the VMs' health status under **Replicated items**.
-
-:::image type="VMs' health status" source="./media/azure-to-azure-how-to-enable-replication-cmk-disks/cmk-customize-target-disk-properties.png" alt-text="Screenshot that shows where to check the VMs' health status.":::
-
 >[!NOTE]
 >During initial replication, the status might take some time to refresh, without apparent progress. Click **Refresh**  to get the latest status.
 
