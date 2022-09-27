@@ -34,7 +34,7 @@ The rest of the document covers the steps required to encrypt your ACI deploymen
 
 This article reviews two flows for encrypting data with a customer-managed key:
 1. Encrypt data with a customer-managed key stored in a standard Azure Key Vault
-2. Encrypt data with a customer-managed key stored in a network-protected Azure Key Vault with [Trusted Services](../key-vault/general/network-security.md) enabled.
+* Encrypt data with a customer-managed key stored in a network-protected Azure Key Vault with [Trusted Services](../key-vault/general/network-security.md) enabled.
 
 ## Encrypt data with a customer-managed key stored in a standard Azure Key Vault
 
