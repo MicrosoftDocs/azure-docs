@@ -60,59 +60,62 @@ To create a new *diagnostic setting*:
 1. Enter a name for your diagnostic setting.
     :::image type="content" source="media/observability/diag-setting-dialog.png" alt-text="Screenshot Diagnostics settings dialog.":::
 1. Select the log **Category groups** or **Categories** you want to send to this destination.  You can select one or more categories.  
-1. When the individual log categories are selected, set the **Retention (days)** for each category.
+
 1. Select one or more **Destination details**:
     - **Send to Log Analytics workspace**:  Select from the existing Log Analytics workspaces in your subscription.
     :::image type="content" source="media/observability/diag-setting-log-analytics-console-log.png" alt-text="Screenshot diagnostic settings Log Analytics destination.":::
-    - **Archive to a storage account**:  You can choose from existing storage accounts in your subscription. 
+    - **Archive to a storage account**:  You can choose from existing storage accounts in your subscription.  When the individual log categories are selected, you can set the **Retention (days)** for each category.
     :::image type="content" source="media/observability/diag-setting-storage-acct.png" alt-text="Screenshot Diagnostic settings storage destination.":::
-    - **Stream to an event hub**:  Select from the event hubs.  
-    - **Send to a partner solution**: Select from partner solutions.  
+    - **Stream to an event hub**:  Select from existing Azure event hubs.  
+    - **Send to a partner solution**: Select from existing Azure partner solutions.  
 1. Select **Save**.
 
 For more information about Diagnostic settings, see [Diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md).
 
 ## Configure options Azure CLI
 
-Configure the logs destination for your Container Apps environment with the Azure CLI `az containerapp create` and `az containerapp update` commands with the `--logs-destination` argument.  
+Configure logs destination for your Container Apps environment using the Azure CLI `az containerapp create` and `az containerapp update` commands with the `--logs-destination` argument.  
 
 The destination values are: `log-analytics`, `azure-monitor`, and `none`.
 
 For example, to create a Container Apps environment using an existing Log Analytics workspace as the logs destination, you must provide the `--logs-destination` argument with the value `log-analytics` and the `--logs-destination-id` argument with the value of the Log Analytics workspace resource ID.  You can get the resource ID from the Log Analytics workspace page in the Azure portal or from the ```az monitor log-analytics workspace show``` command.
 
+Replace \<PLACEHOLDERS\> with your values:
+
 ```azurecli
 az containerapp env create \
-  --name myContainerAppEnv \
-  --resource-group myResourceGroup \
+  --name <ENVIRONMENT_NAME> \
+  --resource-group <RESOURCE_GROUP> \
   --logs-destination log-analytics \
-  --logs-workspace-id <workspace-id>
+  --logs-workspace-id <WORKSPACE_ID>
 ```
 
 To update an existing Container Apps environment to use Azure Monitor as the logs destination:
 
+Replace \<PLACEHOLDERS\> with your values:
+
 ```azurecli
 az containerapp env update \
-  --name myContainerAppEnv \
-  --resource-group myResourceGroup \
-  --logs-destination azure-monitor \
-  --logs-workspace-id <workspace-id>
+  --name <ENVIRONMENT_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --logs-destination azure-monitor 
   
 ```
 
-When  `logs destination` is set to either `azure-monitor` or `log-analytics`, create diagnostic settings to configure the destination details for the log categories with the `az monitor diagnostics-settings` command.  
+When  `logs destination` is set to `azure-monitor`, create diagnostic settings to configure the destination details for the log categories with the `az monitor diagnostics-settings` command.  
 
 For more information about Azure Monitor diagnostic settings commands, see [az monitor diagnostic-settings](/cli/azure/monitor/diagnostic-settings).  Container Apps log categories are `ContainerAppConsoleLogs` and `ContainerAppSystemLogs`.
 
 TODO: Finish example.  Mike/Anthony, can you provide the CLI command arguments?  Do I need to add more example?  Is the information correct for the logs parameter?
 
 ```azurecli
-For example, to create a diagnostic setting to send the container console logs category to a storage account:
+For example, to create a diagnostic setting to send the container console logs category to a storage account: (Replace \<PLACEHOLDERS\> with your values:)
 
 ```azurecli
 az monitor diagnostic-settings create \
   --name my-diagnostics-setting \
-  --resource myContainerAppEnv \
-  --storage-account myStorageAccount \
+  --resource <RESOURCE_GROUP> \
+  --storage-account STORAGE_ACCOUNT_NAME>\
   --logs  '[
      {
        "category": "ContainerAppConsoleLogs",
