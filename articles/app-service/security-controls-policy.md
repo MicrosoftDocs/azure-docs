@@ -69,10 +69,6 @@ compliant with the specific standard.
   - New policy created
 - **Configure Function app slots to use the latest TLS version**
   - New policy created
-- **App Service apps should use latest 'HTTP Version'**
-  - Updated scope to include Windows apps
-- **Function apps should use latest 'HTTP Version'**
-  - Updated scope to include Windows apps
 
 ### September 2022
 
