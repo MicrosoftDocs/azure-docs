@@ -647,24 +647,23 @@ To create statistics on a column, provide a query that returns the column for wh
 
 By default, if you don't specify otherwise, serverless SQL pool uses 100% of the data provided in the dataset when it creates statistics.
 
-For example, to create statistics with default options (FULLSCAN) for a year column of the dataset based on the population.csv file:
+For example, to create statistics with default options (FULLSCAN) for a year column of the dataset based on the us_population.csv file:
 
 ```sql
 
 EXEC sys.sp_create_openrowset_statistics N'SELECT 
     year
 FROM OPENROWSET(
-    BULK ''https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv'',
+    BULK ''Https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/raw_us_population_county/us_population.csv'',
     FORMAT = ''CSV'',
     PARSER_VERSION = ''2.0'',
     HEADER_ROW = TRUE)
 WITH (
-    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
-    [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
+    [country_code] VARCHAR (5) COLLATE Latin1_General_100_BIN2_UTF8 ,
+    [country_name] VARCHAR (100) COLLATE Latin1_General_100_BIN2_UTF8 ,
     [year] smallint,
     [population] bigint
-) AS [r]
-'
+) AS [r]'
 
 ```
 
