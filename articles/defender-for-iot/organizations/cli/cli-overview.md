@@ -19,7 +19,7 @@ Connect to the appliance management interface IP address on port 22.
 
 ## Priviledged CLI users
 
-CLI access is only available to the privileged users pre-defined in the appliance software. 
+On OT monitoring appliances, CLI access is only available to the privileged users pre-defined in the appliance software (part of the hardend OS). 
 - On the sensor, this includes the *cyberx*, *support*, and *cyberx_host* users.
 - On the on-premises management console, this includes the *cyberx* and *support* users.
 
@@ -41,14 +41,18 @@ Privileged users have access to specific functionality within the appliance, the
 
 The following list gives a high-level overview of the functions available from the command line interface.
 
-### OT Sensor Appliance
+### OT Sensor 
 - [Appliance management](cli-appliance.md)  
 - [Configuration commands](cli-configuration.md)  
 
-### On-premises management console commands
+### On-premises management console
 - [Appliance management](cli-cm-appliance-mgmt.md)  
 - [Configuration commands](cli-cm-configuration.md)  
 - [Sensor Management](cli-cm-sensor-mgmt)
+
+### Enterprise IoT sensor
+- [Installation]()
+- [Troubleshooting]()
 
 ## Sign out of the CLI
 
