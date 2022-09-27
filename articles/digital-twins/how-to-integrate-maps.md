@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use Azure Functions to create a function that can use the twin graph and Azure Digital Twins notifications to update an Azure Maps indoor map.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 09/26/2022
+ms.date: 09/27/2022
 ms.topic: how-to
 ms.service: digital-twins
 

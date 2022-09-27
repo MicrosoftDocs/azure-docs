@@ -154,12 +154,7 @@ Example layer in the style.json file:
 
 The map configuration is an array of configurations. Each configuration consists of a [basemap][basemap] and one or more layers, each layer consisting of a [style][style] + [tileset][tileset] tuple.
 
-<!------------------------------  Option #1  --------------------------------------------------------------->
-The map configuration is used when you [Instantiate the Indoor Manager][instantiate-indoor-manager] of a Map object when developing  applications in Azure Maps. It's referenced using the `mapConfigurationId` or `alias`. Map configurations are immutable. Anytime you make a change and save it using the same `alias` as an existing map configuration, your existing map configuration, including the `mapConfigurationId`, is replaced with a new one. This will result in errors in code referencing that `mapConfigurationId` since the ID will no longer point to an existing map configuration. The alias is constant and can be used to reference your map configuration regardless of how many times the map configuration it points to has changed.
-
-<!------------------------------  Option #2  ---------------------------------------------------------------
-The map configuration is used when you [Instantiate the Indoor Manager][instantiate-indoor-manager] of a Map object when developing a map application. It's referenced using the `mapConfigurationId` or `alias`. Each time you change a map configuration, its ID changes but its alias remains the same. It is recommended to reference the map configuration by its alias in your applications.
------------------------------------------------------------------------------------------------------------->
+The map configuration is used when you [Instantiate the Indoor Manager][instantiate-indoor-manager] of a Map object when developing applications in Azure Maps. It's referenced using the `mapConfigurationId` or `alias`. Map configurations are immutable. When making changes to an existing map configuration, a new map configuration will be created, resulting in a different `mapConfingurationId`. Anytime you create a map configuration using an alias already used by an existing map configuration, it will always point to the new map configuration.
 
 Below is an example of a map configuration JSON showing the default configurations. See the table below for a description of each element of the file:
 
