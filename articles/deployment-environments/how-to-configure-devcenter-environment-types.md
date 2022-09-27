@@ -11,7 +11,7 @@ ms.topic: how-to
 
 # Configure environment types for your Dev center
 
-In Azure Deployment Environments Preview, [Environment types](./concept-environments-key-concepts.md#environment-types) are used to define the types of environments available to development teams to deploy. You have the flexibility to name the environment types as per the nomenclature used in your enterprise, for example, sandbox, dev, test, or production. You can specify deployment settings and the permissions available to developers per environment type per Project. 
+In Azure Deployment Environments Preview, [environment types](./concept-environments-key-concepts.md#dev-center-environment-types) are used to define the types of environments available to development teams to deploy. You have the flexibility to name the environment types as per the nomenclature used in your enterprise, for example, sandbox, dev, test, or production. You can specify deployment settings and the permissions available to developers per environment type per Project. 
 
 In this article, you'll learn how to:
 
