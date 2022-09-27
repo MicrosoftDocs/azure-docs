@@ -5,7 +5,7 @@ author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 09/27/2022
 ms.author: kendownie
 ---
 
@@ -30,23 +30,21 @@ Sign in to the client by using the credentials that you granted permissions to, 
 
 Before you can mount the file share, make sure you've gone through the following pre-requisites:
 
-- If you are mounting the file share from a client that has previously mounted the file share using your storage account key, make sure that you have disconnected the share, removed the persistent credentials of the storage account key, and are currently using AD DS credentials for authentication. For instructions to clear the mounted share with storage account key, refer to [FAQ page](./storage-files-faq.md#ad-ds--azure-ad-ds-authentication).
+- If you are mounting the file share from a client that has previously connected to the file share using your storage account key, make sure that you have disconnected the share, removed the persistent credentials of the storage account key, and are currently using AD DS credentials for authentication. For instructions to clear the mounted share with storage account key, refer to [FAQ page](./storage-files-faq.md#ad-ds--azure-ad-ds-authentication).
 - Your client must have line of sight to your AD DS. If your machine or VM is out of the network managed by your AD DS, you will need to enable VPN to reach AD DS for authentication.
 
-Replace the placeholder values with your own values, then use the following command to mount the Azure file share. You always need to mount using the path shown below. Using CNAME for file mount is not supported for identity based authentication (AD DS or Azure AD DS).
+Run the PowerShell script below or [use the Azure portal](storage-files-quick-create-use-windows.md#map-the-azure-file-share-to-a-windows-drive) to mount the Azure file share and map it to drive Z: on Windows. If Z: is already in use, replace it with an available drive letter. The script will check to see if this storage account is accessible via TCP port 445, which is the port SMB uses. Remember to replace the placeholder values with your own values. For more information, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
 
-```PSH
-# Always mount your share using.file.core.windows.net, even if you setup a private endpoint for your share.
+You always need to mount using the path shown below. Using CNAME for file share mount isn't supported for identity-based authentication (AD DS or Azure AD DS).
+
+```powershell
 $connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445
-if ($connectTestResult.TcpTestSucceeded)
-{
-  net use <desired-drive letter>: \\<storage-account-name>.file.core.windows.net\<fileshare-name>
-} 
-else 
-{
-  Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
+if ($connectTestResult.TcpTestSucceeded) {
+    cmd.exe /C "cmdkey /add:`"<storage-account-name>.file.core.windows.net`" /user:`"localhost\<storage-account-name>`""
+    New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\<file-share-name>"
+} else {
+    Write-Error -Message "Unable to reach the Azure storage account via port 445. Check to make sure your organization or ISP is not blocking port 445, or use Azure P2S VPN, Azure S2S VPN, or Express Route to tunnel SMB traffic over a different port."
 }
-
 ```
 
 If you run into issues mounting with AD DS credentials, refer to [Unable to mount Azure Files with AD credentials](storage-troubleshoot-windows-file-connection-problems.md#unable-to-mount-azure-files-with-ad-credentials) for guidance.
