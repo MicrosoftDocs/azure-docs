@@ -377,7 +377,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 |---------|---------|
 | TTL | Yes |
 | Unique | Yes |
-| Partial | Only supported with unique indexes |
+| Partial | No |
 | Case Insensitive | No |
 | Sparse | No |
 | Background | Yes |
