@@ -3,9 +3,7 @@ title: Cluster configuration in Azure Kubernetes Services (AKS)
 description: Learn how to configure a cluster in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 08/31/2022
-ms.author: jpalma
-author: palma21
+ms.date: 09/27/2022
 ---
 
 # Configure an AKS cluster
@@ -31,21 +29,25 @@ By using `containerd` for AKS nodes, pod startup latency improves and node resou
 `Containerd` works on every GA version of Kubernetes in AKS, and in every upstream kubernetes version above v1.19, and supports all Kubernetes and AKS features.
 
 > [!IMPORTANT]
-> Clusters with Linux node pools created on Kubernetes v1.19 or greater default to `containerd` for its container runtime. Clusters with node pools on a earlier supported Kubernetes versions receive Docker for their container runtime. Linux node pools will be updated to `containerd` once the node pool Kubernetes version is updated to a version that supports `containerd`. 
-> 
-> Using `containerd` with Windows Server 2019 node pools is generally available, and will be the only container runtime option in Kubernetes 1.21 and greater. You can still use Docker node pools and clusters on versions below 1.23, but Docker is no longer supported as of September 2022. For more details, see [Add a Windows Server node pool with `containerd`][aks-add-np-containerd].
-> 
-> It is highly recommended to test your workloads on AKS node pools with `containerd` prior to using clusters with a Kubernetes version that supports `containerd` for your node pools.
+> Clusters with Linux node pools created on Kubernetes v1.19 or greater default to `containerd` for its container runtime. Clusters with node pools on a earlier supported Kubernetes versions receive Docker for their container runtime. Linux node pools will be updated to `containerd` once the node pool Kubernetes version is updated to a version that supports `containerd`.
+>
+> Using `containerd` with Windows Server 2019 node pools is generally available, and will be the only container runtime option in Kubernetes 1.21 and greater. You can continue using Docker node pools and clusters on versions below 1.23, but Docker is no longer supported as of September 2022. For more details, see [Add a Windows Server node pool with `containerd`][aks-add-np-containerd].
+>
+> It is highly recommended you test your workloads on AKS node pools with `containerd` prior to using clusters with a Kubernetes version that supports `containerd` for your node pools.
 
 ### `Containerd` limitations/differences
 
-* For `containerd`, we recommend using [`crictl`](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) as a replacement CLI instead of the Docker CLI for **troubleshooting** pods, containers, and container images on Kubernetes nodes (for example, `crictl ps`). 
+* For `containerd`, we recommend using [`crictl`](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) as a replacement CLI instead of the Docker CLI for **troubleshooting** pods, containers, and container images on Kubernetes nodes (for example, `crictl ps`).
+
    * It doesn't provide the complete functionality of the docker CLI. It's intended for troubleshooting only.
    * `crictl` offers a more kubernetes-friendly view of containers, with concepts like pods, etc. being present.
-* `Containerd` sets up logging using the standardized `cri` logging format (which is different from what you currently get from docker’s json driver). Your logging solution needs to support the `cri` logging format (like [Azure Monitor for Containers](../azure-monitor/containers/container-insights-enable-new-cluster.md))
+
+* `Containerd` sets up logging using the standardized `cri` logging format (which is different from what you currently get from docker's json driver). Your logging solution needs to support the `cri` logging format (like [Azure Monitor for Containers](../azure-monitor/containers/container-insights-enable-new-cluster.md))
 * You can no longer access the docker engine, `/var/run/docker.sock`, or use Docker-in-Docker (DinD).
+
   * If you currently extract application logs or monitoring data from Docker Engine, please use something like [Azure Monitor for Containers](../azure-monitor/containers/container-insights-enable-new-cluster.md) instead. Additionally AKS doesn't  support running any out of band commands on the agent nodes that could cause instability.
   * Even when using Docker, building images and directly leveraging the Docker engine via the methods above is strongly discouraged. Kubernetes isn't fully aware of those consumed resources, and those approaches present numerous issues detailed [here](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) and [here](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/), for example.
+
 * Building images - You can continue to use your current docker build workflow as normal, unless you are building images inside your AKS cluster. In this case, please consider switching to the recommended approach for building images using [ACR Tasks](../container-registry/container-registry-quickstart-task-cli.md), or a more secure in-cluster option like [docker buildx](https://github.com/docker/buildx).
 
 ## Generation 2 virtual machines
@@ -59,7 +61,7 @@ Additionally not all VM images support Gen2, on AKS Gen2 VMs will use the new [A
 
 ## Default OS disk sizing
 
-By default, when creating a new cluster or adding a new node pool to an existing cluster, the disk size is determined by the number for vCPUs, which is based on the VM SKU. The default values are shown in the following table: 
+By default, when creating a new cluster or adding a new node pool to an existing cluster, the disk size is determined by the number for vCPUs, which is based on the VM SKU. The default values are shown in the following table:
 
 |VM SKU Cores (vCPUs)| Default OS Disk Tier | Provisioned IOPS | Provisioned Throughput (Mpbs) |
 |--|--|--|--|
@@ -109,6 +111,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_D
 If you want to create a regular cluster using network-attached OS disks, you can do so by specifying `--node-osdisk-type=Managed`. You can also choose to add more ephemeral OS node pools as per below.
 
 ### Use Ephemeral OS on existing clusters
+
 Configure a new node pool to use Ephemeral OS disks. Use the `--node-osdisk-type` flag to set as the OS disk type as the OS disk type for that node pool.
 
 ```azurecli
@@ -187,78 +190,59 @@ To remove Node Restriction from a cluster.
 az aks update -n aks -g myResourceGroup --disable-node-restriction
 ```
 
-## OIDC Issuer (Preview)
+## OIDC Issuer
 
-This enables an OIDC Issuer URL of the provider which allows the API server to discover public signing keys. 
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-### Limitations
-
-OIDC issuer is only supported in Azure Public regions now.
+This enables an OIDC Issuer URL of the provider which allows the API server to discover public signing keys.
 
 > [!WARNING]
-> Enable/disable OIDC Issuer will change the current service account token issuer to a new value, which causes some down time and make API server restart. If the application pods based on service account token keep in failed status after enable/disable OIDC Issuer, it's recommended to restart the pods manually.
+> Enable/disable OIDC Issuer changes the current service account token issuer to a new value, which causes some down time and make API server restart. If the application pods based on service account token keep in failed status after enable/disable OIDC Issuer, it's recommended to restart the pods manually.
 
 ### Before you begin
 
 You must have the following resource installed:
 
 * The Azure CLI
-* The `aks-preview` extension version 0.5.50 or later
-* Kubernetes version 1.19.x or above
+* The `aks-preview` extension version 0.5.50 or higher
+* Kubernetes version 1.19.x or higher
 
+### Install the aks-preview Azure CLI extension
 
-#### Register the `EnableOIDCIssuerPreview` feature flag
+[!INCLUDE [preview features callout](includes/preview/preview-callout.md)]
 
-To use the OIDC Issuer feature, you must enable the `EnableOIDCIssuerPreview` feature flag on your subscription. 
+To install the aks-preview extension, run the following command:
 
 ```azurecli
-az feature register --name EnableOIDCIssuerPreview --namespace Microsoft.ContainerService
-```
-You can check on the registration status by using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableOIDCIssuerPreview')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-#### Install the aks-preview CLI extension
-
-```azurecli-interactive
-# Install the aks-preview extension
 az extension add --name aks-preview
+```
 
-# Update the extension to make sure you have the latest version installed
+Run the following command to update to the latest version of the extension released:
+
+```azurecli
 az extension update --name aks-preview
 ```
 
 ### Create an AKS cluster with OIDC Issuer
 
-To create a cluster using the OIDC Issuer.
+Create an AKS cluster using the [az aks create][az-aks-create] command with the `--enable-oidc-issuer` parameter to use the OIDC Issuer. The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
-az aks create -n aks -g myResourceGroup --enable-oidc-issuer
+az aks create -g myResourceGroup -n myAKSCluster --node-count 1 --enable-oidc-issuer
 ```
 
 ### Update an AKS cluster with OIDC Issuer
 
-To update a cluster to use OIDC Issuer.
+Update an AKS cluster using the [az aks update][az-aks-update] command with the `--enable-oidc-issuer` parameter to use the OIDC Issuer. The following example updates a cluster named *myAKSCluster*:
 
 ```azurecli-interactive
-az aks update -n aks -g myResourceGroup --enable-oidc-issuer
+az aks update -g myResourceGroup -n myAKSCluster --enable-oidc-issuer 
 ```
 
 ### Show the OIDC Issuer URL
 
+To get the OIDC Issuer URL run the following command. Replace the default values for the cluster name and the resource group name.
+
 ```azurecli-interactive
-az aks show -n aks -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv
+az aks show -n myAKScluster -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -otsv
 ```
 
 ## Next steps
@@ -268,7 +252,6 @@ az aks show -n aks -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -ots
 - Read more about [`containerd` and Kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
 - See the list of [Frequently asked questions about AKS](faq.md) to find answers to some common AKS questions.
 - Read more about [Ephemeral OS disks](../virtual-machines/ephemeral-os-disks.md).
-
 
 <!-- LINKS - external -->
 [aks-release-notes]: https://github.com/Azure/AKS/releases
@@ -284,3 +267,5 @@ az aks show -n aks -g myResourceGroup --query "oidcIssuerProfile.issuerUrl" -ots
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [aks-add-np-containerd]: ./learn/quick-windows-container-deploy-cli.md#add-a-windows-server-node-pool-with-containerd
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-update]: /cli/azure/aks#az-aks-update
