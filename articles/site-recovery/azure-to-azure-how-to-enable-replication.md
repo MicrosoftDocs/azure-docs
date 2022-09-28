@@ -40,7 +40,7 @@ Use the following procedure to replicate Azure VMs to another Azure region. As a
 1. Select **Next**.
 1. In **Virtual machines**, select each VM that you want to replicate. You can only select machines for which replication can be enabled. You can select up to ten VMs. Then select **Next**.
 
-   ![Screenshot that highlights where you select virtual machines.](./media/azure-to-azure-how-to-enable-replication/virtual-machine-selection.png)
+   :::image type="Virtual machine selection" source="./media/azure-to-azure-how-to-enable-replication/virtual-machine-selection.png" alt-text="Screenshot that highlights where you select virtual machines.":::
 
 1. In **Replication settings**, you can configure the following settings:
     1. Under **Location and Resource group**,
@@ -81,12 +81,12 @@ Use the following procedure to replicate Azure VMs to another Azure region. As a
         >- While configuring the target availability sets, configure different availability sets for differently sized VMs.
         >- You cannot change the availability type - single instance, availability set or availability zone, after you enable replication. You must disable and enable replication to change the availability type.  
 
-      :::image type="Availability option" source="./media/azure-to-azure-how-to-enable-replication/availability-option.png" alt-text="Screenshot of availability option."::: 
+         :::image type="Availability option" source="./media/azure-to-azure-how-to-enable-replication/availability-option.png" alt-text="Screenshot of availability option."::: 
    
     1. **Capacity reservation**: Capacity Reservation lets you purchase capacity in the recovery region, and then failover to that capacity. You can either create a new Capacity Reservation Group or use an existing one. For more information, see [how capacity reservation works](https://learn.microsoft.com/azure/virtual-machines/capacity-reservation-overview).
     Select **View or Edit Capacity Reservation group assignment** to modify the capacity reservation settings. On triggering Failover, the new VM will be created in the assigned Capacity Reservation Group.
     
-     :::image type="Capacity reservation" source="./media/azure-to-azure-how-to-enable-replication/capacity-reservation.png" alt-text="Screenshot of capacity reservation.":::
+         :::image type="Capacity reservation" source="./media/azure-to-azure-how-to-enable-replication/capacity-reservation.png" alt-text="Screenshot of capacity reservation.":::
 
 1. Select **Next**.
 1. In **Manage**, do the following:
