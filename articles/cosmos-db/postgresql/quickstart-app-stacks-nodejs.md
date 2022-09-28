@@ -59,7 +59,7 @@ All examples in this article need to connect to the database. You can put the co
 
 ### Create the common connection module
 
-Create a folder called *db*, and inside this folder create a *citus.js* file that contains the following common connection code. In this code, replace <cluster> with your cluster name and <password> with your administrator password.
+Create a folder called *db*, and inside this folder create a *citus.js* file that contains the following common connection code. In this code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```javascript
 /**
@@ -378,7 +378,7 @@ async function importInMemoryDatabase() {
 
 [!INCLUDE[app-stack-next-steps](includes/app-stack-retry-intro.md)]
 
-In this code, replace <cluster> with your cluster name and <password> with your administrator password.
+In this code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```javascript
 const { Pool } = require('pg');

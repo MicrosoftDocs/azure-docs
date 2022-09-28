@@ -40,7 +40,7 @@ In Visual Studio, start a C# console app, and use the following code to connect 
 
 [!INCLUDE[why-connection-pooling](includes/why-connection-pooling.md)]
 
-In the following code, replace <cluster> with your cluster name and <password> with your administrator password.
+In the following code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```csharp
 using System;
@@ -102,7 +102,7 @@ Azure Cosmos DB for PostgreSQL gives you [the super power of distributing tables
 > [!NOTE]
 > Distributing tables has no effect in an Azure Cosmos DB for PostgreSQL cluster with no worker nodes.
 
-In the following code, replace <cluster> with your cluster name and <password> with your administrator password.
+In the following code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```csharp
 using System;
@@ -146,7 +146,7 @@ Use the following code to connect and read the data by using a SELECT SQL statem
 * [Read()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_Read) to advance to the record in the results.
 * [GetInt32()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetInt32_System_Int32_) and [GetString()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetString_System_Int32_) to parse the values in the record.
 
-In the following code, replace <cluster> with your cluster name and <password> with your administrator password.
+In the following code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```csharp
 using System;
@@ -195,7 +195,7 @@ namespace Driver
 
 ## Update data
 
-Use the following code to connect and update data by using an UPDATE SQL statement. In the code, replace <cluster> with your cluster name and <password> with your administrator password.
+Use the following code to connect and update data by using an UPDATE SQL statement. In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```csharp
 using System;
@@ -232,7 +232,7 @@ namespace Driver
 
 ## Delete data
 
-Use the following code to connect and delete data using a DELETE SQL statement. In the code, replace <cluster> with your cluster name and <password> with your administrator password.
+Use the following code to connect and delete data using a DELETE SQL statement. In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 
 ```csharp
@@ -277,7 +277,7 @@ The COPY command can yield [tremendous throughput](https://www.citusdata.com/blo
 
 The following example code copies data from a CSV file to a database table.
 
-The code sample requires the file [pharmacies.csv](https://download.microsoft.com/download/d/8/d/d8d5673e-7cbf-4e13-b3e9-047b05fc1d46/pharmacies.csv) to be in your *Documents* folder. In the code, replace <cluster> with your cluster name and <password> with your administrator password.
+The code sample requires the file [pharmacies.csv](https://download.microsoft.com/download/d/8/d/d8d5673e-7cbf-4e13-b3e9-047b05fc1d46/pharmacies.csv) to be in your *Documents* folder. In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 
 ```csharp
@@ -317,7 +317,7 @@ public class csvtotable
 
 ### COPY command to load in-memory data
 
-The following example code copies in-memory data to a table. In the code, replace <cluster> with your cluster name and <password> with your administrator password.
+The following example code copies in-memory data to a table. In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```csharp
 using Npgsql;
@@ -358,7 +358,7 @@ namespace Driver
 
 [!INCLUDE[app-stack-next-steps](includes/app-stack-retry-intro.md)]
 
-In this code, replace <cluster> with your cluster name and <password> with your administrator password.
+In this code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```csharp
 using System;

@@ -37,7 +37,7 @@ The following code example creates a connection pool to your Postgres database b
 
 [!INCLUDE[why-connection-pooling](includes/why-connection-pooling.md)]
 
-In the following code, replace <cluster> with your cluster name and <password> with your administrator password.
+In the following code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```python
 import psycopg2
@@ -182,7 +182,7 @@ conn.close()
 
 [!INCLUDE[app-stack-next-steps](includes/app-stack-retry-intro.md)]
 
-In this code, replace <cluster> with your cluster name and <password> with your administrator password.
+In this code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```python
 import psycopg2

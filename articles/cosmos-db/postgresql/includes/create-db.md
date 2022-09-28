@@ -10,8 +10,6 @@
  ms.custom: include file
 ---
 
-## Prerequisites
-
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 ## Create a cluster
@@ -26,15 +24,15 @@ Go to [Create an Azure Cosmos DB for PostgreSQL cluster](https://portal.azure.co
 
 1. In the [Azure portal](https://portal.azure.com), search for *cosmosdb* and select **Azure Cosmos DB** from the results.
 
-:::image type="content" source="quickstart-create-portal/portal-search.png" alt-text="Screenshot showing search for cosmosdb.":::
+:::image type="content" source="../media/quickstart-create-portal/portal-search.png" alt-text="Screenshot showing search for cosmosdb.":::
    
 1. On the **Azure Cosmos DB** screen, select **Create**.
 
-:::image type="content" source="quickstart-create-portal/create-button.png" alt-text="Screenshot showing Create for Azure Cosmos DB.":::
+:::image type="content" source="../media/quickstart-create-portal/create-button.png" alt-text="Screenshot showing Create for Azure Cosmos DB.":::
    
 1. On the **Select API option** screen, select **Create** on the **PostgreSQL** tile.
 
-:::image type="content" source="quickstart-create-portal/deployment-option.png" alt-text="Screenshot of the Select API options screen.":::
+:::image type="content" source="../media/quickstart-create-portal/deployment-option.png" alt-text="Screenshot of the Select API options screen.":::
 
 ---
 
@@ -42,7 +40,7 @@ On the **Create an Azure Cosmos DB for PostgreSQL cluster** form:
 
 1. Fill out the information on the **Basics** tab.
 
-:::image type="content" source="quickstart-create-portal/basics.png" alt-text="Screenshot showing the Basics tab of the Create screen.":::
+:::image type="content" source="../media/quickstart-create-portal/basics.png" alt-text="Screenshot showing the Basics tab of the Create screen.":::
 
    Most options are self-explanatory, but keep in mind:
 
@@ -53,7 +51,7 @@ On the **Create an Azure Cosmos DB for PostgreSQL cluster** form:
 1. Select **Next : Networking** at the bottom of the screen.
 1. On the **Networking** screen, select **Allow public access from Azure services and resources within Azure to this cluster**.
 
-:::image type="content" source="quickstart-create-portal/networking.png" alt-text="Screenshot showing the Networking tab of the Create screen.":::
+:::image type="content" source="../media/quickstart-create-portal/networking.png" alt-text="Screenshot showing the Networking tab of the Create screen.":::
 
 1. Select **Review + create**, and when validation passes, select **Create** to create the cluster.
 

@@ -36,7 +36,7 @@ Use the following code to connect and create a table by using the CREATE TABLE S
 
 The code uses a `PG::Connection` object with constructor to connect to Azure Cosmos DB for PostgreSQL. Then it calls method `exec()` to run the DROP, CREATE TABLE, and INSERT INTO commands. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating. For more information about these classes and methods, see the [Ruby pg reference documentation](https://rubygems.org/gems/pg).
 
-In the code, replace <cluster> with your cluster name and <password> with your administrator password.
+In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```ruby
 require 'pg'
@@ -74,7 +74,7 @@ Azure Cosmos DB for PostgreSQL gives you [the super power of distributing tables
 > [!NOTE]
 > Distributing tables has no effect in an Azure Cosmos DB for PostgreSQL cluster with no worker nodes.
 
-Use the following code to connect to the database and distribute the table. In the code, replace <cluster> with your cluster name and <password> with your administrator password.
+Use the following code to connect to the database and distribute the table. In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```ruby
 require 'pg'
@@ -96,7 +96,7 @@ end
 
 Use the following code to connect and read the data using a SELECT SQL statement.
 
-The code calls method `exec()` to run the SELECT command, keeping the results in a result set. The result set collection is iterated using the `resultSet.each` do loop, keeping the current row values in the row variable. In the code, replace <cluster> with your cluster name and <password> with your administrator password.
+The code calls method `exec()` to run the SELECT command, keeping the results in a result set. The result set collection is iterated using the `resultSet.each` do loop, keeping the current row values in the row variable. In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```ruby
 require 'pg'
@@ -118,7 +118,7 @@ end
 
 ## Update data
 
-Use the following code to connect and update the data by using a UPDATE SQL statement. In the code, replace <cluster> with your cluster name and <password> with your administrator password.
+Use the following code to connect and update the data by using a UPDATE SQL statement. In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```ruby
 require 'pg'
@@ -139,7 +139,7 @@ end
 
 ## Delete data
 
-Use the following code to connect and delete data using a DELETE SQL statement. In the code, replace <cluster> with your cluster name and <password> with your administrator password.
+Use the following code to connect and delete data using a DELETE SQL statement. In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```ruby
 require 'pg'
@@ -164,7 +164,7 @@ The COPY command can yield [tremendous throughput](https://www.citusdata.com/blo
 
 ### COPY command to load data from a file
 
-The following code copies data from a CSV file to a database table. It requires the file [pharmacies.csv](https://download.microsoft.com/download/d/8/d/d8d5673e-7cbf-4e13-b3e9-047b05fc1d46/pharmacies.csv). In the code, replace <cluster> with your cluster name and <password> with your administrator password.
+The following code copies data from a CSV file to a database table. It requires the file [pharmacies.csv](https://download.microsoft.com/download/d/8/d/d8d5673e-7cbf-4e13-b3e9-047b05fc1d46/pharmacies.csv). In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```ruby
 require 'pg'
@@ -191,7 +191,7 @@ end
 
 ### COPY command to load in-memory data
 
-The following code copies in-memory data to a table. In the code, replace <cluster> with your cluster name and <password> with your administrator password.
+The following code copies in-memory data to a table. In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```ruby
 require 'pg'
@@ -216,7 +216,7 @@ end
 
 [!INCLUDE[app-stack-next-steps](includes/app-stack-retry-intro.md)]
 
-In the code, replace <cluster> with your cluster name and <password> with your administrator password.
+In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 ```ruby
 require 'pg'
 

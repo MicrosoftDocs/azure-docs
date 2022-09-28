@@ -14,6 +14,8 @@ ms.date: 09/27/2022
 
 # Create a cluster in the Azure portal
 
+## Prerequisites
+
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
 Azure Cosmos DB for PostgreSQL is a managed service that

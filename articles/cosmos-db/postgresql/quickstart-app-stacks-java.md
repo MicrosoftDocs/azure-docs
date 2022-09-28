@@ -99,7 +99,7 @@ Using your favorite integrated development environment (IDE), create a new Java 
 
 ### Configure the database connection
 
-In *src/main/resources/*, create an *application.properties* file with the following contents. Replace <cluster> with your cluster name, and replace <password> with your administrative password.
+In *src/main/resources/*, create an *application.properties* file with the following contents. Replace \<cluster> with your cluster name, and replace \<password> with your administrative password.
 
 The `?ssl=true&sslmode=require` string in the `db.url` property tells the JDBC driver to use Transport Layer Security (TLS) when connecting to the database. It's mandatory to use TLS with Azure Cosmos DB for PostgreSQL, and is a good security practice.
 
@@ -627,7 +627,7 @@ Executing the main class should now produce the following output:
 
 [!INCLUDE[app-stack-next-steps](includes/app-stack-retry-intro.md)]
 
-In this code, replace <cluster> with your cluster name and <password> with your administrator password.
+In this code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```java
 package test.crud;
