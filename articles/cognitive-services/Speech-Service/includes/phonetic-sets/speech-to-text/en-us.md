@@ -15,7 +15,6 @@ ms.author: eur
 | `CH`         | t.ʃ / ʧ | :::no-loc text="chin":::     |
 | `D`          | d       | :::no-loc text="dig":::      |
 | `DH`         | ð       | :::no-loc text="then":::     |
-| `DX`         | ɾ       | :::no-loc text="butter":::   |
 | `F`          | f       | :::no-loc text="fork":::     |
 | `G`          | g       | :::no-loc text="gut":::      |
 | `H`          | h       | :::no-loc text="help":::     |
@@ -48,10 +47,11 @@ ms.author: eur
 | `AOX`       | ɔ.ə | :::no-loc text="four":::      |
 | `AU`        | ɑ.ʊ | :::no-loc text="foul":::      |
 | `AX`        | ə   | :::no-loc text="ago":::       |
+| `AX R`      | ɚ   | :::no-loc text="minor":::     |
 | `AI`        | ɑ.ɪ | :::no-loc text="bite":::      |
 | `EH`        | ɛ   | :::no-loc text="pet":::       |
 | `EHX`       | ɛ.ə | :::no-loc text="stairs":::    |
-| `ER`        | ɜ   | :::no-loc text="fur":::       |
+| `ER R`      | ɝ   | :::no-loc text="urban":::     |
 | `EI`        | e.ɪ | :::no-loc text="ate":::       |
 | `IH`        | ɪ   | :::no-loc text="fill":::      |
 | `I`         | i   | :::no-loc text="feel":::      |

@@ -8,7 +8,7 @@ author: mumian
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
-ms.date: 07/19/2022
+ms.date: 09/28/2022
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -29,7 +29,7 @@ This tutorial covers the following tasks:
 > * Debug the failed script
 > * Clean up resources
 
-For a Learn module that covers deployment scripts, see [Extend ARM templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts/).
+For a Learn module that covers deployment scripts, see [Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts/).
 
 ## Prerequisites
 
@@ -312,7 +312,7 @@ The deployment script adds a certificate to the key vault. Configure the key vau
     read upn &&
     echo "Enter the user-assigned managed identity ID:" &&
     read identityId &&
-    adUserId=$((az ad user show --id jgao@microsoft.com) | jq -r '.id') &&
+    adUserId=$((az ad user show --id ${upn}) | jq -r '.id') &&
     resourceGroupName="${projectName}rg" &&
     keyVaultName="${projectName}kv" &&
     az group create --name $resourceGroupName --location $location &&
@@ -376,7 +376,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 1. From the Azure portal, select **Resource group** from the left menu.
 2. Enter the resource group name in the **Filter by name** field.
-3. Select the resource group name.  You will see a total of six resources in the resource group.
+3. Select the resource group name.
 4. Select **Delete resource group** from the top menu.
 
 ## Next steps

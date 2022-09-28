@@ -6,7 +6,7 @@ ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
 ms.custom: event-tier1-build-2022
-ms.date: 05/09/2022
+ms.date: 09/27/2022
 ms.author: sngun
 ms.reviewer: sngun, wiassaf
 ---
@@ -46,7 +46,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/studio-new-empty-sql-script.png" alt-text="Screenshot of creating a new empty SQL script from Synapse Studio.":::
 
-1. Paste the following script and select **Run** to create the master key for your target Synapse SQL database. You also need to create a schema if your expected schema is not available in target Synapse SQL database.
+1. Paste the following script and select **Run** to create the master key for your target Synapse SQL database.
 
    ```sql
    CREATE MASTER KEY

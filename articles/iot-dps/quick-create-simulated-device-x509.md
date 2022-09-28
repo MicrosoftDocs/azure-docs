@@ -149,10 +149,10 @@ In this section, you'll prepare a development environment that's used to build t
 
 ::: zone pivot="programming-language-csharp"
 
-1. In your Windows command prompt, clone the [Azure IoT Samples for C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository using the following command:
+1. In your Windows command prompt, clone the [Azure IoT SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository using the following command:
 
     ```cmd
-    git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
+    git clone https://github.com/Azure/azure-iot-sdk-csharp.git
     ```
 
 ::: zone-end
@@ -350,7 +350,7 @@ The C# sample code is set up to use X.509 certificates that are stored in a pass
 1. Copy the PKCS12 formatted certificate file to the project directory for the X.509 device provisioning sample. The path given is relative to the location where you downloaded the sample repo.
 
     ```bash
-    cp certificate.pfx ./azure-iot-samples-csharp/provisioning/Samples/device/X509Sample
+    cp certificate.pfx ./azure-iot-sdk-csharp/provisioning/device/samples/Getting Started/X509Sample
     ```
 
 You won't need the Git Bash prompt for the rest of this quickstart. However, you may want to keep it open to check your certificate if you have problems in later steps.
