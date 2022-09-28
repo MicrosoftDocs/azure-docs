@@ -28,8 +28,8 @@ ms.custom: "include file"
 
 | Limit | Value |
 |:---|:---|
-| Ingestion requests per minute to a data collection endpoint  | 15,000<br>This limit cannot be increased.   |
-| Data ingestion per minute to a data collection endpoint | 50 GB<br>This limit cannot be increased. |
+| Ingestion requests per minute to a data collection endpoint  | 15,000<br>This limit can't be increased.   |
+| Data ingestion per minute to a data collection endpoint | 50 GB<br>This limit can't be increased. |
 
 #### Prometheus queries 
 Prometheus queries are created using PromQL and can be authored in either Azure Managed or self-managed Grafana. 
@@ -37,32 +37,32 @@ Prometheus queries are created using PromQL and can be authored in either Azure 
 
 | Limit | Value |
 |:---|:---|
-| Data retention | 18 months<br>This limit cannot be increased.  
-| Query time range | 32 days between the start time and end time of your PromQL query<br>This limit cannot be increased. |
-| Query data limits | 240GB data returned per Azure Monitor workspace over a 30 second window |
+| Data retention | 18 months<br>This limit can't be increased.  
+| Query time range | 32 days between the start time and end time of your PromQL query<br>This limit can't be increased. |
+| Query data limits | 240 GB data returned per Azure Monitor workspace over a 30-second window |
 | Query time series per metric | 150K time series |
 | Query samples returned | 50M samples per query |
 | Minimum query step size with time range >= 48 hours | 60 seconds |
 
 
 **Query pre-parsing limits**<br>
-Based on query time range and request type over a 30 second window.<br>
-Each value is per user (AAD or System Identity).
+Based on query time range and request type over a 30-second window.<br>
+Each value is per user (Azure AD or System Identity).
 
 | Limit | Value |
 |:---|:---|
-| Query hours per per Azure Managed Grafana Workspace | 30,000 |
+| Query hours per Azure Managed Grafana Workspace | 30,000 |
 | Query hours per Azure Monitor workspace | 60,000 |
 | Query hours per Azure tenant | 600,000 |
 
 
 **Query post-parsing limits**<br>
-Based on query time range and range vectors in query over a 30 second window.<br>
-Each value is per user (AAD or System Identity).
+Based on query time range and range vectors in query over a 30-second window.<br>
+Each value is per user (Azure AD or System Identity).
 
 | Limit | Value |
 |:---|:---|
-| Query hours per per Azure Managed Grafana Workspace | 2,000,000 |
+| Query hours per Azure Managed Grafana Workspace | 2,000,000 |
 | Query hours per Azure Monitor workspace | 2,000,000 |
 | Query hours per Azure tenant | 20,000,000 |
 
