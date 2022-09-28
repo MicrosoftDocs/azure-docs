@@ -10,7 +10,7 @@ ms.reviewer: aul
 
 Follow the steps in this article to determine the cause of Prometheus metrics not being collected as expected.
 
-## Azure Monitor workspace Throttling
+## Azure Monitor workspace throttling
 
 Verify that the volume of metrics sent to the Azure Monitor workspace isn't over the limit.
 

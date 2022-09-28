@@ -120,7 +120,7 @@ Any other unsupported sections need to be removed from the config before applyin
 ## Scrape Configs
 The currently supported methods of target discovery for a [scrape config](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config) are either [`static_configs`](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#static_config) or [`kubernetes_sd_configs`](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#kubernetes_sd_config) for specifying or discovering targets.
 
-#### Static Config
+#### Static config
 
 A static config has a list of static targets and any extra labels to add to them.
 
@@ -131,16 +131,16 @@ scrape_configs:
     - labels: [ label1: value1, label1: value2, ... ]
 ```
 
-#### Kubernetes Service Discovery Config
+#### Kubernetes Service Discovery config
 
 Targets discovered using [`kubernetes_sd_configs`](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#kubernetes_sd_config) will each have different `__meta_*` labels depending on what role is specified. These can be used in the `relabel_configs` section to filter targets or replace labels for the targets.
 
 See the [Prometheus examples](https://github.com/prometheus/prometheus/blob/main/documentation/examples/prometheus-kubernetes.yml) of scrape configs for a Kubernetes cluster.
 
-### Relabel Configs
+### Relabel configs
 The `relabel_configs` section is applied at the time of target discovery and applies to each target for the job. Below are examples showing ways to use `relabel_configs`.
 
-#### Adding a Label
+#### Adding a label
 Add a new label called `example_label` with value `example_value` to every metric of the job. Use `__address__` as the source label only because that label will always exist. This will add the label for every target of the job.
 
 ```yaml
@@ -150,7 +150,7 @@ relabel_configs:
   replacement: 'example_value'
 ```
 
-#### Use Kubernetes Service Discovery Labels
+#### Use Kubernetes Service Discovery labels
 
 If a job is using [`kubernetes_sd_configs`](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#kubernetes_sd_config) to discover targets, each role has associated `__meta_*` labels for metrics. The `__*` labels are dropped after discovering the targets. To filter by them at the metrics level, first keep them using `relabel_configs` by assigning a label name and then use `metric_relabel_configs` to filter.
 
@@ -168,7 +168,7 @@ metric_relabel_configs:
   regex: 'default'
 ```
 
-#### Job and Instance Relabeling
+#### Job and instance relabeling
 
 The `job` and `instance` label values can be changed based on the source label, just like any other label.
 
@@ -185,11 +185,11 @@ relabel_configs:
   target_label: instance
 ```
 
-### Metric Relabel Configs
+### Metric relabel configs
 
 Metric relabel configs are applied after scraping and before ingestion. Use the `metric_relabel_configs` section to filter metrics after scraping. Below are examples of how to do so.
 
-#### Drop Metrics by Name
+#### Drop metrics by name
 
 ```yaml
 # Drop the metric named 'example_metric_name'
@@ -199,7 +199,7 @@ metric_relabel_configs:
   regex: 'example_metric_name'
 ```
 
-#### Keep Only Certain Metrics by Name
+#### Keep only certain metrics by name
 
 ```yaml
 # Keep only the metric named 'example_metric_name'
