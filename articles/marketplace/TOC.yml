@@ -205,10 +205,12 @@
           href: azure-container-plan-setup.md
         - name: Plan listing
           href: azure-container-plan-listing.md
-        - name: Plan availability
+        - name: Plan pricing and availability
           href: azure-container-plan-availability.md
-        - name: Plan technical configuration
+        - name: Plan technical configuration for container images
           href: azure-container-plan-technical-configuration.md
+        - name: Plan technical configuration for Kubernetes applications
+          href: azure-container-plan-technical-configuration-kubernetes.md
         - name: Container certification troubleshooting
           href: azure-container-certification-faq.yml
   - name: Azure virtual machine offer

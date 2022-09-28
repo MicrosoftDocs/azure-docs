@@ -23,14 +23,28 @@ Use the Azure Container offer type when your solution is a Docker container imag
 
 ## Licensing options
 
-These are the available licensing options for Azure Container offers:
+If you're publishing container images, these are the available licensing options for Azure Container offers:
 
 | Licensing option | Transaction process |
 | --- | --- |
 | Free | List your offer to customers for free. |
 | BYOL | The Bring Your Own Licensing option lets your customers bring existing software licenses to Azure.\* |
 
+If you're publishing Kubernetes apps, these are the available licensing options for Azure Container offers:
+
+| Licensing option | Transaction process |
+| --- | --- |
+| Free | List your offer to customers for free. |
+| BYOL | The Bring Your Own Licensing option lets your customers bring existing software licenses to Azure.\* |
+| Per core | List your Azure Container offer with pricing based on the critical CPU cores used. You provide the price for one CPU core and we’ll increment the pricing based on the size of the hardware used by your application for the critical cores you’ve tagged in your application as the ones that should generate usage. |
+| Per every core in cluster | List your Azure Container offer with pricing based on the CPU cores used. You provide the price for one CPU core and we’ll increment the pricing based on the size of the hardware used by your application. |
+
 \* As the publisher, you support all aspects of the software license transaction, including (but not limited to) order, fulfillment, metering, billing, invoicing, payment, and collection.
+
+> [!NOTE]
+> To ensure the prices are right before you publish them, first select Save draft to save pricing changes, then export the pricing spreadsheet and review the prices in each market.
+
+When selecting a pricing option, Microsoft does the currency conversion.
 
 ## Customer leads
 
@@ -77,9 +91,12 @@ You can send invites to Azure subscription IDs. Add up to 10 IDs manually or imp
 
 ## Plans and pricing
 
-Container offers require at least one plan. A plan defines the solution scope and limits. You can create multiple plans for your offer to give your customers different technical and licensing options. 
+Container offers require at least one plan. A plan defines the solution scope and limits. You can create multiple plans for your offer to give your customers different technical, pricing, and licensing options.
 
-Containers support two licensing models: Free or Bring Your Own License (BYOL). BYOL means you’ll bill your customers directly, and Microsoft won’t charge you any fees. Microsoft only passes through Azure infrastructure usage fees. For more information, see [Commercial marketplace transact capabilities](marketplace-commercial-transaction-capabilities-and-considerations.md).
+Containers support different licensing models based on your packaging and deployment needs:
+
+- If you are publishing container images, then two licensing models are supported: Free or Bring Your Own License (BYOL). BYOL means you’ll bill your customers directly, and Microsoft won’t charge you any fees. Microsoft only passes through Azure infrastructure usage fees. 
+- If you are publishing Kubernetes apps, then four licensing models are supported: Free, BYOL, Per core, and Per every core in cluster. BYOL means you’ll bill your customers directly, and Microsoft won’t charge you any fees. Microsoft only passes through Azure infrastructure usage fees. For more info on the licensing models, see [Licensing options](#licensing-options). For additional information, see [Commercial marketplace transact capabilities](marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 ## Additional sales opportunities
 

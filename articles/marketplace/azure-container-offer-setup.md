@@ -59,6 +59,17 @@ Review [Plan an Azure Container offer](marketplace-containers.md). It will expla
 
 Enter a descriptive name that we'll use to refer to this offer solely within Partner Center. The offer alias (pre-populated with what you entered when you created the offer) won't be used in the marketplace and is different than the offer name shown to customers. If you want to update the offer name later, see the [Offer listing](azure-container-offer-listing.md) page.
 
+## Setup details
+
+You have two options – one is to sell and the other is to only list your offer using Microsoft.
+
+If you are publishing Kubernetes applications, you can choose to sell through Microsoft and let Microsoft host transactions on your behalf. In this case, a set of required technical configuration will be needed for your service.
+
+If you are publishing container images, you can use Microsoft to list your offer but process the transactions independently. In this case, your offer will still be available in Azure Marketplace as a listing only offer.
+
+> [!NOTE]
+> Pricing options are only available if you are publishing Kubernetes applications. This choice cannot be changed once your offer is published.
+
 ## Customer leads
 
 When a customer expresses interest or deploys your product, you’ll receive a lead in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center.
