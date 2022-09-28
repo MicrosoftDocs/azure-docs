@@ -265,7 +265,7 @@ The following JSON response illustrates what the Analyze API returns when readin
 
 ## Use the API
 
-The text reading feature is part of the [Analyze Image](TBD) API. You can call this API using REST. Include `Read` in the **visualFeatures** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"readResult"` section.
+The text reading feature is part of the [Analyze Image](https://aka.ms/vision-4-0-ref) API. You can call this API using REST. Include `Read` in the **visualFeatures** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"readResult"` section.
 
 ## Next steps
 

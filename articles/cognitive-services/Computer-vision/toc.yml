@@ -142,6 +142,8 @@ items:
       href: Tutorials/storage-lab-tutorial.md
   - name: Reference
     items: 
+    - name: Image Analysis REST API v4.0 (preview)
+      href: https://aka.ms/vision-4-0-ref
     - name: Image Analysis REST API v3.2
       href: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b
     - name: Image Analysis REST API v3.1
