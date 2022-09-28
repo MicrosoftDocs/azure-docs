@@ -74,7 +74,7 @@ They Are considerations for sustainable workloads on Azure (not specific to a gi
  - Plan your deployments to maximize compute utilization for running batch workloads during low-carbon intensity periods.
   
   **Use Energy Efficient Hardware**
- - Consider if [nodes with Ampere Altra Arm–based processors](https://azure.microsoft.com/blog/azure-virtual-machines-with-ampere-altra-arm-based-processors-generally-available/) are a good option for your workloads
+ - Evaluate if [nodes with Ampere Altra Arm–based processors](https://azure.microsoft.com/blog/azure-virtual-machines-with-ampere-altra-arm-based-processors-generally-available/) are a good option for your workloads
 
 **Maximize node utilization**
 - Separate applications into different node pools allowing independent scalling.
