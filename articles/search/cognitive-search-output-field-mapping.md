@@ -30,11 +30,11 @@ In contrast with a [`fieldMappings`](search-indexer-field-mappings.md) definitio
 
 Output field mappings are required if your indexer has an attached [skillset](cognitive-search-working-with-skillsets.md) that creates new information, such as text translation or key phrase extraction. During indexer execution, AI-generated information exists in memory only. To persist this information in a search index, you'll need to tell the indexer where to send the data.
 
-Output field mappings can also be used to retrieve specific nodes in a source document's complex type. If you don't need the full complex structure, you can [flatten individual nodes in a nested data structures](#flattening-information-from-complex-types), and then use an output field mapping to send the output to a string collection in your search index.
+Output field mappings can also be used to retrieve specific nodes in a source document's complex type. For example, you might want just "FullName/LastName" in a multi-part "FullName" property. When you don't need the full complex structure, you can [flatten individual nodes in a nested data structures](#flattening-information-from-complex-types), and then use an output field mapping to send the output to a string collection in your search index.
 
 Output field mappings apply to:
 
-+ Content that's created by skills or extracted by an indexer. The source field is a node in an enriched document residing in memory.
++ In-memory content that's created by skills or extracted by an indexer. The source field is a node in an enriched document tree.
 
 + Search indexes. If you're populating a [knowledge store](knowledge-store-concept-intro.md), use [projections](knowledge-store-projections-examples.md) for data path configuration.
 
