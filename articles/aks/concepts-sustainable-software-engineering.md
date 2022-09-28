@@ -56,9 +56,8 @@ We recommend that readers familiarize themselves with these design areas, review
 |Security|Cluster security configuration and integration with Monitoring & SIEM.|
 
 
-## Operational Procedures
-They Are considerations for sustainable workloads on Azure (not specific to a given service). The procedures will guide you through setting up an environment **for measuring and continuously improving your Azure workloads' cost and carbon efficiency**
-
+## Cloud efficiency
+Making workloads more [sustainable and cloud efficient](/azure/architecture/framework/sustainability/sustainability-get-started#cloud-efficiency-overview), requires combining efforts around cost optimization, reducing carbon emissions, and optimizing energy consumption. Optimizing the application's cost is the initial step in making workloads more sustainable.
 
 ## Sustainability Checklist for AKS clusters
 
