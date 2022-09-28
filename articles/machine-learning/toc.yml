@@ -122,6 +122,9 @@
         - name: Model training
           displayName: run config, machine learning pipeline, ml pipeline, train model
           href: concept-train-machine-learning-model.md
+        - name: Distributed training
+          displayName: parallellization, deep learning, deep neural network, dnn
+          href: concept-distributed-training.md
         - name: Deep learning
           displayName: deep learning vs machine learning, deep learning, vs, versus
           href: concept-deep-learning-vs-machine-learning.md
@@ -429,9 +432,6 @@
           - name: Tune hyperparameters
             displayName: parameter, hyperparameter, hyperdrive
             href: how-to-tune-hyperparameters.md
-          - name: Distributed GPU guide
-            displayName: MPI, Horovod, DeepSpeed, PyTorch, Hugging Face Transformers, TensorFlow, InfiniBand
-            href: how-to-train-distributed-gpu.md
           - name: Scikit-learn
             href: how-to-train-scikit-learn.md
           - name: TensorFlow
