@@ -139,7 +139,9 @@ The following diagram shows how to use a client certificate to authenticate with
     > [!IMPORTANT]
     > Azure Load Testing only supports PKCS12 certificates. Upload the client certificate in PFX file format.
 
-1. Verify that your load testing resource has read permissions for your key vault. For more information, see [use managed identities with Azure Load Testing](./how-to-use-a-managed-identity.md).
+1. Verify that your load testing resource has permissions to retrieve the certificate from your key vault.
+
+    Azure Load Testing retrieves the certificate as a secret to ensure that the private key for the certificate is available. [Assign the Get secret permission to your load testing resource](./how-to-use-a-managed-identity.md#grant-access-to-your-azure-key-vault) in Azure Key Vault.
 
 1. Add the certificate to the load test configuration:
 
