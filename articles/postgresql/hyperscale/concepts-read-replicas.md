@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 06/30/2022
+ms.date: 09/27/2022
 ---
 
 # Read replicas in Azure Database for PostgreSQL - Hyperscale (Citus)
@@ -129,7 +129,7 @@ upscale it on the primary.
 Firewall rules and parameter settings aren't inherited from the primary server
 to the replica when the replica is created or afterwards.
 
-### Cross-region replication (preview)
+### Cross-region replication
 
 Read replicas can be created in the region of the primary server group, or in
 any other [region supported by Hyperscale (Citus)](resources-regions.md). The

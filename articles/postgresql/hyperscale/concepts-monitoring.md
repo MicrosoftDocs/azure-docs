@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 06/22/2022
+ms.date: 09/27/2022
 ---
 
 # Monitor and tune Azure Database for PostgreSQL - Hyperscale (Citus)
