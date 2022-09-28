@@ -43,7 +43,7 @@ Decisions made in one design area can impact or influence decisions across the e
 
 We recommend that readers familiarize themselves with these design areas, reviewing provided considerations and recommendations to better understand the consequences of encompassed decisions.
 
-## Sustainability Design areas for AKS workloads (applications)
+## Sustainability Design considerations for AKS workloads (or applications)
 
 |Design area|Description|
 |---|---|
@@ -60,7 +60,7 @@ We recommend that readers familiarize themselves with these design areas, review
 They Are considerations for sustainable workloads on Azure (not specific to a given service). The procedures will guide you through setting up an environment **for measuring and continuously improving your Azure workloads' cost and carbon efficiency**
 
 
-## Sustainability Checklist for AKS
+## Sustainability Checklist for AKS clusters
 
 |Recommendation|_sustainability principles alignment_| _WAF_pillars_alignment |
 |---|---|---|
@@ -69,7 +69,7 @@ They Are considerations for sustainable workloads on Azure (not specific to a gi
 |Deploy your workloads to Regions powered by renewable and low-carbon energy sources|_Cost Optimization_| [Carbon efficiency](sustainability-design-principles.md#carbon-efficiency)_|
 || | |
 
-## Sustainability Considerations for AKS clusters
+## Sustainability Design Considerations for AKS clusters
 
 ### Review platform and service updates regularly 
 
