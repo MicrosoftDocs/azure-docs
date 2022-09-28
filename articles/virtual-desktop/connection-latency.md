@@ -105,6 +105,7 @@ Azure Virtual Desktop uses [Azure Front Door](https://azure.microsoft.com/servic
 
 ## Next steps
 
+- Learn more about how to monitor and run queries about connection quality issues at [Monitor connection quality](connection-quality-monitoring.md).
 - Troubleshoot connection and latency issues at [Troubleshoot connection quality for Azure Virtual Desktop](troubleshoot-connection-quality.md).
 - To check the best location for optimal latency, see the [Azure Virtual Desktop Experience Estimator tool](https://azure.microsoft.com/services/virtual-desktop/assessment/).
 - For pricing plans, see [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).

@@ -80,7 +80,7 @@
       - name: Proxy support guidelines
         href: proxy-server-support.md
       - name: Determine user connection quality
-        href: connection-latency.md
+        href: connection-quality-monitoring.md
   - name: Virtual machine sizing guidance
     href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
   - name: Identity and access management

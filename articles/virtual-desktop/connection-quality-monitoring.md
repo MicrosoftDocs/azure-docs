@@ -37,7 +37,7 @@ To check and modify your diagnostics settings in the Azure portal:
 
 8. Make sure the network data is going to your selected destination by returning to the host pool's resource page, selecting **Logs**, then running one of the queries in [Sample queries for Azure Log Analytics](#sample-queries-for-azure-log-analytics-network-data). In order for your query to get results, your host pool must have active users who have been connecting to sessions. Keep in mind that it can take up to 15 minutes for network data to appear in the Azure portal.
    
-   To check network data, return to the host pool's resource page, select **Logs**, then run one of the queries in [Sample queries for Azure Log Analytics](connection-latency.md#sample-queries-for-azure-log-analytics-network-data). In order for your query to get results, your host pool must have active users who've connected to sessions before. Keep in mind that it can take up to 15 minutes for network data to appear in the Azure portal.
+   To check network data, return to the host pool's resource page, select **Logs**, then run one of the queries in [Sample queries for Azure Log Analytics](#sample-queries-for-azure-log-analytics-network-data). In order for your query to get results, your host pool must have active users who've connected to sessions before. Keep in mind that it can take up to 15 minutes for network data to appear in the Azure portal.
 
 ## Sample queries for Azure Log Analytics: network data
 
@@ -128,3 +128,7 @@ WVDConnectionNetworkData
 | summarize AvgBW=avg(EstAvailableBandwidthKBps),BW_P95=percentile(EstAvailableBandwidthKBps,95) by UserName
 | top 10 by AvgBW asc
 ```
+
+## Next steps
+
+Learn more about connection quality at [Connection quality in Azure Virtual Desktop](connection-latency.md).
