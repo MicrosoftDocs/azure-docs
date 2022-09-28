@@ -84,7 +84,7 @@ There are some important factors to consider when defining your resource group:
 
   The resource group stores metadata about the resources. When you specify a location for the resource group, you're specifying where that metadata is stored. For compliance reasons, you may need to ensure that your data is stored in a particular region.
   
-  If a resource group's region is temporarily unavailable, you can't update resources in the resource group because the metadata is unavailable. The resources in other regions will still function as expected, but you can't update them. This condition doesn't apply to global resources like Azure Content Delivery Network, Azure DNS, Azure Traffic Manager, and Azure Front Door.
+  If a resource group's region is temporarily unavailable, you can't update resources in the resource group because the metadata is unavailable. The resources in other regions will still function as expected, but you can't update them. This condition doesn't apply to global resources like Azure Content Delivery Network, Azure DNS, Azure DNS Private Zones, Azure Traffic Manager, and Azure Front Door.
    
   For more information about building reliable applications, see [Designing reliable Azure applications](/azure/architecture/checklist/resiliency-per-service).
 
