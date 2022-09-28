@@ -20,7 +20,7 @@ This article provides a guide on configuring Azure Synapse Link for Azure SQL Da
 
 ## Managed workspace Virtual Network without data exfiltration
 
-1. Create Synapse workspace with managed virtual network enabled. You will enable **managed virtual network** and select **No** to allow outbound traffic from the workspace to any target. You can learn more about managed virtual network from [this](../security/synapse-workspace-managed-vnet.md)
+1. Create Synapse workspace with managed virtual network enabled. You will enable **managed virtual network** and select **No** to allow outbound traffic from the workspace to any target. You can learn more about managed virtual network from [this](../security/synapse-workspace-managed-vnet.md).
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/create-synapse-workspace-allow-outbound-traffic.png" alt-text="create synapse workspace allow outboundtraffic":::
 
@@ -30,17 +30,17 @@ This article provides a guide on configuring Azure Synapse Link for Azure SQL Da
 
 1. Launch Synapse Studio, navigate to **Manage**, click **Integration runtimes** and select **AutoResolvingIntegrationRuntime**. On the pop-up slide, you can click **Virtual network** tab, and enable **Interactive authoring**. 
 
-  :::image type="content" source="../media/connect-synapse-link-sql-database/enable-interactive-authoring" alt-text="enable interactive authoring":::
+  :::image type="content" source="../media/connect-synapse-link-sql-database/enable-interactive-authoring.png" alt-text="enable interactive authoring":::
 
 1. Now you can create a link connection from **Integrate** tab to replicate data from Azure SQL DB to Synapse SQL pool.
 
-  :::image type="content" source="../media/connect-synapse-link-sql-database/create-link" alt-text="create link":::
+  :::image type="content" source="../media/connect-synapse-link-sql-database/create-link.png" alt-text="create link":::
 
-  :::image type="content" source="../media/connect-synapse-link-sql-database/create-link-sqldb" alt-text="create link sqldb":::
+  :::image type="content" source="../media/connect-synapse-link-sql-database/create-link-sqldb.png" alt-text="create link sqldb":::
 
 1. Start your link connection
 
-  :::image type="content" source="../media/connect-synapse-link-sql-database/start-link" alt-text="start link":::
+  :::image type="content" source="../media/connect-synapse-link-sql-database/start-link.png" alt-text="start link":::
 
 
 ## Managed workspace Virtual Network with data exfiltration
@@ -55,35 +55,35 @@ This article provides a guide on configuring Azure Synapse Link for Azure SQL Da
 
 1. Launch Synapse Studio, navigate to **Manage**, click **Integration runtimes** and select **AutoResolvingIntegrationRuntime**. On the pop-up slide, you can click **Virtual network** tab, and enable **Interactive authoring**. 
 
-  :::image type="content" source="../media/connect-synapse-link-sql-database/enable-interactive-authoring" alt-text="enable interactive authoring":::
+  :::image type="content" source="../media/connect-synapse-link-sql-database/enable-interactive-authoring.png" alt-text="enable interactive authoring":::
 
 1. Create a linked service connecting to Azure SQL DB with managed private endpoint enabled.
 
    * Create a linked service connecting to Azure SQL DB.
    
-     :::image type="content" source="../media/connect-synapse-link-sql-database/new-sql-db-linked-service-pe" alt-text="new sql db linked service pe":::
+     :::image type="content" source="../media/connect-synapse-link-sql-database/new-sql-db-linked-service-pe.png" alt-text="new sql db linked service pe":::
 
    * Create a managed private endpoint in linked service for Azure SQL DB.
    
-     :::image type="content" source="../media/connect-synapse-link-sql-database/new-sql-db-linked-service-pe1" alt-text="new sql db linked service pe":::
+     :::image type="content" source="../media/connect-synapse-link-sql-database/new-sql-db-linked-service-pe1.png" alt-text="new sql db linked service pe1":::
 
    * Complete the managed private endpoint creation in the linked service for Azure SQL DB.
    
-     :::image type="content" source="../media/connect-synapse-link-sql-database/new-sql-db-linked-service-pe2" alt-text="new sql db linked service pe":::
+     :::image type="content" source="../media/connect-synapse-link-sql-database/new-sql-db-linked-service-pe2.png" alt-text="new sql db linked service pe2":::
 
    * Go to Azure portal of your SQL Server hosting Azure SQL DB as source store, approve the Private endpoint connections.
    
-     :::image type="content" source="../media/connect-synapse-link-sql-database/new-sql-db-linked-service-pe3" alt-text="new sql db linked service pe":::
+     :::image type="content" source="../media/connect-synapse-link-sql-database/new-sql-db-linked-service-pe3.png" alt-text="new sql db linked service pe3":::
 		 
 1. Now you can create a link connection from **Integrate** tab to replicate data from Azure SQL DB to Synapse SQL pool.
 
-  :::image type="content" source="../media/connect-synapse-link-sql-database/create-link" alt-text="create link":::
+  :::image type="content" source="../media/connect-synapse-link-sql-database/create-link.png" alt-text="create link":::
 
-  :::image type="content" source="../media/connect-synapse-link-sql-database/create-link-sqldb" alt-text="create link sqldb":::
+  :::image type="content" source="../media/connect-synapse-link-sql-database/create-link-sqldb.png" alt-text="create link sqldb":::
 
 1. Start your link connection
 
-  :::image type="content" source="../media/connect-synapse-link-sql-database/start-link" alt-text="start link":::
+  :::image type="content" source="../media/connect-synapse-link-sql-database/start-link.png" alt-text="start link":::
  
 
 
