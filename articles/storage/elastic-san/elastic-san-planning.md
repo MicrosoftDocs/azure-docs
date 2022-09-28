@@ -60,17 +60,8 @@ For more information about the cryptographic modules underlying SSE, see [Crypto
 
 ### iSCSI support
 
-Elastic SAN has some limitations with iSCSI.
+Elastic SAN supports the [internet Small Computer Systems Interface](https://en.wikipedia.org/wiki/ISCSI) (iSCSI) protocol. The following iSCSI commands are currently supported:
 
-Elastic SAN currently doesn't support the following iSCSI features:
-- CHAP authorization
-- Initiator registration
-- iSCSI Error Recovery Levels 1 and 2
-- ESXi iSCSI flow control
-- More than one LUN per iSCSI target
-- Multiple connections per session (MC/S)
-
-Only the following iSCSI commands are currently supported:
 - TEST UNIT READY
 - REQUEST SENSE
 - INQUIRY
@@ -90,6 +81,14 @@ Only the following iSCSI commands are currently supported:
 - VERIFY (16)
 - SYNCHRONIZE CACHE (10)
 - SYNCHRONIZE CACHE (16)
+
+The following iSCSI features aren't currently supported:
+- CHAP authorization
+- Initiator registration
+- iSCSI Error Recovery Levels 1 and 2
+- ESXi iSCSI flow control
+- More than one LUN per iSCSI target
+- Multiple connections per session (MC/S)
 
 ## Next steps
 
