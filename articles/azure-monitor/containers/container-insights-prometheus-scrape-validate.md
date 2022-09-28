@@ -8,12 +8,12 @@ ms.reviewer: aul
 
 # Create and validate custom configuration file for Prometheus metrics in Azure Monitor
 
-In addition to the default scrape targets that Azure Monitor Prometheus agent scrapes by default, use the following steps to provide additional scrape config to the agent using a configmap. The Azure Monitor Prometheus agent doesn't understand or process operator [CRDs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) for scrape configuration, but instead uses the native Prometheus configuration as defined in [Prometheus configuration](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config).
+In addition to the default scrape targets that Azure Monitor Prometheus agent scrapes by default, use the following steps to provide additional scrape config to the agent using a configmap. The Azure Monitor Prometheus agent doesn't understand or process operator [CRDs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) for scrape configuration, but instead uses the native Prometheus configuration as defined in [Prometheus configuration](https://aka.ms/azureprometheus-promioconfig-scrape).
 
 ## Create configuration file
-Create a Prometheus scrape configuration file named *prometheus-config*. See [Prometheus Configuration Tips](https://github.com/Azure/prometheus-collector/blob/temp/documentation/otelcollector/docs/publicpreviewdocs/grace/custom-config-tips.md) for some samples and tips on authoring scrape config for Prometheus. You can also refer to [Prometheus.io](https://prometheus.io/) scrape configuration [reference](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config).
+Create a Prometheus scrape configuration file named *prometheus-config*. See [Prometheus Configuration Tips](container-insights-prometheus-scrape-configuration.md#scrape-configs) for some samples and tips on authoring scrape config for Prometheus. You can also refer to [Prometheus.io](https://aka.ms/azureprometheus-promio) scrape configuration [reference](https://aka.ms/azureprometheus-promioconfig-scrape).
 
-In *prometheus-config*, configuration file, add any custom scrape jobs. See the [Prometheus configuration docs](https://prometheus.io/docs/prometheus/latest/configuration/configuration/) for more information. Your config file will list the scrape configs under the section scrape_configs and can optionally use the global section for setting the global scrape_interval, scrape_timeout, and evaluation_interval. 
+In *prometheus-config*, configuration file, add any custom scrape jobs. See the [Prometheus configuration docs](https://aka.ms/azureprometheus-promioconfig) for more information. Your config file will list the scrape configs under the section scrape_configs and can optionally use the global section for setting the global scrape_interval, scrape_timeout, and evaluation_interval. 
 
 > [!TIP]
 > Changes to global section will impact default config and custom config.
