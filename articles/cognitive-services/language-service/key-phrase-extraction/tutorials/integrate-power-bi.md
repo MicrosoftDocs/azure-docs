@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
-ms.date: 05/27/2022
+ms.date: 09/28/2022
 ms.author: aahi
 ms.custom: language-service-key-phrase, ignite-fall-2021, cogserv-non-critical-language
 ---
@@ -32,7 +32,7 @@ In this tutorial, you'll learn how to:
 - A Microsoft Azure account. [Create a free account](https://azure.microsoft.com/free/cognitive-services/) or [sign in](https://portal.azure.com/).
 - A Language resource. If you don't have one, you can [create one](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics).
 - The [Language resource key](../../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that was generated for you during sign-up.
-- Customer comments. You can use our example data or your own data. This tutorial assumes you're using our example data.
+- Customer comments. You can [use our example data](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/language-service/tutorials/comments.csv) or your own data. This tutorial assumes you're using our example data.
 
 ## Load customer data
 

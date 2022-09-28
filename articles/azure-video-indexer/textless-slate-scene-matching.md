@@ -21,11 +21,6 @@ In order to set the indexing process to include the slate metadata, select the *
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/slate-detection-process/advanced-setting.png" alt-text="This image shows the advanced setting in order to view post-production clapperboards insights.":::
 
-After the file has been uploaded and indexed, if you want to view the timeline of the insight, select the **Post-production** checkmark from the list of insights.
-
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/slate-detection-process/post-production-checkmark.png" alt-text="This image shows the post-production checkmark needed to view clapperboards.":::
-
 ### Insight
 
 This insight can only be viewed in the form of the downloaded json file.
