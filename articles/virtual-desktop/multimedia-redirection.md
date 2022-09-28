@@ -218,7 +218,7 @@ Redirected video outlines will allow you to highlight the currently redirected v
 
 1. Select **Show Advanced Settings**.
 
-1. Toggle **Redirected video outlines** to **on**.
+1. Toggle **Redirected video outlines** to **on**. You will need to refresh the webpage for the change to take effect.
 
 ## Next steps
 
