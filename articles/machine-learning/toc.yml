@@ -15,12 +15,12 @@
     - name: How it works
       displayName: concepts, definitions, glossary
       href: concept-azure-machine-learning-v2.md
-- name: Migration from v1 to v2
+- name: Upgrade to v2
   items:
-    - name: Migration overview
+    - name: Upgrade overview
       displayName: migration
       href: how-to-migrate-from-v1.md
-    - name: Migrate resources and assets
+    - name: Upgrade resources and assets
       items:
       - name: "Workspace"
         displayName: migration, v1, v2
@@ -37,7 +37,7 @@
       - name: "Model assets"
         displayName: migration, v1, v2
         href: migrate-to-v2-assets-model.md
-    - name: Migrate training
+    - name: Upgrade training
       items:
       - name: "Run a script"
         displayName: migration, v1, v2
@@ -57,10 +57,9 @@
       - name: "Pipelines"
         displayName: migration, v1, v2
         href: migrate-to-v2-execution-pipeline.md  
-    - name: "Migrate endpoints"
+    - name: "Upgrade endpoints"
       displayName: migration, v1, v2
       href: migrate-to-v2-deploy-endpoints.md  
-
 - name: Quickstart
   expanded: true
   items: 
@@ -460,9 +459,6 @@
               href: how-to-log-mlflow-models.md
             - name: Query & compare experiments and runs
               href: how-to-track-experiments-mlflow.md
-            - name: Visualize runs with TensorBoard
-              displayName: log, monitor, metrics
-              href: how-to-monitor-tensorboard.md
             - name: Migrate from SDK v1 logging to MLflow
               href: reference-migrate-sdk-v1-mlflow-tracking.md
         - name: Train and track with MLflow
