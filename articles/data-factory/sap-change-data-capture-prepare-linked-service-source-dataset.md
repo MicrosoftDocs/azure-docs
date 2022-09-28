@@ -6,7 +6,7 @@ author: ukchrist
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.date: 06/01/2022
+ms.date: 08/18/2022
 ms.author: ulrichchrist
 ---
 
@@ -45,7 +45,7 @@ To set up an SAP CDC (preview) linked service:
 
 1. In Azure Data Factory Studio, go to the Author hub of your data factory. In **Factory Resources**, under **Datasets** > **Dataset Actions**, select **New dataset**.
 
-   :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-new-pipeline.png" alt-text="Screenshot that shows creating a new pipeline in the Data Factory Studio Author hub.":::  
+   :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-new-dataset.png" alt-text="Screenshot that shows creating a new pipeline in the Data Factory Studio Author hub.":::  
 
 1. In **New dataset**, search for **SAP**. Select **SAP CDC (Preview)**, and then select **Continue**.
 
