@@ -37,21 +37,22 @@ To send events from Azure Event Hubs to Azure Monitor Logs, you need to have the
     
     The event hub must contain events. You can send events to your event hub by following the steps in [Send and receive events in Azure Event Hubs tutorials](../../event-hubs/event-hubs-create.md#next-steps) or by [configuring the diagnostic settings of Azure resources](../essentials/diagnostic-settings.md#create-diagnostic-settings).
 
+# Collect subscription and resource details
+
+You'll need your subscription ID, resource group name, workspace name, and workspace resource ID in subsequent steps:
+
+1. Navigate to your workspace in the **Log Analytics workspaces** menu and select **Properties** to find your subscription ID, resource group name, and workspace name.
+
+    :::image type="content" source="media/ingest-logs-event-hub/create-custom-table-prepare.png" lightbox="media/ingest-logs-event-hub/create-custom-table-prepare.png" alt-text="Screenshot showing Log Analytics workspace overview screen with subscription ID, resource group name, and workspace name highlighted.":::
+
+1. Select **JSON** to open the **Resource JSON** screen and copy the workspace's **Resource ID**. You'll need the workspace resource ID to create a data collection rule. 
+
+    :::image type="content" source="media/ingest-logs-event-hub/log-analytics-workspace-id.png" lightbox="media/ingest-logs-event-hub/log-analytics-workspace-id.png" alt-text="Screenshot showing Resource JSON screen with the workspace resource ID highlighted.":::
 ## Create a destination table for event hub data in your Log Analytics workspace
 
 Before you can ingest data, you need to set up a destination table. 
 
 To create a custom table into which to ingest events, in the Azure portal:  
-
-1. Collect workspace information:
-
-    1. Navigate to your workspace in the **Log Analytics workspaces** menu and select **Properties** to find your subscription ID, resource group name, and workspace name.
-    
-        :::image type="content" source="media/ingest-logs-event-hub/create-custom-table-prepare.png" lightbox="media/ingest-logs-event-hub/create-custom-table-prepare.png" alt-text="Screenshot showing Log Analytics workspace overview screen with subscription ID, resource group name, and workspace name highlighted.":::
-
-    1. Select **JSON** to open the **Resource JSON** screen and copy the workspace's **Resource ID**. You'll need the workspace resource ID to create a data collection rule. 
-  
-        :::image type="content" source="media/ingest-logs-event-hub/log-analytics-workspace-id.png" lightbox="media/ingest-logs-event-hub/log-analytics-workspace-id.png" alt-text="Screenshot showing Resource JSON screen with the workspace resource ID highlighted.":::
 
 1. Select the **Cloud Shell** button and ensure the environment is set to **PowerShell**.
 
