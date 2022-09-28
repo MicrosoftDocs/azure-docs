@@ -136,7 +136,7 @@ There are two policies that determine which authentication methods can be used t
 
 In addition, users must register for a method they want use, such as SMS. In other cases, an administrator might need to configure a user's device with a method, such as certificate-based authentication.
 
-The authentication strength Conditional Access policy checks these settings to determine the user’s access to the resource. For example, an administrator configures a Conditional Access policy with a custom authentication strength that requires FIDO2 Security Key or SMS. The user accesses a resource protected by this policy. During sign-in, all settings are checked to determine which methods are allowed, which methods are registered, and which methods are required by the Conditional Access policy.
+The authentication strength Conditional Access policy checks these settings to determine the user’s access to the resource. For example, an administrator configures a Conditional Access policy with a custom authentication strength that requires FIDO2 Security Key or Password + SMS. The user accesses a resource protected by this policy. During sign-in, all settings are checked to determine which methods are allowed, which methods are registered, and which methods are required by the Conditional Access policy.
 
 ## User experience
 
