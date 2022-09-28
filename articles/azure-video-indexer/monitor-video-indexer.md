@@ -66,7 +66,8 @@ See [Create diagnostic setting to collect platform logs and metrics in Azure](/a
 
 | Category | Description  |
 |:---|:---|
-|Audit | Read/Write operations| 
+|Audit | Read/Write operations|
+|Indexing Logs| Monitor the indexing process form upload to indexing and Re-indexing when needed|
 
 :::image type="content" source="./media/monitor/toc-diagnostics-save.png" alt-text="Screenshot of diagnostic settings." lightbox="./media/monitor/toc-diagnostics-save.png":::
 
@@ -113,6 +114,7 @@ For a list of the tables used by Azure Monitor Logs and queryable by Log Analyti
 
 ### Sample Kusto queries
 
+#### Audit related sample queries 
 <!-- REQUIRED if you support logs. Please keep headings in this order -->
 <!-- Add sample Log Analytics Kusto queries for your service. -->
 
@@ -138,6 +140,35 @@ VIAudit
 | where  Status == "Failure"
 | parse Description with "ErrorType: " ErrorType ". Message: " ErrorMessage ". Trace" *
 | project TimeGenerated, OperationName, ErrorMessage, ErrorType, CorrelationId, _ResourceId
+```
+
+#### Indexing realted sample queries
+
+```kusto
+// Display Video Indexer Account logs of all failed indexing operations. 
+VIIndexing
+// | where AccountId == "<AccountId>"  // to filter on a specific accountId, uncomment this line
+| where Status == "Failure"
+| summarize count() by bin(TimeGenerated, 1d)
+| render columnchart
+```
+
+```kusto
+// Video Indexer top 10 users by operations 
+// Render timechart of top 10 users by operations, with an optional account id for filtering. 
+// Trend of top 10 active Upn's
+VIIndexing
+// | where AccountId == "<AccountId>"  // to filter on a specific accountId, uncomment this line
+| where OperationName in ("IndexingStarted", "ReindexingStarted")
+| summarize count() by Upn
+| top 10 by count_ desc
+| project Upn
+| join (VIIndexing
+| where TimeGenerated > ago(30d)
+| where OperationName in ("IndexingStarted", "ReindexingStarted")
+| summarize count() by Upn, bin(TimeGenerated,1d)) on Upn
+| project TimeGenerated, Upn, count_
+| render timechart
 ```
 
 ## Alerts
