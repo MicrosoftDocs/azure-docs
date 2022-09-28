@@ -160,8 +160,6 @@ To update a specific cluster by using Azure PowerShell:
     Successfully added Monitoring Metrics Publisher role assignment to cluster : <clusterName>
     ```
 
----
-
 
 #### Update all clusters
 
@@ -182,5 +180,5 @@ To update all clusters in your subscription by using Azure PowerShell:
 ---
 
 ## Verify the update
-You can verify that custom metric are enabled by opening [metrics explorer](../essentials/metrics-getting-started.md) and verify from **Metric namespace** that **insights** is listed. 
+You can verify that custom metrics is enabled by opening [metrics explorer](../essentials/metrics-getting-started.md) and verify from **Metric namespace** that **insights** is listed. 
 

@@ -224,10 +224,22 @@ items:
       items: 
       - name: Overview
         href: essentials/prometheus-metrics-overview.md
-      - name: Configure remote write
-        href: essentials/prometheus-remote-write.md
       - name: Rule groups
         href: essentials/prometheus-metrics-rule-groups.md
+      - name: Troubleshoot collection
+        href: containers/container-insights-prometheus-metrics-troubleshoot.md
+      - name: Customize collection
+        items:
+        - name: Default configuration
+          href: containers/container-insights-prometheus-scrape-default.md
+        - name: Custom configuration
+          href: containers/container-insights-prometheus-scrape-configuration.md
+        - name: Create and validate custom scrape config
+          href: containers/container-insights-prometheus-scrape-validate.md
+        - name: Minimal ingestion profile
+          href: containers/container-insights-prometheus-scrape-configuration-minimal.md
+        - name: Send to multiple metric workspaces
+          href: containers/container-insights-prometheus-multiple-workspaces.md
     - name: Metrics explorer
       items:
       - name: Getting started with Metrics Explorer
@@ -1263,15 +1275,7 @@ items:
       - name: Send to Logs
         href: containers/container-insights-prometheus-monitoring-addon.md
       - name: Send to managed Prometheus
-        items:
-        - name: Enable metrics addon
-          href: containers/container-insights-prometheus-metrics-addon.md
-        - name: Default configuration
-          href: containers/container-insights-prometheus-scrape-default.md
-        - name: Custom configuration
-          href: containers/container-insights-prometheus-scrape-configuration.md
-        - name: Targets
-          href: containers/container-insights-prometheus-scrape-targets.md
+        href: containers/container-insights-prometheus-metrics-addon.md
     - name: Configure
       items:
       - name: Agent management

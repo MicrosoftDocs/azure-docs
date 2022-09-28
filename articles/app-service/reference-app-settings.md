@@ -334,7 +334,7 @@ For more information on custom containers, see [Run a custom container in Azure]
 
 | Setting name| Description | Example |
 |-|-|-|
-| `WEBSITES_ENABLE_APP_SERVICE_STORAGE` | Set to `true` to enable the `/home` directory to be shared across scaled instances. The default is `false` for custom containers. ||
+| `WEBSITES_ENABLE_APP_SERVICE_STORAGE` | Set to `true` to enable the `/home` directory to be shared across scaled instances. The default is `true` for custom containers. ||
 | `WEBSITES_CONTAINER_START_TIME_LIMIT` | Amount of time in seconds to wait for the container to complete start-up before restarting the container. Default is `230`. You can increase it up to the maximum of `1800`. ||
 | `DOCKER_REGISTRY_SERVER_URL` | URL of the registry server, when running a custom container in App Service. For security, this variable is not passed on to the container. | `https://<server-name>.azurecr.io` |
 | `DOCKER_REGISTRY_SERVER_USERNAME` | Username to authenticate with the registry server at `DOCKER_REGISTRY_SERVER_URL`. For security, this variable is not passed on to the container. ||

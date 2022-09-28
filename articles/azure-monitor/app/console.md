@@ -35,14 +35,15 @@ telemetryClient.TrackTrace("Hello World!");
 ```
 
 > [!NOTE]
-> Telemetry is not sent instantly. Telemetry items are batched and sent by the ApplicationInsights SDK. In Console apps, which exit right after calling `Track()` methods, telemetry may not be sent unless `Flush()` and `Sleep`/`Delay` is done before the app exits as shown in [full example](#full-example) later in this article. `Sleep` is not required if you are using `InMemoryChannel`. There is an active issue regarding the need for `Sleep` which is tracked here: [ApplicationInsights-dotnet/issues/407](https://github.com/microsoft/ApplicationInsights-dotnet/issues/407)
+> - Telemetry isn't sent instantly; items are batched and sent by the ApplicationInsights SDK. Console apps exit after calling `Track()` methods.
+> - Telemetry may not be sent unless `Flush()` and `Sleep`/`Delay` is done before the app exits as shown in [full example](#full-example) later in this article. `Sleep` is not required if you're using `InMemoryChannel`.
 
 * Install latest version of [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) package - it automatically tracks HTTP, SQL, or some other external dependency calls.
 
 You may initialize and configure Application Insights from the code or using `ApplicationInsights.config` file. Make sure initialization happens as early as possible.
 
 > [!NOTE]
-> Instructions referring to **ApplicationInsights.config** are only applicable to apps that are targeting the .NET Framework, and do not apply to .NET Core applications.
+> - **ApplicationInsights.config** is not supported by .NET Core applications.
 
 ### Using config file 
 
