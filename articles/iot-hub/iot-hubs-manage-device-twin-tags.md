@@ -62,7 +62,7 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 
 3. Select the desired devices, click **Assign Tags**.
    
-   ![Select devices to assign Tags](./media/iot-hubs-manage-device-twin-tags/iot-hub-device-select-device-to-assign-tags.png)
+   :::image type="content" source="./media/iot-hubs-manage-device-twin-tags/iot-hub-device-select-device-to-assign-tags.png" alt-text="Select devices to assign Tags.":::
 
 4. In the opened view, you can see the tags the devices already have. To add a new basic tag, provide a **name** and **value** for the tag. The format for key and value pair is found in [Tags and properties format](iot-hub-devguide-device-twins#tags-and-properties-format). Select **Save** to save the rule
    
