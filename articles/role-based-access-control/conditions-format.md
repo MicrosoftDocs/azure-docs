@@ -243,7 +243,7 @@ Currently, conditions can be added to built-in or custom role assignments that h
 - [Storage Queue Data Message Sender](built-in-roles.md#storage-queue-data-message-sender)
 - [Storage Queue Data Reader](built-in-roles.md#storage-queue-data-reader)
 
-For a list of the storage actions you can use in conditions, see [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/blobs/storage-auth-abac-attributes.md) and [Actions and attributes for Azure role assignment conditions for Azure queues (preview)](../storage/queues/queues-auth-abac-attributes.md).
+For a list of the storage actions you can use in conditions, see [Actions and attributes for Azure role assignment conditions for Azure Blob Storage (preview)](../storage/blobs/storage-auth-abac-attributes.md) and [Actions and attributes for Azure role assignment conditions for Azure queues (preview)](../storage/queues/queues-auth-abac-attributes.md).
 
 ## Attributes
 
@@ -260,7 +260,7 @@ Depending on the selected actions, the attribute might be found in different pla
 
 For a list of the blob storage or queue storage attributes you can use in conditions, see:
 
-- [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](../storage/blobs/storage-auth-abac-attributes.md)
+- [Actions and attributes for Azure role assignment conditions for Azure Blob Storage (preview)](../storage/blobs/storage-auth-abac-attributes.md)
 - [Actions and attributes for Azure role assignment conditions for Azure queues (preview)](../storage/queues/queues-auth-abac-attributes.md)
 
 #### Principal attributes
