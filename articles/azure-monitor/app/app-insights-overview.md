@@ -117,4 +117,4 @@ Post coding questions to [Stack Overflow]() using an Application Insights tag.
 
 ### User Voice
 
-Leave product feedback for the engineering team on [UserVoice](https://feedback.azure.com/d365community/forum/8849e04d-1325-ec11-b6e6-000d3a4f09d0).
+Leave product feedback for the engineering team on [UserVoice](https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0).

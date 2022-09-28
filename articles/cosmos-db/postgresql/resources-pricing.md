@@ -6,16 +6,14 @@ author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 02/23/2022
+ms.date: 09/26/2022
 ---
 
 # Pricing for Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-## General pricing
-
-For the most up-to-date pricing information, see the service
+For the most up-to-date general pricing information, see the service
 [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
 To see the cost for the configuration you want, the
 [Azure portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer)

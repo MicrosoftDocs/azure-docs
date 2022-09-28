@@ -7,7 +7,7 @@ ms.custom: mvc
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: conceptual
-ms.date: 07/11/2022
+ms.date: 09/27/2022
 ---
 
 # Product updates for Azure Cosmos DB for PostgreSQL
@@ -37,9 +37,6 @@ Here are the features currently available for preview:
   session and object audit logging via the standard PostgreSQL
   logging facility. It produces audit logs required to pass
   certain government, financial, or ISO certification audits.
-* **[Cross-region
-  replication](concepts-read-replicas.md#cross-region-replication-preview)**.
-  Create asynchronous read replicas for a cluster in different regions.
 
 ## Contact us
 

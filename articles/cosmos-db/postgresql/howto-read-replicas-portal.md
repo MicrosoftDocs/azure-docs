@@ -1,12 +1,12 @@
 ---
 title: Manage read replicas - Azure portal - Azure Cosmos DB for PostgreSQL
-description: Learn how to manage read replicas Azure Cosmos DB for PostgreSQL from the Azure portal.
+description: See how to manage read replicas in Azure Cosmos DB for PostgreSQL from the Azure portal.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: how-to
-ms.date: 06/17/2022
+ms.date: 09/24/2022
 ---
 
 # Create and manage read replicas
@@ -30,17 +30,17 @@ To create a read replica, follow these steps:
    primary. 
 
 2. On the cluster sidebar, under **Cluster management**, select
-   **Replication**.
+   **Replicate data globally**.
 
-3. Select **Add Replica**.
+3. On the **Replicate data globally** screen, select **Add replica**.
 
-4. Enter a name for the read replica. 
+4. Under **Cluster name**, enter a name for the read replica.
 
 5. Select a value from the **Location (preview)** drop-down.
 
-6. Select **OK** to confirm the creation of the replica.
+6. Select **OK**.
 
-After the read replica is created, it can be viewed from the **Replication** window.
+After the read replica is created, you can see it listed on the **Replicate data globally** screen.
 
 > [!IMPORTANT]
 >
@@ -60,33 +60,23 @@ steps:
 1. In the Azure portal, select your primary Azure Cosmos DB for PostgreSQL
    cluster.
 
-2. Open the **Overview** page for the cluster. Select **Delete**.
+1. On the **Overview** page for the cluster, select **Delete**.
  
-3. Enter the name of the primary cluster to delete. Select **Delete** to
-   confirm deletion of the primary cluster.
- 
+1. On the **Delete \<cluster name>** screen, select the checkbox next to **I understand that this cluster and all nodes that belong to this cluster will be deleted and cannot be recovered.**
+
+1. Select **Delete** to confirm deletion of the primary cluster.
 
 ## Delete a replica
 
 You can delete a read replica similarly to how you delete a primary cluster.
 
-- In the Azure portal, open the **Overview** page for the read replica. Select
-  **Delete**.
- 
-You can also delete the read replica from the **Replication** window by
-following these steps:
+You can select the read replica to delete directly from the portal, or from the **Replicate data globally** screen of the primary cluster.
 
-1. In the Azure portal, select your primary cluster.
+1. In the Azure portal, on the **Overview** page for the read replica, select **Delete**.
 
-2. On the cluster menu, under **Cluster management**, select
-   **Replication**.
+1. On the **Delete \<replica name>** screen, select the checkbox next to **I understand that this replica and all nodes that belong to it will be deleted. Deletion of this replica will not impact the primary cluster or other read replicas.**
 
-3. Select the read replica to delete.
- 
-4. Select **Delete replica**.
- 
-5. Enter the name of the replica to delete. Select **Delete** to confirm
-   deletion of the replica.
+1. Select **Delete** to confirm deletion of the replica.
 
 ## Next steps
 

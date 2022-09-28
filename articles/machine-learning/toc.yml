@@ -25,6 +25,9 @@
       - name: "Workspace"
         displayName: migration, v1, v2
         href: migrate-to-v2-resource-workspace.md
+      - name: "Compute"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-resource-compute.md
       - name: "Datastore"
         displayName: migration, v1, v2
         href: migrate-to-v2-resource-datastore.md
@@ -376,9 +379,6 @@
         - name: Set up software environments
           displayName: pip, Conda, anaconda
           href: how-to-use-environments.md
-        - name: Use private Python packages
-          displayName: pip, Conda, anaconda
-          href: how-to-use-private-python-packages.md
         - name: Set input & output directories
           displayName: large data, write, experiment files, size limit
           href: how-to-save-write-experiment-files.md
@@ -388,9 +388,6 @@
         - name: Connect to compute instance VS Code
           displayName: Visual Studio Code, VSCode, debug, bugs
           href: how-to-set-up-vs-code-remote.md
-        - name: Git integration
-          displayName: github gitlab
-          href: concept-train-model-git-integration.md
         - name: Manage environments with the CLI (v2)
           displayName: environment
           href: how-to-manage-environments-v2.md
@@ -428,19 +425,16 @@
           - name: Outsource labeling tasks
             href: how-to-outsource-data-labeling.md
     - name: Train models
-      items: 
+      items:
+        - name: Train a model (SDK, CLI, REST)
+          href: how-to-train-model.md
         - name: Train with the job creation UI
           href: how-to-train-with-ui.md
         - name: Train with the Python SDK
           items:
-          - name: Train with SDK v2 (preview)
-            href: how-to-train-sdk.md
           - name: Tune hyperparameters
             displayName: parameter, hyperparameter, hyperdrive
             href: how-to-tune-hyperparameters.md
-          - name: Distributed GPU guide
-            displayName: MPI, Horovod, DeepSpeed, PyTorch, Hugging Face Transformers, TensorFlow, InfiniBand
-            href: how-to-train-distributed-gpu.md
           - name: Scikit-learn
             href: how-to-train-scikit-learn.md
           - name: TensorFlow
@@ -454,10 +448,6 @@
           - name: Use Key Vault when training
             displayName: secrets keyvault job
             href: how-to-use-secrets-in-runs.md
-        - name: Train with the CLI v2
-          href: how-to-train-cli.md
-        - name: Train with the REST API
-          href: how-to-train-with-rest.md
         - name: Track & monitor training
           items:
             - name: Monitor training jobs
@@ -532,9 +522,6 @@
             - name: Inference image models with ONNX model
               displayName: automl, image, image model, computer vision
               href: how-to-inference-onnx-automl-image-models.md
-            - name: Explain automated ML models
-              displayName: SDK, interpret, interpret, explain, explainability, interpretability, automated ML, automl, auto ml
-              href: how-to-machine-learning-interpretability-automl.md
             - name: Troubleshoot automated ML
               href: how-to-troubleshoot-auto-ml.md
     - name: Deploy models
@@ -641,6 +628,8 @@
               href: how-to-use-sweep-in-pipeline.md
             - name: Build and debug pipelines (UI)
               href: how-to-use-pipeline-ui.md
+            - name: How to use parallel job in pipeline
+              href: how-to-use-parallel-job-in-pipeline.md  
             - name: Designer (drag-n-drop)
               items: 
                 - name: Log metrics
@@ -728,7 +717,7 @@
         - name: Model
           href: reference-yaml-model.md
         - name: Schedule
-          href: reference-yaml-schedule.md 
+          href: reference-yaml-schedule.md
         - name: Compute
           items: 
             - name: Compute cluster (AmlCompute)
@@ -747,6 +736,8 @@
               href: reference-yaml-job-sweep.md
             - name: Pipeline
               href: reference-yaml-job-pipeline.md
+            - name: Parallel
+              href: reference-yaml-job-parallel.md 
         - name: Datastore
           items: 
             - name: Azure Blob
@@ -775,6 +766,8 @@
           items: 
             - name: Command
               href: reference-yaml-component-command.md
+    - name: Service limits
+      href: resource-limits-capacity.md
     - name: Image data schemas for AutoML
       displayName: automl, schema, data, computer vision, image model
       href: reference-automl-images-schema.md
