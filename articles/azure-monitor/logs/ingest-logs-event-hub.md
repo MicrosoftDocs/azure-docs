@@ -314,11 +314,11 @@ With [managed identity](../../active-directory/managed-identities-azure-resource
 
 1. From the event hub in the Azure portal, select **Access Control (IAM)** > **Add role assignment**. 
 
-    :::image type="content" source="media/ingest-logs-event-hub/data-collection-rule-add-role-assignment.png" lightbox="media/ingest-logs-event-hub/data-collection-rule-add-role-assignment.png" alt-text="Screenshot that shows the Access control screen for the data collection rule.":::
+    :::image type="content" source="media/ingest-logs-event-hub/event-hub-add-role-assignment.png" lightbox="media/ingest-logs-event-hub/event-hub-add-role-assignment.png" alt-text="Screenshot that shows the Access control screen for the data collection rule.":::
 
 2. Select **Azure Event Hubs Data Receiver** and select **Next**.   
 
-    :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment-select-role.png" lightbox="media/tutorial-logs-ingestion-portal/add-role-assignment-select-role.png" alt-text="Screenshot for selecting role for DCR role assignment.":::
+    :::image type="content" source="media/ingest-logs-event-hub/event-hub-add-role-assignment.png" lightbox="media/ingest-logs-event-hub/event-hub-add-role-assignment.png" alt-text="Screenshot that shows the Add Role Assignment screen for the event hub with the Azure Event Hubs Data Receiver role highlighted.":::
 
 3. Select **User, group, or service principal** for **Assign access to** and click **Select members**. Select your DCR and click **Select**.
 
