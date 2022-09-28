@@ -357,7 +357,11 @@ Azure Cosmos DB for MongoDB supports documents encoded in MongoDB BSON format. T
  
 In an [upgrade scenario](upgrade-mongodb-version.md), documents written prior to the upgrade to version 4.0+ will not benefit from the enhanced performance until they are updated via a write operation through the 4.0+ endpoint.
 
-16MB document support raises the size limit for your documents from 2MB to 16MB. This limit only applies to collections created after this feature has been enabled. Once this feature is enabled for your database account, it cannot be disabled. This feature is not compatible with the Azure Synapse Link feature and/or Continuous Backup. We recommend enabling Server Side Retry to ensure requests with larger documents succeed. If necessary, raising your DB/Collection RUs may also help performance. 
+16MB document support raises the size limit for your documents from 2MB to 16MB. This limit only applies to collections created after this feature has been enabled. Once this feature is enabled for your database account, it cannot be disabled. This feature is not compatible with the Azure Synapse Link feature and/or Continuous Backup.
+
+Enabling 16MB can be done in the features tab in the Azure Portal or programmatically by [adding the "EnableMongo16MBDocumentSupport" capability](how-to-configure-capabilities.md). 
+
+We recommend enabling Server Side Retry to ensure requests with larger documents succeed. If necessary, raising your DB/Collection RUs may also help performance. 
 
 | Command | Supported |
 |---------|---------|
