@@ -108,13 +108,16 @@ To monitor the database state, and to enable alerting for the loss of transparen
 
 ## Restore and replicate with a customer's managed key in Key Vault
 
-After Azure Database for PostgreSQL - Flexible Server  is encrypted with a customer's managed key stored in Key Vault, any newly created copy of the server is also encrypted. You can make this new copy either through a local or geo-restore operation, or through read replicas. However, the copy can be changed to reflect a new customer's managed key for encryption. When the customer-managed key is changed, old backups of the server start using the latest key.
+After Azure Database for PostgreSQL - Flexible Server  is encrypted with a customer's managed key stored in Key Vault, any newly created copy of the server is also encrypted. You can make this new copy either through a [PITR restore](concepts-backup-restore.md) operation, or through read replicas. 
+**At this time we don't support revoking key after restoring CMK enabled server to another server**
+
+
 
 To avoid issues while setting up customer-managed data encryption during restore or read replica creation, it's important to follow these steps on the primary and restored/replica servers:
 
 * Initiate the restore or read replica creation process from the primary Azure Database for PostgreSQL - Flexible server.
-* Keep the newly created server (restored/replica) in an inaccessible state, because its unique identity hasn't yet been given permissions to Key Vault.
-* On the restored/replica server, revalidate the customer-managed key in the data encryption settings. This ensures that the newly created server is given wrap and unwrap permissions to the key stored in Key Vault.
+* On the restored/replica server, you can change the customer-managed key and\or AAD identity used to access Azure Key Vault in the data encryption settings. Please make sure that the newly created server is given list, wrap and unwrap permissions to the key stored in Key Vault.
+* Please do not revoke original key after restoring, as at this time we don't support key revocation after restoring CMK enabled server to another server
 
 ## Limitations
 
@@ -124,22 +127,11 @@ The following are limitations for configuring the customer-managed key in Flexib
 * Once enabled CMK encryption cannot be removed. If customer desires to remove this feature it can only be done via restore of the server to non-CMK server.
 * CMK encryption is not available on Burstable SKU.
 
-The following are additional limitations for private preview of configuring the customer-managed key that we expect to remove at later date:
+The following are additional limitations for public preview of configuring the customer-managed key that we expect to remove at General Availability of this feature:
 
-* Azure Key Vault must be configured to allow all network access (has been resolved)
-* No support for Geo backup enabled servers and  Replicas
-* No support for Azure HSM Key Vault (Planned for GA)
-* No CLI or PowerShell support
-* No HA failover support (Has been resolved)
+* No support for Geo backup enabled servers 
+* **No support for revoking key after restoring CMK enabled server to another server**
+* No support for Azure HSM Key Vault 
+* No CLI or PowerShell support 
 
-The following regions are not available for private preview of configuring the customer-managed key:
-* Austalia Central
-* Australia Southeast
-* Brazil South
-* Canada East
-* US East 2
-* Germany North
-* Central India
-* Japan West
-* UK West
-* West US 3
+
