@@ -220,10 +220,10 @@ An authentication strength Conditional Access policy works together with [MFA tr
 
 ## FAQ
 
-### Should I use authentication strengths or the unified authentication method policy?
-Authentication strength is based on the unified Authentication methods policy, where administrators can scope authentication methods for specific users and groups to be used across Azure AD, as well as method specific configuration. Authentication strengths allows an additional restriction of the different methods for specific scenarios such as sensitive resource access, user risk, location, and more.
+### Should I use authentication strengths or Authentication method policy?
+Authentication strength is based on the Authentication methods policy, where administrators can scope authentication methods for specific users and groups to be used across Azure AD, as well as method specific configuration. Authentication strengths allows an additional restriction of the different methods for specific scenarios such as sensitive resource access, user risk, location, and more.
 
-For example, the administrator of Contoso would like to allow their users to use the Microsoft Authenticator app in either push notifications or Microsoft Authenticator (phone sign-in) -  passwordless authentication. The administrator goes to the Microsoft Authenticator settings in the Unified authentication method policy, scopes the policy for the relevant users and set the “Authentication mode” to “Any”. 
+For example, the administrator of Contoso would like to allow their users to use the Microsoft Authenticator app in either push notifications or Microsoft Authenticator (phone sign-in) -  passwordless authentication. The administrator goes to the Microsoft Authenticator settings in the Authentication method policy, scopes the policy for the relevant users and set the “Authentication mode” to “Any”. 
 
 Then, on Contoso’s most sensitive resource, the administrator would like to restrict the access to only passwordless authentication methods. The administrator creates a new Conditional Access policy, using the built-in authentication strengths “Passwordless MFA”. 
 
