@@ -144,7 +144,7 @@ The authentication strength Conditional Access policy checks these settings to d
 
 The following factors determine if the user gains access to the resource: 
 
-- Which authentication method was most recently used?
+- Which authentication method was previously used?
 - Which methods are available for the authentication strength? 
 - Which methods are allowed for user sign-in in the Authentication methods policy?
 - Is the user registered for any available method?
@@ -160,12 +160,12 @@ If the authentication strength doesn't include a method that the user can regist
 ### Registering authentication methods
 
 The following authentication methods can't be registered as part of combined registration interrupt mode: 
-* [Microsoft Authenticator (phone sign-in)](https://support.microsoft.com/account-billing/add-your-work-or-school-account-to-the-microsoft-authenticator-app-43a73ab5-b4e8-446d-9e54-2a4cb8e4e93c)
-* [FIDO2](howto-authentication-passwordless-security-key.md)
-* [Certificate-based authentication](concept-certificate-based-authentication.md)
-* [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-prepare-people-to-use) 
+* [Microsoft Authenticator (phone sign-in)](https://support.microsoft.com/account-billing/add-your-work-or-school-account-to-the-microsoft-authenticator-app-43a73ab5-b4e8-446d-9e54-2a4cb8e4e93c) - Can be registered from the Authenticator app.
+* [FIDO2](howto-authentication-passwordless-security-key.md) - can be registered using [combined registration managed mode](concept-registration-mfa-sspr-combined.md#manage-mode).
+* [Certificate-based authentication](concept-certificate-based-authentication.md) - Require administrator setup, cannot be registered by the user. 
+* [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-prepare-people-to-use) - Can be registered in the Windows Out of Box Experience (OOBE) or the Windows Settings menu.
 
-If a user isn't registered for these methods, they can register a required method by using [combined registration managed mode](concept-registration-mfa-sspr-combined.md#manage-mode). They can't access the resource until the required method is registered. For the best user experience, make sure users complete combined registered in advance for the different methods they may need to use.
+If a user isn't registered for these methods, they can't access the resource until the required method is registered. For the best user experience, make sure users complete combined registered in advance for the different methods they may need to use.
 
 ## External users
 
