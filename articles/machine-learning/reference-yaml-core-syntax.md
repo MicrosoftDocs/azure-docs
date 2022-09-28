@@ -229,5 +229,5 @@ python train.py --training_data some_input_path --max_epocs 10 --learning_rate 0
 ## Next steps
 
 * [Install and use the CLI (v2)](how-to-configure-cli.md)
-* [Train models with the CLI (v2)](how-to-train-cli.md)
+* [Train models with the CLI (v2)](how-to-train-model.md)
 * [CLI (v2) YAML schemas](reference-yaml-overview.md)
