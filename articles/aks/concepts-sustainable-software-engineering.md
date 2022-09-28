@@ -43,7 +43,7 @@ Decisions made in one design area can impact or influence decisions across the e
 
 We recommend that readers familiarize themselves with these design areas, reviewing provided considerations and recommendations to better understand the consequences of encompassed decisions.
 
-## Sustainability Design considerations for AKS workloads (or applications)
+## Sustainability Design considerations for AKS workloads
 
 |Design area|Description|
 |---|---|
