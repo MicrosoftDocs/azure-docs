@@ -94,7 +94,7 @@ In addition to choosing between manual and automatic mode, there are several opt
 |--image-cleaner-interval-hours|This parameter determines the interval time (in hours) ImageCleaner will use to run. The default value is one week, the minimum value is 24 hours and the maximum is three months.|No|
 
 > [!NOTE]
-> After disabling ImageCleaner, the old configuration still exists. That means, if you enable the feature agagin without setting the parameter, the value is old one rather than default one. 
+> After disabling ImageCleaner, the old configuration still exists. This means that if you enable the feature again without explicitly passing configuration, the existing value will be used rather than the default.
 
 ## Enable ImageCleaner on your AKS cluster
 
