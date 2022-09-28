@@ -35,7 +35,7 @@ The procedure to add a storage target is slightly different depending on the typ
 
 When you create the cache, make sure you select the type and size that will support the number of storage targets you need.
 
-The number of supported storage targets depends on the cache capacity, which is a combination of throughput capacity (in GB/s) and storage capacity (in TB).
+The number of supported storage targets depends on the cache type and the cache capacity, which is a combination of throughput capacity (in GB/s) and storage capacity (in TB).
 
 * Up to 10 storage targets - A standard cache with the smallest or medium cache storage value for your selected throughput can have a maximum of 10 storage targets.
 
