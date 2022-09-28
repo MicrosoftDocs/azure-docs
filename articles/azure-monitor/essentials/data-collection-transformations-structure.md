@@ -320,7 +320,7 @@ Given a string containing a CEF message, `parse_cef_dictionary` parses the Exten
 | project TimeGenerated, cefMessage, parsecefDictionaryExtension
 ```
 
-:::image type="content" source="media/data-collection-transformations-structure/parse_cef_dictionary.png" lightbox="media/data-collection-transformations-structure/parse_cef_dictionary.png" alt-text="Sample output of parse_cef_dictionary function.":::
+:::image type="content" source="media/data-collection-transformations-structure/parse_cef_dictionary.png" alt-text="Sample output of parse_cef_dictionary function." lightbox="media/data-collection-transformations-structure/parse_cef_dictionary.png":::
 
 
 ### Identifier quoting
