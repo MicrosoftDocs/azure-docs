@@ -108,11 +108,11 @@ To check if an authentication strength is referenced by a Conditional Access pol
 #### FIDO2 security key advanced options
 Custom authentication strengths allow customers to further restrict the usage of some FIDO2 security keys based on their Authenticator Attestation GUIDs (AAGUIDs). The capability allows administrators to require a FIDO2 key from a specific manufacture in order to access the resource. To require a specific FIDO2 security key, complete the preceding steps to create a custom authentication strength, select **FIDO2 Security Key**, and click **Advanced options**. 
 
-::image type="content" source="media/concept-authentication-strengths/key.png" alt-text="Screenshot showing Advanced options.":::
+::image type="content" source="./media/concept-authentication-strengths/key.png" alt-text="Screenshot showing Advanced options.":::
 
-Click **+**, copy the AADGUID value, and click **Save**.
+Next to **Allowed FIDO2 Keys** click **+**, copy the AADGUID value, and click **Save**.
 
-::image type="content" source="media/concept-authentication-strengths/aadguid.png" alt-text="Screenshot showing how to add an Authenticator Attestation GUID.":::
+::image type="content" source="./media/concept-authentication-strengths/aadguid.png" alt-text="Screenshot showing how to add an Authenticator Attestation GUID.":::
 
 ## Using authentication strength in Conditional Access
 After you determine the authentication strength you need, you can refer to that authentication strength in a Conditional Access policy. When the Conditional Access policy applies to sign-in, the authentication strength restricts which authentication methods are allowed.
@@ -223,14 +223,14 @@ For example, the administrator of Contoso would like to allow their users to use
 
 Then, on Contoso’s most sensitive resource, the administrator would like to restrict the access to only passwordless authentication methods. The administrator creates a new Conditional Access policy, using the built-in authentication strengths “Passwordless MFA”. 
 
-As a result, users in Contoso could access most of the resources in the tenant using password + push notification from the Microsoft Authenticator OR only using Microsoft Authenticator (phone sign-in). However, when the users in the tenant access the sensitive application, they must use  Microsoft Authenticator (phone sign-in).
+As a result, users in Contoso could access most of the resources in the tenant using password + push notification from the Microsoft Authenticator OR only using Microsoft Authenticator (phone sign-in). However, when the users in the tenant access the sensitive application, they must use Microsoft Authenticator (phone sign-in).
 
 
 
 ## Prerequisites
 
 - **Azure AD Premium P1** - Your tenant needs to have Azure AD Premium P1 license to use Conditional Access. If needed, you can enable a [free trial](https://www.microsoft.com/security/business/get-started/start-free-trial).
-- **Enable combined registration** - Authentication strengths policy is supported when using [combined MFA and SSPR registration](howto-registration-mfa-sspr-combined.md). Using the legacy registration will result in poor user experience as the user may register methods that aren't required by the authentication method policy.
+- **Enable combined registration** - Authentication strengths are supported when using [combined MFA and SSPR registration](howto-registration-mfa-sspr-combined.md). Using the legacy registration will result in poor user experience as the user may register methods that aren't required by the authentication method policy.
 
 ## Next steps
 
