@@ -11,6 +11,7 @@ ms.devlang: azurecli
 ---
 
 # Configure customer-managed keys for your Azure Cosmos DB account with Azure Key Vault
+
 [!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 Data stored in your Azure Cosmos DB account is automatically and seamlessly encrypted with keys managed by Microsoft (**service-managed keys**). Optionally, you can choose to add a second layer of encryption with keys you manage (**customer-managed keys** or CMK).
