@@ -101,8 +101,8 @@ There are two common scenarios for promoting a replica:
    the replica.  To avoid potentially losing data during promotion, you may want
    to disable writes to the original server group after the replica catches up.
 
-   You can see how far a replica has caught up with the `replication_lag` metric.
-   See [metrics](concepts-monitoring.md#metrics) for more information.
+   You can see how far a replica has caught up using the `replication_lag`
+   metric. See [metrics](concepts-monitoring.md#metrics) for more information.
 
 ## Considerations
 
