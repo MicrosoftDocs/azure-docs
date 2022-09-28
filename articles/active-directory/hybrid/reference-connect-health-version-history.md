@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 The Azure Active Directory team regularly updates Azure AD Connect Health with new features and functionality. This article lists the versions and features that have been released.  
 
 > [!NOTE]
-> Connect Health agents are updated automatically when new version is released. Please ensure the auto-upgrade settings is enabled from Azure portal.
+> Azure AD Connect Health agents are updated automatically when new version is released.
 >
 
 Azure AD Connect Health for Sync is integrated with Azure AD Connect installation. Read more about [Azure AD Connect release history](./reference-connect-version-history.md)

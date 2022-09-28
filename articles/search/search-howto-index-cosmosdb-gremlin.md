@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 07/12/2022
+ms.date: 09/08/2022
 ---
 
 # Index data from Azure Cosmos DB using the Gremlin API
@@ -296,6 +296,9 @@ api-key: [Search service admin key]
     }
 }
 ```
+
+Even if you enable deletion detection policy, deleting complex (`Edm.ComplexType`) fields from the index is not supported. This policy requires that the 'active' column in the Gremlin database to be of type integer, string or boolean.
+
 
 <a name="MappingGraphData"></a>
 

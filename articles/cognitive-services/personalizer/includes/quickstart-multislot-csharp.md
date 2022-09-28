@@ -11,7 +11,7 @@ author: jcodella
 ms.author: jacodel
 ms.date: 03/23/2021
 ---
-[Reference documentation](/dotnet/api/Microsoft.Azure.AI.Personalizer) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/personalizer) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.Personalizer/2.0.0-beta.1) | [Multi-slot conceptual](..\concept-multi-slot-personalization.md) | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Personalizer)
+[Reference documentation](/dotnet/api/azure.ai.personalizer) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/personalizer) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.Personalizer/2.0.0-beta.1) | [Multi-slot conceptual](..\concept-multi-slot-personalization.md) | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Personalizer)
 
 ## Prerequisites
 
@@ -60,7 +60,7 @@ Build succeeded.
 Within the application directory, install the Personalizer client library for .NET with the following command:
 
 ```console
-dotnet add package Azure.AI.Personalizer --version 2.0.0-beta.1
+dotnet add package Azure.AI.Personalizer --version 2.0.0-beta.2
 ```
 
 From the project directory, open the `Program.cs` file in your preferred editor or IDE. Add the following using directives:

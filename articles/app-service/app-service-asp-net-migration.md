@@ -76,4 +76,4 @@ The [app containerization tool](https://azure.microsoft.com/blog/accelerate-appl
 
 ## Next steps
 
-[Migrate an on-premises web application to Azure App Service](/learn/modules/migrate-app-service-migration-assistant/)
+[Migrate an on-premises web application to Azure App Service](/training/modules/migrate-app-service-migration-assistant/)

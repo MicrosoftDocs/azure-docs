@@ -121,7 +121,7 @@ Azure Virtual Desktop currently doesn't have a list of IP address ranges that yo
 
 ## Remote Desktop clients
 
-Any [Remote Desktop clients](user-documentation/connect-windows-7-10.md?toc=%2Fazure%2Fvirtual-desktop%2Ftoc.json&bc=%2Fazure%2Fvirtual-desktop%2Fbreadcrumb%2Ftoc.json) you use to connect to Azure Virtual Desktop must have access to the following URLs. Select the relevant tab based on which cloud you're using. Opening these URLs is essential for a reliable client experience. Blocking access to these URLs is unsupported and will affect service functionality.
+Any [Remote Desktop clients](user-documentation/connect-windows-7-10.md?toc=/azure/virtual-desktop/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json) you use to connect to Azure Virtual Desktop must have access to the following URLs. Select the relevant tab based on which cloud you're using. Opening these URLs is essential for a reliable client experience. Blocking access to these URLs is unsupported and will affect service functionality.
 
 # [Azure cloud](#tab/azure)
 
@@ -132,7 +132,7 @@ Any [Remote Desktop clients](user-documentation/connect-windows-7-10.md?toc=%2Fa
 | `*.servicebus.windows.net` | 443 | Troubleshooting data | All |
 | `go.microsoft.com` | 443 | Microsoft FWLinks | All |
 | `aka.ms` | 443 | Microsoft URL shortener | All |
-| `docs.microsoft.com` | 443 | Documentation | All |
+| `learn.microsoft.com` | 443 | Documentation | All |
 | `privacy.microsoft.com` | 443 | Privacy statement | All |
 | `query.prod.cms.rt.microsoft.com` | 443 | Client updates | Windows Desktop |
 
@@ -145,7 +145,7 @@ Any [Remote Desktop clients](user-documentation/connect-windows-7-10.md?toc=%2Fa
 | `*.servicebus.usgovcloudapi.net` | 443 | Troubleshooting data | All |
 | `go.microsoft.com` | 443 | Microsoft FWLinks | All |
 | `aka.ms` | 443 | Microsoft URL shortener | All |
-| `docs.microsoft.com` | 443 | Documentation | All |
+| `learn.microsoft.com` | 443 | Documentation | All |
 | `privacy.microsoft.com` | 443 | Privacy statement | All |
 | `query.prod.cms.rt.microsoft.com` | 443 | Client updates | Windows Desktop |
 
