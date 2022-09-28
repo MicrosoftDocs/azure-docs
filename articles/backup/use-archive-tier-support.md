@@ -2,7 +2,7 @@
 title: Use Archive tier
 description: Learn about using Archive tier Support for Azure Backup.
 ms.topic: conceptual
-ms.date: 09/12/2022
+ms.date: 10/03/2022
 ms.custom: devx-track-azurepowershell-azurecli, devx-track-azurecli
 zone_pivot_groups: backup-client-portaltier-powershelltier-clitier
 author: v-amallick
@@ -32,27 +32,6 @@ You can now view all the recovery points that are moved to archive.
 ## Enable Smart Tiering to Vault-archive using a backup policy
 
 You can automatically move all eligible/recommended recovery points to Vault-archive by configuring the required settings in the backup policy.
-
->[!Note]
->Enable your subscription to use this feature.
-
-### Enable a subscription for Smart Tiering
-
-To enable a subscription, follow these steps:
-
-1. In the Azure portal, select the subscription you want to enable.
-
-1. Select **Preview Features** in the left pane.
-
-   :::image type="content" source="./media/use-archive-tier-support/select-preview-feature-inline.png" alt-text="Screenshot showing to select the Preview Feature option." lightbox="./media/use-archive-tier-support/select-preview-feature-expanded.png":::
-
-1. Select **Smart Tiering for Azure Backup**.
-
-   :::image type="content" source="./media/use-archive-tier-support/select-smart-tiering-for-archive-inline.png" alt-text="Screenshot showing to select Smart Tiering for Archive option." lightbox="./media/use-archive-tier-support/select-smart-tiering-for-archive-expanded.png":::
-
-1. Select **Register**.
-
-The subscription gets enabled for Smart Tiering in a few minutes.
 
 ### Enable Smart Tiering for Azure Virtual Machine
 
