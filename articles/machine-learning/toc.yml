@@ -122,9 +122,6 @@
         - name: Model training
           displayName: run config, machine learning pipeline, ml pipeline, train model
           href: concept-train-machine-learning-model.md
-        - name: Distributed training
-          displayName: parallellization, deep learning, deep neural network, dnn
-          href: concept-distributed-training.md
         - name: Deep learning
           displayName: deep learning vs machine learning, deep learning, vs, versus
           href: concept-deep-learning-vs-machine-learning.md
