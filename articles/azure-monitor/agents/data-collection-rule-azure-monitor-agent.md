@@ -18,7 +18,7 @@ To collect data from virtual machines by using Azure Monitor Agent, you'll:
 1. Create [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) that define which data Azure Monitor Agent sends to which destinations.
 1. Associate the data collection rule to specific virtual machines.
 
-    You can associate virtual machines to multiple data collection rules. For this reason, you can define each data collection rule to address a particular requirement. You can associate the data collection rules to virtual machines based on the specific data you want to collect from each machine.
+    You can associate virtual machines to multiple data collection rules. Define each data collection rule to address a particular requirement. Associate one or more data collection rules to a virtual machine based on the specific data you want the machine to collect.
 
 ## Create data collection rule and association
 
@@ -136,7 +136,7 @@ For a list of limitations in the XPath supported by Windows event log, see [XPat
 > - If you receive the message "No events were found that match the specified selection criteria," the query might be valid but there are no matching events on the local machine.
 > - If you receive the message "The specified query is invalid," the query syntax is invalid.
 
-Examples of filtering events that use a custom XPath:
+Examples of using a custom XPath to filter events:
 
 | Description |  XPath |
 |:---|:---|
