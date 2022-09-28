@@ -1,7 +1,7 @@
 ---
 title: Configure vehicle analysis containers
 titleSuffix: Azure Cognitive Services
-description: Vehicle analysis provides each container with a common configuration framework, so that you can easily configure and manage compute, AI insight egress, logging, telemetry, and security settings.
+description: Vehicle analysis provides each container with a common configuration framework, so that you can easily configure and manage compute, AI insight egress, logging, and security settings.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -14,11 +14,11 @@ ms.author: pafarley
 
 # Install and run vehicle analysis (preview)
 
-Vehicle analysis is a set of capabilities that, when used in conjunction with the Spatial Analysis container, enable you to analyze real-time streaming video to understand vehicle characteristics and placement. In this article, you'll learn how to leverage the capabilities of the spatial analysis container to deploy vehicle analysis operations.
+Vehicle analysis is a set of capabilities that, when used with the Spatial Analysis container, enable you to analyze real-time streaming video to understand vehicle characteristics and placement. In this article, you'll learn how to use the capabilities of the spatial analysis container to deploy vehicle analysis operations.
 
 ## Prerequisites
 
-* To utilize the operations of vehicle analysis, you must first follow the steps to [install and run spatial analysis container](./Project-Archon.md) including configuring your host machine, downloading and configuring your [DeploymentManifest.json](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest.json) file, executing the deployment, and setting up device [telemetry](./Project-Archon-Telemetry). 
+* To utilize the operations of vehicle analysis, you must first follow the steps to [install and run spatial analysis container](./spatial-analysis-container.md) including configuring your host machine, downloading and configuring your [DeploymentManifest.json](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest.json) file, executing the deployment, and setting up device [telemetry](./Project-Archon-Telemetry). 
    * When you configure your [DeploymentManifest.json](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest.json) file, refer to the steps below to add the graph configurations for vehicle analysis to your manifest prior to deploying the container. Or, once the spatial analysis container is up and running, you may add the graph configurations and follow the steps to redeploy. The steps below will outline how to properly configure your container.
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -36,7 +36,7 @@ The following operations for vehicle analysis are available in the current Spati
 | **cognitiveservices.vision.vehicleanalysis-vehiclecount-preview** and **cognitiveservices.vision.vehicleanalysis-vehiclecount.cpu-preview** | Counts vehicles parked in a designated zone in the camera's field of view. </br> Emits an initial _vehicleCountEvent_ event and then _vehicleCountEvent_ events when the count changes. |  
 | **cognitiveservices.vision.vehicleanalysis-vehicleinpolygon-preview** and **cognitiveservices.vision.vehicleanalysis-vehicleinpolygon.cpu-preview** | Identifies when a vehicle parks in a designated parking region in the camera's field of view. </br> Emits a _vehicleInPolygonEvent_ event when the vehicle is parked inside a parking space. |
 
-In addition to exposing the vehicle location, additional estimated attributes for **cognitiveservices.vision.vehicleanalysis-vehiclecount-preview**, **cognitiveservices.vision.vehicleanalysis-vehiclecount.cpu-preview**, **cognitiveservices.vision.vehicleanalysis-vehicleinpolygon-preview** and **cognitiveservices.vision.vehicleanalysis-vehicleinpolygon.cpu-preview** include vehicle color and vehicle type. All of the possible values for these attributes are found in the [output section (below)](#sample-cognitiveservicesvisionvehicleanalysis-vehiclecount-output).
+In addition to exposing the vehicle location, other estimated attributes for **cognitiveservices.vision.vehicleanalysis-vehiclecount-preview**, **cognitiveservices.vision.vehicleanalysis-vehiclecount.cpu-preview**, **cognitiveservices.vision.vehicleanalysis-vehicleinpolygon-preview** and **cognitiveservices.vision.vehicleanalysis-vehicleinpolygon.cpu-preview** include vehicle color and vehicle type. All of the possible values for these attributes are found in the [output section (below)](#sample-cognitiveservicesvisionvehicleanalysis-vehiclecount-output).
 
 ### Operation parameters for vehicle analysis
 
@@ -51,10 +51,10 @@ The following table shows the parameters required by each of the vehicle analysi
 | VIDEO_IS_LIVE| True for camera devices; false for recorded videos.|
 | VIDEO_DECODE_GPU_INDEX| Index specifying which GPU will decode the video frame. By default it is 0. This should be the same as the `gpu_index` in other node configurations like `VICA_NODE_CONFIG`, `DETECTOR_NODE_CONFIG`.|
 | PARKING_REGIONS | JSON configuration for zone and line as outlined below. </br> PARKING_REGIONS must contain four points in normalized coordinates ([0, 1]) that define a convex region (the points follow a clockwise or counterclockwise order).|
-| EVENT_OUTPUT_MODE | Can be ON_INPUT_RATE or ON_CHANGE. ON_INPUT_RATE will generate an output on every single frame received (1 FPS). ON_CHANGE will generate an output when something changes (number of vehicles or parking spot occupancy). |
+| EVENT_OUTPUT_MODE | Can be ON_INPUT_RATE or ON_CHANGE. ON_INPUT_RATE will generate an output on every single frame received (one FPS). ON_CHANGE will generate an output when something changes (number of vehicles or parking spot occupancy). |
 | PARKING_SPOT_METHOD | Can be BOX or PROJECTION. BOX will use an overlap between the detected bounding box and a reference bounding box. PROJECTIONS will project the centroid point into the parking spot polygon drawn on the floor. This is only used for Parking Spot and can be suppressed.|
 
-Here is an example of a valid `PARKING_REGIONS` configuration:
+This is an example of a valid `PARKING_REGIONS` configuration:
 
 ```json
 "{\"parking_slot1\": {\"type\": \"SingleSpot\", \"region\": [[0.20833333, 0.46203704], [0.3015625 , 0.66203704], [0.13229167, 0.7287037 ], [0.07395833, 0.51574074]]}}"
@@ -77,7 +77,7 @@ This is an example of a JSON input for the `PARKING_REGIONS` parameter that conf
 |---------|---------|---------|
 | `zones` | dictionary | Keys are the zone names and the values are a field with type and region.|
 | `name` | string| Friendly name for this zone.|
-| `region` | list| Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which vehicles are tracked or counted. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. 
+| `region` | list| Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which vehicles are tracked or counted. The float values represent the position of the vertex relative to the top left corner. To calculate the absolute x, y values, you multiply these values with the frame size. 
 | `type` | string| For **cognitiveservices.vision.vehicleanalysis-vehiclecount** this should be "Queue".|
 
 
@@ -98,7 +98,7 @@ This is an example of a JSON input for the `PARKING_REGIONS` parameter that conf
 |---------|---------|---------|
 | `zones` | dictionary | Keys are the zone names and the values are a field with type and region.|
 | `name` | string| Friendly name for this zone.|
-| `region` | list| Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which vehicles are tracked or counted. The float values represent the position of the vertex relative to the top,left corner. To calculate the absolute x, y values, you multiply these values with the frame size. 
+| `region` | list| Each value pair represents the x,y for vertices of polygon. The polygon represents the areas in which vehicles are tracked or counted. The float values represent the position of the vertex relative to the top left corner. To calculate the absolute x, y values, you multiply these values with the frame size. 
 | `type` | string| For **cognitiveservices.vision.vehicleanalysis-vehicleingpolygon-preview** and **cognitiveservices.vision.vehicleanalysis-vehicleingpolygon.cpu-preview** this should be "SingleSpot".|
 
 ## Configuring the vehicle analysis operations
@@ -425,7 +425,7 @@ The JSON below demonstrates an example of the vehicle count operation graph outp
 
 | Event Field Name | Type| Description|
 |---------|---------|---------|
-| `id` | string| Event id|
+| `id` | string| Event ID|
 | `type` | string| Event type|
 | `detectionsId` | array| Array of unique identifier of the vehicle detections that triggered this event|
 | `properties` | collection| Collection of values [detectionCount]|
@@ -434,7 +434,7 @@ The JSON below demonstrates an example of the vehicle count operation graph outp
 
 | Detections Field Name | Type| Description|
 |---------|---------|---------|
-| `id` | string| Detection id|
+| `id` | string| Detection ID|
 | `type` | string| Detection type|
 | `region` | collection| Collection of values|
 | `type` | string| Type of region|
@@ -449,7 +449,7 @@ The JSON below demonstrates an example of the vehicle count operation graph outp
 
 | SourceInfo Field Name | Type| Description|
 |---------|---------|---------|
-| `id` | string| Camera id|
+| `id` | string| Camera ID|
 | `timestamp` | date| UTC date when the JSON payload was emitted in format YYYY-MM-DDTHH:MM:SS.ssZ |
 | `width` | int | Video frame width|
 | `height` | int | Video frame height|
@@ -616,7 +616,7 @@ The JSON below demonstrates an example of the vehicle in polygon operation graph
 
 | Event Field Name | Type| Description|
 |---------|---------|---------|
-| `id` | string| Event id|
+| `id` | string| Event ID|
 | `type` | string| Event type|
 | `detectionsId` | array| Array of unique identifier of the vehicle detection that triggered this event|
 | `properties` | collection| Collection of values status [PARKED/EXITED]|
@@ -625,7 +625,7 @@ The JSON below demonstrates an example of the vehicle in polygon operation graph
 
 | Detections Field Name | Type| Description|
 |---------|---------|---------|
-| `id` | string| Detection id|
+| `id` | string| Detection ID|
 | `type` | string| Detection type|
 | `region` | collection| Collection of values|
 | `type` | string| Type of region|
@@ -640,7 +640,7 @@ The JSON below demonstrates an example of the vehicle in polygon operation graph
 
 | SourceInfo Field Name | Type| Description|
 |---------|---------|---------|
-| `id` | string| Camera id|
+| `id` | string| Camera ID|
 | `timestamp` | date| UTC date when the JSON payload was emitted in format YYYY-MM-DDTHH:MM:SS.ssZ |
 | `width` | int | Video frame width|
 | `height` | int | Video frame height|
@@ -648,25 +648,25 @@ The JSON below demonstrates an example of the vehicle in polygon operation graph
 
 ## Zone and line configuration for vehicle analysis
 
-For guidelines on where to place your zones for vehicle analysis, you can refer to the [zone and line placement](./Project-Archon-Zone-and-Line-Placement.md) guide for spatial analysis. Configuring zones for vehicle analysis can be more straightforward than zones for spatial analysis if the parking spaces are already defined in the zone in which you are analyzing.
+For guidelines on where to place your zones for vehicle analysis, you can refer to the [zone and line placement](./Project-Archon-Zone-and-Line-Placement.md) guide for spatial analysis. Configuring zones for vehicle analysis can be more straightforward than zones for spatial analysis if the parking spaces are already defined in the zone which you're analyzing.
 
 ## Camera placement for vehicle analysis
 
-For guidelines on where and how to place your camera for vehicle analysis, refer to the [camera placement](./Project-Archon-Camera-Placement.md) guide found in the spatial analysis documentation. Additional limitations to consider include the height of the camera mounted in the parking lot space. When analyzing vehicle patterns, a higher vantage point is ideal to ensure that the camera's field of view is wide enough to accommodate one or more vehicles, depending on your scenario.
+For guidelines on where and how to place your camera for vehicle analysis, refer to the [camera placement](./Project-Archon-Camera-Placement.md) guide found in the spatial analysis documentation. Other limitations to consider include the height of the camera mounted in the parking lot space. When you analyze vehicle patterns, a higher vantage point is ideal to ensure that the camera's field of view is wide enough to accommodate one or more vehicles, depending on your scenario.
 
 ## Billing
 
-The vehicle analysis container sends billing information to Azure, using a Computer Vision resource on your Azure account. The use of vehicle analysis in private preview is currently free.
+The vehicle analysis container sends billing information to Azure, using a Computer Vision resource on your Azure account. The use of vehicle analysis in public preview is currently free.
 
 Azure Cognitive Services containers aren't licensed to run without being connected to the metering / billing endpoint. You must enable the containers to communicate billing information with the billing endpoint at all times. Cognitive Services containers don't send customer data, such as the video or image that's being analyzed, to Microsoft.
 
 ## Next steps
 
-* Go back to the ![spatial analysis documentation](Project-Archon.md)
+* Go back to the ![spatial analysis documentation](spatial-analysis-container.md)
 
 # Install and run vehicle analysis (Private Preview)
 
-Vehicle analysis is an additional set of capabilities that, when used in conjunction with the spatial analysis container, enable you to analyze real-time streaming video to understand vehicle placement, movement, and characteristics, as well as relationships between people and vehicles. In this article, you will learn how to leverage the capabilities of the spatial analysis container to deploy vehicle analysis operations.
+Vehicle analysis is a set of capabilities that, when used with the spatial analysis container, enable you to analyze real-time streaming video to understand vehicle placement, movement, and characteristics, as well as relationships between people and vehicles. In this article, you'll learn how to use the capabilities of the spatial analysis container to deploy vehicle analysis operations.
 
 ## Vehicle analysis operations
 
@@ -676,7 +676,7 @@ The following operations for vehicle analysis are available in the current spati
 
 | Operation Identifier | Description |  
 | -------------------- | ---------------------------------------- |  
-| **cognitiveservices.vision.spatialanalysis-personnexttomovingvehicle-preview** and **cognitiveservices.vision.spatialanalysis-personnexttomovingvehicle.cpu-preview** | Identifies when a person is in the path of a vehicle which is moving. Emits a *relationship* event when a person is detected, and predicates *near* to desribe the relationship to the vehicle. |
+| **cognitiveservices.vision.spatialanalysis-personnexttomovingvehicle-preview** and **cognitiveservices.vision.spatialanalysis-personnexttomovingvehicle.cpu-preview** | Identifies when a person is in the path of a vehicle that is moving. Emits a *relationship* event when a person is detected, and predicates *near* to describe the relationship to the vehicle. |
 
 ### Operation parameters for person next to moving vehicle
 
@@ -684,7 +684,7 @@ The following operations for vehicle analysis are available in the current spati
 |---------|---------|
 | Operation ID | The Operation Identifier from table above.|
 | enabled | Boolean: true or false|
-| VIDEO_URL| The rtsp url for the camera device(Example: rtsp://username:password@url). Spatial analysis supports H.264 encoded stream either through rtsp, http, or mp4. |
+| VIDEO_URL| The RTSP URL for the camera device(Example: `rtsp://username:password@url`). Spatial analysis supports H.264 encoded stream either through RTSP, HTTP, or MP4. |
 | VIDEO_SOURCE_ID | A friendly name for the camera device or video stream. This will be returned with the event JSON output.|
 | VIDEO_IS_LIVE| True for camera devices; false for recorded videos.|
 | VIDEO_DECODE_GPU_INDEX| Which GPU to decode the video frame. By default it is 0. Should be the same as the `gpu_index` in other node config like `VICA_NODE_CONFIG`, `DETECTOR_NODE_CONFIG`. *This variable supports GPU operations only*|
@@ -971,20 +971,20 @@ Below is the graph optimized for the **person next to moving vehicle** operation
 
 | Event Field Name | Type| Description|
 |---------|---------|---------|
-| `id` | string| Event id|
+| `id` | string| Event ID|
 | `type` | string| Event type|
 | `detectionsId` | array| Array of size 1 of unique identifier of the vehicle detection that triggered this event|
 | `properties` | collection| Collection of values|
 | `trackingId` | string| Unique identifier of the vehicle detected|
 | `status` | string| 'Enter' or 'Exit'|
-| `side` | int| The number of the side of the polygon that the vehicle crossed. Each side is a numbered edge between the two vertices of the polygon that represents your zone. The edge between the first two vertices of the polygon represent first side|
+| `side` | int| The number of the side of the polygon that the vehicle crossed. Each side is a numbered edge between the two vertices of the polygon that represents your zone. The edge between the first two vertices of the polygon represents first side|
 | `zone` | string | The "name" field of the polygon that represents the zone that was crossed|
 | `trigger` | string| The trigger type is 'event' or 'interval' depending on the value of `trigger` in PARKING_REGION |
 <br>
 
 | Detections Field Name | Type| Description|
 |---------|---------|---------|
-| `id` | string| Detection id|
+| `id` | string| Detection ID|
 | `type` | string| Detection type|
 | `region` | collection| Collection of values|
 | `type` | string| Type of region|
@@ -1001,7 +1001,7 @@ Below is the graph optimized for the **person next to moving vehicle** operation
 
 | SourceInfo Field Name | Type| Description|
 |---------|---------|---------|
-| `id` | string| Camera id|
+| `id` | string| Camera ID|
 | `timestamp` | date| UTC date when the JSON payload was emitted in format YYYY-MM-DDTHH:MM:SS.ssZ |
 | `width` | int | Video frame width|
 | `height` | int | Video frame height|
