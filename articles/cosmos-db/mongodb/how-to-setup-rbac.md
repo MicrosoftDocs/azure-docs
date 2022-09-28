@@ -15,7 +15,7 @@ This article is about role-based access control for data plane operations in Azu
 
 If you are using management plane operations, see [role-based access control](../role-based-access-control.md) applied to your management plane operations article.
 
-Cosmos DB for MongoDB exposes a built-in role-based access control (RBAC) system that lets you authorize your data requests with a fine-grained, role-based permission model. Users and roles reside within a database and are managed using the Azure CLI, Azure PowerShell, or ARM.
+Azure Cosmos DB for MongoDB exposes a built-in role-based access control (RBAC) system that lets you authorize your data requests with a fine-grained, role-based permission model. Users and roles reside within a database and are managed using the Azure CLI, Azure PowerShell, or Azure Resource Manager (ARM).
 
 ## Concepts
 
@@ -259,7 +259,7 @@ az cosmosdb mongodb user definition delete --account-name <account-name> --resou
 - The number of users and roles you can create must equal less than 10,000. 
 - The commands listCollections, listDatabases, killCursors, and currentOp are excluded from RBAC.
 - Users and Roles across databases are not supported.
-- A user's password can only be set/reset by through the Azure CLI / PowerShell.
+- A user's password can only be set/reset by through the Azure CLI / Azure PowerShell.
 - Configuring Users and Roles is only supported through Azure CLI / PowerShell. 
 - Disabling primary/secondary key authentication is not supported. We recommend rotating your keys to prevent access when enabling RBAC.
 
@@ -267,13 +267,13 @@ az cosmosdb mongodb user definition delete --account-name <account-name> --resou
 
 ### Is it possible to manage role definitions and role assignments from the Azure portal?
 
-Azure portal support for role management is not available. However, RBAC can be enabled via the features tab in the Azure Portal.
+Azure portal support for role management is not available. However, RBAC can be enabled via the features tab in the Azure portal.
 
 ### How do I change a user's password?
 
 Update the user definition with the new password.
 
-### What Cosmos DB for MongoDB versions support RBAC?
+### What Cosmos DB for MongoDB versions support role-based access control (RBAC)?
 
 Versions 3.6 and higher support RBAC.
 

@@ -555,11 +555,10 @@ Retryable writes enables MongoDB drivers to automatically retry certain write op
 
 For example, with a sharded collection, sharded on key “country”: To delete all the documents with the field city = "NYC", the application will need to execute the operation for all shard key (country) values if Retryable writes is enabled. 
 
-db.coll.deleteMany({"country": "USA", "city": "NYC"}) – Success 
+- `db.coll.deleteMany({"country": "USA", "city": "NYC"})` - **Success** 
+- `db.coll.deleteMany({"city": "NYC"})` - **Fails with error `ShardKeyNotFound(61)`**
 
-db.coll.deleteMany({"city": "NYC"})- Fails with error ShardKeyNotFound(61) 
-
-To enable the feature, [add the EnableMongoRetryableWrites capability](how-to-configure-capabilities.md) to your database account. This feature can also be enabled in the features tab in the Azure Portal. 
+To enable the feature, [add the EnableMongoRetryableWrites capability](how-to-configure-capabilities.md) to your database account. This feature can also be enabled in the features tab in the Azure portal. 
 
 ## Sharding
 
