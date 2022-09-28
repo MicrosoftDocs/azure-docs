@@ -161,7 +161,12 @@ The following table lists the recommended alert rules that you can enable for ei
 | OOM Killed Containers | OOM Killed Containers | Calculates number of OOM killed containers. | 0 |
 | Pods ready % | Pods ready % | Calculates the average ready state of pods. | 80% |
 | Completed job count | Completed job count | Calculates number of jobs completed more than six hours ago. | 0 |
-| | Daily Data Cap Breach | When the total data ingestion to your Log Analytics workspace exceeds the [designated quota](../logs/daily-cap.md). This is a [log alert rule](../alerts/alerts-types.md#log-alerts) that isn't enabled with Prometheus metric alerts. |
+
+> [!NOTE]
+> The recommended alert rules in the Azure portal also include a log alert rule called *Daily Data Cap Breach*. This rule alerts when the total data ingestion to your Log Analytics workspace exceeds the [designated quota](../logs/daily-cap.md). This alert rule is not included with the Prometheus metric alert rules.
+> 
+> You can create this rule on your own by creating a [log alert rule](../alerts/alerts-types.md#log-alerts) using the query `_LogOperation | where Operation == "Data collection Status" | where Detail contains "OverQuota"'.
+
 
 Common properties across all of these alert rules include:
 
