@@ -47,9 +47,9 @@ Machine learning projects often require a team with varied skill set to build an
 Anyone on an ML team can use their preferred tools to get the job done. Whether you're running rapid experiments, hyperparameter-tuning, building pipelines, or managing inferences, you can use familiar interfaces including:
 
 * [Azure Machine Learning studio](https://ml.azure.com)
-* [Python SDK](https://aka.ms/sdk-v2-install)
-* [CLI v2 ](how-to-configure-cli.md))
-* [Azure Resource Manager REST APIs (preview)](/rest/api/azureml/)
+* [Python SDK (v2)](https://aka.ms/sdk-v2-install)
+* [CLI (v2)](how-to-configure-cli.md))
+* [Azure Resource Manager REST APIs ](/rest/api/azureml/)
 
 As you're refining the model and collaborating with others throughout the rest of Machine Learning development cycle, you can share and find assets, resources, and metrics for your projects on the Azure Machine Learning studio UI.
 

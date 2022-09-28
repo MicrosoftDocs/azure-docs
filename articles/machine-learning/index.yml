@@ -59,14 +59,13 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-        - text: Streamline model deployment with endpoints (preview)
+        - text: Streamline model deployment with endpoints 
           url: concept-endpoints.md
-        - text: Real-time scoring with a managed endpoint (preview)
+        - text: Real-time scoring with a managed online endpoint
           url: how-to-deploy-managed-online-endpoints.md
-        - text: Batch scoring with managed endpoints (preview)
+        - text: Batch scoring with managed endpoints 
           url: how-to-use-batch-endpoint.md
-        - text: Options for deploying models without using endpoints            
-          url: how-to-deploy-managed-online-endpoints.md
+
   # Card
   - title: "Manage the ML lifecycle (MLOps)"
     linkLists:
@@ -74,10 +73,9 @@ landingContent:
       links:
       - text: Track, monitor, analyze training runs
         url: how-to-track-monitor-analyze-runs.md
-      - text: Model management, deployment, lineage & monitoring
+      - text: Model management, deployment & monitoring
         url: concept-model-management-and-deployment.md
-      - text: DevOps for a data ingestion pipeline
-        url: v1/how-to-cicd-data-ingestion.md
+
   # Card
   - title: "Security for ML projects"
     linkLists:
@@ -94,11 +92,11 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-        - text: Python SDK
-          url: /python/api/overview/azure/ml/
+        - text: Python SDK (v2)
+          url: /python/api/overview/azure/ml/installv2
         - text: REST API 
           url: /rest/api/azureml/
-        - text: V2 CLI
+        - text: CLI (v2)
           url: /cli/azure/ml/
         - text: Algorithm & component reference 
           url: ./algorithm-module-reference/module-reference.md
@@ -108,7 +106,7 @@ landingContent:
       - linkListType: reference
         links:
         - text: Python SDK code examples
-          url: https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/README.md
+          url: https://github.com/Azure/azureml-examples/blob/main/sdk/python/README.md
         - text: v2 CLI code examples
           url: https://github.com/Azure/azureml-examples/blob/main/cli/README.md
         - text: ML Studio (classic) documentation
