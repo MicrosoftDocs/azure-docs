@@ -1,19 +1,19 @@
 ---
-title: Authorize access to blobs using Azure role assignment conditions (preview)
+title: Authorize access to Azure Blob Storage using Azure role assignment conditions (preview)
 titleSuffix: Azure Storage
-description: Authorize access to Azure blobs and Azure Data Lake Storage Gen2 (ADLS G2) using Azure role assignment conditions and Azure attribute-based access control (Azure ABAC). Define conditions on role assignments using Storage attributes.
+description: Authorize access to Azure Blob Storage and Azure Data Lake Storage Gen2 (ADLS G2) using Azure role assignment conditions and Azure attribute-based access control (Azure ABAC). Define conditions on role assignments using Blob Storage attributes.
 services: storage
 author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 09/28/2022
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
 ---
 
-# Authorize access to blobs using Azure role assignment conditions (preview)
+# Authorize access to Azure Blob Storage using Azure role assignment conditions (preview)
 
 > [!IMPORTANT]
 > Azure ABAC and Azure role assignment conditions are currently in preview.
