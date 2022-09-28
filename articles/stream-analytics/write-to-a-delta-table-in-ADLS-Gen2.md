@@ -3,7 +3,7 @@ title: Write to a Delta Table in ADLS Gen2
 description: create an ASA job writing to a delta table stored in ADLS Gen2
 author: an-emma
 ms.author: raan
-ms.service: Azure stream analytics
+ms.service: stream-analytics
 ms.topic: how-to 
 ms.date: 09/28/2022
 ms.custom: seodec18
@@ -26,7 +26,7 @@ Before you start, make sure you've completed the following steps:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 * Deploy the TollApp event generator to Azure, use this link to [Deploy TollApp Azure Template](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json). Set the 'interval' parameter to 1. And use a new resource group for this step.
-* Create a [Data Lake Storage Gen2 account](https://docs.microsoft.com/azure/storage/blobs/create-data-lake-storage-account).
+* Create a [Data Lake Storage Gen2 account](https://learn.microsoft.com/azure/storage/blobs/create-data-lake-storage-account).
 
 ## Create a Stream Analytics job
 
