@@ -75,36 +75,14 @@ They Are considerations for sustainable workloads on Azure (not specific to a gi
 
 ## Sustainability Checklist for AKS
 
-|Design area|Description|
+|Recommendation|_sustainability principles alignment_| _WAF_pillars_alignment |
 |---|---|---|
-|Configure [Automatic **Cluster Ugrade**](/azure/aks/auto-upgrade-cluster)|| |
-|Configure [Automatic **Linux node updates**](/azure/aks/node-updates-kured)|| |
-|Deploy your workloads to Regions powered by renewable and low-carbon energy sources|| |
-||| |
-||| |
-||| |
-||| |
-||| |
-||| |
-||| |
-||| |
-||| |
-||| |
-||| |
-||| |
-||| |
-||| |
-||| |
-||| |
-||| |
-||| |
-||| |
-||| |
-||| |
-||| |
-||| |
-||| |
-## Sustainability Recommendations for AKS
+|Configure [Automatic **Cluster Ugrade**](/azure/aks/auto-upgrade-cluster)|_Operational Excellence_|[Energy efficiency](sustainability-design-principles.md#energy-efficiency)_ |
+|Configure [Automatic **Linux node updates**](/azure/aks/node-updates-kured)|_Operational Excellence_ |[Energy efficiency](sustainability-design-principles.md#energy-efficiency)_ |
+|Deploy your workloads to Regions powered by renewable and low-carbon energy sources|_Cost Optimization_| [Carbon efficiency](sustainability-design-principles.md#carbon-efficiency)_|
+|| | |
+
+## Sustainability Considerations for AKS clusters
 
 ### Review platform and service updates regularly 
 
