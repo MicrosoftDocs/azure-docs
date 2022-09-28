@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 09/28/2022
+ms.date: 12/03/2021
 ---
 
 # Publishing guide by offer type
