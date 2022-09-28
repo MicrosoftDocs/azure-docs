@@ -33,6 +33,7 @@ An example of this would be a developer use case. In this example Bob has a regu
 
 This 1:M implementation could be implemented in Azure AD CBA by configuring the policy as follows. 
 
+|Description| Values |
 |--------------------------|--------------------------------------|
 |Certificate Information | Principal Name in SAN = Bob.Smith@contoso.com, Certificate's Subject Key Identifier (SKI) = 89b0f468c1abea65ec22f0a882b8fda6fdd6750p |
 |Bobs Productivity Account| AAD User Principal Name = Bob.Smith@contoso.com, certificateUserIDs = Empty|
