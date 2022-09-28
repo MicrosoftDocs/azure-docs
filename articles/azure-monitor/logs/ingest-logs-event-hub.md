@@ -37,7 +37,7 @@ To send events from Azure Event Hubs to Azure Monitor Logs, you need to have the
     
     The event hub must contain events. You can send events to your event hub by following the steps in [Send and receive events in Azure Event Hubs tutorials](../../event-hubs/event-hubs-create.md#next-steps) or by [configuring the diagnostic settings of Azure resources](../essentials/diagnostic-settings.md#create-diagnostic-settings).
 
-# Collect subscription and resource details
+## Collect subscription and resource details
 
 You'll need your subscription ID, resource group name, workspace name, and workspace resource ID in subsequent steps:
 
