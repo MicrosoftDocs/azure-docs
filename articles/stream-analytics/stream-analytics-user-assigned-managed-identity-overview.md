@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/16/2022
+ms.date: 09/28/2022
 ---
 
 # User-assigned managed identities for Azure Stream Analytics (preview)
@@ -65,7 +65,7 @@ After creating your user-assigned identity and configuring your input and output
 > You can select each input and output on the endpoint management to manually configure an adapter to the job.
 
 
-## Other Scenarios and limitations
+## Other scenarios and limitations
 With support for both system-assigned identity and user-assigned identity, here are some scenarios and limitations to be aware of when configuring your Azure stream analytics job:
 
 1. You can switch from using system-assigned identity to user-assigned identity and vice-versa. When you switch from a user-assigned identity to another identity, the user identity is not deleted since you created it. You will have to manually delete it from your storage access control list.
