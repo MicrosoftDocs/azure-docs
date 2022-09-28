@@ -61,16 +61,17 @@ After creating your user-assigned identity and configuring your input and output
 2.	Under **connection status** click on **try regranting access** to switch from system-assigned to user-assigned. 
 3.	Wait for a few minutes for the input/output to be granted access to the job.
 
-You can select each input and output on the endpoint management to manually configure an adapter to the job.
+> [!NOTE] 
+> You can select each input and output on the endpoint management to manually configure an adapter to the job.
 
 
 ## Other Scenarios and limitations
 With support for both system-assigned identity and user-assigned identity, here are some scenarios and limitations to be aware of when configuring your Azure stream analytics job:
 
-1. You can switch from using system-assigned identity to user-assigned identity and vice-versa. 
-2. You can switch from an existing user-assigned identity to a newly created user-assigned identity. Note that the previous identity is not removed from storage access control list.
-3. Adding multiple identities to a job is not supported.
-
+1. You can switch from using system-assigned identity to user-assigned identity and vice-versa. When you switch from a user-assigned identity to another identity, the user identity is not deleted since you created it. You will have to manually delete it from your storage access control list.
+2. You can switch from an existing user-assigned identity to a newly created user-assigned identity. The previous identity is not removed from storage access control list.
+3. You cannot add multiple identities to a job.
+4. If you want to remove a user-assigned identity or system-assigned from a stream analytics job, you would have to provide a replacement.
 
 ## Next steps
 
