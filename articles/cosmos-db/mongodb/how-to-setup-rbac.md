@@ -96,7 +96,6 @@ az cosmosdb create -n <account_name> -g <azure_resource_group> --kind MongoDB --
 az cosmosdb mongodb user definition create --account-name <YOUR_DB_ACCOUNT> --resource-group <YOUR_RG> --body {\"Id\":\"<YOUR_DB_NAME>.<YOUR_USERNAME>\",\"UserName\":\"<YOUR_USERNAME>\",\"Password\":\"<YOUR_PASSWORD>\",\"DatabaseName\":\"<YOUR_DB_NAME>\",\"CustomData\":\"Some_Random_Info\",\"Mechanisms\":\"SCRAM-SHA-256\",\"Roles\":[{\"Role\":\"read\",\"Db\":\"<YOUR_DB_NAME>\"}]}
 ```
 
-
 ## Authenticate using pymongo
 ```python
 from pymongo import MongoClient
@@ -105,13 +104,13 @@ client = MongoClient("mongodb://<YOUR_HOSTNAME>:10255/?ssl=true&replicaSet=globa
 
 ## Authenticate using Node.js driver
 ```javascript
-connectionString = "mongodb://" + "<YOUR_USER>" + ":" + "<YOUR_PASSWORD>" + "@" + "<YOUR_HOSTNAME>" + ":" + port + "/?ssl=true&retrywrites=false&replicaSet=globaldb&appname=@" + "<YOUR_USER>" + "@";
+connectionString = "mongodb://" + "<YOUR_USER>" + ":" + "<YOUR_PASSWORD>" + "@" + "<YOUR_HOSTNAME>" + ":10255/" + "<YOUR_DATABASE>" +"?ssl=true&retrywrites=false&replicaSet=globaldb&authmechanism=SCRAM-SHA-256&appname=@" + "<YOUR appName FROM CONNECTION STRING IN AZURE PORTAL>" + "@";
 var client = await mongodb.MongoClient.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
 ```
 
 ## Authenticate using Java driver
 ```java
-connectionString = "mongodb://" + "<YOUR_USER>" + ":" + "<YOUR_PASSWORD>" + "@" + "<YOUR_HOSTNAME>" + ":" + port + "/?ssl=true&retrywrites=false&replicaSet=globaldb&appname=@" + "<YOUR_USER>" + "@";
+connectionString = "mongodb://" + "<YOUR_USER>" + ":" + "<YOUR_PASSWORD>" + "@" + "<YOUR_HOSTNAME>" + ":10255/" + "<YOUR_DATABASE>" +"?ssl=true&retrywrites=false&replicaSet=globaldb&authmechanism=SCRAM-SHA-256&appname=@" + "<YOUR appName FROM CONNECTION STRING IN AZURE PORTAL>" + "@";
 MongoClientURI uri = new MongoClientURI(connectionString);
 MongoClient client = new MongoClient(uri);
 ```
