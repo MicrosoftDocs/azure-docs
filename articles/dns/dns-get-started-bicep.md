@@ -5,7 +5,7 @@ description: Learn how to create a DNS zone and record in Azure DNS. This is a s
 services: dns
 author: schaffererin
 ms.author: v-eschaffer
-ms.date: 03/21/2022
+ms.date: 09/27/2022
 ms.topic: quickstart
 ms.service: dns
 ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm

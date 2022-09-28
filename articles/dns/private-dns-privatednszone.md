@@ -2,11 +2,11 @@
 title: What is an Azure DNS private zone
 description: Overview of a private DNS zone
 services: dns
-author: rohinkoul
+author: greg-lindsay
 ms.service: dns
 ms.topic: article
-ms.date: 04/09/2021
-ms.author: rohink
+ms.date: 09/27/2022
+ms.author: greglin
 ---
 
 # What is a private Azure DNS zone
