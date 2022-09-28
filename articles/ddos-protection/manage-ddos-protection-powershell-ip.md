@@ -78,7 +78,7 @@ $publicIp.DdosSettings.ProtectionMode = 'Disabled'
 
 Set-AzPublicIpAddress -PublicIpAddress $publicIp 
 ```
-> ![NOTE]
+> [!NOTE]
 > When changing DDoS IP protection from **Enabled** to **Disabled**, telemetry for the public IP resource will not be available.
 
 ## Clean up resources
