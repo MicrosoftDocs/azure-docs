@@ -13,15 +13,15 @@ ms.custom: "include file"
 
 ### Ingestion
 
-**Limits applied to the Azure Monitor workspace ingesting your Prometheus metrics.**
+The following limits apply to the Azure Monitor workspace ingesting your Prometheus metrics.
 
 | Limit | Value |
 |:---|:---|
-| Active time series per Azure Monitor workspace with metrics that have been reported in the last ~12 hours.  | 1,000,000<br>You can request an increase.  |
+| Active time series with metrics that have been reported in the last ~12 hours.  | 1,000,000<br>You can request an increase.  |
 | Events per minute ingested | 1,000,000<br>You can request an increase. |
 
 
-**Limits applied to the data collection rule (DCR) and data collection endpoint (DCE) sending Prometheus metrics data to your Azure Monitor workspace**
+The following limits apply to the data collection rule (DCR) and data collection endpoint (DCE) sending Prometheus metrics data to your Azure Monitor workspace
 
 | Limit | Value |
 |:---|:---|
@@ -39,7 +39,7 @@ Prometheus queries are created using PromQL and can be authored in either Azure 
 | Query data limits | 240 GB data returned per Azure Monitor workspace over a 30-second window |
 | Query time series per metric | 150K time series |
 | Query samples returned | 50M samples per query |
-| Minimum query step size with time range >= 48 hours | 60 seconds |
+| Minimum query step size<br>with time range >= 48 hours | 60 seconds |
 
 
 **Query pre-parsing limits**<br>
