@@ -52,7 +52,7 @@ Entity | Built-in role | Scope of permission | Description
 Source VM | Virtual Machine Contributor | Backup admin who configures/runs HANA snapshot backup | Configures HANA instance.
 Source disk resource Group (where all disks are present for backup) | Disk Backup Reader | Source VM’s MSI | Creates disk snapshots.
 Source snapshot resource Group | Disk Snapshot Contributor | Source VM’s MSI | Creates disk snapshots and store on source snapshot resource group.
-Source snapshot resource Group | Disk Snapshot Contributor | Backup Management Service | Delete old snapshots on source snapshot resource group.
+Source snapshot resource Group | Disk Snapshot Contributor | Backup Management Service | Deletes old snapshots on source snapshot resource group.
 
 >[!Note]
 >- The credentials used should have permissions to grant roles to other resources and should be Owner or User Access Administ.rator [as mentioned here](../role-based-access-control/role-assignments-steps.md#step-4-check-your-prerequisites).
@@ -111,13 +111,13 @@ Once done, follow these steps:
 
 1. Go to the **Recovery Services vault** and select **+Backup**.
 
-1. Select **SAP HANA in Azure VM** as the data source type, select a Recovery Services vault to use for backup, and then select **Continue**.
+1. Select **SAP HANA in Azure VM** as the data source type, select a **Recovery Services vault** to use for backup, and then select **Continue**.
 
-1. In **Step 2**, select **DB Instance via snapshot (Preview)**. Then select **Configure Backup**.
+1. In **Step 2**, select **DB Instance via snapshot (Preview)** > **Configure Backup**.
 
    :::image type="content" source="./media/sap-hana-database-instances-backup/select-db-instance-via-snapshot.png" alt-text="Screenshot showing to select the DB Instance via snapshot option.":::
 
-1. On **Configure Backup**, select the database instance policy from the **Backup policy** drop-down list. Then select **Add/Edit** to check the available database instances.
+1. On **Configure Backup**, select the database instance policy from the **Backup policy** drop-down list, and then select **Add/Edit** to check the available database instances.
 
    :::image type="content" source="./media/sap-hana-database-instances-backup/add-database-instance-backup-policy.png" alt-text="Screenshot showing to select and add a database instance policy.":::
 
