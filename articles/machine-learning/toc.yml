@@ -25,6 +25,9 @@
       - name: "Workspace"
         displayName: migration, v1, v2
         href: migrate-to-v2-resource-workspace.md
+      - name: "Compute"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-resource-compute.md
       - name: "Datastore"
         displayName: migration, v1, v2
         href: migrate-to-v2-resource-datastore.md
@@ -432,9 +435,6 @@
           - name: Tune hyperparameters
             displayName: parameter, hyperparameter, hyperdrive
             href: how-to-tune-hyperparameters.md
-          - name: Distributed GPU guide
-            displayName: MPI, Horovod, DeepSpeed, PyTorch, Hugging Face Transformers, TensorFlow, InfiniBand
-            href: how-to-train-distributed-gpu.md
           - name: Scikit-learn
             href: how-to-train-scikit-learn.md
           - name: TensorFlow
