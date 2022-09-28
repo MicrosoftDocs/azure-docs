@@ -73,25 +73,25 @@ Azure Logic Apps communicates with other systems and services using connectors. 
 
 Microsoft Sentinel now supports the following logic app resource types:
 
-- **Consumption**, which runs in multi-tenant Azure Logic Apps and uses classic, original Azure Logic Apps engine
-- **Standard**, which runs in single-tenant Azure Logic Apps and uses a redesigned Azure Logic Apps engine
+- **Consumption**, which runs in multi-tenant Azure Logic Apps and uses the classic, original Azure Logic Apps engine.
+- **Standard**, which runs in single-tenant Azure Logic Apps and uses a redesigned Azure Logic Apps engine.
 
-  This logic app type offers higher performance, fixed pricing, multiple workflow capability, easier API connections management, native network capabilities such as support for virtual networks and private endpoints (see note below), built-in CI/CD features, better Visual Studio Code integration, an updated workflow designer, and more.
+The **Standard** logic app type offers higher performance, fixed pricing, multiple workflow capability, easier API connections management, native network capabilities such as support for virtual networks and private endpoints (see note below), built-in CI/CD features, better Visual Studio Code integration, an updated workflow designer, and more.
 
-  To use this logic app version, create new Standard playbooks in Microsoft Sentinel. You can use these playbooks in the same ways that you use Consumption playbooks:
+To use this logic app version, create new Standard playbooks in Microsoft Sentinel (see note below). You can use these playbooks in the same ways that you use Consumption playbooks:
 
-  - Attach them to automation rules and/or analytics rules.
-  - Run them on demand, from both incidents and alerts.
-  - Manage them in the Active Playbooks tab.
+- Attach them to automation rules and/or analytics rules.
+- Run them on demand, from both incidents and alerts.
+- Manage them in the Active Playbooks tab.
 
-  > [!NOTE]
-  >
-  > - Standard workflows currently don't support Playbook templates, which means you can't create a Standard workflow from within Microsoft Sentinel. Instead, you must create the workflow in Azure Logic Apps. After creation, the workflow appears in Microsoft Sentinel.
-  >
-  > - Although Standard workflows support private endpoints as mentioned above, Microsoft Sentinel doesn't currently support the use of private endpoints in playbooks, even those based on Standard workflows.  
-  >   Workflows with private endpoints might still be visible and selectable when you're choosing a playbook from a list in Microsoft Sentinel (whether to run manually, to add to an automation rule, or in the playbooks gallery), and you'll be able to select them, but their execution will fail.
-  >   
-  > - An indicator identifies Standard workflows as either *stateful* or *stateless*. Microsoft Sentinel doesn't support stateless workflows at this time. Learn about the differences between [**stateful and stateless workflows**](../logic-apps/single-tenant-overview-compare.md#stateful-and-stateless-workflows).
+> [!NOTE]
+>
+> - Standard workflows currently don't support Playbook templates, which means you can't create a Standard workflow-based playbook directly in Microsoft Sentinel. Instead, you must create the workflow in Azure Logic Apps. After you've created the workflow, it appears as a playbook in Microsoft Sentinel.
+>
+> - Although Standard workflows support private endpoints as mentioned above, Microsoft Sentinel doesn't currently support the use of private endpoints in playbooks, even those based on Standard workflows.  
+>   Workflows with private endpoints might still be visible and selectable when you're choosing a playbook from a list in Microsoft Sentinel (whether to run manually, to add to an automation rule, or in the playbooks gallery), and you'll be able to select them, but their execution will fail.
+>   
+> - An indicator identifies Standard workflows as either *stateful* or *stateless*. Microsoft Sentinel doesn't support stateless workflows at this time. Learn about the differences between [**stateful and stateless workflows**](../logic-apps/single-tenant-overview-compare.md#stateful-and-stateless-workflows).
 
 There are many differences between these two resource types, some of which affect some of the ways they can be used in playbooks in Microsoft Sentinel. In such cases, the documentation will point out what you need to know. For more information, see [Resource type and host environment differences](../logic-apps/logic-apps-overview.md#resource-environment-differences) in the Azure Logic Apps documentation.
 
