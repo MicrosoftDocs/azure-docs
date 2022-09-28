@@ -170,7 +170,7 @@ Using Teams in a virtualized environment is different from using Teams in a non-
 
 ### Calls and meetings
 
-- The Teams desktop client in Azure Virtual Desktop environments doesn't support creating live events, but you can join live events. For now, we recommend you create live events from the [Teams web client](https://teams.microsoft.com) in your remote session instead. When watching a live event in the browser, [enable multimedia redirection (MMR) for Teams live events](multimedia-redirection.md#how-to-use-mmr-for-teams-live-events) for smoother playback.
+- The Teams desktop client in Azure Virtual Desktop environments doesn't support creating live events, but you can join live events. For now, we recommend you create live events from the [Teams web client](https://teams.microsoft.com) in your remote session instead. When watching a live event in the browser, [enable multimedia redirection (MMR) for Teams live events](multimedia-redirection.md#teams-live-events) for smoother playback.
 - Calls or meetings don't currently support application sharing. Desktop sessions support desktop sharing.
 - Due to WebRTC limitations, incoming and outgoing video stream resolution is limited to 720p.
 - The Teams app doesn't support HID buttons or LED controls with other devices.

@@ -11,32 +11,32 @@ ms.custom: devx-track-azurepowershell
 # Migrate from an existing Run As account to a managed identity
 
 > [!IMPORTANT]
-> Azure Automation Run As accounts will retire on *September 30, 2023*. Microsoft won't provide support beyond that date. From now through *September 30, 2023*, you can continue to use Azure Automation Run As accounts. However, we recommend that you transition to [managed identities](/automation-security-overview.md#managed-identities) before *September 30, 2023*.
+> Azure Automation Run As accounts will retire on *September 30, 2023*. Microsoft won't provide support beyond that date. From now through *September 30, 2023*, you can continue to use Azure Automation Run As accounts. However, we recommend that you transition to [managed identities](../automation/automation-security-overview.md#managed-identities) before *September 30, 2023*.
 >
-> For more information about migration cadence and the support timeline for Run As account creation and certificate renewal, see the [frequently asked questions](/automation/automation-managed-identity.md).
+> For more information about migration cadence and the support timeline for Run As account creation and certificate renewal, see the [frequently asked questions](automation-managed-identity-faq.md).
 
 Run As accounts in Azure Automation provide authentication for managing resources deployed through Azure Resource Manager or the classic deployment model. Whenever a Run As account is created, an Azure AD application is registered, and a self-signed certificate is generated. The certificate is valid for one year. Renewing the certificate every year before it expires keeps the Automation account working but adds overhead. 
 
-You can now configure Automation accounts to use a [managed identity](/automation/automation-security-overview.md#managed-identities), which is the default option when you create an Automation account. With this feature, an Automation account can authenticate to Azure resources without the need to exchange any credentials. A managed identity removes the overhead of renewing the certificate or managing the service principal.
+You can now configure Automation accounts to use a [managed identity](automation-security-overview.md#managed-identities), which is the default option when you create an Automation account. With this feature, an Automation account can authenticate to Azure resources without the need to exchange any credentials. A managed identity removes the overhead of renewing the certificate or managing the service principal.
 
-A managed identity can be [system assigned]( /automation/enable-managed-identity-or-automation) or [user assigned](/automation/add-user-assigned-identity). When a new Automation account is created, a system-assigned managed identity is enabled by default.
+A managed identity can be [system assigned](enable-managed-identity-for-automation.md) or [user assigned](add-user-assigned-identity.md). When a new Automation account is created, a system-assigned managed identity is enabled.
 
 ## Prerequisites
 
 Before you migrate from a Run As account to a managed identity:
 
-1. Create a [system-assigned](enable-managed-identity-for-automation.md) or [user-assigned](add-user-assigned-identity.md) managed identity, or create both types. To learn more about the differences between them, see [Managed identity types](/active-directory/managed-identities-azure-resources/overview#managed-identity-types).
+1. Create a [system-assigned](enable-managed-identity-for-automation.md) or [user-assigned](add-user-assigned-identity.md) managed identity, or create both types. To learn more about the differences between them, see [Managed identity types](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 
     > [!NOTE]
     > - User-assigned identities are supported for cloud jobs only. It isn't possible to use the Automation account's user-managed identity on a hybrid runbook worker. To use hybrid jobs, you must create system-assigned identities. 
     > - There are two ways to use managed identities in hybrid runbook worker scripts: either the system-assigned managed identity for the Automation account *or* the virtual machine (VM) managed identity for an Azure VM running as a hybrid runbook worker. 
-    > - The VM's user-assigned managed identity and the VM's system-assigned managed identity will *not* work in an Automation account that's configured with an Automation account's managed identity. When you enable the Automation account's managed identity, you can use only the Automation account's system-assigned managed identity and not the VM managed identity. For more information, see [Use runbook authentication with managed identities](/automation/automation-hrw-run-runbooks?tabs=sa-mi#runbook-auth-managed-identities).
+    > - The VM's user-assigned managed identity and the VM's system-assigned managed identity will *not* work in an Automation account that's configured with an Automation account's managed identity. When you enable the Automation account's managed identity, you can use only the Automation account's system-assigned managed identity and not the VM managed identity. For more information, see [Use runbook authentication with managed identities](automation-hrw-run-runbooks.md).
 
-1. Assign the same role to the managed identity to access the Azure resources that match the Run As account. Follow the steps in [Check the role assignment for the Azure Automation Run As account](/automation/manage-run-as-account#check-role-assignment-for-azure-automation-run-as-account).
+1. Assign the same role to the managed identity to access the Azure resources that match the Run As account. Follow the steps in [Check the role assignment for the Azure Automation Run As account](manage-run-as-account.md#check-role-assignment-for-azure-automation-run-as-account).
 
-   Ensure that you don't assign high-privilege permissions like contributor or owner to the Run As account. Follow the role-based access control (RBAC) guidelines to limit the permissions from the default contributor permissions assigned to a Run As account by using [this script](/azure/automation/manage-runas-account#limit-run-as-account-permissions). 
+   Ensure that you don't assign high-privilege permissions like contributor or owner to the Run As account. Follow the role-based access control (RBAC) guidelines to limit the permissions from the default contributor permissions assigned to a Run As account by using [this script](manage-run-as-account.md#limit-run-as-account-permissions). 
 
-   For example, if the Automation account is required only to start or stop an Azure VM, then the permissions assigned to the Run As account need to be only for starting or stopping the VM. Similarly, assign read-only permissions if a runbook is reading from Azure Blob Storage. For more information, see [Azure Automation security guidelines](/azure/automation/automation-security-guidelines#authentication-certificate-and-identities). 
+   For example, if the Automation account is required only to start or stop an Azure VM, then the permissions assigned to the Run As account need to be only for starting or stopping the VM. Similarly, assign read-only permissions if a runbook is reading from Azure Blob Storage. For more information, see [Azure Automation security guidelines](../automation/automation-security-guidelines.md#authentication-certificate-and-identities). 
 
 ## Migrate from an Automation Run As account to a managed identity
 
@@ -46,14 +46,14 @@ To migrate from an Automation Run As account to a managed identity for your runb
 
    We recommend that you test the managed identity to verify if the runbook works as expected by creating a copy of your production runbook. Update your test runbook code to authenticate by using the managed identity. This method ensures that you don't override `AzureRunAsConnection` in your production runbook and break the existing Automation instance. After you're sure that the runbook code runs as expected via the managed identity, update your production runbook to use the managed identity.
 
-    For managed identity support, use the `Connect-AzAccount` cmdlet. To learn more about this cmdlet, see [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) in the PowerShell reference.
+    For managed identity support, use the `Connect-AzAccount` cmdlet. To learn more about this cmdlet, see [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount?branch=main&view=azps-8.3.0) in the PowerShell reference.
 
-    - If you're using Az modules, update to the latest version by following the steps in the [Update Azure PowerShell modules](automation-update-azure-modules.md#update-az-modules) article. 
+    - If you're using Az modules, update to the latest version by following the steps in the [Update Azure PowerShell modules](/azure/automation/automation-update-azure-modules?branch=main#update-az-modules) article. 
     - If you're using AzureRM modules, update `AzureRM.Profile` to the latest version and replace it by using the `Add-AzureRMAccount` cmdlet with `Connect-AzureRMAccount –Identity`.
     
     To understand the changes to the runbook code that are required before you can use managed identities, use the [sample scripts](#sample-scripts).
 
-1. When you're sure that the runbook is running successfully by using managed identities, you can safely [delete the Run As account](/azure/automation/delete-run-as-account) if no other runbook is using that account.
+1. When you're sure that the runbook is running successfully by using managed identities, you can safely [delete the Run As account](../automation/delete-run-as-account.md) if no other runbook is using that account.
 
 ## Sample scripts
 
