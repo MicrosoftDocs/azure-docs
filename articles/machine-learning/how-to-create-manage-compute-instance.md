@@ -348,13 +348,39 @@ Following is a sample policy to default a shutdown schedule at 10 PM PST.
 
 You can assign a system- or user-assigned [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) to a compute instance, to autheticate against other Azure resources such as storage. Using managed identities for authentication helps improve workspace security and management. For example you can allow users to access training data only when logged in to compute instance, or use a common user-assigned managed identity to permit access to a specific storage account. 
 
+You can create compute instance with managed identity from Azure ML Studio:
+
 1.	Fill out the form to [create a new compute instance](?tabs=azure-studio#create).
 1.	Select **Next: Advanced Settings**.
 1.	Enable **Assign a managed identity**.
 1.  Select **System-assigned** or **User-assigned** under **Identity type**.
 1.  If you selected **User-assigned**, select subscription and name of the identity.
- 
-When working on the compute instance, the managed identity is used automatically to authenticate against data stores with [identity-based data access enabled](how-to-identity-based-data-access.md).
+
+You can use V2 CLI to create compute instance with assign system-assigned managed identity:
+
+```azurecli
+az ml compute create --name myinstance --identity-type SystemAssigned --type ComputeInstance --resource-group my-resource-group --workspace-name my-workspace
+```
+
+You can also use V2 CLI with yaml file, for example to create a compute instance with user-assigned managed identity:
+
+```azurecli
+azure ml compute create --file compute.yaml --resource-group my-resource-group --workspace-name my-workspace
+```
+
+The identity definition is contained in compute.yaml file:
+
+```yaml
+https://azuremlschemas.azureedge.net/latest/computeInstance.schema.json
+name: myinstance
+type: computeinstance
+identity:
+  type: user_assigned
+  user_assigned_identities: 
+    - resource_id: identity_resource_id
+```
+
+Once the managed identity is created, enable [identity-based data access enabled](how-to-identity-based-data-access.md) to your storage accounts for that identity. Then, when you worki on the compute instance, the managed identity is used automatically to authenticate against data stores.
 
 You can also use the managed identity manually to authenticate against other Azure resources. For example, to use it to get ARM access token, use following.
 
