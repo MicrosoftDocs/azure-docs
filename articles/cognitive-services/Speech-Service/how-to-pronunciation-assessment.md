@@ -488,7 +488,7 @@ This table lists some of the key pronunciation assessment results.
 | `FluencyScore` | Fluency of the given speech. Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words. |
 | `CompletenessScore` | Completeness of the speech, calculated by the ratio of pronounced words to the input reference text. |
 | `PronScore` | Overall score indicating the pronunciation quality of the given speech. `PronScore` is aggregated from `AccuracyScore`, `FluencyScore`, and `CompletenessScore` with weight. |
-| `ErrorType` | This value indicates whether a word is omitted, inserted, or mispronounced, compared to the `ReferenceText`. Possible values are `None`, `Omission`, `Insertion`, and `Mispronunciation`. |
+| `ErrorType` | This value indicates whether a word is omitted, inserted, or mispronounced, compared to the `ReferenceText`. Possible values are `None`, `Omission`, `Insertion`, and `Mispronunciation`. The error type can be `Mispronunciation` when the pronunciation `AccuracyScore` for a word is below 60.|
 
 ### JSON result example
 
