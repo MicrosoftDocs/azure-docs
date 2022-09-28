@@ -391,7 +391,7 @@ In an [upgrade scenario](upgrade-mongodb-version.md), documents written prior to
 
 16 MB document support raises the size limit for your documents from 2 MB to 16 MB. This limit only applies to collections created after this feature has been enabled. Once this feature is enabled for your database account, it cannot be disabled. This feature is not compatible with the Azure Synapse Link feature and/or Continuous Backup.
 
-Enabling 16 MB can be done in the features tab in the Azure Portal or programmatically by [adding the `EnableMongo16MBDocumentSupport` capability](how-to-configure-capabilities.md). 
+Enabling 16 MB can be done in the features tab in the Azure portal or programmatically by [adding the `EnableMongo16MBDocumentSupport` capability](how-to-configure-capabilities.md). 
 
 We recommend enabling Server Side Retry to ensure requests with larger documents succeed. If necessary, raising your DB/Collection RUs may also help performance. 
 

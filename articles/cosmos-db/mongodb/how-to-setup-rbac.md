@@ -85,12 +85,12 @@ az cloud set -n  AzureCloud
 az login
 az account set --subscription <your subscription ID>
 ```
-3. Enable the RBAC capability on your existing API for MongoDB database account. You'll need to [add the capability](how-to-configure-capabilities.md) "EnableMongoRoleBasedAccessControl" to your database account. RBAC can also be enabled via the features tab in the Azure Portal instead. 
+3. Enable the RBAC capability on your existing API for MongoDB database account. You'll need to [add the capability](how-to-configure-capabilities.md) "EnableMongoRoleBasedAccessControl" to your database account. RBAC can also be enabled via the features tab in the Azure portal instead. 
 If you prefer a new database account instead, create a new database account with the RBAC capability set to true.
 ```powershell
 az cosmosdb create -n <account_name> -g <azure_resource_group> --kind MongoDB --capabilities EnableMongoRoleBasedAccessControl
 ```
-4. Create a database for users to connect to in the Azure Portal.
+4. Create a database for users to connect to in the Azure portal.
 5. Create an RBAC user with built-in read role.
 ```powershell
 az cosmosdb mongodb user definition create --account-name <YOUR_DB_ACCOUNT> --resource-group <YOUR_RG> --body {\"Id\":\"<YOUR_DB_NAME>.<YOUR_USERNAME>\",\"UserName\":\"<YOUR_USERNAME>\",\"Password\":\"<YOUR_PASSWORD>\",\"DatabaseName\":\"<YOUR_DB_NAME>\",\"CustomData\":\"Some_Random_Info\",\"Mechanisms\":\"SCRAM-SHA-256\",\"Roles\":[{\"Role\":\"read\",\"Db\":\"<YOUR_DB_NAME>\"}]}
@@ -265,9 +265,9 @@ az cosmosdb mongodb user definition delete --account-name <account-name> --resou
 
 ## Frequently asked questions (FAQs)
 
-### Is it possible to manage role definitions and role assignments from the Azure Portal?
+### Is it possible to manage role definitions and role assignments from the Azure portal?
 
-Azure Portal support for role management is not available. However, RBAC can be enabled via the features tab in the Azure portal.
+Azure portal support for role management is not available. However, RBAC can be enabled via the features tab in the Azure portal.
 
 ### How do I change a user's password?
 

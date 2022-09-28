@@ -359,7 +359,7 @@ In an [upgrade scenario](upgrade-mongodb-version.md), documents written prior to
 
 16MB document support raises the size limit for your documents from 2MB to 16MB. This limit only applies to collections created after this feature has been enabled. Once this feature is enabled for your database account, it cannot be disabled. This feature is not compatible with the Azure Synapse Link feature and/or Continuous Backup.
 
-Enabling 16MB can be done in the features tab in the Azure Portal or programmatically by [adding the "EnableMongo16MBDocumentSupport" capability](how-to-configure-capabilities.md). 
+Enabling 16MB can be done in the features tab in the Azure portal or programmatically by [adding the "EnableMongo16MBDocumentSupport" capability](how-to-configure-capabilities.md). 
 
 We recommend enabling Server Side Retry to ensure requests with larger documents succeed. If necessary, raising your DB/Collection RUs may also help performance. 
 
@@ -558,7 +558,7 @@ For example, with a sharded collection, sharded on key “country”: To delete 
 - `db.coll.deleteMany({"country": "USA", "city": "NYC"})` - **Success** 
 - `db.coll.deleteMany({"city": "NYC"})` - **Fails with error `ShardKeyNotFound(61)`**
 
-To enable the feature, [add the EnableMongoRetryableWrites capability](how-to-configure-capabilities.md) to your database account. This feature can also be enabled in the features tab in the Azure Portal. 
+To enable the feature, [add the EnableMongoRetryableWrites capability](how-to-configure-capabilities.md) to your database account. This feature can also be enabled in the features tab in the Azure portal. 
 
 ## Sharding
 
@@ -570,7 +570,7 @@ Azure Cosmos DB does not yet support server-side sessions commands.
 
 ## Time-to-live (TTL)
 
-Azure Cosmos DB supports a time-to-live (TTL) based on the timestamp of the document. TTL can be enabled for collections from the [Azure Portal](https://portal.azure.com).
+Azure Cosmos DB supports a time-to-live (TTL) based on the timestamp of the document. TTL can be enabled for collections from the [Azure portal](https://portal.azure.com).
 
 ## Transactions
 
@@ -578,7 +578,7 @@ Multi-document transactions are supported within an unsharded collection. Multi-
 
 ## User and role management
 
-Azure Cosmos DB does not yet support users and roles. However, Azure Cosmos DB supports Azure role-based access control (Azure RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure Portal](https://portal.azure.com) (Connection String page).
+Azure Cosmos DB does not yet support users and roles. However, Azure Cosmos DB supports Azure role-based access control (Azure RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com) (Connection String page).
 
 ## Write Concern
 
