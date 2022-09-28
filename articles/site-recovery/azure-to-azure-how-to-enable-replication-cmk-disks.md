@@ -35,12 +35,12 @@ As an example, the primary Azure region is East Asia, and the secondary region i
 1. Select **Next**.
 1. In **Virtual machines**, select each VM that you want to replicate. You can only select machines for which replication can be enabled. You can select up to ten VMs. Then select **Next**.
 
-   ![Screenshot that highlights where you select virtual machines.](./media/azure-to-azure-how-to-enable-replication-cmk-disks/virtual-machine-selection.png)
+   :::image type="Virtual machine selection" source="./media/azure-to-azure-how-to-enable-replication/virtual-machine-selection.png" alt-text="Screenshot that highlights where you select virtual machines.":::
 
 1. In **Replication settings**, you can configure the following settings:
     1. Under **Location and Resource group**,
-       - **Target location**: Select the location where your source virtual machine data will be replicated to. We recommend that you use the same location as the Recovery Services vault's location.
-       - **Target subscription**: Select the target subscription that's used for disaster recovery. By default, the target subscription is the same as the source subscription.
+       - **Target location**: Select the location where your source virtual machine data must be replicated. Depending on the location of selected machines, Site Recovery will provide you the list of suitable target regions. We recommend that you keep the target location the same as the Recovery Services vault location.
+       - **Target subscription**: Select the target subscription used for disaster recovery. By default, the target subscription will be same as the source subscription.
        - **Target resource group**: Select the resource group to which all your replicated virtual machines belong.
            - By default, Site Recovery creates a new resource group in the target region with an *asr* suffix in the name.
            - If the resource group created by Site Recovery already exists, it's reused.
@@ -50,24 +50,41 @@ As an example, the primary Azure region is East Asia, and the secondary region i
             >[!Note]
             > You can also create a new target resource group by selecting **Create new**. 
         
+         :::image type="Location and resource group" source="./media/azure-to-azure-how-to-enable-replication-cmk-disks/resource-group.png" alt-text="Screenshot of Location and resource group."::: 
+
     1. Under **Network**,
        - **Failover virtual network**: Select the failover virtual network.
          >[!Note]
          > You can also create a new failover virtual network by selecting **Create new**.
        - **Failover subnet**: Select the failover subnet.
-    1. **Storage**: By default, Site Recovery creates a new target storage account by mimicking your source VM storage configuration. If a storage account already exists, it's reused.
+       
+         :::image type="Network" source="./media/azure-to-azure-how-to-enable-replication-cmk-disks/network.png" alt-text="Screenshot of Network."::: 
+
+    1. **Storage**: Select **View/edit storage configuration**. **Customize target settings** page opens.
+    
+         :::image type="Storage" source="./media/azure-to-azure-how-to-enable-replication-cmk-disks/storage.png" alt-text="Screenshot of Storage."::: 
+  
+       - **Replica-managed disk**: Site Recovery creates new replica-managed disks in the target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk.
+       - **Cache storage**: Site Recovery needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating them to the target location. This storage account should be Standard. 
+         
     1. **Availability options**: Select appropriate availability option for your VM in the target region. If an availability set that was created by Site Recovery already exists, it's reused. Select **View/edit availability options** to view or edit the availability options.
         >[!NOTE]
         >- While configuring the target availability sets, configure different availability sets for differently sized VMs.
-        >- You cannot change the availability type - single instance, availability set or availability zone, after you enable replication. You must disable and enable replication to change the availability type.     
+        >- You cannot change the availability type - single instance, availability set or availability zone, after you enable replication. You must disable and enable replication to change the availability type.  
+
+         :::image type="Availability option" source="./media/azure-to-azure-how-to-enable-replication-cmk-disks/availability-option.png" alt-text="Screenshot of availability option."::: 
+   
     1. **Capacity reservation**: Capacity Reservation lets you purchase capacity in the recovery region, and then failover to that capacity. You can either create a new Capacity Reservation Group or use an existing one. For more information, see [how capacity reservation works](https://learn.microsoft.com/azure/virtual-machines/capacity-reservation-overview).
+    Select **View or Edit Capacity Reservation group assignment** to modify the capacity reservation settings. On triggering Failover, the new VM will be created in the assigned Capacity Reservation Group.
     
-    1. **Storage encryption settings**: Site Recovery needs the disk encryption set(s)(DES) to be used for replica and target managed disks. You must pre-create Disk encryption sets in the target subscription and the target region before enabling the replication. By default, a Disk encryption sets is not selected. You must select **View/edit configuration** to choose a Disk encryption sets per source disk.
+         :::image type="Capacity reservation" source="./media/azure-to-azure-how-to-enable-replication-cmk-disks/capacity-reservation.png" alt-text="Screenshot of capacity reservation.":::
+
+    1. **Storage encryption settings**: Site Recovery needs the disk encryption set(s)(DES) to be used for replica and target managed disks. You must pre-create Disk encryption sets in the target subscription and the target region before enabling the replication. By default, a Disk encryption set is not selected. You must select **View/edit configuration** to choose a Disk encryption set per source disk.
        
        >[!Note]
        >Ensure that the Target DES is present in the Target Resource Group, and that the Target DES has Get, Wrap Key, Unwrap Key access to a Key Vault in the same region.
     
-        :::image type="enable replication parameters" source="./media/azure-to-azure-how-to-enable-replication-cmk-disks/enable-vm-replication.png" alt-text="Screenshot that displays the enable replication parameters.":::
+        :::image type="Storage encryption settings" source="./media/azure-to-azure-how-to-enable-replication-cmk-disks/storage-encryption-settings.png" alt-text="Screenshot of storage encryption settings.":::
 
 1. Select **Next**.
 1. In **Manage**, do the following:
