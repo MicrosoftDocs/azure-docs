@@ -94,7 +94,7 @@ cd cli/jobs/pipelines-with-components/nyc_taxi_data_regression
 
 # [Python SDK](#tab/python)
 
-For the Python SDK example, use the `nyc_taxi_data_regression` sample from the [examples repository](https://github.com/Azure/azureml-examples). The sample notebook, `share-models-components-environments.ipynb`, is available in the `sdk/resources/registry` folder. All the sample YAML for components, model training code, sample data for training and inference is available in `cli/jobs/pipelines-with-components/nyc_taxi_data_regression`. Change to the `sdk/resources/registry` directory and open the `share-models-components-environments.ipynb` notebook if you'd like to step through a notebook to try out the code in this document.
+For the Python SDK example, use the `nyc_taxi_data_regression` sample from the [examples repository](https://github.com/Azure/azureml-examples). The sample notebook, [share-models-components-environments.ipynb,]((https://github.com/Azure/azureml-examples/tree/main/sdk/python/assets/assets-in-registry/share-models-components-environments.ipynb) is available in the `sdk/python/assets/assets-in-registry` folder. All the sample YAML for components, model training code, sample data for training and inference is available in `cli/jobs/pipelines-with-components/nyc_taxi_data_regression`. Change to the `sdk/resources/registry` directory and open the `share-models-components-environments.ipynb` notebook if you'd like to step through a notebook to try out the code in this document.
 
 ---
 
@@ -177,7 +177,7 @@ We'll create an environment that uses the `python:3.8` docker image and installs
 
 ```python
 env_docker_context = Environment(
-    build=BuildContext(path="../../../cli/jobs/pipelines-with-components/nyc_taxi_data_regression/env_train/"),
+    build=BuildContext(path="../../../../cli/jobs/pipelines-with-components/nyc_taxi_data_regression/env_train/"),
     name="SKLearnEnv",
     version=str(1),
     description="Scikit Learn environment",
@@ -277,7 +277,7 @@ az ml component show --name <component_name> --version <component_version> --reg
 Review the component definition file `train.yml` and the Python code `train_src/train.py` to train a regression model using Scikit Learn available in the `cli/jobs/pipelines-with-components/nyc_taxi_data_regression` folder. Load the component object from the component definition file `train.yml`. 
 
 ```python
-parent_dir = "../../../cli/jobs/pipelines-with-components/nyc_taxi_data_regression"
+parent_dir = "../../../../cli/jobs/pipelines-with-components/nyc_taxi_data_regression"
 train_model = load_component(path=parent_dir + "/train.yml")
 print(train_model)
 ```
