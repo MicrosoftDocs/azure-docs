@@ -1,6 +1,6 @@
 ---
 title: Overview of permissions and consent in the Microsoft identity platform
-description: Learn about the foundational concepts and scenarios around consent and permissions in the Microsoft identity platform
+description: Learn the foundational concepts and scenarios around consent and permissions in the Microsoft identity platform
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -10,9 +10,10 @@ ms.subservice: develop
 ms.workload: identity
 ms.custom: event-tier1-build-2022
 ms.topic: overview
-ms.date: 09/15/2022
+ms.date: 09/28/2022
 ms.author: jomondi
 ms.reviewer: jawoods, ludwignick, phsignor
+
 #Customer intent: As and a developer or admin in the Microsoft identity platform, I want to understand the basic concept about managing how applications access resources through the permissions and consent framework.
 ---
 # Introduction to permissions and consent
@@ -27,7 +28,7 @@ As an application developer, you must identify how your application will access 
 
 ### Delegated access (access on behalf of a user)
 
-In this access scenario, a user has signed into a client application. The client application accesses the resource on behalf of the user. Delegated access requires delegated permissions. Both the client and the user must be authorized separately to make the request.
+In this access scenario, a user has signed into a client application. The client application accesses the resource on behalf of the user. Delegated access requires delegated permissions. Both the client and the user must be authorized separately to make the request. For more information about the delegated access scenario, see [delegated access scenario](delegated-access.md).
 
 For the client app, the correct delegated permissions must be granted. Delegated permissions can also be referred to as scopes. Scopes are permissions of a given resource that the client application exercises on behalf of a user. They're strings that represent what the application wants to do on behalf of the user. For more information about scopes, see [scopes and permissions](v2-permissions-and-consent.md#scopes-and-permissions).
 
@@ -41,7 +42,7 @@ Direct access may require application permissions but that isn't the only way fo
 
 ## Types of permissions
 
-**Delegated permissions** are used in the delegated access scenario. They're permissions that allow the application to act on a user's behalf. The application will never be able to access anything users themselves couldn't access.
+**Delegated permissions** are used in the delegated access scenario. They're permissions that allow the application to act on a user's behalf. The application will never be able to access anything users themselves couldn't access
 
 For example, imagine an application that has been granted the Files.Read.All delegated permission on behalf of Tom, the user. The application will only be able to read files that Tom can personally access.
 
@@ -70,5 +71,6 @@ Preauthorization allows a resource application owner to grant permissions withou
 
 For troubleshooting steps, see [Unexpected error when performing consent to an application](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
 ## Next steps
+- [Delegated access scenario](delegated-access.md)
 - [User and admin consent overview](../manage-apps/consent-and-permissions-overview.md)
 - [Scopes and permissions](v2-permissions-and-consent.md)

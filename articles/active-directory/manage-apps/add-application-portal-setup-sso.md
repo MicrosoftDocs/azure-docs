@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 09/21/2021
+ms.date: 09/21/2022
 ms.author: davidmu
 ms.reviewer: ergleenl
 ms.custom: contperf-fy22q2, mode-other

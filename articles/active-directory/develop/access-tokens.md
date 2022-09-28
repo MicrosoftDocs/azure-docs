@@ -19,7 +19,7 @@ ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 
 Access tokens enable clients to securely call protected web APIs. Access tokens are used by web APIs to perform authentication and authorization.
 
-Per the OAuth specification, access tokens are opaque strings without a set format. Some identity providers (IDPs) use GUIDs and others use encrypted blobs. The format of the access token can depend on how the API that accepts the token is configured.
+Per the OAuth specification, access tokens are opaque strings without a set format. Some identity providers (IDPs) use GUIDs and others use encrypted blobs. The format of the access token can depend on how the API that accepts the token izzs configured.
 
 Custom APIs registered by developers on the Microsoft identity platform can choose from two different formats of JSON Web Tokens (JWTs) called `v1.0` and `v2.0`. Microsoft-developed APIs like Microsoft Graph or APIs in Azure have other proprietary token formats. These proprietary formats might be encrypted tokens, JWTs, or special JWT-like tokens that won't validate.
 
@@ -324,4 +324,4 @@ Check out [Primary Refresh Tokens](../devices/concept-primary-refresh-token.md) 
 ## Next steps
 
 - Learn about [`id_tokens` in Azure AD](id-tokens.md).
-- Learn about permission and consent ( [v1.0](../azuread-dev/v1-permissions-consent.md), [v2.0](v2-permissions-and-consent.md)).
+- Learn about permission and consent ( [v1.0](.md)).

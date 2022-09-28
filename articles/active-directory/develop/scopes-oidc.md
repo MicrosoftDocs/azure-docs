@@ -1,6 +1,6 @@
 ---
-title: Microsoft identity platform scopes, permissions, & consent
-description: Learn about authorization in the Microsoft identity platform endpoint, including scopes, permissions, and consent.
+title: Microsoft identity platform scopes.
+description: Learn about openID connect scopes in the Microsoft identity platform endpoint.
 services: active-directory
 author: mmacy
 manager: CelesteDG

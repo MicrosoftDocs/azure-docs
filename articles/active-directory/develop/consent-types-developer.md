@@ -1,6 +1,6 @@
 ---
-title: Microsoft identity platform scopes, permissions, & consent
-description: Learn about authorization in the Microsoft identity platform endpoint, including scopes, permissions, and consent.
+title: Microsoft identity platform consent types for developers.
+description: Learn about consent types for developers in the Microsoft identity platform endpoint.
 services: active-directory
 author: omondiatieno
 manager: mwongerapk
@@ -12,7 +12,6 @@ ms.topic: conceptual
 ms.date: 09/20/2022
 ms.author: marsma
 ms.reviewer: jawoods, ludwignick, phsignor
-ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40, has-adal-ref
 ---
 # Consent types
 

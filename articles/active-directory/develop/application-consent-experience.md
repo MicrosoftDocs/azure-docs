@@ -17,7 +17,7 @@ ms.reviewer: jesakowi, asteen, jawoods
 
 # Consent experience for applications in Azure Active Directory
 
-Learn more about the Azure Active Directory (Azure AD) application consent user experience. So you can intelligently manage applications for your organization and/or develop applications with a more seamless consent experience.
+In this article, you'll learn about the Azure Active Directory (Azure AD) application consent user experience. You'll then be able to intelligently manage applications for your organization and/or develop applications with a more seamless consent experience.
 
 Consent is the process of a user granting authorization to an application to access protected resources on their behalf. An admin or user can be asked for consent to allow access to their organization/individual data.
 
@@ -55,7 +55,7 @@ The following section describes the common scenarios and the expected consent ex
 
 In this consent scenario, the user accesses an app which requires a permission set that is within the user's scope of authority. The user is directed to the user consent flow.
 
-Admins will see an additional control on the traditional consent prompt that will allow them consent on behalf of the entire tenant. The control will be defaulted to off, so only when admins explicitly check the box will consent be granted on behalf of the entire tenant. As of today, this check box will only show for the Global Admin role, so Cloud Admin and App Admin will not see this checkbox.
+Admins will see an additional control on the traditional consent prompt that will allow them consent on behalf of the entire tenant. The control will be defaulted to off, so only when admins explicitly check the box will consent be granted on behalf of the entire tenant. The check box will only show for the Global Admin role, so Cloud Admin and App Admin will not see this checkbox.
 
 :::image type="content" source="./media/application-consent-experience/consent_prompt_1a.png" alt-text="Consent prompt for scenario 1a":::
 
@@ -87,6 +87,16 @@ Non-admin users will be blocked from granting consent to the application, and th
 
 :::image type="content" source="./media/application-consent-experience/consent_prompt_2b.png" alt-text="Screenshot of the consent prompt telling the user to ask an admin for access to the app.":::
 
+### Admin consent through the Azure portal
+
+In this scenario, an administrator consents to an application's delegated permissions on behalf of all the users in the tenant. The Administrator grants consent through the **API permissions** page of the application registration in the [Azure portal](https://portal.azure.com).
+
+ :::image type="content" source="./media/consent-framework/grant-consent.png" alt-text="Grant permissions for explicit admin consent" lightbox="./media/consent-framework/grant-consent.png":::
+
+All users in that tenant won't see the consent dialog unless the application requires new permissions. To learn which administrator roles can consent to delegated permissions, see [Administrator role permissions in Azure AD](../roles/permissions-reference.md).
+
+   > [!IMPORTANT]
+   > Granting explicit consent using the **Grant permissions** button is currently required for single-page applications (SPA) that use MSAL.js. Otherwise, the application fails when the access token is requested.
 ## Next steps
 
 - Get a step-by-step overview of [how the Azure AD consent framework implements consent](./quickstart-register-app.md).
