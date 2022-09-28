@@ -87,7 +87,7 @@ The following table describes what’s supported for each network features confi
 |     Dual stack (IPv4 and   IPv6) VNet    |     No <br> (IPv4 only supported)    |     No <br> (IPv4 only supported)    |
 
 > [!IMPORTANT]
-> Conversion between Basic and Standard networking features in either direction is not currently supported. Additionally, you cannot create a standard volume from the snapshot of a basic volume.
+> Conversion between Basic and Standard networking features in either direction is not currently supported. Additionally, you cannot create a Standard volume from the snapshot of a Basic volume.
 
 ### Supported network topologies
 
