@@ -86,6 +86,7 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [Partner Tier1 Support](#partner-tier1-support) | Do not use - not intended for general use. | 4ba39ca4-527c-499a-b93d-d9b492c50246 |
 > | [Partner Tier2 Support](#partner-tier2-support) | Do not use - not intended for general use. | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8 |
 > | [Password Administrator](#password-administrator) | Can reset passwords for non-administrators and Password Administrators. | 966707d0-3269-4727-9be2-8c3a10f19b9d |
+> [Permissions Management Administrator](#permissions-management-administrator) | Can manage all aspects of Permissions Management. | af78dc32-cf4d-46f9-ba4e-4428526346b5 |
 > | [Power BI Administrator](#power-bi-administrator) | Can manage all aspects of the Power BI product. | a9ea8996-122f-4c74-9520-8edcd192826c |
 > | [Power Platform Administrator](#power-platform-administrator) | Can create and manage all aspects of Microsoft Dynamics 365, Power Apps and Power Automate. | 11648597-926c-4cf3-9c36-bcebb0ba8dcc |
 > | [Printer Administrator](#printer-administrator) | Can manage all aspects of printers and printer connectors. | 644ef478-e28f-4e28-b9dc-3fdde9aa0b1f |
@@ -1692,6 +1693,19 @@ Users with this role can't change the credentials or reset MFA for members and o
 > | --- | --- |
 > | microsoft.directory/users/password/update | Reset passwords for all users |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
+
+## Permissions Management Administrator
+
+Assign the Permissions Management Administrator role to users who need to do the following tasks:
+
+- Manage all aspects of Entry Permissions Management, when the service is present
+
+Learn more about Permissions Management roles and polices at [View information about roles/policies](../cloud-infrastructure-entitlement-management/how-to-view-role-policy.md).
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.permissionsManagement/allEntities/allProperties/allTasks | Manage all aspects of Entra Permissions Management |
 
 ## Power BI Administrator
 
