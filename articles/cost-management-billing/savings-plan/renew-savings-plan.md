@@ -17,13 +17,20 @@ You can automatically purchase a replacement savings plan when an existing savin
 
 Renewing a savings plan creates a new savings plan when the existing one expires. It doesn't extend the term of the existing savings plan.
 
-Opt in to automatically renew at any time. The renewal price is available 30 days before the expiry of existing savings plan. When you enable renewal more than 30 days before the savings plan expiration, you're sent an email detailing renewal costs 30 days before expiration. The savings plan price might change between the time that you lock the renewal price and the renewal time. If so, your renewal won't be processed, and you must manually purchase a new savings plan to continue getting the benefit.
+You can opt in to automatically renew at any time.
 
 There's no obligation to renew and you can opt out of the renewal at any time before the existing savings plan expires.
 
 ## Required renewal permissions
 
 The following conditions are required to renew a savings plan:
+
+For Enterprise Agreements (DA) and Microsoft Customer Agreements (MCA):
+
+MCA - You must be a billing profile contributor
+EA - You must be an EA admin with write access
+
+For Microsoft Partner Agreements (MPA):
 
 - You must be an owner of the existing savings plan.
 - You must be an owner of the subscription if the savings plan is scoped to a single subscription or resource group.
@@ -58,7 +65,7 @@ If you make any of the following changes to the expiring savings plan, the savin
 - Transferring the savings plan from one account to another
 - Renew the enrollment
 
-The new savings plan inherits the scope and instance size flexibility setting from the expiring savings plan during renewal.
+The new savings plan inherits the scope setting from the expiring savings plan during renewal.
 
 ## New savings plan permissions
 
@@ -81,8 +88,7 @@ Renewal notification emails are sent 30 days before expiration and again on the 
 Emails are sent to different people depending on your purchase method:
 
 - EA customers - Emails are sent to the notification contacts set on the EA portal or Enterprise Administrators who are automatically enrolled to receive usage notifications.
-- Individual subscription customers with pay-as-you-go rates - Emails are sent to users who are set up as account administrators.
-- Cloud Solution Provider customers – No email notifications are currently sent for Microsoft Customer Agreement subscriptions (CSP Azure Plan subscription).
+- MPA – No email notifications are currently sent for Microsoft Partner Agreement subscriptions.
 
 ## Next steps
 
