@@ -48,7 +48,7 @@ This section shows a flat list view in a time sequence of all the telemetry rela
 
 ## Details of the selected telemetry
 
-This collapsible pane shows the detail of any selected item from the transaction chart or the list. **Show all** lists all the standard attributes that are collected. Any custom attributes are listed separately under the standard set. Select the **...** under the **Call Stack** trace window to get an option to copy the trace. **Open profiler traces** or **Open debug snapshot** shows code-level diagnostics in corresponding detail panes.
+This collapsible pane shows the detail of any selected item from the transaction chart or the list. **Show all** lists all the standard attributes that are collected. Any custom attributes are listed separately under the standard set. Select the ellipsis button (...) under the **Call Stack** trace window to get an option to copy the trace. **Open profiler traces** and **Open debug snapshot** show code-level diagnostics in corresponding detail panes.
 
 ![Screenshot that shows exception details.](media/transaction-diagnostics/exceptiondetail.png)
 
@@ -72,7 +72,7 @@ If you can't get Snapshot Debugger working, contact snapshothelp\@microsoft.com.
 
 This section provides answers to common questions.
 
-### Why do I see a single component on the chart and the others are only showing as external dependencies without any detail of what happened within those components?
+### Why do I see a single component on the chart and the other components only show as external dependencies without any details?
 
 Potential reasons:
 
@@ -93,7 +93,7 @@ Timelines are adjusted for clock skews in the transaction chart. You can see the
 
 This behavior is by design. All the related items, across all components, are already available on the left side in the top and bottom sections. The new experience has two related items that the left side doesn't cover: all telemetry from five minutes before and after this event and the user timeline.
 
-### I see more events than expected in the transaction diagnostics experience when I use the Application Insights JavaScript SDK. Is there a way to see fewer events per transaction?
+### Is there a way to see fewer events per transaction when I use the Application Insights JavaScript SDK?
 
 The transaction diagnostics experience shows all telemetry in a [single operation](correlation.md#data-model-for-telemetry-correlation) that shares an [Operation ID](data-model-context.md#operation-id). By default, the Application Insights SDK for JavaScript creates a new operation for each unique page view. In a single-page application (SPA), only one page view event will be generated and a single Operation ID will be used for all telemetry generated. As a result, many events might be correlated to the same operation.
 

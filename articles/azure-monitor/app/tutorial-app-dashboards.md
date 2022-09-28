@@ -24,7 +24,8 @@ You can create multiple dashboards in the Azure portal that include tiles visual
 
 To complete this tutorial:
 
-- Deploy a .NET application to Azure and [enable the Application Insights SDK](../app/asp-net.md).
+- Deploy a .NET application to Azure.
+- Enable the [Application Insights SDK](../app/asp-net.md).
 
 > [!NOTE]
 > Required permissions for working with dashboards are discussed in the article on [understanding access control for dashboards](../../azure-portal/azure-portal-dashboard-share-access.md#understanding-access-control-for-dashboards).
