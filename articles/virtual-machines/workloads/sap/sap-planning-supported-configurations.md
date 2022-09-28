@@ -8,13 +8,21 @@ ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 02/11/2022
+ms.date: 09/28/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
 
 # SAP workload on Azure virtual machine supported scenarios
-Designing SAP NetWeaver, Business one, `Hybris` or S/4HANA systems architecture in Azure opens many different opportunities for various architectures and tools to use to get to a scalable, efficient, and highly available deployment. Though dependent on the operating system or DBMS used, there are restrictions. Also, not all scenarios that are supported on-premises are supported in the same way in Azure. This document will lead through the supported non-high-availability configurations and high-availability configurations and architectures using Azure VMs exclusively. For scenarios supported with [HANA Large Instances](./hana-overview-architecture.md), check the article [Supported scenarios for HANA Large Instances](./hana-supported-scenario.md).
+Designing SAP NetWeaver, Business one, `Hybris` or S/4HANA systems architecture in Azure opens many different opportunities for various architectures and tools to use to get to a scalable, efficient, and highly available deployment. Though dependent on the operating system or DBMS used, there are restrictions. Also, not all scenarios that are supported on-premises are supported in the same way in Azure. This document will lead through the supported non-high-availability configurations and high-availability configurations and architectures using Azure VMs exclusively. 
+
+> [!NOTE]
+> HANA Large Instance service is in sunset mode and does not accept new customers anymore. Providing units for existing HANA Large Instance customers is still possible. For alternatives, please check the offers of HANA certified Azure VMs in the [HANA Hardware Directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:24). For scenarios that were and still are supported for existing HANA Large Instance customers with [HANA Large Instances](./hana-overview-architecture.md), check the article [Supported scenarios for HANA Large Instances](./hana-supported-scenario.md).
+
+## General platform restrictions
+Azure has various platforms besides so called native Azure VMs that are offered as first party service. [HANA Large Instances](./hana-overview-architecture.md), which is in sunset mode is one of those platforms. [Azure VMWare Services](https://azure.microsoft.com/products/azure-vmware/) is another of these first party services. At this point in time Azure VMWare Services in general is not supported by SAP for hosting SAP workload. Please refer to [SAP support note #2138865  - SAP Applications on VMware Cloud: Supported Products and VM configurations](https://launchpad.support.sap.com/#/notes/2138865) for more details of VMWare support on different platforms.
+
+Additional to on-premise Active Directory, Azure offers a managed Active Directory SaaS service with [Azure Active Directory Domain Services](https://learn.microsoft.com/azure/active-directory-domain-services/overview) and [Azure Active Directory](https://learn.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). SAP components hosted on Windows OS that are suppossed to use Active directory, are solely relying on the traditional Active Directory as it is hosted on-premise by you, or Azure Acitve Directory Domain Services. But these SAP comonents can't function with the native Azure Active Directory. Reason is that there are still larger gaps in functionality between Active Directory in its on-premise form or its SaaS form (Azure Active Directory Domain Services) and the native Azure Active Directory. That is why Azure Active Directy services accounts are not supported to be used for running SAP components, like ABAP stack, JAVA stack on Windows OS. Traditional Active Directory accounts need to be used in such scenarios.
 
 ## 2-Tier configuration
 An SAP 2-Tier configuration is considered to be built up out of a combined layer of the SAP DBMS and application layer that run on the same server or VM unit. The second tier is considered to be the user interface layer. In the case of a 2-Tier configuration, the DBMS, and SAP application layer share the resources of the Azure VM. As a result, you need to configure the different components in a way that these components don't compete for resources. You also need to be careful to not oversubscribe the resources of the VM. Such a configuration does not provide any high availability, beyond the [Azure Service Level agreements](https://azure.microsoft.com/support/legal/sla/) of the different Azure components involved.
