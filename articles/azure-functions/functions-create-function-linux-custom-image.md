@@ -517,9 +517,6 @@ A function app on Azure manages the execution of your functions in your hosting 
  
 1. The function can now use this connection string to access the storage account.
 
-> [!NOTE]
-> If you publish your custom image to a private container registry, you must use environment variables in the *Dockerfile* for the connection string instead. For more information, see the [ENV instruction](https://docs.docker.com/engine/reference/builder/#env). You must also set the `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` variables. To use the values, you must rebuild the image, push the image to the registry, and then restart the function app on Azure.
-
 ## Verify your functions on Azure
 
 With the image deployed to your function app in Azure, you can now invoke the function as before through HTTP requests.
