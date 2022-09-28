@@ -32,6 +32,7 @@ Create a new notebook in studio.
 1. Select **Create new file** 
     
     :::image type="content" source="media/quickstart-run-notebooks/create-new-file.png" alt-text="Screenshot: create a new notebook file.":::
+
 1. Name your new notebook **my-new-notebook.ipynb**
 1. If you stopped your compute instance at the end of the [Quickstart: Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md), start it again now:
 
@@ -84,7 +85,24 @@ Create a new notebook in studio.
 
     :::image type="content" source="media/quickstart-run-notebooks/notebook.png" alt-text="Screenshot: Notebook contents.":::
 
-## Explore sample code
+## Explore sample notebooks
+
+There are sample notebooks available in studio to use so you can learn more about Azure Machine Learning.  To find these samples:
+
+1. Still in the **Notebooks** section, select **Samples** a the top.
+
+    :::image type="content" source="media/quickstart-run-notebooks/samples.png" alt-text="Screenshot: Sample notebooks.":::
+
+1. The **v1** folder can be used with the previous, v1 version of the SDK. 
+1. Use notebooks in the **v2** folder for examplesl that show the current version of the SDK, v2.
+1. When you select a notebook, you'll see a read-only version of the notebook.  
+1. Select **Clone this notebook** to add a copy of it to your files.  This action will also copy the rest of the folder's content for that notebook.
+1. You can also clone an entire folder.  Select the **"..."** at the right of a folder to get the menu, then select **Clone**.
+1. Clone the **v2/tutorials** folder.  
+    
+    :::image type="content" source="media/quickstart-run-notebooks/clone-folder.png" alt-text="Screenshot: clone v2 tutorials folder.":::
+
+1. Now go back to **Files** to see the cloned folder in your files.
 
 ## Clean up resources
 
