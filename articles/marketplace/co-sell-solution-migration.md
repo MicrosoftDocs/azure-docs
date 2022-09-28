@@ -24,9 +24,9 @@ As a Microsoft partner enrolled in the commercial marketplace, you can:
 
 ## Prerequisites to continue co-selling with Microsoft
 
-Ensure you have an active Microsoft Partner Network membership and are enrolled in the commercial marketplace in Partner Center.
+Ensure you have an active Microsoft Cloud Partner Program membership and are enrolled in the commercial marketplace in Partner Center.
 
-- Join the Microsoft Partner Network [at no cost](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership). As a partner, you’ll have access to exclusive resources, programs, tools, and connections to grow your business.
+- Join the Microsoft Cloud Partner Program [at no cost](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership). As a partner, you’ll have access to exclusive resources, programs, tools, and connections to grow your business.
 - If you do not have an account in commercial marketplace, [enroll now](create-account.md) to continue co-selling with Microsoft and access the full publishing experience.
 
 ## Publishing updates for attaining co-sell-ready status
