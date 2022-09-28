@@ -270,10 +270,10 @@ To create a data collection rule in the Azure portal:
 
 1. Copy the **Resource ID** for the data collection rule. You'll use this information in the next step.
 
-    :::image type="content" source="media/tutorial-workspace-transformations-api/data-collection-rule-json-view.png" lightbox="media/tutorial-workspace-transformations-api/data-collection-rule-json-view.png" alt-text="Screenshot for data collection rule JSON view.":::
+    :::image type="content" source="media/ingest-logs-event-hub/data-collection-rule-json-view.png" lightbox="media/ingest-logs-event-hub/data-collection-rule-json-view.png" alt-text="Screenshot that shows the data collection rule JSON view.":::
 
     > [!NOTE]
-    > All of the properties of the DCR, such as the transformation, may not be displayed in the Azure portal even though the DCR was successfully created with those properties.
+    > The Azure portal might not show all of the properties of the DCR, such as the transformation, even if the DCR is created successfully with those properties.
 
 ### Configure user-assigned managed identity (optional)
 
