@@ -50,7 +50,7 @@ The table shown lists all the queries written by Microsoft's team of security an
 
 :::image type="content" source="media/hunting/hunting-start.png" alt-text="Microsoft Sentinel starts hunting" lightbox="media/hunting/hunting-start.png":::
 
-Use the hunting dashboard to identify where to start hunting, by looking at result count, spikes, or the change in result count over a 24-hour period. Sort and filter by favorites, data source, MITRE ATT&CK tactic or technique, results, results delta, or results delta percentage. View queries that still need data sources connected**, and get recommendations on how to enable these queries.
+Use the hunting dashboard to identify where to start hunting, by looking at result count, spikes, or the change in result count over a 24-hour period. Sort and filter by favorites, data source, MITRE ATT&CK tactic or technique, results, results delta, or results delta percentage. View queries that still need data sources connected, and get recommendations on how to enable these queries.
 
 The following table describes detailed actions available from the hunting dashboard:
 
