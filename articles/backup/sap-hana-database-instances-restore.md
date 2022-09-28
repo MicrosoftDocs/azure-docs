@@ -13,11 +13,11 @@ ms.author: v-amallick
 This article describes how to restore a backed-up SAP HANA database instance to another target VM via snapshots.
 
 >[!Note]
->If you want to do an in-place restore (that is, to overwrite the backed-up VM by detaching the existing disks and attaching new disks), detach the existing disks and see the following sections for restore.
+>If you want to do an in-place restore (overwrite the backed-up VM by detaching the existing disks and attaching new disks), detach the existing disks and see the following sections for restore.
 
 You can restore the HANA snapshot + storage snapshot as disks by selecting Attach and mount to the target machine. However, Azure Backup won't automatically restore HANA system to the required point.
 
-Here are two workflows:
+Here are the two workflows:
 
 - [Restore entire HANA system (system database and all tenant databases) to a single snapshot based restore point](#restore-entire-system-to-snapshot-restore-point).
 - [Restore system database and all tenant database to a different log point-in-time over snapshot](#restore-database-to-a-different-log-point-in-time-over-snapshot).
@@ -167,11 +167,11 @@ Follow these steps:
 
 1. On the **Restore** page, select the target VM to which the disks should be attached, the required HANA instance, and the resource group.
 
+   :::image type="content" source="./media/sap-hana-database-instances-restore/log-over-snapshots-for-tenant-database-restore-point.png" alt-text="Screenshot showing how to select restore point of log over snapshots for tenant database.":::
+
    Ensure that the target VM and target disk resource group have relevant permissions using the PowerShell/CLI script.
 
 1. In **Restore Point**, choose **Select**.
-
-   :::image type="content" source="./media/sap-hana-database-instances-restore/log-over-snapshots-for-tenant-database-restore-point.png" alt-text="Screenshot showing how to select restore point of log over snapshots for tenant database.":::
 
 1. On the **Select restore point** pane, select the restore point and select **OK**.
 
