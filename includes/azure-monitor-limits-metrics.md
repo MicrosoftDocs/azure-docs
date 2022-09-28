@@ -13,6 +13,73 @@ ms.custom: "include file"
 
 ### Prometheus metrics
 
+
+#### Ingestion
+
+**Limits applied to the Azure Monitor workspace ingesting your Prometheus metrics.**
+
+| Limit | Value |
+|:---|:---|
+| Active time series per Azure Monitor workspace<br>This is metrics that have been reported in the last ~12 hours.  | 1,000,000<br>You can request an increase.  |
+| Events per minute ingested | 1,000,000<br>You can request an increase. |
+
+
+**Limits applied to the Data Collection Rule and Data Collection Endpoint sending Prometheus metrics data to your Azure Monitor workspace.**
+
+| Limit | Value |
+|:---|:---|
+| Ingestion requests per minute to a data collection endpoint  | 15,000<br>This limit cannot be increased.   |
+| Data ingestion per minute to a data collection endpoint | 50 GB<br>This limit cannot be increased. |
+
+#### Prometheus queries 
+Prometheus queries are created using PromQL and can be authored in either Azure Managed or self-managed Grafana. 
+
+
+| Limit | Value |
+|:---|:---|
+| Data retention | 18 months<br>This limit cannot be increased.  
+| Query time range | 32 days between the start time and end time of your PromQL query<br>This limit cannot be increased. |
+| Query data limits | 240GB data returned per Azure Monitor workspace over a 30 second window |
+| Query time series per metric | 150K time series |
+| Query samples returned | 50M samples per query |
+| Minimum query step size with time range >= 48 hours | 60 seconds |
+
+
+**Query pre-parsing limits**<br>
+Based on query time range and request type over a 30 second window.<br>
+Each value is per user (AAD or System Identity).
+
+| Limit | Value |
+|:---|:---|
+| Query hours per per Azure Managed Grafana Workspace | 30,000 |
+| Query hours per Azure Monitor workspace | 60,000 |
+| Query hours per Azure tenant | 600,000 |
+
+
+**Query post-parsing limits**<br>
+Based on query time range and range vectors in query over a 30 second window.<br>
+Each value is per user (AAD or System Identity).
+
+| Limit | Value |
+|:---|:---|
+| Query hours per per Azure Managed Grafana Workspace | 2,000,000 |
+| Query hours per Azure Monitor workspace | 2,000,000 |
+| Query hours per Azure tenant | 20,000,000 |
+
+
+
+
+#### Prometheus alert rules 
+Prometheus alert rules are defined in PromQL and are performed on the managed Ruler service as part of Azure Monitor managed service for Prometheus. 
+
+| Limit | Value |
+|:---|:---|
+| Rule groups per Azure Monitor workspace, per Azure subscription  | 100<br>You can request an increase. |
+| Rules per rule group | 20<br>You can request an increase. |
+| Rule group evaluation interval | Between 1-15 minutes.<br>Default is 1 minute. |
+| Active alerts | No limit at this time. |
+
+
 #### Remote write
 Calculations were determined using a remote batch size of 500 which is the default.
 
