@@ -39,30 +39,13 @@ Learn how to take the following actions:
 
 Azure Machine Learning includes a cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](../how-to-configure-environment.md#local) if you prefer to have control over your environment, packages, and dependencies.
 
-
 ## Clone a notebook folder
 
 You complete the following experiment setup and run steps in Azure Machine Learning studio. This consolidated interface includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
 
-1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
+[!INCLUDE [clone repo v1](../../../includes/machine-learning-clone-v1-repo.md)]
 
-1. Select your subscription and the workspace you created.
 
-1. On the left, select **Notebooks**.
-
-1. Select the **Open terminal** tool to open a terminal window.
-
-    :::image type="content" source="media/tutorial-train-deploy-notebook/open-terminal.png" alt-text="Screenshot: Open terminal from Notebooks section.":::
-
-1. On the top bar, select the compute instance you created during the  [Quickstart: Get started with Azure Machine Learning](../quickstart-create-resources.md)  to use if it's not already selected.  Start the compute instance if it is stopped.
-
-1. In the terminal window, clone the MachineLearningNotebooks repository:
-
-    ```bash
-    git clone --depth 1  https://github.com/Azure/MachineLearningNotebooks
-    ```
-
-1. If necessary, refresh the list of files with the **Refresh** tool to see the newly cloned folder under your user folder.
 
 ## Open the cloned notebook
 
