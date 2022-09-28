@@ -82,4 +82,4 @@ At the failure of schema conversion, the job behavior will follow the [output da
 
 ## Next steps
 
-* [Create a Stream Analytics job writing to Delta Lake Table in ADLS Gen2](write-to-a-Delta-table-in-ADLS-Gen2.md)
+* [Create a Stream Analytics job writing to Delta Lake Table in ADLS Gen2](https://aka.ms/azure-stream-analytics-writes-to-Delta-Lake)
