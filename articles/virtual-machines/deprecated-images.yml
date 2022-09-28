@@ -31,14 +31,15 @@ sections:
       - question: I received an email that my workloads are running on images that are scheduled for deprecation. What does this mean and does deprecation impact my existing workloads? 
         answer: |
           Before the scheduled deprecation date, you can continue to deploy new VM or scale set instances up until the deprecation date.
-          After the scheduled deprecation date, you will not be able to deploy new instances using the affected images. If the plan is scheduled for deprecation, all image versions within the plan will no longer be available and if the entire offer is scheduled for deprecation, all plans within the offer will no longer be available following deprecation.
-          - Active VM instances will not be impacted.  
+          After the scheduled deprecation date, you won't be able to deploy new instances using the affected images. If the plan is scheduled for deprecation, all image versions within the plan will no longer be available and if the entire offer is scheduled for deprecation, all plans within the offer will no longer be available following deprecation.
+          - Active VM instances won't be impacted.  
           - New VM instances cannot be created from any of the impacted images.
-          - Existing virtual machine scale sets deployments cannot be scaled out if configured with any of the impacted images. When a plan or offer is being deprecated, all existing VMSS deployments pinned to any image within the plan or offer respectively cannot be scaled out.
+          - Existing virtual machine scale sets deployments cannot be scaled out if configured with any of the impacted images. When a plan or offer is being deprecated, all existing scale sets deployments pinned to any image within the plan or offer respectively cannot be scaled out.
           
           
-          What is the recommended action?
-          If you want your scale set to scale out after the deprecation date, you will need to identify the scale set running on the deprecated image and then migrate your workload to a supported image. (The steps to identify and migrate your workload are outlined below). If you want to remain on the image after deprecation, you can create your own custom image and migrate to it (Steps outlined below). If you already have auto updates configured for your VM/VMSS, you will only be impacted when an Offer or plan version is deprecated (No impact on image version deprecation).
+          **What do I need to do?**
+
+          If you want your scale set to scale out after the deprecation date, you will need to identify the scale set running on the deprecated image and then migrate your workload to a supported image. (The steps to identify and migrate your workload are outlined below). If you want to remain on the image after deprecation, you can create your own custom image and migrate to it (Steps outlined below). If you already have auto updates configured for your VM or scale set, you will only be impacted when an Offer or plan version is deprecated (No impact on image version deprecation).
           
           
           
@@ -50,7 +51,7 @@ sections:
                         
           If you are notified that an image is deprecated on the offer, plan (SKU) or version level:
           Using Azure Resource Graph Explorer:   
-          You can use Azure Resource Graph Explorer on the Azure portal to find the specific version for images in your subscription that your VM/VMSS is running on.
+          You can use Azure Resource Graph Explorer on the Azure portal to find the specific version for images in your subscription that your VM or scale set is running on.
           Run the queries below in the Azure Resource Graph explorer query window and uncomment the optional filters (delete the “//” to uncomment a line) to the Offer, Plan (SKU) or version level you are looking for.
           To find the details of the image versions that are being used by VMs: 
           
@@ -89,7 +90,7 @@ sections:
           (Get-AzVM -ResourceGroupName $rgname -Name $vmname).StorageProfile.ImageReference.ExactVersion   
           ```
           
-          To find VMSS using a deprecated Version (Replace highlighted value with version you are looking for):
+          To find scale set using a deprecated Version (Replace highlighted value with version you are looking for):
           
           ```
           $vmsslist = Get-AzVmss
@@ -125,8 +126,8 @@ sections:
           You might want to keep using an image that is scheduled for deprecation for specific reasons or you might want to migrate your workloads to another Offer/Plan/Version. Both steps are outlined below:
           - You want to keep using an image that is scheduled for deprecation:
           - If you want to remain on an older image version even after it has been scheduled for deprecation, follows the steps below:
-          - First generalize (sysprep) the powered off VM and create a custom image (Azure Compute Gallery formally called Shared Image Gallery) out of it and use that custom image for your VM/VMSS.   
-          - Modify the VM/VMSS deployment you want to point to the custom image.
+          - First generalize (sysprep) the powered off VM and create a custom image (Azure Compute Gallery formally called Shared Image Gallery) out of it and use that custom image for your VM or scale set.   
+          - Modify the VM or scale set deployment you want to point to the custom image.
           - Here is how to create a custom image by capturing a VM and sharing in to Azure Compute Gallery (formerly known as Shared Image Gallery (SIG): Capture an image of a VM using the portal - Azure Virtual Machines | Microsoft Docs
           
           Note: We recommend that you create custom images from Free Marketplace images (images that do not have Plan Info) that are scheduled for deprecation or already deprecated. For Paid Marketplace images, we suggest you create custom images from the latest version of the image. Workloads running on custom images created from a deprecated paid image will no longer work after the paid image is deprecated.
@@ -176,9 +177,10 @@ sections:
           az vm image list --location "west europe" --publisher "MicrosoftWindowsServer" --offer "WindowsServer" --sku "2019-Datacenter-with-Containers" --all"
           ```
           
-          NOTE: 
-          - You need to verify that your workloads are supported and will run properly on the new image before migrating your workloads to the new image.
-          - VMSS, in general, support image reference replacement  (https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set#os-updates) but VMs do not.
+        
+          You need to verify that your workloads are supported and will run properly on the new image before migrating your workloads to the new image.
+          
+          Scale sets, in general, support image reference replacement  (https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set#os-updates) but VMs do not.
           
           
           
