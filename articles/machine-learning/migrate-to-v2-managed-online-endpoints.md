@@ -64,7 +64,7 @@ Here are the steps to use these scripts. Notice that the new endpoint will be cr
 4. Clone our repository to your local env, git clone https://github.com/Azure/azureml-examples.
 5. Edit the subscription/resourcegroup/workspace/service name info in migrate-service.sh, also the expected new endpoint name and deployment name. We recommend that the new endpoint name is different from the previous one. Otherwise, the original service will not be displayed if you check your endpoints on the portal.
 6. Execute the bash script, it will take about 5-10 minutes to finish the new deployment.
-7. After the deployment is done successfully, you can verify the endpoint with [invoke command](cli/azure/ml/online-endpoint#az-ml-online-endpoint-invoke).
+7. After the deployment is done successfully, you can verify the endpoint with [invoke command](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-invoke).
 
 ## Cost comparison
 We have a rough cost comparison. That varies based on your region, currency and order type, just for your information.
