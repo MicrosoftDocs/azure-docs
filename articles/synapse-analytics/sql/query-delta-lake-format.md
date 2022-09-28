@@ -125,7 +125,7 @@ With the explicit specification of the result set schema, you can minimize the t
 
 ## Dataset
 
-[NYC Yellow Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) dataset is used in this sample. You can query Parquet files the same way you [read CSV files](query-parquet-files.md). The only difference is that the `FILEFORMAT` parameter should be set to `PARQUET`. Examples in this article show the specifics of reading Parquet files.
+[NYC Yellow Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) dataset is used in this sample. The original `PARQUET` data set is converted to `DELTA` format, and the `DELTA` version is used in the examples.
 
 
 ### Query partitioned data
