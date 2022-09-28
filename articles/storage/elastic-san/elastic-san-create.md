@@ -26,15 +26,17 @@ This article explains how to deploy and configure an elastic storage area networ
 
 ## Register for the preview
 
-Register your subscription with the preview feature using the following command:
+Register your subscription with Microsoft.ElasticSAN resource provider and the preview feature using the following command:
 
 ```azurepowershell
+Register-AzResourceProvider -ProviderNamespace Microsoft.ElasticSan
 Register-AzProviderFeature -FeatureNameAllow ElasticSanPreviewAccess -ProviderNamespace Microsoft.ElasticSan
 ```
 
 It may take a few minutes for registration to complete. To confirm that you've registered, use the following command:
 
 ```azurepowershell
+Get-AzResourceProvider -ProviderNamespace Microsoft.ElasticSan
 Get-AzProviderFeature -FeatureName "ElasticSanPreviewAccess" -ProviderNamespace "Microsoft.ElasticSan"
 ```
 
@@ -67,9 +69,10 @@ $zone = 1
 $region = "yourRegion"
 $sanName = "desiredSANName"
 $volGroupName = "desiredVolumeGroupName"
+$volName = "desiredVolumeName"
 
 ## Create the SAN, itself
-New-AzElasticSAN -ResourceGroupName $rgName -Name $sanName -AvailabilityZone $zone -Location $region -BaseSizeTb 100 -ExtendedSizeTb 20 -SkuName Premium_LRS
+New-AzElasticSAN -ResourceGroupName $rgName -Name $sanName -AvailabilityZone $zone -Location $region -BaseSizeTib 100 -ExtendedCapacitySizeTiB 20 -SkuName Premium_LRS
 ```
 # [Azure CLI](#tab/azure-cli)
 
@@ -137,7 +140,7 @@ Replace `volumeName` with the name you'd like the volume to use, then run the fo
 
 ```azurepowershell
 ## Create the volume, this command only creates one.
-New-AzElasticSanVolume -ResourceGroupName $rgName -ElasticSanName $sanName -GroupName $volGroupName -Name "volumeName" -sizeGiB 2000
+New-AzElasticSanVolume -ResourceGroupName $rgName -ElasticSanName $sanName -VolumeGroupName $volGroupName -Name $volName -sizeGiB 2000
 ```
 
 # [Azure CLI](#tab/azure-cli)

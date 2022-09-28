@@ -37,7 +37,14 @@ In your virtual network, enable the Storage service endpoint on your subnet. Thi
 # [PowerShell](#tab/azure-powershell)
 
 ```powershell
-Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
+$vnetName = "yourVirtualNetwork"
+$subnetName = "yourSubnet"
+
+$virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName $resourceGroupName -Name $vnetName
+
+$subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $virtualNetwork -Name $subnetName
+
+$virtualNetwork | Set-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix $subnet.AddressPrefix -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -62,7 +69,9 @@ By default, no network access is allowed to any volumes in a volume group. Addin
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$rule1 = New-AzElasticSanVirtualNetworkRuleObject -VirtualNetworkResourceId <resourceIDHere> -Action Allow
+$rule = New-AzElasticSanVirtualNetworkRuleObject -VirtualNetworkResourceId $subnet.Id -Action Allow
+
+Add-AzElasticSanVolumeGroupNetworkRule -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -VolumeGroupName $volGroupName -NetworkAclsVirtualNetworkRule $rule
 
 Update-AzElasticSanVolumeGroup -ResourceGroupName $rgName -ElasticSanName $sanName -Name $volGroupName -NetworkAclsVirtualNetworkRule $rule1
 ```
@@ -79,13 +88,13 @@ You can connect to Elastic SAN volumes over iSCSI from multiple compute clients.
 
 ### Windows
 
-Before you can connect to a volume, you'll need to get **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort** from your Azure resources.
+Before you can connect to a volume, you'll need to get **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort** from your Azure Elastic SAN volume.
 
 Run the following commands to get these values:
 
 ```azurepowershell
 # Get the target name and iSCSI portal name to connect a volume to a client 
-$connectVolume = Get-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -GroupName $searchedVolumeGroup -Name $searchedVolume
+$connectVolume = Get-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -VolumeGroupName $searchedVolumeGroup -Name $searchedVolume
 $connectVolume.storagetargetiqn
 $connectVolume.storagetargetportalhostname
 $connectVolume.storagetargetportalport
