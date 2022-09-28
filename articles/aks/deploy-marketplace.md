@@ -56,7 +56,7 @@ Included among these solutions are Kubernetes application-based Container offers
 
 ## Manage offer lifecycle
 
-For lifecycle management, an Azure Kubernetes offer is represented as a cluster extensions for Azure Kubernetes service(AKS). For more details, see [cluster extensions for AKS][cluster-extensions].
+For lifecycle management, an Azure Kubernetes offer is represented as a cluster extension for Azure Kubernetes service(AKS). For more details, see [cluster extensions for AKS][cluster-extensions].
 
 Purchasing an offer from the Azure Marketplace creates a new instance of the extension on your AKS cluster. The extension instance can be viewed from the cluster using the following command:
 
@@ -82,7 +82,7 @@ az k8s-extension delete --name <extension-name> --cluster-name <clusterName> --r
 
 ## Monitor billing and usage information
 
-To monitor billing and usage information for the offer you've deployed, visit Cost Management > Cost Analysis in your cluster resource's page in the Azure portal. You can see the a breakdown of cost for the plan you've selected under "Product".
+To monitor billing and usage information for the offer you've deployed, visit Cost Management > Cost Analysis in your cluster resource's page in the Azure portal. You can see a breakdown of cost for the plan you've selected under "Product".
 
 <!-- screenshot of billing/usage page -->
 

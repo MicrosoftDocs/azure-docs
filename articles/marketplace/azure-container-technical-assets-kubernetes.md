@@ -142,7 +142,7 @@ To ensure the Helm chart is valid, test that it's installable on a local cluster
 
 ### Create and test the createUiDefinition
 
-A createUiDefinition is a JSON file that defines the user interface elements for the Azure Portal when deploying the application. For more information, see [CreateUiDefinition.json for Azure][createuidefinition] or see an [example of a UI definition] that asks for input data for a new or existing cluster choice and passes parameters into your application.
+A createUiDefinition is a JSON file that defines the user interface elements for the Azure portal when deploying the application. For more information, see [CreateUiDefinition.json for Azure][createuidefinition] or see an [example of a UI definition] that asks for input data for a new or existing cluster choice and passes parameters into your application.
 
 After creating the createUiDefinition.json file for your application, you need to test the user experience. To simplify testing, use a [sandbox environment][sandbox-environment] that loads your file in the portal. The sandbox presents your user interface in the current, full-screen portal experience. The sandbox is the recommended way to preview the user interface.
 
@@ -180,7 +180,7 @@ The fields used in the manifest are as follows:
 |version|SemVer string|SemVer string that describes the application package version, may or may not match the version of the binaries inside. Mapped to Porter’s version field|
 |helmChart|String|Local directory where the Helm chart can be found relative to this `manifest.yaml`|
 |clusterARMTemplate|String|Local path where an ARM template that describes an AKS cluster that meets the requirements in restrictions field can be found|
-|uiDefinition|String|Local path where a JSON file that describes an Azure Portal Create experience can be found|
+|uiDefinition|String|Local path where a JSON file that describes an Azure portal Create experience can be found|
 |registryServer|String|The ACR where the final CNAB bundle should be pushed|
 |extensionRegistrationParameters|Collection|Specification for the extension registration parameters. Include at least `defaultScope` and `billingIdentifier` as parameters.|
 |defaultScope|String|The default scope for your extension installation. Accepted values are `cluster` or `namespace`.|
