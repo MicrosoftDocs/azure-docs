@@ -191,15 +191,148 @@ While using the [SpeechSynthesizer](/cpp/cognitive-services/speech/speechsynthes
 
 [!INCLUDE [Event types](events.md)]
 
-Here's an example that shows how to subscribe to the `BookmarkReached` event for speech synthesis. 
+Here's an example that shows how to subscribe to events for speech synthesis. You can follow the instructions in the [quickstart](../../../get-started-text-to-speech.md?pivots=cpp), but replace the contents of that `main.cpp` file with the following C++ code.
 
 ```cpp
-speechSynthesizer->BookmarkReached += [](const SpeechSynthesisBookmarkEventArgs& e)
+#include <iostream> 
+#include <stdlib.h>
+#include <speechapi_cxx.h>
+
+using namespace Microsoft::CognitiveServices::Speech;
+using namespace Microsoft::CognitiveServices::Speech::Audio;
+
+std::string getEnvironmentVariable(const char* name);
+
+int main()
 {
-    cout << "Bookmark reached. "
-        << "Audio offset: " << e.AudioOffset / 10000 << "ms, "
-        << "bookmark text: " << e.Text << "." << endl;
-};
+    auto speechKey = getEnvironmentVariable("SPEECH_KEY");
+    auto speechRegion = getEnvironmentVariable("SPEECH_REGION");
+
+    if ((size(speechKey) == 0) || (size(speechRegion) == 0)) {
+        std::cout << "Please set both SPEECH_KEY and SPEECH_REGION environment variables." << std::endl;
+        return -1;
+    }
+
+    auto speechConfig = SpeechConfig::FromSubscription(speechKey, speechRegion);
+
+    const auto ssml = R"(<speak version='1.0' xml:lang='en-US' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts'>
+        <voice name = 'en-US-JennyNeural'>
+            <mstts:viseme type = 'redlips_front' />
+            The rainbow has seven colors : <bookmark mark = 'colors_list_begin' />Red, orange, yellow, green, blue, indigo, and violet.<bookmark mark = 'colors_list_end' />.
+        </voice>
+        </speak>)";
+
+    auto speechSynthesizer = SpeechSynthesizer::FromConfig(speechConfig);
+
+    // Subscribe to events
+
+    speechSynthesizer->BookmarkReached += [](const SpeechSynthesisBookmarkEventArgs& e)
+    {
+        std::cout << "Bookmark reached. "
+            << "\r\n\tAudioOffset: " << round(e.AudioOffset / 10000) << "ms"
+            << "\r\n\tText: " << e.Text << std::endl;
+    };
+
+    speechSynthesizer->SynthesisCanceled += [](const SpeechSynthesisEventArgs& e)
+    {
+        std::cout << "SynthesisCanceled event" << std::endl;
+    };
+
+    speechSynthesizer->SynthesisCompleted += [](const SpeechSynthesisEventArgs& e)
+    {
+        auto audioDuration = std::chrono::duration_cast<std::chrono::milliseconds>(e.Result->AudioDuration).count();
+
+        std::cout << "SynthesisCompleted event:"
+            << "\r\n\tAudioData: " << e.Result->GetAudioData()->size() << "bytes"
+            << "\r\n\tAudioDuration: " << audioDuration << std::endl;
+    };
+
+    speechSynthesizer->SynthesisStarted += [](const SpeechSynthesisEventArgs& e)
+    {
+        std::cout << "SynthesisStarted event" << std::endl;
+    };
+
+    speechSynthesizer->Synthesizing += [](const SpeechSynthesisEventArgs& e)
+    {
+        std::cout << "Synthesizing event:"
+            << "\r\n\tAudioData: " << e.Result->GetAudioData()->size() << "bytes" << std::endl;
+    };
+
+    speechSynthesizer->VisemeReceived += [](const SpeechSynthesisVisemeEventArgs& e)
+    {
+        std::cout << "VisemeReceived event:"
+            << "\r\n\tAudioOffset: " << round(e.AudioOffset / 10000) << "ms"
+            << "\r\n\tVisemeId: " << e.VisemeId << std::endl;
+    };
+
+    speechSynthesizer->WordBoundary += [](const SpeechSynthesisWordBoundaryEventArgs& e)
+    {
+        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(e.Duration).count();
+        
+        auto boundaryType = "";
+        switch (e.BoundaryType) {
+        case SpeechSynthesisBoundaryType::Punctuation:
+            boundaryType = "Punctuation";
+            break;
+        case SpeechSynthesisBoundaryType::Sentence:
+            boundaryType = "Sentence";
+            break;
+        case SpeechSynthesisBoundaryType::Word:
+            boundaryType = "Word";
+            break;
+        }
+
+        std::cout << "WordBoundary event:"
+            // Word, Punctuation, or Sentence
+            << "\r\n\tBoundaryType: " << boundaryType
+            << "\r\n\tAudioOffset: " << round(e.AudioOffset / 10000) << "ms"
+            << "\r\n\tDuration: " << duration
+            << "\r\n\tText: \"" << e.Text << "\""
+            << "\r\n\tTextOffset: " << e.TextOffset
+            << "\r\n\tWordLength: " << e.WordLength << std::endl;
+    };
+
+    auto result = speechSynthesizer->SpeakSsmlAsync(ssml).get();
+
+    // Checks result.
+    if (result->Reason == ResultReason::SynthesizingAudioCompleted)
+    {
+        std::cout << "SynthesizingAudioCompleted result" << std::endl;
+    }
+    else if (result->Reason == ResultReason::Canceled)
+    {
+        auto cancellation = SpeechSynthesisCancellationDetails::FromResult(result);
+        std::cout << "CANCELED: Reason=" << (int)cancellation->Reason << std::endl;
+
+        if (cancellation->Reason == CancellationReason::Error)
+        {
+            std::cout << "CANCELED: ErrorCode=" << (int)cancellation->ErrorCode << std::endl;
+            std::cout << "CANCELED: ErrorDetails=[" << cancellation->ErrorDetails << "]" << std::endl;
+            std::cout << "CANCELED: Did you set the speech resource key and region values?" << std::endl;
+        }
+    }
+
+    std::cout << "Press enter to exit..." << std::endl;
+    std::cin.get();
+}
+
+std::string getEnvironmentVariable(const char* name)
+{
+#if defined(_MSC_VER)
+    size_t requiredSize = 0;
+    (void)getenv_s(&requiredSize, nullptr, 0, name);
+    if (requiredSize == 0)
+    {
+        return "";
+    }
+    auto buffer = std::make_unique<char[]>(requiredSize);
+    (void)getenv_s(&requiredSize, buffer.get(), requiredSize, name);
+    return buffer.get();
+#else
+    auto value = getenv(name);
+    return value ? value : "";
+#endif
+}
 ```
 
 You can find more text-to-speech samples at [GitHub](https://aka.ms/csspeech/samples).

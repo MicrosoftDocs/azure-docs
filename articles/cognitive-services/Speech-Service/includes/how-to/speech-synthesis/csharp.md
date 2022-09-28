@@ -234,7 +234,7 @@ class Program
             {                
                 Console.WriteLine($"SynthesisCompleted event:" +
                     $"\r\n\tAudioData: {e.Result.AudioData.Length} bytes" +
-                    $"\r\n\tAudioDuration: {e.Result.AudioDuration}.");
+                    $"\r\n\tAudioDuration: {e.Result.AudioDuration}");
             };
 
             speechSynthesizer.SynthesisStarted += (s, e) =>
@@ -252,7 +252,7 @@ class Program
             {
                 Console.WriteLine($"VisemeReceived event:" +
                     $"\r\n\tAudioOffset: {(e.AudioOffset + 5000) / 10000}ms" +
-                    $"\r\n\tVisemeId: {e.VisemeId}.");
+                    $"\r\n\tVisemeId: {e.VisemeId}");
             };
 
             speechSynthesizer.WordBoundary += (s, e) =>
@@ -264,7 +264,7 @@ class Program
                     $"\r\n\tDuration: {e.Duration}" +
                     $"\r\n\tText: \"{e.Text}\"" +
                     $"\r\n\tTextOffset: {e.TextOffset}" +
-                    $"\r\n\tWordLength: {e.WordLength}.");
+                    $"\r\n\tWordLength: {e.WordLength}");
             };
 
             // Synthesize the SSML
