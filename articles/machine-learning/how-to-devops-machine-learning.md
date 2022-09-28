@@ -23,13 +23,13 @@ You can use an [Azure DevOps pipeline](/azure/devops/pipelines/) to automate the
 * Deployment of machine learning models as public or private web services
 * Monitoring deployed machine learning models (such as for performance or data-drift analysis)
 
-This article will teach you how to create an Azure Pipeline that builds and deploys a machine learning model to [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning). You'll train a scikit-learn linear regression model on the Diabetes dataset.
+This article will teach you how to create an Azure Pipeline that builds and deploys a machine learning model to [Azure Machine Learning](overview-what-is-azure-machine-learning.md). You'll train a scikit-learn linear regression model on the Diabetes dataset.
 
 This tutorial uses [Azure Machine Learning Python SDK v2](/python/api/overview/azure/ml/installv2) and [Azure CLI ML extension v2](/cli/azure/ml). 
 
 ## Prerequisites
 
-Complete the [Quickstart: Get started with Azure Machine Learning](/azure/machine-learning/quickstart-create-resources) to:
+Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to:
 * Create a workspace
 * Create a cloud-based compute instance to use for your development environment
 * Create a cloud-based compute cluster to use for training your model
@@ -79,7 +79,7 @@ You'll need an Azure Resource Manager connection to authenticate with Azure port
 
 ## Step 5: Create variables
 
-You should already have a resource group in Azure with [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning). To deploy your DevOps pipeline to AzureML, you'll need to create variables for your subscription ID, resource group, and machine learning workspace. 
+You should already have a resource group in Azure with [Azure Machine Learning](overview-what-is-azure-machine-learning.md). To deploy your DevOps pipeline to AzureML, you'll need to create variables for your subscription ID, resource group, and machine learning workspace. 
 
 1. Select the Variables tab on your pipeline edit page.  
 
