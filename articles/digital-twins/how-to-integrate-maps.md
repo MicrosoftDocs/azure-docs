@@ -77,7 +77,7 @@ First, you'll create a route in Azure Digital Twins to forward all twin update e
 
 ## Create an Azure function to receive events and update maps
 
-In this section, you'll create a function that listens for events sent to the Event Grid topic. The function will read those update notification and send corresponding updates to an Azure Maps feature stateset, to update the temperature of one room.
+In this section, you'll create a function that listens for events sent to the Event Grid topic. The function will read those update notifications and send corresponding updates to an Azure Maps feature stateset, to update the temperature of one room.
 
 In the Azure Digital Twins tutorial [prerequisite](#prerequisites), you created a function app to store Azure functions Azure Digital Twins. Now, create a new  [Event Grid-triggered Azure function](../azure-functions/functions-bindings-event-grid-trigger.md) inside the function app.
 
