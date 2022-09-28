@@ -73,7 +73,6 @@ $rule = New-AzElasticSanVirtualNetworkRuleObject -VirtualNetworkResourceId $subn
 
 Add-AzElasticSanVolumeGroupNetworkRule -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -VolumeGroupName $volGroupName -NetworkAclsVirtualNetworkRule $rule
 
-Update-AzElasticSanVolumeGroup -ResourceGroupName $rgName -ElasticSanName $sanName -Name $volGroupName -NetworkAclsVirtualNetworkRule $rule1
 ```
 # [Azure CLI](#tab/azure-cli)
 
