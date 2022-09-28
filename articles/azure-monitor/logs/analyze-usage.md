@@ -171,6 +171,7 @@ If you find that you have excessive billable data for a particular data type, th
 ```kusto
 SecurityEvent 
 | summarize AggregatedValue = count() by EventID
+| order by AggregatedValue desc nulls last
 ```
 
 **Log Management** solution
@@ -179,6 +180,7 @@ SecurityEvent
 Usage 
 | where Solution == "LogManagement" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true 
 | summarize AggregatedValue = count() by DataType
+| order by AggregatedValue desc nulls last
 ```
 
 **Perf** data type

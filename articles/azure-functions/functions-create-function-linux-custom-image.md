@@ -1,7 +1,7 @@
 ---
 title: Create Azure Functions on Linux using a custom image
 description: Learn how to create Azure Functions running on a custom Linux image.
-ms.date: 06/10/2022
+ms.date: 09/28/2022
 ms.topic: tutorial
 ms.custom: "devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli, devdivchpfy22"
 zone_pivot_groups: programming-languages-set-functions-full
@@ -518,7 +518,7 @@ A function app on Azure manages the execution of your functions in your hosting 
 1. The function can now use this connection string to access the storage account.
 
 > [!NOTE]
-> If you publish your custom image to a private container registry, you must use environment variables in the *Dockerfile* for the connection string instead. For more information, see the [ENV instruction](https://docs.docker.com/engine/reference/builder/#env). You must also set the `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` variables. To use the values, you must rebuild the image, push the image to the registry, and then restart the function app on Azure.
+> If you publish your custom image to a private container registry, you must also set the `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` variables. For more information, see [Custom containers](../app-service/reference-app-settings.md#custom-containers) in the App Service settings reference.
 
 ## Verify your functions on Azure
 
