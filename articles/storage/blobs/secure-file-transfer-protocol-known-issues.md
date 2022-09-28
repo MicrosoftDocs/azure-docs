@@ -1,32 +1,26 @@
 ---
-title: Limitations & known issues with SFTP in Azure Blob Storage (preview) | Microsoft Docs
+title: Limitations & known issues with SFTP in Azure Blob Storage| Microsoft Docs
 description: Learn about limitations and known issues of SSH File Transfer Protocol (SFTP) support for Azure Blob Storage.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/13/2022
+ms.date: 09/28/2022
 ms.author: normesta
 ms.reviewer: ylunagaria
 
 ---
 
-# Limitations and known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage (preview)
+# Limitations and known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage
 
 This article describes limitations and known issues of SFTP support for Azure Blob Storage.
-
-> [!IMPORTANT]
-> SFTP support is currently in PREVIEW. 
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
->
-> To help us understand your scenario, please complete [this form](https://forms.office.com/r/gZguN0j65Y) before you begin using SFTP support. After you've tested your end-to-end scenarios with SFTP, please share your experience by using [this form](https://forms.office.com/r/MgjezFV1NR). Both of these forms are optional. 
 
 > [!IMPORTANT]
 > Because you must enable hierarchical namespace for your account to use SFTP, all of the known issues that are described in the Known issues with [Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md) article also apply to your account.
 
 ## Known unsupported clients
 
-The following clients are known to be incompatible with SFTP for Azure Blob Storage (preview). See [Supported algorithms](secure-file-transfer-protocol-support.md#supported-algorithms) for more information.
+The following clients are known to be incompatible with SFTP for Azure Blob Storage. See [Supported algorithms](secure-file-transfer-protocol-support.md#supported-algorithms) for more information.
 
 - Five9
 - Kemp
