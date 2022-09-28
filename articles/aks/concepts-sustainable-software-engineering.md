@@ -67,7 +67,7 @@ They Are considerations for sustainable workloads on Azure (not specific to a gi
 - Build serverless Applications using [Keda](https://keda.sh/) ; Use it as an [AKS addon](/azure/aks/keda-about)
 - Build Microservices Applications using [Dapr](https://dapr.io/) ; Use it as an [AKS addon](/azure/aks/dapr)
 
-**Consider Carbon Awareness**
+**Consider Carbon Awareness in your design**
  - Deploy your workloads to Regions powered by renewable and low-carbon energy sources
  - Consider optimizing workloads when knowing that the energy mix comes mostly from renewable energy sources
  - Consider deploying to data centers close to the consumer
@@ -83,7 +83,7 @@ They Are considerations for sustainable workloads on Azure (not specific to a gi
 **Maximize node utilization**
 - Separate applications into different node pools allowing independent scalling.
 - Align node SKU selection and managed disk size with applications requirements.
-- [Resize node pools](/azure/aks/resize-node-pool) to maximize your applications density (and maximise your nodes usage).
+- [Resize node pools](/azure/aks/resize-node-pool) to maximize your applications density (and maximize your nodes usage).
 - Use AKS [advanced scheduler features](azure/aks/operator-best-practices-advanced-scheduler) to optimize scheduling your applications (pods), to nodes
 
 - Leverage [Virtual node pools](/aks/virtual-nodes) to optimize infrastructure usage, and ultimately hardware efficiency and costs.
@@ -285,7 +285,7 @@ _sustainability design principles: [Hardware efficiency](sustainability-design-p
 
 - Separate applications into different node pools allowing independent scalling.
 - Align node SKU selection and managed disk size with applications requirements.
-- [Resize node pools](/azure/aks/resize-node-pool) to maximize your applications density (and maximise your nodes usage).
+- [Resize node pools](/azure/aks/resize-node-pool) to maximize your applications density (and maximize your nodes usage).
 - Use AKS [advanced scheduler features](azure/aks/operator-best-practices-advanced-scheduler) to optimize scheduling your applications (pods), to nodes
 - Perform [ongoing load testing activities](/azure/load-testing/overview-what-is-azure-load-testing) that exercise both the pod and cluster autoscaler.
 - Enforce Kubernetes [Resource Quotas](/azure/aks/operator-best-practices-scheduler#enforce-resource-quotas)
@@ -309,7 +309,7 @@ _sustainability design principles: [Energy efficiency](sustainability-design-pri
 
 ### Delete zombie workloads
 
-_Green Software Foundation alignment: [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency), [Energy efficiency](sustainability-design-principles.md#energy-efficiency)_
+_sustainability design principles: [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency), [Energy efficiency](sustainability-design-principles.md#energy-efficiency)_
 
 **Recommendation:**
 
