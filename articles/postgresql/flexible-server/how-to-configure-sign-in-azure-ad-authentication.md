@@ -2,10 +2,10 @@
 title: Use Azure Active Directory - Azure Database for PostgreSQL - Flexible Server
 description: Learn about how to set up Azure Active Directory (Azure AD) for authentication with Azure Database for PostgreSQL - Flexible Server
 ms.service: postgresql
-ms.subservice: Flexible-server
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.author: kabharati
-author: Kanchan Bharati 
+author: kabharati
 ms.date: 09/26/2022
 ---
 
@@ -17,21 +17,21 @@ This article will walk you through the steps how to configure Azure Active Direc
 
 ## Setting the Azure AD Admin user
 
-Only Azure AD administrator users can create/enable users for Azure AD-based authentication. We recommend not using the Azure AD administrator for regular database operations, as it has elevated user permissions (e.g. CREATEDB). You can now have multiple Azure AD admin users with flexible server and Azure AD admin user can be either user,group or service principal. 
+Only Azure AD administrator users can create/enable users for Azure AD-based authentication. We recommend not using the Azure AD administrator for regular database operations, as it has elevated user permissions (for example, CREATEDB). You can now have multiple Azure AD admin users with flexible server and Azure AD admin user can be either user, group or service principal. 
 
 You can set up Azure AD admin user either during server provisioning or after it.
 
-To set the Azure AD admin user during server provisioning, please follow the following steps. 
+To set the Azure AD admin user during server provisioning, please follow the below steps. 
 
 1. In the Azure Portal, during server provisioning select either `PostgreSQL and Azure Active Directory authentication` or `Azure Active Directory authentication only` as authentication method.
 2. Set Azure AD Admin using `set admin` tab and select a valid Azure AD user/ group /service principal/Managed Identity in the customer tenant to be Azure AD administrator
 3. You can also optionally add local postgreSQL admin account if you prefer `PostgreSQL and Azure Active Directory authentication` method.
 
 
-Please note only one Azure admin user can be added during server provisioning and you can add multiple Azure AD admin users after server is created.
+Note only one Azure admin user can be added during server provisioning and you can add multiple Azure AD admin users after server is created.
 ![set-azure-ad-admin-server-creation][3]
 
-To set the Azure AD administrator after server creation, please follow the following steps
+To set the Azure AD administrator after server creation, please follow the below steps
 
 1. In the Azure portal, select the instance of Azure Database for PostgreSQL that you want to enable for Azure AD.
 2. Under Security, select Authentication and choose either`PostgreSQL and Azure Active Directory authentication` or `Azure Active Directory authentication only` as authentication method based upon your requirements.
@@ -47,7 +47,7 @@ To set the Azure AD administrator after server creation, please follow the follo
 > Only one Azure AD admin can be created per PostgreSQL server and selection of another one will overwrite the existing Azure AD admin configured for the server. 
 > You can specify an Azure AD group instead of an individual user to have multiple administrators.
 
-Only one Azure AD admin can be created per PostgreSQL server and selection of another one will overwrite the existing Azure AD admin configured for the server. You can specify an Azure AD group instead of an individual user to have multiple administrators. Note that you will then sign in with the group name for administration purposes.
+Only one Azure AD admin can be created per PostgreSQL server and selection of another one will overwrite the existing Azure AD admin configured for the server. You can specify an Azure AD group instead of an individual user to have multiple administrators. You will then sign in with the group name for administration purposes.
 
 ## Connecting to Azure Database for PostgreSQL using Azure AD
 
@@ -72,9 +72,9 @@ You can follow along in Azure Cloud Shell, an Azure VM, or on your local machine
 
 ## Authenticate with Azure AD as a Flexible user
 
-### Step 1: Login to the user's Azure subscription
+### Step 1: Log in to the user's Azure subscription
 
-Start by authenticating with Azure AD using the Azure CLI tool. This step is not required in Azure Cloud Shell.
+Start by authenticating with Azure AD using the Azure CLI tool. This step isn't required in Azure Cloud Shell.
 
 ```
 az login
@@ -122,7 +122,7 @@ The token is a Base 64 string that encodes all the information about the authent
 
 When connecting you need to use the access token as the PostgreSQL user password.
 
-When using the `psql` command line client, the access token needs to be passed through the `PGPASSWORD` environment variable, since the access token exceeds the password length that `psql` can accept directly:
+While using the `psql` command line client, the access token needs to be passed through the `PGPASSWORD` environment variable, since the access token exceeds the password length that `psql` can accept directly:
 
 Windows Example:
 
@@ -160,7 +160,7 @@ Important considerations when connecting:
 * If the name contains spaces, use `\` before each space to escape it.
 * The access token validity is anywhere between 5 minutes to 60 minutes. We recommend you get the access token just before initiating the login to Azure Database for PostgreSQL.
 
-You are now authenticated to your Azure Database for PostgreSQL server using Azure AD authentication.
+You're now authenticated to your Azure Database for PostgreSQL server using Azure AD authentication.
 
 ## Authenticate with Azure AD as a group member
 
@@ -175,7 +175,7 @@ CREATE ROLE "Prod DB Readonly" WITH LOGIN IN ROLE azure_ad_user;
 ```
 When logging in, members of the group will use their personal access tokens, but sign with the group name specified as the username.
 
-### Step 2: Login to the user’s Azure Subscription
+### Step 2: Log in to the user’s Azure Subscription
 
 Authenticate with Azure AD using the Azure CLI tool. This step is not required in Azure Cloud Shell. The user needs to be member of the Azure AD group.
 
@@ -249,11 +249,11 @@ CREATE ROLE "user1@yourtenant.onmicrosoft.com" WITH LOGIN IN ROLE azure_ad_user;
 
 ## Token Validation
 
-Azure AD authentication in Azure Database for PostgreSQL ensures that the user exists in the PostgreSQL server, and it checks the validity of the token by validating the contents of the token. The following token validation steps are performed:
+Azure AD authentication in Azure Database for PostgreSQL Flexible Server ensures that the user exists in the PostgreSQL server, and it checks the authenticity of the token by validating its contents. The following token validation steps are performed:
 
-- Token is signed by Azure AD and has not been tampered with
+- Token is signed by Azure AD and hasn't been tampered with
 - Token was issued by Azure AD for the tenant associated with the server
-- Token has not expired
+- Token hasn't expired
 - Token is for the Azure Database for PostgreSQL resource (and not another Azure resource)
 
 ## Migrating existing PostgreSQL users to Azure AD-based authentication
