@@ -37,9 +37,9 @@ To create a new key vault with PowerShell, install version 2.0.0 or later of the
 The following example creates a new key vault with soft delete and purge protection enabled. The key vault's permission model is set to use Azure RBAC. Remember to replace the placeholder values in brackets with your own values.
 
 ```azurepowershell
-$kvName = "<key-vault>"
 $rgName = "<resource_group>"
 $location = "<location>"
+$kvName = "<key-vault>"
 
 $keyVault = New-AzKeyVault -Name $kvName `
     -ResourceGroupName $rgName `
@@ -65,9 +65,9 @@ For more information on how to assign an RBAC role with PowerShell, see [Assign 
 To create a new key vault using Azure CLI, call [az keyvault create](/cli/azure/keyvault#az-keyvault-create). The following example creates a new key vault with soft delete and purge protection enabled. The key vault's permission model is set to use Azure RBAC. Remember to replace the placeholder values in brackets with your own values.
 
 ```azurecli
-kvName="<key-vault>"
 rgName="<resource_group>"
 location="<location>"
+kvName="<key-vault>"
 
 az keyvault create \
     --name $kvName \
@@ -84,7 +84,8 @@ After you have created the key vault, you'll need to assign the **Key Vault Cryp
 ```azurecli
 kvResourceId=$(az keyvault show --resource-group $rgName \
     --name $kvName \
-    --query id)
+    --query id \
+    --output tsv)
 
 az role assignment create --assignee "<user-email>" \
     --role "Key Vault Crypto Officer" \
