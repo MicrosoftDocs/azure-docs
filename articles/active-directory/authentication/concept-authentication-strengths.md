@@ -80,7 +80,7 @@ The following table lists the combinations of authentication methods for each bu
 |Email One-time pass (Guest)| | | |
 -->
 
-<sup>1</sup>Something you have refers to one of the following methods: SMS, voice, push notification, software OATH token. 
+<sup>1</sup>Something you have refers to one of the following methods: SMS, voice, push notification, software OATH token. Hardware OATH token is currently not supported. 
 
 The following API call can be used to list definitions of all the built-in authentication strengths:
 
