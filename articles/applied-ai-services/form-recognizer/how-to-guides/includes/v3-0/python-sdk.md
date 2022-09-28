@@ -56,7 +56,11 @@ ms.custom: devx-track-csharp
     | **ID document model**  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
     | **Business card model**  | prebuilt-businessCard | [Sample business card](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg) |
 
-## Set up
+## Set your environment variables
+
+[!INCLUDE [environment-variables](set-environment-variables.md)]
+
+## Set up your programming environment
 
 Open a terminal window in your local environment and install the Azure Form Recognizer client library for Python with pip:
 
@@ -78,7 +82,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
     * The [prebuilt-document](#general-document-model) model extracts key-value pairs, tables, and selection marks from documents and can be used as an alternative to training a custom model without labels.
 
-    * The [prebuilt-tax.us.w2](#w2-model) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
+    * The [prebuilt-tax.us.w2](#w-2-tax-model) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
 
     * The [prebuilt-invoice](#invoice-model) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
 
@@ -90,16 +94,136 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 ## Read model
 
+```python
+import os
+from azure.ai.formrecognizer import DocumentAnalysisClient
+from azure.core.credentials import AzureKeyCredential
+
+# use your `key` and `endpoint` environment variables
+key = os.environ.get('FR_KEY')
+endpoint = os.environ.get('FR_ENDPOINT')
+
+```
+
+### Read model output
+
+Visit the Azure samples repository on GitHub to view the [read model output]().
+
 ## Layout model
+
+```python
+import os
+from azure.ai.formrecognizer import DocumentAnalysisClient
+from azure.core.credentials import AzureKeyCredential
+
+# use your `key` and `endpoint` environment variables
+key = os.environ.get('FR_KEY')
+endpoint = os.environ.get('FR_ENDPOINT')
+
+```
+
+### Layout model output
+
+Visit the Azure samples repository on GitHub to view the [layout model output]().
 
 ## General document model
 
-## W2 model
+```python
+import os
+from azure.ai.formrecognizer import DocumentAnalysisClient
+from azure.core.credentials import AzureKeyCredential
+
+# use your `key` and `endpoint` environment variables
+key = os.environ.get('FR_KEY')
+endpoint = os.environ.get('FR_ENDPOINT')
+
+```
+
+### General document model output
+
+Visit the Azure samples repository on GitHub to view the [general document model output]().
+
+## W-2 tax model
+
+```python
+import os
+from azure.ai.formrecognizer import DocumentAnalysisClient
+from azure.core.credentials import AzureKeyCredential
+
+# use your `key` and `endpoint` environment variables
+key = os.environ.get('FR_KEY')
+endpoint = os.environ.get('FR_ENDPOINT')
+
+```
+
+### W-2 tax model output
+
+Visit the Azure samples repository on GitHub to view the [W-2 tax model output]().
 
 ## Invoice model
 
+```python
+import os
+from azure.ai.formrecognizer import DocumentAnalysisClient
+from azure.core.credentials import AzureKeyCredential
+
+# use your `key` and `endpoint` environment variables
+key = os.environ.get('FR_KEY')
+endpoint = os.environ.get('FR_ENDPOINT')
+
+```
+
+### Invoice model output
+
+Visit the Azure samples repository on GitHub to view the [invoice model output]().
+
 ## Receipt-model
+
+```python
+import os
+from azure.ai.formrecognizer import DocumentAnalysisClient
+from azure.core.credentials import AzureKeyCredential
+
+# use your `key` and `endpoint` environment variables
+key = os.environ.get('FR_KEY')
+endpoint = os.environ.get('FR_ENDPOINT')
+
+```
+
+### Receipt model output
+
+Visit the Azure samples repository on GitHub to view the [receipt model output]().
 
 ## ID document model
 
+```python
+import os
+from azure.ai.formrecognizer import DocumentAnalysisClient
+from azure.core.credentials import AzureKeyCredential
+
+# use your `key` and `endpoint` environment variables
+key = os.environ.get('FR_KEY')
+endpoint = os.environ.get('FR_ENDPOINT')
+
+```
+
+### ID document model output
+
+Visit the Azure samples repository on GitHub to view the [ID document model output]().
+
 ## Business card model
+
+```python
+import os
+from azure.ai.formrecognizer import DocumentAnalysisClient
+from azure.core.credentials import AzureKeyCredential
+
+# use your `key` and `endpoint` environment variables
+key = os.environ.get('FR_KEY')
+endpoint = os.environ.get('FR_ENDPOINT')
+
+```
+
+### Business card model output
+
+Visit the Azure samples repository on GitHub to view the [business card model output]().

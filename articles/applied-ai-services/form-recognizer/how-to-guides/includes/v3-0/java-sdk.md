@@ -63,7 +63,11 @@ ms.custom: devx-track-csharp
     | **ID document model**  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
     | **Business card model**  | prebuilt-businessCard | [Sample business card](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg) |
 
-## Set up
+## Set your environment variables
+
+[!INCLUDE [environment-variables](set-environment-variables.md)]
+
+## Set up your programming environment
 
 ### Create a new Gradle project
 
@@ -139,7 +143,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
     * The [prebuilt-document](#general-document-model) model extracts key-value pairs, tables, and selection marks from documents and can be used as an alternative to training a custom model without labels.
 
-    * The [prebuilt-tax.us.w2](#w2-model) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
+    * The [prebuilt-tax.us.w2](#w-2-tax-model) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
 
     * The [prebuilt-invoice](#invoice-model) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
 
@@ -409,7 +413,7 @@ analyzeResult.getKeyValuePairs().forEach(documentKeyValuePair -> {
 
 Visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/general-document-model-output.md).
 
-## W-2 model
+## W-2 tax model
 
 ```java
 import com.azure.ai.formrecognizer.*;

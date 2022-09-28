@@ -54,7 +54,11 @@ ms.custom: devx-track-csharp
     | **ID document model**  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
     | **Business card model**  | prebuilt-businessCard | [Sample business card](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg) |
 
-## Set up
+## Set your environment variables
+
+[!INCLUDE [environment-variables](set-environment-variables.md)]
+
+## Set up your programming environment
 
 1. Create a new Node.js Express application: In a console window (such as cmd, PowerShell, or Bash), create and navigate to a new directory for your app named `form-recognizer-app`.
 
@@ -103,7 +107,7 @@ Open the `index.js` file in Visual Studio Code or your favorite IDE and select o
 
 * The [prebuilt-document](#general-document-model) model extracts key-value pairs, tables, and selection marks from documents and can be used as an alternative to training a custom model without labels.
 
-* The [prebuilt-tax.us.w2](#w-2-model) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
+* The [prebuilt-tax.us.w2](#w-2-tax-model) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
 
 * The [prebuilt-invoice](#invoice-model) model extracts information reported on US Internal Revenue Service (IRS) tax forms.
 
@@ -119,6 +123,7 @@ Open the `index.js` file in Visual Studio Code or your favorite IDE and select o
 
 const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
 
+//use your `key` and `endpoint` environment variables
 const key = process.env['FR_KEY'];
 const endpoint = process.env['FR_ENDPOINT'];
 
@@ -218,6 +223,7 @@ Visit the Azure samples repository on GitHub to view the [read model output](htt
 ```javascript
 const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
 
+//use your `key` and `endpoint` environment variables
 const key = process.env['FR_KEY'];
 const endpoint = process.env['FR_ENDPOINT'];
 
@@ -228,12 +234,9 @@ async function main() {
     const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
 
     const poller = await client.beginAnalyzeDocumentFromUrl(
-      "prebuilt-layout",
-      // The form recognizer service will access the following URL to a receipt image and extract data from it
-      "https://raw.githubusercontent.com/Azure/azure-sdk-for-js/main/sdk/formrecognizer/ai-form-recognizer/assets/forms/Invoice_1.pdf"
-    );
+      "prebuilt-layout", layoutUrl);
 
-    // Layout extraction only produces basic elements such as pages, words, lines, etc. as well as information about the
+    // Layout extraction produces basic elements such as pages, words, lines, etc. as well as information about the
     // appearance (styles) of textual elements.
     const { pages, tables } = await poller.pollUntilDone();
 
@@ -291,6 +294,7 @@ Visit the Azure samples repository on GitHub to view the [layout model output](h
 ```javascript
 const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
 
+//use your `key` and `endpoint` environment variables
 const key = process.env['FR_KEY'];
 const endpoint = process.env['FR_ENDPOINT'];
 
@@ -337,6 +341,7 @@ Visit the Azure samples repository on GitHub to view the [general document model
 ```javascript
 const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
 
+//use your `key` and `endpoint` environment variables
 const key = process.env['FR_KEY'];
 const endpoint = process.env['FR_ENDPOINT'];
 
@@ -407,7 +412,7 @@ main().catch((error) => {
 });
 ```
 
-### W-2 model output
+### W-2 tax model output
 
 Visit the Azure samples repository on GitHub to view the [W-2 tax model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/how-to-guide/w2-tax-model-output.md).
 
@@ -416,6 +421,7 @@ Visit the Azure samples repository on GitHub to view the [W-2 tax model output](
 ```javascript
 const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
 
+//use your `key` and `endpoint` environment variables
 const key = process.env['FR_KEY'];
 const endpoint = process.env['FR_ENDPOINT'];
 
@@ -478,6 +484,7 @@ Visit the Azure samples repository on GitHub to view the [invoice model output](
 ```javascript
 const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
 
+//use your `key` and `endpoint` environment variables
 const key = process.env['FR_KEY'];
 const endpoint = process.env['FR_ENDPOINT'];
 
@@ -537,6 +544,7 @@ Visit the Azure samples repository on GitHub to view the [receipt model output](
 ```javascript
 const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
 
+//use your `key` and `endpoint` environment variables
 const key = process.env['FR_KEY'];
 const endpoint = process.env['FR_ENDPOINT'];
 
@@ -618,6 +626,7 @@ Visit the Azure samples repository on GitHub to view the [ID document model outp
 ```javascript
 const { AzureKeyCredential, DocumentAnalysisClient } = require("@azure/ai-form-recognizer");
 
+//use your `key` and `endpoint` environment variables
 const key = process.env['FR_KEY'];
 const endpoint = process.env['FR_ENDPOINT'];
 

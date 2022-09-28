@@ -54,7 +54,7 @@ ms.custom: devx-track-csharp
     | **ID document model**  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
     | **Business card model**  | prebuilt-businessCard | [Sample business card](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg) |
 
-### Set your environment variables
+## Set your environment variables
 
 [!INCLUDE [environment-variables](set-environment-variables.md)]
 
@@ -110,7 +110,7 @@ ms.custom: devx-track-csharp
   >
   > * [prebuilt-document](#general-document-model)
   >
-  > * [prebuilt-tax.us.w2](#w-2-model)
+  > * [prebuilt-tax.us.w2](#w-2-tax-model)
   >
   > * [prebuilt-invoice](#invoice-model)
   >
@@ -394,7 +394,7 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 Visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/general-document-model-output.md).
 
-## W-2 model
+## W-2 tax model
 
 ```csharp
 
