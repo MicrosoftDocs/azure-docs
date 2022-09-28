@@ -105,11 +105,22 @@ When these conditions are met, the app can extract the claims challenge from the
 
 ```javascript
 const authenticateHeader = response.headers.get('www-authenticate');
-const claimsChallenge = authenticateHeader
-        .split(' ')
-        .find((entry) => entry.includes('claims='))
-        .split('claims="')[1]
-        .split('",')[0];
+const claimsChallenge = parseChallenges(authenticateHeader).claims;
+
+// ...
+
+function parseChallenges(header) {
+    const schemeSeparator = header.indexOf(' ');
+    const challenges = header.substring(schemeSeparator + 1).split(',');
+    const challengeMap = {};
+
+    challenges.forEach((challenge) => {
+        const [key, value] = challenge.split('=');
+        challengeMap[key.trim()] = window.decodeURI(value.replace(/['"]+/g, ''));
+    });
+
+    return challengeMap;
+}
 ```
 
 Your app would then use the claims challenge to acquire a new access token for the resource.
@@ -118,22 +129,19 @@ Your app would then use the claims challenge to acquire a new access token for t
 let tokenResponse;
 
 try {
-
     tokenResponse = await msalInstance.acquireTokenSilent({
-                    claims: window.atob(claimsChallenge), // decode the base64 string
-                    scopes: scopes,  // e.g ['User.Read', 'Contacts.Read']
-                    account: account, // current active account
-                });
+        claims: window.atob(claimsChallenge), // decode the base64 string
+        scopes: scopes,  // e.g ['User.Read', 'Contacts.Read']
+        account: account, // current active account
+    });
 
 } catch (error) {
-
      if (error instanceof InteractionRequiredAuthError) {
-
         tokenResponse = await msalInstance.acquireTokenPopup({
-                        claims: window.atob(claimsChallenge), // decode the base64 string
-                        scopes: scopes, // e.g ['User.Read', 'Contacts.Read']
-                        account: account, // current active account
-                    });
+            claims: window.atob(claimsChallenge), // decode the base64 string
+            scopes: scopes, // e.g ['User.Read', 'Contacts.Read']
+            account: account, // current active account
+        });
     }
 
 }

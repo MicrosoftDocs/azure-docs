@@ -193,7 +193,7 @@ The following tables list the operating systems that Azure Monitor Agent and the
 | Debian 9                                                    | X | X | X |
 | Debian 8                                                    |   | X |   |
 | Debian 7                                                    |   |   | X |
-| OpenSUSE 15                                              | X |   |  |
+| OpenSUSE 15                                                 | X |   |   |
 | OpenSUSE 13.1+                                              |   |   | X |
 | Oracle Linux 8                                              | X | X |   |
 | Oracle Linux 7                                              | X | X | X |
@@ -206,6 +206,7 @@ The following tables list the operating systems that Azure Monitor Agent and the
 | Red Hat Enterprise Linux Server 6.7+                        |   | X | X |
 | Rocky Linux 8                                               | X | X |   |
 | SUSE Linux Enterprise Server 15 SP4                         | X<sup>3</sup> |   |   |
+| SUSE Linux Enterprise Server 15 SP3                         | X |   |   |
 | SUSE Linux Enterprise Server 15 SP2                         | X |   |   |
 | SUSE Linux Enterprise Server 15 SP1                         | X | X |   |
 | SUSE Linux Enterprise Server 15                             | X | X |   |
@@ -219,6 +220,10 @@ The following tables list the operating systems that Azure Monitor Agent and the
 <sup>1</sup> Requires Python (2 or 3) to be installed on the machine.<br>
 <sup>2</sup> Requires Python 2 to be installed on the machine and aliased to the `python` command.<br>
 <sup>3</sup> Also supported on Arm64-based machines.
+
+>[!NOTE]
+>Machines and appliances that run heavily customized or stripped-down versions of the above distributions and hosted solutions that disallow customization by the user are not supported. Azure Monitor and legacy agents rely on various packages and other baseline functionality that is often removed from such systems, and their installation may require some environmental modifications considered to be disallowed by the appliance vendor. For instance, [GitHub Enterprise Server](https://docs.github.com/en/enterprise-server/admin/overview/about-github-enterprise-server) is not supported due to heavy customization as well as [documented, license-level disallowance](https://docs.github.com/en/enterprise-server/admin/overview/system-overview#operating-system-software-and-patches) of operating system modification.
+
 ## Next steps
 
 - [Install the Azure Monitor Agent](azure-monitor-agent-manage.md) on Windows and Linux virtual machines.
