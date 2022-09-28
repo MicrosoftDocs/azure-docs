@@ -270,13 +270,13 @@
   - name: Defender for IoT CLI
     items:
     - name: Overview
-      href: cli-overview.md
+      href: cli/cli-overview.md
     - name: Appliance management commands
-      href: cli-appliance.md
+      href: cli/cli-appliance.md
     - name: Configuration commands
-      href: cli-configuration.md
+      href: cli/cli-configuration.md
     - name: On-premises management console commands
-      href: cli-management.md
+      href: cli/cli-management.md
   - name: Frequently asked questions
     items:
     - name: General FAQ
