@@ -607,7 +607,7 @@
           items: 
             - name: Azure Pipelines for CI/CD
               displayName: continuous, integration, delivery
-              href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
+              href: how-to-devops-machine-learning.md
             - name: GitHub Actions for CI/CD
               href: how-to-github-actions-machine-learning.md
             - name: Create event-driven workflows
