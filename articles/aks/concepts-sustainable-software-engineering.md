@@ -109,7 +109,7 @@ We recommend that readers familiarize themselves with these design areas, review
 
 ## Sustainability Design Considerations for AKS clusters
 
-The following considerations are aligned with the [Application platform](/azure/architecture/framework/sustainability/sustainability-application-platform.md) Sustainability Design Area
+The following considerations are aligned with the [Application platform](/azure/architecture/framework/sustainability/sustainability-application-platform.md) Sustainability Design Area, and provide more details on the recommendations in the Sustainability Checklist above.
 
 ### Review platform and service updates regularly 
 
