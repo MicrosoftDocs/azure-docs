@@ -71,11 +71,11 @@ To create a new namespace with disaster recovery, follow these steps:
    1. Select a value from the **Location** drop-down list box. This value specifies the location in which you want to create the hub.
    1. Choose your **Disaster recovery** option – None, Paired recovery region or Flexible recovery region. If you choose **Paired recovery region**, the failover region is displayed.
 
-   :::image type="content" source="media/cross-region-recovery/cedr5.png" alt-text="Notification hub properties":::
+      :::image type="content" source="media/cross-region-recovery/cedr5.png" alt-text="Notification hub properties":::
 
    1. If you select **Flexible recovery region**, use the drop down to choose from a list of recovery regions.
 
-   :::image type="content" source="media/cross-region-recovery/cedr6.png" alt-text="Select region":::
+      :::image type="content" source="media/cross-region-recovery/cedr6.png" alt-text="Select region":::
 
    1. Select **Create**.
 
