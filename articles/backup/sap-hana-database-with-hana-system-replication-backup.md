@@ -47,7 +47,7 @@ To discover the HSR database, follow these steps:
 
    :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/initiate-database-discovery.png" alt-text="Screenshot showing about how to start database discovery.":::
 
-1. Select **SAP HANA in Azure VM** as the data source type, select the Recovery Services vault to use for the backup. Then select **Continue**.
+1. Select **SAP HANA in Azure VM** as the data source type, select the Recovery Services vault to use for the backup, and then select **Continue**.
 
    :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/configure-backup.png" alt-text="Screenshot showing how to configure database backup.":::
 
@@ -66,7 +66,7 @@ To discover the HSR database, follow these steps:
 
 1. Run the script on each VM hosting SAP HANA databases that you want to back up.
 
-1. After running the script on the VMs, in **Select Virtual Machines**, select the VMs. Then select **Discover DBs**.
+1. After running the script on the VMs, in **Select Virtual Machines**, select the VMs > **Discover DBs**.
 
    Azure Backup discovers all SAP HANA databases on the VM. During discovery, Azure Backup registers the VM with the vault, and installs an extension on the VM. It doesn't install any agent on the database.
 
@@ -80,9 +80,9 @@ To discover the HSR database, follow these steps:
 
    | Role | Permission | Description |
    | --- | --- | --- |
-   | MDC | DATABASE ADMIN and BACKUP ADMIN (HANA 2.0 SPS05 and higher) | To create new databases during restore. |
-   | SDC | BACKUP ADMIN | To read the backup catalog. |
-   | SAP_INTERNAL_HANA_SUPPORT |      | To access a few private tables. <br><br> This is only required for SDC and MDC versions lower than HANA 2.0 SPS04 Rev 46. This isn't required for HANA 2.0 SPS04 Rev 46 versions and higher because we receive the required information from public tables now after the fix from HANA team. |
+   | MDC | DATABASE ADMIN and BACKUP ADMIN (HANA 2.0 SPS05 and higher) | Creates new databases during restore. |
+   | SDC | BACKUP ADMIN | Reads the backup catalog. |
+   | SAP_INTERNAL_HANA_SUPPORT |      | Accesses a few private tables. <br><br> This is only required for SDC and MDC versions lower than HANA 2.0 SPS04 Rev 46. This isn't required for HANA 2.0 SPS04 Rev 46 versions and higher because we receive the required information from public tables now after the fix from HANA team. |
 
 1. Then add the key to *hdbuserstore* for your custom backup user that enables the HANA backup plug-in to manage all operations (database queries, restore operations, configuring, and running backup). Pass the custom Backup user key to the script as a parameter: `-bk CUSTOM_BACKUP_KEY_NAME` or `-backup-key CUSTOM_BACKUP_KEY_NAME`. If the password of this custom backup key expires, it could lead to back up and restore failures.
 
@@ -208,7 +208,7 @@ To run a backup on-demand backup, follow these steps:
 
 1. In **Backup Items**, select the *VM running the SAP HANA database* > **Backup now**.
 
-1. In **Backup now**, choose the *type of backup* you want to perform. Then select **OK**. 
+1. In **Backup now**, choose the *type of backup* you want to perform, and then select **OK**. 
 
    This backup will be retained for 45 days.
 
