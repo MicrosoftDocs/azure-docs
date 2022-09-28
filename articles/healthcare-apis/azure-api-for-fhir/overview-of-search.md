@@ -1,12 +1,12 @@
 ---
 title:  Overview of search in Azure API for FHIR
 description: This article describes an overview of FHIR search that is implemented in Azure API for FHIR
-author: ginalee-dotcom
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 06/03/2022
-ms.author: mikaelw
+ms.author: kesheth
 ---
 # Overview of search in Azure API for FHIR
 
