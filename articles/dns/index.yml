@@ -28,9 +28,9 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure DNS
-            url: /learn/modules/intro-to-azure-dns
+            url: /training/modules/intro-to-azure-dns
           - text: Host your domain on Azure DNS?
-            url: /learn/modules/host-domain-azure-dns/    
+            url: /training/modules/host-domain-azure-dns/    
   # Card
   - title: Create Azure DNS zones and records
     linkLists:
