@@ -50,9 +50,12 @@ To create a new SIM group:
 
 1. Select **Next: SIMs**.
 1. On the **SIMs** configuration tab, select your chosen input method by selecting the appropriate option next to **How would you like to input the SIMs information?**. You can then input the information you collected for your SIMs.
- 
+
     - If you decided that you don't want to provision any SIMs at this point, select **Add SIMs later**.
-    - If you select **Add manually**, a new set of fields will appear under **Enter SIM profile configurations**. Fill out the first row of these fields with the correct settings for the first SIM you want to provision. If you've got more SIMs you want to provision, add the settings for each of these SIMs to a new row.
+    - If you select **Add manually**, a new **Add SIM** button will appear under **Enter SIM profile configurations**. Select it, fill out the fields with the correct settings for the first SIM you want to provision, and select **Add SIM**. Repeat this process for every additional SIM you want to provision.
+
+    :::image type="content" source="media/add-sim-manually.png" alt-text="Screenshot of the Azure portal showing the Add SIM screen.":::
+
     - If you select **Upload JSON file**, the **Upload SIM profile configurations** field will appear. Use this field to upload your chosen JSON file.
 
     :::image type="content" source="media/manage-sim-groups/create-sim-group-sims-tab.png" alt-text="Screenshot of the Azure portal showing the SIMs configuration tab.":::
