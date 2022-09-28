@@ -59,7 +59,7 @@ Resources in these regions can still use federated identity credentials created 
 
 *Applies to: applications and user-assigned managed identities (public preview)*
 
-Only issuers that provide tokens signed using the RS256 algorithm are supported for token exchange using workload identity federation.  Exchanging tokens signed with other algorithms may work, but are not supported and have not been tested.
+Only issuers that provide tokens signed using the RS256 algorithm are supported for token exchange using workload identity federation.  Exchanging tokens signed with other algorithms may work, but have not been tested.
 
 ## Azure Active Directory issuers aren't supported
 
