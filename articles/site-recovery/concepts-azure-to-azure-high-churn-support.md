@@ -112,6 +112,6 @@ The following table summarizes Site Recovery limits:
 
 ## Cost Implications  
 
-- **High Churn** uses *Premium Block Blob* storage accounts which may have cost implications as compared to **Normal Churn** which uses *Standard* storage accounts. For more information, see [pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+- **High Churn** uses *Premium Block Blob* storage accounts which may have higher cost implications as compared to **Normal Churn** which uses *Standard* storage accounts. For more information, see [pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 - For High churn VMs, more data changes may get replicated to target for **High churn** compared to **Normal churn**. This may lead to more network cost.
 
