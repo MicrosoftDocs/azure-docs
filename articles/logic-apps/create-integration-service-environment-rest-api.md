@@ -47,7 +47,7 @@ Deployment usually takes within two hours to finish. Occasionally, deployment mi
 
 > [!NOTE]
 > If deployment fails or you delete your ISE, Azure might take up to an hour before releasing your subnets. 
-> This delay means means you might have to wait before reusing those subnets in another ISE.
+> This delay means you might have to wait before reusing those subnets in another ISE.
 >
 > If you delete your virtual network, Azure generally takes up to two hours 
 > before releasing up your subnets, but this operation might take longer. 

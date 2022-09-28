@@ -213,6 +213,7 @@ Defender for Cloud's  recommendations for improving the management of users and 
 
 The new release contains the following capabilities:
 
+- **Extended evaluation scope** – Coverage has been improved for identity accounts without MFA and external accounts on Azure resources (instead of subscriptions only) which allows your security administrators to view role assignments per account.
 
 - **Improved freshness interval** - The identity recommendations now have a freshness interval of 12 hours.
 
