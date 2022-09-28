@@ -62,7 +62,7 @@ They Are considerations for sustainable workloads on Azure (not specific to a gi
 
 ## Sustainability Checklist for AKS clusters
 
-**Modernize Applications to allow independent scaling of their logical components**
+**Modernize Applications to allow independent optimization of their logical components**
  - Use [Draft](/azure/aks/draft) to simplify containzerizing an application by generating its Dockerfiles and Kubernetes manifests.
 - Build serverless Applications using [Keda](https://keda.sh/) ; Use it as an [AKS addon](/azure/aks/keda-about)
 - Build Microservices Applications using [Dapr](https://dapr.io/) ; Use it as an [AKS addon](/azure/aks/dapr)
