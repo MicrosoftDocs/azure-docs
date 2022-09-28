@@ -114,7 +114,7 @@ No, but VMs need access to Site Recovery URLs and IP ranges. [Learn more](./azur
 
 Yes, you can replicate the app, and keep the disaster recovery configuration in a separate resource group.
 
-For example, if the apps has three tiers (application/database/web) in different resource groups, you need to enable replication three times, to protect all tiers. Site Recovery replicates the three tiers into three different resource groups.
+For example, if the apps have three tiers (application/database/web) in different resource groups, you need to enable replication three times, to protect all tiers. Site Recovery replicates the three tiers into three different resource groups.
 
 ### Can I move storage accounts across resource groups?
 
@@ -126,10 +126,10 @@ No, this is unsupported. If you accidentally move storage accounts to a differen
 
 A replication policy defines the retention history of recovery points, and the frequency of app-consistent snapshots.  Site Recovery creates a default replication policy as follows:
 
-- Retain recovery points for 1 day.
+- Retain recovery points for one day.
 - App-consistent snapshots are disabled and are not created by default.
 
-[Learn more](azure-to-azure-how-to-enable-replication.md#customize-target-resources) about replication settings.
+[Learn more](azure-to-azure-how-to-enable-replication.md) about replication settings.
 
 ### What's a crash-consistent recovery point?
 
@@ -171,7 +171,7 @@ So, for the recent two hours, you can choose from 24 crash-consistent points, an
 
 ### How far back can I recover?
 
-The oldest recovery point that you can use is 15 days with Managed disk and 3 days with Unmanaged disk.
+The oldest recovery point that you can use is 15 days with Managed disk and three days with Unmanaged disk.
 
 ### How does the pruning of recovery points happen?
 
@@ -182,7 +182,7 @@ Crash-consistent recovery points are generated in every five minutes. App-consis
 |0 day|No recovery point saved. You can failover only to the latest point|
 |1 day|One recovery point saved per hour beyond the last two hours|
 |2 - 7 days|One recovery point saved per two hours beyond the last two hours|
-|8 - 15 days|One recovery point saved per two hours beyond the last two hours for 7 days. Post that, one recovery point saved per four hours.<p>App-consistent snapshots will also be pruned based on the duration mentioned above in the table even if you had input lesser app-consistent snapshot frequency.|
+|8 - 15 days|One recovery point saved per two hours beyond the last two hours for seven days. Post that, one recovery point saved per four hours.<p>App-consistent snapshots will also be pruned based on the duration mentioned above in the table even if you had input lesser app-consistent snapshot frequency.|
 
 
 
@@ -200,7 +200,7 @@ The first recovery point that's generated has the complete copy. Successive reco
 
 ### Do increases in recovery point retention increase storage costs?
 
-Yes. For example, if you increase retention from 1 day to 3 days, Site Recovery saves recovery points for an additional two days.The added time incurs storage changes. Earlier, it was saving recovery points per hour for 1 day. Now, it is saving recovery points per two hours for 3 days. Refer [pruning of recovery points](#how-does-the-pruning-of-recovery-points-happen). So additional 12 recovery points are saved.  As an example only, if a single recovery point had delta changes of 10 GB, with a per-GB cost of $0.16 per month, then additional charges would be $1.60 × 12 per month.
+Yes. For example, if you increase retention from one day to three days, Site Recovery saves recovery points for an additional two days. The added time incurs storage changes. Earlier, it was saving recovery points per hour for one day. Now, it is saving recovery points per two hours for 3 days. Refer [pruning of recovery points](#how-does-the-pruning-of-recovery-points-happen). So additional 12 recovery points are saved.  As an example only, if a single recovery point had delta changes of 10 GB, with a per-GB cost of $0.16 per month, then additional charges would be $1.60 × 12 per month.
 
 ## Multi-VM consistency
 
@@ -217,7 +217,7 @@ Multi-VM consistency ensures that recovery points are consistent across replicat
 
 No. When you enable multi-VM consistency, it infers that an app has a dependency on all VMs in the replication group, and single VM failover isn't allowed.
 
-### How many VM can I replicate together in a group?
+### How many VMs can I replicate together in a group?
 
 You can replicate 16 VMs together in a replication group.
 
@@ -272,7 +272,7 @@ Yes. Site Recovery processes all pending data before failing over, so this optio
 
 The *Latest processed* option does the following:
 
-1. It fails over all VMs to the latest recovery point processed by Site Recovery . This option provides a low RTO, because no time is spent processing unprocessed data.
+1. It fails over all VMs to the latest recovery point processed by Site Recovery. This option provides a low RTO, because no time is spent processing unprocessed data.
 
 ### What if there's an unexpected outage in the primary region?
 
@@ -295,7 +295,7 @@ A [recovery plan](site-recovery-create-recovery-plans.md) in Site Recovery orche
 
 ### How does sequencing work?
 
-In a recovery plan, you can create up to 7 groups of VM for sequencing. Groups fails over one at one time, so that VMs that are part of the same group fail over together. [Learn more](recovery-plan-overview.md#model-apps).
+In a recovery plan, you can create up to 7 groups of VM for sequencing. Groups failover one at a time, so that VMs that are part of the same group failover together. [Learn more](recovery-plan-overview.md#model-apps).
 
 ### How can I find the RTO of a recovery plan?
 
@@ -315,7 +315,7 @@ No. When you fail over VMs from one region to another, the VMs start up in the t
 
 ### When I reprotect, is all data replicated from the secondary region to primary?
 
-It depends.If the source region VM exists, then only changes between the source disk and the target disk are synchronized. Site Recovery compares the disks to   what's different, and then it transfers the data. This process usually takes a few hours. [Learn more](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection).
+It depends. If the source region VM exists, then only changes between the source disk and the target disk are synchronized. Site Recovery compares the disks to what's different, and then it transfers the data. This process usually takes a few hours. [Learn more](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection).
 
 ### How long does it take fail back?
 
