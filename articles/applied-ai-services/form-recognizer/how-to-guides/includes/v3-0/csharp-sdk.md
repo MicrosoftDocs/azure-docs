@@ -506,7 +506,7 @@ for (int i = 0; i < result.Documents.Count; i++)
 
 ### W-2 model output
 
-Visit the Azure samples repository on GitHub to view the [w2 model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/w2-tax-model-output.md).
+Visit the Azure samples repository on GitHub to view the [W-2 tax model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/w2-tax-model-output.md).
 
 ## Invoice model
 

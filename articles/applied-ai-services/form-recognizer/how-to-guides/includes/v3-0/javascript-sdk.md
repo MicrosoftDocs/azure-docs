@@ -115,16 +115,52 @@ Open the `index.js` file in Visual Studio Code or your favorite IDE and select o
 
 ## Read model
 
+```javascript
+
+```
+
+### Read model output
+
+Visit the Azure samples repository on GitHub to view the [read model output]().
+
 ## Layout model
+
+### Layout model output
+
+Visit the Azure samples repository on GitHub to view the [layout model output]().
 
 ## General document model
 
-## W2 model
+### General document model output
+
+Visit the Azure samples repository on GitHub to view the [general document model output]().
+
+## W-2 model
+
+### W-2 model output
+
+Visit the Azure samples repository on GitHub to view the [W-2 tax model output]().
 
 ## Invoice model
 
+### Invoice model output
+
+Visit the Azure samples repository on GitHub to view the [invoice model output]().
+
 ## Receipt-model
+
+### Invoice model output
+
+Visit the Azure samples repository on GitHub to view the [invoice model output]().
 
 ## ID document model
 
+### ID document model output
+
+Visit the Azure samples repository on GitHub to view the [ID document model output]().
+
 ## Business card model
+
+### Business card model output
+
+Visit the Azure samples repository on GitHub to view the [business card model output]

@@ -545,7 +545,7 @@ for (int i = 0; i < analyzeTaxResult.getDocuments().size(); i++) {
 
 ### W-2 tax model output
 
-Visit the Azure samples repository on GitHub to view the [w-2 tax model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/w2-tax-model-output.md).
+Visit the Azure samples repository on GitHub to view the [W-2 tax model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/how-to-guide/w2-tax-model-output.md).
 
 ## Invoice model
 
