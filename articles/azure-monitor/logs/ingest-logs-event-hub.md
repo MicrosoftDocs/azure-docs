@@ -318,7 +318,7 @@ With [managed identity](../../active-directory/managed-identities-azure-resource
 
 2. Select **Azure Event Hubs Data Receiver** and select **Next**.   
 
-    :::image type="content" source="media/ingest-logs-event-hub/event-hub-add-role-assignment.png" lightbox="media/ingest-logs-event-hub/event-hub-add-role-assignment.png" alt-text="Screenshot that shows the Add Role Assignment screen for the event hub with the Azure Event Hubs Data Receiver role highlighted.":::
+    :::image type="content" source="media/ingest-logs-event-hub/event-hub-data-receiver-role-assignment.png" lightbox="media/ingest-logs-event-hub/event-hub-data-receiver-role-assignment.png" alt-text="Screenshot that shows the Add Role Assignment screen for the event hub with the Azure Event Hubs Data Receiver role highlighted.":::
 
 3. Select **User, group, or service principal** for **Assign access to** and click **Select members**. Select your DCR and click **Select**.
 
