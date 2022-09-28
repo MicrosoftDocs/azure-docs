@@ -25,18 +25,18 @@ Managed identity can be [system assigned](../automation/enable-managed-identity-
 
 Ensure the following to migrate from the Run As account to Managed identities:
 
-1. Create a [system-assigned](enable-managed-identity-for-automation.md) or [user-assigned](add-user-assigned-identity.md), or both types of managed identities. To learn more about the differences between the two types of managed identities, see [Managed Identity Types](../active-directory/managed-identities-azure-resources/overview#managed-identity-types).
+1. Create a [system-assigned](enable-managed-identity-for-automation.md) or [user-assigned](add-user-assigned-identity.md), or both types of managed identities. To learn more about the differences between the two types of managed identities, see [Managed Identity Types](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 
     > [!NOTE]
     > - User-assigned identities are supported for cloud jobs only. It isn't possible to use the Automation Account's User Managed Identity on a Hybrid Runbook Worker. To use hybrid jobs, you must create a System-assigned identities. 
     > - There are two ways to use the Managed Identities in Hybrid Runbook Worker scripts. Either the System-assigned Managed Identity for the Automation account **OR** VM Managed Identity for an Azure VM running as a Hybrid Runbook Worker. 
-    > - Both the VM's User-assigned Managed Identity or the VM's system assigned Managed Identity will **NOT** work in an Automation account that is configured with an Automation account Managed Identity. When you enable the Automation account Managed Identity, you can only use the Automation Account System-Assigned Managed Identity and not the VM Managed Identity. For more information, see [Use runbook authentication with managed identities](../automation/automation-hrw-run-runbooks?tabs=sa-mi#runbook-auth-managed-identities).
+    > - Both the VM's User-assigned Managed Identity or the VM's system assigned Managed Identity will **NOT** work in an Automation account that is configured with an Automation account Managed Identity. When you enable the Automation account Managed Identity, you can only use the Automation Account System-Assigned Managed Identity and not the VM Managed Identity. For more information, see [Use runbook authentication with managed identities](../automation/automation-hrw-run-runbooks?tabs=sa-mi.md#runbook-auth-managed-identities).
 
-1. Assign same role to the managed identity to access the Azure resources matching the Run As account. Follow the steps in [Check role assignment for Azure Automation Run As account](../automation/manage-run-as-account#check-role-assignment-for-azure-automation-run-as-account).
+1. Assign same role to the managed identity to access the Azure resources matching the Run As account. Follow the steps in [Check role assignment for Azure Automation Run As account](../automation/manage-run-as-account.md#check-role-assignment-for-azure-automation-run-as-account).
 Ensure that you don't assign high privilege permissions like Contributor, Owner and so on to Run as account. Follow the RBAC guidelines to limit the permissions from the default Contributor permissions assigned to Run As account using this [script](../automation/manage-run-as-account.md#limit-run-as-account-permissions)
 
 
-   For example, if the Automation account is only required to start or stop an Azure VM, then the permissions assigned to the Run As account needs to be only for starting or stopping the VM. Similarly, assign read-only permissions if a runbook is reading from blob storage. Read more about [Azure Automation security guidelines](../automation/automation-security-guidelines#authentication-certificate-and-identities). 
+   For example, if the Automation account is only required to start or stop an Azure VM, then the permissions assigned to the Run As account needs to be only for starting or stopping the VM. Similarly, assign read-only permissions if a runbook is reading from blob storage. Read more about [Azure Automation security guidelines](../automation/automation-security-guidelines.md#authentication-certificate-and-identities). 
 
 ## Migrate from Automation Run As account to Managed Identity
 
@@ -51,7 +51,7 @@ To migrate from an Automation Run As account to a Managed Identity for your runb
     
     Follow the sample scripts below to know the change required to the runbook code to use Managed Identities
 
-1. Once you are sure that the runbook is executing successfully by using managed identities, you can safely [delete the Run as account](../automation/delete-run-as-account) if the Run as account is not used by any other runbook.
+1. Once you are sure that the runbook is executing successfully by using managed identities, you can safely [delete the Run as account](../automation/delete-run-as-account.md) if the Run as account is not used by any other runbook.
 
 ## Sample scripts
 
