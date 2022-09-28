@@ -1,5 +1,5 @@
 ---
-title: Microsoft identity platform consent types for developers.
+title: Microsoft identity platform developers' guide to consent types.
 description: Learn about consent types for developers in the Microsoft identity platform endpoint.
 services: active-directory
 author: omondiatieno
@@ -13,7 +13,7 @@ ms.date: 09/20/2022
 ms.author: marsma
 ms.reviewer: jawoods, ludwignick, phsignor
 ---
-# Consent types
+# Developers guide to consent types
 
 Applications in Microsoft identity platform rely on consent in order to gain access to necessary resources or APIs. There are a number of kinds of consent that your app may need to know about in order to be successful. If you are defining permissions, you will also need to understand how your users will gain access to your app or API.
 
@@ -116,7 +116,7 @@ In the app registration portal, applications can list the permissions they requi
 In general, the permissions should be statically defined for a given application. They should be a superset of the permissions that the app will request dynamically or incrementally.
 
 > [!NOTE]
->Application permissions can be requested only through the use of [`.default`](#the-default-scope). So if your app needs application permissions, make sure they're listed in the app registration portal.
+>Application permissions can be requested only through the use of [`.default`](scopes-oidc.md#the-default-scope). So if your app needs application permissions, make sure they're listed in the app registration portal.
 
 To configure the list of statically requested permissions for an application:
 
@@ -162,7 +162,7 @@ https://graph.microsoft.com/mail.send
 | `client_id` | Required | The application (client) ID that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
 | `redirect_uri` | Required |The redirect URI where you want the response to be sent for your app to handle. It must exactly match one of the redirect URIs that you registered in the app registration portal. |
 | `state` | Recommended | A value included in the request that will also be returned in the token response. It can be a string of any content you want. Use the state to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
-|`scope`        | Required        | Defines the set of permissions being requested by the application. Scopes can be either static (using [`.default`](#the-default-scope)) or dynamic.  This set can include the OpenID Connect scopes (`openid`, `profile`, `email`). If you need application permissions, you must use `.default` to request the statically configured list of permissions.  |
+|`scope`        | Required        | Defines the set of permissions being requested by the application. Scopes can be either static (using [`.default`](scopes-oidc.md#the-default-scope) or dynamic.  This set can include the OpenID Connect scopes (`openid`, `profile`, `email`). If you need application permissions, you must use `.default` to request the statically configured list of permissions.  |
 
 
 At this point, Azure AD requires a tenant administrator to sign in to complete the request. The administrator is asked to approve all the permissions that you requested in the `scope` parameter.  If you used a static (`.default`) value, it will function like the v1.0 admin consent endpoint and request consent for all scopes found in the required permissions for the app.
@@ -218,3 +218,8 @@ Content-Type: application/json
 You can use the resulting access token in HTTP requests to the resource. It reliably indicates to the resource that your app has the proper permission to do a specific task.
 
 For more information about the OAuth 2.0 protocol and how to get access tokens, see the [Microsoft identity platform endpoint protocol reference](active-directory-v2-protocols.md).
+
+## Next steps
+
+- [Consent experience](application-consent-experience.md)
+- [Delegated access scenario](delegated-access.md)

@@ -51,7 +51,11 @@ For example, imagine an application that has been granted the Files.Read.All del
 There are other ways in which applications can be granted authorization for direct access. For example, an application can be assigned an Azure AD RBAC role.
 
 ## Consent
-One way that applications are granted permissions is through consent. Consent is a process where users or admins authorize an application to access a protected resource. For example, when a user attempts to sign into an application for the first time, the application can request permission to see the user's profile and read the contents of the user's mailbox. The user sees the list of permissions the app is requesting through a consent prompt.
+One way that applications are granted permissions is through consent. Consent is a process where users or admins authorize an application to access a protected resource. For example, when a user attempts to sign into an application for the first time, the application can request permission to see the user's profile and read the contents of the user's mailbox. The user sees the list of permissions the app is requesting through a consent prompt. Other scenarios where users may see a consent prompt include:
+
+- When previously granted consent is revoked
+- When the application is coded to specifically to prompt for consent during every sign-in
+- When the application uses incremental or dynamic consent to ask for some permissions upfront and more permission later as needed. For more information about this consent scenario, see [The .default scope](scopes-oidc.md#the-.default-scope).
 
 The key details of a consent prompt are the list of permissions the application requires and the publisher information. For more information about the consent prompt and the consent experience for both admins and end-users, see [application consent experience](application-consent-experience.md).
 
@@ -67,10 +71,31 @@ Depending on the permissions they require, some applications might require an ad
 
 Preauthorization allows a resource application owner to grant permissions without requiring users to see a consent prompt for the same set of permissions that have been preauthorized. This way, an application that has been preauthorized won't ask users to consent to permissions. Resource owners can preauthorize client apps in the Azure portal or by using PowerShell and APIs, like Microsoft Graph.
 
-## Troubleshooting permissions and consent
+## Common Issues
+This section outlines the common issues with the consent experience and possible troubleshooting tips.
+
+- 403 error
+
+  - Is this a delegated scenario? What permissions does a user have? 
+  - Are necessary permissions added to leverage the endpoint? 
+  - Check the [token](https://jwt.ms/) to see if it has necessary claims to call the endpoint.
+  - What permissions have been consented to? Who consented? 
+
+- User is unable to consent
+
+  - Check if tenant admin has disabled user consent for your organization
+  - Confirm if the permissions you requesting are admin-restricted permissions.
+
+- User is still blocked even after admin has consented
+
+  - Check if static permissions are configured to be a superset of permissions requested dynamically
+  - Check if user assignment required for the app
+
+## Troubleshoot known errors
 
 For troubleshooting steps, see [Unexpected error when performing consent to an application](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
+
 ## Next steps
 - [Delegated access scenario](delegated-access.md)
 - [User and admin consent overview](../manage-apps/consent-and-permissions-overview.md)
-- [Scopes and permissions](v2-permissions-and-consent.md)
+- [OpenID connect scopes](scopes-oidc.md)
