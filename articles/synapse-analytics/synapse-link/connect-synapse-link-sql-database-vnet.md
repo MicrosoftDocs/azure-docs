@@ -26,21 +26,21 @@ This article provides a guide on configuring Azure Synapse Link for Azure SQL Da
 
 1. Navigate to your Synapse workspace on Azure portal, go to **Networking** tab to enable **Allow Azure Synapse Link for Azure SQL Database to bypass firewall rules**.
 
-  :::image type="content" source="../media/connect-synapse-link-sql-database/enable-bypass-firewall-rules.png" alt-text="enable bypass firewall rules":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/enable-bypass-firewall-rules.png" alt-text="enable bypass firewall rules":::
 
 1. Launch Synapse Studio, navigate to **Manage**, click **Integration runtimes** and select **AutoResolvingIntegrationRuntime**. On the pop-up slide, you can click **Virtual network** tab, and enable **Interactive authoring**. 
 
-  :::image type="content" source="../media/connect-synapse-link-sql-database/enable-interactive-authoring.png" alt-text="enable interactive authoring":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/enable-interactive-authoring.png" alt-text="enable interactive authoring":::
 
 1. Now you can create a link connection from **Integrate** tab to replicate data from Azure SQL DB to Synapse SQL pool.
 
-  :::image type="content" source="../media/connect-synapse-link-sql-database/create-link.png" alt-text="create link":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/create-link.png" alt-text="create link":::
 
-  :::image type="content" source="../media/connect-synapse-link-sql-database/create-link-sqldb.png" alt-text="create link sqldb":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/create-link-sqldb.png" alt-text="create link sqldb":::
 
 1. Start your link connection
 
-  :::image type="content" source="../media/connect-synapse-link-sql-database/start-link.png" alt-text="start link":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/start-link.png" alt-text="start link":::
 
 
 ## Managed workspace Virtual Network with data exfiltration
@@ -51,11 +51,11 @@ This article provides a guide on configuring Azure Synapse Link for Azure SQL Da
 
 1. Navigate to your Synapse workspace on Azure portal, go to **Networking** tab to enable **Allow Azure Synapse Link for Azure SQL Database to bypass firewall rules**.
 
-  :::image type="content" source="../media/connect-synapse-link-sql-database/enable-bypass-firewall-rules.png" alt-text="enable bypass firewall rules":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/enable-bypass-firewall-rules.png" alt-text="enable bypass firewall rules":::
 
 1. Launch Synapse Studio, navigate to **Manage**, click **Integration runtimes** and select **AutoResolvingIntegrationRuntime**. On the pop-up slide, you can click **Virtual network** tab, and enable **Interactive authoring**. 
 
-  :::image type="content" source="../media/connect-synapse-link-sql-database/enable-interactive-authoring.png" alt-text="enable interactive authoring":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/enable-interactive-authoring.png" alt-text="enable interactive authoring":::
 
 1. Create a linked service connecting to Azure SQL DB with managed private endpoint enabled.
 
@@ -77,13 +77,13 @@ This article provides a guide on configuring Azure Synapse Link for Azure SQL Da
 		 
 1. Now you can create a link connection from **Integrate** tab to replicate data from Azure SQL DB to Synapse SQL pool.
 
-  :::image type="content" source="../media/connect-synapse-link-sql-database/create-link.png" alt-text="create link":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/create-link.png" alt-text="create link":::
 
-  :::image type="content" source="../media/connect-synapse-link-sql-database/create-link-sqldb.png" alt-text="create link sqldb":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/create-link-sqldb.png" alt-text="create link sqldb":::
 
 1. Start your link connection
 
-  :::image type="content" source="../media/connect-synapse-link-sql-database/start-link.png" alt-text="start link":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/start-link.png" alt-text="start link":::
  
 
 

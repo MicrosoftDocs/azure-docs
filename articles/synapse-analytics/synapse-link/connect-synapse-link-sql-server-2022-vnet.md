@@ -10,7 +10,7 @@ ms.author: yexu
 ms.reviewer: sngun, wiassaf
 ---
 
-# Configure Synapse link for Azure SQL Database with network security (Preview)
+# Configure Synapse link for SQL Server 2022 with network security (Preview)
 
 This article provides a guide on configuring Azure Synapse Link for SQL Server 2022 with network security. Before reading this documentation, You should have known how to create and start Synapse link for SQL Server 2022 from [Get started with Azure Synapse Link for SQL Server 2022](connect-synapse-link-sql-server-2022.md). 
 
