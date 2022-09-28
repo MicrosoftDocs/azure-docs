@@ -18,7 +18,7 @@ ms.author: pafarley
 Version 4.0 of Image Analysis offers the ability to detect people appearing in images. The bounding box coordinates of each detected person are returned, along with a confidence score. 
 
 > [!IMPORTANT]
-> you need 4.0 for this TBD
+> you need Image Analysis version 4.0 to use this feature. Version 4.0 is currently available to resources in the following Azure regions: East US, France Central, Korea Central, North Europe, Southeast Asia, West Europe, West US.
 
 ## People detection example
 
