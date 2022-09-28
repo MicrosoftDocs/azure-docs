@@ -23,6 +23,7 @@ Get started with Azure Kubernetes Fleet Manager (Fleet) by using the Azure CLI t
 * A basic understanding of [Kubernetes core concepts](../aks/concepts-clusters-workloads.md).
 
 * An identity (user or service principal) which can be used to [log in to Azure CLI](/cli/azure/authenticate-azure-cli). This identity needs to have the following permissions on the Fleet and AKS resource types for completing the steps listed in this quickstart:
+
     * Microsoft.ContainerService/fleets/read
     * Microsoft.ContainerService/fleets/write
     * Microsoft.ContainerService/fleets/listCredentials/action
@@ -91,7 +92,7 @@ Create a Fleet resource using the [az fleet create](/cli/azure/fleet#az-fleet-cr
 az fleet create -n ${FLEET} -g ${GROUP}
 ```
 
-The output will look similar to the following:
+The output will look similar to the following example:
 
 ```json
 {
@@ -205,7 +206,7 @@ Fleet currently supports joining existing AKS clusters as member clusters.
     az fleet member create -g ${GROUP} --fleet-name ${FLEET} -n ${MEMBER_NAME} --member-cluster-id ${MEMBER_RESOURCE_ID}
     ```
 
-    The output will look similar to the following:
+    The output will look similar to the following example:
 
     ```json
     {
@@ -233,7 +234,7 @@ Fleet currently supports joining existing AKS clusters as member clusters.
     az fleet member list -g ${GROUP} --fleet-name ${FLEET} -o table
     ```
 
-    If successful, the output will look similar to the following:
+    If successful, the output will look similar to the following example:
     
     ```json
     ClusterResourceId                                                                                                                                Name          ClusterResourceId                                                                                                                                Name          ProvisioningState    ResourceGroup
@@ -252,7 +253,7 @@ An Azure Kubernetes Fleet Manager resource is itself a Kubernetes cluster that y
     az fleet get-credentials -n ${FLEET} -g ${GROUP}
     ```
 
-    The output will look similar to the following:
+    The output will look similar to the following example:
 
     ```bash
     Merged "hub" as current context in /home/shasb/.kube/config
@@ -278,7 +279,7 @@ An Azure Kubernetes Fleet Manager resource is itself a Kubernetes cluster that y
     * Azure Kubernetes Fleet Manager RBAC Cluster Admin
 
 
-    You should see output similar to the following:
+    You should see output similar to the following example:
 
     ```bash
     {
@@ -303,7 +304,7 @@ An Azure Kubernetes Fleet Manager resource is itself a Kubernetes cluster that y
     kubectl get memberclusters
     ```
 
-    If successful, the output will look similar to the following:
+    If successful, the output will look similar to the following example:
 
     ```bash
     NAME            JOINED   AGE

@@ -20,7 +20,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
 [!INCLUDE [free trial note](../../includes/quickstarts-free-trial-note.md)]
 
-* You must have a Fleet resource with member clusters to which a workload has been deployed. This can be done by following [Quickstart: Create a Fleet resource and join member clusters](quickstart-create-fleet-and-members.md) and [Propagate Kubernetes configurations from a Fleet resource to member clusters](configuration-propagation.md)
+* You must have a Fleet resource with member clusters to which a workload has been deployed. If you don't have this resource, follow [Quickstart: Create a Fleet resource and join member clusters](quickstart-create-fleet-and-members.md) and [Propagate Kubernetes configurations from a Fleet resource to member clusters](configuration-propagation.md)
 
 * These target clusters should be using [Azure CNI networking](../aks/configure-azure-cni.md).
 
@@ -52,7 +52,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
     kubectl create ns kuard-demo
     ```
 
-    Output will look similar to the following:
+    Output will look similar to the following example:
 
     ```bash
     namespace/kuard-demo created
@@ -64,7 +64,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
     kubectl apply -f https://raw.githubusercontent.com/Azure/AKS/master/examples/fleet/kuard/kuard-crp.yaml
     ```
 
-    Output will look similar to the following:
+    Output will look similar to the following example:
 
     ```bash
     clusterresourceplacement.fleet.azure.com/kuard created
@@ -76,7 +76,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
     kubectl apply -f https://raw.githubusercontent.com/Azure/AKS/master/examples/fleet/kuard/kuard-export-service.yaml
     ```
 
-    The `ServiceExport` specification in the above file allows you to export a service from member clusters to the Fleet resource. Once successfully exported, service and and all its endpoints will be synced to the hub, which other member clusters and Fleet resource-scoped load balancers can then consume. The output will look similar to the following:
+    The `ServiceExport` specification in the above file allows you to export a service from member clusters to the Fleet resource. Once successfully exported, the service and all its endpoints will be synced to the hub, which other member clusters and Fleet resource-scoped load balancers can then consume. The output will look similar to the following example:
 
     ```bash
     deployment.apps/kuard created
@@ -100,7 +100,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
     kubectl get serviceexport kuard --namespace kuard-demo
     ```
 
-    Output will look similar to the following:
+    Output will look similar to the following example:
 
     ```bash
     NAME    IS-VALID   IS-CONFLICTED   AGE
@@ -118,7 +118,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
     kubectl apply -f https://raw.githubusercontent.com/Azure/AKS/master/examples/fleet/kuard/kuard-mcs.yaml
     ```
 
-    Output will look similar to the following:
+    Output will look similar to the following example:
 
     ```bash
     multiclusterservice.networking.fleet.azure.com/kuard created
@@ -130,7 +130,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
     kubectl get mcs kuard --namespace kuard-demo
     ```
 
-    The output should look similar to the following:
+    The output should look similar to the following example:
 
     ```bash
     NAME    SERVICE-IMPORT   EXTERNAL-IP     IS-VALID   AGE
