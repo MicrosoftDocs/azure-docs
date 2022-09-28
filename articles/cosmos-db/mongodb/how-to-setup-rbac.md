@@ -128,6 +128,23 @@ az cosmosdb mongodb role definition create --account-name <account-name> --resou
 ```powershell
 az cosmosdb mongodb role definition create --account-name <account-name> --resource-group <resource-group-name> --body role.json
 ```
+##### JSON file
+```json
+{
+	"Id": "test.My_Read_Only_Role101",
+	"RoleName": "My_Read_Only_Role101",
+	"Type": "CustomRole",
+	"DatabaseName": "test",
+	"Privileges": [{
+		"Resource": {
+			"Db": "test",
+			"Collection": "test"
+		},
+		"Actions": ["insert", "find"]
+	}],
+	"Roles": []
+}
+```
 
 #### Update Role Definition
 ```powershell
@@ -137,6 +154,23 @@ az cosmosdb mongodb role definition update --account-name <account-name> --resou
 #### Update role by passing JSON file body
 ```powershell
 az cosmosdb mongodb role definition update --account-name <account-name> --resource-group <resource-group-name> --body role.json
+```
+##### JSON file
+```json
+{
+	"Id": "test.My_Read_Only_Role101",
+	"RoleName": "My_Read_Only_Role101",
+	"Type": "CustomRole",
+	"DatabaseName": "test",
+	"Privileges": [{
+		"Resource": {
+			"Db": "test",
+			"Collection": "test"
+		},
+		"Actions": ["insert", "find"]
+	}],
+	"Roles": []
+}
 ```
 
 #### List roles
@@ -163,6 +197,21 @@ az cosmosdb mongodb user definition create --account-name <account-name> --resou
 ```powershell
 az cosmosdb mongodb user definition create --account-name <account-name> --resource-group <resource-group-name> --body user.json
 ```
+##### JSON file
+```json
+{
+	"Id": "test.myName",
+	"UserName": "myName",
+	"Password": "pass",
+	"DatabaseName": "test",
+	"CustomData": "Some_Random_Info",
+	"Mechanisms": "SCRAM-SHA-256",
+	"Roles": [{
+		"Role": "My_Read_Only_Role101",
+		"Db": "test"
+	}]
+}
+```
 
 #### Update user definition
 To update the user's password, send the new password in the password field. 
@@ -174,6 +223,21 @@ az cosmosdb mongodb user definition update --account-name <account-name> --resou
 #### Update user by passing JSON file body
 ```powershell
 az cosmosdb mongodb user definition update --account-name <account-name> --resource-group <resource-group-name> --body user.json
+```
+##### JSON file
+```json
+{
+	"Id": "test.myName",
+	"UserName": "myName",
+	"Password": "pass",
+	"DatabaseName": "test",
+	"CustomData": "Some_Random_Info",
+	"Mechanisms": "SCRAM-SHA-256",
+	"Roles": [{
+		"Role": "My_Read_Only_Role101",
+		"Db": "test"
+	}]
+}
 ```
 
 #### List users
