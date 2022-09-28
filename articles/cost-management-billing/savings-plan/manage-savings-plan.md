@@ -87,6 +87,6 @@ If you have questions or need help, [create a support request](https://go.micros
 ## Next steps
 
 To learn more about Azure Savings plan, see the following articles:
-- [View saving plan utilization](view-utilization.md)
+- [View saving plan utilization](utilization-cost-reports.md)
 - [Cancellation policy](cancel-savings-plan.md)
 - [Renew a savings plan](renew-savings-plan.md)
