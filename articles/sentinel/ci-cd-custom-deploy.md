@@ -198,7 +198,7 @@ Here's an example of the entire contents of a valid *sentinel-deployment.config*
 
 - **To prioritize content files**:
  
-    As the amount of content in your repro grows, deployment times may increase. Add time sensitive content to this section to prioritize its deployment when a trigger occurs. 
+    As the amount of content in your repository grows, deployment times may increase. Add time sensitive content to this section to prioritize its deployment when a trigger occurs. 
     
     Add full path names to the `"prioritizedcontentfiles":` section. Wildcard matching is not supported at this time.
 
