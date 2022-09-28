@@ -20,7 +20,7 @@
     - name: Upgrade overview
       displayName: migration
       href: how-to-migrate-from-v1.md
-    - name: Migrate resources and assets
+    - name: Upgrade resources and assets
       items:
       - name: "Workspace"
         displayName: migration, v1, v2
@@ -37,7 +37,7 @@
       - name: "Model assets"
         displayName: migration, v1, v2
         href: migrate-to-v2-assets-model.md
-    - name: Migrate training
+    - name: Upgrade training
       items:
       - name: "Run a script"
         displayName: migration, v1, v2
@@ -57,10 +57,9 @@
       - name: "Pipelines"
         displayName: migration, v1, v2
         href: migrate-to-v2-execution-pipeline.md  
-    - name: "Migrate endpoints"
+    - name: "Upgrade endpoints"
       displayName: migration, v1, v2
       href: migrate-to-v2-deploy-endpoints.md  
-
 - name: Quickstart
   expanded: true
   items: 
