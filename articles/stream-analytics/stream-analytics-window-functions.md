@@ -154,7 +154,7 @@ Will return:
 
 ## Snapshot window
 
-[**Snapshot**](/stream-analytics-query/snapshot-window-azure-stream-analytics) windows group events that have the same timestamp. Unlike other windowing types, which require a specific window function (such as [SessionWindow()](/stream-analytics-query/session-window-azure-stream-analytics), you can apply a snapshot window by adding System.Timestamp() to the GROUP BY clause.
+[**Snapshot**](/stream-analytics-query/snapshot-window-azure-stream-analytics) windows group events that have the same timestamp. Unlike other windowing types, which require a specific window function (such as [SessionWindow()](/stream-analytics-query/session-window-azure-stream-analytics)), you can apply a snapshot window by adding System.Timestamp() to the GROUP BY clause.
 
 ![Stream Analytics snapshot window](media/stream-analytics-window-functions/stream-analytics-window-functions-snapshot-intro.png)
 

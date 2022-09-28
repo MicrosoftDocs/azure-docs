@@ -142,9 +142,9 @@ After providing your application's Health check path, you can monitor the health
 
 If your app is only scaled to one instance and becomes unhealthy, it will not be removed from the load balancer because that would take down your application entirely. Scale out to two or more instances to get the rerouting benefit of Health check. If your app is running on a single instance, you can still use Health check's [monitoring](#monitoring) feature to keep track of your application's health.
  
-### Why are the Health check request not showing in my web server logs?
+### Why are the Health check requests not showing in my web server logs?
 
-The Health check request is sent to your site internally, so the request won't show in [the web server logs](troubleshoot-diagnostic-logs.md#enable-web-server-logging). This also means the request will have an origin of `127.0.0.1` since the request is being sent internally. You can add log statements in your Health check code to keep logs of when your Health check path is pinged.
+The Health check requests are sent to your site internally, so the request won't show in [the web server logs](troubleshoot-diagnostic-logs.md#enable-web-server-logging). This also means the request will have an origin of `127.0.0.1` since the request is being sent internally. You can add log statements in your Health check code to keep logs of when your Health check path is pinged.
 
 ### Are the Health check requests sent over HTTP or HTTPS?
 

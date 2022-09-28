@@ -15,24 +15,24 @@ You can enable the Azure Monitor Application Insights agent for Java by adding a
 
 ### Usual case
 
-Add the JVM arg `-javaagent:"path/to/applicationinsights-agent-3.3.1.jar"` somewhere before `-jar`, for example:
+Add the JVM arg `-javaagent:"path/to/applicationinsights-agent-3.4.0.jar"` somewhere before `-jar`, for example:
 
 ```
-java -javaagent:"path/to/applicationinsights-agent-3.3.1.jar" -jar <myapp.jar>
+java -javaagent:"path/to/applicationinsights-agent-3.4.0.jar" -jar <myapp.jar>
 ```
 
 ### Spring Boot via Docker entry point
 
-If you're using the *exec* form, add the parameter `-javaagent:"path/to/applicationinsights-agent-3.3.1.jar"` to the parameter list somewhere before the `"-jar"` parameter, for example:
+If you're using the *exec* form, add the parameter `-javaagent:"path/to/applicationinsights-agent-3.4.0.jar"` to the parameter list somewhere before the `"-jar"` parameter, for example:
 
 ```
-ENTRYPOINT ["java", "-javaagent:path/to/applicationinsights-agent-3.3.1.jar", "-jar", "<myapp.jar>"]
+ENTRYPOINT ["java", "-javaagent:path/to/applicationinsights-agent-3.4.0.jar", "-jar", "<myapp.jar>"]
 ```
 
-If you're using the *shell* form, add the JVM arg `-javaagent:"path/to/applicationinsights-agent-3.3.1.jar"` somewhere before `-jar`, for example:
+If you're using the *shell* form, add the JVM arg `-javaagent:"path/to/applicationinsights-agent-3.4.0.jar"` somewhere before `-jar`, for example:
 
 ```
-ENTRYPOINT java -javaagent:"path/to/applicationinsights-agent-3.3.1.jar" -jar <myapp.jar>
+ENTRYPOINT java -javaagent:"path/to/applicationinsights-agent-3.4.0.jar" -jar <myapp.jar>
 ```
 
 ## Programmatic configuration
@@ -42,7 +42,7 @@ To use the programmatic configuration and attach the Application Insights agent 
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>applicationinsights-runtime-attach</artifactId>
-    <version>3.3.1</version>
+    <version>3.4.0</version>
 </dependency>
 ```
 
