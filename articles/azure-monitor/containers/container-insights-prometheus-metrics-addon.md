@@ -166,8 +166,8 @@ Assign the `Monitoring Data Reader` role to the Grafana System Assigned Identity
 
 ### Download and edit template and parameter file
 
-1. Download the template at [https://aka.ms/aks-enable-azuremonitormetrics](https://aka.ms/aks-enable-azuremonitormetrics) and save it as **existingClusterOnboarding.json**.
-2. Download the parameter file at [https://aka.ms/aks-enable-azuremonitormetricsparameters](https://aka.ms/aks-enable-azuremonitormetricsparameters) and save it as **existingClusterParam.json**.
+1. Download the template at [https://aka.ms/azureprometheus-enable-arm-template](https://aka.ms/azureprometheus-enable-arm-template) and save it as **existingClusterOnboarding.json**.
+2. Download the parameter file at [https://aka.ms/azureprometheus-enable-arm-template-parameterss](https://aka.ms/azureprometheus-enable-arm-template-parameters) and save it as **existingClusterParam.json**.
 3. Edit the values in the parameter file.
 
     | Parameter | Value |
