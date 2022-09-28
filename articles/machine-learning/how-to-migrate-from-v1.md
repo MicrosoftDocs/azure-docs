@@ -49,7 +49,7 @@ You should then ensure the features you need in v2 meet your organization's requ
 
 You can reuse your existing assets in your v2 workflows. For instance a model created in v1 can be used to perform Managed Inferencing in v2.
 
-Optinally, if you want to upgrade all of your existing code to v2, please refer to the migration links provided in the details of each resource or asset.
+Optionally, if you want to upgrade all of your existing code to v2, please refer to the migration links provided in the details of each resource or asset.
 
 ## How do I upgrade to v2?
 
@@ -147,7 +147,7 @@ Datasets are renamed to data assets. The mapping of v1 and v2 assets is shown be
 * V1 FileDataset = V2 Folder (uri_folder, mode: ro_mount)
 * V1 TabularDataset = V2 Table (mltable, mode: direct)
 
-This artcicle talks more about handling data in v2 - [Read and write data in a job](how-to-read-write-data-v2.md)
+This article talks more about handling data in v2 - [Read and write data in a job](how-to-read-write-data-v2.md)
 
 For a comparison of SDK v1 and v2 code, see [Migrate data management from SDK v1 to v2](migrate-to-v2-assets-data.md).
 
@@ -188,7 +188,7 @@ We recommend v2 for prototyping models. You may consider using the CLI for an in
 
 We recommend v2 for production model training. Jobs consolidate the terminology and provide a set of consistency that allows for easier transition between types (for example, `command` to `sweep`) and a GitOps-friendly process for serializing jobs into YAML files.
 
-With v2, you should separate your machine learning code from the control plane code. This separation allows for easier iteration and allows for easier transition between local and cloud. We also recommend to use MLflow for tracking and model logging. See the [MLflow concept article](concept-mlflow.md) for details.
+With v2, you should separate your machine learning code from the control plane code. This separation allows for easier iteration and allows for easier transition between local and cloud. We also recommend using MLflow for tracking and model logging. See the [MLflow concept article](concept-mlflow.md) for details.
 
 ### Production model deployment
 
