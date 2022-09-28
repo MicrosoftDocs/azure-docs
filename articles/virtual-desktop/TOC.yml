@@ -133,6 +133,8 @@
         href: azure-monitor-glossary.md
   - name: Data locations
     href: data-locations.md
+  - name: Multimedia redirection (preview)
+    href: multimedia-redirection-intro.md
   - name: Security
     items:
       - name: Security best practices
@@ -361,6 +363,8 @@
     href: troubleshoot-rdp-shortpath.md
   - name: Sign-in screen is blank
     href: /troubleshoot/azure/virtual-desktop/windows-virtual-desktop-blank-screen
+  - name: Multimedia redirection (preview)
+    href: troubleshoot-multimedia-redirection.md
 - name: Reference
   items:
   - name: Azure CLI

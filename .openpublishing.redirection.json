@@ -2,7 +2,7 @@
     "redirections": [
         {
             "source_path": "articles/iot-hub/iot-hub-rm-template.md",
-            "redirect_url": "articles/iot-hub/iot-hub-rm-rest",
+            "redirect_url": "/azure/iot-hub/iot-hub-rm-template-powershell",
             "redirect_document_id": false
         },
         {
