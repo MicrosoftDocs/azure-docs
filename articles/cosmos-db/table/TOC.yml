@@ -352,7 +352,9 @@
         - name: Restrict user access to data operations only
           href: ../how-to-restrict-user-data.md
         - name: Configure customer-managed keys
-          href: ../how-to-setup-cmk.md
+          href: ../how-to-setup-customer-managed-keys.md
+        - name: Configure cross-tenant customer-managed keys
+          href: ../how-to-setup-cross-tenant-customer-managed-keys.md
         - name: Use a managed identity
           href: ../how-to-setup-managed-identity.md
     - name: Enterprise readiness

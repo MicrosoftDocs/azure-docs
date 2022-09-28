@@ -134,6 +134,8 @@ When you open the zip file, you'll see the **AzureVPN** folder. Locate the **azu
 
 1. In the left pane, locate the **VPN connection**, then click **Connect**.
 
+Azure VPN client provides high availability by allowing you to add a secondary VPN client profile, providing a more resilient way to access VPN. You can choose to add a secondary client profile using any of the already imported client profiles and that **enables the high availability** option for windows. In case of any **region outage** or failure to connect to the primary VPN client profile, Azure VPN provides the capability to auto-connect to the secondary client profile without causing any disruptions.
+
 ## <a name="openvpn"></a>OpenVPN - OpenVPN Client steps
 
 This section applies to certificate authentication configurations that are configured to use the OpenVPN tunnel type. The following steps help you configure the **OpenVPN &reg; Protocol** client and connect to your VNet.
