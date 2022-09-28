@@ -7,14 +7,17 @@ ms.topic: conceptual
 
 # On-premises users and roles for OT monitoring with Defender for IoT
 
-When working with OT networks, Defender for IoT services and data is available from both the Azure portal and from on-premises sensor and management consoles.
+When working with OT networks, Defender for IoT services and data is available from both the Azure portal and from on-premises OT network sensors and the on-premises sensor management consoles.
 
-This article provides a reference of the actions available for default on-premises users and each on-premises user role.
-
+This article provides a reference of the actions available for each on-premises user role on OT network sensors and the on-premises management console.
 
 ## On-premises user roles
 
-The following roles are available on OT network sensors and on-premises management consoles.
+OT network sensors and on-premises management consoles are installed with a set of [default, privileged users](how-to-install-software.md#default-privileged-on-premises-users).
+
+When first deploying an OT monitoring system, sign in to your sensors and on-premises management console with one of the default users. Create your first **Administrator** user, and then use that user to create other users and assign them to roles.
+
+The following roles are available on OT network sensors and on-premises management consoles:
 
 - **Read only**: Read-only users perform tasks such as viewing alerts and devices on the device map. These users have access to options displayed under **Discover**.
 
@@ -24,54 +27,59 @@ The following roles are available on OT network sensors and on-premises manageme
 
 Permissions applied to each role differ between the sensor and the on-premises management console. The following tables list the permissions available for each role, in each location.
 
-### Role-based permissions for OT network sensors
+## Role-based permissions for OT network sensors
 
 | Permission | Read-only | Security Analyst | Administrator |
 |--|--|--|--|
-| View the dashboard | ✔ | ✔ |✔ |
-| Control map zoom views | - | - | ✔ |
-| View alerts | ✔ | ✔ | ✔ |
-| Manage alerts: acknowledge, learn, and pin |-  | ✔ | ✔ |
-| View events in a timeline | - | ✔ | ✔ |
-| Authorize devices, known scanning devices, programming devices |  | ✔ | ✔ |
-| Merge and delete devices |-  |-  | ✔ |
-| View investigation data | ✔ | ✔ | ✔ |
-| Manage system settings | - |  -| ✔ |
-| Manage users |-  | - | ✔ |
-| Change passwords |- | -| ✔, for users with the **Security Analyst** and **Read-only** roles only. |
-| DNS servers for reverse lookup |-  |  -| ✔ |
-| Send alert data to partners | - | ✔ | ✔ |
-| Create alert comments |-  | ✔ | ✔ |
-| View programming change history | ✔ | ✔ | ✔ |
-| Create customized alert rules | - | ✔ | ✔ |
-| Manage multiple notifications simultaneously | - | ✔ | ✔ |
-| Manage certificates | - | - | ✔ |
-| Session timeout when users are not active | 30 minutes | 30 minutes | 30 minutes |
+| **View the dashboard** | ✔ | ✔ |✔ |
+| **Control map zoom views** | - | - | ✔ |
+| **View alerts** | ✔ | ✔ | ✔ |
+| **Manage alerts**: acknowledge, learn, and pin |-  | ✔ | ✔ |
+| **View events in a timeline** | - | ✔ | ✔ |
+| **Authorize devices**, known scanning devices, programming devices |  | ✔ | ✔ |
+| **Merge and delete devices** |-  |-  | ✔ |
+| **View investigation data** | ✔ | ✔ | ✔ |
+| **Manage system settings** | - |  -| ✔ |
+| **Manage users** |-  | - | ✔ |
+| **Change passwords** |- | -| ✔[*](#pw-sensor) |
+| **DNS servers for reverse lookup** |-  |  -| ✔ |
+| **Send alert data to partners** | - | ✔ | ✔ |
+| **Create alert comments** |-  | ✔ | ✔ |
+| **View programming change history** | ✔ | ✔ | ✔ |
+| **Create customized alert rules** | - | ✔ | ✔ |
+| **Manage multiple notifications simultaneously** | - | ✔ | ✔ |
+| **Manage certificates** | - | - | ✔ |
 
-### Role-based permissions for the on-premises management console
+> [!NOTE]
+> <a name="pw-sensor"></a>**Administrator** users can only change passwords for other users with the **Security Analyst** and **Read-only** roles. To change the password of an **Administrator** user, sign in to your sensor as a privileged user. For more information, see [Default privileged on-premises users](how-to-install-software.md#default-privileged-on-premises-users).
+
+## Role-based permissions for the on-premises management console
 
 | Permission | Read-only | Security Analyst | Administrator |
 |--|--|--|--|
-| View and filter the enterprise map | ✔ | ✔ | ✔ |
-| Build a site | - | - | ✔ |
-| Manage a site (add and edit zones) |-  |-  | ✔ |
-| View and filter device inventory | ✔ | ✔ | ✔ |
-| View and manage alerts: acknowledge, learn, and pin | ✔ | ✔ | ✔ |
-| Generate reports |-  | ✔ | ✔ |
-| View risk assessment reports | - | ✔ | ✔ |
-| Set alert exclusions | - | ✔ | ✔ |
-| View or define access groups | - | - | ✔ |
-| Manage system settings | - | - | ✔ |
-| Manage users | - |-  | ✔ |
-| Change passwords |- | -| ✔ for users with the **Security Analyst** and **Read-only** roles only|
-| Send alert data to partners | - | - | ✔ |
-| Manage certificates | - | - | ✔ |
-| Session timeout when users aren't active | 30 minutes | 30 minutes  | 30 minutes  |
+| **View and filter the enterprise map** | ✔ | ✔ | ✔ |
+| **Build a site** | - | - | ✔ |
+| **Manage a site** (add and edit zones) |-  |-  | ✔ |
+| **View and filter device inventory** | ✔ | ✔ | ✔ |
+| **View and manage alerts**: acknowledge, learn, and pin | ✔ | ✔ | ✔ |
+| **Generate reports** |-  | ✔ | ✔ |
+| **View risk assessment reports** | - | ✔ | ✔ |
+| **Set alert exclusions** | - | ✔ | ✔ |
+| **View or define access groups** | - | - | ✔ |
+| **Manage system settings** | - | - | ✔ |
+| **Manage users** | - |-  | ✔ |
+| **Change passwords** |- | -| ✔[*](#pw-cm) for users with the **Security Analyst** and **Read-only** roles only|
+| **Send alert data to partners** | - | - | ✔ |
+| **Manage certificates** | - | - | ✔ |
 
+> [!NOTE]
+> <a name="pw-cm"></a>**Administrator** users can only change passwords for other users with the **Security Analyst** and **Read-only** roles. To change the password of an **Administrator** user, sign in to your sensor as a privileged user. For more information, see [Default privileged on-premises users](how-to-install-software.md#default-privileged-on-premises-users).
 
 ## Next steps
 
 For more information, see:
 
-- [Azure user roles for OT and Enterprise IoT monitoring with Defender for IoT](roles-azure.md)
-- [Create and manage on-premises users for OT monitoring](how-to-create-and-manage-users.md)
+- [Create and manage users on an OT network sensor](manage-users-sensor.md)
+- [Create and manage users on an on-premises management console](manage-users-on-premises-management-console.md)
+- [Manage users on the Azure portal](manage-users-portal.md)
+- [Azure user roles and permissions for Defender for IoT](roles-azure.md)

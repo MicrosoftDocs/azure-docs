@@ -1,11 +1,11 @@
 ---
-title: Azure user roles for Defender for IoT - Microsoft Defender for IoT
-description: Learn about the Azure user roles available for OT and Enterprise IoT monitoring with Microsoft Defender for IoT on the Azure portal.
+title: Azure user roles and permissions for Microsoft Defender for IoT
+description: Learn about the Azure user roles and permissions available for OT and Enterprise IoT monitoring with Microsoft Defender for IoT on the Azure portal.
 ms.date: 09/19/2022
 ms.topic: conceptual
 ---
 
-# Azure user roles for Defender for IoT
+# Azure user roles and permissions for Defender for IoT
 
 Microsoft Defender for IoT uses Azure role-based access control (RBAC) to provide access to Enterprise IoT monitoring services and data on the Azure portal.
 
