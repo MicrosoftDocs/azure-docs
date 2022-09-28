@@ -1,5 +1,5 @@
 ---
-title: Use Azure Active Directory - Azure Database for PostgreSQL - Flexible Server (Preview)
+title: Use Azure Active Directory - Azure Database for PostgreSQL - Flexible Server
 description: Learn about how to set up Azure Active Directory (Azure AD) for authentication with Azure Database for PostgreSQL - Flexible Server
 ms.service: postgresql
 ms.subservice: flexible-server
@@ -29,7 +29,7 @@ To set the Azure AD admin user during server provisioning, please follow the bel
 
 
 Note only one Azure admin user can be added during server provisioning and you can add multiple Azure AD admin users after server is created.
-![set-azure-ad-admin-server-creation][3]
+![set-azure-ad-administrator][3]
 
 To set the Azure AD administrator after server creation, please follow the below steps
 
