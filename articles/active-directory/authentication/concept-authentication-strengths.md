@@ -21,9 +21,9 @@ Authentication strength is a Conditional Access control that allows administrato
 
 Authentication strength is based on the [Authentication methods policy](concept-authentication-methods.md), where administrators can scope authentication methods for specific users and groups to be used across Azure Active Directory (Azure AD) federated applications. Authentication strength allows further control over the usage of these methods based upon specific scenarios such as sensitive resource access, user risk, location, and more. 
 
-Administrators can require an authentication strength to access a resource by creating a Conditional Access policy with the **Require authentication strength** control. They can choose from three built-in authentication strengths: **Multifactor authentication strength**, **Passwordless MFA strength**, and **Phishing-resistant MFA strength**. They can also create a custom authentication strength policy based on the authentication method combinations they want to allow. 
+Administrators can require an authentication strength to access a resource by creating a Conditional Access policy with the **Require authentication strength** control. They can choose from three built-in authentication strengths: **Multifactor authentication strength**, **Passwordless MFA strength**, and **Phishing-resistant MFA strength**. They can also create a custom authentication strength based on the authentication method combinations they want to allow. 
 
-:::image type="content" source="media/concept-authentication-strengths/conditional-access-policy-authentication-strength-grant-control.png" alt-text="Screenshot of a Conditional Access policy with an authentication strength policy configured in grant controls.":::
+:::image type="content" source="media/concept-authentication-strengths/conditional-access-policy-authentication-strength-grant-control.png" alt-text="Screenshot of a Conditional Access policy with an authentication strength configured in grant controls.":::
 
 ## Scenarios for authentication strengths
 
@@ -49,7 +49,7 @@ An authentication strength can include a combination of authentication methods. 
 
 - Azure AD Certificate-Based Authentication (Multi-Factor)
 
-:::image type="content" source="media/concept-authentication-strengths/authentication-strength-definitions.png" alt-text="Screenshot showing the phishing-resistant MFA strength policy definition.":::
+:::image type="content" source="media/concept-authentication-strengths/authentication-strength-definitions.png" alt-text="Screenshot showing the phishing-resistant MFA strength definition.":::
 
 ### Built-in authentication strengths
 
@@ -98,9 +98,9 @@ In addition to the three built-in authentication strengths, administrators can c
 1. Select any of the available methods you want to allow.
 1. Choose **Next** and review the policy configuration.
 
-   :::image type="content" source="media/concept-authentication-strengths/authentication-strength-custom.png" alt-text="Screenshot showing the creation of a custom authentication strength policy.":::
+   :::image type="content" source="media/concept-authentication-strengths/authentication-strength-custom.png" alt-text="Screenshot showing the creation of a custom authentication strength.":::
 
-#### Update and delete custom authentication strength policies
+#### Update and delete custom authentication strengths
 
 You can edit a custom authentication strength. If it's referenced by a Conditional Access policy, it can't be deleted, and you need to confirm any edit. 
 To check if an authentication strength is referenced by a Conditional Access policy,click **Conditional Access policies** column.
@@ -141,20 +141,20 @@ The authentication strength Conditional Access policy checks these settings to d
 
 <!---Should we add a flowchart or another conceptual diagram to illustrate this?--->
 
-To evaluate if the user should gain access to the resource, the following considerations are taken into account: 
+The following factors determine if the user gains access to the resource: 
 
-- Which method was most recently used?
-- Which methods are available in the authentication strength policy? 
-- Which methods are allowed for user sign-in in the authentication methods policy?
-- Is the user registered for the required methods?
+- Which authentication method was most recently used?
+- Which methods are available for the authentication strength? 
+- Which methods are allowed for user sign-in in the Authentication methods policy?
+- Is the user registered for any available method?
 
 When a user accesses a resource protected by an authentication strength Conditional Access policy, we evaluate if the methods they have previously used satisfy the authentication requirements. For example, let's say a user signs in with password + SMS. They access a resource protected by MFA authentication strength. In this case, the user can access the resource without another authentication prompt.
 
 Let's suppose they next access a resource protected by Phishing-resistant MFA authentication strength. At this point, the user will be prompted to provide a phishing-resistant authentication method, such as Windows Hello for Business. 
 
-If the user is not registered for any of the methods required by the authentication strength policy, they'll register a required method by using [combined registration interrupt mode](concept-registration-mfa-sspr-combined.md#interrupt-mode). <!-- making this a comment for now because we have a limitation. Once it is fixed we can remove the comment::: Only users who satisfy MFA are redirected to register another strong authentication method.-->
+If the user isn't registered for any required methods, they'll go through [combined registration](concept-registration-mfa-sspr-combined.md#interrupt-mode). <!-- making this a comment for now because we have a limitation. Once it is fixed we can remove the comment::: Only users who satisfy MFA are redirected to register another strong authentication method.-->
 
-If the authentication strength policy doesn't include a method that the user can register and use, the user is blocked from sign-in to the resource. 
+If the authentication strength doesn't include a method that the user can register and use, the user is blocked from sign-in to the resource. 
 
 ### Registering authentication methods
 
