@@ -56,19 +56,6 @@ We recommend that readers familiarize themselves with these design areas, review
 |Security|Cluster security configuration and integration with Monitoring & SIEM.|
 
 
-## Sustainability Design areas for AKS clusters
-
-|Design area|Description|
-|---|---|
-|Application design|Application Code optimization recommendations for applications.|
-|Application platform|N/A|
-|Testing|Testing procedures for Cluster development lifecycle|
-|Operational procedures|Governance related Area, not a technical consideration|
-|Storage|Application design (stateful Vs Stateless) ; and defining storage requirements|
-|Network and connectivity|Overall networking architecture (use of CDNs, caching mecanisms, etc.)|
-|Security|Application logging / verbosity|
-
-
 ## Operational Procedures
 They Are considerations for sustainable workloads on Azure (not specific to a given service). The procedures will guide you through setting up an environment **for measuring and continuously improving your Azure workloads' cost and carbon efficiency**
 
