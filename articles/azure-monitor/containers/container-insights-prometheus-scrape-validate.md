@@ -13,7 +13,7 @@ In addition to the default scrape targets that Azure Monitor Prometheus agent sc
 ## Create configuration file
 Create a Prometheus scrape configuration file named *prometheus-config*. See [Prometheus Configuration Tips](https://github.com/Azure/prometheus-collector/blob/temp/documentation/otelcollector/docs/publicpreviewdocs/grace/custom-config-tips.md) for some samples and tips on authoring scrape config for Prometheus. You can also refer to [Prometheus.io](https://prometheus.io/) scrape configuration [reference](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config).
 
-In *prometheus-config*, configuration file, add any custom scrape jobs. See the [Prometheus configuration docs](https://prometheus.io/docs/prometheus/latest/configuration/configuration/) for more information. Your config file will list the scrape configs under the section scrape_configs and can optionally use the global section for setting the global scrape_interval, scrape_timeout, and evaluation_interval. 
+In *prometheus-config*, configuration file, add any custom scrape jobs. See the [Prometheus configuration docs](https://prometheus.io/docs/prometheus/latest/configuration/configuration/) for more information. Your config file will list the scrape configs under the section scrape_configs and can optionally use the global section for setting the global scrape_interval, scrape_timeout, and evaluation_interval.
 
 > [!TIP]
 > Changes to global section will impact default config and custom config.
@@ -48,7 +48,7 @@ scrape_configs:
   scrape_interval: 30s
   static_configs:
     - targets: ['dev-cluster-kube-state-metrics-release.kube-state-metrics.svc.cluster.local:8080']
-    
+
 - job_name: prometheus_ref_app
   scheme: http
   kubernetes_sd_configs:
@@ -66,7 +66,7 @@ Once you have a custom Prometheus scrape configuration, you can use the **promco
 The promconfigvalidator tool is inside the Container insights addon container. You can use any of the `ama-metrics-node-*` pods in `kube-system` namespace in your cluster to download the tool for validation. Use `kubectl cp` to download the tool and its configuration as shown below.
 
 ```
-for podname in $(kubectl get pods -l rsName=ama-metrics -n=kube-system -o json | jq -r '.items[].metadata.name'); do kubectl cp -n=kube-system "${podname}":/opt/promconfigvalidator ./promconfigvalidator/promconfigvalidator;  kubectl cp -n=kube-system "${podname}":/opt/microsoft/otelcollector/collector-config-template.yml ./promconfigvalidator/collector-config-template.yml; done
+for podname in $(kubectl get pods -l rsName=ama-metrics -n=kube-system -o json | jq -r '.items[].metadata.name'); do kubectl cp -n=kube-system "${podname}":/opt/promconfigvalidator ./promconfigvalidator;  kubectl cp -n=kube-system "${podname}":/opt/microsoft/otelcollector/collector-config-template.yml ./collector-config-template.yml; chmod 500 promconfigvalidator; done
 ```
 
 This generates the merged configuration file *merged-otel-config.yaml* if no parameter is provided using the optional *output* parameter. Don't use this merged file as config to the metrics collector agent, as it's only used for tool validation and debugging purposes.
