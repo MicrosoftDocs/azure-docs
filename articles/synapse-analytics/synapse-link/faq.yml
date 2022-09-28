@@ -47,7 +47,7 @@ sections:
       - question: |
           Can I select managed virtual network in Synapse workspace with Synapse managed private endpoints which allow the link connection to privately connect to the source database?
         answer: |
-          No, you cannot. You need to check “Disable Managed virtual network” and “Allow connections from all IP address” when creating Synapse workspace in order to use Azure Synapse Link for SQL. Managed virtual network support in Azure Synapse link for SQL will be coming soon.
+          Yes, you can. Similar like all the workloads in Synapse. You can enable Synapse link for SQL in Azure Synapse-managed virtual network to replicate data from SQL to Synapse in a secure manner.  You can protect against data exfiltration by allowing outbound connectivity from the managed virtual network only to approved targets using managed private endpoints.
       - question: |
           What is the best practice to select the core counts to replicate tables from source store to Synapse dedicated SQL pool when creating a link connection?
         answer: |
