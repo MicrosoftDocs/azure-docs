@@ -1,31 +1,25 @@
 ---
-title: Create and manage on-premises users for OT monitoring - Microsoft Defender for IoT
-description: Create and manage on-premises users for OT network sensors or an on-premises management console.
+title: Create and manage users on an on-premises management console - Microsoft Defender for IoT
+description: Create and manage users on a Microsoft Defender for IoT on-premises management console.
 ms.date: 09/11/2022
 ms.topic: how-to
 ---
-# Create and manage on-premises users for OT monitoring
+
+# Create and manage users on an on-premises management console
 
 Microsoft Defender for IoT provides tools both in the Azure portal and on-premises for managing user access across Defender for IoT resources.
 
-This article describes how to manage on-premises users directly on the sensor or the on-premises management console you want your users to access.
+This article describes how to manage on-premises users directly on the on-premises management console you want your users to access.
 
 ## Default privileged users
 
-By default, each sensor and on-premises management console is installed with the *cyberx* and *support* users. Sensors are also installed with the *cyberx_host* user. 
+By default, each on-premises management console is installed with the *cyberx* and *support* users, which have access to advanced tools for troubleshooting and setup. Administrator users should sign in with these user credentials, create an initial user with an **Administrator** role, and then create extra users for security analysts and read-only users.
 
-These privileged users have access to advanced tools for troubleshooting and setup. Administrator users should sign in with these user credentials, create an initial user with an **Administrator** role, and then create extra users for security analysts and read-only users.
-
-For more information, see [Install OT monitoring software](how-to-install-software.md#install-ot-monitoring-software) and [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+For more information, see [Install OT monitoring software](how-to-install-software.md?tabs=on-prem#install-ot-monitoring-software#install-ot-monitoring-software) and [Default privileged on-premises users](how-to-install-software.md#default-privileged-on-premises-users).
 
 ## Add new users
 
-This procedure describes how to create new users for a specific OT network sensor or an on-premises management console, and is available for the *cyberx* and *support* users, and any user with the **Administrator** role.
-
-> [!TIP]
-> Enhance user access control by [creating global access groups](#define-global-access-permission-for-on-premises-users) on an on-premises management console. For cloud-connected sensors, you can also control user access in the Azure portal by [applying site-based access control](manage-users-portal.md).
->
-> Both methods provide administrators with extra control over the users who can manage and analyze device detections, especially in large organizations with complex user permissions or global security policies.
+This procedure describes how to create new users for an on-premises management console, and is available for the *cyberx* and *support* users, and any user with the **Administrator** role.
 
 <!--validate this procedure-->
 
@@ -47,20 +41,26 @@ This procedure describes how to create new users for a specific OT network senso
 
 1. Select **Save** when you're done.
 
+> [!TIP]
+> Enhance user access control by [creating global access groups](#define-global-access-permission-for-on-premises-users) on an on-premises management console. For cloud-connected sensors, you can also control user access to Azure portal features by [applying site-based access control](manage-users-portal.md).
+>
+> Both methods provide administrators with extra control over the users who can manage and analyze device detections, especially in large organizations with complex user permissions or global security policies.
+
 ## Control user session timeouts
 
 <!--validate this procedure-->
 
 By default, on-premises users are signed out of their sessions after 30 minutes of inactivity. Administrator users can use the local CLI to either turn this feature on or off, or to adjust the inactivity thresholds.
 
-> [!NOTE]
-> Any changes made to user session timeouts are reset to defaults when you update the OT monitoring software. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
-
 For more information, see [Work with Defender for IoT CLI commands](references-work-with-defender-for-iot-cli-commands.md).
+
+> [!NOTE]
+> Any changes made to user session timeouts are reset to defaults when you update the [OT monitoring software](update-ot-software.md).
+
 
 **To control user session timeouts by CLI**:
 
-1. On your sensor or the on-premises management console, sign in as an **Administrator** user.
+1. On your on-premises management console, sign in as an **Administrator** user.
 
 1. Run:
 
@@ -163,7 +163,6 @@ Large organizations often have a complex user permissions model based on global 
 >
 
 ### Create on-premises access groups
-
 
 Create *user access groups* to establish global access control across Defender for IoT on-premises resources. Each access group includes rules about the users that can access specific entities in your business topology, including business units, regions, and sites.
 

@@ -33,11 +33,11 @@
   items:
     - name: System architecture
       href: architecture.md
-    - name: Users, roles, and permissions
+    - name: Roles and permissions
       items:
-      - name: Azure user roles for OT and Enterprise IoT monitoring
+      - name: Azure roles for OT and Enterprise IoT monitoring
         href: roles-azure.md
-      - name: On-premises users and roles for OT monitoring
+      - name: On-premises roles for OT monitoring
         href: roles-on-premises.md
     - name: OT network monitoring best practices
       items:
@@ -154,6 +154,16 @@
       href: onboard-sensors.md
     - name: Activate and set up your sensor
       href: how-to-activate-and-set-up-your-sensor.md
+    - name: Create and manage users
+      items:
+      - name: Manage user access from the Azure portal
+        href: manage-users-portal.md
+      - name: Create and manage OT sensor users
+        href: sensor-users.md
+      - name: Create and manage users for the on-premises management console
+        href: management-users.md
+              - name: Create and manage on-premises users
+        href: how-to-create-and-manage-users.md
     - name: OT system setup
       items:
       - name: Set up OT network monitoring
@@ -168,8 +178,6 @@
           href: connect-sensors.md
         - name: Connect OT sensors with a proxy (legacy)
           href: how-to-connect-sensor-by-proxy.md
-      - name: Create and manage on-premises users
-        href: how-to-create-and-manage-users.md
       - name: Activate and set up your on-premises management console
         href: how-to-activate-and-set-up-your-on-premises-management-console.md
       - name: Add support for proprietary protocols
@@ -184,8 +192,6 @@
       href: how-to-manage-sensors-on-the-cloud.md
     - name: Maintain threat intelligence packages
       href: how-to-work-with-threat-intelligence-packages.md
-    - name: Manage user access from the Azure portal
-      href: manage-users-portal.md
     - name: OT system maintenance
       items:
       - name: Update OT monitoring software

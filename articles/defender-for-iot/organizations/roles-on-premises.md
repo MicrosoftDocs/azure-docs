@@ -11,19 +11,6 @@ When working with OT networks, Defender for IoT services and data is available f
 
 This article provides a reference of the actions available for default on-premises users and each on-premises user role.
 
-## Default privileged on-premises users
-
-By default, each sensor and on-premises management console is [installed](how-to-install-software.md#install-ot-monitoring-software) with the *cyberx* and *support* privileged users. Sensors are also installed with the *cyberx_host* privileged user.
-
-Privileged users have access to advanced tools for troubleshooting and setup. When first deploying Defender for IoT, sign in with these user credentials, create a first user with an **Administrator** role, and then create more users with **Security Analyst** or **Read-only** roles.
-
-The following table describes each default privileged user in detail:
-
-|Name  |Connects to  |Permissions  |
-|---------|---------|---------|
-|**cyberx**     |   The sensor or on-premises management console's `sensor_app` container      | Serves as a root user within the main application container. <br><br>Used for troubleshooting with advanced root access.<br><br>Can access the container filesystem, commands, and dedicated CLI commands for controlling OT monitoring  <br><br>Can recover or change passwords for users with any roles.       |
-|**support**     |   The sensor or on-premises management console's `sensor_app` container       | Serves as a locked-down, user shell for dedicated CLI tools<br><br>Has no filesystem access<br><br>Can access only  dedicated CLI commands for controlling OT monitoring <br><br>Can recover or change passwords for the **support** user, and any user with the **Administrator**, **Security Analyst**, and **Read-only** roles. For more information, see [On-premises user roles](#on-premises-user-roles).  |
-|**cyberx_host**     | The on-premises management console's host OS        | Serves as a root user in the on-premises management console's host OS<br><br>Used for support scenarios with containers and filesystem access        |
 
 ## On-premises user roles
 

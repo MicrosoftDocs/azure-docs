@@ -126,7 +126,7 @@ This procedure describes how to install OT sensor software on a physical or virt
 
     Save the usernames and passwords listed, as the passwords are unique and this is the only time that the credentials are listed. Copy the credentials to a safe place so that you can use them when signing into the sensor for the first time.
 
-    For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+    For more information, see [Default privileged on-premises users](how-to-install-software.md#default-privileged-on-premises-users).
 
     Select `<Ok>` when you're ready to continue.
 
@@ -144,6 +144,7 @@ This procedure describes how to install OT sensor software on a physical or virt
     :::image type="content" source="media/tutorial-install-components/install-complete.png" alt-text="Screenshot of the sign-in confirmation.":::
 
 Make sure that your sensor is connected to your network, and then you can sign in to your sensor via a network-connected browser. For more information, see [Activate and set up your sensor](how-to-activate-and-set-up-your-sensor.md#activate-and-set-up-your-sensor).
+
 
 # [On-premises management console](#tab/on-prem)
 
@@ -200,7 +201,7 @@ During the installation process, you can add a secondary NIC. If you choose not 
 
    Save the usernames and passwords, you'll need these credentials to access the platform the first time you use it.
 
-    For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+    For more information, see [Default privileged on-premises users](how-to-install-software.md#default-privileged-on-premises-users).
 
 1. Select **Enter** to continue.
 
@@ -252,6 +253,19 @@ sudo ethtool -p <port value> <time-in-seconds>
 This command will cause the light on the port to flash for the specified time period. For example, entering `sudo ethtool -p eno1 120`, will have port eno1 flash for 2 minutes, allowing you to find the port on the back of your appliance.
 
 ---
+## Default privileged on-premises users
+
+By default, each sensor and on-premises management console is [installed](how-to-install-software.md#install-ot-monitoring-software) with the *cyberx* and *support* privileged users. Sensors are also installed with the *cyberx_host* privileged user.
+
+Privileged users have access to advanced tools for troubleshooting and setup. When first deploying Defender for IoT, sign in with these user credentials, create a first user with an **Administrator** role, and then create more users with **Security Analyst** or **Read-only** roles.
+
+The following table describes each default privileged user in detail:
+
+|Name  |Connects to  |Permissions  |
+|---------|---------|---------|
+|**cyberx**     |   The sensor or on-premises management console's `sensor_app` container      | Serves as a root user within the main application container. <br><br>Used for troubleshooting with advanced root access.<br><br>Can access the container filesystem, commands, and dedicated CLI commands for controlling OT monitoring  <br><br>Can recover or change passwords for users with any roles.       |
+|**support**     |   The sensor or on-premises management console's `sensor_app` container       | Serves as a locked-down, user shell for dedicated CLI tools<br><br>Has no filesystem access<br><br>Can access only  dedicated CLI commands for controlling OT monitoring <br><br>Can recover or change passwords for the **support** user, and any user with the **Administrator**, **Security Analyst**, and **Read-only** roles. For more information, see [On-premises user roles](#on-premises-user-roles).  |
+|**cyberx_host**     | The on-premises management console's host OS        | Serves as a root user in the on-premises management console's host OS<br><br>Used for support scenarios with containers and filesystem access        |
 
 ## Post-installation validation
 
@@ -285,7 +299,7 @@ The interface between the IT firewall, on-premises management console, and the O
 
 **To enable tunneling access for sensors**:
 
-1. Sign in to the on-premises management console's CLI with the **cyberx** or the **support** user credentials. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+1. Sign in to the on-premises management console's CLI with the **cyberx** or the **support** user credentials. For more information, see [Default privileged on-premises users](how-to-install-software.md#default-privileged-on-premises-users).
 
 1. Enter `sudo cyberx-management-tunnel-enable`.
 
