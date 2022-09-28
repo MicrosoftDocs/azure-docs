@@ -67,4 +67,4 @@ For more information, see [Overview of Azure DNS alias records](dns-alias.md).
 
 * For frequently asked questions about Azure DNS, see the [Azure DNS FAQ](dns-faq.yml).
 
-* [Learn module: Introduction to Azure DNS](/learn/modules/intro-to-azure-dns).
+* [Learn module: Introduction to Azure DNS](/training/modules/intro-to-azure-dns).

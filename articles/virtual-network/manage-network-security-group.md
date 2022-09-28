@@ -254,7 +254,7 @@ The list contains any rules you've created and the network security group's [def
 
 ## Work with application security groups
 
-An application security group contains zero or more network interfaces. To learn more, see [application security groups](./network-security-groups-overview.md#application-security-groups). All network interfaces in an application security group must exist in the same virtual network. To learn how to add a network interface to an application security group, see [Add a network interface to an application security group](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups).
+An application security group contains zero or more network interfaces. To learn more, see [application security groups](./network-security-groups-overview.md#application-security-groups). All network interfaces in an application security group must exist in the same virtual network. To learn how to add a network interface to an application security group, see [Add a network interface to an application security group](virtual-network-network-interface.md#add-or-remove-from-application-security-groups).
 
 ### Create an application security group
 
@@ -330,7 +330,7 @@ Go to the [Azure portal](https://portal.azure.com) to view your application secu
 
 ### Delete an application security group
 
-You can't delete an application security group if it contains any network interfaces. To remove all network interfaces from the application security group, either change the network interface settings or delete the network interfaces. To learn more, see [Add to or remove from application security groups](virtual-network-network-interface.md#add-to-or-remove-from-application-security-groups) or [Delete a network interface](virtual-network-network-interface.md#delete-a-network-interface).
+You can't delete an application security group if it contains any network interfaces. To remove all network interfaces from the application security group, either change the network interface settings or delete the network interfaces. To learn more, see [Add or remove from application security groups](virtual-network-network-interface.md#add-or-remove-from-application-security-groups) or [Delete a network interface](virtual-network-network-interface.md#delete-a-network-interface).
 
 1. Go to the [Azure portal](https://portal.azure.com) to manage your application security groups. Search for and select **Application security groups**.
 

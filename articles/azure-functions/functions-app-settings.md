@@ -87,7 +87,7 @@ In version 2.x and later versions of the Functions runtime, configures app behav
 
 In version 2.x and later versions of the Functions runtime, application settings can override [host.json](functions-host-json.md) settings in the current environment. These overrides are expressed as application settings named `AzureFunctionsJobHost__path__to__setting`. For more information, see [Override host.json values](functions-host-json.md#override-hostjson-values).
 
-## AzureFunctionsWebHost__hostid
+## AzureFunctionsWebHost__hostId
 
 Sets the host ID for a given function app, which should be a unique ID. This setting overrides the automatically generated host ID value for your app. Use this setting only when you need to prevent host ID collisions between function apps that share the same storage account. 
 
@@ -95,7 +95,7 @@ A host ID must be between 1 and 32 characters, contain only lowercase letters, n
 
 |Key|Sample value|
 |---|------------|
-|AzureFunctionsWebHost__hostid|`myuniquefunctionappname123456789`|
+|AzureFunctionsWebHost__hostId|`myuniquefunctionappname123456789`|
 
 For more information, see [Host ID considerations](storage-considerations.md#host-id-considerations).
 
@@ -356,15 +356,25 @@ To avoid excessive module upgrades on frequent Worker restarts, checking for mod
 
 To learn more, see [Dependency management](functions-reference-powershell.md#dependency-management).
 
+## PIP\_INDEX\_URL
+
+This setting lets you override the base URL of the Python Package Index, which by default is `https://pypi.org/simple`. Use this setting when you need to run a remote build using custom dependencies that are found in a package index repository compliant with PEP 503 (the simple repository API) or in a local directory that follows the same format.
+
+|Key|Sample value|
+|---|------------|
+|PIP\_INDEX\_URL|`http://my.custom.package.repo/simple` |
+
+To learn more, see [`pip` documentation for `--index-url`](https://pip.pypa.io/en/stable/cli/pip_wheel/?highlight=index%20url#cmdoption-i) and using [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
+
 ## PIP\_EXTRA\_INDEX\_URL
 
-The value for this setting indicates a custom package index URL for Python apps. Use this setting when you need to run a remote build using custom dependencies that are found in an extra package index.
+The value for this setting indicates a extra index URL for custom packages for Python apps, to use in addition to the `--index-url`. Use this setting when you need to run a remote build using custom dependencies that are found in an extra package index. Should follow the same rules as --index-url.
 
 |Key|Sample value|
 |---|------------|
 |PIP\_EXTRA\_INDEX\_URL|`http://my.custom.package.repo/simple` |
 
-To learn more, see [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
+To learn more, see [`pip` documentation for `--extra-index-url`](https://pip.pypa.io/en/stable/cli/pip_wheel/?highlight=index%20url#cmdoption-extra-index-url) and [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
 
 ## PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES (Preview)
 

@@ -25,7 +25,7 @@ In this article, you will:
 
 ## Track requests with Application Insights
 
-When publishing your CloudService to Azure portal, add the [Application Insights SDK to Azure Cloud Services](../app/cloudservices.md).
+When publishing your CloudService to Azure portal, add the [Application Insights SDK to Azure Cloud Services](../app/azure-web-apps-net-core.md).
 
 :::image type="content" source="./media/profiler-cloudservice/enable-app-insights.png" alt-text="Screenshot showing the checkbox for sending information to Application Insights.":::
 

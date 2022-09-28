@@ -132,7 +132,7 @@ Use the following tables to ensure that required firewalls are open on your work
 
 | Protocol | Transport | In/Out | Port | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|
-| HTTPS | TCP | Out | 443 | Access to Azure | Sensor |  `*.azure-devices.net`<br> `*.blob.core.windows.net`<br> `*.servicebus.windows.net`<br> `download.microsoft.com` |
+| HTTPS | TCP | Out | 443 | Access to Azure | Sensor |  `*.azure-devices.net`<br> `*.blob.core.windows.net`<br> `*.servicebus.windows.net`|
 | HTTPS | TCP | Out | 443 | Remote sensor upgrades from the Azure portal  | Sensor| `download.microsoft.com`|
 
 ### Sensor access to the on-premises management console
@@ -184,9 +184,7 @@ This section provides troubleshooting for common issues when preparing your netw
 
     1. Use the **support** user and password to sign in.
 
-    1. Use the command **network list** to see the current IP address. For example:
-
-        :::image type="content" source="media/how-to-set-up-your-network/list-of-network-commands.png" alt-text="Screenshot of the network list command.":::
+    1. Use the command **network list** to see the current IP address.
 
 4. If the network parameters are misconfigured, use the following procedure to change it:
 

@@ -3,7 +3,7 @@ title: Prerequisites for Azure role assignment conditions (preview)
 description: Prerequisites for Azure role assignment conditions (preview).
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
@@ -56,10 +56,10 @@ To use principal attributes ([custom security attributes in Azure AD](../active-
 
 For more information about custom security attributes, see:
 
-- [Principal does not appear in Attribute source when adding a condition](conditions-troubleshoot.md#symptom---principal-does-not-appear-in-attribute-source-when-adding-a-condition)
+- [Principal does not appear in Attribute source](conditions-troubleshoot.md#symptom---principal-does-not-appear-in-attribute-source)
 - [Add or deactivate custom security attributes in Azure AD](../active-directory/fundamentals/custom-security-attributes-add.md)
 
 ## Next steps
 
-- [Example Azure role assignment conditions (preview)](../storage/common/storage-auth-abac-examples.md)
-- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (preview)](../storage/common/storage-auth-abac-portal.md)
+- [Example Azure role assignment conditions for Blob Storage (preview)](../storage/blobs/storage-auth-abac-examples.md)
+- [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (preview)](../storage/blobs/storage-auth-abac-portal.md)

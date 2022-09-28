@@ -1,8 +1,8 @@
 ---
 title: Create a scale set that uses Azure Spot Virtual Machines 
 description: Learn how to create Azure virtual machine scale sets that use Azure Spot Virtual Machines to save on costs.
-author: mimckitt
-ms.author: mimckitt
+author: ju-shim
+ms.author: jushiman
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
@@ -40,7 +40,7 @@ Pricing for Azure Spot Virtual Machine instances is variable, based on region an
 
 With variable pricing, you have option to set a max price, in US dollars (USD), using up to five decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. If you set the max price to be `-1`, the instance won't be evicted based on price. The price for the instance will be the current price for Azure Spot Virtual Machine or the price for a standard instance, which ever is less, as long as there is capacity and quota available.
 
-
+<New information here!>
 
 ## Eviction policy
 
@@ -71,7 +71,7 @@ Try & restore benefits:
 - Attempts to restore Azure Spot Virtual Machines evicted due to capacity.
 - Restored Azure Spot Virtual Machines are expected to run for a longer duration with a lower probability of a capacity triggered eviction.
 - Improves the lifespan of an Azure Spot Virtual Machine, so workloads run for a longer duration.
-- Helps Virtual Machine Scale Sets to maintain the target count for Azure Spot Virtual Machines, similar to maintain target count feature that already exist for Pay-As-You-Go VMs.
+- Helps Virtual Machine Scale Sets to maintain the target count for Azure Spot Virtual Machines, similar to maintain target count feature that already exists for Pay-As-You-Go VMs.
 
 Try & restore is disabled in scale sets that use [Autoscale](virtual-machine-scale-sets-autoscale-overview.md). The number of VMs in the scale set is driven by the autoscale rules.
 
@@ -93,7 +93,7 @@ To deploy Azure Spot Virtual Machines on scale sets, you can set the new *Priori
 
 ## Portal
 
-The process to create a scale set that uses Azure Spot Virtual Machines is the same as detailed in the [getting started article](quick-create-portal.md). When you are deploying a scale set, you can choose to set the Spot flag, eviction type, eviction policy and if you want to enable try to restore instances:
+The process to create a scale set that uses Azure Spot Virtual Machines is the same as detailed in the [getting started article](quick-create-portal.md). When you are deploying a scale set, you can choose to set the Spot flag, eviction type, eviction policy and if you want to try to restore instances:
 ![Create a scale set with Azure Spot Virtual Machines](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-1.png)
 
 

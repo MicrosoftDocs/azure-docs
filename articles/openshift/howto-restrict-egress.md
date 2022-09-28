@@ -20,7 +20,7 @@ This article assumes that you're creating a new cluster. If you need a basic ARO
 
 ## Minimum Required FQDN - Proxied through ARO service
 
-This list is based on the list of FQDNs found in the OpenShift docs here: https://docs.openshift.com/container-platform/4.6/installing/install_config/configuring-firewall.html
+This list is based on the list of FQDNs found in the OpenShift docs here: https://docs.openshift.com/container-platform/latest/installing/install_config/configuring-firewall.html
 
 The following FQDNs are proxied through the service, and will not need additional firewall rules. They are here for informational purposes.
 
@@ -37,7 +37,7 @@ The following FQDNs are proxied through the service, and will not need additiona
 | **`*.table.core.windows.net`** | **HTTPS:443** | This is used for Microsoft Geneva Monitoring so that the ARO team can monitor the customer's cluster(s). |
 
 > [!NOTE] 
-> For many customers exposing *.blob, *.table and other large address spaces creates a potential data exfiltration concern. You may want to consider using the [OpenShift Egress Firewall](https://docs.openshift.com/container-platform/4.6/networking/openshift_sdn/configuring-egress-firewall.html) to protect applications deployed in the cluster from reaching these destinations and use Azure Private Link for specific application needs.
+> For many customers exposing *.blob, *.table and other large address spaces creates a potential data exfiltration concern. You may want to consider using the [OpenShift Egress Firewall](https://docs.openshift.com/container-platform/latest/networking/openshift_sdn/configuring-egress-firewall.html) to protect applications deployed in the cluster from reaching these destinations and use Azure Private Link for specific application needs.
 
 ---
 
@@ -62,7 +62,7 @@ In OpenShift Container Platform, customers can opt out of reporting health and u
 
 ### OTHER POSSIBLE OPENSHIFT REQUIREMENTS
 
-- **`quay.io`**: May be used to download images from the Red Hat managed Quay registry. Also a possible fall-back target for ARO required system images.
+- **`*.quay.io`**: May be used to download images from the Red Hat managed Quay registry. Also a possible fall-back target for ARO required system images. If your firewall cannot use wildcards, you can find the [full list of subdomains in the Red Hat documentation.](https://docs.openshift.com/container-platform/latest/installing/install_config/configuring-firewall.html)
 - **`mirror.openshift.com`**: Required to access mirrored installation content and images. This site is also a source of release image signatures.
 - **`*.apps.<cluster_name>.<base_domain>`** (OR EQUIVALENT ARO URL): When allowlisting domains, this is used in your corporate network to reach applications deployed in OpenShift, or to access the OpenShift console.
 - **`api.openshift.com`**: Used by the cluster for release graph parsing. https://access.redhat.com/labs/ocpupgradegraph/ can be used as an alternative.

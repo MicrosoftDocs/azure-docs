@@ -28,7 +28,7 @@ Within a VM, you can get notifications about upcoming maintenance by [using Sche
 
 Most platform updates don't affect customer VMs. When a no-impact update isn't possible, Azure chooses the update mechanism that's least impactful to customer VMs. 
 
-Most nonzero-impact maintenance pauses the VM for less than 10 seconds. In certain cases, Azure uses memory-preserving maintenance mechanisms. These mechanisms pause the VM for typically up to 30 seconds and preserve the memory in RAM. The VM is then resumed, and its clock is automatically synchronized. 
+Most nonzero-impact maintenance pauses the VM for less than 10 seconds. In certain cases, Azure uses memory-preserving maintenance mechanisms. These mechanisms pause the VM, typically for about 30 seconds, and preserve the memory in RAM. The VM is then resumed, and its clock is automatically synchronized. 
 
 Memory-preserving maintenance works for more than 90 percent of Azure VMs. It doesn't work for G, L, M, N, and H series. Azure increasingly uses live-migration technologies and improves memory-preserving maintenance mechanisms to reduce the pause durations.  
 
@@ -62,6 +62,9 @@ Live migration can also be used to move VMs when Azure Machine Learning algorith
 In the rare case where VMs need to be rebooted for planned maintenance, you'll be notified in advance. Planned maintenance has two phases: the self-service phase and a scheduled maintenance phase.
 
 During the *self-service phase*, which typically lasts four weeks, you start the maintenance on your VMs. As part of the self-service, you can query each VM to see its status and the result of your last maintenance request.
+
+> [!NOTE]
+> For VM-series that do not support [Live Migration](#live-migration), local (ephemeral) disks data can be lost during the maintenance events. See each individual VM-series for information on if Live Migration is supported. 
 
 When you start self-service maintenance, your VM is redeployed to an already updated node. Because the VM is redeployed, the temporary disk is lost and dynamic IP addresses associated with the virtual network interface are updated.
 

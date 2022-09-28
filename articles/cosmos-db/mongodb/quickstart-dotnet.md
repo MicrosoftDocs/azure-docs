@@ -115,7 +115,7 @@ You'll use the following MongoDB classes to interact with these resources:
 * [Get an item](#get-an-item)
 * [Query items](#query-items)
 
-The sample code described in this article creates a database named ``adventureworks`` with a collection named ``products``. The ``products`` collection is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
+The sample code demonstrated in this article creates a database named ``adventureworks`` with a collection named ``products``. The ``products`` collection is designed to contain product details such as name, category, quantity, and a sale indicator. Each product also contains a unique identifier.
 
 ### Authenticate the client
 

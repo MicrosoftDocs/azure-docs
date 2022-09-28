@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Table API with Node.js - Azure Cosmos DB'
 description: This quickstart shows how to use the Azure Cosmos DB Table API to create an application with the Azure portal and Node.js
-author: sakash279
-ms.author: akshanka
+author: rothja
+ms.author: jroth
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: javascript
@@ -168,7 +168,7 @@ To access your table(s) in Cosmos DB, your app will need the table connection st
 
 ### [Azure CLI](#tab/azure-cli)
 
-To get the primary table storage connection string using Azure CLI, use the [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command with the option `--type connection-strings`.  This command uses a [JMESPath query](https://jmespath.org/) to display only the primary table connection string.
+To get the primary table storage connection string using Azure CLI, use the [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command with the option `--type connection-strings`.  This command uses a [JMESPath query](/cli/azure/query-azure-cli) to display only the primary table connection string.
 
 ```azurecli
 # This gets the primary Table connection string

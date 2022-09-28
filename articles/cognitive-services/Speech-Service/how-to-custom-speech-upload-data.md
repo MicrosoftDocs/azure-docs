@@ -52,7 +52,7 @@ To create a dataset and connect it to an existing project, use the `spx csr data
 
 Here's an example Speech CLI command that creates a dataset and connects it to an existing project:
 
-```azurecli
+```azurecli-interactive
 spx csr dataset create --kind "Acoustic" --name "My Acoustic Dataset" --description "My Acoustic Dataset Description" --project YourProjectId --content YourContentUrl --language "en-US"
 ```
 
@@ -86,7 +86,7 @@ The top-level `self` property in the response body is the dataset's URI. Use thi
 
 For Speech CLI help with datasets, run the following command:
 
-```azurecli
+```azurecli-interactive
 spx help csr dataset
 ```
 
@@ -96,7 +96,7 @@ spx help csr dataset
 
 [!INCLUDE [Map CLI and API kind to Speech Studio options](includes/how-to/custom-speech/cli-api-kind.md)]
 
-To create a dataset and connect it to an existing project, use the [CreateDataset](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) operation of the [Speech-to-text REST API v3.0](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To create a dataset and connect it to an existing project, use the [CreateDataset](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the `project` property to the URI of an existing project. This is recommended so that you can also view and manage the dataset in Speech Studio. You can make a [GetProjects](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request to get available projects.
 - Set the required `kind` property. The possible set of values for dataset kind are: Language, Acoustic, Pronunciation, and AudioFiles.

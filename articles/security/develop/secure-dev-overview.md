@@ -95,7 +95,7 @@ developers build more secure software. It helps you address security
 compliance requirements while reducing development costs.
 
 [Open Web Application Security Project
-(OWASP)](https://www.owasp.org/index.php/Main_Page) – OWASP is an online
+(OWASP)](https://www.owasp.org/) – OWASP is an online
 community that produces freely available articles, methodologies,
 documentation, tools, and technologies in the field of web application
 security.

@@ -11,6 +11,8 @@ ms.date: 04/01/2022
 
 # Manage logic apps in the Azure portal
 
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
 This article shows how to edit, disable, enable, or delete Consumption logic apps with the Azure portal. You can also [manage Consumption logic apps in Visual Studio](manage-logic-apps-with-visual-studio.md).
 
 To manage Standard logic apps, review [Create a Standard workflow with single-tenant Azure Logic Apps in the Azure portal](create-single-tenant-workflows-azure-portal.md). If you're new to Azure Logic Apps, review [What is Azure Logic Apps](logic-apps-overview.md)?
