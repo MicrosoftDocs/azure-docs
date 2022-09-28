@@ -25,6 +25,9 @@
       - name: "Workspace"
         displayName: migration, v1, v2
         href: migrate-to-v2-resource-workspace.md
+      - name: "Compute"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-resource-compute.md
       - name: "Datastore"
         displayName: migration, v1, v2
         href: migrate-to-v2-resource-datastore.md
@@ -432,9 +435,6 @@
           - name: Tune hyperparameters
             displayName: parameter, hyperparameter, hyperdrive
             href: how-to-tune-hyperparameters.md
-          - name: Distributed GPU guide
-            displayName: MPI, Horovod, DeepSpeed, PyTorch, Hugging Face Transformers, TensorFlow, InfiniBand
-            href: how-to-train-distributed-gpu.md
           - name: Scikit-learn
             href: how-to-train-scikit-learn.md
           - name: TensorFlow
@@ -628,6 +628,8 @@
               href: how-to-use-sweep-in-pipeline.md
             - name: Build and debug pipelines (UI)
               href: how-to-use-pipeline-ui.md
+            - name: How to use parallel job in pipeline
+              href: how-to-use-parallel-job-in-pipeline.md  
             - name: Designer (drag-n-drop)
               items: 
                 - name: Log metrics
@@ -715,7 +717,7 @@
         - name: Model
           href: reference-yaml-model.md
         - name: Schedule
-          href: reference-yaml-schedule.md 
+          href: reference-yaml-schedule.md
         - name: Compute
           items: 
             - name: Compute cluster (AmlCompute)
@@ -734,6 +736,8 @@
               href: reference-yaml-job-sweep.md
             - name: Pipeline
               href: reference-yaml-job-pipeline.md
+            - name: Parallel
+              href: reference-yaml-job-parallel.md 
         - name: Datastore
           items: 
             - name: Azure Blob
@@ -762,6 +766,8 @@
           items: 
             - name: Command
               href: reference-yaml-component-command.md
+    - name: Service limits
+      href: resource-limits-capacity.md
     - name: Image data schemas for AutoML
       displayName: automl, schema, data, computer vision, image model
       href: reference-automl-images-schema.md
