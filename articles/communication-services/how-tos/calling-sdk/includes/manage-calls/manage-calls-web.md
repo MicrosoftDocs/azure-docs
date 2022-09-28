@@ -198,7 +198,6 @@ The state can be:
 
 - `callEndReason`: To learn why a participant left the call, check the `callEndReason` property:
     ```js
-    call.on('remote')
     const callEndReason = remoteParticipant.callEndReason;
     const callEndReasonCode = callEndReason.code // (number) code associated with the reason
     const callEndReasonSubCode = callEndReason.subCode // (number) subCode associated with the reason
