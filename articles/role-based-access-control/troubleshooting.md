@@ -9,7 +9,7 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 09/13/2022
+ms.date: 09/26/2022
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -244,17 +244,25 @@ After you move a resource, you must re-create the role assignment. Eventually, t
 
 ### Symptom - Role assignment changes are not being detected
 
-You recently added or updated a role assignment, but the changes are not being detected.
+You recently added or updated a role assignment, but the changes are not being detected. You might see the message `Status: 401 (Unauthorized)`.
 
-**Cause**
+**Cause 1**
 
 Azure Resource Manager sometimes caches configurations and data to improve performance. When you assign roles or remove role assignments, it can take up to 30 minutes for changes to take effect.
 
-**Solution**
+**Solution 1**
 
 If you are using the Azure portal, Azure PowerShell, or Azure CLI, you can force a refresh of your role assignment changes by signing out and signing in. If you are making role assignment changes with REST API calls, you can force a refresh by refreshing your access token.
 
 If you are add or remove a role assignment at management group scope and the role has `DataActions`, the access on the data plane might not be updated for several hours. This applies only to management group scope and the data plane.
+
+**Cause 2**
+
+You added managed identities to a group and assigned a role to that group. The back-end services for managed identities maintain a cache per resource URI for around 24 hours.
+
+**Solution 2**
+
+It can take several hours for changes to a managed identity's group or role membership to take effect. For more information, see [Limitation of using managed identities for authorization](../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization).
 
 ## Custom roles
 
