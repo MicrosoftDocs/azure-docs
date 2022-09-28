@@ -35,7 +35,7 @@ To verify if a method can be used:
 
 If the user is registered for an enabled method that meets the authentication strength, they might need to use another method that isn't available after primary authentication, such as Windows Hello for Business or certificate-based authentication. For more information, see [How each authentication method works](concept-authentication-methods.md#how-each-authentication-method-works). The user will need to restart the session and choose **Sign-in options** and select a method required by the authentication strength.
 
-## A user can't accessing a resource
+## A user can't access a resource
 
 If an authentication strength requires a method that a user can’t use, the user is blocked from sign-in. To check which method is required by an authentication strength, and which method the user is registered and enabled to use, follow the steps in the [previous section](#a-user-is-asked-to-sign-in-with-another-method-but-they-dont-see-a-method-they-expect). 
 
