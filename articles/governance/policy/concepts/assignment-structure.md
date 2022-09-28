@@ -133,7 +133,7 @@ _common_ properties used by Azure Policy. Each `metadata` property has a limit o
 ## Resource selectors (preview)
 
 The optional **resourceSelectors** property facilitates safe deployment practices (SDP) by enabling you to gradually roll
-out policy assignments and exemptions based on factors like resource location, resource type, resource without location, or definition reference ID. When resource selectors are used, Azure Policy will only evalute or exempt resources that are applicable to the specifications made in resource selectors. While resource selectors can be used for exemptions<insert here>, this section focuses on the policy assignment scenarios. 
+out policy assignments based on factors like resource location, resource type, or whether a resource has a location. When resource selectors are used, Azure Policy will only evalute resources that are applicable to the specifications made in the resource selectors. See also how resource selectors can be leveraged to narrow down the scope of exemptions<insert here>.
 
 In the following example scenario, the new policy assignment will be evaluated only if the resource's location is
 either **East US** or **West US**.
@@ -192,24 +192,19 @@ shows our policy assignment with two additional Azure regions added to the **SDP
 Multiple resource selectors can be specified in a single assignment. Each resource selector has the following properties:
 - `name`: The name of the resource selector. 
 - `selectors`: The component used to narrow down which subset of resources applicable to the policy assignment should be evaluated for compliance. Each **resource selector** contains one list of selectors.
-  - `kind`: The property of a `selector` which describes what factor will narrow down the set of evaluated resources. Allowed values are `resourceLocation`, `resourceType`, and `resourceWithoutLocation`.
+  - `kind`: The property of a `selector` that describes what will narrow down the set of evaluated resources. Allowed values are `resourceLocation`, `resourceType`, and `resourceWithoutLocation`.
   - `in`: The list of allowed values for the specified `kind`. Cannot be used with `notIn`.
   - `notIn`: The list of not-allowed values for the specified `kind`. Cannot be used with `in`.
     
 ## Overrides (preview)
 
 The optional **overrides** property allows you to change the effect of a policy definition without modifying
-the underlying policy definition.
+the underlying policy definition or using a parameterized effect in the policy definition.
 
 The most common use case for overrides is policy initiatives with a large number of associated policy definitions.
-In this situation, managing multiple policy effects, some of which need to be updated from time to time, can
-consume significant administrative effort.
+In this situation, managing multiple policy effects can consume significant administrative effort, especially when the effect needs to be updated from time to time.
 
-Let's take a look at an example. Imagine your have a policy initiative named _CostManagement_ that includes a
-custom policy definition with a `kind` (actually the policy's `policyDefinitionReferenceId`) of _corpVMSizePolicy_.
-In the original initiative assignment, the policy effect for this policy was set to `Disabled`.
-
-We now update the initiative definition with an override to set the _corpVMSizePolicy_ policy's effect to `Audit` instead.
+Let's take a look at an example. Imagine you have a policy initiative named _CostManagement_ that includes a custom policy definition with `policyDefinitionReferenceId` _corpVMSizePolicy_ and a single effect of `audit`. Suppose you want to assign the _CostManagement_ initiative, but do not yet want to see compliance reported for this policy. This policy's 'audit' effect can be replaced by 'disabled' through an override on the initiative assignment, as shown below:
 
 ```json
 {
@@ -218,11 +213,11 @@ We now update the initiative definition with an override to set the _corpVMSizeP
         "overrides": [
             {
                 "kind": "policyEffect",
-                "value": "audit",
+                "value": "disabled",
                 "selectors": [
                     {
-                        "kind": "corpVMSizePolicy",
-                        "in": [ "limitSku", "limitType" ]
+                        "kind": "policyDefinitionReferenceId",
+                        "in": [ "corpVMSizePolicy" ]
                     }
                 ]
             }
@@ -234,6 +229,8 @@ We now update the initiative definition with an override to set the _corpVMSizeP
     "name": "CostManagement"
 }
 ```
+
+Note that one override can be used to replace the effect value of many policies by specifying multiple values in the policyDefinitionReferenceId array.
 
 > [!NOTE]
 > Although the preceding example shows an override in the context of a resource selector, this is optional. That is,
