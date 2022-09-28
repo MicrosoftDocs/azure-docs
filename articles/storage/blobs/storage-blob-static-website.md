@@ -59,7 +59,7 @@ If the server returns a 404 error, and you have not specified an error document 
 
 If you set up [redundancy in a secondary region](../common/storage-redundancy.md#redundancy-in-a-secondary-region), you can also access website content by using a secondary endpoint. Because data is replicated to secondary regions asynchronously, the files that are available at the secondary endpoint aren't always in sync with the files that are available on the primary endpoint.
 
-## Impact of the setting the public access level of the web container
+## Impact of setting the access level on the web container
 
 You can modify the public access level of the **$web** container, but this has no impact on the primary static website endpoint because these files are served through anonymous access requests. That means public (read-only) access to all files.
 
