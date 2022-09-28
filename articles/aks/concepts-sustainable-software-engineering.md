@@ -108,11 +108,11 @@ _sustainability design principles: [Carbon efficiency](sustainability-design-pri
 
 ### Process when the carbon intensity is low
 
-Some regions on the planet are more carbon intense than others. Therefore it's essential to consider where we deploy our workloads and combine this with other business requirements.
+Carbon Intensity contained In Energy varies during the day. Therefore it's essential to build application that maximize compute when Carbon Intensity is Low.
 
 _sustainability design principles: [Carbon efficiency](sustainability-design-principles.md#carbon-efficiency), [Carbon awareness](sustainability-design-principles.md#carbon-awareness)_
 
-**Recommendation:**
+**Recommendations:**
 
 - Where you have the data available, consider optimizing workloads when knowing that the energy mix comes mostly from renewable energy sources.
 - If your application(s) allow it, consider scheduling & scaling workloads dynamically when the energy conditions change. For example:
@@ -129,20 +129,20 @@ Deploying cloud workloads to data centers is easy. However, consider the distanc
 
 _sustainability design principles: [Energy efficiency](sustainability-design-principles.md#energy-efficiency)_
 
-**Recommendation:**
+**Recommendations:**
 
 - Consider deploying to data centers close to the consumer.
 
 **Potential tradeoffs**
    - For choosing the right region, Evaluate carbon efficiency, cost, latency, and compliance requirements.
 
-### Run batch workloads during low-carbon intensity periods
+### Schedule batch workloads during low-carbon intensity periods
 
 Proactively designing batch processing of workloads can help with scheduling intensive work during low-carbon periods.
 
 _sustainability design principles: [Carbon awareness](sustainability-design-principles.md#carbon-awareness)_
 
-**Recommendation:**
+**Recommendations:**
 
 - Where you have the data available to you, plan your deployments to maximize compute utilization for running batch workloads during low-carbon intensity periods.
 
@@ -158,14 +158,14 @@ Consider options for containerizing workloads to reduce unnecessary resource all
 
 _sustainability design principles: [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency)_
 
-**Recommendation:**
+**Recommendations:**
 
 - Use [Draft](/azure/aks/draft) to simplify containzerizing an application by generating its Dockerfiles and Kubernetes manifests.
 
 
 **Potential tradeoffs**
 
-  - The benefit of containerization will only realize if the utilization is high. Additionally, provisioning an orchestrator such as [Azure Kubernetes Services](/azure/aks/) (AKS) or [Azure Red Had OpenShift](/azure/openshift/) (ARO) for only a few containers would likely lead to higher emissions overall.
+  - The benefit of containerization will only realize if the utilization is high. Additionally, provisioning an orchestrator such as Kubernetes for only a few containers would likely lead to higher emissions overall.
 
   - Containerizing an Monolith application, will help optimize its operations (at the platform level) ; but the application itself maybe not be energy efficient. Consider Modernizing the application as part of your migrations / containerizations efforts
 
@@ -177,11 +177,11 @@ Managed services are highly optimized and operate on more efficient hardware tha
 
 _sustainability design principles: [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency), [Energy efficiency](sustainability-design-principles.md#energy-efficiency)_
 
-**Recommendation:**
+**Recommendations:**
 
 - Build cloud native Apps, and leverage Cloud Platforms that optimize scaling, availability, and performance, ultimately optimizing the hardware efficiency.
-- Build serverless Applications using [Keda (AKS addon)](/azure/aks/keda-about)
-- Build Microservices Applications using [Dapr (AKS addon)](/azure/aks/dapr)
+- Build serverless Applications using [Keda](https://keda.sh/) ; Use it as an [AKS addon](/azure/aks/keda-about)
+- Build Microservices Applications using [Dapr](https://dapr.io/) ; Use it as an [AKS addon](/azure/aks/dapr)
 - Leverage [Virtual node pools](/aks/virtual-nodes) to optimize infrastructure usage, and ultimately hardware efficiency and costs.
 
 **Potential tradeoffs**
@@ -194,7 +194,7 @@ Think about the unused capacity in Azure data centers. Utilizing the otherwise w
 
 _sustainability design principles: [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency)_
 
-**Recommendation:**
+**Recommendations:**
 
 - Use [SPOT Node pools](/azure/aks/spot-node-pool), to take advantage of unused capacity in Azure data centers while getting a significant discount on the VM.
 
@@ -210,10 +210,10 @@ Ensuring workloads use all the allocated resources helps deliver a more sustaina
 
 _sustainability design principles: [Energy efficiency](sustainability-design-principles.md#energy-efficiency), [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency)_
 
-**Recommendation:**
+**Recommendations:**
 
-- For Dev and Testing clusters, use [cluster stop / start](/azure/aks/start-stop-cluster) and [node pool stop / start](/azure/aks/start-stop-nodepools), for shutting them down outside regular business hours.
-- For Production clusters, use [Keda Cron scaler](https://keda.sh/docs/2.7/scalers/cron/), to shut down applications (scale to zero), outside regular business hours.
+- Use [cluster stop / start](/azure/aks/start-stop-cluster) and [node pool stop / start](/azure/aks/start-stop-nodepools), for shutting them down outside regular business hours.
+- Use [Keda Cron scaler](https://keda.sh/docs/2.7/scalers/cron/), to shut down applications (scale pods to zero), outside regular business hours.
 
 **Potential tradeoffs**
 
@@ -227,12 +227,12 @@ It's not uncommon with oversized compute workloads where much of the capacity is
 
 _sustainability design principles: [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency)_
 
-**Recommendation:**
+**Recommendations:**
 
 https://learn.microsoft.com/en-us/azure/aks/scale-cluster?tabs=azure-cli#scale-user-node-pools-to-0
-- Use Keda to Auto-scale your applications based on demand.
-- Use Cluster Auto-scaler to scale your cluster based on Demand.
-- Use Virtual Nodes to rapidly burst to Serverless Nodes (that scale to zero when there is no demand)
+- Use [Keda](https://keda.sh/) to Auto-scale your applications based on demand.
+- Use [Cluster Auto-scaler](azure/aks/cluster-autoscaler) to scale your cluster based on Demand.
+- Use [Virtual Nodes](/azure/aks/virtual-nodes) to rapidly burst to Serverless Nodes (that scale to zero when there is no demand)
 - Review the [B-series burstable virtual machine sizes](https://azure.microsoft.com/en-in/blog/introducing-burstable-vm-support-in-aks/).
 
 **Potential tradeoffs**
