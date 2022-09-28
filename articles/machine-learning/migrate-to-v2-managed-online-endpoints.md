@@ -29,7 +29,7 @@ For key auth, the original keys will be used. Token-based auth is also supported
 For ACI service secured with HTTPS, you don't need to provide your own certificates anymore, all the managed online endpoints are protected by TLS. Custom DNS name is not supported also.
 
 ### Resource Requirements
-[ContainerResourceRequirements](python/api/azureml-core/azureml.core.webservice.aci.containerresourcerequirements?view=azure-ml-py) is not supported, you can choose the proper [SKU](reference-managed-online-endpoints-vm-sku-list.md) for your inferencing.
+[ContainerResourceRequirements](/python/api/azureml-core/azureml.core.webservice.aci.containerresourcerequirements) is not supported, you can choose the proper [SKU](reference-managed-online-endpoints-vm-sku-list.md) for your inferencing.
 With our migration tool, we'll map the CPU/Memory requirement to corresponding SKU. If you choose to redeploy manually through CLI/SDK V2, we also suggest the corresponding SKU for your new deployment.
 
 | CPU request | Memory request in GB | Suggested SKU |
@@ -46,7 +46,7 @@ With our migration tool, we'll map the CPU/Memory requirement to corresponding S
 For private workspace and VNET scenarios, check [Use network isolation with managed online endpoints (preview)](how-to-secure-online-endpoint.md?tabs=model). As there are many settings for your workspace and VNET, we strongly suggest that redeploy through our new CLI instead of the below script tool.
 
 ## Not supported
-1. [EncryptionProperties](python/api/azureml-core/azureml.core.webservice.aci.encryptionproperties?view=azure-ml-py) for ACI container is not supported.
+1. [EncryptionProperties](/python/api/azureml-core/azureml.core.webservice.aci.encryptionproperties) for ACI container is not supported.
 2. ACI webservices deployed through deploy_from_model and deploy_from_image are not supported by the migration tool, redeploy manually through CLI/SDK V2.
 
 ## Migration Steps
@@ -59,12 +59,12 @@ You can find our examples on [azureml-examples](https://github.com/Azure/azureml
 Here are the steps to use these scripts. Notice that the new endpoint will be created under the **same workspace**.
 
 1. Linux/WSL to run the bash script.
-2. Install [Python SDK V1](python/api/overview/azure/ml/install?view=azure-ml-py) to run the python script.
-3. Install [Azure CLI](cli/azure/install-azure-cli).
+2. Install [Python SDK V1](/python/api/overview/azure/ml/install) to run the python script.
+3. Install [Azure CLI](/cli/azure/install-azure-cli).
 4. Clone our repository to your local env, git clone https://github.com/Azure/azureml-examples.
 5. Edit the subscription/resourcegroup/workspace/service name info in migrate-service.sh, also the expected new endpoint name and deployment name. We recommend that the new endpoint name is different from the previous one. Otherwise, the original service will not be displayed if you check your endpoints on the portal.
 6. Execute the bash script, it will take about 5-10 minutes to finish the new deployment.
-7. After the deployment is done successfully, you can verify the endpoint with [invoke command](cli/azure/ml/online-endpoint?view=azure-cli-latest#az-ml-online-endpoint-invoke).
+7. After the deployment is done successfully, you can verify the endpoint with [invoke command](cli/azure/ml/online-endpoint#az-ml-online-endpoint-invoke).
 
 ## Cost comparison
 We have a rough cost comparison. That varies based on your region, currency and order type, just for your information.
