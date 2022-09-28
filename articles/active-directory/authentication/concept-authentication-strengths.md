@@ -122,15 +122,15 @@ After you determine the authentication strength you need, you'll need to create 
 -->
 
 ### How authentication strength works with the Authentication methods policy
-The Authentication methods policy defines which methods can be used in the tenant. There are two settings that determine which authentication methods can be used to access resources federated with Azure AD:
+There are two policies that determine which authentication methods can be used to access resources:
 
-- **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings** controls methods for all the users in the tenant.
-
-  ::image type="content" source="./media/concept-authentication-strengths/mfa-service-settings.png" alt-text="Screenshot of MFA service settings.":::
-
-- **Security** > **Authentication methods** > **Policies** controls authentication methods for specific users and groups. 
+- **Security** > **Authentication methods** > **Policies** controls authentication methods for specific users and groups. This is te modern way to....
 
   ::image type="content" source="./media/concept-authentication-strengths/authentication-methods-policy.png" alt-text="Screenshot of Authentication methods policy.":::
+
+- **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings** controls methods for all the users in the tenant. legacy way..
+
+  ::image type="content" source="./media/concept-authentication-strengths/mfa-service-settings.png" alt-text="Screenshot of MFA service settings.":::
 
 
 In addition, users must register for a method they want use, such as SMS. In other cases, an administrator might need to configure a user's device with a method, such as certificate-based authentication.
