@@ -292,11 +292,11 @@
       - name: DTDL Validator (sample)
         href: /samples/azure-samples/dtdl-validator/dtdl-validator/
       - name: Model Uploader (sample)
-        href: https://github.com/Azure/opendigitaltwins-tools/tree/master/ADTTools/UploadModels
-      - name: Model Visualizer (sample)
-        href: https://github.com/Azure/opendigitaltwins-tools/tree/master/AdtModelVisualizer 
+        href: https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools/UploadModels
+      - name: Model Deleter (sample)
+        href: https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools/DeleteModels
       - name: OWL2DTDL Converter   
-        href: https://github.com/Azure/opendigitaltwins-tools/tree/master/OWL2DTDL   
+        href: https://github.com/Azure/opendigitaltwins-tools/tree/main/OWL2DTDL   
       - name: DPS and IoT Hub integration sample
         href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
       - name: SignalR integration sample
