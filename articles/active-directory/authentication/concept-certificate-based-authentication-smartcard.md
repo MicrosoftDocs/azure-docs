@@ -44,7 +44,8 @@ Users will get a primary refresh token (PRT) from Azure AD after the successful 
 More information of "Pull from certificate" logic is explained at [Certificate Requirements and Enumeration (Windows)](https://learn.microsoft.com/en-us/windows/security/identity-protection/smart-cards/smart-card-certificate-requirements-and-enumeration)
 
 > [!NOTE]
-> In all cases a user supplied User Name Hint (x509Hint) will be sent if provided. For cloud only user on Azure AD Joined machine with certificate containing a non-routable value the user must pass the username hint.
+> In all cases, a user supplied User Name Hint (x509Hint) will be sent if provided. For cloud only user on Azure AD Joined machine with certificate containing a 
+> non-routable value the user must pass the User Name Hint (x509Hint).
 
 
 ## Supported platforms
