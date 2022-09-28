@@ -27,7 +27,7 @@ The Azure Blob Storage connector has different versions, based on [logic app typ
 |-----------|-------------|-------------------|
 | **Consumption** | Multi-tenant Azure Logic Apps | Managed connector (Standard class). For more information, review the following documentation: <br><br>- [Azure Blob Storage managed connector reference](/connectors/azureblobconnector) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
 | **Consumption** | Integration service environment (ISE) | Managed connector (Standard class) and ISE version, which has different message limits than the Standard class. For more information, review the following documentation: <br><br>- [Azure Blob Storage managed connector reference](/connectors/azureblobconnector) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Azure-hosted) and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version differs in the following ways: <br><br>- The built-in version connects directly to your Azure Storage account requiring only a connection string. <br><br>- The built-in version can directly access Azure virtual networks. <br><br>For more information, review the following documentation: <br><br>- Azure Blob Storage managed connector reference](/connectors/azureblobconnector) <br>- [Azure Blob built-in connector reference](#built-in-connector-operations) section later in this article <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Azure-hosted) and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version differs in the following ways: <br><br>- The built-in version connects directly to your Azure Storage account requiring only a connection string. <br><br>- The built-in version can directly access Azure virtual networks. <br><br>For more information, review the following documentation: <br><br>- [Azure Blob Storage managed connector reference](/connectors/azureblobconnector) <br>- [Azure Blob built-in connector reference](#built-in-connector-operations) section later in this article <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
 
 ## Limitations
 
@@ -37,9 +37,9 @@ The Azure Blob Storage connector has different versions, based on [logic app typ
 
 - Azure Blob Storage triggers don't support chunking. When a trigger requests file content, the trigger selects only files that are 50 MB or smaller. To get files larger than 50 MB, follow this pattern:
 
-  - Use a Blob trigger that returns file properties, such as [**When a blob is added or modified (properties only)**](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only)).
+  1. Use a Blob trigger that returns file properties, such as [**When a blob is added or modified (properties only)**](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only)).
 
-  - Follow the trigger with the Azure Blob Storage managed connector action named [**Get blob content**](/connectors/azureblobconnector/#get-blob-content), which reads the complete file and implicitly uses chunking.
+  1. Follow the trigger with the Azure Blob Storage managed connector action named [**Get blob content**](/connectors/azureblobconnector/#get-blob-content), which reads the complete file and implicitly uses chunking.
 
 ## Prerequisites
 
@@ -143,7 +143,7 @@ The steps to add and use a Blob trigger differ based on whether you want to use 
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Storage account connection string** | Yes, <br>but only for connection string authentication | <*storage-account-connection-string*> | The connection string for your Azure storage account. <br><br>**Note**: To find the connection string, open your storage account resource in the Azure portal. In the resource menu, under **Security + networking**, select **Access keys** > **key1** > **Connection string** > **Show**. Copy and save the connections tring for the primary key. |
+   | **Storage account connection string** | Yes, <br>but only for connection string authentication | <*storage-account-connection-string*> | The connection string for your Azure storage account. <br><br>**Note**: To find the connection string, open your storage account resource in the Azure portal. In the resource menu, under **Security + networking**, select **Access keys** > **key1** > **Connection string** > **Show**. Copy and save the connection string for the primary key. |
 
    :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-built-in-trigger-create-connection.png" alt-text="Screenshot showing Standard workflow, Azure Blob built-in trigger, and example connection information.":::
 
@@ -343,7 +343,7 @@ The steps to add and use an Azure Blob action differ based on whether you want t
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Storage account connection string** | Yes, <br>but only for connection string authentication | <*storage-account-connection-string*> | The connection string for your Azure storage account. <br><br>**Note**: To find the connection string, open your storage account resource in the Azure portal. In the resource menu, under **Security + networking**, select **Access keys** > **key1** > **Connection string** > **Show**. Copy and save the connections tring for the primary key. |
+   | **Storage account connection string** | Yes, <br>but only for connection string authentication | <*storage-account-connection-string*> | The connection string for your Azure storage account. <br><br>**Note**: To find the connection string, open your storage account resource in the Azure portal. In the resource menu, under **Security + networking**, select **Access keys** > **key1** > **Connection string** > **Show**. Copy and save the connection string for the primary key. |
 
    :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-built-in-trigger-create-connection.png" alt-text="Screenshot showing Standard workflow, Azure Blob built-in trigger, and example connection information.":::
 
