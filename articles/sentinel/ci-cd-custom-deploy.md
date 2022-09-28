@@ -157,7 +157,7 @@ For more information, see the [Azure DevOps documentation](/azure/devops/pipelin
 >
 
 
-## Customize the deployment
+## Customize your connection configuration
 
 Customization options to map parameters, prioritize content and exclude content are defined here. 
 
