@@ -70,7 +70,7 @@ Before proceeding, you need the following information:
 * Name of the Key Vault
 * Resource group holding the Key Vault
 
-You can retrieve this information using the Azure CLI command: `Get-AzKeyVault -VaultName 'myvault'`.
+You can retrieve this information using the Azure CLI command: [az keyvault list][az-keyvault-list].
 
 1. Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription. Then use the [az identity create][az-identity-create] command to create a managed identity.
 
@@ -140,6 +140,7 @@ In this article, you deployed a Kubernetes cluster and configured it to use a wo
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [workload-identity-overview]: workload-identity-overview.md
 [create-key-vault-azure-cli]: ../key-vault/general/quick-create-cli.md
+[az-keyvault-list]: /cli/azure/keyvaultt#az-keyvault-list
 [aks-identity-concepts]: concepts-identity.md
 [az-account]: /cli/azure/account
 [az-aks-create]: /cli/azure/aks#az-aks-create

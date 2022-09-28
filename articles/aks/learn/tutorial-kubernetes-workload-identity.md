@@ -3,7 +3,7 @@ title: Tutorial - Use a workload identity with an application on Azure Kubernete
 description: In this Azure Kubernetes Service (AKS) tutorial, you deploy an Azure Kubernetes Service cluster and configure an application to use a workload identity.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/26/2022
+ms.date: 09/27/2022
 ---
 
 # Tutorial: Use a workload identity with an application on Azure Kubernetes Service (AKS)
@@ -12,7 +12,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 * Deploy an AKS cluster using the Azure CLI with OpenID Connect Issuer and managed identity.
 * Create an Azure Key Vault and secret.
-* Create an Azure Active Directory (Azure AD) application and Kubernetes service account
+* Create an Azure Active Directory workload identity and Kubernetes service account
 * Configure the managed identity for token federation
 * Deploy the workload and verify authentication with the workload identity.
 
@@ -137,7 +137,7 @@ The output of this command shows properties of the newly created key vault. Take
 
 At this point, your Azure account is the only one authorized to perform any operations on this new vault.
 
-To add a secret to the vault, you need to run the Azure CLI [az keyvault secret set][az-keyvault-secret-set] command to create it. The password is the value you specified for the environment variable `KEYVAULT_SECRET_NAME` and stores the value of **Hello\!** in it.
+To add a secret to the vault, you need to run the Azure CLI [az keyvault secret set][az-keyvault-secret-set] command to create it. The password is the value you specified for the environment variable `KEYVAULT_SECRET_NAME` and stores the value of **Hello!** in it.
 
 ```azurecli
 az keyvault secret set --vault-name "${KEYVAULT_NAME}" --name "${KEYVAULT_SECRET_NAME}" --value 'Hello!' 
@@ -255,7 +255,7 @@ kubectl logs quick-start
 The following output resembles successful access of the token:
 
 ```output
-I1013 22:49:29.872708       1 main.go:30] "successfully got secret" secret="Hello\!"
+I1013 22:49:29.872708       1 main.go:30] "successfully got secret" secret="Hello!"
 ```
 
 ## Clean up resources

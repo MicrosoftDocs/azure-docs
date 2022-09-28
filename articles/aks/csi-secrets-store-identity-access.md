@@ -5,7 +5,7 @@ author: nickomang
 ms.author: nickoman
 ms.service: container-service
 ms.topic: article
-ms.date: 09/23/2022
+ms.date: 09/27/2022
 ms.custom: devx-track-azurecli
 ---
 
@@ -34,21 +34,17 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
     az account set --subscription "subscriptionID"
     ```
 
-2. Create an Azure AD application by running the following commands. The `az ad sp create-for-rbac` command creates a new application with a secret. However, the secret is not required for workload identity federation.
+2. Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription. Then use the [az identity create][az-identity-create] command to create a managed identity.
 
-    ```bash
-    export APPLICATION_NAME="<your application name>"
+    ```azurecli
+    az account set --subscription "subscriptionID"
     ```
 
     ```azurecli
-    az ad sp create-for-rbac --name "${APPLICATION_NAME}"
+    az identity create --name "userAssignedIdentityName" --resource-group "resourceGroupName" --location "location" --subscription "subscriptionID"
     ```
 
-    ```bash
-    export APPLICATION_CLIENT_ID=$(az ad sp list --display-name ${APPLICATION_NAME} --query '[0].appId' -otsv)
-    ```
-
-3. You need to set an access policy that grants the workload identity permission to access the Key Vault secrets, access keys, and certificates. The rights are assigned using the using the [az keyvault set-policy][az-keyvault-set-policy] command as shown below.
+3. You need to set an access policy that grants the workload identity permission to access the Key Vault secrets, access keys, and certificates. The rights are assigned using the [az keyvault set-policy][az-keyvault-set-policy] command as shown below.
 
     ```azurecli
     az keyvault set-policy -n $KEYVAULT_NAME --key-permissions get --spn $APPLICATION_CLIENT_ID
@@ -63,7 +59,8 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
     ```
 
     > [!NOTE]
-    > If the URL is empty, verify you have installed the latest version of the `aks-preview` extension, version 0.5.102 or later.
+    > If the URL is empty, verify you have installed the latest version of the `aks-preview` extension, version 0.5.102 or later. Also verify you've [enabled the
+    > OIDC issuer][enable-oidc-issuer] (preview).
 
 5. Establish a federated identity credential between the Azure AD application and the service account issuer and subject subject. Get the object ID of the Azure AD application. Update the values for `serviceAccountName` and `serviceAccountNamespace` with the Kubernetes service account name and its namespace.
 
@@ -404,5 +401,6 @@ To validate that the secrets are mounted at the volume path that's specified in 
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-rest]: /cli/azure/reference-index#az-rest
 [az-identity-federated-credential-create]: /cli/azure/identity/federated-credential#az-identity-federated-credential-create
+[enable-oidc-issuer]: hcluster-configuration.md#oidc-issuer-preview
 
 <!-- LINKS EXTERNAL -->

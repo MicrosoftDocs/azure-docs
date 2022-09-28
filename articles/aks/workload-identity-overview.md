@@ -32,7 +32,7 @@ This article helps you understand this new authentication feature, and reviews t
 
 - The `aks-preview` extension version 0.5.102 or later.
 
-- [Azure Identity][azure-identity-libraries] client library version 1.6 or later.
+- [Azure Identity][azure-identity-libraries] SDK version 1.6 or later for the C# language.
 
 ## Limitations
 
@@ -98,7 +98,7 @@ If you've used [Azure AD pod-managed identity][use-azure-ad-pod-identity], think
 
 You can configure workload identity on a cluster that is currently running pod-managed identity. You can use the same configuration you've implemented for pod-managed identity today, you just need to annotate the service account within the namespace with the identity. It enables workload identity to inject the annotations into the pods. Depending on which Azure Identity client library the application is using with pod-managed identity already, you have two approaches to run that application using a workload identity.
 
-To help streamline and ease the migration process, we've developed a migration sidecar that converts the IMDS transactions your application makes over to [OpenID Connect][openid-connect-overview] (OIDC). The migration sidecar isn't intended to be a long-term solution, but a way to get up and running quickly on workload identity. Running the migration sidecar within your application proxies the application IMDS transactions over to OIDC. The alternative approach is to upgrade to [Azure Identity][azure-identity-libraries] client library version 1.6 or later, which supports OIDC authentication.
+To help streamline and ease the migration process, we've developed a migration sidecar that converts the IMDS transactions your application makes over to [OpenID Connect][openid-connect-overview] (OIDC). The migration sidecar isn't intended to be a long-term solution, but a way to get up and running quickly on workload identity. Running the migration sidecar within your application proxies the application IMDS transactions over to OIDC. The alternative approach is to upgrade to [Azure Identity][azure-identity-libraries] version 1.6 or later, which supports OIDC authentication.
 
 The following table summarizes our migration or deployment recommendations for workload identity.
 
