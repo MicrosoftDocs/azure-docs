@@ -118,7 +118,7 @@ In the application settings of our Function App the SQL connection string settin
 *testdb* is the name of the database we're connecting to and *demo.database.windows.net* is the name of the server we're connecting to.
 
 >[!TIP]
->For User Managed Identity, use `Server=demo.database.windows.net; Authentication=Active Directory Managed Identity; User Id=ClientIdOfManagedIdentity; Database=testdb`.
+>For user-assigned managed identity, use `Server=demo.database.windows.net; Authentication=Active Directory Managed Identity; User Id=ClientIdOfManagedIdentity; Database=testdb`.
 
 ## Next steps
 
