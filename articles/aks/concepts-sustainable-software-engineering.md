@@ -238,7 +238,7 @@ https://learn.microsoft.com/en-us/azure/aks/scale-cluster?tabs=azure-cli#scale-u
 **Potential tradeoffs**
 
 - Consider that it may require tuning to prevent unnecessary scaling during short bursts of high demand, as opposed to a static increase in demand.
-- Consider the application architecture as part of scaling considerations. For example, [logical components should scale independently](sustainability-application-design.md#evaluate-moving-monoliths-to-a-microservice-architecture) to match the demand of that component, as opposed to scaling the entire application if only a portion of the components needs scaling.
+- Consider the application architecture as part of scaling considerations. For example, [logical components should scale independently](/azure/architecture/framework/sustainability/sustainability-application-design.md#evaluate-moving-monoliths-to-a-microservice-architecture) to match the demand of that component, as opposed to scaling the entire application if only a portion of the components needs scaling.
 
 
 ### Match the scalability needs
