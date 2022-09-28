@@ -76,7 +76,7 @@ They Are considerations for sustainable workloads on Azure (not specific to a gi
   **Use Energy Efficient Hardware**
  - Evaluate if [nodes with Ampere Altra Arm–based processors](https://azure.microsoft.com/blog/azure-virtual-machines-with-ampere-altra-arm-based-processors-generally-available/) are a good option for your workloads
 
-**Maximize node utilization**
+**Maximize Hardware utilization**
 - Separate applications into different node pools allowing independent scalling.
 - Align node SKU selection and managed disk size with applications requirements.
 - [Resize node pools](/azure/aks/resize-node-pool) to maximize your applications density (and maximize your nodes usage).
