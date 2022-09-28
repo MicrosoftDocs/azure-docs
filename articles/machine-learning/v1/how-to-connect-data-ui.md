@@ -106,7 +106,7 @@ The following steps describe how to create a dataset in [Azure Machine Learning 
 :::image type="content" source="media\how-to-connect-data-ui\data-assets-create.png" alt-text="This screenshot highlights Create in the Data assets tab.":::
 
 1. Give your data asset a name and optional description. Then, under **Type**, select one of the Dataset types, either **File** or **Tabular**.
-:::image type="content" source="media\how-to-connect-data-ui\create-data-asset-name-type.png" alt-text="In this screenshot, set the name, description, and type of the data asset.":::
+:::image type="content" source="media\how-to-connect-data-ui\create-data-asset-name-type.png" alt-text="This screenshot shows set the name, description, and type of the data asset.":::
 
 1. You have a few options for your data source. If your data is already stored in Azure, choose "From Azure storage". If you want to upload data from your local drive, choose "From local files". If your data is stored at a public web location, choose "From web files". You can also create a data asset from a SQL database, or from [Azure Open Datasets](/azure/open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset).
 
@@ -131,7 +131,7 @@ After you create your dataset, verify you can view the preview and profile in th
 1. Select the **Preview** tab.
 :::image type="content" source="media\how-to-connect-data-ui\explore-preview-dataset.png" alt-text="Screenshot shows a preview of a dataset.":::
 1. Select the **Profile** tab.
-:::image type="content" source="media\how-to-connect-data-ui\explore-generate-profile.png" alt-text="Screenshot dataset column metadata in the Profile tab.":::
+:::image type="content" source="media\how-to-connect-data-ui\explore-generate-profile.png" alt-text="Screenshot shows dataset column metadata in the Profile tab.":::
 
 You can get a vast variety of summary statistics across your data set to verify whether your data set is ML-ready. For non-numeric columns, they include only basic statistics like min, max, and error count. For numeric columns, you can also review their statistical moments and estimated quantiles. 
 
