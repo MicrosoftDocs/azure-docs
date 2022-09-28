@@ -154,7 +154,7 @@ Use the following procedure to replicate Azure Disk Encryption-enabled VMs to an
 
    :::image type="review" source="./media/azure-to-azure-how-to-enable-replication-ade-vms/review.png" alt-text="Screenshot that displays the review tab.":::
 
-[!NOTE]
+>[!NOTE]
 >During initial replication, the status might take some time to refresh, without apparent progress. Click **Refresh**  to get the latest status.
 
 ## Update target VM encryption settings
