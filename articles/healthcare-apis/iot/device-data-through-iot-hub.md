@@ -49,6 +49,9 @@ Use your device (real or simulated) to send the sample heart rate message shown 
 
 This message will get routed to MedTech service, where the message will be transformed into a FHIR Observation resource and stored into FHIR service.
 
+> [!TIP]
+> To learn more about IoT Hub device message enrichment and IotJsonPathContentTemplate mappings usage, see [How to use IotJsonPathContentTemplate mappings](how-to-use-iot-jsonpath-content-mappings.md) 
+
 ```json
 {
   "HeartRate": 80,
@@ -81,4 +84,4 @@ To learn about the different stages of data flow within MedTech service, see
 >[!div class="nextstepaction"]
 >[MedTech service data flow](iot-data-flow.md)
 
-(FHIR&#174;) is a registered trademark of HL7 and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
