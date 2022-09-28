@@ -55,7 +55,7 @@ One way that applications are granted permissions is through consent. Consent is
 
 - When previously granted consent is revoked
 - When the application is coded to specifically to prompt for consent during every sign-in
-- When the application uses incremental or dynamic consent to ask for some permissions upfront and more permission later as needed. For more information about this consent scenario, see [The .default scope](scopes-oidc.md#the-.default-scope).
+- When the application uses incremental or dynamic consent to ask for some permissions upfront and more permission later as needed. For more information about this consent scenario, see [The .default scope](scopes-oidc.md).
 
 The key details of a consent prompt are the list of permissions the application requires and the publisher information. For more information about the consent prompt and the consent experience for both admins and end-users, see [application consent experience](application-consent-experience.md).
 
