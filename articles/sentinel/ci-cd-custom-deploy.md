@@ -167,7 +167,7 @@ Customization options to map parameters, prioritize content and exclude content 
 
 1. Include JSON structured content in three optional sections, `"prioritizedcontentfiles":`, `"excludecontentfiles":`, and `"parameterfilemappings":`. If no sections are included or the .config file is omitted, the deployment process will still run. Invalid or unrecognized sections will be ignored.
 
-Here's an example of the entire contents of a valid *sentinel-deployment.config* file. This sample can be found at the [Sentinel CICD repositories sample](https://github.com/SentinelCICD/RepositoriesSampleContent). 
+Here's an example of the entire contents of a valid *sentinel-deployment.config* file. This sample can also be found at the [Sentinel CICD repositories sample](https://github.com/SentinelCICD/RepositoriesSampleContent). 
 
 ```json
 {
