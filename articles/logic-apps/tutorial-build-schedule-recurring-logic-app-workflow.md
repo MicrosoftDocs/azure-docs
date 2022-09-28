@@ -282,7 +282,7 @@ Now, add an action that sends you email when the travel time exceeds your limit.
 
 1. In the condition's **True** branch, select **Add an action**.
 
-1. Under **Choose an operation**, select **Standard**. In the search box, enter **send email**. The list returns many results, so to help you filter list, first select the email connector that you want.
+1. Under **Choose an operation**, select **Standard**. In the search box, enter **send email**. The list returns many results, so to help you filter the list, first select the email connector that you want.
 
    For example, if you have an Outlook email account, select the connector for your account type:
 
