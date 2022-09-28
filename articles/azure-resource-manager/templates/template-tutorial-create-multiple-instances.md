@@ -43,7 +43,7 @@ To complete this article, you need:
     ```
 
 1. Select **Open** to open the file.
-1. There is a `Microsoft.Storage/storageAccounts` resource defined in the template. Compare the template to the [template reference](/azure/templates/Microsoft.Storage/storageAccounts). It's helpful to get some basic understanding of the template before customizing it.
+1. There's a `Microsoft.Storage/storageAccounts` resource defined in the template. Compare the template to the [template reference](/azure/templates/Microsoft.Storage/storageAccounts). It's helpful to get some basic understanding of the template before customizing it.
 1. Select **File** > **Save As** to save the file as _azuredeploy.json_ to your local computer.
 
 ## Edit the template
@@ -168,7 +168,7 @@ For more information about creating multiple instances, see [Resource iteration 
 
     ---
 
-After a successful template deployment you can display the three storage accounts created in the specified resource group. Compare the storage account names with the name definition in the template.
+After a successful template deployment, you can display the three storage accounts created in the specified resource group. Compare the storage account names with the name definition in the template.
 
 # [CLI](#tab/azure-cli)
 
