@@ -108,7 +108,7 @@ _sustainability design principles: [Carbon efficiency](sustainability-design-pri
 
 ### Process when the carbon intensity is low
 
-Carbon Intensity contained In Energy varies during the day. Therefore it's essential to build application that maximize compute when Carbon Intensity is Low.
+Carbon Intensity contained In Energy varies during the day. Therefore it's essential to build applications that maximize compute when Carbon Intensity is Low.
 
 _sustainability design principles: [Carbon efficiency](sustainability-design-principles.md#carbon-efficiency), [Carbon awareness](sustainability-design-principles.md#carbon-awareness)_
 
