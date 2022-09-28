@@ -62,10 +62,15 @@ Choose the type of summarization you would like to perform, and select one of th
 
 The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values.
 
-
 ## Document summarization
 
 [!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
+
+### Extractive document summarization example
+
+The following example will get you started with extractive document summarization:
+
+1. Copy the command below into a text editor. The BASH example uses the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character instead.
 
 ```bash
 curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/jobs?api-version=2022-10-01-preview \
@@ -74,40 +79,46 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/
 -d \
 ' 
 {
+  "displayName": "Document ext Summarization Task Example",
   "analysisInput": {
     "documents": [
       {
-        "language": "en",
         "id": "1",
+        "language": "en",
         "text": "At Microsoft, we have been on a quest to advance AI beyond existing techniques, by taking a more holistic, human-centric approach to learning and understanding. As Chief Technology Officer of Azure AI Cognitive Services, I have been working with a team of amazing scientists and engineers to turn this quest into a reality. In my role, I enjoy a unique perspective in viewing the relationship among three attributes of human cognition: monolingual text (X), audio or visual sensory signals, (Y) and multilingual (Z). At the intersection of all three, there’s magic—what we call XYZ-code as illustrated in Figure 1—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better. We believe XYZ-code will enable us to fulfill our long-term vision: cross-domain transfer learning, spanning modalities and languages. The goal is to have pre-trained models that can jointly learn representations to support a broad range of downstream AI tasks, much in the way humans do today. Over the past five years, we have achieved human performance on benchmarks in conversational speech recognition, machine translation, conversational question answering, machine reading comprehension, and image captioning. These five breakthroughs provided us with strong signals toward our more ambitious aspiration to produce a leap in AI capabilities, achieving multi-sensory and multilingual learning that is closer in line with how humans learn and understand. I believe the joint XYZ-code is a foundational component of this aspiration, if grounded with external knowledge sources in the downstream AI tasks."
       }
     ]
   },
-  "tasks": {
-    "extractiveSummarizationTasks": [
-      {
-        "parameters": {
-          "model-version": "latest",
-          "sentenceCount": 3,
-          "sortBy": "Offset"
-        }
+  "tasks": [
+    {
+      "kind": "ExtractiveSummarization",
+      "taskName": "Document Extractive Summarization Task 1",
+      "parameters": {
+        "sentenceCount": 6
       }
-    ]
-  }
+    }
+  ]
 }
 '
 ```
+2. Make the following changes in the command where needed:
+- Replace the value `your-language-resource-key` with your key.
+- Replace the first part of te request URL `your-language-resource-endpoint` with your endpoint URL.
 
-Get the `operation-location` from the response header. The value will look similar to the following URL:
+3. Open a command prompt window (for example: BASH).
+
+4. Paste the command from the text editor into the command prompt window, then run the command.
+
+5. Get the `operation-location` from the response header. The value will look similar to the following URL:
 
 ```http
-https://your-resource.cognitiveservices.azure.com/language/v3.2-preview.1/analyze/jobs/12345678-1234-1234-1234-12345678
+https://<your-language-resource-endpoint>/language/analyze-text/jobs/12345678-1234-1234-1234-12345678?api-version=2022-10-01-preview
 ```
 
-To get the results of the request, use the following cURL command. Be sure to replace `my-job-id` with the numerical ID value you received from the previous `operation-location` response header:
+6. To get the results of the request, use the following cURL command. Be sure to replace `<my-job-id>` with the numerical ID value you received from the previous `operation-location` response header:
 
 ```bash
-curl -X GET    https://<your-language-resource-endpoint>/language/language/analyze-text/jobs?api-version=2022-10-01-preview/jobs/my-job-id \
+curl -X GET https://<your-language-resource-endpoint>/language/analyze-text/jobs/<my-job-id>?api-version=2022-10-01-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-language-resource-key>"
 ```
@@ -115,55 +126,32 @@ curl -X GET    https://<your-language-resource-endpoint>/language/language/analy
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Document-summarization" target="_target">I ran into an issue</a>
 
-
-### JSON response
+### Extractive document summarization example JSON response
 
 ```json
 {
-    "jobId": "752383f1-0a86-4a39-8c43-6bf5c673b5bd",
-    "lastUpdateDateTime": "2022-09-13T22:27:03Z",
-    "createdDateTime": "2022-09-13T22:26:31Z",
-    "expirationDateTime": "2022-09-14T22:26:31Z",
+    "jobId": "56e43bcf-70d8-44d2-a7a7-131f3dff069f",
+    "lastUpdateDateTime": "2022-09-28T19:33:43Z",
+    "createdDateTime": "2022-09-28T19:33:42Z",
+    "expirationDateTime": "2022-09-29T19:33:42Z",
     "status": "succeeded",
     "errors": [],
+    "displayName": "Document ext Summarization Task Example",
     "tasks": {
-        "completed": 2,
+        "completed": 1,
         "failed": 0,
         "inProgress": 0,
-        "total": 2,
+        "total": 1,
         "items": [
             {
-                "kind": "AbstractiveSummarizationLROResults",
-                "lastUpdateDateTime": "2022-09-13T22:27:03.7003166Z",
-                "status": "succeeded",
-                "results": {
-                    "documents": [
-                        {
-                            "summaries": [
-                                {
-                                    "text": "Microsoft has been on a quest to advance AI beyond existing techniques. As Chief Technology Officer of Azure AI Cognitive Services, I enjoy a unique perspective in viewing the relationship among three attributes of human cognition. At the intersection of all three, there's magic—what we call XYZ-code—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better.",
-                                    "contexts": [
-                                        {
-                                            "offset": 0,
-                                            "length": 247
-                                        }
-                                    ]
-                                }
-                            ],
-                            "id": "0"
-                        }
-                    ],
-                    "errors": [],
-                }
-            },
-            {
                 "kind": "ExtractiveSummarizationLROResults",
-                "lastUpdateDateTime": "2022-09-13T22:26:33.5711598Z",
+                "taskName": "Document Extractive Summarization Task 1",
+                "lastUpdateDateTime": "2022-09-28T19:33:43.6712507Z",
                 "status": "succeeded",
                 "results": {
                     "documents": [
                         {
-                            "id": "0",
+                            "id": "1",
                             "sentences": [
                                 {
                                     "text": "At Microsoft, we have been on a quest to advance AI beyond existing techniques, by taking a more holistic, human-centric approach to learning and understanding.",
@@ -194,12 +182,19 @@ curl -X GET    https://<your-language-resource-endpoint>/language/language/analy
                                     "rankScore": 0.74,
                                     "offset": 856,
                                     "length": 159
+                                },
+                                {
+                                    "text": "I believe the joint XYZ-code is a foundational component of this aspiration, if grounded with external knowledge sources in the downstream AI tasks.",
+                                    "rankScore": 0.49,
+                                    "offset": 1481,
+                                    "length": 148
                                 }
                             ],
                             "warnings": []
                         }
                     ],
                     "errors": [],
+                    "modelVersion": "latest"
                 }
             }
         ]
@@ -207,22 +202,13 @@ curl -X GET    https://<your-language-resource-endpoint>/language/language/analy
 }
 ```
 
-# [Conversation summarization](#tab/conversation-summarization)
-
-[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2195178)
-
-|parameter  |Description  |
-|---------|---------|
-|`-X POST <endpoint>`     | Specifies your endpoint for accessing the API.        |
-|`-H Content-Type: application/json`     | The content type for sending JSON data.          |
-|`-H "Ocp-Apim-Subscription-Key:<key>`    | Specifies the key for accessing the API.        |
-|`-d <documents>`     | The JSON containing the documents you want to send.         |
-
-The following cURL commands are executed from a BASH shell. Edit these commands with your own resource name, resource key, and JSON values.
-
-## Conversation summarization
+## Issue/resolution Conversation summarization
 
 [!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
+
+The following example will get you started with issue/resolution conversation summarization:
+
+1. Copy the command below into a text editor. The BASH example uses the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character instead.
 
 ```bash
 curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conversations/jobs?api-version=2022-05-15-preview \
@@ -300,14 +286,21 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conve
 }
 '
 ```
+2. Make the following changes in the command where needed:
+- Replace the value `your-language-resource-key` with your key.
+- Replace the first part of te request URL `your-language-resource-endpoint` with your endpoint URL.
 
-Get the `operation-location` from the response header. The value will look similar to the following URL:
+3. Open a command prompt window (for example: BASH).
+
+4. Paste the command from the text editor into the command prompt window, then run the command.
+
+5. Get the `operation-location` from the response header. The value will look similar to the following URL:
 
 ```http
 https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678
 ```
 
-To get the results of the request, use the following cURL command. Be sure to replace `my-job-id` with the numerical ID value you received from the previous `operation-location` response header:
+6. To get the results of the request, use the following cURL command. Be sure to replace `<my-job-id>` with the numerical ID value you received from the previous `operation-location` response header:
 
 ```bash
 curl -X GET    https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/my-job-id \
@@ -318,9 +311,7 @@ curl -X GET    https://<your-language-resource-endpoint>/language/analyze-conver
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Conversation-summarization" target="_target">I ran into an issue</a>
 
-
-
-### JSON response
+### Issue/resolution conversation summarization example JSON response
 
 ```json
 {
