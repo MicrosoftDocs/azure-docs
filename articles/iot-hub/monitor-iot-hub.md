@@ -22,11 +22,11 @@ The **Overview** page in the Azure portal for each IoT hub includes charts that 
 
 Be aware that a correct message count value might be delayed by 1 minute. Due to the IoT Hub service infrastructure, the value can sometimes bounce between higher and lower values on refresh. This counter should be incorrect only for values accrued over the last minute.
 
-The information presented on the **Overview pane** is useful, but represents only a small amount of monitoring data that's available for an IoT hub. Some monitoring data is collected automatically and available for analysis as soon as you create your IoT hub. You can enable additional types of data collection with some configuration.
+The information presented on the **Overview pane** is useful, but represents only a small amount of monitoring data that's available for an IoT hub. Some monitoring data is collected automatically and available for analysis as soon as you create your IoT hub. You can enable other types of data collection with some configuration.
 
 ## What is Azure Monitor?
 
-Azure IoT Hub creates monitoring data using [Azure Monitor](../azure-monitor/overview.md), which is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises.
+Azure IoT Hub monitors data using [Azure Monitor](../azure-monitor/overview.md), a full stack monitoring service. Azure Monitor can monitor your Azure resources and other cloud or on-premise resources.
 
 Start with the article [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md), which describes the following concepts:
 
@@ -37,7 +37,7 @@ Start with the article [Monitoring Azure resources with Azure Monitor](../azure-
 - Standard tools in Azure for analysis and insights
 - Alerts fired when monitoring data
 
-See [Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md) for more information on the metrics and logs created by Azure IoT Hub.
+For more information on the metrics and logs created by Azure IoT Hub, see [Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md).
 
 > [!IMPORTANT]
 > The events emitted by the IoT Hub service using Azure Monitor resource logs aren't guaranteed to be reliable or ordered. Some events might be lost or delivered out of order. Resource logs aren't intended to be real-time, so it may take several minutes for events to be logged to your choice of destination.
@@ -65,9 +65,9 @@ The following screenshot shows a diagnostic setting for routing the resource log
 
 :::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="Screenshot of the Diagnostic Settings form for monitoring an IoT hub." lightbox="media/monitor-iot-hub/diagnostic-setting-portal.png":::
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for more information on creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure IoT Hub are listed  under [Resource logs in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#resource-logs). Be aware that events are emitted only for errors in some categories.
+For more information on creating a diagnostic setting using the Azure portal, CLI, or PowerShell, see [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md). When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure IoT Hub are listed  under [Resource logs in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#resource-logs). Be aware that events are emitted only for errors in some categories.
 
-When routing IoT Hub platform metrics to other locations, be aware that:
+When routing IoT Hub platform metrics to other locations:
 
 - These platform metrics are not exportable via diagnostic settings: *Connected devices* and *Total devices*.
 
@@ -75,7 +75,7 @@ When routing IoT Hub platform metrics to other locations, be aware that:
 
 ## Analyzing metrics
 
-You can analyze metrics for Azure IoT Hub with metrics from other Azure services using metrics explorer. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for more information on this tool.
+You can analyze metrics for Azure IoT Hub with metrics from other Azure services using metrics explorer. For more information on this tool, see [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md).
 
 To open metrics explorer, go to the Azure portal and open your IoT hub, then select **Metrics** under **Monitoring**. This explorer is scoped, by default, to the platform metrics emitted by your IoT hub.
 
@@ -103,7 +103,7 @@ All resource logs in Azure Monitor have the same fields followed by service-spec
 
 The [Activity log](../azure-monitor/essentials/activity-log.md) is a platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do more complex queries using Log Analytics.  
 
-When routing IoT Hub platform metrics to Azure Monitor Logs, be aware that:
+When routing IoT Hub platform metrics to Azure Monitor Logs:
 
 - The following platform metrics are not exportable via diagnostic settings: *Connected devices (preview)* and *Total devices (preview)*.
 
@@ -157,7 +157,7 @@ AzureDiagnostics
 Use the following [Kusto](/azure/data-explorer/kusto/query/) queries to help you monitor your IoT hub.
 
 > [!IMPORTANT]
-> Selecting **Logs** from the **IoT Hub** menu opens **Log Analytics** and includes data solely from your IoT hub resource. For queries that include data from other IoT hubs or Azure services, select **Logs** from the [**Azure Monitor** menu](https://portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/logs). See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for more information.
+> Selecting **Logs** from the **IoT Hub** menu opens **Log Analytics** and includes data solely from your IoT hub resource. For queries that include data from other IoT hubs or Azure services, select **Logs** from the [**Azure Monitor** menu](https://portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/logs). For more information, see [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md).
 
 - **Connectivity Errors**: Identify device connection errors.
 
@@ -303,11 +303,11 @@ class Program
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../azure-monitor/alerts/alerts-metric-overview.md), [logs](../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../azure-monitor/alerts/activity-log-alerts.md). Different types of alerts have benefits and drawbacks.
 
-When creating an alert rule based on platform metrics, be aware that for IoT Hub platform metrics that are collected in units of count, some aggregations may not be available or usable. To learn more, see [Supported aggregations](monitor-iot-hub-reference.md#supported-aggregations) in **Monitoring Azure IoT Hub data reference**.
+When creating an alert rule based on platform metrics (collected in units of count), some aggregations may not be available or usable. To learn more, see [Supported aggregations](monitor-iot-hub-reference.md#supported-aggregations) in **Monitoring Azure IoT Hub data reference**.
 
 ## Monitor per-device disconnects with Event Grid
 
-Azure Monitor provides a metric, *Connected devices*, that you can use to monitor the number of devices connected to your IoT Hub. This metric triggers an alert when the number of connected devices drops below a threshold value. Azure Monitor also emits events in the [connections category](monitor-iot-hub-reference.md#connections) that you can use to monitor device connects, disconnects, and connection errors. While these may be sufficient for some scenarios, [Azure Event Grid](../event-grid/index.yml) provides a low-latency, per-device monitoring solution that you can use to track device connections for critical devices and infrastructure.
+Azure Monitor provides a metric, *Connected devices*, that you can use to monitor the number of devices connected to your IoT Hub. This metric triggers an alert when the number of connected devices drops below a threshold value. Azure Monitor also emits events in the [connections category](monitor-iot-hub-reference.md#connections) that you can use to monitor device connects, disconnects, and connection errors. While these events may be sufficient for some scenarios, [Azure Event Grid](../event-grid/index.yml) provides a low-latency, per-device monitoring solution that you can use to track device connections for critical devices and infrastructure.
 
 With Event Grid, you can subscribe to the IoT Hub [**DeviceConnected** and **DeviceDisconnected** events](iot-hub-event-grid.md#event-types) to trigger alerts and monitor device connection state. Event Grid provides a much lower event latency than Azure Monitor, so you can monitor on a per-device basis rather than for all connected devices. These factors make Event Grid the preferred method for monitoring connections for critical devices and infrastructure. We highly recommend using Event Grid to monitor device connections in production environments.
 
@@ -315,8 +315,8 @@ For more more information about monitoring device connectivity with Event Grid a
 
 ## Next steps
 
-- See [Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md) for a reference of the metrics, logs, and other important values created by [service name].
+- [Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md): a reference of the metrics, logs, and other important values created by IoT Hub.
 
-- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
+- [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md): monitoring Azure resources.
 
-- See [Monitor, diagnose, and troubleshoot device connectivity to Azure IoT Hub](iot-hub-troubleshoot-connectivity.md) for details on monitoring device connectivity.
+- [Monitor, diagnose, and troubleshoot device connectivity to Azure IoT Hub](iot-hub-troubleshoot-connectivity.md): monitoring device connectivity.
