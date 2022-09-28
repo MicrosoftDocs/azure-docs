@@ -4,8 +4,8 @@ description: Article describes how to enable automatic upgrades for Azure SQL Ma
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data-sqlmi
-author: grrlgeek
-ms.author: jeschult
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 05/27/2022
 ms.topic: how-to

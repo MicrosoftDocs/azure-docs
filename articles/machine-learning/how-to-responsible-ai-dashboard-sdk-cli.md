@@ -149,7 +149,7 @@ The constructor component has a single output named `rai_insights_dashboard`. Th
       categorical_column_names: '["location", "style", "job title", "OS", "Employer", "IDE", "Programming language"]' 
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 First load the component:
 
@@ -252,7 +252,7 @@ This component has a single output port, which can be connected to one of the `i
       treatment_features: `["Number of GitHub repos contributed to", "YOE"]' 
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 ```python
 #First load the component: 
@@ -299,7 +299,7 @@ This component has a single output port, which can be connected to one of the `i
 ```
 
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 ```python
 #First load the component: 
@@ -340,7 +340,7 @@ This component has a single output port, which can be connected to one of the `i
       filter_features: `["style", "Employer"]' 
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 ```python
 #First load the component: 
@@ -375,7 +375,7 @@ This component has a single output port, which can be connected to one of the `i
 ```
 
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 ```python
 #First load the component: 
@@ -417,7 +417,7 @@ There are two output ports:
 ```
 
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 ```python
 #First load the component: 
@@ -454,7 +454,7 @@ This component produces information about a registered model, which can be consu
       model_id: my_model_name:12 
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 ```python
 #First load the component: 
@@ -482,7 +482,7 @@ This component converts the tabular dataset named in its sole input parameter in
 ```
 
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 ```python
 #First load the component: 

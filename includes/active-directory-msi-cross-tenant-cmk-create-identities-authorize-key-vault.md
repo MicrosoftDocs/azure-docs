@@ -208,18 +208,6 @@ To install the service provider's registered application in the customer's tenan
 - Use [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals), [Microsoft Graph PowerShell](/powershell/module/microsoft.graph.applications/new-mgserviceprincipal?view=graph-powershell-beta&preserve-view=true), [Azure PowerShell](/powershell/module/az.resources/new-azadserviceprincipal), or [Azure CLI](/cli/azure/ad/sp#az-ad-sp-create) to manually create the service principal.
 - Construct an [admin-consent URL](../articles/active-directory/manage-apps/grant-admin-consent.md#construct-the-url-for-granting-tenant-wide-admin-consent) and grant tenant-wide consent to create the service principal. You'll need to provide them with your AppId.
 
-#### The customer assigns Key Vault Contributor and Key Vault Crypto Officer roles to a user account
-
-This step ensures that you can create the key vault and encryption keys.
-
-1. Navigate to your key vault and select **Access Control (IAM)** from the left pane.
-1. Under **Grant access to this resource**, select **Add role assignment**.
-1. Search for and select **Key Vault Contributor**.
-1. Under **Members**, select **User, group, or service principal**.
-1. Select **Members** and search for your user account.
-1. Select **Review + Assign**.
-1. Repeat this process to assign the **Key Vault Crypto Officer** role to your user account.
-
 #### The customer creates a key vault
 
 To create the key vault, the user's account must be assigned the **Key Vault Contributor** role or another role that permits creation of a key vault.
@@ -237,6 +225,17 @@ To create the key vault, the user's account must be assigned the **Key Vault Con
 Take note of the **Vault name** and **Vault URI**. Applications that access your key vault must use this URI.
 
 For more information, see [Quickstart - Create an Azure Key Vault with the Azure portal](../articles/key-vault/general/quick-create-portal.md).
+
+#### The customer assigns Key Vault Crypto Officer role to a user account
+
+This step ensures that you can create encryption keys.
+
+1. Navigate to your key vault and select **Access Control (IAM)** from the left pane.
+1. Under **Grant access to this resource**, select **Add role assignment**.
+1. Search for and select **Key Vault Crypto Officer**.
+1. Under **Members**, select **User, group, or service principal**.
+1. Select **Members** and search for your user account.
+1. Select **Review + Assign**.
 
 #### The customer creates an encryption key
 
@@ -290,22 +289,21 @@ $serviceprincipalObject = New-AzADServicePrincipal -ApplicationId
 # $serviceprincipalObject = Get-AzADServicePrincipal -ApplicationId $addObject.Id
 ```
 
-#### The customer assigns Key Vault Contributor and Key Vault Crypto Officer roles to a user account
-
-This step ensures that you can create the key vault and encryption keys.
-
-```azurepowershell
-$currentUserObjectId="object-id-of-the-user"
-New-AzRoleAssignment -RoleDefinitionName "Key Vault Contributor" -Scope /subscriptions/$subscriptionId/resourceGroups/$rgName/providers/Microsoft.KeyVault/vaults/$vaultName -ObjectId $currentUserObjectId
-New-AzRoleAssignment -RoleDefinitionName "Key Vault Crypto Officer" -Scope /subscriptions/$subscriptionId/resourceGroups/$rgName/providers/Microsoft.KeyVault/vaults/$vaultName -ObjectId $currentUserObjectId
-```
-
 #### The customer creates a key vault
 
 To create the key vault, the customer's account must be assigned the **Key Vault Contributor** role or another role that permits creation of a key vault.
 
 ```azurepowershell
 New-AzKeyVault -Location $location -Name $vaultName -ResourceGroupName $rgName -SubscriptionId $subscriptionId -EnablePurgeProtection -EnableRbacAuthorization
+```
+
+#### The customer assigns Key Vault Crypto Officer role to a user account
+
+This step ensures that you can create the key vault and encryption keys.
+
+```azurepowershell
+$currentUserObjectId="object-id-of-the-user"
+New-AzRoleAssignment -RoleDefinitionName "Key Vault Crypto Officer" -Scope /subscriptions/$subscriptionId/resourceGroups/$rgName/providers/Microsoft.KeyVault/vaults/$vaultName -ObjectId $currentUserObjectId
 ```
 
 #### The customer creates an encryption key
@@ -350,7 +348,16 @@ export appId='<replace-the-multi-tenant-applicationID>' #appId from Phase 1.
 export appObjectId=$(az ad sp create --id $appId --query id --out tsv)
 ```
 
-#### The customer assigns Key Vault Contributor and Key Vault Crypto Officer roles to a user account
+#### The customer creates a key vault
+
+To create the key vault, the customer's account must be assigned the **Key Vault Contributor** role or another role that permits creation of a key vault.
+
+```azurecli
+export vaultName="mykeyvaultname"
+az keyvault create --location $location --name $vaultName --resource-group $rgName --subscription $subscriptionId --enable-purge-protection true --enable-rbac-authorization true --query name --out tsv
+```
+
+#### The customer assigns Key Vault Crypto Officer role to a user account
 
 This step ensures that you can create the key vault and encryption keys.
 
@@ -362,18 +369,7 @@ location="westcentralus"
 az group create --location $location --name $rgName
 export currentUserObjectId=$(az ad signed-in-user show --query id --out tsv)
 
-az role assignment create --role "Key Vault Contributor" --scope /subscriptions/$subscriptionId/resourceGroups/$rgName/providers/Microsoft.KeyVault/vaults/$vaultName --assignee-object-id $currentUserObjectId
-
 az role assignment create --role "Key Vault Crypto Officer" --scope /subscriptions/$subscriptionId/resourceGroups/$rgName/providers/Microsoft.KeyVault/vaults/$vaultName --assignee-object-id $currentUserObjectId
-```
-
-#### The customer creates a key vault
-
-To create the key vault, the customer's account must be assigned the **Key Vault Contributor** role or another role that permits creation of a key vault.
-
-```azurecli
-export vaultName="mykeyvaultname"
-az keyvault create --location $location --name $vaultName --resource-group $rgName --subscription $subscriptionId --enable-purge-protection true --enable-rbac-authorization true --query name --out tsv
 ```
 
 #### The customer creates an encryption key

@@ -35,7 +35,7 @@ This documentation contains the following types of articles:
 * The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.
 
 For a more structured approach, follow a Learn module for Image Analysis.
-* [Analyze images with the Computer Vision service](/learn/modules/analyze-images-computer-vision/)
+* [Analyze images with the Computer Vision service](/training/modules/analyze-images-computer-vision/)
 
 ## Image Analysis features
 

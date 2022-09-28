@@ -130,7 +130,7 @@ conceptualContent:
           text:  Cognitive Services containers documentation
         - url: ./cognitive-services-container-support.md
           itemType: overview
-          text: What are Cognitive Service containers?
+          text: What are Cognitive Services containers?
         - url: ./containers/azure-container-instance-recipe.md
           itemType: how-to-guide
           text: Deploy and run container on Azure Container Instance

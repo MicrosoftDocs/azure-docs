@@ -6,7 +6,7 @@ ms.subservice: baremetal-nutanix
 ms.date: 03/31/2021
 ---
 
-# About NC2 on Azure Public Preview
+# About Nutanix Cloud Clusters on Azure Public Preview
 
 The articles in this section are intended for the professionals participating in the Public Preview of NC2 on Azure.
 

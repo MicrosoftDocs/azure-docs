@@ -14,7 +14,7 @@ ms.custom: ['Role: Cloud Development']
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-This article describes how to create and manage IoT hubs using the [Azure portal](https://portal.azure.com).
+This article describes how to create and manage an IoT hub, using the [Azure portal](https://portal.azure.com).
 
 ## Create an IoT hub
 
@@ -36,17 +36,17 @@ For a complete list of options to update an IoT hub, see the [**az iot hub updat
 
 You can also view or modify the list of shared access policies by choosing **Shared access policies** in the **Security settings** section. These policies define the permissions for devices and services to connect to IoT Hub.
 
-Select **Add shared access policy** to open the **Add shared access policy** blade.  You can enter the new policy name and the permissions that you want to associate with this policy, as shown in the following figure:
+Select **Add shared access policy** to open the **Add shared access policy** blade.  You can enter the new policy name and the permissions that you want to associate with this policy, as shown in the following screenshot:
 
-:::image type="content" source="./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png" alt-text="Screenshot showing adding a shared access policy." lightbox="./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png":::
+:::image type="content" source="./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png" alt-text="Screenshot showing how to add a shared access policy." lightbox="./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png":::
 
-* The **Registry Read** and **Registry Write** policies grant read and write access rights to the identity registry. These permissions are used by back-end cloud services to manage device identities. Choosing the write option automatically chooses the read option.
+* The **Registry Read** and **Registry Write** policies grant read and write access rights to the identity registry. These permissions are used by back-end cloud services to manage device identities. Choosing the write option automatically includes the read option.
 
 * The **Service Connect** policy grants permission to access service endpoints. This permission is used by back-end cloud services to send and receive messages from devices. It's also used to update and read device twin and module twin data.
 
 * The **Device Connect** policy grants permissions for sending and receiving messages using the IoT Hub device-side endpoints. This permission is used by devices to send and receive messages from an IoT hub or update and read device twin and module twin data. It's also used for file uploads.
 
-Select **Add** to add this newly created policy to the existing list.
+Select **Add** to add your newly created policy to the existing list.
 
 For more detailed information about the access granted by specific permissions, see [IoT Hub permissions](./iot-hub-dev-guide-sas.md#access-control-and-permissions).
 
@@ -82,16 +82,16 @@ You return to the **Add a route** page. For **Data source**, select Device Telem
 
 Next, add a routing query. In this example, the messages that have an application property called `level` with a value equal to `critical` are routed to the storage account.
 
-![Screenshot showing saving a new routing rule](./media/iot-hub-create-through-portal/iot-hub-add-route.png)
+![Screenshot showing how to save a new routing rule.](./media/iot-hub-create-through-portal/iot-hub-add-route.png)
 
 Select **Save** to save the routing rule. You return to the **Message routing** pane, and your new routing rule is displayed.
 
 ### Custom endpoints
 
-Select the **Custom endpoints** tab. You see any custom endpoints already created. From here, you can add new endpoints or delete existing endpoints.
+If you have a custom endpoint to add, select the **Custom endpoints** tab. You see custom endpoints if they were previously created. From here, you can add new endpoints or delete existing endpoints.
 
 > [!NOTE]
-> If you delete a route, it does not delete the endpoints assigned to that route. To delete an endpoint, select the Custom endpoints tab, select the endpoint you want to delete, and choose **Delete**.
+> If you delete a route, it does not delete the endpoints assigned to that route. To delete an endpoint, select the **Custom endpoints** tab, select the endpoint you want to delete, then choose **Delete**.
 
 You can read more about custom endpoints in [Reference - IoT hub endpoints](iot-hub-devguide-endpoints.md).
 
@@ -101,9 +101,13 @@ To see a full example of how to use custom endpoints with routing, see [Message 
 
 ## Find a specific IoT hub
 
-Here are two ways to find a specific IoT hub in your subscription:
+Here a few ways to find a specific IoT hub in your subscription:
 
-1. If you know the resource group to which the IoT hub belongs, choose **Resource groups**, then select the resource group from the list. The resource group screen shows all of the resources in that group, including the IoT hubs. Select your hub.
+1. From the Azure homepage, select the IoT Hub icon. Find and select your IoT hub from the list.
+
+:::image type="content" source="./media/iot-hub-create-through-portal/select-iot-hub.png" alt-text="Screenshot showing how to find your IoT hub.":::
+
+1. If you know the resource group to which the IoT hub belongs, choose **Resource groups**, then select the resource group from the list. The resource group screen shows all of the resources in that group, including IoT hubs. Select your hub.
 
 2. Choose **All resources**. On the **All resources** pane, there's a dropdown list that defaults to `All types`. Select the dropdown list, uncheck `Select all`. Find `IoT Hub` and check it. Select the dropdown list box to close it, and the entries will be filtered, showing only your IoT hubs.
 
