@@ -143,7 +143,7 @@ The authentication strength Conditional Access policy checks these settings to d
 
 To evaluate if the user should gain access to the resource, the following considerations are taken into account: 
 
-- Which method was previously used sign-in?
+- Which method was most recently used?
 - Which methods are available in the authentication strength policy? 
 - Which methods are allowed for user sign-in in the authentication methods policy?
 - Is the user registered for the required methods?
