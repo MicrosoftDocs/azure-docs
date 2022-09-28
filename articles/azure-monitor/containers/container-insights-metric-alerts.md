@@ -13,7 +13,7 @@ Metric alerts in Azure Monitor proactively identify issues related to system res
 > [!IMPORTANT]
 > Container insights in Azure Monitor now supports alerts based on Prometheus metrics. If you already use alerts based on custom metrics, you should migrate to Prometheus alerts and disable the equivalent custom metric alerts.
 ## Types of metric alert rules
-There are two types of metric rules used by Container insights based on either Prometheus metrics or custom metrics.
+There are two types of metric rules used by Container insights based on either Prometheus metrics or custom metrics. See a list of the specific alert rules for each at [Alert rule details](#alert-rule-details).
 
 | Alert rule type | Description |
 |:---|:---|
@@ -29,7 +29,7 @@ There are two types of metric rules used by Container insights based on either P
 
 ### Enable and configure alert rules
 
-The only method currently available for creating recommended Prometheus metric alert rules is a Resource Manager template. 
+The only method currently available for creating Prometheus metric alert rules is a Resource Manager template. 
 
 1. Download the template that includes the set of alert rules that you want to enable. See [Alert rule details](#alert-rule-details) for a listing of the rules for each.
 
@@ -161,7 +161,12 @@ The following table lists the recommended alert rules that you can enable for ei
 | OOM Killed Containers | OOM Killed Containers | Calculates number of OOM killed containers. | 0 |
 | Pods ready % | Pods ready % | Calculates the average ready state of pods. | 80% |
 | Completed job count | Completed job count | Calculates number of jobs completed more than six hours ago. | 0 |
-| | Daily Data Cap Breach | When the total data ingestion to your Log Analytics workspace exceeds the [designated quota](../logs/daily-cap.md). This is a [log alert rule](../alerts/alerts-types.md#log-alerts) that isn't enabled with Prometheus metric alerts. |
+
+> [!NOTE]
+> The recommended alert rules in the Azure portal also include a log alert rule called *Daily Data Cap Breach*. This rule alerts when the total data ingestion to your Log Analytics workspace exceeds the [designated quota](../logs/daily-cap.md). This alert rule is not included with the Prometheus metric alert rules.
+> 
+> You can create this rule on your own by creating a [log alert rule](../alerts/alerts-types.md#log-alerts) using the query `_LogOperation | where Operation == "Data collection Status" | where Detail contains "OverQuota"`.
+
 
 Common properties across all of these alert rules include:
 

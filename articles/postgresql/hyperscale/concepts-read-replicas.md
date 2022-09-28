@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 06/17/2022
+ms.date: 09/27/2022
 ---
 
 # Read replicas in Azure Database for PostgreSQL - Hyperscale (Citus)
@@ -85,6 +85,25 @@ psql -h c.myreplica.postgres.database.azure.com -U citus@myreplica -d postgres
 
 At the prompt, enter the password for the user account.
 
+## Replica promotion to independent server group
+
+You can promote a replica to an independent server group that is readable and
+writable. A promoted replica no longer receives updates from its original, and
+promotion can't be undone. Promoted replicas can have replicas of their own.
+
+There are two common scenarios for promoting a replica:
+
+1. **Disaster recovery.** If something goes wrong with the primary, or with an
+   entire region, you can open another server group for writes as an emergency
+   procedure.
+2. **Migrating to another region.** If you want to move to another region,
+   create a replica in the new region, wait for data to catch up, then promote
+   the replica.  To avoid potentially losing data during promotion, you may want
+   to disable writes to the original server group after the replica catches up.
+
+   You can see how far a replica has caught up using the `replication_lag`
+   metric. See [metrics](concepts-monitoring.md#metrics) for more information.
+
 ## Considerations
 
 This section summarizes considerations about the read replica feature.
@@ -110,7 +129,7 @@ upscale it on the primary.
 Firewall rules and parameter settings aren't inherited from the primary server
 to the replica when the replica is created or afterwards.
 
-### Cross-region replication (preview)
+### Cross-region replication
 
 Read replicas can be created in the region of the primary server group, or in
 any other [region supported by Hyperscale (Citus)](resources-regions.md). The
