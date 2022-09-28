@@ -12,50 +12,71 @@ ms.custom: template-how-to
 
 # Modify the packet core instance in a site
 
-Each Azure Private 5G Core Preview site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). In this how-to guide, you'll learn how to modify a packet core instance configuration using the Azure portal. You'll also learn how to attach and detach data networks associated with the packet core instance.
+Each Azure Private 5G Core Preview site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). In this how-to guide, you'll learn how to modify a packet core instance using the Azure portal; this includes modifying the packet core and access network configuration. You'll also learn how to attach new or existing data networks to the packet core instance.
 
 ## Prerequisites
 
+- If you want to make changes to the packet core configuration or access network, refer to [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) and [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to collect the new values and make they're in the correct format.
+- If you want to make changes to the attached data networks, refer to [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to collect the required values and make they're in the correct format.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
-## View the packet core instance
+## Modify the packet core instance
 
-To view the site's packet core instance:
+In this step, you'll navigate to the **Packet Core Control Plane** resource representing your packet core instance and start modifying it.
 
 1. Sign in to the Azure portal at [https://aka.ms/AP5GCNewPortal](https://aka.ms/AP5GCNewPortal).
-1. Search for and select the **Mobile Network** resource representing the private mobile network.
+2. Search for and select the **Mobile Network** resource representing the private mobile network.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 
-1. In the **Resource** menu, select **Sites**.
-1. Select the site containing the packet core instance you want to modify.
-1. Under the **Network function** heading, select the name of the **Packet Core Control Plane** resource shown next to **Packet Core**.
+3. In the **Resource** menu, select **Sites**.
+4. Select the site containing the packet core instance you want to modify.
+5. Under the **Network function** heading, select the name of the **Packet Core Control Plane** resource shown next to **Packet Core**.
 
     :::image type="content" source="media/packet-core-field.png" alt-text="Screenshot of the Azure portal showing the Packet Core field.":::
 
-## Modify the packet core configuration
+6. Select **Modify packet core**.
 
-1. If you haven't already, navigate to the **Packet Core Control Plane** resource as described in [View the packet core instance](#view-the-packet-core-instance).
-2. Select **Modify packet core**.
-3. In the **Configuration** tab, fill out the fields with the new values.
+    :::image type="content" source="media/modify-packet-core/modify-packet-core-configuration.png" alt-text="Screenshot of the Azure portal showing the Modify packet core option.":::
+
+7. If you want to make changes to the packet core configuration or access network values, go to [Modify the packet core configuration](#modify-the-packet-core-configuration). If you only want to make changes to the attached data networks, go to [Modify attached data networks](#modify-attached-data-networks).
+
+### Modify the packet core configuration
+
+1. In the **Configuration** tab, fill out the fields with any new values.
   
-   - Refer to [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) for the configuration values you can modify under the main configuration.
-   - Refer to [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) for the configuration values you can modify under **Access network**.
+   - Use the information you collected in [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) for the top-level configuration values.
+   - Use the information you collected in [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) for the configuration values under **Access network**.
 
-    :::image type="content" source="media/modify-packet-core/modify-packet-core-configuration-tab.png" alt-text="Screenshot of the Azure portal showing the Configuration tab in the Modify packet core window.":::
-    <!-- TODO: Update screenshot after bug where 4G and 5G names are swapped is fixed. -->
+    :::image type="content" source="media/modify-packet-core/modify-packet-core-configuration-tab.png" alt-text="Screenshot of the Azure portal showing the Modify packet core Configuration tab.":::
 
-4. If you also want to attach or detach a data network, select the **Data networks** tab.
+2. If you also want to make changes to the attached data networks, select the **Data network** tab and go to [Modify attached data networks](#modify-attached-data-networks). Otherwise, go to [Submit and verify changes](#submit-and-verify-changes).
 
-    :::image type="content" source="media/modify-packet-core/modify-packet-core-data-networks-tab.png" alt-text="Screenshot of the Azure portal showing the Data networks tab in the Modify packet core window.":::
+### Modify attached data networks
 
-   - To add a data network... Refer to ...
-   - To remove a data network...
+To configure a data network and attach it to your packet core instance:
 
-5. Select **Modify**.
-6. Azure will now redeploy the packet core instance with the new configuration. The Azure portal will display the following confirmation screen when this deployment is complete.
+1. Select **Attach data network**.
+2. In the **Data network** field, choose an existing data network from the dropdown or select **Create new** to create a new one.
+3. Use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the remaining fields.
+
+    :::image type="content" source="media/modify-packet-core/modify-packet-core-attach-data-network.png" alt-text="Screenshot of the Azure portal showing the Attach data network screen.":::
+       <!-- TODO: Update screenshot after release of Simpler ASE Install feature -->
+
+4. Select **Attach**.
+5. Repeat this step for each additional data network you want to configure.
+
+### Submit and verify changes
+
+1. Select **Modify**.
+2. Azure will now redeploy the packet core instance with the new configuration. The Azure portal will display the following confirmation screen when this deployment is complete.
 
     :::image type="content" source="media/site-deployment-complete.png" alt-text="Screenshot of the Azure portal showing the confirmation of a successful deployment of a packet core instance.":::
+
+3. Select **Go to resource group**.
+
+    - If you made changes to the packet core configuration, navigate to the **Packet Core Control Plane** resource as described in [Modify the packet core instance](#modify-the-packet-core-instance). Check that the fields under **Configuration** and **Access network** contain the correct information.
+    - If you made changes to the attached data networks, select the **Mobile Network** resource, and then select **Data networks** in the resource menu. Check that all the data networks that you created or modified are listed and show as **Succeeded** in the **Status** column.
 
 ## Next steps
 
