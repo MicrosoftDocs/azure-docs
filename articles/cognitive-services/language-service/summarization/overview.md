@@ -26,7 +26,7 @@ This documentation contains the following article types:
 * **[Quickstarts](quickstart.md?pivots=rest-api&tabs=document-summarization)** are getting-started instructions to guide you through making requests to the service.
 * **[How-to guides](how-to/document-summarization.md)** contain instructions for using the service in more specific or customized ways.
 
-Text summarization is a broad topic, consisting of several approaches to represent relevant information in text. The document summarization feature described in this documentation enables you to use extractive and abstractive text summarization to produce a summary of a document. It extracts sentences that collectively represent the most important or relevant information within the original content. This feature is designed to shorten content that could be considered too long to read. For example, it can condense articles, papers, or documents to key sentences.
+Text summarization is a broad topic, consisting of several approaches to represent relevant information in text. The document summarization feature described in this documentation enables you to use extractive or abstractive text summarization to produce a summary of a document. It extracts sentences that collectively represent the most important or relevant information within the original content. This feature is designed to shorten content that could be considered too long to read. For example, it can condense articles, papers, or documents to key sentences.
 
 As an example, consider the following paragraph of text:
 
@@ -46,6 +46,11 @@ The document summarization feature would simplify the text into the following ke
 
 ## Key features
 
+There are two flavors of document summarization:
+
+* **Extractive summarization**: This flavor produces a summary by extracting salient sentences within the document.
+* **Abstractive summarization**: This flavor generates a summary that may not use the same words as those in the document, but captures the main idea.
+
 Document summarization supports the following features:
 
 * **Extracted sentences**: These sentences collectively convey the main idea of the document. They’re original sentences extracted from the input document’s content.
@@ -55,22 +60,23 @@ Document summarization supports the following features:
 
 # [Conversation summarization](#tab/conversation-summarization)
 
+> [!IMPORTANT]
+> Conversation summarization is only available in English.
+
 This documentation contains the following article types:
 
 * **[Quickstarts](quickstart.md?pivots=rest-api&tabs=conversation-summarization)** are getting-started instructions to guide you through making requests to the service.
 * **[How-to guides](how-to/conversation-summarization.md)** contain instructions for using the service in more specific or customized ways.
 
+## Key features
+
 Conversation summarization supports the following features:
 
-> [!IMPORTANT]
-> Conversation summarization is only available in English.
+* **Issue/resolution summarization**: A call center specific feature that gives a summary of issues and resolutions in conversations between customer-service agents and your customers.
+* **Chapter Title summarization**: Gives suggested titles of input conversation.
+* **Narrative summarization**: Gives summarizes and gives suggested titles of each input conversation.
 
-* **Chapter Title summarization**: Gives the titles of input novel chapters.
-* **Narrative summarization**: Gives summarizes and gives the titles of each input novel chapter.
-
-Conversation summarization is a broad topic, consisting of several approaches to represent relevant information in text. The conversation summarization feature described in this documentation enables you to use abstractive text summarization to produce a summary of issues and resolutions in transcripts of web chats and service call transcripts between customer-service agents, and your customers.
-
-:::image type="content" source="media/conversation-summary-diagram.svg" alt-text="A diagram for sending data to the conversation summarization feature.":::
+Conversation summarization is a broad topic, consisting of several approaches to represent relevant information in text. The conversation summarization feature described in this documentation allows you to use abstractive text summarization to produce a summary of issues and resolutions in transcripts of web chats and service call transcripts between customer-service agents, and your customers.
 
 ## When to use conversation summarization
 

@@ -20,7 +20,13 @@ ms.custom: language-service-summarization, ignite-fall-2021, event-tier1-build-2
 > [!IMPORTANT] 
 > The conversation summarization feature is a preview capability provided “AS IS” and “WITH ALL FAULTS.” As such, Conversation Summarization (preview) should not be implemented or deployed in any production use. The customer is solely responsible for any use of conversation summarization. 
 
-Conversation summarization is designed to summarize text chat logs between customers and customer-service agents. This feature is capable of providing both issues and resolutions present in these logs. 
+## Conversation summarization types
+
+- Issues and resolution (call center focused) is designed to summarize text chat logs between customers and customer-service agents. This feature is capable of providing both issues and resolutions present in these logs. 
+
+:::image type="content" source="media/conversation-summary-diagram.svg" alt-text="A diagram for sending data to the conversation summarization issues and resolution feature.":::
+
+- Narrative and chapter title (general conversation) are designed to summarize a conversation into chapter titles, and a summarization of the conversation's contents.
 
 The AI models used by the API are provided by the service, you just have to send content for analysis.
 
@@ -80,7 +86,7 @@ Conversation summarization also enables you to get summaries from speech transcr
 
 ### Get chapter titles
 
-Conversation summarization lets you get chapter titles from input novel chapters. A guided example scenario is provided below:
+Conversation summarization lets you get chapter titles from input conversations. A guided example scenario is provided below:
 
 1. Copy the command below into a text editor. The BASH example uses the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character.
 
@@ -229,7 +235,7 @@ For long conversation, the model might segment it into multiple cohesive parts, 
 
  ### Get narrative summarization
 
-Conversation summarization also lets you get narrative summaries from input novel chapters. A guided example scenario is provided below:
+Conversation summarization also lets you get narrative summaries from input conversations. A guided example scenario is provided below:
 
 1. Copy the command below into a text editor. The BASH example uses the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character.
 

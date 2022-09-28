@@ -1077,7 +1077,7 @@ items:
         - name: Document summarization
           href: https://westus2.dev.cognitive.microsoft.com/docs/services/language/analyze-text
         - name: Conversation summarization
-          href: https://westus2.dev.cognitive.microsoft.com/docs/services/language/analyze-conversations
+          href: https://go.microsoft.com/fwlink/?linkid=2195178
     - name: SDKs
       items:
       - name: Document summarization
