@@ -167,6 +167,11 @@ The following authentication methods can't be registered as part of combined reg
 
 If a user isn't registered for these methods, they can't access the resource until the required method is registered. For the best user experience, make sure users complete combined registered in advance for the different methods they may need to use.
 
+### Federated user experience  
+For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider. You can enable protection to prevent bypassing Azure MFA by configuring the security setting federatedIdpMfaBehavior. If the federatedIdpMfaBehavior setting is set to enforceMfaByFederatedIdp, the user must authenticate on their federated IdP and can only satisfy the “Federated Multi-Factor” combination of the authentication strength requirement. For more information on the federation settings:[Plan support for MFA](/azure/active-directory/hybrid/migrate-from-federation-to-cloud-authentication#plan-support-for-mfa).
+
+If a user from a federated domain is in scope for multifactor authentication staged rollout, the user can complete multifactor authentication in the cloud and satisfy any of the “Federated single-factor + something you have” combinations. For more information on staged rollout: [Enable Staged Rollout using Azure portal](azure/active-directory/authentication/how-to-mfa-server-migration-utility#enable-staged-rollout-using-azure-portal).
+
 ## External users
 
 The Authentication methods policy is especially useful for restricting external access to sensitive apps in your organization because you can enforce specific authentication methods, such as phishing-resistant methods, for external users.
