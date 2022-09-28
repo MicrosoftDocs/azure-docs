@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/26/2022
+ms.date: 09/27/2022
 ms.author: ryanwi
 ms.reviewer: shkhalid, udayh, vakarand, cbrooks
 ms.custom: aaddev
@@ -54,6 +54,12 @@ The creation of federated identity credentials is available on user-assigned man
 Support for creating federated identity credentials in these regions will be rolled out gradually except East Asia where support won't be provided.
 
 Resources in these regions can still use federated identity credentials created in other, supported regions.
+
+## Supported signing algorithms and issuers
+
+*Applies to: applications and user-assigned managed identities (public preview)*
+
+Only issuers that provide tokens signed using the RS256 algorithm are supported for token exchange using workload identity federation.  Exchanging tokens signed with other algorithms may work, but are not supported and have not been tested.
 
 ## Azure Active Directory issuers aren't supported
 
