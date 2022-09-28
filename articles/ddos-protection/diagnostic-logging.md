@@ -72,18 +72,14 @@ If you want to automatically enable diagnostic logging on all public IPs within 
     | where Category == "DDoSProtectionNotifications"
     ```
 
-#### DDoSMitigationFlowLogs
-
-1. Now change the query to the following and keep the same time range and hit Run.
+1. To view **DDoSMitigationFlowLogs** change the query to the following and keep the same time range and hit Run.
 
     ```kusto
     AzureDiagnostics
     | where Category == "DDoSMitigationFlowLogs"
     ```
 
-#### DDoSMitigationReports
-
-1. Now change the query to the following and keep the same time range and hit Run.
+1. To view **DDoSMitigationReports** change the query to the following and keep the same time range and hit Run.
 
     ```kusto
     AzureDiagnostics
@@ -179,7 +175,7 @@ You can use [this Azure Resource Manager (ARM) template](https://aka.ms/ddoswork
 
 ## Validate and test
 
-To simulate a DDoS attack to validate your logs, see [Validate Azure DDoS Protection detection](test-through-simulations.md).
+To simulate a DDoS attack to validate your logs, see [Test with simulation partners](test-through-simulations.md).
 
 ## Next steps
 
@@ -192,4 +188,4 @@ In this tutorial, you learned how to:
 To learn how to configure attack alerts, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [View and configure Azure DDoS protection alerts](alerts.md)
+> [View and configure DDoS protection alerts](alerts.md)

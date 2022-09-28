@@ -13,11 +13,11 @@ ms.reviewer: tamram
 
 # Troubleshooting BlobFuse2 (preview)
 
-This articles provides references to assist in troubleshooting BlobFuse2 issues during the public preview.
+This article provides references to assist in troubleshooting BlobFuse2 issues during the preview.
 
-## The troubleshooting guide
+## The troubleshooting guide (TSG)
 
-During the preview of BlobFuse2, refer to [The BlobFuse2 Troubleshoot Guide (TSG) on GitHub](https://github.com/Azure/azure-storage-fuse/blob/main/TSG.md)
+During the preview of BlobFuse2, refer to [The BlobFuse2 Troubleshooting Guide (TSG) on GitHub](https://github.com/Azure/azure-storage-fuse/blob/main/TSG.md)
 
 > [!IMPORTANT]
 > BlobFuse2 is the next generation of BlobFuse and is currently in preview.
@@ -31,6 +31,7 @@ During the preview of BlobFuse2, refer to [The BlobFuse2 Troubleshoot Guide (TSG
 
 ## See also
 
+- [Use Health Monitor to gain insights into BlobFuse2 mount activities and resource usage (preview)](blobfuse2-health-monitor.md)
 - [What is BlobFuse2? (preview)](blobfuse2-what-is.md)
 - [How to mount an Azure blob storage container on Linux with BlobFuse2 (preview)](blobfuse2-how-to-deploy.md)
 - [BlobFuse2 configuration reference (preview)](blobfuse2-configuration.md)
