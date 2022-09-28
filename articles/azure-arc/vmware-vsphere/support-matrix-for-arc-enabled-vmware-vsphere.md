@@ -64,9 +64,9 @@ Following are the minimum Azure roles required for various operations:
 | --- | --- | --- |
 | Onboarding your vCenter Server to Arc | Azure Arc VMware Private Clouds Onboarding | On the subscription or resource group into which you want to onboard |
 | Administering Arc-enabled VMware vSphere | Azure Arc VMware Administrator | On the subscription or resource group where vCenter server resource is created |
-| VM Provisioning | Azure Arc VMware Private Cloud User | On the subscription or resource group which contains the resource pool/cluster/host, datastore and virtual network resources, or on the resources themselves |
+| VM Provisioning | Azure Arc VMware Private Cloud User | On the subscription or resource group that contains the resource pool/cluster/host, datastore and virtual network resources, or on the resources themselves |
 | VM Provisioning | Azure Arc VMware VM Contributor | On the subscription or resource group where you want to provision VMs |
-| VM Operations | Azure Arc VMware VM Contributor | On the subscription or resource group which contains the VM, or on the VM itself |
+| VM Operations | Azure Arc VMware VM Contributor | On the subscription or resource group that contains the VM, or on the VM itself |
 
 Any roles with higher permissions such as *Owner/Contributor* role on the same scope, will also allow you to perform all the operations listed above.
 
@@ -80,7 +80,7 @@ To enable guest management (install the Arc connected machine agent), ensure
 - VM has VMware tools installed and running
 - Resource bridge has access to the host on which the VM is running
 - VM is running a supported operating system
-- VM has internet connectivity directly or through proxy. If the connection is through a proxy ensure [these URLs](#networking-requirements) are allow-listed.
+- VM has internet connectivity directly or through proxy. If the connection is through a proxy, ensure [these URLs](#networking-requirements) are allow-listed.
 
 ### Supported operating systems
 
