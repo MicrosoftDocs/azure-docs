@@ -464,7 +464,7 @@ You can add network security to an Azure storage account by [restricting access 
 
 - To access storage accounts behind firewalls using the ISE-versioned Azure Blob Storage connector that's only available in an ISE-based logic app, review [Access storage accounts through trusted virtual network](#access-storage-accounts-through-trusted-virtual-network).
 
-- To access storage accounts behind firewalls using the *built-in* Azure Blob Storage connector that's only available in Standard logic apps, review [Access storage accounts through VNet integration](#access-storage-accounts-through-vnet-integration).
+- To access storage accounts behind firewalls using the *built-in* Azure Blob Storage connector that's only available in Standard logic apps, review [Access storage accounts through virtual network integration](#access-storage-accounts-through-vnet-integration).
 
 ### Access storage accounts in other regions
 
@@ -500,11 +500,11 @@ To add your outbound IP addresses to the storage account firewall, follow these 
 
   You don't have to create a private endpoint. You can just permit traffic through the ISE outbound IPs on the storage account.
 
-### Access storage accounts through VNet integration
+### Access storage accounts through virtual network integration
 
 - Your logic app and storage account exist in the same region.
 
-  You can put the storage account in an Azure virtual network by creating a private endpoint, and then add that virtual network to the trusted virtual networks list. To give your logic app access to the storage account, you have to [Set up outbound traffic using VNet integration](../logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint.md#set-up-outbound) to enable connecting to resources in a virtual network. You can then add the VNet to the storage account's trusted virtual networks list.
+  You can put the storage account in an Azure virtual network by creating a private endpoint, and then add that virtual network to the trusted virtual networks list. To give your logic app access to the storage account, you have to [Set up outbound traffic using virtual network integration](../logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint.md#set-up-outbound) to enable connecting to resources in a virtual network. You can then add the virtual network to the storage account's trusted virtual networks list.
 
 - Your logic app and storage account exist in different regions.
 
