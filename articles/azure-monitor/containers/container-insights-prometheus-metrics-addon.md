@@ -24,6 +24,8 @@ Use any of the following methods to install the metrics addon on your cluster an
 
 ### [Azure portal](#tab/azure-portal)
 
+Managed Prometheus can be enabled in the Azure portal through either Container insights or an Azure Monitor workspace.
+
 #### Enable from Container insights
 
 1. Open the **Kubernetes services** menu in the Azure portal and select your AKS cluster.
@@ -170,10 +172,10 @@ Please assign the `Monitoring Data Reader` role to the Grafana System Assigned I
 
     | Parameter | Value |
     |:---|:---|
+    | `azureMonitorWorkspaceResourceId` | Resource ID for the Azure Monitor workspace. Retrieve from the **JSON view** on the **Overview** page for the Azure Monitor workspace. |
+    | `azureMonitorWorkspaceLocation` | Location of the Azure Monitor workspace. Retrieve from the **JSON view** on the **Overview** page for the Azure Monitor workspace. |
     | `clusterResourceId` | Resource ID for the AKS cluster. Retrieve from the **JSON view** on the **Overview** page for the cluster. |
     | `clusterLocation` | Location of the AKS cluster. Retrieve from the **JSON view** on the **Overview** page for the cluster. |
-    | `azureMonitorWorkspaceResourceId` | Resource ID for the Log Analytics workspace. Retrieve from the **JSON view** on the **Overview** page for the Log Analytics workspace. |
-    | `azureMonitorWorkspaceLocation` | Location of the Log Analytics workspace. Retrieve from the **JSON view** on the **Overview** page for the Log Analytics workspace. |
     | `metricLabelsAllowlist` | Comma-separated list of Kubernetes labels keys that will be used in the resource's labels metric. |
     | `metricAnnotationsAllowList` | Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric. |
     | `grafanaResourceId` | Resource ID for the managed Grafana instance. Retrieve from the **JSON view** on the **Overview** page for the Grafana instance. |
