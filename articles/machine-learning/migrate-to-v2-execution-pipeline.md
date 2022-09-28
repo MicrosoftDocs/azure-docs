@@ -1,7 +1,7 @@
 ---
-title: Migrate pipelines from SDK v1 to SDK v2
+title: Upgrade pipelines to SDK v2
 titleSuffix: Azure Machine Learning
-description: Migrate pipelines from v1 to v2 of Azure Machine Learning SDK
+description: Upgrade pipelines from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.reviewer: sgilley
 ms.custom: migration
 ---
 
-# Migrate pipelines from SDK v1 to SDK v2
+# Upgrade pipelines to SDK v2
 
 In SDK v2, "pipelines" are consolidated into jobs.
 
