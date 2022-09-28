@@ -30,6 +30,7 @@ Select the button below to try it out!
 
 [![Try your first data factory demo](./media/quickstart-get-started/try-it-now.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datafactory%2Fdata-factory-get-started%2Fazuredeploy.json)
 
+
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE583aX]
 
 
@@ -44,7 +45,7 @@ Try it now with one click!  After clicking the button below, the following objec
 
 ## Step 1: Click the button to start
 
-Select the button below to try it out!  
+Select the button below to try it out!  (If you clicked the one above already, you don't need to do it again.)
 
 [![Try your first data factory demo](./media/quickstart-get-started/try-it-now.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datafactory%2Fdata-factory-get-started%2Fazuredeploy.json)
 
