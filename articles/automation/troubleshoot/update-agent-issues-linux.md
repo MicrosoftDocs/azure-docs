@@ -38,7 +38,8 @@ On the Troubleshoot Update Agent page, select **Run Checks** to start the troubl
 
 When the checks are finished, the results are returned in the window. The check sections provide information on what each check is looking for.
 
-:::image type="content" source="../media/update-agent-issues-linux/actionable-tasks-linux.png" alt-text="Screenshot of Windows Troubleshooter.":::
+:::image type="content" source="../media/update-agent-issues-linux/actionable-tasks-linux-inline.png" alt-text="Screenshot of Linux Troubleshooter" border="false" lightbox="../media/update-agent-issues-linux/actionable-tasks-linux-expanded.png":::
+
 
 ## Prerequisite checks
 
@@ -161,7 +162,7 @@ This check makes sure that the machine has access to the internet and can be ign
 
 This check determines if the Hybrid Runbook Worker can properly communicate with Azure Automation in the Log Analytics workspace.
 
-Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to communicate with the registration endpoint. For a list of addresses and ports to open, see [Network planning](../automation-hybrid-runbook-worker.md#a-namenetwork-planninganetwork-planning)
+Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to communicate with the registration endpoint. For a list of addresses and ports to open, see [Network planning](../automation-hybrid-runbook-worker.md#network-planning)
 
 Fix this issue by allowing the prerequisite URLs. For more information, see [Update Management and Change Tracking and Inventory](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory)
 

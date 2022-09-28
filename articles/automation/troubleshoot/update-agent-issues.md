@@ -38,7 +38,7 @@ On the Troubleshoot Update Agent page, select **Run checks** to start the troubl
 
 Results are shown on the page when they're ready. The checks sections show what's included in each check.
 
-:::image type="content" source="../media/update-agent-issues/actionable-tasks-windows.png" alt-text="Screenshot of Windows Troubleshooter.":::
+:::image type="content" source="../media/update-agent-issues/actionable-tasks-windows-inline.png" alt-text="Screenshot of Windows Troubleshooter" border="false" lightbox="../media/update-agent-issues/actionable-tasks-windows-expanded.png":::
 
 ## Prerequisite checks
 
