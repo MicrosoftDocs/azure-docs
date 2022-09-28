@@ -99,7 +99,7 @@ Use the following steps to sign into a device, change the password, and fetch th
 Use the following steps to prepare a JSON file with the configuration to apply to one or more devices.
 
 > [!NOTE]
-> Use a config.json file that meets the needs of your organization. A [sample config.json file is available here](Need URL to file in repo).
+> Use a config.json file that meets the needs of your organization. A [sample config.json file is available here](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/tree/master/ZTP/).
 
 Run the following cmdlets in PowerShell:
 
