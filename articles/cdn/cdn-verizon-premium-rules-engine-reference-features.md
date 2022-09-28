@@ -30,7 +30,6 @@ The available types of features are:
 * [Origin](#origin)
 * [Specialty](#specialty)
 * [URL](#url)
-* [Web Application Firewall](#waf)
 
 ### <a name="access"></a>Access
 
