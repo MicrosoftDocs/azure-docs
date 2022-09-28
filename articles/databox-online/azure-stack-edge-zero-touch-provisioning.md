@@ -76,8 +76,6 @@ Use the following steps to import the PowerShell module and sign into the device
 
    ```azurepowershell
    Set-Login "https://<IP address>" "<Password1>" “<NewPassword>”
-   OR
-   Set-Login “https://<SerialNumber>.local” “<Password1>” “<NewPassword>”
    ```
 
 ## Change password and fetch the device configuration
@@ -88,12 +86,6 @@ Use the following steps to sign into a device, change the password, and fetch th
 
    ```azurepowershell
    Set-Login “https://<IP address>” “<CurrentPassword>” “<NewPassword>”
-   ```
-
-   For any subsequent sign into the device, use:
-
-   ```azurepowershell
-   Set-Login “https://<SerialNumber>.local” “<Password>”
    ```
 
 1. Fetch the device configuration.
@@ -146,6 +138,49 @@ Run the following cmdlets in PowerShell:
    ```azurepowershell
    Get-DeviceConfigurationStatus | to-json
    ```
+   Here is an example output:
+
+   ```output
+
+   PS C:\> Get-DeviceConfigurationStatus | to-json
+   {
+    "deviceConfiguration":  {
+                                "status":  "Complete",
+                                "results":  [
+                                                {
+                                                    "declarationName":  "Network",
+                                                    "resultCode":  "Success",
+                                                    "errorCode":  "None",
+                                                    "message":  null
+                                                },
+                                                {
+                                                    "declarationName":  "DeviceEndpoint",
+                                                    "resultCode":  "Success",
+                                                    "errorCode":  "None",
+                                                    "message":  null
+                                                },
+                                                {
+                                                    "declarationName":  "WebProxy",
+                                                    "resultCode":  "Success",
+                                                    "errorCode":  "None",
+                                                    "message":  null
+                                                },
+                                                {
+                                                    "declarationName":  "Time",
+                                                    "resultCode":  "Success",
+                                                    "errorCode":  "None",
+                                                    "message":  null
+                                                },
+                                                {
+                                                    "declarationName":  "Update",
+                                                    "resultCode":  "Success",
+                                                    "errorCode":  "None",
+                                                    "message":  null
+                                                }
+                                            ]
+                            }
+   }
+   ```
 
 1. After the operation is complete, fetch the updated device configuration.
 
@@ -158,10 +193,6 @@ Run the following cmdlets in PowerShell:
    ```azurepowershell
    Get-DeviceConfiguration | to-json | Out-File "C:\<Local path>\testconfig2.json"
    ```
-
-   Here's an example output:
-
-   ![PowerShell output showing Azure Stack Edge successful update.](./media/azure-stack-edge-zero-touch-provisioning/azure-stack-edge-zero-touch-provisioning-json-success.png)
 
 1. After saving device configuration settings to a JSON file, you can use steps in the following section to apply those device configuration settings to one or more devices that aren't yet activated. 
 
@@ -190,9 +221,26 @@ Run the following cmdlets in PowerShell:
    Get-DeviceConfiguration | to-json
    ```
 
-   Here's an example of output showing node.id:
+   Here's an example of output showing node.id for the device:
 
-   ![PowerShell output showing Azure Stack Edge node.id.](./media/azure-stack-edge-zero-touch-provisioning/azure-stack-edge-node-id.png)
+   ```output
+
+      PS C:\> Get-DeviceConfiguration | to-json
+      {
+        "device":  {
+                         "deviceInfo":  {
+                                            "model":  "Azure Stack Edge",
+                                            "softwareVersion":  "2.2.2075.5523",
+                                            "serialNumber":  "1HXQG13",
+                                            "isActivated":  false,
+                                            "nodes":  [
+                                                    {
+                                                        "id":  "d0d8cb16-60d4-4970-bb65-b9d254d1a289",
+                                                        "name":  "1HXQG13"
+                                                    }
+                                                ]
+                                  },
+   ```
 
 1. Create an update package that uses a local JSON file for device configuration settings.
 
@@ -267,7 +315,24 @@ Use the following steps to activate an Azure Stack Edge device. Note that activa
 
    Here's an example of output showing device activation status:
 
-   ![PowerShell output showing Azure Stack Edge device activation status.](./media/azure-stack-edge-zero-touch-provisioning/azure-stack-edge-device-activation.png)
+   ```output
+   PS C:\> Get-DeviceConfiguration | to-json
+   {
+    "device":  {
+                   "deviceInfo":  {
+                                      "model":  "Azure Stack Edge",
+                                      "softwareVersion":  "2.2.2075.5523",
+                                      "serialNumber":  "1HXQJ23",
+                                      "isActivated":  true,
+                                      "nodes":  [
+                                                    {
+                                                        "id":  "d0d8ca16-60d4-4970-bb65-b9d254d1a289",
+                                                        "name":  "1HXQG13"
+                                                    }
+                                                ]
+                                  },
+
+   ```
 
 ## Quickly fetch or change device configuration settings
 
@@ -319,7 +384,124 @@ Use the following steps to sign into the device and run device diagnostics to ve
    ```
    Here's an example of output showing device diagnostics:
 
-   ![PowerShell output showing Azure Stack Edge device diagnostics.](./media/azure-stack-edge-zero-touch-provisioning/azure-stack-edge-zero-touch-provisioning-diagnostics-sample-output.png)
+   ```output
+          PS C:\> Get-DeviceDiagnostic | to-json
+      {
+         "lastRefreshTime":  "2022-09-27T20:12:10.643768Z",
+         "status":  "Complete",
+         "diagnostics":  [
+                        {
+                            "test":  "System software",
+                            "category":  "Software",
+                            "status":  "Succeeded",
+                            "recommendedActions":  ""
+                        },
+                        {
+                            "test":  "Disks",
+                            "category":  "Hardware, Disk",
+                            "status":  "Succeeded",
+                            "recommendedActions":  ""
+                        },
+                        {
+                            "test":  "Power Supply Units",
+                            "category":  "Hardware",
+                            "status":  "Succeeded",
+                            "recommendedActions":  ""
+                        },
+                        {
+                            "test":  "Network interfaces",
+                            "category":  "Hardware",
+                            "status":  "Succeeded",
+                            "recommendedActions":  ""
+                        },
+                        {
+                            "test":  "CPUs",
+                            "category":  "Hardware",
+                            "status":  "Succeeded",
+                            "recommendedActions":  ""
+                        },
+                        {
+                            "test":  "Network settings ",
+                            "category":  "Logical, Network",
+                            "status":  "Succeeded",
+                            "recommendedActions":  ""
+                        },
+                        {
+                            "test":  "Internet connectivity",
+                            "category":  "Logical, Network",
+                            "status":  "Succeeded",
+                            "recommendedActions":  ""
+                        },
+                        {
+                            "test":  "Web proxy",
+                            "category":  "Logical, Network",
+                            "status":  "NotApplicable",
+                            "recommendedActions":  ""
+                        },
+                        {
+                            "test":  "Time sync ",
+                            "category":  "Logical, Time",
+                            "status":  "Succeeded",
+                            "recommendedActions":  ""
+                        },
+                        {
+                            "test":  "Azure portal connectivity",
+                            "category":  "Logical, Network, AzureConnectivity",
+                            "status":  "Succeeded",
+                            "recommendedActions":  ""
+                        },
+                        {
+                            "test":  "Azure storage account credentials",
+                            "category":  "Logical, AzureConnectivity",
+                            "status":  "NotApplicable",
+                            "recommendedActions":  ""
+                        },
+                        {
+                            "test":  "Software update readiness",
+                            "category":  "Logical, Update",
+                            "status":  "Succeeded",
+                            "recommendedActions":  ""
+                        },
+                        {
+                            "test":  "User passwords",
+                            "category":  "Logical, PasswordExpiry",
+                            "status":  "Succeeded",
+                            "recommendedActions":  ""
+                        },
+                        {
+                            "test":  "Azure consistent services health check",
+                            "category":  "ACS",
+                            "status":  "Succeeded",
+                            "recommendedActions":  ""
+                        },
+                        {
+                            "test":  "Certificates",
+                            "category":  "Certificates",
+                            "status":  "Succeeded",
+                            "recommendedActions":  ""
+                        },
+                        {
+                            "test":  "Azure container read/write",
+                            "category":  "Logical, Network, AzureConnectivity",
+                            "status":  "NotApplicable",
+                            "recommendedActions":  ""
+                        },
+                        {
+                            "test":  "Azure Edge compute runtime",
+                            "category":  "Logical, AzureEdgeCompute",
+                            "status":  "Succeeded",
+                            "recommendedActions":  ""
+                        },
+                        {
+                            "test":  "Compute acceleration",
+                            "category":  "Hardware, Logical",
+                            "status":  "Succeeded",
+                            "recommendedActions":  ""
+                        }
+                    ]
+       }
+
+   ```
 
 ## Troubleshooting
 
