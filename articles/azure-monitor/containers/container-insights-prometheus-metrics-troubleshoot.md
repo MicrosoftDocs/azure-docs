@@ -10,79 +10,67 @@ ms.reviewer: aul
 
 Follow the steps in this article to determine the cause of Prometheus metrics not being collected as expected.
 
-## Pods Status
+## Azure Monitor workspace throttling
 
-Check the pod status with the command `kubectl get pods -n kube-system | grep ama-metrics` and check the status of the pods.
+Verify that the volume of metrics sent to the Azure Monitor workspace isn't over the limit.
 
+## Pod status
+
+Check the pod status with the command `kubectl get pods -n kube-system | grep ama-metrics`.
+
+- There should be one `ama-metrics-xxxxxxxxxx-xxxxx` replicaset pod, one `ama-metrics-ksm-*` pod, and an `ama-metrics-node-*` pod for each node on the cluster.
+- Each pod state should be `Running` and have an equal number of restarts to the number of configmap changes that have been applied:
 :::image type="content" source="media/container-insights-prometheus-metrics-troubleshoot/pod-status.png" lightbox="media/container-insights-prometheus-metrics-troubleshoot/pod-status.png" alt-text="Screenshot showing pod status.":::
 
-If pod state is `Running` but has restarts, run `kubectl describe pod <ama-metrics pod> -n kube-system`.
+If each pod state is `Running` but one or more pods have restarts, run `kubectl describe pod <ama-metrics pod name> -n kube-system`.
 
-If the reason for the restart is `OOMKilled`, the pod cannot keep up with the volume of metrics. The memory limit can be increased using the values in the helm chart for both the replicaset and the daemonset. Pod restarts are expected if configmap changes have been made.
+- This provides the reason for the restarts. Pod restarts are expected if configmap changes have been made. If the reason for the restart is `OOMKilled`, the pod can't keep up with the volume of metrics. See the scale recommendations for the volume of metrics.
 
-## Container Logs
-View the container logs with the command `kubectl get logs <ama-metrics pod> -n kube-system`.
+If the pods are running as expected, the next place to check is the container logs.
 
-- Check there are no errors with parsing the Prometheus config, merging with any default scrape targets enabled, and validating the full config.
-- Check if there are errors from MetricsExtension for authenticating with the MDM account.
-- Check if there are errors from the OpenTelemetry collector for scraping.
-
-Run the command `kubectl logs <ama-metrics pod> -n kube-system -c addon-token-adapter`.
-
-:::image type="content" source="media/container-insights-prometheus-metrics-troubleshoot/addon-token-adapter.png" lightbox="media/container-insights-prometheus-metrics-troubleshoot/addon-token-adapter.png" alt-text="Screenshot showing addon token log.":::
-
-Run the command `kubectl logs <ama-metrics pod> -n kube-system -c prometheus-collector`.
-
-     
-- At startup, any initial errors will be printed in red. Warnings will be printed in yellow. To view colors, you require at least PowerShell version 7 or a linux distribution.
-- If there's an issue getting the auth token.
+## Container logs
+View the container logs with the command `kubectl logs <ama-metrics pod name> -n kube-system -c prometheus-collector`. At startup, any initial errors are printed in red. Warnings are printed in yellow. (Viewing the colored logs requires at least PowerShell version 7 or a linux distribution.)
+- Verify if there's an issue with getting the authentication token:
     - The message *No configuration present for the AKS resource* will be logged every 5 minutes. 
     * The pod will restart every 15 minutes to try again with the error: *No configuration present for the AKS resource*.
+- Verify there are no errors with parsing the Prometheus config, merging with any default scrape targets enabled, and validating the full config.
+- Verify there are no errors from MetricsExtension regarding authenticating with the Azure Monitor workspace.
+- Verify there are no errors from the OpenTelemetry collector about scraping the targets.
 
+Run the command `kubectl logs <ama-metrics pod name> -n kube-system -c addon-token-adapter`.
+- This will show an error if there's an issue with authenticating with the Azure Monitor workspace. Below is an example of logs with no issues:
+:::image type="content" source="media/container-insights-prometheus-metrics-troubleshoot/addon-token-adapter.png" lightbox="media/container-insights-prometheus-metrics-troubleshoot/addon-token-adapter.png" alt-text="Screenshot showing addon token log.":::
 
-Run the command `kubectl describe pod ama-metrics -n kube-system`. This should provide the reason for any restarts. If `otelcollector` is not running, the container may have been OOM-killed. See the scale recommendations for the volume of metrics.
-
+If there are no errors in the logs, the Prometheus interface can be used for debugging to verify the expected configuration and targets being scraped.
 
 ## Prometheus interface
 
-Port forward into either the replicaset or the daemonset to check the config, service discovery and targets endpoints as described below.
+Every `ama-metrics-*` pod has the Prometheus Agent mode User Interface available on port 9090/ Port forward into either the replicaset or the daemonset to check the config, service discovery and targets endpoints as described below. This is used to verify the custom configs are correct, the intended targets have been discovered for each job, and there are no errors with scraping specific targets.
 
 Run the command `kubectl port-forward <ama-metrics pod> -n kube-system 9090`.
 
-
-Open a browser to the address `127.0.0.1:9090/config`. This will have the full scrape configs. Check that the job is listed.
-
+- Open a browser to the address `127.0.0.1:9090/config`. This will have the full scrape configs. Verify all jobs are included in the config.
 :::image type="content" source="media/container-insights-prometheus-metrics-troubleshoot/config-ui.png" lightbox="media/container-insights-prometheus-metrics-troubleshoot/config-ui.png" alt-text="Screenshot showing configuration jobs.":::
 
 
-Go to `127.0.0.1:9090/service-discovery` to view the targets discovered by the service discovery object specified and what the relabel_configs have filtered the targets to 
-
+- Go to `127.0.0.1:9090/service-discovery` to view the targets discovered by the service discovery object specified and what the relabel_configs have filtered the targets to be. For example, if missing metrics from a certain pod, you can find if that pod was discovered and what its URI is. You can then use this URI when looking at the targets to see if there are any scrape errors. 
 :::image type="content" source="media/container-insights-prometheus-metrics-troubleshoot/service-discovery.png" lightbox="media/container-insights-prometheus-metrics-troubleshoot/service-discovery.png" alt-text="Screenshot showing service discovery.":::
 
 
-Go to `127.0.0.1:9090/targets` to view all jobs, the last time the endpoint for that job was scraped, and any errors 
-
+- Go to `127.0.0.1:9090/targets` to view all jobs, the last time the endpoint for that job was scraped, and any errors 
 :::image type="content" source="media/container-insights-prometheus-metrics-troubleshoot/targets.png" lightbox="media/container-insights-prometheus-metrics-troubleshoot/targets.png" alt-text="Screenshot showing targets.":::
 
-
-Check that all custom configs are correct, the targets have been discovered for the job, and there are no errors scraping specific targets.
-
-For example, if you're missing metrics from a certain pod:
-- Go to /config to check if scrape job is present with correct settings.
-- Go to /service-discovery to find the url of the discovered pod.
-- Go to /targets to see if there's an issue scraping that url.
-- If there's no issue, follow debug-mode instructions, and see if metrics expected are there.
-- If metrics are not there, it could be an issue with the name length or number of labels. See service limits for Prometheus metrics.
+If there are no issues and the intended targets are being scraped, you can view the exact metrics being scraped by enabling debug mode.
 
 ## Debug mode
-The metrics addon can be configured to run in debug mode by changing the setting `enabled` to true following from [here](https://aka.ms/azureprometheus-addondebug). This mode can affect performance and should only be enabled for a short time for debugging purposes
 
+The metrics addon can be configured to run in debug mode by changing the configmap setting `enabled` under `debug-mode` to `true` by following the instructions [here](container-insights-prometheus-scrape-configuration.md#debug-mode). This mode can affect performance and should only be enabled for a short time for debugging purposes.
 
-An extra server is created that hosts all the metrics scraped. Run `kubectl port-forward <ama-metrics pod> -n kube-system 9091` and go to `127.0.0.1:9091/metrics` in a browser to see if the metrics were scraped by the OpenTelemetry Collector. This can be done for both the replicaset and daemonset pods if advanced mode is enabled 
+When enabled, all Prometheus metrics that are scraped are hosted at port 9090. Run `kubectl port-forward <ama-metrics pod name> -n kube-system 9091` and go to `127.0.0.1:9091/metrics` in a browser to see if the metrics were scraped by the OpenTelemetry Collector. This can be done for every `ama-metrics-*` pod.
 
+If metrics aren't there, there could be an issue with the metric or label name lengths or the number of labels. See below for the service limits for Prometheus metrics.
 
-
-### Metric names, label names & label values
+## Metric names, label names & label values
 
 Agent based scraping currently has the limitations in the following table:
 

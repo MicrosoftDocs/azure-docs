@@ -24,7 +24,7 @@ This article lists limits in different areas of Azure Monitor.
 
 [!INCLUDE [monitoring-limits-autoscale](../../includes/azure-monitor-limits-autoscale.md)]
 
-## Metrics
+## Prometheus metrics
 
 [!INCLUDE [monitoring-limits-metrics](../../includes/azure-monitor-limits-metrics.md)]
 
