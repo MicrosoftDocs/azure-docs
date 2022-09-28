@@ -15,7 +15,7 @@
     - name: How it works
       displayName: concepts, definitions, glossary
       href: concept-azure-machine-learning-v2.md
-- name: Upgrade to SDK v2
+- name: Upgrade to v2
   items:
     - name: Upgrade overview
       displayName: migration
