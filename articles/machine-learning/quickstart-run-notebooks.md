@@ -24,12 +24,67 @@ In this quickstart, you'll run Jupyter notebooks on a *compute instance* in Azur
 
 ## Create a new notebook
 
-Create a new notebook from studio.
+Create a new notebook in studio.
 
 1. Sign into [Azure Machine Learning studio](https://ml.azure.com)
 1. Select your workspace, if it isn't already open
 1. On the left, select **Notebooks**
-1. 
+1. Select **Create new file** 
+    
+    :::image type="content" source="media/quickstart-run-notebooks/create-new-file.png" alt-text="Screenshot: create a new notebook file.":::
+1. Name your new notebook **my-new-notebook.ipynb**
+1. If you stopped your compute instance at the end of the [Quickstart: Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md), start it again now:
+
+    :::image type="content" source="media/quickstart-run-notebooks/start-compute.png" alt-text="Screenshot: Start a compute instance.":::
+
+## Create a markdown cell
+
+1. On the upper right of each notebook cell is a toolbar of actions you can use for that cell.  Select the **Convert to markdown cell** tool to change the cell to markdown.
+
+    :::image type="content" source="media/quickstart-run-notebooks/convert-to-markdown.png" alt-text="Screenshot: Convert to markdown":::
+
+1. Double click on the cell to open it.
+1. Inside the cell, type the following:
+
+    ```markdown
+    # Testing a new notebook
+    Use markdown cells to add nicely formatted content to the notebook.
+    ```
+
+## Create a code cell
+
+1. Just below the cell, select **+ Code** to create a new code cell.
+1. Inside this cell, type the following
+
+    ```python
+    print("Hello, world!")
+    ```
+
+## Run the code
+
+1. You can run code cells either by using **Shift + Enter**, or by selecting the **Run cell** tool to the right of the cell.  Use one of these methods to run the cell now.
+
+    :::image type="content" source="media/quickstart-run-notebooks/run-cell.png" alt-text="Screenshot: run cell tool.":::
+
+1. The brackets to the left of the cell now have a number inside.  This number represents the order in which cells were run.  Since this is the first cell you've run, you'll see `[1]` next to the cell.  You also see the output of the cell, `Hello, world!`.
+
+1. Run the cell again.  You'll see the same output (since you didn't change the code), but now the brackets contain `[2]`.
+
+## Run a second code cell
+
+1. Add a second code cell with this content:
+
+    ```python
+    two = 1 + 1
+    print(two)
+    ```
+
+1. Run this new cell.  
+1. Your notebooks now looks like this:
+
+    :::image type="content" source="media/quickstart-run-notebooks/notebook.png" alt-text="Screenshot: Notebook contents.":::
+
+## Explore sample code
 
 ## Clean up resources
 
