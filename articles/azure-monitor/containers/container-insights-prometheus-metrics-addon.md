@@ -24,6 +24,8 @@ Use any of the following methods to install the metrics addon on your cluster an
 
 ### [Azure portal](#tab/azure-portal)
 
+Managed Prometheus can be enabled in the Azure portal through either Container insights or an Azure Monitor workspace.
+
 #### Enable from Container insights
 
 1. Open the **Kubernetes services** menu in the Azure portal and select your AKS cluster.
@@ -63,10 +65,11 @@ Use `az aks update` with the `-enable-azuremonitormetrics` option to install the
 
 
 **Create a new default Azure Monitor workspace.**<br>
-The workspace will be in the region specific in [Region mappings](#region-mappings).
+If no Azure Monitor Workspace is specified then a default Azure Monitor Workspace will be created in the `DefaultRG-<cluster_region>` following the format `DefaultAzureMonitorWorkspace-<mapped_region>`.
+This Azure Monitor Workspace will be in the region specific in [Region mappings](#region-mappings).
 
 ```azurecli
-az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group>`
+az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group>
 ```
 
 **Use an existing Azure Monitor workspace.**<br>
@@ -80,7 +83,7 @@ az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resourc
 This creates a link between the Azure Monitor workspace and the Grafana workspace.
 
 ```azurecli
-az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <azure-monitor-workspace-name-resource-id> --grafana-resource-id  <grafana-workspace-name-resource-id>`
+az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <azure-monitor-workspace-name-resource-id> --grafana-resource-id  <grafana-workspace-name-resource-id>
 ```
 
 The output for each command will look similar to the following:
@@ -169,10 +172,10 @@ Please assign the `Monitoring Data Reader` role to the Grafana System Assigned I
 
     | Parameter | Value |
     |:---|:---|
+    | `azureMonitorWorkspaceResourceId` | Resource ID for the Azure Monitor workspace. Retrieve from the **JSON view** on the **Overview** page for the Azure Monitor workspace. |
+    | `azureMonitorWorkspaceLocation` | Location of the Azure Monitor workspace. Retrieve from the **JSON view** on the **Overview** page for the Azure Monitor workspace. |
     | `clusterResourceId` | Resource ID for the AKS cluster. Retrieve from the **JSON view** on the **Overview** page for the cluster. |
     | `clusterLocation` | Location of the AKS cluster. Retrieve from the **JSON view** on the **Overview** page for the cluster. |
-    | `azureMonitorWorkspaceResourceId` | Resource ID for the Log Analytics workspace. Retrieve from the **JSON view** on the **Overview** page for the Log Analytics workspace. |
-    | `azureMonitorWorkspaceLocation` | Location of the Log Analytics workspace. Retrieve from the **JSON view** on the **Overview** page for the Log Analytics workspace. |
     | `metricLabelsAllowlist` | Comma-separated list of Kubernetes labels keys that will be used in the resource's labels metric. |
     | `metricAnnotationsAllowList` | Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric. |
     | `grafanaResourceId` | Resource ID for the managed Grafana instance. Retrieve from the **JSON view** on the **Overview** page for the Grafana instance. |
