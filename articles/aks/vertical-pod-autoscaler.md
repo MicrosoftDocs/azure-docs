@@ -3,7 +3,7 @@ title: Vertical Pod Autoscaling (preview) in Azure Kubernetes Service (AKS)
 description: Learn how to vertically autoscale your pod on an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 09/22/2022
+ms.date: 09/27/2022
 ---
 
 # Vertical Pod Autoscaling (preview) in Azure Kubernetes Service (AKS)
@@ -14,7 +14,7 @@ This article provides an overview of Vertical Pod Autoscaler (VPA) (preview) in 
 
 Vertical Pod Autoscaler provides the following benefits:
 
-* It analyzes and adjusts processor and memory resources to *right size* your applications. VPA is not only responsible for scaling up, but also for scaling down based on their resource use  over time.
+* It analyzes and adjusts processor and memory resources to *right size* your applications. VPA is not only responsible for scaling up, but also for scaling down based on their resource use over time.
 
 * A Pod is evicted if it needs to change its resource requests based on if its scaling mode is set to *auto*
 
@@ -29,13 +29,15 @@ Vertical Pod Autoscaler provides the following benefits:
 ## Limitations
 
 * Vertical Pod autoscaling supports a maximum of 500 `VerticalPodAutoscaler` objects per cluster.
-* With this preview release, you cannot change the `controllerValue` and `updateMode` fields.
+* With this preview release, you cannot change the `controllerValue` and `updateMode` properties. While you can see them from the `managedCluster` object, they are reserved for future use.
 
 ## Before you begin
 
-* You have an existing AKS cluster. If you don't, see [Getting started with Azure Kubernetes Service][get-started-with-aks].
+* Your AKS cluster is running Kubernetes version 1.22 and higher.
 
 * The Azure CLI version 2.0.64 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+
+* The `aks-preview` extension version 0.5.102 or later.
 
 * `kubectl` should be connected to the cluster you want to install VPA.
 
@@ -50,7 +52,7 @@ The Virtical Pod Autoscaler is an API resource in the Kubernetes autoscaling API
 To install the aks-vpapreview preview feature, run the following command:
 
 ```azurecli
-az feature register Microsoft.ContainerService/AKS-VPAPreview
+az feature register --namespace Microsoft.ContainerService --name AKS-VPAPreview
 ```
 
 ## Deploy, upgrade, or disable VPA on a cluster
@@ -87,6 +89,15 @@ In this section, you deploy, upgrade, or disable the Vertical Pod Autoscaler on 
 kubectl get pods -n kube-system
 ```
 
+The output of the command includes the following results specific to the VPA pods. The pods should show a *running* status.
+
+```output
+NAME                                        READY   STATUS    RESTARTS   AGE
+vpa-admission-controller-7867874bc5-vjfxk   1/1     Running   0          41m
+vpa-recommender-5fd94767fb-ggjr2            1/1     Running   0          41m
+vpa-updater-56f9bfc96f-jgq2g                1/1     Running   0          41m
+```
+
 ## Test your Vertical Pod Autoscaler installation
 
 The following steps create a deployment with two pods, each running a single container that requests 100 millicores and tries to utilize slightly above 500 millicores. Also created is a VPA config pointing at the deployment. The VPA observes the behavior of the pods, and after about five minutes, they are updated with a higher CPU request.
@@ -110,25 +121,43 @@ The following steps create a deployment with two pods, each running a single con
     The example output resembles the following:
 
     ```bash
-    hamster-c7d89d6db-rglf5   1/1     Running   0          48s
-    hamster-c7d89d6db-znvz5   1/1     Running   0          48s
+    hamster-78f9dcdd4c-hf7gk   1/1     Running   0          24s
+    hamster-78f9dcdd4c-j9mc7   1/1     Running   0          24s
     ```
 
-1. Use the [kubectl describe][kubectl-describe] command on one of the pods to view its CPU and memory reservation. Replace "example ID" with one of the IDs returned in your output from the previous step.
+1. Use the [kubectl describe][kubectl-describe] command on one of the pods to view its CPU and memory reservation. Replace "exampleID" with one of the pod IDs returned in your output from the previous step.
 
     ```bash
-    kubectl describe pod hamster-<exampleID>
+    kubectl describe pod hamster-exampleID
     ```
 
-    The example output resembles the following:
+    The example output is a snippet of the information about the cluster:
 
     ```bash
-    
+     hamster:
+        Container ID:  containerd://
+        Image:         k8s.gcr.io/ubuntu-slim:0.1
+        Image ID:      sha256:
+        Port:          <none>
+        Host Port:     <none>
+        Command:
+          /bin/sh
+        Args:
+          -c
+          while true; do timeout 0.5s yes >/dev/null; sleep 0.5s; done
+        State:          Running
+          Started:      Wed, 28 Sep 2022 15:06:14 -0400
+        Ready:          True
+        Restart Count:  0
+        Requests:
+          cpu:        100m
+          memory:     50Mi
+        Environment:  <none>
     ```
 
     The pod has 100 millicpu and 50 Mibibytes of memory reserved in this example. For this sample application, the pod needs less than 100 millicpu to run, so there is no CPU capacity available. The pods also reserves much less memory than needed. The Vertical Pod Autoscaler *vpa-recommender* deployment analyzes the pods hosting the hamster application to see if the CPU and memory requirements are appropriate. If adjustments are needed, the vpa-updater relaunches the pods with updated values.
 
-1. Wait for the vpa-updater to launch a new hamster pod. This should take a minute or two. You can monitor the pods using the [kubectl get][kubectl-get] command.
+1. Wait for the vpa-updater to launch a new hamster pod. This should take a few minutes. You can monitor the pods using the [kubectl get][kubectl-get] command.
 
     ```bash
     kubectl get --watch pods -l app=hamster
@@ -140,10 +169,17 @@ The following steps create a deployment with two pods, each running a single con
     kubectl describe pod hamster-<exampleID>
     ```
 
-    The example output resembles the following:
+    The example output is a snippet of the information describing the pod:
 
     ```bash
-    
+    State:          Running
+      Started:      Wed, 28 Sep 2022 15:09:51 -0400
+    Ready:          True
+    Restart Count:  0
+    Requests:
+      cpu:        587m
+      memory:     262144k
+    Environment:  <none>
     ```
 
     In the previous output, you can see that the CPU reservation increased to 587 millicpu, which is over five times the original value. The memory increased to 262,144 Kilobytes, which is around 250 Mibibytes, or five times the original value. This pod was under-resourced, and the Vertical Pod Autoscaler corrected the estimate with a much more appropriate value.
@@ -154,10 +190,17 @@ The following steps create a deployment with two pods, each running a single con
     kubectl describe vpa/hamster-vpa
     ```
 
-    The example output resembles the following:
+    The example output is a snippet of the information about the resource utilization:
 
     ```bash
-    
+     State:          Running
+      Started:      Wed, 28 Sep 2022 15:09:51 -0400
+    Ready:          True
+    Restart Count:  0
+    Requests:
+      cpu:        587m
+      memory:     262144k
+    Environment:  <none>
     ```
 
 ## Set Pod Autoscaler requests automatically
@@ -174,29 +217,30 @@ Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automaticall
 
     ```yml
     apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: azure-autodeploy
-spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: azure-autodeploy
-  template:
+    kind: Deployment
     metadata:
-      labels:
-        app: azure-autodeploy
+      name: azure-autodeploy
     spec:
-      containers:
-      - name: mycontainer
-        image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
-        resources:
-          requests:
-            cpu: 100m
-            memory: 50Mi
-        command: ["/bin/sh"]
-        args: ["-c", "while true; do timeout 0.5s yes >/dev/null; sleep 0.5s; done"]
+      replicas: 2
+      selector:
+        matchLabels:
+          app: azure-autodeploy
+      template:
+        metadata:
+          labels:
+            app: azure-autodeploy
+        spec:
+          containers:
+          - name: mycontainer
+            image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
+            resources:
+              requests:
+                cpu: 100m
+                memory: 50Mi
+            command: ["/bin/sh"]
+            args: ["-c", "while true; do timeout 0.5s yes >/dev/null; sleep 0.5s; done"]
     ```
+
     This manifest describes a deployment that has two Pods. Each Pod has one container that requests 100 milliCPU and 50 MiB of memory.
 
 3. Create the pod with the [kubectl create][kubectl-create] command, as shown in the following example:
