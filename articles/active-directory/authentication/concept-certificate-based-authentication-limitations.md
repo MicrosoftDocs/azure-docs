@@ -54,9 +54,9 @@ The following scenarios aren't supported:
 
 ## Smartcard providers
 
-| Provider | Windows | Mac OS | iOS | Android |
-| --------------------------|---------------- |
-| YubiKey | ![y] | ![y] | ![y] | ![y] |
+|Provider | Windows | Mac OS | iOS | Android |
+|--------------------------|-----------------|
+|YubiKey | ![y] | ![y] | ![y] | ![y] |
 
 ## Next steps
 
