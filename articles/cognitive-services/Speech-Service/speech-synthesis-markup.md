@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 03/23/2022
+ms.date: 09/16/2022
 ms.author: eur
 ms.devlang: cpp, csharp, java, javascript, objective-c, python
 ms.custom: "devx-track-js, devx-track-csharp"
@@ -18,6 +18,9 @@ ms.custom: "devx-track-js, devx-track-csharp"
 
 Speech Synthesis Markup Language (SSML) is an XML-based markup language that lets developers specify how input text is converted into synthesized speech by using text-to-speech. Compared to plain text, SSML allows developers to fine-tune the pitch, pronunciation, speaking rate, volume, and more of the text-to-speech output. Normal punctuation, such as pausing after a period, or using the correct intonation when a sentence ends with a question mark are automatically handled.
 
+> [!TIP]
+> Author plain text and SSML using the [Audio Content Creation](https://aka.ms/audiocontentcreation) tool in Speech Studio. You can listen to the output audio and adjust the SSML to improve speech synthesis. For more information, see [Speech synthesis with the Audio Content Creation tool](how-to-audio-content-creation.md).
+
 The Speech service implementation of SSML is based on the World Wide Web Consortium's [Speech Synthesis Markup Language Version 1.0](https://www.w3.org/TR/2004/REC-speech-synthesis-20040907/).
 
 > [!IMPORTANT]
@@ -25,7 +28,7 @@ The Speech service implementation of SSML is based on the World Wide Web Consort
 
 ## Prebuilt neural voices and custom neural voices
 
-Use a humanlike neural voice or create your own custom neural voice unique to your product or brand. For a complete list of supported languages, locales, and voices, see [Language support](language-support.md). To learn more about using a prebuilt neural voice and a custom neural voice, see [Text-to-speech overview](text-to-speech.md).
+Use a humanlike neural voice or create your own custom neural voice unique to your product or brand. For a complete list of supported languages, locales, and voices, see [Language support](language-support.md?tabs=stt-tts?tabs=stt-tts). To learn more about using a prebuilt neural voice and a custom neural voice, see [Text-to-speech overview](text-to-speech.md).
 
 > [!NOTE]
 > You can hear voices in different styles and pitches reading example text by using this [text-to-speech website](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
@@ -75,12 +78,12 @@ The `voice` element is required. It's used to specify the voice that's used for 
 
 | Attribute | Description                                                                                                                                               | Required or optional |
 | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| `name`    | Identifies the voice used for text-to-speech output. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech). | Required             |
+| `name`    | Identifies the voice used for text-to-speech output. For a complete list of supported voices, see [Language support](language-support.md?tabs=stt-tts). | Required             |
 
 **Example**
 
 > [!NOTE]
-> This example uses the `en-US-JennyNeural` voice. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech).
+> This example uses the `en-US-JennyNeural` voice. For a complete list of supported voices, see [Language support](language-support.md?tabs=stt-tts).
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -98,7 +101,7 @@ Within the `speak` element, you can specify multiple voices for text-to-speech o
 
 | Attribute | Description                                                                                                                                               | Required or optional |
 | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| `name`    | Identifies the voice used for text-to-speech output. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech). | Required             |
+| `name`    | Identifies the voice used for text-to-speech output. For a complete list of supported voices, see [Language support](language-support.md?tabs=stt-tts). | Required             |
 
 **Example**
 
@@ -119,7 +122,7 @@ By default, text-to-speech synthesizes text by using a neutral speaking style fo
 
 Styles, style degree, and roles are supported for a subset of neural voices. If a style or role isn't supported, the service uses the default neutral speech. To determine what styles and roles are supported for each voice, use:
 
-- The [Voice styles and roles](language-support.md#voice-styles-and-roles) table.
+- The [Voice styles and roles](language-support.md?tabs=stt-tts#voice-styles-and-roles) table.
 - The [Voice List API](rest-text-to-speech.md#get-a-list-of-voices).
 - The code-free [Audio Content Creation](https://aka.ms/audiocontentcreation) portal.
 
@@ -132,6 +135,8 @@ Styles, style degree, and roles are supported for a subset of neural voices. If 
 ### Style
 
 You use the `mstts:express-as` element to express emotions like cheerfulness, empathy, and calm. You can also optimize the voice for different scenarios like customer service, newscast, and voice assistant.
+
+For a list of supported styles per neural voice, see [supported voice styles and roles](language-support.md?tabs=stt-tts#voice-styles-and-roles).
 
 **Syntax**
 
@@ -158,7 +163,7 @@ The following table has descriptions of each supported style.
 
 |Style|Description|
 |-----------|-------------|
-|`style="advertisement-upbeat"`|Expresses an excited and high-energy tone for promoting a product or service.|
+|`style="advertisement_upbeat"`|Expresses an excited and high-energy tone for promoting a product or service.|
 |`style="affectionate"`|Expresses a warm and affectionate tone, with higher pitch and vocal energy. The speaker is in a state of attracting the attention of the listener. The personality of the speaker is often endearing in nature.|
 |`style="angry"`|Expresses an angry and annoyed tone.|
 |`style="assistant"`|Expresses a warm and relaxed tone for digital assistants.|
@@ -187,15 +192,17 @@ The following table has descriptions of each supported style.
 |`style="sad"`|Expresses a sorrowful tone.|
 |`style="serious"`|Expresses a strict and commanding tone. Speaker often sounds stiffer and much less relaxed with firm cadence.|
 |`style="shouting"`|Speaks like from a far distant or outside and to make self be clearly heard|
-|`style="sports-commentary"`|Expresses a relaxed and interesting tone for broadcasting a sports event.|
-|`style="sports-commentary-excited"`|Expresses an intensive and energetic tone for broadcasting exciting moments in a sports event.|
+|`style="sports_commentary"`|Expresses a relaxed and interesting tone for broadcasting a sports event.|
+|`style="sports_commentary_excited"`|Expresses an intensive and energetic tone for broadcasting exciting moments in a sports event.|
 |`style="whispering"`|Speaks very softly and make a quiet and gentle sound|
 |`style="terrified"`|Expresses a very scared tone, with faster pace and a shakier voice. It sounds like the speaker is in an unsteady and frantic status.|
 |`style="unfriendly"`|Expresses a cold and indifferent tone.|
 
 ### Style degree
 
-The intensity of speaking style can be adjusted to better fit your use case. You specify a stronger or softer style with the `styledegree` attribute to make the speech more expressive or subdued. Speaking style degree adjustments are supported for Chinese (Mandarin, Simplified) neural voices.
+The intensity of speaking style can be adjusted to better fit your use case. You specify a stronger or softer style with the `styledegree` attribute to make the speech more expressive or subdued. 
+
+For a list of neural voices that support speaking style degree, see [supported voice styles and roles](language-support.md?tabs=stt-tts#voice-styles-and-roles).
 
 **Syntax**
 
@@ -220,12 +227,9 @@ This SSML snippet illustrates how the `styledegree` attribute is used to change 
 
 ### Role
 
-Apart from adjusting the speaking styles and style degree, you can also adjust the `role` parameter so that the voice imitates a different age and gender. For example, a male voice can raise the pitch and change the intonation to imitate a female voice, but the voice name won't be changed. Role adjustments are supported for these Chinese (Mandarin, Simplified) neural voices:
+Apart from adjusting the speaking styles and style degree, you can also adjust the `role` parameter so that the voice imitates a different age and gender. For example, a male voice can raise the pitch and change the intonation to imitate a female voice, but the voice name won't be changed. 
 
-* `zh-CN-XiaomoNeural`
-* `zh-CN-XiaoxuanNeural`
-* `zh-CN-YunxiNeural`
-* `zh-CN-YunyeNeural`
+For a list of supported roles per neural voice, see [supported voice styles and roles](language-support.md?tabs=stt-tts#voice-styles-and-roles).
 
 **Syntax**
 
@@ -642,15 +646,15 @@ Because prosodic attribute values can vary over a wide range, the speech recogni
 
 | Attribute | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Required or optional |
 | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| `pitch`   | Indicates the baseline pitch for the text. You can express the pitch as:<ul><li>An absolute value, expressed as a number followed by "Hz" (Hertz). For example, `<prosody pitch="600Hz">some text</prosody>`.</li><li>A relative value, expressed as a number preceded by "+" or "-" and followed by "Hz" or "st" that specifies an amount to change the pitch. For example: `<prosody pitch="+80Hz">some text</prosody>` or `<prosody pitch="-2st">some text</prosody>`. The "st" indicates the change unit is semitone, which is half of a tone (a half step) on the standard diatonic scale.</li><li>A constant value:<ul><li>x-low</li><li>low</li><li>medium</li><li>high</li><li>x-high</li><li>default</li></ul></li></ul> | Optional             |
+| `pitch`   | Indicates the baseline pitch for the text. You can express the pitch as:<ul><li>An absolute value: Expressed as a number followed by "Hz" (Hertz). For example, `<prosody pitch="600Hz">some text</prosody>`.</li><li>A relative value:<ul><li>As a relative number: Expressed as a number preceded by "+" or "-" and followed by "Hz" or "st" that specifies an amount to change the pitch. For example: `<prosody pitch="+80Hz">some text</prosody>` or `<prosody pitch="-2st">some text</prosody>`. The "st" indicates the change unit is semitone, which is half of a tone (a half step) on the standard diatonic scale.<li>As a percentage: Expressed as a number preceded by "+" (optionally) or "-" and followed by "%", indicating the relative change. For example: `<prosody pitch="50%">some text</prosody>` or `<prosody pitch="-50%">some text</prosody>`.</li></ul></li><li>A constant value:<ul><li>x-low</li><li>low</li><li>medium</li><li>high</li><li>x-high</li><li>default</li></ul></li></ul> | Optional             |
 | `contour` | Contour now supports neural voice. Contour represents changes in pitch. These changes are represented as an array of targets at specified time positions in the speech output. Each target is defined by sets of parameter pairs. For example: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>The first value in each set of parameters specifies the location of the pitch change as a percentage of the duration of the text. The second value specifies the amount to raise or lower the pitch by using a relative value or an enumeration value for pitch (see `pitch`).                                                                                                                          | Optional             |
 | `range`   | A value that represents the range of pitch for the text. You can express `range` by using the same absolute values, relative values, or enumeration values used to describe `pitch`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Optional             |
-| `rate`    | Indicates the speaking rate of the text. You can express `rate` as:<ul><li>A relative value, expressed as a number that acts as a multiplier of the default. For example, a value of *1* results in no change in the rate. A value of *0.5* results in a halving of the rate. A value of *3* results in a tripling of the rate.</li><li>A constant value:<ul><li>x-slow</li><li>slow</li><li>medium</li><li>fast</li><li>x-fast</li><li>default</li></ul></li></ul>                                                                                                                                                                                                                                                               | Optional             |
-| `volume`  | Indicates the volume level of the speaking voice. You can express the volume as:<ul><li>An absolute value, expressed as a number in the range of 0.0 to 100.0, from *quietest* to *loudest*. An example is 75. The default is 100.0.</li><li>A relative value, expressed as a number preceded by "+" or "-" that specifies an amount to change the volume. Examples are +10 or -5.5.</li><li>A constant value:<ul><li>silent</li><li>x-soft</li><li>soft</li><li>medium</li><li>loud</li><li>x-loud</li><li>default</li></ul></li></ul>                                                                                                                                                                                           | Optional             |
+| `rate`    | Indicates the speaking rate of the text. You can express `rate` as:<ul><li>A relative value: <ul><li>As a relative number: Expressed as a number that acts as a multiplier of the default. For example, a value of *1* results in no change in the original rate. A value of *0.5* results in a halving of the original rate. A value of *2* results in twice the original rate.</li><li>As a percentage: Expressed as a number preceded by "+" (optionally) or "-" and followed by "%", indicating the relative change. For example: `<prosody rate="50%">some text</prosody>` or `<prosody rate="-50%">some text</prosody>`.</li></ul><li>A constant value:<ul><li>x-slow</li><li>slow</li><li>medium</li><li>fast</li><li>x-fast</li><li>default</li></ul></li></ul>                                                                                                                                                                                                                                                               | Optional             |
+| `volume`  | Indicates the volume level of the speaking voice. You can express the volume as:<ul><li>An absolute value: Expressed as a number in the range of 0.0 to 100.0, from *quietest* to *loudest*. An example is 75. The default is 100.0.</li><li>A relative value: <ul><li>As a relative number: Expressed as a number preceded by "+" or "-" that specifies an amount to change the volume. Examples are +10 or -5.5.</li><li>As a percentage: Expressed as a number preceded by "+" (optionally) or "-" and followed by "%", indicating the relative change. For example: `<prosody volume="50%">some text</prosody>` or `<prosody volume="+3%">some text</prosody>`.</li></ul><li>A constant value:<ul><li>silent</li><li>x-soft</li><li>soft</li><li>medium</li><li>loud</li><li>x-loud</li><li>default</li></ul></li></ul>                                                                                                                                                                                           | Optional             |
 
 ### Change speaking rate
 
-Speaking rate can be applied at the word or sentence level.
+Speaking rate can be applied at the word or sentence level. The rate changes should be within 0.5 to 2 times the original audio.
 
 **Example**
 
@@ -666,7 +670,7 @@ Speaking rate can be applied at the word or sentence level.
 
 ### Change volume
 
-Volume changes can be applied at the sentence level.
+Volume changes can be applied at the sentence level. The volume changes should be within 0 (silence) to 1.5 times the original audio.
 
 **Example**
 
@@ -682,7 +686,7 @@ Volume changes can be applied at the sentence level.
 
 ### Change pitch
 
-Pitch changes can be applied at the sentence level.
+Pitch changes can be applied at the sentence level. The pitch changes should be within 0.5 to 1.5 times the original audio.
 
 **Example**
 
@@ -1092,4 +1096,4 @@ This SSML snippet illustrates how to request blend shapes with your synthesized 
 
 ## Next steps
 
-[Language support: Voices, locales, languages](language-support.md)
+[Language support: Voices, locales, languages](language-support.md?tabs=stt-tts)

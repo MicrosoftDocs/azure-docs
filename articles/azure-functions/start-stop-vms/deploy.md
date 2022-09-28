@@ -325,7 +325,7 @@ To learn more about how Azure Monitor metric alerts work and how to configure th
       "EnableClassic": false,    
       "AutoStop_MetricName": "Percentage CPU",
       "AutoStop_Condition": "LessThan",
-      "AutoStop_Description": "Alert to stop the VM if the CPU % exceed the threshold",
+      "AutoStop_Description": "Alert to stop the VM if the CPU % falls below the threshold",
       "AutoStop_Frequency": "00:05:00",
       "AutoStop_Severity": "2",
       "AutoStop_Threshold": "5",
@@ -347,7 +347,7 @@ To learn more about how Azure Monitor metric alerts work and how to configure th
     {
       "Action": "stop",
       "AutoStop_Condition": "LessThan",
-      "AutoStop_Description": "Alert to stop the VM if the CPU % exceed the threshold",
+      "AutoStop_Description": "Alert to stop the VM if the CPU % falls below the threshold",
       "AutoStop_Frequency": "00:05:00",
       "AutoStop_MetricName": "Percentage CPU",
       "AutoStop_Severity": "2",
@@ -372,7 +372,7 @@ To learn more about how Azure Monitor metric alerts work and how to configure th
     {
       "Action": "stop",
       "AutoStop_Condition": "LessThan",
-      "AutoStop_Description": "Alert to stop the VM if the CPU % exceed the threshold",
+      "AutoStop_Description": "Alert to stop the VM if the CPU % falls below the threshold",
       "AutoStop_Frequency": "00:05:00",
       "AutoStop_MetricName": "Percentage CPU",
       "AutoStop_Severity": "2",

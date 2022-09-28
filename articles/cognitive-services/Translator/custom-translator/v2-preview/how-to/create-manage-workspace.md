@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 08/15/2022
+ms.date: 08/17/2022
 ms.author: lajanuar
 ms.topic: how-to
 
@@ -42,10 +42,10 @@ ms.topic: how-to
    > [!NOTE]
    > Region must match the region that was selected during the resource creation. You can use **KEY 1** or **KEY 2**.
 
-   :::image type="content" source="../media/quickstart/resource-key.png" alt-text="Screenshot illustrating the resource key.":::
-
     > [!NOTE]
     > All uploaded customer content, custom model binaries, custom model configurations, and training logs are kept encrypted-at-rest in the selected region.
+
+   :::image type="content" source="../media/quickstart/resource-key.png" alt-text="Screenshot illustrating the resource key.":::
 
    :::image type="content" source="../media/quickstart/create-workspace-1.png" alt-text="Screenshot illustrating workspace creation.":::
 

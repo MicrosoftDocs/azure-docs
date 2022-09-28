@@ -8,6 +8,7 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
+monikerRange: "=iotedge-2018-06"
 ---
 
 # Tutorial: An end-to-end solution using Azure Machine Learning and IoT Edge

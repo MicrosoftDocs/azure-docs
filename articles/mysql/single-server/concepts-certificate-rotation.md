@@ -27,18 +27,9 @@ Azure Database for MySQL users can only use the predefined certificate to connec
 
 Per the industry's compliance requirements, CA vendors began revoking CA certificates for non-compliant CAs, requiring servers to use certificates issued by compliant CAs, and signed by CA certificates from those compliant CAs. Since Azure Database for MySQL used one of these non-compliant certificates, we needed to rotate the certificate to the compliant version to minimize the potential threat to your MySQL servers.
 
-The new certificate is rolled out and in effect as of February 15, 2021 (02/15/2021).
-
-#### What change was performed on February 15, 2021 (02/15/2021)?
-
-On February 15, 2021, the [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) was replaced with a **compliant version** of the same [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) to ensure existing customers don't need to change anything and there's no impact to their connections to the server. During this change, the [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) was **not replaced** with [DigiCertGlobalRootG2](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) and that change is deferred to allow more time for customers to make the change.
-
 #### Do I need to make any changes on my client to maintain connectivity?
 
-> [!NOTE]
-> If you are using PHP driver with [enableRedirect](./how-to-redirection.md) kindly follow the steps mentioned under [Create a combined CA certificate](#create-a-combined-ca-certificate) to avoid connection failures.
-
-No change is required on client side. If you followed steps mentioned under [Create a combined CA certificate](#create-a-combined-ca-certificate) below, you can continue to connect as long as **BaltimoreCyberTrustRoot certificate is not removed** from the combined CA certificate. **To maintain connectivity, we recommend that you retain the BaltimoreCyberTrustRoot in your combined CA certificate until further notice.**
+If you followed steps mentioned under [Create a combined CA certificate](#create-a-combined-ca-certificate) below, you can continue to connect as long as **BaltimoreCyberTrustRoot certificate is not removed** from the combined CA certificate. **To maintain connectivity, we recommend that you retain the BaltimoreCyberTrustRoot in your combined CA certificate until further notice.**
 
 ###### Create a combined CA certificate
 
@@ -89,12 +80,6 @@ To avoid interruption of your application's availability as a result of certif
 
 > [!NOTE]
 > Please don't drop or alter **Baltimore certificate** until the cert change is made. We'll send a communication after the change is done, and then it will be safe to drop the **Baltimore certificate**.
-
-#### Why was BaltimoreCyberTrustRoot certificate not replaced to DigiCertGlobalRootG2 during this change on February 15, 2021?
-
-We evaluated the customer readiness for this change and realized that many customers were looking for extra lead time to manage this change. To provide more lead time to customers for readiness, we decided to defer the certificate change to DigiCertGlobalRootG2 for at least a year, providing sufficient lead time to the customers and end users.
-
-Our recommendation to users is to use the aforementioned steps to create a combined certificate and connect to your server but do not remove BaltimoreCyberTrustRoot certificate until we send a communication to remove it.
 
 #### What if we removed the BaltimoreCyberTrustRoot certificate?
 

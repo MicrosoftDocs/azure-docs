@@ -48,6 +48,7 @@ To send data to Log Analytics, create the data collection rule in the **same reg
 
     [ ![Screenshot showing the Resources tab of the Data Collection Rules screen.](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png) ](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png#lightbox)
 
+
 1. On the **Collect and deliver** tab, select **Add data source** to add a data source and set a destination.
 1. Select a **Data source type**.
 1. Select which data you want to collect. For performance counters, you can select from a predefined set of objects and their sampling rate. For events, you can select from a set of logs and severity levels. 

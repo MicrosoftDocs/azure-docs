@@ -141,7 +141,6 @@ The following constraints are applicable on the operational data in Azure Cosmos
   {"id": 2, "name": "john"}
   ```
 
-
 * The first document of the collection defines the initial analytical store schema.
   * Documents with more properties than the initial schema will generate new columns in analytical store.
   * Columns can't be removed.
@@ -298,9 +297,9 @@ salary: 1000000
 
 The leaf property `streetNo` within the nested object `address` will be represented in the analytical store schema as a column `address.object.streetNo.int32`. The datatype is added as a suffix to the column. This way, if another document is added to the transactional store where the value of leaf property `streetNo` is "123" (note it's a string), the schema of the analytical store automatically evolves without altering the type of a previously written column. A new column added to the analytical store as `address.object.streetNo.string` where this value of "123" is stored.
 
-##### Data type to suffix map
+##### Data type to suffix map for full fidelity schema
 
-Here's a map of all the property data types and their suffix representations in the analytical store:
+Here's a map of all the property data types and their suffix representations in the analytical store in full fidelity schema representation:
 
 |Original data type  |Suffix  |Example  |
 |---------|---------|---------|
@@ -313,7 +312,6 @@ Here's a map of all the property data types and their suffix representations in 
 |NULL    | ".NULL"    | NULL|
 |String|     ".string" |    "ABC"|
 |Timestamp |    ".timestamp" |    Timestamp(0, 0)|
-|DateTime    |".date"    | ISODate("2020-08-21T07:43:07.375Z")|
 |ObjectId    |".objectId"    | ObjectId("5f3f7b59330ec25c132623a2")|
 |Document    |".object" |    {"a": "a"}|
 
@@ -410,7 +408,7 @@ How to enable analytical store on a container:
  
 * From the Azure Management SDK, Azure Cosmos DB SDKs, PowerShell, or Azure CLI, the ATTL option can be enabled by setting it to either -1 or 'n' seconds. 
 
-To learn more, see [how to configure analytical TTL on a container](configure-synapse-link.md#create-analytical-ttl).
+To learn more, see [how to configure analytical TTL on a container](configure-synapse-link.md).
 
 ## Cost-effective analytics on historical data
 
@@ -437,7 +435,7 @@ Analytical store relies on Azure Storage and offers the following protection aga
 Although analytical store has built-in protection against physical failures, backup can be necessary for accidental deletes or updates in transactional store. In those cases, you can restore a container and use the restored container to backfill the data in the original container, or fully rebuild analytical store if necessary. 
 
 > [!NOTE]
-> Currently analytical store isn't backuped and can't be restored, and your backup policy can't be planned relying on that.
+> Currently analytical store isn't backed up, therefore it can't be restored. Your backup policy can't be planned relying on that.
 
 Synapse Link, and analytical store by consequence, has different compatibility levels with Azure Cosmos DB backup modes:
 
@@ -538,7 +536,7 @@ To learn more, see the following docs:
 
 * [Azure Synapse Link for Azure Cosmos DB](synapse-link.md)
 
-* Check out the learn module on how to [Design hybrid transactional and analytical processing using Azure Synapse Analytics](/learn/modules/design-hybrid-transactional-analytical-processing-using-azure-synapse-analytics/)
+* Check out the training module on how to [Design hybrid transactional and analytical processing using Azure Synapse Analytics](/training/modules/design-hybrid-transactional-analytical-processing-using-azure-synapse-analytics/)
 
 * [Get started with Azure Synapse Link for Azure Cosmos DB](configure-synapse-link.md)
 

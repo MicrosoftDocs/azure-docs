@@ -21,6 +21,7 @@ Azure Communication Services emits the following voice and video calling event t
 | Microsoft.Communication.CallEnded   | Published when call is ended  |
 | Microsoft.Communication.CallParticipantAdded | Published when participant is added  |
 | Microsoft.Communication.CallParticipantRemoved | Published when participant is removed  |
+| Microsoft.Communication.IncomingCall | Published when there is an incoming call  |
 
 ## Event responses
 
@@ -75,9 +76,11 @@ This section contains an example of what that data would look like for each even
     "subject": "call/{serverCallId}/startedBy/8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1",
     "data": {
       "startedBy": {
-        "rawId": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1",
-        "communicationUser": {
-          "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1"
+        "communicationIdentifier": {
+          "rawId": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1",
+          "communicationUser": {
+            "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1"
+          }
         },
         "role": "{role}"
       },
@@ -111,9 +114,11 @@ This section contains an example of what that data would look like for each even
     "data": {
       "durationOfCall": 49.728617199999995,
       "startedBy": {
-        "rawId": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1",
-        "communicationUser": {
-          "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1"
+        "communicationIdentifier": {
+          "rawId": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1",
+          "communicationUser": {
+            "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1"
+          }
         },
         "role": "{role}"
       },
@@ -147,9 +152,11 @@ This section contains an example of what that data would look like for each even
     "subject": "call/{serverCallId}/participant/8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1",
     "data": {
       "user": {
-        "rawId": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1",
-        "communicationUser": {
-          "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1"
+        "communicationIdentifier": {
+          "rawId": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1",
+          "communicationUser": {
+            "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1"
+          }
         },
         "role": "{role}"
       },
@@ -157,9 +164,11 @@ This section contains an example of what that data would look like for each even
       "participantId": "041e3b8a-1cce-4ebf-b587-131312c39410",
       "endpointType": "acs-web-test-client-ACSWeb(3617/1.0.0.0/os=windows; browser=chrome; browserVer=93.0; deviceType=Desktop)/TsCallingVersion=_TS_BUILD_VERSION_/Ovb=_TS_OVB_VERSION_",
       "startedBy": {
-        "rawId": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1",
-        "communicationUser": {
-          "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1"
+        "communicationIdentifier": {
+          "rawId": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1",
+          "communicationUser": {
+            "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1"
+          }
         },
         "role": "{role}"
       },
@@ -191,9 +200,11 @@ This section contains an example of what that data would look like for each even
     "subject": "call/aHR0cHM6Ly9jb252LWRldi0yMS5jb252LWRldi5za3lwZS5uZXQ6NDQzL2NvbnYvbVQ4NnVfempBMG05QVM4VnRvSWFrdz9pPTAmZT02Mzc2Nzc3MTc2MDAwMjgyMzA/participant/8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-27cc-07fd-0848220077d8",
     "data": {
       "user": {
-        "rawId": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-27cc-07fd-0848220077d8",
-        "communicationUser": {
-          "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-27cc-07fd-0848220077d8"
+        "communicationIdentifier": {
+          "rawId": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-27cc-07fd-0848220077d8",
+          "communicationUser": {
+            "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-27cc-07fd-0848220077d8"
+          }
         },
         "role": "{role}"
       },
@@ -201,9 +212,11 @@ This section contains an example of what that data would look like for each even
       "participantId": "750a1442-3156-4914-94d2-62cf73796833",
       "endpointType": "acs-web-test-client-ACSWeb(3617/1.0.0.0/os=windows; browser=chrome; browserVer=93.0; deviceType=Desktop)/TsCallingVersion=_TS_BUILD_VERSION_/Ovb=_TS_OVB_VERSION_",
       "startedBy": {
-        "rawId": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1",
-        "communicationUser": {
-          "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1"
+        "communicationIdentifier": {
+          "rawId": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1",
+          "communicationUser": {
+            "id": "8:acs:bc360ba8-d29b-4ef2-b698-769ebef85521_0000000c-1fb9-4878-07fd-0848220077e1"
+          }
         },
         "role": "{role}"
       },
@@ -222,6 +235,41 @@ This section contains an example of what that data would look like for each even
     "dataVersion": "1.0",
     "metadataVersion": "1",
     "eventTime": "2021-09-22T17:28:41.1497652Z"
+  }
+]
+```
+
+### Microsoft.Communication.IncomingCall
+
+```json
+[
+  {
+    "id": "d5546be8-227a-4db8-b2c3-4f06fd675fd6",
+    "topic": "/subscriptions/{subscription-id}/resourcegroups/{group-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
+    "subject": "/caller/8:acs:98e4cbef-70e7-4733-8594-063c4a72d711_00000014-2033-438d-1000-343a0d006e10/recipient/8:acs:98e4cbef-70e7-4733-8594-063c4a72d711_00000014-1889-f3a7-6a0b-343a0d0061f3",
+    "data": {
+	  "to": {
+       "kind": "communicationUser",
+        "rawId": "8:acs:98e4cbef-70e7-4733-8594-063c4a72d711_00000014-1889-f3a7-6a0b-343a0d0061f3",
+        "communicationUser": {
+          "id": "8:acs:98e4cbef-70e7-4733-8594-063c4a72d711_00000014-1889-f3a7-6a0b-343a0d0061f3"
+        }
+	  },
+      "from": {
+        "kind": "communicationUser",
+        "rawId": "8:acs:98e4cbef-70e7-4733-8594-063c4a72d711_00000014-2033-438d-1000-343a0d006e10",
+        "communicationUser": {
+          "id": "8:acs:98e4cbef-70e7-4733-8594-063c4a72d711_00000014-2033-438d-1000-343a0d006e10"
+		  }
+      },
+      "callerDisplayName": "",
+      "incomingCallContext": "eyJhbGciOiJub25lIiwidHliSldUIn0.eyJjYyI6Ikg0c0lBQi9iT0JiOUs0SVhtQS9UMGhJbFVaUUlHQVBIc1J1M1RlbzgyNW4xcmtHJNa2hCNVVTQkNUbjFKTVo1NCt3ZDk1WFY0ZnNENUg0VDV2dk5VQ001NWxpRkpJb0pDUWlXS0F3OTJRSEVwUWo4aFFleDl4ZmxjRi9lMTlaODNEUmN6QUpvMVRWVXoxK1dWYm1lNW5zNmF5cFRyVGJ1KzMxU3FMY3E1SFhHWHZpc3FWd2kwcUJWSEhta0xjVFJEQ0hlSjNhdzA5MHE2T0pOaFNqS0pFdXpCcVdidzRoSmJGMGtxUkNaOFA4T3VUMTF0MzVHN0kvS0w3aVQyc09aS2F0NHQ2cFV5d0UwSUlEYm4wQStjcGtiVjlUK0E4SUhLZ2JKUjc1Vm8vZ0hFZGtRT3RCYXl1akc4cUt2U1dITFFCR3JFYjJNY3RuRVF0TEZQV1JEUzJHMDk3TGU5VnhhTktob2JIV0wzOHdab3dWcGVWZmsrL2QxYVZnQ2U1bVVLQTh1T056YmpvdXdnQjNzZTlnTEhjNFlYem5BVU9nRGY5dUFQMndsMXA0WU5nK1cySVRxSEtZUzJDV25IcEUySkhVZzd2UnVHOTBsZ081cU81MngvekR0OElYWHBFSi9peUxtNkdibmR1eEdZREozRXNWWXh4ZzZPd1hqc0pCUjZvR1U3NDIrYTR4M1RpQXFaV245UVIrMHNaVDg3YXpRQzbDNUR3BuZFhST1FTMVRTRzVVTkRGeU5UVjNORTFHU2kxck1UTk9VMUF0TWtWNVNreFRUVVI0YlMxRk1VdEVabnBRTjFsQ1EwWkVlVTQxZURCc1IyaHljVTVYTFROeWVTMVJNVjgyVFhrdGRFNUJZV3hrZW5SSVUwMTFVVE5GWkRKUkluMTlmUS5hMTZ0eXdzTDhuVHNPY1RWa2JnV3FPbTRncktHZmVMaC1KNjZUZXoza0JWQVJmYWYwOTRDWDFJSE5tUXRJeDN1TWk2aXZ3QXFFQWV1UlNGTjhlS3gzWV8yZXppZUN5WDlaSHp6Q1ZKemdZUVprc0RjYnprMGJoR09laWkydkpEMnlBMFdyUW1SeGFxOGZUM25EOUQ1Z1ZSUVczMGRheGQ5V001X1ZuNFNENmxtLVR5TUSVEifQ.",
+      "correlationId": "d732db64-4803-462d-be9c-518943ea2b7a"
+    },
+    "eventType": "Microsoft.Communication.IncomingCall",
+    "dataVersion": "1.0",
+    "metadataVersion": "1",
+    "eventTime": "2022-08-25T19:27:24.2415391Z"
   }
 ]
 ```

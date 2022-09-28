@@ -23,7 +23,7 @@ Azure Active Directory (Azure AD) supports two types of authentication for servi
 For testing, you can use a self-signed public certificate instead of a Certificate Authority (CA)-signed certificate. This article shows you how to use Windows PowerShell to create and export a self-signed certificate.
 
 > [!CAUTION]
-> Using a self-signed certificate is only recommended for development, not production.
+> Self-signed certificates are not trusted by default and they can be difficult to maintain. Also, they may use outdated hash and cipher suites that may not be strong. For better security, purchase a certificate signed by a well-known certificate authority.
 
 You configure various parameters for the certificate. For example, the cryptographic and hash algorithms, the certificate validity period, and your domain name. Then export the certificate with or without its private key depending on your application needs. 
 

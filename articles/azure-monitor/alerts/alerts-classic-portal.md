@@ -93,7 +93,7 @@ This sections shows how to use PowerShell commands create, view and manage class
     Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 
-8. Classic alert rules can no longer be created via PowerShell. To create an alert rule you need to use the new ['Add-AzMetricAlertRule'](/powershell/module/az.monitor/add-azmetricalertrule) command.
+8. Classic alert rules can no longer be created via PowerShell. Use the new ['Add-AzMetricAlertRuleV2'](/powershell/module/az.monitor/add-azmetricalertrulev2) command to create a metric alert rule instead.
 
 ## Next steps
 

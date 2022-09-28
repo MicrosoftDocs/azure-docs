@@ -1,14 +1,14 @@
 ---
-title: Language service role-based access control (RBAC)
+title: Role-based access control for the Language service
 titleSuffix: Azure Cognitive Services
-description: Use this article to learn about access controls for Azure Cognitive Service for Language
+description: Learn how to use Azure RBAC for managing individual access to Azure resources.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 08/02/2022
+ms.date: 08/23/2022
 ms.author: aahi
 ---
 
@@ -19,14 +19,13 @@ Azure Cognitive Service for Language supports Azure role-based access control (A
 
 ## Enable Azure Active Directory authentication 
 
-To use Azure RBAC, you must enable Azure Active Directory authentication. You can [create a new resource with a custom subdomain](../../authentication.md) or [create a custom subdomain for your existing resource](../../cognitive-services-custom-subdomains.md#how-does-this-impact-existing-resources).
+To use Azure RBAC, you must enable Azure Active Directory authentication. You can [create a new resource with a custom subdomain](../../authentication.md#create-a-resource-with-a-custom-subdomain) or [create a custom subdomain for your existing resource](../../cognitive-services-custom-subdomains.md#how-does-this-impact-existing-resources).
 
-## Add role assignment to Language Authoring resource
+## Add role assignment to Language resource
 
-Azure RBAC can be assigned to a Language Authoring resource. To grant access to an Azure resource, you add a role assignment.
+Azure RBAC can be assigned to a Language resource. To grant access to an Azure resource, you add a role assignment.
 1. In the [Azure portal](https://ms.portal.azure.com/), select **All services**. 
-2. Select **Cognitive Services**, and navigate to your specific Language Authoring resource.
-
+1. Select **Cognitive Services**, and navigate to your specific Language resource. 
    > [!NOTE]
    > You can also set up Azure RBAC for whole resource groups, subscriptions, or management groups. Do this by selecting the desired scope level and then navigating to the desired item. For example, selecting **Resource groups** and then navigating to a specific resource group.
 
@@ -42,12 +41,13 @@ Within a few minutes, the target will be assigned the selected role at the selec
 
 Use the following table to determine access needs for your Language projects.
 
-These custom roles only apply to Language authoring resources. 
-
+These custom roles only apply to Language resources. 
 > [!NOTE]
-> * All prebuilt capabilities are accessible to all roles.
-> * The "Owner" and "Contributor" roles take priority over custom language roles.
-> * Azure Active Directory (Azure AD) is only used for custom Language roles.
+> * All prebuilt capabilities are accessible to all roles
+> * *Owner* and *Contributor* roles take priority over the custom language roles
+> * AAD is only used in case of custom Language roles
+> * If you are assigned as a *Contributor* on Azure, your role will be shown as *Owner* in Language studio portal.
+
 
 ### Cognitive Services Language reader
 
@@ -68,16 +68,16 @@ A user that should only be validating and reviewing the Language apps, typically
         * Test
     :::column-end:::
     :::column span="":::
-      * All GET APIs under: 
-         * [Language Authoring CLU APIs](/rest/api/language/conversational-analysis-authoring)
-         * [Language Authoring Text Analysis APIs](/rest/api/language/text-analysis-authoring)
-         * [Question Answering Projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
-      * Only the `TriggerExportProjectJob` POST operation under: 
-         * [Language Authoring CLU export API](/rest/api/language/conversational-analysis-authoring/export?tabs=HTTP)
-         * [Language Authoring Text Analysis export API](/rest/api/language/text-analysis-authoring/export?tabs=HTTP)
-      * Only Export POST operation under: 
+      All GET APIs under: 
+        * [Language authoring conversational language understanding APIs](/rest/api/language/conversational-analysis-authoring)
+        * [Language authoring text analysis APIs](/rest/api/language/text-analysis-authoring)
+        * [Question answering projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
+      Only `TriggerExportProjectJob` POST operation under: 
+         * [Language authoring conversational language understanding export API](/rest/api/language/conversational-analysis-authoring/export?tabs=HTTP)
+         * [Language authoring text analysis export API](/rest/api/language/text-analysis-authoring/export?tabs=HTTP)
+      Only Export POST operation under: 
          * [Question Answering Projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects/export)
-      * All the Batch testing web APIs
+      All the Batch Testing Web APIs
          *[Language Runtime CLU APIs](/rest/api/language/conversation-analysis-runtime)
          *[Language Runtime Text Analysis APIs](/rest/api/language/text-analysis-runtime)
     :::column-end:::
@@ -105,18 +105,22 @@ A user that is responsible for building and modifying an application, as a colla
     :::column span="":::
       * All APIs under Language reader
       * All POST, PUT and PATCH APIs under:
-         * [Language Authoring CLU APIs](/rest/api/language/conversational-analysis-authoring)
-         * [Language Authoring Text Analysis APIs](/rest/api/language/text-analysis-authoring)
-         * [Question Answering Projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
+         * [Language conversational language understanding APIs](/rest/api/language/conversational-analysis-authoring)
+         * [Language text analysis APIs](/rest/api/language/text-analysis-authoring)
+         * [question answering projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
           Except for
           * Delete deployment
           * Delete trained model
-          * Delete project
-          * Deploy model
+          * Delete Project
+          * Deploy Model
     :::column-end:::
 :::row-end:::
 
 ### Cognitive Services Language owner
+
+> [!NOTE]
+> If you are assigned as an *Owner* and *Language Owner* you will be be shown as *Cognitive Services Language owner* in Language studio portal.
+
 
 These users are the gatekeepers for the Language applications in production environments. They should have full access to any of the underlying functions and thus can view everything in the application and have direct access to edit any changes for both authoring and runtime environments
 
@@ -135,10 +139,10 @@ These users are the gatekeepers for the Language applications in production envi
       * Delete
     :::column-end:::
     :::column span="":::
-      * All APIs available under:
-        * [Language Authoring CLU APIs](/rest/api/language/conversational-analysis-authoring)
-        * [Language Authoring Text Analysis APIs](/rest/api/language/text-analysis-authoring)
-        * [Question Answering Projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
+      All APIs available under:
+        * [Language authoring conversational language understanding APIs](/rest/api/language/conversational-analysis-authoring)
+        * [Language authoring text analysis APIs](/rest/api/language/text-analysis-authoring)
+        * [question answering projects](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
          
     :::column-end:::
 :::row-end:::

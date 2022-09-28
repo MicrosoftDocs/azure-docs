@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 08/10/2022
+ms.date: 09/20/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -18,31 +18,8 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
-| [Deprecating three VM alerts](#deprecating-three-vm-alerts) | June 2022|
-| [Change in pricing of Runtime protection for Arc-enabled Kubernetes clusters](#change-in-pricing-of-runtime-protection-for-arc-enabled-kubernetes-clusters) | August 2022 |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | September 2022 |
 | [Removing security alerts for machines reporting to cross tenant Log Analytics workspaces](#removing-security-alerts-for-machines-reporting-to-cross-tenant-log-analytics-workspaces) | September 2022 |
-| [Legacy Assessments APIs deprecation](#legacy-assessments-apis-deprecation) | September 2022 |
-
-### Deprecating three VM alerts
-
-**Estimated date for change:** June 2022
-
-The following table lists the alerts that will be deprecated during June 2022.
-
-| Alert name | Description | Tactics | Severity |
-|--|--|--|--|
-| **Docker build operation detected on a Kubernetes node** <br>(VM_ImageBuildOnNode) | Machine logs indicate a build operation of a container image on a Kubernetes node. While this behavior might be legitimate, attackers might build their malicious images locally to avoid detection. | Defense Evasion | Low |
-| **Suspicious request to Kubernetes API** <br>(VM_KubernetesAPI) | Machine logs indicate that a suspicious request was made to the Kubernetes API. The request was sent from a Kubernetes node, possibly from one of the containers running in the node. Although this behavior can be intentional, it might indicate that the node is running a compromised container. | LateralMovement | Medium |
-| **SSH server is running inside a container** <br>(VM_ContainerSSH) | Machine logs indicate that an SSH server is running inside a Docker container. While this behavior can be intentional, it frequently indicates that a container is misconfigured or breached. | Execution | Medium |
-
-These alerts are used to notify a user about suspicious activity connected to a Kubernetes cluster. The alerts will be replaced with matching alerts that are part of the Microsoft Defender for Cloud Container alerts (`K8S.NODE_ImageBuildOnNode`, `K8S.NODE_ KubernetesAPI` and `K8S.NODE_ ContainerSSH`) which will provide improved fidelity and comprehensive context to investigate and act on the alerts. Learn more about alerts for [Kubernetes Clusters](alerts-reference.md).
-
-### Change in pricing of runtime protection for Arc-enabled Kubernetes clusters
-
-**Estimated date for change:** August 2022
-
-Runtime protection is currently a preview feature for Arc-enabled Kubernetes clusters. In August, Arc-enabled Kubernetes clusters will be charged for runtime protection. You can view pricing details on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). Subscriptions with Kubernetes clusters already onboarded to Arc, will begin to incur charges in August.
 
 ### Multiple changes to identity recommendations
 
@@ -87,16 +64,6 @@ Defender for Cloud lets you choose the workspace that your Log Analytics agents 
 With this change, alerts on machines connected to Log Analytics workspace in a different tenant will no longer appear in Defender for Cloud.
 
 If you want to continue receiving the alerts in Defender for Cloud, connect the Log Analytics agent of the relevant machines to the workspace in the same tenant as the machine.
-
-### Legacy Assessments APIs deprecation
-
-The following APIs are set to be deprecated:
-
-- Security Tasks
-- Security Statuses
-- Security Summaries
-
-These three APIs exposed old formats of assessments and will be replaced by the [Assessments APIs](/rest/api/securitycenter/assessments) and [SubAssessments APIs](/rest/api/securitycenter/sub-assessments). All data that is exposed by these legacy APIs will also be available in the new APIs.
 
 ## Next steps
 

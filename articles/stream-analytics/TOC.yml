@@ -37,8 +37,6 @@
     href: stream-analytics-real-time-fraud-detection.md
   - name: Integrate 3rd party services using Azure Functions
     href: stream-analytics-with-azure-functions.md
-  - name: Run a C# UDF
-    href: stream-analytics-edge-csharp-udf.md
   - name: Create a custom .NET deserializer
     href: visual-studio-code-custom-deserializer.md
   - name: Create an IoT Edge job
@@ -322,8 +320,8 @@
       href: set-up-cicd-pipeline.md
   - name: Visual Studio
     items:
-    - name: Install tools
-      href: stream-analytics-tools-for-visual-studio-install.md
+    - name: Migrate ASA projects to VSCode
+      href: migrate-to-vscode.md
     - name: Quickstart
       href: stream-analytics-quick-create-vs.md
     - name: Test locally with sample data
@@ -340,6 +338,8 @@
       href: custom-deserializer.md
     - name: Develop an edge job
       href: stream-analytics-tools-for-visual-studio-edge-jobs.md
+    - name: Run a C# UDF
+      href: stream-analytics-edge-csharp-udf.md
     - name: Set up CI/CD pipeline
       href: stream-analytics-tools-for-visual-studio-cicd.md
   - name: Visual Studio Code

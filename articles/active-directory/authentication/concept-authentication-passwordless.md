@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/17/2022
+ms.date: 09/15/2022
 
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: librown
 
 ms.collection: M365-identity-device-management
@@ -179,7 +179,7 @@ Here are some factors for you to consider when choosing Microsoft passwordless t
 
 ||**Windows Hello for Business**|**Passwordless sign-in with the Authenticator app**|**FIDO2 security keys**|
 |:-|:-|:-|:-|
-|**Pre-requisite**| Windows 10, version 1809 or later<br>Azure Active Directory| Authenticator app<br>Phone (iOS and Android devices running Android 6.0 or above.)|Windows 10, version 1903 or later<br>Azure Active Directory|
+|**Pre-requisite**| Windows 10, version 1809 or later<br>Azure Active Directory| Authenticator app<br>Phone (iOS and Android devices)|Windows 10, version 1903 or later<br>Azure Active Directory|
 |**Mode**|Platform|Software|Hardware|
 |**Systems and devices**|PC with a built-in Trusted Platform Module (TPM)<br>PIN and biometrics recognition |PIN and biometrics recognition on phone|FIDO2 security devices that are Microsoft compatible|
 |**User experience**|Sign in using a PIN or biometric recognition (facial, iris, or fingerprint) with Windows devices.<br>Windows Hello authentication is tied to the device; the user needs both the device and a sign-in component such as a PIN or biometric factor to access corporate resources.|Sign in using a mobile phone with fingerprint scan, facial or iris recognition, or PIN.<br>Users sign in to work or personal account from their PC or mobile phone.|Sign in using FIDO2 security device (biometrics, PIN, and NFC)<br>User can access device based on organization controls and authenticate based on PIN, biometrics using devices such as USB security keys and NFC-enabled smartcards, keys, or wearables.|

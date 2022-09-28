@@ -6,7 +6,7 @@ author: dsk-2015
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 08/24/2022
 ms.author: dkshir
 ms.custom: [security-recommendations, amqp, mqtt]
 ---
