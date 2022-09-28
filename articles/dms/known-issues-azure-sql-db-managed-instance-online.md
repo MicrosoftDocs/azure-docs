@@ -18,7 +18,7 @@ ms.date: 02/20/2020
 Known issues and limitations that are associated with online migrations from SQL Server to Azure SQL Managed Instance are described below.
 
 > [!IMPORTANT]
-> With online migrations of SQL Server to Azure SQL Database, migration of SQL_variant data types is not supported.
+> With online migrations of SQL Server to Azure SQL Managed Instance, migration of SQL_variant data types is not supported.
 
 ## Backup requirements
 
