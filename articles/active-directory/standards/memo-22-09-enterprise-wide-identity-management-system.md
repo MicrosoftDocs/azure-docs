@@ -33,7 +33,7 @@ Memorandum 22-09 requires agencies to develop a plan to consolidate their identi
 
 ## Why Azure Active Directory?
 
-Azure Active Directory (Azure AD) provides the capabilities necessary to implement the recommendations from memorandum 22-09. It also provides broad identity controls that support Zero Trust initiatives. If your agency uses Microsoft Office 365, you already have an Azure AD back end to which you can consolidate.
+Azure Active Directory (Azure AD) provides the capabilities necessary to implement the recommendations from memorandum 22-09. It also provides broad identity controls that support Zero Trust initiatives. Today, If your agency uses Microsoft Office 365 or Azure, you already have Azure AD as an identity provider (IdP) and you can connect your applications and resources to Azure AD as your enterprise-wide identity system. 
 
 ## Single sign-on requirements
 
@@ -41,10 +41,12 @@ The memo requires that users sign in once and then directly access applications.
 
 ## Integration across agencies
 
-[Azure AD B2B collaboration](../external-identities/what-is-b2b.md) helps you meet the requirement to facilitate integration among agencies. It does this by:
+[Azure AD B2B collaboration](../external-identities/what-is-b2b.md) helps you meet the requirement to facilitate integration/collaboration among agencies. Whether the users reside in different Microsoft tenant in the same cloud, [tenant on another microsoft cloud](../external-identities/b2b-government-national-clouds.md), or a [non Azure AD tenant (SAML/WS-Fed identity provider)](..//external-identities/direct-federation.md).
+
+Azure AD cross-tenant access settings allow agencies to manage how they collaborate with other Azure AD organizations and other Microsoft Azure clouds. It does this by:
 
 - Limiting what other Microsoft tenants your users can access.
-- Enabling you to allow access to users whom you don't have to manage in your own tenant, but whom you can subject to your multifactor authentication (MFA) and other access requirements.
+- Granular settings to control access for external users including enforcement of multifactor authentication (MFA) and device signal.
 
 ## Connecting applications
 
@@ -118,6 +120,8 @@ Devices integrated with Azure AD can be either [hybrid joined devices](../device
 * [Azure Windows virtual machines](../devices/howto-vm-sign-in-azure-ad-windows.md)
 
 * [Azure Linux virtual machines](../devices/howto-vm-sign-in-azure-ad-linux.md)
+
+* [Azure Virtual Desktop](https://learn.microsoft.com/azure/architecture/example-scenario/wvd/azure-virtual-desktop-azure-active-directory-join)
 
 * [Virtual desktop infrastructure](../devices/howto-device-identity-virtual-desktop-infrastructure.md)
 
