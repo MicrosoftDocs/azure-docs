@@ -42,25 +42,25 @@ As part of creating your private mobile network, you can provision one or more S
 
 If you want to provision SIMs as part of deploying your private mobile network:
 
-1. Choose one of the following encryption types for for the new SIM group to which all of the SIMs you provision will be added:  
+1. Choose one of the following encryption types for the new SIM group to which all of the SIMs you provision will be added:  
 Note that once the SIM group is created, the encryption type cannot be changed.
-    - Microsoft-managed keys (MMK) that automatically renew when needed.
+    - Microsoft-managed keys (MMK) that Microsoft manages internally for [Encryption at rest](/azure/security/fundamentals/encryption-atrest).
     - Customer-managed keys (CMK) that you must manually configure.  
     You must create a Key URI in your [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) and a [User-assigned identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) with read, wrap, and unwrap access to the key.
-         - The key must be configured to have an activation and expiration date and we recommend that you enable automatic rotation for the key.
+         - The key must be configured to have an activation and expiration date and we recommend that you [configure cryptographic key auto-rotation in Azure Key Vault](https://learn.microsoft.com/azure/key-vault/keys/how-to-configure-key-rotation).
          - The SIM group accesses the key via the user-assigned identity.
          - For additional information on configuring CMK for a SIM group, see [Configure customer-managed keys](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk).
 
 1. Collect each of the values given in the following table for the SIM group you want to provision.
 
-   |Value  |Field name in Azure portal  | JSON file parameter name |
-   |---------|---------|---------|
-   |The name for the SIM group resource. The name must only contain alphanumeric characters, dashes, and underscores. |**SIM group name**|`simGroupName`|
-   |The region that the SIM group belongs to.|**Region**|`simGroupRegion`|
-   |The mobile network that the SIM group belongs to.|**Mobile network**|`simGroupMobileNetwork`|
-   |The chosen encryption type for the SIM group. Microsoft-managed keys (MMK) by default, or customer-managed keys (CMK).|**Encryption Type**|`simGroupEncryption`|
-   |The Azure Key Vault URI containing the customer-managed Key for the SIM group.|**Key URI**|`simGroupKeyURI`|
-   |The User-assigned identity for accessing the SIM group's customer-managed Key within the Azure Key Vault.|**User-assigned identity**|`simGroupUserAssignedIdentity`|
+   |Value  |Field name in Azure portal  |
+   |---------|---------|
+   |The name for the SIM group resource. The name must only contain alphanumeric characters, dashes, and underscores. |**SIM group name**|
+   |The region that the SIM group belongs to.|**Region**|
+   |The mobile network that the SIM group belongs to.|**Mobile network**|
+   |The chosen encryption type for the SIM group. Microsoft-managed keys (MMK) by default, or customer-managed keys (CMK).|**Encryption Type**|
+   |The Azure Key Vault URI containing the customer-managed Key for the SIM group.|**Key URI**|
+   |The User-assigned identity for accessing the SIM group's customer-managed Key within the Azure Key Vault.|**User-assigned identity**|
 
 1. Choose one of the following methods for provisioning your SIMs:
 

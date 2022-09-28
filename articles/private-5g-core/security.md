@@ -30,14 +30,12 @@ Azure Private 5G Core packet core instances are deployed on Azure Stack Edge dev
 
 ## Customer-managed key encryption at rest
 
-In addition to Platform-Managed Keys, you have the option of using Microsoft Managed Keys (MMK) or Customer Managed Keys (CMK) when [creating a SIM group](manage-sim-groups.md#create-a-sim-group) or [when deploying a private mobile network](how-to-guide-deploy-a-private-mobile-network-azure-portal.md#deploy-your-private-mobile-network).
+In addition to the default [Encryption at rest](#encryption-at-rest) using Microsoft-Managed Keys (MMK), you can optionally use Customer Managed Keys (CMK) when [creating a SIM group](manage-sim-groups.md#create-a-sim-group) or [when deploying a private mobile network](how-to-guide-deploy-a-private-mobile-network-azure-portal.md#deploy-your-private-mobile-network) to encrypt data with your own key.
 
-If you elect to use a CMK, you will need to:
-
-- [create the CMK](https://learn.microsoft.com/azure/cosmos-db/how-to-setup-customer-managed-keys) with activation and expiration dates and make a note of the key's URI,
-- and [create a user-assigned identity](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp) with read, wrap, and unwrap access to the key within your [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
-
-Additionally, we recommend that you [configure cryptographic key auto-rotation in Azure Key Vault](https://learn.microsoft.com/azure/key-vault/keys/how-to-configure-key-rotation).  
+If you elect to use a CMK, you will need to create a Key URI in your [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) and a [User-assigned identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) with read, wrap, and unwrap access to the key.
+    - The key must be configured to have an activation and expiration date and we recommend that you [configure cryptographic key auto-rotation in Azure Key Vault](https://learn.microsoft.com/azure/key-vault/keys/how-to-configure-key-rotation).
+    - The SIM group accesses the key via the user-assigned identity.
+    - For additional information on configuring CMK for a SIM group, see [Configure customer-managed keys](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk).
 
 > [!IMPORTANT]
 > Once a SIM group is created, you cannot change the encryption type. However, if the SIM group uses CMK, you can update the key used for encryption.
