@@ -82,7 +82,7 @@
       items:
       - name: Use managed identities
         href: managed-identity.md
-      - name: Managed identity with ACR pull
+      - name: ACR pull with managed identity
         href: managed-identity-acr-pull.md
     - name: Monitor an app
       href: monitor.md
