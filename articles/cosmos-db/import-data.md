@@ -633,4 +633,4 @@ Trying to do capacity planning for a migration to Azure Cosmos DB?
   * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 > [!div class="nextstepaction"]
->[How to query data?](../cosmos-db/tutorial-query-sql-api.md)
+>[How to query data?](nosql/tutorial-query.md)

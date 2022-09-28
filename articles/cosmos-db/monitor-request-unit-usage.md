@@ -25,7 +25,7 @@ If you notice certain queries are taking more request units, you can take action
 * Modify the query to use index with filter clause.
 * Perform less expensive UDF function calls.
 * Define partition keys to minimize the fan out of query into different partitions.
-* You can also use the query metrics returned in the call response, the diagnostic log details and refer to [query performance tuning](sql-api-query-metrics.md) article to learn more about the query execution.
+* You can also use the query metrics returned in the call response, the diagnostic log details and refer to [query performance tuning](nosql/query-metrics.md) article to learn more about the query execution.
 * You can start from sum and then look at avg utilization using the right dimension.
 
 ## View the total request unit usage metric

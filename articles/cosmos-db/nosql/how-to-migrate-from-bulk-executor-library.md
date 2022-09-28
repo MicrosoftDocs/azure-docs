@@ -15,7 +15,7 @@ ms.custom: devx-track-dotnet
 # Migrate from the bulk executor library to the bulk support in Azure Cosmos DB .NET V3 SDK
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-This article describes the required steps to migrate an existing application's code that uses the [.NET bulk executor library](bulk-executor-dot-net.md) to the [bulk support](tutorial-sql-api-dotnet-bulk-import.md) feature in the latest version of the .NET SDK.
+This article describes the required steps to migrate an existing application's code that uses the [.NET bulk executor library](bulk-executor-dotnet.md) to the [bulk support](tutorial-dotnet-bulk-import.md) feature in the latest version of the .NET SDK.
 
 ## Enable bulk support
 
@@ -80,7 +80,7 @@ The `BulkOperationResponse` contains:
 
 ## Retry configuration
 
-Bulk executor library had [guidance](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) that mentioned to set the `MaxRetryWaitTimeInSeconds` and `MaxRetryAttemptsOnThrottledRequests` of [RetryOptions](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) to `0` to delegate control to the library.
+Bulk executor library had [guidance](bulk-executor-dotnet.md#bulk-import-data-to-an-azure-cosmos-account) that mentioned to set the `MaxRetryWaitTimeInSeconds` and `MaxRetryAttemptsOnThrottledRequests` of [RetryOptions](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) to `0` to delegate control to the library.
 
 For bulk support in the .NET SDK, there is no hidden behavior. You can configure the retry options directly through the [CosmosClientOptions.MaxRetryAttemptsOnRateLimitedRequests](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretryattemptsonratelimitedrequests) and [CosmosClientOptions.MaxRetryWaitTimeOnRateLimitedRequests](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretrywaittimeonratelimitedrequests).
 
@@ -95,7 +95,7 @@ Using stream APIs is only possible if the nature of the data you use matches tha
 
 ## Next steps
 
-* To learn more about the .NET SDK releases, see the [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) article.
+* To learn more about the .NET SDK releases, see the [Azure Cosmos DB SDK](sdk-dotnet-v2.md) article.
 * Get the complete [migration source code](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration) from GitHub.
 * [Additional bulk samples on GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/BulkSupport)
 * Trying to do capacity planning for a migration to Azure Cosmos DB?

@@ -240,7 +240,7 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 
 ## Azure Resource Manager
 
-Azure Resource Manager templates can be used to provision autoscale throughput on a new database or container-level resource for all Azure Cosmos DB APIs. See [Azure Resource Manager templates for Azure Cosmos DB](./templates-samples-sql.md) for samples. By design, Azure Resource Manager templates cannot be used to migrate between provisioned and autoscale throughput on an existing resource. 
+Azure Resource Manager templates can be used to provision autoscale throughput on a new database or container-level resource for all Azure Cosmos DB APIs. See [Azure Resource Manager templates for Azure Cosmos DB](./samples-resource-manager-templates.md) for samples. By design, Azure Resource Manager templates cannot be used to migrate between provisioned and autoscale throughput on an existing resource. 
 
 ## Azure CLI
 

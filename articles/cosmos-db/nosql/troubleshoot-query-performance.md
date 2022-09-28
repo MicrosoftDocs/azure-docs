@@ -35,7 +35,7 @@ Before reading this guide, it is helpful to consider common SDK issues that aren
 
 ## Get query metrics
 
-When you optimize a query in Azure Cosmos DB, the first step is always to [get the query metrics](profile-sql-api-query.md) for your query. These metrics are also available through the Azure portal. Once you run your query in the Data Explorer, the query metrics are visible next to the **Results** tab:
+When you optimize a query in Azure Cosmos DB, the first step is always to [get the query metrics](query-metrics-performance.md) for your query. These metrics are also available through the Azure portal. Once you run your query in the Data Explorer, the query metrics are visible next to the **Results** tab:
 
 :::image type="content" source="./media/troubleshoot-query-performance/obtain-query-metrics.png" alt-text="Getting query metrics" lightbox="./media/troubleshoot-query-performance/obtain-query-metrics.png":::
 
@@ -540,7 +540,7 @@ Queries are designed to pre-fetch results while the current batch of results is 
 ## Next steps
 See the following articles for information on how to measure RUs per query, get execution statistics to tune your queries, and more:
 
-* [Get SQL query execution metrics by using .NET SDK](profile-sql-api-query.md)
-* [Tuning query performance with Azure Cosmos DB](./sql-api-query-metrics.md)
+* [Get SQL query execution metrics by using .NET SDK](query-metrics-performance.md)
+* [Tuning query performance with Azure Cosmos DB](./query-metrics.md)
 * [Performance tips for .NET SDK](performance-tips.md)
-* [Performance tips for Java v4 SDK](performance-tips-java-sdk-v4-sql.md)
+* [Performance tips for Java v4 SDK](performance-tips-java-sdk-v4.md)

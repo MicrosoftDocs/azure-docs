@@ -76,7 +76,7 @@ Each `ChangeFeedProcessorState` will contain the lease and lag information, and 
 
 ## Additional resources
 
-* [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
+* [Azure Cosmos DB SDK](sdk-dotnet-v2.md)
 * [Usage samples on GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
 * [Additional samples on GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 

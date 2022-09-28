@@ -250,7 +250,7 @@ What happens if things keep getting better? Suppose users from another region, c
 
 But wait! You soon realize their experience with your platform isn't optimal. They're so far away from your operational region that the latency is terrible. You obviously don't want them to quit. If only there was an easy way of **extending your global reach**? There is!
 
-Azure Cosmos DB lets you [replicate your data globally](../cosmos-db/tutorial-global-distribution-sql-api.md) and transparently with a couple of clicks and automatically select among the available regions from your [client code](../cosmos-db/tutorial-global-distribution-sql-api.md). This process also means that you can have [multiple failover regions](high-availability.md).
+Azure Cosmos DB lets you [replicate your data globally](nosql/tutorial-global-distribution.md) and transparently with a couple of clicks and automatically select among the available regions from your [client code](nosql/tutorial-global-distribution.md). This process also means that you can have [multiple failover regions](high-availability.md).
 
 When you replicate your data globally, you need to make sure that your clients can take advantage of it. If you're using a web frontend or accessing APIs from mobile clients, you can deploy [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) and clone your Azure App Service on all the desired regions, using a performance configuration to support your extended global coverage. When your clients access your frontend or APIs, they'll be routed to the closest App Service, which in turn, will connect to the local Azure Cosmos DB replica.
 

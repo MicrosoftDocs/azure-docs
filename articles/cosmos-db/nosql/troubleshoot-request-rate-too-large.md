@@ -216,7 +216,7 @@ Retry the request. If the error persists for several minutes, file a support tic
 
 ## Next steps
 * [Monitor normalized RU/s consumption](../monitor-normalized-request-units.md) of your database or container.
-* [Diagnose and troubleshoot](troubleshoot-dot-net-sdk.md) issues when you use the Azure Cosmos DB .NET SDK.
-* Learn about performance guidelines for [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) and [.NET v2](performance-tips.md).
-* [Diagnose and troubleshoot](troubleshoot-java-sdk-v4-sql.md) issues when you use the Azure Cosmos DB Java v4 SDK.
-* Learn about performance guidelines for [Java v4 SDK](performance-tips-java-sdk-v4-sql.md).
+* [Diagnose and troubleshoot](troubleshoot-dotnet-sdk.md) issues when you use the Azure Cosmos DB .NET SDK.
+* Learn about performance guidelines for [.NET v3](performance-tips-dotnet-sdk-v3.md) and [.NET v2](performance-tips.md).
+* [Diagnose and troubleshoot](troubleshoot-java-sdk-v4.md) issues when you use the Azure Cosmos DB Java v4 SDK.
+* Learn about performance guidelines for [Java v4 SDK](performance-tips-java-sdk-v4.md).

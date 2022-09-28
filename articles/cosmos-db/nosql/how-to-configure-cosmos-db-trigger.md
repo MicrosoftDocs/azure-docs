@@ -46,7 +46,7 @@ Once enabled, there are three levels of log events that will be emitted:
 
 * Warning:
   * When your Function user code had an unhandled exception - There's a gap in your Function code and the Function isn't [resilient to errors](../../azure-functions/performance-reliability.md#write-defensive-functions) or a serialization error (for C# Functions, the raw json can't be deserialized to the selected C# type).
-  * When there are transient connectivity issues preventing the trigger from interacting with the Azure Cosmos DB account. The trigger will retry these [transient connectivity errors](troubleshoot-dot-net-sdk-request-timeout.md) but if they extend for a long period of time, there could be a network problem. You can enable Debug level traces to obtain the Diagnostics from the underlying Azure Cosmos DB SDK.
+  * When there are transient connectivity issues preventing the trigger from interacting with the Azure Cosmos DB account. The trigger will retry these [transient connectivity errors](troubleshoot-dotnet-sdk-request-timeout.md) but if they extend for a long period of time, there could be a network problem. You can enable Debug level traces to obtain the Diagnostics from the underlying Azure Cosmos DB SDK.
 
 * Debug:
   * When a lease is acquired by an instance - The current instance will start processing the Change Feed for the lease.
@@ -67,7 +67,7 @@ traces
 
 ## Configuring the connection policy
 
-There are two connection modes - Direct mode and Gateway mode. To learn more about these connection modes, see the [connection modes](sql-sdk-connection-modes.md) article. By default, **Gateway** is used to establish all connections on the Azure Functions trigger for Azure Cosmos DB. However, it might not be the best option for performance-driven scenarios.
+There are two connection modes - Direct mode and Gateway mode. To learn more about these connection modes, see the [connection modes](sdk-connection-modes.md) article. By default, **Gateway** is used to establish all connections on the Azure Functions trigger for Azure Cosmos DB. However, it might not be the best option for performance-driven scenarios.
 
 ### Changing the connection mode and protocol
 

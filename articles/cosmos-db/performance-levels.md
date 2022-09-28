@@ -94,7 +94,7 @@ You can migrate from the S1, S2, and S3 performance levels to single partition c
 
 ### Migrate to single partition collections by using the .NET SDK
 
-This section only covers changing a collection's performance level using the [SQL .NET API](sql-api-sdk-dotnet.md), but the process is similar for our other SDKs.
+This section only covers changing a collection's performance level using the [SQL .NET API](nosql/sdk-dotnet-v3.md), but the process is similar for our other SDKs.
 
 Here is a code snippet for changing the collection throughput to 5,000 request units per second:
     

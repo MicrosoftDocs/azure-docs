@@ -109,7 +109,7 @@ sections:
       - question: |
           Is there Azure CLI, PowerShell, or Azure Resource Manager support to manage databases or containers with autoscale?
         answer: |
-          Yes. To enable autoscale on an existing database or container programatically, you can use [Azure CLI](how-to-provision-autoscale-throughput.md#azure-cli) or [PowerShell](how-to-provision-autoscale-throughput.md#azure-powershell). To create a new database or container with autoscale, you can use [Azure CLI](how-to-provision-autoscale-throughput.md#azure-cli), [PowerShell](scripts/powershell/sql/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json), or [Azure Resource Manager template](./templates-samples-sql.md).
+          Yes. To enable autoscale on an existing database or container programatically, you can use [Azure CLI](how-to-provision-autoscale-throughput.md#azure-cli) or [PowerShell](how-to-provision-autoscale-throughput.md#azure-powershell). To create a new database or container with autoscale, you can use [Azure CLI](how-to-provision-autoscale-throughput.md#azure-cli), [PowerShell](scripts/powershell/sql/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json), or [Azure Resource Manager template](./nosql/samples-resource-manager-templates.md).
 
       - question: |
           Is autoscale supported for shared throughput databases?

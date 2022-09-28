@@ -157,7 +157,7 @@ Check the `DedicatedGatewayRequests`. This metric includes all requests that use
 
 ### I can’t tell if my requests are hitting the integrated cache
 
-Check the `IntegratedCacheItemHitRate` and `IntegratedCacheQueryHitRate`. If both of these values are zero, then requests are not hitting the integrated cache. Check that you are using the dedicated gateway connection string, [connecting with gateway mode](sql-sdk-connection-modes.md), and [have set session or eventual consistency](consistency-levels.md#configure-the-default-consistency-level).
+Check the `IntegratedCacheItemHitRate` and `IntegratedCacheQueryHitRate`. If both of these values are zero, then requests are not hitting the integrated cache. Check that you are using the dedicated gateway connection string, [connecting with gateway mode](nosql/sdk-connection-modes.md), and [have set session or eventual consistency](consistency-levels.md#configure-the-default-consistency-level).
 
 ### I want to understand if my dedicated gateway is too small
 

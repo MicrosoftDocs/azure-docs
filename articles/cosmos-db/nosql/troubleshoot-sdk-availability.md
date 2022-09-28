@@ -96,7 +96,7 @@ If the user has configured a preferred region list with more than one region and
 ## Next steps
 
 * Review the [Availability SLAs](../high-availability.md#slas).
-* Use the latest [.NET SDK](sql-api-sdk-dotnet-standard.md)
-* Use the latest [Java SDK](sql-api-sdk-java-v4.md)
-* Use the latest [Python SDK](sql-api-sdk-python.md)
-* Use the latest [Node SDK](sql-api-sdk-node.md)
+* Use the latest [.NET SDK](sdk-dotnet-v3.md)
+* Use the latest [Java SDK](sdk-java-v4.md)
+* Use the latest [Python SDK](sdk-python.md)
+* Use the latest [Node SDK](sdk-nodejs.md)

@@ -29,7 +29,7 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-ap
 In this quickstart, you create and manage an Azure Cosmos DB for NoSQL account from the Azure portal, and by using a Spring Datan Azure Cosmos DB v3 app cloned from GitHub. First, you create an Azure Cosmos DB for NoSQL account using the Azure portal or without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb), then create a Spring Boot app using the Spring Datan Azure Cosmos DB v3 connector, and then add resources to your Azure Cosmos DB account by using the Spring Boot application. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
 
 > [!IMPORTANT]  
-> These release notes are for version 3 of Spring Datan Azure Cosmos DB. You can find [release notes for version 2 here](sql-api-sdk-java-spring-v2.md). 
+> These release notes are for version 3 of Spring Datan Azure Cosmos DB. You can find [release notes for version 2 here](sdk-java-spring-data-v2.md). 
 >
 > Spring Datan Azure Cosmos DB supports only the API for NoSQL.
 >

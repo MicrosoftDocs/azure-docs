@@ -321,7 +321,7 @@ If you are using our older Spark 2.4 Connector, you can find out how to migrate 
 
 ## Next steps
 
-* Azure Cosmos DB Apache Spark 3 OLTP Connector for API for NoSQL: [Release notes and resources](sql-api-sdk-java-spark-v3.md)
+* Azure Cosmos DB Apache Spark 3 OLTP Connector for API for NoSQL: [Release notes and resources](sdk-java-spark-v3.md)
 * Learn more about [Apache Spark](https://spark.apache.org/).
 * Learn how to configure [throughput control](throughput-control-spark.md).
 * Check out more [samples in GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples).

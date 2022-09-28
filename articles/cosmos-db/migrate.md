@@ -142,7 +142,7 @@ Once the migration is completed, you can validate that the document count in Azu
 
 ## Next steps
 
-* Learn more by trying out the sample applications consuming the bulk executor library in [.NET](bulk-executor-dot-net.md) and [Java](bulk-executor-java.md). 
+* Learn more by trying out the sample applications consuming the bulk executor library in [.NET](nosql/bulk-executor-dotnet.md) and [Java](bulk-executor-java.md). 
 * The bulk executor library is integrated into the Azure Cosmos DB Spark connector, to learn more, see [Azure Cosmos DB Spark connector](./nosql/quickstart-spark.md) article.  
 * Contact the Azure Cosmos DB product team by opening  a support ticket under the "General Advisory" problem type and "Large (TB+) migrations" problem subtype for additional help with large scale migrations.
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.

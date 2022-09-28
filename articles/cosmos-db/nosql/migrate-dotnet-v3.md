@@ -14,7 +14,7 @@ ms.devlang: csharp
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 > [!IMPORTANT]
-> To learn about the Azure Cosmos DB .NET SDK v3, see the [Release notes](sql-api-sdk-dotnet-standard.md), the [.NET GitHub repository](https://github.com/Azure/azure-cosmos-dotnet-v3), .NET SDK v3 [Performance Tips](performance-tips-dotnet-sdk-v3-sql.md), and the [Troubleshooting guide](troubleshoot-dot-net-sdk.md).
+> To learn about the Azure Cosmos DB .NET SDK v3, see the [Release notes](sdk-dotnet-v3.md), the [.NET GitHub repository](https://github.com/Azure/azure-cosmos-dotnet-v3), .NET SDK v3 [Performance Tips](performance-tips-dotnet-sdk-v3.md), and the [Troubleshooting guide](troubleshoot-dotnet-sdk.md).
 >
 
 This article highlights some of the considerations of upgrading your existing .NET application to the newer Azure Cosmos DB .NET SDK v3 for API for NoSQL. Azure Cosmos DB .NET SDK v3 corresponds to the Microsoft.Azure.Azure Cosmos DB namespace. You can use the information provided in this doc if you're migrating your application from any of the following Azure Cosmos DB .NET SDKs:
@@ -821,7 +821,7 @@ private static async Task QueryChangeFeedAsync(DocumentClient client, string par
 
 ## Next steps
 
-* [Build a Console app](sql-api-get-started.md) to manage Azure Cosmos DB for NoSQL data using the v3 SDK
+* [Build a Console app](quickstart-dotnet.md) to manage Azure Cosmos DB for NoSQL data using the v3 SDK
 * Learn more about [what you can do with the v3 SDK](samples-dotnet.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB?
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 

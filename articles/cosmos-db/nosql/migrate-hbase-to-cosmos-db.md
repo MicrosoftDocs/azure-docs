@@ -463,11 +463,11 @@ Phoenix is supported as a Data Factory data source. Refer to the following docum
 
 ## Migrate your code
 
-This section describes the differences between creating applications in Azure Cosmos DB for NoSQLs and HBase. The examples here use Apache HBase 2.x APIs and [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md).
+This section describes the differences between creating applications in Azure Cosmos DB for NoSQLs and HBase. The examples here use Apache HBase 2.x APIs and [Azure Cosmos DB Java SDK v4](sdk-java-v4.md).
 
 These HBase's sample codes are based on those described in [HBase's official documentation](https://hbase.apache.org/book.html).
 
-The code for Azure Cosmos DB presented here is based on the [Azure Cosmos DB for NoSQL: Java SDK v4 examples](sql-api-java-sdk-samples.md) documentation. You can access the full code example from the documentation.
+The code for Azure Cosmos DB presented here is based on the [Azure Cosmos DB for NoSQL: Java SDK v4 examples](samples-java.md) documentation. You can access the full code example from the documentation.
 
 The mappings for code migration are shown here, but the HBase RowKeys and Azure Cosmos DB Partition Keys used in these examples are not always well designed. Design according to the actual data model of the migration source.
 

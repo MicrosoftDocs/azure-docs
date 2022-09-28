@@ -26,11 +26,11 @@ This article will always refer to Azure Functions V2 whenever the runtime is men
 
 ## Consume the Azure Cosmos DB SDK independently
 
-The key functionality of the extension package is to provide support for the Azure Functions trigger and bindings for Azure Cosmos DB. It also includes the [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-core.md), which is helpful if you want to interact with Azure Cosmos DB programmatically without using the trigger and bindings.
+The key functionality of the extension package is to provide support for the Azure Functions trigger and bindings for Azure Cosmos DB. It also includes the [Azure Cosmos DB .NET SDK](sdk-dotnet-core-v2.md), which is helpful if you want to interact with Azure Cosmos DB programmatically without using the trigger and bindings.
 
 If want to use the Azure Cosmos DB SDK, make sure that you don't add to your project another NuGet package reference. Instead, **let the SDK reference resolve through the Azure Functions' Extension package**. Consume the Azure Cosmos DB SDK separately from the trigger and bindings
 
-Additionally, if you are manually creating your own instance of the [Azure Cosmos DB SDK client](./sql-api-sdk-dotnet-core.md), you should follow the pattern of having only one instance of the client [using a Singleton pattern approach](../../azure-functions/manage-connections.md?tabs=csharp#azure-cosmos-db-clients). This process avoids the potential socket issues in your operations.
+Additionally, if you are manually creating your own instance of the [Azure Cosmos DB SDK client](./sdk-dotnet-core-v2.md), you should follow the pattern of having only one instance of the client [using a Singleton pattern approach](../../azure-functions/manage-connections.md?tabs=csharp#azure-cosmos-db-clients). This process avoids the potential socket issues in your operations.
 
 ## Common scenarios and workarounds
 
@@ -126,4 +126,4 @@ As explained earlier for [My changes take too long to be received](#my-changes-t
 ## Next steps
 
 * [Enable monitoring for your Azure Functions](../../azure-functions/functions-monitoring.md)
-* [Azure Cosmos DB .NET SDK Troubleshooting](./troubleshoot-dot-net-sdk.md)
+* [Azure Cosmos DB .NET SDK Troubleshooting](./troubleshoot-dotnet-sdk.md)

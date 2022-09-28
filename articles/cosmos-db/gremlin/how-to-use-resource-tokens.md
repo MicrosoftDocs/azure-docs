@@ -18,7 +18,7 @@ This article explains how to use [Azure Cosmos DB resource tokens](../secure-acc
 
 ## Create a resource token
 
-The Apache TinkerPop Gremlin SDK doesn't have an API to use to create resource tokens. The term *resource token* is an Azure Cosmos DB concept. To create resource tokens, download the [Azure Cosmos DB SDK](../sql-api-sdk-dotnet.md). If your application needs to create resource tokens and use them to access the Graph database, it requires two separate SDKs.
+The Apache TinkerPop Gremlin SDK doesn't have an API to use to create resource tokens. The term *resource token* is an Azure Cosmos DB concept. To create resource tokens, download the [Azure Cosmos DB SDK](../nosql/sdk-dotnet-v3.md). If your application needs to create resource tokens and use them to access the Graph database, it requires two separate SDKs.
 
 The object model hierarchy above resource tokens is illustrated in the following outline:
 

@@ -64,7 +64,7 @@ Add data to your new database using Data Explorer.
 
 1. In **Data Explorer**, expand the **ToDoList** database, and expand the **Items** container. Next, select **Items**, and then select **New Item**. 
    
-   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png" alt-text="Create new documents in Data Explorer in the Azure portal":::
+   :::image type="content" source="./media/quickstart-portal/azure-cosmosdb-new-document.png" alt-text="Create new documents in Data Explorer in the Azure portal":::
    
 1. Add the following structure to the document on the right side of the **Documents** pane:
 
@@ -80,7 +80,7 @@ Add data to your new database using Data Explorer.
 
 1. Select **Save**.
    
-   :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png" alt-text="Copy in json data and select Save in Data Explorer in the Azure portal":::
+   :::image type="content" source="./media/quickstart-portal/azure-cosmosdb-save-document.png" alt-text="Copy in json data and select Save in Data Explorer in the Azure portal":::
    
 1. Select **New Item** again, and create and save another document with a unique `id`, and any other properties and values you want. Your documents can have any structure, because Azure Cosmos DB doesn't impose any schema on your data.
 

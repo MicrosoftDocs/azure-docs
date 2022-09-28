@@ -30,10 +30,10 @@ Most read-heavy workloads on Azure Cosmos DB use a combination of both point rea
 
 Here are some examples of how to do **SQL queries** with each SDK:
 
-- [.NET SDK](../../sql-api-dotnet-v3sdk-samples.md#query-examples)
-- [Java SDK](../../sql-api-java-sdk-samples.md#query-examples)
-- [Node.js SDK](../../sql-api-nodejs-samples.md#item-examples)
-- [Python SDK](../../sql-api-python-samples.md#item-examples)
+- [.NET SDK](../samples-dotnet.md#items)
+- [Java SDK](../samples-java.md#query-examples)
+- [Node.js SDK](../samples-nodejs.md#item-examples)
+- [Python SDK](../samples-python.md#item-examples)
 
 The remainder of this doc shows how to get started writing SQL queries in Azure Cosmos DB. SQL queries can be run through either the SDK or Azure portal.
 

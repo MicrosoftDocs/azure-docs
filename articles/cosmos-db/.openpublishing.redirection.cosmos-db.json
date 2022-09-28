@@ -11,6 +11,226 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/nosql/create-sql-api-java-changefeed.md",
+      "redirect_url": "/azure/cosmos-db/nosql/how-to-java-change-feed",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/migrate-relational-to-cosmos-db-sql-api.md",
+      "redirect_url": "/azure/cosmos-db/nosql/migrate-relational-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-dotnet-application.md",
+      "redirect_url": "/azure/cosmos-db/nosql/tutorial-dotnet-web-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-java-application.md",
+      "redirect_url": "/azure/cosmos-db/nosql/tutorial-java-web-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-get-started.md",
+      "redirect_url": "/azure/cosmos-db/nosql/quickstart-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-nodejs-get-started.md",
+      "redirect_url": "/azure/cosmos-db/nosql/quickstart-nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-nodejs-application.md",
+      "redirect_url": "/azure/cosmos-db/nosql/tutorial-nodejs-web-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/performance-tips-dotnet-sdk-v3-sql.md",
+      "redirect_url": "/azure/cosmos-db/nosql/performance-tips-dotnet-sdk-v3",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/performance-tips-java-sdk-v4-sql.md",
+      "redirect_url": "/azure/cosmos-db/nosql/performance-tips-java-sdk-v4",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/profile-sql-api-query.md",
+      "redirect_url": "/azure/cosmos-db/nosql/query-metrics-performance",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-java-sdk-samples.md",
+      "redirect_url": "/azure/cosmos-db/nosql/samples-java",
+      "redirect_document_id": true
+    }, 
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-nodejs-samples.md",
+      "redirect_url": "/azure/cosmos-db/nosql/samples-nodejs",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-python-samples.md",
+      "redirect_url": "/azure/cosmos-db/nosql/samples-python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-query-metrics.md",
+      "redirect_url": "/azure/cosmos-db/nosql/query-metrics",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-sdk-dotnet.md",
+      "redirect_url": "/azure/cosmos-db/nosql/sdk-dotnet-v2",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-sdk-dotnet-standard.md",
+      "redirect_url": "/azure/cosmos-db/nosql/sdk-dotnet-v3",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-sdk-dotnet-core.md",
+      "redirect_url": "/azure/cosmos-db/nosql/sdk-dotnet-core-v2",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-sdk-dotnet-changefeed.md",
+      "redirect_url": "/azure/cosmos-db/nosql/sdk-dotnet-change-feed-v2",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-sdk-bulk-executor-dot-net.md",
+      "redirect_url": "/azure/cosmos-db/nosql/sdk-dotnet-bulk-executor-v2",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-sdk-java-v4.md",
+      "redirect_url": "/azure/cosmos-db/nosql/sdk-java-v4",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-sdk-async-java.md",
+      "redirect_url": "/azure/cosmos-db/nosql/sdk-java-async-v2",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-sdk-java.md",
+      "redirect_url": "/azure/cosmos-db/nosql/sdk-java-v2",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-sdk-java-spring-v2.md",
+      "redirect_url": "/azure/cosmos-db/nosql/sdk-java-spring-data-v2",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-sdk-java-spring-v3.md",
+      "redirect_url": "/azure/cosmos-db/nosql/sdk-java-spring-data-v3",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-sdk-java-spark-v3.md",
+      "redirect_url": "/azure/cosmos-db/nosql/sdk-java-spark-v3",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-sdk-java-spark.md",
+      "redirect_url": "/azure/cosmos-db/nosql/sdk-java-spark-v2",
+      "redirect_document_id": true
+    }, 
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-sdk-bulk-executor-java.md",
+      "redirect_url": "/azure/cosmos-db/nosql/sdk-java-bulk-executor-v2",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-sdk-go.md",
+      "redirect_url": "/azure/cosmos-db/nosql/sdk-go",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-sdk-node.md",
+      "redirect_url": "/azure/cosmos-db/nosql/sdk-nodejs",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-sdk-python.md",
+      "redirect_url": "/azure/cosmos-db/nosql/sdk-python",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-api-spring-data-sdk-samples.md",
+      "redirect_url": "/azure/cosmos-db/nosql/samples-java-spring-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/sql-sdk-connection-modes.md",
+      "redirect_url": "/azure/cosmos-db/nosql/sdk-connection-modes",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/templates-samples-sql.md",
+      "redirect_url": "/azure/cosmos-db/nosql/samples-resource-manager-templates",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/troubleshoot-java-sdk-v4-sql.md",
+      "redirect_url": "/azure/cosmos-db/nosql/troubleshoot-java-sdk-v4",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/bulk-executor-dot-net.md",
+      "redirect_url": "/azure/cosmos-db/nosql/bulk-executor-dotnet",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/troubleshoot-dot-net-sdk-request-header-too-large.md",
+      "redirect_url": "/azure/cosmos-db/nosql/troubleshoot-dotnet-sdk-request-header-too-large",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/troubleshoot-dot-net-sdk-request-timeout.md",
+      "redirect_url": "/azure/cosmos-db/nosql/troubleshoot-dotnet-sdk-request-timeout",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/troubleshoot-dot-net-sdk-slow-request.md",
+      "redirect_url": "/azure/cosmos-db/nosql/troubleshoot-dotnet-sdk-slow-request",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/troubleshoot-dot-net-sdk.md",
+      "redirect_url": "/azure/cosmos-db/nosql/troubleshoot-dotnet-sdk",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/troubleshoot-request-timeout-java-sdk-v4-sql.md",
+      "redirect_url": "/azure/cosmos-db/nosql/troubleshoot-java-sdk-request-timeout",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/troubleshoot-service-unavailable-java-sdk-v4-sql.md",
+      "redirect_url": "/azure/cosmos-db/nosql/troubleshoot-java-sdk-service-unavailable",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/tutorial-global-distribution-sql-api.md",
+      "redirect_url": "/azure/cosmos-db/nosql/tutorial-global-distribution",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/tutorial-query-sql-api.md",
+      "redirect_url": "/azure/cosmos-db/nosql/tutorial-query",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/tutorial-sql-api-dotnet-bulk-import.md",
+      "redirect_url": "/azure/cosmos-db/nosql/tutorial-dotnet-bulk-import",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/scripts/cli/sql/autoscale.md",
       "redirect_url": "/azure/cosmos-db/scripts/cli/nosql/autoscale",
       "redirect_document_id": true
