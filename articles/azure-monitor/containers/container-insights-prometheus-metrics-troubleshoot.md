@@ -53,7 +53,7 @@ Run the command `kubectl port-forward <ama-metrics pod> -n kube-system 9090`.
 :::image type="content" source="media/container-insights-prometheus-metrics-troubleshoot/config-ui.png" lightbox="media/container-insights-prometheus-metrics-troubleshoot/config-ui.png" alt-text="Screenshot showing configuration jobs.":::
 
 
-- Go to `127.0.0.1:9090/service-discovery` to view the targets discovered by the service discovery object specified and what the relabel_configs have filtered the targets to be. For example, if missing metrics from a certain pod, you can find if that pod was discovered and what it's URI is. You can then use this URI when looking at the targets to see if there are any scrape errors. 
+- Go to `127.0.0.1:9090/service-discovery` to view the targets discovered by the service discovery object specified and what the relabel_configs have filtered the targets to be. For example, if missing metrics from a certain pod, you can find if that pod was discovered and what its URI is. You can then use this URI when looking at the targets to see if there are any scrape errors. 
 :::image type="content" source="media/container-insights-prometheus-metrics-troubleshoot/service-discovery.png" lightbox="media/container-insights-prometheus-metrics-troubleshoot/service-discovery.png" alt-text="Screenshot showing service discovery.":::
 
 
