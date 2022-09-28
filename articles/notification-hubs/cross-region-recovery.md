@@ -5,7 +5,7 @@ author: sethmanheim
 ms.author: sethm
 ms.service: notification-hubs
 ms.topic: conceptual
-ms.date: 09/28/2022
+ms.date: 09/29/2022
 
 ---
 
@@ -14,7 +14,7 @@ ms.date: 09/28/2022
 [Azure Notification Hubs](notification-hubs-push-notification-overview.md) provides an easy-to-use and scaled-out push engine that enables you to send notifications to any platform (iOS, Android, Windows, etc.) from any back-end (cloud or on-premises). This article describes the cross-region disaster recovery configuration options currently available.
 
 Cross-region disaster recovery provides *metadata* disaster recovery coverage. This is supported in paired and flexible region recovery
-options. Each Azure region is paired with another region within the same geography. All Notification Hubs tiers support [Azure paired region](/azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies)
+options. Each Azure region is paired with another region within the same geography. All Notification Hubs tiers support [Azure paired regions](/azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies)
 (where available) or a flexible recovery region option that enables you to choose from a list of supported regions.
 
 ## Enable cross region disaster recovery
@@ -84,13 +84,13 @@ To create a new namespace with disaster recovery, follow these steps:
 Paired and flexible region recovery only backs up metadata. You must implement a solution to repopulate the registration data into your new
 hub post-recovery:
 
-1. Create a secondary notification hub in a different datacenter. We recommend creating one from the beginning to shield you from a disaster recovery event that might affect your management capabilities. You can also create one at the time of the disaster recovery event.
+1. Create a secondary notification hub in a different datacenter. We recommend creating one from the beginning, to shield you from a disaster recovery event that might affect your management capabilities. You can also create one at the time of the disaster recovery event.
 
 2. Keep the secondary notification hub in sync with the primary notification hub using one of the following options:
-    - Use an app backend that simultaneously creates and updates installations in both notification hubs. Installations allow you to specify your own unique device identifier, making it more suitable for the replication scenario. For more information, see this [sample code](https://github.com/Azure/azure-notificationhubs-dotnet/tree/main/Samples/RedundantHubSample).
+    - Use an app backend that simultaneously creates and updates installations in both notification hubs. Installations allow you to specify your own unique device identifier, making it more suitable for the replication scenario. For more information, [see this sample](https://github.com/Azure/azure-notificationhubs-dotnet/tree/main/Samples/RedundantHubSample).
     - Use an app backend that gets a regular dump of registrations from the primary notification hub as a backup. It can then perform a bulk insert into the secondary notification hub.
 
-The secondary notification hub may end up with expired installations/registrations. When the push is made to an expired handle, Notification Hubs automatically cleans the associated installation/registration record based on the response received from the PNS server. To clean expired records from a secondary notification hub, add custom logic that processes feedback from each send. Then, expire installation/registration in the secondary notification hub.
+The secondary notification hub might end up with expired installations/registrations. When the push is made to an expired handle, Notification Hubs automatically cleans the associated installation/registration record based on the response received from the PNS server. To clean expired records from a secondary notification hub, add custom logic that processes feedback from each send. Then, expire installation/registration in the secondary notification hub.
 
 If you don't have a backend, when the app starts on target devices, they perform a new registration in the secondary notification hub. Eventually the secondary notification hub will have all the active devices registered.
 
