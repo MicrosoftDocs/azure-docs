@@ -9,15 +9,31 @@ ms.topic: how-to
 
 Microsoft Defender for IoT provides tools both in the Azure portal and on-premises for managing user access across Defender for IoT resources.
 
-In the Azure portal, user management is managed at the *subscription* level, where you can define permissions for configuring Defender for IoT, adding and updating pricing plans, and accessing data about your sites and sensors in the Azure portal. For more information, see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview) and [Azure user roles for OT and Enterprise IoT monitoring with Defender for IoT](roles-azure.md).
+In the Azure portal, user management is managed at the *subscription* level with [Azure Active Directory (AAD)](/azure/active-directory/) and [Azure role-based access control (RBAC)](/azure/role-based-access-control/overview). Assign AAD users with Azure roles at the subscription level so that they can add or update Defender for IoT pricing plans and access device data, manage sensors, and access device data across Defender for IoT.
 
-For OT network monitoring specifically, administrators can also grant access at the *OT site* level, directly from Defender for IoT. Grant access at the site level when you want to manage access to specific Defender for IoT data in the Azure portal, such as device inventory or alerts.
+For OT network monitoring, Defender for IoT has the additional *site* level, which you can use to add granularity to your user management. For example, assign roles at the site level to apply different permissions for the same users across different sites.
 
-## Define Azure access control per OT site
+## Define Azure users for Defender for IoT per subscription
 
-1. In the Azure portal, go to the **Defender for IoT** > **Sites and sensors** page, and select the site where you want to assign permissions.
+Manage user access for Defender for IoT using Azure RBAC, applying the roles to users or user groups as needed to access required functionality.
 
-    Site-based access control is not relevant or supported for default sites or for Enterprise IoT networks.
+- [Grant a user access to Azure resources using the Azure portal](/azure/role-based-access-control/quickstart-assign-role-user-portal)
+- [Grant a group access to Azure resources using Azure PowerShell](/azure/role-based-access-control/tutorial-role-assignments-group-powershell)
+- [Azure user roles for OT and Enterprise IoT monitoring](roles-azure.md)
+
+## Define Azure users for Defender for IoT
+
+Define user roles per site to add a level of granularity and apply different user roles across different Defender for IoT sites. You can also use site-based access control resources to do any of the following:
+
+- Check your own access to the site, or check access to the site for other users, groups, service principals, or managed identities
+- View current role assignments on the site, including role assignments that have been denied specific actions on the site
+- View a full list of roles available for the site
+
+Sites and site-based access control is relevant only for OT monitoring sites, and is not supported for default sites or Enterprise IoT monitoring.
+
+**To manage site-based access control**:
+
+1. In the Azure portal, go to the **Defender for IoT** > **Sites and sensors** page, and select the OT site where you want to assign permissions.
 
 1. In the **Edit site** pane that appears on the right, select **Manage site access control (Preview)**. For example:
 
@@ -25,17 +41,18 @@ For OT network monitoring specifically, administrators can also grant access at 
 
     An **Access control** page opens in Defender for IoT for your site. This **Access control** page is the same interface as is available directly from the **Access control** tab on any Azure resource.
 
-For example, use the **Access control** page in Defender for IoT to do any of the following for the selected site:
-
-- Check your own access to the site
-- Check access to the site for other users, groups, service principals, or managed identities
-- Grant access to the site for others
-- View current role assignments on the site
-- View role assignments that have been denied specific actions for the site
-- View a full list of roles available for the site
+    For example:
 
 For more information, see [Tutorial: Grant a user access to Azure resources using the Azure portal](/azure/role-based-access-control/quickstart-assign-role-user-portal).
 
+## Audit Azure user activity
+
+Use AAD user auditing resources to audit Azure user activity across Defender for IoT. For more information, see:
+
+- [Audit logs in Azure Active directory](/azure/active-directory/reports-monitoring/concept-audit-logs)
+- [Azure AD audit activity reference](/azure/active-directory/reports-monitoring/reference-audit-activities)
+
+To audit Azure user activity across Defender for IoT, use the AAD auditing resources. For more information, see 
 ## Next steps
 
 For more information, see:
