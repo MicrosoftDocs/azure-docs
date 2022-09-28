@@ -79,7 +79,7 @@ As an example, the primary Azure region is East Asia, and the secondary region i
     
          :::image type="Capacity reservation" source="./media/azure-to-azure-how-to-enable-replication-cmk-disks/capacity-reservation.png" alt-text="Screenshot of capacity reservation.":::
 
-    1. **Storage encryption settings**: Site Recovery needs the disk encryption set(s)(DES) to be used for replica and target managed disks. You must pre-create Disk encryption sets in the target subscription and the target region before enabling the replication. By default, a Disk encryption sets is not selected. You must select **View/edit configuration** to choose a Disk encryption sets per source disk.
+    1. **Storage encryption settings**: Site Recovery needs the disk encryption set(s)(DES) to be used for replica and target managed disks. You must pre-create Disk encryption sets in the target subscription and the target region before enabling the replication. By default, a Disk encryption set is not selected. You must select **View/edit configuration** to choose a Disk encryption set per source disk.
        
        >[!Note]
        >Ensure that the Target DES is present in the Target Resource Group, and that the Target DES has Get, Wrap Key, Unwrap Key access to a Key Vault in the same region.
