@@ -22,7 +22,7 @@ For example:
 :::image type="content" source="media/how-to-create-and-manage-users/track-user-activity.png" alt-text="Screenshot of the Event timeline showing a user that signed in to Defender for IoT.":::
 
 Use the filters or search using CTRL+F to find the information of interest to you.
-
+<!--remove this, needs other improvement for event timeline
 The maximum number of events displayed depends on the [hardware profile](how-to-install-software.md#install-ot-monitoring-software) configured for your sensor during installation. While the event timeline isn't limited by time, after the maximum number of events is reached, the oldest events are deleted.
 
 |Hardware profile  |Number of events displayed  |
@@ -36,7 +36,7 @@ The maximum number of events displayed depends on the [hardware profile](how-to-
 | L60     |   500 thousand events      |
 
 For more information, see [Which appliances do I need?](ot-appliance-sizing.md)
-
+-->
 ## View audit log data on the on-premises management console
 
 In the on-premises management console, select **System Settings > System Statistics**, and then select **Audit log**.
