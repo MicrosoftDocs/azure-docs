@@ -13,6 +13,7 @@ In addition to the default scrape targets that Azure Monitor Prometheus agent sc
 ## Create Prometheus configuration file
 Create a Prometheus scrape configuration file named `prometheus-config`. See the [configuration tips and examples](container-insights-prometheus-scrape-configuration.md#prometheus-configuration-tips-and-examples) for more details on authoring scrape config for Prometheus. You can also refer to [Prometheus.io](https://prometheus.io/) scrape configuration [reference](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config). Your config file will list the scrape configs under the section `scrape_configs` and can optionally use the global section for setting the global `scrape_interval`, `scrape_timeout`, and `external_labels`. 
 
+
 > [!TIP]
 > Changes to global section will impact the default configs and the custom config.
 
@@ -45,7 +46,7 @@ scrape_configs:
   scrape_interval: 30s
   static_configs:
     - targets: ['dev-cluster-kube-state-metrics-release.kube-state-metrics.svc.cluster.local:8080']
-    
+
 - job_name: prometheus_ref_app
   scheme: http
   kubernetes_sd_configs:
@@ -63,7 +64,7 @@ The agent uses the `promconfigvalidator` tool to validate the Prometheus config 
 The `promconfigvalidator` tool is inside the Azure Monitor metrics addon. You can use any of the `ama-metrics-node-*` pods in `kube-system` namespace in your cluster to download the tool for validation. Use `kubectl cp` to download the tool and its configuration as shown below:
 
 ```
-for podname in $(kubectl get pods -l rsName=ama-metrics -n=kube-system -o json | jq -r '.items[].metadata.name'); do kubectl cp -n=kube-system "${podname}":/opt/promconfigvalidator ./promconfigvalidator/promconfigvalidator;  kubectl cp -n=kube-system "${podname}":/opt/microsoft/otelcollector/collector-config-template.yml ./promconfigvalidator/collector-config-template.yml; done
+for podname in $(kubectl get pods -l rsName=ama-metrics -n=kube-system -o json | jq -r '.items[].metadata.name'); do kubectl cp -n=kube-system "${podname}":/opt/promconfigvalidator ./promconfigvalidator;  kubectl cp -n=kube-system "${podname}":/opt/microsoft/otelcollector/collector-config-template.yml ./collector-config-template.yml; chmod 500 promconfigvalidator; done
 ```
 
 After copying the executable and the yaml, locate the path of your Prometheus configuration file. Then replace `<config path>` below and run the validator with the command:

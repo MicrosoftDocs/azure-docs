@@ -65,10 +65,11 @@ Use `az aks update` with the `-enable-azuremonitormetrics` option to install the
 
 
 **Create a new default Azure Monitor workspace.**<br>
-The workspace will be in the region specific in [Region mappings](#region-mappings).
+If no Azure Monitor Workspace is specified then a default Azure Monitor Workspace will be created in the `DefaultRG-<cluster_region>` following the format `DefaultAzureMonitorWorkspace-<mapped_region>`.
+This Azure Monitor Workspace will be in the region specific in [Region mappings](#region-mappings).
 
 ```azurecli
-az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group>`
+az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group>
 ```
 
 **Use an existing Azure Monitor workspace.**<br>
@@ -82,7 +83,7 @@ az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resourc
 This creates a link between the Azure Monitor workspace and the Grafana workspace.
 
 ```azurecli
-az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <azure-monitor-workspace-name-resource-id> --grafana-resource-id  <grafana-workspace-name-resource-id>`
+az aks update --enable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group> --azure-monitor-workspace-resource-id <azure-monitor-workspace-name-resource-id> --grafana-resource-id  <grafana-workspace-name-resource-id>
 ```
 
 The output for each command will look similar to the following:
