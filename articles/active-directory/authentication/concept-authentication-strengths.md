@@ -64,20 +64,21 @@ The following table lists the combinations of authentication methods for each bu
 |Authentication method combination |MFA strength | Passwordless MFA strength| Phishing-resistant MFA strength|
 |----------------------------------|-------------|-------------------------------------|-------------------------------------------|
 |FIDO2 security key| &#x2705; | &#x2705; | &#x2705; |
+|Windows Hello for Business| &#x2705; | &#x2705; | &#x2705; |
 |Certificate-based authentication (Multi-Factor) | &#x2705; | &#x2705; | &#x2705; |
+|Microsoft Authenticator (Phone Sign-in)| &#x2705; | &#x2705; | | 
+|Temporary Access Pass (One-time use AND Multi-use)| &#x2705; | | | 
 |Password + something you have<sup>1</sup>| &#x2705; | | |
 |Federated single-factor + something you have<sup>1</sup>| &#x2705; | | |
+|Federated Multi-Factor| &#x2705; | | |
 |Certificate-based authentication (single-factor)| | | |
 |SMS sign-in | | | |
 |Password | | | |
 |Federated single-factor| | | |
 
 <!-- We will move these methods  back to the table as they become supported - expected very soon
-|Windows Hello for Business| &#x2705; | &#x2705; | &#x2705; |
-|Microsoft Authenticator (Phone Sign-in)| &#x2705; | &#x2705; | | 
-|Temporary Access Pass (One-time use AND Multi-use)| &#x2705; | | | 
 |Email One-time pass (Guest)| | | |
-|Federated Multi-Factor| &#x2705; | | |-->
+-->
 
 <sup>1</sup>Something you have refers to one of the following methods: SMS, voice, push notification, software OATH token. 
 
