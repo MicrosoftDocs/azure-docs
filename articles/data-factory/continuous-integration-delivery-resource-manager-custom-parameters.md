@@ -251,8 +251,7 @@ Below is the current default parameterization template. If you need to add only 
                     "parameters": {
                         "*": "="
                     }
-                },  
-                "pipelineReference.referenceName"
+                }
             ],
             "pipeline": {
                 "parameters": {
@@ -384,8 +383,7 @@ The following example shows how to add a single value to the default parameteriz
                     "parameters": {
                         "*": "="
                     }
-                },  
-                "pipelineReference.referenceName"
+                }
             ],
             "pipeline": {
                 "parameters": {
