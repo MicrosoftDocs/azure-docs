@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Create a shared query with Bicep'
 description: In this quickstart, you use Bicep to create a Resource Graph shared query that counts virtual machines by OS.
-author: schaffererin
-ms.author: v-eschaffer
+author: rayoef
+ms.author: rayoflores
 ms.date: 05/17/2022
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm

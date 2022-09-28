@@ -74,7 +74,7 @@ For this example, you will change the training data path from a fixed value to a
    >    - After detaching, you can delete the pipeline parameter in the **Setings** pane.
    >    - You can also add a pipeline parameter in the **Settings** pane, and then apply it on some component parameter.
 
-1. Submit the pipeline run.
+1. Submit the pipeline job.
 
 ## Publish a training pipeline
 
@@ -90,21 +90,21 @@ Publish a pipeline to a pipeline endpoint to easily reuse your pipelines in the 
 
 ## Retrain your model
 
-Now that you have a published training pipeline, you can use it to retrain your model on new data. You can submit runs from a pipeline endpoint from the studio workspace or programmatically.
+Now that you have a published training pipeline, you can use it to retrain your model on new data. You can submit jobs from a pipeline endpoint from the studio workspace or programmatically.
 
-### Submit runs by using the studio portal
+### Submit jobs by using the studio portal
 
-Use the following steps to submit a parameterized pipeline endpoint run from the studio portal:
+Use the following steps to submit a parameterized pipeline endpoint job from the studio portal:
 
 1. Go to the **Endpoints** page in your studio workspace.
 1. Select the **Pipeline endpoints** tab. Then, select your pipeline endpoint.
 1. Select the **Published pipelines** tab. Then, select the pipeline version that you want to run.
 1. Select **Submit**.
-1. In the setup dialog box, you can specify the parameters values for the run. For this example, update the data path to train your model using a non-US dataset.
+1. In the setup dialog box, you can specify the parameters values for the job. For this example, update the data path to train your model using a non-US dataset.
 
-![Screenshot that shows how to set up a parameterized pipeline run in the designer](./media/how-to-retrain-designer/published-pipeline-run.png)
+![Screenshot that shows how to set up a parameterized pipeline job in the designer](./media/how-to-retrain-designer/published-pipeline-run.png)
 
-### Submit runs by using code
+### Submit jobs by using code
 
 You can find the REST endpoint of a published pipeline in the overview panel. By calling the endpoint, you can retrain the published pipeline.
 
@@ -116,4 +116,4 @@ In this article, you learned how to create a parameterized training pipeline end
 
 For a complete walkthrough of how you can deploy a model to make predictions, see the [designer tutorial](tutorial-designer-automobile-price-train-score.md) to train and deploy a regression model.
 
-For how to publish and submit a run to pipeline endpoint using SDK, see [this article](how-to-deploy-pipelines.md).
+For how to publish and submit a job to pipeline endpoint using the SDK v1, see [this article](v1/how-to-deploy-pipelines.md).

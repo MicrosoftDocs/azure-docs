@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/13/2022
+ms.date: 07/26/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -116,12 +116,20 @@ Follow these steps to create an Azure Front Door:
     |Tier| Select either Standard or Premium tier. Standard tier is content delivery optimized. Premium tier builds on Standard tier and is focused on security. See [Tier Comparison](../frontdoor/standard-premium/tier-comparison.md).|
     |Endpoint name| Enter a globally unique name for your endpoint, such as `b2cazurefrontdoor`. The **Endpoint hostname** is generated automatically. |
     |Origin type| Select `Custom`.|
-    |Origin host name| Enter `<tenant-name>.b2clogin.com`. Replace `<tenant-name>` with the [name of your Azure AD B2C tenant](tenant-management.md#get-your-tenant-name).|
+    |Origin host name| Enter `<tenant-name>.b2clogin.com`. Replace `<tenant-name>` with the [name of your Azure AD B2C tenant](tenant-management.md#get-your-tenant-name) such as `contoso.b2clogin.com`.|
     
     Leave the **Caching** and **WAF policy** empty.
 
      
 1. Once the Azure Front Door resource is created, select **Overview**, and copy the **Endpoint hostname**. It looks something like `b2cazurefrontdoor-ab123e.z01.azurefd.net`. 
+
+1. Make sure the **Host name** and **Origin host header** of your origin have the same value: 
+    1. Under **Settings**, select **Origin groups**. 
+    1. Select your origin group from the list, such as **default-origin-group**.
+    1. On the right pane, select your **Origin host name** such as `contoso.b2clogin.com`.
+    1. On the **Update origin** pane, update the **Host name** and **Origin host header** to have the same value. 
+
+    :::image type="content" source="./media/custom-domain/azure-front-door-custom-domain-origins.png" alt-text="Screenshot of how to update custom domain origins.":::
 
 
 ## Step 3. Set up your custom domain on Azure Front Door

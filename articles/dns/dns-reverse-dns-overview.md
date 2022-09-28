@@ -32,7 +32,7 @@ For example, the DNS record `www.contoso.com` is implemented using a DNS 'A' rec
 When an organization is assigned an IP address block, they also acquire the right to manage the corresponding ARPA zone. The ARPA zones corresponding to the IP address blocks used by Azure are hosted and managed by Microsoft. Your ISP may host the ARPA zone for you for the IP addresses you owned. They may also allow you to host the ARPA zone in a DNS service of your choice, such as Azure DNS.
 
 > [!NOTE]
-> Forward DNS lookups and reverse DNS lookups are implemented in separate, parallel DNS hierarchies. The reverse lookup for 'www.contoso.com' is **not** hosted in the zone 'contoso.com', rather it is hosted in the ARPA zone for the corresponding IP address block. Separate zones are used for IPv4 and IPv6 address blocks.
+> Forward DNS lookups and reverse DNS lookups are implemented in separate, parallel DNS hierarchies. The reverse lookup for 'www.contoso.com' is **not** hosted in the zone 'contoso.com', rather it's hosted in the ARPA zone for the corresponding IP address block. Separate zones are used for IPv4 and IPv6 address blocks.
 
 ### IPv4
 

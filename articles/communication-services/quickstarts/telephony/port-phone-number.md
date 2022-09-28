@@ -1,10 +1,10 @@
 ---
 title: Quickstart - Port a phone number into Azure Communication Services
 description: Learn how to port a phone number into your Communication Services resource
-author: probableprime
+author: tophpalmer
 manager: mikben
 services: azure-communication-services
-ms.author: rifox
+ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
@@ -34,12 +34,7 @@ Record your resource's **Azure ID** and **Immutable Resource ID**:
 
 ## Initiate the port request
 
-Toll-free and geographic numbers based in the United States are eligible for porting. Use one of the following forms to submit your port request:
-
-- For toll-free numbers: [Toll-free number port request](https://aka.ms/acs-port-form-tollfree)
-- For geographic numbers based in the US: [Geographic number port request](https://aka.ms/acs-port-form-geographic)
-
-When completed, send your completed port request form to acsporting@microsoft.com. Please ensure that your email subject line begins with "ACS Port-In Request".
+Toll-free and geographic numbers are eligible for porting. Follow the ["New Port In Request" instructions](https://github.com/Azure/Communication/blob/master/special-order-numbers.md) to submit your port request
 
 ## Next steps
 

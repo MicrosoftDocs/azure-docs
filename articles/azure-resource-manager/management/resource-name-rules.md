@@ -4,7 +4,7 @@ description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 06/17/2022
+ms.date: 09/28/2022
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -13,10 +13,12 @@ This article summarizes naming rules and restrictions for Azure resources. For r
 
 This article lists resources by resource provider namespace. For a list of how resource providers match Azure services, see [Resource providers for Azure services](azure-services-resource-providers.md).
 
-Resource names are case-insensitive unless noted in the valid characters column.
-
 > [!NOTE]
-> When retrieving resource names using various APIs, returned values may display different case values than what is listed in the valid characters table.
+> Resource and resource group names are case-insensitive unless specifically noted in the valid characters column.
+>
+> When using various APIs to retrieve the name for a resource or resource group, the returned value may have different casing than what you originally specified for the name. The returned value may even display different case values than what is listed in the valid characters table.
+>
+> Always perform a case-insensitive comparison of names.
 
 In the following tables, the term alphanumeric refers to:
 
@@ -588,6 +590,7 @@ In the following tables, the term alphanumeric refers to:
 > | networkWatchers | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 > | privateDnsZones | resource group | 1-63 characters<br><br>2 to 34 labels<br><br>Each label is a set of characters separated by a period. For example, **contoso.com** has 2 labels. | Each label can contain alphanumerics, underscores, and hyphens.<br><br>Each label is separated by a period. |
 > | privateDnsZones / virtualNetworkLinks | private DNS zone | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
+> | privateEndpoints | resource group | 2-64 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 > | publicIPAddresses | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 > | publicIPPrefixes | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |
 > | routeFilters | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End alphanumeric or underscore. |

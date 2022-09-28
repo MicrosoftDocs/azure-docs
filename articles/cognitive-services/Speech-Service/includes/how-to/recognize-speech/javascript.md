@@ -181,16 +181,6 @@ recognizer.startContinuousRecognitionAsync();
 // recognizer.stopContinuousRecognitionAsync();
 ```
 
-### Dictation mode
-
-When you're using continuous recognition, you can enable dictation processing by using the corresponding function. This mode will cause the speech configuration instance to interpret word descriptions of sentence structures such as punctuation. For example, the utterance "Do you live in town question mark" would be interpreted as the text "Do you live in town?".
-
-To enable dictation mode, use the [`enableDictation`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#enabledictation--) method on [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig):
-
-```javascript
-speechConfig.enableDictation();
-```
-
 ## Change the source language
 
 A common task for speech recognition is specifying the input (or source) language. The following example shows how you would change the input language to Italian. In your code, find your [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) instance and add this line directly below it:
@@ -199,7 +189,7 @@ A common task for speech recognition is specifying the input (or source) languag
 speechConfig.speechRecognitionLanguage = "it-IT";
 ```
 
-The [`speechRecognitionLanguage`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#speechrecognitionlanguage) property expects a language-locale format string. You can provide any value in the **Locale** column in the [list of supported locales/languages](../../../language-support.md).
+The [`speechRecognitionLanguage`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#speechrecognitionlanguage) property expects a language-locale format string. Refer to the [list of supported speech-to-text locales](../../../language-support.md?tabs=stt-tts).
 
 ## Use a custom endpoint
 

@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 05/04/2022
+ms.date: 09/22/2022
 ms.custom: subject-rbac-steps
 ---
 
@@ -37,32 +37,24 @@ First, you create a managed identity for your Azure Stream Analytics job. 
 
 ## Grant the Stream Analytics job permissions to access the Azure Cosmos DB account
 
-For the Stream Analytics job to access your Cosmos DB using managed identity, the service principal you created must have special permissions to your Azure Cosmos DB account. In this step, you can assign a role to your stream analytics job's system-assigned managed identity. Azure Cosmos DB has multiple built-in roles that you can assign to the managed identity. For this solution, you can use the following two roles:
+For the Stream Analytics job to access your Cosmos DB using managed identity, the service principal you created must have special permissions to your Azure Cosmos DB account. In this step, you can assign a role to your stream analytics job's system-assigned managed identity. Azure Cosmos DB has multiple built-in roles that you can assign to the managed identity. For this solution, you will use the following role:
 
-|Built-in role  |Description  |
-|---------|---------|
-|[DocumentDB Account Contributor](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Can manage Azure Cosmos DB accounts. Allows retrieval of read/write keys. |
-|[Cosmos DB Account Reader Role](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Can read Azure Cosmos DB account data. Allows retrieval of read keys. |
+|Built-in role  |
+|---------|
+|Cosmos DB Built-in Data Contributor|
 
-> [!TIP] 
-> When you assign roles, assign only the needed access. If your service requires only reading data, then assign the **Cosmos DB Account Reader** role to the managed identity. For more information about the importance of least privilege access, see the [Lower exposure of privileged accounts](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts) article.
+> [!IMPORTANT]
+> Cosmos DB data plane built-in role-based access control (RBAC) is not exposed through the Azure Portal. To assign the Cosmos DB Built-in Data Contributor role, you must grant permission via Azure Powershell. For more information about role-based access control with Azure Active Directory for your Azure Cosmos DB account please visit the: [Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account documentation.](https://learn.microsoft.com/azure/cosmos-db/how-to-setup-rbac/)
 
-1. Select **Access control (IAM)**.
+The following command can be used to authenticate your ASA job with Cosmos DB. The `$accountName` and `$resourceGroupName` are for your Cosmos DB account, and the `$principalId` is the value obtained in the previous step, in the Identity tab of your ASA job. You need to have "Contributor" access to your Cosmos DB account for this command to work as intended. 
 
-2. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
+```azurecli-interactive
+New-AzCosmosDBSqlRoleAssignment -AccountName $accountName -ResourceGroupName $resourceGroupName -RoleDefinitionId '00000000-0000-0000-0000-000000000002' -Scope "/" -PrincipalId $principalId
 
-3. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
-
-    | Setting | Value |
-    | --- | --- |
-    | Role | DocumentDB Account Contributor |
-    | Assign access to | User, group, or service principal |
-    | Members | \<Name of your Stream Analytics job> |
-
-    ![Screenshot that shows Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+```
 
 > [!NOTE]
-> Due to global replication or caching latency, there may be a delay when permissions are revoked or granted. Changes should be reflected within 8 minutes.
+> Due to global replication or caching latency, there may be a delay when permissions are revoked or granted. Changes should be reflected within 10 minutes. Even though test connection can pass initially, jobs may fail when they are started before the permissions fully propagate.
 
 
 ### Add the Cosmos DB as an output

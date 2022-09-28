@@ -54,7 +54,7 @@ To create a test, use the `spx csr evaluation create` command. Construct the req
 
 Here's an example Speech CLI command that creates a test:
 
-```azurecli
+```azurecli-interactive
 spx csr evaluation create --project 9f8c4cbb-f9a5-4ec1-8bb0-53cfa9221226 --dataset be378d9d-a9d7-4d4a-820a-e0432e8678c7 --model1 ff43e922-e3e6-4bf0-8473-55c08fd68048 --model2 1aae1070-7972-47e9-a977-87e3b05c457d --name "My Inspection" --description "My Inspection Description"
 ```
 
@@ -115,7 +115,7 @@ The top-level `self` property in the response body is the evaluation's URI. Use 
 
 For Speech CLI help with evaluations, run the following command:
 
-```azurecli
+```azurecli-interactive
 spx help csr evaluation
 ```
 
@@ -123,7 +123,7 @@ spx help csr evaluation
 
 ::: zone pivot="rest-api"
 
-To create a test, use the [CreateEvaluation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateEvaluation) operation of the [Speech-to-text REST API v3.0](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To create a test, use the [CreateEvaluation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateEvaluation) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the `project` property to the URI of an existing project. This is recommended so that you can also view the test in Speech Studio. You can make a [GetProjects](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request to get available projects.
 - Set the required `model1` property to the URI of a model that you want to test.
@@ -237,7 +237,7 @@ To get test results, use the `spx csr evaluation status` command. Construct the 
 
 Here's an example Speech CLI command that gets test results:
 
-```azurecli
+```azurecli-interactive
 spx csr evaluation status --evaluation 8bfe6b05-f093-4ab4-be7d-180374b751ca
 ```
 
@@ -298,7 +298,7 @@ You should receive a response body in the following format:
 
 For Speech CLI help with evaluations, run the following command:
 
-```azurecli
+```azurecli-interactive
 spx help csr evaluation
 ```
 
@@ -306,7 +306,7 @@ spx help csr evaluation
 
 ::: zone pivot="rest-api"
 
-To get test results, start by using the [GetEvaluation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetEvaluation) operation of the [Speech-to-text REST API v3.0](rest-speech-to-text.md).
+To get test results, start by using the [GetEvaluation](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetEvaluation) operation of the [Speech-to-text REST API](rest-speech-to-text.md).
 
 Make an HTTP GET request using the URI as shown in the following example. Replace `YourEvaluationId` with your evaluation ID, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 

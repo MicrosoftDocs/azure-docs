@@ -1,8 +1,8 @@
 ---
 title: Learn how to secure access to data in Azure Cosmos DB
 description: Learn about access control concepts in Azure Cosmos DB, including primary keys, read-only keys, users, and permissions.
-author: thomasweiss
-ms.author: thweiss
+author: seesharprun
+ms.author: sidandrews
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual

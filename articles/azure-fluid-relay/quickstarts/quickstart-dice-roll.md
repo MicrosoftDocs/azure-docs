@@ -11,10 +11,7 @@ ms.custom: mode-other
 
 # Quickstart: Dice roller
 
-> [!NOTE]
-> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-
-In this quickstart, we'll walk through through the process of creating a dice roller app that uses the Azure Fluid Relay service. The quickstart is broken into two parts. In part one, we'll create the app itself and run it against a local Fluid server. In part two, we'll reconfigure the app to run against the Azure Fluid Relay service instead of the local dev server.
+In this quickstart, we'll walk through the process of creating a dice roller app that uses the Azure Fluid Relay service. The quickstart is broken into two parts. In part one, we'll create the app itself and run it against a local Fluid server. In part two, we'll reconfigure the app to run against the Azure Fluid Relay service instead of the local dev server.
 
 The sample code used in this quickstart is available [here](https://github.com/microsoft/FluidHelloWorld/tree/main-azure).
 

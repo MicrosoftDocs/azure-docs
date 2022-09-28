@@ -70,6 +70,9 @@ Packages can be downloaded the Azure portal and manually uploaded to individual 
 
 This option is available for both *cloud connected* and *locally managed* sensors.
 
+[!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+
+
 **To upload to a single sensor:**
 
 1. Go to the Microsoft Defender for IoT **Updates** page.

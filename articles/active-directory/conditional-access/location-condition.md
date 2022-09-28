@@ -1,21 +1,19 @@
 ---
 title: Location condition in Azure Active Directory Conditional Access
-description: Use the location condition to control access based on user location.
+description: Use the location condition to control access based on user physical or network location.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/02/2021
+ms.date: 08/15/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: calebb, mewal
 
 ms.collection: M365-identity-device-management
-
-ms.custom: contperf-fy20q4
 ---
 # Using the location condition in a Conditional Access policy 
 
@@ -25,7 +23,7 @@ As explained in the [overview article](overview.md) Conditional Access policies 
 
 Organizations can use this location for common tasks like: 
 
-- Requiring multi-factor authentication for users accessing a service when they're off the corporate network.
+- Requiring multifactor authentication for users accessing a service when they're off the corporate network.
 - Blocking access for users accessing a service from specific countries or regions.
 
 The location is determined by the public IP address a client provides to Azure Active Directory or GPS coordinates provided by the Microsoft Authenticator app. Conditional Access policies by default apply to all IPv4 and IPv6 addresses. 
@@ -51,14 +49,14 @@ Named locations defined by IPv4/IPv6 address ranges are subject to the following
 - Configure up to 195 named locations
 - Configure up to 2000 IP ranges per named location
 - Both IPv4 and IPv6 ranges are supported
-- Private IP ranges cannot be configured
+- Private IP ranges can't be configured
 - The number of IP addresses contained in a range is limited. Only CIDR masks greater than /8 are allowed when defining an IP range. 
 
 #### Trusted locations
 
 Administrators can name locations defined by IP address ranges to be trusted named locations. 
 
-Sign-ins from trusted named locations improve the accuracy of Azure AD Identity Protection's risk calculation, lowering a user's sign-in risk when they authenticate from a location marked as trusted. Additionally, trusted named locations can be targeted in Conditional Access policies. For example, you may [restrict multi-factor authentication registration to trusted locations](howto-conditional-access-policy-registration.md). 
+Sign-ins from trusted named locations improve the accuracy of Azure AD Identity Protection's risk calculation, lowering a user's sign-in risk when they authenticate from a location marked as trusted. Additionally, trusted named locations can be targeted in Conditional Access policies. For example, you may [restrict multifactor authentication registration to trusted locations](howto-conditional-access-policy-registration.md). 
 
 ### Countries
 
@@ -82,7 +80,12 @@ If you select **Determine location by GPS coordinates**, the user will need to h
 
 The first time the user is required to share their location from the Microsoft Authenticator app, the user will receive a notification in the app. The user will need to open the app and grant location permissions. 
 
-For the next 24 hours, if the user is still accessing the resource and granted the app permission to run in the background, the device's location is shared silently once per hour. After 24 hours, the user must open the app and approve the notification. Every time the user shares their GPS location, the app does jailbreak detection (Using the same logic as the Intune MAM SDK). If the device is jailbroken, the location isn't considered valid and the user isn't granted access. 
+For the next 24 hours, if the user is still accessing the resource and granted the app permission to run in the background, the device's location is shared silently once per hour. 
+
+- After 24 hours, the user must open the app and approve the notification. 
+- Users who have number matching or additional context enabled in the Microsoft Authenticator app won't receive notifications silently and must open the app to approve  notifications. 
+ 
+Every time the user shares their GPS location, the app does jailbreak detection (Using the same logic as the Intune MAM SDK). If the device is jailbroken, the location isn't considered valid, and the user isn't granted access. 
 
 A Conditional Access policy with GPS-based named locations in report-only mode prompts users to share their GPS location, even though they aren't blocked from signing in.
 
@@ -99,13 +102,13 @@ Some IP addresses aren't mapped to a specific country or region, including all I
 
 ### Configure MFA trusted IPs
 
-You can also configure IP address ranges representing your organization's local intranet in the [multi-factor authentication service settings](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). This feature enables you to configure up to 50 IP address ranges. The IP address ranges are in CIDR format. For more information, see [Trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
+You can also configure IP address ranges representing your organization's local intranet in the [multifactor authentication service settings](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). This feature enables you to configure up to 50 IP address ranges. The IP address ranges are in CIDR format. For more information, see [Trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
 
 If you have Trusted IPs configured, they show up as **MFA Trusted IPs** in the list of locations for the location condition.
 
-#### Skipping multi-factor authentication
+#### Skipping multifactor authentication
 
-On the multi-factor authentication service settings page, you can identify corporate intranet users by selecting  **Skip multi-factor authentication for requests from federated users on my intranet**. This setting indicates that the inside corporate network claim, which is issued by AD FS, should be trusted and used to identify the user as being on the corporate network. For more information, see [Enable the Trusted IPs feature by using Conditional Access](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
+On the multifactor authentication service settings page, you can identify corporate intranet users by selecting  **Skip multifactor authentication for requests from federated users on my intranet**. This setting indicates that the inside corporate network claim, which is issued by AD FS, should be trusted and used to identify the user as being on the corporate network. For more information, see [Enable the Trusted IPs feature by using Conditional Access](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
 
 After checking this option, including the named location **MFA Trusted IPs** will apply to any policies with this option selected.
 
@@ -137,7 +140,7 @@ This option applies to:
 
 ### Selected locations
 
-With this option, you can select one or more named locations. For a policy with this setting to apply, a user needs to connect from any of the selected locations. When you **Select** the named network selection control that shows the list of named networks opens. The list also shows if the network location has been marked as trusted. The named location called **MFA Trusted IPs** is used to include the IP settings that can be configured in the multi-factor authentication service setting page.
+With this option, you can select one or more named locations. For a policy with this setting to apply, a user needs to connect from any of the selected locations. When you **Select** the named network selection control that shows the list of named networks opens. The list also shows if the network location has been marked as trusted. The named location called **MFA Trusted IPs** is used to include the IP settings that can be configured in the multifactor authentication service setting page.
 
 ## IPv6 traffic
 
@@ -196,4 +199,4 @@ A preview version of the Graph API for named locations is available, for more in
 
 ## Next steps
 
-- Configure a Conditional Access policy using location, see the article [Conditional Access: Block access by location](howto-conditional-access-policy-location.md).
+- Configure an example Conditional Access policy using location, see the article [Conditional Access: Block access by location](howto-conditional-access-policy-location.md).

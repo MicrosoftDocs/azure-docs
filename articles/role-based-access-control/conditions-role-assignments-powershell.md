@@ -3,7 +3,7 @@ title: Add or edit Azure role assignment conditions using Azure PowerShell (prev
 description: Learn how to add, edit, list, or delete attribute-based access control (ABAC) conditions in Azure role assignments using Azure PowerShell and Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
@@ -74,7 +74,7 @@ Condition          : ((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobSe
 In PowerShell, if your condition includes a dollar sign ($), you must prefix it with a backtick (\`). For example, the following condition uses dollar signs to delineate the tag key name. For more information about rules for quotation marks in PowerShell, see [About Quoting Rules](/powershell/module/microsoft.powershell.core/about/about_quoting_rules).
 
 ```azurepowershell
-$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND SubOperationMatches{'Blob.Read.WithTagConditions'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade'))"
+$condition = "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<`$key_case_sensitive`$>] StringEquals 'Cascade'))"
 ```
 
 ## Edit a condition
@@ -180,6 +180,6 @@ Alternatively, if you want to delete both the role assignment and the condition,
 
 ## Next steps
 
-- [Example Azure role assignment conditions (preview)](../storage/common/storage-auth-abac-examples.md)
-- [Tutorial: Add a role assignment condition to restrict access to blobs using Azure PowerShell (preview)](../storage/common/storage-auth-abac-powershell.md)
+- [Example Azure role assignment conditions for Blob Storage (preview)](../storage/blobs/storage-auth-abac-examples.md)
+- [Tutorial: Add a role assignment condition to restrict access to blobs using Azure PowerShell (preview)](../storage/blobs/storage-auth-abac-powershell.md)
 - [Troubleshoot Azure role assignment conditions (preview)](conditions-troubleshoot.md)

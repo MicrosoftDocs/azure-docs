@@ -1,5 +1,5 @@
 ---
-title: Azure Percept Studio overview
+title: Azure Percept Studio overview v1
 description: Learn more about Azure Percept Studio
 author: nkhuyent
 ms.author: nbabar
@@ -9,7 +9,7 @@ ms.date: 03/23/2021
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
-# Azure Percept Studio overview
+# Azure Percept Studio overview v1
 
 [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819) is the single launch point for creating edge AI models and solutions. Azure Percept Studio allows you to discover and complete guided workflows that make it easy to integrate edge AI-capable hardware and powerful Azure AI and IoT cloud services.
 

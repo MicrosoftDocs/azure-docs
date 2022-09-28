@@ -17,6 +17,9 @@ ms.author: pafarley
 
 * Sign in to [Vision Studio](https://portal.vision.cognitive.azure.com/) with your Azure subscription and Cognitive Services resource. See the [Get started section](../overview-vision-studio.md#get-started-using-vision-studio) of the overview if you need help with this step.
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Vision-studio&Pillar=Vision&Product=OCR&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 ## Read printed and handwritten text
 
 1. Select the **Extract text** tab, and select panel titled **Extract text from images**.
@@ -24,6 +27,9 @@ ms.author: pafarley
 1. Select an image from the available set, or upload your own.
 1. After you select your image, you'll see the extracted text appear in the output window. You can also select the **JSON** tab to see the JSON output that the API call returns.
 1. Below the try-it-out experience are next steps to start using this capability in your own application.
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Vision-studio&Pillar=Vision&Product=OCR&Page=quickstart&Section=Read-printed-and-handwritten-text" target="_target">I ran into an issue</a>
 
 ## Next steps
 

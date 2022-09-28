@@ -3,7 +3,7 @@ title: Defender for Servers integration with Microsoft Defender for Endpoint
 titleSuffix: Microsoft Defender for Cloud
 description: Learn about the integration between Defender for Servers and Microsoft Defender for Endpoint
 ms.topic: reference
-ms.date: 07/20/2022
+ms.date: 08/04/2022
 ---
 
 # Defender for Servers integration with Microsoft Defender for Endpoint
@@ -13,13 +13,13 @@ ms.date: 07/20/2022
 
 <iframe src="https://aka.ms/docs/player?id=aaf5dbcd-9a29-40c2-b355-8c832b27baa5" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
-- [01:14](/shows/mdc-in-the-field/servers-med-integration#time=00m00s) - Introduction
+- [00:0](/shows/mdc-in-the-field/servers-med-integration#time=00m00s) - Introduction
 
-- [05:54](/shows/mdc-in-the-field/servers-med-integration#time=02m13s) - Understanding Microsoft Defender for Endpoint's integration with Defender for Servers
+- [02:13](/shows/mdc-in-the-field/servers-med-integration#time=02m13s) - Understanding Microsoft Defender for Endpoint's integration with Defender for Servers
 
-- [06:51](/shows/mdc-in-the-field/servers-med-integration#time=15m30s) - Onboarding flow
+- [015:30](/shows/mdc-in-the-field/servers-med-integration#time=15m30s) - Onboarding flow
 
-- [10:13](/shows/mdc-in-the-field/servers-med-integration#time=20m05s) - Options to deploy at scale
+- [20:05](/shows/mdc-in-the-field/servers-med-integration#time=20m05s) - Options to deploy at scale
 
 ## Recommended resources
   
@@ -38,4 +38,4 @@ ms.date: 07/20/2022
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [New AWS Connector in Microsoft Defender for Cloud](episode-one.md)
+> [Defender for Cloud integration with Microsoft Entra | Defender for Cloud in the Field](episode-seventeen.md)

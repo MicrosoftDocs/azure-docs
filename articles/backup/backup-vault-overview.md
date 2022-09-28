@@ -2,7 +2,7 @@
 title: Overview of Backup vaults
 description: An overview of Backup vaults.
 ms.topic: conceptual
-ms.date: 02/14/2022
+ms.date: 09/26/2022
 ms.custom: references_regions
 author: v-amallick
 ms.service: backup
@@ -120,7 +120,7 @@ In the **Backup Instances** tile, you get a summarized view of all backup instan
 
 ![Backup jobs](./media/backup-vault-overview/backup-jobs.png)
 
-## Move a Backup vault across Azure subscriptions/resource groups (Public Preview)
+## Move a Backup vault across Azure subscriptions/resource groups
 
 This section explains how to move a Backup vault (configured for Azure Backup) across Azure subscriptions and resource groups using the Azure portal.
 
@@ -241,7 +241,13 @@ Troubleshoot the following common issues you might encounter during Backup vault
 
 **Cause**: Resource move for Backup vault is currently not supported in the selected Azure region.
 
-**Recommendation**: Ensure that you've selected one of the supported regions to move Backup vaults. See [Supported regions](#supported-regions).
+**Recommendation**: Ensure that you've selected one of the supported regions to move Backup vaults. See [Supported regions](#supported-regions
+
+#### UserErrorCrossTenantMSIMoveNotSupported 
+
+**Cause**: This error occurs if the subscription with which resource is associated has moved to a different Tenant, but the Managed Identity is still associated with the old Tenant.
+
+**Recommendation**: Remove the Managed Identity from the existing Tenant; move the resource and add it again to the new one.
 
 ## Next steps
 

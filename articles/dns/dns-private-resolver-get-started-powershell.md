@@ -69,6 +69,9 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 
 ## Create a DNS resolver instance
 
+> [!IMPORTANT]
+> Steps to verify or confirm that resources were successfully created are not optional. Do not skip these steps. The steps populate variables that can be used in later procedures.
+
 Create a resource group to host the resources. The resource group must be in a [supported region](dns-private-resolver-overview.md). In this example, the location is westcentralus.
 
 ```Azure PowerShell
@@ -215,7 +218,7 @@ $targetDNS2 = New-AzDnsResolverTargetDnsServerObject -IPAddress 192.168.1.3 -Por
 $targetDNS3 = New-AzDnsResolverTargetDnsServerObject -IPAddress 10.0.0.4 -Port 53
 $targetDNS4 = New-AzDnsResolverTargetDnsServerObject -IPAddress 10.5.5.5 -Port 53
 $forwardingrule = New-AzDnsForwardingRulesetForwardingRule -ResourceGroupName myresourcegroup -DnsForwardingRulesetName myruleset -Name "Internal" -DomainName "internal.contoso.com." -ForwardingRuleState "Enabled" -TargetDnsServer @($targetDNS1,$targetDNS2)
-$forwardingrule = New-AzDnsForwardingRulesetForwardingRule -ResourceGroupName myresourcegroup -DnsForwardingRulesetName myruleset -Name "AzurePrivate" -DomainName "." -ForwardingRuleState "Enabled" -TargetDnsServer $targetDNS3
+$forwardingrule = New-AzDnsForwardingRulesetForwardingRule -ResourceGroupName myresourcegroup -DnsForwardingRulesetName myruleset -Name "AzurePrivate" -DomainName "azure.contoso.com" -ForwardingRuleState "Enabled" -TargetDnsServer $targetDNS3
 $forwardingrule = New-AzDnsForwardingRulesetForwardingRule -ResourceGroupName myresourcegroup -DnsForwardingRulesetName myruleset -Name "Wildcard" -DomainName "." -ForwardingRuleState "Enabled" -TargetDnsServer $targetDNS4
 ```
 

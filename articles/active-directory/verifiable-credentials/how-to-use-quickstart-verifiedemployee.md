@@ -1,10 +1,10 @@
 ---
-title: Tutorial - Issue a Verifiable Credential for directory based claims 
+title: Tutorial - Issue a Microsoft Entra Verified ID credential for directory based claims 
 description: In this tutorial, you learn how to issue verifiable credentials, from directory based claims, by using a sample app.
 ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 author: barclayn
-manager: rkarlin
+manager: amycolannino
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 06/22/2022
@@ -31,7 +31,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-- [Set up a tenant for Azure AD Verifiable Credentials](verifiable-credentials-configure-tenant.md).
+- [Set up a tenant for Microsoft Entra Verified ID Credentials](verifiable-credentials-configure-tenant.md).
 - Complete the tutorial for [issuance](verifiable-credentials-configure-issuer.md) and [verification](verifiable-credentials-configure-verifier.md) of verifiable credentials.
 - A mobile phone with Microsoft Authenticator that can be used as the test user account.
 
@@ -92,7 +92,7 @@ If attribute values change in the user's Azure AD profile, the VC isn't automati
 
 ## Configure the samples to issue and verify your VerifiedEmployee credential
 
-Verifiable Credentials for directory based claims can be issued and verified just like any other credentials you create. All you need is your issuer DID for your tenant, the credential type and the manifest url to your credential. The easiest way to find these values for a Managed Credential is to view the credential in the portal, select Issue credential and switch to Custom issue. These steps bring up a textbox with a skeleton JSON payload for the Request Service API.
+Verifiable Credentials for directory based claims can be issued and verified just like any other credentials you create. All you need is your issuer DID for your tenant, the credential type and the manifest url to your credential. The easiest way to find these values for a Managed Credential is to view the credential in the portal, select **Issue credential** and you will get a header named **Custom issue**. These steps bring up a textbox with a skeleton JSON payload for the Request Service API.
 
 ![Custom issue](media/how-to-use-quickstart-verifiedemployee/verifiable-credentials-configure-verifiedemployee-custom-issue.png)
 
