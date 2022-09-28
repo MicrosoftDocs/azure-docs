@@ -97,7 +97,7 @@ To add an Azure Cosmos DB action to a logic app workflow in multi-tenant Azure L
 
 1. If your workflow is blank, add any trigger that you want.
 
-   This example starts with the [**When a HTTP request is received** trigger](connectors-native-reqres.md#add-request-trigger).
+   This example starts with the [**When an HTTP request is received** trigger](connectors-native-reqres.md#add-request-trigger).
 
 1. Under the trigger or action where you want to add the Azure Cosmos DB action, select **New step** or **Add an action**, if between steps.
 
