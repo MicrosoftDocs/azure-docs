@@ -43,7 +43,7 @@ We'll explain the answers to each question and then expand the example in later 
 
 ## Device verifies IoT Hub identity
 
-How does *EdgeGateway* verify it's communicating with the genuine *ContosoIotHub*? When *EdgeGateway* wants to talk to the cloud, it uses the connection string to connect to the endpoint *ContosoIoTHub.azure-devices.net*. To make sure the endpoint is authentic, IoT Edge needs *ContosoIoTHub* to show an ID. Ideally, the ID is issued by an authority *EdgeGateway* trusts. To verify IoT Hub identity, IoT Edge and IoT Hub use the **TLS handshake** protocol to verify an IoT Hub's server identity. A *TLS handshake* is illustrated in the following diagram. To keep the example simple, some details have been omitted. To learn more about the *TLS handshake* protocol, see [this cool link]().
+How does *EdgeGateway* verify it's communicating with the genuine *ContosoIotHub*? When *EdgeGateway* wants to talk to the cloud, it uses the connection string to connect to the endpoint *ContosoIoTHub.azure-devices.net*. To make sure the endpoint is authentic, IoT Edge needs *ContosoIoTHub* to show an ID. Ideally, the ID is issued by an authority *EdgeGateway* trusts. To verify IoT Hub identity, IoT Edge and IoT Hub use the **TLS handshake** protocol to verify IoT Hub's server identity. A *TLS handshake* is illustrated in the following diagram. To keep the example simple, some details have been omitted. To learn more about the *TLS handshake* protocol, see [this cool link]().
 
 > [!NOTE]
 > In this example, *ContosoIoTHub*, represents the IoT Hub hostname *ContosoIotHub.azure-devices.net*.
@@ -78,7 +78,7 @@ flowchart TB
     id1-- Issued by -- -> id2
 -->
 
-The root certificate authority (CA) is the [Baltimore CyberTrust Root](https://baltimore-cybertrust-root.chain-demos.digicert.com/info/index.html) certificate. This root certificate is signed by DigiCert, and is widely trusted and stored in many operating systems. For example, both Ubuntu and Windows include it in the default certificate store. 
+The root certificate authority (CA) is the [Baltimore CyberTrust Root](https://baltimore-cybertrust-root.chain-demos.digicert.com/info/index.html) certificate. This root certificate is signed by DigiCert, and is widely trusted and stored in many operating systems. For example, both Ubuntu and Windows include it in the default certificate store.
 
 Windows certificate store:
 
@@ -154,7 +154,7 @@ The interaction between modules and IoT Hub is secure because the SAS key is der
 
 You now have a good understanding of a simple interaction IoT Edge between and IoT Hub. But, IoT Edge can also act as a gateway for downstream devices or other IoT Edge devices. These communication channels must also be encrypted and trusted. Because of the added complexity, we have to expand our example scenario to include a downstream device.
 
-We add a regular IoT device named *TempSensor*, which connects to parent IoT Edge device *EdgeGateway*. *EdgeGateway* connects to IoT Hub *ContosoIotHub*. Similar to before, all authentication is done with X.509 certificate authentication. Our new scenario raises two new questions: *"Is this an authentic message from TempSensor?"* and *"Is the identity of the EdgeGateway correct?"*. The scenario can be illustrated as follows:
+We add a regular IoT device named *TempSensor*, which connects to its parent IoT Edge device *EdgeGateway* which connects to IoT Hub *ContosoIotHub*. Similar to before, all authentication is done with X.509 certificate authentication. Our new scenario raises two new questions: *"Is this an authentic message from TempSensor?"* and *"Is the identity of the EdgeGateway correct?"*. The scenario can be illustrated as follows:
 
 :::image type="content" source="./media/iot-edge-certs/trust-scenario-ext.svg" alt-text="Trust scenario state diagram showing connection between IoT Edge device, an IoT Edge gateway, and IoT Hub.":::
 
@@ -176,11 +176,11 @@ stateDiagram-v2
 
 ## Device verifies gateway identity
 
-How does *TempSensor* verify itAs a device, am I really talking to EdgeGateway?*
+How does *TempSensor* verify it's communicating with the genuine *EdgeGateway?* When *TempSensor* wants to talk to the *EdgeGateway*, *TempSensor* needs *EdgeGateway* to show an ID. Ideally, the ID is issued by an authority *EdgeGateway* trusts. 
 
-This is the really hard part and by FAR the part that causes the most confusion. 
+:::image type="content" source="./media/iot-edge-certs/verify-gateway-identity.svg" alt-text="Sequence diagram showing certificate exchange from gateway device to IoT Edge device with certificate verification using the private root certificate authority.":::
 
-```mermaid
+<!-- mermaid
 sequenceDiagram
     participant TempSensor
     participant EdgeGateway
@@ -190,48 +190,44 @@ sequenceDiagram
     TempSensor->>TempSensor: Check trusted root certificate store
     note over TempSensor, EdgeGateway: *Cryptographic magic happens*
     TempSensor->>EdgeGateway: Name checks out, private root CA found 🙂, let's connect
-```
+-->
 
-"Wait, doesn't this look exactly this same as the first question?" you say, "what makes it so confusing?" You're right, it's similar. The two difficult parts are 
+The flow is similar to when *EdgeGatway* talks to *ContosoIotHub*. *TempSensor* and *EdgeGateway* use the **TLS handshake** protocol to verify *EdgeGateway's* identity. There are two important differences:
 
-1. **Hostname complexity**: certificate presented by EdgeGateway needs to show the *exact same* IP address or hostname that TempSensor uses to reach EdgeGateway.
-1. **Private root CA complexity**: certificate chain presented by EdgeGateway is almost certainly NOT something that is trusted by the device already, and so it's NOT in the OS default trusted root store. 
+1. **Hostname complexity**: The certificate presented by *EdgeGateway* must show the *same IP address or hostname* that *TempSensor* uses to connect to *EdgeGateway*.
+1. **Private root CA complexity**: The certificate chain presented by *EdgeGateway* is likely not in the OS default trusted root store.
 
-To examine the challenges let's first unpack the certificate chain presented by EdgeGateway.
+To examine the challenges, let's first examine the certificate chain presented by *EdgeGateway*.
 
-```mermaid
+:::image type="content" source="./media/iot-edge-certs/gateway-certificate-chain.svg" alt-text="Flow diagram showing certificate authority chain for an IoT Edge gateway.":::
+
+<!-- mermaid
 flowchart TB
     id4["📃 CN = my private root CA"]
     id3["📃 CN = my optional intermediate CA"]
     id2["📃 CN = iotedged workload ca edgegateway"]
     id1["📃 CN = edgegateway.local"] 
     
-    id3-- Issued by ---> id4
-    id2-- Issued by ---> id3
-    id1-- Issued by ---> id2
-```
-
-At the top you see `CN = edgegateway.local`. This is correct but we should look at why it might be difficult to get it right sometimes. 
+    id3-- Issued by --- > id4
+    id2-- Issued by --- > id3
+    id1-- Issued by --- > id2
+-->
 
 ### Hostname complexity
 
-Here `edgegateway.local` is the hostname for EdgeGateway on the local network (LAN or VNet) that TempSensor and EdgeGateway are both on. It could be a - most likely private - IP address (like 192.168.1.23) or some mDNS address like the example. The important part are
+The certificate common name **CN = edgegateway.local** is listed at the top of the chain. `edgegateway.local` is the hostname for *EdgeGateway* on the local network (LAN or VNet) that *TempSensor* and *EdgeGateway* are both on. It could be a private IP address such as *192.168.1.23* or a mDNS address similar to the diagram. The important parts are:
 
-* TempSensor's OS could resolve the hostname to reach EdgeGateway, and
-* The hostname is explicitly configured in EdgeGateway's `config.toml` as 
-  ```toml
-  hostname = edgegateway.local
-  ```
+* *TempSensor's* OS could resolve the hostname to reach *EdgeGateway*
+* The hostname is explicitly configured in *EdgeGateway's* `config.toml` as follows:
+    ```toml
+    hostname = edgegateway.local
+    ```
 
-And these two values must **match exactly**.
+The two values must *match exactly*. As in the example, **CN = edgegateway.local** and **hostname = edgegateway.local**.
 
-#### Why does EdgeGateway need to be told about *its own* hostname? 
+You may ask, why does *EdgeGateway* need to be told about *its own* hostname? *EdgeGateway* doesn't have a reliable way to know how other clients on the network can connect to it. For example, on a private network, there could be DHCP servers or mDNS services that list *EdgeGateway* as `10.0.0.2` or `example-mdns-hostname.local`". But, some networks could have DNS servers that map `edgegateway.local` to *EdgeGateway's* IP address `10.0.0.2`. From *EdgeGateway* perspective, it only knows about its own IP address not DNS names.
 
-EdgeGateway doesn't really have a 100% reliable way to know how other clients on the network can reach it. In some places like maybe your home network, there are DHCP servers or mDNS services that can tell EdgeGateway "hey you're `10.0.0.2` or `example-mdns-hostname.local`". 
-
-But, some places have a DNS servers (heck, even the `hosts` file can act the same way). Imagine that this DNS server maps `edgegateway.local` to `10.0.0.2` which is EdgeGateway's IP address. From EdgeGateway perspective, it just knows about its own IP, it has no idea that other clients like TempSensor might want to reach it via a fancy long FQDN. Worse, they'll want to see some ID. 
-
-To solve this issue, IoT Edge grabs the configured hostname value in `config.toml` and creates a server certificate for it. When a request comes to `edgeHub`, it presents the certificate with the right CN.
+To solve the issue, IoT Edge uses the configured hostname value in `config.toml` and creates a server certificate for it. When a request comes to *edgeHub* module, it presents the certificate with the right certificate common name (CN).
 
 #### Wait, IoT Edge can create certificates?
 
