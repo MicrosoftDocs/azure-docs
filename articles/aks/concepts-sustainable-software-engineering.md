@@ -251,7 +251,7 @@ _sustainability design principles: [Hardware efficiency](sustainability-design-p
 
 - Separate applications into different node pools allowing independent scalling.
 - Align node SKU selection and managed disk size with applications requirements.
-- [Resize node pools](/azure/aks/resize-node-pool) to maximise your applications density (and maximise your nodes usage).
+- [Resize node pools](/azure/aks/resize-node-pool) to maximize your applications density (and maximise your nodes usage).
 - Use AKS [advanced scheduler features](azure/aks/operator-best-practices-advanced-scheduler) to optimize scheduling your applications (pods), to nodes
 - Perform [ongoing load testing activities](/azure/load-testing/overview-what-is-azure-load-testing) that exercise both the pod and cluster autoscaler.
 - Enforce Kubernetes [Resource Quotas](/azure/aks/operator-best-practices-scheduler#enforce-resource-quotas)
