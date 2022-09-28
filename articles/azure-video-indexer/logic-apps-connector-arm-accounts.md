@@ -95,8 +95,9 @@ The following image shows the first flow:
     
     Select **Save** (at the top of the page). 
     
-    ![Screenshot of the create SAS URI by path logic.](./media/logic-apps-connector-arm-accounts/create-sas.png)
-        
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/logic-apps-connector-arm-accounts/create-sas.png" alt-text="Screenshot of the create SAS URI by path logic." lightbox="./media/logic-apps-connector-arm-accounts/create-sas.png":::
+ 
     Select **+New Step**.
 1. Generate an access token.
     
