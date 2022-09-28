@@ -558,7 +558,7 @@ For example, with a sharded collection, sharded on key “country”: To delete 
 - `db.coll.deleteMany({"country": "USA", "city": "NYC"})` - **Success** 
 - `db.coll.deleteMany({"city": "NYC"})` - **Fails with error `ShardKeyNotFound(61)`**
 
-To enable the feature, [add the EnableMongoRetryableWrites capability](how-to-configure-capabilities.md) to your database account. This feature can also be enabled in the features tab in the Azure portal. 
+To enable the feature, [add the EnableMongoRetryableWrites capability](how-to-configure-capabilities.md) to your database account. This feature can also be enabled in the features tab in the Azure Portal. 
 
 ## Sharding
 
@@ -570,7 +570,7 @@ Azure Cosmos DB does not yet support server-side sessions commands.
 
 ## Time-to-live (TTL)
 
-Azure Cosmos DB supports a time-to-live (TTL) based on the timestamp of the document. TTL can be enabled for collections from the [Azure portal](https://portal.azure.com).
+Azure Cosmos DB supports a time-to-live (TTL) based on the timestamp of the document. TTL can be enabled for collections from the [Azure Portal](https://portal.azure.com).
 
 ## Transactions
 
@@ -578,7 +578,7 @@ Multi-document transactions are supported within an unsharded collection. Multi-
 
 ## User and role management
 
-Azure Cosmos DB does not yet support users and roles. However, Azure Cosmos DB supports Azure role-based access control (Azure RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com) (Connection String page).
+Azure Cosmos DB does not yet support users and roles. However, Azure Cosmos DB supports Azure role-based access control (Azure RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure Portal](https://portal.azure.com) (Connection String page).
 
 ## Write Concern
 
