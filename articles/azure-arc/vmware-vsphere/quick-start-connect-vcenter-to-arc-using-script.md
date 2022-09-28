@@ -73,7 +73,7 @@ You need a Windows or Linux machine that can access both your vCenter Server ins
 
 7. Select a subscription and resource group where the resource bridge will be created.
 
-8. Under **Region**, select an Azure location where the resource metadata will be stored. Currently, supported regions are **East US** and **West Europe**.
+8. Under **Region**, select an Azure location where the resource metadata will be stored. Currently, supported regions are **East US**, **West Europe**, **Australia East** and **Canada Central**.
 
 9. Provide a name for **Custom location**. This is the name that you'll see when you deploy VMs. Name it for the datacenter or the physical location of your datacenter. For example: **contoso-nyc-dc**.
 
