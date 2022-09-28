@@ -123,5 +123,5 @@ Total supported language codes: 94
 
 ## Next steps
 
-* [how to call the API](how-to/call-api.md) for more information.
+* [How to call the API](how-to/call-api.md) for more information.
 * [Quickstart: Use the key phrase extraction client library and REST API](quickstart.md)
