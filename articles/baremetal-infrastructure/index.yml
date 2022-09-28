@@ -156,7 +156,7 @@ landingContent:
         links:
          - text: What is BareMetal Infrastructure for Nutanix Cloud Clusters on Azure?
            url: workloads/nc2-public-preview/nc2-baremetal-overview.md
-         - text: About the Public Preview
+         - text: About BareMetal Infrastructure for Nutanix Cloud Clusters on Azure
            url: workloads/nc2-public-preview/about-the-public-preview.md
          - text: FAQ
            url: workloads/nc2-public-preview/faq.md
