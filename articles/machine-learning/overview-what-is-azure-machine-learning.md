@@ -208,5 +208,5 @@ Also, Azure Machine Learning includes features for monitoring and auditing:
 
 Start using Azure Machine Learning:
 - [Set up an Azure Machine Learning workspace](quickstart-create-resources.md)
-- [Tutorial: Azure Machine Learning in a day](tutorial-azure-ml-in-a-day.md)
-- [Preview: Run model training jobs with the v2 CLI](how-to-train-cli.md)
+- [Tutorial: Build a first machine learning project](tutorial-1st-experiment-hello-world.md)
+- [How to run training jobs(how-to-train-model.md)

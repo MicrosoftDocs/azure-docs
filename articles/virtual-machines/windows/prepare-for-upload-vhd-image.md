@@ -1,15 +1,14 @@
 ---
 title: Prepare a Windows VHD to upload to Azure
-description: Learn how to prepare a Windows VHD or VHDX to upload it to Azure
+description: Learn how to prepare and generalize a Windows VHD or VHDX to upload it to Azure.
 author: genlin
 manager: dcscontentpm
 ms.service: virtual-machines
-ms.subservice: disks
-ms.collection: windows
-ms.workload: infrastructure-services
+ms.subservice: imaging
 ms.topic: troubleshooting
-ms.date: 09/02/2020
+ms.date: 08/04/2022
 ms.author: genli
+ms.custom: engagement-fy23
 ---
 
 # Prepare a Windows VHD or VHDX to upload to Azure

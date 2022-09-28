@@ -90,8 +90,8 @@ Before you can block legacy authentication in your directory, you need to first 
 #### Indicators from Azure AD
 
 1. Navigate to the **Azure portal** > **Azure Active Directory** > **Sign-in logs**.
-1. Add the Client App column if it isn't shown by clicking on **Columns** > **Client App**.
-1. **Add filters** > **Client App** > select all of the legacy authentication protocols. Select outside the filtering dialog box to apply your selections and close the dialog box.
+1. Add the **Client App** column if it isn't shown by clicking on **Columns** > **Client App**.
+1. Select **Add filters** > **Client App** > choose all of the legacy authentication protocols and select **Apply**.
 1. If you've activated the [new sign-in activity reports preview](../reports-monitoring/concept-all-sign-ins.md), repeat the above steps also on the **User sign-ins (non-interactive)** tab.
 
 Filtering will only show you sign-in attempts that were made by legacy authentication protocols. Clicking on each individual sign-in attempt will show you more details. The **Client App** field under the **Basic Info** tab will indicate which legacy authentication protocol was used.
