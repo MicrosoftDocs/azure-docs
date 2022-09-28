@@ -22,7 +22,7 @@ Get started with Azure Communication Services by using the Call Automation SDKs 
 
 ## Create Event Grid subscription for Incoming Call
 
-Follow [this how-to guide](../../../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md) to create your Event Grid subscription for the `IncomingCall` event.
+Follow [this how-to guide](../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md) to create your Event Grid subscription for the `IncomingCall` event.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Redirect inbound call with .NET](./includes/redirect-inbound-telephony-calls-csharp.md)]
@@ -42,10 +42,10 @@ Since this call flow involves a redirected call instead of answering it, pre-cal
 
 ## Clean up resources
 
-If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).
+If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../../quickstarts/create-communication-resource.md#clean-up-resources).
 
 ## Next steps
 
 - Learn more about [Call Automation](../../concepts/voice-video-calling/call-automation.md) and its features. 
 - Learn more about [Play action](../../concepts/voice-video-calling/play-Action.md).
-- Learn how to build a [call workflow](../voice-video-calling/callflows-for-customer-interactions.md) for a customer support scenario. 
+- Learn how to build a [call workflow](../../quickstarts/voice-video-calling/callflows-for-customer-interactions.md) for a customer support scenario. 
