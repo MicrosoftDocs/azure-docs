@@ -1,5 +1,5 @@
 ---
-title: Machine Learning registries
+title: Machine Learning registries (preview)
 titleSuffix: Azure Machine Learning
 description: Learn what are Azure Machine Learning registries and how to use to for MLOps
 services: machine-learning
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.custom: devx-track-python
 ---
 
-# Machine Learning registries for MLOps
+# Machine Learning registries (preview) for MLOps
 
 In this article, you'll learn how to scale MLOps across development, testing and production environments. Your environments can vary from few to many based on the complexity of your IT environment and is influenced by factors such as:
 

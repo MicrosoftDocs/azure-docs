@@ -16,7 +16,7 @@ ms.custom: devx-track-python
 
 # Share models, components and environments across workspaces with registries (preview)
 
-Azure Machine Learning registry enables you to collaborate across workspaces within your organization. Using registries, you can share models, components, and environments.
+Azure Machine Learning registry (preview) enables you to collaborate across workspaces within your organization. Using registries, you can share models, components, and environments.
  
 There are two scenarios where you'd want to use the same set of models, components and environments in multiple workspaces:
 
