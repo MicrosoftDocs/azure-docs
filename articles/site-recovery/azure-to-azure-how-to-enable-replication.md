@@ -125,40 +125,6 @@ To enable replication for an added disk, do the following:
 
 After the enable replication job runs, and the initial replication finishes, the replication health warning for the disk issue is removed.
 
-
-## Customize target resources
-
-You can modify the default target settings used by Site Recovery.
-
-1. Click **Customize:** next to 'Target subscription' to modify the default target subscription. Select the subscription from the list of all the subscriptions available in the same Azure Active Directory (Azure AD) tenant.
-
-2. Click **Customize:** to modify default settings:
-	- In **Target resource group**, select the resource group from the list of all the resource groups in the target location of the subscription.
-	- In **Target virtual network**, select the network from a list of all the virtual network in the target location.
-    - In **Cache storage**, select the storage you want from the list of available cache storage.
-	- In **Target availability type**, select the availability type from a list of all the availability type in the target location.
-	- In **Target proximity placement group**, select the proximity placement group from a list of all the proximity placement group in the target location.
-
-		![Screenshot that shows how to customize target subscription settings.](./media/azure-to-azure-how-to-enable-replication/customize.PNG)
-3. Click **Customize:** to modify replication settings.
-4. In **Multi-VM consistency**, select the VMs that you want to replicate together.
-    - All the machines in a replication group will have shared crash consistent and app-consistent recovery points when failed over.
-    - Enabling multi-VM consistency can impact workload performance (as it is CPU intensive). It should only be enabled if machines are running the same workload, and you need consistency across multiple machines.
-    - For example, if an application has 2 SQL Server virtual machines and two web servers, then you should add only the SQL Server VMs to a replication group.
-    - You can choose to have a maximum of 16 VMs in a replication group.
-    - If you enable multi-VM consistency, machines in the replication group communicate with each other over port 20004.
-    - Ensure there's no firewall appliance blocking the internal communication between the VMs over port 20004.
-    - If you want Linux VMs to be part of a replication group, ensure the outbound traffic on port 20004 is manually opened according to guidance for the specific Linux version.
-![Screenshot that shows the Multi-VM consistency settings.](./media/azure-to-azure-how-to-enable-replication/multi-vm-settings.PNG)
-
-5. Click **View or Edit Capacity Reservation group assignment** to modify the capacity reservation settings. On triggering Failover, the new VM will be created in the assigned Capacity Reservation Group.
-
-    Capacity Reservation lets you purchase capacity in the recovery region, and then failover to that capacity. You can either create a new Capacity Reservation Group, or use an existing one. For more information on how capacity reservation works, [read here](../virtual-machines/capacity-reservation-overview.md).
-
-   ![Screenshot that shows the Capacity Reservation settings.](./media/azure-to-azure-how-to-enable-replication/capacity-reservation-edit-button.png)
-1. Click **Create target resource** > **Enable Replication**.
-1. After the VMs are enabled for replication, you can check the status of VM health under **Replicated items**
-
 >[!NOTE]
 >
 > - During initial replication the status might take some time to refresh, without progress. Click the **Refresh** button, to get the latest status.
