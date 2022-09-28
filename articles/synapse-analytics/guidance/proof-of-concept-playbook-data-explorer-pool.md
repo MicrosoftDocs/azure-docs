@@ -2,7 +2,7 @@
 title: "Synapse POC playbook: Big data analytics with Data Explorer pool in Azure Synapse Analytics"
 description: "A high-level methodology for preparing and running an effective Azure Synapse Analytics proof of concept (POC) project for Data Explorer pool."
 author: shsagir
-ms.author: v-shsagir
+ms.author: shsagir
 ms.reviewer: devsha
 ms.service: synapse-analytics
 ms.topic: conceptual
@@ -51,7 +51,7 @@ Before you begin planning your Data Explorer POC project:
 > - Identify executive or business sponsors for a big data and advanced analytics platform project. Secure their support for migration to the cloud.
 > - Identify availability of technical experts and business users to support you during the POC execution.
 
-Before you start preparing for the POC project, we recommend you first read the [Azure Data Explorer documentation](index.yml).
+Before you start preparing for the POC project, we recommend you first read the [Azure Data Explorer documentation](/azure/data-explorer?context=/azure/synapse-analytics/context/context).
 
 By now you should have determined that there are no immediate blockers and then you can start preparing for your POC. If you are new to Data Explorer, you can refer to [this documentation](../data-explorer/data-explorer-overview.md) where you can get an overview of the Data Explorer architecture.
 
@@ -130,9 +130,9 @@ Here are the typical subject areas that are evaluated with Data Explorer:
 > Use the following frequently asked questions to help you plan your POC.
 >
 > - **How do I choose the caching period when creating my POC workspace?**  
->     To provide best query performance, ingested data is cached on the local SSD disk. This level of performance is not always required and less frequently queried data can often be stored on cheaper blob storage. Queries on data in blob storage run slower, but this acceptable in many scenarios. Knowing this can help you identify the number of compute nodes you need to hold your data in local SSD and continue to meet your query performance requirements. For example, if you you want to query *x* days worth of data (based on ingestion age) more frequently and retain data for *y* days and query it less frequently, in your cache retention policy, specify *x* as the value for hot cache retention and *y* as the value for the total retention. For more information, see [Cache policy](kusto/management/cachepolicy.md).
+>     To provide best query performance, ingested data is cached on the local SSD disk. This level of performance is not always required and less frequently queried data can often be stored on cheaper blob storage. Queries on data in blob storage run slower, but this acceptable in many scenarios. Knowing this can help you identify the number of compute nodes you need to hold your data in local SSD and continue to meet your query performance requirements. For example, if you you want to query *x* days worth of data (based on ingestion age) more frequently and retain data for *y* days and query it less frequently, in your cache retention policy, specify *x* as the value for hot cache retention and *y* as the value for the total retention. For more information, see [Cache policy](/azure/data-explorer/kusto/management/cachepolicy?context=/azure/synapse-analytics/context/context).
 > - **How do I choose the retention period when creating my POC workspace?**  
->     The retention period is a combination of hot and cold cache data that is available for querying. You choose data retention based on how long you need to retain the data based on compliance or other regulatory requirements. You can use the hot window capability, to warm data stored in the cold cache, for faster queries for any auditing purpose. For more information, see [Query cold data with hot windows](hot-windows.md).
+>     The retention period is a combination of hot and cold cache data that is available for querying. You choose data retention based on how long you need to retain the data based on compliance or other regulatory requirements. You can use the hot window capability, to warm data stored in the cold cache, for faster queries for any auditing purpose. For more information, see [Query cold data with hot windows](/azure/data-explorer/hot-windows?context=/azure/synapse-analytics/context/context).
 
 Here's an example of the needed level of specificity in planning:
 
@@ -149,8 +149,8 @@ Here's an example of the needed level of specificity in planning:
     - Estimate the effort for our initial historical data migration to our Data Explorer pool.
     - Plan an approach to migrate historical data.
 - **Output C**: We'll have tested and determined the data ingestion rate achievable in our environment and can determine whether our data ingestion rate is sufficient to migrate historical data during the available time window.
-    - **Test C1**: Test different approaches of historical data migration. For more information, see [Comparing ingestion methods and tools](ingest-data-overview.md#comparing-ingestion-methods-and-tools).
-    - **Test C2**: Test data transfer from the data source to our workspace by using either LightIngest, Continuous ingestion from blob storage or data lake store. For more information, see [Use wizard for one-time ingestion of historical data with LightIngest](generate-lightingest-command.md).
+    - **Test C1**: Test different approaches of historical data migration. For more information, see [Comparing ingestion methods and tools](../data-explorer/ingest-data/data-explorer-ingest-data-overview.md#ingestion-methods-and-tools).
+    - **Test C2**: Test data transfer from the data source to our workspace by using either LightIngest, Continuous ingestion from blob storage or data lake store. For more information, see [Use wizard for one-time ingestion of historical data with LightIngest](/azure/data-explorer/generate-lightingest-command?context=/azure/synapse-analytics/context/context).
 - **Goal D**: We'll have tested the data ingestion rate of incremental data loading and will have the data points to estimate the data ingestion and processing time window.
 - **Output D**: We'll have tested the data ingestion rate and can determine whether our data ingestion and processing requirements can be met with the identified approach.
     - **Test D1**: Test daily, hourly, and near-real time data ingestion and processing.
@@ -253,8 +253,8 @@ Here are some examples of high-level tasks:
     - Many tests can be executed in parallel on your workspaces using different client interfaces such as dashboards, PowerBIm and a Data Explorer KQL script.
     - Record your results in a consumable and readily understandable format.
 1. Optimize the queries and workspace:
-    - Whether you're writing new KQL queries or converting existing queries from other languages, we recommend checking that your queries follow [Query best practices](/azure/data-explorer/kusto/query/best-practices).
-    - Depending on the test results, you may need to fine-tune your workspace with a caching policy, partitioning policy, workspace sizing, or other optimizations. For recommendations, see [Optimize for high concurrency](/azure/data-explorer/high-concurrency).
+    - Whether you're writing new KQL queries or converting existing queries from other languages, we recommend checking that your queries follow [Query best practices](/azure/data-explorer/kusto/query/best-practices?context=/azure/synapse-analytics/context/context).
+    - Depending on the test results, you may need to fine-tune your workspace with a caching policy, partitioning policy, workspace sizing, or other optimizations. For recommendations, see [Optimize for high concurrency](/azure/data-explorer/high-concurrency?context=/azure/synapse-analytics/context/context).
 1. Monitor for troubleshooting and performance:
     - For more information, see [Monitor Data Explorer performance, health, and usage with metrics](../data-explorer/data-explorer-monitor-pools.md).
     - For technical issues, please [create a support ticket](https://ms.portal.azure.com/#create/Microsoft.Support).
@@ -294,7 +294,7 @@ Before you migrate your POC workspace to production, we highly recommend that yo
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Common questions about Data Explorer ingestion](/azure/data-explorer/kusto/management/ingestion-faq.yml)
+> [Common questions about Data Explorer ingestion](/azure/data-explorer/kusto/management/ingestion-faq?context=/azure/synapse-analytics/context/context)
 
 > [!div class="nextstepaction"]
-> [Best practices for schema management](/azure/data-explorer/kusto/management/management-best-practices.md)
+> [Best practices for schema management](/azure/data-explorer/kusto/management/management-best-practices?context=/azure/synapse-analytics/context/context)
