@@ -97,12 +97,6 @@
       items: 
         - name: Train a TensorFlow image classification model
           href: tutorial-train-deploy-image-classification-model-vscode.md
-    - name: Microsoft Power BI integration
-      items: 
-        - name: "Part 1: Train and deploy models"
-          href: tutorial-power-bi-custom-model.md
-        - name: "Part 2: Consume in Power BI"
-          href: /power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context
     - name: Build a training pipeline (Python SDK v2)
       href: tutorial-pipeline-python-sdk.md
 - name: Samples
