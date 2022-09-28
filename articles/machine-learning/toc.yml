@@ -54,9 +54,14 @@
       - name: "Pipelines"
         displayName: migration, v1, v2
         href: migrate-to-v2-execution-pipeline.md  
-    - name: "Migrate endpoints"
-      displayName: migration, v1, v2
-      href: migrate-to-v2-deploy-endpoints.md  
+    - name: Migrate endpoints
+      items:
+      - name: "Online endpoints (comparison of SDK)"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-deploy-endpoints.md
+      - name: "Migration steps to managed online endpoints"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-managed-online-endpoints.md 
 
 - name: Quickstart
   expanded: true
