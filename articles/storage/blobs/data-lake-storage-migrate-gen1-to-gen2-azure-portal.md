@@ -223,7 +223,7 @@ When you copy the data over to your Gen2-enabled account, two factors that can a
 
 #### Will WebHDFS File System API's supported on Gen2 account post migraiton?
 
-WebHDFS File System API's of Gen1 will be supported on Gen2 but with certain deviation and only limited functionality is supported via compatibilty layer. Customers should plan for levaraging ADLS Gen2 specific API's for better performance and features.
+WebHDFS File System APIs of Gen1 will be supported on Gen2 but with certain deviations, and only limited functionality is supported via the compatibilty layer. Customers should plan to levarage ADLS Gen2-specific APIs for better performance and features.
 
 ## Next steps
 
