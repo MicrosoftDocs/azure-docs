@@ -109,6 +109,8 @@ We recommend that readers familiarize themselves with these design areas, review
 
 ## Sustainability Design Considerations for AKS clusters
 
+The following considerations are aligned with the [Application platform](/azure/architecture/framework/sustainability/sustainability-application-platform.md) Sustainability Design Area
+
 ### Review platform and service updates regularly 
 
 Platform updates enable you to use the latest functionality and features to help increase efficiency. Running on outdated software can result in running a suboptimal workload with unnecessary performance issues. New software tends to be more efficient in general.
@@ -325,4 +327,4 @@ _sustainability design principles: [Hardware efficiency](sustainability-design-p
 Review the design considerations for deployment and testing.
 
 > [!div class="nextstepaction"]
-> [Deployment and testing](sustainability-testing.md)
+> [Deployment and testing](/azure/architecture/framework/sustainability/sustainability-testing.md)
