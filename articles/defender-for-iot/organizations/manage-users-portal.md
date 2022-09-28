@@ -58,7 +58,6 @@ Use AAD user auditing resources to audit Azure user activity across Defender for
 - [Audit logs in Azure Active directory](/azure/active-directory/reports-monitoring/concept-audit-logs)
 - [Azure AD audit activity reference](/azure/active-directory/reports-monitoring/reference-audit-activities)
 
-To audit Azure user activity across Defender for IoT, use the AAD auditing resources. For more information, see 
 ## Next steps
 
 For more information, see:
