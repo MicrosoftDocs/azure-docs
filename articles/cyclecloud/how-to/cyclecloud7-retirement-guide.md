@@ -23,27 +23,27 @@ New features include:
 - PBS Updates
   - PBS clusters upgraded to using the latest OpenPBS 20 release
   - PBS autoscaler updated to use the new autoscaling library
-- NAS Options in Default Templates 
+- NAS Options in Default Templates
   - Mount an external NFS filesystem easily without needing to create a custom template
   - Size options for internal NFS volume
-- Improved Node Preparation Time 
+- Improved Node Preparation Time
   - Significant improvement in node preparation time
-  - Shaves off between 90-180s from bootup time
+  - Shaves off between 90-180s from boot-up time
 - Event Grid support for node-status notifications
-- Univa Grid Engine Support 
-  - Official support for Univa grid Engine
+- Altair Grid Engine Support 
+  - Official support for Altair Grid Engine
   - Updated autoscaling library for Grid Engine
-- Job Accounting 
-  - Enable slurm job accounting feature
+- Job Accounting
+  - Enable Slurm job accounting feature
   - Job accounting data can be stored to a file or written to a MariaDB/MySQL database
-- Autoscaling Lib 
+- Autoscaling Lib
   - A new python library to facilitate and standardize scheduler autoscale integrations
   - Better scaling agility for both high-throughput and tightly-coupled jobs
-- CentOS 8 and Ubuntu 20 
+- CentOS 8 and Ubuntu 20
   - CycleCloud 8 supports CentOS 7, CentOS 8, Ubuntu 18, and Ubuntu 20
 - Additional Slurm Features
   - Option to stop-deallocate nodes instead of terminating them during auto-stopping
-  - Autodetection of GPU resources
+  - Auto-detection of GPU resources
 
 The following features available in CycleCloud 7 are not available in CycleCloud 8:
 
