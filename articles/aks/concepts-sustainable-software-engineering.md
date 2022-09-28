@@ -81,7 +81,7 @@ We recommend that readers familiarize themselves with these design areas, review
  - Evaluate if [nodes with Ampere Altra Arm–based processors](https://azure.microsoft.com/blog/azure-virtual-machines-with-ampere-altra-arm-based-processors-generally-available/) are a good option for your workloads
 
 **Maximize Hardware utilization**
-- Separate applications into different node pools allowing independent scalling.
+- Separate applications into different node pools allowing independent sizing & scalling.
 - Align node SKU selection and managed disk size with applications requirements.
 - [Resize node pools](/azure/aks/resize-node-pool) to maximize your applications density (and maximize your nodes usage).
 - Use [SPOT Node pools](/azure/aks/spot-node-pool), to take advantage of unused capacity in Azure data centers while getting a significant discount on the VM.
