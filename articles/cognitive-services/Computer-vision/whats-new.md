@@ -76,7 +76,7 @@ Computer Vision's [OCR (Read) API](overview-ocr.md) latest model with [164 suppo
 * Improved processing of digital PDF documents.
 * Input file size limit increased 10x to 500 MB.
 * Performance and latency improvements.
-* Available as [cloud service](overview-ocr.md#read-api) and [Docker container](computer-vision-how-to-install-containers.md).
+* Available as [cloud service](overview-ocr.md) and [Docker container](computer-vision-how-to-install-containers.md).
 
 See the [OCR how-to guide](how-to/call-read-api.md#determine-how-to-process-the-data-optional) to learn how to use the GA model.
 
