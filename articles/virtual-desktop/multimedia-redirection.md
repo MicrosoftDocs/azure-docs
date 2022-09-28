@@ -184,7 +184,7 @@ You can check the extension status by visiting a website with media content, suc
 
 :::image type="content" source="./media/mmr-extension-status-popup.png" alt-text="A screenshot of the MMR extension in the Microsoft Edge extension bar.":::
 
-Another way you can check the extension status is by selecting the extension icon, then you'll see a list of **Features supported on this website** with a green check mark if whether the website supports that feature.
+Another way you can check the extension status is by selecting the extension icon, then you'll see a list of **Features supported on this website** with a green check mark if the website supports that feature.
 
 ## Teams live events
 
