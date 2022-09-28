@@ -10,7 +10,7 @@ author: ntrogh
 ms.date: 09/28/2022
 ---
 
-# Set up continuous end-to-end testing with Azure Pipelines and Microsoft Playwright Testing Preview
+# Set up continuous end-to-end testing with Azure Pipelines
 
 In this article, you learn how to set up continuous end-to-end testing with Azure Pipelines and Microsoft Playwright Testing Preview. Run your Playwright tests with every code change from your CI/CD pipeline. View the test summary results and failed tests directly within the CI/CD output.
 
@@ -36,13 +36,13 @@ To run Playwright tests with Microsoft Playwright Testing, you have to update th
 
 1. Update the `config.reporter` property to save the Playwright test output in JUnit file format to `results.xml`. 
 
-    You'll use the `PublishTestResults` Azure Pipelines task to publish the test results to the Azure Pipelines Tests view.
-
     ```typescript
     //playwright.config.ts
     config.reporter = [["list"], ["@microsoft/playwright-service/reporter", playwrightServiceConfig.getReporterOptions()],  ["@microsoft/playwright-service/junit-reporter", {outputFile: './results.xml'}]];
     ```
-    
+
+    In the Azure Pipelines definition, you'll use the `PublishTestResults` task to publish the test results to Azure Pipelines. This enables you to view the Playwright test results directly in the Azure Pipelines portal.
+
 ## Configure service authentication
 
 Microsoft Playwright Testing uses workspace access keys to authorize running tests. You'll first create a workspace access key in the Playwright dashboard. Then, you'll pass the access key securely to the Playwright command-line in the Azure Pipelines definition file.
