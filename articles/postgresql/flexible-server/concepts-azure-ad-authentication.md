@@ -2,10 +2,10 @@
 title: Active Directory authentication - Azure Database for PostgreSQL - Flexible Server
 description: Learn about the concepts of Azure Active Directory for authentication with Azure Database for PostgreSQL - Flexible Server
 ms.service: postgresql
-ms.subservice: Flexible-server
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.author: kabharati
-author: Kanchan Bharati
+author: kabharati
 ms.date: 09/26/2022
 ---
 
