@@ -1,5 +1,5 @@
 ---
-title: Work with threat indicators in Microsoft Sentinel | Microsoft Docs
+title: Work with threat indicators in Microsoft Sentinel
 description: This article explains how to view, create, manage, and visualize threat intelligence indicators in Microsoft Sentinel.
 author: austinmccollum
 ms.topic: how-to
