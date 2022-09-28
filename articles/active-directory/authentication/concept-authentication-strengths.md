@@ -23,7 +23,7 @@ Authentication strength is based on the [Authentication methods policy](concept-
 
 Administrators can require an authentication strength to access a resource by creating a Conditional Access policy with the **Require authentication strength** control. They can choose from three built-in authentication strengths: **Multifactor authentication strength**, **Passwordless MFA strength**, and **Phishing-resistant MFA strength**. They can also create a custom authentication strength based on the authentication method combinations they want to allow. 
 
-:::image type="content" source="media/concept-authentication-strengths/conditional-access-policy-authentication-strength-grant-control.png" alt-text="Screenshot of a Conditional Access policy with an authentication strength configured in grant controls.":::
+:::image type="content" border="true" source="./media/concept-authentication-strengths/conditional-access-policy-authentication-strength-grant-control.png" alt-text="Screenshot of a Conditional Access policy with an authentication strength configured in grant controls.":::
 
 ## Scenarios for authentication strengths
 
@@ -49,7 +49,7 @@ An authentication strength can include a combination of authentication methods. 
 
 - Azure AD Certificate-Based Authentication (Multi-Factor)
 
-:::image type="content" source="media/concept-authentication-strengths/authentication-strength-definitions.png" alt-text="Screenshot showing the phishing-resistant MFA strength definition.":::
+:::image type="content" border="true" source="./media/concept-authentication-strengths/authentication-strength-definitions.png" alt-text="Screenshot showing the phishing-resistant MFA strength definition.":::
 
 ### Built-in authentication strengths
 
@@ -99,7 +99,7 @@ In addition to the three built-in authentication strengths, administrators can c
 1. Select any of the available methods you want to allow.
 1. Choose **Next** and review the policy configuration.
 
-   :::image type="content" source="media/concept-authentication-strengths/authentication-strength-custom.png" alt-text="Screenshot showing the creation of a custom authentication strength.":::
+   :::image type="content" border="true" source="media/concept-authentication-strengths/authentication-strength-custom.png" alt-text="Screenshot showing the creation of a custom authentication strength.":::
 
 #### Update and delete custom authentication strengths
 
@@ -109,11 +109,11 @@ To check if an authentication strength is referenced by a Conditional Access pol
 #### FIDO2 security key advanced options
 Custom authentication strengths allow customers to further restrict the usage of some FIDO2 security keys based on their Authenticator Attestation GUIDs (AAGUIDs). The capability allows administrators to require a FIDO2 key from a specific manufacture in order to access the resource. To require a specific FIDO2 security key, complete the preceding steps to create a custom authentication strength, select **FIDO2 Security Key**, and click **Advanced options**. 
 
-::image type="content" source="./media/concept-authentication-strengths/key.png" alt-text="Screenshot showing Advanced options.":::
+:::image type="content" border="true" source="./media/concept-authentication-strengths/key.png" alt-text="Screenshot showing Advanced options.":::
 
 Next to **Allowed FIDO2 Keys** click **+**, copy the AADGUID value, and click **Save**.
 
-::image type="content" source="./media/concept-authentication-strengths/aadguid.png" alt-text="Screenshot showing how to add an Authenticator Attestation GUID.":::
+:::image type="content" border="true" source="./media/concept-authentication-strengths/aadguid.png" alt-text="Screenshot showing how to add an Authenticator Attestation GUID.":::
 
 ## Using authentication strength in Conditional Access
 After you determine the authentication strength you need, you'll need to create a Conditional Access policy to require that authentication strength to access a resource. When the Conditional Access policy gets applied, the authentication strength restricts which authentication methods are allowed.
@@ -127,11 +127,11 @@ There are two policies that determine which authentication methods can be used t
 
 - **Security** > **Authentication methods** > **Policies** controls authentication methods for specific users and groups. This is te modern way to....
 
-  ::image type="content" source="./media/concept-authentication-strengths/authentication-methods-policy.png" alt-text="Screenshot of Authentication methods policy.":::
+  :::image type="content" border="true" source="./media/concept-authentication-strengths/authentication-methods-policy.png" alt-text="Screenshot of Authentication methods policy.":::
 
 - **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings** controls methods for all the users in the tenant. legacy way..
 
-  ::image type="content" source="./media/concept-authentication-strengths/mfa-service-settings.png" alt-text="Screenshot of MFA service settings.":::
+  :::image type="content" border="true" source="./media/concept-authentication-strengths/mfa-service-settings.png" alt-text="Screenshot of MFA service settings.":::
 
 
 In addition, users must register for a method they want use, such as SMS. In other cases, an administrator might need to configure a user's device with a method, such as certificate-based authentication.
