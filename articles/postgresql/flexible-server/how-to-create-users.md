@@ -19,7 +19,7 @@ If you would like to learn about how to create and manage Azure subscription use
 
 ## The server admin account
 
-When you first created your Azure Database for PostgreSQL, you provided a server admin user name and password. For more information, you can follow the [Quickstart](quickstart-create-server-database-portal.md) to see the step-by-step approach. Since the server admin user name is a custom name, you can locate the chosen server admin user name from the Azure portal.
+When you first created your Azure Database for PostgreSQL, you provided a server admin user name and password. For more information, you can follow the [Quickstart](quickstart-create-server-portal.md) to see the step-by-step approach. Since the server admin user name is a custom name, you can locate the chosen server admin user name from the Azure portal.
 
 The Azure Database for PostgreSQL server is created with the 3 default roles defined. You can see these roles by running the command: `SELECT rolname FROM pg_roles;`
 
@@ -40,7 +40,7 @@ The server admin user account can be used to create additional users and grant t
    To connect to your database server, you need the full server name and admin sign-in credentials. You can easily find the server name and sign-in information from the server **Overview** page or the **Properties** page in the Azure portal.
 
 2. Use the admin account and password to connect to your database server. Use your preferred client tool, such as pgAdmin or psql.
-   If you are unsure of how to connect, see [the quickstart](./quickstart-create-server-database-portal.md)
+   If you are unsure of how to connect, see [the quickstart](./quickstart-create-server-portal.md)
 
 3. Edit and run the following SQL code. Replace your new user name for the placeholder value <new_user>, and replace the placeholder password with your own strong password.
 
@@ -92,6 +92,6 @@ The server admin user account can be used to create additional users and grant t
 ## Next steps
 
 Open the firewall for the IP addresses of the new users' machines to enable them to connect:
-[Create and manage Azure Database for PostgreSQL firewall rules by using the Azure portal](how-to-manage-firewall-using-portal.md) or [Azure CLI](quickstart-create-server-database-azure-cli.md#configure-a-server-based-firewall-rule).
+[Create and manage Azure Database for PostgreSQL firewall rules by using the Azure portal](how-to-manage-firewall-portal.md) or [Azure CLI](how-to-manage-firewall-cli.md).
 
 For more information regarding user account management, see PostgreSQL product documentation for [Database Roles and Privileges](https://www.postgresql.org/docs/current/static/user-manag.html), [GRANT Syntax](https://www.postgresql.org/docs/current/static/sql-grant.html), and [Privileges](https://www.postgresql.org/docs/current/static/ddl-priv.html).

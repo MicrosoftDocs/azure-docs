@@ -1,6 +1,6 @@
 ---
 title: Connect with Managed Identity - Azure Database for PostgreSQL - Flexible Server
-description: Learn about how to connect and authenticate using Managed Identity for authentication with Azure Database for PostgreSQL
+description: Learn about how to connect and authenticate using Managed Identity for authentication with Azure Database for PostgreSQL Flexible Server
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: how-to
@@ -10,7 +10,7 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 ms.date: 09/26/2022
 ---
 
-# Connect with Managed Identity to Azure Database for PostgreSQL
+# Connect with Managed Identity to Azure Database for PostgreSQL Flexible Server
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 
