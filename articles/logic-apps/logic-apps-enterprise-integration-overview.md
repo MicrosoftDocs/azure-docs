@@ -55,7 +55,7 @@ After you create an integration account and add your artifacts, you can start bu
 > logic app resource and use those artifacts across multiple workflows within the *same logic app resource*. 
 > You still need an integration account to store other artifacts such as partners and agreements, but linking 
 > is no longer necessary, so this capability doesn't exist. For more information about these resource types, review 
-> [What is Azure Logic Apps - Resource type and host environments](logic-apps-overview.md#resource-type-and-host-environment-differences).
+> [What is Azure Logic Apps - Resource type and host environments](logic-apps-overview.md#resource-environment-differences).
 
 The following diagram shows the high-level steps to start building B2B logic app workflows:
 
