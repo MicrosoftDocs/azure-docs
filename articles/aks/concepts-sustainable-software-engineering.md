@@ -80,8 +80,8 @@ They Are considerations for sustainable workloads on Azure (not specific to a gi
 - Separate applications into different node pools allowing independent scalling.
 - Align node SKU selection and managed disk size with applications requirements.
 - [Resize node pools](/azure/aks/resize-node-pool) to maximize your applications density (and maximize your nodes usage).
-- Use AKS [advanced scheduler features](azure/aks/operator-best-practices-advanced-scheduler) to optimize scheduling your applications (pods), to nodes
 - Use [SPOT Node pools](/azure/aks/spot-node-pool), to take advantage of unused capacity in Azure data centers while getting a significant discount on the VM.
+- Use AKS [advanced scheduler features](azure/aks/operator-best-practices-advanced-scheduler) to optimize scheduling your applications (pods), to nodes
 
 **Scale based on demand**
 - Use [Keda](https://keda.sh/) to Auto-scale your applications based on demand.
