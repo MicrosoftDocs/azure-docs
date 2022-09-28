@@ -200,10 +200,6 @@ An authentication strength Conditional Access policy works together with [MFA tr
 - **Users who signed in by using certificate-based authentication aren't prompted to reauthenticate** - If a user first authenticated by using certificate-based authentication and the authentication strength requires another method, such as a FIDO2 security key, the user isn't prompted to use a FIDO2 security key and authentication fails. The user must restart their session to sign-in with a FIDO2 security key.
 
 - **Authentication methods that are currently not supported by authentication strengths** - The following authentication methods are included in the available combinations but currently have limited functionality:
-  - Windows Hello for Business
-  - Microsoft Authenticator (phone sign-in)
-  - Temporary Access Pass (one-time use and multiuse)
-  - Federated multifactor
   - Email one-time pass (Guest)
   - Hardware-based OATH token
 
