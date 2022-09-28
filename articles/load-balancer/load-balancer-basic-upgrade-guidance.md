@@ -58,6 +58,7 @@ Use these PowerShell scripts to help with upgrading from Basic to Standard SKU:
 - [Upgrading a basic to standard public load balancer](upgrade-basic-standard.md)
 - [Upgrade from Basic Internal to Standard Internal](upgrade-basicInternal-standard.md)
 - [Upgrade an internal basic load balancer - Outbound connections required](upgrade-internalbasic-to-publicstandard.md)
+- [Upgrade a basic load balancer used with Virtual Machine Scale Sets](./upgrade-basic-standard-virtual-machine-scale-sets.md)
 
 ## Next Steps
 
