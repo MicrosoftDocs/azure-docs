@@ -546,19 +546,19 @@ Now that the code is set up, it needs to be tested.
 
 After the browser loads your *index.html* file, select **Sign In**. You'll now be prompted to sign in with the Microsoft identity platform:
 
-:::image type="content" source="./media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot_v2.png" alt-text="Screenshot showing the JavaScript SPA account sign-in window" :::
+:::image type="content" source="./media/active-directory-develop-guidedsetup-javascriptspa-test/javascript-spa-screenshot-v2.png" alt-text="Screenshot showing the JavaScript SPA account sign-in window" :::
 
 ### Provide consent for application access
 
 The first time that you sign in to your application, you're prompted to grant it access to your profile and sign you in. Select **Accept** to continue.
 
-:::image type="content" source="./media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent_v2.png" alt-text="Screenshot showing the Permissions requested window." :::
+:::image type="content" source="./media/active-directory-develop-guidedsetup-javascriptspa-test/javascript-spa-consent-v2.png" alt-text="Screenshot showing the Permissions requested window." :::
 
 ### View application results
 
 After you sign in, you can select **Read More under your displayed name, and your user profile information is returned in the Microsoft Graph API response that's displayed:
 
-:::image type="content" source="./media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults_v2.png" alt-text="Screenshot showing the expected results from the Microsoft Graph API call" ::: 
+:::image type="content" source="./media/active-directory-develop-guidedsetup-javascriptspa-test/javascript-spa-results-v2.png" alt-text="Screenshot showing the expected results from the Microsoft Graph API call" ::: 
 
 ### More information about scopes and delegated permissions
 
