@@ -309,18 +309,18 @@ The following [Bitwise operators](/azure/data-explorer/kusto/query/binoperators)
 
 #### Special functions 
 
--parse_cef_dictionary()
+`parse_cef_dictionary()`<br><br>
 
-    Given a string containing a CEF message, `parse_cef_dictionary` parses the Extension property of the message into a dynamic key/value object. Semicolon is a reserved character that should be replaced prior to passing the raw message into the method, as shown in the example below.
+Given a string containing a CEF message, `parse_cef_dictionary` parses the Extension property of the message into a dynamic key/value object. Semicolon is a reserved character that should be replaced prior to passing the raw message into the method, as shown in the example below.
 
-    ```kusto
-    | extend cefMessage=iff(cefMessage contains_cs ";", replace(";", " ", cefMessage), cefMessage) 
-    | extend parsedCefDictionaryMessage =parse_cef_dictionary(cefMessage) 
-    | extend parsecefDictionaryExtension = parsedCefDictionaryMessage["Extension"]
-    | project TimeGenerated, cefMessage, parsecefDictionaryExtension
-    ```
+```kusto
+| extend cefMessage=iff(cefMessage contains_cs ";", replace(";", " ", cefMessage), cefMessage) 
+| extend parsedCefDictionaryMessage =parse_cef_dictionary(cefMessage) 
+| extend parsecefDictionaryExtension = parsedCefDictionaryMessage["Extension"]
+| project TimeGenerated, cefMessage, parsecefDictionaryExtension
+```
 
-    :::image type="content" source="media/data-collection-transformations-structure/parse_cef_dictionary.png" lightbox="media/data-collection-transformations-structure/parse_cef_dictionary.png" alt-text="Sample output of parse_cef_dictionary function.":::
+:::image type="content" source="media/data-collection-transformations-structure/parse_cef_dictionary.png" lightbox="media/data-collection-transformations-structure/parse_cef_dictionary.png" alt-text="Sample output of parse_cef_dictionary function.":::
 
 
 ### Identifier quoting
