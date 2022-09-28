@@ -9,13 +9,13 @@ ms.topic: reference
 author: shohei1029
 ms.author: shnagata
 ms.date: 09/16/2022
-ms.reviewer: sgilley
+ms.reviewer: blackmist
 ms.custom: migration
 ---
 
 # Migrate deployment endpoints from SDK v1 to SDK v2
 
-We newly introduced [online endpoints](concept-endpoints.md) and batch endpoints as v2 concepts. There are several deployment funnels such as managed online endpoints, [kubernetes online endpoints](how-to-attach-kubernetes-anywhere.md) (including AKS and Arch-enabled Kubernetes) in v2, and ACI and AKS webservices in v1. In this article, we'll focus on the comparison of deploying to ACI webservices (v1) and managed online endpoints (v2).
+We newly introduced [online endpoints](concept-endpoints.md) and batch endpoints as v2 concepts. There are several deployment funnels such as managed online endpoints, [kubernetes online endpoints](how-to-attach-kubernetes-anywhere.md) (including AKS and Arc-enabled Kubernetes) in v2, and ACI and AKS webservices in v1. In this article, we'll focus on the comparison of deploying to ACI webservices (v1) and managed online endpoints (v2).
 
 Examples in this article show how to:
 
