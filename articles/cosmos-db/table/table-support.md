@@ -5,8 +5,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: how-to
 ms.date: 11/03/2021
-author: sakash279
-ms.author: akshanka
+author: rothja
+ms.author: jroth
 ms.reviewer: mjbrown
 ms.devlang: cpp, csharp, java, javascript, php, python, ruby
 ---

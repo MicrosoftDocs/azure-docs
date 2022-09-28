@@ -37,7 +37,7 @@ Otherwise, if a user-assigned managed identity is specified in Azure Machine Lea
 Azure Relay resource is created during the extension deployment under the same Resource Group as the Arc-enabled Kubernetes cluster.
 
 
-### [CLI](#tab/cli)
+### [Azure CLI](#tab/cli)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
@@ -61,7 +61,7 @@ Set the `--type` argument to `Kubernetes`. Use the `identity_type` argument to e
 > `--user-assigned-identities` is only required for `UserAssigned` managed identities. Although you can provide a list of comma-separated user managed identities, only the first one is used when you attach your cluster.
 >
 > Compute attach won't create the Kubernetes namespace automatically or validate whether the kubernetes namespace existed. You need to verify that the specified namespace exists in your cluster, otherwise, any AzureML workloads submitted to this compute will fail.  
-### [Python](#tab/python)
+### [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 

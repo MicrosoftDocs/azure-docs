@@ -18,7 +18,7 @@ Connection string and role name are the most common settings needed to get start
 
 ```json
 {
-  "connectionString": "InstrumentationKey=...",
+  "connectionString": "...",
   "role": {
     "name": "my cloud role name"
   }
@@ -32,14 +32,14 @@ You will find more details and additional configuration options below.
 
 ## Configuration file path
 
-By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.3.1.jar`.
+By default, Application Insights Java 3.x expects the configuration file to be named `applicationinsights.json`, and to be located in the same directory as `applicationinsights-agent-3.4.1.jar`.
 
 You can specify your own configuration file path using either
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` environment variable, or
 * `applicationinsights.configuration.file` Java system property
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.3.1.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.4.1.jar` is located.
 
 Alternatively, instead of using a configuration file, you can specify the entire _content_ of the json configuration
 via the environment variable `APPLICATIONINSIGHTS_CONFIGURATION_CONTENT`.
@@ -53,7 +53,7 @@ Connection string is required. You can find your connection string in your Appli
 
 ```json
 {
-  "connectionString": "InstrumentationKey=..."
+  "connectionString": "..."
 }
 ```
 
@@ -62,7 +62,7 @@ You can also set the connection string using the environment variable `APPLICATI
 
 You can also set the connection string by specifying a file to load the connection string from.
 
-If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.3.1.jar` is located.
+If you specify a relative path, it will be resolved relative to the directory where `applicationinsights-agent-3.4.1.jar` is located.
 
 ```json
 {
@@ -70,11 +70,7 @@ If you specify a relative path, it will be resolved relative to the directory wh
 }
 ```
 
-The file should contain only the connection string, for example:
-
-```
-InstrumentationKey=...;IngestionEndpoint=...;LiveEndpoint=...
-```
+The file should contain only the connection string and nothing else.
 
 Not setting the connection string will disable the Java agent.
 
@@ -140,10 +136,12 @@ Furthermore, sampling is trace ID based, to help ensure consistent sampling deci
 
 ### Rate-Limited Sampling
 
-Starting from 3.4.0-BETA, rate-limited sampling is available, and is now the default.
+Starting from 3.4.1, rate-limited sampling is available, and is now the default.
 
 If no sampling has been configured, the default is now rate-limited sampling configured to capture at most
-(approximately) 5 requests per second. This replaces the prior default which was to capture all requests.
+(approximately) 5 requests per second, along with all the dependencies and logs on those requests.
+
+This replaces the prior default which was to capture all requests.
 If you still wish to capture all requests, use [fixed-percentage sampling](#fixed-percentage-sampling) and set the
 sampling percentage to 100.
 
@@ -158,15 +156,15 @@ Here is an example how to set the sampling to capture at most (approximately) 1 
 ```json
 {
   "sampling": {
-    "limitPerSecond": 1.0
+    "requestsPerSecond": 1.0
   }
 }
 ```
 
-Note that `limitPerSecond` can be a decimal, so you can configure it to capture less than one request per second if you
-wish.
+Note that `requestsPerSecond` can be a decimal, so you can configure it to capture less than one request per second if you wish.
+For example, a value of `0.5` means capture at most 1 request every 2 seconds.
 
-You can also set the sampling percentage using the environment variable `APPLICATIONINSIGHTS_SAMPLING_LIMIT_PER_SECOND`
+You can also set the sampling percentage using the environment variable `APPLICATIONINSIGHTS_SAMPLING_REQUESTS_PER_SECOND`
 (which will then take precedence over rate limit specified in the json configuration).
 
 ### Fixed-Percentage Sampling
@@ -266,7 +264,7 @@ Starting from version 3.2.0, if you want to set a custom dimension programmatica
 
 ## Connection string overrides (preview)
 
-This feature is in preview, starting from 3.4.0-BETA.
+This feature is in preview, starting from 3.4.1.
 
 Connection string overrides allow you to override the [default connection string](#connection-string), for example:
 * Set one connection string for one http path prefix `/myapp1`.
@@ -278,11 +276,11 @@ Connection string overrides allow you to override the [default connection string
     "connectionStringOverrides": [
       {
         "httpPathPrefix": "/myapp1",
-        "connectionString": "12345678-0000-0000-0000-0FEEDDADBEEF"
+        "connectionString": "..."
       },
       {
         "httpPathPrefix": "/myapp2",
-        "connectionString": "87654321-0000-0000-0000-0FEEDDADBEEF"
+        "connectionString": "..."
       }
     ]
   }
@@ -418,6 +416,25 @@ These are the valid `level` values that you can specify in the `applicationinsig
 > | project timestamp, message, itemType
 > ```
 
+
+### Code properties for Logback (preview) 
+
+You can enable code properties (_FileName_, _ClassName_, _MethodName_, _LineNumber_) for Logback: 
+
+```json
+{
+  "preview": {
+    "captureLogbackCodeAttributes": true
+  }
+}
+```
+
+> [!WARNING]
+>
+> This feature could add a performance overhead.
+
+This feature is in preview, starting from 3.4.1.
+
 ### LoggingLevel
 
 Starting from version 3.3.0, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field.
@@ -462,12 +479,30 @@ To disable auto-collection of Micrometer metrics (including Spring Boot Actuator
 
 Literal values in JDBC queries are masked by default in order to avoid accidentally capturing sensitive data.
 
-Starting from 3.4.0-BETA, this behavior can be disabled if desired, e.g.
+Starting from 3.4.1, this behavior can be disabled if desired, e.g.
 
 ```json
 {
   "instrumentation": {
     "jdbc": {
+      "masking": {
+        "enabled": false
+      }
+    }
+  }
+}
+```
+
+## Mongo query masking
+
+Literal values in Mongo queries are masked by default in order to avoid accidentally capturing sensitive data.
+
+Starting from 3.4.1, this behavior can be disabled if desired, e.g.
+
+```json
+{
+  "instrumentation": {
+    "mongo": {
       "masking": {
         "enabled": false
       }
@@ -737,7 +772,7 @@ and the console, corresponding to this configuration:
 `level` can be one of `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, or `TRACE`.
 
 `path` can be an absolute or relative path. Relative paths are resolved against the directory where
-`applicationinsights-agent-3.3.1.jar` is located.
+`applicationinsights-agent-3.4.1.jar` is located.
 
 `maxSizeMb` is the max size of the log file before it rolls over.
 
@@ -758,7 +793,7 @@ Please configure specific options based on your needs.
 
 ```json
 {
-  "connectionString": "InstrumentationKey=...",
+  "connectionString": "...",
   "role": {
     "name": "my cloud role name"
   },
