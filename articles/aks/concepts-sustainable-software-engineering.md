@@ -17,7 +17,7 @@ Sustainable software engineering is a shift in priorities and focus. In many cas
 
 The [sustainability guidance in the Microsoft Azure Well-Architected Framework (WAF)](/azure/architecture/framework/sustainability/) aims to address the challenges of building sustainable workloads on Azure.
 
-This article provides practical guidance for applying Well-Architected best practices as a technical foundation for building and operating sustainable solutions on AKS.
+This article provides practical guidance for applying Well-Architected best practices as a technical foundation for building and operating sustainable workloads on AKS.
 
 ## Get started with WAF sustainability guidance
 
@@ -43,7 +43,7 @@ Decisions made in one design area can impact or influence decisions across the e
 
 We recommend that readers familiarize themselves with these design areas, reviewing provided considerations and recommendations to better understand the consequences of encompassed decisions.
 
-## Sustainability Design areas for AKS clusters
+## Sustainability Design areas for AKS workloads (applications)
 
 |Design area|Description|
 |---|---|
@@ -56,7 +56,7 @@ We recommend that readers familiarize themselves with these design areas, review
 |Security|Cluster security configuration and integration with Monitoring & SIEM.|
 
 
-## Sustainability Design areas for AKS workloads
+## Sustainability Design areas for AKS clusters
 
 |Design area|Description|
 |---|---|
@@ -73,8 +73,38 @@ We recommend that readers familiarize themselves with these design areas, review
 They Are considerations for sustainable workloads on Azure (not specific to a given service). The procedures will guide you through setting up an environment **for measuring and continuously improving your Azure workloads' cost and carbon efficiency**
 
 
-## Application Platform Design (AKS cluster)
+## Sustainability Checklist for AKS
 
+|Design area|Description|
+|---|---|---|
+|Configure [Automatic **Cluster Ugrade**](/azure/aks/auto-upgrade-cluster)|| |
+|Configure [Automatic **Linux node updates**](/azure/aks/node-updates-kured)|| |
+|Deploy your workloads to Regions powered by renewable and low-carbon energy sources|| |
+||| |
+||| |
+||| |
+||| |
+||| |
+||| |
+||| |
+||| |
+||| |
+||| |
+||| |
+||| |
+||| |
+||| |
+||| |
+||| |
+||| |
+||| |
+||| |
+||| |
+||| |
+||| |
+||| |
+||| |
+## Sustainability Recommendations for AKS
 
 ### Review platform and service updates regularly 
 
@@ -102,7 +132,7 @@ _sustainability design principles: [Carbon efficiency](sustainability-design-pri
 
 
 **Recommendations:**
- - Deploy your workloads to Regions powered by renewable and low-carbon energy sources  _Cost Optimization_
+ - Deploy your workloads to Regions powered by renewable and low-carbon energy sources 
 
 **Potential tradeoffs**
    - For choosing the right region, Evaluate carbon efficiency, cost, latency, and compliance requirements.
