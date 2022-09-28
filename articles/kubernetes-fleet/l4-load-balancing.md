@@ -34,7 +34,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
 > [!NOTE]
 >
-> * The steps in this how-to guide refer to a sample application, called `app`, for demonstration purposes only. You can substitute this workload for any of your own existing Deployment and Service objects.
+> * The steps in this how-to guide refer to a sample application for demonstration purposes only. You can substitute this workload for any of your own existing Deployment and Service objects.
 >
 > * These steps deploy the sample workload from the Fleet cluster to member clusters using Kubernetes configuration propagation. Alternatively, you can choose to deploy these Kubernetes configurations to each member cluster separately, one at a time.
 
