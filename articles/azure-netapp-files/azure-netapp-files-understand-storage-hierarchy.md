@@ -90,7 +90,8 @@ Azure NetApp Files allows you to create volumes up to 500 TiB in size, exceeding
 
 ### Considerations and requirements for large volumes
 
-* Existing volumes cannot be resized over 100 TiB. You cannot currently convert Azure NetApp Files to large volumes.
+* Existing volumes cannot be resized over 100 TiB. You cannot convert Azure NetApp Files to large volumes.
+* Large volume cannot be resized below 100 TiB and can only be resized up to 30% of lowest provisioned size. 
 * Large volumes must be created at a size greater than 100 TiB. A single volume cannot exceed 500 TiB.  
 * You cannot use large volumes in a cross-region replication relationship.
 * You cannot create a large volume from a backup.

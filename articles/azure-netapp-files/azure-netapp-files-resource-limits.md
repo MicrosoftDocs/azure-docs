@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/07/2022
+ms.date: 09/28/2022
 ms.author: anfdocs
 ---
 # Resource limits for Azure NetApp Files
@@ -33,7 +33,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Number of snapshots per volume       |    255     |    No        |
 |  Number of IPs in a VNet (including immediately peered VNets) accessing volumes in an Azure NetApp Files hosting VNet    |   <ul><li>**Basic**: 1000</li><li>**Standard**: [Same standard limits as VMs](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits)</li></ul>  |    No    |
 |  Minimum size of a single capacity pool   |  4 TiB     |    No  |
-|  Maximum size of a single capacity pool    |  500 TiB   |   No   |
+|  Maximum size of a single capacity pool    |  500 TiB   |   Yes   |
 |  Minimum size of a single volume    |    100 GiB    |    No    |
 |  Maximum size of a single volume     |    500 TiB*    |    No    |
 |  Maximum size of a single file     |    16 TiB    |    No    |    
@@ -49,7 +49,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum number of volumes that can be backed up per subscription   |  5  |  Y  |
 |  Maximum number of manual backups per volume per day |  5  |  Y  |
 
-\* The maximum size of a standard volume is 100 TiB. You can create a [large volume](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) up to 500 TiB.
+\* The maximum size of a standard volume is 100 TiB. You can create a [large volume](azure-netapp-files-understand-storage-hierarchy.md#large-volumes) with a size of between 100 TiB and 500 TiB. Once you create a large volume, you cannot resize it to less than 100 TiB. 
 
 For more information, see [Capacity management FAQs](faq-capacity-management.md).
 
