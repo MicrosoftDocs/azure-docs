@@ -50,7 +50,7 @@ When CI/CD integrating ARM template, instead of turning off all triggers, it can
 
 ### Data flow
 
-- Asana connector added as source. [Doc](connector-asana.md)
+- Asana connector added as source. [Learn more](connector-asana.md)
 - Three new data transformation functions now supported. [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/3-new-data-transformation-functions-in-adf/ba-p/3582738)
    - [collectUnique()](data-flow-expressions-usage.md#collectUnique) - Create a new collection of unique values in an array.
    - [substringIndex()](data-flow-expressions-usage.md#substringIndex) - Extract the substring before n occurrences of a delimiter.
