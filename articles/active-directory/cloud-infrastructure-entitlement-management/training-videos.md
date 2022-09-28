@@ -2,13 +2,13 @@
 title: Permissions Management training videos
 description: Permissions Management training videos.
 services: active-directory
-author: kenwith
-manager: rkarlin
+author: jenniferf-skc
+manager: amycolannino
 ms.service: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/20/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # Entra Permissions Management training videos
