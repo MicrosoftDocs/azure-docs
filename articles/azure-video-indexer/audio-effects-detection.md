@@ -82,7 +82,7 @@ audioEffects: [{
 
 ## How to index audio effects
 
-In order to set the index process to include the detection of audio effects, the user should chose one of the **Advanced** presets under **Video + audio indexing** menu as can be seen below.
+In order to set the index process to include the detection of audio effects, select one of the **Advanced** presets under **Video + audio indexing** menu as can be seen below.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/audio-effects-detection/index-audio-effect.png" alt-text="Index Audio Effects image":::
