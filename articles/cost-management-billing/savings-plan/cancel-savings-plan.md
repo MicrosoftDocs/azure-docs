@@ -1,7 +1,7 @@
 ---
-title: Azure saving plan cancellation is not allowed
+title: Azure saving plan cancellation isn't allowed
 titleSuffix: Microsoft Cost Management
-description:  Learn why Azure saving plan cancellation is not allowed.
+description:  Learn why Azure saving plan cancellation isn't allowed.
 author: bandersmsft
 ms.author: banders
 ms.reviewer: onwokolo
@@ -11,9 +11,9 @@ ms.topic: conceptual
 ms.date: 09/23/2022
 ---
 
-# Azure saving plan cancellation is not allowed
+# Azure saving plan cancellation isn't allowed
 
-Savings plans cannot be refunded or cancelled, nor can they be exchanged for a reservation.
+Savings plans can't be refunded or canceled, nor can they be exchanged for a reservation.
 
 ## Next steps
 
