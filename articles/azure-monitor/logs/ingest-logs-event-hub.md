@@ -322,12 +322,12 @@ With [managed identity](../../active-directory/managed-identities-azure-resource
 
 3. Select **User, group, or service principal** for **Assign access to** and click **Select members**. Select your DCR and click **Select**.
 
-    :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment-select-member.png" lightbox="media/tutorial-logs-ingestion-portal/add-role-assignment-select-member.png" alt-text="Screenshot for selecting members for DCR role assignment.":::
+    :::image type="content" source="media/ingest-logs-event-hub/event-hub-add-role-assignment-select-member.png" lightbox="media/ingest-logs-event-hub/event-hub-add-role-assignment-select-member.png" alt-text="Screenshot that shows the Members tab of the Add Role Assignment screen.":::
 
 
 4. Select **Review + assign** and verify the details before saving your role assignment.
 
-    :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment-save.png" lightbox="media/tutorial-logs-ingestion-portal/add-role-assignment-save.png" alt-text="Screenshot for saving DCR role assignment.":::
+    :::image type="content" source="media/ingest-logs-event-hub/event-hub-add-role-assignment-save.png" lightbox="media/ingest-logs-event-hub/event-hub-add-role-assignment-save.png" alt-text="Screenshot that shows the Review and Assign tab of the Add Role Assignment screen.":::
 
 
 ## Associate the data collection rule with the event hub
