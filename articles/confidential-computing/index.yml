@@ -66,6 +66,8 @@ landingContent:
         links:
           - text: Guest attestation for confidential VMs
             url: guest-attestation-confidential-vms.md
+          - text: Microsoft Defender for Cloud integration
+            url: guest-attestation-defender-for-cloud.md
       - linkListType: quickstart
         links:
           - text: Create an AMD confidential VM in the Azure portal
