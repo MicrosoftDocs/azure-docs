@@ -18,7 +18,7 @@ to create an Azure Cosmos DB for PostgreSQL cluster:
 
 # [Direct link](#tab/direct)
 
-Visit [Create cluster](https://portal.azure.com/#create/Microsoft.PostgreSQLServerGroup) in the Azure portal.
+Visit [Create cluster](https://portal.azure.com/#view/Microsoft_Azure_DocumentDB/CreatePostgreSQL.ReactView) in the Azure portal.
 
 # [Via portal search](#tab/portal-search)
 
