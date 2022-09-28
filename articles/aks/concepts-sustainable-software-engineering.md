@@ -62,25 +62,25 @@ They Are considerations for sustainable workloads on Azure (not specific to a gi
 
 ## Sustainability Checklist for AKS clusters
 
-Modernize Applications to allow independent scaling of its logical components
+**Modernize Applications to allow independent scaling of their logical components**
  - Use [Draft](/azure/aks/draft) to simplify containzerizing an application by generating its Dockerfiles and Kubernetes manifests.
 - Build serverless Applications using [Keda](https://keda.sh/) ; Use it as an [AKS addon](/azure/aks/keda-about)
 - Build Microservices Applications using [Dapr](https://dapr.io/) ; Use it as an [AKS addon](/azure/aks/dapr)
 
-Consider Carbon Awareness
+**Consider Carbon Awareness**
  - Deploy your workloads to Regions powered by renewable and low-carbon energy sources
  - Consider optimizing workloads when knowing that the energy mix comes mostly from renewable energy sources
  - Consider deploying to data centers close to the consumer
  - Plan your deployments to maximize compute utilization for running batch workloads during low-carbon intensity periods.
   
-Scale based on demand
+**Scale based on demand**
 - Use [Keda](https://keda.sh/) to Auto-scale your applications based on demand.
 - Use [Cluster Auto-scaler](azure/aks/cluster-autoscaler) to scale your cluster based on Demand.
 - Leverage [Scaling **User node pools** to 0](/azure/aks/scale-cluster#scale-user-node-pools-to-0)
 - Use [Virtual Nodes](/azure/aks/virtual-nodes) to rapidly burst to Serverless Nodes (that scale to zero when there is no demand)
 - Review the [B-series burstable virtual machine sizes](https://azure.microsoft.com/en-in/blog/introducing-burstable-vm-support-in-aks/).
 
-Maximize node utilization
+**Maximize node utilization**
 - Separate applications into different node pools allowing independent scalling.
 - Align node SKU selection and managed disk size with applications requirements.
 - [Resize node pools](/azure/aks/resize-node-pool) to maximize your applications density (and maximise your nodes usage).
@@ -89,13 +89,13 @@ Maximize node utilization
 - Leverage [Virtual node pools](/aks/virtual-nodes) to optimize infrastructure usage, and ultimately hardware efficiency and costs.
 - Use [SPOT Node pools](/azure/aks/spot-node-pool), to take advantage of unused capacity in Azure data centers while getting a significant discount on the VM.
 
-Reduce Waste
+**Reduce Waste**
 - Use [ImageCleaner](/azure/aks/image-cleaner) to clean up stale images on your Azure Kubernetes Service cluster
 - Use [cluster stop / start](/azure/aks/start-stop-cluster) and [node pool stop / start](/azure/aks/start-stop-nodepools), for shutting them down outside regular business hours.
 - Use [Keda Cron scaler](https://keda.sh/docs/2.7/scalers/cron/), to shut down applications (scale pods to zero), outside regular business hours.
 - Enforce Kubernetes [Resource Quotas](/azure/aks/operator-best-practices-scheduler#enforce-resource-quotas)
 
-Monitor & Optimize
+**Monitor & Optimize**
  - Configure [Automatic **Cluster Ugrade**](/azure/aks/auto-upgrade-cluster)
  - Configure [Automatic **Linux node updates**](/azure/aks/node-updates-kured)
 - Perform [ongoing load testing activities](/azure/load-testing/overview-what-is-azure-load-testing) that exercise both the pod and cluster autoscaler.
