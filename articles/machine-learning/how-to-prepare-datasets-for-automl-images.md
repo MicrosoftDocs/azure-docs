@@ -47,6 +47,33 @@ It helps to create, manage, and monitor data labeling tasks for
 
 If you already have a data labeling project and you want to use that data, you can [export your labeled data as an Azure ML Dataset](how-to-create-image-labeling-projects.md#export-the-labels) and then access the dataset under 'Datasets' tab in Azure ML Studio. This exported dataset can then be passed as an input using `azureml:<tabulardataset_name>:<version>` format. Here is an example on how to pass existing dataset as input for training computer vision models.
 
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+```yaml
+training_data:
+  path: azureml:odFridgeObjectsTrainingDataset:1
+  type: mltable
+  mode: direct
+```
+
+# [Python SDK](#tab/python)
+
+ [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+```python
+from azure.ai.ml.constants import AssetTypes, InputOutputModes
+from azure.ai.ml import Input
+
+# Training MLTable with v1 TabularDataset
+my_training_data_input = Input(
+    type=AssetTypes.MLTABLE, path="azureml:odFridgeObjectsTrainingDataset:1",
+    mode=InputOutputModes.DIRECT
+)
+```
+---
+
 ### Using pre-labeled training data from local machine
 If you have previously labeled data that you would like to use to train your model, you will first need to upload the images to the default Azure Blob Storage of your Azure ML Workspace and register it as a [data asset](how-to-create-data-assets.md). 
 
