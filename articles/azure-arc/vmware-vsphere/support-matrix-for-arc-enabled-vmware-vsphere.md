@@ -1,18 +1,18 @@
 ---
-title: Support matrix for Arc enabled VMware vSphere
-description: In this article, you'll learn about the support matrix for Arc enabled VMware vSphere including vCenter Server versions supported, network requirements etc.
+title: Support matrix for Arc-enabled VMware vSphere (preview)
+description: In this article, you'll learn about the support matrix for Arc-enabled VMware vSphere including vCenter Server versions supported, network requirements etc.
 ms.topic: reference 
 ms.custom: references_regions
 ms.date: 09/23/2022
 
-# Customer intent: As a VI admin, I want to understand the support matrix for Arc enabled VMware vSphere.
+# Customer intent: As a VI admin, I want to understand the support matrix for Arc-enabled VMware vSphere.
 ---
 
-# Support matrix for Arc enabled VMware vSphere
+# Support matrix for Arc-enabled VMware vSphere (preview)
 
-This article summarizes prerequisites and support requirements for using the [Arc enabled VMware vSphere](overview.md) to manage your VMware vSphere VMs through Azure Arc.
+This article summarizes prerequisites and support requirements for using the [Arc-enabled VMware vSphere (preview)](overview.md) to manage your VMware vSphere VMs through Azure Arc.
 
-To use Arc enabled VMware vSphere, you must deploy an Azure Arc resource bridge in your VMware vSphere environment. The resource bridge provides an ongoing connection between your VMware vCenter Server and Azure. Once you've connected your VMware vCenter Server to Azure, components on the resource bridge discover your vCenter inventory. You can enable them in Azure and start performing virtual hardware and guest OS operations on them using Azure Arc.
+To use Arc-enabled VMware vSphere, you must deploy an Azure Arc resource bridge in your VMware vSphere environment. The resource bridge provides an ongoing connection between your VMware vCenter Server and Azure. Once you've connected your VMware vCenter Server to Azure, components on the resource bridge discover your vCenter inventory. You can enable them in Azure and start performing virtual hardware and guest OS operations on them using Azure Arc.
 
 
 ## VMware vSphere Requirements
@@ -31,7 +31,7 @@ This account is used for the ongoing operation of Azure Arc-enabled VMware vSphe
 
 ### Resource bridge resource requirements 
 
-For Arc enabled VMware vSphere, Resource bridge has the following minimum virtual hardware requirements
+For Arc-enabled VMware vSphere, Resource bridge has the following minimum virtual hardware requirements
 
 - 16 GB of memory
 - 4 vCPUs
@@ -58,20 +58,21 @@ The following firewall URL exceptions are needed for the Azure Arc Resource Brid
 
 ## Azure permissions required
 
-Following Azure roles are required for various operations:
+Following are the minimum Azure roles required for various operations:
 
-| **Operation** | **Role required** | **Scope** |
+| **Operation** | **Minimum role required** | **Scope** |
 | --- | --- | --- |
-| Onboarding your vCenter Server to Arc| Azure Arc VMware Private Clouds Onboarding | Subscription or resource group where you want to perform onboarding into |
-| Administering Arc enabled VMware vSphere | Azure Arc VMware Administrator | On the subscription or resource group where vCenter server resource is created |
-| VM Provisioning | Azure Arc VMware Private Cloud User | On the subscription, resource group where resource pool/cluster/host, datastore, virtual network resources are created or on the resources themselves |
-| VM Provisioning | Azure Arc VMware VM Contributor | On the subscription or resource group where you want to provision VMs|
-| VM Operations | Azure Arc VMware VM Contributor | On the subscription, resource group where the VM is or on the VM itself |
+| Onboarding your vCenter Server to Arc | Azure Arc VMware Private Clouds Onboarding | On the subscription or resource group into which you want to onboard |
+| Administering Arc-enabled VMware vSphere | Azure Arc VMware Administrator | On the subscription or resource group where vCenter server resource is created |
+| VM Provisioning | Azure Arc VMware Private Cloud User | On the subscription or resource group which contains the resource pool/cluster/host, datastore and virtual network resources, or on the resources themselves |
+| VM Provisioning | Azure Arc VMware VM Contributor | On the subscription or resource group where you want to provision VMs |
+| VM Operations | Azure Arc VMware VM Contributor | On the subscription or resource group which contains the VM, or on the VM itself |
 
+Any roles with higher permissions such as *Owner/Contributor* role on the same scope, will also allow you to perform all the operations listed above.
 
 ## Guest management (Arc agent) requirements
 
-With Arc enabled VMware vSphere, you can install the Arc connected machine agent on your VMs at scale and use Azure management services on the VMs. There are additional requirements for this capability:
+With Arc-enabled VMware vSphere, you can install the Arc connected machine agent on your VMs at scale and use Azure management services on the VMs. There are additional requirements for this capability:
 
 To enable guest management (install the Arc connected machine agent), ensure
 
