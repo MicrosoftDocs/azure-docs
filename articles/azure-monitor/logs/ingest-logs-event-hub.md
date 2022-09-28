@@ -33,9 +33,9 @@ To send events from Azure Event Hubs to Azure Monitor Logs, you need to have the
 
 - [Log Analytics workspace](../logs/quick-create-workspace.md) where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - Your Log Analytics workspace needs to be [linked to a dedicated cluster](../logs/logs-dedicated-clusters.md#link-a-workspace-to-a-cluster).
-- [Event hub](/azure/event-hubs/event-hubs-create) with a public IP.
+- [Event hub](/azure/event-hubs/event-hubs-create) with a public IP. Private Link and Network Security Perimeters (NSP) are currently not supported.
     
-    The event hub must contain. You can send events to your event hub by following the steps in [Send and receive events in Azure Event Hubs tutorials](../../event-hubs/event-hubs-create.md#next-steps) or by [configuring the diagnostic settings of Azure resources](../essentials/diagnostic-settings.md#create-diagnostic-settings).
+    The event hub must contain events. You can send events to your event hub by following the steps in [Send and receive events in Azure Event Hubs tutorials](../../event-hubs/event-hubs-create.md#next-steps) or by [configuring the diagnostic settings of Azure resources](../essentials/diagnostic-settings.md#create-diagnostic-settings).
 
 ## Create a destination table for event hub data in your Log Analytics workspace
 
@@ -43,7 +43,7 @@ Before you can ingest data, you need to set up a destination table.
 
 To create a custom table into which to ingest events, in the Azure portal:  
 
-1. Collect workspace data:
+1. Collect workspace information:
 
     1. Navigate to your workspace in the **Log Analytics workspaces** menu and select **Properties** to find your subscription ID, resource group name, and workspace name.
     
@@ -98,11 +98,11 @@ To create a custom table into which to ingest events, in the Azure portal:
 
 ## Create a data collection endpoint
 
-To collect data with a data collection rule, you need [create a data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md#create-data-collection-endpoint). The DCE must be located in the same region as the Log Analytics Workspace where the data will be sent.
+To collect data with a data collection rule, you need to [create a data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md#create-data-collection-endpoint). The DCE must be located in the same region as the Log Analytics Workspace where the data will be sent.
 
 ## Create a data collection rule
 
-Azure Monitor uses [data collection rules](../essentials/data-collection-rule-overview.md) to define what data should be collected, how to transform that data, and where to send the data you collect.
+Azure Monitor uses [data collection rules](../essentials/data-collection-rule-overview.md) to define which data to collect, how to transform that data, and where to send the data.
 
 To create a data collection rule in the Azure portal:
 
@@ -315,7 +315,7 @@ With [managed identity](../../active-directory/managed-identities-azure-resource
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-create.png" alt-text="Screenshot for adding custom role assignment to DCR.":::
 
-2. Select **Azure Event Hubs Data Receiver** and select **Next**.  You could instead create a custom action with the `Microsoft.Insights/Telemetry/Write` data action. 
+2. Select **Azure Event Hubs Data Receiver** and select **Next**.   
 
     :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment-select-role.png" lightbox="media/tutorial-logs-ingestion-portal/add-role-assignment-select-role.png" alt-text="Screenshot for selecting role for DCR role assignment.":::
 
@@ -380,5 +380,5 @@ To create a data collection rule association in the Azure portal:
         }
       ]
     }
-```
+    ```
 
