@@ -105,7 +105,7 @@ The [Activity log](../azure-monitor/essentials/activity-log.md) is a platform lo
 
 When routing IoT Hub platform metrics to Azure Monitor Logs:
 
-- The following platform metrics aren't exportable via diagnostic settings: *Connected devices (preview)* and *Total devices (preview)*.
+- The following platform metrics aren't exportable via diagnostic settings: *Connected devices* and *Total devices*.
 
 - Multi-dimensional metrics, for example some [routing metrics](monitor-iot-hub-reference.md#routing-metrics), are currently exported as flattened single dimensional metrics aggregated across dimension values. For more detail, see [Exporting platform metrics to other locations](../azure-monitor/essentials/metrics-supported.md#exporting-platform-metrics-to-other-locations).
 
@@ -303,7 +303,7 @@ class Program
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../azure-monitor/alerts/alerts-metric-overview.md), [logs](../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../azure-monitor/alerts/activity-log-alerts.md). Different types of alerts have benefits and drawbacks.
 
-When you create an alert rule based on platform metrics (collected in units of count), some aggregations may not be available or usable. To learn more, see [Supported aggregations](monitor-iot-hub-reference.md#supported-aggregations) in **Monitoring Azure IoT Hub data reference**.
+When you create an alert rule based on platform metrics (collected in units of count), some aggregations may not be available or usable. For more information, see [Supported aggregations](monitor-iot-hub-reference.md#supported-aggregations) in **Monitoring Azure IoT Hub data reference**.
 
 ## Monitor per-device disconnects with Event Grid
 
