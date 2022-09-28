@@ -1,5 +1,5 @@
 ---
-title: Migrate AutoML from SDK v1 to SDK v2
+title: Upgrade AutoML to SDK v2
 titleSuffix: Azure Machine Learning
 description: Migrate AutoML from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
@@ -13,7 +13,7 @@ ms.reviewer: sgilley
 ms.custom: migration
 ---
 
-# Migrate AutoML from SDK v1 to SDK v2
+# Upgrade AutoML to SDK v2
 
 In SDK v2, "experiments" and "runs" are consolidated into jobs.
 
