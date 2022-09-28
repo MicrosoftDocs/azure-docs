@@ -28,7 +28,8 @@ You should use v2 if you're starting a new machine learning project or workflow.
 * Managed Inferencing
 * Reusable components in pipelines
 * Improved scheduling of pipelines
-* Registry
+* Responsible AI dashboard
+* Registry of assets
 
 A new v2 project can reuse existing resources like workspaces and compute and existing assets like models and environments created using v1. 
 
@@ -36,7 +37,6 @@ Some feature gaps in v2 include:
 
 - Spark support in jobs - this is currently in preview in v2.
 - Publishing jobs (pipelines in v1) as endpoints.
-- Model deployment to Azure Container Instance (ACI), replaced with managed online endpoints.
 - Support for SQL/database datastores.
 - Built-in components in the designer.
 
@@ -49,17 +49,7 @@ You should then ensure the features you need in v2 meet your organization's requ
 
 You can reuse your existing assets in your v2 workflows. For instance a model created in v1 can be used to perform Managed Inferencing in v2.
 
-Optionally, if you want to upgrade all of your existing code to v2, please refer to the migration links provided in the details of each resource or asset.
-
-## How do I upgrade to v2?
-
-To upgrade to v2, start by prototyping an existing v1 workflow into v2. Upgrading will typically include:
-
-- Refactor model training code to de-couple Azure ML code from ML model code (model training, model logging, and other model tracking code).
-- Refactor Azure ML model deployment code and test with v2 endpoints.
-- Refactor CI/CD code to use the v2 CLI (recommended), v2 Python SDK, or directly use REST.
-
-Based on this prototype, you can estimate the effort involved for a full migration to v2. Consider the workflow patterns (like [GitOps](#a-note-on-gitops-with-v2)) your organization wants to establish for use with v2 and factor this effort in.
+Optionally, if you want to upgrade specific parts of your existing code to v2, please refer to the comparison links provided in the details of each resource or asset in the rest of this document.
 
 ## Which v2 API should I use?
 
@@ -89,7 +79,7 @@ This section gives an overview of specific resources and assets in Azure ML. See
 
 Workspaces don't need to be migrated with v2. You can use the same workspace, regardless of whether you're using v1 or v2. 
 
-If you create workspace using automation, do consider migrating the code for creating a workspace to v2. Typically Azure resources are managed via Azure Resource Manager (and Bicep) or similar resource provisioning tools. Alternatively, you can use the [CLI (v2) and YAML files](how-to-manage-workspace-cli.md#create-a-workspace).
+If you create workspaces using automation, do consider migrating the code for creating a workspace to v2. Typically Azure resources are managed via Azure Resource Manager (and Bicep) or similar resource provisioning tools. Alternatively, you can use the [CLI (v2) and YAML files](how-to-manage-workspace-cli.md#create-a-workspace).
 
 For a comparison of SDK v1 and v2 code, see [Workspace management in SDK v1 and SDK v2](migrate-to-v2-resource-workspace.md).
 
@@ -149,16 +139,14 @@ Datasets are renamed to data assets. The mapping of v1 and v2 assets is shown be
 
 This article talks more about handling data in v2 - [Read and write data in a job](how-to-read-write-data-v2.md)
 
-For a comparison of SDK v1 and v2 code, see [Migrate data management from SDK v1 to v2](migrate-to-v2-assets-data.md).
+For a comparison of SDK v1 and v2 code, see [Data assets in SDK v1 and v2](migrate-to-v2-assets-data.md).
 
 
 ### Model
 
 Models created from v1 can be used in v2. 
 
-For a comparison of SDK v1 and v2 code, see 
-
-* [Model management in SDK v1 and SDK v2](migrate-to-v2-assets-model.md)
+For a comparison of SDK v1 and v2 code, see [Model management in SDK v1 and SDK v2](migrate-to-v2-assets-model.md)
 
 ### Environment
 
