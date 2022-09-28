@@ -62,6 +62,8 @@ landingContent:
         links:
           - text: Create a load test with a JMeter script
             url: how-to-create-and-run-load-test-with-jmeter-script.md
+          - text: Test applications with authentication
+            url: how-to-test-secured-endpoints.md
           - text: Test a private endpoint with VNET injection
             url: how-to-test-private-endpoint.md
           - text: Read data from a CSV file

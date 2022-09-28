@@ -44,6 +44,8 @@ items:
           href: how-to-create-and-run-load-test-with-JMeter-script.md 
         - name: Read data from a CSV file
           href: how-to-read-csv-data.md
+        - name: Test applications with authentication
+          href: how-to-test-secured-endpoints.md
         - name: Test a private endpoint
           href: how-to-test-private-endpoint.md
     - name: Analyze test results
