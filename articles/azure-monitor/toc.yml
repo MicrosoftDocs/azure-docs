@@ -1315,7 +1315,13 @@ items:
     - name: Log Analytics workspace
       href: logs/log-analytics-workspace-insights-overview.md
     - name: Networks
-      href: ../network-watcher/network-insights-overview.md?toc=/azure/azure-monitor/toc.json
+      items:
+      - name: Overview
+        href: ../network-watcher/network-insights-overview.md?toc=/azure/azure-monitor/toc.json
+      - name: Topology
+        href: ../network-watcher/network-insights-topology.md
+      - name: Troubleshooting
+        href: ../network-watcher/network-insights-troubleshooting.md
     - name: Key Vault
       href: ../key-vault/key-vault-insights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Storage
