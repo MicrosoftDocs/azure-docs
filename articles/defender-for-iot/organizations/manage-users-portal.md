@@ -43,7 +43,13 @@ Sites and site-based access control is relevant only for OT monitoring sites, an
 
     For example:
 
-For more information, see [Tutorial: Grant a user access to Azure resources using the Azure portal](/azure/role-based-access-control/quickstart-assign-role-user-portal).
+    :::image type="content" source="media/manage-users-portal/access-control-site.png" alt-text="Screenshot of the Access Control page for site-based access control.":::
+
+For more information, see:
+
+- [Grant a user access to Azure resources using the Azure portal](/azure/role-based-access-control/quickstart-assign-role-user-portal)
+- [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal)
+- [Check access for a user to Azure resources](/azure/role-based-access-control/check-access)
 
 ## Audit Azure user activity
 
