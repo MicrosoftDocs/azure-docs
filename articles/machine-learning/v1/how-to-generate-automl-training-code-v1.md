@@ -41,7 +41,7 @@ With the generated model's training code you can,
 
 The following diagram illustrates that you can generate the code for automated ML experiments with all task types. First select a model. The model you selected will be highlighted, then Azure Machine Learning copies the code files used to create the model, and displays them into your notebooks shared folder. From here, you can view and customize the code as needed. 
 
-:::image type="content" source="media/how-to-generate-automl-training-code/code-generation-demonstration.png" alt-text="Screenshot showing models tab, as well as having a model selected, as explained in the above text.":::
+:::image type="content" source="../media/how-to-generate-automl-training-code/code-generation-demonstration.png" alt-text="Screenshot showing models tab, as well as having a model selected, as explained in the above text.":::
 
 ## Prerequisites
 
