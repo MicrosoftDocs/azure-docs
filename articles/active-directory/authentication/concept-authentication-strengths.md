@@ -102,7 +102,7 @@ In addition to the three built-in authentication strengths, administrators can c
 
 #### Update and delete custom authentication strength policies
 
-You can edit a custom authentication strength. If it's referenced by a Conditional Access policy, it can't be deleted and you need to confirm any edit. 
+You can edit a custom authentication strength. If it's referenced by a Conditional Access policy, it can't be deleted, and you need to confirm any edit. 
 To check if an authentication strength is referenced by a Conditional Access policy,click **Conditional Access policies** column.
 
 #### FIDO2 security key advanced options
@@ -115,20 +115,21 @@ Next to **Allowed FIDO2 Keys** click **+**, copy the AADGUID value, and click **
 ::image type="content" source="./media/concept-authentication-strengths/aadguid.png" alt-text="Screenshot showing how to add an Authenticator Attestation GUID.":::
 
 ## Using authentication strength in Conditional Access
-After you determine the authentication strength you need, you can refer to that authentication strength in a Conditional Access policy. When the Conditional Access policy applies to sign-in, the authentication strength restricts which authentication methods are allowed.
+After you determine the authentication strength you need, you'll need to create a Conditional Access policy to require that authentication strength to access a resource. When the Conditional Access policy gets applied, the authentication strength restricts which authentication methods are allowed.
 <!-- ### Place holder:How to create conditional access policy that uses authentication strength
 -	Add a note that you can use either require mfa or require auth strengths
 - (JF) Possibly add a reference doc that lists all the definitions of the things you can configure?
 -->
 
-### How Conditional Access Authentication strengths policies are used in combination with Authentication methods policy
-The authentication method policy defines which methods can be used in the tenant. 
+### How authentication strength works with the Authentication methods policy
+The Authentication methods policy defines which methods can be used in the tenant. There are two settings that determine which authentication methods can be used to access resources federated with Azure AD:
 
-Under the legacy authentication methods policy (Under Security > Multifactor Authentication > Additional cloud-based multifactor authentication settings), methods are enabled or disabled for all the users in the tenant. In the new authentication methods policy (Under Security > Authentication methods > Policies), authentication methods can be scoped for users and groups. These policies define if a user can use a specific authentication method for all resources federated with Azure AD.
+- **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings** controls methods for all the users in the tenant.
+- **Security** > **Authentication methods** > **Policies** controls authentication methods for specific users and groups. 
 
-In addition, users must register or be configured for an authentication method in order to use it. For example, a user can register for SMS, but Certificate-based Authentication must be configured on the user’s device by their administrator.
+In addition, users must register for a method they want use, such as SMS. In other cases, an administrator might need to configure a user's device with a method, such as certificate-based authentication.
 
-The Conditional Access authentication strengths takes the above into consideration when evaluating the user’s access to the resource. For example, an administrator has configured a custom authentication strengths policy that includes FIDO2 Security Key or SMS. The user is accessing a resource protected by this policy. During sign-in we check which methods the user is allowed to use (legacy and new authentication method policy), which methods they have registered and which methods are allowed by the Conditional Access policy.
+The authentication strength Conditional Access policy checks these settings to determine the user’s access to the resource. For example, an administrator configures a Conditional Access policy with a custom authentication strength that requires FIDO2 Security Key or SMS. The user accesses a resource protected by this policy. During sign-in, all settings are checked to determine which methods are allowed, which methods are registered, and which methods are required by the Conditional Access policy.
 
 ## User experience
 
