@@ -71,7 +71,7 @@ Customer must use the new Configuration API v2 by changing their deployment scri
 
 #### Available TLS cipher suites
 
-At launch, self-hosted gateway v2.0 only used a subset of the cipher suites that v1.x was using. As of v2.0.4, we have brought back all the cipher suites that v1.x supported.
+At launch, self-hosted gateway v2.0 only used a subset of the cipher suites that v1.x was using. As of v2.0.4, we've brought back all the cipher suites that v1.x supported.
 
 You can learn more about the used cipher suites in [this article](self-hosted-gateway-overview.md#available-cipher-suites) or use v2.1.1 to [control what cipher suites to use](self-hosted-gateway-overview.md#managing-cipher-suites).
 
@@ -164,7 +164,7 @@ Here's a list of known limitations for the self-hosted gateway v2:
 
 ## Next steps
 
--   Learn more about [API Management in a Hybrid and Multi-Cloud World](https://aka.ms/hybrid-and-multi-cloud-api-management)
+-   Learn more about [API Management in a Hybrid and multicloud World](https://aka.ms/hybrid-and-multi-cloud-api-management)
 -   Learn more about guidance for [running the self-hosted gateway on Kubernetes in production](how-to-self-hosted-gateway-on-kubernetes-in-production.md)
 -   [Deploy self-hosted gateway to Docker](how-to-deploy-self-hosted-gateway-docker.md)
 -   [Deploy self-hosted gateway to Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md)
