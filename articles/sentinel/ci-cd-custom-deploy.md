@@ -208,7 +208,7 @@ Here's an example of the entire contents of a valid *sentinel-deployment.config*
 
     The deployment script will accept three methods to map parameters. The precedence is determined for each included .json deployment file in your repository as follows:  
 
-    1. Include a parameter file map grouped by workspace ID in the `"parameterfilemappings":` section of the *sentinel-deployment.config* file. See the example above for creating the `ContentFilePath:ParameterFilePath` key value pairs. You can specify a different parameter file for the same content file per workspace.
+    1. Include a parameter file mapping grouped by workspace ID in the `"parameterfilemappings":` section of the *sentinel-deployment.config* file. See the example above for creating the `ContentFilePath:ParameterFilePath` key value pairs. You can specify a different parameter file for the same content file per workspace.
     
        Or
     1. Create a workspace parameter file in the same directory as a content file. If the content file is *azuredeploy.json* then the workspace parameter file naming convention is *azuredeploy.parameters-\<workspaceID\>.json*.
