@@ -47,6 +47,17 @@ The following scenarios aren't supported:
 - Configuring other certificate-to-user account bindings, such as using the **subject + issuer** or **Issuer + Serial Number**, aren’t available in this release.
 - Currently, password can't be disabled when CBA is enabled and the option to sign in using a password is displayed.
 
+## Supported OS platforms
+
+
+## Supported browsers by OS platforms
+
+## Smartcard providers
+
+| Provider | Windows | Mac OS | iOS | Android |
+| --------------------------|---------------- |
+| YubiKey | ![y] | ![y] | ![y] | ![y] |
+
 ## Next steps
 
 - [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
