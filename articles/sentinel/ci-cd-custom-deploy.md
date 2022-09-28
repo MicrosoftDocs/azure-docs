@@ -13,9 +13,9 @@ ms.author: austinmc
 
 There are two primary ways to customize the deployment of your repository content to Microsoft Sentinel workspaces. Each method uses different files and syntax, so consider these examples to get you started.
 
-1. To modify a deployment trigger or only deploy content from a specific folder, customize the GitHub workflow or DevOps pipeline.
+1. Modify the GitHub workflow or DevOps pipeline to customize deployment options such as your connection's deployment trigger, deployment path or usage of smart deployments.
 
-1. If you want to prioritize content, *exclude* content, or map parameters, customize the deployment. 
+2. Utilize the newly introduced configuration file to control the priortized order of your content deployments, choose to *exclude* specific content files from those deployments, or map parameter files to specific content files. 
 
 > [!IMPORTANT]
 >
