@@ -216,7 +216,7 @@ Here's an example of the entire contents of a valid *sentinel-deployment.config*
        Or
     1. Create a default parameter file in the same directory as a content file. If the content file is *azuredeploy.json* then the default parameter file naming convention is *azuredeploy.parameters.json*.
 
-Adding or modifying a *.parameters-\<workspaceID\>.json* file or *.parameters.json* file triggers a deployment of that particular content file. Other content files won't be deployed if the smart deploy feature is still enabled.
+Adding or modifying a *.parameters-\<workspaceID\>.json* file or *.parameters.json* file triggers a deployment of that corresponding content file along with the newly modified parameters. Other content files won't be deployed if the smart deployments feature is still enabled.
 
 
 ## Next steps
