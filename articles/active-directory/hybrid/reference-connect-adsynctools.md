@@ -346,12 +346,12 @@ with: UserPrincipalName, Mail, SourceAnchor, DistinguishedName, CsObjectId, Obje
 ### EXAMPLES
 #### EXAMPLE 1
 ```
-Export-ADSyncToolsDisconnectors -SyncObjectType 'PublicFolder'
+Export-ADSyncToolsAadDisconnectors -SyncObjectType 'PublicFolder'
 ```
 Exports to CSV all PublicFolder Disconnector objects
 #### EXAMPLE 2
 ```
-Export-ADSyncToolsDisconnectors
+Export-ADSyncToolsAadDisconnectors
 ```
 Exports to CSV all Disconnector objects
 ### PARAMETERS
