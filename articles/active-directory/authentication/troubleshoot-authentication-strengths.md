@@ -23,7 +23,7 @@ This topic covers errors you might see when you use Azure Active Directory (Azur
 
 <!---What could be a good example?--->
 
-Users can sign in only by using authentication methods they have registered and enabled in the Authentication methods policy. For more information, see [How Conditional Access Authentication strengths policies are used in combination with Authentication methods policy](concept-authentication-strengths.md#how-conditional-access-authentication-strengths-policies-are-used-in-combination-with-authentication-methods-policy).
+Users can sign in only by using authentication methods that they registered and are enabled by the Authentication methods policy. For more information, see [How Conditional Access Authentication strengths policies are used in combination with Authentication methods policy](concept-authentication-strengths.md#how-authentication-strength-works-with-the-authentication-methods-policy).
 
 To verify if a method can be used:
 
@@ -37,7 +37,7 @@ If the user is registered for an enabled method that meets the authentication st
 
 ## A user can't accessing a resource
 
-If an authentication strength requires a method that a user can’t use, the user is blocked from sign-in. To check which method is required by an authentication strength, and which method the user is registered and enabled to use, follow the steps in the [previous section](#a-user-is-prompted-to-use-a-different-authentication-method-but-they-dont-see-how-to-register-that-method). 
+If an authentication strength requires a method that a user can’t use, the user is blocked from sign-in. To check which method is required by an authentication strength, and which method the user is registered and enabled to use, follow the steps in the [previous section](##a-user-is-asked-to-sign-in-with-another-method-but-they-dont-see-a-method-they-expect). 
 
 ## How to check which authentication strength was enforced during sign-in
 Use the **Sign-ins** log to find additional information about the sign-in: 
