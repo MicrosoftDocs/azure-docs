@@ -67,7 +67,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 ### Increased security for Azure connection firewall rules
 
-OT network sensors connect to Azure to provide alert and device data and sensor health messages, access threat intelligence packages, and more
+OT network sensors connect to Azure to provide alert and device data and sensor health messages, access threat intelligence packages, and more.
 
 For OT sensors with software versions 22.x and higher, Defender for IoT now supports increased security when adding outbound allow rules for connections to Azure. Now you can define your outbound allow rules to connect to Azure without using wildcards. Connections between your OT sensors and the Azure portal provide alerts and device data, health messages, threat intelligence packages, and more.
 
