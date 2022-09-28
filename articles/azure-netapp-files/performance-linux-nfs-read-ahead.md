@@ -99,8 +99,10 @@ fi
 To persistently set read-ahead for NFS mounts, `udev` rules can be written as follows:    
 
 1. Create and test `/etc/udev/rules.d/99-nfs.rules`:
+    #NOTE: Please replace <absolute path> with the actual path to awk
 
-    `SUBSYSTEM=="bdi", ACTION=="add", PROGRAM="/bin/awk -v bdi=$kernel 'BEGIN{ret=1} {if ($4 == bdi) {ret=0}} END{exit ret}' /proc/fs/nfsfs/volumes", ATTR{read_ahead_kb}="15380"`
+    `SUBSYSTEM=="bdi", ACTION=="add", PROGRAM="<absolute path>/awk -v bdi=$kernel 'BEGIN{ret=1} {if ($4 == bdi) {ret=0}} END{exit ret}' /proc/fs/nfsfs/volumes", ATTR{read_ahead_kb}="15380"`
+    
 
 2. Apply the `udev` rule:   
 
