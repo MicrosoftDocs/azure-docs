@@ -487,13 +487,13 @@ In this workflow, you'll first create the model in the workspace and then copy i
 
 # [Azure CLI](#tab/cli)
 
-Make sure you have the name of the pipeline job from the previous section and replace that in the command to fetch the training job name below. You'll then register the model from the output of the training job into the workspace. Note how the `--path` parameter refers to the output `train_job` output with the `azureml://jobs/$train_job_name/outputs/default/model` syntax. 
+Make sure you have the name of the pipeline job from the previous section and replace that in the command to fetch the training job name below. You'll then register the model from the output of the training job into the workspace. Note how the `--path` parameter refers to the output `train_job` output with the `azureml://jobs/$train_job_name/outputs/artifacts/paths/model` syntax. 
 
 ```azurecli
 # fetch the name of the train_job by listing all child jobs of the pipeline job
 train_job_name=$(az ml job list --parent-job-name <job-name> --workspace-name <workspace-name> --resource-group <workspace-resource-group> --query [0].name | sed 's/\"//g')
 # create model in workspace
-az ml model create --name nyc-taxi-model --version 1 --type mlflow_model --path azureml://jobs/$train_job_name/outputs/default/model 
+az ml model create --name nyc-taxi-model --version 1 --type mlflow_model --path azureml://jobs/$train_job_name/outputs/artifacts/paths/model 
 ```
 
 > [!TIP]
@@ -523,7 +523,7 @@ You can also use `az ml model list --registry-name <registry-name>` to list all 
 
 # [Python SDK](#tab/python)
 
-Make sure you use the `pipeline_job` object from the previous section or fetch the pipeline job using `ml_client_workspace.jobs.get(name="<pipeline-job-name>")` method to get the list of child jobs in the pipeline. You'll then look for the job with `display_name` as `train_job` and use the `name` of the `train_job` to construct the path pointing to the model output, which looks like this: `azureml://jobs/<job_name>/outputs/default/model`.
+Make sure you use the `pipeline_job` object from the previous section or fetch the pipeline job using `ml_client_workspace.jobs.get(name="<pipeline-job-name>")` method to get the list of child jobs in the pipeline. You'll then look for the job with `display_name` as `train_job` and use the `name` of the `train_job` to construct the path pointing to the model output, which looks like this: `azureml://jobs/<job_name>/outputs/artifacts/paths/model`.
 
 ```python
 jobs=ml_client_workspace.jobs.list(parent_job_name=pipeline_job.name)
