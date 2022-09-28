@@ -25,7 +25,7 @@ This article discusses how to run the troubleshooter for Azure machines from the
 
 ## Start the troubleshooter
 
-For Azure machines, select the **troubleshoot** link under the **Update Agent Readiness** column in the portal to open the Troubleshoot Update Agent page. For non-Azure machines, the link brings you to this article. To troubleshoot a non-Azure machine, see the instructions in the "Troubleshoot offline" section.
+For Azure machines, select the **troubleshoot** link under the **Update Agent Readiness** column in the portal to open the Troubleshoot Update Agent page. For non-Azure machines, the link brings you to this article. To troubleshoot a non-Azure machine, see the instructions in the **Troubleshoot offline** section.
 
 ![VM list page](../media/update-agent-issues-linux/vm-list.png)
 
@@ -59,7 +59,7 @@ If the asset tag is different than 7783-7084-3265-9085-8269-3286-77, then reboot
 
 ### Monitoring Agent
 
-To fix this, install Azure Log Analytics Linux agent and ensure it communicates the required endpoints. For more information, see [Install Log Analytics agent on Linux computers](../azure-monitor/agents/agent-linux.md).
+To fix this, install Azure Log Analytics Linux agent and ensure it communicates the required endpoints. For more information, see [Install Log Analytics agent on Linux computers](../../azure-monitor/agents/agent-linux.md).
 
 This task checks if the folder is present - 
 
@@ -78,12 +78,14 @@ process_name = "omsagent"
 ps aux | grep %s | grep -v grep" % (process_name) 
 ```
 
-For more information, see [Troubleshoot issues with the Log Analytics agent for Linux](../azure/azure-monitor/agents/agent-linux-troubleshoot).
+For more information, see [Troubleshoot issues with the Log Analytics agent for Linux](../../azure-monitor/agents/agent-linux-troubleshoot.md)
+
 
 ### Multihoming
 This check determines if the agent is reporting to multiple workspaces. Update Management doesn't support multihoming.
 
-To fix this issue, purge the OMS Agent completely and reinstall it with the [workspace linked with Update management](../azure-monitor/agents/agent-linux-troubleshoot#purge-and-re-install-the-linux-agent). 
+To fix this issue, purge the OMS Agent completely and reinstall it with the [workspace linked with Update management](../../azure-monitor/agents/agent-linux-troubleshoot.md#purge-and-reinstall-the-linux-agent)
+
 
 Validate that there are no more multihoming by checking the directories under this path:
 
@@ -143,7 +145,7 @@ You can validate the task by running the **HTTP_PROXY** command.
 
 ### IMDS connectivity check
 
-To fix this issue, allow access to IP **169.254.169.254**. For more information, see [Access Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md#access-azure-instance-metadata-service). 
+To fix this issue, allow access to IP **169.254.169.254**. For more information, see [Access Azure Instance Metadata Service][Azure Instance Metadata Service (Windows)](../../virtual-machines/windows/instance-metadata-service.md#azure-instance-metadata-service-windows)
 
 After the network changes, you can either rerun the Troubleshooter or run the below commands to validate: 
 
@@ -159,9 +161,9 @@ This check makes sure that the machine has access to the internet and can be ign
 
 This check determines if the Hybrid Runbook Worker can properly communicate with Azure Automation in the Log Analytics workspace.
 
-Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to communicate with the registration endpoint. For a list of addresses and ports to open, see [Network planning](../automation-hybrid-runbook-worker.md#network-planning).
+Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to communicate with the registration endpoint. For a list of addresses and ports to open, see [Network planning](../automation-hybrid-runbook-worker.md#a-namenetwork-planninganetwork-planning)
 
-Fix this issue by allowing the prerequisite URLs. For more information, see [Update Management and Change Tracking and Inventory](../azure/automation/automation-network-configuration#update-management-and-change-tracking-and-inventory). 
+Fix this issue by allowing the prerequisite URLs. For more information, see [Update Management and Change Tracking and Inventory](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory)
 
 Post the network changes you can either re-run the troubleshooter or CURL on provided jrds endpoint.
 
@@ -192,8 +194,7 @@ Curl on provided OMS endpoint
 
 ### Software Repositories
 
-Fix this issue by allowing the [prerequisite Repo URL for RHEL](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory).
-
+Fix this issue by allowing the [prerequisite Repo URL for RHEL](https://learn.microsoft.com/azure/virtual-machines/workloads/redhat/redhat-rhui#troubleshoot-connection-problems-to-azure-rhui)
 Post making Network changes you can either rerun the Troubleshooter or
 Curl on software repositories configured in package manager. Refreshing repos sudo apt-get update would be helpful to confirm the communication as well.
 

@@ -44,8 +44,7 @@ Results are shown on the page when they're ready. The checks sections show what'
 
 ### Operating system
 
-The operating system check verifies whether the Hybrid Runbook Worker is running [one of the supported operating systems](../update-management/operating-system-requirements.md#windows). 
-
+The operating system check verifies whether the Hybrid Runbook Worker is running [one of the supported operating systems](../update-management/operating-system-requirements.md#system-requirements)
 
 ### .NET 4.6.2
 
@@ -63,7 +62,8 @@ To fix, you need to download and install [Windows Management Framework 5.1](http
 
 This check determines whether you're using TLS 1.2 to encrypt your communications. TLS 1.0 is no longer supported by the platform. Use TLS 1.2 to communicate with Update Management.
 
-To fix, follow the steps to [Enable TLS 1.2](../agents/agent-windows?tabs=setup-wizard.md#configure-agent-to-use-tls-12).
+To fix, follow the steps to [Enable TLS 1.2](../../azure-monitor/agents/agent-windows.md#configure-agent-to-use-tls-12)
+
 
 ## Monitoring agent service health checks
 
@@ -93,11 +93,10 @@ Raise a support ticket if the issue is not fixed still.
 
 Check the event id 4502 (error event) in **Operations Manager** event logs and check the description.
 
-To troubleshoot, run the [MMA Agent Troubleshooter](../azure-monitor/agents/agent-windows-troubleshoot.md).
-
+To troubleshoot, run the [MMA Agent Troubleshooter](../../azure-monitor/agents/agent-windows-troubleshoot.md).
 
 ### VMs linked workspace
-See [Network requirements](./azure-monitor/agents/agent-windows-troubleshoot.md#connectivity-issues).
+See [Network requirements](../../azure-monitor/agents/agent-windows-troubleshoot.md#connectivity-issues).
 
 To validate: Check VMs connected workspace or Heartbeat table of corresponding log analytics.
 
@@ -158,7 +157,8 @@ After the network changes, you can either rerun the Troubleshooter or run the be
 
 ### Proxy settings
 
-If the proxy is enabled, ensure that you have access to the [prerequisite URLs](../automation-network-configuration#update-management-and-change-tracking-and-inventory). 
+If the proxy is enabled, ensure that you have access to the [prerequisite URLs](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory)
+
 
 To check if the proxy is set correctly, use the below commands: 
 
@@ -171,9 +171,11 @@ or check the registry key **ProxyEnable** is set to 1 in
 
 ### IMDS endpoint connectivity
 
-To fix the issue, allow access to IP **169.254.169.254** </br> For more information see, [access Azure instance metadata service](../virtual-machines/windows/instance-metadata-service.md#access-azure-instance-metadata-service). 
+To fix the issue, allow access to IP **169.254.169.254** </br> For more information see, [access Azure instance metadata service](../../virtual-machines/windows/instance-metadata-service.md#access-azure-instance-metadata-service)
+
 
 After the network changes, you can either rerun the Troubleshooter or run the below commands to validate: 
+
 ```
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://169.254.169.254/metadata/instance?api-version=2018-02-01
 ```
@@ -221,16 +223,16 @@ Configure reboot according to Update Management schedule configuration.
 
 `AlwaysAutoRebootAtScheduledTime AlwaysAutoRebootAtScheduledTimeMinutes`
 
-For more information, see [Configure reboot settings](../troubleshoot/automation/update-management/configure-wuagent.md)
+For more information, see [Configure reboot settings](../update-management/configure-wuagent.md#configure-reboot-settings)
+
 
 ### WSUS Server configuration
 
-If the environment is set to get updates from WSUS, ensure that it is approved in WSUS before the update deployment. For more information, see [WSUS configuration settings](../troubleshoot/automation/update-management/configure-wuagent.md). If your environment is not using WSUS, ensure that you remove the WSUS server settings and [reset Windows update component](../troubleshoot/windows/deployment/update/windows-update-resources.md)
+If the environment is set to get updates from WSUS, ensure that it is approved in WSUS before the update deployment. For more information, see [WSUS configuration settings](../update-management/configure-wuagent.md#make-wsus-configuration-settings). If your environment is not using WSUS, ensure that you remove the WSUS server settings and [reset Windows update component](https://learn.microsoft.com/windows/deployment/update/windows-update-resources#how-do-i-reset-windows-update-components).
 
 ### Automatically download and install
 
-To fix the issue, disable the **AutoUpdate** feature. Set it to Disabled in the local group policy Configure Automatic Updates. For more information, see [Configure automatic updates](../troubleshoot/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates.md)
-
+To fix the issue, disable the **AutoUpdate** feature. Set it to Disabled in the local group policy Configure Automatic Updates. For more information, see [Configure automatic updates](https://learn.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#configure-automatic-updates).
 
 
 ## <a name="troubleshoot-offline"></a>Troubleshoot offline
