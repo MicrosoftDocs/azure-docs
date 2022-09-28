@@ -13,7 +13,7 @@ ms.author: v-pgaddala
 
 # Azure VM Disaster Recovery - High Churn Support (Public Preview)
 
-Azure Site Recovery now supports churn (data change rate) up to 100 MB/s per VM. You will be able to protect your Azure VMs having high churning workloads (like databases) using Azure Site Recovery which earlier could not be protected efficiently because Azure Site Recovery has churn limits up to 54 MB/s per VM. You may be able to achieve better RPO performance for your high churning workloads. 
+Azure Site Recovery supports churn (data change rate) up to 100 MB/s per VM. You will be able to protect your Azure VMs having high churning workloads (like databases) using Azure Site Recovery which earlier could not be protected efficiently because Azure Site Recovery has churn limits up to 54 MB/s per VM. You may be able to achieve better RPO performance for your high churning workloads. 
 
 ## Limitations
 
