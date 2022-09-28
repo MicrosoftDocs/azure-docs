@@ -15,7 +15,8 @@ ms.date: 09/26/2022
 
 This article describes how you can create users within an Azure Database for PostgreSQL server.
 
-> [!NOTE] Azure AD for PostgreSQL Flexible Server is currently in preview.
+> [!NOTE]
+> Azure Active Directory Authentication for PostgreSQL Flexible Server is currently in preview.
 
 If you would like to learn about how to create and manage Azure subscription users and their privileges, you can visit the [Azure role-based access control (Azure RBAC) article](../../role-based-access-control/built-in-roles.md) or review [how to customize roles](../../role-based-access-control/custom-roles.md).
 
