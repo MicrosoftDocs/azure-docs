@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file for working with arr
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 09/2/2022
+ms.date: 09/26/2022
 ---
 
 # Array functions for Bicep

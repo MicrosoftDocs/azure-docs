@@ -14,7 +14,6 @@ To deploy a resource through an Azure Resource Manager template (ARM template), 
 
 You are limited to 800 resources in a template. For more information, see [Template limits](./best-practices.md#template-limits).
 
-
 ## Set resource type and version
 
 When adding a resource to your template, start by setting the resource type and API version. These values determine the other properties that are available for the resource.
