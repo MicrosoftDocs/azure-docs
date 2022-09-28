@@ -29,7 +29,7 @@ Privileges are actions that can be performed on a specific resource. For example
 A role has one or more privileges. Roles are assigned to users (zero or more) to enable them to perform the actions defined in those privileges. Roles are stored within a single database.
 
 ### Diagnostic log auditing
-An additional column called `userId` has been added to the `MongoRequests` table in the Azure portal Diagnostics feature. This column will identify which user performed which data plan operation. The value in this column is empty when RBAC is not enabled. 
+An additional column called `userId` has been added to the `MongoRequests` table in the Azure Portal Diagnostics feature. This column will identify which user performed which data plan operation. The value in this column is empty when RBAC is not enabled. 
 
 ## Available Privileges
 #### Query and Write
@@ -90,7 +90,7 @@ If you prefer a new database account instead, create a new database account with
 ```powershell
 az cosmosdb create -n <account_name> -g <azure_resource_group> --kind MongoDB --capabilities EnableMongoRoleBasedAccessControl
 ```
-4. Create a database for users to connect to in the Azure portal.
+4. Create a database for users to connect to in the Azure Portal.
 5. Create an RBAC user with built-in read role.
 ```powershell
 az cosmosdb mongodb user definition create --account-name <YOUR_DB_ACCOUNT> --resource-group <YOUR_RG> --body {\"Id\":\"<YOUR_DB_NAME>.<YOUR_USERNAME>\",\"UserName\":\"<YOUR_USERNAME>\",\"Password\":\"<YOUR_PASSWORD>\",\"DatabaseName\":\"<YOUR_DB_NAME>\",\"CustomData\":\"Some_Random_Info\",\"Mechanisms\":\"SCRAM-SHA-256\",\"Roles\":[{\"Role\":\"read\",\"Db\":\"<YOUR_DB_NAME>\"}]}
@@ -265,9 +265,9 @@ az cosmosdb mongodb user definition delete --account-name <account-name> --resou
 
 ## Frequently asked questions (FAQs)
 
-### Is it possible to manage role definitions and role assignments from the Azure portal?
+### Is it possible to manage role definitions and role assignments from the Azure Portal?
 
-Azure portal support for role management is not available. However, RBAC can be enabled via the features tab in the Azure portal.
+Azure Portal support for role management is not available. However, RBAC can be enabled via the features tab in the Azure portal.
 
 ### How do I change a user's password?
 
