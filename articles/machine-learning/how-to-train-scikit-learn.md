@@ -5,8 +5,9 @@ description: Learn how Azure Machine Learning enables you to scale out a scikit-
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: larryfr
-author: blackmist
+ms.author: balapv
+author: balapv
+ms.reviewer: mopeakande
 ms.date: 09/22/2022
 ms.topic: how-to
 ms.custom: devx-track-python, sdkv2, event-tier1-build-2022
@@ -38,7 +39,6 @@ You can run this code in either an Azure Machine Learning compute instance, or y
 
  - Create a Jupyter notebook server and run the code in the following sections.
     - [Install the Azure Machine Learning SDK (v2)](https://aka.ms/sdk-v2-install).
-    - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
 
 
 ## Set up the experiment
@@ -47,12 +47,11 @@ This section sets up the training experiment by loading the required Python pack
 
 ### Connect to the workspace
 
-First, you'll need to connect to your Azure Machine Learning workspace. The [AzureML workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create when you use Azure Machine Learning.
+First, you'll need to connect to your AzureML workspace. The [AzureML workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create when you use Azure Machine Learning.
 
 We're using `DefaultAzureCredential` to get access to the workspace. This credential should be capable of handling most Azure SDK authentication scenarios.
 
-<!-- M.A: link to "configure credential example" is missing (broken in notebook) -->
-If `DefaultAzureCredential` credential does not work for you, see [`azure-identity reference documentation`](/python/api/azure-identity/azure.identity?view=azure-python) or [`Set up authentication`](/azure/machine-learning/how-to-setup-authentication?tabs=sdk) for more available credentials.
+If `DefaultAzureCredential` credential does not work for you, see [`azure-identity reference documentation`](/python/api/azure-identity/azure.identity) or [`Set up authentication`](how-to-setup-authentication.md?tabs=sdk) for more available credentials.
 
 [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=credential)]
 
@@ -121,13 +120,13 @@ In this section, we'll cover how to run a training job, using a training script 
 
 ### Prepare the training script
 
-In this article, we've provided the [training script **train_iris.py**](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train_iris.py) for you. In practice, you should be able to take any custom training script as is and run it with AzureML without having to modify your code.
+In this article, we've provided the training script *train_iris.py* to you. In practice, you should be able to take any custom training script as is and run it with AzureML without having to modify your code.
 
 Notes:
 
 The provided training script does the following:
 - shows how to log some metrics to your AzureML run;
-- downloads and extracts the training data using the  `iris = datasets.load_iris()` function; and
+- downloads and extracts the training data using the `iris = datasets.load_iris()` function; and
 - trains a model, then saves and registers it.
 
 To use and access your own data, see [how to train with datasets](v1/how-to-train-with-datasets.md) to make data available during training.
@@ -186,7 +185,7 @@ As the job is executed, it goes through the following stages:
 
 ## Tune model hyperparameters
 
-Now that we've seen how to do a simple Scikit-learn training run using the SDK, let's see if we can further improve the accuracy of our model. We can optimize our model's hyperparameters using Azure Machine Learning's [`sweep`](python/api/azure-ai-ml/azure.ai.ml.sweep?view=azure-python-preview) capabilities.
+Now that we've seen how to do a simple Scikit-learn training run using the SDK, let's see if we can further improve the accuracy of our model. We can optimize our model's hyperparameters using Azure Machine Learning's [`sweep`](/python/api/azure-ai-ml/azure.ai.ml.sweep) capabilities.
 
 To tune the model's hyperparameters, you'll define the parameter space in which to search during training. You'll do this by replacing some of the parameters (`kernel` and `penalty`) passed to the training job with special inputs from the `azure.ml.sweep` package.
 
@@ -215,59 +214,15 @@ You can now register this model.
 
 [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=register_model)]
 
-<!-- 
-
-you've trained the model, you can save and register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](concept-model-management-and-deployment.md).
-
-Add the following code to your training script, train_iris.py, to save the model. 
-
-``` Python
-import joblib
-
-joblib.dump(svm_model_linear, 'model.joblib')
-```
-
-Register the model to your workspace with the following code. By specifying the parameters `model_framework`, `model_framework_version`, and `resource_configuration`, no-code model deployment becomes available. No-code model deployment allows you to directly deploy your model as a web service from the registered model, and the [`ResourceConfiguration`](/python/api/azureml-core/azureml.core.resource_configuration.resourceconfiguration) object defines the compute resource for the web service.
-
-```Python
-from azureml.core import Model
-from azureml.core.resource_configuration import ResourceConfiguration
-
-model = run.register_model(model_name='sklearn-iris', 
-                           model_path='outputs/model.joblib',
-                           model_framework=Model.Framework.SCIKITLEARN,
-                           model_framework_version='0.19.1',
-                           resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5))
-``` -->
 
 ## Deployment
 
-The model you just registered can be deployed the exact same way as any other registered model in Azure ML. The deployment how-to
-contains a section on registering models, but you can skip directly to [creating a compute target](./v1/how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
-
-### (Preview) No-code model deployment
-
-Instead of the traditional deployment route, you can also use the no-code deployment feature (preview) for scikit-learn. No-code model deployment is supported for all built-in scikit-learn model types. By registering your model as shown above with the `model_framework`, `model_framework_version`, and `resource_configuration` parameters, you can simply use the [`deploy()`](/python/api/azureml-core/azureml.core.model%28class%29#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) static function to deploy your model.
-
-```python
-web_service = Model.deploy(ws, "scikit-learn-service", [model])
-```
-
-NOTE: These dependencies are included in the pre-built scikit-learn inference container.
-
-```yaml
-    - azureml-defaults
-    - inference-schema[numpy-support]
-    - scikit-learn
-    - numpy
-```
-
-The full [how-to](./v1/how-to-deploy-and-where.md) covers deployment in Azure Machine Learning in greater depth.
+The model you just registered can be deployed the exact same way as any other registered model in Azure ML. For more information about deployment, see [Deploy and score a machine learning model with managed online endpoint using Python SDK v2](how-to-deploy-managed-online-endpoint-sdk-v2.md).
 
 
 ## Next steps
 
-In this article, you trained and registered a scikit-learn model, and learned about deployment options. See these other articles to learn more about Azure Machine Learning.
+In this article, you trained and registered a scikit-learn model, and you learned about deployment options. See these other articles to learn more about Azure Machine Learning.
 
 * [Track run metrics during training](how-to-log-view-metrics.md)
 * [Tune hyperparameters](how-to-tune-hyperparameters.md)
