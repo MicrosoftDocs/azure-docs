@@ -110,7 +110,7 @@ ms.custom: devx-track-csharp
   >
   > * [prebuilt-document](#general-document-model)
   >
-  > * [prebuilt-tax.us.w2](#w2-model)
+  > * [prebuilt-tax.us.w2](#w-2-model)
   >
   > * [prebuilt-invoice](#invoice-model)
   >
@@ -190,7 +190,7 @@ foreach (DocumentLanguage language in result.Languages)
 
 ### Read model output
 
-Visit the Azure samples repository on GitHub to view the [read model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/csharp-read-model-output.md).
+Visit the Azure samples repository on GitHub to view the [read model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/read-model-output.md).
 
 ## Layout model
 
@@ -290,7 +290,7 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ### Layout model output
 
-Visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/csharp-layout-model-output.md).
+Visit the Azure samples repository on GitHub to view the [layout model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/layout-model-output.md).
 
 ## General document model
 
@@ -392,7 +392,7 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ### General document model output
 
-Visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/csharp-general-document-model-output.md).
+Visit the Azure samples repository on GitHub to view the [general document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/general-document-model-output.md).
 
 ## W-2 model
 
@@ -504,9 +504,9 @@ for (int i = 0; i < result.Documents.Count; i++)
 }
 ```
 
-### W2 model output
+### W-2 model output
 
-Visit the Azure samples repository on GitHub to view the [w2 model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/csharp-w2-model-output.md).
+Visit the Azure samples repository on GitHub to view the [w2 model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/w2-tax-model-output.md).
 
 ## Invoice model
 
@@ -618,7 +618,7 @@ for (int i = 0; i < result.Documents.Count; i++)
 
 ### Invoice model output
 
-Visit the Azure samples repository on GitHub to view the [invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/csharp-general-document-model-output.md).
+Visit the Azure samples repository on GitHub to view the [invoice model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/general-document-model-output.md).
 
 ## Receipt model
 
@@ -713,7 +713,7 @@ foreach (AnalyzedDocument receipt in receipts.Documents)
 
 ### Receipt model output
 
-Visit the Azure samples repository on GitHub to view the [receipt model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/csharp-receipt-model-output.md).
+Visit the Azure samples repository on GitHub to view the [receipt model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/receipt-model-output.md).
 
 ## ID document model
 
@@ -823,7 +823,7 @@ if (identityDocument.Fields.TryGetValue("Sex", out DocumentField sexfield))
 
 ### ID document model output
 
-Visit the Azure samples repository on GitHub to view the [id-document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/csharp-id-document-model-output.md).
+Visit the Azure samples repository on GitHub to view the [id-document model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/id-document-model-output.md).
 
 ## Business card model
 
@@ -1031,4 +1031,4 @@ foreach (AnalyzedDocument businessCard in businessCards.Documents)
 
 ### Business card model output
 
-Visit the Azure samples repository on GitHub to view the [business card model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/csharp-id-document-model-output.md).
+Visit the Azure samples repository on GitHub to view the [business card model output](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/how-to-guide/business-card-model-output.md).
