@@ -91,6 +91,9 @@ To update CertificateUserIds for federated users, configure Azure AD Connect to 
 
 1. Click **OK** to confirm. 
 
+> [!NOTE]
+> Customers should use latest version of Azure ADConnect. Please visit [Download latest AADConnect](https://www.microsoft.com/en-us/download/details.aspx?id=47594) for downloading latest version. 
+
 ## Complex transformation using syn rule Expressions
 
 If you want to manipulate values to be synchronized to Azure AD or you have to construct more complex values which are sources out of multiple sources, you can use declarative provisioning expressions in AADConnect Sync rule editor.  
