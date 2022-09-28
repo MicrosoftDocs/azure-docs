@@ -46,7 +46,7 @@ Once you've expanded the size of your SAN, you can either create an additional v
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Update-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -GroupName $volumeGroupName -Name $volumeName -sizeGib $newVolumeSize
+Update-AzElasticSanVolume -ResourceGroupName $resourceGroupName -ElasticSanName $sanName -VolumeGroupName $volumeGroupName -Name $volumeName -sizeGib $newVolumeSize
 ```
 
 # [Azure CLI](#tab/azure-cli)
