@@ -485,7 +485,7 @@
     - name: Security
       href: flexible-server/concepts-security.md
     - name: Azure AD Authentication
-      href: flexible-server/concepts-azure-aad-authentication.md
+      href: flexible-server/concepts-azure-ad-authentication.md
     - name: Limits
       href: flexible-server/concepts-limits.md
     - name: Extensions
