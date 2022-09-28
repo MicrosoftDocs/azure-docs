@@ -272,7 +272,7 @@ If the HTTP status is `200 OK`, the body of the response contains an audio file 
 
 ## Audio outputs
 
-The supported streaming and non-streaming audio formats are sent in each request as the `X-Microsoft-OutputFormat` header. Each format incorporates a bit rate and encoding type. The Speech service supports 48-kHz, 24-kHz, 16-kHz, and 8-kHz audio outputs. All the prebuilt neural voices have now been upgraded to high-fidelity voices with 48kHz sample rate. Each prebuilt voice model is available at 24kHz and 48kHz.
+The supported streaming and non-streaming audio formats are sent in each request as the `X-Microsoft-OutputFormat` header. Each format incorporates a bit rate and encoding type. The Speech service supports 48-kHz, 24-kHz, 16-kHz, and 8-kHz audio outputs. Each prebuilt neural voice model is available at 24kHz and high-fidelity 48kHz. 
 
 #### [Streaming](#tab/streaming)
 
