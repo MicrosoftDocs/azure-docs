@@ -103,7 +103,7 @@ The following steps describe how to create a dataset in [Azure Machine Learning 
 1. Navigate to [Azure Machine Learning studio](https://ml.azure.com)
 
 1. Under __Assets__ in the left navigation, select __Data__. On the Data assets tab, select Create
-:::image type="content" source="media\how-to-connect-data-ui\data-assets-create.png" alt-text="Screenshot highlights Create in the Data assets tab.":::
+:::image type="content" source="media\how-to-connect-data-ui\data-assets-create.png" alt-text="This screenshot highlights Create in the Data assets tab.":::
 
 1. Give your data asset a name and optional description. Then, under **Type**, select one of the Dataset types, either **File** or **Tabular**.
 :::image type="content" source="media\how-to-connect-data-ui\create-data-asset-name-type.png" alt-text="In this screenshot, set the name, description, and type of the data asset.":::
