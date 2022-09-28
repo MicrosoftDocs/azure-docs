@@ -91,6 +91,25 @@ To update CertificateUserIds for federated users, configure Azure AD Connect to 
 
 1. Click **OK** to confirm. 
 
+## Complex transformation using syn rule Expressions
+
+If you want to manipulate values to be synchronized to Azure AD or you have to construct more complex values which are sources out of multiple sources, you can use declarative provisioning expressions in AADConnect Sync rule editor.  
+
+If you want to learn more on declarative provisioning expressions, please look at [Azure AD Connect: Declarative Provisioning Expressions](https://learn.microsoft.com/en-us/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions)
+
+## Synchronizing X509:<PN>PrincipalNameValue 
+ 
+Create an outbound synchronization rule. Choose “Expression” in the flow type. Choose the target attribute as <certificateUserIds>, and in the source field you add the expression <"X509:<PN>"&[userPrincipalName]>. If your source attribute is not UserPrincipalName, you can change the expression accordingly.
+ 
+    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/pnexpression.png" alt-text="Screenshot of how to edit a rule.":::
+ 
+## Synchronizing X509:<RFC822>RFC822Name 
+
+Create an outbound synchronization rule. Choose “Expression” in the flow type. Choose the target attribute as <certificateUserIds>, and in the source field you add the expression <"X509:<RFC822>"&[userPrincipalName]>. If your source attribute is not UserPrincipalName, you can change the expression accordingly.  
+
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/rfc822expression.png" alt-text="Screenshot of how to edit a rule.":::
+
+
 ## Next steps
 
 - [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
