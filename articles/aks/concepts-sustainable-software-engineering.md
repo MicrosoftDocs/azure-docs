@@ -44,14 +44,17 @@ Decisions made in one design area can impact or influence decisions across the e
 We recommend that readers familiarize themselves with these design areas, reviewing provided considerations and recommendations to better understand the consequences of encompassed decisions.
 
 ## Sustainability Design considerations for AKS workloads
-
+ -  Sustainability design considerations for your AKS workloads,should consider the All the Key Design Areas
+ -  The sustainability considerations for AKS clusters are aligned with Application Platform Area
+ -  In practice you should consider the hollistic lifecycle of your application, as Business requiements shape Workload design, which will inform cluster design
+  
 |Design area|Description|
 |---|---|
 |Application design|Modernize Applications to event driven and microservices components|
 |Application platform|**AKS cluster is the Platform**|
-|Testing|Testing procedures for Cluster & workload development lifecycle|
-|Operational procedures|related to Transversal governance, not a technical consideration|
-|Storage|Consider _Statefless Application_ Design ; Plan for storage classes & Backup retention policies.|
+|Testing|Optimize Testing procedures for Cluster & workload development lifecycle|
+|Operational procedures|Implement Operational procedures (not a technical consideration)|
+|Storage| Consider _Statefless Vs Stateful Application_ Design ; Plan for storage classes & Backup retention policies.|
 |Network and connectivity|Assess business requirements for availability (availability zones) and security (service mesh)|
 |Security| Consider endpoint security and integration with Monitoring & SIEM.|
 
