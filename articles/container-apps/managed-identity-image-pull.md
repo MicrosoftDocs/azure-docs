@@ -12,17 +12,17 @@ zone_pivot_groups: container-apps-interface-types
 
 # Azure Container Apps image pull with managed identity
 
-You can pull images from private repositories in Azure Container Registry (ACR) using managed identities to avoid the use of administrative credentials.  You can use a system-assigned or user-assigned managed identity to authenticate with ACR.  
+You can pull images from private repositories in Microsoft Azure Container Registry  using managed identities for authentication to avoid the use of administrative credentials.  You can use a system-assigned or user-assigned managed identity to authenticate with Azure Container Registry.  
 
 With a system-assigned managed identity, the identity is created and managed by Azure Container Apps.  The identity is tied to your container app and is deleted when your app is deleted.   With a user-assigned managed identity, you create and manage the identity outside of Azure Container Apps.  It can be assigned to multiple Azure resources, including Azure Container Apps.
 
 ::: zone pivot="azure-portal"
 
-This article describes how to use the Azure portal to configure your container app to use user-assigned and system-assigned managed identities to pull images from private ACR repositories.
+This article describes how to use the Azure portal to configure your container app to use user-assigned and system-assigned managed identities to pull images from private Azure Container Registry repositories.
 
 ## User-assigned managed identity
 
-The following steps describe the process to configure your container app to use a user-assigned managed identity to pull images from private ACR repositories.
+The following steps describe the process to configure your container app to use a user-assigned managed identity to pull images from private Azure Container Registry repositories.
 
 1. Create a container app with a public image.
 1. Add the user-assigned managed identity to the container app.
@@ -88,7 +88,7 @@ Create a container app revision with a private image and the system-assigned man
 
      :::image type="content" source="media/managed-identity/screenshot-edit-a-container-user-assigned-identity.png" alt-text="Screen shot of the Edit a container dialog entering user assigned managed identity.":::
      >[!NOTE]
-     > If the administrative credentials are not enabled on your ACR registry, you will see a warning message displayed and you will need to enter the image name and tag information manually.
+     > If the administrative credentials are not enabled on your Azure Container Registry registry, you will see a warning message displayed and you will need to enter the image name and tag information manually.
  
 1. Select **Save**.
 1. Select **Create** from the **Create and deploy new revision** page.
@@ -166,7 +166,7 @@ Edit the container to use the image from your private Azure Container Registry, 
 
     :::image type="content" source="media/managed-identity/screenshot-edit-a-container-system-assigned-identity.png" alt-text="Screen shot Edit a container with system-assigned managed identity.":::
     >[!NOTE]
-    > If the administrative credentials are not enabled on your ACR registry, you will see a warning message displayed and you will need to enter the image name and tag information manually.
+    > If the administrative credentials are not enabled on your Azure Container Registry registry, you will see a warning message displayed and you will need to enter the image name and tag information manually.
 
 1. Select **Save** at the bottom of the page.
 1. Select **Create** at the bottom of the **Create and deploy new revision** page
@@ -188,7 +188,7 @@ If you're not going to continue to use this application, you can delete the Azur
 ::: zone-end
 ::: zone pivot="command-line"
 
-This article describes how to configure your container app to use managed identities to pull images from a private ACR repository using Azure CLI and Azure PowerShell.
+This article describes how to configure your container app to use managed identities to pull images from a private Azure Container Registry repository using Azure CLI and Azure PowerShell.
 
 ## Prerequisites
 
@@ -555,7 +555,7 @@ New-AzContainerApp @AppArgs
 
 ### Update the container app
 
-Update the container app with the image from your private container registry and add a system-assigned identity to authenticate the ACR pull.  You can also include other settings necessary for your container app, such as ingress, scale and Dapr settings.  
+Update the container app with the image from your private container registry and add a system-assigned identity to authenticate the Azure Container Registry pull.  You can also include other settings necessary for your container app, such as ingress, scale and Dapr settings.  
 
 If you are using an image tag other than `latest`, replace the `latest` value with your value.
 

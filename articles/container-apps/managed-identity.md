@@ -27,7 +27,7 @@ Your container app can be granted two types of identities:
 - You can use role-based access control to grant specific permissions to a managed identity.
 - System-assigned identities are automatically created and managed. They're deleted when your container app is deleted.
 - You can add and delete user-assigned identities and assign them to multiple resources. They're independent of your container app's life cycle.
-- You can use managed identity to pull images from a private Azure Container Registry without a username and password.  For more information, see [Azure Container Apps image pull with managed identity](managed-identity-acr-pull.md).
+- You can use managed identity to pull images from a private Azure Container Registry without a username and password.  For more information, see [Azure Container Apps image pull with managed identity](managed-identity-image-pull.md).
 
 ### Common use cases
 

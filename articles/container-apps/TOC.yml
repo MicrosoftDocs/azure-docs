@@ -82,8 +82,8 @@
       items:
       - name: Use managed identities
         href: managed-identity.md
-      - name: ACR pull with managed identity
-        href: managed-identity-acr-pull.md
+      - name: Azure Container Registry image pull with managed identity
+        href: managed-identity-image-pull.md
     - name: Monitor an app
       href: monitor.md
     - name: Manage revisions
