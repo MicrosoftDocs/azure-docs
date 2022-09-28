@@ -18,7 +18,7 @@ With the Cloud Security Explorer, you can query all of your security issues and 
 
 | Aspect | Details |
 |--|--|
-| Required plans | - Defender CSPM P1 enabled |
+| Required plans | - Defender Cloud Security Posture Management (CSPM) enabled |
 | Required roles and permissions: | - **Security Reader** <br> - **Security Admin** <br> - **Reader** <br> - **Contributor** <br> - **Owner** |
 | Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds (Azure, AWS) <br>:::image type="icon" source="./media/icons/no-icon.png"::: Commercial clouds (GCP) <br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
 

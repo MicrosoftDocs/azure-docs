@@ -26,7 +26,7 @@ Updates in October include:
 - [Defender for DevOps (Preview)](#defender-for-devops-preview)
 - [Regulatory Compliance Dashboard now supports manual control management and detailed information on Microsoft's compliance status](#regulatory-compliance-dashboard-now-supports-manual-control-management-and-detailed-information-on-microsofts-compliance-status)
 - [Auto-provisioning has been renamed to Settings & monitoring and has an updated experience](#auto-provisioning-has-been-renamed-to-settings--monitoring-and-has-an-updated-experience)
-- [Defender CSPM P1 (Preview)](#defender-cspm-p1-preview)
+- Defender Cloud Security Posture Management (CSPM) (Preview)
 - [MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations](#mitre-attck-framework-mapping-is-now-available-also-for-aws-and-gcp-security-recommendations)
 - [Defender for Containers now supports vulnerability assessment for Elastic Container Registry](#defender-for-containers-now-supports-vulnerability-assessment-for-elastic-container-registry)
 
@@ -55,7 +55,7 @@ Until now, Defender for Cloud based its posture assessments for VMs on agent-bas
 
 With agentless scanning for VMs, you get wide visibility on installed software and software CVEs, without the challenges of  agent installation and maintenance, network connectivity requirements, and performance impact on your workloads. The analysis is powered by Microsoft Defender vulnerability management.
 
-Agentless vulnerability scanning is available in both Defender CSPM P1 and in [Defender for Servers P2](defender-for-servers-introduction.md), with native support for AWS and Azure VMs.
+Agentless vulnerability scanning is available in both Defender Defender Cloud Security Posture Management (CSPM) and in [Defender for Servers P2](defender-for-servers-introduction.md), with native support for AWS and Azure VMs.
 
 - Learn more about [agentless scanning](concept-agentless-data-collection.md).
 - Find out how to enable [agentless vulnerability assessment](enable-vulnerability-assessment-agentless.md).
@@ -126,11 +126,11 @@ Auto-provisioning was meant to allow at-scale enablement of pre-requisites, whic
 
 Learn more about [managing your monitoring settings](monitoring-components.md).
 
-### Defender CSPM P1 (Preview)
+### Defender Cloud Security Posture Management (CSPM)
 
 One of Microsoft Defender for Cloud's main pillars for cloud security is Cloud Security Posture Management (CSPM). CSPM provides you with hardening guidance that helps you efficiently and effectively improve your security. CSPM also gives you visibility into your current security situation.
 
-We are announcing the addition of the new CSPM P1 plan for Defender for Cloud. CSPM P1 enhances the security capabilities of Defender for Cloud and includes the following new and expanded features:
+We are announcing the addition of the new Defender Cloud Security Posture Management (CSPM) plan for Defender for Cloud. Defender Cloud Security Posture Management (CSPM) enhances the security capabilities of Defender for Cloud and includes the following new and expanded features:
 
 - Continuous assessment of the security configuration of your cloud resources
 - Security recommendations to fix misconfigurations and weaknesses
@@ -141,7 +141,7 @@ We are announcing the addition of the new CSPM P1 plan for Defender for Cloud. C
 - Attack Path Analysis
 - Agentless scanning for machines
 
-You can learn more about the [CSPM P1 plan](concept-cloud-security-posture-management.md).
+You can learn more about the [Defender Cloud Security Posture Management (CSPM) plan](concept-cloud-security-posture-management.md).
 
 ### MITRE ATT&CK framework mapping is now available also for AWS and GCP security recommendations
 

@@ -49,7 +49,7 @@ As soon as you open Defender for Cloud for the first time, Defender for Cloud:
 
     Learn more about [attack path analysis](concept-attack-path.md#what-is-attack-path-analysis).
 
-Defender CSPM offers two options to protect your environments and resources, a free option and a premium option. We recommend enabling the premium option to gain the full coverage and benefits of CSPM. You can learn more about the benefits offered by [Defender CSPM P1](concept-cloud-security-posture-management.md) and [the differences between the two plans](concept-cloud-security-posture-management.md).
+Defender CSPM offers two options to protect your environments and resources, a free option and a premium option. We recommend enabling the premium option to gain the full coverage and benefits of CSPM. You can learn more about the benefits offered by [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md) and [the differences between the two plans](concept-cloud-security-posture-management.md).
 
 ### CWP - Identify unique workload security requirements
 
@@ -142,7 +142,7 @@ The **Defender plans** of Microsoft Defender for Cloud offer comprehensive defen
 - [Microsoft Defender for DNS](defender-for-dns-introduction.md)
 - [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md)
 - [Microsoft Defender for Azure Cosmos DB](concept-defender-for-cosmos.md)
-- [Defender CSPM](concept-cloud-security-posture-management.md)
+- [Defender Cloud Security Posture Management (CSPM)](concept-cloud-security-posture-management.md)
     - [Security governance and regulatory compliance](concept-cloud-security-posture-management.md#security-governance-and-regulatory-compliance)
     - [Cloud Security Explorer](concept-cloud-security-posture-management.md#cloud-security-explorer)
     - [Attack Path Analysis](concept-cloud-security-posture-management.md#attack-path-analysis)
