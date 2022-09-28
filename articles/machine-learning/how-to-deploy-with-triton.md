@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: sehan
 author: dem108
-ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022
+ms.custom: deploy, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022, sdkv2
 ms.devlang: azurecli
 ---
 
@@ -25,15 +25,15 @@ ms.devlang: azurecli
 > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Learn how to use [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-docs) in Azure Machine Learning with [Managed online endpoints](concept-endpoints.md#managed-online-endpoints).
+Learn how to use [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-docs) in Azure Machine Learning with [online endpoints](concept-endpoints.md#what-are-online-endpoints).
 
-Triton is multi-framework, open-source software that is optimized for inference. It supports popular machine learning frameworks like TensorFlow, ONNX Runtime, PyTorch, NVIDIA TensorRT, and more. It can be used for your CPU or GPU workloads.
+Triton is multi-framework, open-source software that is optimized for inference. It supports popular machine learning frameworks like TensorFlow, ONNX Runtime, PyTorch, NVIDIA TensorRT, and more. It can be used for your CPU or GPU workloads. No-code deployment for Triton models are supported in both [managed online endpoints and Kubernetes online endpoints](concept-endpoints.md#managed-online-endpoints-vs-kubernetes-online-endpoints).
 
-In this article, you will learn how to deploy Triton and a model to a managed online endpoint. Information is provided on using the CLI (command line), Python SDK v2, and Azure Machine Learning studio.
+In this article, you will learn how to deploy Triton and a model to a [managed online endpoint](concept-endpoints.md#managed-online-endpoints). Information is provided on using the CLI (command line), Python SDK v2, and Azure Machine Learning studio. 
 
 > [!NOTE]
 > * [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-docs) is an open-source third-party software that is integrated in Azure Machine Learning.
-> * While Azure Machine Learning online endpoints are generally available, _using Triton with an online endpoint deployment is still in preview_. 
+> * While Azure Machine Learning online endpoints are generally available, _using Triton with an online endpoint/deployment is still in preview_. 
 
 ## Prerequisites
 
