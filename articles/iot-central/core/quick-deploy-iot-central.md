@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Connect a device to an Azure IoT Central application | Microsoft Docs
-description: In this quickstart you learn how to connect your first device to a new IoT Central application. This quickstart uses a smartphone app from either the Google Play or Apple app store as an IoT device.
+description: In this quickstart, you learn how to connect your first device to a new IoT Central application. This quickstart uses a smartphone app from either the Google Play or Apple app store as an IoT device.
 author: dominicbetts
 ms.author: dobett
 ms.date: 09/26/2022
@@ -42,6 +42,8 @@ IoT Central provides various industry-focused application templates to help you 
 1. Navigate to the **Build** page and select **Create app** in the **Custom app** tile:
 
     :::image type="content" source="media/quick-deploy-iot-central/iot-central-create-new-application.png" alt-text="Build your IoT application page":::
+
+    If you're prompted to sign in, use the Microsoft account associated with your Azure subscription.
 
 1. On the **New application** page, make sure that **Custom application** is selected under the **Application template**.
 

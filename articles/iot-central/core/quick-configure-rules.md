@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Configure rules and actions in Azure IoT Central
-description: This quickstart shows you how to configure telemetry-based rules and actions in your IoT Central application.
+description: In this quickstart, you learn how to configure telemetry-based rules and actions in your IoT Central application.
 author: dominicbetts
 ms.author: dobett
 ms.date: 09/26/2022
@@ -14,7 +14,7 @@ ms.custom: mvc, mode-other
 
 # Quickstart: Configure rules and actions for your device in Azure IoT Central
 
-Get started with IoT Central rules. In this quickstart you create a rule that sends an email when someone turns your phone over.
+Get started with IoT Central rules. IoT Central rules let you automate actions that occur in response to specific conditions. The example in this quickstart uses accelerometer telemetry from the phone to trigger a rule when the phone is turned over.
 
 In this quickstart, you:
 
