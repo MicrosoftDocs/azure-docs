@@ -3,7 +3,7 @@ title: Tutorial – Deploy Active Directory (AD) Connector in customer-managed k
 description: Tutorial to deploy a customer-managed keytab Active Directory (AD) connector
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 author: mikhailalmeida
 ms.author: mialmei
 ms.reviewer: mikeray

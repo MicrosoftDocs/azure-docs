@@ -5,11 +5,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 07/11/2022
+ms.date: 08/18/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
-
 
 # [Document summarization](#tab/document-summarization)
 
@@ -17,11 +16,13 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 # [Conversation summarization](#tab/conversation-summarization)
 
-[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2195178) 
+[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2195178)
 
 ---
 
 Use this quickstart to send text summarization requests using the REST API. In the following example, you will use cURL to summarize documents or text-based customer service conversations.
+
+[!INCLUDE [Use Language Studio](../use-language-studio.md)]
 
 ## Prerequisites
 
@@ -29,8 +30,6 @@ Use this quickstart to send text summarization requests using the REST API. In t
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">create a Language resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`Free F0`) to try the service, and upgrade later to a paid tier for production.
-
-[!INCLUDE [availability](../regional-availability.md)]
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>

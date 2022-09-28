@@ -24,6 +24,9 @@ Get started with facial recognition using the Face client library for JavaScript
     * You will need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Vision&Product=Face&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
+
 ## Identify faces
 
 1. Create a new Node.js application
@@ -50,6 +53,9 @@ Get started with facial recognition using the Face client library for JavaScript
 
 1. Create a file named `index.js`, open it in a text editor, and paste in the following code:
 
+    > [!NOTE]
+    > If you haven't received access to the Face service using the [intake form](https://aka.ms/facerecognition), some of these functions won't work.
+
     :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart-single.js" id="snippet_single":::
 
 
@@ -66,6 +72,9 @@ Get started with facial recognition using the Face client library for JavaScript
     ```console
     node index.js
     ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Vision&Product=Face&Page=quickstart&Section=Identify-faces" target="_target">I ran into an issue</a>
 
 ## Output
 
@@ -100,6 +109,9 @@ Person: Family1-Mom is identified for face in: identification1.jpg with ID: b7f7
 Person: Family1-Son is identified for face in: identification1.jpg with ID: 600dc1b4-b2c4-4516-87de-edbbdd8d7632. Confidence: 0.92886.
 Person: Family1-Dad is identified for face in: identification1.jpg with ID: e83b494f-9ad2-473f-9d86-3de79c01e345. Confidence: 0.96725.
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVASCRIPT&Pillar=Vision&Product=Face&Page=quickstart&Section=Output" target="_target">I ran into an issue</a>
 
 ## Clean up resources
 

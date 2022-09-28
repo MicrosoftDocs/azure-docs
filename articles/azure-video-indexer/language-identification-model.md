@@ -1,7 +1,7 @@
 ---
-title: Use Azure Video Indexer to auto identify spoken languages  - Azure
+title: Use Azure Video Indexer to auto identify spoken languages 
 description: This article describes how the Azure Video Indexer language identification model is used to automatically identifying the spoken language in a video.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/12/2020
 ms.author: ellbe
 ---

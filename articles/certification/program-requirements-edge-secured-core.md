@@ -149,7 +149,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Requirements dependency|HVCI is enabled on the device.|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through [Edge Secured-core Agent](https://aka.ms/Scforwiniot) toolset to ensure that HVCI is enabled on the device.|
-|Resources|https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-hvci-enablement|
+|Resources| [Hypervisor-protected Code Integrity enablement](/windows-hardware/design/device-experiences/oem-hvci-enablement) |
 
 ---
 </br>

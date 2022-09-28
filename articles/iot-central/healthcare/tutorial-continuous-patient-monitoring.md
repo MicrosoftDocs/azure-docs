@@ -54,13 +54,11 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- There are no specific prerequisites required to deploy this app.
-- You can use the free pricing plan or use an Azure subscription.
+An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create application
 
-1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Healthcare** tab:
-    :::image type="content" source="media/app-manager-health.png" alt-text="Application template":::
+1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Healthcare** tab.
 
 1. Select **Create app** under **Continuous patient monitoring**.
 
@@ -83,8 +81,6 @@ After deploying the application template, you'll first land on the **Lamna in-pa
 * See an example of a **provider dashboard** that a hospital care team might see to track their patients.
 
 * Change the **patient status** of your device to indicate if the device is being used for an in-patient or remote scenario.
-
-:::image type="content" source="media/lamna-in-patient.png" alt-text="In-patient status":::
 
 You can also select **Go to remote patient dashboard** to see the Burkville Hospital operator dashboard. This dashboard contains a similar set of actions, telemetry, and information. You can also see multiple devices in use and choose to **update the firmware** on each.
 

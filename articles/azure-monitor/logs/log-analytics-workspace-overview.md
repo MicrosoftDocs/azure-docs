@@ -27,6 +27,9 @@ Each workspace contains multiple tables that are organized into separate columns
 
 [![Diagram that shows the Azure Monitor Logs structure.](media/data-platform-logs/logs-structure.png)](media/data-platform-logs/logs-structure.png#lightbox)
 
+> [!WARNING]
+> Table names are used for billing purposes so they should not contain sensitive information.
+
 ## Cost
 
 There's no direct cost for creating or maintaining a workspace. You're charged for the data sent to it, which is also known as data ingestion. You're charged for how long that data is stored, which is otherwise known as data retention. These costs might vary based on the data plan of each table, as described in [Log data plans (preview)](#log-data-plans-preview).

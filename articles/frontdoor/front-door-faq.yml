@@ -188,7 +188,7 @@ sections:
       - question: |
           Can Azure Front Door load balance or route traffic within a virtual network?
         answer:  |
-          Azure Front Door (AFD) requires a public IP or publicly resolvable DNS name to route traffic. So, the answer is no AFD directly cannot route within a virtual network, but using an Application Gateway or Azure Load Balancer in between will solve this scenario.
+          Azure Front Door Standard, Premium and (classic) tier requires a public IP or publicly resolvable DNS name to route traffic to backend resources. Azure resources such as Application Gateways or Azure Load Balancers can enable routing to resources within a virtual network. If you're using a Front Door Premium tier, you can enable Private Link to connect to origins behind an internal load balancer over a private endpoint. For more information, see [Secure origins with Private Link](private-link.md).
 
       - question: |
           What are the various timeouts and limits for Azure Front Door?

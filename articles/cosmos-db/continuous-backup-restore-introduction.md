@@ -4,7 +4,7 @@ description: Azure Cosmos DB's point-in-time restore feature helps to recover da
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/28/2022
+ms.date: 08/24/2022
 ms.author: govindk
 ms.reviewer: mjbrown
 ms.custom: references_regions, cosmos-db-video
@@ -107,7 +107,7 @@ For example, if you have 1 TB of data in two regions then:
 * Restore cost is calculated as (1000 \* 0.15) = $150 per restore
 
 > [!TIP]
-> For more information about measuring the current data usage of your Azure Cosmos DB account, see [Explore Azure Monitor Cosmos DB insights](cosmosdb-insights-overview.md#view-utilization-and-performance-metrics-for-azure-cosmos-db). Continous 7-day tier does not incur charges for backup of the data.
+> For more information about measuring the current data usage of your Azure Cosmos DB account, see [Explore Azure Monitor Cosmos DB insights](cosmosdb-insights-overview.md#view-utilization-and-performance-metrics-for-azure-cosmos-db). Continuous 7-day tier does not incur charges for backup of the data.
 
 ## Continuous 30-day tier vs Continuous 7-day tier
 
@@ -132,7 +132,7 @@ Currently the point in time restore functionality has the following limitations:
 
 * Multi-regions write accounts aren't supported.
 
-* Currently Synapse Link isn't fully compatible with continuous backup mode. Click [here](analytical-store-introduction.md#backup) for more information.
+* Currently Azure Synapse Link isn't fully compatible with continuous backup mode. For more information about backup with analytical store, see [analytical store backup](analytical-store-introduction.md#backup).
 
 * The restored account is created in the same region where your source account exists. You can't restore an account into a region where the source account didn't exist.
 

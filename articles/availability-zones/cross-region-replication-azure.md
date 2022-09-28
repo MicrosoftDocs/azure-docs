@@ -2,7 +2,7 @@
 title: Cross-region replication in Azure
 description: Learn about Cross-region replication in Azure.
 author: awysza
-ms.service: azure
+ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 3/01/2022
 ms.author: rarco
@@ -90,6 +90,10 @@ Regions are paired for cross-region replication based on proximity and other fac
 > [!IMPORTANT]
 > - West India is paired in one direction only. West India's secondary region is South India, but South India's secondary region is Central India.
 > - Brazil South is unique because it's paired with a region outside of its geography. Brazil South's secondary region is South Central US. The secondary region of South Central US isn't Brazil South.
+
+## Regions with availability zones and no region pair
+
+Azure continues to expand globally with Qatar as the first region with no regional pair and achieves high availability by leveraging [availability zones](../availability-zones/az-overview.md) and [locally redundant or zone-redundant storage (LRS/ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). Regions without a pair will not have [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Such regions follow [data residency](https://azure.microsoft.com/global-infrastructure/data-residency/#overview) guidelines allowing the option to keep data resident within the same region. Customers are responsible for data resiliency based on their RTO/RPO needs and may move, copy, or access their data from any location globally. In the rare event that an entire Azure region is unavailable, customers will need to plan for their Cross Region Disaster Recovery per guidance from [Azure services that support high availability](../availability-zones/az-region.md#highly-available-services) and  [Azure Resiliency – Business Continuity and Disaster Recovery](https://azure.microsoft.com/mediahandler/files/resourcefiles/resilience-in-azure-whitepaper/resiliency-whitepaper-2022.pdf)
 
 ## Next steps
 

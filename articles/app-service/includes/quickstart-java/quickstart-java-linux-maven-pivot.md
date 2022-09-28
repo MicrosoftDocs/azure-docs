@@ -100,8 +100,8 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.5.0:config
 1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number printed at the line start.
 1. When prompted with **Web App** option, select the default option, `<create>`, by pressing enter.
 1. When prompted with **OS** option, select **Linux** by pressing enter.
-1. When prompted with **javaVersion** option, select **Java 11** by entering `2`.
-1. When prompted with **Pricing Tier** option, select **P1v2** by entering `9`.
+1. When prompted with **javaVersion** option, select **Java 11**.
+1. When prompted with **Pricing Tier** option, select **P1v2**.
 1. Finally, press enter on the last prompt to confirm your selections.
 
     ```
@@ -129,9 +129,9 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.5.0:config
 1. When prompted with **Subscription** option, select the proper `Subscription` by entering the number printed at the line start.
 1. When prompted with **Web App** option, select the default option, `<create>`, by pressing enter.
 1. When prompted with **OS** option, select **Linux** by pressing enter.
-1. When prompted with **javaVersion** option, select **Java 11** by entering `2`.
-1. When prompted with **webcontainer** option, select **Tomcat 8.5** by entering `2`.
-1. When prompted with **Pricing Tier** option, select **P1v2** by entering `9`.
+1. When prompted with **javaVersion** option, select **Java 11**.
+1. When prompted with **webcontainer** option, select **Tomcat 8.5**.
+1. When prompted with **Pricing Tier** option, select **P1v2**.
 1. Finally, press enter on the last prompt to confirm your selections.
 
     ```
@@ -159,9 +159,9 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.5.0:config
 1. If prompted with **Subscription** option, select the proper `Subscription` by entering the number printed at the line start.
 1. When prompted with **Web App** option, accept the default option `<create>` by pressing enter.
 1. When prompted with **OS** option, select **Linux** by pressing enter.
-1. When prompted with **javaVersion** option, select **Java 11** by entering `2`.
-1. When prompted with **webContainer** option, select **Jbosseap 7** by entering `1`
-1. When prompted with **pricingTier** option, select **P1v3** by entering `1`
+1. When prompted with **javaVersion** option, select **Java 11**.
+1. When prompted with **webContainer** option, select **Jbosseap 7**`
+1. When prompted with **pricingTier** option, select **P1v3**
 1. Finally, press enter on the last prompt to confirm your selections.
 
     ```

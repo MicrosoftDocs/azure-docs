@@ -21,7 +21,7 @@ The default pricing for Log Analytics is a Pay-As-You-Go model that's based on i
 Data volume is measured as the size of the data that will be stored in GB (10^9 bytes). The data size of a single record is calculated from a string representation of the columns that are stored in the Log Analytics workspace for that record, regardless of whether the data is sent from an agent or added during the ingestion process. This includes any custom columns added by the [logs ingestion API](logs-ingestion-api-overview.md), [transformations](../essentials/data-collection-transformations.md), or [custom fields](custom-fields.md) that are added as data is collected and then stored in the workspace. 
 
 >[!NOTE]
->The billable data volume calculation is substantially smaller than the size of the entire incoming JSON-packaged event. On average across all event types, the billed size is about 25% less than the incoming data size. This can be up to 50% for small events. It is essential to understand this calculation of billed data size when estimating costs and comparing to other pricing models. 
+>The billable data volume calculation is generally substantially smaller than the size of the entire incoming JSON-packaged event. Including the effect of the standard columns excluded from billing, on average across all event types the billed size is around 25% less than the incoming data size. This can be up to 50% for small events. It is essential to understand this calculation of billed data size when estimating costs and comparing to other pricing models. 
 
 ### Excluded columns
 The following [standard columns](log-standard-columns.md) that are common to all tables, are excluded in the calculation of the record size. All other columns stored in Log Analytics are included in the calculation of the record size. 
@@ -182,7 +182,7 @@ The following query can be used to make a recommendation for the optimal pricing
 ```kusto
 // Set these parameters before running query
 // For Pay-As-You-Go (per-GB) and commitment tier pricing details, see https://azure.microsoft.com/pricing/details/monitor/.
-// You can see your per-node costs in your Azure usage and charge data. For more information, see https://docs.microsoft.com/en-us/azure/cost-management-billing/understand/download-azure-daily-usage.  
+// You can see your per-node costs in your Azure usage and charge data. For more information, see https://learn.microsoft.com/azure/cost-management-billing/understand/download-azure-daily-usage.  
 let PerNodePrice = 15.; // Monthly price per monitored node
 let PerNodeOveragePrice = 2.30; // Price per GB for data overage in the Per Node pricing tier
 let PerGBPrice = 2.30; // Enter the Pay-as-you-go price for your workspace's region (from https://azure.microsoft.com/pricing/details/monitor/)
