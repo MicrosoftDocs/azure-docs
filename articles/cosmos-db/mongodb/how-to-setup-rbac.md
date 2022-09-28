@@ -85,7 +85,7 @@ az cloud set -n  AzureCloud
 az login
 az account set --subscription <your subscription ID>
 ```
-3. Enable the RBAC capability on your existing API for MongoDB database account. You'll need to [add the capability](how-to-configure-capabilities.md) "EnableMongoRoleBasedAccessControl" to your database account. 
+3. Enable the RBAC capability on your existing API for MongoDB database account. You'll need to [add the capability](how-to-configure-capabilities.md) "EnableMongoRoleBasedAccessControl" to your database account. RBAC can also be enabled via the features tab in the Azure Portal instead. 
 If you prefer a new database account instead, create a new database account with the RBAC capability set to true.
 ```powershell
 az cosmosdb create -n <account_name> -g <azure_resource_group> --kind MongoDB --capabilities EnableMongoRoleBasedAccessControl
