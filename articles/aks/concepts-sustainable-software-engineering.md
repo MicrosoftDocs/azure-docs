@@ -50,13 +50,13 @@ We recommend that readers familiarize themselves with these design areas, review
   
 |Design area|Description|
 |---|---|
-|Application design|Modernize Applications to event driven and microservices components|
+|Application design|Modernize Applications to allow independent optimization of their logical components|
 |Application platform|**AKS cluster is the Platform**|
 |Testing|Optimize Testing procedures for Cluster & workload development lifecycle|
 |Operational procedures|Implement Operational procedures (not a technical consideration)|
 |Storage| Consider _Statefless Vs Stateful Application_ Design ; Plan for storage classes & Backup retention policies.|
 |Network and connectivity|Assess business requirements for availability (availability zones) and security (service mesh)|
-|Security| Consider endpoint security and integration with Monitoring & SIEM.|
+|Security| Implement endpoint security and Optimize log collection for Monitoring & SIEM.|
 
 
 ## Cloud efficiency
