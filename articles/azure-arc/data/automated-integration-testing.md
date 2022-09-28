@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Deploy `arc-ci-launcher` using `kubectl`
-> * Examine integration test results in your Azure Blob Storage account
+> * Examine validation test results in your Azure Blob Storage account
 
 ## Prerequisites
  
@@ -69,7 +69,7 @@ git clone https://github.com/microsoft/azure_arc.git
 └── overlays                                     <- Overlays for specific Kubernetes Clusters
     ├── aks
     │   ├── configs
-    │   │   ├── patch.json.tmpl                  <- To be converted into patch.json, patch for Data Controller control.json
+    │   │   └── patch.json.tmpl                  <- To be converted into patch.json, patch for Data Controller control.json
     │   └── kustomization.yaml
     ├── kubeadm
     │   ├── configs
@@ -112,7 +112,7 @@ There are two files that need to be generated to localize the launcher to run in
 A filled-out sample of the `.test.env` file, generated based on `.test.env.tmpl` is shared below with inline commentary.
 
 > [!IMPORTANT]
-> The `export VAR="value"` syntax below is not meant to be run locally to source environment variables from your machine - but is there for the launcher. The launcher mounts this `.test.env` file **as-is** as a Kubernetes `secret` using Kustomize's [`secretGenerator`](https://github.com/kubernetes-sigs/kustomize/blob/master/examples/secretGeneratorPlugin.md#secret-values-from-local-files) (Kustomize takes a file, and turns it into a Kubernetes secret). During initialization, the launcher runs bash's [`source`](https://ss64.com/bash/source.html) command, which imports the environment variables from the as-is mounted `.test.env` file into the launcher's environment.
+> The `export VAR="value"` syntax below is not meant to be run locally to source environment variables from your machine - but is there for the launcher. The launcher mounts this `.test.env` file **as-is** as a Kubernetes `secret` using Kustomize's [`secretGenerator`](https://github.com/kubernetes-sigs/kustomize/blob/master/examples/secretGeneratorPlugin.md#secret-values-from-local-files) (Kustomize takes a file, base64 encodes the entire file's content, and turns it into a Kubernetes secret). During initialization, the launcher runs bash's [`source`](https://ss64.com/bash/source.html) command, which imports the environment variables from the as-is mounted `.test.env` file into the launcher's environment.
 
 In other words, after copy-pasting `.test.env.tmpl` and editing to create `.test.env`, the generated file should look similar to the sample below. The process to fill out the `.test.env` file is identical across operating systems and terminals.
 
@@ -145,7 +145,7 @@ export DOCKER_REGISTRY="mcr.microsoft.com"
 export DOCKER_REPOSITORY="arcdata"
 export DOCKER_TAG="v1.11.0_2022-09-13"
 
-# Arcdata extension version override - see detailed explanation below [2]
+# "arcdata" Azure CLI extension version override - see detailed explanation below [2]
 export ARC_DATASERVICES_WHL_OVERRIDE=""
 
 # ================
@@ -167,7 +167,7 @@ export SPN_TENANT_ID="..."
 export SUBSCRIPTION_ID="..."
 
 # Optional: certain integration tests test upload to Log Analytics workspace:
-# https://docs.microsoft.com/azure/azure-arc/data/upload-logs
+# https://learn.microsoft.com/azure/azure-arc/data/upload-logs
 export WORKSPACE_ID="..."
 export WORKSPACE_SHARED_KEY="..."
 
@@ -240,7 +240,7 @@ The extension version to release-train (`ARC_DATASERVICES_EXTENSION_RELEASE_TRAI
 
 > Optional: leave this empty in `.test.env` to use the pre-packaged default.
 
-The launcher image is pre-packaged with the latest arcdata CLI version at the time of each container image release. However, to work with older releases, it may be necessary to provide the launcher with Azure CLI Blob URL download link, to override the pre-packaged version; e.g to instruct the launcher to install version **1.4.3**, fill in:
+The launcher image is pre-packaged with the latest arcdata CLI version at the time of each container image release. However, to work with older releases and upgrade testing, it may be necessary to provide the launcher with Azure CLI Blob URL download link, to override the pre-packaged version; e.g to instruct the launcher to install version **1.4.3**, fill in:
 
 ```bash
 export ARC_DATASERVICES_WHL_OVERRIDE="https://azurearcdatacli.blob.core.windows.net/cli-extensions/arcdata-1.4.3-py2.py3-none-any.whl"
@@ -251,7 +251,7 @@ The CLI version to Blob URL mapping can be found [here](https://azcliextensionsy
 
 > Mandatory: this is required for Connected Cluster Custom Location creation.
 
-The following steps are sourced from [Enable custom locations on your cluster](../kubernetes/custom-locations.md#enable-custom-locations-on-your-cluster) to retrieve the Custom Location OID for your Azure AD tenant.
+The following steps are sourced from [Enable custom locations on your cluster](../kubernetes/custom-locations.md#enable-custom-locations-on-your-cluster) to retrieve the unique Custom Location Object ID for your Azure AD tenant.
 
 There are two approaches to obtaining the `CUSTOM_LOCATION_OID` for your Azure AD tenant.
 
@@ -302,9 +302,9 @@ To use the Azure CLI instead, see [`az storage account generate-sas`](/cli/azure
 
 > Optional: leave this empty in `.test.env` to run all stages (equivalent to `0` or blank)
 
-The launcher exposes `SKIP_*` variables, to run and skip specific stages.
+The launcher exposes `SKIP_*` variables, to run and skip specific stages - for example, to perform a "cleanup only" run. 
 
-For example, a "cleanup only" run. Although the launcher is designed to clean up both in the beginning and the end of each run, it's possible for launch and/or test-failures to leave residue resources behind. To run the launcher in "cleanup only" mode, set the following variables in `.test.env`:
+Although the launcher is designed to clean up both in the beginning and the end of each run, it's possible for launch and/or test-failures to leave residue resources behind. To run the launcher in "cleanup only" mode, set the following variables in `.test.env`:
 
 ```bash
 export SKIP_PRECLEAN="0"         # Run cleanup
@@ -345,14 +345,7 @@ Finished sample of `patch.json`:
             "op": "add",
             "path": "spec.storage.logs.className",
             "value": "default"
-        },
-        {
-            "op": "add",
-            "path": "spec.monitoring",
-            "value": {
-              "enableOpenTelemetry": true
-            }
-        }                     
+        }                  
     ]
 }
 ```
@@ -372,13 +365,13 @@ images:
 ```
 
 > [!TIP]
-> At this point - there are **3** places we specified `imageTag`s, for clarity, here's an explanation of the different uses of each. Typically - when testing a given release, all 3 values would be the same:
-> | #   | Filename                 | Variable name    | Why?                                                                                                                                                                                                        | Used by?                                                                                                                                            |
-> | --- | ------------------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-> | 1   | **`.test.env`**          | `DOCKER_TAG`     | Sourcing the [Bootstrapper image](https://mcr.microsoft.com/v2/arcdata/arc-bootstrapper/tags/list) as part of [extension install](https://mcr.microsoft.com/v2/arcdata/arcdataservices-extension/tags/list) | [`az k8s-extension create`](/cli/azure/k8s-extension?view=azure-cli-latest&preserve-view=true#az-k8s-extension-create) in the launcher |
-> | 2   | **`patch.json`**         | `value.imageTag` | Sourcing the [Data Controller image](https://mcr.microsoft.com/v2/arcdata/arc-controller/tags/list)                                                                                                         | [`az arcdata dc create`](/cli/azure/arcdata/dc?view=azure-cli-latest&preserve-view=true#az-arcdata-dc-create) in the launcher          |
-> | 3   | **`kustomization.yaml`** | `images.newTag`  | Sourcing the [launcher's image](https://mcr.microsoft.com/v2/arcdata/arc-ci-launcher/tags/list)                                                                                                             | `kubectl apply`ing the launcher                                                                                                                     |
-
+> To recap, at this point - there are **3** places we specified `imageTag`s, for clarity, here's an explanation of the different uses of each. Typically - when testing a given release, all 3 values would be the same (aligning to a given release):
+>
+>| #   | Filename                 | Variable name    | Why?                                                                                                                                                                                                        | Used by?                                                                                                                                            |
+>| --- | ------------------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+>| 1   | **`.test.env`**          | `DOCKER_TAG`     | Sourcing the [Bootstrapper image](https://mcr.microsoft.com/v2/arcdata/arc-bootstrapper/tags/list) as part of [extension install](https://mcr.microsoft.com/v2/arcdata/arcdataservices-extension/tags/list) | [`az k8s-extension create`](/cli/azure/k8s-extension?view=azure-cli-latest&preserve-view=true#az-k8s-extension-create) in the launcher |
+>| 2   | **`patch.json`**         | `value.imageTag` | Sourcing the [Data Controller image](https://mcr.microsoft.com/v2/arcdata/arc-controller/tags/list)                                                                                                         | [`az arcdata dc create`](/cli/azure/arcdata/dc?view=azure-cli-latest&preserve-view=true#az-arcdata-dc-create) in the launcher          |
+>| 3   | **`kustomization.yaml`** | `images.newTag`  | Sourcing the [launcher's image](https://mcr.microsoft.com/v2/arcdata/arc-ci-launcher/tags/list)                                                                                                             | `kubectl apply`ing the launcher                                                                                                                     |
 
 ### `kubectl apply`
 
@@ -409,7 +402,7 @@ Although it's best to deploy the launcher in a cluster with no pre-existing Arc 
 
 ![A screenshot of the console terminal discovering Kubernetes and other resources.](media/automated-integration-testing/launcher-pre-flight.png)
 
-This same metadata-discovery and cleanup process is also run upon launcher exit, to leave the cluster in its pre-existing state before the launch.
+This same metadata-discovery and cleanup process is also run upon launcher exit, to leave the cluster as close as possible to it's pre-existing state before the launch.
 
 ## Steps performed by launcher
 
@@ -420,14 +413,14 @@ At a high-level, the launcher performs the following sequence of steps:
 3. Perform CRD metadata scan to discover existing Arc and Arc Data Services Custom Resources
 4. Clean up any existing Custom Resources in Kubernetes, and subsequent resources in Azure. If any mismatch between the credentials in `.test.env` compared to resources existing in the cluster, quit.
 5. Generate a unique set of environment variables based on timestamp for Arc Cluster name, Data Controller and Custom Location/Namespace. Prints out the environment variables, obfuscating sensitive values (e.g. Service Principal Password etc.)
-6. a. For Direct Mode - Onboard the Cluster to Azure Arc, then deploys the Controller via the [unified experience](/create-data-controller-direct-cli?tabs=linux#deploy---unified-experience)
+6. a. For Direct Mode - Onboard the Cluster to Azure Arc, then deploys the Controller via the [unified experience](create-data-controller-direct-cli.md?tabs=linux#deploy---unified-experience)
    b. For Indirect Mode: deploy the Data Controller
-7. Once Data Controller is `Ready`, generate a set of Azure CLI ([`az arcdata dc debug`](/cli/azure/arcdata/dc/debug?view=azure-cli-latest&preserve-view=true)) logs and stores locally, labeled as `setup-complete` - as a baseline.
-8. Use the `TESTS_DIRECT/INDIRECT` environment variable from `.test.env` to launch a set of parallelized Sonobuoy test runs based on a space-separated array. These runs execute in a new `sonobuoy` namespace, using `arc-sb-plugin` pod that contains the integration tests.
-9. [Sonobuoy aggregator](https://sonobuoy.io/docs/v0.56.0/plugins/) accumulate the [`junit` test results](https://sonobuoy.io/docs/v0.56.0/results/) and logs per `arc-sb-plugin` test run, which are exported into the launcher
+7. Once Data Controller is `Ready`, generate a set of Azure CLI ([`az arcdata dc debug`](/cli/azure/arcdata/dc/debug?view=azure-cli-latest&preserve-view=true)) logs and store locally, labeled as `setup-complete` - as a baseline.
+8. Use the `TESTS_DIRECT/INDIRECT` environment variable from `.test.env` to launch a set of parallelized Sonobuoy test runs based on a space-separated array (`TESTS_(IN)DIRECT`). These runs execute in a new `sonobuoy` namespace, using `arc-sb-plugin` pod that contains the Pytest validation tests.
+9. [Sonobuoy aggregator](https://sonobuoy.io/docs/v0.56.0/plugins/) accumulate the [`junit` test results](https://sonobuoy.io/docs/v0.56.0/results/) and logs per `arc-sb-plugin` test run, which are exported into the launcher pod.
 10. Return the exit code of the tests, and generates another set of debug logs - Azure CLI and `sonobuoy` - stored locally, labeled as `test-complete`.
-11. Perform a CRD metadata scan, similar to Step 3, to discover existing Arc and Arc Data Services Custom Resources. It then proceeds to destroy all Arc and Arc Data resources in reverse order from deployment, as well as CRDs, Role/ClusterRoles, PV/PVCs etc.
-12. Attempt to use the SAS token `LOGS_STORAGE_ACCOUNT_SAS` provided to create a new Storage Account container named based on `LOGS_STORAGE_CONTAINER`, in the **pre-existing** Storage Account `LOGS_STORAGE_ACCOUNT`. It uploads all local test results and logs to this storage account as a tarball (see below).
+11. Perform a CRD metadata scan, similar to Step 3, to discover existing Arc and Arc Data Services Custom Resources. Then, proceed to destroy all Arc and Arc Data resources in reverse order from deployment, as well as CRDs, Role/ClusterRoles, PV/PVCs etc.
+12. Attempt to use the SAS token `LOGS_STORAGE_ACCOUNT_SAS` provided to create a new Storage Account container named based on `LOGS_STORAGE_CONTAINER`, in the **pre-existing** Storage Account `LOGS_STORAGE_ACCOUNT`. If Storage Account container already exists, use it. Upload all local test results and logs to this storage container as a tarball (see below).
 13. Exit.
 
 ## Examining Test Results
