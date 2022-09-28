@@ -44,7 +44,7 @@ Following are links to Prometheus documentation.
 - [PromQL](https://aka.ms/azureprometheus-promio-promql)
 - [Grafana](https://aka.ms/azureprometheus-promio-grafana)
 - [Recording rules](https://aka.ms/azureprometheus-promio-recrules)
-- [Alerting rules](azureprometheus-promio-alertrules)
+- [Alerting rules](https://aka.ms/azureprometheus-promio-alertrules)
 - [Writing Exporters](https://aka.ms/azureprometheus-promio-exporters)
 
 
