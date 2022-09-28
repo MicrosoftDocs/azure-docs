@@ -24,10 +24,6 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 ## September 2022
 
-- **Major version upgrade in Azure Database for MySQL - Flexible Server (Preview)**
-  You can now upgrade your MySQL major version, in-place in Azure Database for MySQL Flexible server from MySQL 5.7 servers to MySQL 8.0 with a click of button without any data movement or the need of any application connection string changes.[Learn more](./how-to-upgrade.md)
-
-
 - **Read replica for HA enabled Azure Database for MySQL - Flexible Server (General Availability)**
 
   The read replica feature allows you to replicate data from an Azure Database for MySQL flexible server to a read-only server. You can replicate the source server to up to 10 replicas. This functionality is now extended to support HA enabled servers within same region.[Learn more](concepts-read-replicas.md)
