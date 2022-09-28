@@ -39,7 +39,7 @@ With each of these examples, you're provided with:
 
 **Heart rate**
 
-*A valid IoT device message.*
+**A valid IoT device message.**
 
 ```json
 
@@ -50,7 +50,10 @@ With each of these examples, you're provided with:
 > [!IMPORTANT]
 > To avoid device spoofing in device-to-cloud messages, Azure IoT Hub stamps all messages with additional properties. To learn more about these properties, see [Anti-spoofing properties](/azure/iot-hub/iot-hub-devguide-messages-construct#anti-spoofing-properties)
 
-*An example of what the IoT device message will look like after being received and processed by the IoT Hub.*
+**An example of what the IoT device message will look like after being received and processed by the IoT Hub.**
+
+> [!NOTE]
+> The IoT Hub enriches the device message before sending it to the MedTech service device event hub with all properties starting with **iothub**.
 
 ```json
 
@@ -68,7 +71,7 @@ With each of these examples, you're provided with:
 
 ```
 
-*A valid MedTech service device mapping for normalizing the IoT device message after IoT Hub processing.*
+**A valid MedTech service device mapping for normalizing the IoT device message after IoT Hub processing.**
 
 ```json
 
@@ -94,29 +97,27 @@ With each of these examples, you're provided with:
 
 ```
 
-*An example of what the MedTech service device message will look like after the normalization process.*
+**An example of what the MedTech service device message will look like after the normalization process.**
 
 ```json
 
-[
-  {
-    "type": "heartrate",
-    "occurrenceTimeUtc": "2021-02-01T22:46:01.875Z",
-    "deviceId": "device123",
-    "properties": [
+{
+   "type": "heartrate",
+   "occurrenceTimeUtc": "2021-02-01T22:46:01.875Z",
+   "deviceId": "device123",
+   "properties": [
       {
          "name": "hr",
          "value": "78"
       }
-    ]
-  }
-]
+   ]
+}
 
 ```
 
 **Blood pressure**
 
-*A valid IoT device message.*
+**A valid IoT device message.**
 
 ```json
 
@@ -127,7 +128,10 @@ With each of these examples, you're provided with:
 
 ```
 
-*An example of what the IoT device message will look like after being received and processed by the IoT Hub.*
+**An example of what the IoT device message will look like after being received and processed by the IoT Hub.**
+
+> [!NOTE]
+> The IoT Hub enriches the device message before sending it to the MedTech service device event hub with all properties starting with **iothub**.
 
 ```json
 
@@ -146,7 +150,7 @@ With each of these examples, you're provided with:
 
 ```
 
-*A valid MedTech service device mapping for normalizing the IoT device message after IoT Hub processing.*
+**A valid MedTech service device mapping for normalizing the IoT device message after IoT Hub processing.**
 
 ```json
 
@@ -177,27 +181,25 @@ With each of these examples, you're provided with:
 
 ```
 
-*An example of what the MedTech service device message will look like after the normalization process.*
+**An example of what the MedTech service device message will look like after the normalization process.**
 
 ```json
 
-[
-   {
-     "type": "bloodpressure",
-     "occurrenceTimeUtc": "2021-02-01T22:46:01.875Z",
-     "deviceId": "device123",
-        "properties": [
-            {
-               "name": "systolic",
-               "value": "123"
-            },
-         {
-            "name": "diastolic",
-            "value": "87"
-         }
-      ]
-   }
-]
+{
+   "type": "bloodpressure",
+   "occurrenceTimeUtc": "2021-02-01T22:46:01.875Z",
+   "deviceId": "device123",
+   "properties": [
+      {
+         "name": "systolic",
+         "value": "123"
+      },
+      {  
+         "name": "diastolic",
+         "value": "87"
+      }
+   ]
+}
 
 ```
 
@@ -206,7 +208,7 @@ With each of these examples, you're provided with:
 >
 > Additionally, the IotJasonPathTemplates can also be combined with with other template types such as [JasonPathContentTemplate mappings](how-to-use-jsonpath-content-mappings.md) to further expand your MedTech service device mapping. 
 
-*Combined heart rate and blood pressure MedTech service device mapping example.*
+**Combined heart rate and blood pressure MedTech service device mapping example.**
 
 ```json
 
