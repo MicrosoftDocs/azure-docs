@@ -72,12 +72,9 @@ The performance of an individual volume is determined by its capacity. The maxim
 
 ### Volume scale targets
 
-| Resource | Target |
-|-|-|
-| Maximum volume capacity | 64 TiB |
-| Minimum volume capacity | 1 GiB |
-| Maximum total IOPS | 64,000 |
-| Maximum total MB/s | 1,024 |
+|Supported capacities  |Maximum potential IOPS  |Maximum potential throughput (MB/s)  |
+|---------|---------|---------|
+|1 GiB - 64 TiB     |750 - 64,000 (increases by 750 per GiB)         |60 - 1,024 (increases by 60 per GiB)         |
 
 ## Next steps
 
