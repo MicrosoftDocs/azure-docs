@@ -207,7 +207,7 @@ In the Azure portal, to create alerts for a connection monitor, you specify valu
 :::image type="content" source="./media/connection-monitor-2-preview/unified-enablement-create.png" alt-text="Screenshot that shows the Create alert tab in Connection Monitor.":::
 
 Once all the steps are completed, the process will proceed with unified enablement of monitoring extensions for all endpoints without monitoring agents enabled, followed by creation of Connection Monitor. 
-Once the creation process is successful , it will take ~ 5 mins for the connection monitor to show up on the dashboard.  
+Once the creation process is successful, it will take ~ 5 mins for the connection monitor to show up on the dashboard.  
 
 ## Scale limits
 
