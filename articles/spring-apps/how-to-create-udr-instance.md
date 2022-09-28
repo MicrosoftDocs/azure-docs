@@ -15,7 +15,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article provides a way that allow you to secure outbound traffic from your Azure Spring Apps (ASA). The following two articles are highly recommended to read before you start this article. It provides a simple example of a UDR instance. UDR is an advanced feature which enable our customers to fully control the egress traffic. It may be used in scenarios like disallowing ASA auto-generated public IP.
+This article describes how to secure outbound traffic from your Azure Spring Apps (ASA) applications. The following two articles are highly recommended to read before you start this article. It provides a simple example of a UDR instance. UDR is an advanced feature that lets you fully control the egress traffic. It may be used in scenarios like disallowing ASA auto-generated public IP.
 
 - [Introduction to Azure Spring Apps VNet](how-to-deploy-in-azure-virtual-network.md)
 - [Customer Responsibilities for Running Azure Spring Apps in VNET](vnet-customer-responsibilities.md)
@@ -29,7 +29,7 @@ This article provides a way that allow you to secure outbound traffic from your 
 
 ## An Example of Azure Spring Apps UDR Instance
 
-In this article, we will provide an example(as the following image) of Azure Spring Apps VNet instance using user-defined-routing
+This article provides an example (as the following image) of Azure Spring Apps VNet instance using user-defined-routing
 ![Screenshot that shows arch of the udr example](./media/how-to-create-udr-instance/udr-example-arch.png)
 
 ### Set configuration via environment variables
