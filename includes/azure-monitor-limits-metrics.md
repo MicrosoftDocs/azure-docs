@@ -11,28 +11,25 @@ ms.author: bwren
 ms.custom: "include file"
 ---
 
-### Prometheus metrics
-
-
-#### Ingestion
+### Ingestion
 
 **Limits applied to the Azure Monitor workspace ingesting your Prometheus metrics.**
 
 | Limit | Value |
 |:---|:---|
-| Active time series per Azure Monitor workspace<br>This is metrics that have been reported in the last ~12 hours.  | 1,000,000<br>You can request an increase.  |
+| Active time series per Azure Monitor workspace with metrics that have been reported in the last ~12 hours.  | 1,000,000<br>You can request an increase.  |
 | Events per minute ingested | 1,000,000<br>You can request an increase. |
 
 
-**Limits applied to the Data Collection Rule and Data Collection Endpoint sending Prometheus metrics data to your Azure Monitor workspace.**
+**Limits applied to the data collection rule (DCR) and data collection endpoint (DCE) sending Prometheus metrics data to your Azure Monitor workspace**
 
 | Limit | Value |
 |:---|:---|
 | Ingestion requests per minute to a data collection endpoint  | 15,000<br>This limit can't be increased.   |
 | Data ingestion per minute to a data collection endpoint | 50 GB<br>This limit can't be increased. |
 
-#### Prometheus queries 
-Prometheus queries are created using PromQL and can be authored in either Azure Managed or self-managed Grafana. 
+#### Queries 
+Prometheus queries are created using PromQL and can be authored in either Azure Managed Grafana or self-managed Grafana. 
 
 
 | Limit | Value |
@@ -69,12 +66,13 @@ Each value is per user (Azure AD or System Identity).
 
 
 
-#### Prometheus alert rules 
+#### Alert rules 
 Prometheus alert rules are defined in PromQL and are performed on the managed Ruler service as part of Azure Monitor managed service for Prometheus. 
 
 | Limit | Value |
 |:---|:---|
-| Rule groups per Azure Monitor workspace, per Azure subscription  | 100<br>You can request an increase. |
+| Rule groups per Azure Monitor workspace  | 100<br>You can request an increase. |
+| Rule groups per Azure subscription  | 100<br>You can request an increase. |
 | Rules per rule group | 20<br>You can request an increase. |
 | Rule group evaluation interval | Between 1-15 minutes.<br>Default is 1 minute. |
 | Active alerts | No limit at this time. |
