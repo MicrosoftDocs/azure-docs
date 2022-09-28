@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: abell
 ms.service: ddos-protection
 ms.topic: quickstart 
-ms.date: 09/23/2022
+ms.date: 09/29/2022
 ms.workload: infrastructure-services
 ms.custom: template-quickstart 
 # Customer intent As an IT admin, I want to learn how to enable DDoS IP Protection on my public IP address using PowerShell.
@@ -35,7 +35,7 @@ You can enable DDoS IP Protection when creating a public IP address. In this exa
 New-AzResourceGroup -Name MyResourceGroup -Location eastus
 
 #Creates the IP address and enables DDoS IP Protection
-New-AzPublicIpAddress -Name myStandardPublicIP -ResourceGroupName MyResourceGroup -Location "East US" -AllocationMethod Static -DdosProtectionMode Enabled   
+New-AzPublicIpAddress -Name myStandardPublicIP -ResourceGroupName MyResourceGroup -Sku Standard -Location "East US" -AllocationMethod Static -DdosProtectionMode Enabled   
 ```
 
 ### Enable DDoS IP Protection for an existing public IP address
@@ -47,7 +47,7 @@ You can associate an existing public IP address:
 $publicIp = Get-AzPublicIpAddress -Name myStandardPublicIP -ResourceGroupName MyResourceGroup 
 
 #Enables DDoS IP Protection for the public IP address
-$publicIp.DdosSettings.ProtectionMode = Enabled
+$publicIp.DdosSettings.ProtectionMode = 'Enabled'
 
 #Updates public IP address
 Set-AzPublicIpAddress -PublicIpAddress $publicIp
@@ -61,14 +61,20 @@ Check the details of your public IP address and verify that DDoS IP Protection i
 ```azurepowershell-interactive
 #Gets the public IP address
 $publicIp = Get-AzPublicIpAddress -Name myStandardPublicIP -ResourceGroupName MyResourceGroup 
+
+#Checks the status of the public IP address
 $protectionMode = $publicIp.DdosSettings.ProtectionMode
+
+#Returns the status of the pubic IP address
+$protectionMode
+
 ```
 ## Disable DDoS IP Protection for an existing public IP address
 
 ```azurepowershell-interactive
 $publicIp = Get-AzPublicIpAddress -Name myStandardPublicIP -ResourceGroupName MyResourceGroup 
 
-$publicIp.DdosSettings.ProtectionMode = Disable
+$publicIp.DdosSettings.ProtectionMode = 'Disabled'
 
 Set-AzPublicIpAddress -PublicIpAddress $publicIp 
 ```
@@ -88,7 +94,7 @@ In this quickstart, you created:
 * A resource group 
 * A public IP address
 
-You enabled DDoS IP Protection using Azure PowerShell.
+You enabled DDoS IP Protection using Azure PowerShell. 
 To learn how to view and configure telemetry for your DDoS protection plan, continue to the tutorials.
 
 > [!div class="nextstepaction"]
