@@ -53,6 +53,7 @@ To create a new SIM group:
 
     - If you leave **Microsoft-managed keys (MMK)** selected, you will not need to enter any more configuration information on this tab.
     - If you select **Customer-managed Keys (CMK)**, a new set of fields will appear. You need to provide the Key URI and User-assigned identity created or collected in [Collect SIM and SIM Group values](collect-required-information-for-private-mobile-network.md#collect-sim-and-sim-group-values). These values can be updated as required after SIM group creation.
+        :::image type="content" source="media/manage-sim-groups/create-sim-group-encryption-tab.png" alt-text="Screenshot of the Azure portal showing the Encryption configuration tab.":::
 
 1. Select **Next: SIMs**.
 1. On the **SIMs** configuration tab, select your chosen input method by selecting the appropriate option next to **How would you like to input the SIMs information?**. You can then input the information you collected for your SIMs.
