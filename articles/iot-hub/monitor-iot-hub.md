@@ -154,10 +154,10 @@ AzureDiagnostics
 
 ### Sample Kusto queries
 
-Use the following queries to help you monitor your IoT hub.
+Use the following [Kusto](/azure/data-explorer/kusto/query/) queries to help you monitor your IoT hub.
 
 > [!IMPORTANT]
-> A log query opens **Log Analytics** and only includes data from your IoT hub resource. To run a query that includes data from other IoT hubs or Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for more information.
+> Selecting **Logs** from the **IoT Hub** menu opens **Log Analytics** and includes data solely from your IoT hub resource. For queries that include data from other IoT hubs or Azure services, select **Logs** from the [**Azure Monitor** menu](https://portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/logs). See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for more information.
 
 - **Connectivity Errors**: Identify device connection errors.
 
@@ -232,7 +232,7 @@ Use the following queries to help you monitor your IoT hub.
 
 ### Read logs from Azure Event Hubs
 
-After you set up event logging through diagnostics settings, you can create applications that read out the logs so that you can take action based on the information in them. This sample code retrieves logs from an event hub:
+After you set up event logging through diagnostics settings, you can create applications that read out the logs so that you can take action based on the information in them. The following sample code retrieves logs from an event hub.
 
 ```csharp
 class Program
@@ -303,13 +303,13 @@ class Program
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../azure-monitor/alerts/alerts-metric-overview.md), [logs](../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../azure-monitor/alerts/activity-log-alerts.md). Different types of alerts have benefits and drawbacks.
 
-When creating an alert rule based on platform metrics, be aware that for IoT Hub platform metrics that are collected in units of count, some aggregations may not be available or usable. To learn more, see [Supported aggregations in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#supported-aggregations).
+When creating an alert rule based on platform metrics, be aware that for IoT Hub platform metrics that are collected in units of count, some aggregations may not be available or usable. To learn more, see [Supported aggregations](monitor-iot-hub-reference.md#supported-aggregations) in **Monitoring Azure IoT Hub data reference**.
 
 ## Monitor per-device disconnects with Event Grid
 
-Azure Monitor provides a metric, *Connected devices*, that you can use to monitor the number of devices connected to your IoT Hub and trigger an alert when number of connected devices drops below a threshold value. Azure Monitor also emits events in the [connections category](monitor-iot-hub-reference.md#connections) that you can use to monitor device connects, disconnects, and connection errors. While these may be sufficient for some scenarios, [Azure Event Grid](../event-grid/index.yml) provides a low-latency, per-device monitoring solution that you can use to track device connections for critical devices and infrastructure.
+Azure Monitor provides a metric, *Connected devices*, that you can use to monitor the number of devices connected to your IoT Hub. This metric triggers an alert when the number of connected devices drops below a threshold value. Azure Monitor also emits events in the [connections category](monitor-iot-hub-reference.md#connections) that you can use to monitor device connects, disconnects, and connection errors. While these may be sufficient for some scenarios, [Azure Event Grid](../event-grid/index.yml) provides a low-latency, per-device monitoring solution that you can use to track device connections for critical devices and infrastructure.
 
-With Event Grid, you can subscribe to the IoT Hub [**DeviceConnected** and **DeviceDisconnected** events](iot-hub-event-grid.md#event-types) to trigger alerts and monitor device connection state. Event Grid provides much lower event latency than Azure Monitor, and you can monitor on a per-device basis, rather than for the total number of connected devices. These factors make Event Grid the preferred method for monitoring connections for critical devices and infrastructure. We highly recommend using Event Grid to monitor device connections in production environments.
+With Event Grid, you can subscribe to the IoT Hub [**DeviceConnected** and **DeviceDisconnected** events](iot-hub-event-grid.md#event-types) to trigger alerts and monitor device connection state. Event Grid provides a much lower event latency than Azure Monitor, so you can monitor on a per-device basis rather than for all connected devices. These factors make Event Grid the preferred method for monitoring connections for critical devices and infrastructure. We highly recommend using Event Grid to monitor device connections in production environments.
 
 For more more information about monitoring device connectivity with Event Grid and Azure Monitor, see [Monitor, diagnose, and troubleshoot device connectivity to Azure IoT Hub](iot-hub-troubleshoot-connectivity.md).
 
