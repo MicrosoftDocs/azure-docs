@@ -48,12 +48,14 @@ To begin, create a configuration file named *applicationinsights.json*. Save it 
     "sampling": {
       "overrides": [
         {
+          "telemetryType": "request",
           "attributes": [
             ...
           ],
           "percentage": 0
         },
         {
+          "telemetryType": "request",
           "attributes": [
             ...
           ],
@@ -65,41 +67,11 @@ To begin, create a configuration file named *applicationinsights.json*. Save it 
 }
 ```
 
-> [!NOTE]
-> Starting from 3.4.0-BETA, `telemetryKind` of `request`, `dependency`, `trace` (log), or `exception` is supported
-> (and should be set) on all sampling overrides, e.g.
-> ```json
-> {
->   "connectionString": "...",
->   "sampling": {
->     "percentage": 10
->   },
->   "preview": {
->     "sampling": {
->       "overrides": [
->         {
->           "telemetryKind": "request",
->           "attributes": [
->             ...
->           ],
->           "percentage": 0
->         },
->         {
->           "telemetryKind": "request",
->           "attributes": [
->             ...
->           ],
->           "percentage": 100
->         }
->       ]
->     }
->   }
-> }
-> ```
-
 ## How it works
 
-When a span is started, the attributes present on the span at that time are used to check if any of the sampling
+`telemetryType` must be one of `request`, `dependency`, `trace` (log), or `exception`.
+
+When a span is started, the type of span and the attributes present on it at that time are used to check if any of the sampling
 overrides match.
 
 Matches can be either `strict` or `regexp`. Regular expression matches are performed against the entire attribute value,
@@ -118,31 +90,6 @@ If no sampling overrides match:
   [top-level sampling configuration](./java-standalone-config.md#sampling) is used.
 * If this is not the first span in the trace, then the parent sampling decision is used.
 
-> [!NOTE]
-> Starting from 3.4.0-BETA, sampling overrides do not apply to "standalone" telemetry by default. Standalone telemetry
-> is any telemetry that is not associated with a request, e.g. startup logs.
-> You can make a sampling override apply to standalone telemetry by including the attribute
-> `includingStandaloneTelemetry` in the sampling override, e.g.
-> ```json
-> {
->   "connectionString": "...",
->   "preview": {
->     "sampling": {
->       "overrides": [
->         {
->           "telemetryKind": "dependency",
->           "includingStandaloneTelemetry": true,
->           "attributes": [
->             ...
->           ],
->           "percentage": 0
->         }
->       ]
->     }
->   }
-> }
-> ```
-
 ## Example: Suppress collecting telemetry for health checks
 
 This will suppress collecting telemetry for all requests to `/health-checks`.
@@ -157,6 +104,7 @@ This will also suppress collecting any downstream spans (dependencies) that woul
     "sampling": {
       "overrides": [
         {
+          "telemetryType": "request",
           "attributes": [
             {
               "key": "http.url",
@@ -183,6 +131,7 @@ This will suppress collecting telemetry for all `GET my-noisy-key` redis calls.
     "sampling": {
       "overrides": [
         {
+          "telemetryType": "dependency",
           "attributes": [
             {
               "key": "db.system",
@@ -203,9 +152,6 @@ This will suppress collecting telemetry for all `GET my-noisy-key` redis calls.
 }
 ```
 
-> [!NOTE]
-> Starting from 3.4.0-BETA, `telemetryKind` is supported (and recommended) on all sampling overrides, e.g.
-
 ## Example: Collect 100% of telemetry for an important request type
 
 This will collect 100% of telemetry for `/login`.
@@ -224,6 +170,7 @@ those will also be collected for all '/login' requests.
     "sampling": {
       "overrides": [
         {
+          "telemetryType": "request",
           "attributes": [
             {
               "key": "http.url",

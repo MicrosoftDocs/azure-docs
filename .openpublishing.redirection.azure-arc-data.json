@@ -164,6 +164,121 @@
             "source_path_from_root": "/articles/azure-arc/data/reference/reference-az-sql-midb-arc.md",
             "redirect_url": "/cli/azure/sql/midb-arc",
             "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/azure-arc/data/concepts-distributed-postgres-hyperscale.md",
+            "redirect_url": "/azure/azure-arc/data/release-notes",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/azure-arc/data/create-postgresql-hyperscale-server-group-azure-portal.md",
+            "redirect_url": "/azure/azure-arc/data/release-notes",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/azure-arc/data/postgresql-hyperscale-server-group-placement-on-kubernetes-cluster-nodes.md",
+            "redirect_url": "/azure/azure-arc/data/release-notes",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/azure-arc/data/scale-out-in-postgresql-hyperscale-server-group.md",
+            "redirect_url": "/azure/azure-arc/data/release-notes",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/azure-arc/data/backup-restore-postgresql-hyperscale.md",
+            "redirect_url": "/azure/azure-arc/data/backup-restore-postgresql",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/azure-arc/data/configure-security-postgres-hyperscale.md",
+            "redirect_url": "/azure/azure-arc/data/configure-security-postgresql",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/azure-arc/data/configure-server-parameters-postgresql-hyperscale.md",
+            "redirect_url": "/azure/azure-arc/data/configure-server-parameters-postgresql",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/azure-arc/data/create-postgresql-hyperscale-server-group-azure-data-studio.md",
+            "redirect_url": "/azure/azure-arc/data/create-postgresql-server-azure-data-studio",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/azure-arc/data/create-postgresql-hyperscale-server-group-kubernetes-native-tools.md",
+            "redirect_url": "/azure/azure-arc/data/create-postgresql-server-kubernetes-native-tools",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/azure-arc/data/create-postgresql-hyperscale-server-group.md",
+            "redirect_url": "/azure/azure-arc/data/create-postgresql-server",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/azure-arc/data/delete-postgresql-hyperscale-server-group.md",
+            "redirect_url": "/azure/azure-arc/data/delete-postgresql-server",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/azure-arc/data/get-connection-endpoints-and-connection-strings-postgres-hyperscale.md",
+            "redirect_url": "/azure/azure-arc/data/get-connection-endpoints-and-connection-strings-postgresql-server",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/azure-arc/data/limitations-postgresql-hyperscale.md",
+            "redirect_url": "/azure/azure-arc/data/limitations-postgresql",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/azure-arc/data/manage-postgresql-hyperscale-server-group-with-azure-data-studio.md",
+            "redirect_url": "/azure/azure-arc/data/manage-postgresql-server-with-azure-data-studio",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/azure-arc/data/migrate-postgresql-data-into-postgresql-hyperscale-server-group.md",
+            "redirect_url": "/azure/azure-arc/data/migrate-postgresql-data",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/azure-arc/data/restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md",
+            "redirect_url": "/azure/azure-arc/data/restore-adventureworks-sample-db-into-postgresql-server",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/azure-arc/data/scale-up-down-postgresql-hyperscale-server-group-using-cli.md",
+            "redirect_url": "/azure/azure-arc/data/scale-up-down-postgresql-server-using-cli",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/azure-arc/data/show-configuration-postgresql-hyperscale-server-group.md",
+            "redirect_url": "/azure/azure-arc/data/show-configuration-postgresql-server",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/azure-arc/data/supported-versions-postgres-hyperscale.md",
+            "redirect_url": "/azure/azure-arc/data/supported-versions-postgresql",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/azure-arc/data/using-extensions-in-postgresql-hyperscale-server-group.md",
+            "redirect_url": "/azure/azure-arc/data/using-extensions-in-postgresql-server",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/azure-arc/data/list-server-groups-postgres-hyperscale.md",
+            "redirect_url": "/azure/azure-arc/data/list-servers-postgresql",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/azure-arc/data/configure-server-parameters-postgresql.md",
+            "redirect_url": "/azure/azure-arc/data/show-configuration-postgresql-server",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/azure-arc/data/what-is-azure-arc-enabled-postgres-hyperscale.md",
+            "redirect_url": "/azure/azure-arc/data/what-is-azure-arc-enabled-postgresql",
+            "redirect_document_id": false
           }
           ]
 }

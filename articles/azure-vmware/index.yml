@@ -71,7 +71,7 @@ landingContent:
           url: tutorial-configure-networking.md
         - text: 4 - Access a private cloud
           url: tutorial-access-private-cloud.md
-        - text: 5 - Create an NSX-T network segment
+        - text: 5 - Create an NSX-T Data Center network segment
           url: tutorial-nsx-t-network-segment.md
         - text: 6 - Peer on-premises to private cloud
           url: tutorial-expressroute-global-reach-private-cloud.md

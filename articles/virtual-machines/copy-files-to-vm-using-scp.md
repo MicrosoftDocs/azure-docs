@@ -40,13 +40,13 @@ As examples, we move an Azure configuration file up to a VM and pull down a log 
 
 SCP uses SSH for the transport layer. SSH handles the authentication on the destination host, and it moves the file in an encrypted tunnel provided by default with SSH. For SSH authentication, usernames and passwords can be used. However, SSH public and private key authentication are recommended as a security best practice. Once SSH has authenticated the connection, SCP then begins copying the file. Using a properly configured `~/.ssh/config` and SSH public and private keys, the SCP connection can be established by just using a server name (or IP address). If you only have one SSH key, SCP looks for it in the `~/.ssh/` directory, and uses it by default to log in to the VM.
 
-For more information on configuring your `~/.ssh/config` and SSH public and private keys, see [Create SSH keys](/linux/mac-create-ssh-keys.md).
+For more information on configuring your `~/.ssh/config` and SSH public and private keys, see [Create SSH keys](/azure/virtual-machines/linux/mac-create-ssh-keys).
 
 ## SCP a file to a VM
 
 For the first example, we copy an Azure configuration file up to a VM that is used to deploy automation. Because this file contains Azure API credentials, which include secrets, security is important. The encrypted tunnel provided by SSH protects the contents of the file.
 
-The following command copies the local *.azure/config* file to an Azure VM with FQDN *myserver.eastus.cloudapp.azure.com*. If you don't have an [FQDN set](/create-fqdn.md), you can also use the IP address of the VM. The admin user name on the Azure VM is *azureuser*. The file is targeted to the */home/azureuser/* directory. Substitute your own values in this command.
+The following command copies the local *.azure/config* file to an Azure VM with FQDN *myserver.eastus.cloudapp.azure.com*. If you don't have an [FQDN set](/azure/virtual-machines/create-fqdn), you can also use the IP address of the VM. The admin user name on the Azure VM is *azureuser*. The file is targeted to the */home/azureuser/* directory. Substitute your own values in this command.
 
 ```bash
 scp ~/.azure/config azureuser@myserver.eastus.cloudapp.com:/home/azureuser/config
@@ -66,4 +66,4 @@ The `-r` flag instructs SCP to recursively copy the files and directories from t
 
 ## Next steps
 
-* [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](/extensions/vmaccess.md?toc=/azure/virtual-machines/linux/toc.json)
+* [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](/azure/virtual-machines/extensions/vmaccess)

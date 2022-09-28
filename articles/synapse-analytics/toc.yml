@@ -206,6 +206,8 @@ items:
         href: troubleshoot/workspaces-created-by-sdk.md
       - name: Troubleshoot reading UTF-8 text
         href: troubleshoot/reading-utf8-text.md
+      - name: Troubleshoot Spark job failures
+        href: spark/apache-spark-handle-livy-error.md
     - name: Move workspace to new region
       href: how-to-move-workspace-from-one-region-to-another.md
     - name: Move workspace to another tenant
@@ -1065,6 +1067,8 @@ items:
         href: ../data-factory/connector-google-bigquery.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Google Cloud Storage
         href: ../data-factory/connector-google-cloud-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+      - name: Google Sheets
+        href: ../data-factory/connector-google-sheets.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Greenplum
         href: ../data-factory/connector-greenplum.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: HBase
