@@ -266,7 +266,7 @@ To create a data collection rule in the Azure portal:
 
 1. When the deployment is complete, expand the **Deployment details** box and select your data collection rule to view its details. Select **JSON View**.
 
-    :::image type="content" source="media/tutorial-workspace-transformations-api/data-collection-rule-details.png" lightbox="media/tutorial-workspace-transformations-api/data-collection-rule-details.png" alt-text="Screenshot for data collection rule details.":::
+    :::image type="content" source="media/ingest-logs-event-hub/data-collection-rule-details.png" lightbox="media/ingest-logs-event-hub/data-collection-rule-details.png" alt-text="Screenshot that shows the Data Collection Rule Overview screen.":::
 
 1. Copy the **Resource ID** for the data collection rule. You'll use this information in the next step.
 
