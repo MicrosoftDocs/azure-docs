@@ -1,5 +1,5 @@
 ---
-title: Use Azure Active Directory - Azure Database for PostgreSQL - Flexible Server
+title: Use Azure Active Directory - Azure Database for PostgreSQL - Flexible Server (Preview)
 description: Learn about how to set up Azure Active Directory (Azure AD) for authentication with Azure Database for PostgreSQL - Flexible Server
 ms.service: postgresql
 ms.subservice: flexible-server

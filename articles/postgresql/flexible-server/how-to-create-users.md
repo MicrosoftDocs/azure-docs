@@ -1,17 +1,17 @@
 ---
-title: Create users - Azure Database for PostgreSQL - Single Server
-description: This article describes how you can create new user accounts to interact with an Azure Database for PostgreSQL - Single Server.
+title: Create users - Azure Database for PostgreSQL - Flexible Server
+description: This article describes how you can create new user accounts to interact with an Azure Database for PostgreSQL - Flexible Server.
 ms.service: postgresql
-ms.subservice: single-server
+ms.subservice: flexible-server
 ms.topic: how-to
-ms.author: sunila
-author: sunilagarwal
-ms.date: 06/24/2022
+ms.author: kabharati
+author: kabharati
+ms.date: 09/26/2022
 ---
 
-# Create users in Azure Database for PostgreSQL - Single Server
+# Create users in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+[!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 
 This article describes how you can create users within an Azure Database for PostgreSQL server.
 
