@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.custom: devx-track-python
 ---
 
-# Manage Azure Machine Learning registries
+# Manage Azure Machine Learning registries (preview)
 
 Azure Machine Learning entities can be grouped into two broad categories:
 
@@ -22,7 +22,7 @@ Azure Machine Learning entities can be grouped into two broad categories:
 
 Assets lend themselves to being stored a central repository and used in different workspaces, possibly in different regions. Resources are workspace specific. 
 
-AzureML registries enable you to create and use those assets in different workspaces. Since the target workspaces in which you can use assets hosted in a registry can be in different Azure regions, registries support multi region replication for low latency access to assets when they to be used. Creating a registry will provision Azure resources required to facilitate replication. First, Azure blob storage accounts in each supported region. Second, a single Azure Container Registry with replication enabled to each supported region. 
+AzureML registries (preview) enable you to create and use those assets in different workspaces. Since the target workspaces in which you can use assets hosted in a registry can be in different Azure regions, registries support multi region replication for low latency access to assets when they to be used. Creating a registry will provision Azure resources required to facilitate replication. First, Azure blob storage accounts in each supported region. Second, a single Azure Container Registry with replication enabled to each supported region. 
 
 :::image type="content" source="./media/how-to-manage-registries/machine-learning-registry-block-diagram.png" alt-text="Diagram of the relationships between assets in workspace and registry.":::
 
@@ -141,16 +141,16 @@ location: eastus
 replication_locations:
   - location: eastus
     storage_config:
-      - storage_account_hns: False
-        storage_account_type: Standard_LRS
+      storage_account_hns: False
+      storage_account_type: Standard_LRS
   - location: eastus2
     storage_config:
-      - storage_account_hns: False
-        storage_account_type: Standard_LRS
+      storage_account_hns: False
+      storage_account_type: Standard_LRS
   - location: westus
     storage_config:
-      - storage_account_hns: False
-        storage_account_type: Standard_LRS
+      storage_account_hns: False
+      storage_account_type: Standard_LRS
 ```
 
 ## Add users to the registry 

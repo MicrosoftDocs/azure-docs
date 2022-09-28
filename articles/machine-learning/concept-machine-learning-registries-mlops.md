@@ -1,5 +1,5 @@
 ---
-title: Machine Learning registries
+title: Machine Learning registries (preview)
 titleSuffix: Azure Machine Learning
 description: Learn what are Azure Machine Learning registries and how to use to for MLOps
 services: machine-learning
@@ -13,9 +13,10 @@ ms.topic: conceptual
 ms.custom: devx-track-python
 ---
 
-# Machine Learning registries for MLOps
+# Machine Learning registries (preview) for MLOps
 
 In this article, you'll learn how to scale MLOps across development, testing and production environments. Your environments can vary from few to many based on the complexity of your IT environment and is influenced by factors such as:
+
 * Security and compliance policies - do production environments need to be isolated from development environments in terms of access controls, network architecture, data exposure, etc.?
 * Subscriptions - Are your development environments in one subscription and production environments in a different  subscription? Often separate subscriptions are used to account for billing, budgeting, and cost management purposes.
 * Regions - Do you need to deploy to different Azure regions to support latency and redundancy requirements? 
