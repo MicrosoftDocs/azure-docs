@@ -190,6 +190,8 @@
           href: start-stop-cluster.md
         - name: Use planned maintenance (preview)
           href: planned-maintenance.md
+        - name: Planned Maintenance for AKS weekly releases (preview)
+          href: aks-planned-maintenance-weekly-releases.md
         - name: Cloud Controller Manager
           href: out-of-tree.md
         - name: Upgrade an AKS cluster
@@ -469,6 +471,8 @@
               href: dapr.md
             - name: Migrate from Dapr OSS
               href: dapr-migration.md
+            - name: Troubleshoot the Dapr extension
+              href: dapr-troubleshooting.md
         - name: Use GitOps
           href: ../azure-arc/kubernetes/tutorial-use-gitops-flux2.md
           maintainContext: true
@@ -559,8 +563,8 @@
       href: ./policy-reference.md
 - name: Resources
   items:
-    - name: Build your skills with Microsoft Learn
-      href: /learn/browse/?products=azure-container-instances&azure-container-registry
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/?products=azure-container-instances&azure-container-registry
     - name: Region availability
       href: https://azure.microsoft.com/global-infrastructure/services/
     - name: Pricing

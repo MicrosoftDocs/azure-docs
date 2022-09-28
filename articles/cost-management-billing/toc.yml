@@ -57,6 +57,8 @@
         href: costs/cost-analysis-built-in-views.md
       - name: Customize views in cost analysis
         href: costs/customize-cost-analysis-views.md
+      - name: Save and share customized views
+        href: costs/save-share-views.md
       - name: Group and filter options
         href: costs/group-filter.md
     - name: Plan to manage costs
@@ -377,8 +379,6 @@
       href: costs/enable-preview-features-cost-management-labs.md
     - name: Automate actions with budgets
       href: manage/cost-management-budget-scenario.md
-    - name: Save and share customized views
-      href: costs/save-share-views.md
     - name: Use cost alerts
       href: costs/cost-mgt-alerts-monitor-usage-spending.md
     - name: Export cost data with a Storage SAS key
@@ -549,8 +549,8 @@
   items:
   - name: FAQ
     href: cost-management-billing-faq.yml
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-cost-management
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-cost-management
   - name: Cost Management feedback forum
     href: https://feedback.azure.com/d365community/forum/748a4eaa-0e25-ec11-b6e6-000d3a4f07b8
   - name: Azure Roadmap
