@@ -42,4 +42,4 @@ The Azure portal has various options to enable the logs. System logs and diagnos
 
 ## Next steps
 
-For more information, see [Azure Monitor logs](../azure-monitor/logs/data-platform-logs.md).
+For more information, see [Azure Monitor Logs](../azure-monitor/logs/data-platform-logs.md).
