@@ -113,7 +113,7 @@ The tenant ID identifies the Azure AD tenant to use for authentication. It's als
 
 The code example shows how to get an access token from Azure AD. The access token is used to authenticate the specified user and then authorize a request to create a block blob. To get this sample working, first follow the steps outlined in the preceding sections.
 
-To request the token, you'll need the following values from your app's registration:
+To request the access token, you'll need the following values from your app's registration:
 
 - The name of your Azure AD domain. Retrieve this value from the **Overview** page of your Azure Active Directory.
 - The tenant (or directory) ID. Retrieve this value from the **Overview** page of your app registration.
@@ -140,7 +140,7 @@ A completed sample web application that acquires an access token and uses it to 
 
 #### Add assembly references and using directives
 
-In Visual Studio, install the Azure Storage client library. From the **Tools** menu, select **NuGet Package Manager**, then **Package Manager Console**. Type the following commands into the console window to install the necessary packages from the Azure Storage client library for .NET:
+In Visual Studio, install the Azure Storage client library and the authentication library. From the **Tools** menu, select **NuGet Package Manager**, then **Package Manager Console**. Type the following commands into the console window to install the necessary packages for the Azure Storage client library for .NET and the Microsoft.Identity.Web authentication library:
 
 # [.NET v12 SDK](#tab/dotnet)
 
@@ -149,7 +149,7 @@ Install-Package Azure.Storage.Blobs
 Install-Package Microsoft.Identity.Web -Version 0.4.0-preview
 ```
 
-Next, add the following using directives to the HomeController.cs file:
+Next, add the following using directives to the _HomeController.cs_ file:
 
 ```csharp
 using Microsoft.Identity.Web; //MSAL library for getting the access token
@@ -163,7 +163,7 @@ Install-Package Microsoft.Azure.Storage.Blob
 Install-Package Microsoft.Identity.Web -Version 0.4.0-preview //or a later version
 ```
 
-Next, add the following using directives to the HomeController.cs file:
+Next, add the following using directives to the _HomeController.cs_ file:
 
 ```csharp
 using Microsoft.Identity.Client; //MSAL library for getting the access token
