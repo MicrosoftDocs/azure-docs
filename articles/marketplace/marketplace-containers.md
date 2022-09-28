@@ -116,4 +116,5 @@ You can choose to opt into Microsoft-supported marketing and sales channels. Whe
 
 ## Next steps
 
-- [Prepare technical assets](azure-container-technical-assets.md)
+- [Prepare technical assets for a container image-based offer](azure-container-technical-assets.md)
+- [Prepare technical assets for a Kubernetes application-based offer](azure-container-technical-assets-kubernetes.md)

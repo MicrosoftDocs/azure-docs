@@ -13,7 +13,7 @@ ms.date: 09/28/2022
 
 After you submit the offer, your Cloud Native Application Bundle (CNAB) is copied to Azure Marketplace in a specific public container registry. All requests from Azure users to use your module are served from the Azure Marketplace public container registry, not your private container registry.
 
-For more, see [Prepare Azure Kubernetes technical assets](azure-kubernetes-technical-assets.md).
+For more, see [Prepare Azure Kubernetes technical assets](azure-container-technical-assets-kubernetes.md).
 
 ## Setting cluster extension type name
 

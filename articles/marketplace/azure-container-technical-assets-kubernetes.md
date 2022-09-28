@@ -253,7 +253,7 @@ For an example of how to integrate `container-package-app` into an Azure Pipelin
 
 ## Next steps
 
-- [Create your Kubernetes offer](azure-kubernetes-offer-setup.md)
+- [Create your Kubernetes offer](azure-container-offer-setup.md)
 
 <!-- LINKS -->
 
