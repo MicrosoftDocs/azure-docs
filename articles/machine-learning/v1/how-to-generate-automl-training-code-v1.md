@@ -489,5 +489,5 @@ However, in order to load that model in a notebook in your custom local Conda en
 
 ## Next steps
 
-* Learn more about [how and where to deploy a model](how-to-deploy-and-where).
+* Learn more about [how and where to deploy a model](../how-to-deploy-and-where).
 * See how to [enable interpretability features](../how-to-machine-learning-interpretability-automl.md) specifically within automated ML experiments.
