@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 06/22/2022
+ms.date: 09/27/2022
 ---
 
 # Monitor and tune Azure Database for PostgreSQL - Hyperscale (Citus)
@@ -60,6 +60,7 @@ These metrics are available for Hyperscale (Citus) nodes:
 |memory_percent|Memory percent|Percent|The percentage of memory in use.|
 |network_bytes_ingress|Network In|Bytes|Network In across active connections.|
 |network_bytes_egress|Network Out|Bytes|Network Out across active connections.|
+|replication_lag|Replication Lag|Seconds|How far read replica nodes are behind their counterparts in the primary cluster.|
 |storage_percent|Storage percentage|Percent|The percentage of storage used out of the server's maximum.|
 |storage_used|Storage used|Bytes|The amount of storage in use. The storage used by the service may include the database files, transaction logs, and the server logs.|
 

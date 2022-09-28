@@ -408,7 +408,7 @@ How to enable analytical store on a container:
  
 * From the Azure Management SDK, Azure Cosmos DB SDKs, PowerShell, or Azure CLI, the ATTL option can be enabled by setting it to either -1 or 'n' seconds. 
 
-To learn more, see [how to configure analytical TTL on a container](configure-synapse-link.md#create-analytical-ttl).
+To learn more, see [how to configure analytical TTL on a container](configure-synapse-link.md).
 
 ## Cost-effective analytics on historical data
 

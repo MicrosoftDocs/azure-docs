@@ -1,70 +1,64 @@
 ---
-title: Availability zones and disaster recovery | Microsoft Docs
+title: Event Grid support for availability zones and disaster recovery 
 description: Describes how Azure Event Grid supports availability zones and disaster recovery.
 ms.topic: conceptual
-ms.date: 07/18/2022
+ms.date: 09/23/2022
 ---
 
-# Availability zones and disaster recovery
-Azure availability zones are designed to help you achieve resiliency and reliability for your business-critical workloads. Event Grid supports automatic geo-disaster recovery of event subscription configuration data (metadata) for topics, system topics, domains, and partner topics. This article gives you more details about Event Grid's support for availability zones and disaster recovery. 
+# In-region recovery using availability zones and geo-disaster recovery across regions (Azure Event Grid)
 
-## Availability zones
+This article describes how Azure Event Grid supports automatic in-region recovery of your Event Grid resource definitions and data when a failure occurs in a region that has availability zones. It also describes how Event Grid supports automatic recovery of Event Grid resource definitions (no data) to another region when a failure occurs in a region that has a paired region. 
 
-Azure availability zones are designed to help you achieve resiliency and reliability for your business-critical workloads. Azure maintains multiple geographies. These discrete demarcations define disaster recovery and data residency boundaries across one or multiple Azure regions. Maintaining many regions ensures customers are supported across the world.
 
-Azure Event Grid event subscription configurations and events are automatically replicated across data centers in the availability zone, and replicated in the three availability zones (when available) in the region specified to provide automatic in-region recovery of your data in case of a failure in the region. See [Azure regions with availability zones](../availability-zones/az-overview.md#azure-regions-with-availability-zones) to learn more about the supported regions with availability zones.
+## In-region recovery using availability zones
 
-Azure availability zones are connected by a high-performance network with a round-trip latency of less than 2ms. They help your data stay synchronized and accessible when things go wrong. Each zone is composed of one or more datacenters equipped with independent power, cooling, and networking infrastructure. Availability zones are designed so that if one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones.
+Azure availability zones are physically separate locations within each Azure region that are tolerant to local failures. They're connected by a high-performance network with a round-trip latency of less than 2 milliseconds. Each availability zone is composed of one or more data centers equipped with independent power, cooling, and networking infrastructure. If one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones. For more information about availability zones, see [Regions and availability zones](../availability-zones/az-overview.md). In this article, you can also see the list of regions that have availability zones.
 
-With availability zones, you can design and operate applications and databases that automatically transition between zones without interruption. Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple datacenter infrastructures.
-
-If a region supports availability zones, the event data is replicated across availability zones though.
+Event Grid resource definitions for topics, system topics, domains, and event subscriptions and event data are automatically replicated across three availability zones ([when available](../availability-zones/az-overview.md#azure-regions-with-availability-zones)) in the region. When there's a failure in one of the availability zones, Event Grid resources **automatically failover** to another availability zone without any human intervention. Currently, it isn't possible for you to control (enable or disable) this feature. When an existing region starts supporting availability zones, existing Event Grid resources would be automatically failed over to take advantage of this feature. No customer action is required. 
 
 :::image type="content" source="../availability-zones/media/availability-zones-region-geography.png" alt-text="Diagram that shows availability zones that protect against localized disasters and regional or large geography disasters by using another region.":::
 
-## Disaster recovery
+## Geo-disaster recovery across regions
 
-Event Grid supports automatic geo-disaster recovery of event subscription configuration data (metadata) for topics, system topics and domains. Event Grid automatically syncs your event-related infrastructure to a paired region. If an entire Azure region goes down, the events will begin to flow to the geo-paired region with no intervention from you.
+When an Azure region experiences a prolonged outage, you might be interested in failover options to an alternate region for business continuity. Many Azure regions have geo-pairs, and some don't. For a list of regions that have paired regions, see [Azure cross-region replication pairings for all geographies](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies). 
 
-> [!NOTE]
-> Event data is not replicated to the paired region, only the metadata is replicated.
+For regions with a geo-pair, Event Grid offers a capability to fail over the publishing traffic to the paired region for custom topics, system topics, and domains. Behind the scenes, Event Grid automatically synchronizes resource definitions of topics, system topics, domains, and event subscriptions to the paired region. However, event data isn't replicated to the paired region. In the normal state, events are stored in the region you selected for that resource. When there's a region outage and Microsoft initiates the failover, new events will begin to flow to the geo-paired region and are dispatched from there with no intervention from you. Events published and accepted in the original region are dispatched from there after the outage is mitigated. 
 
-Microsoft offers options to recover from a failure, you can opt to enable recovery to a paired region where available or disable recovery to a paired region to manage your own recovery. See [Azure cross-region replication pairings for all geographies](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) to learn more about the supported paired regions. The failover is nearly instantaneous once initiated. To learn more about how to implement your own failover strategy, see [Build your own disaster recovery plan for Azure Event Grid topics and domains](custom-disaster-recovery.md) .
+Microsoft-initiated failover is exercised by Microsoft in rare situations to fail over Event Grid resources from an affected region to the corresponding geo-paired region. Microsoft reserves the right to determine when this option will be exercised. This mechanism doesn't involve a user consent before the user's traffic is failed over.
 
-Microsoft-initiated failover is exercised by Microsoft in rare situations to fail over all the Event Grid resources from an affected region to the corresponding geo-paired region. This process is a default option and requires no intervention from the user. Microsoft reserves the right to make a determination of when this option will be exercised. This mechanism doesn't involve a user consent before the user's traffic is failed over.
+You can enable or disable this functionality by updating the configuration for your topic or domain. Select **Cross-Geo** option (default) to enable Microsoft-initiated failover and **Regional** to disable it. For detailed steps to configure this setting, see [Configure data residency](configure-custom-topic.md#configure-data-residency). If you opt for "regional", no data of any kind is replicated to another region by Microsoft, and you may define your own disaster recovery plan. For more information, see Build your own disaster recovery plan for Azure Event Grid topics and domains. 
 
-If you have decided not to replicate any data to a paired region, you'll need to invest in some practices to build your own disaster recovery scenario and recover from a severe loss of application functionality using more than 2 regions. See [Build your own disaster recovery plan for Azure Event Grid topics and domains](custom-disaster-recovery.md) for more details. See [Build your own client-side disaster recovery for Azure Event Grid topics](custom-disaster-recovery-client-side.md) in case you want to implement client-side disaster recovery for Azure Event Grid topics.
+:::image type="content" source="./media/availability-zones-disaster-recovery/configuration-page.png" alt-text="Screenshot showing the Configuration page for an Event Grid custom topic.":::
+
+Here are a few reasons why you may want to disable the Microsoft-initiated failover feature: 
+
+- Microsoft-initiated failover is done on a best-effort basis. 
+- Some geo pairs may not meet your organization's data residency requirements. 
+
+In such cases, the recommended option is to [build your own disaster recovery plan for Azure Event Grid topics and domains](custom-disaster-recovery.md). While this option requires a bit more effort, it enables faster failover, and you are in control of choosing secondary regions. If you want to implement client-side disaster recovery for Azure Event Grid topics, see [Build your own client-side disaster recovery for Azure Event Grid topics](custom-disaster-recovery-client-side.md). 
+
 
 ## RTO and RPO
 
-Disaster recovery is measured with two metrics:
+Disaster recovery is measured with two metrics: 
 
-- Recovery Point Objective (RPO): the minutes or hours of data that may be lost.
-- Recovery Time Objective (RTO): the minutes or hours the service may be down.
+- Recovery Point Objective (RPO): the minutes or hours of data that may be lost. 
+- Recovery Time Objective (RTO): the minutes or hours the service may be down. 
 
-Event Grid’s automatic failover has different RPOs and RTOs for your metadata (topics, domains, event subscriptions.) and data (events). If you need different specification from the following ones, you can still implement your own [client-side fail over using the topic health apis](custom-disaster-recovery.md).
+Event Grid’s automatic failover has different RPOs and RTOs for your metadata (topics, domains, event subscriptions.) and data (events). If you need different specification from the following ones, you can still implement your own [client-side fail over using the topic health apis](custom-disaster-recovery.md). 
 
 ### Recovery point objective (RPO)
-- **Metadata RPO**: zero minutes. Anytime a resource is created in Event Grid, it's instantly replicated across regions. When a failover occurs, no metadata is lost.
-- **Data RPO**: If your system is healthy and caught up on existing traffic at the time of regional failover, the RPO for events is about 5 minutes.
+- **Metadata RPO**: zero minutes. For applicable resources, when a resource is created/updated/deleted, the resource definition is synchronously replicated to the geo-pair. When a failover occurs, no metadata is lost.
+- **Data RPO**: When a failover occurs, new data is processed from the paired region. As soon as the outage is mitigated for the affected region, the unprocessed events will be dispatched from there. If the region recovery required longer time than the [time-to-live](delivery-and-retry.md#dead-letter-events) value set on events, the data could get dropped. To mitigate this data loss, we recommend that you [set up a dead-letter destination](manage-event-delivery.md) for an event subscription. If the affected region is completely lost and non-recoverable, there will be some data loss. In the best-case scenario, the subscriber is keeping up with the publish rate and only a few seconds of data is lost. The worst-case scenario would be when the subscriber isn't actively processing events and with a max time to live of 24 hours, the data loss can be up to 24 hours.   
 
 ### Recovery time objective (RTO)
-- **Metadata RTO**: Though generally it happens much more quickly, within 60 minutes, Event Grid will begin to accept create/update/delete calls for topics and subscriptions.
-- **Data RTO**: Like metadata, it generally happens much more quickly, however within 60 minutes, Event Grid will begin accepting new traffic after a regional failover.
+- **Metadata RTO**: Failover decision making is based on factors like available capacity in paired region and can last in the range of 60 minutes or more. Once failover is initiated, within 5 minutes, Event Grid will begin to accept create/update/delete calls for topics and subscriptions.
+- **Data RTO**: Same as above.
 
 > [!IMPORTANT]
-> - There is no service level agreement (SLA) for server-side disaster recovery. If the paired region has no extra capacity to take on the additional traffic, Event Grid cannot initiate failover. Service level objectives are best-effort only. 
-> - The cost for metadata GeoDR on Event Grid is: $0.
-> - Geo-disaster recovery isn't supported for partner topics. 
-
-## Metrics
-
-Event Grid also provides [diagnostic logs schemas](diagnostic-logs.md) and [metrics](metrics.md) that helps you to identify a problem when there is a failure when publishing or delivering events. See the [troubleshoot](troubleshoot-issues.md) article in case you need with solving an issue in Azure Event Grid.
-
-## More information
-
-You may find more information availability zone resiliency and disaster recovery in Azure Event Grid in our [FAQ](./event-grid-faq.yml).
+> - In case of server-side disaster recovery, if the paired region has no extra capacity to take on the additional traffic, Event Grid cannot initiate failover. The recovery is done on a best-effort basis.
+> - The cost for using this feature  is: $0. 
+> - Geo-disaster recovery is not supported for partner namespaces and partner topics. 
 
 ## Next steps
-
-- If you want to implement your own disaster recovery plan for Azure Event Grid topics and domains, see [Build your own disaster recovery for custom topics in Event Grid](custom-disaster-recovery.md).
+If you want to implement your own disaster recovery plan for Azure Event Grid topics and domains, see [Build your own disaster recovery for custom topics in Event Grid](custom-disaster-recovery.md).
