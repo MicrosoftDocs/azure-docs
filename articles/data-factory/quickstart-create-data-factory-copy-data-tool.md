@@ -31,7 +31,7 @@ You will be redirected to the configuration page shown in the image below to dep
 
 A new blob storage account will be created in the new resource group, and the moviesDB2.csv file will be stored in a folder called **input** in the blob storage.
 
-:::image type="content" source="media/quickstart-get-started/deploy-template.png" alt-text="A screenshot of the deployment template creation dialog.":::
+:::image type="content" source="media/quickstart-create-data-factory-copy-data-tool/deploy-template.png" alt-text="A screenshot of the deployment template creation dialog.":::
 
 ### Create a data factory
 
