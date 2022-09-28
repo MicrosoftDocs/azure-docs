@@ -26,23 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ### Azure roles
 
-To create Data Factory instances, the user account that you use to sign in to Azure must be a member of the *contributor* or *owner* role, or an *administrator* of the Azure subscription. To view the permissions that you have in the subscription, go to the [Azure portal](https://portal.azure.com), select your username in the upper-right corner, select "**...**" icon for more options, and then select **My permissions**. If you have access to multiple subscriptions, select the appropriate subscription.
-
-To create and manage child resources for Data Factory - including datasets, linked services, pipelines, triggers, and integration runtimes - the following requirements are applicable:
-
-- To create and manage child resources in the Azure portal, you must belong to the **Data Factory Contributor** role at the resource group level or above.
-- To create and manage child resources with PowerShell or the SDK, the **contributor** role at the resource level or above is sufficient.
-
-For sample instructions about how to add a user to a role, see the [Add roles](../cost-management-billing/manage/add-change-subscription-administrator.md) article.
-
-For more info, see the following articles:
-
-- [Data Factory Contributor role](../role-based-access-control/built-in-roles.md#data-factory-contributor)
-- [Roles and permissions for Azure Data Factory](concepts-roles-permissions.md)
-
-### Video 
-Watching this video helps you understand the Data Factory UI: 
->[!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Visually-build-pipelines-for-Azure-Data-Factory-v2/Player]
+To learn about the Azure role requirements to create a data factory, refer to [this article](quickstart-create-data-factory-dot-net.md?#azure-roles).
 
 ## Create a data factory
 
@@ -85,5 +69,5 @@ Watching this video helps you understand the Data Factory UI:
    > If you see that the web browser is stuck at "Authorizing", clear the **Block third-party cookies and site data** check box. Or keep it selected, create an exception for **login.microsoftonline.com**, and then try to open the app again.
 
 ## Next steps
-- Learn how to use Azure Data Factory to copy data from one location to another with the [Hello World - How to copy data](tutorial-copy-data-portal.md) tutorial.
-- Learn how to use Azure Data Factory to transform data with the [Hello World - How to transform data]() tutorial.
+Learn how to use Azure Data Factory to copy data from one location to another with the [Hello World - How to copy data](tutorial-copy-data-portal.md) tutorial.
+Lean how to create a data flow with Azure Data Factory[data-flow-create.md].

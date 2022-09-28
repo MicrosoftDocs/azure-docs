@@ -20,12 +20,12 @@ items:
     href: quickstart-get-started.md
   - name: Create a data factory
     href: quickstart-create-data-factory-portal.md
-  - name: Use the copy data tool
+  - name: Hello World - How to copy data
     href: quickstart-create-data-factory-copy-data-tool.md
     displayName: timeout
   - name: Create a data flow
     href: data-flow-create.md
-  - name: Introductory Learn modules
+  - name: Training modules
     href: quickstart-learn-modules.md
 - name: Tutorials
   items:
