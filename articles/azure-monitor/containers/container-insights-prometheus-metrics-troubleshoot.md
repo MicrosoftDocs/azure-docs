@@ -12,7 +12,7 @@ Follow the steps in this article to determine the cause of Prometheus metrics no
 
 ## Azure Monitor workspace Throttling
 
-Verify that the volume of metrics sent to the Azure Monitor workspace is not over the limit.
+Verify that the volume of metrics sent to the Azure Monitor workspace isn't over the limit.
 
 ## Pod status
 
@@ -24,7 +24,7 @@ Check the pod status with the command `kubectl get pods -n kube-system | grep am
 
 If each pod state is `Running` but one or more pods have restarts, run `kubectl describe pod <ama-metrics pod name> -n kube-system`.
 
-- This provides the reason for the restarts. Pod restarts are expected if configmap changes have been made. If the reason for the restart is `OOMKilled`, the pod cannot keep up with the volume of metrics. See the scale recommendations for the volume of metrics.
+- This provides the reason for the restarts. Pod restarts are expected if configmap changes have been made. If the reason for the restart is `OOMKilled`, the pod can't keep up with the volume of metrics. See the scale recommendations for the volume of metrics.
 
 If the pods are running as expected, the next place to check is the container logs.
 
@@ -38,7 +38,7 @@ View the container logs with the command `kubectl logs <ama-metrics pod name> -n
 - Verify there are no errors from the OpenTelemetry collector about scraping the targets.
 
 Run the command `kubectl logs <ama-metrics pod name> -n kube-system -c addon-token-adapter`.
-- This will show an error if there is an issue with authenticating with the Azure Monitor workspace. Below is an example of logs with no issues:
+- This will show an error if there's an issue with authenticating with the Azure Monitor workspace. Below is an example of logs with no issues:
 :::image type="content" source="media/container-insights-prometheus-metrics-troubleshoot/addon-token-adapter.png" lightbox="media/container-insights-prometheus-metrics-troubleshoot/addon-token-adapter.png" alt-text="Screenshot showing addon token log.":::
 
 If there are no errors in the logs, the Prometheus interface can be used for debugging to verify the expected configuration and targets being scraped.
@@ -67,7 +67,7 @@ The metrics addon can be configured to run in debug mode by changing the configm
 
 When enabled, all Prometheus metrics that are scraped are hosted at port 9090. Run `kubectl port-forward <ama-metrics pod name> -n kube-system 9091` and go to `127.0.0.1:9091/metrics` in a browser to see if the metrics were scraped by the OpenTelemetry Collector. This can be done for every `ama-metrics-*` pod.
 
-If metrics are not there, there could be an issue with the metric or label name lengths or the number of labels. See below for the service limits for Prometheus metrics.
+If metrics aren't there, there could be an issue with the metric or label name lengths or the number of labels. See below for the service limits for Prometheus metrics.
 
 ## Metric names, label names & label values
 
