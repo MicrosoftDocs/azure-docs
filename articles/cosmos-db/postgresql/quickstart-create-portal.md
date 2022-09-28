@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 06/29/2022
+ms.date: 09/27/2022
 #Customer intent: As a developer, I want to provision a Azure Cosmos DB for PostgreSQL cluster so that I can run queries quickly on large datasets.
 ---
 
@@ -18,8 +18,6 @@ ms.date: 06/29/2022
 
 Azure Cosmos DB for PostgreSQL is a managed service that
 allows you to run horizontally scalable PostgreSQL databases in the cloud.
-
-## Create a cluster
 
 [!INCLUDE [create-db](includes/create-db.md)]
 
