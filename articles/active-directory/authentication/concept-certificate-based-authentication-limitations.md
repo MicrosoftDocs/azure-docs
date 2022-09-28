@@ -58,6 +58,10 @@ The following scenarios aren't supported:
 |---------|---------|------|-------|---------|
 |YubiKey | ![y] | ![y] | ![y] | ![y] |
 
+<!--Image references-->
+[y]: ./media/fido2-compatibility/yes.png
+[n]: ./media/fido2-compatibility/no.png
+
 ## Next steps
 
 - [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
