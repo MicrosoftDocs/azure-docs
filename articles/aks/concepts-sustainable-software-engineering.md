@@ -232,6 +232,7 @@ _sustainability design principles: [Hardware efficiency](sustainability-design-p
 https://learn.microsoft.com/en-us/azure/aks/scale-cluster?tabs=azure-cli#scale-user-node-pools-to-0
 - Use [Keda](https://keda.sh/) to Auto-scale your applications based on demand.
 - Use [Cluster Auto-scaler](azure/aks/cluster-autoscaler) to scale your cluster based on Demand.
+- Leverage [Scaling **User** node pools to 0](/azure/aks/scale-cluster#scale-user-node-pools-to-0)
 - Use [Virtual Nodes](/azure/aks/virtual-nodes) to rapidly burst to Serverless Nodes (that scale to zero when there is no demand)
 - Review the [B-series burstable virtual machine sizes](https://azure.microsoft.com/en-in/blog/introducing-burstable-vm-support-in-aks/).
 
