@@ -191,7 +191,7 @@ To remove a DNS record from an existing record set, use `az network dns record-s
 
 This command deletes a DNS record from a record set. If the last record in a record set is deleted, the record set itself is also deleted. To keep the empty record set instead, use the `--keep-empty-record-set` option.
 
-When using the `az network dns record-set <record-type> add-record` command, you need to specify the record getting deleted and the zone to delete from. These parameters are described in [Create a DNS record](#create-a-dns-record) and [Create records of other types](#create-records-of-other-types) above.
+When you use the `az network dns record-set <record-type> add-record` command, you need to specify the record getting deleted and the zone to delete from. These parameters are described in [Create a DNS record](#create-a-dns-record) and [Create records of other types](#create-records-of-other-types) above.
 
 The following example deletes the A record with value '1.2.3.4' from the record set named *www* in the zone *contoso.com*, in the resource group *MyResourceGroup*.
 

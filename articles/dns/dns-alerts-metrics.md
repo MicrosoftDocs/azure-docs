@@ -70,14 +70,14 @@ To view this metric, select **Metrics** explorer experience from the **Monitor**
 
 ## Alerts in Azure DNS
 
-Azure Monitor has alerting that you can configure for each available metric values. See [Azure Monitor alerts](../azure-monitor/alerts/alerts-metric.md) for more information.
+Azure Monitor has alerting that you can configure for each available metric value. For more information, see [Azure Monitor alerts](../azure-monitor/alerts/alerts-metric.md).
 
 1. To configure alerting for Azure DNS zones, select **Alerts** from *Monitor* page in the Azure portal. Then select **+ New alert rule**.
 
     :::image type="content" source="./media/dns-alerts-metrics/alert-metrics.png" alt-text="Screenshot of Alert button on Monitor page.":::
 
 
-1. Click the **Select resource** link in the Scope section to open the *Select a resource* page. Filter by **DNS zones** and then select the Azure DNS zone you want as the target resource. Select **Done** once you have choose the zone.
+1. Click the **Select resource** link in the Scope section to open the *Select a resource* page. Filter by **DNS zones** and then select the Azure DNS zone you want as the target resource. Select **Done** once you've chosen the zone.
 
     :::image type="content" source="./media/dns-alerts-metrics/select-resource.png" alt-text="Screenshot of select resource page in configuring alerts.":::
 

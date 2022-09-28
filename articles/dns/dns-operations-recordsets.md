@@ -278,7 +278,7 @@ The steps for modifying an existing record set are similar to the steps you take
     * Changing the record set metadata and time to live (TTL)
 3. Commit your changes by using the `Set-AzDnsRecordSet` cmdlet. This *replaces* the existing record set in Azure DNS with the record set specified.
 
-When using `Set-AzDnsRecordSet`, [Etag checks](dns-zones-records.md#etags) are used to ensure concurrent changes aren't overwritten. You can use the optional `-Overwrite` switch to suppress these checks.
+When you use the `Set-AzDnsRecordSet` command, [Etag checks](dns-zones-records.md#etags) are used to ensure concurrent changes aren't overwritten. You can use the optional `-Overwrite` switch to suppress these checks.
 
 ### To update a record in an existing record set
 

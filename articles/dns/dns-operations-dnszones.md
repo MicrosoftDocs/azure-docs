@@ -110,7 +110,7 @@ $zone.Tags.Add("status","approved")
 Set-AzDnsZone -Zone $zone
 ```
 
-When using `Set-AzDnsZone` with a $zone object, [Etag checks](dns-zones-records.md#etags) are used to ensure concurrent changes aren't overwritten. You can use the optional `-Overwrite` switch to suppress these checks.
+When you use `Set-AzDnsZone` with a $zone object, [Etag checks](dns-zones-records.md#etags) are used to ensure concurrent changes aren't overwritten. You can use the optional `-Overwrite` switch to suppress these checks.
 
 ## Delete a DNS Zone
 

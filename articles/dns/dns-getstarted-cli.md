@@ -50,7 +50,7 @@ az network dns zone create -g MyResourceGroup -n contoso.xyz
 
 To create a DNS record, use the `az network dns record-set [record type] add-record` command. For help on A records, see `azure network dns record-set A add-record -h`.
 
-The following example creates a record with the relative name "www" in the DNS Zone "contoso.xyz" in the resource group "MyResourceGroup". The fully-qualified name of the record set is "www.contoso.xyz". The record type is "A", with IP address "10.10.10.10", and a default TTL of 3600 seconds (1 hour).
+The following example creates a record with the relative name "www" in the DNS Zone "contoso.xyz" in the resource group "MyResourceGroup". The fully qualified name of the record set is "www.contoso.xyz". The record type is "A", with IP address "10.10.10.10", and a default TTL of 3600 seconds (1 hour).
 
 ```azurecli
 az network dns record-set a add-record -g MyResourceGroup -z contoso.xyz -n www -a 10.10.10.10

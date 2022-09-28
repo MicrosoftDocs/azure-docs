@@ -78,7 +78,7 @@ Next, add a virtual network to the resource group that you created, and configur
 5. Select the **Outbound Endpoints** tab, select **Add an endpoint**, and then enter a name next to **Endpoint name** (ex: myoutboundendpoint).
 6. Next to **Subnet**, select the outbound endpoint subnet you created (ex: snet-outbound, 10.1.1.0/28) and then select **Save**.
 7. Select the **Ruleset** tab, select **Add a ruleset**, and enter the following:
-    - Ruleset name: Enter a name for your ruleset (ex: myruleset).
+    - Ruleset name: Enter a name for your ruleset (ex: **myruleset**).
     - Endpoints: Select the outbound endpoint that you created (ex: myoutboundendpoint). 
 8. Under **Rules**, select **Add** and enter your conditional DNS forwarding rules. For example:
     - Rule name: Enter a rule name (ex: contosocom).
