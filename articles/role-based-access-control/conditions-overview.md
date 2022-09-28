@@ -51,7 +51,7 @@ There are several scenarios where you might want to add a condition to your role
 - Read access to blobs with the tag Program=Alpine and a path of logs
 - Read access to blobs with the tag Project=Baker and the user has a matching attribute Project=Baker
 
-For more information about how to create these examples, see [Examples of Azure role assignment conditions](../storage/blobs/storage-auth-abac-examples.md).
+For more information about how to create these examples, see [Example Azure role assignment conditions for Blob Storage](../storage/blobs/storage-auth-abac-examples.md).
 
 ## Where can conditions be added?
 
@@ -147,5 +147,5 @@ Here are the known issues with conditions:
 ## Next steps
 
 - [FAQ for Azure role assignment conditions (preview)](conditions-faq.md)
-- [Example Azure role assignment conditions (preview)](../storage/blobs/storage-auth-abac-examples.md)
+- [Example Azure role assignment conditions for Blob Storage (preview)](../storage/blobs/storage-auth-abac-examples.md)
 - [Tutorial: Add a role assignment condition to restrict access to blobs using the Azure portal (preview)](../storage/blobs/storage-auth-abac-portal.md)
