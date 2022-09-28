@@ -25,12 +25,12 @@ Azure AD has added a new user object attribute **CertificateUserIds**, which is 
  
 The values stored in certificateUserIds should be in the format described in the following table.
  
-|Certificate mapping ield | Examples of values in CertificateUserIds |
+|Certificate mapping Field | Examples of values in CertificateUserIds |
 |--------------------------|--------------------------------------|
 |PrincipalName | “X509:\<PN\>bob@woodgrove.com” |
 |PrincipalName | “X509:\<PN>bob@woodgrove”     | 
 |RFC822Name	| “X509:\<RFC822\>user@woodgrove.com” |
-| X509SKI | “X509:\<SKI\>123456789abcdef”|
+|X509SKI | “X509:\<SKI\>123456789abcdef”|
 |X509SHA1PublicKey |“X509:\<SHA1-PUKEY\>123456789abcdef” |
  
 ## Update CertificateUserIds in the Azure portal
