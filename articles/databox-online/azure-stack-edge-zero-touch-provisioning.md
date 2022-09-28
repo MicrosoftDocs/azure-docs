@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/27/2022
+ms.date: 09/28/2022
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
@@ -26,7 +26,7 @@ Use this method as an alternative to the local web user interface setup sequence
 
 ## About device setup and configuration
 
-Device setup and configuration includes declarations that define the configuration for that device using a root-level "Device" identifier. Declarations supported for Azure Stack Edge devices include:
+Device setup and configuration include declarations that define the configuration for that device using a root-level "Device" identifier. Declarations supported for Azure Stack Edge devices include:
 - Device endpoint
 - Password
 - Certificates
@@ -129,7 +129,7 @@ Run the following cmdlets in PowerShell:
    $update = New-Object PSObject -Property @{ ServerType = "MicrosoftUpdate" }
    ```
 
-1. Create a package with the updated device settings.
+1. Create a package with the updated TimeZone and ServerType settings.
 
    ```azurepowershell
    $pkg = New-Package -time $time -update $update
@@ -153,7 +153,7 @@ Run the following cmdlets in PowerShell:
    Get-DeviceConfiguration | to-json
    ```
 
-1. Save the JSON configuration file to the local system.
+1. Save the updated device configuration to the local system as a JSON file.
 
    ```azurepowershell
    Get-DeviceConfiguration | to-json | Out-File "C:\<Local path>\testconfig2.json"
@@ -163,11 +163,11 @@ Run the following cmdlets in PowerShell:
 
    ![PowerShell output showing Azure Stack Edge successful update.](./media/azure-stack-edge-zero-touch-provisioning/azure-stack-edge-zero-touch-provisioning-json-success.png)
 
-1. After saving device configuration settings to a JSON file, you can use steps in the following section to apply those device configuration settings to one or more devices. 
+1. After saving device configuration settings to a JSON file, you can use steps in the following section to apply those device configuration settings to one or more devices that aren't yet activated. 
 
 ## Apply a configuration to a device using a JSON file, without device activation
 
-Once a config.json file has been created, as in the previous example, with the desired configuration, use the JSON file to change configuration settings on one or more devices.
+Once a config.json file has been created, as in the previous example, with the desired configuration, use the JSON file to change configuration settings on one or more devices that aren't activated.
 
 This sequence of PowerShell cmdlets signs into the device, applies the device setup configuration package with device configuration settings from a JSON file, verifies completion of the device update, and then fetches the updated device configuration.
 
@@ -182,9 +182,9 @@ Run the following cmdlets in PowerShell:
 1. Before you run the device configuration operation, update the JSON file with the device node.id of the device to be updated. 
 
    > [!NOTE]
-   > Each device has a unique node.id.
+   > Each device has a unique node.id. To update device configuration settings, the node.id in the JSON file must match the node.id of the device to be updated.
 
-   Fetch the node.id from the device with the following command from PowerShell:
+   Fetch the node.id from the device with the following command in PowerShell:
 
    ```azurepowershell
    Get-DeviceConfiguration | to-json
@@ -220,7 +220,7 @@ Run the following cmdlets in PowerShell:
 
 ## Activate a device
 
-Use the following steps to activate an Azure Stack Edge device. Note that device activation can't be undone, and a device activation key can't be reused or applied to a different device.
+Use the following steps to activate an Azure Stack Edge device. Note that activation can't be undone, and a device activation key can't be reused or applied to a different device.
 
 1. Retrieve the activation key for your device. For detailed steps, see [Create a management resource, and Get the activation key](azure-stack-edge-gpu-deploy-prep.md#create-a-management-resource-for-each-device) sections.
 
