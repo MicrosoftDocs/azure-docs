@@ -78,7 +78,7 @@ Follow these steps to create a new playbook in Microsoft Sentinel:
 
 1. The drop-down menu that appears under **Create** gives you three choices for creating playbooks:
 
-    1. If you're creating a **Standard** playbook (the new kind - see [Two types of Logic Apps](automate-responses-with-playbooks.md#two-types-of-logic-apps)), select **Blank playbook** and then follow the steps in the **Logic Apps Standard** tab below.
+    1. If you're creating a **Standard** playbook (the new kind - see [Logic app types](automate-responses-with-playbooks.md#logic-app-types)), select **Blank playbook** and then follow the steps in the **Logic Apps Standard** tab below.
 
     1. If you're creating a **Consumption** playbook (the original, classic kind), then, depending on which trigger you want to use, select either **Playbook with incident trigger** or **Playbook with alert trigger**. Then, continue following the steps in the **Logic Apps Consumption** tab below.
 
