@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure AD authentication strength
+title: Troubleshoot Azure AD authentication strength (Preview)
 description: Learn how to resolve errors when using Azure AD authentication strength.
 
 services: multi-factor-authentication
@@ -15,7 +15,7 @@ ms.reviewer: michmcla, inbarckms
 
 ms.collection: M365-identity-device-management
 ---
-# Troubleshoot Azure AD authentication strength
+# Troubleshoot Azure AD authentication strength (Preview)
 
 This topic covers errors you might see when you use Azure Active Directory (Azure AD) authentication strength and how to resolve them.  
 

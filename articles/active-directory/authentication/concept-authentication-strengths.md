@@ -1,12 +1,12 @@
 ---
-title: Overview of Azure Active Directory authentication strength
+title: Overview of Azure Active Directory authentication strength (Preview)
 description: Learn how admins can use Azure AD Conditional Access to distinguish which authentication methods can be used based on relevant security factors.
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/12/2022
+ms.date: 09/28/2022
 
 ms.author: justinha
 author: justinha
@@ -15,7 +15,7 @@ ms.reviewer: michmcla, inbarckms
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional Access authentication strength 
+# Conditional Access authentication strength (Preview)
 
 Authentication strength is a Conditional Access control that allows administrators to require specific combinations of authentication methods to access a resource. For example, they can require phishing-resistant authentication methods to access a sensitive resource. But to access a nonsensitive resource, they can allow less secure multifactor authentication (MFA) combinations, such as password + SMS. 
 
@@ -104,12 +104,15 @@ In addition to the three built-in authentication strengths, administrators can c
 
 You can edit a custom authentication strength. If it's referenced by a Conditional Access policy, it can't be deleted and you need to confirm any edit. 
 To check if an authentication strength is referenced by a Conditional Access policy,click **Conditional Access policies** column.
- 
 
 #### FIDO2 security key advanced options
-Custom authentication strengths allow customers to further restrict the usage of some FIDO2 security keys based on their Authenticator Attestation GUIDs (AAGUIDs). The capability allows administrators to require a FIDO2 key from a specific manufacture in order to access the resource.
+Custom authentication strengths allow customers to further restrict the usage of some FIDO2 security keys based on their Authenticator Attestation GUIDs (AAGUIDs). The capability allows administrators to require a FIDO2 key from a specific manufacture in order to access the resource. To require a specific FIDO2 security key, complete the preceding steps to create a custom authentication strength, select **FIDO2 Security Key**, and click **Advanced options**. 
 
-<!-- Steps to configure FIDO2 AA GUID -- Justin can you help with this? -->
+::image type="content" source="media/concept-authentication-strengths/key.png" alt-text="Screenshot showing Advanced options.":::
+
+Click **+**, copy the AADGUID value, and click **Save**.
+
+::image type="content" source="media/concept-authentication-strengths/aadguid.png" alt-text="Screenshot showing how to add an Authenticator Attestation GUID.":::
 
 ## Using authentication strength in Conditional Access
 After you determine the authentication strength you need, you can refer to that authentication strength in a Conditional Access policy. When the Conditional Access policy applies to sign-in, the authentication strength restricts which authentication methods are allowed.
