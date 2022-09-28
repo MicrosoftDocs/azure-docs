@@ -50,7 +50,7 @@ Use your device (real or simulated) to send the sample heart rate message shown 
 This message will get routed to MedTech service, where the message will be transformed into a FHIR Observation resource and stored into FHIR service.
 
 > [!TIP]
-> To learn more about IoT Hub device message enrichment and IotJsonPathContentTemplate mappings usage, see [How to use IotJsonPathContentTemplate mappings](how-to-use-iot-jsonpath-content-mappings.md) 
+> To learn about IoT Hub device message enrichment and IotJsonPathContentTemplate mappings usage with the MedTech service device mapping, see [How to use IotJsonPathContentTemplate mappings](how-to-use-iot-jsonpath-content-mappings.md) 
 
 ```json
 {
