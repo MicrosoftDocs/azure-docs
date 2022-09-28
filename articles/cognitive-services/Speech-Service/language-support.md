@@ -42,7 +42,7 @@ Each prebuilt neural voice supports a specific language and dialect, identified 
 > [!IMPORTANT]
 > Pricing varies for Prebuilt Neural Voice (see *Neural* on the pricing page) and Custom Neural Voice (see *Custom Neural* on the pricing page). For more information, see the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page.
 
-All the prebuilt neural voices have now been upgraded to high-fidelity voices with 48kHz sample rate. Each prebuilt voice model is available at 24kHz and 48kHz. Other sample rates can be obtained through upsampling or downsampling when synthesizing.
+Each prebuilt neural voice model is available at 24kHz and high-fidelity 48kHz. Other sample rates can be obtained through upsampling or downsampling when synthesizing.
 
 Please note that the following neural voices are retired.
 
