@@ -41,7 +41,7 @@ The ARM template used in this quickstart configures and deploys the following re
 
 Fulfill these prerequisites for Azure PowerShell:
 
-- Have an Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- Have an Azure account with an active subscription. [If you don't have an Azure subscription, see [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
 
 - If you want to run the code locally, use [Azure PowerShell](/powershell/azure/install-az-ps).
 
@@ -49,7 +49,7 @@ Fulfill these prerequisites for Azure PowerShell:
 
 Fulfill these prerequisites for Azure CLI:
 
-- Have an Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- Have an Azure account with an active subscription. If you don't have an Azure subscription, see [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
 
 - If you want to run the code locally:
 
