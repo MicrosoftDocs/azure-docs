@@ -31,9 +31,6 @@ This documentation contains the following types of articles:
 <!--* The [conceptual articles](how-to/call-read-api.md) provide in-depth explanations of the service's functionality and features.
 * The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions. -->
 
-For a more structured approach, follow a Learn module for OCR.
-* [Read Text in Images and Documents with the Computer Vision Service](/training/modules/read-text-images-documents-with-computer-vision-service/)
-
 ## Read API 
 
 The Computer Vision [Read API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005) is Azure's latest OCR technology ([learn what's new](./whats-new.md)) that extracts printed text (in several languages), handwritten text (in several languages), digits, and currency symbols from images and multi-page PDF documents. It's optimized to extract text from text-heavy images and multi-page PDF documents with mixed languages. It supports extracting both printed and handwritten text in the same image or document.
@@ -46,7 +43,7 @@ The **Read** call takes images and documents as its input. They have the followi
 
 * Supported file formats: JPEG, PNG, BMP, PDF, and TIFF
 * For PDF and TIFF files, up to 2000 pages (only the first two pages for the free tier) are processed.
-* The file size of images must be less than 500 MB (4 MB for the free tier) and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels. PDF files do not have a size limit.
+* The file size of images must be less than 500 MB (4 MB for the free tier) and dimensions at least 50 x 50 pixels and at most 10000 x 10000 pixels. PDF files do not have a dimensions limit.
 * The minimum height of the text to be extracted is 12 pixels for a 1024 x 768 image. This corresponds to about 8 font point text at 150 DPI.
 
 ## Supported languages
