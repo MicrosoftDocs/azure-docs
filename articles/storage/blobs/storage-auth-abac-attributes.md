@@ -1,19 +1,19 @@
 ---
-title: Actions and attributes for Azure role assignment conditions in Azure Storage
+title: Actions and attributes for Azure role assignment conditions for Azure Blob Storage
 titleSuffix: Azure Storage
-description: Supported actions and attributes for Azure role assignment conditions and Azure attribute-based access control (Azure ABAC) in Azure Storage. 
+description: Supported actions and attributes for Azure role assignment conditions and Azure attribute-based access control (Azure ABAC) for Azure Blob Storage. 
 services: storage
 author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/14/2022
+ms.date: 09/28/2022
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
 ---
 
-# Actions and attributes for Azure role assignment conditions in Azure Storage (preview)
+# Actions and attributes for Azure role assignment conditions for Azure Blob Storage (preview)
 
 > [!IMPORTANT]
 > Azure ABAC and Azure role assignment conditions are currently in preview.
@@ -47,9 +47,9 @@ In this preview, storage accounts support the following suboperations:
 > | [Sets the access tier on a blob](#sets-the-access-tier-on-a-blob) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` | `Blob.Write.Tier` |
 > | [Write to a blob with blob index tags](#write-to-a-blob-with-blob-index-tags) | `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write` <br/> `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action` | `Blob.Write.WithTagHeaders` |
 
-## Azure Blob storage actions and suboperations
+## Azure Blob Storage actions and suboperations
 
-This section lists the supported Azure Blob storage actions and suboperations you can target for conditions.
+This section lists the supported Azure Blob Storage actions and suboperations you can target for conditions.
 
 ### List blobs
 
@@ -295,9 +295,9 @@ This section lists the supported Azure Blob storage actions and suboperations yo
 > | **Examples** | [Example: Read, write, or delete blobs in named containers](storage-auth-abac-examples.md#example-read-write-or-delete-blobs-in-named-containers)<br/>[Example: Read blobs in named containers with a path](storage-auth-abac-examples.md#example-read-blobs-in-named-containers-with-a-path)<br/>[Example: Read or list blobs in named containers with a path](storage-auth-abac-examples.md#example-read-or-list-blobs-in-named-containers-with-a-path)<br/>[Example: Write blobs in named containers with a path](storage-auth-abac-examples.md#example-write-blobs-in-named-containers-with-a-path)<br/>[Example: Read only current blob versions](storage-auth-abac-examples.md#example-read-only-current-blob-versions)<br/>[Example: Read current blob versions and any blob snapshots](storage-auth-abac-examples.md#example-read-current-blob-versions-and-any-blob-snapshots)<br/>[Example: Read only storage accounts with hierarchical namespace enabled](storage-auth-abac-examples.md#example-read-only-storage-accounts-with-hierarchical-namespace-enabled) |
 > | **Learn more** | [Azure Data Lake Storage Gen2 hierarchical namespace](../blobs/data-lake-storage-namespace.md) |
 
-## Azure Blob storage attributes
+## Azure Blob Storage attributes
 
-This section lists the Azure Blob storage attributes you can use in your condition expressions depending on the action you target. If you select multiple actions for a single condition, there might be fewer attributes to choose from for your condition because the attributes must be available across the selected actions.
+This section lists the Azure Blob Storage attributes you can use in your condition expressions depending on the action you target. If you select multiple actions for a single condition, there might be fewer attributes to choose from for your condition because the attributes must be available across the selected actions.
 
 > [!NOTE]
 > Attributes and values listed are considered case-insensitive, unless stated otherwise.
