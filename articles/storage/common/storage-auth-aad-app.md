@@ -77,7 +77,7 @@ The application needs a client secret to prove its identity when requesting a to
 
 ### Enable ID tokens
 
-Next, tell the identity platform to also ID tokens for the app by enabling the *hybrid flow*. The hybrid flow combines the use of the authorization code grant for obtaining access tokens and OpenID Connect (OIDC) for getting ID tokens.
+Next, tell the identity platform to also issue ID tokens for the app by enabling the *hybrid flow*. The hybrid flow combines the use of the authorization code grant for obtaining access tokens and OpenID Connect (OIDC) for getting ID tokens.
 
 To enable issuance of ID tokens for the app, follow these steps:
 
