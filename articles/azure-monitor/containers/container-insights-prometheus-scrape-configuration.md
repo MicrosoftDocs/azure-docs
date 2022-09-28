@@ -48,9 +48,9 @@ apiserver = "mymetric.*"
 ```
 
 > [!NOTE]
-> If you use quotes or backslashes in the regex, you will need to escape them using a backslash. For example `"test\'smetric\"s\""` and `testbackslash\\*`.
+> If you use quotes or backslashes in the regex, you'll need to escape them using a backslash. For example `"test\'smetric\"s\""` and `testbackslash\\*`.
 
-To further customize the default jobs to change properties such as collection frequency or labels, disable the corresponding default target by setting the configmap value for the target to `false`  and then apply the job using custom configmap. For details on custom configuration, see [Customize scraping of Prometheus metrics in Container insights](container-insights-prometheus-scrape-configuration.md#configure-custom-prometheus-scrape-jobs).
+To further customize the default jobs to change properties such as collection frequency or labels, disable the corresponding default target by setting the configmap value for the target to `false`,  and then apply the job using custom configmap. For details on custom configuration, see [Customize scraping of Prometheus metrics in Container insights](container-insights-prometheus-scrape-configuration.md#configure-custom-prometheus-scrape-jobs).
 
 ### Cluster alias
 The cluster label appended to every time series scraped will use the last part of the full AKS cluster's ARM resourceID. For example, if the resource ID is `/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-name/providers/Microsoft.ContainerService/managedClusters/clustername`, the cluster label is `clustername`. 
@@ -75,7 +75,7 @@ Follow the instructions to [create, validate, and apply the configmap](container
 
 ### Advanced Setup: Configure custom Prometheus scrape jobs for the daemonset
 
-The `ama-metrics` replicaset pod consumes the custom Prometheus config and scrapes the specified targets. For a cluster with a large number of nodes and pods and a large volume of metrics to scrape, some of the applicable custom scrape targets can be off-loaded from the single `ama-metrics` replicaset pod to the `ama-metrics` daemonset pod. The [ama-metrics-prometheus-config-node configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-prometheus-config-node-configmap.yaml), similar to the regular configmap, can be created to have static scrape configs on each node. The scrape config should only target a single node and should not use service discovery; otherwise each node will try to scrape all targets and will make many calls to the Kubernetes API server. The `node-exporter` config below is one of the default targets for the daemonset pods. It uses the `$NODE_IP` environment variable which is already set for every ama-metrics addon container to target a specific port on the node:
+The `ama-metrics` replicaset pod consumes the custom Prometheus config and scrapes the specified targets. For a cluster with a large number of nodes and pods and a large volume of metrics to scrape, some of the applicable custom scrape targets can be off-loaded from the single `ama-metrics` replicaset pod to the `ama-metrics` daemonset pod. The [ama-metrics-prometheus-config-node configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-prometheus-config-node-configmap.yaml), similar to the regular configmap, can be created to have static scrape configs on each node. The scrape config should only target a single node and shouldn't use service discovery; otherwise each node will try to scrape all targets and will make many calls to the Kubernetes API server. The `node-exporter` config below is one of the default targets for the daemonset pods. It uses the `$NODE_IP` environment variable, which is already set for every ama-metrics addon container to target a specific port on the node:
 
   ```yaml
   - job_name: node
@@ -112,7 +112,7 @@ scrape_configs:
   - <job-y>
 ```
 
-Any other unsupported sections need to be removed from the config before applying as a configmap; otherwise the custom configuration will fail validation and won't be applied.
+Any other unsupported sections need to be removed from the config before applying as a configmap. Otherwise the custom configuration will fail validation and won't be applied.
 
 > [!NOTE]
 > When custom scrape configuration fails to apply due to validation errors, default scrape configuration will continue to be used.
@@ -263,7 +263,7 @@ The scrape config below uses the `__meta_*` labels added from the `kubernetes_sd
 
 To scrape certain pods, specify the port, path, and scheme through annotations for the pod and the below job will scrape only the address specified by the annotation:
 - `prometheus.io/scrape`: Enable scraping for this pod
-- `prometheus.io/scheme`: If the metrics endpoint is secured, then you will need to set this to `https` & most likely set the tls config.
+- `prometheus.io/scheme`: If the metrics endpoint is secured, then you'll need to set this to `https` & most likely set the tls config.
 - `prometheus.io/path`: If the metrics path isn't /metrics, define it with this annotation.
 - `prometheus.io/port`: Specify a single, desired port to scrape
 
