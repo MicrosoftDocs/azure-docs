@@ -13,10 +13,10 @@ ms.author: jburchel
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This quickstart describes how to use the Azure portal UI to create a data factory.
+This quickstart describes how to use either the [Azure Data Factory Studio](https://adf.azure.com) or the [Azure Portal UI](https://portal.azure.com) to create a data factory.
 
 > [!NOTE]
-> If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md) before doing this quickstart. 
+> If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md) before trying this quickstart. 
 
 ## Prerequisites
 
@@ -26,34 +26,47 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ### Azure roles
 
-To learn about the Azure role requirements to create a data factory, refer to [this article](quickstart-create-data-factory-dot-net.md?#azure-roles).
+To learn about the Azure role requirements to create a data factory, refer to [Azure Roles requirements](quickstart-create-data-factory-dot-net.md?#azure-roles).
 
 ## Create a data factory
 
+A simple creation experience provided in the Azure Data Factory Studio to enable users to create a data factory within seconds. More advanced creation options are available in Azure portal.
+
+### Simple creation in the Azure Data Factory Studio
+
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-1. Go to the [Azure portal](https://portal.azure.com). 
-1. From the Azure portal menu, select **Create a resource**.
-1. Select **Integration**, and then select **Data Factory**. 
+1. Go to the [Azure Data Factory Studio](https://adf.azure.com) and choose the **Create a new data factory** radio button.
+1. You can use the default values to create directly, or enter a unique name and choose a preferred location and subscription to use when creating the new data factory.
    
-   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the New pane.":::
+   :::image type="content" source="media/quickstart-create-data-factory/create-with-azure-data-factory-studio.png" alt-text="Shows a screenshot of the Azure Data Factory Studio page to create a new data factory.":::
 
-1. On the **Create Data Factory** page, under **Basics** tab, select your Azure **Subscription** in which you want to create the data factory.
+1. After creation, you can directly enter the homepage of the Azure Data Factory Studio.
+
+   :::image type="content" source="media/quickstart-create-data-factory/azure-data-factory-studio-home-page.png" alt-text="Shows a screenshot of the Azure Data Factory Studio home page.":::
+
+### Advanced creation in the Azure portal
+
+1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
+1. Go to the [Azure portal data factories page](https://portal.azure.com). 
+1. After landing on the data factories page of the Azure portal, click **Create**.
+
+   :::image type="content" source="media/quickstart-create-data-factory/data-factory-create-from-portal.png" alt-text="Shows a screenshot of the Azure portal data factories Create button.":::
+
 1. For **Resource Group**, take one of the following steps:
-
-    a. Select an existing resource group from the drop-down list.
-
-    b. Select **Create new**, and enter the name of a new resource group.
-    
-    To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md). 
+   1. Select an existing resource group from the drop-down list.
+   1. Select **Create new**, and enter the name of a new resource group.
+   
+      To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md). 
 
 1. For **Region**, select the location for the data factory.
 
    The list shows only locations that Data Factory supports, and where your Azure Data Factory meta data will be stored. The associated data stores (like Azure Storage and Azure SQL Database) and computes (like Azure HDInsight) that Data Factory uses can run in other regions.
  
 1. For **Name**, enter **ADFTutorialDataFactory**.
+   
    The name of the Azure data factory must be *globally unique*. If you see the following error, change the name of the data factory (for example, **&lt;yourname&gt;ADFTutorialDataFactory**) and try creating again. For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](naming-rules.md) article.
 
-    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="New data factory error message for duplicate name.":::
+   :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="New data factory error message for duplicate name.":::
 
 1. For **Version**, select **V2**.
 
@@ -63,7 +76,7 @@ To learn about the Azure role requirements to create a data factory, refer to [t
 
 1. Select **Open** on the **Open Azure Data Factory Studio** tile to start the Azure Data Factory user interface (UI) application on a separate browser tab.
    
-    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
+   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile highlighted.":::
    
    > [!NOTE]
    > If you see that the web browser is stuck at "Authorizing", clear the **Block third-party cookies and site data** check box. Or keep it selected, create an exception for **login.microsoftonline.com**, and then try to open the app again.
