@@ -353,9 +353,15 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 ## Data types
 
-Azure Cosmos DB's API for MongoDB supports documents encoded in MongoDB BSON format. The 4.0 API version enhances the internal usage of this format to improve performance and reduce costs. Documents written or updated through an endpoint running 4.0 benefit from this.
+Azure Cosmos DB for MongoDB supports documents encoded in MongoDB BSON format. The 4.0 API version enhances the internal usage of this format to improve performance and reduce costs. Documents written or updated through an endpoint running 4.0+ benefit from this.
  
-In an [upgrade scenario](upgrade-mongodb-version.md), documents written prior to the upgrade to version 4.0 will not benefit from the enhanced performance until they are updated via a write operation through the 4.0 endpoint.
+In an [upgrade scenario](upgrade-mongodb-version.md), documents written prior to the upgrade to version 4.0+ will not benefit from the enhanced performance until they are updated via a write operation through the 4.0+ endpoint.
+
+16MB document support raises the size limit for your documents from 2MB to 16MB. This limit only applies to collections created after this feature has been enabled. Once this feature is enabled for your database account, it cannot be disabled. This feature is not compatible with the Azure Synapse Link feature and/or Continuous Backup.
+
+Enabling 16MB can be done in the features tab in the Azure portal or programmatically by [adding the "EnableMongo16MBDocumentSupport" capability](how-to-configure-capabilities.md). 
+
+We recommend enabling Server Side Retry to ensure requests with larger documents succeed. If necessary, raising your DB/Collection RUs may also help performance. 
 
 | Command | Supported |
 |---------|---------|
@@ -545,7 +551,14 @@ Azure Cosmos DB supports automatic, native replication at the lowest layers. Thi
 
 ## Retryable Writes
 
-Azure Cosmos DB does not yet support retryable writes. Client drivers must add the 'retryWrites=false' URL parameter to their connection string. More URL parameters can be added by prefixing them with an '&'. 
+Retryable writes enables MongoDB drivers to automatically retry certain write operations in case of failure, but results in more stringent requirements for certain operations, which match MongoDB protocol requirements. With this feature enabled, update operations, including deletes, in sharded collections will require the shard key to be included in the query filter or update statement.
+
+For example, with a sharded collection, sharded on key “country”: To delete all the documents with the field city = "NYC", the application will need to execute the operation for all shard key (country) values if Retryable writes is enabled. 
+
+- `db.coll.deleteMany({"country": "USA", "city": "NYC"})` - **Success** 
+- `db.coll.deleteMany({"city": "NYC"})` - **Fails with error `ShardKeyNotFound(61)`**
+
+To enable the feature, [add the EnableMongoRetryableWrites capability](how-to-configure-capabilities.md) to your database account. This feature can also be enabled in the features tab in the Azure portal. 
 
 ## Sharding
 
