@@ -40,28 +40,7 @@ This 1:M implementation could be implemented in Azure AD CBA by configuring the 
 |Bobs Developer Account| AAD UserPrincipalName = Bob.Smith-dev@contoso.com, certificateUserIds = x509:\<SKI\>89b0f468c1abea65ec22f0a882b8fda6fdd6750p |
 |Tenant User Binding Policy | Priority 1 Principal Name in SAN -> Azure AD UPN , Priority 2 Certificate SKI -> certificateUserIds |
 
-
-**Certificate Information**
-
-Principal Name in SAN = Bob.Smith@contoso.com
-Certificate Subject Key Identifier (SKI) = 89b0f468c1abea65ec22f0a882b8fda6fdd6750p
-
-**Bobs Productivity Account**
-
-AAD User Principal Name = Bob.Smith@contoso.com
-certificateUserIDs = Empty
-
-**Bobs Developer Account**
-
-AAD UserPrincipalName = Bob.Smith-dev@contoso.com
-certificateUserIds = x509:\<SKI\>89b0f468c1abea65ec22f0a882b8fda6fdd6750p
-
-**Tenant User Binding Policy**
- 
-Priority 1 Principal Name in SAN -> Azure AD UPN 
-Priority 2 Certificate SKI -> certificateUserIds
-
-The above configuration would allow the same certificate to be used by Bob for both his productivity and developer account.
+The above configuration would allow the same certificate to be used by Bob for both his productivity and developer account. Since we have fallback support for bindings, Bob's productivity account will be authenticated by UPN binding policy and Bob's developer account will be authenticated by SKI binding policy 
 
 **How can I scope 1:M for only specific group of users?**
  
@@ -72,6 +51,7 @@ In this example to lock Bobs certificate to only Bob's productivity account as c
 **Bobs Productivity Account**
  
 AAD User Principal Name = Bob.Smith@Contoso.com 
+
 certificateUserIDs = [ x509:\<PN\>Bob.Smith@Contoso.com , x509:\<SKI\>89b0f468c1abea65ec22f0a882b8fda6fdd6750p]
 
 ## External identities support
