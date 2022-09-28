@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
-ms.date: 05/27/2022
+ms.date: 09/28/2022
 ms.author: aahi
 ms.custom: language-service-key-phrase, ignite-fall-2021, cogserv-non-critical-language
 ---
