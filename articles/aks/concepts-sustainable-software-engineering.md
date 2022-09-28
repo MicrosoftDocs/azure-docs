@@ -47,13 +47,13 @@ We recommend that readers familiarize themselves with these design areas, review
 
 |Design area|Description|
 |---|---|
-|Application design|N/A|
-|Application platform|**AKS is the Platform**|
-|Testing|Testing procedures for Cluster development lifecycle|
-|Operational procedures|Governance related Area, not a technical consideration|
-|Storage|Design of storage classes & Backup retention policies.|
-|Network and connectivity|Cluster network design (availability zones, Network routing, etc.) and configuration (service mesh,..)|
-|Security|Cluster security configuration and integration with Monitoring & SIEM.|
+|Application design|Modernize Applications to event driven and microservices components|
+|Application platform|**AKS cluster is the Platform**|
+|Testing|Testing procedures for Cluster & workload development lifecycle|
+|Operational procedures|related to Transversal governance, not a technical consideration|
+|Storage|Consider _Statefless Application_ Design ; Plan for storage classes & Backup retention policies.|
+|Network and connectivity|Assess business requirements for availability (availability zones) and security (service mesh)|
+|Security| Consider endpoint security and integration with Monitoring & SIEM.|
 
 
 ## Cloud efficiency
