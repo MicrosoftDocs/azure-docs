@@ -312,9 +312,9 @@ To find the `<identity_resource_Id>`, `<principal_id>,` and `<client_id>` values
 
 With [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), you can give any event hub permission to send events to the data collection rule and data collection endpoint you created:
 
-1. From the event hub in the Azure portal, select **Access Control (IAM)** and then **Add role assignment**. 
+1. From the event hub in the Azure portal, select **Access Control (IAM)** > **Add role assignment**. 
 
-    :::image type="content" source="media/tutorial-logs-ingestion-portal/add-role-assignment.png" lightbox="media/tutorial-logs-ingestion-portal/custom-log-create.png" alt-text="Screenshot for adding custom role assignment to DCR.":::
+    :::image type="content" source="media/ingest-logs-event-hub/data-collection-rule-add-role-assignment.png" lightbox="media/ingest-logs-event-hub/data-collection-rule-add-role-assignment.png" alt-text="Screenshot that shows the Access control screen for the data collection rule.":::
 
 2. Select **Azure Event Hubs Data Receiver** and select **Next**.   
 
