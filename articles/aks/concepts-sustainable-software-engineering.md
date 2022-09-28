@@ -248,7 +248,7 @@ Consider the platform and whether it meets the scalability needs of the solution
 
 _sustainability design principles: [Hardware efficiency](sustainability-design-principles.md#hardware-efficiency)_
 
-**Recommendation:**
+**Recommendations:**
 
 - Separate applications into different node pools allowing independent scalling.
 - Align node SKU selection and managed disk size with applications requirements.
@@ -268,7 +268,7 @@ The Arm-based VMs represent a cost-effective and power-efficient option that doe
 
 _sustainability design principles: [Energy efficiency](sustainability-design-principles.md#energy-efficiency)_
 
-**Recommendation:**
+**Recommendations:**
 
 - Evaluate if the Ampere Altra Arm-based VMs is a good option for your workloads.
 - Read more about [Azure Virtual Machines with Ampere Altra Arm–based processors](https://azure.microsoft.com/blog/azure-virtual-machines-with-ampere-altra-arm-based-processors-generally-available/) on Azure.
