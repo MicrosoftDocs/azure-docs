@@ -50,7 +50,7 @@ Two settings are available for network features:
 
 * The ability to locate storage compatible with the desired type of network features depends on the VNet specified.  If you cannot create a volume because of insufficient resources, you can try a different VNet for which compatible storage is available.
 
-* You cannot create a standard volume from the snapshot of a basic volume.
+* You cannot create a Standard volume from the snapshot of a Basic volume.
 
 * Conversion between Basic and Standard networking features in either direction is not currently supported.
   
