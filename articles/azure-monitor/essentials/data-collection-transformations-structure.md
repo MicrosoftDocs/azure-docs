@@ -309,7 +309,7 @@ The following [Bitwise operators](/azure/data-explorer/kusto/query/binoperators)
 
 #### Special functions 
 
-`parse_cef_dictionary()`<br><br>
+##### parse_cef_dictionary
 
 Given a string containing a CEF message, `parse_cef_dictionary` parses the Extension property of the message into a dynamic key/value object. Semicolon is a reserved character that should be replaced prior to passing the raw message into the method, as shown in the example below.
 
