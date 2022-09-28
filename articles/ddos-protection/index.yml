@@ -27,6 +27,8 @@ landingContent:
             url: ddos-protection-overview.md
           - text: Azure DDoS Protection SKU comparison
             url: ddos-protection-sku-comparison.md
+          - text: Pricing
+            url: https://azure.microsoft.com/en-us/pricing/details/ddos-protection/
       - linkListType: learn
         links:
           - text: Introduction to Azure DDoS Protection
@@ -43,8 +45,10 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create a DDoS Protection Plan - Portal
+          - text: Create and configure Azure DDoS Network Protection using the Azure portal
             url: manage-ddos-protection.md
+          - text: Create and configure Azure DDoS IP Protection using the Azure portal
+            url: manage-ddos-protection-ip.md
 
 
   # Card
@@ -72,6 +76,8 @@ landingContent:
             url: ddos-response-strategy.md
       - linkListType: how-to-guide
         links: 
+          - text: Test with simulation partners
+            url: test-through-simulations.md
           - text: Engage DDoS Rapid Response (DRR)
             url: ddos-rapid-response.md
   
