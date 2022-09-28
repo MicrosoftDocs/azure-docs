@@ -421,7 +421,7 @@ These properties are client specific, so you can configure `appInsights.defaultC
 | quickPulseHost                  | The Live Metrics Stream host to send live metrics telemetry to.                                            |
 | proxyHttpUrl                    | A proxy server for SDK HTTP traffic. (Optional. Default is pulled from `http_proxy` environment variable.)     |
 | proxyHttpsUrl                   | A proxy server for SDK HTTPS traffic. (Optional. Default is pulled from `https_proxy` environment variable.)   |
-| httpAgent                       | An http.Agent to use for SDK HTTP traffic. (Optional. Default is undefined).                                   |
+| httpAgent                       | An http.Agent to use for SDK HTTP traffic. (Optional. Default is undefined.)                                   |
 | httpsAgent                      | An https.Agent to use for SDK HTTPS traffic. (Optional. Default is undefined.)                                 |
 | maxBatchSize                    | The maximum number of telemetry items to include in a payload to the ingestion endpoint. (Default is `250`.)   |
 | maxBatchIntervalMs              | The maximum amount of time to wait for a payload to reach maxBatchSize. (Default is `15000`.)               |
