@@ -39,6 +39,8 @@ To connect a device with an X.509 certificate to your application:
 1. Add and verify an intermediate or root X.509 certificate in the enrollment group.
 1. Generate a leaf certificate from the root or intermediate certificate in the enrollment group. Install the leaf certificate on the device for it to use when it connects to your application.
 
+Each enrollment group should use a unique X.509 certificate. IoT Central does not support using the same X.509 certificate across multiple enrollment groups.
+
 To learn more, see [How to connect devices with X.509 certificates](how-to-connect-devices-x509.md)
 
 ### For testing purposes only
