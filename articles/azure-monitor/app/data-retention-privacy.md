@@ -56,7 +56,7 @@ There are three sources of data:
 
 The main categories are:
 
-* [Web server telemetry](./asp-net.md): HTTP requests. Uri, time taken to process the request, response code, and client IP address. `Session id`.
+* [Web server telemetry](./asp-net.md): HTTP requests. URI, time taken to process the request, response code, and client IP address. `Session id`.
 * [Webpages](./javascript.md): Page, user, and session counts. Page load times. Exceptions. Ajax calls.
 * Performance counters: Memory, CPU, IO, and network occupancy.
 * Client and server context: OS, locale, device type, browser, and screen resolution.
