@@ -80,11 +80,9 @@ sections:
            
           
           
-          Using Powershell commands:
+          PowerShell:
           
-          List VM with deprecated images at version level:
-          
-          To find VMs using a deprecated Version (Replace highlighted value with version you are looking for):
+          List VM with deprecated images at version level. To find VMs using a deprecated Version (Replace highlighted value with version you are looking for):
           
           ```
           (Get-AzVM -ResourceGroupName $rgname -Name $vmname).StorageProfile.ImageReference.ExactVersion   
@@ -97,8 +95,8 @@ sections:
           $vmsslist | where {$_.virtualMachineProfile.storageProfile.imageReference.Version -eq '14393.4402.2105052108'} | Select-Object -Property ResourceGroupName, Name, @{label='imageOffer'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Offer}}, @{label='imagePublisher'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Publisher}}, @{label='imageSKU'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Sku}}, @{label='imageVersion'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Version}}
           ```
           
-          List VMSS with deprecated images at plan/SKU level
-          To find VMSS using a deprecated SKU (Replace highlighted value with SKU you are looking for):
+          List scale sets with deprecated images at plan/SKU level
+          To find scale sets using a deprecated SKU (Replace highlighted value with SKU you are looking for):
           
           ```
           $vmsslist = Get-AzVmss
@@ -137,7 +135,7 @@ sections:
           
           - To migrate to another Offer:
           
-          Powershell:
+          PowerShell:
           
           ```
           Get-AzVMImage -Location "west europe" -PublisherName “MicrosoftWindowsServer” 
@@ -151,7 +149,7 @@ sections:
           
           - To migrate to another Plan: Search for other plans under the same offer and then migrate to that plan.
           
-          Powershell:
+          PowerShell:
           
           ```
           Get-AzVMImage -Location "west europe" -PublisherName “MicrosoftWindowsServer” -Offer “WindowsServer”
@@ -165,7 +163,7 @@ sections:
           
           - To migrate to another version: Search for another version (we suggest migrating to the latest version)  
           
-          Powershell:
+          PowerShell:
           
           ```
           Get-AzVMImage -Location "west europe" -PublisherName “MicrosoftWindowsServer” -Offer “WindowsServer” -Skus "2019-Datacenter-with-Containers"
@@ -180,7 +178,7 @@ sections:
         
           You need to verify that your workloads are supported and will run properly on the new image before migrating your workloads to the new image.
           
-          Scale sets, in general, support image reference replacement  (https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set#os-updates) but VMs do not.
+          Scale sets, in general, support [image reference replacement](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set#os-updates.md) but VMs do not.
           
           
           
@@ -201,7 +199,7 @@ sections:
           Generally, yes. However, it is recommended to  confirm against the list of valid versions in a Plan using Virtual Machine Images - List - REST API (Azure Compute) | Microsoft Docs 
            
           How can I check if a specific image is deprecated or scheduled for deprecation:  
-          You can check if an image is deprecated or scheduled for deprecation using the API (see image below): https://docs.microsoft.com/en-us/rest/api/compute/virtual-machine-images/get?tabs=HTTP. 
+          You can check if an image is deprecated or scheduled for deprecation using the [REST API](/rest/api/compute/virtual-machine-images/get?tabs=HTTP). 
           If the image is deprecated, you will get a **VM Image is Deprecated** response. If the image is scheduled for deprecation, the response would show the date of the scheduled deprecation.
            
           
