@@ -147,7 +147,7 @@ You can also use Azure Resource Manager templates to create an incremental snaps
 
 ## Snapshot completion percentage
 
-Snapshots of Ultra disks and Premium SSD v2 managed disks must complete a background copy from the disk to a snapshot before their snapshot can be used to create a new disk.
+Snapshots of Premium SSD v2 managed disks must complete a background copy from the disk to a snapshot before their snapshot can be used to create a new disk.
 
 You can check if your disk's background copy has completed with either the Azure PowerShell module or the Azure CLI.
 
