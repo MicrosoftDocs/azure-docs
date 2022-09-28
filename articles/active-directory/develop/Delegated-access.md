@@ -67,3 +67,4 @@ The example given is simplified to illustrate delegated authorization. The produ
 
 - [Open connect scopes](scopes-oidc.md)
 - [RBAC roles](custom-rbac-for-developers.md)
+- [Microsoft Graph permissions reference](/graph/permissions-reference)
