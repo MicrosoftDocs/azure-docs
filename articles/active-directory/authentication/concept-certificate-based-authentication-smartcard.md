@@ -34,6 +34,17 @@ Follow these steps to set up Windows SmartCard sign-in:
 
 Users will get a primary refresh token (PRT) from Azure AD after the successful sign-in, and depending on the certificate-based authentication configuration, the PRT will contain the multifactor claim. 
 
+## Expected behavior of Windows sending user UPN to Azure AD CBA
+
+| | Azure AD Join | Hybrid Azure AD join |
+|-|---------------|----------------------|
+|First sign-in | Pull from certificate | Pull from certificate |
+|Subsequent sign-in | Pull from certificate | Cached Azure AD UPN |
+
+> [!NOTE]
+> In all cases a user supplied User Name Hint (x509Hint) will be sent if provided. For cloud only user on Azure AD Joined machine with certificate containing a non-routable value the user must pass the username hint.
+
+
 ## Supported platforms
 
 The Windows SmartCard sign-in works with the latest preview build of Windows 11 and the functionality is available for these earlier Windows versions after you apply update [KB5017383](https://support.microsoft.com/topic/september-20-2022-kb5017383-os-build-22000-1042-preview-62753265-68e9-45d2-adcb-f996bf3ad393):
