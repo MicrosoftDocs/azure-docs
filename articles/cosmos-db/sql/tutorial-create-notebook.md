@@ -32,12 +32,12 @@ In this section, you'll create the Azure Cosmos database, container, and import 
 
 1. Select **New Notebook**.
 
-:::image type="content" source="media/tutorial-create-notebook/new-notebook-option.png" lightbox="media/tutorial-create-notebook/new-notebook-option.png" alt-text="Screenshot of the Data Explorer with the 'New Notebook' option highlighted":::
+    :::image type="content" source="media/tutorial-create-notebook/new-notebook-option.png" lightbox="media/tutorial-create-notebook/new-notebook-option.png" alt-text="Screenshot of the Data Explorer with the 'New Notebook' option highlighted":::
 
 1. In the confirmation dialog that appears, select **Create**.
 
-> [!NOTE]
-> A temporary workspace will be created to enable you to work with Jupyter Notebooks. When the session expires, any notebooks in the workspace will be removed.
+    > [!NOTE]
+    > A temporary workspace will be created to enable you to work with Jupyter Notebooks. When the session expires, any notebooks in the workspace will be removed.
 
 1. Select the kernel you wish to use for the notebook.
 
