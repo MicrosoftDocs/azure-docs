@@ -28,7 +28,7 @@ You can deploy directly to the new compute target with your previous models and 
 ## Supported Scenarios and Differences
 
 ### Auth Mode
-No auth is not supported for managed online endpoint. We'll convert it to key auth if you migrate with below migration scripts.
+No auth is not supported for managed online endpoint. If you use the migration scripts, it will convert it to key auth.
 For key auth, the original keys will be used. Token-based auth is also supported.
 
 ### TLS
