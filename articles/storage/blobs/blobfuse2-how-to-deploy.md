@@ -59,14 +59,14 @@ To install BlobFuse2:
 1. Retrieve the latest Blobfuse2 binary for your distro from GitHub, for example:
 
     ```bash
-    wget https://github.com/Azure/azure-storage-fuse/releases/download/blobfuse2-2.0.0-preview2/blobfuse2-2.0.0-preview.2-ubuntu-20.04-x86-64.deb
+    wget https://github.com/Azure/azure-storage-fuse/releases/download/blobfuse2-2.0.0-preview.3/blobfuse2-2.0.0-preview.3-Ubuntu-22.04-x86-64.deb
     ```
     
 1. Install BlobFuse2. For example, on an Ubuntu distribution run:
 
     ```bash
     sudo apt-get install libfuse3-dev fuse3 
-    sudo apt install blobfuse2-2.0.0-preview.2-ubuntu-20.04-x86-64.deb
+    sudo dpkg -i blobfuse2-2.0.0-preview.3-Ubuntu-22.04-x86-64.deb
     ```
     
 ### Option 2: Build from source
@@ -237,4 +237,5 @@ This table shows how this feature is supported in your account and the impact on
 - [Blobfuse2 Migration Guide (from BlobFuse v1)](https://github.com/Azure/azure-storage-fuse/blob/main/MIGRATION.md)
 - [BlobFuse2 configuration reference (preview)](blobfuse2-configuration.md)
 - [BlobFuse2 command reference (preview)](blobfuse2-commands.md)
+- [Use Health Monitor to gain insights into BlobFuse2 mount activities and resource usage (preview)](blobfuse2-health-monitor.md)
 - [How to troubleshoot BlobFuse2 issues (preview)](blobfuse2-troubleshooting.md)

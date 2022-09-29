@@ -558,6 +558,8 @@ items:
           href: blobfuse2-how-to-deploy.md
         - name: Deploy BlobFuse v1 on Linux
           href: storage-how-to-mount-container-linux.md
+        - name: Health Monitor
+          href: blobfuse2-health-monitor.md
         - name: Troubleshooting
           href: blobfuse2-troubleshooting.md
       - name: Azure Data Factory
@@ -566,8 +568,6 @@ items:
         href: secure-file-transfer-protocol-support-how-to.md
       - name: Mount storage by using NFS
         href: network-file-system-protocol-support-how-to.md
-      - name: Mount storage from Linux using BlobFuse
-        href: storage-how-to-mount-container-linux.md
       - name: Transfer data with the Data Movement library
         href: ../common/storage-use-data-movement-library.md?toc=/azure/storage/blobs/toc.json
     - name: Develop applications

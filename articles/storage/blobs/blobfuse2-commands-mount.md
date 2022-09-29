@@ -49,7 +49,7 @@ The supported subcommands for `blobfuse2 mount` are:
 
 | Command | Description |
 |--|--|
-| [all](blobfuse2-commands-mount-all.md)   | Mounts all azure blob containers in a specified storage account |
+| [all](blobfuse2-commands-mount-all.md)   | Mounts all Azure blob containers in a specified storage account |
 | [list](blobfuse2-commands-mount-list.md) | Lists all BlobFuse2 mount points |
 
 Select one of the command links in the table above to view the documentation for the individual subcommands, including the arguments and flags they support.
@@ -76,7 +76,7 @@ The following flags apply only to command `blobfuse2 mount`:
 | allow-other        | boolean | false                          | Allow other users to access this mount point |
 | attr-cache-timeout | uint32  | 120                            | Attribute cache timeout<br /><sub>(in seconds)</sub> |
 | attr-timeout       | uint32  |                                | Attribute timeout <br /><sub>(in seconds)</sub> |
-| config-file        | string  | ./config.yaml                  | The path for the file where the account credentials are provided Default is config.yaml in current directory. |
+| config-file        | string  | ./config.yaml                  | The path to the configuration file where the account credentials are provided. |
 | container-name     | string  |                                | The name of the container to be mounted |
 | entry-timeout      | uint32  |                                | Entry timeout <br /><sub>(in seconds)</sub> |
 | file-cache-timeout | uint32  | 120                            | File cache timeout <br /><sub>(in seconds)</sub>|
