@@ -10,9 +10,12 @@ ms.custom: references_regions, synapse-cosmos-db, devx-track-azurepowershell
 ---
 
 # Configure and use Azure Synapse Link for Azure Cosmos DB
-[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+[!INCLUDE[appliesto-sql-mongodb-gremlin-api](includes/appliesto-sql-mongodb-gremlin-api.md)]
 
 [Azure Synapse Link for Azure Cosmos DB](synapse-link.md) is a cloud-native hybrid transactional and analytical processing (HTAP) capability that enables you to run near real-time analytics over operational data in Azure Cosmos DB. Synapse Link creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
+
+> [!NOTE]
+> Synapse Link for Gremlin API is now in preview. You can enable Synapse Link in your new or existing Graphs using Azure CLI.
 
 Azure Synapse Link is available for Azure Cosmos DB SQL API or for Azure Cosmos DB API for Mongo DB accounts. Use the following steps to run analytical queries with the Azure Synapse Link for Azure Cosmos DB:
 
@@ -70,6 +73,15 @@ Use `--enable-analytical-storage true` for both **create** or **update** operati
 * [Create a new Azure Cosmos DB account with Synapse Link enabled](/cli/azure/cosmosdb#az-cosmosdb-create-optional-parameters)
 * [Update an existing Azure Cosmos DB account to enable Synapse Link](/cli/azure/cosmosdb#az-cosmosdb-update-optional-parameters)
 
+##### Use Azure CLI to enable Synapse Link for Azure Synapse Link for Gremlin API account. 
+Synapse Link for Gremlin API is now in preview. You can enable Synapse Link in your new or existing graphs using Azure CLI. Use the CLI command below to enable Synapse Link for your Gremlin API account:
+
+```cli
+az cosmosdb create --capabilities EnableGremlin --name MyCosmosDBGremlinDatabaseAccount --resource-group MyResourceGroup --enable-analytical-storage true
+```
+
+For existing Gremlin API accounts, replace `create` with `update`.
+
 #### PowerShell
 
 Use `EnableAnalyticalStorage true` for both **create** or **update** operations. You also need to choose the representation schema type. For SQL API accounts you can use `--analytical-storage-schema-type` with the values `FullFidelity` or `WellDefined`. For MongoDB API accounts, always use `-AnalyticalStorageSchemaType FullFidelity`.
@@ -123,6 +135,16 @@ The following options enable Synapse Link in a container by using Azure CLI by s
 
 * [Create an Azure Cosmos DB MongoDB collection](/cli/azure/cosmosdb/mongodb/collection#az-cosmosdb-mongodb-collection-create-examples)
 * [Create or update an Azure Cosmos DB SQL API container](/cli/azure/cosmosdb/sql/container#az-cosmosdb-sql-container-create)
+
+##### Use Azure CLI to enable Synapse Link for Azure Synapse Link for Gremlin API Graphs
+
+Synapse Link for Gremlin API is now in preview. You can enable Synapse Link in your new or existing Graphs using Azure CLI. Use the CLI command below to enable Synapse Link for your Gremlin API graphs:
+
+```cli
+az cosmosdb gremlin graph create -g MyResourceGroup -a MyCosmosDBGremlinDatabaseAccount -d MyGremlinDB -n MyGraph analytical-storage-ttl –1
+```
+
+For existing graphs, replace `create` with `update`.
 
 #### PowerShell
 
