@@ -15,13 +15,13 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 * Create an Azure Active Directory (Azure AD) workload identity and Kubernetes service account
 * Configure the managed identity for token federation.
 
-This article assumes you have a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts]. If you are not familiar with Azure AD workload identity (preview), see the following [Overview][workload-identity-overview] article.
+This article assumes you have a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts]. If you aren't familiar with Azure AD workload identity (preview), see the following [Overview][workload-identity-overview] article.
 
 - This article requires version 2.40.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-- You have installed the latest version of the `aks-preview` extension, version 0.5.102 or later.
+- You've installed the latest version of the `aks-preview` extension, version 0.5.102 or later.
 
-- The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-identity-concepts].
+- The identity you're using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-identity-concepts].
 
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the
 [az account][az-account] command.
@@ -135,7 +135,7 @@ az identity federated-credential create --name federatedIdentityName --identity-
 
 ## Next steps
 
-In this article, you deployed a Kubernetes cluster and configured it to use a workload identity in preparation for application workloads to authenticate with that credential. Now you are ready to deploy your application and configure it to use the workload identity with the latest version of the [Azure Identity][azure-identity-libraries] client library. If you can't rewrite your application to use the latest client library version, you can [set up your application pod][workload-identity-migration] to authenticate using managed identity with workload identity as a short-term migration solution.
+In this article, you deployed a Kubernetes cluster and configured it to use a workload identity in preparation for application workloads to authenticate with that credential. Now you're ready to deploy your application and configure it to use the workload identity with the latest version of the [Azure Identity][azure-identity-libraries] client library. If you can't rewrite your application to use the latest client library version, you can [set up your application pod][workload-identity-migration] to authenticate using managed identity with workload identity as a short-term migration solution.
 
 <!-- EXTERNAL LINKS -->
 

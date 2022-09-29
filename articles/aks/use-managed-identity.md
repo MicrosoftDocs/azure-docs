@@ -57,7 +57,7 @@ AKS uses several managed identities for built-in services and add-ons.
 | Add-on | Ingress application gateway | Manages required network resources| Contributor role for node resource group | No
 | Add-on | omsagent | Used to send AKS metrics to Azure Monitor | Monitoring Metrics Publisher role | No
 | Add-on | Virtual-Node (ACIConnector) | Manages required network resources for Azure Container Instances (ACI) | Contributor role for node resource group | No
-| OSS project | aad-pod-identity | Enables applications to access cloud resources securely with Microsoft Azure Active Directory (AAD) | NA | Steps to grant permission at https://github.com/Azure/aad-pod-identity#role-assignment.
+| OSS project | aad-pod-identity | Enables applications to access cloud resources securely with Microsoft Azure Active Directory (Azure AD) | NA | Steps to grant permission at https://github.com/Azure/aad-pod-identity#role-assignment.
 
 ## Create an AKS cluster using a managed identity
 
@@ -89,7 +89,7 @@ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 
 ## Update an AKS cluster to use a managed identity
 
-To update an AKS cluster currently using a service principals to work with a system-assigned managed identity, run the following CLI command.
+To update an AKS cluster currently using a service principal to work with a system-assigned managed identity, run the following CLI command.
 
 ```azurecli-interactive
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity
@@ -111,10 +111,10 @@ az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 
 ## Add role assignment for control plane identity
 
-For creating and using your own VNet, attached Azure disk, static IP address, route table or user-assigned kubelet identity where the resources are outside of the worker node resource group, the CLI will add the role assignment automatically. If you are using an ARM template or other method, you need to use the Principal ID of the cluster managed identity to perform a role assignment.
+When creating and using your own VNet, attached Azure disk, static IP address, route table or user-assigned kubelet identity where the resources are outside of the worker node resource group, the Azure CLI adds the role assignment automatically. If you are using an ARM template or other method, you need to use the Principal ID of the cluster managed identity to perform a role assignment.
 
 > [!NOTE]
-> If you are not using the CLI but using your own VNet, attached Azure disk, static IP address, route table or user-assigned kubelet identity which are outside of the worker node resource group, it's recommended to use [user-assigned control plane identity][Bring your own control plane managed identity]. For system-assigned control plane identity, we cannot get the identity ID before creating cluster, which causes delay for role assignment to take effect.
+> If you are not using the Azure CLI but using your own VNet, attached Azure disk, static IP address, route table or user-assigned kubelet identity that are outside of the worker node resource group, it's recommended to use [user-assigned control plane identity][Bring your own control plane managed identity]. For system-assigned control plane identity, we cannot get the identity ID before creating cluster, which delays role assignment from taking effect.
 
 ### Get the Principal ID of control plane identity
 
@@ -154,7 +154,7 @@ Example:
 az role assignment create --assignee 22222222-2222-2222-2222-222222222222 --role "Contributor" --scope "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/custom-resource-group"
 ```
 
-For user-assigned kubelet identity which is outside the default woker node resource group, you need to assign the `Managed Identity Operator`on kubelet identity.
+For user-assigned kubelet identity which is outside the default worker node resource group, you need to assign the `Managed Identity Operator`on kubelet identity.
 
 ```azurecli-interactive
 az role assignment create --assignee <control-plane-identity-principal-id> --role "Managed Identity Operator" --scope "<kubelet-identity-resource-id>"
@@ -464,3 +464,5 @@ Use [Azure Resource Manager templates ][aks-arm-template] to create a managed id
 [managed-identity-resources-overview]: ../active-directory/managed-identities-azure-resources/overview.md
 [Bring your own control plane managed identity]: use-managed-identity.md#bring-your-own-control-plane-managed-identity
 [Use a pre-created kubelet managed identity]: use-managed-identity.md#use-a-pre-created-kubelet-managed-identity
+[workload-identity-overview]: workload-identity-overview.md
+[aad-pod-identity]: use-azure-ad-pod-identity.md

@@ -154,10 +154,10 @@ AppArmor profiles are added using the `apparmor_parser` command.
         command: [ "sh", "-c", "echo 'Hello AppArmor!' && sleep 1h" ]
     ```
 
-1. With the pod deployed, use verify the *hello-apparmor* pod shows as *blocked*:
+1. With the pod deployed, verify the *hello-apparmor* pod shows a *blocked* status by running the following command:
 
     ```
-    $ kubectl get pods
+    kubectl get pods
 
     NAME             READY   STATUS    RESTARTS   AGE
     aks-ssh          1/1     Running   0          4m2s
@@ -272,7 +272,7 @@ To see seccomp in action, create a filter that prevents changing permissions on 
     * The `chmod` command is prevented from running by the seccomp filter, as shown in the following example output:
 
     ```
-    $ kubectl get pods
+    kubectl get pods
 
     NAME                      READY     STATUS    RESTARTS   AGE
     chmod-prevented           0/1       Error     0          7s
@@ -315,8 +315,8 @@ To check the versions that are available for your cluster, use the [Get-AzAksUpg
 
 ```azurepowershell-interactive
 Get-AzAksUpgradeProfile -ResourceGroupName myResourceGroup -ClusterName myAKSCluster |
- Select-Object -Property Name, ControlPlaneProfileKubernetesVersion -ExpandProperty ControlPlaneProfileUpgrade |
- Format-Table -Property *
+Select-Object -Property Name, ControlPlaneProfileKubernetesVersion -ExpandProperty ControlPlaneProfileUpgrade |
+Format-Table -Property *
 ```
 
 You can then upgrade your AKS cluster using the [Set-AzAksCluster][set-azakscluster] command. The upgrade process safely:
@@ -354,7 +354,7 @@ Each evening, Linux nodes in AKS get security patches through their distro updat
 
 ### Node image upgrades
 
-Unattended upgrades apply updates to the Linux node OS, but the image used to create nodes for your cluster remains unchanged. If a new Linux node is added to your cluster, the original image is used to create the node. This new node will receive all the security and kernel updates available during the automatic check every night but will remain unpatched until all checks and restarts are complete. You can use node image upgrade to check for and update node images used by your cluster. For more details on node image upgrade, see [Azure Kubernetes Service (AKS) node image upgrade][node-image-upgrade].
+Unattended upgrades apply updates to the Linux node OS, but the image used to create nodes for your cluster remains unchanged. If a new Linux node is added to your cluster, the original image is used to create the node. This new node will receive all the security and kernel updates available during the automatic check every night but will remain unpatched until all checks and restarts are complete. You can use node image upgrade to check for and update node images used by your cluster. For more information on node image upgrade, see [Azure Kubernetes Service (AKS) node image upgrade][node-image-upgrade].
 
 ## Process Windows Server node updates
 

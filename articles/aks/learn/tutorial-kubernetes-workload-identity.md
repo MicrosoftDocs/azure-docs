@@ -26,7 +26,7 @@ This tutorial assumes a basic understanding of Kubernetes concepts. For more inf
 
 - You have installed the latest version of the `aks-preview` extension, version 0.5.102 or later.
 
-- The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-identity-concepts].
+- The identity you are using to create your cluster has the appropriate minimum permissions. For more information on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-identity-concepts].
 
 - If you have multiple Azure subscriptions, select the appropriate subscription ID in which the resources should be billed using the
 [az account][az-account] command.
@@ -189,7 +189,7 @@ metadata:
 EOF
 ```
 
-The following output resemble successful creation of the identity:
+The following output resembles successful creation of the identity:
 
 ```output
 Serviceaccount/workload-identity-sa created

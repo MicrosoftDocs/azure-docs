@@ -297,6 +297,9 @@ az identity delete -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME}
 
 For more information on managed identities, see [Managed identities for Azure resources][az-managed-identities].
 
+<!-- LINKS - internal -->
+[workload-identity-overview]: workload-identity-overview.md
+
 <!-- LINKS - external -->
 [az-aks-create]: /cli/azure/aks#az_aks_create
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials

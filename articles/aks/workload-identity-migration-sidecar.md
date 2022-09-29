@@ -8,7 +8,7 @@ ms.date: 09/29/2022
 
 # Modernize application authentication with workload identity sidecar
 
-If your Kubernetes application running on Azure Kubernetes Service (AKS) is using a managed identity to securely access resources in Azure, to ensure a smooth transition using the new Azure Identity SDK and minimize downtime, you can set up a sidecar. This sidecar intercepts Instance Metadata Service (IMDS) traffic and routes them to Azure Active Directory (Azure AD) using OpenID Connect (OIDC). This enables you to migrate from using managed identity with pod identity to workload identity, until you can migrate your applications to use the latest version of Azure Identity SDK.
+If your Kubernetes application runs on Azure Kubernetes Service (AKS) and is using a managed identity to securely access resources in Azure, you can set up a migration sidecar ensuring a smooth transition using the new Azure Identity SDK and minimize downtime. This sidecar intercepts Instance Metadata Service (IMDS) traffic and routes them to Azure Active Directory (Azure AD) using OpenID Connect (OIDC). This enables you to migrate from using managed identity with pod identity to workload identity, until you can migrate your applications to use the latest version of Azure Identity SDK.
 
 This article shows you how to set up your application pod to authenticate using managed identity with workload identity as a short-term migration solution.
 
@@ -20,7 +20,7 @@ This article shows you how to set up your application pod to authenticate using 
 
 ## Create a managed identity
 
-If you don't have a managed identity already created and assigned to your pod, perform the following steps to create and grant the necessary permissions to storage, Key Vault, or whatever resources your application needs to authenticate with in Azure.
+If you don't have a managed identity created and assigned to your pod, perform the following steps to create and grant the necessary permissions to storage, Key Vault, or whatever resources your application needs to authenticate with in Azure.
 
 1. Use the Azure CLI [az account set][az-account-set] command to set a specific subscription to be the current active subscription. Then use the [az identity create][az-identity-create] command to create a managed identity.
 
@@ -46,7 +46,7 @@ If you don't have a managed identity already created and assigned to your pod, p
 
 ## Create Kubernetes service account
 
-If you don't already have a dedicated Kubernetes service account created for this application(s), perform the following steps to create and then annotate it with the client ID of the managed identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replace the values for the cluster name and the resource group name.
+If you don't have a dedicated Kubernetes service account created for this application, perform the following steps to create and then annotate it with the client ID of the managed identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replace the values for the cluster name and the resource group name.
 
 ```azurecli
 az aks get-credentials -n myAKSCluster -g "${RESOURCE_GROUP}"
@@ -68,7 +68,7 @@ metadata:
 EOF
 ```
 
-The following output resemble successful creation of the identity:
+The following output resembles successful creation of the identity:
 
 ```output
 Serviceaccount/workload-identity-sa created
@@ -94,7 +94,7 @@ To update or deploy the workload, add these pod annotations only if you want to 
 * `azure.workload.identity/inject-proxy-sidecar` - value is `true` or `false`
 * `azure.workload.identity/proxy-sidecar-port` - value is the desired port for the proxy sidecar. The default value is `8080`.
 
-When a pod with the above annotations are created, the Azure Workload Identity mutating webhook will automatically inject the init-container and proxy sidecar to the pod spec.
+When a pod with the above annotations is created, the Azure Workload Identity mutating webhook automatically injects the init-container and proxy sidecar to the pod spec.
 
 The webhook that is already running adds the following YAML snippets to the pod deployment. The following is an example of the mutated pod spec:
 

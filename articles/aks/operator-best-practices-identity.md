@@ -40,7 +40,7 @@ With Azure AD-integrated clusters in AKS, you create *Roles* or *ClusterRoles* d
 1. The developer performs an action using the Azure AD token, such as `kubectl create pod`.
 1. Kubernetes validates the token with Azure AD and fetches the developer's group memberships.
 1. Kubernetes RBAC and cluster policies are applied.
-1. Developer's request is successful based on previous validation of Azure AD group membership and Kubernetes RBAC and policies.
+1. The developer's request is successful based on previous validation of Azure AD group membership and Kubernetes RBAC and policies.
 
 To create an AKS cluster that uses Azure AD, see [Integrate Azure Active Directory with AKS][aks-aad].
 
@@ -96,7 +96,7 @@ To learn how to use Azure AD groups to control access to Kubernetes resources us
 
 There are two levels of access needed to fully operate an AKS cluster:
 
-1. Access the AKS resource on your Azure subscription.
+* Access the AKS resource on your Azure subscription.
 
     This access level allows you to:
 
@@ -105,7 +105,7 @@ There are two levels of access needed to fully operate an AKS cluster:
 
     To learn how to control access to the AKS resource and the `kubeconfig`, see [Limit access to cluster configuration file](control-kubeconfig-access.md).
 
-2. Access to the Kubernetes API.
+* Access to the Kubernetes API.
 
     This access level is controlled either by:
 
@@ -136,21 +136,21 @@ With pod-managed identities (preview) for Azure resources, you automatically req
 
 Azure Active Directory pod-managed identity (preview) supports two modes of operation:
 
-1. **Standard** mode: In this mode, the following 2 components are deployed to the AKS cluster:
+* **Standard** mode: In this mode, the following 2 components are deployed to the AKS cluster:
 
     * [Managed Identity Controller(MIC)](https://azure.github.io/aad-pod-identity/docs/concepts/mic/): A Kubernetes controller that watches for changes to pods, [AzureIdentity](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentity/) and [AzureIdentityBinding](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentitybinding/) through the Kubernetes API Server. When it detects a relevant change, the MIC adds or deletes [AzureAssignedIdentity](https://azure.github.io/aad-pod-identity/docs/concepts/azureassignedidentity/) as needed. Specifically, when a pod is scheduled, the MIC assigns the managed identity on Azure to the underlying virtual machine scale set  used by the node pool during the creation phase. When all pods using the identity are deleted, it removes the identity from the virtual machine scale set of the node pool, unless the same managed identity is used by other pods. The MIC takes similar actions when AzureIdentity or AzureIdentityBinding are created or deleted.
 
     * [Node Managed Identity (NMI)](https://azure.github.io/aad-pod-identity/docs/concepts/nmi/): is a pod that runs as a DaemonSet on each node in the AKS cluster. NMI intercepts security token requests to the [Azure Instance Metadata Service](../virtual-machines/linux/instance-metadata-service.md?tabs=linux) on each node. It redirects requests to itself and validates if the pod has access to the identity it's requesting a token for, and fetch the token from the Azure Active Directory tenant on behalf of the application.
 
-2. **Managed** mode: In this mode, there's only NMI. The identity needs to be manually assigned and managed by the user. For more information, see [Pod Identity in Managed Mode](https://azure.github.io/aad-pod-identity/docs/configure/pod_identity_in_managed_mode/). In this mode, when you use the [az aks pod-identity add](/cli/azure/aks/pod-identity#az-aks-pod-identity-add) command to add a pod identity to an Azure Kubernetes Service (AKS) cluster, it creates the [AzureIdentity](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentity/) and [AzureIdentityBinding](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentitybinding/) in the namespace specified by the `--namespace` parameter, while the AKS resource provider assigns the managed identity specified by the `--identity-resource-id` parameter to virtual machine scale set of each node pool in the AKS cluster.
+* **Managed** mode: In this mode, there's only NMI. The identity needs to be manually assigned and managed by the user. For more information, see [Pod Identity in Managed Mode](https://azure.github.io/aad-pod-identity/docs/configure/pod_identity_in_managed_mode/). In this mode, when you use the [az aks pod-identity add](/cli/azure/aks/pod-identity#az-aks-pod-identity-add) command to add a pod identity to an Azure Kubernetes Service (AKS) cluster, it creates the [AzureIdentity](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentity/) and [AzureIdentityBinding](https://azure.github.io/aad-pod-identity/docs/concepts/azureidentitybinding/) in the namespace specified by the `--namespace` parameter, while the AKS resource provider assigns the managed identity specified by the `--identity-resource-id` parameter to virtual machine scale set of each node pool in the AKS cluster.
 
 > [!NOTE]
 > If you instead decide to install the Azure Active Directory pod-managed identity using the [AKS cluster add-on](./use-azure-ad-pod-identity.md), setup uses the `managed` mode.
 
 The `managed` mode provides the following advantages over the `standard`:
 
-1. Identity assignment on the virtual machine scale set of a node pool can take up 40-60s. With cronjobs or applications that require access to the identity and can't tolerate the assignment delay, it's best to use `managed` mode as the identity is pre-assigned to the virtual machine scale set of the node pool. Either manually or using the [az aks pod-identity add](/cli/azure/aks/pod-identity#az-aks-pod-identity-add) command.
-2. In `standard` mode, MIC requires write permissions on the virtual machine scale set used by the AKS cluster and `Managed Identity Operator` permission on the user-assigned managed identities. While running in `managed mode`, since there's no MIC, the role assignments aren't required.
+* Identity assignment on the virtual machine scale set of a node pool can take up 40-60s. With cronjobs or applications that require access to the identity and can't tolerate the assignment delay, it's best to use `managed` mode as the identity is pre-assigned to the virtual machine scale set of the node pool. Either manually or using the [az aks pod-identity add](/cli/azure/aks/pod-identity#az-aks-pod-identity-add) command.
+* In `standard` mode, MIC requires write permissions on the virtual machine scale set used by the AKS cluster and `Managed Identity Operator` permission on the user-assigned managed identities. When running in `managed mode`, since there's no MIC, the role assignments aren't required.
 
 Instead of manually defining credentials for pods, pod-managed identities request an access token in real time, using it to access only their assigned resources. In AKS, there are two components that handle the operations to allow pods to use managed identities:
 

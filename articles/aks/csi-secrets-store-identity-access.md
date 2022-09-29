@@ -20,7 +20,7 @@ An Azure AD workload identity (preview) is an identity used by an application ru
 > [!NOTE]
 > This authentication method replaces pod-managed identity (preview).
 
-### Prerequsites
+### Prerequisites
 
 - You have installed the latest version of the `aks-preview` extension, version 0.5.102 or later. To learn more, see [How to install extensions][how-to-install-extensions].
 
