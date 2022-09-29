@@ -184,5 +184,5 @@ You can verify that custom metrics is enabled by opening [metrics explorer](../e
 
 ## Next steps
 
-- [Create alerts based on custom metrics collected for the cluster](container-insights-metric-alerts).
+- [Create alerts based on custom metrics collected for the cluster](container-insights-metric-alerts.md).
 - [Collect Prometheus metrics from your AKS cluster](container-insights-prometheus.md)

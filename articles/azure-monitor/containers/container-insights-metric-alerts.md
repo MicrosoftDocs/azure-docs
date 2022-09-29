@@ -18,7 +18,7 @@ There are two types of metric rules used by Container insights based on either P
 | Alert rule type | Description |
 |:---|:---|
 | [Prometheus rules](#prometheus-alert-rules) | Alert rules that use metrics stored in [Azure Monitor managed service for Prometheus (preview)](../essentials/prometheus-metrics-overview.md). There are two sets of Prometheus alert rules that you can choose to enable.<br><br>- *Community alerts* are hand-picked alert rules from the Prometheus community. Use this set of alert rules if you don't have any other alert rules enabled.<br>-*Recommended alerts* are the equivalent of the custom metric alert rules. Use this set if you're migrating from custom metrics to Prometheus metrics and want to retain identical functionality.
-| [Custom metric rules](#custom-metrics-alert-rules) | Alert rules that use [custom metrics collected for your Kubernetes cluster](container-insights-custom-metrics.md). Use these alert rules if you're not ready to move to Prometheus metrics yet or if you want to manage your alert rules in the Azure portal. |
+| [Metric rules](#metrics-alert-rules) | Alert rules that use [custom metrics collected for your Kubernetes cluster](container-insights-custom-metrics.md). Use these alert rules if you're not ready to move to Prometheus metrics yet or if you want to manage your alert rules in the Azure portal. |
 
 
 ## Prometheus alert rules
@@ -91,11 +91,11 @@ Perform the following steps to configure your ConfigMap configuration file to ov
 The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods; they don't all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following example and includes the result: `configmap "container-azm-ms-agentconfig" created`.
 
 ## Metrics alert rules
-[Metric alert rules](../alerts/alerts-types.md#metric-alerts) use [custom metric data from your Kubernetes cluster](container-insights-custom-metrics). 
+[Metric alert rules](../alerts/alerts-types.md#metric-alerts) use [custom metric data from your Kubernetes cluster](container-insights-custom-metrics.md). 
 
 
 ### Prerequisites
-  - You may need to enable collection of custom metrics for your cluster. See [Metrics collected by Container insights](container-insights-update-metrics.md).
+  - You may need to enable collection of custom metrics for your cluster. See [Metrics collected by Container insights](container-insights-custom-metrics.md).
   - See the supported regions for custom metrics at [Supported regions](../essentials/metrics-custom-overview.md#supported-regions).
 
 
