@@ -23,7 +23,7 @@ This quickstart shows you how to use C# code to connect to a cluster, and then u
 
 - An Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free).
 - [Visual Studio](https://www.visualstudio.com/downloads) with the .NET desktop development workload installed. Or [install the .NET SDK](https://dotnet.microsoft.com/download) for your Windows, Ubuntu Linux, or macOS platform.
-- In Visual Studio, the [Npgsql](https://www.nuget.org/packages/Npgsql) NuGet package installed.
+- In Visual Studio, a C# console project with the [Npgsql](https://www.nuget.org/packages/Npgsql) NuGet package installed.
 - An Azure Cosmos DB for PostgreSQL cluster. To create a cluster, see [Create a cluster in the Azure portal](quickstart-create-portal.md).
   
 The code samples in this article use your cluster name and password. You can see your cluster name at the top of your cluster page in the Azure portal.
@@ -32,7 +32,7 @@ The code samples in this article use your cluster name and password. You can see
 
 ## Connect, create a table, and insert data
 
-In Visual Studio, start a C# console app, and use the following code to connect to your cluster and load data using CREATE TABLE and INSERT INTO SQL statements. The code uses these `NpgsqlCommand` class methods:
+In Visual Studio, use the following code to connect to your cluster and load data using CREATE TABLE and INSERT INTO SQL statements. The code uses these `NpgsqlCommand` class methods:
 
 * [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to Azure Cosmos DB for PostgreSQL
 * [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) to set the CommandText property

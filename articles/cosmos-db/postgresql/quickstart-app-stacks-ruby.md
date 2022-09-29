@@ -26,9 +26,9 @@ This quickstart shows you how to use Ruby code to connect to a cluster, and then
 - [Ruby pg](https://rubygems.org/gems/pg), the PostgreSQL module for Ruby.
 - An Azure Cosmos DB for PostgreSQL cluster. To create a cluster, see [Create a cluster in the Azure portal](quickstart-create-portal.md).
   
-  The code samples in this article use your cluster name and password. In the Azure portal, your cluster name appears at the top of your cluster page.
-  
-  :::image type="content" source="media/howto-app-stacks/cluster-name.png" alt-text="Screenshot of the cluster name in the Azure portal.":::
+The code samples in this article use your cluster name and password. In the Azure portal, your cluster name appears at the top of your cluster page.
+
+:::image type="content" source="media/howto-app-stacks/cluster-name.png" alt-text="Screenshot of the cluster name in the Azure portal.":::
 
 ## Connect, create a table, and insert data
 
@@ -81,7 +81,7 @@ require 'pg'
 begin
     # NOTE: Replace <cluster> and <password> in the connection string.
     connection = PG::Connection.new("host=c.<cluster>.postgres.database.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
-    puts 'Successfully created connection to database'
+    puts 'Successfully created connection to database.'
 
     # Super power of distributed tables.
     connection.exec("select create_distributed_table('pharmacy','pharmacy_id');") 
@@ -103,7 +103,7 @@ require 'pg'
 begin
     # NOTE: Replace <cluster> and <password> in the connection string.
     connection = PG::Connection.new("host=c.<cluster>.postgres.database.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
-    puts 'Successfully created connection to database'
+    puts 'Successfully created connection to database.'
 
     resultSet = connection.exec('SELECT * from pharmacy')
     resultSet.each do |row|
@@ -125,7 +125,7 @@ require 'pg'
 begin
     # NOTE: Replace <cluster> and <password> in the connection string.
     connection = PG::Connection.new("host=c.<cluster>.postgres.database.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
-    puts 'Successfully created connection to database'
+    puts 'Successfully created connection to database.'
 
     # Modify some data in table.
     connection.exec('UPDATE pharmacy SET city = %s WHERE pharmacy_id = %d;' % ['\'guntur\'',100])
@@ -146,7 +146,7 @@ require 'pg'
 begin
     # NOTE: Replace <cluster> and <password> in the connection string.
     connection = PG::Connection.new("host=c.<cluster>.postgres.database.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
-    puts 'Successfully created connection to database'
+    puts 'Successfully created connection to database.'
 
     # Delete some data in table.
     connection.exec('DELETE FROM pharmacy WHERE city = %s;' % ['\'guntur\''])
@@ -173,14 +173,14 @@ begin
 
     # NOTE: Replace <cluster> and <password> in the connection string.
     connection = PG::Connection.new("host=c.<cluster>.postgres.database.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
-    puts 'Successfully created connection to database'
+    puts 'Successfully created connection to database.'
 
     # Copy the data from Csv to table.
     result = connection.copy_data "COPY pharmacy FROM STDIN with csv" do
         File.open(filename , 'r').each do |line|
             connection.put_copy_data line
         end
-    puts 'Copied csv data successfully .'
+    puts 'Copied csv data successfully.'
     end      
 rescue PG::Error => e
     puts e.message
@@ -198,13 +198,13 @@ require 'pg'
 begin
     # NOTE: Replace <cluster> and <password> in the connection string.
     connection = PG::Connection.new("host=c.<cluster>.postgres.database.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
-    puts 'Successfully created connection to database'
+    puts 'Successfully created connection to database.'
 
     enco = PG::TextEncoder::CopyRow.new
     connection.copy_data "COPY pharmacy FROM STDIN", enco do
         connection.put_copy_data [5000,'Target','Sunnyvale','California','94001']
         connection.put_copy_data [5001, 'CVS','San Francisco','California','94002']
-        puts 'Copied inmemory data successfully .'
+        puts 'Copied in-memory data successfully.'
     end
 rescue PG::Error => e
     puts e.message
