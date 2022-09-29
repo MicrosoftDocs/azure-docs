@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: overview
 recommendations: false
-ms.date: 09/20/2022
+ms.date: 09/28/2022
 ---
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD026 -->
@@ -17,16 +17,15 @@ ms.date: 09/20/2022
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-This article introduces you to Azure Cosmos DB for PostgreSQL.
-
 ## The superpower of distributed tables
 
-Azure Cosmos DB for PostgreSQL is PostgreSQL extended with the superpower of *distributed
-tables*. This superpower enables you to build highly scalable relational apps.
-You can start building apps on a single node cluster, the same way you
-would with PostgreSQL. As your app's scalability and performance requirements
-grow, you can seamlessly scale to multiple nodes by transparently distributing
-your tables.
+Azure Cosmos DB for PostgreSQL is a managed service for PostgreSQL extended
+with the [Citus open source](https://github.com/citusdata/citus) superpower of
+*distributed tables*. This superpower enables you to build highly scalable
+relational apps.  You can start building apps on a single node cluster, the
+same way you would with PostgreSQL. As your app's scalability and performance
+requirements grow, you can seamlessly scale to multiple nodes by transparently
+distributing your tables.
 
 Real-world customer applications built on Azure Cosmos DB for PostgreSQL include software-as-a-service (SaaS) apps, real-time
 operational analytics apps, and high throughput transactional apps. These apps
