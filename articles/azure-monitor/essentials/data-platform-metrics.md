@@ -25,11 +25,11 @@ There are multiple types of metrics supported by Azure Monitor Metrics:
 - Native metrics use tools in Azure Monitor for analysis and alerting.
   - Platform metrics are collected from Azure resources. They require no configuration and have no cost.
   - Custom metrics are collected from different sources that you configure including applications and agents running on virtual machines.
-- Prometheus metrics (preview) are collected from Kubernetes clusters including Azure Kubernets service (AKS) and use industry standard tools for analyzing and alerting such as PromQL and Grafana.
+- Prometheus metrics (preview) are collected from Kubernetes clusters including Azure Kubernetes service (AKS) and use industry standard tools for analyzing and alerting such as PromQL and Grafana.
 
 ![Diagram that shows sources and uses of metrics.](media/data-platform-metrics/metrics-overview.png)
 
-The differences between each of the metrics is summarized in the following table.
+The differences between each of the metrics are summarized in the following table.
 
 | Category | Native platform metrics | Native custom metrics | Prometheus metrics |
 |:---|:---|:---|:---|
@@ -39,7 +39,7 @@ The differences between each of the metrics is summarized in the following table
 | Cost | No | Yes | Yes (free during preview) |
 | Aggregation | pre-aggregated | pre-aggregated | raw data |
 | Analyze | [Metrics Explorer](metrics-charts.md) | [Metrics Explorer](metrics-charts.md) | PromQL<br>Grafana dashboards |
-| Alert  | [metrics alert rule](../alerts/tutorial-metric-alert.md) | [metrics alert rule](../alerts/tutorial-metric-alert.md) | [Prometheus alert rule](../essentials/prometheus-metrics-rule-groups.md) |
+| Alert  | [metrics alert rule](../alerts/tutorial-metric-alert.md) | [metrics alert rule](../alerts/tutorial-metric-alert.md) | [Prometheus alert rule](../essentials/prometheus-rule-groups.md) |
 | Visualize | [Workbooks](../visualize/workbooks-overview.md)<br>[Azure dashboards](../app/tutorial-app-dashboards.md)<br>[Grafana](../visualize/grafana-plugin.md) | [Workbooks](../visualize/workbooks-overview.md)<br>[Azure dashboards](../app/tutorial-app-dashboards.md)<br>[Grafana](../visualize/grafana-plugin.md) | [Grafana](../../managed-grafana/overview.md) |
 | Retrieve | [Azure CLI](/cli/azure/monitor/metrics)<br>[Azure PowerShell cmdlets](/powershell/module/az.monitor)<br>[REST API](./rest-api-walkthrough.md) or client library<br>[.NET](/dotnet/api/overview/azure/Monitor.Query-readme)<br>[Java](/java/api/overview/azure/monitor-query-readme)<br>[JavaScript](/javascript/api/overview/azure/monitor-query-readme)<br>[Python](/python/api/overview/azure/monitor-query-readme) | [Azure CLI](/cli/azure/monitor/metrics)<br>[Azure PowerShell cmdlets](/powershell/module/az.monitor)<br>[REST API](./rest-api-walkthrough.md) or client library<br>[.NET](/dotnet/api/overview/azure/Monitor.Query-readme)<br>[Java](/java/api/overview/azure/monitor-query-readme)<br>[JavaScript](/javascript/api/overview/azure/monitor-query-readme)<br>[Python](/python/api/overview/azure/monitor-query-readme) | [Grafana](../../managed-grafana/overview.md) |
 
