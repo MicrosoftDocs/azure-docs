@@ -71,7 +71,7 @@ You can find our examples on [azureml-examples](https://github.com/Azure/azureml
 ### With our [migration tool](https://aka.ms/moeonboard) (preview)
 Here are the steps to use these scripts. **The new endpoint will be created under the same workspace**.
 
-1. Linux/WSL to run the bash script.
+1. Use a bash shell to run the scripts. For example, a terminal session on Linux or the Windows Subsystem for Linux (WSL).
 2. Install [Python SDK V1](/python/api/overview/azure/ml/install) to run the python script.
 3. Install [Azure CLI](/cli/azure/install-azure-cli).
 4. Clone our repository to your local env, git clone https://github.com/Azure/azureml-examples.
