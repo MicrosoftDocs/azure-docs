@@ -106,7 +106,7 @@ To directly upload your data:
 1.  Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
 
 
-## <a name="incremental-refresh"> </a> Configure incremental refresh
+## Configure incremental refresh
 
 [!INCLUDE [refresh](../../includes/machine-learning-data-labeling-refresh.md)]
 
