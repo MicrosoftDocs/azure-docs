@@ -127,7 +127,7 @@ This procedure is not supported for users with **Security analyst** or **Read-on
 
 This procedure describes how to the *cyberx* or *support* users can recover another user's password on an OT network sensor.
 
-This procedure is not supported for users with **Security analyst** or **Read-only** roles. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md). <!--is it supported for admin users?-->
+This procedure is not supported for users with **Admin*, **Security analyst** or **Read-only** roles. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md). <!--is it supported for admin users?-->
 
 **To recover a sensor user's password**:
 
