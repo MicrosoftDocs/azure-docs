@@ -1,11 +1,11 @@
 ---
 title: How to configure event listener
 description: Guidance about event listener concepts and integration introduction when develop with Azure Web PubSub service.
-author: ZiTongYang
+author: Y-Sindo
 ms.author: zityang
 ms.service: azure-web-pubsub
 ms.topic: how-to
-ms.date: 09/19/2022
+ms.date: 09/28/2022
 ---
 
 # Event listener in Azure Web PubSub service
@@ -21,23 +21,25 @@ You can configure multiple event listeners. The order of the event listeners doe
 
 :::image type="content" source="media/howto-develop-eventlistener/event-listener-data-flow.svg" alt-text="Event listener data flow diagram sample":::
 
-Event listeners are transparent to your clients. They don't respond to the events nor interfere the lifetime of your clients as the [event handlers](.\concept-service-internals.md#event-handler) do. Even though an event fails to be delivered to an expected event listener, your clients won't get disconnected.
+You can combine an [event handler](.\concept-service-internals.md#event-handler) and event listeners for the same event. In this case, both event handler and event listeners will receive the event.
+
+The service uses Azure Active Directory (Azure AD) authentication with managed identity to connect to Event Hubs. Therefore, you should enable the managed identity of the service and make sure it has proper permissions to connect to Event Hubs. You can grant the built-in [Azure Event Hubs Data sender](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) role to the managed identity so that it has enough permissions.
 
 To configure an Event Hubs event listener, you need to:
 
-1.  [Add a managed identity to your service](#add-a-managed-identity-to-your-service)
-2.  [Grant the `Azure Event Hubs Data sender` role to your service](#grant-the-azure-event-hubs-data-sender-role-to-your-service)
+1.  [Add a managed identity to your Web PubSub service](#add-a-managed-identity-to-your-web-pubsub-service)
+2.  [Grant the managed identity an `Azure Event Hubs Data sender` role](#grant-the-managed-identity-an-azure-event-hubs-data-sender-role)
 3.  [Add an event listener rule to your service settings](#add-an-event-listener-rule-to-your-service-settings)
 
 ## Configure an event listener
 
-### Add a managed identity to your service
+### Add a managed identity to your Web PubSub service
 
-The service uses Azure Active Directory (Azure AD) authentication with managed identity to connect to Event Hubs, therefore, you should first enable the managed identity of the service. Find your Azure Web PubSub service from **Azure portal**. Navigate to **Identity**. To add a system-assigned identity, on the **System assigned** tab, switch **Status** to **On**. Select **Save**. For more information about managed identities, see [Managed identities in Azure Web PubSub](./howto-use-managed-identity.md).
+Find your Azure Web PubSub service from **Azure portal**. Navigate to **Identity**. To add a system-assigned identity, on the **System assigned** tab, switch **Status** to **On**. Select **Save**. For more information about managed identities, see [Managed identities in Azure Web PubSub](./howto-use-managed-identity.md).
 
 :::image type="content" source="media/howto-use-managed-identity/system-identity-portal.png" alt-text="Screenshot of adding a system-assigned identity in the portal":::
 
-### Grant the `Azure Event Hubs Data sender` role to your service
+### Grant the managed identity an `Azure Event Hubs Data sender` role
 
 1. Find your Azure Event Hubs resource in **Azure portal**. You could choose to grant the role in the Event Hubs namespace level or entity level. The following steps choose the namespace level.
 
@@ -51,8 +53,6 @@ The service uses Azure Active Directory (Azure AD) authentication with managed i
    :::image type="content" source="media/howto-develop-eventlistener/event-hub-select-identity.png" alt-text="Screenshot of selecting your Web PubSub service identity":::
 
 ### Add an event listener rule to your service settings
-
-Currently only Azure portal supports configuring event listener. The support of Azure CLI and Azure PowerShell is still under development.
 
 1. Find your  service from **Azure portal**. Navigate to **Settings**. Then select **Add** to configure your event listener. For an existing hub configuration, select **...** on right side will navigate to the same editing page.
    :::image type="content" source="media/howto-develop-eventlistener/web-pubsub-settings.png" alt-text="Screenshot of Web PubSub settings":::
@@ -70,8 +70,4 @@ In this article, you learned how event listeners work and how to configure an ev
 
 > [!div class="nextstepaction"]
 > [Specification: CloudEvents AMQP extension for Azure Web PubSub](./reference-cloud-events-amqp.md)
-
-> [!div class="nextstepaction"]
-> [Azure Event Hubs documentation](../event-hubs/event-hubs-about.md)
-
 <!--TODO: Add demo-->

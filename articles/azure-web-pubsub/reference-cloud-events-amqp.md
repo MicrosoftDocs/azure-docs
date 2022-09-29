@@ -1,7 +1,7 @@
 ---
 title: Reference - CloudEvents AMQP extension for Azure Web PubSub
 description: The reference describes CloudEvents AMQP extension defined for Azure Web PubSub service
-author: ZitongYang
+author: Y-Sindo
 ms.author: zityang
 ms.service: azure-web-pubsub
 ms.topic: conceptual
@@ -32,7 +32,7 @@ This extension defines attributes used by Web PubSub for every event it produces
 | `time`  | The time when the service send the event, in the format "yyyy-MM-ddTHH:mm:ssZ"  | 2021-01-01T00:00:00Z  |
 | `userid`\*  | The ID of user  | user1  |
 | `subprotocol`\*  | The subprotocol name  | json.webpubsub.azure.v1  |
-| `connectionstate`\* | Defines the state for the connection  | anystring  |
+| `connectionstate`\* | Defines the state for the connection. You can reset the value in the response header of event handlers. See [Web PubSub CloudEvents attributes](./reference-cloud-events.md#attributes) for more information.  | anystring  |
 | `type`  | The event type  | azure.webpubsub.sys.connect  |
 | `datacontenttype`  | Content type of message body  | application/json  |
 

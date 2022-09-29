@@ -57,17 +57,17 @@ A simple WebSocket client follows a client<->server architecture, as the below s
 
 
 1. When the client starts a WebSocket handshake, the service tries to invoke the `connect` event handler (the server) for WebSocket handshake. Developers can use this handler to handle the WebSocket handshake, determine the subprotocol to use, authenticate the client, and join the client to groups.
-1. When the client is successfully connected, the service invokes a `connected` event handler. It works as a notification and doesn't block the client from sending messages. Developers can use this handler to do data storage and can respond with messages to the client.
-1. When the client sends messages, the service triggers the `message` event to the event handler (the server) to handle the messages sent. This event is a general event containing the messages sent in a WebSocket frame. Your code needs to dispatch the messages inside this event handler.
-1. When the client disconnects, the service tries to trigger the `disconnected` event to the event handler (the server) once it detects the disconnect.
+1. When the client is successfully connected, the service invokes a `connected` event handler. It works as a notification and doesn't block the client from sending messages. Developers can use this handler to do data storage and can respond with messages to the client. The service also pushes a `connected` event to all concerning event listeners, if any.
+2. When the client sends messages, the service triggers the `message` event to the event handler (the server) to handle the messages sent. This event is a general event containing the messages sent in a WebSocket frame. Your code needs to dispatch the messages inside this event handler. The service also pushes a `message` event to all concerning event listeners, if any.
+3. When the client disconnects, the service tries to trigger the `disconnected` event to the event handler (the server) once it detects the disconnect. The service also pushes a `disconnect` event to all concerning event listeners, if any.
 
 The events fall into two categories:
 * Synchronous events (blocking)
     Synchronous events block the client workflow. When such an event trigger fails, the service drops the client connection.
     * `connect`
-    * `message`: When the service receives a message event that no event handler nor event listener care about, it also drops the client connection.
+    * `message`: If subprotocol is not used and the service can't find any [event handler](#event-handler) or event listener to deliver the event, the service also drops the client connection.
 * Asynchronous events (non-blocking)
-    Asynchronous events don't block the client workflow, it acts as some notification to the upstream event handler. When such an event trigger fails, the service logs the error detail.
+    Asynchronous events don't block the client workflow, it acts as some notification to the upstream event handler or event listener. When such an event trigger fails, the service logs the error detail.
     * `connected`
     * `disconnected`
 
@@ -118,7 +118,7 @@ A PubSub WebSocket client can:
 
 [PubSub WebSocket Subprotocol](./reference-json-webpubsub-subprotocol.md) contains the details of the `json.webpubsub.azure.v1` subprotocol.
 
-You may have noticed that for a [simple WebSocket client](#the-simple-websocket-client), the *server* is a **must have** role to handle the events from clients. A simple WebSocket connection always triggers a `message` event when it sends messages, and always relies on the server-side to process messages and do other operations. With the help of the `json.webpubsub.azure.v1` subprotocol, an authorized client can join a group and publish messages to a group directly. It can also route messages to different upstream (event handlers) by customizing the *event* the message belongs.
+You may have noticed that for a [simple WebSocket client](#the-simple-websocket-client), the *server* or *event listener* is a **must have** role to receive the `message` events from clients. A simple WebSocket connection always triggers a `message` event when it sends messages, and always relies on the server-side or event listeners to process messages and do other operations. With the help of the `json.webpubsub.azure.v1` subprotocol, an authorized client can join a group and publish messages to a group directly. It can also route messages to different event handlers / event listeners by customizing the *event* the message belongs.
 
 #### Scenarios:
 Such clients can be used when clients want to talk to each other. Messages are sent from `client2` to the service and the service delivers the message directly to `client1` if the clients are authorized to do so.
