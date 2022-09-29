@@ -19,7 +19,7 @@ Use this article to learn which natural languages are supported by document and 
 
 # [Document summarization](#tab/document-summarization)
 
-## Languages supported by extractive document summarization 
+## Languages supported by extractive document summarization
 
 | Language              | Language code |      Notes          |
 |-----------------------|---------------|---------------------|
@@ -34,7 +34,7 @@ Use this article to learn which natural languages are supported by document and 
 | Portuguese (Brazil)   | `pt-BR`       |                     |
 | Portuguese (Portugal) | `pt-PT`       |  `pt` also accepted |
 
-## Languages supported by abstractive document summarization
+## Languages supported by abstractive document summarization (preview)
 
 | Language              | Language code |      Notes          |
 |-----------------------|---------------|---------------------|

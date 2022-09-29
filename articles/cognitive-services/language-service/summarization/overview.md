@@ -59,7 +59,6 @@ The document summarization feature would simplify the text into the following ke
 - "There are two general approaches to auto summarization, extractive and abstractive."
 - "These features are designed to shorten content that could be considered too long to read."
 
-
 # [Conversation summarization](#tab/conversation-summarization)
 
 > [!IMPORTANT]
@@ -132,7 +131,7 @@ To use this feature, you submit raw text for analysis and handle the API output 
 
 |Development option  |Description  | Links |
 |---------|---------|---------|
-| REST API     | Integrate conversation summarization into your applications using the REST API. | [Quickstart: Use conversation summarization](quickstart.md) |
+| REST API     | Integrate conversation summarization into your applications using the REST API. | [Quickstart: Use conversation summarization](quickstart?tabs=conversation-summarization&pivots=rest-api.md) |
 
 ---
 
