@@ -91,7 +91,7 @@ After you download the data file, you can register the dataset in Azure Machine 
     > [!NOTE]
     > You can also upload ZIP files as datasets. To upload a ZIP file, select **File** for **Dataset type**.
 
-1. **For Datastore and file selection**, select the datastore you want to upload your dataset file to.
+1. For file selection, upload the dataset you downloaded. By default, Azure Machine Learning will store the data asset in the default workspace blobstore. For more information on datastores, see [Connect to storage services](v1/how-to-access-data.md).
 
     By default, Azure Machine Learning stores the dataset to the default workspace blobstore. For more information on datastores, see [Connect to storage services](how-to-access-data.md).
 
