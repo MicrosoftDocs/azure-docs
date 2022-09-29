@@ -68,16 +68,7 @@ In addition to the Azure admin portal and the Dev Box user portal, you can use D
     ```
 
    You will see the devcenter extension listed:
-   ```azurecli
-   {
-    "experimental": true,
-    "extensionType": "whl",
-    "name": "devcenter",
-    "path": "/home/contosouser/.azure/cliextensions/devcenter",
-    "preview": false,
-    "version": "0.1.0"
-   },
-   ```
+   :::image type="content" source="media/how-to-install-dev-box-cli/dev-box-cli-installed.png" alt-text="Screenshot showing the dev box extension listed":::
 
 ## Configure your Dev Box CLI
 
