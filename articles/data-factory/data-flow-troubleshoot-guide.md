@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: troubleshooting
-ms.date: 09/02/2022
+ms.date: 09/29/2022
 ---
 
 # Troubleshoot mapping data flows in Azure Data Factory
@@ -716,6 +716,45 @@ This section lists common error codes and messages reported by mapping data flow
 
 - **Cause**: This error is a data flow system error or SAP server system error.
 - **Recommendation**: Check the error message. If it contains SAP server related error stacktrace, contact SAP admin for assistance. Otherwise, contact Microsoft support for further assistance.
+
+### Error code: DF-SAPODP-NotReached
+
+- **Message**: partner '*' not reached
+- **Causes and recommendations:**: This is a connectivity issue. Different causes may lead to this issue. Check below list for possible cause analysis and related recommendation.
+  |Cause analysis|Recommendation|
+  |:---|:---|
+  |Your SAP server is shut down.|Check your SAP server is started.|
+  |Your IP or port of the self-hosted integration runtime is not in SAP network security rule.|Check your IP or port of self-hosted integration runtime is in your SAP network security rule.|
+  |Self-hosted integration runtime proxy issue.|Check your self-hosted integration runtime proxy.|
+  |Incorrect parameters input (e.g. wrong SAP server name or IP).|Check your input parameters: SAP server name, IP.|
+
+### Error code: DF-SAPODP-DependencyNotFound
+- **Message**: Could not load file or assembly 'sapnco, Version=*
+- **Cause**: You don't download and install SAP .NET connector on the machine of the self-hosted integration runtime.
+- **Recommendation**: Follow [Set up a self-hosted integration runtime](sap-change-data-capture-shir-preparation.md) to set up the self-hosted integration runtime for the SAP CDC connector.
+
+### Error code: DF-SAPODP-NoAuthForFunctionModule
+- **Message**: No REF authorization for function module RODPS_REPL_CONTEXT_GET_LIST
+- **Cause**: Lack of authorization to execute the related function module.
+- **Recommendation**: Follow this [SAP notes](https://launchpad.support.sap.com/#/notes/460089) to add the required authorization profile to your SAP account.
+
+### Error code: DF-SAPODP-OOM
+
+- **Message**: No more memory available to add rows to an internal table
+- **Cause**: SAP Table connector has its limitation for big table extraction. SAP Table underlying relies on an RFC which will read all the data from the table into the memory of SAP system, so out of memory (OOM) issue will happen when we extracting big tables.
+- **Recommendation**: Use SAP CDC connector to do full load directly from your source system, then move delta to SAP Landscape Transformation Replication Server (SLT) after init without delta is released.
+
+### Error code: DF-SAPODP-SourceNotSupportDelta
+
+- **Message**: Source .* does not support deltas
+- **Cause**: Your SAP source doesn't support CDC.
+- **Recommendation**: Refer to this [Document](https://userapps.support.sap.com/sap/support/knowledge/en/2752413).
+
+### Error code: DF-SAPODP-SAPI-LIMITATION
+
+- **Message**: Error Number 518, Source .* not found, not released or not authorized
+- **cause**: Check if your context is SAPI. If so, in SAPI context, you can only extract the relevant extractors for SAP tables.
+- **Recommendations**: Refer to this [document](https://userapps.support.sap.com/sap/support/knowledge/en/2646092).
 
 ### Error code: DF-Snowflake-IncompatibleDataType
 
