@@ -60,7 +60,7 @@ You can find the resource ID by using one of these methods:
 
 - Use [Azure Resource extension for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureresourcegroups).
 
-    :::image type="content" source="./media/visual-studio-code/visual-studio-code-azure-resources-extension.png" alt-text="Screenshot of Visual Studio Code Azure Resources extension":::
+    :::image type="content" source="./media/visual-studio-code/visual-studio-code-azure-resources-extension.png" alt-text="Screenshot of Visual Studio Code Azure Resources extension.":::
 
 - Use the [Azure portal](https://portal.azure.com).
 - Use Azure CLI or Azure PowerShell:
