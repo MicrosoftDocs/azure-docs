@@ -56,19 +56,6 @@ Reasons for attestation failure include:
 - The attested information, which includes the boot log, deviates from a trusted baseline. This problem might indicate that untrusted modules have loaded and the OS might be compromised.
 - The attestation quote can't be verified to originate from the vTPM of the attested VM. This problem might indicate that malware is present, which might indicate that traffic to the vTPM is being intercepted. 
 
-### Untrusted Linux kernel module
-
-This low-severity alert means that an untrusted driver was prohibited from loading. When you use [trusted launch](../virtual-machines/trusted-launch.md) with secure boot enabled, a VM can boot even if a kernel driver fails validation and isn't loaded. You should investigate these events, even if the untrusted driver was prohibited from loading and doesn't pose an immediate threat. 
-
-Make sure to consider:
-
-- Which kernel driver failed? 
-- Are you familiar with this driver? 
-- Did you expect the driver to be able to load?
-- Does the driver version match the exact version that you expected?
-- Are the driver binaries intact?
-- For a third-party driver, did the vendor pass OS compliance tests to get the driver signed?
-
 ## Next steps
 
 - [Learn more about the guest attestation feature](guest-attestation-confidential-vms.md)
