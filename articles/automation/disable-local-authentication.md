@@ -11,7 +11,6 @@ ms.topic: how-to
 # Disable local authentication in Automation
 
 > [!IMPORTANT]
-
 > - Update Management patching will not work when local authentication is disabled. 
 > - When you disable local authentication, it impacts the starting a runbook using a webhook, Automation Desired State Configuration and agent-based Hybrid Runbook Workers. For more information, see the [available alternatives](#compatibility).
 
