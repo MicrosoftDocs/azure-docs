@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/28/2022
+ms.date: 09/29/2022
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
@@ -45,11 +45,11 @@ The following PowerShell cmdlets are supported to configure Azure Stack Edge dev
 |---------|---------|
 |Set-login|First-time sign in, set or change sign in credentials to access the device.|
 |Get-DeviceConfiguration|Fetch the current device configuration.|
-|Set-DeviceConfiguration|Update the device configuration.|
+|Set-DeviceConfiguration|Change the device configuration.|
 |New-Package|Prepare a device setup configuration package to apply to one or more devices.|
 |Get-DeviceConfigurationStatus|Fetch the status of in-flight configuration changes being applied to the device to determine whether the operation succeeded, failed, or is still in progress.|
 |Get-DeviceDiagnostic|Fetch diagnostic status of the device.|
-|Start-DeviceDiagnostic|Start a new diagnostic run to verify updated status after a device setup configuration package is applied.|
+|Start-DeviceDiagnostic|Start a new diagnostic run to verify status after a device setup configuration package is applied.|
 |To-json|A utility command that formats the cmdlet response in a JSON file.|
 
 ## Prerequisites
@@ -121,7 +121,7 @@ Run the following cmdlets in PowerShell:
    $update = New-Object PSObject -Property @{ ServerType = "MicrosoftUpdate" }
    ```
 
-1. Create a package with the updated TimeZone and ServerType settings.
+1. Create a package with the new TimeZone and ServerType settings.
 
    ```azurepowershell
    $pkg = New-Package -time $time -update $update
@@ -182,13 +182,13 @@ Run the following cmdlets in PowerShell:
    }
    ```
 
-1. After the operation is complete, fetch the updated device configuration.
+1. After the operation is complete, fetch the new device configuration.
 
    ```azurepowershell
    Get-DeviceConfiguration | to-json
    ```
 
-1. Save the updated device configuration to the local system as a JSON file.
+1. Save the device configuration to the local system as a JSON file.
 
    ```azurepowershell
    Get-DeviceConfiguration | to-json | Out-File "C:\<Local path>\testconfig2.json"
@@ -200,7 +200,7 @@ Run the following cmdlets in PowerShell:
 
 Once a config.json file has been created, as in the previous example, with the desired configuration, use the JSON file to change configuration settings on one or more devices that aren't activated.
 
-This sequence of PowerShell cmdlets signs into the device, applies the device setup configuration package with device configuration settings from a JSON file, verifies completion of the device update, and then fetches the updated device configuration.
+This sequence of PowerShell cmdlets signs into the device, applies the device setup configuration package with device configuration settings from a JSON file, verifies completion of device configuration changes, and then fetches the new device configuration.
 
 Run the following cmdlets in PowerShell:
 
@@ -210,10 +210,10 @@ Run the following cmdlets in PowerShell:
    Set-Login "https://<IP address>" "<Password>"
    ```
 
-1. Before you run the device configuration operation, update the JSON file with the device node.id of the device to be updated. 
+1. Before you run the device configuration operation, ensure that the JSON file uses the device node.id of the device to be changed. 
 
    > [!NOTE]
-   > Each device has a unique node.id. To update device configuration settings, the node.id in the JSON file must match the node.id of the device to be updated.
+   > Each device has a unique node.id. To change device configuration settings, the node.id in the JSON file must match the node.id of the device to be changed.
 
    Fetch the node.id from the device with the following command in PowerShell:
 
@@ -242,7 +242,7 @@ Run the following cmdlets in PowerShell:
                                   },
    ```
 
-1. Create an update package that uses a local JSON file for device configuration settings.
+1. Create a package that uses a local JSON file for device configuration settings.
 
    ```azurepowershell
    $p = Get-Content -Path "Drive:\Temp\<ConfigFileName.json>" | ConvertFrom-json
@@ -254,13 +254,13 @@ Run the following cmdlets in PowerShell:
    $newCfg = Set-DeviceConfiguration -desiredDeviceConfig $p
    ```
 
-1. Monitor update status as the operation runs. It may take 10 minutes or more for the operation to complete.
+1. Monitor status as the operation runs. It may take 10 minutes or more for the changes to complete.
 
    ```azurepowershell
    Get-DeviceConfigurationStatus | to-json
    ```
 
-1. After the operation is complete, fetch the updated device configuration.
+1. After the operation is complete, fetch the new device configuration.
 
    ```azurepowershell
    Get-DeviceConfiguration | to-json
@@ -301,13 +301,13 @@ Use the following steps to activate an Azure Stack Edge device. Note that activa
    $newCfg = Set-DeviceConfiguration -desiredDeviceConfig $p
    ```
 
-1. Monitor update status as the operation runs. It may take 10 minutes or more for the operation to complete.
+1. Monitor status as the operation runs. It may take 10 minutes or more for the changes to complete.
 
    ```azurepowershell
    Get-DeviceConfigurationStatus | to-json
    ```
 
-1. After the operation is complete, fetch the updated device configuration.
+1. After the operation is complete, fetch the new device configuration.
 
    ```azurepowershell
    Get-DeviceConfiguration | to-json
@@ -336,7 +336,7 @@ Use the following steps to activate an Azure Stack Edge device. Note that activa
 
 ## Quickly fetch or change device configuration settings
 
-Use the following steps to sign into the device, fetch the status of the webProxy property, set the webProxy property to “isEnabled = true,” and then fetch the status of the updated webProxy property.
+Use the following steps to sign into the device, fetch the status of the webProxy property, set the webProxy property to “isEnabled = true,” and then fetch the status of the changed webProxy property.
 
 1. Sign into the device.
 
@@ -364,7 +364,7 @@ Use the following steps to sign into the device, fetch the status of the webProx
 
 ## Run device diagnostics
 
-Use the following steps to sign into the device and run device diagnostics to verify updated status after you apply a device setup configuration package.
+Use the following steps to sign into the device and run device diagnostics to verify status after you apply a device setup configuration package.
 
 1. Sign into the device.
 
