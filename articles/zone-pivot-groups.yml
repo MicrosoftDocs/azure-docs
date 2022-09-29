@@ -1666,6 +1666,15 @@ groups:
     title: Azure portal
   - id: azure-cli
     title: Azure CLI
+# Owner: cebundy
+- id: container-apps-interface-types
+  title: Interaction type
+  prompt: Select how you want to interact with Azure
+  pivots:
+  - id: azure-portal
+    title: Azure portal
+  - id: command-line
+    title: Command Line
 # Owner: duau
 - id: front-door-tiers
   title: Front Door tiers
