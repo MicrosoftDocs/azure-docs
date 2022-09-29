@@ -33,9 +33,16 @@ Collect all of the following values for the mobile network resource that will re
    |The region in which you're deploying the private mobile network. We recommend you use the East US region.                         |**Instance details: Region**|
    |The mobile country code for the private mobile network.     |**Network configuration: Mobile country code (MCC)**|
    |The mobile network code for the private mobile network.     |**Network configuration: Mobile network code (MNC)**|
-   |The name for a network slice in the private mobile network. You'll be able to create additional slices after you deploy the mobile network resource.     |**Slice configuration: Slice name**|
+
+### Collect the required information for a network slice
+
+Collect all of the following values to provision a network slice in the private mobile network. You'll be able to create additional slices after you deploy the mobile network resource.
+
+   |Value  |Field name in Azure portal  |
+   |---------|---------|
+   | The name for the slice. | **Slice configuration: Slice name** |
    | The slice/service type (SST) value. This is an integer and indicates the expected services and features for the network slice. Each slice in a network must have a unique SST value. </br></br>You can use the standard values specified in section 5.15.2.2 of [3GPP TS 23.501](https://www.etsi.org/deliver/etsi_ts/123500_123599/123501/17.05.00_60/ts_123501v170500p.pdf). For example: </br></br>1 - eMBB. This is a slice suitable for the handling of 5G enhanced mobile broadband. </br>2 - URLLC. This is a slice suitable for the handling of ultra-reliable low latency communications. </br>3 - MIoT. This is a slice suitable for the handling of massive IoT. </br></br>You can also use a non-standard value. | **Slice configuration: Slice Service Type (SST)** |
-   | The slice differentiator value. This setting is optional and can be used to complement the SST value for further slice differentiation. | **Slice configuration: Slice Differentiator (SD)** |
+   | The slice differentiator (SD) value. This setting is optional and can be used to complement the SST value for further slice differentiation. | **Slice configuration: Slice Differentiator (SD)** |
 
 ## Collect SIM values
 
