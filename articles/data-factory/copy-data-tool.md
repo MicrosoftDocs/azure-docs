@@ -108,6 +108,6 @@ A one-time copy operation enables data movement from a source to a destination o
 ## Next steps
 Try these tutorials that use the Copy Data tool:
 
-- [Quickstart: create a data factory using the Copy Data tool](quickstart-create-data-factory-copy-data-tool.md)
+- [Quickstart: create a data factory using the Copy Data tool](quickstart-copy-data-tool.md)
 - [Tutorial: copy data in Azure using the Copy Data tool](tutorial-copy-data-tool.md) 
 - [Tutorial: copy on-premises data to Azure using the Copy Data tool](tutorial-hybrid-copy-data-tool.md)
