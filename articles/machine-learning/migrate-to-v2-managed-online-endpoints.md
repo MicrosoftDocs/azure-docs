@@ -69,7 +69,10 @@ Redeploy manually with your model files and environment definition.
 You can find our examples on [azureml-examples](https://github.com/Azure/azureml-examples). Specifically, this is the [SDK example for managed online endpoint](https://github.com/Azure/azureml-examples/tree/main/sdk/endpoints/online/managed).
 
 ### With our [migration tool](https://aka.ms/moeonboard) (preview)
-Here are the steps to use these scripts. **The new endpoint will be created under the same workspace**.
+Use the following steps to run the scripts:
+
+> [!TIP]
+> The new endpoint created by the scripts will be created under the same workspace.
 
 1. Use a bash shell to run the scripts. For example, a terminal session on Linux or the Windows Subsystem for Linux (WSL).
 2. Install [Python SDK V1](/python/api/overview/azure/ml/install) to run the python script.
