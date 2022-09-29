@@ -27,7 +27,7 @@ Role definition ID:  acdd72a7-3385-48ef-bd42-f606fba81ae7
 
 Example:
  
-$SFMCSpid = "fbc587f2-66f5-4459-a027-bcd908b9d278"
+`$SFMCSpid = "fbc587f2-66f5-4459-a027-bcd908b9d278"`
 $galleryResourceId = "/subscriptions/<subscriptionID> /resourceGroups/<RG>/providers/Microsoft.Compute/galleries/<ImageGalleryName>"
  
 New-AzRoleAssignment -PrincipalId $SFMCSpid -RoleDefinitionName "Reader" -Scope $galleryResourceId
