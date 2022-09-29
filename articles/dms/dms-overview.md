@@ -15,7 +15,7 @@ ms.date: 09/28/2021
 
 Azure Database Migration Service is a fully managed service designed to enable seamless migrations from multiple database sources to Azure data platforms with minimal downtime (online migrations).
 
-[!INCLUDE [database-migration-service-ads](/azure/includes/database-migration-service-ads)]
+[!INCLUDE [database-migration-service-ads](../../includes/database-migration-service-ads.md)]
 
 ## Migrate databases to Azure with familiar tools
 
