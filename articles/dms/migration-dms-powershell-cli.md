@@ -1,6 +1,6 @@
 ---
 title: Migrate databases at scale using Azure PowerShell / CLI (Preview)
-description: Learn how to use Azure PowerShell or CLI to migrate databases at scale using the capabilities of Azure SQL migration extension in Azure Data Studio with Azure Database Migration Service.
+description: Learn how to use Azure PowerShell or CLI to migrate databases at scale with the Azure SQL migration extension in Azure Data Studio
 services: database-migration
 author: croblesm
 ms.author: roblescarlos
@@ -48,14 +48,14 @@ Pre-requisites that are common across all supported migration scenarios using Az
     - Owner or Contributor role for the Azure subscription.
     > [!IMPORTANT]
     > Azure account is only required when running the migration steps and is not required for assessment or Azure recommendation steps process.
-* Create a target [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/create-configure-managed-instance-powershell-quickstart), [SQL Server on Azure [Virtual Machine](/azure/azure-sql/virtual-machines/windows/sql-vm-create-powershell-quickstart), or [Azure SQL](/azure/azure-sql/database/single-database-create-quickstart) Database (Preview)](/azure/azure-sql/database/single-database-create-quickstart)
+* Create a target [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/create-configure-managed-instance-powershell-quickstart), [SQL Server on Azure Virtual Machine](/azure/azure-sql/virtual-machines/windows/sql-vm-create-powershell-quickstart), or [Azure SQL](/azure/azure-sql/database/single-database-create-quickstart) Database (Preview)](/azure/azure-sql/database/single-database-create-quickstart)
     > [!IMPORTANT] 
     > If your target is Azure SQL Database (Preview) you have to migrate database schema from source to target using [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension) or, [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension) for Azure Data Studio.
     > 
     > If you have an existing Azure Virtual Machine, it should be registered with [SQL IaaS Agent extension in Full management mode](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management#management-modes).
 
 * If your target is **Azure SQL Managed Instance** or **SQL Server on Azure Virtual Machine** ensure that the logins used to connect the source SQL Server are members of the *sysadmin* server role or have `CONTROL SERVER` permission.
-If your target is **Azure SQL Database (Preview)**, ensure that the login used to connect the source SQL Server is a member, and the `db_datareader`` and login for the target SQL server is `db_owner`.
+* If your target is **Azure SQL Database (Preview)**, ensure that the login used to connect the source SQL Server is a member, and the `db_datareader` and login for the target SQL server is `db_owner`.
 * Use one of the following storage options for the full database and transaction log backup files: 
     - SMB network share 
     - Azure storage account file share or blob container 
@@ -68,7 +68,7 @@ If your target is **Azure SQL Database (Preview)**, ensure that the login used t
     > - Each backup can be written to either a separate backup file or multiple backup files. However, appending multiple backups (i.e. full and t-log) into a single backup media is not supported. 
     > - Use compressed backups to reduce the likelihood of experiencing potential issues associated with migrating large backups.
 * Ensure that the service account running the source SQL Server instance has read and write permissions on the SMB network share that contains database backup files.
-* The source SQL Server instance certificate from a database protected by Transparent Data Encryption (TDE) needs to be migrated to the target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine before migrating data. To learn more, see [Migrate a certificate of a TDE-protected database to Azure SQL Managed Instance](/azure/azure-sql/managed-instance/tde-certificate-migrate) and [Move a TDE Protected Database to Another SQL Server](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
+* The source SQL Server instance certificate from a database protected by Transparent Data Encryption (TDE) must be migrated to the target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine before migrating data. To learn more, see [Migrate a certificate of a TDE-protected database to Azure SQL Managed Instance](/azure/azure-sql/managed-instance/tde-certificate-migrate) and [Move a TDE Protected Database to Another SQL Server](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
     > [!TIP]
     > If your database contains sensitive data that is protected by [Always Encrypted](/sql/relational-databases/security/encryption/configure-always-encrypted-using-sql-server-management-studio), migration process using Azure Data Studio with DMS will automatically migrate your Always Encrypted keys to your target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine.
 
@@ -83,7 +83,8 @@ If your target is **Azure SQL Database (Preview)**, ensure that the login used t
     > [!TIP]
     > If your database backup files are already provided in an Azure storage account, self-hosted integration runtime is not required during the migration process.
 
-* When using self-hosted integration runtime, ensure that the machine where the runtime is installed can connect to the source SQL Server instance and the network file share where backup files are located. Outbound port 445 should be enabled to access the network file share.
+* When using self-hosted integration runtime, ensure that the machine where the runtime is installed can connect to the source SQL Server instance and the network file share where backup files are located. 
+* Outbound port 445 should be enabled to access the network file share.
 * If you're using the Azure Database Migration Service for the first time, ensure that Microsoft.DataMigration resource provider is registered in your subscription. You can follow the steps to [register the resource provider](./quickstart-create-data-migration-service-portal.md#register-the-resource-provider)
 
     > [!IMPORTANT]
@@ -120,7 +121,7 @@ $migOpId = az datamigration sql-managed-instance show --managed-instance-name "m
 az datamigration sql-managed-instance cutover --managed-instance-name "mySQLMI" --resource-group "myRG" --target-db-name "AdventureWorks2008" --migration-operation-id $migOpId
 ```
 
-If you receive the error "The subscription isn't registered to use namespace 'Microsoft.DataMigration'. See https://aka.ms/rps-not-found for how to register subscriptions.", run this command:
+If you receive the error *"The subscription isn't registered to use namespace 'Microsoft.DataMigration'. See https://aka.ms/rps-not-found for how to register subscriptions"*, run the following command:
 ```azurepowershell
    Register-AzResourceProvider -ProviderNamespace "Microsoft.DataMigration"
 ```
