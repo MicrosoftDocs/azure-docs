@@ -22,6 +22,6 @@ ms.date: 07/28/2022
 
 - **Event Handler**: The event handler contains the logic to handle the client events. Register and configure event handlers in the service through the portal or Azure CLI beforehand. Details are described in [Event handler](..\concept-service-internals.md#event-handler) section. The place to host the event handler logic is considered as the server-side.
 
-- **Event Listener**: The event listener just listens to the client events but can't interfere the lifetime of your clients through their response. Details are described in [Event Listener](..\howto-develop-eventlistener.md) section.
+- **Event Listener**: The event listener just listens to the client events but can't interfere the lifetime of your clients through their response. Details are described in [Event Listener](..\howto-develop-eventlistener.md) section. Details are described in [Event listener](..\concept-service-internals.md#event-listener) section.
 
 - **Server**: The server can handle client events, manage client connections, and publish messages to groups. Details about **server** are described in the [Server protocol](..\concept-service-internals.md#server-protocol) section.

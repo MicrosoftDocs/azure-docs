@@ -28,7 +28,8 @@ Azure Web PubSub Service provides an easy way to publish/subscribe messages usin
 
 Workflow as shown in the above graph:
 1. A *client* connects to the service `/client` endpoint using WebSocket transport. Service forward every WebSocket frame to the configured upstream(server). The WebSocket connection can connect with any custom subprotocol for the server to handle, or it can connect with the service-supported subprotocol `json.webpubsub.azure.v1`, which empowers the clients to do pub/sub directly. Details are described in [client protocol](#client-protocol).
-1. The service invokes the server using **CloudEvents HTTP protocol** on different client events. [**CloudEvents**](https://github.com/cloudevents/spec/blob/v1.0.1/http-protocol-binding.md) is a standardized and protocol-agnostic definition of the structure and metadata description of events hosted by the Cloud Native Computing Foundation (CNCF). Details are described in [server protocol](#server-protocol).
+1. On different client events, the service invokes the server using **CloudEvents HTTP protocol**. [**CloudEvents**](https://github.com/cloudevents/spec/blob/v1.0.1/http-protocol-binding.md) is a standardized and protocol-agnostic definition of the structure and metadata description of events hosted by the Cloud Native Computing Foundation (CNCF). Details are described in [server protocol](#server-protocol).
+1. The service also pushes client events to all the concerning event listeners, if any. Details are described in [event listener](#event-listener).
 1. The Web PubSub server can invoke the service using the REST API to send messages to clients or to manage the connected clients. Details are described in [server protocol](#server-protocol)
 
 ## Client protocol
@@ -254,6 +255,22 @@ You may have noticed that the *event handler role* handles communication from th
 ![Diagram showing the Web PubSub service bi-directional workflow.](./media/concept-service-internals/http-service-server.png)
 
 [rest]: /rest/api/webpubsub/
+
+## Event listener
+
+The event listener listens to the incoming client events. Each event listener contains a filter to specify which kinds of events it concerns, an endpoint about where to send the events to.
+
+Currently we support [**Event Hubs**](https://azure.microsoft.com/products/event-hubs/) as an event listener endpoint.
+
+You need to register event listeners beforehand, so that when a client event is triggered, the service can push the event to the corresponding event listeners. See [this doc](./howto-develop-eventlistener.md#configure-an-event-listener) for how to configure an event listener with an event hub endpoint.
+
+You can configure multiple event listeners. The order of the event listeners doesn't matter. If an event matches with multiple event listeners, it will be sent to all the listeners it matches. See the following diagram for an example. Let's say you configure four event listeners at the same time. Then a client event that matches with three of those listeners will be sent to three listeners, leaving the rest one untouched.
+
+:::image type="content" source="media/concept-service-internals/event-listener-data-flow.svg" alt-text="Event listener data flow diagram sample":::
+
+You can combine an [event handler](#event-handler) and event listeners for the same event. In this case, both event handler and event listeners will receive the event.
+
+Web PubSub service delivers client events to event listeners using [AMQP protocol bindings for CloudEvent](https://github.com/cloudevents/spec/blob/v1.0.1/amqp-protocol-binding.md). For more details on how Web PubSub extends the protocol, see [CloudEvents AMQP extension for Azure Web PubSub](reference-cloud-events-amqp.md).
 
 ## Next steps
 
