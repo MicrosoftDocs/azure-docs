@@ -1,7 +1,7 @@
 ---
-title: 'Migrate compute management from SDK v1 to v2'
+title: 'Upgrade compute management to v2'
 titleSuffix: Azure Machine Learning
-description: Migrate compute management from v1 to v2 of Azure Machine Learning SDK
+description: Upgrade compute management from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
@@ -13,7 +13,7 @@ ms.reviewer: sgilley
 ms.custom: migration
 ---
 
-# Migrate compute management from SDK v1 to v2
+# Upgrade compute management to v2
 
 The compute management functionally remains unchanged with the v2 development platform.
 
