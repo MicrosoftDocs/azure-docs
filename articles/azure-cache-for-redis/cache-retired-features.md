@@ -27,7 +27,7 @@ The open-source Redis version 4 was released several years ago and is now retire
 
 Microsoft continues to backport security fixes from recent versions to version 4 until retirement. We encourage you to upgrade your cache to version 6 sooner, so you can use the rich feature set that Redis version 6 has to offer. For more information, See the Redis 6 GA announcement for more details.
 
-To upgrade your version 4 Azure Cache for Redis instance, see our [upgrade to Version 6 documentation](cache-how-to-version.md#upgrade-an-existing-redis-4-cache-to-redis-6). If your cache instances have geo-replication enabled, you’re required to unlink the caches before upgrade.
+To upgrade your version 4 Azure Cache for Redis instance, see our [Upgrade an existing Redis 4 cache to Redis 6](cache-how-to-version.md#upgrade-an-existing-redis-4-cache-to-redis-6. If your cache instances have geo-replication enabled, you’re required to unlink the caches before upgrade.
 
 ### Important upgrade timelines
 
@@ -44,7 +44,7 @@ From now through 30 June 2023, you can continue to use existing Azure Cache for 
 
 If your cache instance is affected by the Cloud Service retirement, you're unable to upgrade to Redis 6 until after you migrate to a cache built on virtual machine scale set. In this case, send mail to azurecachemigration@microsoft.com, and we'll help you with the migration.
 
-For more information on [What should I do with any instances of Azure Cache for Redis that depend on Cloud Services (classic)](cache-faq#what-should-i-do-with-any-instances-of-azure-cache-for-redis-that-depend-on-cloud-services--classic-)
+For more information on [What should I do with any instances of Azure Cache for Redis that depend on Cloud Services (classic)](cache-faq.yml# #what-should-i-do-with-any-instances-of-azure-cache-for-redis-that-depend-on-cloud-services--classic-).
 
 ### How to check if a cache is running on version 4?
 
