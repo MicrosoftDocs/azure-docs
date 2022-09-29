@@ -8,6 +8,7 @@ ms.author: nicktrog
 author: ntrogh
 ms.date: 09/29/2022
 ms.topic: tutorial
+ms.custom: engagement-fy23
 #Customer intent: As an Azure user, I want to learn how to automatically test builds for performance regressions on every merge request and/or deployment by using Azure Pipelines.
 ---
 
@@ -49,26 +50,15 @@ To get started with this tutorial, you first need to set up a sample Node.js web
 
 ## Configure service authentication
 
-<!-- 
-Pipelines:
-- create service connection
-- authorize service principal
-- specify Azure subscription in pipeline definition
+Before you configure the CI/CD pipeline to run a load test, you'll grant the CI/CD workflow the permissions to access your Azure load testing resource and to create a load test.
 
-GitHub Actions:
-- create service principal
-- authorize service principal
-- create secret to store Azure credentials
-- use secret with Azure login action 
--->
-
-In this section, you'll configure your Azure DevOps project to have permissions to access the Azure Load Testing resource.
+[!INCLUDE [cli-launch-cloud-shell-sign-in](../../includes/cli-launch-cloud-shell-sign-in.md)]
 
 # [Azure Pipelines](#tab/pipelines)
 
-To access Azure resources, create a service connection in Azure DevOps and use role-based access control to assign the necessary permissions:
+To access your Azure Load Testing resource from the Azure Pipelines workflow, you'll create a service connection in your Azure DevOps project. The service connection creates an Azure Active Directory [service principal](/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your Azure Pipelines workflow in Azure Active Directory. You the grant permissions to the service principal to enable Azure Pipelines to create and run a load test with your Azure Load Testing resource.
 
-1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<yourorganization>`).
+1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`), and select your project.
 
 1. Select **Project settings** > **Service connections**.
 
@@ -76,41 +66,37 @@ To access Azure resources, create a service connection in Azure DevOps and use r
 
 1. Select the **Service Principal (automatic)** authentication method, and then select **Next**.
 
-1. Select the **Subscription** scope level, and then select the Azure subscription that contains your Azure Load Testing resource.
+1. Enter the service connection information, and then select **Save** to create the service connection.
 
-    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/new-service-connection.png" alt-text="Screenshot that shows selections for creating a new service connection.":::
+    | Field | Value |
+    | ----- | ----- |
+    | **Scope level** | *Subscription*. |
+    | **Subscription** | Select the Azure subscription that contains your load testing resource. |
+    | **Resource group** | Paste the JSON role assignment credentials you copied earlier. |
+    | **Service connection name** | Enter a unique name for the service connection. You'll use this later to configure the pipeline definition. |
+    | **Grant access permission to all pipelines** | Checked. |
 
-    You'll use the name of the service connection in a later step to configure the pipeline.
-
-1. Select **Save** to create the connection.
-
-1. Select the service connection from the list, and then select **Manage Service Principal**.
+1. Select the service connection you just created from the list, and then select **Manage Service Principal**.
 
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/manage-service-principal.png" alt-text="Screenshot that shows selections for managing a service principal.":::
 
-    You'll see the details of the service principal in the Azure portal. Note the service principal's **Application (Client) ID** value.
+1. In the Azure portal, copy the **Application (Client) ID** value.
 
-    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/service-connection-object-id.png" alt-text="Screenshot that shows how to get the application I D for the service connection.":::
-    
-1. Assign the Load Test Contributor role to the service principal to allow access to the Azure Load Testing service.
+1. Assign the Load Test Contributor role to the service principal. This role grants the service principal access to create and run load tests with your Azure Load Testing service.
 
-    First, retrieve the ID of the service principal object using the Azure CLI. Replace the text placeholder `<application-client-id>` with the value you just copied.
+    First, retrieve the ID of the service principal object using the Azure CLI. Replace the text placeholder `<application-client-id>` with the value you just copied from the Azure portal.
 
     ```azurecli
     object_id=$(az ad sp show --id "<application-client-id>" --query "id" -o tsv)
     echo $object_id
     ```
     
-    Next, retrieve the subscription ID:
+    Next, assign the `Load Test Contributor` role to the service principal. Replace the placeholder text `<resource-group-name>` with the Azure Load Testing resource group name.
 
     ```azurecli
     subscription_id=$(az account show --query "id" -o tsv)
     echo $subscription_id
-    ```
 
-    Finally, assign the `Load Test Contributor` role to the service principal. Replace the placeholder text `<resource-group-name>` with the name of the Azure resource group of your Azure Load Testing resource.
-
-    ```azurecli
     az role assignment create --assignee $object_id \
         --role "Load Test Contributor" \
         --scope /subscriptions/$subscription_id/resourceGroups/<resource-group-name> \
@@ -119,7 +105,7 @@ To access Azure resources, create a service connection in Azure DevOps and use r
 
 # [GitHub Actions](#tab/github)
 
-First, you'll create an Azure Active Directory [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) and grant it the permissions to access your Azure Load Testing resource.
+To access your Azure Load Testing resource from the GitHub Actions workflow, you'll create an Azure Active Directory [service principal](/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your GitHub Actions workflow in Azure Active Directory. You the grant permissions to the service principal to enable GitHub Actions to create and run a load test with your Azure Load Testing resource.
 
 1. Run the following Azure CLI command to create a service principal and assign the *Contributor* role:
 
@@ -149,7 +135,7 @@ First, you'll create an Azure Active Directory [service principal](../active-dir
 
 1. Copy this JSON object. You'll store this value as a GitHub secret in a later step.
 
-1. Assign the service principal the **Load Test Contributor** role, which grants permission to create, manage and run tests in an Azure Load Testing resource.
+1. Assign the Load Test Contributor role to the service principal. This role grants the service principal access to create and run load tests with your Azure Load Testing service.
 
     First, retrieve the ID of the service principal object by running this Azure CLI command:
 
@@ -158,7 +144,7 @@ First, you'll create an Azure Active Directory [service principal](../active-dir
     echo $object_id
     ```
 
-    Next, assign the `Load Test Contributor` role to the service principal. Replace the placeholder text `<resource-group-name>` with the name of the Azure resource group of your Azure Load Testing resource.
+    Next, assign the `Load Test Contributor` role to the service principal. Replace the placeholder text `<resource-group-name>` with the Azure Load Testing resource group name.
 
     ```azurecli
     az role assignment create --assignee $object_id \
@@ -172,13 +158,14 @@ First, you'll create an Azure Active Directory [service principal](../active-dir
     > [!NOTE]
     > If you're using OpenID Connect to authenticate with Azure, you don't have to pass the service principal object in the Azure login action. Learn how to [use the Azure login action with OpenID Connect](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
     
-    1. In [GitHub](https://github.com), browse to your forked repository, and select **Settings** > **Secrets** > **New repository secret**.
+    1. In [GitHub](https://github.com), browse to your forked repository, and select **Settings** > **Secrets** > **Actions** > **New repository secret**.
     
-        :::image type="content" source="./media/tutorial-cicd-github-actions/github-new-secret.png" alt-text="Screenshot that shows selections for adding a new repository secret to your GitHub repo.":::
-    
-    1. Paste the JSON role assignment credentials that you copied previously, as the value of secret variable **AZURE_CREDENTIALS**.
-    
-        :::image type="content" source="./media/tutorial-cicd-github-actions/github-new-secret-details.png" alt-text="Screenshot that shows the details of the new GitHub repository secret.":::
+    1. Enter the new secret information, and then select **Add secret** to create a new secret.
+
+        | Field | Value |
+        | ----- | ----- |
+        | **Name** | *AZURE_CREDENTIALS* |
+        | **Secret** | Paste the JSON role assignment credentials you copied earlier. |
 
 ---
 
