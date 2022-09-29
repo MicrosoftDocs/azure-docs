@@ -227,19 +227,19 @@ items:
       - name: Rule groups
         href: essentials/prometheus-metrics-rule-groups.md
       - name: Troubleshoot collection
-        href: containers/container-insights-prometheus-metrics-troubleshoot.md
+        href: essentials/prometheus-metrics-troubleshoot.md
       - name: Customize collection
         items:
         - name: Default configuration
-          href: containers/container-insights-prometheus-scrape-default.md
+          href: essentials/prometheus-metrics-scrape-default.md
         - name: Custom configuration
-          href: containers/container-insights-prometheus-scrape-configuration.md
+          href: essentials/prometheus-metrics-scrape-configuration.md
         - name: Create and validate custom scrape config
-          href: containers/container-insights-prometheus-scrape-validate.md
+          href: essentials/prometheus-metrics-scrape-validate.md
         - name: Minimal ingestion profile
-          href: containers/container-insights-prometheus-scrape-configuration-minimal.md
+          href: essentials/prometheus-metrics-scrape-configuration-minimal.md
         - name: Send to multiple metric workspaces
-          href: containers/container-insights-prometheus-multiple-workspaces.md
+          href: essentials/prometheus-metrics-multiple-workspaces.md
     - name: Metrics explorer
       items:
       - name: Getting started with Metrics Explorer
