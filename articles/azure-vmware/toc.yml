@@ -120,8 +120,6 @@
       href: enable-public-ip-nsx-edge.md
     - name: Disable Internet access or enable a default route
       href: disable-internet-access.md
-    - name: Enable public internet access
-      href: enable-public-internet-access.md
   - name: Configure networking
     items:
     - name: Configure DHCP server or relay

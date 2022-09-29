@@ -455,6 +455,8 @@ We support flexible audio output formats. You can generate audio outputs per par
 
 > [!NOTE]
 > The default audio format is riff-16khz-16bit-mono-pcm.
+> 
+> The sample rate for long audio voices is 24kHz, not 48kHz. Other sample rates can be obtained through upsampling or downsampling when synthesizing.
 
 * riff-8khz-16bit-mono-pcm
 * riff-16khz-16bit-mono-pcm
