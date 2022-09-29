@@ -107,4 +107,4 @@ If you have any questions or feedback on the migration script, contact us at moe
 ## Next steps
 
 * [What are Azure Machine Learning endpoints?](concept-endpoints.md)
-* [Deploy and score a model with managed online endpoints](how-to-deploy-managed-online-endpoint.md)
+* [Deploy and score a model with managed online endpoints](how-to-deploy-managed-online-endpoints.md)
