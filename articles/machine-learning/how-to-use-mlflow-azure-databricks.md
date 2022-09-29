@@ -21,7 +21,7 @@ In this article, learn how to enable MLflow to connect to Azure Machine Learning
 
 See [MLflow and Azure Machine Learning](concept-mlflow.md) for additional MLflow and Azure Machine Learning functionality integrations.
 
-If you have an MLflow Project to train with Azure Machine Learning, see [Train ML models with MLflow Projects and Azure Machine Learning (preview)](how-to-train-mlflow-projects.md).
+If you have an MLflow Project to train with Azure Machine Learning, see [Train ML models with MLflow Projects and Azure Machine Learning](how-to-train-mlflow-projects.md).
 
 ## Prerequisites
 

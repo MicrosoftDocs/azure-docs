@@ -1,7 +1,7 @@
 ---
 title: Use AutoML to detect small objects in images
 titleSuffix: Azure Machine Learning
-description: Set up Azure Machine Learning automated ML to train small object detection models with the CLI v2 and Python SDK v2 (preview).
+description: Set up Azure Machine Learning automated ML to train small object detection models with the CLI v2 and Python SDK v2.
 author: PhaniShekhar
 ms.author: phmantri
 ms.service: machine-learning
@@ -58,7 +58,7 @@ training_parameters:
   tile_grid_size: '3x2'
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK v2](#tab/SDK-v2)
 
 ```python
 image_object_detection_job.set_training_parameters(
@@ -85,7 +85,7 @@ search_space:
       values: ['2x1', '3x2', '5x3']
 ```
 
-# [Python SDK v2 (preview)](#tab/SDK-v2)
+# [Python SDK v2](#tab/SDK-v2)
 
 ```python
 image_object_detection_job.extend_search_space(
