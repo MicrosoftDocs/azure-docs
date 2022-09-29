@@ -1,7 +1,7 @@
 ---
-title: Migration steps for ACI/AKS webservices to managed online endpoints
+title: Migration steps for ACI web services to managed online endpoints
 titleSuffix: Azure Machine Learning
-description: Migration steps for ACI/AKS webservices to managed online endpoints in Azure Machine Learning
+description: Migration steps for ACI web services to managed online endpoints in Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.reviewer: blackmist
 ms.custom: migration
 ---
 
-# Migration steps for ACI/AKS webservice to Managed online endpoint
+# Migration steps for ACI webs ervices to managed online endpoints
 
 [Managed online endpoints](concept-endpoints.md#what-are-online-endpoints) help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure. Details can be found on [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-managed-online-endpoints.md).
 
@@ -23,7 +23,7 @@ You can deploy directly to the new compute target with your previous models and 
 > The scripts are preview and are provided without a service level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!IMPORTANT]
-> **The scoring URL will be changed after migration**. For example, the scoring url for ACI web service is like `http://aaaaaa-bbbbb-1111.westus.azurecontainer.io/score` and the scoring url for AKS web service is like `http://1.2.3.4:80/api/v1/service/aks-service/score`. The scoring URI for a managed online endpoint is like `https://endpoint-name.westus.inference.ml.azure.com/score`.
+> **The scoring URL will be changed after migration**. For example, the scoring url for ACI web service is like `http://aaaaaa-bbbbb-1111.westus.azurecontainer.io/score`. The scoring URI for a managed online endpoint is like `https://endpoint-name.westus.inference.ml.azure.com/score`.
 
 ## Supported Scenarios and Differences
 
@@ -60,7 +60,7 @@ For private workspace and VNet scenarios, see [Use network isolation with manage
 
 ## Not supported
 + [EncryptionProperties](/python/api/azureml-core/azureml.core.webservice.aci.encryptionproperties) for ACI container isn't supported.
-+ ACI webservices deployed through deploy_from_model and deploy_from_image isn't supported by the migration tool. Redeploy manually through CLI/SDK V2.
++ ACI web services deployed through deploy_from_model and deploy_from_image isn't supported by the migration tool. Redeploy manually through CLI/SDK V2.
 
 ## Migration Steps
 
@@ -85,7 +85,7 @@ Use the following steps to run the scripts:
     * `<SUBSCRIPTION_ID>` - The subscription ID of your Azure subscription that contains your workspace.
     * `<RESOURCEGROUP_NAME>` - The resource group that contains your workspace.
     * `<WORKSPACE_NAME>` - The workspace name.
-    * `<SERVICE_NAME>` - The name of your existing ACI/AKS service.
+    * `<SERVICE_NAME>` - The name of your existing ACI service.
     * `<LOCAL_PATH>` - A local path where resources and templates used by the script are downloaded.
     * `<NEW_ENDPOINT_NAME>` - The name of the new endpoint that will be created. We recommend that the new endpoint name is different from the previous service name. Otherwise, the original service will not be displayed if you check your endpoints on the portal.
     * `<NEW_DEPLOYMENT_NAME>` - The name of the deployment to the new endpoint.
