@@ -40,6 +40,11 @@ When performing data integration and ETL processes in the cloud, your jobs can p
 | [Common data model](format-common-data-model.md) | &nbsp; | ✓    | &nbsp;     |
 | [SAP CDC](connector-sap-change-data-capture.md) | ✓ | ✓ | ✓ |
 
+
+ADF makes is super-simple to enable and use CDC. Many of the connectors listed above will enable a checkbox similar to the one shown below from the data flow source transformation.
+
+:::image type="content" source="media/data-flow/cdc.png" alt-text="Change data capture":::
+
 The "Full CDC" and "Incremental CDC" features are available in both ADF and Synapse data flows and pipelines. In each of those options, ADF manages the checkpoint automatically for you. You can turn on the change data capture feature in the data flow source and you can also reset the checkpoint in the data flow activity. To reset the checkpoint for your CDC pipeline, go into the data flow activity in your pipeline and override the checkpoint key. Connectors in ADF that support "full CDC" also provide automatic tagging of rows as update, insert, delete.
 
 ## Next steps
