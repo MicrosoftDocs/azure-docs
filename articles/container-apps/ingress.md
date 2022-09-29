@@ -45,7 +45,7 @@ TCP ingress is useful for exposing container apps that use a TCP-based protocol 
 With TCP ingress enabled, your container app features the following characteristics:
 
 - The container app is accessed via its fully qualified domain name (FQDN) and exposed port number
-- Other container apps in the same environment can also access a TCP ingress-enabled container app by using its name (defined by the `name` property) and exposed port number
+- Other container apps in the same environment can also access a TCP ingress-enabled container app by using its name (defined by the `name` property in the Container Apps resource) and exposed port number
 
 ## Configuration
 
