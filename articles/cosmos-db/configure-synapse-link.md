@@ -141,7 +141,7 @@ The following options enable Synapse Link in a container by using Azure CLI by s
 Synapse Link for Gremlin API is now in preview. You can enable Synapse Link in your new or existing Graphs using Azure CLI. Use the CLI command below to enable Synapse Link for your Gremlin API graphs:
 
 ```cli
-az cosmosdb gremlin graph create -g MyResourceGroup -a MyCosmosDBGremlinDatabaseAccount -d MyGremlinDB -n MyGraph analytical-storage-ttl –1
+az cosmosdb gremlin graph create --g MyResourceGroup --a MyCosmosDBGremlinDatabaseAccount --d MyGremlinDB --n MyGraph --analytical-storage-ttl –1
 ```
 
 For existing graphs, replace `create` with `update`.
