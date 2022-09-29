@@ -142,6 +142,7 @@ Resource Provider and Type: [Microsoft.VideoIndexer/accounts](/azure/azure-monit
 | Category | Display Name | Additional information |
 |:---------|:-------------|------------------|
 | VIAudit   | Azure Video Indexer Audit Logs | Logs are produced from both the Video Indexer portal and the REST API. |
+| IndexingLogs | Indexing Logs | Azure Video Indexer indexing logs to monitor all files uploads, indexing jobs and Re-indexing when needed. |
 
 <!-- --------------**END Examples** ------------- -->
 
@@ -173,6 +174,7 @@ NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays 
 | Table |  Description | Additional information  |
 |:---------|:-------------|------------------|
 | [VIAudit](/azure/azure-monitor/reference/tables/tables-resourcetype#azure-video-indexer)<!-- (S/azure/azure-monitor/reference/tables/viaudit)-->   | <!-- description copied from previous link --> Events produced using Azure Video Indexer [portal](https://aka.ms/VIportal) or [REST API](https://aka.ms/vi-dev-portal). |  |
+|VIIndexing| Events produced using Azure Video Indexer [upload](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) and [Re-indexing](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) APIs. |
 <!--| [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics) | <!-- description copied from previous link --> 
 <!--Metric data emitted by Azure services that measure their health and performance.    | *TODO other important information about this type |
 |  etc.               |                              |                                                   |  
@@ -238,6 +240,8 @@ The following schemas are in use by Azure Video Indexer
 
 <!-- List the schema and their usage. This can be for resource logs, alerts, event hub formats, etc depending on what you think is important. -->
 
+#### Audit schema
+
 ```json
 {
     "time": "2022-03-22T10:59:39.5596929Z",
@@ -264,6 +268,48 @@ The following schemas are in use by Azure Video Indexer
     }
   }
   ```
+
+#### Indexing schema
+
+```json
+{
+    "time": "2022-09-28T09:41:08.6216252Z",
+    "resourceId": "/SUBSCRIPTIONS/{SubscriptionId}/RESOURCEGROUPS/{ResourceGroup}/PROVIDERS/MICROSOFT.VIDEOINDEXER/ACCOUNTS/MY-VI-ACCOUNT",
+    "operationName": "UploadStarted",
+    "category": "IndexingLogs",
+    "correlationId": "5cc9a3ea-126b-4f53-a4b5-24b1a5fb9736",
+    "resultType": "Success",
+    "location": "eastus",
+    "operationVersion": "2.0",
+    "durationMs": "0",
+    "identity": {
+        "upn": "my-email@microsoft.com",
+        "claims": null
+    },
+    "properties": {
+        "accountName": "my-vi-account",
+        "accountId": "6961331d-16d3-413a-8f90-f86a5cabf3ef",
+        "videoId": "46b91bc012",
+        "indexing": {
+            "Language": "en-US",
+            "Privacy": "Private",
+            "Partition": null,
+            "PersonModelId": null,
+            "LinguisticModelId": null,
+            "AssetId": null,
+            "IndexingPreset": "Default",
+            "StreamingPreset": "Default",
+            "Description": null,
+            "Priority": null,
+            "ExternalId": null,
+            "Filename": "1 Second Video 1.mp4",
+            "AnimationModelId": null,
+            "BrandsCategories": null
+        }
+    }
+}
+  ```
+
 
 ## Next steps
 
