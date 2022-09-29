@@ -129,17 +129,15 @@ This procedure descries how to recover privileged access to a sensor, for the *c
 
 **To recover privileged access to a sensor**:
 
-1. Start signing in to the OT network sensor. On the sign-in screen, select **Password recovery**. For example:
+1. Start signing in to the OT network sensor. On the sign-in screen, select the **Reset** link. For example:
 
-    TBD image
+    :::image type="content" source="media/manage-users-sensor/reset-privileged-password.png" alt-text="Screenshot of the sensor sign-in screen with the Reset password link.":::
 
-1. From the TBD menu, select the user whose password you're recovering, either **Cyberx**, **Support**, or **CyberX_Host**.
+1. In the **Reset password** dialog, from the **Choose user** menu, select the user whose password you're recovering, either **Cyberx**, **Support**, or **CyberX_host**.
 
-    A unique identifier code appears in the TBD field. For example:
+1. Copy the unique identifier code that's shown in the **Reset password identifier** to the clipboard. For example:
 
-    TBD image
-
-1. Copy the unique identifier code to the clipboard.
+    :::image type="content" source="media/manage-users-sensor/password-recovery-sensor.png" alt-text="Screenshot of the Reset password dialog on the OT sensor.":::
 
 1. Go the Defender for IoT **Sites and sensors** page in the Azure portal. You may want to open the Azure portal in a new browser tab or window, keeping your sensor console open.
 
