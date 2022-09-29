@@ -17,7 +17,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 Egress from an Azure Spring Apps application can be customized to fit specific scenarios. By default, Azure Spring Apps  provisions a Standard SKU Load Balancer that you can set up and use for egress. However, the default setup may not meet the requirements of all scenarios. For example, public IPs may not be allowed, or more hops may be required for egress.
 
-This article describes how to customize an instance's egress route to support custom network scenarios, including networks that disallow public IPs and require the instance to sit behind a network virtual appliance (NVA).
+This article describes how to customize an instance's egress route to support custom network scenarios. For example, you might want to customize an instance's egress route for networks that disallow public IPs and require the instance to sit behind a network virtual appliance (NVA).
 
 ## Limitations
 

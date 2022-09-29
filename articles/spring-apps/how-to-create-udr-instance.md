@@ -1,6 +1,6 @@
 ---
-title:  Control egress traffic for an Azure Spring Apps (ASA) instance
-description: Learn how to control egress traffic for an Azure Spring Apps (ASA) instance
+title:  Control egress traffic for an Azure Spring Apps instance
+description: Learn how to control egress traffic for an Azure Spring Apps instance
 author: karlerickson
 ms.author: yinglzh
 ms.service: spring-apps
@@ -9,7 +9,7 @@ ms.date: 09/25/2021
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Control egress traffic for an Azure Spring Apps (ASA) instance
+# Control egress traffic for an Azure Spring Apps instance
 
 **This article applies to:** ✔️ Java ✔️ C#
 
@@ -100,7 +100,7 @@ az network vnet subnet create \
 
 ### Create and set up an Azure Firewall with a user-defined route
 
-To create and set up an Azure Firewall with a user-defined route, configure Azure Firewall outbound rules. The firewall lets you configure granular egress traffic rules from a Azure Spring Apps instance.
+To create and set up an Azure Firewall with a user-defined route, configure Azure Firewall outbound rules. The firewall lets you configure granular egress traffic rules from an Azure Spring Apps instance.
 
 > [!IMPORTANT]
 > If your cluster or application creates a large number of outbound connections directed to the same or small subset of destinations, you might require more firewall frontend IPs to avoid reaching the maximum ports per front-end IP. For more information on how to create an Azure firewall with multiple IPs, see [Quickstart: Create an Azure Firewall with multiple public IP addresses - ARM template](../firewall/quick-create-multiple-ip-template.md). Create a standard SKU public IP resource that will be used as the Azure Firewall front-end address.
@@ -145,7 +145,7 @@ FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurati
 
 Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change Azure's default routing, create a route table.
 
-The following example shows how to create a route table to be associated with a specified subnet. The route table defines the next hop, as in the Azure Firewall you created. Each subnet can one route table associated with it, or could have no associated route table.
+The following example shows how to create a route table to be associated with a specified subnet. The route table defines the next hop, as in the Azure Firewall you created. Each subnet can have one route table associated with it, or could have no associated route table.
 
 ```azurecli
 # Create UDR and add a route for Azure Firewall.
