@@ -82,7 +82,7 @@ In some cases however, the prompt value `none` can be used together with an inte
 
 ## Next steps
 
-- [Single sign-on with MSAL.js](msal-js-sso)
+- [Single sign-on with MSAL.js](msal-js-sso.md)
 - [Handle errors and exceptions in MSAL.js](msal-error-handling-js.md)
 - [Handle ITP in Safari and other browsers where third-party cookies are blocked](reference-third-party-cookies-spas.md)
 - [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md)
