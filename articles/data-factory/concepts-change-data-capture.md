@@ -22,7 +22,7 @@ To learn more read the introductory article for [Azure Data Factory](introductio
 
 ## Overview
 
-When performing data integration and ETL processes, your jobs can often perform much better and be more effective by only reading source data that has changed since the last time the pipeline ran, rather than always querying an entire dataset on aech run. Executing pipelines that only read the latest changed data is available in many of ADF's source connectors by simply enabling a checkbox property. Support for full-fidelity CDC, which inlcudes row markers for upserts, deletes, and updates, as well as rules for resetting the ADF-managed checkpoint are available in several connectors. Lastly, ADF supports patterns and templates for managing incremental pipelines with user-controlled checkpoints as well.
+When performing data integration and ETL processes in the cloud, your jobs can perform much better and be more effective when you only read tje source data that has changed since the last time the pipeline ran, rather than always querying an entire dataset on aech run. Executing pipelines that only read the latest changed data is available in many of ADF's source connectors by simply enabling a checkbox property inside the source transformation. Support for full-fidelity CDC, which inlcudes row markers for upserts, deletes, and updates, as well as rules for resetting the ADF-managed checkpoint are available in several ADF connectors. For easily capturing changes and deltas, ADF supports patterns and templates for managing incremental pipelines with user-controlled checkpoints as well, which you will find in the table below.
 
 ## CDC Connector support
 
@@ -40,7 +40,7 @@ When performing data integration and ETL processes, your jobs can often perform 
 | [Common data model](format-common-data-model.md) | &nbsp; | ✓    | &nbsp;     |
 | [SAP CDC](connector-sap-change-data-capture.md) | ✓ | ✓ | ✓ |
 
-The "Full CDC" and "Incremental CDC" features are available in ADF and Synapse data flows. In each of those options, ADF handles the checkpoint automatically for you. You can turn on the change data capture in the data flow source and reset the checkpoint in the data flow activity. To reset the checkpoint for your CDC pipeline, go into the data flow activity in your pipeline and override the checkpoint key. Connectors in ADF that support "full CDC" also provide automatic tagging of rows as update, insert, delete.
+The "Full CDC" and "Incremental CDC" features are available in both ADF and Synapse data flows and pipelines. In each of those options, ADF manages the checkpoint automatically for you. You can turn on the change data capture feature in the data flow source and you can also reset the checkpoint in the data flow activity. To reset the checkpoint for your CDC pipeline, go into the data flow activity in your pipeline and override the checkpoint key. Connectors in ADF that support "full CDC" also provide automatic tagging of rows as update, insert, delete.
 
 ## Next steps
 
