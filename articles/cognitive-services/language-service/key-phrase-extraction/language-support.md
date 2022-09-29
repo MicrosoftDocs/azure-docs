@@ -57,7 +57,7 @@ Total supported language codes: 94
 | Georgian              |     `ka`      |                2022-10-01                 |                    |
 | German                |     `de`      |                2019-10-01                 |                    |
 | Greek                 |     `el`      |                2020-07-01                 |                    |
-| Gujarathi             |     `gu`      |                2022-10-01                 |                    |
+| Gujarati              |     `gu`      |                2022-10-01                 |                    |
 | Hausa                 |     `ha`      |                2022-10-01                 |                    |
 | Hebrew                |     `he`      |                2022-10-01                 |                    |
 | Hindi                 |     `hi`      |                2022-10-01                 |                    |
@@ -108,10 +108,10 @@ Total supported language codes: 94
 | Swahili               |     `sw`      |                2022-10-01                 |                    |
 | Swedish               |     `sv`      |                2019-10-01                 |                    |
 | Tamil                 |     `ta`      |                2022-10-01                 |                    |
-| Telgu                 |     `te`      |                2022-10-01                 |                    |
+| Telugu                |     `te`      |                2022-10-01                 |                    |
 | Thai                  |     `th`      |                2022-10-01                 |                    |
 | Turkish               |     `tr`      |                2020-07-01                 |                    |
-| Ukranian              |     `uk`      |                2022-10-01                 |                    |
+| Ukrainian             |     `uk`      |                2022-10-01                 |                    |
 | Urdu                  |     `ur`      |                2022-10-01                 |                    |
 | Uyghur                |     `ug`      |                2022-10-01                 |                    |
 | Uzbek                 |     `uz`      |                2022-10-01                 |                    |
