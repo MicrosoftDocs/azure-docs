@@ -83,6 +83,12 @@ To set up the appropriate permissions for password writeback to occur, complete 
 
     [ ![Set the appropriate permissions in Active Users and Computers for the account that is used by Azure AD Connect](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions-cropped.png) ](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions.png#lightbox)
 
+1. When ready, select **Apply / OK** to apply the changes.
+1. From the **Permissions** tab, select **Add**.
+1. For **Principal**, select the account that permissions should be applied to (the account used by Azure AD Connect).
+1. In the **Applies to** drop-down list, select **This object and all descendant objects**
+1. Under *Permissions*, select the box for the following option:
+   * **Unexpire Password**
 1. When ready, select **Apply / OK** to apply the changes and exit any open dialog boxes.
 
 When you update permissions, it might take up to an hour or more for these permissions to replicate to all the objects in your directory.

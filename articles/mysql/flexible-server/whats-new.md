@@ -24,6 +24,20 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 ## September 2022
 
+- **Read replica for HA enabled Azure Database for MySQL - Flexible Server (General Availability)**
+
+  The read replica feature allows you to replicate data from an Azure Database for MySQL flexible server to a read-only server. You can replicate the source server to up to 10 replicas. This functionality is now extended to support HA enabled servers within same region.[Learn more](concepts-read-replicas.md)
+
+- **Azure Active Directory authentication for Azure Database for MySQL – Flexible Server (Public Preview)**
+
+  You can now authenticate to Azure Database for MySQL - Flexible server using Microsoft Azure Active Directory (Azure AD) using identities. With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management. [Learn More](concepts-azure-ad-authentication.md)
+
+- **Known issues**
+
+  - The server parameter aad_auth_only stays set to ON when the authentication type is changed to Azure Active Directory authentication only. We recommend disabling it manually when you opt for MySQL authentication only in the future.
+
+  - The newly restored server will also have the server parameter aad_auth_only set to ON if it was ON on the source server during failover. If you wish to use MySQL authentication on the restored server, you must manually disable this server parameter. Otherwise, an Azure AD Admin must be configured.  
+
 - **Customer managed keys data encryption – Azure Database for MySQL – Flexible Server (Preview)**
 
     With data encryption with customer-managed keys (CMKs) for Azure Database for MySQL - Flexible Server Preview, you can bring your own key (BYOK) for data protection at rest and implement separation of duties for managing keys and data. Data encryption with CMKs is set at the server level. For a given server, a CMK, called the key encryption key (KEK), is used to encrypt the data encryption key (DEK) used by the service. With customer managed keys (CMKs), the customer is responsible for and in a full control of key lifecycle management (key creation, upload, rotation, deletion), key usage permissions, and auditing operations on keys. [Learn More](concepts-customer-managed-key.md)
@@ -31,6 +45,13 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 - **Change Timezone of your Azure Database for MySQL - Flexible Server in a single step**
 
    Previously to change time_zone of your Azure Database for MySQL - Flexible Server required two steps to take effect. Now you no longer need to call the procedure mysql.az_load_timezone() to populate the mysql.time_zone_name table. Flexible Server timezone can be changed directly by just changing the server parameter time_zone from [portal](./how-to-configure-server-parameters-portal.md#working-with-the-time-zone-parameter) or [CLI](./how-to-configure-server-parameters-cli.md#working-with-the-time-zone-parameter). 
+
+- **Known issues**
+
+  - The server parameter aad_auth_only stays set to ON when the authentication type is changed to Azure Active Directory authentication only. We recommend disabling it manually when you opt for MySQL authentication only in the future.
+
+  - The newly restored server will also have the server parameter aad_auth_only set to ON if it was ON on the source server during failover. If you wish to use MySQL authentication on the restored server, you must manually disable this server parameter. Otherwise, an Azure AD Admin must be configured.  
+
 ## August 2022
 
 - **Server logs for Azure Database for MySQL - Flexible Server**

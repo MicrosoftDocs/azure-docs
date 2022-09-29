@@ -39,6 +39,9 @@ As you begin to design the network around your container app, refer to [Plan vir
 
 :::image type="content" source="media/networking/azure-container-apps-virtual-network.png" alt-text="Diagram of how Azure Container Apps environments use an existing V NET, or you can provide your own.":::
 
+> [!NOTE]
+> Moving VNETs among different resource groups or subscriptions is not supported if the VNET is in use by a Container Apps environment.
+
 <!--
 https://learn.microsoft.com/azure/azure-functions/functions-networking-options
 

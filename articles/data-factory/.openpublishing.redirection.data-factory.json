@@ -590,6 +590,11 @@
             "source_path_from_root": "/articles/data-factory/quickstart-create-data-factory-copy-data-tool.md",
             "redirect_url": "/azure/data-factory/quickstart-hello-world-copy-data-tool",
             "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/solution-template-copy-new-files-lastmodifieddate.md",
+            "redirect_url": "/azure/data-factory/solution-template-copy-new-files-last-modified-date",
+            "redirect_document_id": false
           }
     ]
 }

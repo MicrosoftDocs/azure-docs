@@ -3,7 +3,7 @@ title: Diagnose and troubleshoot the availability of Azure Cosmos SDKs in multir
 description: Learn all about the Azure Cosmos SDK availability behavior when operating in multi regional environments.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 09/07/2022
+ms.date: 09/27/2022
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
@@ -22,12 +22,14 @@ All the Azure Cosmos SDKs give you an option to customize the regional preferenc
 * The [CosmosClient.preferred_locations](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) parameter in Python SDK.
 * The [CosmosClientOptions.ConnectionPolicy.preferredLocations](/javascript/api/@azure/cosmos/connectionpolicy#preferredlocations) parameter in JS SDK.
 
-When you set the regional preference, the client will connect to a region as mentioned in the following table:
+When the SDK initializes with a configuration that specifies regional preference, it will first obtain the account information including the available regions from the global endpoint. It will then apply an intersection of the configured regional preference and the account's available regions and use the order in the regional preference to prioritize the result.
+
+If the regional preference configuration contains regions that aren't an available region in the account, the values will be ignored. If these invalid regions are [added later to the account](#adding-a-region-to-an-account), the SDK will use them if they're higher in the preference configuration.
 
 |Account type |Reads |Writes |
 |------------------------|--|--|
-| Single write region | Preferred region | Primary region  |
-| Multiple write regions | Preferred region | Preferred region  |
+| Single write region | Preferred region with highest order | Primary region  |
+| Multiple write regions | Preferred region with highest order | Preferred region with highest order  |
 
 If you **don't set a preferred region**, the SDK client defaults to the primary region:
 
