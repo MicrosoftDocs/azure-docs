@@ -11,7 +11,7 @@ ms.custom: devx-track-portal, devx-track-azurecli
 ---
 
 # How to manage devices using device twin tags in Azure IoT Hub
-This article demonstrates how to use tags to manage IoT devices using [device twin tags](iot-hub-devguide-device-twins#tags-and-properties-format)
+This article demonstrates how to use tags to manage IoT devices using [device twin tags](iot-hub-devguide-device-twins.md#tags-and-properties-format)
 
 Device twin tags can be used as a powerful tool to help you organize your devices. This is especially important when you have multiple kinds of devices within your IoT solutions, you can use tags to set types, locations etc. For example:
 
@@ -64,7 +64,7 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
    
    :::image type="content" source="./media/iot-hubs-manage-device-twin-tags/iot-hub-device-select-device-to-assign-tags.png" alt-text="Select devices to assign Tags.":::
 
-4. In the opened view, you can see the tags the devices already have. To add a new basic tag, provide a **name** and **value** for the tag. The format for key and value pair is found in [Tags and properties format](iot-hub-devguide-device-twins#tags-and-properties-format). Select **Save** to save the rule
+4. In the opened view, you can see the tags the devices already have. To add a new basic tag, provide a **name** and **value** for the tag. The format for key and value pair is found in [Tags and properties format](iot-hub-devguide-device-twins.md#tags-and-properties-format). Select **Save** to save the rule
    
    ![Assign Tags to devices screen](./media/iot-hubs-manage-device-twin-tags/iot-hub-device-add-basic-tag.png) 
 
@@ -138,7 +138,7 @@ The following section walk through several examples of tagging using Azure CLI. 
  > If you are using Powershell or CloudShell>Powershell mode, you need to add a forward slash '\\' to escape all the double quotes. Example:  --tags '{\\"country\\":\\"US\\"}'
     
 ## Create Jobs to set Tags using Azure CLI
-For full references to the [IoT Hub Jobs CLI](https://docs.microsoft.com/en-us/cli/azure/iot/hub/job?view=azure-cli-latest#az-iot-hub-job-create-examples)
+For full references to the [IoT Hub Jobs CLI](/cli/azure/iot/hub/job?view=azure-cli-latest#az-iot-hub-job-create-examples)
 
 ## Next steps
 
