@@ -8,7 +8,7 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: overview
 recommendations: false
-ms.date: 09/28/2022
+ms.date: 09/29/2022
 ---
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD026 -->
@@ -73,10 +73,11 @@ worry-free operation in production. Features include:
 
 ## Always the latest PostgreSQL features
 
-Azure Cosmos DB for PostgreSQL is built around the open-source
-[Citus](https://github.com/citusdata/citus) extension to PostgreSQL. Because
-Citus is an extension, not a fork, of the underlying database, it always
-supports the latest PostgreSQL version within one day of release.
+Azure Cosmos DB for PostgreSQL is powered by the
+[Citus](https://github.com/citusdata/citus) open source extension to
+PostgreSQL. Because Citus isn't a fork of Postgres, the Citus extension always
+supports the latest PostgreSQL major version within a week of release--with
+support added to our managed service on Azure at most a few weeks later.
 
 Your apps can use the newest PostgreSQL features and extensions, such as
 native partitioning for performance, JSONB support to store and query
