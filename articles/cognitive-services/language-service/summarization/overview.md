@@ -26,11 +26,26 @@ This documentation contains the following article types:
 * **[Quickstarts](quickstart.md?pivots=rest-api&tabs=document-summarization)** are getting-started instructions to guide you through making requests to the service.
 * **[How-to guides](how-to/document-summarization.md)** contain instructions for using the service in more specific or customized ways.
 
-Text summarization is a broad topic, consisting of several approaches to represent relevant information in text. The document summarization feature described in this documentation enables you to use extractive or abstractive text summarization to produce a summary of a document. It extracts sentences that collectively represent the most important or relevant information within the original content. This feature is designed to shorten content that could be considered too long to read. For example, it can condense articles, papers, or documents to key sentences.
+Document summarization uses natural language processing techniques to generate a summary for documents. There are two general approaches to automatic summarization, both of which are supported by the API: extractive and abstractive. 
+
+Extractive summarization extracts sentences that collectively represent the most important or relevant information within the original content. Abstractive summarization generates a summary with concise, coherent sentences or words which is not simply extract sentences from the original document. These features are designed to shorten content that could be considered too long to read.
+
+## Key features
+
+There are two types of document summarization this API provides:
+
+* **Extractive summarization**: Produces a summary by extracting salient sentences within the document.
+    * Multiple extracted sentences: These sentences collectively convey the main idea of the document. They’re original sentences extracted from the input document’s content.
+    * Rank score: The rank score indicates how relevant a sentence is to a document's main topic. Document summarization ranks extracted sentences, and you can determine whether they're returned in the order they appear, or according to their rank.
+    * Multiple returned sentences: Determine the maximum number of sentences to be returned. For example, if you request a three-sentence summary extractive summarization will return the three highest scored sentences.
+    * Positional information: The start position and length of extracted sentences.
+* **Abstractive summarization**: Generates a summary that may not use the same words as those in the document, but captures the main idea.
+    * Single returned sentences: Abstractive summarization returns a single sentence that summarizes the entire text within the document. 
+    * Contextual input range: The range of the input document that was used to generated the summary.
 
 As an example, consider the following paragraph of text:
 
-*"Document summarization uses natural language processing techniques to generate a summary for documents. There are two general approaches to automatic summarization, extractive and abstractive. Extractive summarization extracts sentences that collectively represent the most important or relevant information within the original content and abstractive summarization generates a summary with concise, coherent sentences or words which is not simply extract sentences from the original document. These features are designed to shorten content that could be considered too long to read."*
+*"Document summarization uses natural language processing techniques to generate a summary for documents. There are two general approaches to automatic summarization, extractive and abstractive. Extractive summarization extracts sentences that collectively represent the most important or relevant information within the original content, and abstractive summarization generates a summary with concise, coherent sentences or words which is not simply extract sentences from the original document. These features are designed to shorten content that could be considered too long to read."*
 
 The document summarization feature would simplify the text into the following key sentences:
 
@@ -44,19 +59,6 @@ The document summarization feature would simplify the text into the following ke
 - "There are two general approaches to auto summarization, extractive and abstractive."
 - "These features are designed to shorten content that could be considered too long to read."
 
-## Key features
-
-There are two flavors of document summarization:
-
-* **Extractive summarization**: This flavor produces a summary by extracting salient sentences within the document.
-* **Abstractive summarization**: This flavor generates a summary that may not use the same words as those in the document, but captures the main idea.
-
-Document summarization supports the following features:
-
-* **Extracted sentences**: These sentences collectively convey the main idea of the document. They’re original sentences extracted from the input document’s content.
-* **Rank score**: The rank score indicates how relevant a sentence is to a document's main topic. Document summarization ranks extracted sentences, and you can determine whether they're returned in the order they appear, or according to their rank.
-* **Maximum sentences**: Determine the maximum number of sentences to be returned. For example, if you request a three-sentence summary Document summarization will return the three highest scored sentences.
-* **Positional information**: The start position and length of extracted sentences.
 
 # [Conversation summarization](#tab/conversation-summarization)
 
@@ -74,7 +76,7 @@ Conversation summarization supports the following features:
 
 * **Issue/resolution summarization**: A call center specific feature that gives a summary of issues and resolutions in conversations between customer-service agents and your customers.
 * **Chapter Title summarization**: Gives suggested titles of input conversation.
-* **Narrative summarization**: Gives summarizes and gives suggested titles of each input conversation.
+* **Narrative summarization**: Gives summaries and gives suggested titles of each input conversation.
 
 Conversation summarization is a broad topic, consisting of several approaches to represent relevant information in text. The conversation summarization feature described in this documentation allows you to use abstractive text summarization to produce a summary of issues and resolutions in transcripts of web chats and service call transcripts between customer-service agents, and your customers.
 
