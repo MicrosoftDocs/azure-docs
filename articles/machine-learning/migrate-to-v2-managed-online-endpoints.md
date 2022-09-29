@@ -38,7 +38,7 @@ Custom DNS name **isn't** supported.
 
 ### Resource Requirements
 [ContainerResourceRequirements](/python/api/azureml-core/azureml.core.webservice.aci.containerresourcerequirements) is not supported, you can choose the proper [SKU](reference-managed-online-endpoints-vm-sku-list.md) for your inferencing.
-With our migration tool, we'll map the CPU/Memory requirement to corresponding SKU. If you choose to redeploy manually through CLI/SDK V2, we also suggest the corresponding SKU for your new deployment.
+The migration tool will map the CPU/Memory requirement to corresponding SKU. If you choose to redeploy manually through CLI/SDK V2, we also suggest the corresponding SKU for your new deployment.
 
 | CPU request | Memory request in GB | Suggested SKU |
 | :----| :---- | :---- |
