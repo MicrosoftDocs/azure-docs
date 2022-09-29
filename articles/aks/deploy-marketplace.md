@@ -48,7 +48,7 @@ Included among these solutions are Kubernetes application-based Container offers
 
     :::image type="content" source="./media/deploy-marketplace/deployment-inline.png" alt-text="Screenshot of the Azure portal screen showing a successful resource deployment, indicating the offer has been deployed to the cluster." lightbox="./media/deploy-marketplace/deployment-full.png":::
 
-- You can also verify by listing the extensions on your running on your cluster:
+- You can also verify by listing the extensions running on your cluster:
 
     ```azurecli-interactive
     az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters

@@ -29,9 +29,9 @@ Cluster extensions enable an Azure Resource Manager driven experience for your a
 
 Your payload must be hosted in a private Azure Container Registry (ACR). Use this page to provide reference information for your Cloud Native Application Bundle (CNAB) bundle inside your Azure Container Registry. After you submit the offer for publishing, your bundle is copied to Azure Marketplace in a specific public container registry. All requests from Azure users to use your offer are served from the Azure Marketplace public container registry, not your private container registry. 
 
-Select Add CNAB Bundle to select the payload reference like so: 
+Select *Add CNAB Bundle* to select the payload reference like so: 
 
-<!-- image -->
+:::image type="content" source="./media/azure-container/add-cnab-inline.png" alt-text="An image showing the Technical configuration screen in the Azure portal. A pane showing the CNAB bundle's information is showing, and the Add CNAB Bundle button is highlighted." lightbox="./media/azure-container/add-cnab-full.png":::
 
 You can save and then choose to Review and publish the offer. All minor updates will be auto-updated for customer deployments, whereas major updates need customer consent to update.
 

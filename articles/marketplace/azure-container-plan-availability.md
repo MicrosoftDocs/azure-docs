@@ -26,7 +26,7 @@ On this page, you can configure:
 
 Every plan must be available in at least one market. Most markets are selected by default. To edit the list, select Edit markets and select or clear check boxes for each market location where this plan should (or shouldn't) be available for purchase. Users in selected markets can still deploy the offer to all Azure regions selected in the [Plan setup](azure-container-plan-setup.md#azure-regions) section.
 
-Select only Microsoft Tax Remitted to select only countries/regions in which Microsoft remits sales and use tax on your behalf. Publishing to China is limited to plans that are either Free or Bring-your-own-license (BYOL).
+Choose *Select only Microsoft Tax Remitted* to select only countries/regions in which Microsoft remits sales and use tax on your behalf. Publishing to China is limited to plans that are either Free or Bring-your-own-license (BYOL).
 
 If you've already set prices for your plan in US dollar (USD) currency and add another market location, the price for the new market is calculated according to current exchange rates. Always review the price for each market before you publish. Review your pricing by selecting Export prices (xlsx) after you save your changes.
 
@@ -73,7 +73,7 @@ A hidden plan is not visible on Azure Marketplace and can only be deployed throu
 
 ## Set plan availability
 
-If you are publishing Container image offers as a listing only offer through Microsoft as specified in your Plan Setup page, this will be the only section available to you.
+If you are publishing Container image offers as a listing only offer through Microsoft as specified in your [Plan Setup](azure-container-plan-setup.md) page, this will be the only section available to you.
 
 Use this tab to set the availability of your Azure Container plan. To hide your published offer so customers can't search, browse, or purchase it in the marketplace, select the **Hide plan** check box.
 
