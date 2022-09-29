@@ -114,7 +114,7 @@ To do so, navigate to the **Models** tab of the automated ML experiment parent r
 
 Alternatively, you can also access to the model's generated code from the top of the child run's page once you navigate into that child run's page of a particular model.
 
-![child run page view generated code button](.././media/how-to-generate-automl-training-code/child-run-view-generated-code.png)
+![Screenshot of the child run page view generated code button](.././media/how-to-generate-automl-training-code/child-run-view-generated-code.png)
 
 
 ## script.py
