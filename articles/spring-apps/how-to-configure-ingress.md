@@ -1,11 +1,11 @@
 ---
-title: How to configure ingress for Azure Spring Apps
-description: Describes how to configure ingress for Azure Spring Apps.
+title: Customize the ingress configuration in Azure Spring Apps
+description: Learn how to customize the ingress configuration in Azure Spring Apps.
 author: KarlErickson
 ms.author: haital
 ms.service: spring-apps
 ms.topic: how-to
-ms.date: 05/27/2022
+ms.date: 09/29/2022
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
@@ -62,9 +62,9 @@ This command will create an app with ingress read timeout set to 300 seconds, in
 To update the ingress settings for an existing service's application, use the following steps:
 
 1. Sign in to the portal using an account associated with the Azure subscription that contains the Azure Spring Apps instance.
-2. Navigate to the **Apps** pane, then select the app you want to configure.
-3. Navigate to the **Configuration** pane, then select the **Ingress settings** tab.
-4. Update the ingress settings, and then select **Save**.
+1. Navigate to the **Apps** pane, then select the app you want to configure.
+1. Navigate to the **Configuration** pane, then select the **Ingress settings** tab.
+1. Update the ingress settings, and then select **Save**.
 
    :::image type="content" source="media/how-to-configure-ingress/ingress-settings.jpg" lightbox="media/how-to-configure-ingress/ingress-settings.jpg" alt-text="Screenshot of Azure portal example for config ingress settings.":::
 
@@ -87,6 +87,7 @@ az spring app update \
 This command will update the ingress read timeout to 600 seconds, ingress send timeout set to 600 seconds, session affinity set to `None`, session cookie max age set to 0, backend protocol set to `GRPC`.
 
 ## FAQ
+
 - How to enable gRPC?
   - Set the backend protocol to `GRPC`.
 
