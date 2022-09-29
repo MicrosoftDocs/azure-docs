@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/28/2022
+ms.date: 09/29/2022
 ---
 
 # User-assigned managed identities for Azure Stream Analytics (preview)
@@ -70,8 +70,8 @@ With support for both system-assigned identity and user-assigned identity, here 
 
 1. You can switch from using system-assigned identity to user-assigned identity and vice-versa. When you switch from a user-assigned identity to another identity, the user identity is not deleted since you created it. You will have to manually delete it from your storage access control list.
 2. You can switch from an existing user-assigned identity to a newly created user-assigned identity. The previous identity is not removed from storage access control list.
-3. You cannot add multiple identities to a job.
-4. If you want to remove a user-assigned identity or system-assigned from a stream analytics job, you would have to provide a replacement.
+3. You cannot add multiple identities to your stream analytics job.
+4. Currently we do not support deleting an identity from a stream analytics job. You can replace it with another user-assigned or system-assigned identity.
 
 ## Next steps
 
