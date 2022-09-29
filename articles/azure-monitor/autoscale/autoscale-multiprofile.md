@@ -6,7 +6,7 @@ ms.author: edbaynash
 ms.service: azure-monitor
 ms.subservice: autoscale
 ms.topic: conceptual
-ms.date: 09/15/2022
+ms.date: 09/30/2022
 ms.reviewer: akkumari
 
 
@@ -430,4 +430,6 @@ $DefaultProfileThursdayProfile = New-AzAutoscaleProfile -DefaultCapacity "1" -Ma
 * [ARM template resource definition](https://learn.microsoft.com/azure/templates/microsoft.insights/autoscalesettings)
 * [PowerShell Az.Monitor Reference](https://learn.microsoft.com/powershell/module/az.monitor/#monitor)
 * [REST API reference. Autoscale Settings](https://learn.microsoft.com/rest/api/monitor/autoscale-settings).
-* [Advanced autoscale configuration using Resource Manager templates for virtual machine scale sets](autoscale-virtual-machine-scale-sets.md) for different resources in Azure.
+* [Tutorial: Automatically scale a virtual machine scale set with an Azure template](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-template)
+* [Tutorial: Automatically scale a virtual machine scale set with the Azure CLI](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-cli)
+* [Tutorial: Automatically scale a virtual machine scale set with an Azure template](https://learn.microsoft.com/azure/virtual-machine-scale-sets/tutorial-autoscale-powershell)
