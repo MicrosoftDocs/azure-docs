@@ -34,7 +34,7 @@ SQL Server to Azure SQL Managed Instance (using Azure storage)|[PowerShell](http
 SQL Server to SQL Server on Azure Virtual Machines (using file share)|[PowerShell](https://github.com/Azure-Samples/data-migration-sql/blob/main//PowerShell/sql-server-to-sql-vm-fileshare.md) / [Azure CLI](https://github.com/Azure-Samples/data-migration-sql/blob/main/CLI/sql-server-to-sql-vm-fileshare.md)
 SQL Server to SQL Server on Azure Virtual Machines (using Azure Storage)|[PowerShell](https://github.com/Azure-Samples/data-migration-sql/blob/main//PowerShell/sql-server-to-sql-vm-blob.md) / [Azure CLI](https://github.com/Azure-Samples/data-migration-sql/blob/main/CLI/sql-server-to-sql-vm-blob.md)
 SQL Server to Azure SQL Database (Preview)|[PowerShell](https://github.com/Azure-Samples/data-migration-sql/blob/main//PowerShell/sql-server-to-sql-db.md) / [Azure CLI](https://github.com/Azure-Samples/data-migration-sql/blob/main/CLI/sql-server-to-sql-db.md)
-SKU recommendations|[PowerShell](https://github.com/Azure-Samples/data-migration-sql/blob/main//PowerShell/sql-server-sku-recommendation.md) / [Azure CLI](https://github.com/Azure-Samples/data-migration-sql/blob/main/CLI/sql-server-sku-recommendation.md)
+SKU recommendations (Preview)|[PowerShell](https://github.com/Azure-Samples/data-migration-sql/blob/main//PowerShell/sql-server-sku-recommendation.md) / [Azure CLI](https://github.com/Azure-Samples/data-migration-sql/blob/main/CLI/sql-server-sku-recommendation.md)
 End-to-End migration automation|[PowerShell](https://github.com/Azure-Samples/data-migration-sql/blob/main//PowerShell/scripts/) / [Azure CLI](https://github.com/Azure-Samples/data-migration-sql/blob/main/CLI/scripts/)
 End-to-End migration automation for multiple databases|[PowerShell](https://github.com/Azure-Samples/data-migration-sql/blob/main//PowerShell/scripts/multiple%20databases/) / [Azure CLI](https://github.com/Azure-Samples/data-migration-sql/blob/main/CLI/scripts/multiple%20databases/)
 
@@ -48,7 +48,7 @@ Pre-requisites that are common across all supported migration scenarios using Az
     - Owner or Contributor role for the Azure subscription.
     > [!IMPORTANT]
     > Azure account is only required when running the migration steps and is not required for assessment or Azure recommendation steps process.
-* Create a target [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/create-configure-managed-instance-powershell-quickstart), [SQL Server on Azure Virtual Machine](/azure/azure-sql/virtual-machines/windows/sql-vm-create-powershell-quickstart), or [Azure SQL](/azure/azure-sql/database/single-database-create-quickstart) Database (Preview)](/azure/azure-sql/database/single-database-create-quickstart)
+* Create a target [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/create-configure-managed-instance-powershell-quickstart), [SQL Server on Azure Virtual Machine](/azure/azure-sql/virtual-machines/windows/sql-vm-create-powershell-quickstart), or [Azure SQL Database (Preview)](/azure/azure-sql/database/single-database-create-quickstart)
     > [!IMPORTANT] 
     > If your target is Azure SQL Database (Preview) you have to migrate database schema from source to target using [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension) or, [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension) for Azure Data Studio.
     > 

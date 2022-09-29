@@ -30,18 +30,18 @@
     href: ads-sku-recommend.md  
   - name: Migrate databases at scale using automation
     href: migration-dms-powershell-cli.md  
-  - name: Prerequisites
-    href: pre-reqs.md  
   - name: Database migration scenario status
     href: resource-scenario-status.md
+  - name: Prerequisites
+    href: pre-reqs.md  
   - name: Migration to Azure SQL Managed Instance
     items: 
+    - name: Custom roles for using Azure Data Studio Azure SQL Migration Extension with SQL Managed Instance as a target 
+      href: resource-custom-roles-sql-db-managed-instance-ads.md
     - name: Network topologies 
       href: resource-network-topologies.md
     - name: Custom roles 
       href: resource-custom-roles-sql-db-managed-instance.md
-    - name: Custom roles for using Azure Data Studio Azure SQL Migration Extension with SQL Managed Instance as a target 
-      href: resource-custom-roles-sql-db-managed-instance-ads.md
   - name: Migration to SQL Server on Azure Virtual Machine
     items: 
     - name: Custom roles for using Azure Data Studio Azure SQL Migration Extension with Virtual Machines as a target 
