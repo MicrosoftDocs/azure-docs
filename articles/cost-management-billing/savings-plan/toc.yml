@@ -13,8 +13,6 @@
     href: discount-application.md
   - name: Windows and SQL costs not included
     href: software-costs-not-included.md
-  - name: Usage data for individual subscriptions
-    href: usage-data-pay-as-you-go.md
   - name: Enterprise and Microsoft Customer Agreement usage data
     href: enterprise-usage-data.md
   - name: Cancellation policy
@@ -45,8 +43,6 @@
       href: utilization-cost-reports.md
     - name: View savings plan transactions
       href: view-transactions.md
-    - name: View amortized savings plan costs
-      href: view-amortized-costs.md
     - name: Charge back savings plan costs
       href: charge-back-costs.md
     - name: Renew a savings plan

@@ -135,5 +135,4 @@ Group by _Charge Type_ to see a breakdown of usage, purchases, and refunds; or b
 
 ## Next steps
 
-- Learn more about how to [View amortized savings plan costs](view-amortized-costs.md).
 - Learn more about how to [Charge back Azure saving plan costs](charge-back-costs.md).

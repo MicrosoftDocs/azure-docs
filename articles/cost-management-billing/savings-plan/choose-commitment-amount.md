@@ -40,6 +40,5 @@ If you have Azure savings plan for compute questions, contact your  account team
 ## Next steps
 
 - [Manage Azure savings plans](manage-savings-plan.md)
-- [Usage data for individual subscriptions](usage-data-pay-as-you-go.md)
 - [Usage data for enterprise subscriptions](enterprise-usage-data.md)
 - [Software costs not included in saving plan](software-costs-not-included.md)

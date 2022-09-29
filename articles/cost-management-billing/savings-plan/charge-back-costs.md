@@ -85,6 +85,7 @@ If you have Azure savings plan for compute questions, contact your  account team
 
 ## Next steps
 
-- To learn more about Azure savings plan usage data, see the following articles:
- - [Usage data for enterprise subscriptions](enterprise-usage-data.md)
- - [Usage data for individual subscriptions](usage-data-pay-as-you-go.md)
+To learn more about Azure savings plan usage data, see the following articles:
+
+- [Usage data for enterprise subscriptions](enterprise-usage-data.md)
+ 

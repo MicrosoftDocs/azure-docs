@@ -88,7 +88,6 @@ If you have Azure savings plan for compute questions, contact your  account team
 - To learn more about Azure saving plan, see the following articles:
   - [What are Azure savings plans?](savings-plan-compute-overview.md)
   - [How a savings plan discount is applied](discount-application.md)
-  - [Understand savings plan usage for your Pay-As-You-Go subscription](usage-data-pay-as-you-go.md)
   - [Understand savings plan usage data for enterprise subscriptions](enterprise-usage-data.md)
   - [Software costs not included in savings plan](software-costs-not-included.md)
   - [View Azure savings plan as a Cloud Solution Provider](view-savings-plan-cloud-solution-provider.md)

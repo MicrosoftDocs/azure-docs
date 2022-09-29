@@ -70,5 +70,4 @@ To learn more about Azure savings plans, see the following articles:
 - [Prepay for virtual machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
 - [Manage an Azure savings plan](manage-savings-plan.md)
 - [How saving plan discount is applied](discount-application.md)
-- [Usage data for individual subscriptions](usage-data-pay-as-you-go.md)
 - [Usage data for enterprise subscriptions](enterprise-usage-data.md)

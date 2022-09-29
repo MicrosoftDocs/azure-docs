@@ -13,7 +13,7 @@ ms.date: 09/23/2022
 
 # Azure savings plan recommendations
 
-Azure savings plan purchase recommendations are provided through [Azure Advisor](../advisor/advisor-reference-cost-recommendations.md#reserved-instances), and through the savings plan purchase experience in the Azure portal. The recommended commitment is calculated for the highest possible usage, and it's based on your historical usage. Your recommendation might not be for 100% utilization if you have inconsistent usage. To maximize savings with savings plans, try to purchase reservations as close to the recommendation as possible.
+Azure savings plan purchase recommendations are provided through [Azure Advisor](../../advisor/advisor-reference-cost-recommendations.md#reserved-instances), and through the savings plan purchase experience in the Azure portal. The recommended commitment is calculated for the highest possible usage, and it's based on your historical usage. Your recommendation might not be for 100% utilization if you have inconsistent usage. To maximize savings with savings plans, try to purchase reservations as close to the recommendation as possible.
 
 The following steps define how recommendations are calculated:
 
