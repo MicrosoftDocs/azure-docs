@@ -90,14 +90,14 @@ sections:
 
           List VM with deprecated image at Plan/SKU level.
           
-          ```
+          ```azurecli
           az vm show --resource-group $rgName --name $vmName --query "storageProfile.imageReference.exactVersion
           az vm list --query "[?storageProfile.imageReference.sku=='2016-Datacenter'].{VM:id, imageOffer:storageProfile.imageReference.offer, imagePublisher:StorageProfile.imageReference.publisher, imageSku: storageProfile.imageReference.sku, imageVersion:storageProfile.imageReference.version}"
           ```
           
           List VM with deprecated image at version level.
           
-          ```
+          ```azurecli
           az vm list --query "[?storageProfile.imageReference.version=='14393.4402.2105052108'].{VM:id, imageOffer:storageProfile.imageReference.offer, imagePublisher:StorageProfile.imageReference.publisher, imageSku: storageProfile.imageReference.sku, imageVersion:storageProfile.imageReference.version}"
           ```
           
@@ -106,20 +106,20 @@ sections:
           
           List VM with deprecated images at version level. 
           
-          ```
+          ```powershell
           (Get-AzVM -ResourceGroupName $rgname -Name $vmname).StorageProfile.ImageReference.ExactVersion   
           ```
           
           To find scale set using a deprecated version.
           
-          ```
+          ```powershell
           $vmsslist = Get-AzVmss
           $vmsslist | where {$_.virtualMachineProfile.storageProfile.imageReference.Version -eq '14393.4402.2105052108'} | Select-Object -Property ResourceGroupName, Name, @{label='imageOffer'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Offer}}, @{label='imagePublisher'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Publisher}}, @{label='imageSKU'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Sku}}, @{label='imageVersion'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Version}}
           ```
           
           List scale sets with deprecated images at plan/SKU level.
           
-          ```
+          ```powershell
           $vmsslist = Get-AzVmss
           $vmsslist | where {$_.virtualMachineProfile.storageProfile.imageReference.Sku -eq '2016-Datacenter'} | Select-Object -Property ResourceGroupName, Name, @{label='imageOffer'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Offer}}, @{label='imagePublisher'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Publisher}}, @{label='imageSKU'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Sku}}, @{label='imageVersion'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Version}}
           ```
@@ -143,14 +143,14 @@ sections:
 
             Using the Azure CLI:
           
-            ```
+            ```azurecli
             az vm image list --location "west europe" --publisher "MicrosoftWindowsServer" 
             ```
 
           
             Using PowerShell:
           
-            ```
+            ```powershell
             Get-AzVMImage -Location "west europe" -PublisherName “MicrosoftWindowsServer” 
             ```
           
@@ -162,13 +162,13 @@ sections:
           
             Azure CLI:
           
-            ```
+            azurecli
             az vm image list --location "west europe" --publisher "MicrosoftWindowsServer" --offer "WindowsServer" 
             ```
           
             PowerShell:
           
-            ```
+            ```powershell
             Get-AzVMImage -Location "west europe" -PublisherName “MicrosoftWindowsServer” -Offer “WindowsServer”
             ``` 
 
@@ -180,13 +180,13 @@ sections:
           
             Azure CLI:
           
-            ```
+            ```azurecli
             az vm image list --location "west europe" --publisher "MicrosoftWindowsServer" --offer "WindowsServer" --sku "2019-Datacenter-with-Containers" --all"
             ```
           
             PowerShell:
           
-            ```
+            ```powershell
             Get-AzVMImage -Location "west europe" -PublisherName “MicrosoftWindowsServer” -Offer “WindowsServer” -Skus "2019-Datacenter-with-Containers"
             ```
         
@@ -222,7 +222,7 @@ sections:
           
           The response indicates that this is deprecated:
           
-          ```
+          ```json
           {
             "error": {
               "code": "ImageVersionDeprecated",
