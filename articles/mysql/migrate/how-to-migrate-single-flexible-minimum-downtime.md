@@ -1,15 +1,16 @@
 ---
-title: "Tutorial: Migrate Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server with minimal downtime"
+title: "Tutorial: Migrate Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server with open-source tools"
 description: This article describes how to perform a minimal-downtime migration of Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server.
 author: SudheeshGH
 ms.author: sunaray
+ms.reviewer: maghan
+ms.date: 09/06/2022
 ms.service: mysql
 ms.subservice: single-server
 ms.topic: how-to
-ms.date: 06/20/2022
 ---
 
-# Tutorial: Migrate Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server with minimal downtime
+# Migrate Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server with open-source tools
 
 You can migrate an instance of Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server with minimum downtime to your applications by using a combination of open-source tools such as mydumper/myloader and Data-in replication.
 
@@ -35,7 +36,7 @@ To complete this tutorial, you need:
 
 * An instance of Azure Database for MySQL Single Server running version 5.7 or 8.0.
     > [!Note]
-    > If you're running Azure Database for MySQL Single Server version 5.6, upgrade your instance to 5.7 and then configure data in replication. To learn more, see [Major version upgrade in Azure Database for MySQL - Single Server](how-to-major-version-upgrade.md).
+    > If you're running Azure Database for MySQL Single Server version 5.6, upgrade your instance to 5.7 and then configure data in replication. To learn more, see [Major version upgrade in Azure Database for MySQL - Single Server](../single-server/how-to-major-version-upgrade.md).
 * An instance of Azure Database for MySQL Flexible Server. For more information, see the article [Create an instance in Azure Database for MySQL Flexible Server](../flexible-server/quickstart-create-server-portal.md).
     > [!Note]
     > Configuring Data-in replication for zone redundant high availability servers is not supported. If you would like to have zone redundant HA for your target server, then perform these steps:
@@ -46,21 +47,21 @@ To complete this tutorial, you need:
     > 4. Post cutover remove the Data-in replication configuration
     > 5. Enable HA
     >
-    > *Make sure that **[GTID_Mode](./concepts-read-replicas.md#global-transaction-identifier-gtid)** has the same setting on the source and target servers.*
+    > *Make sure that **[GTID_Mode](../flexible-server/concepts-read-replicas.md#global-transaction-identifier-gtid)** has the same setting on the source and target servers.*
 
 * To connect and create a database using MySQL Workbench. For more information, see the article [Use MySQL Workbench to connect and query data](../flexible-server/connect-workbench.md).
 * To ensure that you have an Azure VM running Linux in same region (or on the same VNet, with private access) that hosts your source and target databases.
 * To install mysql client or MySQL Workbench (the client tools) on your Azure VM. Ensure that you can connect to both the primary and replica server. For the purposes of this article, mysql client is installed.
 * To install mydumper/myloader on your Azure VM. For more information, see the article [mydumper/myloader](concepts-migrate-mydumper-myloader.md).
 * To download and run the sample database script for the [classicmodels](https://www.mysqltutorial.org/wp-content/uploads/2018/03/mysqlsampledatabase.zip) database on the source server.
-* Configure [binlog_expire_logs_seconds](./concepts-server-parameters.md#binlog_expire_logs_seconds) on the source server to ensure that binlogs aren’t purged before the replica commit the changes. Post successful cutover you can reset the value.
+* Configure [binlog_expire_logs_seconds](../flexible-server/concepts-server-parameters.md#binlog_expire_logs_seconds) on the source server to ensure that binlogs aren’t purged before the replica commit the changes. Post successful cut over you can reset the value.
 
 ## Configure networking requirements
 
 To configure the Data-in replication, you need to ensure that the target can connect to the source over port 3306. Based on the type of endpoint set up on the source, perform the appropriate following steps.
 
-* If a public endpoint is enabled on the source, then ensure that the target can connect to the source by enabling “Allow access to Azure services” in the firewall rule. To learn more, see [Firewall rules - Azure Database for MySQL](./concepts-firewall-rules.md#connecting-from-azure). 
-* If a private endpoint and “[Deny public access](concepts-data-access-security-private-link.md#deny-public-access-for-azure-database-for-mysql)” is enabled on the source, then install the private link in the same VNet that hosts the target. To learn more, see [Private Link - Azure Database for MySQL](concepts-data-access-security-private-link.md).
+* If a public endpoint is enabled on the source, then ensure that the target can connect to the source by enabling “Allow access to Azure services” in the firewall rule. To learn more, see [Firewall rules - Azure Database for MySQL](../single-server/concepts-firewall-rules.md#connecting-from-azure). 
+* If a private endpoint and *[Deny public access](../single-server/concepts-data-access-security-private-link.md#deny-public-access-for-azure-database-for-mysql)* is enabled on the source, then install the private link in the same VNet that hosts the target. To learn more, see [Private Link - Azure Database for MySQL](../single-server/concepts-data-access-security-private-link.md).
 
 ## Configure Data-in replication
 
@@ -80,7 +81,7 @@ To configure Data in replication, perform the following steps:
     > With Azure Database for MySQL Single Server with the large storage, which supports up to 16TB, this enabled by default.
 
     > [!Tip]
-    > With Azure Database for MySQL Single Server, which supports up to 4TB, this is not enabled by default. However, if you promote a [read replica](how-to-read-replicas-portal.md) for the source server and then delete read replica, the parameter will be set to ON.
+    > With Azure Database for MySQL Single Server, which supports up to 4TB, this is not enabled by default. However, if you promote a [read replica](../single-server/how-to-read-replicas-portal.md) for the source server and then delete read replica, the parameter will be set to ON.
 
 4. Based on the SSL enforcement for the source server, create a user in the source server with the replication permission by running the appropriate command.
 
@@ -120,7 +121,7 @@ To configure Data in replication, perform the following steps:
     * **--user:** Name of a user (in the format username@servername since the primary server is running Azure Database for MySQL - Single Server). You can use server admin or a user having SELECT and RELOAD permissions.
     * **--Password:** Password of the user above
 
-    For more information about using mydumper, see [mydumper/myloader](concepts-migrate-mydumper-myloader.md)
+    For more information about using mydumper, see [mydumper/myloader](../single-server/concepts-migrate-mydumper-myloader.md)
 
 6. Read the metadata file to determine the binary log file name and offset by running the following command:
 
@@ -198,7 +199,7 @@ To configure Data in replication, perform the following steps:
 
 To confirm that Data-in replication is working properly, you can verify that the changes to the tables in primary were replicated to the replica.
 
-1. Identify a table to use for testing, for example the Customers table, and then confirm that the number of entries it contains is the same on the primary and replica servers by running the following command on each:
+1. Identify a table to use for testing, for example, the Customers table, and then confirm that the number of entries it contains is the same on the primary and replica servers by running the following command on each:
 
     ```
     select count(*) from customers;
@@ -206,7 +207,7 @@ To confirm that Data-in replication is working properly, you can verify that the
 
 2. Make a note of the entry count for later comparison.
 
-    To test replication, try adding some data to the customer tables on the primary server and see then verify that the new data is replicated. In this case, you’ll add two rows to a table on the primary server and then confirm that they are replicated on the replica server.
+    To test replication, try adding some data to the customer tables on the primary server and see then verify that the new data is replicated. In this case, you’ll add two rows to a table on the primary server and then confirm that they're replicated on the replica server.
 
 3. In the Customers table on the primary server, insert rows by running the following command:
 
@@ -227,7 +228,7 @@ To confirm that Data-in replication is working properly, you can verify that the
 
 To ensure a successful cutover, perform the following tasks:
 
-1. Configure the appropriate server-level firewall and virtual network rules to connect to target Server. You can compare the firewall rules for the [source](how-to-manage-firewall-using-portal.md) and [target](../flexible-server/how-to-manage-firewall-portal.md#create-a-firewall-rule-after-server-is-created) from the portal.
+1. Configure the appropriate server-level firewall and virtual network rules to connect to target Server. You can compare the firewall rules for the source and [target](../flexible-server/how-to-manage-firewall-portal.md#create-a-firewall-rule-after-server-is-created) from the portal.
 2. Configure appropriate logins and database level permissions in the target server. You can run *SELECT * FROM mysql.user;* on the source and target servers to compare.
 3. Make sure that all the incoming connections to Azure Database for MySQL Single Server are stopped.
     > [!Tip]
@@ -238,9 +239,9 @@ To ensure a successful cutover, perform the following tasks:
 7. *Call mysql.az_replication_remove_master* to remove the Data-in replication configuration.
 
 At this point, your applications are connected to the new Azure Database for MySQL Flexible server and changes in the source will no longer replicate to the target.
-
+[Create and manage Azure Database for MySQL firewall rules by using the Azure portal](../single-server/how-to-manage-firewall-using-portal.md)
 ## Next steps
 
 * Learn more about Data-in replication [Replicate data into Azure Database for MySQL Flexible Server](../flexible-server/concepts-data-in-replication.md) and [Configure Azure Database for MySQL Flexible Server Data-in replication](../flexible-server/how-to-data-in-replication.md)
-* Learn more about [troubleshooting common errors in Azure Database for MySQL](how-to-troubleshoot-common-errors.md).
+* Learn more about [troubleshooting common errors in Azure Database for MySQL](../single-server/how-to-troubleshoot-common-errors.md).
 * Learn more about [migrating MySQL to Azure Database for MySQL offline using Azure Database Migration Service](../../dms/tutorial-mysql-azure-mysql-offline-portal.md).
