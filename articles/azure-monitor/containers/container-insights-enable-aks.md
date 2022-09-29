@@ -103,18 +103,15 @@ To enable monitoring of your AKS cluster in the Azure portal from Azure Monitor,
 After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
 
 ## [Resource Manager template](#tab/arm)
-This method includes two JSON templates. One template specifies the configuration to enable monitoring, and the other contains parameter values that you configure to specify the following:
-
-* The AKS container resource ID.
-* The resource group that the cluster is deployed in.
 
 >[!NOTE]
 >The template needs to be deployed in the same resource group as the cluster.
 
 
 ### Create or download templates
+You will either download template and parameter files or create your own depending on what authentication mode you're using.
 
-**If you want to enable [managed identity authentication (preview)](container-insights-onboard.md#authentication)**
+**To enable [managed identity authentication (preview)](container-insights-onboard.md#authentication)**
 
 1. Download the template at [https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file](https://aka.ms/aks-enable-monitoring-msi-onboarding-template-file) and save it as **existingClusterOnboarding.json**.
 
@@ -122,12 +119,13 @@ This method includes two JSON templates. One template specifies the configuratio
 
 3. Edit the values in the parameter file.
 
-  - For **aksResourceId** and **aksResourceLocation**, use the values on the **AKS Overview** page for the AKS cluster. 
-  - For **workspaceResourceId**, use the resource ID of your Log Analytics workspace.
-  - For **resourceTagValues**, match the existing tag values specified for the existing Container insights extension DCR of the cluster and the name of the data collection rule, which will be MSCI-\<clusterName\>-\<clusterRegion\> and this resource created in AKS clusters Resource Group. If this is first-time onboarding, you can set the arbitrary tag values.
+  - `aksResourceId`: Use the values on the **AKS Overview** page for the AKS cluster.
+  - `aksResourceLocation`: Use the values on the **AKS Overview** page for the AKS cluster.
+  - `workspaceResourceId`: Use the resource ID of your Log Analytics workspace.
+  - `resourceTagValues`:  Match the existing tag values specified for the existing Container insights extension DCR of the cluster and the name of the data collection rule, which will be MSCI-\<clusterName\>-\<clusterRegion\> and this resource created in AKS clusters Resource Group. If this is first-time onboarding, you can set the arbitrary tag values.
 
 
-**If you don't want to enable [managed identity authentication (preview)](container-insights-onboard.md#authentication)**
+**To enable [managed identity authentication (preview)](container-insights-onboard.md#authentication)**
 
 1. Save the following JSON as **existingClusterOnboarding.json**.
 
@@ -216,19 +214,15 @@ This method includes two JSON templates. One template specifies the configuratio
 
 3. Edit the values in the parameter file.
 
-  - For **aksResourceId** and **aksResourceLocation**, use the values on the **AKS Overview** page for the AKS cluster. 
-  - For **workspaceResourceId**, use the resource ID of your Log Analytics workspace.
-  - For **aksResourceTagValues**, use the existing tag values specified for the AKS cluster.
-
+  - `aksResourceId`: Use the values on the **AKS Overview** page for the AKS cluster.
+  - `aksResourceLocation`: Use the values on the **AKS Overview** page for the AKS cluster.
+  - `workspaceResourceId`: Use the resource ID of your Log Analytics workspace.
+  - `resourceTagValues`: Use the existing tag values specified for the AKS cluster.
 
 ### Deploy template
 
-If you are unfamiliar with the concept of deploying resources by using a template, see:
+Deploy the template with the parameter file using any valid method for deploying Resource Manager templates. See [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates) for examples of different methods.
 
-* [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
-* [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
-
-If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.59 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 
 #### To deploy with Azure PowerShell:

@@ -3,21 +3,20 @@ title: Send Prometheus metrics to Azure Monitor managed service for Prometheus w
 description: Configure the Container insights agent to scrape Prometheus metrics from your Kubernetes cluster and send to Azure Monitor managed service for Prometheus.
 ms.custom: references_regions
 ms.topic: conceptual
-ms.date: 09/15/2022
+ms.date: 09/28/2022
 ms.reviewer: aul
 ---
 
-# Send Kubernetes metrics to Azure Monitor managed service for Prometheus with Container insights
+# Send metrics to Azure Monitor managed service for Prometheus with Container insights (preview)
 This article describes how to configure Container insights to send Prometheus metrics from an Azure Kubernetes cluster to Azure Monitor managed service for Prometheus. This includes installing the metrics addon for Container insights.
 
 ## Prerequisites
 
+- The cluster must be onboarded to Container insights. See [Enable Container insights for Azure Kubernetes Service (AKS) cluster](container-insights-enable-aks).
 - The following resource providers must be registered in the subscription of the AKS cluster and the Azure Monitor Workspace.
   - Microsoft.ContainerService
   - Microsoft.Insights
   - Microsoft.AlertsManagement
-
-Please register the `AKS-PrometheusAddonPreview` in the Azure Kubernetes clusters subscription to try out this feature.
 
 ## Enable Prometheus metric collection
 Use any of the following methods to install the metrics addon on your cluster and send Prometheus metrics to an Azure Monitor workspace.
@@ -35,7 +34,7 @@ Managed Prometheus can be enabled in the Azure portal through either Container i
     :::image type="content" source="media/container-insights-prometheus-metrics-addon/aks-cluster-monitor-settings.png" lightbox="media/container-insights-prometheus-metrics-addon/aks-cluster-monitor-settings.png" alt-text="Screenshot of button for monitor settings for an AKS cluster.":::
 
 4. Click the checkbox for **Enable Prometheus metrics** and select your Azure Monitor workspace.
-5. To send the collected metrics to Grafana, select a Grafana workspace.
+5. To send the collected metrics to Grafana, select a Grafana workspace. See [Create an Azure Managed Grafana instance](../../managed-grafana/quickstart-managed-grafana-portal.md) for details on creating a Grafana workspace.
 
     :::image type="content" source="media/container-insights-prometheus-metrics-addon/aks-cluster-monitor-settings-details.png" lightbox="media/container-insights-prometheus-metrics-addon/aks-cluster-monitor-settings-details.png" alt-text="Screenshot of monitor settings for an AKS cluster.":::
 
@@ -56,6 +55,7 @@ Use the following procedure to install the Azure Monitor agent and the metrics a
 
 #### Prerequisites
 
+- Register the `AKS-PrometheusAddonPreview` feature flag in the Azure Kubernetes clusters subscription with the following command inm Azure CLI: `az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview`.
 - The aks-preview extension needs to be installed using the command `az extension add --name aks-preview`. For more information on how to install a CLI extension, see [Use and manage extensions with the Azure CLI](https://learn.microsoft.com/cli/azure/azure-cli-extensions-overview).
 - Azure CLI version 2.41.0 or higher is required for this feature.
 
@@ -130,6 +130,7 @@ The output will be similar to the following:
 
 ### Prerequisites
 
+- Register the `AKS-PrometheusAddonPreview` feature flag in the Azure Kubernetes clusters subscription with the following command inm Azure CLI: `az feature register --namespace Microsoft.ContainerService --name AKS-PrometheusAddonPreview`.
 - The Azure Monitor workspace and Azure Managed Grafana workspace must already be created.
 - The template needs to be deployed in the same resource group as the cluster.
 
@@ -212,7 +213,10 @@ Assign the `Monitoring Data Reader` role to the Grafana System Assigned Identity
     ````
 
 
-5. Deploy the template with the parameter file using any valid method for deploying Resource Manager templates. See [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates) for examples.
+### Deploy template
+
+Deploy the template with the parameter file using any valid method for deploying Resource Manager templates. See [Deploy the sample templates](../resource-manager-samples.md#deploy-the-sample-templates) for examples of different methods.
+
 
 ---
 
@@ -253,14 +257,14 @@ ama-metrics-ksm-5fcf8dffcd      1         1         1       11h
 ## Limitations
 
 - Ensure that you update the `kube-state metrics` Annotations and Labels list with proper formatting. There is a limitation in the Resource Manager template deployments that require exact values in the `kube-state` metrics pods. If the kuberenetes pod has any issues with malformed parameters and isn't running, then the feature won't work as expected.
-- A data collection rule, data collection endpoint is created with the name `MSPROM-\<cluster-name\>-\<cluster-region\>`. These names can't currently be modified.
+- A data collection rule and data collection endpoint is created with the name `MSPROM-\<cluster-name\>-\<cluster-region\>`. These names can't currently be modified.
 - You must get the existing Azure Monitor workspace integrations for a Grafana workspace and update the Resource Manager template with it, otherwise it will overwrite and remove the existing integrations from the grafana workspace.
 - CPU and Memory requests and limits can't be changed for [Container insights metrics addon](../containers/container-insights-prometheus-metrics-addon.md). If changed, they will be reconciled and replaced by original values in a few seconds.
 - Metrics addon doesn't work on AKS clusters configured with HTTP proxy. 
 
 
 ## Uninstall metrics addon
-Currently, Azure CLI is the only option to remove the metrics addon and stop sending Prometheus metrics to Azure Monitor managed service for Prometheus. The following command removes the agent from the cluster nodes and deletes the recording rules created for the data being collected from the cluster, it doesn't remove the DCE, DCR or the data already collected and stored in your Azure Monitor Workspace resource.
+Currently, Azure CLI is the only option to remove the metrics addon and stop sending Prometheus metrics to Azure Monitor managed service for Prometheus. The following command removes the agent from the cluster nodes and deletes the recording rules created for the data being collected from the cluster, it doesn't remove the DCE, DCR, or the data already collected and stored in your Azure Monitor workspace.
 
 ```azurecli
 az aks update --disable-azuremonitormetrics -n <cluster-name> -g <cluster-resource-group>
@@ -323,4 +327,5 @@ When you allow a default Azure Monitor workspace to be created when you install 
 ## Next steps
 
 - [Customize Prometheus metric scraping for the cluster](../essentials/prometheus-metrics-scrape-configuration.md).
+- [Create Prometheus alerts based on collected metrics](container-insights-metric-alerts.md)
 - [Learn more about collecting Prometheus metrics](container-insights-prometheus.md).
