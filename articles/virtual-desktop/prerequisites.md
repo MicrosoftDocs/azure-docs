@@ -122,8 +122,8 @@ There are different automation and deployment options available depending on whi
 |--------------------------------------|:------:|:------:|:------:|:------:|
 |Windows 11 Enterprise multi-session|Yes|Yes|Yes|Yes|
 |Windows 11 Enterprise|Yes|Yes|No|No|
-|Windows 10 Enterprise multi-session, version 1909 and later|Yes|Yes|Yes|Yes|
-|Windows 10 Enterprise, version 1909 and later|Yes|Yes|No|No|
+|Windows 10 Enterprise multi-session, version 20H2 and later|Yes|Yes|Yes|Yes|
+|Windows 10 Enterprise, version 20H2 and later|Yes|Yes|No|No|
 |Windows 7 Enterprise|Yes|Yes|No|No|
 |Windows Server 2022|Yes|Yes|No|No|
 |Windows Server 2019|Yes|Yes|Yes|Yes|
