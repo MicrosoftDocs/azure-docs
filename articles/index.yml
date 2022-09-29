@@ -204,6 +204,13 @@ productDirectory:
         - ai-machine-learning
       url: cognitive-services/luis/index.yml
     # Card
+    - title: Microsoft Energy Data Services (Preview)
+      summary: Accelerate your journey to energy data modernization and digital transformation
+      imageSrc: energy-data-services/media/icon/energy-data-services.svg
+      azureCategories:
+        - integration
+      url: energy-data-services/index.yml
+    # Card
     - title: Microsoft Genomics
       summary: Power genome sequencing & research insights
       imageSrc: https://static.docs.com/ui/media/product/azure/genomics.svg

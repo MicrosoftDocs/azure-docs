@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page
   author: lauradolan
   ms.author: ladolan
-  ms.date: 07/19/2022
+  ms.date: 09/23/2022
 
 landingContent:
   - title: About Azure Center for SAP solutions
@@ -44,6 +44,8 @@ landingContent:
             url: manage-virtual-instance.md
           - text: Get quality checks and insights
             url: get-quality-checks-insights.md
+          - text: View cost analysis for SAP system
+            url: view-cost-analysis.md
 
   - title: Monitor
     linkLists:

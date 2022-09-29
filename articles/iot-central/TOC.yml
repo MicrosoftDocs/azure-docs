@@ -35,6 +35,8 @@
       items:
       - name: Create a rule
         href: core/tutorial-create-telemetry-rules.md
+      - name: Explore an Azure IoT Central industrial scenario
+        href: core/tutorial-industrial-end-to-end.md
       - name: Explore the IoT Central APIs
         href: /training/modules/manage-iot-central-apps-with-rest-api/
     - name: Create industry specific demo apps

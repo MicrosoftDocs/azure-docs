@@ -10,7 +10,7 @@ ms.custom: references_regions
 
 > [!IMPORTANT]
 > - Support for pools without public IP addresses in Azure Batch is currently in public preview for the following regions: France Central, East Asia, West Central US, South Central US, West US 2, East US, North Europe, East US 2, Central US, West Europe, North Central US, West US, Australia East, Japan East, Japan West.
-> - This preview version will be replaced by [Simplified node communication pool without public IP addresses](simplified-node-communication-pool-no-public-ip.md).
+> - This preview version will be retired on **31 March 2023**, and will be replaced by [Simplified node communication pool without public IP addresses](simplified-node-communication-pool-no-public-ip.md). For more details, please refer to [Retirement Migration Guide](batch-pools-without-public-ip-addresses-classic-retirement-migration-guide.md).
 > - This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > - For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
