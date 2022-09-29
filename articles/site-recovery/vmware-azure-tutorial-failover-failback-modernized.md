@@ -1,14 +1,14 @@
 ---
-title: Fail over VMware VMs to Azure with Site Recovery - Preview
-description: Learn how to fail over VMware VMs to Azure in Azure Site Recovery - Preview
+title: Fail over VMware VMs to Azure with Site Recovery - Modernized
+description: Learn how to fail over VMware VMs to Azure in Azure Site Recovery - Modernized
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 08/19/2021
 ms.custom: MVC
 ---
-# Fail over VMware VMs - Preview
+# Fail over VMware VMs - Modernized
 
-This article describes how to fail over an on-premises VMware virtual machine (VM) to Azure with [Azure Site Recovery](site-recovery-overview.md) - Preview.
+This article describes how to fail over an on-premises VMware virtual machine (VM) to Azure with [Azure Site Recovery](site-recovery-overview.md) - Modernized.
 
 For information about failover in Classic releases, see [this article](vmware-azure-tutorial-failover-failback.md).
 
@@ -29,7 +29,7 @@ Complete the previous tutorials:
 
 1. Make sure you've [set up Azure](tutorial-prepare-azure.md) for on-premises disaster recovery of VMware VMs.
 2. Prepare your on-premises [VMware](vmware-azure-tutorial-prepare-on-premises.md) environment for disaster recovery.
-3. Set up disaster recovery for [VMware VMs](vmware-azure-set-up-replication-tutorial-preview.md).
+3. Set up disaster recovery for [VMware VMs](vmware-azure-set-up-replication-tutorial-modernized.md).
 4. Run a [disaster recovery drill](tutorial-dr-drill-azure.md) to make sure that everything's working as expected.
 
 ## Verify VM properties
@@ -108,7 +108,7 @@ Ensure the following for the VM,  after it is failed over to Azure:
 
 1. The VM in Azure should always be switched on.
 2. Ensure mobility agent services *service 1* and *service 2* are running on the VM. This is to ensure mobility agent in the VM can communicate with Azure Site Recovery services in Azure.
-3. The URLs mentioned [here](vmware-azure-architecture-preview.md#set-up-outbound-network-connectivity) are accessible from the VM.
+3. The URLs mentioned [here](vmware-azure-architecture-modernized.md#set-up-outbound-network-connectivity) are accessible from the VM.
 
 ## Cancel planned failover
 
@@ -135,11 +135,11 @@ If the VM does not boot properly or some application does not come up properly, 
 
 3. Finally, attach the disks back to the appliance and resume the replication.
 
-This behavior is different from what was present in the Legacy/Classic architecture.
+This behavior is different from what was present in the Classic architecture.
 
-- Using the preview, you can do the failback operation again at a later point of time.
+- In Modernized architecture, you can do the failback operation again at a later point of time.
 
-- In Legacy architecture, you cannot cancel and retry the failback - if the VM does not boot up or the application does not come up or for any other reason.  
+- In Classic architecture, you cannot cancel and retry the failback - if the VM does not boot up or the application does not come up or for any other reason.  
 
 
 > [!NOTE]
