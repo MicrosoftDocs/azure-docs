@@ -34,7 +34,7 @@ See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for 
 - Private Links are not supported for Prometheus metrics collection into Azure monitor workspace.
 - Azure monitor managed service for Prometheus is only supported in public clouds.
 - Metrics addon doesn't work on AKS clusters configured with HTTP proxy. 
-- Sraping and storing metrics at frequencies less than 1 second is not supported.
+- Scraping and storing metrics at frequencies less than 1 second is not supported.
 
 
 ## Prometheus references
@@ -50,5 +50,5 @@ Following are links to Prometheus documentation.
 ## Next steps
 
 - [Collect Prometheus metrics for your AKS cluster](../containers/container-insights-prometheus-metrics-addon.md).
-- [Configure Prometheus alerting and recording rules groups](prometheus-metrics-rule-groups.md).
+- [Configure Prometheus alerting and recording rules groups](prometheus-rule-groups.md).
 - [Customize scraping of Prometheus metrics](prometheus-metrics-scrape-configuration.md).
