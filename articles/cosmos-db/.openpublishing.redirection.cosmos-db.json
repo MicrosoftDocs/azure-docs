@@ -1672,7 +1672,7 @@
     },
     {
       "source_path_from_root": "/articles/cosmos-db/cosmosdb-jupyter-notebooks.md",
-      "redirect_url": "/azure/cosmos-db/notebooks",
+      "redirect_url": "/azure/cosmos-db/notebooks-overview",
       "redirect_document_id": true
     },
     {
