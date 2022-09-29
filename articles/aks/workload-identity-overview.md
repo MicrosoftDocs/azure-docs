@@ -32,7 +32,12 @@ This article helps you understand this new authentication feature, and reviews t
 
 - The `aks-preview` extension version 0.5.102 or later.
 
-- [Azure Identity][azure-identity-libraries] SDK version 1.6 or later for the C# language.
+- The following are the minimum versions of the [Azure Identity][azure-identity-libraries] client library supported:
+
+    * .NET 1.5.0
+    * Java 1.4.0
+    * JavaScript 2.0.0
+    * Python 1.7.0
 
 ## Limitations
 
@@ -96,16 +101,18 @@ If you've used [Azure AD pod-managed identity][use-azure-ad-pod-identity], think
 
 ## How to migrate to workload identity
 
-You can configure workload identity on a cluster that is currently running pod-managed identity. You can use the same configuration you've implemented for pod-managed identity today, you just need to annotate the service account within the namespace with the identity. It enables workload identity to inject the annotations into the pods. Depending on which Azure Identity client library the application is using with pod-managed identity already, you have two approaches to run that application using a workload identity.
+On a cluster that is already running a pod-managed identity, you can configure it to use workload identity one of two ways. The first option allows you to use the same configuration you've implemented for pod-managed identity today. You just need to annotate the service account within the namespace with the identity, and it enables workload identity to inject the annotations into the pods.
 
-To help streamline and ease the migration process, we've developed a migration sidecar that converts the IMDS transactions your application makes over to [OpenID Connect][openid-connect-overview] (OIDC). The migration sidecar isn't intended to be a long-term solution, but a way to get up and running quickly on workload identity. Running the migration sidecar within your application proxies the application IMDS transactions over to OIDC. The alternative approach is to upgrade to [Azure Identity][azure-identity-libraries] version 1.6 or later, which supports OIDC authentication.
+The second option is to rewrite your application to use the latest version of the Azure Identity client library.
+
+To help streamline and ease the migration process, we've developed a migration sidecar that converts the IMDS transactions your application makes over to [OpenID Connect][openid-connect-overview] (OIDC). The migration sidecar isn't intended to be a long-term solution, but a way to get up and running quickly on workload identity. Running the migration sidecar within your application proxies the application IMDS transactions over to OIDC. The alternative approach is to upgrade to a supported version of the [Azure Identity][azure-identity-libraries] client library, which supports OIDC authentication.
 
 The following table summarizes our migration or deployment recommendations for workload identity.
 
 |Scenario |Description |
 |---------|------------|
-| New or existing cluster deployment runs Azure Identity SDK version 1.6 | No migration steps are required.<br> Sample deployment resources:<ul><li> [Deploy and configure workload identity on a new cluster][deploy-configure-workload-identity-new-cluster]</ul></li> <ul><li>[Tutorial: Use a workload identity with an application on AKS][tutorial-use-workload-identity] |
-| New or existing cluster deployment running an unsupported version of Azure Identity SDK| Update container image to use a supported version of the Azure Identity SDK, or use the [migration sidecar][workload-identity-migration-sidecar]. |
+| New or existing cluster deployment [runs a supported version](#dependencies) of Azure Identity client library | No migration steps are required.<br> Sample deployment resources:<ul><li> [Deploy and configure workload identity on a new cluster][deploy-configure-workload-identity-new-cluster]</ul></li> <ul><li>[Tutorial: Use a workload identity with an application on AKS][tutorial-use-workload-identity] |
+| New or existing cluster deployment [runs an unsupported version](#dependencies) of Azure Identity client library| Update container image to use a supported version of the Azure Identity SDK, or use the [migration sidecar][workload-identity-migration-sidecar]. |
 
 ## Next steps
 

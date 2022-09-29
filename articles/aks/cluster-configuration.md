@@ -190,7 +190,7 @@ To remove Node Restriction from a cluster.
 az aks update -n aks -g myResourceGroup --disable-node-restriction
 ```
 
-## OIDC Issuer
+## OIDC Issuer (preview)
 
 This enables an OIDC Issuer URL of the provider which allows the API server to discover public signing keys.
 
@@ -223,7 +223,7 @@ az extension update --name aks-preview
 
 ### Create an AKS cluster with OIDC Issuer
 
-Create an AKS cluster using the [az aks create][az-aks-create] command with the `--enable-oidc-issuer` parameter to use the OIDC Issuer. The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
+Create an AKS cluster using the [az aks create][az-aks-create] command with the `--enable-oidc-issuer` parameter to use the OIDC Issuer (preview). The following example creates a cluster named *myAKSCluster* with one node in the *myResourceGroup*:
 
 ```azurecli-interactive
 az aks create -g myResourceGroup -n myAKSCluster --node-count 1 --enable-oidc-issuer
@@ -231,7 +231,7 @@ az aks create -g myResourceGroup -n myAKSCluster --node-count 1 --enable-oidc-is
 
 ### Update an AKS cluster with OIDC Issuer
 
-Update an AKS cluster using the [az aks update][az-aks-update] command with the `--enable-oidc-issuer` parameter to use the OIDC Issuer. The following example updates a cluster named *myAKSCluster*:
+Update an AKS cluster using the [az aks update][az-aks-update] command with the `--enable-oidc-issuer` parameter to use the OIDC Issuer (preview). The following example updates a cluster named *myAKSCluster*:
 
 ```azurecli-interactive
 az aks update -g myResourceGroup -n myAKSCluster --enable-oidc-issuer 

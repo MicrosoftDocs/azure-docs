@@ -147,27 +147,21 @@ kubectl logs podName
 The following log output resembles successful communication through the proxy sidecar. Verify that the logs show a token is successfully acquired and the GET operation is successful.
 
 ```output
-proxy "msg"="starting the proxy server" "port"=8080 "userAgent"="azure-workload-identity/proxy/v0.13.0-12-gc8527f3
-"method"="GET" "uri"="/metadata/identity/oauth2/token?resource=https://management.core.windows.net/api-version=2018-02-01
-proxy "msg"="successfully acquired token"
-proxy "msg"="received token request"
+I0926 00:29:29.968723       1 proxy.go:97] proxy "msg"="starting the proxy server" "port"=8080 "userAgent"="azure-workload-identity/proxy/v0.13.0-12-gc8527f3 (linux/amd64) c8527f3/2022-09-26-00:19" 
+I0926 00:29:29.972496       1 proxy.go:173] proxy "msg"="received readyz request" "method"="GET" "uri"="/readyz" 
+I0926 00:29:30.936769       1 proxy.go:107] proxy "msg"="received token request" "method"="GET" "uri"="/metadata/identity/oauth2/token?resource=https://management.core.windows.net/api-version=2018-02-01&client_id=<client_id>" 
+I0926 00:29:31.101998       1 proxy.go:129] proxy "msg"="successfully acquired token" "method"="GET" "uri"="/metadata/identity/oauth2/token?resource=https://management.core.windows.net/api-version=2018-02-01&client_id=<client_id>"
 ```
 
 ## Remove pod-managed identity
 
-After you've completed your testing and verified authentication is working using the sidecar, you can remove the Azure AD pod-managed identity from your clusterand then remove the identity.
+After you've completed your testing and the application is successfully able to get a token using the proxy sidecar, you can remove the Azure AD pod-managed identity mapping for the pod from your cluster, and then remove the identity.
 
-1. Run the [az aks pod-identity delete][az-aks-pod-identity-delete] command to remove the identity from your pod.
+1. Run the [az aks pod-identity delete][az-aks-pod-identity-delete] command to remove the identity from your pod. This should only be done after all pods in the namespace using the pod-managed identity mapping have migrated to use the sidecar.
 
     ```azurecli
     az aks pod-identity delete --name podIdentityName --namespace podIdentityNamespace --resource-group myResourceGroup --cluster-name myAKSCluster
     ```
-
-2. Run the [az identity delete][az-identity-delete] command to remove the managed identity. To delete a user-assigned managed identity, your account needs the [Managed Identity Contributor][managed-identity-contributor] role assignment.
-
-    ```azurecli
-    az identity delete -g ${IDENTITY_RESOURCE_GROUP} -n ${IDENTITY_NAME}
-    ```  
 
 ## Next steps
 
