@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: overview
-ms.date: 09/23/2022
+ms.date: 09/29/2022
 ms.author: jricketts
 ms.custom:
   - it-pro
@@ -59,7 +59,7 @@ Use the numbered sections in the next two section to cross reference the followi
 
 As customers transition identity management to the cloud, more users and groups are created directly in Azure AD. However, they still need a presence on-premises in AD DS to access various resources.
 
-3. When an external user from a partner organization is created in Azure AD using B2B, MIM can automatically provision them [into AD](/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario) and give those guests access to on-premises Windows-Integrated Authentication or Kerberos-based applications.
+3. When an external user from a partner organization is created in Azure AD using B2B, MIM can automatically provision them [into AD DS](/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario) and give those guests access to [on-premises Windows-Integrated Authentication or Kerberos-based applications](https://learn.microsoft.com/azure/active-directory/external-identities/hybrid-cloud-to-on-premises). Alternatively, customers can user [PowerShell scripts](https://github.com/Azure-Samples/B2B-to-AD-Sync) to automate the creation of guest accounts on-premises. 
 
 1. When a group is created in Azure AD, it can be automatically synchronized to AD DS using [Azure AD Connect sync](../hybrid/how-to-connect-group-writeback-v2.md).
 
@@ -70,7 +70,7 @@ As customers transition identity management to the cloud, more users and groups 
 | 1 |Users, groups| AD DS| Azure AD| [Azure AD Connect Cloud Sync](https://learn.microsoft.com/azure/active-directory/cloud-sync/what-is-cloud-sync) |
 | 2 |Users, groups, devices| AD DS| Azure AD| [Azure AD Connect Sync](https://learn.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect) |
 | 3 |Groups| Azure AD| AD DS| [Azure AD Connect Sync](../hybrid/how-to-connect-group-writeback-v2.md) |
-| 4 |Guest accounts| Azure AD| AD DS| [MIM](/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario) |
+| 4 |Guest accounts| Azure AD| AD DS| [MIM](/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario), [PowerShell](https://github.com/Azure-Samples/B2B-to-AD-Sync)|
 | 5 |Users, groups| Azure AD| Managed AD| [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) |
 
 The table depicts common scenarios and the recommended technology.
