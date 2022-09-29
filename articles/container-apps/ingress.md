@@ -90,10 +90,10 @@ With ingress enabled, your application is assigned a fully qualified domain name
 
 For HTTP ingress, traffic is routed to individual applications based on the FQDN in the host header.
 
-For TCP ingress, traffic is routed to individual applications based on the FQDN and its *exposed* port number. Other container apps in the same environment can also access a TCP ingress-enabled container app by using its name (defined by the `name` property) and its *exposed* port number.
+For TCP ingress, traffic is routed to individual applications based on the FQDN and its *exposed* port number. Other container apps in the same environment can also access a TCP ingress-enabled container app by using its name (defined by the `name` property) and its *exposedPort* number.
 
 For applications with external ingress visibility, the following conditions apply:
-- An internal Container Apps environment has a single private IP address for applications. For container apps in internal Environments, you must configure [DNS](./networking.md#dns) for VNET-scope ingress.
+- An internal Container Apps environment has a single private IP address for applications. For container apps in internal environments, you must configure [DNS](./networking.md#dns) for VNET-scope ingress.
 - An external Container Apps environment or Container Apps environment that is not in a VNET has a single public IP address for applications.
 
 You can get access to the environment's unique identifier by querying the environment settings.
