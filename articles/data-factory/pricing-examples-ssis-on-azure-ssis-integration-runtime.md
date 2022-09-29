@@ -24,7 +24,7 @@ Refer to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calc
 
 The Azure-SSIS integration runtime (IR) is a specialized cluster of Azure virtual machines (VMs) for SSIS package executions in Azure Data Factory (ADF). When you provision it, it will be dedicated to you, hence it will be charged just like any other dedicated Azure VMs as long as you keep it running, regardless whether you use it to execute SSIS packages or not. With respect to its running cost, you’ll see the hourly estimate on its setup pane in ADF portal, for example:  
 
-:::image type="content" source="media/pricing-concepts/ssis-pricing-example.png" alt-text="Diagram showing an SSIS pricing example":::
+:::image type="content" source="media/pricing-concepts/ssis-pricing-example.png" alt-text="Diagram showing an SSIS pricing example.":::
 
 ### Azure Hybrid Benefit (AHB)
 
