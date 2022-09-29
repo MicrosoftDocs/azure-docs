@@ -6,7 +6,7 @@ author: b-branco
 ms.author: biancabranco
 ms.service: private-5g-core
 ms.topic: how-to 
-ms.date: 09/14/2022
+ms.date: 09/29/2022
 ms.custom: template-how-to
 ---
 
