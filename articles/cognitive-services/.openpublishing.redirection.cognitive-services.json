@@ -11,7 +11,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/cognitive-services/conversational-language-understanding/concepts/backwards-compatibility.md",
+            "source_path_from_root": "/articles/cognitive-services/language-service/conversational-language-understanding/concepts/backwards-compatibility.md",
             "redirect_url": "/azure/cognitive-services/language-service/conversational-language-understanding/how-to/migrate-from-luis",
             "redirect_document_id": true
         },
