@@ -91,7 +91,7 @@ After you download the data file, you can register it as a data asset in Azure M
 
 1. For data source, select the "From local files" option to upload your dataset.
 
-1. For file selection, upload the dataset you downloaded. By default, Azure Machine Learning will store the data asset in the default workspace blobstore. For more information on datastores, see [Connect to storage services](how-to-access-data.md).
+1. For file selection, upload the dataset you downloaded. By default, Azure Machine Learning will store the data asset in the default workspace blobstore. For more information on datastores, see [Connect to storage services](v1/how-to-access-data.md).
 
 1. Follow the steps to set the data parsing settings and schema for your data asset.
 
