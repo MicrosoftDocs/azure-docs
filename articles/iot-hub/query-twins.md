@@ -1,5 +1,5 @@
 ---
-title: Query device twins and module twins
+title: Query Azure IoT Hub device twins and module twins
 description: Developer guide - retrieve information about device/module twins from your IoT hub using the query language.
 author: kgremban
 ms.service: iot-hub

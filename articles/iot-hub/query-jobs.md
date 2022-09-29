@@ -1,5 +1,5 @@
 ---
-title: Run queries on IoT Hub jobs
+title: Run queries on Azure IoT Hub jobs
 description: Developer guide - retrieve information about device jobs from your Azure IoT hub using the query language.
 author: kgremban
 ms.service: iot-hub
