@@ -145,9 +145,9 @@ This procedure descries how to recover privileged access to a sensor, for the *c
 
 1. On the **Sites and sensors** page, locate the sensor that you're working with, and select the options menu (**...**) on the right > **Recover my password**. For example:
 
-    TBD
+    :::image type="content" source="media/manage-users-sensor/recover-my-password.png" alt-text="Screenshot of the Recover my password option on the Sites and sensors page.":::
 
-1. In the **Recover** dialog, enter the unique identifier that you've copied to the clipboard from your sensor. A **password_recovery.zip** file is automatically downloaded.
+1. In the **Recover** dialog that opens, enter the unique identifier that you've copied to the clipboard from your sensor. A **password_recovery.zip** file is automatically downloaded.
 
     [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
@@ -206,13 +206,11 @@ This procedure describes how to track user activity on a specific sensor, and is
 
 Sign into the sensor console and select **Event Timeline** from the left-hand menu.
 
-On the **Event Timeline** page, make sure that the **User Operations** filter is set to **Show**.
+On the **Event Timeline** page, make sure that the **User Operations** filter is set to **Show**. Use other filters or search using CTRL+F to find the information of interest to you.
 
 For example:
 
 :::image type="content" source="media/manage-users-sensor/track-user-activity.png" alt-text="Screenshot of the Event Timeline on the sensor showing user activity.":::
-
-Use the filters or search using CTRL+F to find the information of interest to you.
 
 ## Next steps
 
