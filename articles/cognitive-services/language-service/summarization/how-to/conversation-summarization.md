@@ -387,8 +387,6 @@ For long conversation, the model might segment it into multiple cohesive parts, 
 
 [!INCLUDE [availability](../includes/regional-availability.md)]
 
-When you get results from language detection, you can stream the results to an application or save the output to a file on the local system.
-
 The following text is an example of content you might submit for summarization. This is only an example, the API can accept much longer input text. See [data limits](../../concepts/data-limits.md) for more information.
  
 **Agent**: "*Hello, how can I help you*?"

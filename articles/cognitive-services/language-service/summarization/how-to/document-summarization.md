@@ -45,11 +45,7 @@ There is another feature in Azure Cognitive Service for Language, [key phrases e
 
 ## Determine how to process the data (optional)
 
-### Input languages
-
-When you submit documents to be processed by key phrase extraction, you can specify which of [the supported languages](../language-support.md) they're written in. if you don't specify a language, key phrase extraction will default to English. The API may return offsets in the response to support different [multilingual and emoji encodings](../../concepts/multilingual-emoji-support.md). 
-
-## Submitting data
+### Submitting data
 
 You submit documents to the API as strings of text. Analysis is performed upon receipt of the request. Because the API is [asynchronous](../../concepts/use-asynchronously.md), there may be a delay between sending an API request, and receiving the results.
 
@@ -65,7 +61,7 @@ You can also use the `sortby` parameter to specify in what order the extracted s
 |Rank    | Order sentences according to their relevance to the input document, as decided by the service.        |
 |Offset    | Keeps the original order in which the sentences appear in the input document.        |
 
-## Getting document summarization results
+### Getting document summarization results
 
 When you get results from language detection, you can stream the results to an application or save the output to a file on the local system.
 
@@ -85,11 +81,11 @@ Using the above example, the API might return the following summarized sentences
 **Abstractive summarization**:
 - "Microsoft is taking a more holistic, human-centric approach to learning and understanding. We believe XYZ-code will enable us to fulfill our long-term vision: cross-domain transfer learning, spanning modalities and languages. Over the past five years, we have achieved human performance on benchmarks in."
 
-## Try extractive document summarization
+### Try extractive document summarization
 
 You can use extractive document summarization to get summaries of articles, papers, or documents. To see an example, see the [quickstart article](../quickstart.md).
 
-## Try abstractive document summarization
+### Try abstractive document summarization
 
 The following example will get you started with abstractive document summarization:
 
