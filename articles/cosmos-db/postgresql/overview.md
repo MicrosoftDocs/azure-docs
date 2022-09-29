@@ -75,9 +75,9 @@ worry-free operation in production. Features include:
 
 Azure Cosmos DB for PostgreSQL is powered by the
 [Citus](https://github.com/citusdata/citus) open source extension to
-PostgreSQL. Because Citus is not a fork of Postgres, the Citus extension always
+PostgreSQL. Because Citus isn't a fork of Postgres, the Citus extension always
 supports the latest PostgreSQL major version within a week of release--with
-support added to our managed service on Azure at most a few weeks after that.
+support added to our managed service on Azure at most a few weeks later.
 
 Your apps can use the newest PostgreSQL features and extensions, such as
 native partitioning for performance, JSONB support to store and query
