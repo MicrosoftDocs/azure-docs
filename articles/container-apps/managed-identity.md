@@ -342,4 +342,5 @@ To remove all identities, set the `type` of the container app's identity to `Non
 
 ## Next steps
 
-> [!div class="nextstepaction"] > [Monitor an app](monitor.md)
+> [!div class="nextstepaction"]
+> [Monitor an app](monitor.md)
