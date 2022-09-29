@@ -155,15 +155,15 @@ To begin the migration in either Online or Offline mode, you can get started wit
 
    Please run the following query to check if single server's admin user has replication privileges.
 
-      ```
-      SELECT usename, userepl FROM pg_catalog.pg_user;
-      ```
+```
+   SELECT usename, userepl FROM pg_catalog.pg_user;
+```
 
    Verify that the **userpl** column for the single server's admin user has the value **true**. If it is set to **false**, please grant the replication privileges to the admin user by running the following query on the single server.
 
-      ```
-      ALTER ROLE <adminusername> WITH REPLICATION;
-      ```
+ ```
+   ALTER ROLE <adminusername> WITH REPLICATION;
+```
 
 #### Allow-list required extensions
 
