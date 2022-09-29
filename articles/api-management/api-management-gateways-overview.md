@@ -38,21 +38,21 @@ API Management offers both managed and self-hosted gateways:
     >    
  
 
-* **Self-hosted** - The [self-hosted gateway](self-hosted-gateway-overview.md) is an optional, containerized version of the default managed gateway. It's useful for hybrid and multi-cloud scenarios where there is a requirement to run the gateways off Azure in the same environments where API backends are hosted. The self-hosted gateway enables customers with hybrid IT infrastructure to manage APIs hosted on-premises and across clouds from a single API Management service in Azure. 
+* **Self-hosted** - The [self-hosted gateway](self-hosted-gateway-overview.md) is an optional, containerized version of the default managed gateway. It's useful for hybrid and multicloud scenarios where there's a requirement to run the gateways off of Azure in the same environments where API backends are hosted. The self-hosted gateway enables customers with hybrid IT infrastructure to manage APIs hosted on-premises and across clouds from a single API Management service in Azure. 
 
     * The self-hosted gateway is [packaged](self-hosted-gateway-overview.md#packaging) as a Linux-based Docker container and is commonly deployed to Kubernetes, including to [Azure Kubernetes Service](how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md) and [Azure Arc-enabled Kubernetes](how-to-deploy-self-hosted-gateway-azure-arc.md).
 
     * Each self-hosted gateway is associated with a **Gateway** resource in a cloud-based API Management instance from which it receives configuration updates and communicates status. 
 
+[!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-deprecation.md)]
 
 ## Feature comparison: Managed versus self-hosted gateways
 
-The following table compares features available in the managed gateway versus those in the self-hosted gateway. Differences are also shown between the managed gateway for dedicated service tiers (Developer, Basic, Standard, Premium) and for the Consumption tier.
+The following table compares features available in the managed gateway versus the features in the self-hosted gateway. Differences are also shown between the managed gateway for dedicated service tiers (Developer, Basic, Standard, Premium) and for the Consumption tier.
 
 > [!NOTE]
 > * Some features of managed and self-hosted gateways are supported only in certain [service tiers](api-management-features.md) or with certain [deployment environments](self-hosted-gateway-overview.md#packaging) for self-hosted gateways.
 > * See also self-hosted gateway [limitations](self-hosted-gateway-overview.md#limitations).
-
 
 ### Infrastructure
 
@@ -154,6 +154,6 @@ For estimated maximum gateway throughput in the API Management service tiers, se
 
 ## Next steps
 
--   Learn more about [API Management in a Hybrid and Multi-Cloud World](https://aka.ms/hybrid-and-multi-cloud-api-management)
+-   Learn more about [API Management in a Hybrid and multicloud World](https://aka.ms/hybrid-and-multi-cloud-api-management)
 -   Learn more about using the [capacity metric](api-management-capacity.md) for scaling decisions
 -   Learn about [observability capabilities](observability.md) in API Management
