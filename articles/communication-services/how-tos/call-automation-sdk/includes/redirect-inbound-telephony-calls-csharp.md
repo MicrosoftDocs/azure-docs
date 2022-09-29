@@ -34,12 +34,6 @@ In the console window of your operating system, use the `dotnet` command to crea
 
 During the preview phase, the NuGet package can be obtained by configuring your package manager to use the [Azure SDK Dev Feed](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed)
 
-Obtain your connection string and configure your application
-
-From the Azure portal, locate your Communication Service resource and click on the Keys section to obtain your connection string.
-
-:::image type="content" source="./../../../quickstarts/voice-video-calling/media/call-automation/key.png" alt-text="Screenshot of Communication Services resource page on portal to access keys.":::
-
 ## Configure Program.cs to redirect the call
 
 Using the minimal API feature in .NET 6, we can easily add an HTTP POST map and redirect the call.
