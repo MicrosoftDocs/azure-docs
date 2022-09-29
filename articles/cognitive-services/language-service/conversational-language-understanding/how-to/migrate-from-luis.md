@@ -34,7 +34,7 @@ The following table presents a side-by-side comparison between the features of L
 |:------------:|:----------------------------------------------:|:--------------:|
 |Machine-learned and Structured ML entities| Learned [entity components](#how-are-entities-different-in-clu) |Machine-learned entities without subentities will be transferred as CLU entities. Structured ML entities will only transfer leaf nodes (lowest level subentities without their own subentities) as entities in CLU. The name of the entity in CLU will be the name of the subentity concatenated with the parent. For example, _Order.Size_|
 |List and prebuilt entities| List and prebuilt [entity components](#how-are-entities-different-in-clu) | List and prebuilt entities will be transferred as entities in CLU with a populated entity component based on the entity type.|
-|Regex and Pattern.Any entities| Not currently available | Pattern.Any entities will be removed. Regex entities will be removed.|
+|Regex and `Pattern.Any` entities| Not currently available | `Pattern.Any` entities will be removed. Regex entities will be removed.|
 |Single culture for each application|[Multilingual models](#how-is-conversational-language-understanding-multilingual) enable multiple languages for each project. |The primary language of your project will be set as your LUIS application culture. Your project can be trained to extend to different languages.|
 |Entity roles  |[Roles](#how-are-entity-roles-transferred-to-clu) are no longer needed. | Entity roles will be transferred as entities.|
 |Settings for: normalize punctuation, normalize diacritics, normalize word form, use all training data  |[Settings](#how-is-the-accuracy-of-clu-better-than-luis) are no longer needed. |Settings will not be transferred.  |
@@ -186,7 +186,7 @@ Any extracted entity has a 100% confidence score and therefore entity confidence
 
 CLU uses state-of-the-art models to enhance machine learning performance of different models of intent classification and entity extraction. 
 
-These models are insensitive to minor variations, which removes the need for the following settings: _Normalize punctuation_, _normalize diacritics_, _normalize word form_, and _use all training data_.  
+These models are insensitive to minor variations, removing the need for the following settings: _Normalize punctuation_, _normalize diacritics_, _normalize word form_, and _use all training data_.  
 
 Additionally, the new models do not support phrase list features as they no longer require supplementary information from the user to provide semantically similar words for better accuracy. Patterns were also used to provide improved intent classification using rule-based matching techniques that are not necessary in the new model paradigm.
 

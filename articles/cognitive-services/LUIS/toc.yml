@@ -247,9 +247,9 @@ items:
           href: https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Language/LanguageUnderstanding
       - name: Node.js
         items:
-        - name: NPM - authoring
+        - name: npm - authoring
           href: https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring
-        - name: NPM - runtime
+        - name: npm - runtime
           href: https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime
         - name: Samples
           href: https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/tree/master/Samples/luis
