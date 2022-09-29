@@ -116,7 +116,7 @@
       href: enable-public-ip-nsx-edge.md
     - name: Disable Internet access or enable a default route
       href: disable-internet-access.md
-    - name: Configure networking
+  - name: Configure networking
     items:
     - name: Configure DHCP server or relay
       href: configure-dhcp-azure-vmware-solution.md
