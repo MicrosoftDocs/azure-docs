@@ -22,7 +22,7 @@ ms.custom: devx-track-python, devplatv2, sdkv2, cliv2, event-tier1-build-2022
 > * [v1](v1/how-to-train-with-datasets.md)
 > * [v2 (current version)](how-to-read-write-data-v2.md)
 
-Learn how to read and write data for your jobs with the Azure Machine Learning Python SDK v2(preview) and the Azure Machine Learning CLI extension v2. 
+Learn how to read and write data for your jobs with the Azure Machine Learning Python SDK v2 and the Azure Machine Learning CLI extension v2. 
  
 ## Prerequisites
 

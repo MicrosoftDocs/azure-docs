@@ -18,11 +18,6 @@ ms.devlang: azurecli
 
 [!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 
-> [!IMPORTANT]
-> SDK v2 is currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 In this article, you'll learn how to deploy an AutoML-trained machine learning model to an online (real-time inference) endpoint. Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time-consuming, iterative tasks of developing a machine learning model. For more, see [What is automated machine learning (AutoML)?](concept-automated-ml.md).
 
 In this article you'll know how to deploy AutoML trained machine learning model to online endpoints using: 
