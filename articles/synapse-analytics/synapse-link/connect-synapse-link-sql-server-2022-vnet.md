@@ -22,40 +22,40 @@ This article provides a guide on configuring Azure Synapse Link for SQL Server 2
 
 1. Create Synapse workspace with managed virtual network enabled. You will enable **managed virtual network** and select **No** to allow outbound traffic from the workspace to any target. You can learn more about managed virtual network from [this](../security/synapse-workspace-managed-vnet.md).
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/create-synapse-workspace-allow-outbound-traffic.png" alt-text="create synapse workspace allow outboundtraffic":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/create-synapse-workspace-allow-outbound-traffic.png" alt-text="Screenshot of creating synapse workspace allow outbound traffic.":::
 
 1. Navigate to your Synapse workspace on Azure portal, go to **Networking** tab to enable **Allow Azure Synapse Link for Azure SQL Database to bypass firewall rules**.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/enable-bypass-firewall-rules.png" alt-text="enable bypass firewall rules":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/enable-bypass-firewall-rules.png" alt-text="Screenshot of enabling bypass firewall rules.":::
 
 1. Launch Synapse Studio, navigate to **Manage**, click **Integration runtimes** and select **AutoResolvingIntegrationRuntime**. On the pop-up slide, you can click **Virtual network** tab, and enable **Interactive authoring**. 
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/enable-interactive-authoring.png" alt-text="enable interactive authoring":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/enable-interactive-authoring.png" alt-text="Screenshot of enabling interactive authoring.":::
 
 1. Now you can create a link connection from **Integrate** tab to replicate data from SQL Server 2022 to Synapse SQL pool.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/create-link.png" alt-text="create link":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/create-link.png" alt-text="Screenshot of creating a link.":::
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/create-link-sqlserver.png" alt-text="create link sql server":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/create-link-sql-server.png" alt-text="Screenshot of creating link sql server.":::
 
 1. Start your link connection
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/start-link.png" alt-text="start link":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/start-link.png" alt-text="Screenshot of starting a link.":::
 
 
 ## Managed workspace Virtual Network with data exfiltration
 
 1. Create Synapse workspace with managed virtual network enabled. You will enable **managed virtual network** and select **Yes** to limit outbound traffic from the Managed workspace Virtual Network to targets through Managed private endpoints. You can learn more about managed virtual network from [this](../security/synapse-workspace-managed-vnet.md)
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/create-synapse-workspace-disallow-outbound-traffic.png" alt-text="create synapse workspace disallow outbound traffic":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/create-synapse-workspace-disallow-outbound-traffic.png" alt-text="Screenshot of creating synapse workspace disallow outbound traffic.":::
 
 1. Navigate to your Synapse workspace on Azure portal, go to **Networking** tab to enable **Allow Azure Synapse Link for Azure SQL Database to bypass firewall rules**.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/enable-bypass-firewall-rules.png" alt-text="enable bypass firewall rules":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/enable-bypass-firewall-rules.png" alt-text="Screenshot of enabling bypass firewall rules.":::
 
 1. Launch Synapse Studio, navigate to **Manage**, click **Integration runtimes** and select **AutoResolvingIntegrationRuntime**. On the pop-up slide, you can click **Virtual network** tab, and enable **Interactive authoring**. 
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/enable-interactive-authoring.png" alt-text="enable interactive authoring":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/enable-interactive-authoring.png" alt-text="Screenshot of enabling interactive authoring.":::
 
 1. Create a linked service connecting to SQL Server 2022. You can get more details from [this](connect-synapse-link-sql-server-2022.md#create-linked-service-for-your-source-sql-server-2022).
 
@@ -65,29 +65,29 @@ This article provides a guide on configuring Azure Synapse Link for SQL Server 2
 
    * Create a managed private endpoint in linked service for ADLS Gen2 storage.
    
-     :::image type="content" source="../media/connect-synapse-link-sql-database/new-sql-server-linked-service-pe1.png" alt-text="new sql db linked service pe1":::
+     :::image type="content" source="../media/connect-synapse-link-sql-database/new-sql-server-linked-service-pe1.png" alt-text="Screenshot of new sql db linked service pe1.":::
 
    * Complete the managed private endpoint creation in the linked service for ADLS Gen2 storage.
    
-     :::image type="content" source="../media/connect-synapse-link-sql-database/new-sql-server-linked-service-pe2.png" alt-text="new sql db linked service pe2":::
+     :::image type="content" source="../media/connect-synapse-link-sql-database/new-sql-server-linked-service-pe2.png" alt-text="Screenshot of new sql db linked service pe2.":::
 
    * Go to Azure portal of your ADLS Gen2 storage as landing zone, approve the Private endpoint connections.
    
-     :::image type="content" source="../media/connect-synapse-link-sql-database/new-sql-server-linked-service-pe3.png" alt-text="new sql db linked service pe3":::
+     :::image type="content" source="../media/connect-synapse-link-sql-database/new-sql-server-linked-service-pe3.png" alt-text="Screenshot of new sql db linked service pe3.":::
 
    * Complete the creation of linked service for ADLS Gen2 storage.
    
-     :::image type="content" source="../media/connect-synapse-link-sql-database/new-sql-server-linked-service-pe4.png" alt-text="new sql db linked service pe4":::
+     :::image type="content" source="../media/connect-synapse-link-sql-database/new-sql-server-linked-service-pe4.png" alt-text="Screenshot of new sql db linked service pe4.":::
 		 
 1. Now you can create a link connection from **Integrate** tab to replicate data from SQL Server 2022 to Synapse SQL pool.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/create-link.png" alt-text="create link":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/create-link.png" alt-text="Screenshot of creating a link.":::
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/create-link-sqlserver.png" alt-text="create link sqldb":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/create-link-sql-server.png" alt-text="Screenshot of creating link sqldb.":::
 
 1. Start your link connection
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/start-link.png" alt-text="start link":::
+   :::image type="content" source="../media/connect-synapse-link-sql-database/start-link.png" alt-text="Screenshot of starting link.":::
  
 
 
