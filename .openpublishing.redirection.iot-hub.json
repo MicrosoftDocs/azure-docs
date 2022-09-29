@@ -1109,7 +1109,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/iot-hub/azure/iot-hub/iot-c-sdk-ref/",
+      "source_path_from_root": "/articles/iot-hub/azure/iot-hub/iot-c-sdk-ref",
       "redirect_url": "https://github.com/Azure/azure-iot-sdk-c",
       "redirect_document_id": false
     }
