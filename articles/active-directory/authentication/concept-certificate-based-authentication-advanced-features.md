@@ -24,22 +24,22 @@ This topic covers how to use one certificate for multiple accounts and support f
 
 ## Using one certificate for multiple accounts 
 
-The certificateUserIds attribute is a unique constraint multi valued attribute. An admin can use multiple bindings and add appropriate values into the multi values and achieve authenticating into multiple accounts using one certificate.
+The certificateUserIds attribute is a unique constraint multivalued attribute. An admin can use multiple bindings and add appropriate values to the multivalued certificateUserIds attribute to authenticate multiple accounts by using one certificate.
 
-The Azure AD user object lookup happens with the Azure AD UPN the user enters ( on in case of Windows login the Azure AD UPN that windows send) and the username bindings is used to validate the certificate to successfully authenticate the user. Also, if the admin has configured multiple bindings, Azure AD will evaluate all the bindings until a successful authentication, or all the bindings are evaluated. This helps the admin use specific configurations to achieve one certificate to multiple accounts.
+The Azure AD user object lookup happens with the Azure AD UPN the user enters (or, in case of Windows sign-in, the Azure AD UPN that Windows sends) and the username bindings is used to validate the certificate to successfully authenticate the user. Also, if the admin has configured multiple bindings, Azure AD will evaluate all the bindings until a successful authentication, or all the bindings are evaluated. This helps the admin use specific configurations to achieve one certificate to multiple accounts.
 
 By default, Azure AD CBA has a single user binding configured. The Principal Name attribute in the Subject Alternative Name of a certificate presented to Azure AD. Some administrators require the ability for Azure AD to be able to map a single certificate to multiple Azure AD accounts. We refer to this as 1:M mapping. Azure AD CBA supports this implementation via administrators adding additional mapping methods to the policy. 
 
-An example of this would be a developer use case. In this example Bob has a regular productivity account that is used to accomplish his everyday tasks and a developer account to use when he is doing task related to his developer job roles. The organization issues a single high assurance certificate to Bob and wishes for him to be able to use this same certificate for both his productivity and developer accounts. 
+An example of this would be a developer use case. For example, Bob has a regular productivity account that is used to accomplish his everyday tasks and a developer account to use when he is doing task related to his developer job roles. The organization issues a single high assurance certificate to Bob and wishes for him to be able to use this same certificate for both his productivity and developer accounts. 
 
 This 1:M implementation could be implemented in Azure AD CBA by configuring the policy as follows. 
 
 |Description| Values |
 |--------------------------|--------------------------------------|
-|Certificate Information | Principal Name in SAN = Bob.Smith@contoso.com, Certificate's Subject Key Identifier (SKI) = 89b0f468c1abea65ec22f0a882b8fda6fdd6750p |
-|Bobs Productivity Account| AAD User Principal Name = Bob.Smith@contoso.com, certificateUserIDs = Empty|
-|Bobs Developer Account| AAD UserPrincipalName = Bob.Smith-dev@contoso.com, certificateUserIds = x509:\<SKI\>89b0f468c1abea65ec22f0a882b8fda6fdd6750p |
-|Tenant User Binding Policy | Priority 1 Principal Name in SAN -> Azure AD UPN , Priority 2 Certificate SKI -> certificateUserIds |
+|Certificate Information | Principal Name in SAN = Bob.Smith@contoso.com <br> Certificate's Subject Key Identifier (SKI) = 89b0f468c1abea65ec22f0a882b8fda6fdd6750p |
+|Bobs Productivity Account| AAD User Principal Name = Bob.Smith@contoso.com <br> certificateUserIDs = Empty|
+|Bobs Developer Account| AAD UserPrincipalName = Bob.Smith-dev@contoso.com <br> certificateUserIds = x509:\<SKI\>89b0f468c1abea65ec22f0a882b8fda6fdd6750p |
+|Tenant User Binding Policy | Priority 1 Principal Name in SAN -> Azure AD UPN <br> Priority 2 Certificate SKI -> certificateUserIds |
 
 The above configuration would allow the same certificate to be used by Bob for both his productivity and developer account. Since we have fallback support for bindings, Bob's productivity account will be authenticated by UPN binding policy and Bob's developer account will be authenticated by SKI binding policy 
 
@@ -55,11 +55,11 @@ AAD User Principal Name = Bob.Smith@Contoso.com
 
 certificateUserIDs = [ x509:\<PN\>Bob.Smith@Contoso.com , x509:\<SKI\>89b0f468c1abea65ec22f0a882b8fda6fdd6750p]
 
-## External identities support
+## External identity support
 
-Today a B2B user cannot do MultiFactorAuthentication(MFA) with Azure AD CBA on the resource tenant. The only way to accomplish MFA in resource tenant with CBA is for the user to perform MFA using CBA in home tenant and resource tenant should set up cross tenant settings to trust MFA from home tenant.
+An external identity can't perform multifactor authentication (MFA) to the resource tenant with Azure AD CBA. Instead, have the user perform MFA using CBA in the home tenant, and set up cross tenant settings for the resource tenant to trust MFA from the home tenant.
 
-To enable "Trust multi-factor authentication from Azure AD tenants", please visit [Configure B2B collaboration cross-tenant access](https://learn.microsoft.com/en-us/azure/active-directory/external-identities/cross-tenant-access-settings-b2b-collaboration#to-change-inbound-trust-settings-for-mfa-and-device-claims) for more information.
+For more information about how to enable **Trust multi-factor authentication from Azure AD tenants**, see [Configure B2B collaboration cross-tenant access](./external-identities/cross-tenant-access-settings-b2b-collaboration.md#to-change-inbound-trust-settings-for-mfa-and-device-claims).
 
 ## Next steps
 
