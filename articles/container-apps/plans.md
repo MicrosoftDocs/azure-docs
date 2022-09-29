@@ -34,15 +34,15 @@ The Premium plan features fully managed, isolated environments with access to cu
 
 Use the Premium plan when you need:
 
-- **Environment isolation**: Single tenancy in a Container Apps environment.
+- **Environment isolation**: Container Apps environment is backed by dedicated hardware with a single tenant guarantee.
 
-- **Custom infrastructure**: Run your apps on customized compute options where you can pick among different levels of CPU and memory resources.
+- **Custom compute**: Run your container apps with additional flexibility, selecting custom compute options based on variation in workload demands around CPU and memory. 
 
 - **Cost control**: Traditional serverless compute options optimize for scale in response to events and may not provide cost control options. With the Premium plan, you can set infrastructure scaling [restrictions](workload-profiles.md#resource-consumption) to help you better control costs.
 
-    The Premium plan can be more cost effective when you're running higher scale deployments.
+    The Premium plan can be more cost effective when you're running higher scale deployments with steady throughput.
 
-- **Secure network egress**: Access to a [user defined routing](https://aka.ms/container-apps-udr) (UDR) which enables scanning and filtering of all outbound traffic.
+- **Secure outbound traffic**: In addition to creating environments with no public inbound access, the Premium plan provides support for customizing the outbound network path from environments where public IPs are disallowed, or additional hops are required for egress. When configuring your cluster with a user defined route for egress, you must explicitly send egress traffic to a network virtual appliance such as Azure Firewall.
 
 ## Next steps
 
