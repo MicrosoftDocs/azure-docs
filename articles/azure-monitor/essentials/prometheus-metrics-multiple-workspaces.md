@@ -1,12 +1,12 @@
 ---
-title: Send Prometheus metrics to multiple Azure Monitor workspaces in Azure Monitor
+title: Send Prometheus metrics to multiple Azure Monitor workspaces
 description: Describes data collection rules required to send Prometheus metrics from a cluster in Azure Monitor to multiple Azure Monitor workspaces.
 ms.topic: conceptual
-ms.date: 09/16/2022
+ms.date: 09/28/2022
 ms.reviewer: aul
 ---
 
-# Send Prometheus metrics to multiple Azure Monitor workspaces in Azure Monitor
+# Send Prometheus metrics to multiple Azure Monitor workspaces
 
 Routing metrics to more Azure Monitor Workspaces can be done through the creation of additional data collection rules. All metrics can be sent to all workspaces or different metrics can be sent to different workspaces.
 
@@ -194,6 +194,5 @@ scrape_configs:
 
 ## Next steps
 
-- [Learn more about collecting Prometheus metrics](container-insights-prometheus.md).
-
-
+- [Learn more about Azure Monitor managed service for Prometheus](prometheus-metrics-overview.md).
+- [Collect Prometheus metrics from AKS cluster](containers/container-insights-prometheus-metrics-addon.md).

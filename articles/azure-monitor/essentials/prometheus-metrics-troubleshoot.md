@@ -2,13 +2,13 @@
 title: Troubleshoot collection of Prometheus metrics in Azure Monitor
 description: Steps that you can take if you aren't collecting Prometheus metrics as expected.
 ms.topic: conceptual
-ms.date: 05/24/2022
+ms.date: 09/28/2022
 ms.reviewer: aul
 ---
 
 # Troubleshoot collection of Prometheus metrics in Azure Monitor
 
-Follow the steps in this article to determine the cause of Prometheus metrics not being collected as expected.
+Follow the steps in this article to determine the cause of Prometheus metrics not being collected as expected in Azure Monitor.
 
 ## Azure Monitor workspace throttling
 
@@ -63,6 +63,7 @@ Run the command `kubectl port-forward <ama-metrics pod> -n kube-system 9090`.
 If there are no issues and the intended targets are being scraped, you can view the exact metrics being scraped by enabling debug mode.
 
 ## Debug mode
+
 The metrics addon can be configured to run in debug mode by changing the configmap setting `enabled` under `debug-mode` to `true` by following the instructions [here](container-insights-prometheus-scrape-configuration.md#debug-mode). This mode can affect performance and should only be enabled for a short time for debugging purposes.
 
 When enabled, all Prometheus metrics that are scraped are hosted at port 9090. Run `kubectl port-forward <ama-metrics pod name> -n kube-system 9091` and go to `127.0.0.1:9091/metrics` in a browser to see if the metrics were scraped by the OpenTelemetry Collector. This can be done for every `ama-metrics-*` pod.
