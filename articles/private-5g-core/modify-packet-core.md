@@ -2,11 +2,11 @@
 title: Modify a packet core instance
 titleSuffix: Azure Private 5G Core Preview
 description: In this how-to guide, you'll learn how to modify a packet core instance using the Azure portal. 
-author: djrmetaswitch
-ms.author: drichards
+author: b-branco
+ms.author: biancabranco
 ms.service: private-5g-core
 ms.topic: how-to
-ms.date: 09/26/2022
+ms.date: 09/29/2022
 ms.custom: template-how-to
 ---
 
