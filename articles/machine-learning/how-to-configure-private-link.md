@@ -280,7 +280,7 @@ To enable public access, use the following steps:
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 
-When using the Azure CLI [extension 2.0 CLI preview for machine learning](how-to-configure-cli.md), use the `az ml update` command to enable `public_network_access` for the workspace:
+When using the Azure CLI [extension 2.0 CLI for machine learning](how-to-configure-cli.md), use the `az ml update` command to enable `public_network_access` for the workspace:
 
 ```azurecli
 az ml workspace update \
