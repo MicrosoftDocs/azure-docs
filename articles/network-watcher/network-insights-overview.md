@@ -24,7 +24,7 @@ Azure Monitor Network Insights is structured around these key components of moni
 
 ## Topology
 
-[Topology](network-insights-topology.md) helps you visualize how a resource is configured. It provides a graphic representation of the entire hybrid network for understanding network configuration. Topology is a unified visualisation tool for resource inventory and troubleshooting.
+[Topology](network-insights-topology.md) helps you visualize how a resource is configured. It provides a graphic representation of the entire hybrid network for understanding network configuration. Topology is a unified visualization tool for resource inventory and troubleshooting.
 
 It provides an interactive interface to view resources and their relationships in Azure, spanning across multiple subscriptions, resource groups, and locations. You can also drill down to the basic unit of each topology and view the resource view diagram of each unit. 
 
@@ -112,7 +112,7 @@ Diagnostic Toolkit provides access to all the diagnostic features available for 
 
 ## Availability of resources 
 
-By default, all networking resources are visible in Network Insights. Customers can click on the resource type for viewing resource health and metrics (if available), subscription details, location, etc. A subset of networking resources have been _Onboarded_. For Onboarded resources, customers have access to a resource specific topology view and a built-in metrics workbook. These out-of-the-box experiences make it easier to explore resource metrics and troubleshoot issues.  
+By default, all networking resources are visible in Network Insights. Customers can select the resource type for viewing resource health and metrics (if available), subscription details, location, etc. A subset of networking resources has been _Onboarded_. For Onboarded resources, customers have access to a resource specific topology view and a built-in metrics workbook. These out-of-the-box experiences make it easier to explore resource metrics and troubleshoot issues.  
 
 Resources that have been onboarded are: 
 - Application Gateway
