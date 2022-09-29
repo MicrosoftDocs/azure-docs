@@ -13,7 +13,7 @@ adobe-target: true
 #Customer intent: As a data scientist, I want to run notebooks and explore sample notebooks in Azure Machine Learning.
 ---
 
-# Quickstart: Run Juypter notebooks in studio
+# Quickstart: Run Jupyter notebooks in studio
 
 Get started with Azure Machine Learning by using Jupyter notebooks to learn more about the Python SDK.
 
