@@ -44,6 +44,7 @@ Follow these steps to create a new console application.
 1. Copy the following code into `speech_recognition.py`: 
 
     ```Python
+    import os
     import azure.cognitiveservices.speech as speechsdk
 
     def recognize_from_microphone():

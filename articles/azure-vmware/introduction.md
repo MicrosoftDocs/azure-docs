@@ -36,6 +36,10 @@ Azure VMware Solution private clouds use vSphere role-based access control for e
 
 vSAN data-at-rest encryption, by default, is enabled and is used to provide vSAN datastore security. For more information, see [Storage concepts](concepts-storage.md).
 
+## Data Residency and Customer Data
+
+Azure VMware Solution does not store customer data.
+
 ## VMware software versions
 
 [!INCLUDE [vmware-software-versions](includes/vmware-software-versions.md)]

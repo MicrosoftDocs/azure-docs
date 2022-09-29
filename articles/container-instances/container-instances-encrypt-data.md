@@ -32,8 +32,6 @@ The rest of the document covers the steps required to encrypt your ACI deploymen
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## Encrypt data with a customer-managed key
-
 ### Create Service Principal for ACI
 
 The first step is to ensure that your [Azure tenant](../active-directory/develop/quickstart-create-new-tenant.md) has a service principal assigned for granting permissions to the Azure Container Instances service. 

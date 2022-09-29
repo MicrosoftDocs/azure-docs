@@ -6,7 +6,7 @@ ms.author: tomcassidy
 author: tomvcassidy
 ms.service: service-fabric
 services: service-fabric
-ms.date: 07/11/2022
+ms.date: 08/23/2022
 ---
 # Deploy a Service Fabric managed cluster across availability zones
 Availability Zones in Azure are a high-availability offering that protects your applications and data from datacenter failures. An Availability Zone is a unique physical location equipped with independent power, cooling, and networking within an Azure region.
@@ -119,7 +119,7 @@ Requirements:
 
    If the Public IP resource is not zone resilient, migration of the cluster will cause a brief loss of external connectivity. This is due to the migration setting up new Public IP and updating the cluster FQDN to the new IP. If the Public IP resource is zone resilient, migration will not modify the Public IP resource or FQDN and there will be no external connectivity impact.
    
-2) Initiate migration of the underlying storage account created for managed cluster from LRS to ZRS using [live migration](../storage/common/redundancy-migration.md#request-a-live-migration-to-zrs-gzrs-or-ra-gzrs). The resource group of storage account that needs to be migrated would be of the form "SFC_ClusterId"(ex SFC_9240df2f-71ab-4733-a641-53a8464d992d) under the same subscription as the managed cluster resource.
+2) Initiate conversion of the underlying storage account created for managed cluster from LRS to ZRS using [customer-initiated conversion](../storage/common/redundancy-migration.md#customer-initiated-conversion-preview). The resource group of storage account that needs to be migrated would be of the form "SFC_ClusterId"(ex SFC_9240df2f-71ab-4733-a641-53a8464d992d) under the same subscription as the managed cluster resource.
 
 3) Add a new primary node type which spans across availability zones
 
