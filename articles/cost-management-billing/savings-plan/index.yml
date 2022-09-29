@@ -54,8 +54,8 @@ landingContent:
       links:
       - text: Permissions to view and manage savings plans
         url: permission-view-manage.md
-      - text: Change optimize settings
-        url: change-optimize-settings.md
+      - text: Manage Azure savings plans
+        url: manage-savings-plan.md
 
   # Card (optional)
   - title: Report costs after purchase

@@ -29,8 +29,6 @@
       href: permission-view-manage.md
     - name: Manage saving plan
       href: manage-savings-plan.md
-    - name: Change optimize settings
-      href: change-optimize-settings.md
   - name: Utilization and cost reports
     items:
     - name: View savings plan utilization
