@@ -15,7 +15,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article describes how to secure outbound traffic from your Azure Spring Apps applications. It provides an example of a user-defined route (UDR) instance. UDR is an advanced feature that lets you fully control egress traffic. It may be used in scenarios such as disallowing an Azure Spring Apps auto-generated public IP.
+This article describes how to secure outbound traffic from your applications hosted in Azure Spring Apps. The article provides an example of a user-defined route (UDR) instance. UDR is an advanced feature that lets you fully control egress traffic. You can use UDR in scenarios such as disallowing an Azure Spring Apps auto-generated public IP.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ This article describes how to secure outbound traffic from your Azure Spring App
 
 The following illustration shows an example of an Azure Spring Apps VNet instance using a user-defined route.
 
-:::image type="content" source="media/how-to-create-udr-instance/udr-example-arch.png" lightbox="media/how-to-create-udr-instance/udr-example-arch.png" alt-text="Graphic showing user-defined routing architecture.":::
+:::image type="content" source="media/how-to-create-udr-instance/udr-example-arch.png" lightbox="media/how-to-create-udr-instance/udr-example-arch.png" alt-text="Architecture diagram showing user-defined routing.":::
 
 ### Set configuration using environment variables
 
@@ -58,7 +58,7 @@ ASA_NAME="${PREFIX}-instance"
 
 ### Create a virtual network with multiple subnets
 
-This section shows how to provision a virtual network with three separate subnets--one for the user apps, one for service runtime, and one for the firewall.
+This section shows you how to provision a virtual network with three separate subnets: one for the user apps, one for service runtime, and one for the firewall.
 
 First create a resource group, as shown in the following example.
 
@@ -100,7 +100,7 @@ az network vnet subnet create \
 
 ### Create and set up an Azure Firewall with a user-defined route
 
-To create and set up an Azure Firewall with a user-defined route, configure Azure Firewall outbound rules. The firewall lets you configure granular egress traffic rules from an Azure Spring Apps instance.
+Use the following command to create and set up an Azure Firewall with a user-defined route and configure Azure Firewall outbound rules. The firewall lets you configure granular egress traffic rules from an Azure Spring Apps instance.
 
 > [!IMPORTANT]
 > If your cluster or application creates a large number of outbound connections directed to the same or small subset of destinations, you might require more firewall frontend IPs to avoid reaching the maximum ports per front-end IP. For more information on how to create an Azure firewall with multiple IPs, see [Quickstart: Create an Azure Firewall with multiple public IP addresses - ARM template](../firewall/quick-create-multiple-ip-template.md). Create a standard SKU public IP resource that will be used as the Azure Firewall front-end address.
