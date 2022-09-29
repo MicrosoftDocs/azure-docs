@@ -27,7 +27,7 @@ summary: |
   - data visualization
   - machine learning
 
-  :::image type="content" source="./media/notebooks/cosmos-notebooks-overview.png" alt-text="Jupyter Notebooks visualizations in Azure Cosmos DB":::
+  :::image type="content" source="./media/notebooks/cosmos-notebooks-overview.png" alt-text="Screenshot of various Jupyter Notebooks visualizations in Azure Cosmos DB.":::
 sections:
   - name: General
     questions:

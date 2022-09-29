@@ -30,11 +30,11 @@ Azure Cosmos DB built-in Jupyter Notebooks are directly integrated into the Azur
 - data visualization
 - machine learning
 
-:::image type="content" source="./media/notebooks/cosmos-notebooks-overview.png" alt-text="Jupyter Notebooks visualizations in Azure Cosmos DB":::
+:::image type="content" source="./media/notebooks/cosmos-notebooks-overview.png" alt-text="Screenshot of various Jupyter Notebooks visualizations in Azure Cosmos DB.":::
 
 Azure Cosmos DB supports both C# and Python notebooks for the APIs for SQL, Cassandra, Gremlin, Table, and MongoDB. Inside the notebook, you can take advantage of built-in commands and features that make it easy to create Azure Cosmos DB resources. You can also use the built-in commands to upload, query, and visualize your data in Azure Cosmos DB.
 
-:::image type="content" source="./media/notebooks/jupyter-notebooks-portal.png" alt-text="Jupyter Notebooks support in Azure Cosmos DB":::
+:::image type="content" source="./media/notebooks/jupyter-notebooks-portal.png" alt-text="Screenshot of Jupyter Notebooks integrated developer environment (IDE) in Azure Cosmos DB.":::
 
 ## Benefits of Jupyter Notebooks
 

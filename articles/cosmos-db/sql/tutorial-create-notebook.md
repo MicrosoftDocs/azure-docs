@@ -32,7 +32,7 @@ In this section, you'll create the Azure Cosmos database, container, and import 
 
 1. Select **New Notebook**.
 
-    :::image type="content" source="media/tutorial-create-notebook/new-notebook-option.png" lightbox="media/tutorial-create-notebook/new-notebook-option.png" alt-text="Screenshot of the Data Explorer with the 'New Notebook' option highlighted":::
+    :::image type="content" source="media/tutorial-create-notebook/new-notebook-option.png" lightbox="media/tutorial-create-notebook/new-notebook-option.png" alt-text="Screenshot of the Data Explorer with the 'New Notebook' option highlighted.":::
 
 1. In the confirmation dialog that appears, select **Create**.
 
