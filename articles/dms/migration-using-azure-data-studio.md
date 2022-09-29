@@ -19,7 +19,7 @@ The [Azure SQL migration extension for Azure Data Studio](/sql/azure-data-studio
 
 The key benefits of using the Azure SQL migration extension for Azure Data Studio are:
 
-- A responsive user interface that provides you with an end-to-end migration experience that starts with a migration readiness assessment, SKU recommendation (based on performance data), and finalizes with the actual migration to Azure SQL.
+- A responsive user interface that provides you with an end-to-end migration experience that starts with a migration readiness assessment, SKU recommendation (based on performance data).
 - An enhanced assessment mechanism that can evaluate SQL Server instances, identifying databases ready for migration to the different Azure SQL targets.
     > [!NOTE]
     > You can assess SQL Server databases running on Windows and Linux Operating systems using the Azure SQL migration extension.
@@ -106,7 +106,7 @@ When you migrate the database(s) using the Azure SQL migration extension for Azu
 
 ## Known issues and limitations
 - Overwriting existing databases using DMS in your target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine isn't supported.
-- Configuring high availability and disaster recovery on your target to match source topology is not supported by DMS.
+- Configuring high availability and disaster recovery on your target to match source topology isn't supported by DMS.
 - The following server objects aren't supported:
     - Logins
     - SQL Server Agent jobs
@@ -114,8 +114,8 @@ When you migrate the database(s) using the Azure SQL migration extension for Azu
     - SSIS packages
     - Server roles
     - Server audit
-- When migrating to SQL Server on Azure Virtual Machines, SQL Server 2008 and below as target versions are not supported currently.
-- If you are using SQL Server 2012 or SQL Server 2014, you need to store your source database backup files on an Azure Storage Blob Container instead of using the network share option. Store the backup files as page blobs since block blobs are only supported in SQL 2016 and after.
+- When migrating to SQL Server on Azure Virtual Machines, SQL Server 2008 and below as target versions aren't supported currently.
+- If you're using SQL Server 2012 or SQL Server 2014, you need to store your source database backup files on an Azure Storage Blob Container instead of using the network share option. Store the backup files as page blobs since block blobs are only supported in SQL 2016 and after.
 - You can't use an existing self-hosted integration runtime created from Azure Data Factory for database migrations with DMS. Initially, the self-hosted integration runtime should be created using the Azure SQL migration extension in Azure Data Studio and can be reused for further database migrations. 
 
 ## Pricing
