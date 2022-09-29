@@ -59,6 +59,6 @@ Auto OS upgrade is also supported for custom image. To enable auto OS upgrade, t
  
 /subscriptions/<subscriptionID>/resourceGroups/<myRG>/providers/Microsoft.Compute/galleries/<CustomImageGallery>/images/<CustomImageDef>
  
-When node type is created with this as vmImageResourceId and the cluster has [auto OS upgrade](https://docs.microsoft.com/en-us/azure/service-fabric/how-to-managed-cluster-upgrades) enabled, SFMC will monitor the published versions for this image definition and if any new version is published, start to reimage the VM ScaleSets created with this image definition which will bring them to the latest version.
+When node type is created with this as vmImageResourceId and the cluster has [auto OS upgrade](how-to-managed-cluster-upgrades.md) enabled, SFMC will monitor the published versions for this image definition and if any new version is published, start to reimage the VM ScaleSets created with this image definition which will bring them to the latest version.
 
 Note:  Please make note that custom image will be supported soon for migrating an existing node type from non-custom image to custom image.
