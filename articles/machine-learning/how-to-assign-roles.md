@@ -64,7 +64,7 @@ You can use Azure AD security groups to manage access to workspaces. This approa
 
 To use Azure AD security groups:
  1. [Create a security group](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
- 2. [Add a group owner](../active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners.md). This user has permissions to add or remove group members. Note that the group owner is not required to be group member, or have direct RBAC role on the workspace.
+ 2. [Add a group owner](../active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners.md). This user has permissions to add or remove group members. Note that the group owner isn't required to be group member, or have direct RBAC role on the workspace.
  3. Assign the group an RBAC role on the workspace, such as AzureML Data Scientist, Reader or Contributor. 
  4. [Add group members](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md). The members consequently gain access to the workspace.
 
@@ -155,7 +155,7 @@ You need to have permissions on the entire scope of your new role definition. Fo
 
 ## Use Azure Resource Manager templates for repeatability
 
-If you anticipate that you will need to recreate complex role assignments, an Azure Resource Manager template can be a big help. The [machine-learning-dependencies-role-assignment template](https://github.com/Azure/azure-quickstart-templates/tree/master//quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment) shows how role assignments can be specified in source code for reuse. 
+If you anticipate that you'll need to recreate complex role assignments, an Azure Resource Manager template can be a significant help. The [machine-learning-dependencies-role-assignment template](https://github.com/Azure/azure-quickstart-templates/tree/master//quickstarts/microsoft.machinelearningservices/machine-learning-dependencies-role-assignment) shows how role assignments can be specified in source code for reuse. 
 
 ## Common scenarios
 
@@ -584,7 +584,7 @@ A vendor quality assurance role can perform a customer quality assurance role, b
 
 Here are a few things to be aware of while you use Azure role-based access control (Azure RBAC):
 
-- When you create a resource in Azure, such as a workspace, you are not directly the owner of the resource. Your role is inherited from the highest scope role that you are authorized against in that subscription. As an example if you are a Network Administrator, and have the permissions to create a Machine Learning workspace, you would be assigned the Network Administrator role against that workspace, and not the Owner role.
+- When you create a resource in Azure, such as a workspace, you're not directly the owner of the resource. Your role is inherited from the highest scope role that you're authorized against in that subscription. As an example if you're a Network Administrator, and have the permissions to create a Machine Learning workspace, you would be assigned the Network Administrator role against that workspace, and not the Owner role.
 
 - To perform quota operations in a workspace, you need subscription level permissions. This means setting either subscription level quota or workspace level quota for your managed compute resources can only happen if you have write permissions at the subscription scope.
 
