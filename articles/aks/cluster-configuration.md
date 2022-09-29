@@ -190,7 +190,7 @@ To remove Node Restriction from a cluster.
 az aks update -n aks -g myResourceGroup --disable-node-restriction
 ```
 
-## OIDC Issuer (preview)
+## OIDC Issuer (Preview)
 
 This enables an OIDC Issuer URL of the provider which allows the API server to discover public signing keys.
 
