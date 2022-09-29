@@ -6,7 +6,7 @@ author: jimmart-dev
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 08/02/2022
+ms.date: 09/29/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
