@@ -15,6 +15,9 @@ ms.reviewer: dech
 
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
+> [!IMPORTANT]
+> The Jupyter Notebooks feature of Azure Cosmos DB is currently in a preview state and is progressively rolling out to all customers over time.
+
 This article describes how to use the Jupyter Notebooks feature of Azure Cosmos DB to import sample retail data to an Azure Cosmos DB SQL API account. You'll see how to use the Azure Cosmos DB magic commands to run queries, analyze the data, and visualize the results.
 
 ## Prerequisites
