@@ -212,24 +212,9 @@ On the **Event Timeline** page, make sure that the **User Operations** filter is
 
 For example:
 
-:::image type="content" source="media/how-to-create-and-manage-users/track-user-activity.png" alt-text="Screenshot of the Event timeline showing a user that signed in to Defender for IoT.":::
+:::image type="content" source="media/manage-users-sensor/track-user-activity.png" alt-text="Screenshot of the Event Timeline on the sensor showing user activity.":::
 
 Use the filters or search using CTRL+F to find the information of interest to you.
-<!--remove this, needs other improvement for event timeline
-The maximum number of events displayed depends on the [hardware profile](how-to-install-software.md#install-ot-monitoring-software) configured for your sensor during installation. While the event timeline isn't limited by time, after the maximum number of events is reached, the oldest events are deleted.
-
-|Hardware profile  |Number of events displayed  |
-|---------|---------|
-| C5600     |   10 million events      |
-| E1800    |   10 million events      |
-| E1000     |   6 million events     |
-| E500     |   6 million events     |
-| L500     |  3 million events       |
-| L100     |   500 thousand events      |
-| L60     |   500 thousand events      |
-
-For more information, see [Which appliances do I need?](ot-appliance-sizing.md)
--->
 
 ## Next steps
 
