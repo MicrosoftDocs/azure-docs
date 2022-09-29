@@ -31,7 +31,7 @@ There are multiple types of metrics supported by Azure Monitor Metrics:
 
 The differences between each of the metrics are summarized in the following table.
 
-| Category | Native platform metrics | Native custom metrics | Prometheus metrics |
+| Category | Native platform metrics | Native custom metrics | Prometheus metrics (preview) |
 |:---|:---|:---|:---|
 | Sources | Azure resources | Azure Monitor agent<br>Application insights<br>REST API | Azure Kubernetes service (AKS) cluster<br>Any Kubernetes cluster through remote-write |
 | Configuration | None | Varies by source | Enable Azure Monitor managed service for Prometheus |

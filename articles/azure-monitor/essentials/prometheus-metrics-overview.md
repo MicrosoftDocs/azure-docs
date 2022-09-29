@@ -1,6 +1,6 @@
 ---
 title: Overview of Azure Monitor Managed Service for Prometheus (preview)
-description: Overview of Azure Monitor managed service for Prometheus which provides a Prometheus-compatible interface for storing and retrieving metric data.
+description: Overview of Azure Monitor managed service for Prometheus, which provides a Prometheus-compatible interface for storing and retrieving metric data.
 author: bwren 
 ms.topic: conceptual
 ms.date: 09/28/2022
@@ -31,10 +31,10 @@ The only requirement to enable Azure Monitor managed service for Prometheus is t
 ## Limitations
 See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for performance related service limits for Azure Monitor managed service for Prometheus.
 
-- Private Links are not supported for Prometheus metrics collection into Azure monitor workspace.
+- Private Links aren't supported for Prometheus metrics collection into Azure monitor workspace.
 - Azure monitor managed service for Prometheus is only supported in public clouds.
 - Metrics addon doesn't work on AKS clusters configured with HTTP proxy. 
-- Scraping and storing metrics at frequencies less than 1 second is not supported.
+- Scraping and storing metrics at frequencies less than 1 second isn't supported.
 
 
 ## Prometheus references

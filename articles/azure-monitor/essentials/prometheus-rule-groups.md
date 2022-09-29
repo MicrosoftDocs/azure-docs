@@ -7,7 +7,7 @@ ms.date: 09/28/2022
 ---
 
 # Azure Monitor managed service for Prometheus rule groups (preview)
-Rules in Prometheus act on data as it's collected. They're configured as part of a Prometheus rule group which is stored in [Azure Monitor workspace](azure-monitor-workspace-overview.md). Rules are run sequentially in the order they are defined in the group.
+Rules in Prometheus act on data as it's collected. They're configured as part of a Prometheus rule group, which is stored in [Azure Monitor workspace](azure-monitor-workspace-overview.md). Rules are run sequentially in the order they're defined in the group.
 
 
 ## Rule types
@@ -16,7 +16,7 @@ There are two types of Prometheus rules as described in the following table.
 | Type | Description |
 |:---|:---|
 | Alert | Alert rules let you create an Azure Monitor alert based on the results of a Prometheus Query Language (Prom QL) query.  |
-| Recording | Recording rules allow you to pre-compute frequently needed or computationally extensive expressions and store their result as a new set of time series. Querying the precomputed result will then often be much faster than executing the original expression every time it is needed. This is especially useful for dashboards, which need to query the same expression repeatedly every time they refresh, or for use in alert rules, where multiple alert rules may be based on the same complex query. Time series created by recording rules are ingested back to your Azure Monitor workspace as new Prometheus metrics. |
+| Recording | Recording rules allow you to pre-compute frequently needed or computationally extensive expressions and store their result as a new set of time series. Querying the precomputed result will then often be much faster than executing the original expression every time it's needed. This is especially useful for dashboards, which need to query the same expression repeatedly every time they refresh, or for use in alert rules, where multiple alert rules may be based on the same complex query. Time series created by recording rules are ingested back to your Azure Monitor workspace as new Prometheus metrics. |
 
 ## View Prometheus rule groups
 You can view the rule groups and their included rules in the Azure portal by selecting **Rule groups** from the Azure Monitor workspace.
@@ -42,12 +42,12 @@ You can use a Resource Manager template to create and configure Prometheus rule 
 The basic steps are as follows:
 
 1. Use the templates below as a JSON file that describes how to create the rule group.
-2. Deploy the template using any deployment method, such as [Azure portal](../../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../../azure-resource-manager/templates/deploy-cli.md), [Azure Powershell](../../azure-resource-manager/templates/deploy-powershell.md), or [Rest API](../../azure-resource-manager/templates/deploy-rest.md).
+2. Deploy the template using any deployment method, such as [Azure portal](../../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md), or [Rest API](../../azure-resource-manager/templates/deploy-rest.md).
 
 ### Limiting rules to a specific cluster
 
 You can optionally limit the rules in a rule group to query data originating from a specific cluster, using  the rule group `clusterName`  property.
-You should try to limit rules to a single cluster if your monitoring workspace contains a large scale of data from multiple clusters, and there is a concern that running a single set of rules on all the data may cause performance or throttling issues. Using the `clusterName` property, you can create multiple rule groups, each configured with the same rules, limiting each group to cover a different cluster. 
+You should try to limit rules to a single cluster if your monitoring workspace contains a large scale of data from multiple clusters, and there's a concern that running a single set of rules on all the data may cause performance or throttling issues. Using the `clusterName` property, you can create multiple rule groups, each configured with the same rules, limiting each group to cover a different cluster. 
 
 - The `clusterName` value must be identical to the `cluster` label that is added to the metrics from a specific cluster during data collection.
 - If `clusterName` is not specified for a specific rule group, the rules in the group will query all the data in the workspace from all clusters.
