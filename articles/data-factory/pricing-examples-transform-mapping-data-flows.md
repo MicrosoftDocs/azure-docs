@@ -24,10 +24,10 @@ Refer to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calc
 
 To accomplish the scenario, you need to create a pipeline with the following items:
 
-1. A Data Flow activity with the transformation logic.
-1. An input dataset for the data on Azure Storage.
-1. An output dataset for the data on Azure Storage.
-1. A schedule trigger to execute the pipeline every hour. When you want to run a pipeline, you can either [trigger it immediately or schedule it](concepts-pipeline-execution-triggers.md). In addition to the pipeline itself, each trigger instance counts as a single Activity run.
+- A Data Flow activity with the transformation logic.
+- An input dataset for the data on Azure Storage.
+- An output dataset for the data on Azure Storage.
+- A schedule trigger to execute the pipeline every hour. When you want to run a pipeline, you can either [trigger it immediately or schedule it](concepts-pipeline-execution-triggers.md). In addition to the pipeline itself, each trigger instance counts as a single Activity run.
 
 ## Costs estimation
 
@@ -40,11 +40,11 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 **Total scenario pricing for 30 days: $1051.28**
 
-:::image type="content" source="media/pricing-concepts/scenario-4a-pricing-calculator.png" alt-text="Screenshot of the orchestration section of the pricing calculator configured to transform data in a blob store with mapping data flows.":::
+:::image type="content" source="media/pricing-concepts/scenario-4a-pricing-calculator.png" alt-text="Screenshot of the orchestration section of the pricing calculator configured to transform data in a blob store with mapping data flows." lightbox="media/pricing-concepts/scenario-4a-pricing-calculator.png":::
 
-:::image type="content" source="media/pricing-concepts/scenario-4-pricing-calculator.png" alt-text="Screenshot of the data flow section of the pricing calculator configured to transform data in a blob store with mapping data flows.":::
+:::image type="content" source="media/pricing-concepts/scenario-4-pricing-calculator.png" alt-text="Screenshot of the data flow section of the pricing calculator configured to transform data in a blob store with mapping data flows." lightbox="media/pricing-concepts/scenario-4-pricing-calculator.png":::
 
-## Next Steps
+## Next steps
 
 - [Pricing example: Copy data from AWS S3 to Azure Blob storage hourly for 30 days](pricing-examples-s3-to-blob.md)
 - [Pricing example: Copy data and transform with Azure Databricks hourly for 30 days](pricing-examples-copy-transform-azure-databricks.md)

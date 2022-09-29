@@ -30,7 +30,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 ## Costs estimation
 
-In order to load data from SAP ECC via SAP CDC connector in Mapping Data Flow, you need to install your Self-Hosted Integration Runtime on an on-premise machine, or VM to directly connect to your SAP ECC system. Given that, you'll be charged on both Self-Hosted Integration Runtime with $0.10/hour and Mapping Data Flow with its vCore-hour price unit.  
+In order to load data from SAP ECC via SAP CDC connector in Mapping Data Flow, you need to install your Self-Hosted Integration Runtime on an on-premises machine, or VM to directly connect to your SAP ECC system. Given that, you'll be charged on both Self-Hosted Integration Runtime with $0.10/hour and Mapping Data Flow with its vCore-hour price unit.  
 
 Assuming every time it requires 15 minutes to complete the job, the cost estimations are as below. 
 
@@ -44,9 +44,9 @@ Assuming every time it requires 15 minutes to complete the job, the cost estimat
 
 **Total scenario pricing for 30 days: $17.21**
 
-:::image type="content" source="media/pricing-concepts/scenario-6-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for getting delta data from SAP ECC via SAP CDC in mapping data flows.":::
+:::image type="content" source="media/pricing-concepts/scenario-6-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for getting delta data from SAP ECC via SAP CDC in mapping data flows." lightbox="media/pricing-concepts/scenario-6-pricing-calculator.png":::
 
-## Next Steps
+## Next steps
 
 - [Pricing example: Copy data from AWS S3 to Azure Blob storage hourly for 30 days](pricing-examples-s3-to-blob.md)
 - [Pricing example: Copy data and transform with Azure Databricks hourly for 30 days](pricing-examples-copy-transform-azure-databricks.md)

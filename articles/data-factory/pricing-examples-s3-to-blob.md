@@ -24,9 +24,8 @@ Refer to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calc
 
 To accomplish the scenario, you need to create a pipeline with the following items:
 
-1. I'll copy data from AWS S3 to Azure Blob storage, and this will move 10 GB of data from S3 to blob storage. I estimate it will run for 2-3 hours, and I plan to set DIU as Auto.
-
-3. A schedule trigger to execute the pipeline every hour for 8 hours every day. When you want to run a pipeline, you can either [trigger it immediately or schedule it](concepts-pipeline-execution-triggers.md). In addition to the pipeline itself, each trigger instance counts as a single Activity run.
+- I'll copy data from AWS S3 to Azure Blob storage, and this will move 10 GB of data from S3 to blob storage. I estimate it will run for 2-3 hours, and I plan to set DIU as Auto.
+- A schedule trigger to execute the pipeline every hour for 8 hours every day. When you want to run a pipeline, you can either [trigger it immediately or schedule it](concepts-pipeline-execution-triggers.md). In addition to the pipeline itself, each trigger instance counts as a single Activity run.
 
    :::image type="content" source="media/pricing-concepts/scenario1.png" alt-text="Diagram shows a pipeline with a schedule trigger.":::
 
@@ -42,9 +41,9 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 **Total scenario pricing for 30 days: $122.00**
 
-:::image type="content" source="media/pricing-concepts/scenario-1-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for an hourly pipeline run.":::
+:::image type="content" source="media/pricing-concepts/scenario-1-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for an hourly pipeline run." lightbox="media/pricing-concepts/scenario-1-pricing-calculator.png":::
 
-## Next Steps
+## Next steps
 
 - [Pricing example: Copy data and transform with Azure Databricks hourly for 30 days](pricing-examples-copy-transform-azure-databricks.md)
 - [Pricing example: Copy data and transform with dynamic parameters hourly for 30 days](pricing-examples-copy-transform-dynamic-parameters.md)

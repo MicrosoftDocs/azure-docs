@@ -24,11 +24,11 @@ Refer to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calc
 
 To accomplish the scenario, you need to create a pipeline with the following items:
 
-1. One copy activity with an input dataset for the data to be copied from AWS S3, and an output dataset for the data on Azure storage.
-2. One Azure Databricks activity for the data transformation.
-3. One schedule trigger to execute the pipeline every hour. When you want to run a pipeline, you can either [trigger it immediately or schedule it](concepts-pipeline-execution-triggers.md). In addition to the pipeline itself, each trigger instance counts as a single Activity run.
+- One copy activity with an input dataset for the data to be copied from AWS S3, and an output dataset for the data on Azure storage.
+- One Azure Databricks activity for the data transformation.
+- One schedule trigger to execute the pipeline every hour. When you want to run a pipeline, you can either [trigger it immediately or schedule it](concepts-pipeline-execution-triggers.md). In addition to the pipeline itself, each trigger instance counts as a single Activity run.
 
-:::image type="content" source="media/pricing-concepts/scenario2.png" alt-text="Diagram shows a pipeline with a schedule trigger. In the pipeline, copy activity flows to an input dataset, an output dataset, and a DataBricks activity, which runs on Azure Databricks. The input dataset flows to an A W S S3 linked service. The output dataset flows to an Azure Storage linked service.":::
+:::image type="content" source="media/pricing-concepts/scenario2.png" alt-text="Diagram shows a pipeline with a schedule trigger. In the pipeline, copy activity flows to an input dataset, an output dataset, and a DataBricks activity, which runs on Azure Databricks. The input dataset flows to an AWS S3 linked service. The output dataset flows to an Azure Storage linked service.":::
 
 ## Costs estimation
 
@@ -42,9 +42,9 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 **Total scenario pricing for 30 days: $122.03**
 
-:::image type="content" source="media/pricing-concepts/scenario-2-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for a copy data and transform with Azure Databricks scenario.":::
+:::image type="content" source="media/pricing-concepts/scenario-2-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for a copy data and transform with Azure Databricks scenario." lightbox="media/pricing-concepts/scenario-2-pricing-calculator.png":::
 
-## Next Steps
+## Next steps
 
 - [Pricing example: Copy data from AWS S3 to Azure Blob storage hourly for 30 days](pricing-examples-s3-to-blob.md)
 - [Pricing example: Copy data and transform with dynamic parameters hourly for 30 days](pricing-examples-copy-transform-dynamic-parameters.md)
