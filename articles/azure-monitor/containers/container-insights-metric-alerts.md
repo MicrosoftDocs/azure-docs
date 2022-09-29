@@ -43,7 +43,7 @@ The only method currently available for creating Prometheus alert rules is a Res
 
 ### Edit alert rules
 
- To edit the Prometheus alerts threshold or configure an action group for your AKS cluster, edit the appropriate values in the ARM template and redeploy it using any deployment method.
+ To edit the query and threshold or configure an action group for your alert rules, edit the appropriate values in the ARM template and redeploy it using any deployment method.
 
 ### Configure alertable metrics in ConfigMaps
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor workspace overview
+title: Azure Monitor workspace overview (preview)
 description: Overview of Azure Monitor workspace which is a unique environment for data collected by Azure Monitor.
 author: bwren 
 ms.topic: conceptual
@@ -93,6 +93,9 @@ When you delete an Azure Monitor workspace, no soft-delete operation is performe
 
     :::image type="content" source="media/azure-monitor-workspace-overview/delete-azure-monitor-workspace.png" lightbox="media/azure-monitor-workspace-overview/delete-azure-monitor-workspace.png" alt-text="Screenshot of Azure Monitor workspaces delete button.":::
 
+### [CLI](#tab/cli)
+To be completed.
+
 ### [Resource Manager](#tab/resource-manager)
 To be completed.
 
@@ -112,6 +115,9 @@ Connect an Azure Monitor workspace to an [Azure Managed Grafana](../../managed-g
 3. Click **Linked Grafana workspaces**.
 4. Select a Grafana workspace.
 
+### [CLI](#tab/cli)
+To be completed.
+
 ### [Resource Manager](#tab/resource-manager)
 To be completed.
 
@@ -121,6 +127,5 @@ To be completed.
 ## Next steps
 
 - Learn more about the [Azure Monitor data platform](../data-platform.md).
-- Learn about [log data in Azure Monitor](../logs/data-platform-logs.md).
-- Learn about the [monitoring data available](../data-sources.md) for various resources in Azure.
+
 
