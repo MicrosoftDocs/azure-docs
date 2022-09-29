@@ -56,7 +56,7 @@ The migration tool will map the CPU/Memory requirement to corresponding SKU. If 
 For private workspace and VNET scenarios, check [Use network isolation with managed online endpoints (preview)](how-to-secure-online-endpoint.md?tabs=model). As there are many settings for your workspace and VNET, we strongly suggest that redeploy through our new CLI instead of the below script tool.
 
 ## Not supported
-1. [EncryptionProperties](/python/api/azureml-core/azureml.core.webservice.aci.encryptionproperties) for ACI container is not supported.
++ [EncryptionProperties](/python/api/azureml-core/azureml.core.webservice.aci.encryptionproperties) for ACI container isn't supported.
 + ACI webservices deployed through deploy_from_model and deploy_from_image isn't supported by the migration tool. Redeploy manually through CLI/SDK V2.
 
 ## Migration Steps
