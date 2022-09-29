@@ -93,6 +93,8 @@ When geo-replication is enabled, and if one replica isn't accessible, you can le
 > [!NOTE]
 > You can only use Azure AD authentication to connect to replicas. Authentication with access keys is not supported during the preview.
 
+:::zone target="docs" pivot="framework-dotnet"
+
 <!-- ### [.NET](#tab/dotnet) -->
 
 ```csharp
@@ -116,9 +118,18 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 > - `Microsoft.Azure.AppConfiguration.AspNetCore`
 > - `Microsoft.Azure.AppConfiguration.Functions.Worker`
 
-<!-- ### [Java Spring](#tab/spring)
-Placeholder for Java Spring instructions
---- -->
+:::zone-end
+
+:::zone target="docs" pivot="framework-spring"
+
+<!-- ### [Java Spring](#tab/spring) -->
+
+```properties
+spring.cloud.azure.appconfiguration.stores[0].endpoints[0]="https://<first-replica-endpoint>.azconfig.io"
+spring.cloud.azure.appconfiguration.stores[0].endpoints[1]="https://<second-replica-endpoint>.azconfig.io"
+```
+
+:::zone-end
 
 The failover may occur if the App Configuration provider observes the following conditions.
 - Receives responses with service unavailable status (HTTP status code 500 or above).
