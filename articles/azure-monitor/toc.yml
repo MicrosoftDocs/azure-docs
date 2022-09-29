@@ -227,19 +227,19 @@ items:
       - name: Rule groups
         href: essentials/prometheus-metrics-rule-groups.md
       - name: Troubleshoot collection
-        href: containers/container-insights-prometheus-metrics-troubleshoot.md
+        href: essentials/prometheus-metrics-troubleshoot.md
       - name: Customize collection
         items:
         - name: Default configuration
-          href: containers/container-insights-prometheus-scrape-default.md
+          href: essentials/prometheus-metrics-scrape-default.md
         - name: Custom configuration
-          href: containers/container-insights-prometheus-scrape-configuration.md
+          href: essentials/prometheus-metrics-scrape-configuration.md
         - name: Create and validate custom scrape config
-          href: containers/container-insights-prometheus-scrape-validate.md
+          href: essentials/prometheus-metrics-scrape-validate.md
         - name: Minimal ingestion profile
-          href: containers/container-insights-prometheus-scrape-configuration-minimal.md
+          href: essentials/prometheus-metrics-scrape-configuration-minimal.md
         - name: Send to multiple metric workspaces
-          href: containers/container-insights-prometheus-multiple-workspaces.md
+          href: essentials/prometheus-metrics-multiple-workspaces.md
     - name: Metrics explorer
       items:
       - name: Getting started with Metrics Explorer
@@ -586,7 +586,7 @@ items:
               href: essentials/collect-custom-metrics-guestos-vm-cloud-service-classic.md
           - name: Send to Event Hubs
             href: agents/diagnostics-extension-stream-event-hubs.md
-          - name: Send to Log Analytics
+          - name: Send to Logs
             href: agents/diagnostics-extension-logs.md
           - name: Send to Application Insights
             href: agents/diagnostics-extension-to-application-insights.md
@@ -1274,7 +1274,7 @@ items:
         href: containers/container-insights-prometheus.md
       - name: Send to Logs
         href: containers/container-insights-prometheus-monitoring-addon.md
-      - name: Send to managed Prometheus
+      - name: Send to Prometheus
         href: containers/container-insights-prometheus-metrics-addon.md
     - name: Configure
       items:

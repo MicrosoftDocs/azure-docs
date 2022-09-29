@@ -45,7 +45,7 @@ provisioningState       : Succeeded
 
 ### Specify a Log Analytics workspace
 
-Use the following command to enable monitoring of your AKS cluster on a specific Log Analytics workspace. The resource ID of the workspace will be in the form *"/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>"*.
+Use the following command to enable monitoring of your AKS cluster on a specific Log Analytics workspace. The resource ID of the workspace will be in the form `"/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>"`.
 
 ```azurecli
 az aks enable-addons -a monitoring -n <cluster-name> -g <cluster-resource-group-name> --workspace-resource-id <workspace-resource-id>
@@ -98,7 +98,7 @@ To enable monitoring of your AKS cluster in the Azure portal from Azure Monitor,
   | Azure Monitor workspace | If you select **Enable Prometheus metrics**, then you must select an [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md).  The Azure Monitor workspace must be in the same subscription as the AKS container and the Log Analytics workspace. |
   | Grafana workspace | To use the collected Prometheus metrics with dashboards in [Azure Managed Grafana](../../managed-grafana/overview.md), select a Grafana workspace. The Grafana workspace will be [linked](../essentials/azure-monitor-workspace-overview.md#link-a-grafana-workspace) to the Azure Monitor workspace if it isn't already. |
 
-8. Select **Use managed identity** if you want to use [managed identity authentication with the Azure Monitor agent](container-insights-onboard.md#authentication). 
+7. Select **Use managed identity** if you want to use [managed identity authentication with the Azure Monitor agent](container-insights-onboard.md#authentication). 
 
 After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
 
