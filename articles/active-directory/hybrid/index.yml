@@ -84,7 +84,7 @@ landingContent:
             url: how-to-connect-sync-change-serviceacct-pass.md
           - text: Change the Azure AD Connector account password
             url: how-to-connect-azureadaccount.md   
-          - text: Change the AD DS account password
+          - text: Change the AD DS Connector account password
             url: how-to-connect-sync-change-addsacct-pass.md
       - linkListType: reference
         links:
