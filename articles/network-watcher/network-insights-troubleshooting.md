@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor Network Insights Troubleshooting
+title: Azure Monitor Network Insights troubleshooting
 description: Troubleshooting steps for issues that may arise while using Network insights
 ms.topic: troubleshooting
 ms.service: network-watcher

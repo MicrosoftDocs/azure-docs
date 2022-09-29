@@ -1,5 +1,5 @@
 ---
-title: Network Insights Topology
+title: Network Insights topology
 description: An overview of topology, which provides a pictorial representation of the resources.
 ms.topic: how-to
 ms.service: network-watcher
