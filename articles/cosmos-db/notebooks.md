@@ -1,17 +1,21 @@
 ---
-title: Introduction to the built-in Jupyter Notebooks support in Azure Cosmos DB (Preview)
-description: Learn how you can use the built-in Jupyter Notebooks support in Azure Cosmos DB to interactively run queries.
+title: |
+  Jupyter Notebooks in Azure Cosmos DB (preview)
+description: |
+  Create and use built-in Jupyter Notebooks in Azure Cosmos DB to interactively run queries.
 ms.service: cosmos-db
 ms.topic: overview 
-ms.date: 05/19/2020
-author: deborahc
-ms.author: dech
+ms.date: 09/29/2022
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: dech
 ---
 
-# Built-in Jupyter Notebooks support in Azure Cosmos DB (preview)
+# Jupyter Notebooks in Azure Cosmos DB (preview)
+
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Jupyter Notebook is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations, and narrative text. 
+Jupyter Notebook is an open-source interactive developer environment (IDE) that is designed to create, execute, and share documents that contain live code, equations, visualizations, and narrative text.
 
 Azure Cosmos DB built-in Jupyter Notebooks are directly integrated into the Azure portal and your Azure Cosmos DB accounts, making them convenient and easy to use. Developers, data scientists, engineers, and analysts can use the familiar Jupyter Notebooks experience to do data exploration, data cleaning, data transformations, numerical simulations, statistical modeling, data visualization, and machine learning.
 

@@ -26,6 +26,8 @@
   items:
     - name: Query data using Gremlin
       href: tutorial-query-graph.md
+    - name: Create Jupyter notebooks
+      href: ../tutorial-create-notebook.md
 - name: Samples
   items:
     - name: Azure CLI
@@ -224,6 +226,12 @@
           href: ../compliance.md
         - name: Data residency
           href: ../data-residency.md
+    - name: Jupyter notebooks
+      items:
+        - name: Overview
+          href: ../notebooks.md
+        - name: FAQ
+          href: ../notebooks-faq.yml
 - name: How to
   items:
     - name: Develop applications
