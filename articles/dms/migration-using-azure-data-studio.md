@@ -80,11 +80,11 @@ The following sections walk through the prerequisites for each supported Azure S
 
 ### [SQL Server on Azure Virtual Machine](#tab/azure-sql-vm)
 
-[!INCLUDE [dms-ads-sqlmi-prereq](/azure/includes/dms-ads-sqlmi-prereq]
+[!INCLUDE [dms-ads-sqlvm-prereq](/azure/includes/dms-ads-sqlvm-prereq]
 
 ### [Azure SQL Database (Preview)](#tab/azure-sql-db)
 
-[!INCLUDE [dms-ads-sqlmi-prereq](/azure/includes/dms-ads-sqlmi-prereq]
+[!INCLUDE [dms-ads-sqldb-prereq](/azure/includes/dms-ads-sqldb-prereq]
 
 ---
 
@@ -116,7 +116,7 @@ When you migrate the database(s) using the Azure SQL migration extension for Azu
     - SSIS packages
     - Server roles
     - Server audit
-- When migrating to SQL Server on Azure Virtual Machines, SQL Server 2008 and below as target versions aren't supported currently.
+- SQL Server 2008 and below as target versions aren't supported, when migrating to SQL Server on Azure Virtual Machines.
 - If you're using SQL Server 2012 or SQL Server 2014, you need to store your source database backup files on an Azure Storage Blob Container instead of using the network share option. Store the backup files as page blobs since block blobs are only supported in SQL 2016 and after.
 - You can't use an existing self-hosted integration runtime created from Azure Data Factory for database migrations with DMS. Initially, the self-hosted integration runtime should be created using the Azure SQL migration extension in Azure Data Studio and can be reused for further database migrations. 
 

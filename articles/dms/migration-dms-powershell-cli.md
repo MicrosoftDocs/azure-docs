@@ -16,13 +16,13 @@ ms.custom:
 # Migrate databases at scale using automation (Preview)
 
 The [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) brings together a simplified assessment, recommendation, and migration experience that delivers the following capabilities:
-- An enhanced assessment mechanism that can evaluate SQL Server instances, identifying databases ready for migration to the different Azure SQL targets.
+- An enhanced assessment mechanism can evaluate SQL Server instances, identifying databases ready for migration to the different Azure SQL targets.
 - An SKU recommendation engine (Preview) that collects performance data from the source SQL Server instance on-premises, generating right-sized SKU recommendations based on your Azure SQL target.
 - A reliable Azure service powered by Azure Database Migration Service that orchestrates data movement activities to deliver a seamless migration experience.
 - The ability to run online (for migrations requiring minimal downtime) or offline (for migrations where downtime persists through the migration) migration modes to suit your business requirements.
 - The flexibility to create and configure a self-hosted integration runtime to provide your own compute for accessing the source SQL Server and backups in your on-premises environment.
 
-With automation tools like the [Powershell - Azure DataMigration Service Module](/powershell/module/az.datamigration) or [Azure CLI](/cli/azure/datamigration), you can leverage the capabilities of the Azure SQL Migration extension together with Azure Database Migration Service to migrate one or more databases at scale (including databases across multiple SQL Server instances).
+With automation tools like the [PowerShell - Azure DataMigration Service Module](/powershell/module/az.datamigration) or [Azure CLI](/cli/azure/datamigration), you can apply the capabilities of the Azure SQL Migration extension together with Azure Database Migration Service to migrate one or more databases at scale (including databases across multiple SQL Server instances).
 
 The following sample scripts can be referenced to suit your migration scenario using Azure PowerShell or Azure CLI:
 
@@ -120,7 +120,7 @@ $migOpId = az datamigration sql-managed-instance show --managed-instance-name "m
 az datamigration sql-managed-instance cutover --managed-instance-name "mySQLMI" --resource-group "myRG" --target-db-name "AdventureWorks2008" --migration-operation-id $migOpId
 ```
 
-If you receive the error "The subscription is not registered to use namespace 'Microsoft.DataMigration'. See https://aka.ms/rps-not-found for how to register subscriptions.", run this command:
+If you receive the error "The subscription isn't registered to use namespace 'Microsoft.DataMigration'. See https://aka.ms/rps-not-found for how to register subscriptions.", run this command:
 ```azurepowershell
    Register-AzResourceProvider -ProviderNamespace "Microsoft.DataMigration"
 ```
