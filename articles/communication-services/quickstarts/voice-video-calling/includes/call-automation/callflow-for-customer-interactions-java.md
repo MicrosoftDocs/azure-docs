@@ -56,12 +56,12 @@ Azure Communication Services Call Automation SDK package is retrieved from the A
 
 Look for the recently published version from [here](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java/maven/com.azure%2Fazure-communication-callingserver/overview/1.0.0-alpha.20220829.1)
 
-And then add it to your POM file like this (using version 1.0.0-alpha.20220829.1 as example)
+And then add it to your POM file like this (using version 1.0.0-alpha.20220928.2 as example)
 ```xml
 <dependency>
 <groupId>com.azure</groupId>
-<artifactId>azure-communication-callingserver</artifactId>
-<version>1.0.0-alpha.20220829.1</version>
+<artifactId>azure-communication-callautomation</artifactId>
+<version>1.0.0-alpha.20220928.2</version>
 </dependency>
 ```
 
