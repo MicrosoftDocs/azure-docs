@@ -9,7 +9,7 @@ ms.date: 06/06/2022
 ms.author: ruiyichen
 ---
 
-# Configure bulk-import settings (Preview)
+# Configure bulk-import settings
 
 The FHIR service supports $import operation that allows you to import data into FHIR service account from a storage account.
 
