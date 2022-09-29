@@ -1,12 +1,12 @@
 ---
-title: Tutorial - Monitor network communication using the Azure portal using VM scale set 
+title: Tutorial - Monitor network communication using the Azure portal using Virtual machine scale set  
 description: In this tutorial, learn how to monitor network communication between two virtual machine scale sets with Azure Network Watcher's connection monitor capability.
 services: network-watcher
 documentationcenter: na
 author: mjha
 editor: ''
 tags: azure-resource-manager
-# Customer intent: I need to monitor communication between a VM scale set and another VM. If the communication fails, I need to know why, so that I can resolve the problem. 
+# Customer intent: I need to monitor communication between a Virtual machine scale set  and another VM. If the communication fails, I need to know why, so that I can resolve the problem. 
 
 ms.service: network-watcher
 ms.topic: tutorial
@@ -28,8 +28,8 @@ ms.custom: mvc
 Successful communication between a virtual machine scale set (VMSS) and an endpoint such as another VM, can be critical for your organization. Sometimes, configuration changes are introduced which can break communication. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a VM scale set and a VM
-> * Monitor communication between VM scale set and VM with Connection Monitor
+> * Create a Virtual machine scale set  and a VM
+> * Monitor communication between Virtual machine scale set  and VM with Connection Monitor
 > * Generate alerts on Connection Monitor metrics
 > * Diagnose a communication problem between two VMs, and learn how you can resolve it
 
@@ -39,9 +39,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## Create a VM scale set
+## Create a Virtual machine scale set 
 
-Create a VM scale set
+Create a Virtual machine scale set 
 
 ## Create a load balancer
 
@@ -188,7 +188,7 @@ In the Azure portal, to create a test group in a connection monitor, you specify
 
        When you select a VNET, subnet, a single VM or a virtual machine scale set the corresponding resource ID is set as the endpoint. By default, all VMs in the selected VNET or subnet participate in monitoring. To reduce the scope, either select specific subnets or agents or change the value of the scope property. 
 
-      :::image type="content" source="./media/connection-monitor-2-preview/add-sources-1.png" alt-text="Screenshot that shows the Add Sources pane and the Azure endpoints including V M S S tab in Connection Monitor.":::
+      :::image type="content" source="./media/connection-monitor-2-preview/add-sources-1.png" alt-text="Screenshot that shows the Add Sources pane and the Azure endpoints including VMSS tab in Connection Monitor.":::
 
    * To choose on-premises agents, select the **Non–Azure endpoints** tab. By default, agents are grouped into workspaces by region. All these workspaces have the Network Performance Monitor configured. 
    
@@ -249,11 +249,11 @@ In the Azure portal, to create a test group in a connection monitor, you specify
    :::image type="content" source="./media/connection-monitor-2-preview/add-test-config.png" alt-text="Screenshot that shows where to set up a test configuration in Connection Monitor.":::
        
 * **Test Groups**: You can add one or more Test Groups to a Connection Monitor. These test groups can consist of multiple Azure or Non-Azure endpoints.
-    * For selected Azure VMs or Azure virtual machine scale sets and Non-Azure endpoints without monitoring extensions, the extension for Azure VMs and the NPM solution for Non-Azure endpoints will be auto enablement once the creation of Connection Monitor begins.
+    * For selected Azure VMs or Azure virtual machine scale sets and Non-Azure endpoints without monitoring extensions, the extension for Azure VMs and the Network Performance Monitor solution for Non-Azure endpoints will be auto enablement once the creation of Connection Monitor begins.
     * In case the virtual machine scale set selected is set for manual upgradation, the user will have to upgrade the scale set post Network Watcher extension installation in order to continue setting up the Connection Monitor with virtual machine scale set as endpoints. In-case the virtual machine scale set is set to auto upgradation, the user need not worry about any upgradation after Network Watcher extension installation.
     * In the scenario mentioned above, user can consent to auto upgradation of virtual machine scale set with auto enablement of Network Watcher extension during the creation of Connection Monitor for Virtual Machine scale sets with manual upgradation. This would eliminate the need for the user to manually upgrade the virtual machine scale set after installing the Network Watcher extension.   
 
-   :::image type="content" source="./media/connection-monitor-2-preview/consent-vmss-auto-upgrade.png" alt-text="Screenshot that shows where to set up a test groups and consent for auto-upgradation of V M S S in Connection Monitor.":::
+   :::image type="content" source="./media/connection-monitor-2-preview/consent-vmss-auto-upgrade.png" alt-text="Screenshot that shows where to set up a test groups and consent for auto-upgradation of VMSS in Connection Monitor.":::
 
 ## Create alerts in Connection Monitor
 
@@ -276,9 +276,9 @@ In the Azure portal, to create alerts for a connection monitor, you specify valu
 :::image type="content" source="./media/connection-monitor-2-preview/unified-enablement-create.png" alt-text="Screenshot that shows the Create alert tab in Connection Monitor.":::
 
 Once all the steps are completed, the process will proceed with unified enablement of monitoring extensions for all endpoints without monitoring agents enabled, followed by creation of Connection Monitor. 
-Once the creation process is successful , it will take ~ 5 mins for the connection monitor to show up on the dashboard.  
+Once the creation process is successful, it will take ~ 5 mins for the connection monitor to show up on the dashboard.  
 
-## VM scale set coverage
+## Virtual machine scale set  coverage
 
 Currently, Connection Monitor provides default coverage for the scale set instances selected as endpoints. What this means is, only a default % of all the scale set instances added would be randomly selected to monitor connectivity from the scale set to the endpoint. 
 As a best practice, to avoid loss of data due to downscaling of instances, it is advised to select ALL instances in a scale set while creating a test group instead of selecting particular few for monitoring your endpoints. 
@@ -303,7 +303,7 @@ When no longer needed, delete the resource group and all of the resources it con
 
 ## Next steps
 
-In this tutorial, you learned how to monitor a connection between a VM scale set and a VM. You learned that a network security group rule prevented communication to a VM. To learn about all of the different responses connection monitor can return, see [response types](network-watcher-connectivity-overview.md#response). You can also monitor a connection between a VM, a fully qualified domain name, a uniform resource identifier, or an IP address.
+In this tutorial, you learned how to monitor a connection between a Virtual machine scale set  and a VM. You learned that a network security group rule prevented communication to a VM. To learn about all of the different responses connection monitor can return, see [response types](network-watcher-connectivity-overview.md#response). You can also monitor a connection between a VM, a fully qualified domain name, a uniform resource identifier, or an IP address.
 
 * Learn [how to analyze monitoring data and set alerts](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts).
 * Learn [how to diagnose problems in your network](./connection-monitor-overview.md#diagnose-issues-in-your-network).
