@@ -63,7 +63,8 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     |**All supported OT sensor software versions**:  <br>- [Device vulnerabilities from the Azure portal](#device-vulnerabilities-from-the-azure-portal)<br>- [Security recommendations for OT networks](#security-recommendations-for-ot-networks)<br><br>**Sensor software version 22.2.6**: <br> - Bug fixes and stability improvements <br>- Enhancements to the device type classification algorithm<br><br>- **Microsoft Sentinel integration**: <br>- [Investigation enhancements with IOT device entities](#investigation-enhancements-with-iot-device-entities-in-microsoft-sentinel)<br>- [Updates to the Microsoft Defender for IoT solution](#updates-to-the-microsoft-defender-for-iot-solution-in-microsoft-sentinels-content-hub) |
+|**OT networks**     |**All supported OT sensor software versions**: [Device vulnerabilities from the Azure portal](#device-vulnerabilities-from-the-azure-portal)<br>- [Security recommendations for OT networks](#security-recommendations-for-ot-networks)<br><br> **All OT sensor software versions 22.x**: [Updates for Azure cloud connection firewall rules](#updates-for-azure-cloud-connection-firewall-rules) <br><br>**Sensor software version 22.2.6**: <br> - Bug fixes and stability improvements <br>- Enhancements to the device type classification algorithm<br><br>**Microsoft Sentinel integration**: <br>- [Investigation enhancements with IoT device entities](#investigation-enhancements-with-iot-device-entities-in-microsoft-sentinel)<br>- [Updates to the Microsoft Defender for IoT solution](#updates-to-the-microsoft-defender-for-iot-solution-in-microsoft-sentinels-content-hub)|
+
 ### Security recommendations for OT networks
 
 Defender for IoT now provides security recommendations to help customers manage their OT/IoT network security posture. Defender for IoT recommendations help users form actionable, prioritized mitigation plans that address the unique challenges of OT/IoT networks. Use recommendations for lower your network's risk and attack surface.
@@ -100,11 +101,37 @@ Access vulnerability data in the Azure portal from the following locations:
 
     For example:
 
-    :::image type="content" source="media/release-notes/vulnerabilities-workbook.png" alt-text="Screenshot of a Vulnerabilties workbook in Defender for IoT.":::
+    :::image type="content" source="media/release-notes/vulnerabilities-workbook.png" alt-text="Screenshot of a Vulnerabilities workbook in Defender for IoT.":::
 
     For more information, see [Use Azure Monitor workbooks in Microsoft Defender for IoT](workbooks.md).
 
-### Investigation enhancements with IOT device entities in Microsoft Sentinel
+### Updates for Azure cloud connection firewall rules
+
+OT network sensors connect to Azure to provide alert and device data and sensor health messages, access threat intelligence packages, and more. Connected Azure services include IoT Hub, Blob Storage, Event Hubs, and the Microsoft Download Center.
+
+For OT sensors with software versions 22.x and higher, Defender for IoT now supports increased security when adding outbound allow rules for connections to Azure. Now you can define your outbound allow rules to connect to Azure without using wildcards.
+
+When defining outbound allow rules to connect to Azure, you'll need to enable HTTPS traffic to each of the required endpoints on port 443. Outbound allow rules are defined once for all OT sensors onboarded to the same subscription.
+
+For supported sensor versions, download the full list of required secure endpoints from the following locations in the Azure portal:
+
+- **A successful sensor registration page**: After onboarding a new OT sensor, version 22.x, the successful registration page now provides instructions for next steps, including a link to the endpoints you'll need to add as secure outbound allow rules on your network. Select the **Download endpoint details** link to download the JSON file.
+
+    For example:
+
+    :::image type="content" source="media/release-notes/download-endpoints.png" alt-text="Screenshot of a successful OT sensor registration page with the download endpoints link.":::
+
+- **The Sites and sensors page**: Select an OT sensor with software versions 22.x or higher, or a site with one or more supported sensor versions. Then, select **More actions** > **Download endpoint details** to download the JSON file. For example:
+
+    :::image type="content" source="media/release-notes/download-endpoints-sites-sensors.png" alt-text="Screenshot of the Sites and sensors page with the download endpoint details link.":::
+
+For more information, see:
+
+- [Tutorial: Get started with Microsoft Defender for IoT for OT security](tutorial-onboarding.md)
+- [Manage sensors with Defender for IoT in the Azure portal](how-to-manage-sensors-on-the-cloud.md)
+- [Networking requirements](how-to-set-up-your-network.md#sensor-access-to-azure-portal)
+
+### Investigation enhancements with IoT device entities in Microsoft Sentinel
 
 Defender for IoT's integration with Microsoft Sentinel now supports an IoT device entity page. When investigating incidents and monitoring IoT security in Microsoft Sentinel, you can now identify your most sensitive devices and jump directly to more details on each device entity page.
 
