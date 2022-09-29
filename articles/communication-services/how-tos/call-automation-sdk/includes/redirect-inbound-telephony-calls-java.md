@@ -56,8 +56,8 @@ Azure Communication Services Call Automation SDK package is retrieved from the A
 ```xml
 <dependency>
   <groupId>com.azure</groupId>
-  <artifactId>azure-communication-callingserver</artifactId>
-  <version>1.0.0-beta.7</version>
+  <artifactId>azure-communication-callautomation</artifactId>
+  <version>1.0.0-alpha.20220928.2</version>
 </dependency>
 ```
 
@@ -101,7 +101,7 @@ In your editor of choice, open App.java file and update it with the following co
 package com.communication.quickstart;
 
 import java.util.List;
-import com.azure.communication.callingserver.*;
+import com.azure.communication.callautomation.*;
 import com.azure.communication.common.CommunicationUserIdentifier;
 import com.azure.messaging.eventgrid.*;
 import com.google.gson.*;
@@ -119,13 +119,9 @@ public class App
 
             for (EventGridEvent eventGridEvent : eventGridEvents) {
 
+                // Webhook validation is assumed to be complete
                 JsonObject data = new Gson().fromJson(eventGridEvent.getData().toString(), JsonObject.class);
-                
-                if (eventGridEvent.getEventType().equals("Microsoft.EventGrid.SubscriptionValidationEvent")) {
-                    String validationCode = data.get("validationCode").getAsString();
-                    return "{\"validationResponse\": \"" + validationCode + "\"}";
-                }
-                
+                                               
                 String incomingCallContext = data.get("incomingCallContext").getAsString();
                 client.redirectCall(incomingCallContext, new CommunicationUserIdentifier("<userId>"));
             }
