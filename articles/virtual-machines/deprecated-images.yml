@@ -41,7 +41,7 @@ sections:
           
           **What do I need to do?**
 
-          If you want your scale set to scale out after the deprecation date, you will need to identify the scale set running on the deprecated image and then migrate your workload to a supported image. (The steps to identify and migrate your workload are outlined below). If you want to remain on the image after deprecation, you can create your own custom image and migrate to it (Steps outlined below). If you already have auto updates configured for your VM or scale set, you will only be impacted when an Offer or plan version is deprecated (No impact on image version deprecation).
+          If you want your scale set to scale out after the deprecation date, you will need to identify the scale set running on the deprecated image and then migrate your workload to a supported image. If you want to remain on the image after deprecation, you can create your own custom image and migrate to it (Steps outlined below). If you already have auto updates configured for your VM or scale set, you will only be impacted when an Offer or plan version is deprecated (No impact on image version deprecation).
           
           
           
@@ -123,61 +123,59 @@ sections:
           
       - question: How do I migrate my workloads to another image?
         answer: |
-          You might want to keep using an image that is scheduled for deprecation for specific reasons or you might want to migrate your workloads to another Offer/Plan/Version. Both steps are outlined below:
-          - You want to keep using an image that is scheduled for deprecation:
-          - If you want to remain on an older image version even after it has been scheduled for deprecation, follows the steps below:
-          - First generalize (sysprep) the powered off VM and create a custom image (Azure Compute Gallery formally called Shared Image Gallery) out of it and use that custom image for your VM or scale set.   
-          - Modify the VM or scale set deployment you want to point to the custom image.
-          - Here is how to create a custom image by capturing a VM and sharing in to Azure Compute Gallery (formerly known as Shared Image Gallery (SIG): Capture an image of a VM using the portal - Azure Virtual Machines | Microsoft Docs
+          You might want to keep using an image that is scheduled for deprecation for specific reasons or you might want to migrate your workloads to another Offer/Plan/Version. 
           
-          We recommend that you create custom images from Free Marketplace images (images that do not have Plan Info) that are scheduled for deprecation or already deprecated. For Paid Marketplace images, we suggest you create custom images from the latest version of the image. Workloads running on custom images created from a deprecated paid image will no longer work after the paid image is deprecated.
+          If you want to keep using an image that is scheduled for deprecation, generalize the powered off VM and create a custom image out of it and use that custom image for your VM or scale set. Then change the VM or scale set deployment  to point to the custom image. For more information, see [Capture an image of a VM in the portal](capture-image-portal.md).
+          
+          We recommend that you create custom images from free Marketplace images (images that do not have Plan Info) that are scheduled for deprecation or already deprecated. For Paid Marketplace images, we suggest you create custom images from the latest version of the image. Workloads running on custom images created from a deprecated paid image will no longer work after the paid image is deprecated.
           
           **You want to migrate to another offer/plan/version:**
           First search for other offers, plans or versions from the same publisher with the following commands (Replace all highlighted values as needed):
           
               **To migrate to another offer:**
           
-                  PowerShell:
+              PowerShell:
           
-                  ```
-                  Get-AzVMImage -Location "west europe" -PublisherName “MicrosoftWindowsServer” 
-                  ```
+              ```
+              Get-AzVMImage -Location "west europe" -PublisherName “MicrosoftWindowsServer” 
+              ```
           
-                  Azure CLI:
+              Azure CLI:
           
-                  ```
-                  az vm image list --location "west europe" --publisher "MicrosoftWindowsServer" 
-                  ```
+              ```
+              az vm image list --location "west europe" --publisher "MicrosoftWindowsServer" 
+              ```
           
               **To migrate to another Plan:** 
-                  Search for other plans under the same offer and then migrate to that plan.
+              Search for other plans under the same offer and then migrate to that plan.
           
-                  PowerShell:
+              PowerShell:
           
-                  ```
-                  Get-AzVMImage -Location "west europe" -PublisherName “MicrosoftWindowsServer” -Offer “WindowsServer”
-                  ``` 
+              ```
+              Get-AzVMImage -Location "west europe" -PublisherName “MicrosoftWindowsServer” -Offer “WindowsServer”
+              ``` 
           
-                  Azure CLI:
+              Azure CLI:
           
-                  ```
-                  az vm image list --location "west europe" --publisher "MicrosoftWindowsServer" --offer "WindowsServer" 
-                  ```
+              ```
+              az vm image list --location "west europe" --publisher "MicrosoftWindowsServer" --offer "WindowsServer" 
+              ```
           
               **To migrate to another version:** 
-                  Search for another version (we suggest migrating to the latest version)  
+              
+              Search for another version (we suggest migrating to the latest version)  
           
-                  PowerShell:
+              PowerShell:
           
-                  ```
-                  Get-AzVMImage -Location "west europe" -PublisherName “MicrosoftWindowsServer” -Offer “WindowsServer” -Skus "2019-Datacenter-with-Containers"
-                  ```
+              ```
+              Get-AzVMImage -Location "west europe" -PublisherName “MicrosoftWindowsServer” -Offer “WindowsServer” -Skus "2019-Datacenter-with-Containers"
+              ```
           
-                  Azure CLI:
+              Azure CLI:
           
-                  ```
-                  az vm image list --location "west europe" --publisher "MicrosoftWindowsServer" --offer "WindowsServer" --sku "2019-Datacenter-with-Containers" --all"
-                  ```
+              ```
+              az vm image list --location "west europe" --publisher "MicrosoftWindowsServer" --offer "WindowsServer" --sku "2019-Datacenter-with-Containers" --all"
+              ```
           
         
           You need to verify that your workloads are supported and will run properly on the new image before migrating your workloads to the new image.
@@ -190,9 +188,9 @@ sections:
           
           Scale set, suggestions for updating the version should include:
           - To avoid downtime, ensure the upgrade policy is set to manual or rolling. 
-               If set to manual, existing instances won’t be reimaged until it’s manually upgraded.
-               If set to rolling, existing instances will be automatically upgraded and reimaged by batch. 	
-          - Update image reference using steps in Modify an Azure virtual machine scale set: Modify an Azure virtual machine scale set - Azure Virtual Machine Scale Sets | Microsoft Docs
+               - If set to manual, existing instances won’t be reimaged until it’s manually upgraded.
+               - If set to rolling, existing instances will be automatically upgraded and reimaged by batch. 	
+          - Update image reference using the steps in [Modify an Azure virtual machine scale set](/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set.md).
           - Ensure that all existing instances are upgraded and on the latest model. You can also scale out and migrate workload to the new instances then delete the old instances, instead of upgrading the existing instances. 
           - Once the existing instances are all upgraded to the new image, change the upgrade policy back to what it was if needed. 
            
@@ -200,13 +198,13 @@ sections:
           
       - question: Are all image versions lower than the indicated version also deprecated? 
         answer: |
-          Generally, yes. However, it is recommended to  confirm against the list of valid versions in a Plan using Virtual Machine Images - List - REST API (Azure Compute) | Microsoft Docs 
+          Generally, yes. However, it is recommended to  confirm against the list of valid versions in a Plan using [Virtual Machine Images - List](/rest/api/compute/virtual-machine-images/list?tabs=HTTP).
            
       - question: How can I check if a specific image is deprecated or scheduled for deprecation?
         answer: |
           You can check if an image is deprecated or scheduled for deprecation using the [REST API](/rest/api/compute/virtual-machine-images/get?tabs=HTTP). 
           
-          
+
           If the image is deprecated, you will get a **VM Image is Deprecated** response. If the image is scheduled for deprecation, the response would show the date of the scheduled deprecation.
            
           
