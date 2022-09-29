@@ -21,7 +21,7 @@ items:
   - name: Create a data factory
     href: quickstart-create-data-factory-portal.md
   - name: Hello World - How to copy data
-    href: quickstart-create-data-factory-copy-data-tool.md
+    href: quickstart-hello-world-copy-data-tool.md
     displayName: timeout
   - name: Create a data flow
     href: data-flow-create.md
