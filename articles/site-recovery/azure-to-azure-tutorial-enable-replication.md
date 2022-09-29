@@ -158,7 +158,7 @@ Site Recovery retrieves the VMs associated with the selected subscription/resour
 
 1. In **Virtual machines**, select the VMs you want to enable for disaster recovery. You can select up to 10 VMs.
 
-     :::image type="Virtual machine selection" source="./media/azure-to-azure-how-to-enable-replication/virtual-machine-selection.png" alt-text="Screenshot that highlights where you select virtual machines.":::
+     :::image type="Virtual machine selection" source="./media/azure-to-azure-tutorial-enable-replication/virtual-machine-selection.png" alt-text="Screenshot that highlights where you select virtual machines.":::
 
 2. Select **Next**.
 
