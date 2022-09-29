@@ -110,7 +110,7 @@ You also can view the generated code and prepare it for code customization via t
 
 To do so, navigate to the **Models** tab of the automated ML experiment parent run page. After you select one of the trained models, you can select the **View generated code (preview)** button. This button redirects you to the **Notebooks** portal extension, where you can view, edit and run the generated code for that particular selected model.
 
-![ Screenshot of parent run models tab view generate code button](.././media/how-to-generate-automl-training-code/parent-run-view-generated-code.png)
+![Screenshot of parent run models tab view generate code button](.././media/how-to-generate-automl-training-code/parent-run-view-generated-code.png)
 
 Alternatively, you can also access to the model's generated code from the top of the child run's page once you navigate into that child run's page of a particular model.
 
