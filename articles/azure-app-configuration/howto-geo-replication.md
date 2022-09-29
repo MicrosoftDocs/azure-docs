@@ -2,13 +2,14 @@
 title: Enable geo-replication (preview)
 description: Learn how to use Azure App Configuration geo replication to create, delete, and manage replicas of your configuration store. 
 services: azure-app-configuration
-author: maud-lv
+author: mrm9084
 ms.service: azure-app-configuration
-ms.devlang: csharp
+ms.devlang: csharp, java
 ms.topic: how-to
-ms.date: 8/1/2022
-ms.author: malev
+ms.date: 09/29/2022
+ms.author: mametcal
 ms.custom: devx-track-azurecli
+zone_pivot_groups: appconfig-provider
 
 #Customer intent: I want to be able to list, create, and delete the replicas of my configuration store. 
 ---
