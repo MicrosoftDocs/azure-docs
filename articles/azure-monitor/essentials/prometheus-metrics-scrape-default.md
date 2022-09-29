@@ -183,4 +183,4 @@ Following are the default recording rules that are automatically configured by A
 
 ## Next steps
 
-- [Customize scraping of Prometheus metrics](container-insights-prometheus-scrape-configuration.md).
+- [Customize scraping of Prometheus metrics](prometheus-metrics-scrape-configuration.md).
