@@ -662,4 +662,4 @@ Azure Cognitive Services containers aren't licensed to run without being connect
 
 ## Next steps
 
-* Set up a ![Spatial Analysis container](spatial-analysis-container.md)
+* Set up a [Spatial Analysis container](spatial-analysis-container.md)
