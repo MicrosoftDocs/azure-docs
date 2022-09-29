@@ -172,7 +172,7 @@ To use the Data Science VM as a development environment:
 
 1. Create a Data Science VM using one of the following methods:
 
-    * Use the Azure portal to create an [Ubuntu](../data-science-virtual-machine/dsvm-ubuntu-intro.md) or [Windows](data-science-virtual-machine/provision-vm.md) DSVM.
+    * Use the Azure portal to create an [Ubuntu](../data-science-virtual-machine/dsvm-ubuntu-intro.md) or [Windows](../data-science-virtual-machine/provision-vm.md) DSVM.
     * [Create a Data Science VM using ARM templates](../data-science-virtual-machine/dsvm-tutorial-resource-manager.md).
     * Use the Azure CLI
 
