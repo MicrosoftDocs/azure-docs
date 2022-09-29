@@ -63,256 +63,186 @@ This section shows you how to create a .NET Core console application to send mes
     Install-Package Azure.Messaging.ServiceBus
     ```
 
-### Add code to send messages to the queue
+### Authenticate to Azure
+
+Application requests to Azure Service Bus must be authorized. Using the `DefaultAzureCredential` class provided by the Azure.Identity client library is the recommended approach for implementing passwordless connections to Azure services in your code, including Blob Storage.
+
+You can also authorize requests to Azure Service Bus by using connection strings. However, this approach should be used with caution. Developers must be diligent to never expose the connection string in an unsecure location. Anyone who gains access to the connection string is able to authenticate. `DefaultAzureCredential` offers improved management and security benefits over the account key to allow passwordless authentication. Both options are demonstrated in the following example.
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
-1. In **Program.cs**, add the following `using` statements at the top of the namespace definition, before the class declaration.
+[!INCLUDE [passwordless-overview](passwordless-overview.md)]
 
-    ```csharp
-    using System.Threading.Tasks;
-    using Azure.Messaging.ServiceBus;
-    ```
+### Assign roles to your Azure AD user
 
-2. Within the `Program` class, declare the following properties, just before the `Main` method.
+[!INCLUDE [assign-roles](assign-roles.md)]
 
-    ```csharp
-    // name of your Service Bus queue
-    static string queueName = "<QUEUE NAME>";
+### Sign-in and connect your app code to Azure using DefaultAzureCredential
 
-    // the client that owns the connection and can be used to create senders and receivers
-    static ServiceBusClient client;
+You can authorize access to data in your storage account using the following steps:
 
-    // the sender used to publish messages to the queue
-    static ServiceBusSender sender;
+1. Make sure you're authenticated with the same Azure AD account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio, or Azure PowerShell. Your code will use this account to authenticate.
 
-    // number of messages to be sent to the queue
-    private const int numOfMessages = 3;
+    [!INCLUDE [default-azure-credential-sign-in](default-azure-credential-sign-in.md)]
 
-    ```
+1. To use `DefaultAzureCredential`, add the **Azure.Identity** package to your application.
 
-3. Replace code in the `Main` method with the following code. See code comments for details about the code. Here are the important steps from the code.  
-    1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using `DefaultAzureCredential` to authenticate.
-    1. Invokes the [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) method on the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object to create a [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) object for the specific Service Bus queue.
-    1. Creates a [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) object by using the [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync) method.
-    1. Add messages to the batch using the [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage).
-    1. Sends the batch of messages to the Service Bus queue using the [ServiceBusSender.SendMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync) method.
-
-        ```csharp
-        static async Task Main()
-        {
-            // The Service Bus client types are safe to cache and use as a singleton for the lifetime
-            // of the application, which is best practice when messages are being published or read
-            // regularly.
-            //
-            // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
-            // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
-
-            var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
-            client = new ServiceBusClient(connectionString, clientOptions);
-            sender = client.CreateSender(queueName);
-    
-            // create a batch 
-            using ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
-    
-            for (int i = 1; i <= numOfMessages; i++)
-            {
-                // try adding a message to the batch
-                if (!messageBatch.TryAddMessage(new ServiceBusMessage($"Message {i}")))
-                {
-                    // if it is too large for the batch
-                    throw new Exception($"The message {i} is too large to fit in the batch.");
-                }
-            }
-    
-            try
-            {
-                // Use the producer client to send the batch of messages to the Service Bus queue
-                await sender.SendMessagesAsync(messageBatch);
-                Console.WriteLine($"A batch of {numOfMessages} messages has been published to the queue.");
-            }
-            finally
-            {
-                // Calling DisposeAsync on client types is required to ensure that network
-                // resources and other unmanaged objects are properly cleaned up.
-                await sender.DisposeAsync();
-                await client.DisposeAsync();
-            }
-    
-            Console.WriteLine("Press any key to end the application");
-            Console.ReadKey();
-        }    
-        ```
-
-4. Here's what your Program.cs file should look like:
-
-    ```csharp
-    using System;
-    using System.Threading.Tasks;
-    using Azure.Messaging.ServiceBus;
-    
-    namespace QueueSender
-    {
-        class Program
-        {
-            // connection string to your Service Bus namespace
-            static string connectionString = "<NAMESPACE CONNECTION STRING>";
-
-            // name of your Service Bus queue
-            static string queueName = "<QUEUE NAME>";
-    
-            // the client that owns the connection and can be used to create senders and receivers
-            static ServiceBusClient client;
-    
-            // the sender used to publish messages to the queue
-            static ServiceBusSender sender;
-    
-            // number of messages to be sent to the queue
-            private const int numOfMessages = 3;
-    
-            static async Task Main()
-            {
-                // The Service Bus client types are safe to cache and use as a singleton for the lifetime
-                // of the application, which is best practice when messages are being published or read
-                // regularly.
-                //
-                // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
-                // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
-    
-                var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
-                client = new ServiceBusClient(connectionString, clientOptions);
-                sender = client.CreateSender(queueName);
-    
-                // create a batch 
-                using ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
-    
-                for (int i = 1; i <= numOfMessages; i++)
-                {
-                    // try adding a message to the batch
-                    if (!messageBatch.TryAddMessage(new ServiceBusMessage($"Message {i}")))
-                    {
-                        // if it is too large for the batch
-                        throw new Exception($"The message {i} is too large to fit in the batch.");
-                    }
-                }
-    
-                try
-                {
-                    // Use the producer client to send the batch of messages to the Service Bus queue
-                    await sender.SendMessagesAsync(messageBatch);
-                    Console.WriteLine($"A batch of {numOfMessages} messages has been published to the queue.");
-                }
-                finally
-                {
-                    // Calling DisposeAsync on client types is required to ensure that network
-                    // resources and other unmanaged objects are properly cleaned up.
-                    await sender.DisposeAsync();
-                    await client.DisposeAsync();
-                }
-    
-                Console.WriteLine("Press any key to end the application");
-                Console.ReadKey();
-            }
-        }
-    }   
-    ```
-
-5. Replace `<NAMESPACE CONNECTION STRING>` with the primary connection string to your Service Bus namespace. And, replace `<QUEUE NAME>` with the name of your queue.
-6. Build the project, and ensure that there are no errors.
-7. Run the program and wait for the confirmation message.
-
-    ```bash
-    A batch of 3 messages has been published to the queue
-    ```
+    [!INCLUDE [visual-studio-add-identity](visual-studio-add-identity.md)]
 
 ### [Connection string](#tab/connection-string)
 
-1. In **Program.cs**, add the following `using` statements at the top of the namespace definition, before the class declaration.
+## Get the connection string 
+Creating a new namespace automatically generates an initial Shared Access Signature (SAS) policy with primary and secondary keys, and primary and secondary connection strings that each grant full control over all aspects of the namespace. See [Service Bus authentication and authorization](../service-bus-authentication-and-authorization.md) for information about how to create rules with more constrained rights for regular senders and receivers. 
 
-    ```csharp
-    using System.Threading.Tasks;
-    using Azure.Messaging.ServiceBus;
-    ```
+To copy the primary connection string for your namespace, follow these steps: 
 
-2. Within the `Program` class, declare the following properties, just before the `Main` method.
+1. On the **Service Bus Namespace** page, select **Shared access policies** on the left menu.
+3. On the **Shared access policies** page, select **RootManageSharedAccessKey**.
+4. In the **Policy: RootManageSharedAccessKey** window, select the copy button next to **Primary Connection String**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
+   
+    :::image type="content" source="./media/service-bus-create-namespace-portal/connection-string.png" alt-text="Screenshot shows an S A S policy called RootManageSharedAccessKey, which includes keys and connection strings.":::
 
-    Replace `<NAMESPACE CONNECTION STRING>` with the primary connection string to your Service Bus namespace. And, replace `<QUEUE NAME>` with the name of your queue.
+    You can use this page to copy primary key, secondary key, primary connection string, and secondary connection string.
 
-    ```csharp
+---
 
-    // connection string to your Service Bus namespace
-    static string connectionString = "<NAMESPACE CONNECTION STRING>";
+## Add code to send messages to the queue
 
-    // name of your Service Bus queue
-    static string queueName = "<QUEUE NAME>";
+Within the `Program` class, add the following use statements and properties, just before the `Main` method.
 
-    // the client that owns the connection and can be used to create senders and receivers
-    static ServiceBusClient client;
+### [Passwordless (Recommended)](#tab/passwordless)
 
-    // the sender used to publish messages to the queue
-    static ServiceBusSender sender;
+Replace `<QUEUE NAME>` with the name of your queue.
 
-    // number of messages to be sent to the queue
-    private const int numOfMessages = 3;
+```csharp
 
-    ```
+using System.Threading.Tasks;
+using Azure.Identity;
+using Azure.Messaging.ServiceBus;
 
-3. Replace code in the `Main` method with the following code. See code comments for details about the code. Here are the important steps from the code.  
-    1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the primary connection string to the namespace.
+// name of your Service Bus queue
+static string queueName = "<QUEUE NAME>";
+
+// the client that owns the connection and can be used to create senders and receivers
+static ServiceBusClient client;
+
+// the sender used to publish messages to the queue
+static ServiceBusSender sender;
+
+// number of messages to be sent to the queue
+private const int numOfMessages = 3;
+
+```
+
+### [Connection string](#tab/connection-string)
+
+Make sure to replace the property place holders `<NAMESPACE CONNECTION STRING>` with the primary connection string to your Service Bus namespace. And, replace `<QUEUE NAME>` with the name of your queue.
+
+```csharp
+
+using System.Threading.Tasks;
+using Azure.Identity;
+using Azure.Messaging.ServiceBus;
+
+// connection string value
+static string connectionString = "<CONNECTION STRING>";
+
+// name of your Service Bus queue
+static string queueName = "<QUEUE NAME>";
+
+// the client that owns the connection and can be used to create senders and receivers
+static ServiceBusClient client;
+
+// the sender used to publish messages to the queue
+static ServiceBusSender sender;
+
+// number of messages to be sent to the queue
+private const int numOfMessages = 3;
+
+```
+
+---
+
+1. Replace code in the `Main` method so that your `program.cs` file matches the following code. See code comments for details about the code. Here are the important steps from the code.  
+    1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the passwordless `DefaultAzureCredential` or the primary connection string to the namespace.
     1. Invokes the [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) method on the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object to create a [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) object for the specific Service Bus queue.
     1. Creates a [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) object by using the [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync) method.
     1. Add messages to the batch using the [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage).
     1. Sends the batch of messages to the Service Bus queue using the [ServiceBusSender.SendMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync) method.
 
-        ```csharp
-        static async Task Main()
+### [Passwordless (Recommended)](#tab/passwordless)
+
+```csharp
+    using System;
+    using System.Threading.Tasks;
+    using Azure.Messaging.ServiceBus;
+    
+    namespace QueueSender
+    {
+        class Program
         {
-            // The Service Bus client types are safe to cache and use as a singleton for the lifetime
-            // of the application, which is best practice when messages are being published or read
-            // regularly.
-            //
-            // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
-            // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
-
-            var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
-            client = new ServiceBusClient(connectionString, clientOptions);
-            sender = client.CreateSender(queueName);
+            // name of your Service Bus queue
+            static string queueName = "<QUEUE NAME>";
     
-            // create a batch 
-            using ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
+            // the client that owns the connection and can be used to create senders and receivers
+            static ServiceBusClient client;
     
-            for (int i = 1; i <= numOfMessages; i++)
+            // the sender used to publish messages to the queue
+            static ServiceBusSender sender;
+    
+            // number of messages to be sent to the queue
+            private const int numOfMessages = 3;
+    
+            static async Task Main()
             {
-                // try adding a message to the batch
-                if (!messageBatch.TryAddMessage(new ServiceBusMessage($"Message {i}")))
+                // The Service Bus client types are safe to cache and use as a singleton for the lifetime
+                // of the application, which is best practice when messages are being published or read
+                // regularly.
+                //
+                // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
+                // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
+    
+                var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
+                client = new ServiceBusClient(new DefaultAzureCredential(), clientOptions);
+                sender = client.CreateSender(queueName);
+    
+                // create a batch 
+                using ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
+    
+                for (int i = 1; i <= numOfMessages; i++)
                 {
-                    // if it is too large for the batch
-                    throw new Exception($"The message {i} is too large to fit in the batch.");
+                    // try adding a message to the batch
+                    if (!messageBatch.TryAddMessage(new ServiceBusMessage($"Message {i}")))
+                    {
+                        // if it is too large for the batch
+                        throw new Exception($"The message {i} is too large to fit in the batch.");
+                    }
                 }
-            }
     
-            try
-            {
-                // Use the producer client to send the batch of messages to the Service Bus queue
-                await sender.SendMessagesAsync(messageBatch);
-                Console.WriteLine($"A batch of {numOfMessages} messages has been published to the queue.");
-            }
-            finally
-            {
-                // Calling DisposeAsync on client types is required to ensure that network
-                // resources and other unmanaged objects are properly cleaned up.
-                await sender.DisposeAsync();
-                await client.DisposeAsync();
-            }
+                try
+                {
+                    // Use the producer client to send the batch of messages to the Service Bus queue
+                    await sender.SendMessagesAsync(messageBatch);
+                    Console.WriteLine($"A batch of {numOfMessages} messages has been published to the queue.");
+                }
+                finally
+                {
+                    // Calling DisposeAsync on client types is required to ensure that network
+                    // resources and other unmanaged objects are properly cleaned up.
+                    await sender.DisposeAsync();
+                    await client.DisposeAsync();
+                }
     
-            Console.WriteLine("Press any key to end the application");
-            Console.ReadKey();
-        }    
-        ```
+                Console.WriteLine("Press any key to end the application");
+                Console.ReadKey();
+            }
+        }
+    }   
+```
 
-4. Here's what your Program.cs file should look like:
+### [Connection string](#tab/connection-string)
 
-    ```csharp
+```csharp
     using System;
     using System.Threading.Tasks;
     using Azure.Messaging.ServiceBus;
@@ -381,16 +311,16 @@ This section shows you how to create a .NET Core console application to send mes
             }
         }
     }   
-    ```
+```
 
-5. Replace `<NAMESPACE CONNECTION STRING>` with the primary connection string to your Service Bus namespace. And, replace `<QUEUE NAME>` with the name of your queue.
+---
+
 6. Build the project, and ensure that there are no errors.
 7. Run the program and wait for the confirmation message.
 
     ```bash
     A batch of 3 messages has been published to the queue
     ```
----
 
 8. In the Azure portal, follow these steps:
     1. Navigate to your Service Bus namespace.
