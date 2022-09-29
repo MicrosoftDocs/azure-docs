@@ -49,7 +49,7 @@ The [Logger class in IoT Edge](https://github.com/Azure/iotedge/blob/master/edge
 Use the **GetModuleLogs** direct method to retrieve the logs of an IoT Edge module.
 
 >[!TIP]
->Use the `since` and `until` filter options to limit the amount of logs retrieved. Calling this direct method without bounds will retrieve all the logs which may be large, time consuming or costly.
+>Use the `since` and `until` filter options to limit the range of logs retrieved. Calling this direct method without bounds retrieves all the logs which may be large, time consuming, or costly.
 >
 >The IoT Edge troubleshooting page in the Azure portal provides a simplified experience for viewing module logs. For more information, see [Monitor and troubleshoot IoT Edge devices from the Azure portal](troubleshoot-in-portal.md).
 
