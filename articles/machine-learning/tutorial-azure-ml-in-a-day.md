@@ -43,7 +43,7 @@ The steps you'll take are:
 
 * Create a new notebook or copy our notebook.
     * Follow the [Quickstart: Run Juypter notebook in Azure Machine Learning studio](quickstart-run-notebooks.md) steps to create a new notebook.
-    * Or use the steps in the quickstart to [clone the v2 tutorials folder](quickstart-run-notebooks.md#explore-sample-notebooks), then open the notebook from the **tutorials/compute-instance-quickstarts/quickstart-azureml-in-10mins** folder in your **File** section.
+    * Or use the steps in the quickstart to [clone the v2 tutorials folder](quickstart-run-notebooks.md#explore-sample-notebooks), then open the notebook from the **tutorials/azureml-in-a-day/azureml-in-a-day.ipynb** folder in your **File** section.
 
 ## Run your notebook
 
