@@ -138,4 +138,4 @@ The following table summarizes our migration or deployment recommendations for w
 [dotnet-azure-identity-client-library]: /dotnet/api/overview/azure/identity-readme
 [java-azure-identity-client-library]: /java/api/overview/azure/identity-readme
 [javascript-azure-identity-client-library]: /javascript/api/overview/azure/identity-readme
-[python-azure-identity-client-library]: /python/api/overview/azure/identity-readme?view=azure-python
+[python-azure-identity-client-library]: /python/api/overview/azure/identity-readme
