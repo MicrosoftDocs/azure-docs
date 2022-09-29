@@ -93,4 +93,4 @@ To monitor billing and usage information for the offer you've deployed, visit Co
 <!-- LINKS -->
 [azure-marketplace]: /marketplace/azure-marketplace-overview
 [cluster-extensions]: ./cluster-extensions.md
-[billing]: ../azure/cost-management-billing/costs/quick-acm-cost-analysis.md
+[billing]: ../cost-management-billing/costs/quick-acm-cost-analysis.md
