@@ -8,6 +8,7 @@ ms.author: baanders # Microsoft employees only
 ms.date: 09/27/2022
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: contentperf-fy23q1
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -15,15 +16,19 @@ ms.reviewer: baanders
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Use Azure Digital Twins to update an Azure Maps indoor map
+# Integrate Azure Digital Twins data into an Azure Maps indoor map
 
-This article walks through the steps required to use Azure Digital Twins data to update information displayed on an *indoor map* using [Azure Maps](../azure-maps/about-azure-maps.md). Azure Digital Twins stores a graph of your IoT device relationships and routes telemetry to different endpoints, making it the perfect service for updating informational overlays on maps.
+This article shows how to use Azure Digital Twins data to update information displayed on an *indoor map* from [Azure Maps](../azure-maps/about-azure-maps.md). Because Azure Digital Twins stores a graph of your IoT device relationships and routes telemetry to different endpoints, it's a great service for updating informational overlays on maps.
 
-This guide will cover:
+This guide covers the following information:
 
 1. Configuring your Azure Digital Twins instance to send twin update events to a function in [Azure Functions](../azure-functions/functions-overview.md).
 2. Creating a function to update an Azure Maps indoor maps feature stateset.
 3. Storing your maps ID and feature stateset ID in the Azure Digital Twins graph.
+
+## Get started
+
+This section sets additional context for the information in this article. 
 
 ### Prerequisites
 
@@ -41,15 +46,13 @@ The image below illustrates where the indoor maps integration elements in this t
 
 :::image type="content" source="media/how-to-integrate-maps/maps-integration-topology.png" alt-text="Diagram of Azure services in an end-to-end scenario, highlighting the Indoor Maps Integration piece." lightbox="media/how-to-integrate-maps/maps-integration-topology.png":::
 
-## Create a function to update a map when twins update
+## Route twin update notifications from Azure Digital Twins
 
-First, you'll create a route in Azure Digital Twins to forward all twin update events to an Event Grid topic. Then, you'll use a function to read those update messages and update a feature stateset in Azure Maps. 
-
-## Create a route and filter to twin update notifications
-
-Azure Digital Twins instances can emit twin update events whenever a twin's state is updated. The Azure Digital Twins [Connect an end-to-end solution](./tutorial-end-to-end.md) linked above walks through a scenario where a thermometer is used to update a temperature attribute attached to a room's twin. You'll be extending that solution by subscribing to update notifications for twins, and using that information to update your maps.
+Azure Digital Twins instances can emit twin update events whenever a twin's state is updated. The Azure Digital Twins [Connect an end-to-end solution](./tutorial-end-to-end.md) linked above walks through a scenario where a thermometer is used to update a temperature attribute attached to a room's twin. This tutorial extends that solution by subscribing an Azure function to update notifications from twins, and using that function to update your maps.
 
 This pattern reads from the room twin directly, rather than the IoT device, which gives you the flexibility to change the underlying data source for temperature without needing to update your mapping logic. For example, you can add multiple thermometers or set this room to share a thermometer with another room, all without needing to update your map logic.
+
+First, you'll create a route in Azure Digital Twins to forward all twin update events to an Event Grid topic.
 
 1. Create an Event Grid topic, which will receive events from your Azure Digital Twins instance, using the CLI command below:
     ```azurecli-interactive
@@ -72,11 +75,11 @@ This pattern reads from the room twin directly, rather than the IoT device, whic
     az dt route create --dt-name <your-Azure-Digital-Twins-instance-hostname-or-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my-route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
-## Create a function to update maps
+## Create an Azure function to receive events and update maps
 
-You're going to create an Event Grid-triggered function inside your function app from the end-to-end tutorial ([Connect an end-to-end solution](./tutorial-end-to-end.md)). This function will unpack those notifications and send updates to an Azure Maps feature stateset to update the temperature of one room.
+In this section, you'll create a function that listens for events sent to the Event Grid topic. The function will read those update notifications and send corresponding updates to an Azure Maps feature stateset, to update the temperature of one room.
 
-See the following document for reference info: [Azure Event Grid trigger for Azure Functions](../azure-functions/functions-bindings-event-grid-trigger.md).
+In the Azure Digital Twins tutorial [prerequisite](#prerequisites), you created a function app to store Azure functions Azure Digital Twins. Now, create a new  [Event Grid-triggered Azure function](../azure-functions/functions-bindings-event-grid-trigger.md) inside the function app.
 
 Replace the function code with the following code. It will filter out only updates to space twins, read the updated temperature, and send that information to Azure Maps.
 
@@ -89,7 +92,7 @@ az functionapp config appsettings set --name <your-function-app-name> --resource
 az functionapp config appsettings set --name <your-function-app-name>  --resource-group <your-resource-group> --settings "statesetID=<your-Azure-Maps-stateset-ID>"
 ```
 
-### View live updates on your map
+### View live updates in the map
 
 To see live-updating temperature, follow the steps below:
 
@@ -103,7 +106,7 @@ Both samples send temperature in a compatible range, so you should see the color
 
 :::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="Screenshot of an office map showing room 121 colored orange.":::
 
-## Store your maps information in Azure Digital Twins
+## Store map information in Azure Digital Twins
 
 Now that you have a hardcoded solution to updating your maps information, you can use the Azure Digital Twins graph to store all of the information necessary for updating your indoor map. This information would include the stateset ID, maps subscription ID, and feature ID of each map and location respectively. 
 

@@ -30,11 +30,11 @@ The following issues are ones we're already aware of, so you won't need to repor
 
 - Multimedia redirection doesn't currently support protected content, so videos from Netflix, for example, won't work.
 
-- During public preview, multimedia redirection will be disabled on all sites except for the sites listed in [Websites that work with MMR](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection). However, if you have the extension, you can enable multimedia redirection for all websites. We added the extension so organizations can test the feature on their company websites.
+- During public preview, multimedia redirection will be disabled on all sites except for the sites listed in [Websites that work with MMR](multimedia-redirection-intro.md#websites-that-work-with-multimedia-redirection). However, you can enable multimedia redirection for all websites by following the steps in [Enable video playback for all sites](multimedia-redirection.md#enable-video-playback-for-all-sites). We added the extension so organizations can test the feature on their company websites.
 
 - When you resize the video window, the window's size will adjust faster than the video itself. You'll also see this issue when minimizing and maximizing the window.
 
-- You might run into issue where you are stuck in the loading state on every video site. This is a known issue that we're currently investigating. To temporarily mitigate this issue, enter "logoff" into the Windows Start text field to sign out of Azure Virtual Desktop and restart the session.
+- You might run into issue where you are stuck in the loading state on every video site. This is a known issue that we're currently investigating. To temporarily mitigate this issue, sign out of Azure Virtual Desktop and restart your session.
 
 ### The MSI installer doesn't work
 
