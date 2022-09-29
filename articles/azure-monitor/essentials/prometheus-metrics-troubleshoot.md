@@ -20,7 +20,8 @@ Check the pod status with the command `kubectl get pods -n kube-system | grep am
 
 - There should be one `ama-metrics-xxxxxxxxxx-xxxxx` replicaset pod, one `ama-metrics-ksm-*` pod, and an `ama-metrics-node-*` pod for each node on the cluster.
 - Each pod state should be `Running` and have an equal number of restarts to the number of configmap changes that have been applied:
-:::image type="content" source="media/container-insights-prometheus-metrics-troubleshoot/pod-status.png" lightbox="media/container-insights-prometheus-metrics-troubleshoot/pod-status.png" alt-text="Screenshot showing pod status.":::
+
+:::image type="content" source="media/prometheus-metrics-troubleshoot/pod-status.png" lightbox="media/prometheus-metrics-troubleshoot/pod-status.png" alt-text="Screenshot showing pod status.":::
 
 If each pod state is `Running` but one or more pods have restarts, run `kubectl describe pod <ama-metrics pod name> -n kube-system`.
 
@@ -39,7 +40,7 @@ View the container logs with the command `kubectl logs <ama-metrics pod name> -n
 
 Run the command `kubectl logs <ama-metrics pod name> -n kube-system -c addon-token-adapter`.
 - This will show an error if there's an issue with authenticating with the Azure Monitor workspace. Below is an example of logs with no issues:
-:::image type="content" source="media/container-insights-prometheus-metrics-troubleshoot/addon-token-adapter.png" lightbox="media/container-insights-prometheus-metrics-troubleshoot/addon-token-adapter.png" alt-text="Screenshot showing addon token log.":::
+:::image type="content" source="media/prometheus-metrics-troubleshoot/addon-token-adapter.png" lightbox="media/prometheus-metrics-troubleshoot/addon-token-adapter.png" alt-text="Screenshot showing addon token log.":::
 
 If there are no errors in the logs, the Prometheus interface can be used for debugging to verify the expected configuration and targets being scraped.
 
@@ -50,15 +51,15 @@ Every `ama-metrics-*` pod has the Prometheus Agent mode User Interface available
 Run the command `kubectl port-forward <ama-metrics pod> -n kube-system 9090`.
 
 - Open a browser to the address `127.0.0.1:9090/config`. This will have the full scrape configs. Verify all jobs are included in the config.
-:::image type="content" source="media/container-insights-prometheus-metrics-troubleshoot/config-ui.png" lightbox="media/container-insights-prometheus-metrics-troubleshoot/config-ui.png" alt-text="Screenshot showing configuration jobs.":::
+:::image type="content" source="media/prometheus-metrics-troubleshoot/config-ui.png" lightbox="media/prometheus-metrics-troubleshoot/config-ui.png" alt-text="Screenshot showing configuration jobs.":::
 
 
 - Go to `127.0.0.1:9090/service-discovery` to view the targets discovered by the service discovery object specified and what the relabel_configs have filtered the targets to be. For example, if missing metrics from a certain pod, you can find if that pod was discovered and what its URI is. You can then use this URI when looking at the targets to see if there are any scrape errors. 
-:::image type="content" source="media/container-insights-prometheus-metrics-troubleshoot/service-discovery.png" lightbox="media/container-insights-prometheus-metrics-troubleshoot/service-discovery.png" alt-text="Screenshot showing service discovery.":::
+:::image type="content" source="media/prometheus-metrics-troubleshoot/service-discovery.png" lightbox="media/prometheus-metrics-troubleshoot/service-discovery.png" alt-text="Screenshot showing service discovery.":::
 
 
 - Go to `127.0.0.1:9090/targets` to view all jobs, the last time the endpoint for that job was scraped, and any errors 
-:::image type="content" source="media/container-insights-prometheus-metrics-troubleshoot/targets.png" lightbox="media/container-insights-prometheus-metrics-troubleshoot/targets.png" alt-text="Screenshot showing targets.":::
+:::image type="content" source="media/prometheus-metrics-troubleshoot/targets.png" lightbox="media/prometheus-metrics-troubleshoot/targets.png" alt-text="Screenshot showing targets.":::
 
 If there are no issues and the intended targets are being scraped, you can view the exact metrics being scraped by enabling debug mode.
 

@@ -322,5 +322,5 @@ When you allow a default Azure Monitor workspace to be created when you install 
 
 ## Next steps
 
-- [Customize Prometheus metric scraping for the cluster](container-insights-prometheus-scrape-configuration.md).
+- [Customize Prometheus metric scraping for the cluster](../essentials/prometheus-scrape-configuration.md).
 - [Learn more about collecting Prometheus metrics](container-insights-prometheus.md).

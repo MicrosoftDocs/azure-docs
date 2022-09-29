@@ -231,15 +231,15 @@ items:
       - name: Customize collection
         items:
         - name: Default configuration
-          href: essentials/prometheus-metrics-prometheus-scrape-default.md
+          href: essentials/prometheus-metrics-scrape-default.md
         - name: Custom configuration
-          href: essentials/prometheus-metrics-prometheus-scrape-configuration.md
+          href: essentials/prometheus-metrics-scrape-configuration.md
         - name: Create and validate custom scrape config
-          href: essentials/prometheus-metrics-prometheus-scrape-validate.md
+          href: essentials/prometheus-metrics-scrape-validate.md
         - name: Minimal ingestion profile
-          href: essentials/prometheus-metrics-prometheus-scrape-configuration-minimal.md
+          href: essentials/prometheus-metrics-scrape-configuration-minimal.md
         - name: Send to multiple metric workspaces
-          href: essentials/prometheus-metrics-prometheus-multiple-workspaces.md
+          href: essentials/prometheus-metrics-multiple-workspaces.md
     - name: Metrics explorer
       items:
       - name: Getting started with Metrics Explorer
