@@ -158,7 +158,7 @@ Migrated LUIS entity in CLU:
 * Pizza Order.Topping 
 * Pizza Order.Size 
   
-For more information on entity components, see [Entity components](entity-components.md).
+For more information on entity components, see [Entity components](../concepts/entity-components.md).
 
 ### How are entity roles transferred to CLU? 
 
@@ -196,7 +196,7 @@ Although CLU does not offer versioning, you can export your CLU projects using [
 
 ### Why is CLU classification different from LUIS? How does None classification work? 
 
-CLU presents a different approach to training models by using multi-classification as opposed to binary classification. As a result, the interpretation of scores is different and also differs across training options. While you are likely to achieve better results, you have to observe the difference in scores and determine a new threshold for accepting intent predictions. You can easily add a confidence score threshold for the [None intent](none-intent.md) in your project settings. This will return *None* as the top intent if the top intent did not exceed the confidence score threshold provided. 
+CLU presents a different approach to training models by using multi-classification as opposed to binary classification. As a result, the interpretation of scores is different and also differs across training options. While you are likely to achieve better results, you have to observe the difference in scores and determine a new threshold for accepting intent predictions. You can easily add a confidence score threshold for the [None intent](../concepts/none-intent.md) in your project settings. This will return *None* as the top intent if the top intent did not exceed the confidence score threshold provided. 
 
 ### Do I need more data for CLU models than LUIS? 
 
