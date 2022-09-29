@@ -742,7 +742,7 @@
     },
     {
       "source_path_from_root": "/articles/cosmos-db/table/table-import.md",
-      "redirect_url": "/azure/cosmos-db/table/import.md",
+      "redirect_url": "/azure/cosmos-db/table/import",
       "redirect_document_id": false
     },
     {
