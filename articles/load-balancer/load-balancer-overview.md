@@ -98,4 +98,4 @@ Subscribe to the RSS feed and view the latest Azure Load Balancer feature update
 
 * For more information on Azure Load Balancer limitations and components, see [Azure Load Balancer components](./components.md) and [Azure Load Balancer concepts](./concepts.md)
 
-* [Learn module: Introduction to Azure Load Balancer](/learn/paths/intro-to-azure-application-delivery-services).
+* [Learn module: Introduction to Azure Load Balancer](/training/paths/intro-to-azure-application-delivery-services).

@@ -50,18 +50,16 @@ You might have requirements in your organization to redirect (force) internet-bo
 
 To ensure that the nodes in your pool work in a VNet that has forced tunneling enabled, you must add the following [user-defined routes](../virtual-network/virtual-networks-udr-overview.md) (UDR) for that subnet:
 
-- The Batch service needs to communicate with nodes for scheduling tasks. To enable this communication, add a UDR for each IP address used by the Batch service in the region where your Batch account exists. The IP addresses of the Batch service are found in the `BatchNodeManagement.<region>` service tag. To obtain the list of IP addresses, see [Service tags on-premises](../virtual-network/service-tags-overview.md).
+- The Batch service needs to communicate with nodes for scheduling tasks. To enable this communication, add a UDR corresponding to the `BatchNodeManagement.<region>` [service tag](../virtual-network/virtual-networks-udr-overview.md#service-tags-for-user-defined-routes) in the region where your Batch account exists. Set the **Next hop type** to **Internet**.
 
-- Ensure that outbound TCP traffic to the Azure Batch service on destination port 443 is not blocked by your on-premises network. These Azure Batch service destination IP addresses are the same as found in the `BatchNodeManagement.<region>` service tag as used for routes above.
+- Ensure that outbound TCP traffic to the Azure Batch `BatchNodeManagement.<region>` service tag on destination port 443 is not blocked by your on-premises network. This is required for [Simplified Compute Node Communication](simplified-compute-node-communication.md).
 
 - Ensure that outbound TCP traffic to Azure Storage on destination port 443 (specifically, URLs of the form `*.table.core.windows.net`, `*.queue.core.windows.net`, and `*.blob.core.windows.net`) is not blocked by your on-premises network.
 
 - If you use virtual file mounts, review the [networking requirements](virtual-file-mount.md#networking-requirements) and ensure that no required traffic is blocked.
 
-When you add a UDR, define the route for each related Batch IP address prefix, and set **Next hop type** to **Internet**.
-
 > [!WARNING]
-> Batch service IP addresses can change over time. To prevent outages due to an IP address change, create a process to refresh Batch service IP addresses automatically and keep them up to date in your route table.
+> Batch service IP addresses can change over time. To prevent outages due to Batch service IP address changes, do not directly specify IP addresses. Instead use the `BatchNodeManagement.<region>` [service tag](../virtual-network/virtual-networks-udr-overview.md#service-tags-for-user-defined-routes).
 
 ## Next steps
 
