@@ -47,9 +47,24 @@ To get started with this tutorial, you first need to set up a sample Node.js web
 
 [!INCLUDE [azure-load-testing-set-up-sample-application](../../includes/azure-load-testing-set-up-sample-application.md)]
 
-## Set up Azure Pipelines access permissions for Azure
+## Configure service authentication
+
+<!-- 
+Pipelines:
+- create service connection
+- authorize service principal
+- specify Azure subscription in pipeline definition
+
+GitHub Actions:
+- create service principal
+- authorize service principal
+- create secret to store Azure credentials
+- use secret with Azure login action 
+-->
 
 In this section, you'll configure your Azure DevOps project to have permissions to access the Azure Load Testing resource.
+
+# [Azure Pipelines](#tab/pipelines)
 
 To access Azure resources, create a service connection in Azure DevOps and use role-based access control to assign the necessary permissions:
 
@@ -79,20 +94,93 @@ To access Azure resources, create a service connection in Azure DevOps and use r
     
 1. Assign the Load Test Contributor role to the service principal to allow access to the Azure Load Testing service.
 
-    First, retrieve the ID of the service principal object. Select the `objectId` result from the following Azure CLI command:
+    First, retrieve the ID of the service principal object using the Azure CLI. Replace the text placeholder `<application-client-id>` with the value you just copied.
 
     ```azurecli
-    az ad sp show --id "<application-client-id>"
+    object_id=$(az ad sp show --id "<application-client-id>" --query "id" -o tsv)
+    echo $object_id
     ```
     
-    Next, assign the Load Test Contributor role to the service principal. Replace the placeholder text `<sp-object-id>` with the ID of the service principal object. Also, replace `<subscription-name-or-id>` with your Azure subscription ID.
+    Next, retrieve the subscription ID:
 
     ```azurecli
-    az role assignment create --assignee "<sp-object-id>" \
-        --role "Load Test Contributor" \
-        --scope /subscriptions/<subscription-name-or-id>/resourceGroups/<resource-group-name> \
-        --subscription "<subscription-name-or-id>"
+    subscription_id=$(az account show --query "id" -o tsv)
+    echo $subscription_id
     ```
+
+    Finally, assign the `Load Test Contributor` role to the service principal. Replace the placeholder text `<resource-group-name>` with the name of the Azure resource group of your Azure Load Testing resource.
+
+    ```azurecli
+    az role assignment create --assignee $object_id \
+        --role "Load Test Contributor" \
+        --scope /subscriptions/$subscription_id/resourceGroups/<resource-group-name> \
+        --subscription $subscription_id
+    ```
+
+# [GitHub Actions](#tab/github)
+
+First, you'll create an Azure Active Directory [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) and grant it the permissions to access your Azure Load Testing resource.
+
+1. Run the following Azure CLI command to create a service principal and assign the *Contributor* role:
+
+    ```azurecli
+    subscription_id=$(az account show --query "id" -o tsv)
+    echo $subscription_id
+
+    az ad sp create-for-rbac --name "my-load-test-cicd" --role contributor \
+                             --scopes /subscriptions/$subscription_id \
+                             --sdk-auth
+    ```
+
+    > [!NOTE]
+    > You might get a `--sdk-auth` deprecation warning when you run this command. Alternatively, you can use OpenID Connect (OIDC) based authentication for authenticating GitHub with Azure. Learn how to [use the Azure login action with OpenID Connect](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
+
+    The output is the role assignment credentials that provide access to your resource. The command outputs a JSON object similar to the following snippet.
+
+    ```json
+    {
+      "clientId": "<GUID>",
+      "clientSecret": "<GUID>",
+      "subscriptionId": "<GUID>",
+      "tenantId": "<GUID>",
+      (...)
+    }
+    ```
+
+1. Copy this JSON object. You'll store this value as a GitHub secret in a later step.
+
+1. Assign the service principal the **Load Test Contributor** role, which grants permission to create, manage and run tests in an Azure Load Testing resource.
+
+    First, retrieve the ID of the service principal object by running this Azure CLI command:
+
+    ```azurecli
+    object_id=$(az ad sp list --filter "displayname eq 'my-load-test-cicd'" --query "[0].id" -o tsv)
+    echo $object_id
+    ```
+
+    Next, assign the `Load Test Contributor` role to the service principal. Replace the placeholder text `<resource-group-name>` with the name of the Azure resource group of your Azure Load Testing resource.
+
+    ```azurecli
+    az role assignment create --assignee $object_id \
+        --role "Load Test Contributor" \
+        --scope /subscriptions/$subscription_id/resourceGroups/<resource-group-name> \
+        --subscription $subscription_id
+    ```
+
+1. Add a GitHub secret **AZURE_CREDENTIALS** to your repository to store the service principal you created earlier. The `azure/login` action in the GitHub Actions workflow uses this secret to authenticate with Azure.
+
+    > [!NOTE]
+    > If you're using OpenID Connect to authenticate with Azure, you don't have to pass the service principal object in the Azure login action. Learn how to [use the Azure login action with OpenID Connect](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
+    
+    1. In [GitHub](https://github.com), browse to your forked repository, and select **Settings** > **Secrets** > **New repository secret**.
+    
+        :::image type="content" source="./media/tutorial-cicd-github-actions/github-new-secret.png" alt-text="Screenshot that shows selections for adding a new repository secret to your GitHub repo.":::
+    
+    1. Paste the JSON role assignment credentials that you copied previously, as the value of secret variable **AZURE_CREDENTIALS**.
+    
+        :::image type="content" source="./media/tutorial-cicd-github-actions/github-new-secret-details.png" alt-text="Screenshot that shows the details of the new GitHub repository secret.":::
+
+---
 
 ## Configure the Azure Pipelines workflow to run a load test
 
