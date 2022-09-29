@@ -2,7 +2,7 @@
 title: Tools for migrating to Azure Monitor Agent from legacy agents 
 description: This article describes various migration tools and helpers available for migrating from existing legacy agents to the new Azure Monitor agent (AMA) and data collection rules (DCR).
 ms.topic: conceptual
-author: guywild
+author: guywi-ms
 ms.author: guywild
 ms.reviewer: shseth
 ms.date: 8/18/2022 
