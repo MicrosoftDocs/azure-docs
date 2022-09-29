@@ -159,10 +159,10 @@
       - name: Manage user access from the Azure portal
         href: manage-users-portal.md
       - name: Create and manage OT sensor users
-        href: sensor-users.md
+        href: manage-users-sensor.md
       - name: Create and manage users for the on-premises management console
-        href: management-users.md
-              - name: Create and manage on-premises users
+        href: manage-users-on-premises-management-console.md
+      - name: Create and manage on-premises users
         href: how-to-create-and-manage-users.md
     - name: OT system setup
       items:
