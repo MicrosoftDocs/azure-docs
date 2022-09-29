@@ -51,4 +51,4 @@ Following are links to Prometheus documentation.
 
 - [Collect Prometheus metrics for your AKS cluster](../containers/container-insights-prometheus-metrics-addon.md).
 - [Configure Prometheus alerting and recording rules groups](prometheus-metrics-rule-groups.md).
-- [Customize scraping of Prometheus metrics](prometheus-scrape-configuration.md).
+- [Customize scraping of Prometheus metrics](prometheus-metrics-scrape-configuration.md).

@@ -11,7 +11,7 @@ ms.reviewer: aul
 In addition to the default scrape targets that Azure Monitor Prometheus agent scrapes by default, use the following steps to provide additional scrape config to the agent using a configmap. The Azure Monitor Prometheus agent doesn't understand or process operator [CRDs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) for scrape configuration, but instead uses the native Prometheus configuration as defined in [Prometheus configuration](https://aka.ms/azureprometheus-promioconfig-scrape).
 
 ## Create Prometheus configuration file
-Create a Prometheus scrape configuration file named `prometheus-config`. See the [configuration tips and examples](container-insights-prometheus-scrape-configuration.md#prometheus-configuration-tips-and-examples) for more details on authoring scrape config for Prometheus. You can also refer to [Prometheus.io](https://aka.ms/azureprometheus-promio) scrape configuration [reference](https://aka.ms/azureprometheus-promioconfig-scrape). Your config file will list the scrape configs under the section `scrape_configs` and can optionally use the global section for setting the global `scrape_interval`, `scrape_timeout`, and `external_labels`. 
+Create a Prometheus scrape configuration file named `prometheus-config`. See the [configuration tips and examples](prometheus-metrics-scrape-configuration.md#prometheus-configuration-tips-and-examples) for more details on authoring scrape config for Prometheus. You can also refer to [Prometheus.io](https://aka.ms/azureprometheus-promio) scrape configuration [reference](https://aka.ms/azureprometheus-promioconfig-scrape). Your config file will list the scrape configs under the section `scrape_configs` and can optionally use the global section for setting the global `scrape_interval`, `scrape_timeout`, and `external_labels`. 
 
 
 > [!TIP]
@@ -92,4 +92,4 @@ A sample of the `ama-metrics-prometheus-config` configmap is [here](https://gith
 
 ## Next steps
 
-- [Learn more about collecting Prometheus metrics](container-insights-prometheus.md).
+- [Learn more about collecting Prometheus metrics](prometheus-metrics-overview.md).

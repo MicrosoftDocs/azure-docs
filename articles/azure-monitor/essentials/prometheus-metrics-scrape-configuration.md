@@ -36,7 +36,7 @@ The following table has a list of all the default targets that the Azure Monitor
 If you want to turn on the scraping of the default targets that aren't enabled by default, edit the configmap `ama-metrics-settings-configmap` [configmap](https://aka.ms/azureprometheus-addon-settings-configmap) to update the targets listed under `default-scrape-settings-enabled` to `true` and apply the configmap to your cluster.
 
 ### Customizing metrics collected by default targets
-By default, for all the default targets, only minimal metrics used in the default recording rules, alerts, and Grafana dashboards are ingested as described in [minimal-ingestion-profile](container-insights-prometheus-scrape-configuration-minimal.md). To collect all metrics from default targets, in the configmap under `default-targets-metrics-keep-list`, set `minimalingestionprofile` to `false`.
+By default, for all the default targets, only minimal metrics used in the default recording rules, alerts, and Grafana dashboards are ingested as described in [minimal-ingestion-profile](prometheus-metrics-scrape-configuration-minimal.md). To collect all metrics from default targets, in the configmap under `default-targets-metrics-keep-list`, set `minimalingestionprofile` to `false`.
 
 To filter in additional metrics for any default targets, edit the settings under `default-targets-metrics-keep-list` for the corresponding job you'd like to change.
 
@@ -50,7 +50,7 @@ apiserver = "mymetric.*"
 > [!NOTE]
 > If you use quotes or backslashes in the regex, you'll need to escape them using a backslash. For example `"test\'smetric\"s\""` and `testbackslash\\*`.
 
-To further customize the default jobs to change properties such as collection frequency or labels, disable the corresponding default target by setting the configmap value for the target to `false`,  and then apply the job using custom configmap. For details on custom configuration, see [Customize scraping of Prometheus metrics in Container insights](container-insights-prometheus-scrape-configuration.md#configure-custom-prometheus-scrape-jobs).
+To further customize the default jobs to change properties such as collection frequency or labels, disable the corresponding default target by setting the configmap value for the target to `false`,  and then apply the job using custom configmap. For details on custom configuration, see [Customize scraping of Prometheus metrics in Azure Monitor](prometheus-metrics-scrape-configuration.md#configure-custom-prometheus-scrape-jobs).
 
 ### Cluster alias
 The cluster label appended to every time series scraped will use the last part of the full AKS cluster's ARM resourceID. For example, if the resource ID is `/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-name/providers/Microsoft.ContainerService/managedClusters/clustername`, the cluster label is `clustername`. 
@@ -63,13 +63,13 @@ The new label will also show up in the cluster parameter dropdown in the Grafana
 > Only alphanumeric characters are allowed. Any other characters else will be replaced with `_`. This is to ensure that different components that consume this label will adhere to the basic alphanumeric convention.
 
 ### Debug mode 
-To view every metric that is being scraped for debugging purposes, the metrics addon agent can be configured to run in debug mode by updating the setting `enabled` to `true` under the `debug-mode` setting in `ama-metrics-settings-configmap` [configmap](https://aka.ms/azureprometheus-addon-settings-configmap). You can either create this configmap or edit an existing one. See [the Debug Mode section in Troubleshoot collection of Prometheus metrics](container-insights-prometheus-metrics-troubleshoot.md#debug-mode) for more details.
+To view every metric that is being scraped for debugging purposes, the metrics addon agent can be configured to run in debug mode by updating the setting `enabled` to `true` under the `debug-mode` setting in `ama-metrics-settings-configmap` [configmap](https://aka.ms/azureprometheus-addon-settings-configmap). You can either create this configmap or edit an existing one. See [the Debug Mode section in Troubleshoot collection of Prometheus metrics](prometheus-metrics-troubleshoot.md#debug-mode) for more details.
 
 ## Configure custom Prometheus scrape jobs
 
 You can configure the metrics addon to scrape targets other than the default ones, using the same configuration format as the [Prometheus configuration file](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#configuration-file).
 
-Follow the instructions to [create, validate, and apply the configmap](container-insights-prometheus-scrape-validate.md) for your cluster.
+Follow the instructions to [create, validate, and apply the configmap](prometheus-metrics-scrape-validate.md) for your cluster.
 
 ### Advanced Setup: Configure custom Prometheus scrape jobs for the daemonset
 
@@ -317,4 +317,4 @@ scrape_configs:
 
 ## Next steps
 
-- [Learn more about collecting Prometheus metrics](container-insights-prometheus.md).
+- [Learn more about collecting Prometheus metrics](prometheus-metrics-overview.md).

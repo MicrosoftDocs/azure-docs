@@ -56,4 +56,4 @@ The following metrics that are allow-listed with `minimalingestionprofile=true` 
 
 ## Next steps
 
-- [Learn more about customizing Prometheus metric scraping in Container insights](container-insights-prometheus-scrape-configuration.md).
+- [Learn more about customizing Prometheus metric scraping in Container insights](prometheus-metrics-scrape-configuration.md).
