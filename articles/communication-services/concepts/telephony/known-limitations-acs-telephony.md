@@ -14,26 +14,26 @@ ms.subservice: pstn
 
 # Known limitations in Azure telephony
 
+This article provides information about limitations and known issues related to telephony in Azure Communication Services.
+
 ## Azure Communication Services direct routing known limitations
 
-This article provides information about limitations and known issues related to the Azure Communication Services direct routing
-
-1. Anonymous calling isn't supported
+- Anonymous calling isn't supported
     - will be fixed in GA release
-1. Different set of Media Processors (MP) is used with different IP addresses. Currently [any Azure IP address](./direct-routing-infrastructure.md#media-traffic-ip-and-port-ranges) can be used for media connection between Azure MP and Session Border Controller (SBC).
+- Different set of Media Processors (MP) is used with different IP addresses. Currently [any Azure IP address](./direct-routing-infrastructure.md#media-traffic-ip-and-port-ranges) can be used for media connection between Azure MP and Session Border Controller (SBC).
     - will be fixed in GA release
-1. Azure Communication Services SBC Fully Qualified Domain Name (FQDN) must be different from Teams Direct Routing SBC FQDN
-1. Wildcard SBC certificates require extra workaround. Contact Azure support for details.
+- Azure Communication Services SBC Fully Qualified Domain Name (FQDN) must be different from Teams Direct Routing SBC FQDN
+- Wildcard SBC certificates require extra workaround. Contact Azure support for details.
     - will be fixed in GA release
-1. Media bypass/optimization isn't supported
-1. No indication of SBC connection status/details in Azure portal
+- Media bypass/optimization isn't supported
+- No indication of SBC connection status/details in Azure portal
     - will be fixed in GA release
-1. Azure Communication Services direct routing isn't available in Government Clouds
-1. Multi-tenant trunks aren't supported
-1. Location-based routing isn't supported
-1. No quality dashboard is available for customers
-1. Enhanced 911 isn't supported 
-1. PSTN numbers missing from Call Summary logs 
+- Azure Communication Services direct routing isn't available in Government Clouds
+- Multi-tenant trunks aren't supported
+- Location-based routing isn't supported
+- No quality dashboard is available for customers
+- Enhanced 911 isn't supported 
+- PSTN numbers missing from Call Summary logs 
 
 ## Next steps
 

@@ -185,6 +185,8 @@ items:
         href: concepts/telephony/certified-session-border-controllers.md
       - name: Inbound telephony calling capabilities
         href: concepts/telephony/inbound-calling-capabilities.md
+      - name: Known limitations
+        href: concepts/telephony/known-limitations-acs-telephony.md
   - name: SMS
     items:
       - name: SMS SDK overview
