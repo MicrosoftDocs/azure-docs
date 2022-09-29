@@ -11,7 +11,7 @@ ms.author: v-bcatherine
 
 # Log storage and monitoring options in Azure Container Apps
 
-Azure Container Apps gives you options for storing and monitoring your application logs. Logging options are configured in your Container Apps environment where you select the log destination.  
+Azure Container Apps gives you options for storing and viewing your application logs. Logging options are configured in your Container Apps environment where you select the log destination.  
 
 Container Apps application logs consist of two different categories:
 
@@ -20,15 +20,15 @@ Container Apps application logs consist of two different categories:
 
 You can choose between these logs destinations:
 
-- **Log Analytics**: Azure Monitor Log Analytics is the default Azure Monitor storage and monitoring option.  Your logs are stored in a Log Analytics workspace where they can be monitored and analyzed through Log Analytics queries.  To learn more about Log Analytics, see [Azure Monitor Log Analytics](log-monitoring.md).
+- **Log Analytics**: Azure Monitor Log Analytics is the default storage and viewing option.  Your logs are stored in a Log Analytics workspace where they can be viewed and analyzed using Log Analytics queries.  To learn more about Log Analytics, see [Azure Monitor Log Analytics](log-monitoring.md).
 - **Azure Monitor**: Azure Monitor routes logs to one or more destinations:
-    - Log Analytics workspace for monitoring and analysis.
-    - An Azure storage account to archive.
-    - An Azure event hub for data ingestion and analytic services. For more information, see [Azure Event Hubs](../event-hubs/event-hubs-about.md).
+    - Log Analytics workspace for viewing and analysis.
+    - Azure storage account to archive.
+    - Azure event hub for data ingestion and analytic services. For more information, see [Azure Event Hubs](../event-hubs/event-hubs-about.md).
     - An Azure partner monitoring solution such as, Datadog, Elastic, Logz.io and others.  For more information, see [Partner solutions](../partner-solutions/overview.md).  
-- **None**: You can disable the storage of log data. You'll still be able to view current container console log data via the **Logs stream** feature in your container app.  For more information, see [Log streaming](log-streaming.md).
+- **None**: You can disable the storage of log data. You'll still be able to view real-time container logs via the **Logs stream** feature in your container app.  For more information, see [Log streaming](log-streaming.md).
 
-When *None* or the *Azure Monitor* destination is selected, the **Logs** menu item providing Log Analytics query editor in your Container Apps page in the Azure portal is disabled.  If you have chosen a Log Analytics workspace outside your Container Apps environment as your logs destination, you can use the Azure Monitor Logs page in the Azure portal.
+When *None* or the *Azure Monitor* destination is selected, the **Logs** menu item providing the Log Analytics query editor in the Azure portal is disabled.
 
 ## Configure options via the Azure portal
 
@@ -37,7 +37,7 @@ Use these steps to configure the logging options for your Container Apps environ
 1. Go to the **Logging Options** on your Container Apps environment window in the portal.
     :::image type="content" source="media/observability/log-opts-screenshot-log-analytics.png" alt-text="Screenshot of logs destinations.":::
 1. You can choose from the following **Logs Destination** options:
-    - **Log Analytics**: With this option, you select an existing Log Analytics workspace to store your log data.  Your logs can be viewed through Log Analytics queries.  To learn more about Log Analytics, see [Azure Monitor Log Analytics](log-monitoring.md).
+    - **Log Analytics**: With this option, you select a Log Analytics workspace to store your log data.  Your logs can be viewed through Log Analytics queries.  To learn more about Log Analytics, see [Azure Monitor Log Analytics](log-monitoring.md).
     - **Azure Monitor**: Azure Monitor routes your logs to a destination. When you select this option, you must select **Diagnostic settings** to complete the configuration after you select **Save** on this page.
     - **None**:  This option disables the storage of log data.
 1. Select **Save**.
@@ -61,18 +61,18 @@ To create a new *diagnostic setting*:
 1. Select the log **Category groups** or **Categories** you want to send to this destination.  You can select one or more categories.  
 
 1. Select one or more **Destination details**:
-    - **Send to Log Analytics workspace**:  Select from existing Log Analytics workspaces in your subscription.
+    - **Send to Log Analytics workspace**:  Select from existing Log Analytics workspaces.
     :::image type="content" source="media/observability/diag-setting-log-analytics-console-log.png" alt-text="Screenshot diagnostic settings Log Analytics destination.":::
-    - **Archive to a storage account**:  You can choose from existing storage accounts in your subscription.  When the individual log categories are selected, you can set the **Retention (days)** for each category.
+    - **Archive to a storage account**:  You can choose from existing storage accounts.  When the individual log categories are selected, you can set the **Retention (days)** for each category.
     :::image type="content" source="media/observability/diag-setting-storage-acct.png" alt-text="Screenshot Diagnostic settings storage destination.":::
-    - **Stream to an event hub**:  Select from Azure event hubs that exist in your subscription.  
+    - **Stream to an event hub**:  Select from Azure event hubs.  
     :::image type="content" source="media/observability/diag-settings-event-hub.png" alt-text="Screenshot Diagnostic settings event hub destination.":::
-    - **Send to a partner solution**: Select from Azure partner solutions that exist in your subscription.  
+    - **Send to a partner solution**: Select from Azure partner solutions.  
 1. Select **Save**.
 
 For more information about Diagnostic settings, see [Diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md).
 
-## Configure options Azure CLI
+## Configure options using the Azure CLI
 
 Configure logs destination for your Container Apps environment using the Azure CLI `az containerapp create` and `az containerapp update` commands with the `--logs-destination` argument.  
 
@@ -102,7 +102,7 @@ az containerapp env update \
   
 ```
 
-When  `logs destination` is set to `azure-monitor`, create diagnostic settings to configure the destination details for the log categories with the `az monitor diagnostics-settings` command.  
+When  `--logs-destination` is set to `azure-monitor`, create diagnostic settings to configure the destination details for the log categories with the `az monitor diagnostics-settings` command.  
 
 For more information about Azure Monitor diagnostic settings commands, see [az monitor diagnostic-settings](/cli/azure/monitor/diagnostic-settings).  Container Apps log categories are `ContainerAppConsoleLogs` and `ContainerAppSystemLogs`.
 
