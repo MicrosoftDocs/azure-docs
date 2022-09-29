@@ -64,7 +64,7 @@ With direct connections
 
 For more information, see [Connect directly](connect-sensors.md#connect-directly).
 
-## Multi-cloud connections
+## Multicloud connections
 
 You can connect your sensors to the Defender for IoT portal in Azure from other public clouds for OT/IoT management process monitoring.
 
@@ -76,7 +76,7 @@ Depending on your environment configuration, you might connect using one of the 
 
 - A site-to-site VPN over the internet.
 
-For more information, see [Connect via multi-cloud vendors](connect-sensors.md#connect-via-multi-cloud-vendors).
+For more information, see [Connect via multicloud vendors](connect-sensors.md#connect-via-multicloud-vendors).
 
 ## Working with a mixture of sensor software versions
 

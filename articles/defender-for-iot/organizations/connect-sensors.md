@@ -26,7 +26,7 @@ Use this section to help determine which connection method is right for your org
 |- You require private connectivity between your sensor and Azure,  <br>- Your site is connected to Azure via ExpressRoute, or  <br>- Your site is connected to Azure over a VPN  | **[Connect via an Azure proxy](#connect-via-an-azure-proxy)**        |
 |- Your sensor needs a proxy to reach from the OT network to the cloud, or <br>- You want multiple sensors to connect to Azure through a single point    | **[Connect via proxy chaining](#connect-via-proxy-chaining)**        |
 |- You want to connect your sensor to Azure directly    | **[Connect directly](#connect-directly)**        |
-|- You have sensors hosted in multiple public clouds | **[Connect via multi-cloud vendors](#connect-via-multi-cloud-vendors)** |
+|- You have sensors hosted in multiple public clouds | **[Connect via multicloud vendors](#connect-via-multicloud-vendors)** |
 
 
 ## Connect via an Azure proxy
@@ -357,9 +357,9 @@ This section describes what you need to configure a direct sensor connection to 
 
 1. Azure public IP addresses are updated weekly. If you must define firewall rules based on IP addresses, make sure to download the new JSON file each week and make the required changes on your site to correctly identify services running in Azure. You'll need the updated IP ranges for **AzureIoTHub**, **Storage**, and **EventHub**. See the [latest IP ranges](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 
-## Connect via multi-cloud vendors
+## Connect via multicloud vendors
 
-This section describes how to connect your sensor to Defender for IoT in Azure from sensors deployed in one or more public clouds. For more information, see [Multi-cloud connections](architecture-connections.md#multi-cloud-connections).
+This section describes how to connect your sensor to Defender for IoT in Azure from sensors deployed in one or more public clouds. For more information, see [Multicloud connections](architecture-connections.md#multicloud-connections).
 
 ### Prerequisites
 
@@ -367,11 +367,11 @@ Before you start:
 
 - Make sure that you have a sensor deployed in a public cloud, such as AWS or Google Cloud, and configured to monitor SPAN traffic.
 
-- Choose the multi-cloud connectivity method that's right for your organization:
+- Choose the multicloud connectivity method that's right for your organization:
 
     Use the following flow chart to determine which connectivity method to use:
 
-    :::image type="content" source="media/architecture-connections/multi-cloud-flow-chart.png" alt-text="Flow chart to determine which connectivity method to use.":::
+    :::image type="content" source="media/architecture-connections/multicloud-flow-chart.png" alt-text="Flow chart to determine which connectivity method to use.":::
 
     - **Use public IP addresses over the internet** if you don't need to exchange data using private IP addresses
 
