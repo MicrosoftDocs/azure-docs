@@ -13,7 +13,7 @@ ms.author: taiyee
 
 This reference architecture shows an end-to-end implementation of [SpatioTemporal Asset Catalog (STAC)](https://stacspec.org) creation to structure geospatial data. In this document, we'll use the publicly available [National Agriculture Imagery Program (NAIP)](https://catalog.data.gov/dataset/national-agriculture-imagery-program-naip) data set using geospatial libraries on Azure. The architecture can be adapted to take data sets from other sources such as Satellite imagery providers, [Azure Orbital Ground Station (AOGS)](https://azure.microsoft.com/products/orbital/), or Bring Your Own Data (BYOD).
 
-The implementation consists of 4 stages Data extraction, Metadata generation, Cataloging & Data discovery via [STAC FastAPI](https://github.com/stac-utils/stac-fastapi). This article also shows how to build STAC based on a new data source or on bring-your-own-data. 
+The implementation consists of four stages Data extraction, Metadata generation, Cataloging & Data discovery via [STAC FastAPI](https://github.com/stac-utils/stac-fastapi). This article also shows how to build STAC based on a new data source or on bring-your-own-data. 
 
 An implementation of this architecture is available on [GitHub](https://github.com/Azure/Azure-Orbital-STAC).
 
@@ -21,11 +21,11 @@ This article is intended for users with intermediate levels of skill in working 
 
 ## Scenario details
 
-Spaceborne data collection is becoming increasingly common. There are various data providers of spatiotemporal assets such as Imagery, Synthetic Aperture Radar (SAR), Point Clouds, and so forth. Data providers do not have a standard way of providing users access to their spatiotemporal data. Users of spatiotemporal data are often burdened with building unique workflows for each different collection of data they want to consume. Developers are required to develop new tools and libraries to interact with the spatiotemporal data.
+Spaceborne data collection is becoming increasingly common. There are various data providers of spatiotemporal assets such as Imagery, Synthetic Aperture Radar (SAR), Point Clouds, and so forth. Data providers don't have a standard way of providing users access to their spatiotemporal data. Users of spatiotemporal data are often burdened with building unique workflows for each different collection of data they want to consume. Developers are required to develop new tools and libraries to interact with the spatiotemporal data.
 
 The STAC community has defined a specification to remove these complexities and spur common tooling. The STAC specification is a common language to describe geospatial information, so it can more easily be worked with, indexed, and discovered. There are many deployed products that are built on top of STAC and one such is [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com/docs/overview/about) providing a multi-petabyte STAC catalog of global environmental data for sustainability research.
 
-Our [sample solution](https://github.com/Azure/Azure-Orbital-STAC) leverages open source tools such as STAC FastAPI, [pystac](https://github.com/stac-utils/pystac), Microsoft Planetary Computer APIs](https://github.com/microsoft/planetary-computer-apis) and open standard geospatial libraries (listed in the [Components](#components) section) to run the solution on Azure.
+Our [sample solution](https://github.com/Azure/Azure-Orbital-STAC) uses open source tools such as STAC FastAPI, [pystac](https://github.com/stac-utils/pystac), Microsoft Planetary Computer APIs](https://github.com/microsoft/planetary-computer-apis) and open standard geospatial libraries (listed in the [Components](#components) section) to run the solution on Azure.
 
 
 ### Potential use cases
@@ -51,17 +51,17 @@ Download a [Visio file](https://download.microsoft.com/download/5/6/4/564196b7-d
 
 Download a [Visio file](https://download.microsoft.com/download/5/6/4/564196b7-dd01-468a-af21-1da16489f298/stac_data_flow.vsdx) for this dataflow.
 
-The following sections describe the 4 stages in the architecture.
+The following sections describe the four stages in the architecture.
 
 **Data acquisition**
 
 - Spaceborne data is provided by various data providers including [Airbus](https://oneatlas.airbus.com/home), [NAIP/USDA (via the Planetary Computer API)](https://planetarycomputer.microsoft.com/dataset/naip), and [Maxar](https://www.maxar.com). 
-- In the sample solution we use the NAIP dataset provided by [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com/docs/overview/about).
+- In the sample solution we, use the NAIP dataset provided by [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com/docs/overview/about).
 
 **Metadata generation**
 
 - Data providers define the metadata describing provider, license terms, keywords, etc. This metadata forms the STAC Collection.
-- Data providers may provide metadata describing the geospatial assets. In our sample we use metadata provided by [NAIP](https://www.usgs.gov/centers/eros/science/national-agriculture-imagery-program-naip-data-dictionary) & [FGDC](https://www.fgdc.gov/metadata). Additional metadata is extracted from the assets using standard geospatial libraries. This metadata forms the STAC Items.
+- Data providers may provide metadata describing the geospatial assets. In our sample, we use metadata provided by [NAIP](https://www.usgs.gov/centers/eros/science/national-agriculture-imagery-program-naip-data-dictionary) & [FGDC](https://www.fgdc.gov/metadata). More metadata is extracted from the assets using standard geospatial libraries. This metadata forms the STAC Items.
 - This STAC Collection and Items are used to build the STAC Catalog that helps users discover the spatiotemporal assets using STAC APIs.
 
 **Cataloging**
@@ -72,9 +72,9 @@ The following sections describe the 4 stages in the architecture.
 
 - STAC Collection
 
-  - It is a related group of STAC Items that is made available by a data provider.
+  - It's a related group of STAC Items that is made available by a data provider.
   - Search queries for discovering the assets are scoped at the STAC Collection level.
-  - It is generated for a data provider, NAIP in this case and this JSON metadata is uploaded to an Azure Storage container.
+  - It's generated for a data provider, NAIP in this case and this JSON metadata is uploaded to an Azure Storage container.
   - The upload of a [STAC Collection](https://stacspec.org/en/about/stac-spec/) triggers a message to Azure Service Bus.
   - The processor processes this metadata on Azure Kubernetes Cluster and ingests to the STAC Catalog database (PostgreSQL database). There are different processors for different data providers and each processor subscribes to the respective Service Bus Topic.
 
@@ -110,7 +110,7 @@ The following Azure services are used in this architecture.
 - [Azure Kubernetes Services](/azure/aks/intro-kubernetes) offers the quickest way to start developing and deploying cloud-native apps, with built-in code-to-cloud pipelines and guardrails.
 - [Container Registry](/azure/container-registry/container-registry-intro) to store and manage your container images and related artifacts.
 - [Virtual Machine](/azure/virtual-machines/overview) (VM) gives you the flexibility of virtualization for a wide range of computing solutions. In a fully secured deployment, a user connects to a VM via Azure Bastion (described in the next item below) to perform a range of operations like copying files to storage accounts, running Azure CLI commands, and interacting with other services.  
-- [Azure Bastion](/azure/bastion/bastion-overview) enables you to securely and seamlessly RDP & SSH to your VMs in Azure virtual network, without the need of public IP on the VM, directly from the Azure portal, and without the need of any additional client/agent or any piece of software.
+- [Azure Bastion](/azure/bastion/bastion-overview) enables you to securely and seamlessly RDP & SSH to your VMs in Azure virtual network, without the need of public IP on the VM, directly from the Azure portal, and without the need of any other client/agent or any piece of software.
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview) provides extensible application performance management and monitoring for live web apps.
 - [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) is a tool to edit and run log queries from data collected by Azure Monitor logs and interactively analyze the results.
 
@@ -125,16 +125,16 @@ The following Geospatial libraries are also used:
 
 - The sample solution demonstrates STAC's core JSON support that is needed to interact with any geospatial data collection. While STAC standardizes metadata fields, naming conventions, query language, and catalog structure, users should additionally consider [STAC Extensions](https://stac-extensions.github.io/) to support metadata fields specific to their Assets.
 
-- In the sample implementation, components that process the asset to extract metadata have a set number of replicas. Scaling this component allows you to process your assets faster. However, scaling is not dynamic. In case of large number of assets to be cataloged, consider scaling these replicas.
+- In the sample implementation, components that process the asset to extract metadata have a set number of replicas. Scaling this component allows you to process your assets faster. However, scaling isn't dynamic. If large number of assets to be cataloged, consider scaling these replicas.
 
 ### Adding a new data source
 
-To catalog additional data sources or to catalog your own data source, consider the following.
+To catalog more data sources or to catalog your own data source, consider the following options.
 
 - Define the STAC Collection for your data source. Search queries are scoped at the STAC Collection level. Consider how the user will search STAC Items and Assets in your collection.
-- Generate the STAC Item metadata. Additional metadata may be derived from geospatial assets using standard tools and libraries. Define and implement the process to capture supplemental metadata for the assets that will be useful in making STAC items rich and in turn make discovery of data using APIs easier.
+- Generate the STAC Item metadata. More metadata may be derived from geospatial assets using standard tools and libraries. Define and implement the process to capture supplemental metadata for the assets that will be useful in making STAC items rich and in turn make discovery of data using APIs easier.
 - Once this metadata (in the form STAC Collection and STAC Items) is available for a data source, this sample solution can be used to build your STAC Catalog using the same flow. The data once cataloged will be queryable using standard STAC APIs.
-- The processor component of this architecture is extensible to include custom code that can be developed and run as containers in Azure Kubernetes Cluster. It is intended to provide a way for different representation of geospatial data to be cataloged as assets.
+- The processor component of this architecture is extensible to include custom code that can be developed and run as containers in Azure Kubernetes Cluster. It's intended to provide a way for different representation of geospatial data to be cataloged as assets.
 
 ### Security
 
@@ -167,7 +167,7 @@ We built a [sample solution](https://github.com/Azure/Azure-Orbital-STAC) that c
 
 At a high level, this deployment does the following:
 
-- Deploys various infrastructure components such as Azure Kubernetes Services, Azure PostgreSQL Server, Azure Key Vault, Azure Storage account, Azure Service Bus and so forth in the private network.
+- Deploys various infrastructure components such as Azure Kubernetes Services, Azure PostgreSQL Server, Azure Key Vault, Azure Storage account, Azure Service Bus, and so forth, in the private network.
 - Deploys Azure API Management service and publishes the endpoint for STAC FastAPI.
 - Packages the code and its dependencies, builds the Docker container images, and pushes them to Azure Container Registry.
 
@@ -185,7 +185,7 @@ If you want to start building this, we have put together a [sample solution](htt
 
 ## Related resources
 
-- [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com/docs/overview/about) lets users leverage the power of the cloud to accelerate environmental sustainability and Earth science. Many of the Planetary Computer components are also open source.
+- [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com/docs/overview/about) lets users apply the power of the cloud to accelerate environmental sustainability and Earth science. Many of the Planetary Computer components are also open source.
 - [The STAC specification](https://stacspec.org/en)
 - [STAC FastAPI](https://stac-utils.github.io/stac-fastapi/)
 - [PySTAC](https://pystac.readthedocs.io/en/stable/)
@@ -202,5 +202,5 @@ If you want to start building this, we have put together a [sample solution](htt
 |STAC Specification|Allows you to describe the geospatial data so it can be easily indexed and discovered.|  
 |STAC Item|The core atomic unit, representing a single spatiotemporal asset as a GeoJSON feature plus metadata like datetime and reference links.|
 |STAC Catalog|A simple, flexible JSON that provides a structure and organized the metadata like STAC items, collections and other catalogs.|
-|STAC Collection|Provides additional information such as the extents, license, keywords, providers and so forth, that describe STAC Items within the Collection.|
+|STAC Collection|Provides additional information such as the extents, license, keywords, providers, and so forth, that describe STAC Items within the Collection.|
 |STAC API|Provides a RESTful endpoint that enables search of STAC Items, specified in OpenAPI.|
