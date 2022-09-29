@@ -365,7 +365,7 @@ See the list of all your pipelines and their run details in the studio:
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
-1. [View your workspace](../how-to-manage-workspace.md#view).
+1. [View your workspace](../how-to-manage-workspace.md#find-a-workspace).
 
 1. On the left, select **Pipelines** to see all your pipeline runs.
  ![list of machine learning pipelines](../media/how-to-create-your-first-pipeline/pipelines.png)

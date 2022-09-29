@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.date: 09/16/2022
 ms.author: eur
 ---
 
@@ -43,7 +43,7 @@ When preparing your text file, make sure it:
 The rest of this page focuses on Python, but sample code for the Long Audio API is available on GitHub for the following programming languages:
 
 * [Sample code: Python](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/Python)
-* [Sample code: C#](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/CSharp)
+* [Sample code: C#](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/LongAudioAPI/CSharp/LongAudioAPISample)
 * [Sample code: Java](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/)
 
 ## Python example
@@ -83,7 +83,7 @@ get_voices()
 
 Replace the following values:
 
-* Replace `<your_key>` with your Speech service subscription key. This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
+* Replace `<your_key>` with your Speech resource key. This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 * Replace `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 
 You'll see output that looks like this:
@@ -166,7 +166,7 @@ submit_synthesis()
 
 Replace the following values:
 
-* Replace `<your_key>` with your Speech service subscription key. This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
+* Replace `<your_key>` with your Speech resource key. This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 * Replace `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 * Replace `<input_file_path>` with the path to the text file you've prepared for text-to-speech.
 * Replace `<locale>` with the desired output locale. For more information, see [language support](language-support.md?tabs=stt-tts).
@@ -419,8 +419,8 @@ The following table details the HTTP response codes and messages from the REST A
 
 | API | HTTP status code | Description | Solution |
 |-----|------------------|-------------|----------|
-| Create | 400 | The voice synthesis is not enabled in this region. | Change the speech subscription key with a supported region. |
-|        | 400 | Only the **Standard** speech subscription for this region is valid. | Change the speech subscription key to the "Standard" pricing tier. |
+| Create | 400 | The voice synthesis is not enabled in this region. | Change the speech resource key with a supported region. |
+|        | 400 | Only the **Standard** speech resource for this region is valid. | Change the speech resource key to the "Standard" pricing tier. |
 |        | 400 | Exceed the 20,000 request limit for the Azure account. Remove some requests before submitting new ones. | The server will keep up to 20,000 requests for each Azure account. Delete some requests before submitting new ones. |
 |        | 400 | This model cannot be used in the voice synthesis: {modelID}. | Make sure the {modelID}'s state is correct. |
 |        | 400 | The region for the request does not match the region for the model: {modelID}. | Make sure the {modelID}'s region match with the request's region. |
@@ -455,6 +455,8 @@ We support flexible audio output formats. You can generate audio outputs per par
 
 > [!NOTE]
 > The default audio format is riff-16khz-16bit-mono-pcm.
+> 
+> The sample rate for long audio voices is 24kHz, not 48kHz. Other sample rates can be obtained through upsampling or downsampling when synthesizing.
 
 * riff-8khz-16bit-mono-pcm
 * riff-16khz-16bit-mono-pcm

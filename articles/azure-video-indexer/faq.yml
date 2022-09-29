@@ -109,11 +109,17 @@ sections:
         answer: |
           Azure Media Service’s SLA covers Azure Video Indexer and can be found on the [SLA](https://azure.microsoft.com/support/legal/sla/media-services/v1_2/) page. The SLA only applies to Azure Video Indexer paid accounts and does not apply to the trial.
 
+      - question: Can’t find my new ARM account in the account list on the Azure Video Indexer website.
+        answer: |
+          For detailed description on how to switch to the correct domain, see [Switch between tenants](switch-tenants-portal.md).
   - name: Privacy Questions
     questions:
       - question: Are video and audio files indexed by Azure Video Indexer stored?
         answer: Yes, unless you delete the file from Azure Video Indexer, either using the Azure Video Indexer website or API, your video and audio files are stored. For the trial, the video and audio files that you index are stored in the Azure region East US. Otherwise, your video and audio files are stored in the storage account of your Azure subscription.
 
+      - question: Where does Azure Video Indexer store customer data?
+        answer: By default, your data is replicated to the paired region into which you deployed the Azure Video Indexer instance. For region with data residency requirements, your data is always kept within the same region. For more related information, check out other **Privacy Questions** in this section.
+      
       - question: Can I delete my files that are stored in Azure Video Indexer Portal?
         answer: Yes, you can always delete your video and audio files as well as any metadata and insights extracted from them by Azure Video Indexer. Once you delete a file from Azure Video Indexer, the file and its metadata and insights are permanently removed from Azure Video Indexer. However, if you have implemented your own backup solution in Azure storage, the file remains in your Azure storage.
 

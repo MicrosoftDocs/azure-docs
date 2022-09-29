@@ -134,14 +134,20 @@
         href: ../common/account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
       - name: Check the encryption key model for the account
         href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-      - name: Configure encryption with customer-managed keys
+      - name: Configure customer-managed keys in Azure Key Vault
         items:
-        - name: Configure customer-managed keys in Azure Key Vault
+        - name: Configure customer-managed keys in the same tenant
           items:
           - name: Configure customer-managed keys for a new account
-            href: ../common/customer-managed-keys-configure-new-account.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+            href: ../common/customer-managed-keys-configure-new-account.md?toc=/azure/storage/tables/toc.json
           - name: Configure customer-managed keys for an existing account
-            href: ../common/customer-managed-keys-configure-existing-account.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+            href: ../common/customer-managed-keys-configure-existing-account.md?toc=/azure/storage/tables/toc.json
+        - name: Configure customer-managed keys in a different tenant
+          items:
+            - name: Configure customer-managed keys for a new account
+              href: ../common/customer-managed-keys-configure-cross-tenant-new-account.md?toc=/azure/storage/tables/toc.json
+            - name: Configure customer-managed keys for an existing account
+              href: ../common/customer-managed-keys-configure-cross-tenant-existing-account.md?toc=/azure/storage/tables/toc.json
         - name: Configure customer-managed keys in a managed HSM
           href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
       - name: Enable infrastructure encryption for the account
@@ -173,7 +179,11 @@
     - name: Change how data is replicated
       href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
     - name: Design highly available applications
-      href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+      items:
+        - name: .NET (v12 SDK)
+          href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+        - name: .NET (v11 SDK)
+          href: ../common/geo-redundant-design-legacy.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
   - name: Manage disaster recovery
     items:
     - name: Check the Last Sync Time property

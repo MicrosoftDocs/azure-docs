@@ -1,1 +1,1 @@
-APPLIES TO: :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Cosmos DB API for MongoDB
+APPLIES TO: :::image type="icon" source="media/applies-to/yes-icon.svg" border="false":::Azure Cosmos DB API for MongoDB

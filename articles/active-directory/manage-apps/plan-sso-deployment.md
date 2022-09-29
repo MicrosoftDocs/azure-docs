@@ -108,4 +108,4 @@ The following SSO protocols are available to use:
 
 ## Next steps
 
-- Consider completing the single sign-on training in [Enable single sign-on for applications by using Azure Active Directory](/learn/modules/enable-single-sign-on).
+- Consider completing the single sign-on training in [Enable single sign-on for applications by using Azure Active Directory](/training/modules/enable-single-sign-on).

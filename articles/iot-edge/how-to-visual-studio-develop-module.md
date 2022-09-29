@@ -48,7 +48,7 @@ This article assumes that you use a machine running Windows as your development 
     
       After the update is complete, select **Close** and restart Visual Studio.
 
-* Download and install [Docker Community Edition](https://docs.docker.com/install/) on your development machine to build and run your module images. Set Docker CE to run in either Linux container mode or Windows container mode, depending on the type of modules you are developing.
+* Download and install a [Docker compatible container management system](support.md#container-engines) on your development machine to build and run your module images. Set the container engine to run in either Linux container mode or Windows container mode, depending on the type of modules you are developing.
 
 * Set up your local development environment to debug, run, and test your IoT Edge solution by installing the [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/). Install [Python (3.5/3.6/3.7/3.8) and Pip](https://www.python.org/) and then install the **iotedgehubdev** package by running the following command in your terminal.
 
@@ -204,12 +204,17 @@ Typically, you'll want to test and debug each module before running it within an
    * If developing in C#, set a breakpoint in the `PipeMessage()` function in **Program.cs**.
    * If using C, set a breakpoint in the `InputQueue1Callback()` function in **main.c**.
 
-1. Test the module by sending a message by running the following command in a **Git Bash** or **WSL Bash** shell. (You cannot run the `curl` command from a PowerShell or command prompt.)
+1. Test the module by sending a message by running the following command in a **Git Bash** or **WSL Bash** shell. You cannot run the `curl` command from a PowerShell or command prompt.
 
-    ```bash
-    curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
-    ```
-
+   ```bash
+   curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
+   ```
+   If you get the error *unmatched close brace/bracket in URL*, try the following command instead:
+   
+   ```bash
+   curl --header "Content-Type: application/json" --request POST --data "{\"inputName\": \"input1\", \"data\", \"hello world\"}"  http://localhost:53000/api/v1/messages
+   ```
+  
    :::image type="content" source="./media/how-to-visual-studio-develop-csharp-module/debug-single-module.png" alt-text="Screenshot of the output console, Visual Studio project, and Bash window." lightbox="./media/how-to-visual-studio-develop-csharp-module/debug-single-module.png":::
 
    The breakpoint should be triggered. You can watch variables in the Visual Studio **Locals** window, found when the debugger is running. Go to Debug > Windows > Locals. 
@@ -345,7 +350,7 @@ In the quickstart article that you used to set up your IoT Edge device, you depl
         cd config
     ```
 
-1. From your **config** folder, execute the following deployment command. Replace the `[device id]`, `[hub name]`, and `[file path]` with your values. 
+1. Deploy the manifest for your IoT Edge device to IoT Hub. The command configures the device to use modules developed in your solution. The deployment manifest was created in the previous step and stored in the **config** folder. From your **config** folder, execute the following deployment command. Replace the `[device id]`, `[hub name]`, and `[file path]` with your values. If the IoT Edge device ID does not exist in the IoT Hub, it must be created.
 
     ```cmd
         az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [file path]

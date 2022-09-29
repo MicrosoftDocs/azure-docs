@@ -98,7 +98,7 @@ To get started on Azure Kubernetes Service, follow these steps:
 
 ## Try a sample
 
-After you set up your Spark cluster and environment, you can run a short sample. This sample assumes Azure Databricks and the `mmlspark.cognitive` package. For an example using `synapseml.cognitive`, see [Add search to AI-enriched data from Apache Spark using SynapseML](/search/search-synapseml-cognitive-services).
+After you set up your Spark cluster and environment, you can run a short sample. This sample assumes Azure Databricks and the `mmlspark.cognitive` package. For an example using `synapseml.cognitive`, see [Add search to AI-enriched data from Apache Spark using SynapseML](/azure/search/search-synapseml-cognitive-services).
 
 First, you can create a notebook in Azure Databricks. For other Spark cluster providers, use their notebooks or Spark Submit.
 

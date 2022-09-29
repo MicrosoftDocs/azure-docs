@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: msdpalam
 ms.author: meeral
 ms.reviewer: sgilley
-ms.date: 07/18/2022
+ms.date: 08/29/2022
 ms.custom: sdkv2, event-tier1-build-2022
 #Customer intent: This tutorial is intended to introduce Azure ML to data scientists who want to scale up or publish their ML projects. By completing a familiar end-to-end project, which starts by loading the data and ends by creating and calling an online inference endpoint, the user should become familiar with the core concepts of Azure ML and their most common usage. Each step of this tutorial can be modified or performed in other ways that might have security or scalability advantages. We will cover some of those in the Part II of this tutorial, however, we suggest the reader use the provide links in each section to learn more on each topic.
 ---
@@ -61,7 +61,7 @@ First you'll install the v2 SDK on your compute instance:
 
 1. From the list of **Compute Instances**, find the one you created.
 
-1. Select on "Terminal", to open the terminal session on the compute instance.
+1. Select "Terminal", to open the terminal session on the compute instance.
 
 1. In the terminal window, install Python SDK v2 (preview) with this command:
 
@@ -119,7 +119,7 @@ The Azure ML framework can be used from CLI, Python SDK, or studio interface. In
 
 Before creating the pipeline, you'll set up the resources the pipeline will use:
 
-* The dataset for training
+* The data asset for training
 * The software environment to run the pipeline
 * A compute resource to where the job will run
 

@@ -37,6 +37,9 @@ The following attributes can be added to exclusion lists by name. The values of 
 * Request body post args name
 * RequestBodyJSONArgNames
 
+>[!NOTE]
+>RequestBodyJSONArgNames is only available on Default Rule Set (DRS) 2.0 or later.
+
 You can specify an exact request header, body, cookie, or query string attribute match.  Or, you can optionally specify partial matches. The following operators are the supported match criteria:
 
 - **Equals**:  This operator is used for an exact match. For example, to select a header named **bearerToken**, use the equals operator with the selector set as **bearerToken**.

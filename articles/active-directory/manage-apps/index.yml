@@ -64,7 +64,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Enable single sign-on
-            url: /learn/modules/enable-single-sign-on/
+            url: /training/modules/enable-single-sign-on/
   - title: Secure an app
     linkLists:
       - linkListType: how-to-guide

@@ -25,6 +25,8 @@ items:
     href: license-spacecraft.md
   - name: Integrate partner network ground stations
     href: partner-network-integration.md 
+  - name: Configure the RF chain
+    href: modem-chain.md 
   - name: Receive real-time telemetry
     href: receive-real-time-telemetry.md
   - name: Update the spacecraft TLE
