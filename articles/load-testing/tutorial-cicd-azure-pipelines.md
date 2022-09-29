@@ -50,13 +50,13 @@ To get started with this tutorial, you first need to set up a sample Node.js web
 
 ## Configure service authentication
 
-Before you configure the CI/CD pipeline to run a load test, you'll grant the CI/CD workflow the permissions to access your Azure load testing resource and to create a load test.
+Before you configure the CI/CD pipeline to run a load test, you'll grant the CI/CD workflow the permissions to access your Azure load testing resource, and to create a load test.
 
 [!INCLUDE [cli-launch-cloud-shell-sign-in](../../includes/cli-launch-cloud-shell-sign-in.md)]
 
 # [Azure Pipelines](#tab/pipelines)
 
-To access your Azure Load Testing resource from the Azure Pipelines workflow, you'll create a service connection in your Azure DevOps project. The service connection creates an Azure Active Directory [service principal](/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your Azure Pipelines workflow in Azure Active Directory. You the grant permissions to the service principal to enable Azure Pipelines to create and run a load test with your Azure Load Testing resource.
+To access your Azure Load Testing resource from the Azure Pipelines workflow, you'll create a service connection in your Azure DevOps project. The service connection creates an Azure Active Directory [service principal](/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your Azure Pipelines workflow in Azure Active Directory. You grant permissions to the service principal to enable Azure Pipelines to create and run a load test with your Azure Load Testing resource.
 
 1. Sign in to your Azure DevOps organization (`https://dev.azure.com/<your-organization>`), and select your project.
 
@@ -76,7 +76,7 @@ To access your Azure Load Testing resource from the Azure Pipelines workflow, yo
     | **Service connection name** | Enter a unique name for the service connection. You'll use this later to configure the pipeline definition. |
     | **Grant access permission to all pipelines** | Checked. |
 
-1. Select the service connection you just created from the list, and then select **Manage Service Principal**.
+1. Select the service connection that you created from the list, and then select **Manage Service Principal**.
 
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/manage-service-principal.png" alt-text="Screenshot that shows selections for managing a service principal.":::
 
@@ -84,7 +84,7 @@ To access your Azure Load Testing resource from the Azure Pipelines workflow, yo
 
 1. Assign the Load Test Contributor role to the service principal. This role grants the service principal access to create and run load tests with your Azure Load Testing service.
 
-    First, retrieve the ID of the service principal object using the Azure CLI. Replace the text placeholder `<application-client-id>` with the value you just copied from the Azure portal.
+    First, retrieve the ID of the service principal object using the Azure CLI. Replace the text placeholder `<application-client-id>` with the value you copied.
 
     ```azurecli
     object_id=$(az ad sp show --id "<application-client-id>" --query "id" -o tsv)
@@ -105,7 +105,7 @@ To access your Azure Load Testing resource from the Azure Pipelines workflow, yo
 
 # [GitHub Actions](#tab/github)
 
-To access your Azure Load Testing resource from the GitHub Actions workflow, you'll create an Azure Active Directory [service principal](/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your GitHub Actions workflow in Azure Active Directory. You the grant permissions to the service principal to enable GitHub Actions to create and run a load test with your Azure Load Testing resource.
+To access your Azure Load Testing resource from the GitHub Actions workflow, you'll create an Azure Active Directory [service principal](/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your GitHub Actions workflow in Azure Active Directory. You grant permissions to the service principal to enable GitHub Actions to create and run a load test with your Azure Load Testing resource.
 
 1. Run the following Azure CLI command to create a service principal and assign the *Contributor* role:
 
