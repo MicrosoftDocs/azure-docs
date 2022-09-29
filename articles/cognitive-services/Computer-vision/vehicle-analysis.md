@@ -18,7 +18,7 @@ Vehicle analysis is a set of capabilities that, when used with the Spatial Analy
 
 ## Prerequisites
 
-* To utilize the operations of vehicle analysis, you must first follow the steps to [install and run spatial analysis container](./spatial-analysis-container.md) including configuring your host machine, downloading and configuring your [DeploymentManifest.json](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest.json) file, executing the deployment, and setting up device [telemetry](./Project-Archon-Telemetry). 
+* To utilize the operations of vehicle analysis, you must first follow the steps to [install and run spatial analysis container](./spatial-analysis-container.md) including configuring your host machine, downloading and configuring your [DeploymentManifest.json](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest.json) file, executing the deployment, and setting up device [logging](spatial-analysis-logging.md). 
    * When you configure your [DeploymentManifest.json](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest.json) file, refer to the steps below to add the graph configurations for vehicle analysis to your manifest prior to deploying the container. Or, once the spatial analysis container is up and running, you may add the graph configurations and follow the steps to redeploy. The steps below will outline how to properly configure your container.
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -36,11 +36,11 @@ The following operations for vehicle analysis are available in the current Spati
 | **cognitiveservices.vision.vehicleanalysis-vehiclecount-preview** and **cognitiveservices.vision.vehicleanalysis-vehiclecount.cpu-preview** | Counts vehicles parked in a designated zone in the camera's field of view. </br> Emits an initial _vehicleCountEvent_ event and then _vehicleCountEvent_ events when the count changes. |  
 | **cognitiveservices.vision.vehicleanalysis-vehicleinpolygon-preview** and **cognitiveservices.vision.vehicleanalysis-vehicleinpolygon.cpu-preview** | Identifies when a vehicle parks in a designated parking region in the camera's field of view. </br> Emits a _vehicleInPolygonEvent_ event when the vehicle is parked inside a parking space. |
 
-In addition to exposing the vehicle location, other estimated attributes for **cognitiveservices.vision.vehicleanalysis-vehiclecount-preview**, **cognitiveservices.vision.vehicleanalysis-vehiclecount.cpu-preview**, **cognitiveservices.vision.vehicleanalysis-vehicleinpolygon-preview** and **cognitiveservices.vision.vehicleanalysis-vehicleinpolygon.cpu-preview** include vehicle color and vehicle type. All of the possible values for these attributes are found in the [output section (below)](#sample-cognitiveservicesvisionvehicleanalysis-vehiclecount-output).
+In addition to exposing the vehicle location, other estimated attributes for **cognitiveservices.vision.vehicleanalysis-vehiclecount-preview**, **cognitiveservices.vision.vehicleanalysis-vehiclecount.cpu-preview**, **cognitiveservices.vision.vehicleanalysis-vehicleinpolygon-preview** and **cognitiveservices.vision.vehicleanalysis-vehicleinpolygon.cpu-preview** include vehicle color and vehicle type. All of the possible values for these attributes are found in the output section (below).
 
 ### Operation parameters for vehicle analysis
 
-The following table shows the parameters required by each of the vehicle analysis operations. Many are shared with Spatial Analysis; the only one not shared is the `PARKING_REGIONS` setting. The full list of Spatial Analysis operation parameters can be found in the **Environment Variables** section under [How to deploy the container on Azure IoT Edge on the host computer](https://github.com/Azure/CSContainers/blob/master/Project-Archon/Project-Archon.md#how-to-deploy-the-container-on-azure-iot-edge-on-the-host-computer).
+The following table shows the parameters required by each of the vehicle analysis operations. Many are shared with Spatial Analysis; the only one not shared is the `PARKING_REGIONS` setting. The full list of Spatial Analysis operation parameters can be found in the [Spatial Analysis container](/azure/cognitive-services/computer-vision/spatial-analysis-container?tabs=azure-stack-edge#iot-deployment-manifest) guide.
 
 | Operation parameters| Description|
 |---------|---------|
@@ -103,7 +103,7 @@ This is an example of a JSON input for the `PARKING_REGIONS` parameter that conf
 
 ## Configuring the vehicle analysis operations
 
-You must configure the graphs for vehicle analysis in your [DeploymentManifest.json](./DeploymentManifest.json) file to enable the vehicle analysis operations. Below are sample graphs for vehicle analysis. You can add these JSON snippets to your deployment manifest in the "graphs" configuration section, configure the parameters for your video stream, and deploy the module. If you only intend to utilize the vehicle analysis capabilities, you may replace the existing graphs in the [DeploymentManifest.json](./DeploymentManifest.json) with the vehicle analysis graphs.
+You must configure the graphs for vehicle analysis in your [DeploymentManifest.json](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest.json) file to enable the vehicle analysis operations. Below are sample graphs for vehicle analysis. You can add these JSON snippets to your deployment manifest in the "graphs" configuration section, configure the parameters for your video stream, and deploy the module. If you only intend to utilize the vehicle analysis capabilities, you may replace the existing graphs in the [DeploymentManifest.json](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest.json) with the vehicle analysis graphs.
 
 Below is the graph optimized for the **vehicle count** operation.
 
@@ -648,11 +648,11 @@ The JSON below demonstrates an example of the vehicle in polygon operation graph
 
 ## Zone and line configuration for vehicle analysis
 
-For guidelines on where to place your zones for vehicle analysis, you can refer to the [zone and line placement](./Project-Archon-Zone-and-Line-Placement.md) guide for spatial analysis. Configuring zones for vehicle analysis can be more straightforward than zones for spatial analysis if the parking spaces are already defined in the zone which you're analyzing.
+For guidelines on where to place your zones for vehicle analysis, you can refer to the [zone and line placement](spatial-analysis-zone-line-placement.md) guide for spatial analysis. Configuring zones for vehicle analysis can be more straightforward than zones for spatial analysis if the parking spaces are already defined in the zone which you're analyzing.
 
 ## Camera placement for vehicle analysis
 
-For guidelines on where and how to place your camera for vehicle analysis, refer to the [camera placement](./Project-Archon-Camera-Placement.md) guide found in the spatial analysis documentation. Other limitations to consider include the height of the camera mounted in the parking lot space. When you analyze vehicle patterns, a higher vantage point is ideal to ensure that the camera's field of view is wide enough to accommodate one or more vehicles, depending on your scenario.
+For guidelines on where and how to place your camera for vehicle analysis, refer to the [camera placement](spatial-analysis-camera-placement.md) guide found in the spatial analysis documentation. Other limitations to consider include the height of the camera mounted in the parking lot space. When you analyze vehicle patterns, a higher vantage point is ideal to ensure that the camera's field of view is wide enough to accommodate one or more vehicles, depending on your scenario.
 
 ## Billing
 
@@ -662,349 +662,4 @@ Azure Cognitive Services containers aren't licensed to run without being connect
 
 ## Next steps
 
-* Go back to the ![spatial analysis documentation](spatial-analysis-container.md)
-
-# Install and run vehicle analysis (Private Preview)
-
-Vehicle analysis is a set of capabilities that, when used with the spatial analysis container, enable you to analyze real-time streaming video to understand vehicle placement, movement, and characteristics, as well as relationships between people and vehicles. In this article, you'll learn how to use the capabilities of the spatial analysis container to deploy vehicle analysis operations.
-
-## Vehicle analysis operations
-
-Similarly to spatial analysis, vehicle analysis enables the analysis of real-time streaming video from camera devices. For each camera device you configure, the operations for vehicle analysis will generate an output stream of JSON messages that are being egressed to your instance of Azure IoT Hub.
-
-The following operations for vehicle analysis are available in the current spatial analysis container. Vehicle analysis offers operations optimized for both GPU and CPU (CPU operations including the *.cpu* distinction).
-
-| Operation Identifier | Description |  
-| -------------------- | ---------------------------------------- |  
-| **cognitiveservices.vision.spatialanalysis-personnexttomovingvehicle-preview** and **cognitiveservices.vision.spatialanalysis-personnexttomovingvehicle.cpu-preview** | Identifies when a person is in the path of a vehicle that is moving. Emits a *relationship* event when a person is detected, and predicates *near* to describe the relationship to the vehicle. |
-
-### Operation parameters for person next to moving vehicle
-
-| Operation parameters| Description|
-|---------|---------|
-| Operation ID | The Operation Identifier from table above.|
-| enabled | Boolean: true or false|
-| VIDEO_URL| The RTSP URL for the camera device(Example: `rtsp://username:password@url`). Spatial analysis supports H.264 encoded stream either through RTSP, HTTP, or MP4. |
-| VIDEO_SOURCE_ID | A friendly name for the camera device or video stream. This will be returned with the event JSON output.|
-| VIDEO_IS_LIVE| True for camera devices; false for recorded videos.|
-| VIDEO_DECODE_GPU_INDEX| Which GPU to decode the video frame. By default it is 0. Should be the same as the `gpu_index` in other node config like `VICA_NODE_CONFIG`, `DETECTOR_NODE_CONFIG`. *This variable supports GPU operations only*|
-| ENABLE_PERSONNEXTVEHICLE | Default is set to **enabled** |
-| ENABLED_MOVING_VEHICLE  | Default value is set to **true** to enable moving vehicle detection |
-
-<!-- If you are interested in understanding attributes about people involved in near vehicle events (EX. a person in a blue vest or a person in a hard hat) then refer to Person Attribute documentation to learn how to enable this feature. 
- -->
-
-### Zone configuration for cognitiveservices.vision.vehicleanalysis-personnexttomovingvehicle-preview and cognitiveservices.vision.vehicleanalysis-personnexttomovingvehicle.cpu-preview
-
-Currently, the person next to moving vehicle operation runs on the full frame.
-
-Below is the graph optimized for the **person next to moving vehicle** operation:
-
-```json
-{
-    "globalSettings": {
-        "PlatformTelemetryEnabled": false,
-        "CustomerTelemetryEnabled": false
-    },
-    "graphs": {
-        "personnexttomovingvehicle-preview": {
-            "operationId": "cognitiveservices.vision.spatialanalysis- personnexttomovingvehicle",
-            "version": 1,
-            "enabled": true,
-            "parameters": {
-                "ENABLE_VEHICLEATTRIBUTESCLASSIFICATION": true,
-                "ENABLE_PERSONATTRIBUTESCLASSIFICATION": true,
-                "VISION_ENDPOINT_URL": "TBD",
-                "VISION_SUBSCRIPTION_KEY": "TBD",
-                "PERSON_ATTRIBUTES_MODEL_ID": "TBD",
-                "DETECTOR_NODE_CONFIG": "{ \"gpu_index\": 0 }",
-                "VIDEO_DECODE_GPU_INDEX": 0,
-                "VIDEO_SOURCE_ID": "TBD",
-                "SPACEANALYTICS_CONFIG": "{\"zones\":[{\"name\":\"queue\",\"polygon\":[[0.0,0.0],[0.0,1.0],[1.0,1.0],[1.0,0.0],[0.0,0.0]], \"events\": [{\"type\":\"count\", \"config\":{\"trigger\": \"event\", \"threshold\":50.0, \"focus\": \"footprint\"}}]}]}",
-                "VIDEO_URL": "TBD",
-            }
-        }
-    }
-}
-```
-
-## Sample cognitiveservices.vision.vehicleanalysis-personnexttomovingvehicle-preview and cognitiveservices.vision.vehicleanalysis-personnexttomovingvehicle.cpu-preview output
-
-```json
-{
-    "events": [
-        {
-            "id": "dab40936-c427-4b8e-a36e-f8a2a5c8fec9",
-            "type": "relationship",
-            "detectionIds": [
-                "1daf34f72ac84924bc19941ca846f69c",
-                "ec6a14a4-8774-41a5-934c-e15ae8c4afa1"
-            ],
-            "properties": {
-                "@type": "type.googleapis.com/microsoft.rtcv.insights.RelationshipEventMetadata",
-                "predicates": {
-                    "near": 0.89423084,
-                    "not_near": 0.10576915
-                }
-            }
-        }
-    ],
-    "sourceInfo": {
-        "id": "C801 Camera 1",
-        "timestamp": "2022-05-17T12:01:37.432Z",
-        "width": 1920,
-        "height": 1080,
-        "frameId": "5",
-        "imagePath": "C801 Camera 1"
-    },
-    "detections": [
-        {
-            "type": "person",
-            "id": "1daf34f72ac84924bc19941ca846f69c",
-            "region": {
-                "type": "RECTANGLE",
-                "points": [
-                    {
-                        "x": 0.88102743636822567,
-                        "y": 0.29720670542747912,
-                        "visible": true
-                    },
-                    {
-                        "x": 0.90263585363470555,
-                        "y": 0.36079764520823682,
-                        "visible": true
-                    }
-                ],
-                "normalizationType": "NORMALIZED"
-            },
-            "confidence": 0.41010501980781555,
-            "attributes": [
-                {
-                    "task": "head",
-                    "label": "HasHelmet",
-                    "confidence": 0.28970444202423096
-                },
-                {
-                    "task": "head",
-                    "label": "NoHelmet",
-                    "confidence": 0.71029561758041382
-                },
-                {
-                    "task": "vest",
-                    "label": "HasVest",
-                    "confidence": 0.11232931166887283
-                },
-                {
-                    "task": "vest",
-                    "label": "NoVest",
-                    "confidence": 0.88767069578170776
-                },
-                {
-                    "task": "stripes",
-                    "label": "ReflectiveStripes",
-                    "confidence": 0.072777517139911652
-                },
-                {
-                    "task": "stripes",
-                    "label": "NoReflectiveStripes",
-                    "confidence": 0.927222490310669
-                },
-                {
-                    "task": "human",
-                    "label": "FullBody",
-                    "confidence": 0.00044087698915973306
-                },
-                {
-                    "task": "human",
-                    "label": "PartialBody",
-                    "confidence": 0.014238492585718632
-                },
-                {
-                    "task": "human",
-                    "label": "FalseDetection",
-                    "confidence": 0.98532062768936157
-                }
-            ],
-            "metadata": {
-                "speed": "0.0",
-                "trackingId": "",
-                "footprintY": "0.0",
-                "centerGroundPointX": "0.0",
-                "groundOrientationAngle": "Infinity",
-                "footprintX": "0.0",
-                "centerGroundPointY": "0.0",
-                "mappedImageOrientation": "Infinity"
-            }
-        },
-        {
-            "type": "car",
-            "id": "ec6a14a4-8774-41a5-934c-e15ae8c4afa1",
-            "region": {
-                "type": "RECTANGLE",
-                "points": [
-                    {
-                        "x": 0.56531250476837158,
-                        "y": 0.34499996900558472
-                    },
-                    {
-                        "x": 0.87656247615814209,
-                        "y": 0.65999990701675415
-                    }
-                ]
-            },
-            "confidence": 0.99401170015335083,
-            "attributes": [
-                {
-                    "task": "VehicleType",
-                    "label": "Bicycle",
-                    "confidence": 3.7772437622152211e-07
-                },
-                {
-                    "task": "VehicleType",
-                    "label": "Bus",
-                    "confidence": 1.6653397096888511e-06
-                },
-                {
-                    "task": "VehicleType",
-                    "label": "Car",
-                    "confidence": 0.74716722965240479
-                },
-                {
-                    "task": "VehicleType",
-                    "label": "Motorcycle",
-                    "confidence": 8.0347572293248959e-06
-                },
-                {
-                    "task": "VehicleType",
-                    "label": "Pickup_Truck",
-                    "confidence": 0.0006719407974742353
-                },
-                {
-                    "task": "VehicleType",
-                    "label": "SUV",
-                    "confidence": 0.1655777245759964
-                },
-                {
-                    "task": "VehicleType",
-                    "label": "Truck",
-                    "confidence": 1.9298870483908104e-06
-                },
-                {
-                    "task": "VehicleType",
-                    "label": "Van/Minivan",
-                    "confidence": 0.086554467678070068
-                },
-                {
-                    "task": "VehicleType",
-                    "label": "type_other",
-                    "confidence": 1.654803054407239e-05
-                },
-                {
-                    "task": "VehicleColor",
-                    "label": "Black",
-                    "confidence": 0.55253130197525024
-                },
-                {
-                    "task": "VehicleColor",
-                    "label": "Blue",
-                    "confidence": 1.634629484215111e-06
-                },
-                {
-                    "task": "VehicleColor",
-                    "label": "Brown/Beige",
-                    "confidence": 0.00063743896316736937
-                },
-                {
-                    "task": "VehicleColor",
-                    "label": "Green",
-                    "confidence": 5.83013445520919e-07
-                },
-                {
-                    "task": "VehicleColor",
-                    "label": "Grey",
-                    "confidence": 0.32764473557472229
-                },
-                {
-                    "task": "VehicleColor",
-                    "label": "Red",
-                    "confidence": 1.2104210327379405e-05
-                },
-                {
-                    "task": "VehicleColor",
-                    "label": "Silver",
-                    "confidence": 0.11916784942150116
-                },
-                {
-                    "task": "VehicleColor",
-                    "label": "White",
-                    "confidence": 9.9297915312490659e-07
-                },
-                {
-                    "task": "VehicleColor",
-                    "label": "Yellow/Gold",
-                    "confidence": 1.6294121607529632e-08
-                },
-                {
-                    "task": "VehicleColor",
-                    "label": "color_other",
-                    "confidence": 3.3891310522449203e-06
-                },
-                {
-                    "task": "movement",
-                    "label": "moving",
-                    "confidence": 0.0032303258776664734
-                },
-                {
-                    "task": "movement",
-                    "label": "not_moving",
-                    "confidence": 0.99676966667175293
-                }
-            ],
-            "metadata": {
-                "tracking_id": ""
-            }
-        }
-    ],
-    "schemaVersion": "2.0"
-}
-```
-
-| Event Field Name | Type| Description|
-|---------|---------|---------|
-| `id` | string| Event ID|
-| `type` | string| Event type|
-| `detectionsId` | array| Array of size 1 of unique identifier of the vehicle detection that triggered this event|
-| `properties` | collection| Collection of values|
-| `trackingId` | string| Unique identifier of the vehicle detected|
-| `status` | string| 'Enter' or 'Exit'|
-| `side` | int| The number of the side of the polygon that the vehicle crossed. Each side is a numbered edge between the two vertices of the polygon that represents your zone. The edge between the first two vertices of the polygon represents first side|
-| `zone` | string | The "name" field of the polygon that represents the zone that was crossed|
-| `trigger` | string| The trigger type is 'event' or 'interval' depending on the value of `trigger` in PARKING_REGION |
-<br>
-
-| Detections Field Name | Type| Description|
-|---------|---------|---------|
-| `id` | string| Detection ID|
-| `type` | string| Detection type|
-| `region` | collection| Collection of values|
-| `type` | string| Type of region|
-| `points` | collection| Top left and bottom right points when the region type is RECTANGLE |
-| `confidence` | float| Algorithm confidence|
-<br>
-
-| Attribute | Type | Description |
-|---------|---------|---------|
-| `VehicleType` | float | Detected vehicle types. Possible detections include  "VehicleType_Bicycle", "VehicleType_Bus", "VehicleType_Car", "VehicleType_Motorcycle", "VehicleType_Pickup_Truck", "VehicleType_SUV",  "VehicleType_Truck", "VehicleType_Van/Minivan", "VehicleType_type_other" |
-| `VehicleColor` | float | Detected vehicle colors. Possible detections include "VehicleColor_Black", "VehicleColor_Blue", "VehicleColor_Brown/Beige", "VehicleColor_Green", "VehicleColor_Grey", "VehicleColor_Red", "VehicleColor_Silver", "VehicleColor_White", "VehicleColor_Yellow/Gold", "VehicleColor_color_other" |
-| `movement` | float | Detected vehicle motion. Outputs "moving" or "not_moving" |
-<br>
-
-| SourceInfo Field Name | Type| Description|
-|---------|---------|---------|
-| `id` | string| Camera ID|
-| `timestamp` | date| UTC date when the JSON payload was emitted in format YYYY-MM-DDTHH:MM:SS.ssZ |
-| `width` | int | Video frame width|
-| `height` | int | Video frame height|
-| `frameId` | int | Frame identifier|
-
-<br>
+* Set up a ![Spatial Analysis container](spatial-analysis-container.md)
