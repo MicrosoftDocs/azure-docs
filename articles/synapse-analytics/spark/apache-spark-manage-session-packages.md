@@ -155,21 +155,30 @@ remove.packages("caesar")
 Notebook-scoped libraries are available on SparkR workers.
 
 ```r
-install.packages("caesar", repos = "https://cran.microsoft.com/snapshot/2021-07-16/")
+install.packages("stringr")
 library(SparkR)
 
-hello <- function(x) {
-  library(caesar)
-  caesar("hello world")
+str_length_function <- function(x) {
+  library(stringr)
+  str_length(x)
 }
-spark.lapply(c(1, 2), hello)
+
+docs <- c("Wow, I really like the new light sabers!",
+               "That book was excellent.",
+               "R is a fantastic language.",
+               "The service in this restaurant was miserable.",
+               "This is neither positive or negative.")
+
+spark.lapply(docs, str_length_function)
 ```
 
 ### Session-scoped R libraries and SparklyR
 
-By default, in sparklyr::spark_apply(), the packages argument is set to FALSE. This copies libraries in the current libPaths to the workers, allowing you to import and use them on workers. For example, you can run the following to generate a caesar-encrypted message with sparklyr::spark_apply():
+With spark_apply() in SparklyR, you can use any R package inside Spark. By default, in sparklyr::spark_apply(), the packages argument is set to FALSE. This copies libraries in the current libPaths to the workers, allowing you to import and use them on workers. For example, you can run the following to generate a caesar-encrypted message with sparklyr::spark_apply():
 
 ```r
+install.packages("caesar", repos = "https://cran.microsoft.com/snapshot/2021-07-16/")
+
 spark_version <- "3.2"
 config <- spark_config()
 sc <- spark_connect(master = "yarn", version = spark_version, spark_home = "/opt/spark", config = config)
