@@ -12,8 +12,8 @@ ms.topic: conceptual
 ms.date: 09/27/2022
 ms.author: ryanwi
 ms.reviewer: shkhalid, udayh, vakarand, cbrooks
-ms.custom: aaddev
-ms.custom: references_regions
+ms.custom: aaddev, references_regions
+
 ---
 
 # Important considerations and restrictions for federated identity credentials
