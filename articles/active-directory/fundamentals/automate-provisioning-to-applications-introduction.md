@@ -34,7 +34,7 @@ Thousands of organizations are running Azure AD cloud-hosted services, with its 
 | What | From | To | Read |
 | - | - | - | - |
 | Employees and contractors| HR systems| AD and Azure AD| [Connect identities with your system of record](automate-provisioning-to-applications-solutions.md) |
-| Existing AD users and groups| AD| Azure AD| [Synchronize identities between Azure AD and Active Directory](automate-provisioning-to-applications-solutions.md) |
+| Existing AD users and groups| AD DS| Azure AD| [Synchronize identities between Azure AD and Active Directory](automate-provisioning-to-applications-solutions.md) |
 | Users, groups| Azure AD| SaaS and on-prem apps| [Automate provisioning to non-Microsoft applications](../governance/entitlement-management-organization.md) |
 | Access rights| Azure AD Identity Governance| SaaS and on-prem apps| [Entitlement management](../governance/entitlement-management-overview.md) |
 | Existing users and groups| AD, SaaS and on-prem apps| Identity governance (so I can review them)| [Azure AD Access reviews](../governance/access-reviews-overview.md) |
