@@ -944,6 +944,8 @@ When you debug the pipeline, this feature works the same. Be aware that the chec
 
 In the monitoring section, you always have the chance to rerun a pipeline. When you are doing so, the changed data is always captured from the previous checkpoint of your selected pipeline run.
 
+### Example 1:
+
 When you directly chain a source transform referenced to SQL CDC enabled dataset with a sink transform referenced to a database in a mapping dataflow, the changes happened on SQL source will be automatically applied to the target database, so that you will easily get data replication scenario between databases. You can use update method in sink transform to select whether you want to allow insert, allow update or allow delete on target database. The example script in mapping dataflow is as below.
 
 ```json
@@ -971,7 +973,9 @@ source1 sink(allowSchemaDrift: true,
 	errorHandlingOption: 'stopOnFirstError') ~> sink1
 ```
 
-If you want to enable ETL scenario instead of data replication between database via SQL CDC, you can use expressions in mapping dataflow including isInsert(1), isUpdate(1) and isDelete(1) to differentiate the rows with different operation types.  The following is one of the example scripts for mapping dataflow on deriving one column with the value: 1 to indicate inserted rows, 2 to indicate updated rows and 3 to indicate deleted rows for downstream transforms to further process the delta data.
+### Example 2:
+
+If you want to enable ETL scenario instead of data replication between database via SQL CDC, you can use expressions in mapping dataflow including isInsert(1), isUpdate(1) and isDelete(1) to differentiate the rows with different operation types.  The following is one of the example scripts for mapping dataflow on deriving one column with the value: 1 to indicate inserted rows, 2 to indicate updated rows and 3 to indicate deleted rows for downstream transforms to process the delta data.
 
 ```json
 source(output(
@@ -992,9 +996,9 @@ derivedColumn1 sink(allowSchemaDrift: true,
 	skipDuplicateMapOutputs: true) ~> sink1
 ```
 
-### Known limitations:
+### Known limitation:
 
-*    Only Net changes" is supported.
+*    Only **net changes** from SQL CDC will be loaded by ADF via [cdc.fn_cdc_get_net_changes_](https://learn.microsoft.com/sql/relational-databases/system-functions/cdc-fn-cdc-get-net-changes-capture-instance-transact-sql?source=recommendations).
 
 
 ## Next steps
