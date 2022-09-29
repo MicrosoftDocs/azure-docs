@@ -35,7 +35,7 @@ New-AzRoleAssignment -PrincipalId $SFMCSpid -RoleDefinitionName "Reader" -Scope 
 ## Use the ARM template
 When you create a new node type, you will need to modify your ARM template with the new property: VmImageResourceId: <Image name>.  The following is an example:
  ```JSON 
- }
+ {
   "name": "SF",
   "properties": {
     "isPrimary" : true,
