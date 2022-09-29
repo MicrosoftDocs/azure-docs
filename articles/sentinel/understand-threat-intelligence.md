@@ -105,7 +105,7 @@ While you can always create new analytics rules from scratch, Microsoft Sentinel
 
 By default, when these built-in rules are triggered, an alert will be created. In Microsoft Sentinel, the alerts generated from analytics rules also generate security incidents which can be found in **Incidents** under **Threat Management** on the Microsoft Sentinel menu. Incidents are what your security operations teams will triage and investigate to determine the appropriate response actions. You can find detailed information in this [Tutorial: Investigate incidents with Microsoft Sentinel](./investigate-cases.md).
 
-For more details on using threat indicators in your analytics rules, see [Use threat intelligence to detect threats](use-threat-indicators-in-analytics.md).
+For more details on using threat indicators in your analytics rules, see [Use threat intelligence to detect threats](use-threat-indicators-in-analytics-rules.md).
 
 ## Workbooks provide insights about your threat intelligence
 
