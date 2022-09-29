@@ -145,33 +145,6 @@ You can also use Azure Resource Manager templates to create an incremental snaps
 ```
 ---
 
-## Snapshot completion percentage
-
-Snapshots of Premium SSD v2 managed disks must complete a background copy from the disk to a snapshot before their snapshot can be used to create a new disk.
-
-You can check if your disk's background copy has completed with either the Azure PowerShell module or the Azure CLI.
-
-The following PowerShell script will return a snapshot's **CompletionPercent**.
-
-```azurepowershell
-$resourceGroupName = "yourResourceGroupName"
-$snapshotName = "yourSnapshotName"
-
-$targetSnapshot=Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName
-$targetSnapshot.CompletionPercent
-```
-
-The following CLI script will return a snapshot's **completionPercent**.
-
-```azurecli
-subscriptionId=yourSubscriptionID
-resourceGroupName=yourResourceGroupName
-diskName=yourDiskName
-
-az account set --subscription $subscriptionId
-az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2022-03-02 --query [properties.completionPercent] -o tsv
-```
-
 ## Next steps
 
 See [Copy an incremental snapshot to a new region](disks-copy-incremental-snapshot-across-regions.md) to learn how to copy an incremental snapshot across regions.
