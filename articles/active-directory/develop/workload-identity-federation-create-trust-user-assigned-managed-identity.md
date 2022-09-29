@@ -35,7 +35,6 @@ To learn more about supported regions, time to propagate federated credential up
 
 ## Prerequisites
 
-- To manage federated identity credentials in the Azure portal, first [set up the preview feature in your subscription](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal).  Register the *Federatedidentitycredentials* feature with the *Microsoft.ManagedIdentity* provider.
 - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](/azure/active-directory/managed-identities-azure-resources/overview). Be sure to review the [difference between a system-assigned and user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types).
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
 - Get the information for your external IdP and software workload, which you need in the following steps.
