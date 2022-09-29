@@ -100,7 +100,7 @@ This time, save the result to a [`SpeechSynthesisResult`](/cpp/cognitive-service
 void synthesizeSpeech()
 {
     auto speechConfig = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
-    auto synthesizer = SpeechSynthesizer::FromConfig(speechConfig, NULL);
+    auto synthesizer = SpeechSynthesizer::FromConfig(speechConfig);
 
     auto result = synthesizer->SpeakTextAsync("Getting the response as an in-memory stream.").get();
     auto stream = AudioDataStream::FromResult(result);
@@ -132,7 +132,7 @@ void synthesizeSpeech()
     auto speechConfig = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
     speechConfig->SetSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat::Riff24Khz16BitMonoPcm);
 
-    auto synthesizer = SpeechSynthesizer::FromConfig(speechConfig, NULL);
+    auto synthesizer = SpeechSynthesizer::FromConfig(speechConfig);
     auto result = synthesizer->SpeakTextAsync("A simple test to write to a file.").get();
 
     auto stream = AudioDataStream::FromResult(result);
@@ -164,7 +164,7 @@ Next, you need to change the speech synthesis request to reference your XML file
 void synthesizeSpeech()
 {
     auto speechConfig = SpeechConfig::FromSubscription("YourSpeechKey", "YourSpeechRegion");
-    auto synthesizer = SpeechSynthesizer::FromConfig(speechConfig, NULL);
+    auto synthesizer = SpeechSynthesizer::FromConfig(speechConfig);
 
     std::ifstream file("./ssml.xml");
     std::string ssml, line;

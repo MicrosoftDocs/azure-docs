@@ -341,12 +341,100 @@ While using the [SpeechSynthesizer](/javascript/api/microsoft-cognitiveservices-
 
 [!INCLUDE [Event types](events.md)]
 
-Here's an example that shows how to subscribe to the `bookmarkReached` event for speech synthesis. 
+Here's an example that shows how to subscribe to events for speech synthesis. You can follow the instructions in the [quickstart](../../../get-started-text-to-speech.md?pivots=javascript), but replace the contents of that `SpeechSynthesis.js` file with the following JavaScript code.
 
 ```javascript
-synthesizer.bookmarkReached = function (s, e) {
-    window.console.log("(Bookmark reached), Audio offset: " + e.audioOffset / 10000 + "ms, bookmark text: " + e.text);
-}
+(function() {
+
+    "use strict";
+
+    var sdk = require("microsoft-cognitiveservices-speech-sdk");
+
+    var audioFile = "YourAudioFile.wav";
+    const speechConfig = sdk.SpeechConfig.fromSubscription(process.env.SPEECH_KEY, process.env.SPEECH_REGION);
+    const audioConfig = sdk.AudioConfig.fromAudioFileOutput(audioFile);
+
+    var speechSynthesisVoiceName  = "en-US-JennyNeural";  
+    var ssml = `<speak version='1.0' xml:lang='en-US' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts'> \r\n \
+        <voice name='${speechSynthesisVoiceName}'> \r\n \
+            <mstts:viseme type='redlips_front'/> \r\n \
+            The rainbow has seven colors: <bookmark mark='colors_list_begin'/>Red, orange, yellow, green, blue, indigo, and violet.<bookmark mark='colors_list_end'/>. \r\n \
+        </voice> \r\n \
+    </speak>`;
+    
+    // Required for WordBoundary event sentences.
+    speechConfig.setProperty(sdk.PropertyId.SpeechServiceResponse_RequestSentenceBoundary, "true");
+
+    // Create the speech speechSynthesizer.
+    var speechSynthesizer = new sdk.SpeechSynthesizer(speechConfig, audioConfig);
+
+    speechSynthesizer.bookmarkReached = function (s, e) {
+        var str = `BookmarkReached event: \
+            \r\n\tAudioOffset: ${(e.audioOffset + 5000) / 10000}ms \
+            \r\n\tText: \"${e.Text}\".`;
+        console.log(str);
+    }
+
+    speechSynthesizer.synthesisCanceled = function (s, e) {
+        console.log("SynthesisCanceled event");
+    };
+    
+    speechSynthesizer.synthesisCompleted = function (s, e) {
+        var str = `SynthesisCompleted event: \
+                    \r\n\tAudioData: ${e.result.audioData.byteLength} bytes \
+                    \r\n\tAudioDuration: ${e.result.audioDuration}`;
+        console.log(str);
+    };
+
+    speechSynthesizer.synthesisStarted = function (s, e) {
+        console.log("SynthesisStarted event");
+    };
+
+    speechSynthesizer.synthesizing = function (s, e) {
+        var str = `Synthesizing event: \
+            \r\n\tAudioData: ${e.result.audioData.byteLength} bytes`;
+        console.log(str);
+    };
+    
+    speechSynthesizer.visemeReceived = function(s, e) {
+        var str = `VisemeReceived event: \
+            \r\n\tAudioOffset: ${(e.audioOffset + 5000) / 10000}ms \
+            \r\n\tVisemeId: ${e.visemeId}`;
+        console.log(str);
+    }
+
+    speechSynthesizer.wordBoundary = function (s, e) {
+        // Word, Punctuation, or Sentence
+        var str = `WordBoundary event: \
+            \r\n\tBoundaryType: ${e.boundaryType} \
+            \r\n\tAudioOffset: ${(e.audioOffset + 5000) / 10000}ms \
+            \r\n\tDuration: ${e.duration} \
+            \r\n\tText: \"${e.text}\" \
+            \r\n\tTextOffset: ${e.textOffset} \
+            \r\n\tWordLength: ${e.wordLength}`;
+        console.log(str);
+    };
+
+    // Synthesize the SSML
+    console.log(`SSML to synthesize: \r\n ${ssml}`)
+    console.log(`Synthesize to: ${audioFile}`);
+    speechSynthesizer.speakSsmlAsync(ssml,
+        function (result) {
+      if (result.reason === sdk.ResultReason.SynthesizingAudioCompleted) {
+        console.log("SynthesizingAudioCompleted result");
+      } else {
+        console.error("Speech synthesis canceled, " + result.errorDetails +
+            "\nDid you set the speech resource key and region values?");
+      }
+      speechSynthesizer.close();
+      speechSynthesizer = null;
+    },
+        function (err) {
+      console.trace("err - " + err);
+      speechSynthesizer.close();
+      speechSynthesizer = null;
+    });
+}());
 ```
 
 You can find more text-to-speech samples at [GitHub](https://aka.ms/csspeech/samples).

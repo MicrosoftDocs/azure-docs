@@ -212,7 +212,7 @@ class Program
         </speak>";
 
         // Required for sentence-level WordBoundary events
-        speechConfig.SetProperty("SpeechServiceResponse_RequestSentenceBoundary", "true");
+        speechConfig.SetProperty(PropertyId.SpeechServiceResponse_RequestSentenceBoundary, "true");
 
         using (var speechSynthesizer = new SpeechSynthesizer(speechConfig))
         {
