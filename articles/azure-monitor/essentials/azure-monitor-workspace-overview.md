@@ -37,7 +37,7 @@ In addition to the methods below, you may be given the option to create a new Az
 1. Open the **Azure Monitor workspaces** menu in the Azure portal.
 2. Click **Create**.
 
-    :::image type="content" source="media/azure-monitor-workspace-overview/view-azure-monitor-workspaces.png" lightbox="media/azure-monitor-workspace-overview/view-azure-monitor-workspaces.png" alt-text="Screenshot of Azure Monitor workspaces menu and page.":::
+    :::image type="content" source="media/azure-monitor-workspace-overview/view-azure-monitor-workspaces.png" alt-text="Screenshot of Azure Monitor workspaces menu and page." lightbox="media/azure-monitor-workspace-overview/view-azure-monitor-workspaces.png":::
 
 3. On the **Create an Azure Monitor Workspace** page, select a **Subscription** and **Resource group** where the workspace should be created.
 4. Provide a **Name** and a **Region** for the workspace.
@@ -59,7 +59,7 @@ When you delete an Azure Monitor workspace, no soft-delete operation is performe
 2. Select your workspace.
 4. Click **Delete**.
 
-    :::image type="content" source="media/azure-monitor-workspace-overview/delete-azure-monitor-workspace.png" lightbox="media/azure-monitor-workspace-overview/delete-azure-monitor-workspace.png" alt-text="Screenshot of Azure Monitor workspaces delete button.":::
+    :::image type="content" source="media/azure-monitor-workspace-overview/delete-azure-monitor-workspace.png" alt-text="Screenshot of Azure Monitor workspaces delete button." lightbox="media/azure-monitor-workspace-overview/delete-azure-monitor-workspace.png":::
 
 ### [Resource Manager](#tab/resource-manager)
 To be completed.

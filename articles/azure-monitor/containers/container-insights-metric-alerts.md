@@ -2,7 +2,7 @@
 title: Create metric alert rules in Container insights (preview)
 description: Describes how to create recommended metric alerts rules for a Kubernetes cluster in Container insights.
 ms.topic: conceptual
-ms.date: 09/16/2022
+ms.date: 09/28/2022
 ms.reviewer: aul
 ---
 
@@ -17,31 +17,33 @@ There are two types of metric rules used by Container insights based on either P
 
 | Alert rule type | Description |
 |:---|:---|
-| [Prometheus metric rules](#prometheus-metric-alert-rules) | Alert rules that use metrics stored in [Azure Monitor managed service for Prometheus (preview)](../essentials/prometheus-metrics-overview.md). There are two sets of Prometheus metric alert rules that you can choose to enable.<br><br>Community alert rules are hand-picked alert rules from the Prometheus community. Use this set of alert rules if you don't have any other alert rules enabled.<br><br>Recommended alerts are the equivalent of the custom metric alert rules. Use this set if you're migrating from custom metrics to Prometheus metrics and want to retain identical functionality.
-| [Custom metric rules](#custom-metrics-alert-rules) | Alert rules that use [custom metrics collected for your Kubernetes cluster](container-insights-custom-metrics.md). Use these alert rules if you're not ready to move to Prometheus metrics yet or if you want to manage your alert rules in the Azure portal. |
+| [Prometheus rules](#prometheus-alert-rules) | Alert rules that use metrics stored in [Azure Monitor managed service for Prometheus (preview)](../essentials/prometheus-metrics-overview.md). There are two sets of Prometheus alert rules that you can choose to enable.<br><br>- *Community alerts* are hand-picked alert rules from the Prometheus community. Use this set of alert rules if you don't have any other alert rules enabled.<br>-*Recommended alerts* are the equivalent of the custom metric alert rules. Use this set if you're migrating from custom metrics to Prometheus metrics and want to retain identical functionality.
+| [Metric rules](#metrics-alert-rules) | Alert rules that use [custom metrics collected for your Kubernetes cluster](container-insights-custom-metrics.md). Use these alert rules if you're not ready to move to Prometheus metrics yet or if you want to manage your alert rules in the Azure portal. |
 
 
-## Prometheus metric alert rules
-[Prometheus metric alert rules](../alerts/alerts-types.md#prometheus-alerts-preview) use metric data from your Kubernetes cluster sent to [Azure Monitor manage service for Prometheus](../essentials/prometheus-metrics-overview.md). 
+## Prometheus alert rules
+[Prometheus alert rules](../alerts/alerts-types.md#prometheus-alerts-preview) use metric data from your Kubernetes cluster sent to [Azure Monitor manage service for Prometheus](../essentials/prometheus-metrics-overview.md). 
 
 ### Prerequisites
 - Your cluster must be configured to send metrics to [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md). See [Collect Prometheus metrics from Kubernetes cluster with Container insights](container-insights-prometheus-metrics-addon.md).
 
-### Enable and configure alert rules
+### Enable alert rules
 
-The only method currently available for creating Prometheus metric alert rules is a Resource Manager template. 
+The only method currently available for creating Prometheus alert rules is a Resource Manager template. 
 
 1. Download the template that includes the set of alert rules that you want to enable. See [Alert rule details](#alert-rule-details) for a listing of the rules for each.
 
    - [Community alerts](https://aka.ms/azureprometheus-communityalerts)
    - [Recommended alerts](https://aka.ms/azureprometheus-recommendedalerts)
 
-2. Deploy the template using any standard methods for installing Resource Manager templates. See [Resource Manager template samples for Azure Monitor](../resource-manager-samples.md) for guidance.
+2. Deploy the template using any standard methods for installing Resource Manager templates. See [Resource Manager template samples for Azure Monitor](../resource-manager-samples.md#deploy-the-sample-templates) for guidance.
 
 > [!NOTE] 
-> While the Prometheus metric alert could be created in a different resource group to the target resource, you should use the same resource group as your target resource.
+> While the Prometheus alert could be created in a different resource group to the target resource, you should use the same resource group as your target resource.
 
- To edit the Prometheus metric alerts threshold or configure an action group for your AKS cluster, edit the appropriate values in the ARM template and redeploy it using any deployment method.
+### Edit alert rules
+
+ To edit the Prometheus alerts threshold or configure an action group for your AKS cluster, edit the appropriate values in the ARM template and redeploy it using any deployment method.
 
 ### Configure alertable metrics in ConfigMaps
 
@@ -62,7 +64,7 @@ Perform the following steps to configure your ConfigMap configuration file to ov
 
 1. Edit the ConfigMap YAML file under the section `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` or `[alertable_metrics_configuration_settings.pv_utilization_thresholds]`.
 
-   - To modify the *cpuExceededPercentage* threshold to 90% and begin collection of this metric when that threshold is met and exceeded, configure the ConfigMap file using the following example:
+   - **Example**. Use the following ConfigMap configuration to modify the *cpuExceededPercentage* threshold to 90%:
 
      ```
      [alertable_metrics_configuration_settings.container_resource_utilization_thresholds]
@@ -74,7 +76,7 @@ Perform the following steps to configure your ConfigMap configuration file to ov
          container_memory_working_set_threshold_percentage = 95.0
      ```
 
-   - To modify the *pvUsageExceededPercentage* threshold to 80% and begin collection of this metric when that threshold is met and exceeded, configure the ConfigMap file using the following example:
+   - **Example**. Use the following ConfigMap configuration to modify the *pvUsageExceededPercentage* threshold to 80%:
 
      ```
      [alertable_metrics_configuration_settings.pv_utilization_thresholds]
@@ -88,11 +90,12 @@ Perform the following steps to configure your ConfigMap configuration file to ov
 
 The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods; they don't all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following example and includes the result: `configmap "container-azm-ms-agentconfig" created`.
 
-## Custom metrics alert rules
-Custom metric alerts can be enabled with the Azure portal or from Resource Manager templates. 
+## Metrics alert rules
+[Metric alert rules](../alerts/alerts-types.md#metric-alerts) use [custom metric data from your Kubernetes cluster](container-insights-custom-metrics.md). 
+
 
 ### Prerequisites
-  - You may need to enable collection of custom metrics for your cluster. See [Metrics collected by Container insights](container-insights-update-metrics.md).
+  - You may need to enable collection of custom metrics for your cluster. See [Metrics collected by Container insights](container-insights-custom-metrics.md).
   - See the supported regions for custom metrics at [Supported regions](../essentials/metrics-custom-overview.md#supported-regions).
 
 
@@ -117,11 +120,11 @@ Custom metric alerts can be enabled with the Azure portal or from Resource Manag
 
 #### Edit alert rules
 
-You can view and manage Container insights alert rules, to edit its threshold or configure an [action group](../alerts/action-groups.md) for your AKS cluster. While you can perform these actions from the Azure portal and Azure CLI, it can also be done directly from your AKS cluster in Container insights.
+To edit the threshold for a rule or configure an [action group](../alerts/action-groups.md) for your AKS cluster.
 
 1. From Container insights for your cluster, select **Recommended alerts**.
 2. Click the **Rule Name** to open the alert rule.
-3. See [Create an alert rules](../alerts/alerts-create-new-alert-rule.md?tabs=metric) for details on the alert rule settings.
+3. See [Create an alert rule](../alerts/alerts-create-new-alert-rule.md?tabs=metric) for details on the alert rule settings.
 
 #### Disable alert rules
 1. From Container insights for your cluster, select **Recommended alerts**.
@@ -144,10 +147,30 @@ To disable custom alert rules, use the same Resource Manager template to create 
 
 ## Alert rule details
 The following sections provide details on the alert rules provided by Container insights.
+
+### Community alert rules
+These are hand-picked alerts from Prometheus community. Source code for these mixin alerts can be found in [GitHub](https://aka.ms/azureprometheus-mixins).
+
+- KubeJobNotCompleted
+- KubeJobFailed
+- KubePodCrashLooping
+- KubePodNotReady
+- KubeDeploymentReplicasMismatch
+- KubeStatefulSetReplicasMismatch
+- KubeHpaReplicasMismatch
+- KubeHpaMaxedOut
+- KubeQuotaAlmostFull
+- KubeMemoryQuotaOvercommit
+- KubeCPUQuotaOvercommit
+- KubeVersionMismatch
+- KubeNodeNotReady
+- KubeNodeReadinessFlapping
+- KubeletTooManyPods
+- KubeNodeUnreachable
 ### Recommended alert rules
 The following table lists the recommended alert rules that you can enable for either Prometheus metrics or custom metrics.
 
-| Prometheus metric alert name | Custom metric alert name | Description | Default threshold |
+| Prometheus alert name | Custom metric alert name | Description | Default threshold |
 |:---|:---|:---|:---|
 | Average container CPU % | Average container CPU % | Calculates average CPU used per container. | 95% |
 | Average container working set memory % | Average container working set memory % | Calculates average working set memory used per container. | 95% |
@@ -163,7 +186,7 @@ The following table lists the recommended alert rules that you can enable for ei
 | Completed job count | Completed job count | Calculates number of jobs completed more than six hours ago. | 0 |
 
 > [!NOTE]
-> The recommended alert rules in the Azure portal also include a log alert rule called *Daily Data Cap Breach*. This rule alerts when the total data ingestion to your Log Analytics workspace exceeds the [designated quota](../logs/daily-cap.md). This alert rule is not included with the Prometheus metric alert rules.
+> The recommended alert rules in the Azure portal also include a log alert rule called *Daily Data Cap Breach*. This rule alerts when the total data ingestion to your Log Analytics workspace exceeds the [designated quota](../logs/daily-cap.md). This alert rule is not included with the Prometheus alert rules.
 > 
 > You can create this rule on your own by creating a [log alert rule](../alerts/alerts-types.md#log-alerts) using the query `_LogOperation | where Operation == "Data collection Status" | where Detail contains "OverQuota"`.
 
@@ -191,34 +214,15 @@ The following metrics have unique behavior characteristics:
 - `cpuExceededPercentage`, `memoryRssExceededPercentage`, and `memoryWorkingSetExceededPercentage` metrics are sent when the CPU, memory Rss, and Memory Working set values exceed the configured threshold (the default threshold is 95%). *cpuThresholdViolated*, *memoryRssThresholdViolated*, and *memoryWorkingSetThresholdViolated* metrics are equal to 0 is the usage percentage is below the threshold and are equal to 1 if the usage percentage is above the threshold. These thresholds are exclusive of the alert condition threshold specified for the corresponding alert rule. Meaning, if you want to collect these metrics and analyze them from [Metrics explorer](../essentials/metrics-getting-started.md), we recommend you configure the threshold to a value lower than your alerting threshold. The configuration related to the collection settings for their container resource utilization thresholds can be overridden in the ConfigMaps file under the section `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]`. See the section [Configure alertable metrics ConfigMaps](#configure-alertable-metrics-in-configmaps) for details related to configuring your ConfigMap configuration file.
 
 
-### Community alert rules
-These are hand-picked alerts from Prometheus community. Source code for these mixin alerts can be found in [GitHub](https://aka.ms/azureprometheus-mixins).
-
-- KubeJobNotCompleted
-- KubeJobFailed
-- KubePodCrashLooping
-- KubePodNotReady
-- KubeDeploymentReplicasMismatch
-- KubeStatefulSetReplicasMismatch
-- KubeHpaReplicasMismatch
-- KubeHpaMaxedOut
-- KubeQuotaAlmostFull
-- KubeMemoryQuotaOvercommit
-- KubeCPUQuotaOvercommit
-- KubeVersionMismatch
-- KubeNodeNotReady
-- KubeNodeReadinessFlapping
-- KubeletTooManyPods
-- KubeNodeUnreachable
-
-
 
 ## View alerts
-To view alerts created for the enabled rules, in the **Recommended alerts** pane select **View in alerts**. you're redirected to the alert menu for the AKS cluster, where you can see all the alerts currently created for your cluster.
+View fired alerts for your cluster from [**Alerts** in the **Monitor menu** in the Azure portal] with other fired alerts in your subscription. You can also select **View in alerts** from the **Recommended alerts** pane to view alerts from custom metrics.
 
+> [!NOTE]
+> Prometheus alerts will not currently be displayed when you select **Alerts** from your AKs cluster since the alert rule doesn't use the cluster as its target.
 
 
 ## Next steps
 
-- View [log query examples](container-insights-log-query.md) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.
-- To learn more about Azure Monitor and how to monitor other aspects of your Kubernetes cluster, see [View Kubernetes cluster performance](container-insights-analyze.md).
+- [Read about the different alert rule types in Azure Monitor](../alerts/alerts-types.md).
+- [Read about alerting rule groups in Azure Monitor managed service for Prometheus](../essentials/prometheus-rule-groups.md).

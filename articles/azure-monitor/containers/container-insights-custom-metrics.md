@@ -2,8 +2,7 @@
 title: Custom metrics collected by Container insights
 description: Describes the custom metrics collected for a Kubernetes cluster by Container insights in Azure Monitor.
 ms.topic: conceptual
-ms.date: 08/29/2022 
-ms.custom: devx-track-azurecli
+ms.date: 09/28/2022 
 ms.reviewer: viviandiec
 
 ---
@@ -15,7 +14,7 @@ Container insights collects [custom metrics](../essentials/metrics-custom-overvi
 > This article describes collection of custom metrics from Kubernetes clusters. You can also collect Prometheus metrics as described in [Collect Prometheus metrics with Container insights](container-insights-prometheus.md).
 
 ## Using custom metrics
-Custom metrics collected by Container insights can be accessed with the same methods as custom metrics collected from other data sources. This includes [metrics explorer](../essentials/metrics-getting-started.md) and [metrics alerts](../alerts/alerts-types.md#metric-alerts).
+Custom metrics collected by Container insights can be accessed with the same methods as custom metrics collected from other data sources, including [metrics explorer](../essentials/metrics-getting-started.md) and [metrics alerts](../alerts/alerts-types.md#metric-alerts).
 
 ## Metrics collected
 The following sections describe the metric values collected for your cluster.
@@ -87,7 +86,8 @@ Before you update your cluster, confirm the following:
 
 * You're a member of the [Owner](../../role-based-access-control/built-in-roles.md#owner) role on the AKS cluster resource to enable collection of custom performance metrics for nodes and pods. This requirement does not apply to Azure Arc-enabled Kubernetes clusters.
 
-### Update single cluster
+### Enablement options
+Use one of the following methods to enable custom metrics for either a single cluster or all clusters in your subscription.
 
 #### [Azure portal](#tab/portal)
 
@@ -125,7 +125,7 @@ az role assignment create --assignee <clientIdOfSPNOrMsi> --scope <clusterResour
 >If you want to perform the role assignment with your user account, use the `--assignee` parameter as shown in the example. If you want to perform the role assignment with a service principal name (SPN), use the `--assignee-object-id` and `--assignee-principal-type` parameters instead of the `--assignee` parameter.
 
 #### Update all clusters
-Run the following command to update all clusters in your subscription by using Azure CLI. Edit the value for `subscriptionId` by using the value from the **AKS Overview** page for the AKS cluster.
+Run the following command to update all clusters in your subscription. Edit the value for `subscriptionId` by using the value from the **AKS Overview** page for the AKS cluster.
 
 ```azurecli
 az login
@@ -144,9 +144,9 @@ completed role assignments for all AKS clusters in subscription: <subscriptionId
 
 #### Update a single cluster
 
-To update a specific cluster by using Azure PowerShell:
+Use the following steps to enable custom metrics for a specific cluster.
 
-1. [Download](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/docs/aks/mdmonboarding/mdm_onboarding.ps1) the *mdm_onboarding.ps1* script from GitHub and save it to a local folder.
+1. [Download the *mdm_onboarding.ps1* script from GitHub](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/docs/aks/mdmonboarding/mdm_onboarding.ps1) and save it to a local folder.
 
 2. Run the following command. Edit the values for `subscriptionId`, `resourceGroupName`, and `clusterName` by using the values on the **AKS Overview** page for the AKS cluster.
 
@@ -163,7 +163,7 @@ To update a specific cluster by using Azure PowerShell:
 
 #### Update all clusters
 
-To update all clusters in your subscription by using Azure PowerShell:
+Use the following steps to enable custom metrics for all clusters in your subscription.
 
 1. [Download the *mdm_onboarding_atscale.ps1* script from GitHub](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/docs/aks/mdmonboarding/mdm_onboarding_atscale.ps1) and save it to a local folder.
 2. Run the following command. Edit the value for `subscriptionId` by using the value from the **AKS Overview** page for the AKS cluster.
@@ -182,3 +182,7 @@ To update all clusters in your subscription by using Azure PowerShell:
 ## Verify the update
 You can verify that custom metrics is enabled by opening [metrics explorer](../essentials/metrics-getting-started.md) and verify from **Metric namespace** that **insights** is listed. 
 
+## Next steps
+
+- [Create alerts based on custom metrics collected for the cluster](container-insights-metric-alerts.md).
+- [Collect Prometheus metrics from your AKS cluster](container-insights-prometheus.md)
