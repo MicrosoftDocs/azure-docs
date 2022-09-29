@@ -9,15 +9,19 @@ ms.topic: how-to
 ms.date: 07/01/2022
 ---
 
-# Debugging with the job diagram (preview) in Azure portal
+# Debugging with the job logical diagram (preview) in Azure portal
 
-The job diagram in the Azure portal can help you visualize your job's query steps with its input source, output destination, and metrics. You can use the job diagram to examine the metrics for each step and quickly identify the source of a problem when you troubleshoot issues.
+The job diagram (physical diagram and logical diagram) in the Azure portal can help you visualize your job's query steps with its input source, output destination, and metrics. You can use the job diagram to examine the metrics for each step and quickly identify the source of a problem when you troubleshoot issues.
 
-The job diagram is also available in Stream Analytics extension for VS Code. It provides the similar functions with more metrics when you debug your job that runs locally on your device. To learn more details, see [Debug Azure Stream Analytics queries locally using job diagram](./debug-locally-using-job-diagram-vs-code.md).
+This article describes how to use the job logical diagram to analyze and troubleshoot your job in Azure portal. 
 
-## Using the job diagram
+The job logical diagram is also available in Stream Analytics extension for VS Code. It provides the similar functions with more metrics when you debug your job that runs locally on your device. To learn more, see [Debug Azure Stream Analytics queries locally using job diagram](./debug-locally-using-job-diagram-vs-code.md).
 
-In the Azure portal, while in a Stream Analytics job, under **Support + troubleshooting**, select **Job diagram (preview)**:
+## Using the job logical diagram
+
+In the Azure portal, while in a Stream Analytics job, under **Developer tools**, select **Job diagram (preview)**:
+
+
 
 :::image type="content" source="./media/stream-analytics-job-diagram-with-metrics-new/1-stream-analytics-job-diagram-with-metrics-portal.png" alt-text="Screenshot that shows job diagram with metrics - location.":::
 
@@ -79,7 +83,7 @@ For more assistance, try our [Microsoft Q&A question page for  Azure Stream Anal
 
 ## Next steps
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)
-* [Get started with Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Stream Analytics job diagram (preview) in Azure portal](./job-diagram-with-metrics.md)
 * [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md)
 * [Scale Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Stream Analytics query language reference](/stream-analytics-query/stream-analytics-query-language-reference)
