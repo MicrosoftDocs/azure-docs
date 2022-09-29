@@ -67,7 +67,7 @@ sections:
       - question: |
           How are notebooks stored after I'm done using them?
         answer: |
-          Notebooks are temporary on-demand compute instances that are spun-up in real time as you need them. Notebooks exist in a temporary workspace and are NOT saved when the workspace has expired. If a notebook is left idle for too long, it will be automatically disposed.
+          Notebooks are hosted in temporary on-demand workspaces that are spun-up in real time as you need them. Notebooks exist in a temporary workspace and are NOT saved when the workspace has expired. If a notebook is left idle for too long, it will be automatically disposed.
 
           > [!NOTE]
           > Currently, temporary workspaces will be de-allocated if left idle for 20 minutes. The maximum amount of usage time per day is 60 minutes. These limits are subject to change in the future.
@@ -81,8 +81,11 @@ sections:
       - question: |
           Will my notebook become idle?
         answer: |
-          After a pre-determined amount of time, your notebook may become idle because you haven't used your browser, or no user has used the compute instance.
+          After a pre-determined amount of time, your notebook may become idle because you haven't used your browser, or no user has used the notebooks workspace.
 
+          > [!NOTE]
+          > Currently, temporary workspaces will be de-allocated if left idle for 20 minutes. The maximum amount of usage time per day is 60 minutes. These limits are subject to change in the future.
+      
           > [!IMPORTANT]
           > It's important that you save work often to avoid accidentally losing your progress in a notebook.
   - name: Collaboration
