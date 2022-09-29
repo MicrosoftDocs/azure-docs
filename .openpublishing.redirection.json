@@ -21256,12 +21256,12 @@
         {
             "source_path_from_root": "/articles/storage/vs-storage-cloud-services-getting-started-queues.md",
             "redirect_url": "/azure/visual-studio/vs-storage-cloud-services-getting-started-queues",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/vs-storage-cloud-services-getting-started-tables.md",
             "redirect_url": "/azure/visual-studio/vs-storage-cloud-services-getting-started-tables",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/vs-storage-cloud-services-what-happened.md",
