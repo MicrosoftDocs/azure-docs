@@ -3,7 +3,7 @@ title: Vertical Pod Autoscaling (preview) in Azure Kubernetes Service (AKS)
 description: Learn how to vertically autoscale your pod on an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 09/27/2022
+ms.date: 09/29/2022
 ---
 
 # Vertical Pod Autoscaling (preview) in Azure Kubernetes Service (AKS)
@@ -219,16 +219,16 @@ Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automaticall
     apiVersion: apps/v1
     kind: Deployment
     metadata:
-      name: azure-autodeploy
+      name: vpa-auto-deployment
     spec:
       replicas: 2
       selector:
         matchLabels:
-          app: azure-autodeploy
+          app: vpa-auto-deployment
       template:
         metadata:
           labels:
-            app: azure-autodeploy
+            app: vpa-auto-deployment
         spec:
           containers:
           - name: mycontainer
@@ -260,7 +260,115 @@ Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automaticall
     The output resembles the following example showing the name and status of the pods:
 
     ```output
+    NAME                                   READY   STATUS    RESTARTS   AGE
+    vpa-auto-deployment-54465fb978-kchc5   1/1     Running   0          52s
+    vpa-auto-deployment-54465fb978-nhtmj   1/1     Running   0          52s
     ```
+
+5. Create a file named `azure-vpa-auto.yaml`, and copy in the following manifest that describes a `VerticalPodAutoscaler`:
+
+    ```yml
+    apiVersion: autoscaling.k8s.io/v1
+    kind: VerticalPodAutoscaler
+    metadata:
+      name: vpa-auto
+    spec:
+      targetRef:
+        apiVersion: "apps/v1"
+        kind:       Deployment
+        name:       vpa-auto-deployment
+      updatePolicy:
+        updateMode: "Auto"
+    ```
+
+    The `targetRef.name` value specifies that any Pod that is controlled by a deployment named `vpa-auto-deployment` belongs to this `VerticalPodAutoscaler`. The `updateMode` value of `Auto` means that the Vertical Pod Autoscaler controller can delete a Pod, adjust the CPU and memory requests, and then start a new Pod.
+
+6. Apply the manifest to the cluster using the [kubectl apply][kubectl-apply] command:
+
+    ```bash
+    kubectl create -f azure-vpa-auto.yaml
+    ```
+
+7. Wait a few minutes, and view the running Pods again by running the following [kubectl get][kubectl-get] command:
+
+    ```bash
+    kubectl get pods
+    ```
+
+    The output resembles the following example showing the pod names have changed and status of the pods:
+
+    ```output
+    NAME                                   READY   STATUS    RESTARTS   AGE
+    vpa-auto-deployment-54465fb978-qbhc4   1/1     Running   0          2m49s
+    vpa-auto-deployment-54465fb978-vbj68   1/1     Running   0          109s
+    ```:
+
+8. Get detailed information about one of your running Pods by using the [Kubectl get][kubectl-get] command. Replace `podName` with the name of one of your Pods that you retrieved in the previous step.
+
+    ```bash
+    kubectl get pod podName --output yaml
+    ```
+
+    The output resembles the following example, showing that the Vertical Pod Autoscaler controller has increased the memory request to 262144k and CPU request to 25 milliCPU.
+
+    ```output
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      annotations:
+        vpaObservedContainers: mycontainer
+        vpaUpdates: 'Pod resources updated by vpa-auto: container 0: cpu request, memory
+          request'
+      creationTimestamp: "2022-09-29T16:44:37Z"
+      generateName: vpa-auto-deployment-54465fb978-
+      labels:
+        app: vpa-auto-deployment
+
+    spec:
+      containers:
+      - args:
+        - -c
+        - while true; do timeout 0.5s yes >/dev/null; sleep 0.5s; done
+        command:
+        - /bin/sh
+        image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
+        imagePullPolicy: IfNotPresent
+        name: mycontainer
+        resources:
+          requests:
+            cpu: 25m
+            memory: 262144k
+    ```
+
+9. To get detailed information about the Vertical Pod Autoscaler and its recommendations for CPU and memory, use the [kubectl get][kubectl-get] command:
+
+    ```bash
+    kubectl get vpa vpa-auto --output yaml
+    ```
+
+    The output resembles the following example:
+
+    ```output
+     recommendation:
+      containerRecommendations:
+      - containerName: mycontainer
+        lowerBound:
+          cpu: 25m
+          memory: 262144k
+        target:
+          cpu: 25m
+          memory: 262144k
+        uncappedTarget:
+          cpu: 25m
+          memory: 262144k
+        upperBound:
+          cpu: 230m
+          memory: 262144k
+    ```
+
+    The results shows the `target` attribute specifies that for the container to run optimally, it doesn't need to change the CPU or the memory target. Your results may vary where the target CPU and memory recommendation is higher.
+
+    The Vertical Pod Autoscaler uses the `lowerBound` and `upperBound` attributes to decide whether to delete a Pod and replace it with a new Pod. If a Pod has requests less than the lower bound or greater than the upper bound, the Vertical Pod Autoscaler deletes the Pod and replaces it with a Pod that meets the target attribute.
 
 ## Next steps
 
