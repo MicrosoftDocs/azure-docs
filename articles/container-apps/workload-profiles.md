@@ -39,7 +39,7 @@ The workload profile selector allows you to choose from profiles meant for gener
 
 After you select a profile, you can adjust the allocated CPU and memory resources assigned to the app being created. Often you'll deploy multiple apps to an instance of a workload profile, depending on the resources requirements each app. A profile can scale out by adding more instances, up to the limits you can set.
 
-:::image type="content" source="media/workload-profiles/azure-container-apps-select-workload.png" alt-text="Select a workload profile for your Premium plan container app.":::
+:::image type="content" source="media/workload-profiles/azure-container-apps-select-workload.png" alt-text="Screenshot of select a workload profile for your Premium plan container app.":::
 
 ## Manage workload profiles
 
@@ -50,7 +50,7 @@ To view or adjust your workload profiles:
 
 The workload profile window shows the profiles available to an environment.
 
-:::image type="content" source="media/workload-profiles/azure-container-apps-adjust-workload.png" alt-text="The workload editor allows you to define the instance configuration for a profile.":::
+:::image type="content" source="media/workload-profiles/azure-container-apps-adjust-workload.png" alt-text="Screenshot of the workload editor, which allows you to define the instance configuration for a profile.":::
 
 Shown in this view are the instances of each profile in use, which represent billable resources. You can change the minimum and maximum number of instances in use by each profile. Adjusting instance values allows you to control an environment's costs. You're also able to view a profile's running apps by selecting the value in the **# of Apps** column.
 
