@@ -15,14 +15,14 @@ ms.custom:
 
 # Migrate databases at scale using automation (Preview)
 
-The [Azure SQL Migration extension for Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/extensions/azure-sql-migration-extension) brings together a simplified assessment, recommendation, and migration experience that delivers the following capabilities:
-- An enhanced assessment mechanism that can evaluate SQL Server instances, identifying databases that are ready for migration to the different Azure SQL targets.
-- A SKU recommendation engine (Preview) that collects performance data from the source SQL Server instance on-premises, generating right-sized SKU recommendations based on your Azure SQL target.
+The [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) brings together a simplified assessment, recommendation, and migration experience that delivers the following capabilities:
+- An enhanced assessment mechanism that can evaluate SQL Server instances, identifying databases ready for migration to the different Azure SQL targets.
+- An SKU recommendation engine (Preview) that collects performance data from the source SQL Server instance on-premises, generating right-sized SKU recommendations based on your Azure SQL target.
 - A reliable Azure service powered by Azure Database Migration Service that orchestrates data movement activities to deliver a seamless migration experience.
 - The ability to run online (for migrations requiring minimal downtime) or offline (for migrations where downtime persists through the migration) migration modes to suit your business requirements.
 - The flexibility to create and configure a self-hosted integration runtime to provide your own compute for accessing the source SQL Server and backups in your on-premises environment.
 
-With automation tools like the [Powershell - Azure DataMigration Service Module](https://docs.microsoft.com/powershell/module/az.datamigration) or [Azure CLI](https://docs.microsoft.com/cli/azure/datamigration), you can leverage the capabilities of the Azure SQL Migration extension together with Azure Database Migration Service to migrate one or more databases at scale (including databases across multiple SQL Server instances).
+With automation tools like the [Powershell - Azure DataMigration Service Module](/powershell/module/az.datamigration) or [Azure CLI](/cli/azure/datamigration), you can leverage the capabilities of the Azure SQL Migration extension together with Azure Database Migration Service to migrate one or more databases at scale (including databases across multiple SQL Server instances).
 
 The following sample scripts can be referenced to suit your migration scenario using Azure PowerShell or Azure CLI:
 
@@ -48,12 +48,12 @@ Pre-requisites that are common across all supported migration scenarios using Az
     - Owner or Contributor role for the Azure subscription.
     > [!IMPORTANT]
     > Azure account is only required when running the migration steps and is not required for assessment or Azure recommendation steps process.
-* Create a target [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/create-configure-managed-instance-powershell-quickstart), [SQL Server on Azure Virtual Machine](/azure/azure-sql/virtual-machines/windows/sql-vm-create-powershell-quickstart) or [Azure SQL Database (Preview)](/azure/azure-sql/database/single-database-create-quickstart)
+* Create a target [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/create-configure-managed-instance-powershell-quickstart), [SQL Server on Azure [Virtual Machine](/azure/azure-sql/virtual-machines/windows/sql-vm-create-powershell-quickstart), or [Azure SQL](/azure/azure-sql/database/single-database-create-quickstart) Database (Preview)](/azure/azure-sql/database/single-database-create-quickstart)
     > [!IMPORTANT] If your target is Azure SQL Database (Preview) you have to migrate database schema from source to target using [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension) or, [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension) for Azure Data Studio.
     > 
     > If you have an existing Azure Virtual Machine, it should be registered with [SQL IaaS Agent extension in Full management mode](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management#management-modes).
 * If your target is **Azure SQL Managed Instance** or **SQL Server on Azure Virtual Machine** ensure that the logins used to connect the source SQL Server are members of the *sysadmin* server role or have `CONTROL SERVER` permission.
-* If your target is **Azure SQL Database (Preview)** ensure that the login used to connect the source SQL Server is member of the `db_datareader` and login for target SQL server is `db_owner`.
+If your target is **Azure SQL Database (Preview)**, ensure that the login used to connect the source SQL Server is a member, and the `db_datareader`` and login for the target SQL server is `db_owner`.
 * Use one of the following storage options for the full database and transaction log backup files: 
     - SMB network share 
     - Azure storage account file share or blob container 
@@ -81,18 +81,17 @@ Pre-requisites that are common across all supported migration scenarios using Az
     > [!TIP]
     > If your database backup files are already provided in an Azure storage account, self-hosted integration runtime is not required during the migration process.
 
-* When using self-hosted integration runtime, make sure that the machine where the runtime is installed can connect to the source SQL Server instance and the network file share where backup files are located. Outbound port 445 should be enabled to allow access to the network file share.
+* When using self-hosted integration runtime, ensure that the machine where the runtime is installed can connect to the source SQL Server instance and the network file share where backup files are located. Outbound port 445 should be enabled to access the network file share.
 * If you're using the Azure Database Migration Service for the first time, ensure that Microsoft.DataMigration resource provider is registered in your subscription. You can follow the steps to [register the resource provider](./quickstart-create-data-migration-service-portal.md#register-the-resource-provider)
 
     > [!IMPORTANT]
     > If your target is Azure SQL Database (Preview), you don't neet backups to perform this migration. The migration to Azure SQL Database is considered a logical migration which involves the pre-creation of the database and the data movement (peformed by DMS).
 
 ## Automate database migrations
-Using Azure PowerShell [Az.DataMigration](/powershell/module/az.datamigration) or Azure CLI [az datamigration](/cli/azure/datamigration), you can migrate databases by automating the creation of the Azure Database Migration Service, configuring database migrations for online migration and performing a cutover. There are several more commands and functionality that is documented in [Azure Samples](https://github.com/Azure-Samples/data-migration-sql).
+Using Azure PowerShell [Az.DataMigration](/powershell/module/az.datamigration) or Azure CLI [az datamigration](/cli/azure/datamigration), you can migrate databases by automating the creation of the Azure Database Migration Service, configuring database migrations for online migration, and performing a cutover. There are several more commands and functionality that are documented in [Azure Samples](https://github.com/Azure-Samples/data-migration-sql).
 
-Example of automating migration of a SQL Server database using Azure CLI:
-
-**Step 1: Create Azure Database Migration Service which will orchestrate all the migration activities for your database.**
+Example of automating the migration of a SQL Server database using Azure CLI:
+**Step 1: Create Azure Database Migration Service, which will orchestrate your database's migration activities.**
 ```azurepowershell-interactive
 #STEP 1: Create Database Migration Service
 az datamigration sql-service create --resource-group "myRG" --sql-migration-service-name "myMigrationService" --location "EastUS2"

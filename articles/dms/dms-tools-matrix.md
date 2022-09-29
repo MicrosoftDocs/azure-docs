@@ -17,7 +17,7 @@ ms.date: 03/03/2020
 
 This article provides a matrix of the Microsoft and third-party services and tools available to assist you with various database and data migration scenarios and specialty tasks.
 
-The following tables identify the services and tools that you can use to plan successfully for data migration and to complete its various phases.
+The following tables identify the services and tools you can use to plan for data migration and complete its various phases successfully.
 
 > [!NOTE]
 > In the following tables, items marked with an asterisk (*) represent third-party tools.

@@ -32,9 +32,9 @@ Check the following step-by-step tutorials for more information about each speci
 
 | Migration scenario | Migration mode
 |---------|---------|
-SQL Server to Azure SQL Managed Instance| [Online](tutorial-sql-server-managed-instance-online-ads) / [Offline](tutorial-sql-server-to-virtual-machine-offline-ads)
-SQL Server to SQL Server on Azure Virtual Machine|[Online](tutorial-sql-server-to-virtual-machine-online-ads) / [Offline](tutorial-sql-server-to-virtual-machine-offline-ads)
-SQL Server to Azure SQL Database (Preview)| [Offline](tutorial-sql-server-to-azure-sql)
+SQL Server to Azure SQL Managed Instance| [Online](/azure/dms/tutorial-sql-server-managed-instance-online-ads) / [Offline](/azure/dms/tutorial-sql-server-to-virtual-machine-offline-ads)
+SQL Server to SQL Server on Azure Virtual Machine|[Online](/azure/dms/tutorial-sql-server-to-virtual-machine-online-ads) / [Offline](/azure/dms/tutorial-sql-server-to-virtual-machine-offline-ads)
+SQL Server to Azure SQL Database (Preview)| [Offline](/azure/dms/tutorial-sql-server-to-azure-sql)
 
 > [!IMPORTANT]
 > If your target is Azure SQL Database (Preview), make sure to deploy the database schema before starting the migration. You can use tools as [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension), [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension), or [DMA](/sql/dma/dma-overview).
@@ -51,8 +51,7 @@ DMS uses Azure Data Factory's self-hosted integration runtime to access and uplo
 
 The workflow of the migration process is illustrated below.
 
-<!-- :::image type="content" source="media/migration-using-azure-data-studio/architecture-sql-migration.png" alt-text="Diagram of architecture for database migration using Azure Data Studio with DMS"::: -->
-![solid](media/migration-using-azure-data-studio/architecture-sql-migration.png)
+:::image type="content" source="media/migration-using-azure-data-studio/architecture-sql-migration.png" alt-text="Diagram of architecture for database migration using Azure Data Studio with DMS":::
 
 1. **Source SQL Server**: SQL Server instance on-premises, private cloud, or any public cloud virtual machine. All versions of SQL Server 2008 and above are supported.
 2. **Target Azure SQL**: Supported Azure SQL targets are **Azure SQL Managed Instance**, **SQL Server on Azure Virtual Machines** (*registered with SQL IaaS extension - [full management mode](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management#management-modes)*) or, **Azure SQL Database (Preview)**.

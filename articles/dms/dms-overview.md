@@ -19,14 +19,14 @@ Azure Database Migration Service is a fully managed service designed to enable s
 
 ## Migrate databases to Azure with familiar tools
 
-Azure Database Migration Service integrates some of the functionality of our existing tools and services. It provides customers with a comprehensive, highly available solution. The service uses the [Data Migration Assistant](/sql/dma/dma-overview) to generate assessment reports that provide recommendations to guide you through the changes required prior to performing a migration. It's up to you to perform any remediation required. When you're ready to begin the migration process, Azure Database Migration Service performs all of the required steps. You can fire and forget your migration projects with peace of mind, knowing that the process takes advantage of best practices as determined by Microsoft. 
+Azure Database Migration Service integrates some of the functionality of our existing tools and services. It provides customers with a comprehensive, highly available solution. The service uses the [Data Migration Assistant](/sql/dma/dma-overview) to generate assessment reports that provide recommendations to guide you through the required changes before a migration. It's up to you to perform any remediation required. Azure Database Migration Service performs all the required steps when ready to begin the migration process. Knowing that the process takes advantage of Microsoft's best practices, you can fire and forget your migration projects with peace of mind. 
 
 > [!NOTE]
 > Using Azure Database Migration Service to perform an online migration requires creating an instance based on the Premium pricing tier.
 
 ## Regional availability
 
-For up-to-date info about regional availability of Azure Database Migration Service, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration).
+For up-to-date info about the regional availability of Azure Database Migration Service, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration).
 
 ## Pricing
 
@@ -34,7 +34,7 @@ For up-to-date info about Azure Database Migration Service pricing, see [Azure D
 
 ## Next steps
 
-* [Status of migration scenarios supported by Azure Database Migration Service](resource-scenario-status)
-* [Services and tools available for data migration scenarios](dms-tools-matrix)
-* [Migrate databases with Azure SQL Migration extension for Azure Data Studio](migration-using-azure-data-studio)
+* [Status of migration scenarios supported by Azure Database Migration Service](/azure/dms/resource-scenario-status)
+* [Services and tools available for data migration scenarios](/azure/dms/dms-tools-matrix)
+* [Migrate databases with Azure SQL Migration extension for Azure Data Studio](/azure/dms/migration-using-azure-data-studio)
 * [FAQ about using Azure Database Migration Service](/azure/dms/faq)
