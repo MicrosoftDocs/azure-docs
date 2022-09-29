@@ -6,7 +6,7 @@ ms.custom: references_regions
 author: greg-lindsay
 ms.service: dns
 ms.topic: overview
-ms.date: 09/22/2022
+ms.date: 09/27/2022
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
 ---

@@ -1,7 +1,7 @@
 ---
-title: 'Migrate script run from SDK v1 to SDK v2'
+title: 'Upgrade script run to SDK v2'
 titleSuffix: Azure Machine Learning
-description: Migrate how to run a script from SDK v1 to SDK v2
+description: Upgrade how to run a script from SDK v1 to SDK v2
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,13 +13,13 @@ ms.reviewer: sgilley
 ms.custom: migration
 ---
 
-# Migrate script run from SDK v1 to SDK v2
+# Upgrade script run to SDK v2
 
 In SDK v2, "experiments" and "runs" are consolidated into jobs.
 
 A job has a type. Most jobs are command jobs that run a `command`, like `python main.py`. What runs in a job is agnostic to any programming language, so you can run `bash` scripts, invoke `python` interpreters, run a bunch of `curl` commands, or anything else.
 
-To migrate, you'll need to change your code for submitting jobs to SDK v2. What you run _within_ the job doesn't need to be migrated to SDK v2. However, it's recommended to remove any code specific to Azure ML from your model training scripts. This separation allows for an easier transition between local and cloud and is considered best practice for mature MLOps. In practice, this means removing `azureml.*` lines of code. Model logging and tracking code should be replaced with MLflow. For more details, see [how to use MLflow in v2](how-to-use-mlflow-cli-runs.md).
+To upgrade, you'll need to change your code for submitting jobs to SDK v2. What you run _within_ the job doesn't need to be migrated to SDK v2. However, it's recommended to remove any code specific to Azure ML from your model training scripts. This separation allows for an easier transition between local and cloud and is considered best practice for mature MLOps. In practice, this means removing `azureml.*` lines of code. Model logging and tracking code should be replaced with MLflow. For more details, see [how to use MLflow in v2](how-to-use-mlflow-cli-runs.md).
 
 This article gives a comparison of scenario(s) in SDK v1 and SDK v2.
 

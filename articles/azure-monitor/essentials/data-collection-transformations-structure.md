@@ -291,6 +291,7 @@ The following [Bitwise operators](/azure/data-explorer/kusto/query/binoperators)
 - [isempty](/azure/data-explorer/kusto/query/isemptyfunction)
 - [isnotempty](/azure/data-explorer/kusto/query/isnotemptyfunction)
 - [parse_json](/azure/data-explorer/kusto/query/parsejsonfunction)
+- [replace](https://github.com/microsoft/Kusto-Query-Language/blob/master/doc/replacefunction.md)
 - [split](/azure/data-explorer/kusto/query/splitfunction)
 - [strcat](/azure/data-explorer/kusto/query/strcatfunction)
 - [strcat_delim](/azure/data-explorer/kusto/query/strcat-delimfunction)
@@ -306,10 +307,24 @@ The following [Bitwise operators](/azure/data-explorer/kusto/query/binoperators)
 - [isnotnull](/azure/data-explorer/kusto/query/isnotnullfunction)
 - [isnull](/azure/data-explorer/kusto/query/isnullfunction)
 
+#### Special functions 
+
+##### parse_cef_dictionary
+
+Given a string containing a CEF message, `parse_cef_dictionary` parses the Extension property of the message into a dynamic key/value object. Semicolon is a reserved character that should be replaced prior to passing the raw message into the method, as shown in the example below.
+
+```kusto
+| extend cefMessage=iff(cefMessage contains_cs ";", replace(";", " ", cefMessage), cefMessage) 
+| extend parsedCefDictionaryMessage =parse_cef_dictionary(cefMessage) 
+| extend parsecefDictionaryExtension = parsedCefDictionaryMessage["Extension"]
+| project TimeGenerated, cefMessage, parsecefDictionaryExtension
+```
+
+:::image type="content" source="media/data-collection-transformations-structure/parse_cef_dictionary.png" alt-text="Sample output of parse_cef_dictionary function." lightbox="media/data-collection-transformations-structure/parse_cef_dictionary.png":::
+
+
 ### Identifier quoting
 Use [Identifier quoting](/azure/data-explorer/kusto/query/schema-entities/entity-names?q=identifier#identifier-quoting) as required.
-
-
 
 
 ## Next steps

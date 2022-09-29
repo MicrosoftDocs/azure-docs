@@ -41,7 +41,7 @@ There are few exceptions to the retirement policy outlined above. Here is a list
 To learn more about specific language version support policy timeline, visit the following external resources:
 * .NET - [dotnet.microsoft.com](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)
 * Node - [github.com](https://github.com/nodejs/Release#release-schedule)
-* Java - [azul.com](https://www.azul.com/products/azul-support-roadmap/)
+* Java - [Microsoft technical documentation](/azure/developer/java/fundamentals/java-support-on-azure)
 * PowerShell - [Microsoft technical documentation](/powershell/scripting/powershell-support-lifecycle#powershell-end-of-support-dates)
 * Python - [devguide.python.org](https://devguide.python.org/#status-of-python-branches)
 
