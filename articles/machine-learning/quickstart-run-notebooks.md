@@ -68,7 +68,11 @@ Create a new notebook in studio.
 1. If you stopped your compute instance at the end of the [Quickstart: Create workspace resources you need to get started with Azure Machine Learning](quickstart-create-resources.md), start it again now:
 
     :::image type="content" source="media/quickstart-run-notebooks/start-compute.png" alt-text="Screenshot: Start a compute instance.":::
-1.  Wait until the compute instance is "Running".
+
+1.  Wait until the compute instance is "Running".  When it is running, the **Compute instance** dot is green.  You can also see the status after the compute instance name.  You may have to select the arrow to see the full name.
+
+    :::image type="content" source="media/quickstart-run-notebooks/compute-running.png" alt-text="Screenshot: Compute is running.":::
+
 1. You can run code cells either by using **Shift + Enter**, or by selecting the **Run cell** tool to the right of the cell.  Use one of these methods to run the cell now.
 
     :::image type="content" source="media/quickstart-run-notebooks/run-cell.png" alt-text="Screenshot: run cell tool.":::
