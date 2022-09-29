@@ -39,9 +39,9 @@ For more information on Azure role-based access control, see [Azure role-based a
 
 ## Connect IoT Hub with the MedTech service
 
-Azure IoT Hub supports a feature called [message routing](../../iot-hub/iot-hub-devguide-messages-d2c.md). Message routing provides the capability to send device data to various Azure services (for example: event hub, Storage Accounts, and Service Buses). MedTech service uses this feature to allow an IoT Hub to connect and send device messages to the MedTech service device message event hub endpoint.
+Azure IoT Hub supports a feature called [message routing](/azure/iot-hub/iot-hub-devguide-messages-d2c.md). Message routing provides the capability to send device data to various Azure services (for example: event hub, Storage Accounts, and Service Buses). MedTech service uses this feature to allow an IoT Hub to connect and send device messages to the MedTech service device message event hub endpoint.
 
-Follow these directions to grant access to the IoT Hub user-assigned managed identity to your MedTech service device message event hub and set up message routing: [Configure message routing with managed identities](../../iot-hub/iot-hub-managed-identity.md#egress-connectivity-from-iot-hub-to-other-azure-resources). 
+Follow these directions to grant access to the IoT Hub system-assigned managed identity to your MedTech service device message event hub and set up message routing: [Configure message routing with managed identities](/azure-pipelines.yml/iot-hub/iot-hub-managed-identitymd#egress-connectivity-from-iot-hub-to-other-azure-resources)
 
 ## Send device message to IoT Hub
 
@@ -56,6 +56,7 @@ This message will get routed to MedTech service, where the message will be trans
 > To learn about IoT Hub device message enrichment and IotJsonPathContentTemplate mappings usage with the MedTech service device mapping, see [How to use IotJsonPathContentTemplate mappings](how-to-use-iot-jsonpath-content-mappings.md) 
 
 ```json
+
 {
   "HeartRate": 80,
   "RespiratoryRate": 12,
@@ -67,7 +68,9 @@ This message will get routed to MedTech service, where the message will be trans
   },
   "Activity": "walking"
 }
+
 ```
+
 > [!IMPORTANT]
 > Make sure to send the device message that conforms to the [Device mappings](how-to-use-device-mappings.md) and [FHIR destinations mappings](how-to-use-fhir-mappings.md) configured with your MedTech service.
 
