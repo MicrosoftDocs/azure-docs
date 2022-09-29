@@ -1,7 +1,7 @@
 ---
-title: Migrate endpoints from SDK v1 to SDK v2
+title: Upgrade deployment endpoints to SDK v2
 titleSuffix: Azure Machine Learning
-description: Migrate deployment endpoints from v1 to v2 of Azure Machine Learning SDK
+description: Upgrade deployment endpoints from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.reviewer: sgilley
 ms.custom: migration
 ---
 
-# Migrate deployment endpoints from SDK v1 to SDK v2
+# Upgrade deployment endpoints to SDK v2
 
 We newly introduced [online endpoints](concept-endpoints.md) and batch endpoints as v2 concepts. There are several deployment funnels such as managed online endpoints, [kubernetes online endpoints](how-to-attach-kubernetes-anywhere.md) (including AKS and Arch-enabled Kubernetes) in v2, and ACI and AKS webservices in v1. In this article, we'll focus on the comparison of deploying to ACI webservices (v1) and managed online endpoints (v2).
 

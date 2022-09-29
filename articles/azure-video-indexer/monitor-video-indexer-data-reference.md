@@ -19,7 +19,8 @@ See [Monitoring Azure Video Indexer](monitor-video-indexer.md) for details on co
 
 ## Metrics
 
-Azure Video Indexer currently does not support any monitoring on metrics.
+Azure Video Indexer currently does not support any metrics monitoring.
+
 <!-- REQUIRED if you support Metrics. If you don't, keep the section but call that out. Some services are only onboarded to logs.
 <!-- Please keep headings in this order -->
 
@@ -71,7 +72,7 @@ For more information, see a list of [all platform metrics supported in Azure Mon
 
 ## Metric dimensions
 
-Azure Video Indexer currently does not support any monitoring on metrics.
+Azure Video Indexer currently does not support any metrics monitoring.
 <!-- REQUIRED. Please  keep headings in this order -->
 <!-- If you have metrics with dimensions, outline it here. If you have no dimensions, say so.  Questions email azmondocs@microsoft.com -->
 
@@ -142,7 +143,7 @@ Resource Provider and Type: [Microsoft.VideoIndexer/accounts](/azure/azure-monit
 | Category | Display Name | Additional information |
 |:---------|:-------------|------------------|
 | VIAudit   | Azure Video Indexer Audit Logs | Logs are produced from both the Video Indexer portal and the REST API. |
-| IndexingLogs | Indexing Logs | Azure Video Indexer indexing logs to monitor all files uploads, indexing jobs and Re-indexing when needed. |
+| IndexingLogs | Indexing Logs | Azure Video Indexer indexing logs to monitor all files uploads, indexing and reindexing jobs. |
 
 <!-- --------------**END Examples** ------------- -->
 
@@ -173,8 +174,8 @@ NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays 
 
 | Table |  Description | Additional information  |
 |:---------|:-------------|------------------|
-| [VIAudit](/azure/azure-monitor/reference/tables/tables-resourcetype#azure-video-indexer)<!-- (S/azure/azure-monitor/reference/tables/viaudit)-->   | <!-- description copied from previous link --> Events produced using Azure Video Indexer [portal](https://aka.ms/VIportal) or [REST API](https://aka.ms/vi-dev-portal). |  |
-|VIIndexing| Events produced using Azure Video Indexer [upload](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) and [Re-indexing](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) APIs. |
+| [VIAudit](/azure/azure-monitor/reference/tables/tables-resourcetype#azure-video-indexer)<!-- (S/azure/azure-monitor/reference/tables/viaudit)-->   | <!-- description copied from previous link --> Events produced using the Azure Video Indexer [website](https://aka.ms/VIportal) or the [REST API portal](https://aka.ms/vi-dev-portal). |  |
+|VIIndexing| Events produced using the Azure Video Indexer [upload](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Upload-Video) and [re-index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Re-Index-Video) APIs. |
 <!--| [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics) | <!-- description copied from previous link --> 
 <!--Metric data emitted by Azure services that measure their health and performance.    | *TODO other important information about this type |
 |  etc.               |                              |                                                   |  
