@@ -28839,5 +28839,11 @@
             "redirect_url": "/azure/developer/java/ee/jboss-on-azure",
             "redirect_document_id": false
         }
+        {
+            "source_path": "articles/baremetal-infrastructure/workloads/nc2-public-preview/faq.md",
+            "redirect_url": "/azure/baremetal-infrastructure/workloads/nutanix-cloud-clusters-on-azure/faq",
+            "redirect_document_id": false
+        }
+
     ]
 }
