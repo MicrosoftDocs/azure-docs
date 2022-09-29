@@ -1,18 +1,18 @@
 ---
-title: Send Prometheus metrics to multiple Azure Monitor workspaces in Azure Monitor
+title: Send Prometheus metrics to multiple Azure Monitor workspaces
 description: Describes data collection rules required to send Prometheus metrics from a cluster in Azure Monitor to multiple Azure Monitor workspaces.
 ms.topic: conceptual
-ms.date: 09/16/2022
+ms.date: 09/28/2022
 ms.reviewer: aul
 ---
 
-# Send Prometheus metrics to multiple Azure Monitor workspaces in Azure Monitor
+# Send Prometheus metrics to multiple Azure Monitor workspaces
 
 Routing metrics to more Azure Monitor Workspaces can be done through the creation of additional data collection rules. All metrics can be sent to all workspaces or different metrics can be sent to different workspaces.
 
 ## Send same metrics to multiple Azure Monitor workspaces
 
-You can create multiple Data Collection Rules that point to the same Data Collection Endpoint for metrics to be sent to additional Azure Monitor Workspaces from the same Kubernetes cluster. Currently, this is only available through onboarding through Resource Manager templates. You can follow the [regular onboarding process](container-insights-prometheus-metrics-addon.md#enable-prometheus-metric-collection) and then edit the same Resource Manager templates to add additional DCRs for your additional Azure Monitor Workspaces. You will need to edit the template to add an additional parameters for every additional Azure Monitor workspace, add another DCR for every additional Azure Monitor workspace, and add an additional Azure Monitor workspace integration for Grafana.
+You can create multiple Data Collection Rules that point to the same Data Collection Endpoint for metrics to be sent to additional Azure Monitor Workspaces from the same Kubernetes cluster. Currently, this is only available through onboarding through Resource Manager templates. You can follow the [regular onboarding process](../containers/container-insights-prometheus-metrics-addon.md#enable-prometheus-metric-collection) and then edit the same Resource Manager templates to add additional DCRs for your additional Azure Monitor Workspaces. You will need to edit the template to add an additional parameters for every additional Azure Monitor workspace, add another DCR for every additional Azure Monitor workspace, and add an additional Azure Monitor workspace integration for Grafana.
 
 - Add the following parameters:
   ```json
@@ -194,6 +194,5 @@ scrape_configs:
 
 ## Next steps
 
-- [Learn more about collecting Prometheus metrics](container-insights-prometheus.md).
-
-
+- [Learn more about Azure Monitor managed service for Prometheus](prometheus-metrics-overview.md).
+- [Collect Prometheus metrics from AKS cluster](../containers/container-insights-prometheus-metrics-addon.md).

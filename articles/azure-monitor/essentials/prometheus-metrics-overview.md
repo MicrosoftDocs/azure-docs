@@ -3,7 +3,7 @@ title: Overview of Azure Monitor Managed Service for Prometheus
 description: Overview of Azure Monitor managed service for Prometheus which provides a Prometheus-compatible interface for storing and retrieving metric data.
 author: bwren 
 ms.topic: conceptual
-ms.date: 09/15/2022
+ms.date: 09/28/2022
 ---
 
 # Azure Monitor managed service for Prometheus
@@ -27,16 +27,15 @@ Azure Monitor managed service for Prometheus adds a new Prometheus metric alert 
 ## Enable
 The only requirement to enable Azure Monitor managed service for Prometheus is to create an [Azure Monitor workspace](azure-monitor-workspace-overview.md), which is where Prometheus metrics are stored. Once this workspace is created, you can onboard services that collect Prometheus metrics such as Container insights for your AKS cluster as described in [Send Kubernetes metrics to Azure Monitor managed service for Prometheus with Container insights](../containers/container-insights-prometheus-metrics-addon.md).
 
-### Service limits
-See [Azure Monitor service limits](../service-limits.md) for any service limits related to Azure Monitor managed service for Prometheus.
 
 ## Limitations
-- Metrics addon doesn't natively run on Windows nodes in AKS clusters. Both the daemonset and replicaset run on Linux nodes in the cluster and can scrape windows targets such as nodes and pods.
+See [Azure Monitor service limits](../service-limits.md#prometheus-metrics) for performance related service limits for Azure Monitor managed service for Prometheus.
+
 - Private Links are not supported for Prometheus metrics collection into Azure monitor workspace.
-- CPU and Memory requests andlimits can't be changed for metrics addon. If changed, they will be reconciled and replaced by original values in a few seconds.
 - Azure monitor managed service for Prometheus is only supported in public clouds.
 - Metrics addon doesn't work on AKS clusters configured with HTTP proxy. 
 - Sraping and storing metrics at frequencies less than 1 second is not supported.
+
 
 ## Prometheus references
 Following are links to Prometheus documentation.
@@ -51,4 +50,5 @@ Following are links to Prometheus documentation.
 ## Next steps
 
 - [Collect Prometheus metrics for your AKS cluster](../containers/container-insights-prometheus-metrics-addon.md).
-- [Configure alerting and recording rules groups](prometheus-metrics-rule-groups.md).
+- [Configure Prometheus alerting and recording rules groups](prometheus-metrics-rule-groups.md).
+- [Customize scraping of Prometheus metrics](prometheus-metrics-scrape-configuration.md).

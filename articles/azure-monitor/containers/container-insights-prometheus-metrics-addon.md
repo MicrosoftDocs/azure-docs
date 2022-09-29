@@ -254,7 +254,9 @@ ama-metrics-ksm-5fcf8dffcd      1         1         1       11h
 
 - Ensure that you update the `kube-state metrics` Annotations and Labels list with proper formatting. There is a limitation in the Resource Manager template deployments that require exact values in the `kube-state` metrics pods. If the kuberenetes pod has any issues with malformed parameters and isn't running, then the feature won't work as expected.
 - A data collection rule, data collection endpoint is created with the name `MSPROM-\<cluster-name\>-\<cluster-region\>`. These names can't currently be modified.
-- You must get the existing Azure Monitor workspace integrations for a grafana workspace and update the Resource Manager template with it, otherwise it will overwrite and remove the existing integrations from the grafana workspace.
+- You must get the existing Azure Monitor workspace integrations for a Grafana workspace and update the Resource Manager template with it, otherwise it will overwrite and remove the existing integrations from the grafana workspace.
+- CPU and Memory requests and limits can't be changed for [Container insights metrics addon](../containers/container-insights-prometheus-metrics-addon.md). If changed, they will be reconciled and replaced by original values in a few seconds.
+- Metrics addon doesn't work on AKS clusters configured with HTTP proxy. 
 
 
 ## Uninstall metrics addon
@@ -320,5 +322,5 @@ When you allow a default Azure Monitor workspace to be created when you install 
 
 ## Next steps
 
-- [Customize Prometheus metric scraping for the cluster](container-insights-prometheus-scrape-configuration.md).
+- [Customize Prometheus metric scraping for the cluster](../essentials/prometheus-metrics-scrape-configuration.md).
 - [Learn more about collecting Prometheus metrics](container-insights-prometheus.md).
