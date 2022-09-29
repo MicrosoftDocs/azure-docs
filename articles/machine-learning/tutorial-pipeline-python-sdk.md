@@ -18,11 +18,6 @@ ms.custom: sdkv2, event-tier1-build-2022
 
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-> [!IMPORTANT]
-> SDK v2 is currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 > [!NOTE]
 > For a tutorial that uses SDK v1 to build a pipeline, see [Tutorial: Build an Azure Machine Learning pipeline for image classification](v1/tutorial-pipeline-python-sdk.md)
 > 
