@@ -87,7 +87,13 @@ Use the following steps to run the scripts:
     * `<LOCAL_PATH>` - A local path where resources and templates used by the script are downloaded.
     * `<NEW_ENDPOINT_NAME>` - The name of the new endpoint that will be created. We recommend that the new endpoint name is different from the previous service name. Otherwise, the original service will not be displayed if you check your endpoints on the portal.
     * `<NEW_DEPLOYMENT_NAME>` - The name of the deployment to the new endpoint.
-6. Execute the bash script, it will take about 5-10 minutes to finish the new deployment.
+6. Run the bash script. For example, `./migrate-service.sh`. It will take about 5-10 minutes to finish the new deployment.
+
+    > [!TIP]
+    > If you receive an error that the script is not executable, or an editor opens when you try to run the script, use the following command to mark the script as executable:
+    > ```bash
+    > chmod +x migrate-service.sh
+    > ```
 7. After the deployment is completes successfully, you can verify the endpoint with the [az ml online-endpoint invoke](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-invoke) command.
 
 ## Cost comparison
