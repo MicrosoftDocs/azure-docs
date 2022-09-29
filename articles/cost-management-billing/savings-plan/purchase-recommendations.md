@@ -24,7 +24,7 @@ The following steps define how recommendations are calculated:
 
 ## Purchase recommendations in the Azure portal
 
-The savings plan purchase experience shows up to 10 commitment amounts. For each amount, we include the percentage (off of your current pay-as-you-go costs) that the amount could save you. The percentage of your total compute usage that would be covered with the commitment amount is also included.
+The savings plan purchase experience shows up to 10 commitment amounts. All recommendations are based on the last 30 days of usage. For each amount, we include the percentage (off of your current pay-as-you-go costs) that the amount could save you. The percentage of your total compute usage that would be covered with the commitment amount is also included.
 
 By default, the recommendations are for the entire billing scope (billing account or billing profile). You can view subscription and resource group-level recommendations by restricting benefit application to one of those levels. We don't currently support management group-level recommendations.
 
@@ -32,7 +32,13 @@ The first recommendation value is the one that is projected to result in the hig
 
 ## Reservation trade in recommendations
 
-When you trade one or more reservations for a savings plan, you're shifting the balance of your previous commitments to a new savings plan commitment. For example, if you have a one year reservation with a value of $500, and half way through the term you look to trade it for a savings plan, you would still have an outstanding commitment of about $250. As part of the trade in, the outstanding commitment is automatically included in your new savings plan. We do it by dividing the outstanding commitment by the number of hours in the term of the new savings plan. For example, 24 \* term length in days. And by making the value the minimum hourly commitment you can make during as part of the trade-in. Using the previous example, the $250 amount would be converted into an hourly commitment of ~ $0.028 for a new one year savings plan. If you're trading multiple reservations, the aggregate outstanding commitment is used. You may choose to increase the value, but you can't decrease it. The new savings plan will be used to cover usage of eligible resources.
+When you trade one or more reservations for a savings plan, you're shifting the balance of your previous commitments to a new savings plan commitment. For example, if you have a one year reservation with a value of $500, and half way through the term you look to trade it for a savings plan, you would still have an outstanding commitment of about $250. 
+
+The minimum hourly commitment must be at least equal to the outstanding amount divided by (24 times the term length in days).
+
+As part of the trade in, the outstanding commitment is automatically included in your new savings plan. We do it by dividing the outstanding commitment by the number of hours in the term of the new savings plan. For example, 24 \* term length in days. And by making the value the minimum hourly commitment you can make during as part of the trade-in. Using the previous example, the $250 amount would be converted into an hourly commitment of ~ $0.029 for a new one year savings plan. 
+
+If you're trading multiple reservations, the aggregate outstanding commitment is used. You may choose to increase the value, but you can't decrease it. The new savings plan will be used to cover usage of eligible resources.
 
 The minimum value doesn't necessarily represent the hourly commitment necessary to cover the resources that were covered by the exchanged reservation. If you want to cover those resources, you'll most likely have to increase the hourly commitment. To determine the appropriate hourly commitment:
 
@@ -46,11 +52,12 @@ The minimum value doesn't necessarily represent the hourly commitment necessary 
 
 When appropriate, a savings plan purchase recommendation can also be found in Azure Advisor. Keep in mind the following points:
 
-- The savings plan recommendation is for the entire billing scope (billing account or billing profile)
+- The savings plan recommendations are for a single-subscription scope. If you want to see recommendations for the entire billing scope (billing account or billing profile), then:
+    - In the Azure portal, navigate to Savings plans > **Add** and then select the type that you want to see the recommendations for.
 - Recommendations available in Advisor consider your past 30-day usage trend.
 - The recommendation is for a three-year savings plan.
 - The recommendation calculations include any special discounts that you might have on your on-demand usage rates.
-- If you recently purchased a savings plan, Advisor reservation purchase recommendations can take up to five days to disappear.
+- If you recently purchased a savings plan, Advisor reservation purchase and Azure saving plan recommendations can take up to five days to disappear.
 
 ## Next steps
 
