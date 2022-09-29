@@ -17,6 +17,8 @@ ms.custom: devx-track-python
 
 [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identities and device twins, but provide finer granularity. While Azure IoT Hub device identities and device twins enable a back-end application to configure a device and provide visibility on the device's conditions, module identities and module twins provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system devices or firmware devices, they allow for isolated configuration and conditions for each component.
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
 At the end of this article, you have three Python apps:
 
 * **CreateModule**: creates a device identity, a module identity, and associated security keys to connect your device and module clients.

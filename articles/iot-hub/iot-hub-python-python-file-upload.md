@@ -29,7 +29,7 @@ These files are typically batch processed in the cloud, using tools such as [Azu
 At the end of this article, you run the Python console app **FileUpload.py**, which uploads a file to storage using the Python Device SDK.
 
 > [!NOTE]
-> See [Azure IoT SDKs](iot-hub-devguide-sdks.md) for more information about the SDK tools available to build both device and back-end apps.
+> IoT Hub has SDK support for many device platforms and languages (C, Java, Python, and JavaScript) through the [Azure IoT device SDKs](iot-hub-devguide-sdks.md).
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
