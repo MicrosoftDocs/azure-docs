@@ -19,21 +19,21 @@ Egress from an Azure Spring Apps application can be customized to fit specific s
 
 This article describes how to customize an instance's egress route to support custom network scenarios. For example, you might want to customize an instance's egress route for networks that disallow public IPs and require the instance to sit behind a network virtual appliance (NVA).
 
+## Prerequisites
+
+- All prerequisites for deploying Azure Spring Apps in a virtual network. For more information, see [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
+- An API version of *2022-09-01 preview* or greater.
+- [Azure CLI version 1.1.7 or later](/cli/azure/install-azure-cli).
+
 ## Limitations
 
 - You can only define `OutboundType` when you create a new Azure Spring Apps service instance, and you can't updated it afterwards. `OutboundType` works only with a VNet instance.
 - Setting `outboundType` to `UserDefinedRouting` requires a user-defined route with valid outbound connectivity for your instance.
 - Setting `outboundType` to `UserDefinedRouting` implies that the ingress source IP routed to the load-balancer may not match the instance's outgoing egress destination address.
 
-## Prerequisites
-
-- All prerequisites for deploying Azure Spring Apps in a virtual network. For more information, see [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
-- An API version of *2022-09-01 preview* or greater.
-- A CLI  extension version of 1.1.7 or greater.
-
 ## Overview of outbound types in Azure Spring Apps
 
-An Azure Spring Apps instance can be customized with a unique `outboundType` of type `loadBalancer` or `userDefinedRouting`.
+You can customize an Azure Spring Apps instance with a unique `outboundType` of type `loadBalancer` or `userDefinedRouting`.
 
 ### Outbound type loadBalancer
 

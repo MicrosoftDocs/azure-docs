@@ -21,8 +21,8 @@ This article describes how to secure outbound traffic from your applications hos
 
 - All prerequisites for deploying Azure Spring Apps in a virtual network. For more information, see [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
 - API version of `2022-09-01 preview` or greater
-- CLI version extension of 1.1.7 or greater
-- The following articles:
+- [Azure CLI version 1.1.7 or later](/cli/azure/install-azure-cli).
+- You should be familiar with information in the following articles:
   - [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md)
   - [Customer responsibilities for running Azure Spring Apps in VNET](vnet-customer-responsibilities.md)
   - [Customize Azure Spring Cloud egress with a User-Defined Route](concept-outbound-type.md)
@@ -106,7 +106,10 @@ Use the following command to create and set up an Azure Firewall with a user-def
 > If your cluster or application creates a large number of outbound connections directed to the same or small subset of destinations, you might require more firewall frontend IPs to avoid reaching the maximum ports per front-end IP. For more information on how to create an Azure firewall with multiple IPs, see [Quickstart: Create an Azure Firewall with multiple public IP addresses - ARM template](../firewall/quick-create-multiple-ip-template.md). Create a standard SKU public IP resource that will be used as the Azure Firewall front-end address.
 
 ```azurecli
-az network public-ip create -g $RG -n $FWPUBLICIP_NAME -l $LOC --sku "Standard"
+az network public-ip create \
+    --resource-group $RG \
+    --name $FWPUBLICIP_NAME -l $LOC \
+    --sku "Standard"
 ```
 
 The following example shows how to install the Azure Firewall preview CLI extension and deploy Azure Firewall.
@@ -118,7 +121,10 @@ az extension add --name azure-firewall
 
 # Deploy Azure Firewall.
 
-az network firewall create -g $RG -n $FWNAME -l $LOC --enable-dns-proxy true
+az network firewall create \
+    --resource-group $RG \
+    --firewall-name $FWNAME -l $LOC \
+    --enable-dns-proxy true
 ```
 
 The following example shows how to assign the IP address you created to the firewall front end.
@@ -129,7 +135,12 @@ The following example shows how to assign the IP address you created to the fire
 ```azurecli
 # Configure firewall IP config.
 
-az network firewall ip-config create -g $RG -f $FWNAME -n $FWIPCONFIG_NAME --public-ip-address $FWPUBLICIP_NAME --vnet-name $VNET_NAME
+az network firewall ip-config create \
+    --resource-group $RG \
+    --firewall-name $FWNAME \
+    --name $FWIPCONFIG_NAME \
+    --public-ip-address $FWPUBLICIP_NAME \
+    --vnet-name $VNET_NAME
 ```
 
 When the operation has completed, save the firewall front-end IP address for configuration later, as shown in the following example.
@@ -137,8 +148,16 @@ When the operation has completed, save the firewall front-end IP address for con
 ```azurecli
 # Capture firewall IP address for later use.
 
-FWPUBLIC_IP=$(az network public-ip show -g $RG -n $FWPUBLICIP_NAME --query "ipAddress" -o tsv)
-FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurations[0].privateIpAddress" -o tsv  | tr -d '[:space:]')
+FWPUBLIC_IP=$(az network public-ip show \
+    --resource-group $RG \
+    --name $FWPUBLICIP_NAME \
+    --query "ipAddress" \
+    --output tsv)
+FWPRIVATE_IP=$(az network firewall show \
+    --resource-group $RG \
+    --name $FWNAME \
+    --query "ipConfigurations[0].privateIpAddress" \
+    --output tsv  | tr -d '[:space:]')
 ```
 
 ### Create a user-defined route with a hop to Azure Firewall
@@ -150,10 +169,26 @@ The following example shows how to create a route table to be associated with a 
 ```azurecli
 # Create UDR and add a route for Azure Firewall.
 
-az network route-table create -g $RG -l $LOC --name $APP_ROUTE_TABLE_NAME
-az network route-table route create -g $RG --name $FWROUTE_NAME --route-table-name $APP_ROUTE_TABLE_NAME --address-prefix 0.0.0.0/0 --next-hop-type VirtualAppliance --next-hop-ip-address $FWPRIVATE_IP
-az network route-table create -g $RG -l $LOC --name $SERVICE_RUNTIME_ROUTE_TABLE_NAME
-az network route-table route create -g $RG --name $FWROUTE_NAME --route-table-name $SERVICE_RUNTIME_ROUTE_TABLE_NAME --address-prefix 0.0.0.0/0 --next-hop-type VirtualAppliance --next-hop-ip-address $FWPRIVATE_IP
+az network route-table create \
+    --resource-group $RG -l $LOC \
+    --name $APP_ROUTE_TABLE_NAME
+az network route-table route create \
+    --resource-group $RG \
+    --name $FWROUTE_NAME \
+    --route-table-name $APP_ROUTE_TABLE_NAME \
+    --address-prefix 0.0.0.0/0 \
+    --next-hop-type VirtualAppliance \
+    --next-hop-ip-address $FWPRIVATE_IP
+az network route-table create \
+    --resource-group $RG -l $LOC \
+    --name $SERVICE_RUNTIME_ROUTE_TABLE_NAME
+az network route-table route create \
+    --resource-group $RG \
+    --name $FWROUTE_NAME \
+    --route-table-name $SERVICE_RUNTIME_ROUTE_TABLE_NAME \
+    --address-prefix 0.0.0.0/0 \
+    --next-hop-type VirtualAppliance \
+    --next-hop-ip-address $FWPRIVATE_IP
 ```
 
 ### Adding firewall rules
@@ -163,13 +198,45 @@ The following example shows hot to add rules to your firewall. For more informat
 ```azurecli
 # Add firewall network rules.
 
-az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'asafwnr' -n 'apiudp' --protocols 'UDP' --source-addresses '*' --destination-addresses "AzureCloud" --destination-ports 1194 --action allow --priority 100
-az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'asafwnr' -n 'springcloudtcp' --protocols 'TCP' --source-addresses '*' --destination-addresses "AzureCloud" --destination-ports 443 445
-az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'asafwnr' -n 'time' --protocols 'UDP' --source-addresses '*' --destination-fqdns 'ntp.ubuntu.com' --destination-ports 123
+az network firewall network-rule create \
+    --resource-group $RG \
+    --firewall-name $FWNAME \
+    --collection-name 'asafwnr' -n 'apiudp' \
+    --protocols 'UDP' \
+    --source-addresses '*' \
+    --destination-addresses "AzureCloud" \
+    --destination-ports 1194 \
+    --action allow \
+    --priority 100
+az network firewall network-rule create \
+    --resource-group $RG \
+    --firewall-name $FWNAME \
+    --collection-name 'asafwnr' -n 'springcloudtcp' \
+    --protocols 'TCP' \
+    --source-addresses '*' \
+    --destination-addresses "AzureCloud" \
+    --destination-ports 443 445
+az network firewall network-rule create \
+    --resource-group $RG \
+    --firewall-name $FWNAME \
+    --collection-name 'asafwnr' \
+    --name 'time' \
+    --protocols 'UDP' \
+    --source-addresses '*' \
+    --destination-fqdns 'ntp.ubuntu.com' \
+    --destination-ports 123
 
 # Add firewall application rules.
 
-az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwar' -n 'fqdn' --source-addresses '*' --protocols 'http=80' 'https=443' --fqdn-tags "AzureKubernetesService" --action allow --priority 100
+az network firewall application-rule create \
+    --resource-group $RG \
+    --firewall-name $FWNAME \
+    --collection-name 'aksfwar'\
+    --name 'fqdn' \
+    --source-addresses '*' \
+    --protocols 'http=80' 'https=443' \
+    --fqdn-tags "AzureKubernetesService" \
+    --action allow --priority 100
 ```
 
 ### Associate route tables with subnets
@@ -179,9 +246,17 @@ To associate the cluster with the firewall, the dedicated subnet for the cluster
 ```azurecli
 # Associate route table with next hop to Firewall to the Azure Spring Apps subnet.
 
-az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $ASA_APP_SUBNET_NAME --route-table $APP_ROUTE_TABLE_NAME
+az network vnet subnet update \
+    --resource-group $RG \
+    --vnet-name $VNET_NAME \
+    --name $ASA_APP_SUBNET_NAME \
+    --route-table $APP_ROUTE_TABLE_NAME
 
-az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $ASA_SERVICE_RUNTIME_SUBNET_NAME --route-table $SERVICE_RUNTIME_ROUTE_TABLE_NAME
+az network vnet subnet update 
+    --resource-group $RG \
+    --vnet-name $VNET_NAME \
+    --name $ASA_SERVICE_RUNTIME_SUBNET_NAME \
+    --route-table $SERVICE_RUNTIME_ROUTE_TABLE_NAME
 
 ```
 
@@ -207,7 +282,13 @@ az role assignment create \
 The following example shows how to create a UDR Azure Spring Apps instance.
 
 ```azurecli
-az spring create -n $ASA_NAME -g $RG --vnet $VNET_NAME --app-subnet $ASA_APP_SUBNET_NAME --service-runtime-subnet $ASA_SERVICE_RUNTIME_SUBNET_NAME --outbound-type userDefinedRouting
+az spring create \
+    --name $ASA_NAME \
+    --resource-group $RG \
+    --vnet $VNET_NAME \
+    --app-subnet $ASA_APP_SUBNET_NAME \
+    --service-runtime-subnet $ASA_SERVICE_RUNTIME_SUBNET_NAME \
+    --outbound-type userDefinedRouting
 ```
 
 You can now access the public IP of the firewall from the internet. The firewall will route traffic into Azure Spring Apps subnets according to your routing rules.
