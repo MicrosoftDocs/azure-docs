@@ -1,11 +1,11 @@
 ---
-title: Export API from Azure API Management to Postman | Microsoft Docs
+title: Export API from Azure API Management to Postman for testing and monitoring | Microsoft Docs
 description: Learn how to export an API definition from API Management to Postman and use Postman for API testing and monitoring
 author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 09/26/2022
+ms.date: 10/11/2022
 ms.author: danlep
 
 ---
@@ -16,9 +16,9 @@ To enhance development of your APIs, you can export an API fronted in API Manage
 ## Prerequisites
 
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
-+ Make sure that your instance manages an API that you'd like to export to Postman. The API must have a [valid API schema](#supported-api-schemas).
++ Make sure that your instance manages an API that you'd like to export to Postman. The API must have a [supported API definition](#supported-api-definitions).
 
-    For testing authorization in Postman later in this article, the API should require a subscription.
+    For testing authorization in Postman as outlined later in this article, the API should require a subscription.
 
 + A [Postman](https://www.postman.com) account, which you can use to access Postman for Web.
     * Optionally, [download and install](https://learning.postman.com/docs/getting-started/installation-and-updates/) the Postman desktop app locally.
@@ -35,7 +35,7 @@ To enhance development of your APIs, you can export an API fronted in API Manage
 
 1. In the **Run in** dialog, select the Postman location to export to. You can select the option for the desktop app if you've installed it locally.
 1. In Postman, select a Postman workspace to import the API to. The default is *My Workspace*.
-1. In Postman, select **Generate collection from this API** to automatically generate a collection from the API definition. Accept default values for the remaining settings. Select **Import**.
+1. In Postman, select **Generate collection from this API** to automatically generate a collection from the API definition. If needed, configure advanced import options, or accept default values. Select **Import**.
 
     The collection and documentation are imported to Postman.
 
@@ -64,11 +64,9 @@ Use the following steps to configure a subscription key as a secret variable for
     
     If correctly configured, the operation returns a `200 OK` status and some output.
 
-## Supported API schemas
+## Supported API definitions
 
-Currently, you can only export an API definition from API Management directly to Postman in the following formats:
-
-* Swagger 2.0
+Currently, only an OpenAPI definition can be exported from API Management directly to Postman.
 
 ## Next steps
 
