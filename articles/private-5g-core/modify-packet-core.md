@@ -16,7 +16,7 @@ Each Azure Private 5G Core Preview site contains a packet core instance, which i
 
 ## Prerequisites
 
-- If you want to make changes to the packet core configuration or access network, refer to [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) and [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to collect the new values and make they're in the correct format.
+- If you want to make changes to the packet core configuration or access network, refer to [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) and [Collect access network values](collect-required-information-for-a-site.md#collect-access-network-values) to collect the new values and make sure they're in the correct format.
 - If you want to make changes to the attached data networks, refer to [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to collect the required values and make they're in the correct format.
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you used to create your private mobile network. This account must have the built-in Contributor or Owner role at the subscription scope.
 
@@ -43,6 +43,8 @@ In this step, you'll navigate to the **Packet Core Control Plane** resource repr
 
 ### Modify the packet core configuration
 
+To modify the packet core and/or access network configuration:
+
 1. In the **Configuration** tab, fill out the fields with any new values.
   
    - Use the information you collected in [Collect packet core configuration values](collect-required-information-for-a-site.md#collect-packet-core-configuration-values) for the top-level configuration values.
@@ -50,21 +52,23 @@ In this step, you'll navigate to the **Packet Core Control Plane** resource repr
 
     :::image type="content" source="media/modify-packet-core/modify-packet-core-configuration-tab.png" alt-text="Screenshot of the Azure portal showing the Modify packet core Configuration tab.":::
 
-2. If you also want to make changes to the attached data networks, select the **Data network** tab and go to [Modify attached data networks](#modify-attached-data-networks). Otherwise, go to [Submit and verify changes](#submit-and-verify-changes).
+2. If you also want to make changes to the attached data networks, select the **Data networks** tab and go to [Modify attached data networks](#modify-attached-data-networks). Otherwise, go to [Submit and verify changes](#submit-and-verify-changes).
 
 ### Modify attached data networks
 
 To configure a data network and attach it to your packet core instance:
 
-1. Select **Attach data network**.
-2. In the **Data network** field, choose an existing data network from the dropdown or select **Create new** to create a new one.
-3. Use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the remaining fields.
+1. In the the **Data networks** tab, select **Attach data network**.
+
+    :::image type="content" source="media/modify-packet-core/modify-packet-core-data-networks-tab.png" alt-text="Screenshot of the Azure portal showing the Modify packet core Data network tab.":::
+
+2. In the **Data network** field, choose an existing data network from the dropdown or select **Create new** to create a new one. Use the information you collected in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values) to fill out the remaining fields.
 
     :::image type="content" source="media/modify-packet-core/modify-packet-core-attach-data-network.png" alt-text="Screenshot of the Azure portal showing the Attach data network screen.":::
        <!-- TODO: Update screenshot after release of Simpler ASE Install feature -->
 
-4. Select **Attach**.
-5. Repeat this step for each additional data network you want to configure.
+3. Select **Attach**.
+4. Repeat this step for each additional data network you want to configure.
 
 ### Submit and verify changes
 
@@ -75,7 +79,7 @@ To configure a data network and attach it to your packet core instance:
 
 3. Select **Go to resource group**.
 
-    - If you made changes to the packet core configuration, navigate to the **Packet Core Control Plane** resource as described in [Modify the packet core instance](#modify-the-packet-core-instance). Check that the fields under **Configuration** and **Access network** contain the correct information.
+    - If you made changes to the packet core configuration, navigate to the **Packet Core Control Plane** resource as described in [Modify the packet core instance](#modify-the-packet-core-instance). Check that the fields under **Configuration** and **Access network** contain the updated information.
     - If you made changes to the attached data networks, select the **Mobile Network** resource, and then select **Data networks** in the resource menu. Check that all the data networks that you created or modified are listed and show as **Succeeded** in the **Status** column.
 
 ## Next steps

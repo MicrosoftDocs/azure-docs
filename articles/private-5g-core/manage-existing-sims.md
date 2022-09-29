@@ -63,7 +63,7 @@ To assign a SIM policy to one or more SIMs:
 
 Static IP address allocation ensures that a UE receives the same IP address every time it connects to the private mobile network. This is useful when you want Internet of Things (IoT) applications to be able to consistently connect to the same device. For example, you may configure a video analysis application with the IP addresses of the cameras providing video streams. If these cameras have static IP addresses, you won't need to reconfigure the video analysis application with new IP addresses each time the cameras restart.
 
-If you've configured static IP address allocation for your packet core instance(s), you can assign static IP addresses to the SIMs you've provisioned. If you have multiple data networks and/or sites in your private mobile network, you can assign a different static IP address for each data network to the same SIM.
+If you've configured static IP address allocation for your packet core instance(s), you can assign static IP addresses to the SIMs you've provisioned. If you have multiple data networks in your private mobile network, you can assign a different static IP address for each data network to the same SIM.
 
 Each IP address must come from the pool you assigned for static IP address allocation when creating the relevant site, as described in [Collect data network values](collect-required-information-for-a-site.md#collect-data-network-values). For more information, see [Allocate User Equipment (UE) IP address pools](complete-private-mobile-network-prerequisites.md#allocate-user-equipment-ue-ip-address-pools).
 
