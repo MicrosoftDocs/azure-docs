@@ -36,6 +36,8 @@ Use this article to learn which natural languages are supported by the NER featu
 | Finnish*              | `fi`          | 2019-10-01                   |                    |
 | French                | `fr`          | 2021-01-15                   |                    |
 | German                | `de`          | 2021-01-15                   |                    |
+| Hebrew                | `he`          | 2022-10-01                   |                    |
+| Hindi                 | `hi`          | 2022-10-01                   |                    |
 | Hungarian*            | `hu`          | 2019-10-01                   |                    |
 | Italian               | `it`          | 2021-01-15                   |                    |
 | Japanese              | `ja`          | 2021-01-15                   |                    |
