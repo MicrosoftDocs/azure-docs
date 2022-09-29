@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/22/2022
+ms.date: 09/29/2022
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
@@ -63,7 +63,6 @@ To assign a system-assigned managed identity to your storage account, call [Set-
 $storageAccount = Set-AzStorageAccount -ResourceGroupName $rgName `
     -Name $accountName `
     -AssignIdentity
-
 ```
 
 Next, assign to the system-assigned managed identity the required RBAC role, scoped to the key vault. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples:
@@ -82,15 +81,15 @@ To authenticate access to the key vault with a system-assigned managed identity,
 
 ```azurecli
 az storage account update \
-    --name <storage-account> \
-    --resource-group <resource_group> \
+    --name $accountName \
+    --resource-group $rgName \
     --assign-identity
 ```
 
 Next, assign to the system-assigned managed identity the required RBAC role, scoped to the key vault. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples:
 
 ```azurecli
-principalId = $(az storage account show --name <storage-account> --resource-group <resource_group> --query identity.principalId)
+principalId = $(az storage account show --name $accountName --resource-group $rgName --query identity.principalId)
 
 az role assignment create --assignee-object-id $principalId \
     --role "Key Vault Crypto Officer" \
