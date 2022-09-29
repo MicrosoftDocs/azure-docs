@@ -545,7 +545,7 @@ image_object_detection_job = automl.image_object_detection(
     training_data=my_training_data_input,
     validation_data=my_validation_data_input,
     target_column_name="label",
-    primary_metric="mean_average_precision",
+    primary_metric=ObjectDetectionPrimaryMetrics.MEAN_AVERAGE_PRECISION,
     tags={"my_custom_tag": "My custom value"},
 )
 
