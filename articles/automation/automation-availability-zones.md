@@ -5,7 +5,8 @@ keywords: automation availability zones.
 services: automation
 ms.subservice: process-automation
 ms.date: 06/29/2022
-ms.topic: conceptual 
+ms.topic: conceptual
+ms.custom: references_regions 
 ---
 
 # Availability zones support for Azure Automation
@@ -32,7 +33,7 @@ In the event when a zone is down, there's no action required by you to recover f
 ## Supported regions with availability zones
 
 See [Regions and Availability Zones in Azure](/global-infrastructure/geographies/#geographies) for the Azure regions that have availability zones. 
-Automation Accounts currently supports the following regions in preview: 
+Automation accounts currently support the following regions in preview: 
  
 - China North 3
 - Qatar Central
