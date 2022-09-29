@@ -16,8 +16,11 @@ ms.author: eur
 
 #### Prebuilt Neural TTS Voice
 
-* Released 2 new voices of `en-US` English (United States) in public preview: `en-US-AIGenerate1Neural` and `en-US-AIGenerate2Neural`. See [full language and voice list](../../language-support.md?tabs=stt-tts).
-* Released 3 new voices of Chinese dialects in public preview: `zh-CN-henan-YundengNeural`, `zh-CN-shaanxi-XiaoniNeural`, or `zh-CN-shandong-YunxiangNeural`. See [full language and voice list](../../language-support.md?tabs=stt-tts).
+Released new voices in public preview:
+* Voices for English (United States): `en-US-AIGenerate1Neural` and `en-US-AIGenerate2Neural`.
+* Voices for Chinese dialects: `zh-CN-henan-YundengNeural`, `zh-CN-shaanxi-XiaoniNeural`, and `zh-CN-shandong-YunxiangNeural`. 
+
+For more information, see the [language and voice list](../../language-support.md?tabs=stt-tts).
 
 ### 2022-July release
 
