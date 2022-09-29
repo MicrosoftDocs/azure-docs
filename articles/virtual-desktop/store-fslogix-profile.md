@@ -63,7 +63,21 @@ For more information about Azure Files performance, see [File share and file sca
 
 ## Azure NetApp Files tiers
 
-Azure NetApp Files volumes are organized in capacity pools. Volume performance is defined by the service level of the hosting capacity pool. Three performance levels are offered, ultra, premium and standard. For more information, see [Storage hierarchy of Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-understand-storage-hierarchy).
+Azure NetApp Files volumes are organized in capacity pools. Volume performance is defined by the service level of the hosting capacity pool and the size of the volume. Three performance levels are offered, ultra, premium and standard. For more information, see [Storage hierarchy of Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-understand-storage-hierarchy).
+Azure NetApp Files volume performance is proportional to the size of the provisioned volume. The number of users is not part of the volume service level recommendation as a result. 
+The following table shows the recommendation for 20GB and 50GB profile sizes:
+
+| Profile size (GB) | iops/user | Recommended file tier |
+|--------|-----------|-----------|
+|    | <20 | Standard |
+| 20 | 21-34 | Premium |
+|    | >35 | Ultra |
+|    | <34 | Standard |
+| 50 | 35-133 | Premium |
+|    | >134 | Ultra |
+
+For other profile sizes please use the [FSlogix calculator](https://github.com/ANFTechTeam/Fslogix-Calculator).
+
 
 ## Next steps
 
