@@ -12,7 +12,8 @@ This article describes how to configure Container insights to send Prometheus me
 
 ## Prerequisites
 
-- The cluster must be onboarded to Container insights. See [Enable Container insights for Azure Kubernetes Service (AKS) cluster](container-insights-enable-aks.md).
+- The cluster must be [onboarded to Container insights](container-insights-enable-aks.md).
+- The cluster must use [managed identity authentication](container-insights-enable-aks.md#migrate-to-managed-identity-authentication).
 - The following resource providers must be registered in the subscription of the AKS cluster and the Azure Monitor Workspace.
   - Microsoft.ContainerService
   - Microsoft.Insights

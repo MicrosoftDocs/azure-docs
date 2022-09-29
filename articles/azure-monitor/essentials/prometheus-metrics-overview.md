@@ -1,12 +1,12 @@
 ---
-title: Overview of Azure Monitor Managed Service for Prometheus
+title: Overview of Azure Monitor Managed Service for Prometheus (preview)
 description: Overview of Azure Monitor managed service for Prometheus which provides a Prometheus-compatible interface for storing and retrieving metric data.
 author: bwren 
 ms.topic: conceptual
 ms.date: 09/28/2022
 ---
 
-# Azure Monitor managed service for Prometheus
+# Azure Monitor managed service for Prometheus (preview)
 Azure Monitor managed service for Prometheus allows you to collect and analyze metrics at scale using a Prometheus-compatible monitoring solution, based on the [Prometheus](https://aka.ms/azureprometheus-promio) project from the Cloud Native Compute Foundation. This fully managed service allows you to use the [Prometheus query language (PromQL)](https://aka.ms/azureprometheus-promio-promql) to analyze and alert on the performance of monitored infrastructure and workloads without having to operate the underlying infrastructure.
 
 Azure Monitor managed service for Prometheus is a component of [Azure Monitor Metrics](data-platform-metrics.md), providing additional flexibility in the types of metric data that you can collect and analyze with Azure Monitor. Prometheus metrics share some features with platform and custom metrics, but use some different features to better support open source tools such as [PromQL](https://aka.ms/azureprometheus-promio-promql) and [Grafana](../../managed-grafana/overview.md).
