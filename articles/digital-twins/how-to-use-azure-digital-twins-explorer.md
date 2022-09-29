@@ -98,6 +98,8 @@ The Twin Graph panel also provides several abilities to customize your graph vie
 * [Show and hide twin graph elements](#show-and-hide-twin-graph-elements)
 * [Filter and highlight twin graph elements](#filter-and-highlight-twin-graph-elements)
 
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-prereq-instance.md)]
+
 ### View twins and relationships
 
 Run a query using the [Query Explorer](#query-your-digital-twin-graph) to see the twins and relationships in the query result displayed in the **Twin Graph** panel.
@@ -224,6 +226,8 @@ This section describes how to perform the following management activities:
 
 For information about the viewing experience for twins and relationships, see [Explore twins and the Twin Graph](#explore-the-twin-graph).
 
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-prereq-instance.md)]
+
 ### View flat list of twins and relationships
 
 The **Twins** panel shows a flat list of your twins and their associated relationships. You can search for twins by name, and expand them for details about their incoming and outgoing relationships.
@@ -233,6 +237,8 @@ The **Twins** panel shows a flat list of your twins and their associated relatio
 ### Create twins
 
 You can create a new digital twin from its model definition in the **Models** panel.
+
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-prereq-instance.md)]
 
 To create a twin from a model, find that model in the list and choose the menu dots next to the model name. Then, select **Create a Twin**. You'll be asked to enter a **name** for the new twin, which must be unique. Then save the twin, which will add it to your graph.
 
@@ -282,6 +288,8 @@ You can also choose to delete all of the twins in your instance at the same time
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/delete-all-twins.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Delete All Twins icon is selected." lightbox="media/how-to-use-azure-digital-twins-explorer/delete-all-twins.png":::
 
 ## Explore models and the Model Graph
+
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-prereq-instance.md)]
 
 Models can be viewed both in the **Models** panel on the left side of the Azure Digital Twins Explorer screen, and in the **Model Graph** panel in the middle of the screen.
 
@@ -381,6 +389,8 @@ Then, to upload the images at the same time, use the **Upload Model Images** ico
 :::row-end:::
 
 ## Manage models
+
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-prereq-instance.md)]
 
 You can use the **Models** panel on the left side of the Azure Digital Twins Explorer screen to perform management activities on the entire set of models, or on individual models. 
 
