@@ -15,7 +15,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article describes how to secure outbound traffic from your Azure Spring Apps applications. It provides a simple example of a user-defined route (UDR) instance. UDR is an advanced feature that lets you fully control egress traffic. It may be used in scenarios such as disallowing an Azure Spring Apps auto-generated public IP.
+This article describes how to secure outbound traffic from your Azure Spring Apps applications. It provides an example of a user-defined route (UDR) instance. UDR is an advanced feature that lets you fully control egress traffic. It may be used in scenarios such as disallowing an Azure Spring Apps auto-generated public IP.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ This article describes how to secure outbound traffic from your Azure Spring App
   - [Customer responsibilities for running Azure Spring Apps in VNET](vnet-customer-responsibilities.md)
   - [Customize Azure Spring Cloud egress with a User-Defined Route](concept-outbound-type.md)
 
-## Azure Spring Apps UDR instance example
+## Create a VNet instance using a user-defined route
 
 The following illustration shows an example of an Azure Spring Apps VNet instance using a user-defined route.
 
@@ -141,7 +141,7 @@ FWPUBLIC_IP=$(az network public-ip show -g $RG -n $FWPUBLICIP_NAME --query "ipAd
 FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurations[0].privateIpAddress" -o tsv  | tr -d '[:space:]')
 ```
 
-### Create a UDR with a hop to Azure Firewall
+### Create a user-defined route with a hop to Azure Firewall
 
 Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change Azure's default routing, create a route table.
 
@@ -172,7 +172,7 @@ az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'asa
 az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwar' -n 'fqdn' --source-addresses '*' --protocols 'http=80' 'https=443' --fqdn-tags "AzureKubernetesService" --action allow --priority 100
 ```
 
-### Associate the route tables to Subnets
+### Associate route tables with subnets
 
 To associate the cluster with the firewall, the dedicated subnet for the cluster's subnet must reference the route table you created. App and service runtime subnets must be associated with corresponding route tables. The following example shows how to associate a route table with a subnet.
 
