@@ -21,9 +21,9 @@ The Azure Spring Apps service uses an underlying ingress controller to handle ap
 |----------------------|------------------------|---------------|-------------------|--------------------------------------------------------------------------|
 | ingress-read-timeout | proxy-read-timeout     | 300           | \[1,1800\]        | The timeout in seconds for reading a response from a proxied server.     |
 | ingress-send-timeout | proxy-send-timeout     | 60            | \[1,1800\]        | The timeout in seconds for transmitting a request to the proxied server. |
-| session-affinity     | affinity               | None          | Session, None     | Type of the affinity, which will make the request come to the same pod replica that was responding to the request before. Set this to Cookie to enable session affinity, in the portal only need to choose the enable session affinity box.    |
+| session-affinity     | affinity               | None          | Session, None     | Type of the affinity, which will make the request come to the same pod replica that was responding to the request before. Set session-affinity to Cookie to enable session affinity, in the portal only need to choose the enable session affinity box.    |
 | session-max-age      | session-cookie-max-age | 0             | \[0,7 days\]      | Time seconds until the cookie expires, corresponds to the Max-Age cookie directive. If set to 0, the expiration period is equal to the browser session period. |
-| backend-protocol     | backend-protocol       | Default       | Default, GRPC     | Sets the backend-protocol to indicate how NGINX should communicate with the backend service. Default means HTTP/HTTPS/WebSocket. The setting is only about client-to-app traffic, for app-to-app traffic within the same service instance, you may choose any protocol for app-to-app traffic without modifying this option, that is the protocol here does not restrict your choice of protocol for app-to-app traffic within the same service instance.  |
+| backend-protocol     | backend-protocol       | Default       | Default, GRPC     | Sets the backend-protocol to indicate how NGINX should communicate with the backend service. Default means HTTP/HTTPS/WebSocket. The backend-protocol setting is only about client-to-app traffic. For app-to-app traffic within the same service instance, choose any protocol for app-to-app traffic without modifying this option. The protocol doesn't restrict your choice of protocol for app-to-app traffic within the same service instance.  |
 
 ## Prerequisites
 
@@ -92,11 +92,11 @@ This command will update the ingress read timeout to 600 seconds, ingress send t
   - Set the backend protocol to `GRPC`.
 
 - How to enable WebSocket?
-  - Set the backend protocol to `Default`, and the WebScocket is enabled by default.
+  - Set the backend protocol to `Default`, and the WebSocket is enabled by default.
   - For WebSocket connection limit, the upper limit is 20000, and when you reach that limit the connection will fail.
-  - You can use RSocket based on WebSocket, as well as you set the backend protocol to `Default`.
+  - You can also use RSocket based on WebSocket.
 
-- The `ingress config` still can be used in CLI and sdk, and that setting will apply to all apps within the service instance, but once an app has been configured by `ingress settings`, the `ingress config` will not affect it. We do not recommend new scripts to use "ingress config" any more, since we plan to stop supporting it in the future.
+- The `ingress config` still can be used in CLI and sdk, and that setting will apply to all apps within the service instance, but once an app has been configured by `ingress settings`, the `ingress config` won't affect it. We don't recommend that new scripts use "ingress config" since we plan to stop supporting it in the future.
 
 - When ingress settings are used together with App Gateway/APIM, what is the overall effect of timeout when you set the timeout in both ASA ingress and the App Gateway/APIM?
   - The shorter timeout should be effective.
@@ -104,7 +104,7 @@ This command will update the ingress read timeout to 600 seconds, ingress send t
 - Do you need extra config in App Gateway/APIM if you need to have end-to-end support for gRPC or WebSocket?
   - Nothing extra config as long as the App Gateway support gRPC.
 
-- Configurable port is not currently supported (80/443)
+- Configurable port isn't currently supported (80/443)
 
 ## Next steps
 
