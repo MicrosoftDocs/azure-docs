@@ -1,19 +1,54 @@
 {
     "redirections": [
         {
+            "source_path":  "articles/site-recovery/deploy-vmware-azure-replication-appliance-preview.md",
+            "redirect_url":  "/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized",
+            "redirect_document_id":  false
+        },
+        {
+            "source_path": "articles/iot-hub/iot-hub-rm-template.md",
+            "redirect_url": "/azure/iot-hub/iot-hub-rm-template-powershell",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/visual-studio/vs-storage-cloud-services-getting-started-blobs.md",
             "redirect_url": "/previous-versions/azure/visual-studio/vs-storage-cloud-services-getting-started-blobs",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/visual-studio/vs-storage-cloud-services-getting-started-queues.md",
-            "redirect_url": "/previous-versions/azure/visual-studio/vs-storage-cloud-services-getting-started-queues",
-            "redirect_document_id": false
+            "source_path":  "articles/site-recovery/failover-failback-overview-preview.md",
+            "redirect_url":  "/azure/site-recovery/failover-failback-overview-modernized",
+            "redirect_document_id":  false
         },
         {
-            "source_path": "articles/visual-studio/vs-storage-cloud-services-getting-started-tables.md",
-            "redirect_url": "/previous-versions/azure/visual-studio/vs-storage-cloud-services-getting-started-tables",
-            "redirect_document_id": false
+            "source_path":  "articles/site-recovery/switch-replication-appliance-preview.md",
+            "redirect_url":  "/azure/site-recovery/switch-replication-appliance-modernized",
+            "redirect_document_id":  false 
+        },
+        {
+            "source_path":  "articles/site-recovery/upgrade-mobility-service-preview.md",
+            "redirect_url":  "/azure/site-recovery/upgrade-mobility-service-modernized",
+            "redirect_document_id":  false   
+        },
+        {
+            "source_path":  "articles/site-recovery/vmware-azure-set-up-replication-tutorial-preview.md",
+            "redirect_url":  "/azure/site-recovery/vmware-azure-set-up-replication-tutorial-modernized",
+            "redirect_document_id":  false   
+        },
+        {
+            "source_path":  "articles/site-recovery/vmware-azure-architecture-preview.md",
+            "redirect_url":  "/azure/site-recovery/vmware-azure-architecture-modernized",
+            "redirect_document_id":  false   
+        },
+        {
+            "source_path":  "articles/physical-server-azure-architecture-preview.md",
+            "redirect_url":  "/azure/physical-server-azure-architecture-modernized",
+            "redirect_document_id":  false   
+        },
+        {
+            "source_path":  "articles/vmware-azure-tutorial-failover-failback-preview.md",
+            "redirect_url":  "/azure/vmware-azure-tutorial-failover-failback-modernized",
+            "redirect_document_id":  false   
         },
         {
             "source_path": "articles/automanage/automanage-virtual-machines.md",
@@ -6216,6 +6251,41 @@
         {
             "source_path_from_root": "/articles/azure-cache-for-redis/scripts/show-cache.md",
             "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+            "redirect_document_id": false
+        },
+        { 
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac-attributes.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac-attributes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac-cli.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac-examples.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac-examples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac-portal.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac-powershell.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac-security.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac",
             "redirect_document_id": false
         },
         {
@@ -28801,3 +28871,4 @@
         }
     ]
 }
+

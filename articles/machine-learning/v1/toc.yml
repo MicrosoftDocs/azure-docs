@@ -7,20 +7,53 @@
   - name: Architecture & terms 
     displayName: architecture, concepts, definitions, glossary
     href: concept-azure-machine-learning-architecture.md
-  - name: Migrate from ML Studio (classic)
-    items:
-    - name: Migration overview
-      href: ../migrate-overview.md
-    - name: Migrate datasets
-      href: ../migrate-register-dataset.md
-    - name: Rebuild experiments
-      href: ../migrate-rebuild-experiment.md
-    - name: Rebuild web services
-      href: ../migrate-rebuild-web-service.md
-    - name: Migrate client applications
-      href: ../migrate-rebuild-integrate-with-client-app.md
-    - name: Rebuild Execute R Script components
-      href: ../migrate-execute-r-script.md
+
+- name: Upgrade to SDK v2
+  items:
+    - name: Upgrade overview
+      displayName: migration
+      href: ../how-to-migrate-from-v1.md
+    - name: Migrate resources and assets
+      items:
+      - name: "Workspace"
+        displayName: migration, v1, v2
+        href: ../migrate-to-v2-resource-workspace.md
+      - name: "Compute"
+        displayName: migration, v1, v2
+        href: ../migrate-to-v2-resource-compute.md
+      - name: "Datastore"
+        displayName: migration, v1, v2
+        href: ../migrate-to-v2-resource-datastore.md
+      - name: "Data assets"
+        displayName: migration, v1, v2
+        href: ../migrate-to-v2-assets-data.md
+      - name: "Model assets"
+        displayName: migration, v1, v2
+        href: ../migrate-to-v2-assets-model.md
+      - name: Migrate training
+        items:
+      - name: "Run a script"
+        displayName: migration, v1, v2
+        href: ../migrate-to-v2-command-job.md
+      - name: "Local runs"
+        displayName: migration, v1, v2
+        href: ../migrate-to-v2-local-runs.md
+      - name: "AutoML"
+        displayName: migration, v1, v2
+        href: ../migrate-to-v2-execution-automl.md
+      - name: "Hyperparameter tuning"
+        displayName: migration, v1, v2
+        href: ../migrate-to-v2-execution-hyperdrive.md
+      - name: "Parallel run step"
+        displayName: migration, v1, v2
+        href: ../migrate-to-v2-execution-parallel-run-step.md  
+      - name: "Pipelines"
+        displayName: migration, v1, v2
+        href: ../migrate-to-v2-execution-pipeline.md  
+    - name: "Migrate endpoints"
+      displayName: migration, v1, v2
+      href: ../migrate-to-v2-deploy-endpoints.md  
+
 - name: Concepts (v1)
   items:
   - name: Model training
@@ -45,6 +78,9 @@
     - name: Manage resources VS Code
       displayName: vscode,resources
       href: ../how-to-manage-resources-vscode.md
+    - name: Git integration
+      displayName: github gitlab
+      href: ../concept-train-model-git-integration.md
 - name: Tutorials (v1)
   expanded: true
   items:
@@ -85,6 +121,9 @@
     href: how-to-manage-workspace-cli.md
   - name: Set up software environments CLI (v1)
     href: how-to-use-environments.md
+  - name: Use private Python packages
+    displayName: pip, Conda, anaconda
+    href: how-to-use-private-python-packages.md
   - name: Create & manage compute resources
   - name: Workspace Diagnostics
     href: how-to-workspace-diagnostic-api.md
@@ -225,6 +264,9 @@
       href: how-to-use-mlflow.md
     - name: Log & view metrics
       href: how-to-log-view-metrics.md
+    - name: Visualize runs with TensorBoard
+      displayName: log, monitor, metrics
+      href: ../how-to-monitor-tensorboard.md
     - name: Interpret ML models
       displayName: SDK, interpret, explain, explainability, interpretability
       href: ../how-to-machine-learning-interpretability-aml.md
@@ -235,6 +277,9 @@
       href: how-to-prepare-datasets-for-automl-images-v1.md
     - name: Reinforcement learning
       href: how-to-use-reinforcement-learning.md
+    - name: Explain automated ML models
+      displayName: SDK, interpret, interpret, explain, explainability, interpretability, automated ML, automl, auto ml
+      href: how-to-machine-learning-interpretability-automl.md
   - name: Deploy models
     items:
     - name: Where and how to deploy
@@ -337,7 +382,7 @@
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
 - name: Reference (v1)
-  items:
+  items: 
   - name: Machine learning CLI pipeline YAML reference
     href: reference-pipeline-yaml.md
   - name: Hyperparameters for AutoML computer vision tasks (v1)
@@ -345,3 +390,17 @@
     href: reference-automl-images-hyperparameters-v1.md
   - name: Image data schemas for AutoML (v1)
     href: reference-automl-images-schema-v1.md
+  - name: Migrate from ML Studio (classic)
+    items: 
+    - name: Migration overview
+      href: ../migrate-overview.md
+    - name: Migrate datasets
+      href: ../migrate-register-dataset.md
+    - name: Rebuild experiments
+      href: ../migrate-rebuild-experiment.md
+    - name: Rebuild web services
+      href: ../migrate-rebuild-web-service.md
+    - name: Migrate client applications
+      href: ../migrate-rebuild-integrate-with-client-app.md
+    - name: Rebuild Execute R Script components
+      href: ../migrate-execute-r-script.md

@@ -60,13 +60,13 @@ You can use the Editor widget to create new projects and manage a video's insigh
 
 ## Embed videos
 
-This section discusses embedding videos by [using the portal](#the-portal-experience) or by [assembling the URL manually](#assemble-the-url-manually) into apps. 
+This section discusses embedding videos by [using the website](#the-website-experience) or by [assembling the URL manually](#assemble-the-url-manually) into apps. 
 
 The `location` parameter must be included in the embedded links, see [how to get the name of your region](regions.md). If your account is in preview, the `trial` should be used for the location value. `trial` is the default value for the `location` parameter. For example: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
-### The portal experience
+### The website experience
 
-To embed a video, use the portal as described below:
+To embed a video, use the website as described below:
 
 1. Sign in to the [Azure Video Indexer](https://www.videoindexer.ai/) website.
 1. Select the video that you want to work with and press **Play**.
