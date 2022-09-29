@@ -11,7 +11,7 @@ ms.custom: devdivchpfy22
 
 # Quickstart: Configure an Azure Deployment Environments Preview Project
 
-In this tutorial, you create and configure an Azure Deployment Environments Preview Project and associate it to the Dev center created in [Quickstart: Configure an Azure Deployment Environments service](./quickstart-create-and-configure-devcenter.md). The enterprise dev IT team typically creates projects and provides access to development teams. Development teams (for example: developers and testers) then create [Environments](concept-environments-key-concepts.md#environments) using the Catalog Items, connect to individual resources, and deploy their applications.
+In this tutorial, you create and configure an Azure Deployment Environments Preview Project and associate it to the Dev center created in [Quickstart: Configure an Azure Deployment Environments service](./quickstart-create-and-configure-devcenter.md). The enterprise Dev Infra team typically creates projects and provides access to development teams. Development teams then create [environments](concept-environments-key-concepts.md#environments) using the [catalog items](concept-environments-key-concepts.md#catalog-items), connect to individual resources, and deploy their applications.
 
 In this quickstart, you'll learn how to:
 

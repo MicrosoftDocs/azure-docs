@@ -5,13 +5,13 @@ author: anandmeg
 ms.author: meghaanand
 ms.topic: quickstart
 ms.service: deployment-environments
-ms.date: 08/05/2022
+ms.date: 09/28/2022
 ms.custom: devdivchpfy22
 ---
 
 # Quickstart: Configure the Azure Deployment Environments Preview service
 
-This quickstart shows you how to configure Azure Deployment Environments Preview by using the Azure portal. The Enterprise Dev IT team typically sets up a Dev center, configures different entities within the Dev center, creates Projects, and provides access to development teams. Development teams create [Environments](concept-environments-key-concepts.md#environments) using the [Catalog items](concept-environments-key-concepts.md#catalog-items), connect to individual resources, and deploy their applications.
+This quickstart shows you how to configure Azure Deployment Environments Preview by using the Azure portal. The Enterprise Dev Infra team typically sets up a Dev center, configures different entities within the Dev center, creates projects, and provides access to development teams. Development teams create [Environments](concept-environments-key-concepts.md#environments) using the [Catalog items](concept-environments-key-concepts.md#catalog-items), connect to individual resources, and deploy their applications.
 
 In this quickstart, you'll perform the following actions:
 
@@ -63,17 +63,17 @@ The following steps illustrate how to use the Azure portal to create and configu
 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/devcenter-overview.png" alt-text="Screenshot of DevCenter page to confirm the DevCenter is created and displayed on Dev center page":::
 
-## Attach an [Identity](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/project-fidalgo-concepts.md#identities)
+## Attach an Identity
 
-After you've created a Dev center, the next step is to create a system-assigned managed identity or attach an existing user-assigned managed identity.
+After you've created a dev center, the next step is to attach an [identity](concept-environments-key-concepts.md#identities) to the dev center, either a system assigned managed identity or a user assigned managed identity.
 
 ### Using a system-assigned managed identity
 
-1. Create a system-assigned managed identity by switching the status to **On**, selecting **Save** and confirming **Yes**. [Learn more about system-assigned managed identities.](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/configure-managed-identity.md#types-of-managed-identities)
+1. Create a system-assigned managed identity by switching the status to **On**, selecting **Save** and confirming **Yes**. Learn more about [system-assigned managed identities.](how-to-configure-managed-identity.md#types-of-managed-identities)
 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/system-assigned-identity-tab.png" alt-text="Screenshot of system-assigned managed identity tab.":::
 
-1. After the system-assigned managed identity is created, select **Azure role assignments** to provide **Owner** access on the subscriptions that will be used in [Mappings](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/project-fidalgo-concepts.md#mappings) and ensure the **Identity** has [access to the **Key Vault** secrets](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/configure-managed-identity.md#assigning-key-vault-secret-access) containing the personal access token (PAT) token to access your repository.
+1. [Optional] After the system-assigned managed identity is created, select **Azure role assignments** to provide **Owner** access on the subscriptions that will be used to configure [Project Environment Types](concept-environments-key-concepts.md#project-environment-types) and ensure the **Identity** has [access to the **Key Vault** secrets](how-to-configure-managed-identity.md#assign-the-managed-identity-access-to-the-key-vault-secret) containing the personal access token (PAT) token to access your repository.
 
 ### Using the user-assigned existing managed identity
 
@@ -88,11 +88,14 @@ After you've created a Dev center, the next step is to create a system-assigned 
 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/add-user-assigned-managed-identity.png" alt-text="Screenshot of user-assigned managed identity tab.":::
 
-1. After the identity is attached, ensure that the attached identity has **Owner** access on the subscriptions that will be used in Mappings. Also, check **Reader** access to all subscriptions that a project lives in. Also ensure the identity has access to the Key Vault secrets containing the personal access token (PAT) token to access the repository.
+1. [Optional] After the identity is attached, ensure that the attached identity has **Owner** access on the subscriptions that will be used to configure Project Environment Types. Also, provide **Reader** access to all subscriptions that a project lives in. Also ensure the identity has access to the Key Vault secrets containing the personal access token (PAT) token to access the repository.
 
-## Attach a [Catalog](https://github.com/Azure/Project-Fidalgo-PrivatePreview/blob/main/Documentation/project-fidalgo-concepts.md#catalogs)
+>[!NOTE]
+> If the [identity](concept-environments-key-concepts.md#identities) attached to a dev center is not granted access to the target subscriptions configured in project environment types, the deployment identities should be granted 'Owner' access to the respective target deployment subscriptions.
 
-**Prerequisite** - Before attaching a Catalog, store the personal access token (PAT) as a [Key Vault secret](../key-vault/secrets/quick-create-portal.md) and copy the **Secret Identifier**. Ensure that the Identity attached to the Dev center has [**Get** access to the **Secret**](../key-vault/general/assign-access-policy.md).
+## Attach a Catalog
+
+**Prerequisite** - Before attaching a [Catalog](concept-environments-key-concepts.md#catalogs), store the personal access token (PAT) as a [Key Vault secret](../key-vault/secrets/quick-create-portal.md) and copy the **Secret Identifier**. Ensure that the [Identity](concept-environments-key-concepts.md#identities) attached to the Dev center has [**Get** access to the **Secret**](../key-vault/general/assign-access-policy.md).
 
 1. Select **Catalogs** in the left menu and select **+ Add Repo**.
 
@@ -114,7 +117,7 @@ After you've created a Dev center, the next step is to create a system-assigned 
 
 ## Create Environment types
 
-Environment types help you define the different types of environments your development teams can create and apply different settings for different environment types.
+Environment types help you define the different types of environments your development teams can deploy. You can apply different settings per environment type per project.
 
 1. Select the **Environment types** in the left menu and select **+ Add**.
 1. On the **Add environment type** page, provide the following details and select **Add**.
