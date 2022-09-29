@@ -209,6 +209,9 @@ To accomplish the scenario, you need to create two pipelines with the following 
 > [!NOTE] 
 > These prices are for example purposes only.
 
+> [!NOTE] 
+> Unlilke Azure Data Factory V1, where an inactive pipeline is charged at $0.80 per month; In Azure Data Factory v2, the charge is for data pipeline orchestration by activity run and activity execution by integration runtime hours and not charged for any inactive pipelines.
+
 **FAQ**
 
 Q: If I would like to run more than 50 pipeline activities, can these activities be executed simultaneously?
