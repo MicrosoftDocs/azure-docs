@@ -28,7 +28,7 @@ You can use ACSS to deploy the following types of SAP systems:
 For existing SAP systems that run on Azure, there's a simple registration experience. You can register the following types of existing SAP systems that run on Azure:
 
 - An SAP system that runs on SAP NetWeaver or ABAP stack
-- SAP systems that run on SUSE and RHEL Linux operating systems
+- SAP systems that run on Windows, SUSE and RHEL Linux operating systems
 - SAP systems that run on HANA, DB2, SQL Server, Oracle, Max DB, or SAP ASE databases
 
 ACSS brings services, tools and frameworks together to provide an end-to-end unified experience for deployment and management of  SAP workloads on Azure, creating the foundation for you to build innovative solutions for your unique requirements.
@@ -61,6 +61,7 @@ After you create a VIS, you can:
 - Start and stop the SAP application tier.
 - Get quality checks and insights about your SAP system.
 - Monitor your Azure infrastructure metrics for your SAP system resources. For example, the CPU percentage used for ASCS and Application Server VMs, or disk input/output operations per second (IOPS).
+- Analyze the cost of running your SAP System on Azure [VMs, Disks, Loadbalancers]
 
 ## Next steps
 
