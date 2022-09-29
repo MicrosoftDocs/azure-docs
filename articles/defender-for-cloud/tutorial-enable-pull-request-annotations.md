@@ -5,7 +5,7 @@ ms.topic: overview
 ms.date: 09/20/2022
 ---
 
-# Tutorial: Enable pull request annotations in GitHub and Azure Devops
+# Tutorial: Enable pull request annotations in GitHub and Azure DevOps
 
 With Microsoft Defender for Cloud, you can configure pull request annotations in Azure DevOps. Pull request annotations are enabled in Microsoft Defender for Cloud by security operators and are sent to the developers who can then take action directly in their pull requests. This allows both security operators and developers to see the same security issue information in the systems they're accustomed to working in. Security operators see unresolved findings in Defender for Cloud and developers see them in their source code management systems. These issues can then be acted upon by developers when they submit their pull requests. This helps prevent and fix potential security vulnerabilities and misconfigurations before they enter the production stage.
 
