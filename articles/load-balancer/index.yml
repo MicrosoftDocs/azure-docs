@@ -34,6 +34,8 @@ landingContent:
             url: https://azure.microsoft.com/updates/?category=networking&query=load%20balancer
           - text: Load Balancer SKUs
             url: skus.md
+          - text: Upgrade guidance from basic to standard Load Balancer
+            url: load-balancer-basic-upgrade-guidance.md
       - linkListType: learn
         links:
           - text: Introduction to Azure Load Balancer

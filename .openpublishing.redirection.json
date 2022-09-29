@@ -2,7 +2,7 @@
     "redirections": [
         {
             "source_path": "articles/iot-hub/iot-hub-rm-template.md",
-            "redirect_url": "articles/iot-hub/iot-hub-rm-rest",
+            "redirect_url": "/azure/iot-hub/iot-hub-rm-template-powershell",
             "redirect_document_id": false
         },
         {
@@ -6221,6 +6221,41 @@
         {
             "source_path_from_root": "/articles/azure-cache-for-redis/scripts/show-cache.md",
             "redirect_url": "/azure/azure-cache-for-redis/scripts/create-manage-cache",
+            "redirect_document_id": false
+        },
+        { 
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac-attributes.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac-attributes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac-cli.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac-examples.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac-examples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac-portal.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac-powershell.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac-security.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-auth-abac.md",
+            "redirect_url": "/azure/storage/blobs/storage-auth-abac",
             "redirect_document_id": false
         },
         {

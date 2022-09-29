@@ -96,12 +96,12 @@ sections:
       - question: |
           Why don’t my existing private DNS zones show up in new portal experience?
         answer: |
-          If your existing private DNS zone were created using preview API, you must migrate these zones to new resource model. Private DNS zones created using preview API will not show up in new portal experience. See below for instructions on how to migrate to new resource model.
+          If your existing private DNS zone were created using preview API, you must migrate these zones to new resource model. Private DNS zones created using preview API won't show up in new portal experience. See below for instructions on how to migrate to new resource model.
 
       - question: |
           How do I migrate my existing private DNS zones to the new model?
         answer: |
-          We strongly recommend that you migrate to the new resource model as soon as possible. Legacy resource model will be supported, however, further features will not be developed on top of this model. In future, we intend to deprecate it in favor of new resource model. For guidance on how to migrate your existing private DNS zones to new resource model see[migration guide for Azure DNS private zones](private-dns-migration-guide.md).
+          We strongly recommend that you migrate to the new resource model as soon as possible. Legacy resource model will be supported, however, further features won't be developed on top of this model. In future, we intend to deprecate it in favor of new resource model. For guidance on how to migrate your existing private DNS zones to new resource model see[migration guide for Azure DNS private zones](private-dns-migration-guide.md).
           
           ### Does Azure DNS private zones store any customer content?
           No, Azure DNS private zones doesn't store any customer content.

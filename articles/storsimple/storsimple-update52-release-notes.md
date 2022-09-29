@@ -42,7 +42,7 @@ Use the following steps to install Update 5.2:
 
 1. [Connect to Windows PowerShell on the StorSimple 8000 series device](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console), or connect directly to the appliance via serial cable.
 
-1. Use [Start-HcsUpdate](/powershell/module/hcs/start-hcsupdate.md?view=winserver2012r2-ps&preserve-view=true) to update the device. For detailed steps, see [Install regular updates via Windows PowerShell](storsimple-update-device.md#to-install-regular-updates-via-windows-powershell-for-storsimple). This update is non-disruptive.
+1. Use [Start-HcsUpdate](/powershell/module/hcs/start-hcsupdate?view=winserver2012r2-ps&preserve-view=true) to update the device. For detailed steps, see [Install regular updates via Windows PowerShell](storsimple-update-device.md#to-install-regular-updates-via-windows-powershell-for-storsimple). This update is non-disruptive.
 
 1. If ```Start-HcsUpdate``` doesn't work because of firewall issues, contact Microsoft Support. 
 

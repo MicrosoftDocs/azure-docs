@@ -190,4 +190,4 @@ The following example demonstrates how to configure the liveness and readiness p
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Monitor an app](monitor.md)
+> [Application logging](logging.md)

@@ -95,7 +95,7 @@ Next, add a virtual network to the resource group that you created, and configur
 
     ![create resolver - review](./media/dns-resolver-getstarted-portal/resolver-review.png)
 
-    After selecting **Create**, the new DNS resolver will begin deployment. This process might take a minute or two, and you'll see the status of each component as it is deployed.
+    After selecting **Create**, the new DNS resolver will begin deployment. This process might take a minute or two, and you'll see the status of each component as it's deployed.
 
     ![create resolver - status](./media/dns-resolver-getstarted-portal/resolver-status.png)
 

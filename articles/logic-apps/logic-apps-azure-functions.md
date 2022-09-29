@@ -45,7 +45,7 @@ This article shows how to call an Azure function from a logic app workflow. To r
 
   * If you have an OpenAPI definition for your function, the workflow designer gives you a richer experience when your work with function parameters. Before your logic app workflow can find and access functions that have OpenAPI definitions, [set up your function app by following these later steps](#function-swagger).
 
-* Either a [Consumption or Standard](logic-apps-overview.md#resource-type-and-host-environment-differences) logic app resource and workflow where you want to use the function.
+* Either a [Consumption or Standard](logic-apps-overview.md#resource-environment-differences) logic app resource and workflow where you want to use the function.
 
   Before you can add an action that runs a function in your workflow, the workflow must start with a trigger as the first step. If you're new to logic app workflows, review [What is Azure Logic Apps](logic-apps-overview.md) and [Quickstart: Create your first logic app workflow](quickstart-create-first-logic-app-workflow.md).
 

@@ -54,7 +54,7 @@ With Azure Container Apps, you can:
 
 - [**Securely manage secrets**](manage-secrets.md) directly in your application.
 
-- [**Monitor your apps**](monitor.md) using Azure Log Analytics.
+- [**Monitor logs**](log-monitoring.md) using Azure Log Analytics.
 
 - [**Generous quotas**](quotas.md) which are overridable to increase limits on a per-account basis.
 
