@@ -88,7 +88,7 @@ As you look to deploy SAP production systems, you need to consider hot standby t
 
 In general, Microsoft supports only high availability configurations and software packages that are described in the [SAP workload scenarios](./get-started.md). You can read the same statement in SAP note [#1928533](https://launchpad.support.sap.com/#/notes/1928533). Microsoft will not provide support for other high availability third-party software frameworks that aren't documented by Microsoft with SAP workload. In such cases, the third-party supplier of the high availability framework is the supporting party for the high availability configuration who needs to be engaged by you as a customer into the support process. Exceptions are going to be mentioned in this article.
 
-In general Microsoft supports a limited set of high availability configurations on Azure VMs or HANA Large Instances units. For the supported scenarios of HANA Large Instances, read the document [Supported scenarios for HANA Large Instances](./hana-supported-scenario.md).
+In general, Microsoft supports a limited set of high availability configurations on Azure VMs or HANA Large Instances units. For the supported scenarios of HANA Large Instances, read the document [Supported scenarios for HANA Large Instances](./hana-supported-scenario.md).
 
 For Azure VMs, the following high availability configurations are supported on DBMS level:
 
@@ -160,7 +160,7 @@ SAP Central Services is a second single point of failure of your SAP configurati
 - Pacemaker on Red Hat operating system with NFS share hosted on [Azure NetApp Files](https://azure.microsoft.com/services/netapp/). Details are described in the article
 	- [Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux with Azure NetApp Files for SAP applications](./high-availability-guide-rhel-netapp-files.md)
 
-Of the listed solutions, you need a support relationship with SIOS to support the `Datakeeper` product and to engage with SIOS directly in case of issues. Dependent on the way you licensed the Windows, Red Hat, and/or SUSE OS, you could also be required to have a support contract with your OS provider to have full support of the listed high availability configurations.
+Of the listed solutions, you need a support relationship with SIOS to support the `Datakeeper` product and to engage with SIOS directly if problems are encountered. Dependent on the way you licensed the Windows, Red Hat, and/or SUSE OS, you could also be required to have a support contract with your OS provider to have full support of the listed high availability configurations.
 
 The configuration can as well be displayed like:
 
