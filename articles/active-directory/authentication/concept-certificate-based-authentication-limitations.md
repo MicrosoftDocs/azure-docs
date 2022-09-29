@@ -67,7 +67,7 @@ The following scenarios aren't supported:
 | Android          | &#x2705;  | &#10060;    |  N/A       | N/A        |    &#10060;     | &#10060;  |
 
 >[!NOTE]
-> On Edge, users can sign into edge to set up profile with MSAL like the Add account flow in profile. When logged into Edge with a profile, CBA is supported with 
+> On iOS and Android mobile, edge browser users can sign into edge to set up profile with MSAL like the Add account flow in profile. When logged into Edge with a profile, CBA is supported with 
 > on-device certificates and smart cards.
 
 ## Smart card providers
