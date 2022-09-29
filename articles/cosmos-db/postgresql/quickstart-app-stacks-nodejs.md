@@ -128,7 +128,7 @@ queryDatabase();
 Azure Cosmos DB for PostgreSQL gives you [the super power of distributing tables](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. The command below enables you to distribute a table. You can learn more about `create_distributed_table` and the distribution column [here](quickstart-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
 
 > [!NOTE]
-> Distributing tables has no effect in an Azure Cosmos DB for PostgreSQL cluster with no worker nodes.
+> Distributing tables lets them grow across any worker nodes added to the cluster.
 
 Use the following code to connect to the database and distribute the table.
 
