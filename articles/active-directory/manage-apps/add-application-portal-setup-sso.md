@@ -109,5 +109,5 @@ To test SSO:
 ## Next steps
 
 - [Manage self service access](manage-self-service-access.md)
-- [Configure user consent](configure-user-consent?tabs=azure-portal)
+- [Configure user consent](configure-user-consent.md)
 - [Grant tenant-wide admin consent](grant-admin-consent.md)

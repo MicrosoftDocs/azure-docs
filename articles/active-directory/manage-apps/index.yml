@@ -101,6 +101,10 @@ landingContent:
             url: configure-permission-classifications.md
           - text: Manage entitlement
             url: ../governance/entitlement-management-scenarios.md
+      - linkListType: learn
+        links:
+          - text: Configure admin consent workflow
+            url: /training/modules/configure-admin-consent-workflow/
   - title: Maintain an app
     linkLists:
       - linkListType: how-to-guide
