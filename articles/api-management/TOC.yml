@@ -68,6 +68,9 @@
         href: api-management-gateways-overview.md
       - name: Self-hosted gateway
         href: self-hosted-gateway-overview.md
+      - name: High availability
+        href: high-availability.md
+        displayName: reliability, resilience, resiliency  
       - name: Networking
         href: virtual-network-concepts.md
       - name: Security
@@ -80,6 +83,7 @@
               href: authentication-authorization-overview.md
       - name: Observability
         href: observability.md
+        displayName: monitoring
       - name: DevOps and CI/CD
         href: devops-api-development-templates.md  
       - name: APIs
@@ -112,6 +116,8 @@
               href: configure-custom-domain.md
             - name: Deploy to multiple Azure regions
               href: api-management-howto-deploy-multi-region.md
+            - name: Configure Front Door
+              href: front-door-api-management.md
             - name: Enable zone redundancy
               displayName: Availability zones
               href: ../availability-zones/migrate-api-mgt.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json

@@ -77,4 +77,5 @@
   items:
   - name: FAQ
     href: faq-energy-data-services.yml
-
+  - name: Region availability
+    href: https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=energy-data-services&regions=all

@@ -90,7 +90,7 @@ When you develop your functions locally, any local settings required by your app
 + To learn more about local development of compiled C# functions (both in-process and isolated process) using Visual Studio, see [Develop Azure Functions using Visual Studio](functions-develop-vs.md).
 + To learn more about local development of functions using VS Code on a Mac, Linux, or Windows computer, see the Visual Studio Code getting started article for your preferred language:
     + [C# (in-process)](create-first-function-vs-code-csharp.md)
-    + [C# )isolated process)](create-first-function-vs-code-csharp.md?tabs=isolated-process)
+    + [C# (isolated process)](create-first-function-vs-code-csharp.md?tabs=isolated-process)
     + [Java](create-first-function-vs-code-java.md)
     + [JavaScript](create-first-function-vs-code-node.md)
     + [PowerShell](create-first-function-vs-code-powershell.md)
