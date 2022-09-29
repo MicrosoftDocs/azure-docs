@@ -6,7 +6,7 @@ ms.author: reprasa
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: how-to
-ms.date: 09/28/2022
+ms.date: 09/29/2022
 ms.custom: template-concept 
 ---
  
