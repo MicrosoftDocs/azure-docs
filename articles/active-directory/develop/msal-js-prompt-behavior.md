@@ -72,7 +72,7 @@ The following shows default prompt values that MSAL.js uses:
 | `acquireTokenRedirect` | N/A            | Any             |
 | `acquireTokenSilent`   | `none`         | N/A (ignored)   |
 
-It is important to note that **prompt** is a protocol-level parameter and signals the desired authentication behavior to the identity provider. It does not affect MSAL.js behavior and MSAL.js does not have control over how the service will ultimately handle the request. In most circumstances, Azure AD will try to honor the request. If this is not possible, it may return an error response or completely ignore the given prompt value.
+It's important to note that **prompt** is a protocol-level parameter and signals the desired authentication behavior to the identity provider. It does not affect MSAL.js behavior and MSAL.js does not have control over how the service will ultimately handle the request. In most circumstances, Azure AD will try to honor the request. If this is not possible, it may return an error response, or completely ignore the given prompt value.
 
 ## Interactive requests with prompt=none
 
