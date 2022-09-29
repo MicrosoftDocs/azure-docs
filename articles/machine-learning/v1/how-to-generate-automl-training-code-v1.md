@@ -138,7 +138,7 @@ def get_training_dataset(dataset_id):
     return dataset.to_pandas_dataframe()
 ```
 
-When running as part of a script run, `Run.get_context().experiment.workspace` retrieves the correct workspace. However, if this script is run inside of a different workspace or run locally without using `ScriptRunConfig`, you need to modify the script to [explicitly specify the appropriate workspace](/python/api/azureml-core/azureml.core.workspace.workspace).
+When running as part of a script run, `Run.get_context().experiment.workspace` retrieves the correct workspace. However, if this script is run inside of a different workspace or run locally, you need to modify the script to [explicitly specify the appropriate workspace](/python/api/azureml-core/azureml.core.workspace.workspace).
 
 Once the workspace has been retrieved, the original dataset is retrieved by its ID. Another dataset with exactly the same structure could also be specified by ID or name with the [`get_by_id()`](/python/api/azureml-core/azureml.core.dataset.dataset#get-by-id-workspace--id-) or [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset#get-by-name-workspace--name--version--latest--), respectively. You can find the ID later on in the script, in a similar section as the following code.
 
@@ -156,7 +156,7 @@ You can also opt to replace this entire function with your own data loading mech
 ### Data preparation code
 
 The function `prepare_data()` cleans the data, splits out the feature and sample weight columns and prepares the data for use in training.
-This function can vary depending on the type of dataset and the experiment task type: classification, regression, or time-series forecasting.
+This function can vary depending on the type of dataset and the experiment task type: classification, regression, time-series forecasting, images or NLP tasks.
 
 The following example shows that in general, the dataframe from the data loading step is passed in. The label column and sample weights, if originally specified, are extracted and rows containing `NaN` are dropped from the input data.
 
@@ -188,7 +188,7 @@ For example, possible data transformation that can happen in this function can b
 The following is a transformer of type `StringCastTransformer()` that can be used to transform a set of columns. In this case, the set indicated by `column_names`.
 
 ```python    
-def get_mapper_c6ba98(column_names):
+def get_mapper_0(column_names):
     # ... Multiple imports to package dependencies, removed for simplicity ...
     
     definition = gen_features(
@@ -239,9 +239,9 @@ def generate_data_transformation_config():
     column_group_3 = ['ps_ind_01', 'ps_ind_02_cat', 'ps_ind_03', 'ps_ind_04_cat', 'ps_ind_05_cat', 'ps_ind_14', 'ps_ind_15', 'ps_car_01_cat', 'ps_car_02_cat', 'ps_car_03_cat', 'ps_car_04_cat', 'ps_car_05_cat', 'ps_car_06_cat', 'ps_car_07_cat', 'ps_car_09_cat', 'ps_car_10_cat', 'ps_car_11', 'ps_calc_04', 'ps_calc_05', 'ps_calc_06', 'ps_calc_07', 'ps_calc_08', 'ps_calc_09', 'ps_calc_10', 'ps_calc_11', 'ps_calc_12', 'ps_calc_13', 'ps_calc_14']
     
     feature_union = FeatureUnion([
-        ('mapper_ab1045', get_mapper_ab1045(column_group_1)),
-        ('mapper_c6ba98', get_mapper_c6ba98(column_group_3)),
-        ('mapper_9133f9', get_mapper_9133f9(column_group_2)),
+        ('mapper_0', get_mapper_0(column_group_1)),
+        ('mapper_1', get_mapper_1(column_group_3)),
+        ('mapper_2', get_mapper_2(column_group_2)),
     ])
     return feature_union
 ```
@@ -409,82 +409,39 @@ This notebook is similar to the existing automated ML sample notebooks however, 
 
 ### Environment
 
-Typically, the training environment for an automated ML run is automatically set by the SDK. However, when running a custom script run like the generated code, automated ML is no longer driving the process, so the environment must be specified for the script run to succeed.
+Typically, the training environment for an automated ML run is automatically set by the SDK. However, when running a custom script run like the generated code, automated ML is no longer driving the process, so the environment must be specified for the command job to succeed.
 
 Code generation reuses the environment that was used in the original automated ML experiment, if possible. Doing so guarantees that the training script run doesn't fail due to missing dependencies, and has a side benefit of not needing a Docker image rebuild, which saves time and compute resources.
 
-If you make changes to `script.py` that require additional dependencies, or you would like to use your own environment, you need to update the `Create environment` cell in `script_run_notebook.ipynb` accordingly.
+If you make changes to `script.py` that require additional dependencies, or you would like to use your own environment, you need to update the environment in the `script_run_notebook.ipynb` accordingly.
 
-For more information about AzureML environments, see [the Environment class documentation](/python/api/azureml-core/azureml.core.environment.environment).
 
 ### Submit the experiment
 
-Since the generated code isn’t driven by automated ML anymore, instead of creating an `AutoMLConfig` and then passing it to `experiment.submit()`, you need to create a [`ScriptRunConfig`](/python/api/azureml-core/azureml.core.scriptrunconfig) and provide the generated code (script.py) to it. 
+Since the generated code isn’t driven by automated ML anymore, instead of creating and submitting an AutoML Job, you need to create a [`Command Job`](/how-to-train-sdk) and provide the generated code (script.py) to it. 
 
-The following example contains the parameters and regular dependencies needed to run `ScriptRunConfig`, such as compute, environment, etc. For more information on how to use ScriptRunConfig, see [Configure and submit training runs](how-to-set-up-training-targets.md).
-
+The following example contains the parameters and regular dependencies needed to run a Command Job, such as compute, environment, etc.
 ```python
-from azureml.core import ScriptRunConfig
+from azure.ai.ml import command, Input
 
-src = ScriptRunConfig(source_directory=project_folder, 
-                      script='script.py', 
-                      compute_target=cpu_cluster, 
-                      environment=myenv,
-                      docker_runtime_config=docker_config)
+# To test with new training / validation datasets, replace the default dataset id(s) taken from parent run below
+training_dataset_id = '<DATASET_ID>'
+
+dataset_arguments = {'training_dataset_id': training_dataset_id}
+command_str = 'python script.py --training_dataset_id ${{inputs.training_dataset_id}}'
+
+command_job = command(
+    code=project_folder,
+    command=command_str,
+    environment='AutoML-Non-Prod-DNN:25',
+    inputs=dataset_arguments,
+    compute='automl-e2e-cl2',
+    experiment_name='build_70775722_9249eda8'
+)
  
-run = experiment.submit(config=src)
+returned_job = ml_client.create_or_update(command_job)
+print(returned_job.studio_url) # link to naviagate to submitted run in AzureML Studio
 ```
-
-### Download and load the serialized trained model in-memory
-
-Once you have a trained model, you can save/serialize it to a `.pkl` file with  `pickle.dump()` and `pickle.load()`.  You can also use `joblib.dump()` and `joblib.load()`.
-
-The following example is how you download and load  a model in-memory that was trained in AzureML compute with `ScriptRunConfig`. This code can run in the same notebook you used the Azure ML SDK `ScriptRunConfig`.
-
-```python
-import joblib
-
-# Load the fitted model from the script run.
-
-# Note that if training dependencies are not installed on the machine
-# this notebook is being run from, this step can fail.
-try:
-    # Download the model from the run in the Workspace
-    run.download_file("outputs/model.pkl", "model.pkl")
-
-    # Load the model into memory
-    model = joblib.load("model.pkl")
-
-except ImportError:
-    print('Required dependencies are missing; please run pip install azureml-automl-runtime.')
-    raise
-
-```
-
-### Making predictions with the model in-memory
-
-Finally, you can load test data in a Pandas dataframe and use the model to make predictions.
-
-```python
-import os
-import numpy as np
-import pandas as pd
-
-DATA_DIR = "."
-filepath = os.path.join(DATA_DIR, 'porto_seguro_safe_driver_test_dataset.csv')
-
-test_data_df = pd.read_csv(filepath)
-
-print(test_data_df.shape)
-test_data_df.head(5)
-
-#test_data_df is a Pandas dataframe with test data
-y_predictions = model.predict(test_data_df)
-```
-
-In an Azure ML compute instance you have all the automated ML dependencies, so you’re able to load the model and predict from any notebook in a compute instance recently created.
-
-However, in order to load that model in a notebook in your custom local Conda environment, you need to have all the dependencies coming from the environment used when training (AutoML environment) installed.
 
 
 ## Next steps
