@@ -90,4 +90,3 @@ If you have Azure savings plan for compute questions, contact your  account team
   - [How a savings plan discount is applied](discount-application.md)
   - [Understand savings plan usage data for enterprise subscriptions](enterprise-usage-data.md)
   - [Software costs not included in savings plan](software-costs-not-included.md)
-  - [View Azure savings plan as a Cloud Solution Provider](view-savings-plan-cloud-solution-provider.md)

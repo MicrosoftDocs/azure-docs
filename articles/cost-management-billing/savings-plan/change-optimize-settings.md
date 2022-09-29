@@ -45,7 +45,7 @@ To allow other people to manage savings plans, you have two options:
 - Delegate access management for an individual savings plan by assigning the Owner role to a user at the resource scope of the savings plan order. If you want to give limited access, select a different role.
  For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 - Add a user as billing administrator to an Enterprise Agreement or a Microsoft Customer Agreement:
-  - For an Enterprise Agreement, add users with the _Enterprise Administrator_ role to view and manage all savings plan orders that apply to the Enterprise Agreement. Users with the _Enterprise Administrator (read only)_ role can only view the savings plans. Department admins and account owners can't view savings plans _unless_ they're explicitly added to them using Access control (IAM). For more information, see [Managing Azure Enterprise roles](../manage/understand-ea-roles.dm).
+  - For an Enterprise Agreement, add users with the _Enterprise Administrator_ role to view and manage all savings plan orders that apply to the Enterprise Agreement. Users with the _Enterprise Administrator (read only)_ role can only view the savings plans. Department admins and account owners can't view savings plans _unless_ they're explicitly added to them using Access control (IAM). For more information, see [Managing Azure Enterprise roles](../manage/understand-ea-roles.md).
 
 _Enterprise Administrators can take ownership of a savings plan order and they can add other users to a savings plan using Access control (IAM)._
 

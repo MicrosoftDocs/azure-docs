@@ -40,4 +40,3 @@ You can get the [Savings plan utilization](https://go.microsoft.com/fwlink/?link
 
 - [Manage Azure savings plan](manage-savings-plan.md)
 - [Usage data for enterprise subscriptions](enterprise-usage-data.md)
-- [View savings plan as a CSP](view-savings-plan-cloud-solution-provider.md)
