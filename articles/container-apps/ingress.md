@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 09/29/2022
 ms.author: cshoe
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -33,7 +33,7 @@ With HTTPS ingress enabled, your container app features the following characteri
 - The container app is accessed via its fully qualified domain name (FQDN)
 - Request timeout is 240 seconds
 
-### TCP
+### <a name="tcp"></a>TCP (preview)
 
 TCP ingress is useful for exposing container apps that use a TCP-based protocol other than HTTP or HTTPS.
 
