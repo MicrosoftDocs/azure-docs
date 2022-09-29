@@ -13,7 +13,8 @@ ms.date: 09/26/2022
 
 [!INCLUDE [applies-to-postgresql-Flexible-server](../includes/applies-to-postgresql-Flexible-server.md)]
 
-> [!NOTE] Azure AD for PostgreSQL Flexible Server is currently in preview.
+> [!NOTE]
+> Azure Active Directory Authentication for PostgreSQL Flexible Server is currently in preview.
 
 Microsoft Azure Active Directory (Azure AD) authentication is a mechanism of connecting to Azure Database for PostgreSQL using identities defined in Azure AD.
 With Azure AD authentication, you can manage database user identities and other Microsoft services in a central location, which simplifies permission management.

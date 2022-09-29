@@ -259,6 +259,18 @@ Azure AD authentication in Azure Database for PostgreSQL Flexible Server ensures
 - Token hasn't expired
 - Token is for the Azure Database for PostgreSQL resource (and not another Azure resource)
 
+## Networking Requirements
+
+Azure Active Directory is a multi-tenant application and AAD authentication in Azure Database for PostgreSQL Flexible Server requires outbound internet connectivity to perform certain operations like adding AAD admins, groups, service principals etc. 
+
+Public access (allowed IP addresses) connectivity option does not require any additional networking rules for AAD authentication to work.
+
+Private access (VNet Integration) requires one or both  below networking rules depending upon network topology for AAD authentication to work. 
+
+-  An outbound NSG rule to allow virtual network traffic to reach AzureActiveDirectory service tag only.
+-  If you’re using a proxy then please add a new firewall rule to allow http/s traffic to reach AzureActiveDirectory service tag only.
+
+
 ## Migrating existing PostgreSQL users to Azure AD-based authentication
 
 You can enable Azure AD authentication for existing users. There are two cases to consider:
