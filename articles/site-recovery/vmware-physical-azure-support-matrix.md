@@ -2,7 +2,7 @@
 title: Support matrix for VMware/physical disaster recovery in Azure Site Recovery.
 description: Summarizes support for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 05/02/2022
+ms.date: 09/21/2022
 ---
 
 # Support matrix for disaster recovery  of VMware VMs and physical servers to Azure
@@ -23,7 +23,7 @@ This article summarizes supported components and settings for disaster recovery 
 **Scenario** | **Details**
 --- | ---
 Disaster recovery of VMware VMs | Replication of on-premises VMware VMs to Azure. You can deploy this scenario in the Azure portal or by using [PowerShell](vmware-azure-disaster-recovery-powershell.md).
-Disaster recovery of physical servers | Replication of on-premises Windows/Linux physical servers to Azure. You can deploy this scenario in the Azure portal. <br></br>(Not supported for Preview architecture)
+Disaster recovery of physical servers | Replication of on-premises Windows/Linux physical servers to Azure. You can deploy this scenario in the Azure portal.
 
 ## On-premises virtualization servers
 
@@ -64,7 +64,7 @@ IP address | Make sure that configuration server and process server have a stati
 
 ## Replicated machines
 
-In preview, replication is done by the Azure Site Recovery replication appliance. For detailed information about replication appliance, see [this article](deploy-vmware-azure-replication-appliance-preview.md).
+In Modernized, replication is done by the Azure Site Recovery replication appliance. For detailed information about replication appliance, see [this article](deploy-vmware-azure-replication-appliance-modernized.md).
 
 Site Recovery supports replication of any workload running on a supported machine.
 
@@ -191,19 +191,19 @@ BTRFS | BTRFS is supported from [Update Rollup 34](https://support.microsoft.com
 
 **Action** | **Details**
 --- | ---
-Resize disk on replicated VM (Not supported for Preview architecture)| Resizing up on the source VM is supported. Resizing down on the source VM is not supported. Resizing should be performed before failover, directly in the VM properties. No need to disable/re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captures.<br/><br/> If you change the disk size on the Azure VM after failover, when you fail back, Site Recovery creates a new VM with the updates.
+Resize disk on replicated VM | Resizing up on the source VM is supported. Resizing down on the source VM is not supported. Resizing should be performed before failover, directly in the VM properties. No need to disable/re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captures.<br/><br/> If you change the disk size on the Azure VM after failover, when you fail back, Site Recovery creates a new VM with the updates.
 Add disk on replicated VM | Not supported.<br/> Disable replication for the VM, add the disk, and then re-enable replication.
 
 > [!NOTE]
-> Any change to disk identity is not supported. For example, if the disk partitioning has been changed from GPT to MBR or vice versa, then this will change the disk identity. In such a scenario, the replication will break and a fresh setup will be required.
-> For Linux machines, device name change is not supported as it has an impact on the disk identity.
-> In preview, resizing the disk size to reduce it from its original size, is not supported.
+>  - Any change to disk identity is not supported. For example, if the disk partitioning has been changed from GPT to MBR or vice versa, then this will change the disk identity. In such a scenario, the replication will break and a fresh setup will be required.
+> - For Linux machines, device name change is not supported as it has an impact on the disk identity.
+> - In Modernized, resizing the disk size to reduce it from its original size, is not supported.
 
 ## Network
 
 **Component** | **Supported**
 --- | ---
-Host network NIC Teaming | Supported for VMware VMs. <br/><br/>Not supported for physical machine replication.
+Host network NIC Teaming | Supported for VMware VMs and physical machine replication.
 Host network VLAN | Yes.
 Host network IPv4 | Yes.
 Host network IPv6 | No.
@@ -213,7 +213,7 @@ Guest/server network IPv6 | No.
 Guest/server network static IP (Windows) | Yes.
 Guest/server network static IP (Linux) | Yes. <br/><br/>VMs are configured to use DHCP on failback.
 Guest/server network multiple NICs | Yes.
-Private link access to Site Recovery service | Yes. [Learn more](hybrid-how-to-enable-replication-private-endpoints.md). (Not supported for Preview architecture)
+Private link access to Site Recovery service | Yes. [Learn more](hybrid-how-to-enable-replication-private-endpoints.md).
 
 
 ## Azure VM network (after failover)
@@ -296,14 +296,14 @@ Soft delete | Not supported.
 
 **Feature** | **Supported**
 --- | ---
-Availability sets | Yes. (Not supported for Preview architecture)
+Availability sets | Yes. Not supported for modernized experience.
 Availability zones | No
 HUB | Yes
 Managed disks | Yes
 
 ## Azure VM requirements
 
-On-premises VMs replicated to Azure must meet the Azure VM requirements summarized in this table. When Site Recovery runs a prerequisites check for replication, the check will fail if some of the requirements aren't met.
+On-premises VMs replicated to Azure must meet the Azure VM requirements summarized in this table. When Site Recovery runs prerequisites check for replication, the check will fail if some of the requirements aren't met.
 
 **Component** | **Requirements** | **Details**
 --- | --- | ---
@@ -312,7 +312,7 @@ Guest operating system architecture | 64-bit. | Check fails if unsupported.
 Operating system disk size | Up to 2,048 GB for Generation 1 machines. <br> Up to 4,095 GB for Generation 2 machines. | Check fails if unsupported.
 Operating system disk count | 1 </br> boot and system partition on different disks is not supported | Check fails if unsupported.
 Data disk count | 64 or less. | Check fails if unsupported.
-Data disk size | Up to 32 TB when replicating to managed disk (9.41 version onwards)<br> Up to 4 TB when replicating to storage account </br> Each premium storage account can host up to 35 TB of data </br> Minimum disk size requirement - at least 1 GB 
+Data disk size | Up to 32 TB when replicating to managed disk (9.41 version onwards)<br> Up to 4 TB when replicating to storage account </br> Each premium storage account can host up to 35 TB of data </br> Minimum disk size requirement - at least 1 GB  | Check fails if unsupported.
 RAM | Site Recovery driver consumes 6% of RAM.
 Network adapters | Multiple adapters are supported. |
 Shared VHD | Not supported. | Check fails if unsupported.
