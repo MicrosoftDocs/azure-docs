@@ -107,6 +107,8 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
+        - text: Upgrade to v2
+          url: how-to-migrate-from-v1.md 
         - text: Python SDK (v2) code examples
           url: https://github.com/Azure/azureml-examples/blob/main/sdk/python/README.md
         - text: CLI (v2) code examples
