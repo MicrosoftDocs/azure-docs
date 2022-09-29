@@ -27,7 +27,7 @@ To view out-of-the-box workbooks created by Microsoft, or other workbooks alread
 
 1. In the Azure portal, go to **Defender for IoT** and select **Workbooks** on the left.
 
-    :::image type="content" source="media/release-notes/workbooks.png" alt-text="Screenshot of the new Workbooks page." lightbox="media/release-notes/workbooks.png":::
+    :::image type="content" source="media/workbooks/workbooks.png" alt-text="Screenshot of the Workbooks page." lightbox="media/release-notes/workbooks.png":::
 
 1. Modify your filtering options if needed, and select a workbook to open it.
 
