@@ -147,6 +147,9 @@
       items:
       - name: Network security overview (v1)
         href: how-to-network-security-overview.md
+      - name: Secure workspace resources (v1)
+        displayName: vnet, workspace, container instance, container registry
+        href: how-to-secure-workspace-vnet.md
       - name: Use private endpoint (v1)
         displayName: private endpoint
         href: how-to-configure-private-link.md
