@@ -36,11 +36,11 @@ The document summarization API uses natural language processing techniques to lo
 Document summarization returns a rank score as a part of the system response along with extracted sentences and their position in the original documents. A rank score is an indicator of how relevant a sentence is determined to be, to the main idea of a document. The model gives a score between 0 and 1 (inclusive) to each sentence and returns the highest scored sentences per request. For example, if you request a three-sentence summary, the service returns the three highest scored sentences.
 
 There is another feature in Azure Cognitive Service for Language, [key phrases extraction](./../../key-phrase-extraction/how-to/call-api.md), that can extract key information. When deciding between key phrase extraction and extractive summarization, consider the following:
-* key phrase extraction returns phrases while extractive summarization returns sentences
-* extractive summarization returns sentences together with a rank score, and. Top ranked sentences will be returned per request
-* extractive summarization also returns the following positional information:
-    * offset: The start position of each extracted sentence, and
-    * Length: is the length of each extracted sentence.
+* Key phrase extraction returns phrases while extractive summarization returns sentences.
+* Extractive summarization returns sentences together with a rank score, and. Top ranked sentences will be returned per request.
+* Extractive summarization also returns the following positional information:
+    * Offset: The start position of each extracted sentence.
+    * Length: The length of each extracted sentence.
 
 
 ## Determine how to process the data (optional)
