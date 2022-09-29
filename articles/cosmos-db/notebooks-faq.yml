@@ -44,12 +44,16 @@ sections:
         answer: |
           The feature is only available in certain Azure Cosmos DB SQL, Gremlin, Table, MongoDB, or Cassandra API accounts that are part of the existing flight.
       - question: |
-          Are there any Azure Cosmos DB features that are incompatible with the Jupyter Notebooks feature?
+          Are there any Azure Cosmos DB features that are incompatible with the notebook feature?
         answer: |
           Azure Cosmos DB accounts connected to a Virtual Network, using Private Link, or with certain IP firewall rules won't be able to use the notebook feature.
 
           > [!TIP]
           > If your networking configuration is incompatible with the notebooks feature, the notebooks icon will be disabled in the Data Explorer.
+      - question: |
+          Do I need any special role-based access control permissions to use the notebook feature?
+        answer: |
+          Your account must have the **list keys** permission (`Microsoft.DocumentDB/databaseAccounts/listKeys/*`) to use notebooks. For more information about the role-based access control operations, see [Azure Cosmos DB resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb).
       - question: | 
           Where can I learn more about the notebook feature in Azure Cosmos DB?
         answer: |
@@ -63,7 +67,10 @@ sections:
       - question: |
           How are notebooks stored after I'm done using them?
         answer: |
-          Notebooks are temporary on-demand compute instances that are spun-up in real time as you need them. Notebooks exist in a temporary workspace and are NOT saved by default. If a notebook is left idle for too long, it will be automatically disposed.
+          Notebooks are temporary on-demand compute instances that are spun-up in real time as you need them. Notebooks exist in a temporary workspace and are NOT saved when the workspace has expired. If a notebook is left idle for too long, it will be automatically disposed.
+
+          > [!NOTE]
+          > Currently, temporary workspaces will be de-allocated if left idle for 20 minutes. The maximum amount of usage time per day is 60 minutes. These limits are subject to change in the future.
       - question: |
           How can I save my notebooks between sessions?
         answer: |
