@@ -160,8 +160,10 @@ To switch the directory in the Azure portal, click the user account name in the 
 ![External users can switch directory.](media/concept-registration-mfa-sspr-combined/switch-directory.png)
 
 Or, you can specify a tenant by URL to access security information.
-https://mysignins.microsoft.com/security-info?tenant=<Tenant Name>
-https://mysignins.microsoft.com/security-info/?tenantId=<Tenant ID>
+
+`https://mysignins.microsoft.com/security-info?tenant=<Tenant Name>`
+
+`https://mysignins.microsoft.com/security-info/?tenantId=<Tenant ID>`
 
 ## Next steps
 
