@@ -4,9 +4,9 @@ titleSuffix: Azure Load Testing
 description: 'In this tutorial, you learn how to automate performance regression testing by using Azure Load Testing and Azure Pipelines CI/CD workflows.'
 services: load-testing
 ms.service: load-testing
-ms.author: ninallam
-author: ninallam
-ms.date: 03/28/2022
+ms.author: nicktrog
+author: ntrogh
+ms.date: 09/29/2022
 ms.topic: tutorial
 #Customer intent: As an Azure user, I want to learn how to automatically test builds for performance regressions on every merge request and/or deployment by using Azure Pipelines.
 ---
@@ -28,7 +28,6 @@ You'll learn how to:
 > * Set up Azure Pipelines to integrate with Azure Load Testing.
 > * Run the load test and view results in the pipeline logs.
 > * Define pass/fail criteria for the load test.
-> * Parameterize the load test by using pipeline variables.
 
 > [!IMPORTANT]
 > Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -235,70 +234,6 @@ You can specify these criteria in the test configuration YAML file:
 
     The load test now succeeds and the pipeline finishes successfully.
 
-## Pass parameters to your load tests from the pipeline
-
-Next, you'll parameterize your load test by using pipeline variables. These variables can be secrets, such as passwords, or non-secrets.
-
-In this tutorial, you'll reconfigure the sample application to accept only secure requests. To send a secure request, you need to pass a secret value in the HTTP request:
-
-1. Edit the *SampleApp.yaml* file in your GitHub repository.
-
-    Update the `testPlan` configuration setting to use the *SampleApp_Secrets.jmx* file:
-
-    ```yml
-    version: v0.1
-    testName: SampleApp
-    testPlan: SampleApp_Secrets.jmx
-    description: 'SampleApp Test with secrets'
-    engineInstances: 1
-    ```
-
-    The *SampleApp_Secrets.jmx* Apache JMeter script uses a user-defined variable that retrieves the secret value with the custom function `${__GetSecret(secretName)}`. Apache JMeter then passes this secret value to the sample application endpoint.
-
-1. Commit the changes to the YAML file.
-
-1. Edit the *config.json* file in your GitHub repository.
-    
-    Update the `enableSecretsFeature` setting to `true` to reconfigure the sample application to accept only secure requests:
-    
-    ```json
-    {
-        "enableSecretsFeature": true
-    }
-    ```
-    
-1. Commit the changes to the *config.json* file.
-
-1. Go to the **Pipelines** page, select your pipeline definition, and then select **Edit**.
-
-    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/edit-pipeline.png" alt-text="Screenshot that shows selections for editing a pipeline definition.":::
-
-1. Select **Variables**, and then select **New variable**.
-
-1. Enter the **Name** (**mySecret**) and **Value** (**1797669089**) information. Then select the **Keep this value secret** checkbox to store the variable securely. 
-
-    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/new-variable.png" alt-text="Screenshot that shows selections for creating a pipeline variable.":::
-
-1. Select **OK**, and then select **Save** to save the new variable.
-
-1. Edit the *azure-pipeline.yml* file to pass the secret to the load test.
-
-    Edit the Azure Load Testing task by adding the following YAML snippet:
-
-    ```yml
-    secrets: |
-      [
-          {
-          "name": "appToken",
-          "value": "$(mySecret)"
-          }
-      ]
-    ```
-
-1. Save and run the pipeline.  
-
-    The Azure Load Testing task securely passes the secret from the pipeline to the test engine. The secret parameter is used only while you're running the load test, and then the value is discarded from memory.
-    
 ## Clean up resources
 
 [!INCLUDE [alt-delete-resource-group](../../includes/alt-delete-resource-group.md)]
