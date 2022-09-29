@@ -11,7 +11,7 @@ This article provides guidance on performance that can be expected when collecti
 
 
 ## CPU and Memory
-The CPU and memory usage is correlated with the number of bytes of each sample and the number of samples scraped. The benchmarks below are based on the [default targets scraped](container-insights-prometheus-scrape-scale.md), volume of custom metrics scraped, and number of nodes, pods, and containers. These numbers are meant as a reference since usage can still vary significantly depending on the number of timeseries and bytes per metric.
+The CPU and memory usage is correlated with the number of bytes of each sample and the number of samples scraped. The benchmarks below are based on the [default targets scraped](../containers/container-insights-prometheus-scrape-default.md), volume of custom metrics scraped, and number of nodes, pods, and containers. These numbers are meant as a reference since usage can still vary significantly depending on the number of timeseries and bytes per metric.
 
 The upper volume limit per pod is currently about 3-3.5 million samples per minute, depending on the number of bytes per sample. This limitation will be eliminated when sharding is added to the feature.
 
@@ -19,29 +19,26 @@ The Container insights agent consists of a deployment with one replica and daemo
 
 ### Comparison between small and large cluster for replicaset
 
-  Scrape Targets | Samples Sent / Minute | Node Count | Pod Count | Prometheus-Collector CPU Usage (cores) |Prometheus-Collector Memory Usage (bytes)
-  | --- | --- | --- | --- | --- | --- |
-  | default targets | 11,344 | 3 | 40 | 12.9 mc | 148 Mi |
-  | default targets | 260,000  | 340 | 13000 | 1.10 c | 1.70 GB |
-  | default targets<br>+ custom targets | 3.56 million | 340 | 13000 | 5.13 c | 9.52 GB |
+| Scrape Targets | Samples Sent / Minute | Node Count | Pod Count | Prometheus-Collector CPU Usage (cores) |Prometheus-Collector Memory Usage (bytes) |
+|:---|:---|:---|:---|:---|:---|
+| default targets | 11,344 | 3 | 40 | 12.9 mc | 148 Mi |
+| default targets | 260,000  | 340 | 13000 | 1.10 c | 1.70 GB |
+| default targets<br>+ custom targets | 3.56 million | 340 | 13000 | 5.13 c | 9.52 GB |
 
 ### Comparison between small and large cluster for daemonsets
 
-  Scrape Targets | Samples Sent / Minute Total | Samples Sent / Minute / Pod |  Node Count | Pod Count | Prometheus-Collector CPU Usage Total (cores) |Prometheus-Collector Memory Usage Total (bytes) | Prometheus-Collector CPU Usage / Pod (cores) |Prometheus-Collector Memory Usage / Pod (bytes)
-  | --- | --- | --- | --- | -- | --- | --- | --- | --- |
-  | default targets | 9,858 | 3,327 | 3 | 40 | 41.9 mc | 581 Mi | 14.7 mc | 189 Mi |
-  | default targets | 2.3 million | 14,400 | 340 | 13000 | 805 mc | 305.34 GB | 2.36 mc | 898 Mi |
+| Scrape Targets | Samples Sent / Minute Total | Samples Sent / Minute / Pod |  Node Count | Pod Count | Prometheus-Collector CPU Usage Total (cores) |Prometheus-Collector Memory Usage Total (bytes) | Prometheus-Collector CPU Usage / Pod (cores) |Prometheus-Collector Memory Usage / Pod (bytes) |
+|:---|:---|:---|:---|:---|:---|:---|:---|:---|
+| default targets | 9,858 | 3,327 | 3 | 40 | 41.9 mc | 581 Mi | 14.7 mc | 189 Mi |
+| default targets | 2.3 million | 14,400 | 340 | 13000 | 805 mc | 305.34 GB | 2.36 mc | 898 Mi |
 
-  For additional custom metrics, the single pod will behave the same as the replicaset pod depending on the volume of custom metrics.
+For more custom metrics, the single pod will behave the same as the replicaset pod depending on the volume of custom metrics.
 
 
 ### Schedule ama-metrics replicaset pod on a nodepool with more resources 
 
-A very large volume of metrics per pod will require a large enough node to be able to handle the CPU and memory usage required. 
-If the *ama-metrics* replicaset pod doesn't get scheduled on a node that has enough resources, it might keep getting OOMKilled and go to CrashLoopBackoff.
-In order to overcome this, if you have a node on your cluster that has higher resources (preferably in the system nodepool) and want to get the replicaset scheduled on that node, you can add the label `azuremonitor/metrics.replica.preferred=true` on the node and the replicaset pod will get scheduled on this node.  
+A large volume of metrics per pod will require a large enough node to be able to handle the CPU and memory usage required. If the *ama-metrics* replicaset pod doesn't get scheduled on a node that has enough resources, it might keep getting OOMKilled and go to CrashLoopBackoff. In order to overcome this issue, if you have a node on your cluster that has higher resources (preferably in the system nodepool) and want to get the replicaset scheduled on that node, you can add the label `azuremonitor/metrics.replica.preferred=true` on the node and the replicaset pod will get scheduled on this node.  
 
   ```
   kubectl label nodes <node-name> azuremonitor/metrics.replica.preferred="true"
   ```
-
