@@ -1,30 +1,31 @@
 ---
-title: High Scale and metric volume
-description: 
+title: Scrape Prometheus metrics at scale in Azure Monitor
+description: Guidance on performance that can be expected when collection metrics at high scale for Azure Monitor managed service for Prometheus.
 ms.topic: conceptual
-ms.date: 08/29/2022
+ms.date: 09/28/2022
 ms.reviewer: viviandiec
 ---
 
-# High Scale and metric volume
+# Scrape Prometheus metrics at scale in Azure Monitor
+This article provides guidance on performance that can be expected when collection metrics at high scale for [Azure Monitor managed service for Prometheus](prometheus-metrics-overview.md). 
 
 
 ## CPU and Memory
-The CPU and memory usage is correlated with the number of bytes of each sample and the number of samples scraped. Below are benchmarks based on the default targets scraped, volume of custom metrics scraped, and number of nodes, pods, and containers. These numbers are meant as a reference rather than a guarantee, since usage can still vary greatly depending on the number of timeseries and bytes per metric.
+The CPU and memory usage is correlated with the number of bytes of each sample and the number of samples scraped. The benchmarks below are based on the [default targets scraped](container-insights-prometheus-scrape-scale.md), volume of custom metrics scraped, and number of nodes, pods, and containers. These numbers are meant as a reference since usage can still vary significantly depending on the number of timeseries and bytes per metric.
 
 The upper volume limit per pod is currently about 3-3.5 million samples per minute, depending on the number of bytes per sample. This limitation will be eliminated when sharding is added to the feature.
 
 The Container insights agent consists of a deployment with one replica and daemonset for scraping metrics. The daemonset scrapes any node-level targets such as cAdvisor, kubelet, and node exporter. You can also configure it to scrape any custom targets at the node level with static configs. The replicaset scrapes everything else such as kube-state-metrics or custom scrape jobs that utilize service discovery.
 
-### Replicaset in Small vs Large Cluster
+### Comparison between small and large cluster for replicaset
 
   Scrape Targets | Samples Sent / Minute | Node Count | Pod Count | Prometheus-Collector CPU Usage (cores) |Prometheus-Collector Memory Usage (bytes)
   | --- | --- | --- | --- | --- | --- |
   | default targets | 11,344 | 3 | 40 | 12.9 mc | 148 Mi |
   | default targets | 260,000  | 340 | 13000 | 1.10 c | 1.70 GB |
-  | default targets + custom targets | 3.56 million | 340 | 13000 | 5.13 c | 9.52 GB |
+  | default targets<br>+ custom targets | 3.56 million | 340 | 13000 | 5.13 c | 9.52 GB |
 
-### Daemonset in Small Cluster vs Large Cluster
+### Comparison between small and large cluster for daemonsets
 
   Scrape Targets | Samples Sent / Minute Total | Samples Sent / Minute / Pod |  Node Count | Pod Count | Prometheus-Collector CPU Usage Total (cores) |Prometheus-Collector Memory Usage Total (bytes) | Prometheus-Collector CPU Usage / Pod (cores) |Prometheus-Collector Memory Usage / Pod (bytes)
   | --- | --- | --- | --- | -- | --- | --- | --- | --- |
