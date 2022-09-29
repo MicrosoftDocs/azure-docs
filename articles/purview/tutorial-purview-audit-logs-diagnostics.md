@@ -6,7 +6,7 @@ ms.author: arindamba
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: tutorial
-ms.date: 02/10/2022
+ms.date: 09/28/2022
 ---
 
 # Audit logs, diagnostics, and activity history
@@ -25,6 +25,12 @@ More types and categories of activity audit events will be added.
 
 | Category   | Activity            | Operation       |
 |------------|---------------------|-----------------|
+| Management | Collections       | Create          |
+| Management | Collections       | Update          |
+| Management | Collections       | Delete          |
+| Management | Role assignments       | Create          |
+| Management | Role assignments       | Update          |
+| Management | Role assignments       | Delete          |
 | Management | Scan rule set       | Create          |
 | Management | Scan rule set       | Update          |
 | Management | Scan rule set       | Delete          |
