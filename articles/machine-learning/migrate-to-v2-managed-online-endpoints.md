@@ -113,4 +113,9 @@ Azure costs differ based on the region you use and may change, please refer to [
 ACI cost is calculated by 29.5650 * X + 3.2485 * Y. (X is the CPU core request rounded up to the nearest number, Y is the memory GB request rounded up to the nearest tenths place.)
 
 ## Contact us
-Reach out to us: moeonboard@microsoft.com if you have any questions or feedback for our docs/tools.
+If you have any questions or feedback on the migration script, contact us at moeonboard@microsoft.com.
+
+## Next steps
+
+* [What are Azure Machine Learning endpoints?](concept-endpoints.md)
+* [Deploy and score a model with managed online endpoints](how-to-deploy-managed-online-endpoint-sdk-v2.md)
