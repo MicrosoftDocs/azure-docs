@@ -17,7 +17,7 @@ ms.custom: migration
 
 [Managed online endpoints](concept-endpoints.md#what-are-online-endpoints) help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure. Details can be found on [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-managed-online-endpoints.md).
 
-You can deploy directly to the new compute target with your previous models and environments, or leverage the [scripts](https://aka.ms/moeonboard) (preview) provided by us to export the current services then deploy to the new compute. If you regularly create and delete ACI services, we strongly recommend the deploying directly and not using the scripts. 
+You can deploy directly to the new compute target with your previous models and environments, or leverage the [scripts](https://aka.ms/moeonboard) (preview) provided by us to export the current services then deploy to the new compute without affecting your existing services. If you regularly create and delete ACI services, we strongly recommend the deploying directly and not using the scripts. 
 
 > [!IMPORTANT]
 > The scripts are preview and are provided without a service level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -69,6 +69,8 @@ Redeploy manually with your model files and environment definition.
 You can find our examples on [azureml-examples](https://github.com/Azure/azureml-examples). Specifically, this is the [SDK example for managed online endpoint](https://github.com/Azure/azureml-examples/tree/main/sdk/endpoints/online/managed).
 
 ### With our [migration tool](https://aka.ms/moeonboard) (preview)
+This tool will automatically create new managed online endpoint based on your existing web services. Your original services won't be affected. You can safely route the traffic to the new endpoint and then delete the old one.
+
 Use the following steps to run the scripts:
 
 > [!TIP]
