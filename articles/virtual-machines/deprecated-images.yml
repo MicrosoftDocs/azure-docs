@@ -19,14 +19,14 @@ sections:
     questions:
       - question: I got an email that my image is scheduled for deprecation, what does this mean?
         answer: |
-          You might have received an email telling you that your Virtual machine is running on images that are scheduled for deprecation or already deprecated as seen in the diagram below. There are several reasons an image can be deprecated by the publisher which might be due to security issues or the image reaching end of life. 
+          You might have received an email telling you that your Virtual machine is running on images that are scheduled for deprecation or already deprecated as seen in the diagram below. There are several reasons an image can be deprecated by the publisher, which might be due to security issues or the image reaching end of life. 
           
            
           
           An image can be deprecated on the version, plan or offer level:
           - Deprecation of an image version - the removal of an individual VM image version
-          - Deprecation of a plan or SKU - the removal of a plan or SKU and subsequently all images within the plan    
-          - Deprecation of an offer - the removal of an entire VM offer, including all plans within the offer and subsequently all images within each plan.    
+          - Deprecation of a plan or SKU - the removal of a plan or SKU and all images within the plan    
+          - Deprecation of an offer - the removal of an entire VM offer, including all plans within the offer and all images within each plan.    
           
       - question: I received an email that my workloads are running on images that are scheduled for deprecation. What does this mean and does deprecation impact my existing workloads? 
         answer: |
@@ -35,13 +35,13 @@ sections:
           After the scheduled deprecation date, you won't be able to deploy new instances using the affected images. If the plan is scheduled for deprecation, all image versions within the plan will no longer be available and if the entire offer is scheduled for deprecation, all plans within the offer will no longer be available following deprecation.
           
           - Active VM instances won't be impacted.  
-          - New VM instances cannot be created from any of the impacted images.
-          - Existing virtual machine scale sets deployments cannot be scaled out if configured with any of the impacted images. When a plan or offer is being deprecated, all existing scale sets deployments pinned to any image within the plan or offer respectively cannot be scaled out.
+          - New VM instances  can't be created from any of the impacted images.
+          - Existing virtual machine scale sets deployments  can't be scaled out if configured with any of the impacted images. When a plan or offer is being deprecated, all existing scale sets deployments pinned to any image within the plan or offer respectively  can't be scaled out.
           
           
           **What do I need to do?**
 
-          If you want your scale set to scale out after the deprecation date, you will need to identify the scale set running on the deprecated image and then migrate your workload to a supported image. If you want to remain on the image after deprecation, you can create your own custom image and migrate to it (Steps outlined below). If you already have auto updates configured for your VM or scale set, you will only be impacted when an Offer or plan version is deprecated (No impact on image version deprecation).
+          If you want your scale set to scale out after the deprecation date,  you'll need to identify the scale set running on the deprecated image and then migrate your workload to a supported image. If you want to remain on the image after deprecation, you can create your own custom image and migrate to it (Steps outlined below). If you already have auto updates configured for your VM or scale set,  you'll only be impacted when an Offer or plan version is deprecated (No impact on image version deprecation).
           
           
           
@@ -159,11 +159,6 @@ sections:
             
             Search for other plans under the same offer and then migrate to that plan.
           
-            PowerShell:
-          
-            ```
-            Get-AzVMImage -Location "west europe" -PublisherName “MicrosoftWindowsServer” -Offer “WindowsServer”
-            ``` 
           
             Azure CLI:
           
@@ -171,15 +166,17 @@ sections:
             az vm image list --location "west europe" --publisher "MicrosoftWindowsServer" --offer "WindowsServer" 
             ```
           
+            PowerShell:
+          
+            ```
+            Get-AzVMImage -Location "west europe" -PublisherName “MicrosoftWindowsServer” -Offer “WindowsServer”
+            ``` 
+
+
           **To migrate to another version:** 
               
             Search for another version. We suggest migrating to the latest version.  
           
-            PowerShell:
-          
-            ```
-            Get-AzVMImage -Location "west europe" -PublisherName “MicrosoftWindowsServer” -Offer “WindowsServer” -Skus "2019-Datacenter-with-Containers"
-            ```
           
             Azure CLI:
           
@@ -187,6 +184,11 @@ sections:
             az vm image list --location "west europe" --publisher "MicrosoftWindowsServer" --offer "WindowsServer" --sku "2019-Datacenter-with-Containers" --all"
             ```
           
+            PowerShell:
+          
+            ```
+            Get-AzVMImage -Location "west europe" -PublisherName “MicrosoftWindowsServer” -Offer “WindowsServer” -Skus "2019-Datacenter-with-Containers"
+            ```
         
           You need to verify that your workloads are supported and will run properly on the new image before migrating your workloads to the new image.
           
@@ -215,7 +217,7 @@ sections:
           You can check if an image is deprecated or scheduled for deprecation using the [REST API](/rest/api/compute/virtual-machine-images/get?tabs=HTTP). 
           
 
-          If the image is deprecated, you will get a **VM Image is Deprecated** response. If the image is scheduled for deprecation, the response would show the date of the scheduled deprecation.
+          If the image is deprecated,  you'll get a **VM Image is Deprecated** response. If the image is scheduled for deprecation, the response would show the date of the scheduled deprecation.
            
           
           The response indicates that this is deprecated:
