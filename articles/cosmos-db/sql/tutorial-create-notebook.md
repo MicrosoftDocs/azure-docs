@@ -174,16 +174,16 @@ In this section, you'll create the Azure Cosmos database, container, and import 
 
     | | Action | ItemRevenue | Country | Item |
     | --- | --- | --- | --- | --- |
-    | *0* | Purchased | 19.99 | Macedonia | Button-Up Shirt |
-    | *1* | Viewed | 12.00 | Papua New Guinea | Necklace |
-    | *2* | Viewed | 25.00 | Slovakia (Slovak Republic) | Cardigan Sweater |
-    | *3* | Purchased | 14.00 | Senegal | Flip Flop Shoes |
-    | *4* | Viewed | 50.00 | Panama | Denim Shorts |
-    | *5* | Viewed | 14.00 | Senegal | Flip Flop Shoes |
-    | *6* | Added | 14.00 | Senegal | Flip Flop Shoes |
-    | *7* | Added | 50.00 | Panama | Denim Shorts |
-    | *8* | Purchased | 33.00 | Palestinian Territory | Red Top |
-    | *9* | Viewed | 30.00 | Malta | Green Sweater |
+    | **0** | Purchased | 19.99 | Macedonia | Button-Up Shirt |
+    | **1** | Viewed | 12.00 | Papua New Guinea | Necklace |
+    | **2** | Viewed | 25.00 | Slovakia (Slovak Republic) | Cardigan Sweater |
+    | **3** | Purchased | 14.00 | Senegal | Flip Flop Shoes |
+    | **4** | Viewed | 50.00 | Panama | Denim Shorts |
+    | **5** | Viewed | 14.00 | Senegal | Flip Flop Shoes |
+    | **6** | Added | 14.00 | Senegal | Flip Flop Shoes |
+    | **7** | Added | 50.00 | Panama | Denim Shorts |
+    | **8** | Purchased | 33.00 | Palestinian Territory | Red Top |
+    | **9** | Viewed | 30.00 | Malta | Green Sweater |
 
 1. Create another new code cell.
 
