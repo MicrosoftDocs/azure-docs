@@ -32,61 +32,56 @@ In this quickstart, you'll perform the following actions:
 
 The following steps illustrate how to use the Azure portal to create and configure a Dev center in Azure Deployment Environments.
 
-1. Use the following link to sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Fidalgo/FidalgoMenuBlade/devcenters).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/create-devcenter.png" alt-text="Screenshot of sign-in page to create and configure a Dev center.":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/deployment-environments-add-devcenter.png" alt-text="Screenshot to create and configure an Azure Deployment Environments dev center.":::
 
-1. Select on **+ Add** and in the **Basics** tab of **Create a Dev center** window, perform the following actions:
+1. Select **+ Add** to create a new dev center.
+1. Add the following details on the **Basics** tab of the **Create a dev center** page.
 
     |Name      |Value      |
     |----------|-----------|
-    |**Subscription**|Select the subscription in which you want to create the Dev center.|
+    |**Subscription**|Select the subscription in which you want to create the dev center.|
     |**Resource group**|Either use an existing resource group or select **Create new**, and enter a name for the resource group.|
-    |**Name**|Enter a name for the Dev center.|
-    |**Location**|Select the location/region in which you want the Dev center to be created.|
+    |**Name**|Enter a name for the dev center.|
+    |**Location**|Select the location/region in which you want the dev center to be created.|
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/create-devcenter-basics.png" alt-text="Screenshot of Basics tab of Create the Azure Deployment Environment Dev center.":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/create-devcenter-page-basics.png" alt-text="Screenshot of Basics tab of the Create a dev center page.":::
 
-1. In the **Tags** tab, enter a **Name** and **Value** pair that you want to assign.
+1. [Optional] Select the **Tags** tab and add a **Name**/**Value** pair.
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/create-devcenter-tags.png" alt-text="Screenshot of Tags tab of a Dev center to apply the same tag to multiple resources and resource groups.":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/create-devcenter-page-tags.png" alt-text="Screenshot of Tags tab of a Dev center to apply the same tag to multiple resources and resource groups.":::
 
-1. In the **Review** tab, validate all the details and select **Create**.
+1. Select **Review + Create**
+1. Validate all details on the **Review** tab, and then select **Create**.
 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/create-devcenter-review.png" alt-text="Screenshot of Review tab of a DevCenter to validate all the details.":::
 
-1. Confirm that the Dev center is created successfully by checking the **Notifications**. Select **Go to resource**.
+1. Confirm that the project is created successfully by checking **Notifications**. Select **Go to resource**.
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/create-devcenter-notification.png" alt-text="Screenshot of Notification to confirm the creation of Dev center.":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/azure-notifications.png" alt-text="Screenshot of Notifications to confirm the creation of dev center.":::
 
-1. Confirm that you see the **Dev center** page.
+1. Confirm that you see the dev center on the **Dev centers** page.
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/devcenter-overview.png" alt-text="Screenshot of DevCenter page to confirm the DevCenter is created and displayed on Dev center page":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/deployment-envrionments-devcenter-created.png" alt-text="Screenshot of Dev centers page to confirm the dev center is created and displayed on the page":::
 
 ## Attach an Identity
 
-After you've created a dev center, the next step is to attach an [identity](concept-environments-key-concepts.md#identities) to the dev center, either a system assigned managed identity or a user assigned managed identity.
+After you've created a dev center, the next step is to attach an [identity](concept-environments-key-concepts.md#identities) to the dev center. Learn about the [types of identities](how-to-configure-managed-identity.md#types-of-managed-identities)(system assigned managed identity or a user assigned managed identity) you can attach.
 
 ### Using a system-assigned managed identity
 
-1. Create a system-assigned managed identity by switching the status to **On**, selecting **Save** and confirming **Yes**. Learn more about [system-assigned managed identities.](how-to-configure-managed-identity.md#types-of-managed-identities)
+1. Create a [system-assigned managed identity](how-to-configure-managed-identity.md#configure-a-system-assigned-managed-identity-for-a-dev-center).
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/system-assigned-identity-tab.png" alt-text="Screenshot of system-assigned managed identity tab.":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/system-assigned-managed-identity.png" alt-text="Screenshot of system assigned managed identity.":::
 
 1. [Optional] After the system-assigned managed identity is created, select **Azure role assignments** to provide **Owner** access on the subscriptions that will be used to configure [Project Environment Types](concept-environments-key-concepts.md#project-environment-types) and ensure the **Identity** has [access to the **Key Vault** secrets](how-to-configure-managed-identity.md#assign-the-managed-identity-access-to-the-key-vault-secret) containing the personal access token (PAT) token to access your repository.
 
 ### Using the user-assigned existing managed identity
 
-1. Switch to the **User Assigned** tab and select **+ Add** to attach an existing identity.
+1. Attach a [user assigned managed identity](how-to-configure-managed-identity.md#configure-a-user-assigned-managed-identity-for-a-dev-center).
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/user-assigned-identity-tab.png" alt-text="Screenshot of user-assigned tab.":::
-
-1. On the **Add user assigned managed identity** page,
-    1. For **Subscription**, select the subscription in which the Identity exists.
-    1. For **User assigned managed identities**, select an existing Identity from the drop-down.
-    1. Select **Add**.
-
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/add-user-assigned-managed-identity.png" alt-text="Screenshot of user-assigned managed identity tab.":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/user-assigned-managed-identity.png" alt-text="Screenshot of user assigned managed identity.":::
 
 1. [Optional] After the identity is attached, ensure that the attached identity has **Owner** access on the subscriptions that will be used to configure Project Environment Types. Also, provide **Reader** access to all subscriptions that a project lives in. Also ensure the identity has access to the Key Vault secrets containing the personal access token (PAT) token to access the repository.
 
@@ -95,42 +90,46 @@ After you've created a dev center, the next step is to attach an [identity](conc
 
 ## Attach a Catalog
 
-**Prerequisite** - Before attaching a [Catalog](concept-environments-key-concepts.md#catalogs), store the personal access token (PAT) as a [Key Vault secret](../key-vault/secrets/quick-create-portal.md) and copy the **Secret Identifier**. Ensure that the [Identity](concept-environments-key-concepts.md#identities) attached to the Dev center has [**Get** access to the **Secret**](../key-vault/general/assign-access-policy.md).
+**Prerequisite** - Before attaching a [Catalog](concept-environments-key-concepts.md#catalogs), store the personal access token (PAT) as a [Key Vault secret](../key-vault/secrets/quick-create-portal.md) and copy the **Secret Identifier**. Ensure that the [Identity](concept-environments-key-concepts.md#identities) attached to the dev center has [**Get** access to the **Secret**](../key-vault/general/assign-access-policy.md).
 
-1. Select **Catalogs** in the left menu and select **+ Add Repo**.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Access Azure Deployment Environments.
+1. Select your dev center from the list.
+1. Select **Catalogs** from the left pane and select **+ Add**.
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/catalog-tab.png" alt-text="Screenshot of catalog option to the left menu of the Dev center and the Add Repo option in the catalog menu.":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/catalogs-page.png" alt-text="Screenshot of Catalogs page.":::
 
-1. In **Add New Catalog** page, provide the following details and select **Add**.
+1. On the **Add New Catalog** page, provide the following details, and then select **Add**.
 
     |Name     |Value     |
     |---------|----------|
     |**Name**|Provide a name for your catalog.|
-    |**Git clone Uri**|Provide the URI to your GitHub or ADO repository.|
-    |**Branch Name**|Provide the repository branch that you would like to connect.|
-    |**Personal Access Token**|Provide the secret identifier that contains your PAT for the repository.|
-    |**Folder Path**|Provide the repo path in which the catalog items exist.|
+    |**Git clone URI**|Provide the URI to your GitHub or ADO repository.|
+    |**Branch**|Provide the repository branch that you would like to connect.|
+    |**Folder path**|Provide the repo path in which the [catalog item](concept-environments-key-concepts.md#catalog-items) exist.|
+    |**Secret identifier**|Provide the secret identifier that which contains your Personal Access Token (PAT) for the repository|
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/add-new-catalog-tab.png" alt-text="Screenshot of add new catalog page.":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/add-new-catalog-form.png" alt-text="Screenshot of add new catalog page.":::
 
 1. Confirm that the catalog is successfully added by checking the **Notifications**.
 
 ## Create Environment types
 
-Environment types help you define the different types of environments your development teams can deploy. You can apply different settings per environment type per project.
+Environment types help you define the different types of environments your development teams can deploy. You can apply different settings per environment type.
 
-1. Select the **Environment types** in the left menu and select **+ Add**.
-1. On the **Add environment type** page, provide the following details and select **Add**.
+1. Select the **Environment types** from the left pane and select **+ Create**.
+1. On the **Create environment type** page, provide the following details and select **Add**.
 
     |Name     |Value     |
     |---------|----------|
-    |**Name**|Select a name for the environment type.|
-    |**Description**|You may choose to provide details about the environment type.|
+    |**Name**|Add a name for the environment type.|
     |**Tags**|Provide a **Name** and **Value**.|
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/add-environment-type-tab.png" alt-text="Screenshot of add environment type page.":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/create-environment-type.png" alt-text="Screenshot of Create environment type form.":::
 
-1. Confirm that the environment type is added.
+1. Confirm that the environment type is added by checking the **Notifications**.
+
+Environment types added to the dev center are available within each project it contains, but are not enabled by default. When enabled at the project level, the environment type determines the managed identity and subscription that is used for deploying environments.
 
 ## Next steps
 
