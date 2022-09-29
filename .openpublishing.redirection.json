@@ -12838,6 +12838,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-vmware/enable-public-internet-access.md",
+      "redirect_url": "/azure/azure-vmware/enable-public-ip-nsx-edge",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-vmware/reset-vsphere-credentials.md",
       "redirect_url": "/azure/azure-vmware/rotate-cloudadmin-credentials",
       "redirect_document_id": false
