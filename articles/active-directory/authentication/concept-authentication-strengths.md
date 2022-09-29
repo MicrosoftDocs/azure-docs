@@ -125,11 +125,11 @@ After you determine the authentication strength you need, you'll need to create 
 ### How authentication strength works with the Authentication methods policy
 There are two policies that determine which authentication methods can be used to access resources:
 
-- **Security** > **Authentication methods** > **Policies** controls authentication methods for specific users and groups. This is te modern way to....
+- **Security** > **Authentication methods** > **Policies** controls authentication methods for specific users and groups. 
 
   :::image type="content" border="true" source="./media/concept-authentication-strengths/authentication-methods-policy.png" alt-text="Screenshot of Authentication methods policy.":::
 
-- **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings** controls methods for all the users in the tenant. legacy way..
+- **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings** controls methods for all the users in the tenant. 
 
   :::image type="content" border="true" source="./media/concept-authentication-strengths/mfa-service-settings.png" alt-text="Screenshot of MFA service settings.":::
 
@@ -139,8 +139,6 @@ In addition, users must register for a method they want use, such as SMS. In oth
 The authentication strength Conditional Access policy checks these settings to determine the user’s access to the resource. For example, an administrator configures a Conditional Access policy with a custom authentication strength that requires FIDO2 Security Key or Password + SMS. The user accesses a resource protected by this policy. During sign-in, all settings are checked to determine which methods are allowed, which methods are registered, and which methods are required by the Conditional Access policy.
 
 ## User experience
-
-<!---Should we add a flowchart or another conceptual diagram to illustrate this?--->
 
 The following factors determine if the user gains access to the resource: 
 
