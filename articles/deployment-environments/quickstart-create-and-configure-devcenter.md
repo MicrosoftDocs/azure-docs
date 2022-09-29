@@ -63,7 +63,7 @@ The following steps illustrate how to use the Azure portal to create and configu
 
 1. Confirm that you see the dev center on the **Dev centers** page.
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/deployment-environments-devcenter-created.png" alt-text="Screenshot of Dev centers page to confirm the dev center is created and displayed on the page":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/deployment-envrionments-devcenter-created.png" alt-text="Screenshot of Dev centers page to confirm the dev center is created and displayed on the page":::
 
 ## Attach an Identity
 
@@ -71,7 +71,7 @@ After you've created a dev center, the next step is to attach an [identity](conc
 
 ### Using a system-assigned managed identity
 
-1. Create a [system-assigned managed identity](how-to-configure-managed-identity.mdmd#configure-a-system-assigned-managed-identity-for-a-dev-center).
+1. Create a [system-assigned managed identity](how-to-configure-managed-identity.md#configure-a-system-assigned-managed-identity-for-a-dev-center).
 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/system-assigned-managed-identity.png" alt-text="Screenshot of system assigned managed identity.":::
 
@@ -81,7 +81,7 @@ After you've created a dev center, the next step is to attach an [identity](conc
 
 1. Attach a [user assigned managed identity](how-to-configure-managed-identity.md#configure-a-user-assigned-managed-identity-for-a-dev-center).
 
-    :::image type="content" source="media/quickstart-create-and-configure-devcenter/user-assigned-managed-identity.png" alt-text="Screenshot of system assigned managed identity.":::
+    :::image type="content" source="media/quickstart-create-and-configure-devcenter/user-assigned-managed-identity.png" alt-text="Screenshot of user assigned managed identity.":::
 
 1. [Optional] After the identity is attached, ensure that the attached identity has **Owner** access on the subscriptions that will be used to configure Project Environment Types. Also, provide **Reader** access to all subscriptions that a project lives in. Also ensure the identity has access to the Key Vault secrets containing the personal access token (PAT) token to access the repository.
 
