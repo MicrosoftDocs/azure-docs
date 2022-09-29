@@ -11,6 +11,8 @@ ms.date: 09/02/2022
 
 # Schedule and run recurring workflows with the Recurrence trigger in Azure Logic Apps
 
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+
 To start and run your workflow on a schedule, you can use the generic Recurrence trigger as the first step. You can set a date, time, and time zone for starting the workflow and a recurrence for repeating that workflow. The following list includes some patterns that this trigger supports along with more advanced recurrences and complex schedules:
 
 * Run at a specific date and time, then repeat every *n* number of seconds, minutes, hours, days, weeks, or months.
