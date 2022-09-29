@@ -113,6 +113,9 @@
     href: reference-azure-machine-learning-cli.md
   - name: Manage workspace using CLI (v1)
     href: how-to-manage-workspace-cli.md
+  - name: Set up dev environments
+    displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
+    href: how-to-configure-environment-v1.md
   - name: Set up software environments CLI (v1)
     href: how-to-use-environments.md
   - name: Create & manage compute resources
