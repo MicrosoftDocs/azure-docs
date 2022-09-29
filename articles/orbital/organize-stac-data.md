@@ -1,13 +1,12 @@
 ---
 title: Organize spaceborne geospatial data with STAC - Azure Orbital Analytics
-description: 
+description: Create an implementation of SpatioTemporal Asset Catalog (STAC) creation to structure geospatial data.
 author: taiyee
 ms.service: orbital
 ms.topic: conceptual
 ms.custom: ga
 ms.date: 09/29/2022
 ms.author: taiyee
-
 ---
 
 # Organize spaceborne geospatial data with SpatioTemporal Asset Catalog (STAC)
@@ -103,13 +102,13 @@ The following sections describe the 4 stages in the architecture.
 The following Azure services are used in this architecture.
 
 - [Key Vault](/azure/key-vault/general/basic-concepts) stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
-- [Service Bus](https://azure.microsoft.com/services/service-bus/) is part of a broader [Azure messaging](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview) infrastructure that supports queueing, publish/subscribe, and more advanced integration patterns.
+- [Service Bus](https://azure.microsoft.com/services/service-bus/) is part of a broader [Azure messaging](/azure/service-bus-messaging/service-bus-messaging-overview) infrastructure that supports queueing, publish/subscribe, and more advanced integration patterns.
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) is dedicated to big data analytics, and is built on [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs).
-- [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) enables Azure resources to securely communicate with each other, the internet, and on-premises networks.
+- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) enables Azure resources to securely communicate with each other, the internet, and on-premises networks.
 - [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/overview) is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. It has richer capabilities such as zone resilient high availability (HA), predictable performance, maximum control, custom maintenance window, cost optimization controls, and simplified developer experience suitable for your enterprise workloads.
 - [API Management Services](https://azure.microsoft.com/services/api-management/) offers a scalable, multi-cloud API management platform for securing, publishing and analyzing APIs.
 - [Azure Kubernetes Services](/azure/aks/intro-kubernetes) offers the quickest way to start developing and deploying cloud-native apps, with built-in code-to-cloud pipelines and guardrails.
-- [Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-intro) to store and manage your container images and related artifacts.
+- [Container Registry](/azure/container-registry/container-registry-intro) to store and manage your container images and related artifacts.
 - [Virtual Machine](/azure/virtual-machines/overview) (VM) gives you the flexibility of virtualization for a wide range of computing solutions. In a fully secured deployment, a user connects to a VM via Azure Bastion (described in the next item below) to perform a range of operations like copying files to storage accounts, running Azure CLI commands, and interacting with other services.  
 - [Azure Bastion](/azure/bastion/bastion-overview) enables you to securely and seamlessly RDP & SSH to your VMs in Azure virtual network, without the need of public IP on the VM, directly from the Azure portal, and without the need of any additional client/agent or any piece of software.
 - [Application Insights](/azure/azure-monitor/app/app-insights-overview) provides extensible application performance management and monitoring for live web apps.
