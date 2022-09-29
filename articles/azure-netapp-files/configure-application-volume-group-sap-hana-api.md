@@ -56,7 +56,7 @@ The following list describes all the possible volume types for application volum
 
 1. **Networking:** You need to decide on the networking architecture. To use Azure NetApp Files, a VNet needs to be created and within the vNet a delegated subnet where the ANF storage endpoints (IPs) will be placed. To ensure that the size of this subnet is large enough, see [Considerations about delegating a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md#considerations).
     1.	Create a VNet.
-    2.	Create a virutal machine (VM) subnet and delegated subnet for ANF.
+    2.	Create a virtual machine (VM) subnet and delegated subnet for ANF.
 1.	**Storage Account and Capacity Pool:** A storage account is the entry point to consume Azure NetApp Files. At least one storage account needs to be created. Within a storage account, a capacity pool is the logical unit to create volumes. Application volume groups require a capacity pool with a manual QoS. It should be created with a size and service level that meets your HANA requirements.
     >[!NOTE]
     > A capacity pool can be resized at any time. For more information about changing a capacity pool, refer to [Manage a manual QoS capacity pool](manage-manual-qos-capacity-pool.md).
