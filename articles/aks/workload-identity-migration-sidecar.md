@@ -3,7 +3,7 @@ title: Modernize your Azure Kubernetes Service (AKS) application with a workload
 description: In this Azure Kubernetes Service (AKS) article, you learn how to configure your Azure Kubernetes Service pod to authenticate with the workload identity sidecar.
 services: container-service
 ms.topic: article
-ms.date: 09/27/2022
+ms.date: 09/29/2022
 ---
 
 # Modernize application authentication with workload identity sidecar
@@ -175,8 +175,6 @@ This article showed you how to set up your pod to authenticate using a workload 
 [workload-identity-overview]: workload-identity-overview.md
 [az-identity-federated-credential-create]: /cli/azure/identity/federated-credential#az-identity-federated-credential-create
 [az-aks-pod-identity-delete]: /cli/azure/aks/pod-identity#az-aks-pod-identity-delete
-[az-identity-delete]: /cli/azure/identity#az-identity-delete
-[managed-identity-contributor]: ../role-based-access-control/built-in-roles.md#managed-identity-contributor
 
 <!-- EXTERNAL LINKS -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe

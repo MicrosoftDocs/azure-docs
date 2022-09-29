@@ -3,7 +3,7 @@ title: Deploy and configure an Azure Kubernetes Service (AKS) cluster with workl
 description: In this Azure Kubernetes Service (AKS) article, you deploy an Azure Kubernetes Service cluster and configure it with an Azure AD workload identity (preview).
 services: container-service
 ms.topic: article
-ms.date: 09/27/2022
+ms.date: 09/29/2022
 ---
 
 # Deploy and configure workload identity (preview) on an Azure Kubernetes Service (AKS) cluster
@@ -12,7 +12,7 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you qui
 
 * Deploy an AKS cluster using the Azure CLI that includes the OpenID Connect Issuer and an Azure AD workload identity (preview)
 * Grant access to your Azure Key Vault
-* Create an Azure Active Directory (Azure AD) application and Kubernetes service account
+* Create an Azure Active Directory (Azure AD) workload identity and Kubernetes service account
 * Configure the managed identity for token federation.
 
 This article assumes you have a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts]. If you are not familiar with Azure AD workload identity (preview), see the following [Overview][workload-identity-overview] article.
@@ -94,7 +94,7 @@ You can retrieve this information using the Azure CLI command: [az keyvault list
 
 ## Create Kubernetes service account
 
-Create a Kubernetes service account and annotate it with the client ID of the Managed Identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replace the values for the cluster name and the resource group name.
+Create a Kubernetes service account and annotate it with the client ID of the managed identity created in the previous step. Use the [az aks get-credentials][az-aks-get-credentials] command and replace the values for the cluster name and the resource group name.
 
 ```azurecli
 az aks get-credentials -n myAKSCluster -g MyResourceGroup
@@ -130,9 +130,12 @@ Use the [az identity federated-credential create][az-identity-federated-credenti
 az identity federated-credential create --name federatedIdentityName --identity-name userAssignedIdentityName --resource-group resourceGroupName --issuer ${AKS_OIDC_ISSUER} --subject system:serviceaccount:serviceAccountNamespace:serviceAccountName
 ```
 
+> [!NOTE]
+> It takes a few seconds for the federated identity credential to be propagated after being initially added. If a token request is made immediately after adding the federated identity credential, it might lead to failure for a couple of minutes as the cache is populated in the directory with old data. To avoid this issue, you can add a slight delay after adding the federated identity credential.
+
 ## Next steps
 
-In this article, you deployed a Kubernetes cluster and configured it to use a workload identity in preparation for application workloads to authenticate with that credential. To learn how to set up your pod to authenticate using a workload identity as a migration option, see [Modernize application authentication with workload identity][workload-identity-migration].
+In this article, you deployed a Kubernetes cluster and configured it to use a workload identity in preparation for application workloads to authenticate with that credential. Now you are ready to deploy your application and configure it to use the workload identity with the latest version of the [Azure Identity][azure-identity-libraries] client library. If you can't rewrite your application to use the latest client library version, you can [set up your application pod][workload-identity-migration] to authenticate using managed identity with workload identity as a short-term migration solution.
 
 <!-- EXTERNAL LINKS -->
 
@@ -150,3 +153,4 @@ In this article, you deployed a Kubernetes cluster and configured it to use a wo
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-identity-federated-credential-create]: /cli/azure/identity/federated-credential#az-identity-federated-credential-create
 [workload-identity-migration]: workload-identity-migration-sidecar.md
+[azure-identity-libraries]: ../active-directory/develop/reference-v2-libraries.md

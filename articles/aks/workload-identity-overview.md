@@ -3,7 +3,7 @@ title: Use an Azure AD workload identities (preview) on Azure Kubernetes Service
 description: Learn about Azure Active Directory workload identity (preview) for Azure Kubernetes Service (AKS) and how to migrate your application to authenticate using this identity.  
 services: container-service
 ms.topic: article
-ms.date: 09/27/2022
+ms.date: 09/29/2022
 author: mgoedtel
 
 ---
@@ -34,10 +34,10 @@ This article helps you understand this new authentication feature, and reviews t
 
 - The following are the minimum versions of the [Azure Identity][azure-identity-libraries] client library supported:
 
-    * .NET 1.5.0
-    * Java 1.4.0
-    * JavaScript 2.0.0
-    * Python 1.7.0
+    * [.NET][dotnet-azure-identity-client-library] 1.5.0
+    * [Java][java-azure-identity-client-library] 1.4.0
+    * [JavaScript][javascript-azure-identity-client-library] 2.0.0
+    * [Python][python-azure-identity-client-library] 1.7.0
 
 ## Limitations
 
@@ -135,3 +135,7 @@ The following table summarizes our migration or deployment recommendations for w
 [deploy-configure-workload-identity-new-cluster]: workload-identity-deploy-cluster.md
 [tutorial-use-workload-identity]: ./learn/tutorial-kubernetes-workload-identity.md
 [workload-identity-migration-sidecar]: workload-identity-migration-sidecar.md
+[dotnet-azure-identity-client-library]: /dotnet/api/overview/azure/identity-readme
+[java-azure-identity-client-library]: /java/api/overview/azure/identity-readme
+[javascript-azure-identity-client-library]: /javascript/api/overview/azure/identity-readme
+[python-azure-identity-client-library]: /python/api/overview/azure/identity-readme?view=azure-python

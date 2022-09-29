@@ -3,7 +3,7 @@ title: Tutorial - Use a workload identity with an application on Azure Kubernete
 description: In this Azure Kubernetes Service (AKS) tutorial, you deploy an Azure Kubernetes Service cluster and configure an application to use a workload identity.
 services: container-service
 ms.topic: tutorial
-ms.date: 09/27/2022
+ms.date: 09/29/2022
 ---
 
 # Tutorial: Use a workload identity with an application on Azure Kubernetes Service (AKS)
@@ -260,7 +260,7 @@ I1013 22:49:29.872708       1 main.go:30] "successfully got secret" secret="Hell
 
 ## Clean up resources
 
-Other tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent tutorials, you may wish to leave these resources in place.
+If you plan to continue on to work with subsequent tutorials, you may wish to leave these resources in place.
 
 When no longer needed, you can run the following Kubectl and the Azure CLI commands to remove the resource group and all related resources.
 
