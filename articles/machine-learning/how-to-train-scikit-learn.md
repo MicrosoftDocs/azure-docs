@@ -151,8 +151,8 @@ You'll use the general purpose `command` to run the training script and perform 
 
 - The inputs for this command include the number of epochs, learning rate, momentum, and output directory.
 - For the parameter values:
-    - provide the compute cluster `cpu_compute_target = "cpu-cluster"` that you created for running this command; and
-    - provide the custom environment `sklearn-env` that you created for running the AzureML job.
+    - provide the compute cluster `cpu_compute_target = "cpu-cluster"` that you created for running this command;
+    - provide the custom environment `sklearn-env` that you created for running the AzureML job;
     - configure the command line action itself – in this case, the command is `python train_iris.py`. You can access the inputs and outputs in the command via the `${{ ... }}` notation; and
     - configure the metadata such as the display name and experiment name; where an experiment is a container for all the iterations one does on a certain project. Note that all the jobs submitted under the same experiment name would be listed next to each other in AzureML studio.
 
