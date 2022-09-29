@@ -746,9 +746,19 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/mysql/flexible-server/how-to-upgrade.md",
-        "redirect_url": "/azure/mysql/single-server/how-to-major-version-upgrade",
+        "source_path_from_root": "/articles/mysql/single-server/how-to-decide-on-right-migration-tools.md",
+        "redirect_url": "/azure/mysql/migrate/how-to-decide-on-right-migration-tools",
         "redirect_document_id": true
-    }    
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/how-to-migrate-single-flexible-minimum-downtime.md",
+        "redirect_url": "/azure/mysql/migrate/how-to-migrate-single-flexible-minimum-downtime",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/mysql/single-server/concepts-migrate-mydumper-myloader.md",
+        "redirect_url": "/azure/mysql/migrate/concepts-migrate-mydumper-myloader",
+        "redirect_document_id": true
+    }  
   ]
 }
