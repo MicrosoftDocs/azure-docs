@@ -26,29 +26,29 @@ Included among these solutions are Kubernetes application-based Container offers
 
 - Begin by visiting the Azure portal and searching for *"Marketplace"* in the top search bar.
 
-<!-- screenshot showing marketplace from top bar search -->
-
 - You can search for an offer or publisher directly by name or browse all offers. To find Kubernetes application offers, use the *Product type* filter for *Azure Containers*. Once you've decided on an application, click on the offer.
 
-<!-- screenshots showing filter for Kubernetes app -->
+    :::image type="content" source="./media/deploy-marketplace/browse-marketplace-inline.png" alt-text="Screenshot of the Azure portal Marketplace offer page. The product type filter, set to Azure Containers, is highlighted and several offers are shown." lightbox="./media/deploy-marketplace/browse-marketplace-full.png":::
 
 ## Purchasing a Kubernetes offer
 
 - Review the plan and prices tab, select an option, and ensure the terms are acceptable before proceeding.
 
-<!-- screenshot of a plan and prices tab -->
+    :::image type="content" source="./media/deploy-marketplace/plans-pricing-inline.png" alt-text="Screenshot of the Azure portal offer purchasing page. The tab for viewing plans and pricing information is shown." lightbox="./media/deploy-marketplace/plans-pricing-full.png":::
 
 - Click *"Create"*.
-
-<!-- screenshot highlighting create button -->
 
 ## Deploy a Kubernetes offer
 
 - Follow the form, filling in information for your resource group, cluster, and any configuration options required by the application. You can decide to deploy on a new AKS cluster or use an existing cluster.
 
-<!-- screenshot of first form page -->
+    :::image type="content" source="./media/deploy-marketplace/purchase-experience-inline.png" alt-text="Screenshot of the Azure portal form for deploying a new offer. A selector for creating a new or using an existing cluster is shown." lightbox="./media/deploy-marketplace/purchase-experience-full.png":::
 
-- After some time, the application will be deployed. To verify, list the extensions on your running on your cluster:
+- After some time, the application will be deployed, as indicated by the Portal screen.
+
+    :::image type="content" source="./media/deploy-marketplace/deployment-inline.png" alt-text="Screenshot of the Azure portal screen showing a successful resource deployment, indicating the offer has been deployed to the cluster." lightbox="./media/deploy-marketplace/deployment-full.png":::
+
+- You can also verify by listing the extensions on your running on your cluster:
 
     ```azurecli-interactive
     az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
@@ -67,7 +67,7 @@ az k8s-extension show --name <extension-name> --cluster-name <clusterName> --res
 ### Updating an offer
 
 An offer can be updated by using the REST API or Azure CLI. For example:
-
+c
 ```azurecli-interactive
 az k8s-extension update --name <extension-name> --extension-type <extension-type> --scope <scope> --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
 ```
@@ -84,8 +84,13 @@ az k8s-extension delete --name <extension-name> --cluster-name <clusterName> --r
 
 To monitor billing and usage information for the offer you've deployed, visit Cost Management > Cost Analysis in your cluster resource's page in the Azure portal. You can see a breakdown of cost for the plan you've selected under "Product".
 
-<!-- screenshot of billing/usage page -->
+:::image type="content" source="./media/deploy-marketplace/billing-inline.png" alt-text="Screenshot of the Azure portal page for the resource group. Billing information is shown broken down by offer plan." lightbox="./media/deploy-marketplace/billing-full.png":::
+
+## Next Steps
+
+- Learn more about [exploring and analyzing costs][billing].
 
 <!-- LINKS -->
 [azure-marketplace]: /marketplace/azure-marketplace-overview
 [cluster-extensions]: ./cluster-extensions.md
+[billing]: ../azure/cost-management-billing/costs/quick-acm-cost-analysis.md
