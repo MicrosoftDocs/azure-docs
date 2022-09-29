@@ -109,6 +109,8 @@ It's possible to convert UserType from Member to Guest and vice-versa by editing
 
 Guest users have [default restricted directory permissions](../fundamentals/users-default-permissions.md). They can manage their own profile, change their own password, and retrieve some information about other users, groups, and apps. However, they can't read all directory information. 
 
+B2B guest users are not supported in Microsoft Teams shared channels. For access to shared channels see [B2B direct connect.](b2b-direct-connect-overview.md)
+
 There may be cases where you want to give your guest users higher privileges. You can add a guest user to any role and even remove the default guest user restrictions in the directory to give a user the same privileges as members. It's possible to turn off the default limitations so that a guest user in the company directory has the same permissions as a member user. For more information, check out the [Restrict guest access permissions in Azure Active Directory](../enterprise-users/users-restrict-guest-permissions.md) article.
 
 ![Screenshot showing the External users option in the user settings.](media/user-properties/remove-guest-limitations.png)
