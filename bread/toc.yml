@@ -1064,6 +1064,9 @@
     - name: Centrally managed Azure Hybrid Benefit
       tocHref: /azure/cost-management-billing/scope-level
       topicHref: /azure/cost-management-billing/scope-level
+    - name: Azure savings plans
+      tocHref: /azure/cost-management-billing/savings-plan
+      topicHref: /azure/cost-management-billing/savings-plan
   - name: Microsoft Purview
     tocHref: /azure/purview/
     topicHref: /azure/purview/
