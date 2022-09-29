@@ -30,7 +30,7 @@ Enterprise Agreement and Microsoft Customer Agreement billing readers can view a
 
 ## Need help? Contact us.
 
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+If you have Azure savings plan for compute questions, contact your  account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft will only provide Azure savings plan for compute expert support requests in English.
 
 ## Next steps
 

@@ -90,6 +90,10 @@ Emails are sent to different people depending on your purchase method:
 - EA customers - Emails are sent to the notification contacts set on the EA portal or Enterprise Administrators who are automatically enrolled to receive usage notifications.
 - MPA – No email notifications are currently sent for Microsoft Partner Agreement subscriptions.
 
+## Need help? Contact us.
+
+If you have Azure savings plan for compute questions, contact your  account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft will only provide Azure savings plan for compute expert support requests in English.
+
 ## Next steps
 
 - To learn more about Azure savings plans, see [What are Azure Savings Plan?](savings-plan-compute-overview.md)

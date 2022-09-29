@@ -66,7 +66,7 @@ landingContent:
         url: view-utilization.md
       - text: View savings plan cost and usage
         url: utilization-cost-reports.md
-      - text: view amortized savings plan costs
+      - text: View amortized savings plan costs
         url: view-amortized-costs.md
       - text: Charge back Azure savings plan costs
         url: charge-back-costs.md
