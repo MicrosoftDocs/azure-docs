@@ -52,6 +52,9 @@ The migration tool will map the CPU/Memory requirement to corresponding SKU. If 
 
 "(" means greater than and "]" means less than or equal to. For example, “(0, 1]” means “greater than 0 and less than or equal to 1”.
 
+> [!IMPORTANT]
+> When migrating from ACI, there will be some changes in how you'll be charged. See [our blog](https://aka.ms/acimoemigration) for a rough cost comparison to help you choose the right VM SKUs for your workload.
+
 ### Network Isolation
 For private workspace and VNet scenarios, see [Use network isolation with managed online endpoints (preview)](how-to-secure-online-endpoint.md?tabs=model).
 
@@ -98,32 +101,10 @@ Use the following steps to run the scripts:
     > ```
 7. After the deployment is completes successfully, you can verify the endpoint with the [az ml online-endpoint invoke](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-invoke) command.
 
-## Cost comparison
-We have a rough cost comparison. That varies based on your region, currency and order type, just for your information.
-ACI cost is calculated by $29.5650 * X + $3.2485 * Y. (X is the CPU core request rounded up to the nearest number, Y is the memory GB request rounded up to the nearest tenths place)
-Both costs are calculated by month.
-
-| CPU request | Memory request in GB | ACI costs range | Suggested SKU | SKU pay-as-you-go| SKU 1 year reserved| SKU 3 year reserved
-| :----| :---- | :---- | :---- | :---- | :---- | :---- |
-| (0, 1] | (0, 1.2] | ($29.565, $33.463] | DS1 V2 | $41.610 | $27.003 | $17.696 |
-| (1, 2] | (1.2, 1.7] | ($63.028, $64.652] | F2s V2 | $61.758 | $36.500 | $22.638 |
-| (1, 2] | (1.7, 4.7] | ($64.652, $74.398] | DS2 V2 | $83.220 | $54.086 | $35.391 |
-| (1, 2] | (4.7, 13.7] | ($74.398, $103.634] | E2s V3 | $97.090 | $57.086 | $36.500 |
-| (2, 3] | (0, 5.7] | ($88.695, $107.211] | F4s V2 | $123.37 | $73.000 | $45.275 |
-| (3, 4] | (0, 5.7] | ($118.26, $136.776] | F4s V2 | $123.37 | $73.000 | $45.275 |
-| (2, 3] | (5.7, 11.7] | ($107.211, $126.702] | DS3 V2 | $167.170 | $108.165 | $70.781 |
-| (3, 4] | (5.7, 11.7] | ($136.776, $156.267] | DS3 V2 | $167.170 | $108.165 | $70.781 |
-| (2, 3] | (11.7, 16] | ($126.702, $140.671] | E4s V3 | $194.180 | $114.165 | $73.000 |
-| (3, 4] | (11.7, 16] | ($156.267, $170.236] | E4s V3 | $194.180 | $114.165 | $73.000 |
-
-Azure costs differ based on the region you use and may change, please refer to [the latest pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
-
-ACI cost is calculated by 29.5650 * X + 3.2485 * Y. (X is the CPU core request rounded up to the nearest number, Y is the memory GB request rounded up to the nearest tenths place.)
-
 ## Contact us
 If you have any questions or feedback on the migration script, contact us at moeonboard@microsoft.com.
 
 ## Next steps
 
 * [What are Azure Machine Learning endpoints?](concept-endpoints.md)
-* [Deploy and score a model with managed online endpoints](how-to-deploy-managed-online-endpoint-sdk-v2.md)
+* [Deploy and score a model with managed online endpoints](how-to-deploy-managed-online-endpoint.md)
