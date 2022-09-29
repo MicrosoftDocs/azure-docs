@@ -71,11 +71,11 @@ You can also authorize requests to Azure Service Bus by using connection strings
 
 ### [Passwordless (Recommended)](#tab/passwordless)
 
-[!INCLUDE [passwordless-overview](passwordless-overview.md)]
+[!INCLUDE [passwordless-overview](../../includes/passwordless/passwordless-overview.md)]
 
 ### Assign roles to your Azure AD user
 
-[!INCLUDE [assign-roles](assign-roles.md)]
+[!INCLUDE [assign-roles](../../includes/assign-roles.md)]
 
 ### Sign-in and connect your app code to Azure using DefaultAzureCredential
 
@@ -83,11 +83,11 @@ You can authorize access to data in your storage account using the following ste
 
 1. Make sure you're authenticated with the same Azure AD account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio, or Azure PowerShell. Your code will use this account to authenticate.
 
-    [!INCLUDE [default-azure-credential-sign-in](default-azure-credential-sign-in.md)]
+    [!INCLUDE [default-azure-credential-sign-in](../../includes/default-azure-credential-sign-in.md)]
 
 1. To use `DefaultAzureCredential`, add the **Azure.Identity** package to your application.
 
-    [!INCLUDE [visual-studio-add-identity](visual-studio-add-identity.md)]
+    [!INCLUDE [visual-studio-add-identity](../../includes/visual-studio-add-identity.md)]
 
 ### [Connection string](#tab/connection-string)
 
