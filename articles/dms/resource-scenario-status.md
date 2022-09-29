@@ -61,6 +61,7 @@ The following table shows Azure Database Migration Service support for **offline
 | **Azure DB for PostgreSQL - Hyperscale (Citus)** | PostgreSQL | X |
 | | Amazon RDS PostgreSQL | X | |
 
+
 1. Offline migrations using the Azure SQL Migration extension for Azure Data Studio are supported for the following Azure SQL targets: **Azure SQL Managed Instance**, **SQL Server on Azure Virtual Machines** and, **Azure SQL Database (Preview)**. For more information, see [Migrate databases with Azure SQL migration extension for Azure Data Studio](migration-using-azure-data-studio.md).
 
 2. If your source database is already in Azure PaaS (for example, Azure DB for MySQL or Azure DB for PostgreSQL), choose the corresponding engine when creating your migration activity. For example, if you're migrating from Azure DB for MySQL - Single Server to Azure DB for MySQL - Flexible Server, choose MySQL as the source engine during scenario creation. If you're migrating from Azure DB for PostgreSQL - Single Server to Azure DB for PostgreSQL - Flexible Server, choose PostgreSQL as the source engine during scenario creation.
@@ -81,8 +82,9 @@ The following table shows Azure Database Migration Service support for **online*
 | | Amazon RDS SQL | X | |
 | | Oracle | X | |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Azure DB for MySQL** | MySQL | X | |
-| | Amazon RDS MySQL | X | |
+| **Azure DB for MySQL - Flexible Server** | Azure DB for MySQL - Single Server | ✔ | Preview |
+| | MySQL | ✔  | Preview |
+| | Amazon RDS MySQL | ✔  | Preview |
 | **Azure DB for PostgreSQL - Single server** | PostgreSQL | ✔ | GA |
 | | Azure DB for PostgreSQL - Single server <sup>2</sup> | ✔ | GA |
 | | Amazon DS PostgreSQL | ✔ | GA |

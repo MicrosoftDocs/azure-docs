@@ -179,6 +179,20 @@ For App Service, you then make the following modifications:
     ]
     ```
 
+## Serve static files for Flask apps
+
+If your Flask web app includes static front-end files, first follow the instructions on [managing static files](https://flask.palletsprojects.com/en/2.1.x/tutorial/static/) in the Flask documentation. For an example of serving static files in a Flask application, see the [quickstart sample Flask application](https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart) on Github. 
+
+To serve static files directly from a route on your application, you can use the [`send_from_directory`](https://flask.palletsprojects.com/en/2.2.x/api/#flask.send_from_directory) method:
+
+```python
+from flask import send_from_directory
+
+@app.route('/reports/<path:path>')
+def send_report(path):
+    return send_from_directory('reports', path)
+```
+
 ## Container characteristics
 
 When deployed to App Service, Python apps run within a Linux Docker container that's defined in the [App Service Python GitHub repository](https://github.com/Azure-App-Service/python). You can find the image configurations inside the version-specific directories.

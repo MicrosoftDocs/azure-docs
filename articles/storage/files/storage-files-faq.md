@@ -3,7 +3,7 @@ title: Frequently asked questions (FAQ) for Azure Files | Microsoft Docs
 description: Get answers to Azure Files frequently asked questions. You can mount Azure file shares concurrently on cloud or on-premises Windows, Linux, or macOS deployments.
 author: khdownie
 ms.service: storage
-ms.date: 07/21/2022
+ms.date: 09/08/2022
 ms.author: kendownie
 ms.subservice: files
 ms.topic: conceptual
@@ -98,7 +98,7 @@ ms.topic: conceptual
 * <a id="ad-file-mount-cname"></a>
 **Can I use the canonical name (CNAME) to mount an Azure file share while using identity-based authentication (AD DS or Azure AD DS)?**
 
-    No, this scenario isn't supported.
+    No, this scenario isn't supported. As an alternative to CNAME, you can use DFS Namespaces with SMB Azure file shares. To learn more, see [How to use DFS Namespaces with Azure Files](files-manage-namespaces.md).
 
 * <a id="ad-vm-subscription"></a>
 **Can I access Azure file shares with Azure AD credentials from a VM under a different subscription?**

@@ -169,7 +169,7 @@ After you validate your data files, you can use them to build your Custom Neural
 
     If you want to create a voice in the same language of your training data, select **Neural** method. For the **Neural** method, you can select different versions of the training recipe for your model. The versions vary according to the features supported and model training time. Normally new versions are enhanced ones with bugs fixed and new features supported. The latest version is selected by default.
 
-    You can also select **Neural - cross lingual** and **Target language** to create a secondary language for your voice model. Only one target language can be selected for a voice model. You don't need to prepare additional data in the target language for training, but your test script needs to be in the target language. For the languages supported by cross lingual feature, see [supported languages](language-support.md#custom-neural-voice).
+    You can also select **Neural - cross lingual** and **Target language** to create a secondary language for your voice model. Only one target language can be selected for a voice model. You don't need to prepare additional data in the target language for training, but your test script needs to be in the target language. For the languages supported by cross lingual feature, see [supported languages](language-support.md?tabs=stt-tts).
 
     The same unit price applies to both **Neural** and **Neural - cross lingual**. Check [the pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for training.
 

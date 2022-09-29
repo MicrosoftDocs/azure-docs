@@ -4,7 +4,7 @@ description: Learn how to configure automatic assignments based on rules for an 
 services: active-directory
 documentationCenter: ''
 author: markwahl-msft
-manager: karenhoran
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity
@@ -30,7 +30,7 @@ This article describes how to create an access package automatic assignment poli
 
 ## Before you begin
 
-You'll need to have attributes populated on the users who will be in scope for being assigned access.  The attributes you can use in the rules criteria of an access package assignment policy are those attributes listed in [supported properties](../enterprise-users/groups-dynamic-membership.md#supported-properties), along with [extension attributes and custom extension properties](../enterprise-users/groups-dynamic-membership.md#extension-properties-and-custom-extension-properties).  These attributes can be brought into Azure AD from [Graph](/graph/api/resources/user?view=graph-rest-beta), an HR system such as [SuccessFactors](../app-provisioning/sap-successfactors-integration-reference.md), [Azure AD Connect cloud sync](../cloud-sync/how-to-attribute-mapping.md) or [Azure AD Connect sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md).
+You'll need to have attributes populated on the users who will be in scope for being assigned access.  The attributes you can use in the rules criteria of an access package assignment policy are those attributes listed in [supported properties](../enterprise-users/groups-dynamic-membership.md#supported-properties), along with [extension attributes and custom extension properties](../enterprise-users/groups-dynamic-membership.md#extension-properties-and-custom-extension-properties).  These attributes can be brought into Azure AD from [Graph](/graph/api/resources/user), an HR system such as [SuccessFactors](../app-provisioning/sap-successfactors-integration-reference.md), [Azure AD Connect cloud sync](../cloud-sync/how-to-attribute-mapping.md) or [Azure AD Connect sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md).
 
 ## Create an automatic assignment policy (Preview)
 
@@ -49,7 +49,7 @@ To create a policy for an access package, you need to start from the access pack
 1. Provide a dynamic membership rule, using the [membership rule builder](../enterprise-users/groups-dynamic-membership.md) or by clicking **Edit** on the rule syntax text box.
 
    > [!NOTE]
-   > The rule builder might not be able to display some rules constructed in the text box, and validating a rule currently requires the you to be in the Global administrator role. For more information, see [rule builder in the Azure portal](/enterprise-users/groups-create-rule.md#rule-builder-in-the-azure-portal).
+   > The rule builder might not be able to display some rules constructed in the text box, and validating a rule currently requires the you to be in the Global administrator role. For more information, see [rule builder in the Azure portal](../enterprise-users/groups-create-rule.md#rule-builder-in-the-azure-portal).
 
     ![Screenshot of an access package automatic assignment policy rule configuration.](./media/entitlement-management-access-package-auto-assignment-policy/auto-assignment-rule-configuration.png)
 

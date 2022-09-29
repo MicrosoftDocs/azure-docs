@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 08/15/2022
+ms.date: 09/27/2022
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -38,7 +38,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
     * It must have the permission to create machine accounts (for example, AD domain join) in the AD DS organizational unit path specified in the **Organizational unit path option** of the AD connection. 
     * It cannot be a [Group Managed Service Account](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).
 
-* The AD connection admin account supports DES, Kerberos AES-128, and Kerberos AES-256 encryption types for authentication with AD DS for Azure NetApp Files machine account creation (for example, AD domain join operations).
+* The AD connection admin account supports Kerberos AES-128 and Kerberos AES-256 encryption types for authentication with AD DS for Azure NetApp Files machine account creation (for example, AD domain join operations).
 
 * To enable the AES encryption on the Azure NetApp Files AD connection admin account, you must use an AD domain user account that is a member of one of the following AD DS groups: 
 
@@ -53,7 +53,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
     >[!NOTE]
     >It's not recommended or required to add the Azure NetApp Files AD admin account to the AD domain groups listed above. Nor is it recommended or required to grant `msDS-SupportedEncryptionTypes` write permission to the AD admin account.  
 
-    If you set both AES-128 and AES-256 Kerberos encryption on the admin account of the AD connection, the highest level of encryption supported by your AD DS will be used. If AES encryption is not set, DES encryption will be used by default.   
+    If you set both AES-128 and AES-256 Kerberos encryption on the admin account of the AD connection, the highest level of encryption supported by your AD DS will be used.
 
 * To enable AES encryption support for the admin account in the AD connection, run the following Active Directory PowerShell commands:
 
@@ -64,8 +64,16 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
     `KerberosEncryptionType` is a multivalued parameter that supports AES-128 and AES-256 values. 
 
-* For more information, see the [Set-ADUser documentation](/powershell/module/activedirectory/set-aduser).
+    For more information, refer to the [Set-ADUser documentation](/powershell/module/activedirectory/set-aduser).
 
+* If you have a requirement to enable and disable certain Kerberos encryption types for Active Directory computer accounts for domain-joined Windows hosts used with Azure NetApp Files, you must use the Group Policy  `Network Security: Configure Encryption types allowed for Kerberos`.
+
+    Do not set the registry key `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\System\Kerberos\Parameters\SupportedEncryptionTypes`. Doing this will break Kerberos authentication with Azure NetApp Files for the Windows host where this registry key was manually set.
+
+    >[!NOTE]
+    >The default policy setting for `Network Security: Configure Encryption types allowed for Kerberos` is `Not Defined`. When this policy setting is set to `Not Defined`, all encryption types except DES will be available for Kerberos encryption. You have the option to enable support for only certain Kerberos encryption types (for example, `AES128_HMAC_SHA1` or `AES256_HMAC_SHA1`). However, the default policy should be sufficient in most cases when enabling AES encryption support with Azure NetApp Files.
+
+    For more information, refer to [Network security: Configure encryption types allowed for Kerberos](/windows/security/threat-protection/security-policy-settings/network-security-configure-encryption-types-allowed-for-kerberos) or [Windows Configurations for Kerberos Supported Encryption Types](/archive/blogs/openspecification/windows-configurations-for-kerberos-supported-encryption-type)
 
 ## Create an Active Directory connection
 

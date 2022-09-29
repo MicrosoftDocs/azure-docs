@@ -101,6 +101,8 @@ landingContent:
             url: storage-quickstart-blobs-dotnet.md
           - text: Azure Blob Storage for Java
             url: storage-quickstart-blobs-java.md
+          - text: Azure Blob Storage for Spring
+            url: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage?toc=/azure/storage/blobs/toc.json
           - text: Azure Blob Storage for Python
             url: storage-quickstart-blobs-python.md
           - text: Azure Blob Storage for JavaScript using Node.js

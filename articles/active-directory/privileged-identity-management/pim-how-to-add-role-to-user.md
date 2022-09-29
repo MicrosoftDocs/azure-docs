@@ -4,7 +4,7 @@ description: Learn how to assign Azure AD roles in Azure AD Privileged Identity 
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.topic: how-to

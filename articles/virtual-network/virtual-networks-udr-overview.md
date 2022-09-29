@@ -35,7 +35,6 @@ Each route contains an address prefix and next hop type. When traffic leaving a 
 |Default|172.16.0.0/12                                           |None           |
 |Default|192.168.0.0/16                                          |None           |
 |Default|100.64.0.0/10                                           |None           |
-|Default|172.16.0.0/12                                           |None           |
 
 The next hop types listed in the previous table represent how Azure routes traffic destined for the address prefix listed. Explanations for the next hop types follow:
 

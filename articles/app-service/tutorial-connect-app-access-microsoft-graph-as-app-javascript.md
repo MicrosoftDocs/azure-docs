@@ -56,7 +56,6 @@ const appSettings = {
     },
     authRoutes: {
         redirect: "/.auth/login/aad/callback", // Enter the redirect URI here
-        error: "/error", // enter the relative path to error handling route
         unauthorized: "/unauthorized" // enter the relative path to unauthorized route
     },
 }
