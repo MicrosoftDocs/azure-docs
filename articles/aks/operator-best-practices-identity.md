@@ -100,8 +100,8 @@ There are two levels of access needed to fully operate an AKS cluster:
 
     This access level allows you to:
 
-      * Control scaling or upgrading your cluster using the AKS APIs
-      * Pull your `kubeconfig`.
+     * Control scaling or upgrading your cluster using the AKS APIs
+     * Pull your `kubeconfig`.
 
     To learn how to control access to the AKS resource and the `kubeconfig`, see [Limit access to cluster configuration file](control-kubeconfig-access.md).
 
