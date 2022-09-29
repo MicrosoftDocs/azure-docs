@@ -49,14 +49,14 @@ Here are some definitions to get you started:
 ## Create a connection monitor
 
 > [!Note]
-> Connection Monitor now supports Azure Monitor Agent extension, thus eliminating the dependency on the legacy Log Analytics agent 
+> Connection Monitor now supports the Azure Monitor Agent extension, thus eliminating the dependency on the legacy Log Analytics agent 
 
-To create a connection monitor to monitor network connectivity using the Azure portal, follow these steps: 
+To create a connection monitor using the Azure portal, follow these steps: 
 
 1. On the Azure portal home page, go to **Network Watcher**.
 1. In the left pane, in the **Monitoring** section, select **Connection monitor**.
 
-   You'll see all the monitors that were created in Connection Monitor displayed. To see the connection monitors that were created in the classic Connection Monitor, go to the **Connection monitor** tab.
+   You'll see all the monitors that were created in Connection Monitor displayed. To see the connection monitors that were created in classic Connection Monitor, go to the **Connection monitor** tab.
 
    :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Screenshot that shows connection monitors created in Connection Monitor.":::
    	
@@ -92,7 +92,7 @@ To create a connection monitor to monitor network connectivity using the Azure p
 
 1. When you're ready to create the connection monitor, at the bottom of the **Review + create** tab, select **Create**.
 
-Connection Monitor creates the connection monitor resource in the background.
+The Connection Monitor creates the connection monitor resource in the background.
 
 ## Create test groups in a connection monitor
 
@@ -107,7 +107,7 @@ In the Azure portal, to create a test group in a connection monitor, you specify
 * **Sources** - Select **Add sources** to specify both Azure VMs and on-premises machines as sources if agents are installed on them. To learn about installing an agent for your source, see [Install monitoring agents](./connection-monitor-overview.md#install-monitoring-agents).
    * To choose Azure agents, select the **Azure endpoints** tab. Here you see only VMs or virtual machine scale sets that are bound to the region that you specified when you created the connection monitor. By default, VMs and virtual machine scale sets are grouped into the subscription that they belong to. These groups are collapsed. 
    
-       You can drill down from the **Subscription** level to other levels in the hierarchy:
+       You can drill down to further levels in the hierarchy from the **Subscription** level:
 
       **Subscription** > **Resource group** > **VNET** > **Subnet** > **VMs with agents** 
 
