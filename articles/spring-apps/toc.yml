@@ -176,6 +176,8 @@ items:
       href: how-to-bind-redis.md
     - name: Azure Database for MySQL
       href: how-to-bind-mysql.md
+    - name: Azure Database for Postgres
+      href: how-to-bind-postgres.md
     - name: Azure SQL Database with Managed identity
       href: connect-managed-identity-to-azure-sql.md
     - name: Azure Load Balance Solutions

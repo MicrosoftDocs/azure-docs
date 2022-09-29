@@ -384,6 +384,6 @@ The following example defines a pipeline containing three nodes and moves data b
 
 ## Next steps
 
-* [Train models with the Python SDK v2 (preview)](how-to-train-sdk.md)
+* [Train models](how-to-train-model.md)
 * [Tutorial: Create production ML pipelines with Python SDK v2 (preview)](tutorial-pipeline-python-sdk.md)
 * Learn more about [Data in Azure Machine Learning](concept-data.md)

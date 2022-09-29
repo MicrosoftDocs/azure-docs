@@ -105,6 +105,10 @@ To learn more about limits on a more granular level, such as document size, quer
 
 [!INCLUDE [azure-cognitive-services-limits](../../../includes/azure-cognitive-services-limits.md)]
 
+## Azure Container Apps limits
+
+For Azure Container Apps limits, see [Quotas in Azure Container Apps](../../container-apps/quotas.md).
+
 ## Azure Cosmos DB limits
 
 For Azure Cosmos DB limits, see [Limits in Azure Cosmos DB](../../cosmos-db/concepts-limits.md).
