@@ -25,12 +25,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ### Availability zones support for Azure Automation
 
-Azure Automation now supports [Azure availability zones](../availability-zones/az-overview.md#availability-zones) to provide improved resiliency and high availability to a service instance in a specific Azure region. [Learn more](https://learn.microsoft.com/azure/automation/automation-availability-zones#supported-regions-with-availability-zones).
-
-### Guidance for Disaster Recovery of Azure Automation account
-
-Build your own disaster recovery strategy to handle a region-wide or zone-wide failure. [Learn more](https://learn.microsoft.com/azure/automation/automation-disaster-recovery).
-
+Azure Automation now supports [Azure availability zones](../availability-zones/az-overview.md#availability-zones) to provide improved resiliency and high availability to a service instance in a specific Azure region. [Learn more](https://learn.microsoft.com/azure/automation/automation-availability-zones).
 
 ## July 2022
 
