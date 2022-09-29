@@ -225,7 +225,7 @@ items:
       - name: Overview
         href: essentials/prometheus-metrics-overview.md
       - name: Rule groups
-        href: essentials/prometheus-metrics-rule-groups.md
+        href: essentials/prometheus-rule-groups.md
       - name: Troubleshoot collection
         href: essentials/prometheus-metrics-troubleshoot.md
       - name: Customize collection
@@ -693,7 +693,7 @@ items:
       - name: Configure alerts on notification events
         href: ../service-health/alerts-activity-log-service-notifications-portal.md
     - name: Prometheus metric alerts
-      href: alerts/prometheus-metric-alerts.md
+      href: alerts/prometheus-alerts.md
     - name: Notifications and actions
       items:
       - name: Alert processing rules

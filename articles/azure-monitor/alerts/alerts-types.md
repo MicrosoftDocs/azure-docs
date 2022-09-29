@@ -188,7 +188,7 @@ Smart detection works for web apps hosted in the cloud or on your own servers th
 
 ## Prometheus alerts (preview)
 
-Prometheus alerts are based on metric values stored in [Azure Monitor managed services for Prometheus](../essentials/prometheus-metrics-overview.md). They fire when the results of a PromQL query resolves to true. Prometheus alerts are displayed and managed like other alert types when they fire, but they are configured with a Prometheus rule group. See [Rule groups in Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-rule-groups.md) for details.
+Prometheus alerts are based on metric values stored in [Azure Monitor managed services for Prometheus](../essentials/prometheus-metrics-overview.md). They fire when the results of a PromQL query resolves to true. Prometheus alerts are displayed and managed like other alert types when they fire, but they are configured with a Prometheus rule group. See [Rule groups in Azure Monitor managed service for Prometheus](../essentials/prometheus-rule-groups.md) for details.
 
 ## Next steps
 - Get an [overview of alerts](alerts-overview.md).
