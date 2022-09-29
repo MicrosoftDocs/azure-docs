@@ -18,9 +18,10 @@ In this article, you'll learn about the scaling tool that uses an Azure Automati
 
 Before you start setting up the scaling tool, make sure you have the following things ready:
 
-- An [Azure Virtual Desktop host pool](create-host-pools-azure-marketplace.md)
-- Session host pool VMs configured and registered with the Azure Virtual Desktop service
-- A user with the [Contributor role](../role-based-access-control/role-assignments-portal.md) assigned on the Azure subscription
+- An [Azure Virtual Desktop host pool](create-host-pools-azure-marketplace.md).
+- Session host pool VMs configured and registered with the Azure Virtual Desktop service.
+- A user with the [Contributor role](../role-based-access-control/role-assignments-portal.md) assigned on the Azure subscription.
+- A Log Analytics workspace (optional).
 
 The machine you use to deploy the tool must have:
 
@@ -162,7 +163,7 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
     $AutoAccount = Get-AzAutomationAccount | Out-GridView -OutputMode:Single -Title "Select the Azure Automation account"
     $AutoAccountConnection = Get-AzAutomationConnection -ResourceGroupName $AutoAccount.ResourceGroupName -AutomationAccountName $AutoAccount.AutomationAccountName | Out-GridView -OutputMode:Single -Title "Select the Azure RunAs connection asset"
     
-    $WebhookURI = Read-Host -Prompt "Enter the webhook URI that has already been generated for this Azure Automation account. The URI is stored as encrypted in the above Automation Account variable. To retrieve the value, see https://docs.microsoft.com/azure/automation/shared-resources/variables?tabs=azure-powershell#powershell-cmdlets-to-access-variables"
+    $WebhookURI = Read-Host -Prompt "Enter the webhook URI that has already been generated for this Azure Automation account. The URI is stored as encrypted in the above Automation Account variable. To retrieve the value, see https://learn.microsoft.com/azure/automation/shared-resources/variables?tabs=azure-powershell#powershell-cmdlets-to-access-variables"
     
     $Params = @{
          "AADTenantId"                   = $AADTenantId                             # Optional. If not specified, it will use the current Azure context

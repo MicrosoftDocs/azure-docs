@@ -8,7 +8,7 @@ ms.service: traffic-manager
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/19/2022
+ms.date: 09/20/2022
 ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
@@ -45,6 +45,11 @@ The HTTP host header sent from the client's browser is the most common source of
 If your client or application receives an HTTP 500 error while using Traffic Manager, this can be caused by a stale DNS query. To resolve the issue, clear the DNS cache and allow the client to issue a new DNS query.
 
 When a service endpoint is unresponsive, clients and applications that are using that endpoint do not reset until the DNS cache is refreshed. The duration of the cache is determined by the time-to-live (TTL) of the DNS record. For more information, see [Traffic Manager and the DNS cache](traffic-manager-how-it-works.md#traffic-manager-and-the-dns-cache).
+
+Also see the following related FAQs in this article:
+- [What is DNS TTL and how does it impact my users?](#what-is-dns-ttl-and-how-does-it-impact-my-users)
+- [How high or low can I set the TTL for Traffic Manager responses?](#how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses)
+- [How can I understand the volume of queries coming to my profile?](#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)  
 
 ### What is the performance impact of using Traffic Manager?
 

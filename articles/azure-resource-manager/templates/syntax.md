@@ -2,14 +2,14 @@
 title: Template structure and syntax
 description: Describes the structure and properties of Azure Resource Manager templates (ARM templates) using declarative JSON syntax.
 ms.topic: conceptual
-ms.date: 07/18/2022
+ms.date: 09/28/2022
 ---
 
 # Understand the structure and syntax of ARM templates
 
 This article describes the structure of an Azure Resource Manager template (ARM template). It presents the different sections of a template and the properties that are available in those sections.
 
-This article is intended for users who have some familiarity with ARM templates. It provides detailed information about the structure of the template. For a step-by-step tutorial that guides you through the process of creating a template, see [Tutorial: Create and deploy your first ARM template](template-tutorial-create-first-template.md). To learn about ARM templates through a guided set of Learn modules, see [Deploy and manage resources in Azure by using ARM templates](/learn/paths/deploy-manage-resource-manager-templates/).
+This article is intended for users who have some familiarity with ARM templates. It provides detailed information about the structure of the template. For a step-by-step tutorial that guides you through the process of creating a template, see [Tutorial: Create and deploy your first ARM template](template-tutorial-create-first-template.md). To learn about ARM templates through a guided set of Learn modules, see [Deploy and manage resources in Azure by using ARM templates](/training/paths/deploy-manage-resource-manager-templates/).
 
 > [!TIP]
 > Bicep is a new language that offers the same capabilities as ARM templates but with a syntax that's easier to use. If you're considering infrastructure as code options, we recommend looking at Bicep.
@@ -48,7 +48,7 @@ Each element has properties you can set. This article describes the sections of 
 
 ## Parameters
 
-In the `parameters` section of the template, you specify which values you can input when deploying the resources. You're limited to 256 parameters in a template. You can reduce the number of parameters by using objects that contain multiple properties.
+In the `parameters` section of the template, you specify which values you can input when deploying the resources. You're limited to [256 parameters](../management/azure-subscription-service-limits.md#general-limits) in a template. You can reduce the number of parameters by using objects that contain multiple properties.
 
 The available properties for a parameter are:
 
@@ -87,7 +87,7 @@ In Bicep, see [parameters](../bicep/file.md#parameters).
 
 ## Variables
 
-In the `variables` section, you construct values that can be used throughout your template. You don't need to define variables, but they often simplify your template by reducing complex expressions. The format of each variable matches one of the [data types](data-types.md).
+In the `variables` section, you construct values that can be used throughout your template. You don't need to define variables, but they often simplify your template by reducing complex expressions. The format of each variable matches one of the [data types](data-types.md). You are limited to [256 variables](../management/azure-subscription-service-limits.md#general-limits) in a template.
 
 The following example shows the available options for defining a variable:
 
@@ -171,7 +171,7 @@ In Bicep, user-defined functions aren't supported. Bicep does support a variety 
 
 ## Resources
 
-In the `resources` section, you define the resources that are deployed or updated.
+In the `resources` section, you define the resources that are deployed or updated. You are limited to [800 resources](../management/azure-subscription-service-limits.md#general-limits) in a template.
 
 You define resources with the following structure:
 
@@ -259,7 +259,7 @@ In Bicep, see [resources](../bicep/file.md#resources).
 
 ## Outputs
 
-In the `outputs` section, you specify values that are returned from deployment. Typically, you return values from resources that were deployed.
+In the `outputs` section, you specify values that are returned from deployment. Typically, you return values from resources that were deployed. You are limited to [64 outputs](../management/azure-subscription-service-limits.md#general-limits) in a template.
 
 The following example shows the structure of an output definition:
 

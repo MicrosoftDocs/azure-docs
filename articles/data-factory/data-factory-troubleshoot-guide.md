@@ -1028,7 +1028,7 @@ If the HDI activity is stuck in preparing for cluster, follow the guidelines bel
 
 - **Cause**: The execution output is greater than 4 MB in size but the maximum supported output response payload size is 4 MB.
 
-- **Recommendation**: Make sure the execution output size does not exceed 4 MB. For more information, see [How to scale out the size of data moving using Azure Data Factory](https://docs.microsoft.com/answers/questions/700102/how-to-scale-out-the-size-of-data-moving-using-azu.html).
+- **Recommendation**: Make sure the execution output size does not exceed 4 MB. For more information, see [How to scale out the size of data moving using Azure Data Factory](/answers/questions/700102/how-to-scale-out-the-size-of-data-moving-using-azu.html).
 
 ### Error Code: 2002
 

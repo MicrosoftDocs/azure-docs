@@ -8,8 +8,10 @@ items:
   - name: Introduction to Data Factory
     href: introduction.md
     displayName: orchestration
-  - name: What's new in Azure Data Factory
+  - name: What's new (recent months)
     href: whats-new.md
+  - name: What's new (archived months)
+    href: whats-new-archive.md
   - name: Compare current version to version 1
     href: compare-versions.md
     displayName: timeout
@@ -537,6 +539,8 @@ items:
         href: load-sap-bw-data.md
     - name: SAP Business Warehouse MDX
       href: connector-sap-business-warehouse.md
+    - name: SAP CDC
+      href: connector-sap-change-data-capture.md
     - name: SAP Cloud for Customer
       href: connector-sap-cloud-for-customer.md
       displayName: timeout
@@ -1259,7 +1263,7 @@ items:
     href: industry-sap-connectors.md
   - name: SAP templates
     href: industry-sap-templates.md
-  - name: SAP change data capture (CDC) solution (preview)
+  - name: SAP change data capture (CDC) capabilities (preview)
     items:
     - name: Overview and architecture
       href: sap-change-data-capture-introduction-architecture.md
@@ -1272,10 +1276,6 @@ items:
       href: sap-change-data-capture-prepare-linked-service-source-dataset.md
     - name: Debug the Data Factory copy activity
       href: sap-change-data-capture-debug-shir-logs.md
-    - name: Use the SAP data partitioning template
-      href: sap-change-data-capture-data-partitioning-template.md
-    - name: Use the SAP data replication template
-      href: sap-change-data-capture-data-replication-template.md
     - name: Manage your solution
       href: sap-change-data-capture-management.md
     displayName: SAP, change data capture, CDC

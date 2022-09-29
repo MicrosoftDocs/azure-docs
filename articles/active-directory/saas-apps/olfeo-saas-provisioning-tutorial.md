@@ -47,7 +47,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. Login to Olfeo SAAS admin console. 
 1. Navigate to **Configuration > Annuaires**.
 1. Create a new directory and then name it.
-1. Select **Azure** provider and then click on **Cr�er** to save the new directory. 
+1. Select **Azure** provider and then click on **Créer** to save the new directory. 
 1. Navigate to the **Synchronisation** tab to see the **Tenant URL** and the **Jeton secret**. These values will be copied and pasted in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your Olfeo SAAS application in the Azure portal.
 
 ## Step 3. Add Olfeo SAAS from the Azure AD application gallery
