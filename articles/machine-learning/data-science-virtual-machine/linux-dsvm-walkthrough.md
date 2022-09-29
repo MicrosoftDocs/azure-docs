@@ -5,10 +5,10 @@ description: Learn how to complete several common data science tasks by using th
 services: machine-learning
 ms.service: data-science-vm
 
-author: timoklimmer
-ms.author: tklimmer
+author: jesscioffi
+ms.author: jcioffi
 ms.topic: conceptual
-ms.date: 05/10/2021
+ms.date: 06/23/2022
 
 ---
 
@@ -74,8 +74,7 @@ To get copies of the code samples that are used in this walkthrough, use git to 
 git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 ```
 
-Open a terminal window and start a new R session in the R interactive console. You also can use RStudio, which is preinstalled on the DSVM.
-
+Open a terminal window and start a new R session in the R interactive console.
 To import the data and set up the environment:
 
 ```R

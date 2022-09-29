@@ -3,7 +3,7 @@ title: Can't access this Corporate Application error with Azure Active Directory
 description: How to resolve common access issues with Azure Active Directory Application Proxy applications.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity

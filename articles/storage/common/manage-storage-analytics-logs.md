@@ -4,7 +4,7 @@ description: Learn how to monitor a storage account in Azure by using Azure Stor
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/29/2021
+ms.date: 08/09/2022
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
@@ -129,9 +129,6 @@ queueClient.SetServiceProperties(serviceProperties);
 ## Modify log data retention period
 
 Log data can accumulate in your account over time which can increase the cost of storage. If you need log data for only a small period of time, you can reduce your costs by modifying the log data retention period. For example, if you need logs for only three days, set your log data retention period to a value of `3`. That way logs will be automatically deleted from your account after 3 days. This section shows you how to view your current log data retention period, and then update that period if that's what you want to do.
-
-> [!NOTE]
-> These steps apply only for accounts that do not have the **Hierarchical namespace** setting enabled on them. If you've enabled that setting on your account, then the setting for retention days is not yet supported. Instead, you'll have to delete logs manually by using any supported tool such as Azure Storage Explorer, REST or an SDK. To find those logs in your storage account, see [How logs are stored](storage-analytics-logging.md#how-logs-are-stored).
 
 ### [Portal](#tab/azure-portal)
 

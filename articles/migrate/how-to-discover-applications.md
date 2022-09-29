@@ -15,7 +15,7 @@ This article describes how to discover installed software inventory, web apps, a
 Performing software inventory helps identify and tailor a migration path to Azure for your workloads. Software inventory uses the Azure Migrate appliance to perform discovery, using server credentials. It is completely agentless- no agents are installed on the servers to collect this data.
 
 > [!Note]
-> Currently the discovery of ASP.NET web apps and SQL Server instances and databases is only available with appliance used for discovery of servers running in your VMware enviornment. These features are not available for servers running in your Hyper-V enviornment and for physical servers or servers running on other clouds like AWS, GCP etc.
+> Currently the discovery of ASP.NET web apps is only available with appliance used for discovery of servers running in your VMware enviornment. These feature is not available for servers running in your Hyper-V enviornment and for physical servers or servers running on other clouds like AWS, GCP etc.
 
 ## Before you start
 
@@ -35,7 +35,7 @@ Performing software inventory helps identify and tailor a migration path to Azur
 2. As you configure the appliance, you need to specify the following in the appliance configuration manager:
     - The details of the source environment (vCenter Server(s)/Hyper-V host(s) or cluster(s)/physical servers) which you want to discover.
     - Server credentials, which can be domain/ Windows (non-domain)/ Linux (non-domain) credentials. [Learn more](add-server-credentials.md) about how to provide credentials and how the appliance handles them.
-    - Verify the permissions required to perform software inventory.You need a guest user account for Windows servers, and a regular/normal user account (non-sudo access) for all Linux servers.
+    - Verify the permissions required to perform software inventory. You need a guest user account for Windows servers, and a regular/normal user account (non-sudo access) for all Linux servers.
 
 ### Add credentials and initiate discovery
 
@@ -65,7 +65,7 @@ The software inventory is exported and downloaded in Excel format. The **Softwar
 
 ## Discover SQL Server instances and databases
 
-- Software inventory also identifies the SQL Server instances running in your VMware environment.
+- Software inventory also identifies the SQL Server instances running in your VMware, Microsoft Hyper-V and Physical/ Bare-metal environments as well as IaaS services of other public cloud.
 - If you have not provided Windows authentication or SQL Server authentication credentials on the appliance configuration manager, then add the credentials so that the appliance can use them to connect to respective SQL Server instances.
 
     > [!NOTE]
@@ -80,7 +80,7 @@ Once connected, appliance gathers configuration and performance data of SQL Serv
 - After the appliance is connected, it gathers configuration data for IIS web server and ASP.NET web apps. Web apps configuration data is updated once every 24 hours.
 
 > [!Note]
-> Currently the discovery of ASP.NET web apps and SQL Server instances and databases is only available with appliance used for discovery of servers running in your VMware environment.
+> Currently the discovery of ASP.NET web apps is only available with appliance used for discovery of servers running in your VMware environment.
 
 ## Next steps
 

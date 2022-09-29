@@ -38,8 +38,8 @@ You'll use a command like the following to create an image classification projec
 
 Copy the command to a text editor and make the following changes:
 
-* Replace `{subscription key}` with your valid Face subscription key.
-* Replace `{endpoint}` with the endpoint that corresponds to your subscription key.
+* Replace `{subscription key}` with your valid Face key.
+* Replace `{endpoint}` with the endpoint that corresponds to your key.
    [!INCLUDE [subdomains-note](../../../../../includes/cognitive-services-custom-subdomains-note.md)]
 * Replace `{name}` with the name of your project.
 * Optionally set other URL parameters to configure what type of model your project will use. See the [CreatProject API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeae) for options.
@@ -98,9 +98,6 @@ You'll get a JSON response like the following. Save the `"id"` value of each tag
 ## Upload and tag images
 
 Next, download the sample images for this project. Save the contents of the [sample Images folder](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images) to your local device.
-
-> [!NOTE]
-> Do you need a broader set of images to complete your training? Trove, a Microsoft Garage project, allows you to collect and purchase sets of images for training purposes. Once you've collected your images, you can download them and then import them into your Custom Vision project in the usual way. Visit the [Trove page](https://www.microsoft.com/ai/trove?activetab=pivot1:primaryr3) to learn more.
 
 Use the following command to upload the images and apply tags; once for the "Hemlock" images, and separately for the "Japanese Cherry" images. See the [Create Images From Data](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb5) API for more options.
 
@@ -185,7 +182,7 @@ Finally, use this command to test your trained model by uploading a new image fo
 * Add the binary data of your local image to the request body.
 * Optionally use other URL parameters. See the [Classify Image](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.1/operations/5eb37d24548b571998fde5f3) API.
 
-The returned JSON response will least each of the tags that the model applied to your image, along with probability scores for each tag. 
+The returned JSON response will list each of the tags that the model applied to your image, along with probability scores for each tag. 
 
 ```json
 {

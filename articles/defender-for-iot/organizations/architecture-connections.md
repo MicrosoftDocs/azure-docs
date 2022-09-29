@@ -28,7 +28,7 @@ For more information, see [Choose a sensor connection method](connect-sensors.md
 
 ## Proxy connections with an Azure proxy
 
-The following image shows how you can connect your sensors to the Defender for IoT portal in Azure through a proxy in the Azure VNET, ensuring confidentiality for all communications between your sensor and Azure.
+The following image shows how you can connect your sensors to the Defender for IoT portal in Azure through a proxy in the Azure VNET. This configuration ensures confidentiality for all communications between your sensor and Azure.
 
 :::image type="content" source="media/architecture-connections/proxy.png" alt-text="Diagram of a proxy connection using an Azure proxy." border="false":::
 
@@ -56,7 +56,7 @@ The following image shows how you can connect your sensors to the Defender for I
 
 :::image type="content" source="media/architecture-connections/direct.png" alt-text="Diagram of a direct connection to Azure.":::
 
-With direct connections:
+With direct connections
 
 - Any sensors connected to Azure data centers directly over the internet have a secure and encrypted connection to the Azure data centers. Transport Layer Security (TLS) provides *always-on* communication between the sensor and Azure resources.
 
@@ -86,8 +86,9 @@ While you'll need to migrate your connections before the [legacy version reaches
 
 After migrating, you can remove any relevant IoT Hubs from your subscription as they'll no longer be required for your sensor connections.
 
-For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version) and [Migration for existing customers](connect-sensors.md#migration-for-existing-customers).
+For more information, see [Update OT system software](update-ot-software.md) and [Migration for existing customers](connect-sensors.md#migration-for-existing-customers).
 
 ## Next steps
 
 For more information, see [Connect your sensors to Microsoft Defender for IoT](connect-sensors.md).
+

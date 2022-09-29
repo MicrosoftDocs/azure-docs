@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 ms.service: cognitive-services
-ms.topic: conceptual
-ms.date: 03/14/2022
+ms.topic: overview
+ms.date: 09/21/2022
 ms.author: aahi
 keywords: on-premises, Docker, container, Kubernetes
 #Customer intent: As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
 ---
 
-# Azure Cognitive Services containers
+# What are Azure Cognitive Services containers?
 
 Azure Cognitive Services provides several [Docker containers](https://www.docker.com/what-container) that let you use the same APIs that are available in Azure, on-premises. Using these containers gives you the flexibility to bring Cognitive Services closer to your data for compliance, security or other operational reasons. Container support is currently available for a subset of Azure Cognitive Services.
 
@@ -64,8 +64,6 @@ Azure Cognitive Services containers provide the following set of Docker containe
 |--|--|--|
 | [Speech Service API][sp-containers-stt] |  **Speech-to-text** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-custom-speech-to-text)) | Transcribes continuous real-time speech into text. | Generally available. <br> This container can also [run in disconnected environments](containers/disconnected-containers.md). |
 | [Speech Service API][sp-containers-cstt] | **Custom Speech-to-text** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-custom-speech-to-text)) | Transcribes continuous real-time speech into text using a custom model. | Generally available |
-| [Speech Service API][sp-containers-tts] | **Text-to-speech** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-text-to-speech)) | Converts text to natural-sounding speech. | Generally available |
-| [Speech Service API][sp-containers-ctts] | **Custom Text-to-speech** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-custom-text-to-speech)) | Converts text to natural-sounding speech using a custom model. | Gated preview |
 | [Speech Service API][sp-containers-ntts] | **Neural Text-to-speech** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-neural-text-to-speech)) | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. | Generally available. <br> container can also [run in disconnected environments](containers/disconnected-containers.md). |
 | [Speech Service API][sp-containers-lid] | **Speech language detection** ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-speechservices-language-detection)) | Determines the language of spoken audio. | Gated preview |
 

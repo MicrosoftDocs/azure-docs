@@ -2,7 +2,7 @@
 title: Compare Azure messaging services
 description: Describes the three Azure messaging services - Azure Event Grid, Event Hubs, and Service Bus. Recommends which service to use for different scenarios.
 ms.topic: overview
-ms.date: 07/22/2021
+ms.date: 04/26/2022
 ---
 
 # Choose between Azure messaging services - Event Grid, Event Hubs, and Service Bus
@@ -34,14 +34,14 @@ Event Grid is an eventing backplane that enables event-driven, reactive programm
 
 Event Grid is deeply integrated with Azure services and can be integrated with third-party services. It simplifies event consumption and lowers costs by eliminating the need for constant polling. Event Grid efficiently and reliably routes events from Azure and non-Azure resources. It distributes the events to registered subscriber endpoints. The event message has the information you need to react to changes in services and applications. Event Grid isn't a data pipeline, and doesn't deliver the actual object that was updated.
 
-It has the following characteristics:
+It has the following characteristics: 
 
 - Dynamically scalable
 - Low cost
 - Serverless
 - At least once delivery of an event
 
-For more information, see [Event Grid overview](overview.md).
+Event Grid is offered in two editions: **Azure Event Grid**, a fully managed PaaS service on Azure, and **Event Grid on Kubernetes with Azure Arc**, which lets you use Event Grid on your Kubernetes cluster wherever that is deployed, on-prem or on the cloud. For more information, see [Azure Event Grid overview](overview.md) and [Event Grid on Kubernetes with Azure Arc overview](./kubernetes/overview.md).
 
 ## Azure Event Hubs
 Azure Event Hubs is a big data streaming platform and event ingestion service. It can receive and process millions of events per second. It facilitates the capture, retention, and replay of telemetry and event stream data. The data can come from many concurrent sources. Event Hubs allows telemetry and event data to be made available to various stream-processing infrastructures and analytics services. It's available either as data streams or bundled event batches. This service provides a single solution that enables rapid data retrieval for real-time processing, and repeated replay of stored raw data. It can capture the streaming data into a file for processing and analysis.

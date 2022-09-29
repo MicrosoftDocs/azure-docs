@@ -4,7 +4,7 @@ description: Import your classification from Microsoft Purview in your Azure SQL
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: 
+ms.custom: subject-rbac-steps
 ms.devlang: azurepowershell
 ms.topic: sample
 author: davidtrigano
@@ -14,7 +14,6 @@ ms.date: 02/17/2021
 ---
 
 # Classify your Azure SQL data using Microsoft Purview labels
-[!INCLUDE[appliesto-sqldb-asa](../../azure-sql/includes/appliesto-sqldb-asa.md)]
 
 This document describes how to add Microsoft Purview labels in your Azure SQL Database and Azure Synapse Analytics (formerly SQL DW).
 
@@ -39,12 +38,12 @@ This document describes how to add Microsoft Purview labels in your Azure SQL Da
 ## Provide permissions to the application
 
 1. In your Azure portal, search for **Microsoft Purview accounts**.
-2. Select the Microsoft Purview account where your SQL databases and Synapse are classified.
-3. Open **Access control (IAM)**, select **Add**.
 
-4. Select **Add role assignment**.
-5. In the **Role** section, search for **Microsoft Purview Data Reader** and select it.
-6. In the **Select** section, search for the application you previously created, select it, and hit **Save**.
+1. Select the Microsoft Purview account where your SQL databases and Synapse are classified.
+
+1. Assign the Microsoft Purview Data Reader role to the application you previously created.
+
+    For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Extract the classification from Microsoft Purview
 

@@ -1,7 +1,7 @@
 ---
 title: Manage Microsoft Sentinel workspaces at scale
 description: Azure Lighthouse helps you effectively manage Microsoft Sentinel across delegated customer resources.
-ms.date: 11/05/2021
+ms.date: 06/20/2022
 ms.topic: how-to
 ---
 
@@ -68,15 +68,17 @@ If you are managing Microsoft Sentinel resources for multiple customers, you can
 
 ## Create cross-tenant workbooks
 
-[Azure Monitor Workbooks in Microsoft Sentinel](../../sentinel/overview.md#workbooks) help you visualize and monitor data from your connected data sources to gain insights. You can use the built-in workbook templates in Microsoft Sentinel, or create custom workbooks for your scenarios.
+[Azure Monitor workbooks in Microsoft Sentinel](../../sentinel/monitor-your-data.md) help you visualize and monitor data from your connected data sources to gain insights. You can use the built-in workbook templates in Microsoft Sentinel, or create custom workbooks for your scenarios.
 
-You can deploy workbooks in your managing tenant and create at-scale dashboards to monitor and query data across customer tenants. For more information, see [Cross-workspace monitoring](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks).
+You can deploy workbooks in your managing tenant and create at-scale dashboards to monitor and query data across customer tenants. For more information, see [Cross-workspace workbooks](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks).
 
 You can also deploy workbooks directly in an individual tenant that you manage for scenarios specific to that customer.
 
 ## Run Log Analytics and hunting queries across Microsoft Sentinel workspaces
 
-Create and save Log Analytics queries for threat detection centrally in the managing tenant, including [hunting queries](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-hunting). These queries can then be run across all of your customers' Microsoft Sentinel workspaces by using the Union operator and the workspace () expression. For more information, see [Cross-workspace querying](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
+Create and save Log Analytics queries for threat detection centrally in the managing tenant, including [hunting queries](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-hunting). These queries can then be run across all of your customers' Microsoft Sentinel workspaces by using the Union operator and the [workspace() expression](../../azure-monitor/logs/workspace-expression.md).
+
+For more information, see [Cross-workspace querying](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-querying).
 
 ## Use automation for cross-workspace management
 
@@ -86,7 +88,7 @@ You can use automation to manage multiple Microsoft Sentinel workspaces and conf
 
 Use Azure Lighthouse in conjunction with Microsoft Sentinel to monitor the security of Office 365 environments across tenants. First, out-of-the box [Office 365 data connectors must be enabled in the managed tenant](../../sentinel/data-connectors-reference.md#microsoft-office-365) so that information about user and admin activities in Exchange and SharePoint (including OneDrive) can be ingested to a Microsoft Sentinel workspace within the managed tenant. This includes details about actions such as file downloads, access requests sent, changes to group events, and mailbox operations, along with information about the users who performed the actions. [Office 365 DLP alerts](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-office-365-dlp-events-into-azure-sentinel/ba-p/1031820) are also supported as part of the built-in Office 365 connector.
 
-[Microsoft Defender for Cloud Apps connector](../../sentinel/data-connectors-reference.md#microsoft-cloud-app-security-mcas) to stream alerts and Cloud Discovery logs into Microsoft Sentinel. This gives you visibility into cloud apps, provides sophisticated analytics to identify and combat cyberthreats, and helps yuo control how data travels. Activity logs for Defender for Cloud Apps can be [consumed using the Common Event Format (CEF)](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-box-com-activity-events-via-microsoft-cloud-app-security/ba-p/1072849).
+You can use the [Microsoft Defender for Cloud Apps connector](../../sentinel/data-connectors-reference.md#microsoft-cloud-app-security-mcas) to stream alerts and Cloud Discovery logs into Microsoft Sentinel. This gives you visibility into cloud apps, provides sophisticated analytics to identify and combat cyberthreats, and helps you control how data travels. Activity logs for Defender for Cloud Apps can be [consumed using the Common Event Format (CEF)](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-box-com-activity-events-via-microsoft-cloud-app-security/ba-p/1072849).
 
 After setting up Office 365 data connectors, you can use cross-tenant Microsoft Sentinel capabilities such as viewing and analyzing the data in workbooks, using queries to create custom alerts, and configuring playbooks to respond to threats.
 

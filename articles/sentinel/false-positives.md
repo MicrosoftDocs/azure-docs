@@ -46,23 +46,27 @@ To add an automation rule to handle a false positive:
 1. In Microsoft Sentinel, under **Incidents**, select the incident you want to create an exception for.
 1. Select **Create automation rule**.
 1. In the **Create new automation rule** sidebar, optionally modify the new rule name to identify the exception, rather than just the alert rule name.
-1. Under **Conditions**, optionally add more **Analytic rule name**s to apply the exception to.
+1. Under **Conditions**, optionally add more **Analytics rule name**s to apply the exception to.
+    Select the drop-down box containing the analytics rule name and select more analytics rules from the list.
 1. The sidebar presents the specific entities in the current incident that might have caused the false positive. Keep the automatic suggestions, or modify them to fine-tune the exception. For example, you could change a condition on an IP address to apply to an entire subnet.
 
    :::image type="content" source="media/false-positives/create-rule.png" alt-text="Screenshot showing how to create an automation rule for an incident in Microsoft Sentinel.":::
 
-1. After you define the trigger, you can continue to define what the rule does:
+1. After you're satisfied with the conditions, you can continue to define what the rule does:
 
    :::image type="content" source="media/false-positives/apply-rule.png" alt-text="Screenshot showing how to finish creating and applying an automation rule in Microsoft Sentinel.":::
 
    - The rule is already configured to close an incident that meets the exception criteria.
+   - You can keep the specified closing reason as is, or you can change it if another reason is more appropriate.
    - You can add a comment to the automatically closed incident that explains the exception. For example, you could specify that the incident originated from known administrative activity.
    - By default, the rule is set to expire automatically after 24 hours. This expiration might be what you want, and reduces the chance of false negative errors. If you want a longer exception, set **Rule expiration** to a later time.
+
+1. You can add more actions if you want. For example, you can add a tag to the incident, or you can run a playbook to send an email or a notification or to synchronize with an external system.
 
 1. Select **Apply** to activate the exception.
 
 > [!TIP]
-> You can also create an automation rule from scratch, without starting from an incident. Select **Automation** from the Microsoft Sentinel left navigation menu, and then select **Create** > **Add new rule**.
+> You can also create an automation rule from scratch, without starting from an incident. Select **Automation** from the Microsoft Sentinel left navigation menu, and then select **Create** > **Add new rule**. [Learn more about automation rules](automate-incident-handling-with-automation-rules.md).
 
 ## Add exceptions by modifying analytics rules
 

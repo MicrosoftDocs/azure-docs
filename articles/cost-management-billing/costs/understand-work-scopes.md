@@ -1,10 +1,10 @@
 ---
 title: Understand and work with Cost Management scopes
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description: This article helps you understand billing and resource management scopes available in Azure and how to use the scopes in Cost Management and APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2021
+ms.date: 09/08/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -82,7 +82,7 @@ The following table shows how Cost Management features are used by each role. Th
 
 | **Feature/Role** | **Owner** | **Contributor** | **Reader** | **Cost Management Reader** | **Cost Management Contributor** |
 | --- | --- | --- | --- | --- | --- | 
-| **Cost Analysis / Forecast / Query API** | Read only | Read only | Read only | Read only | Read only |
+| **Cost Analysis / Forecast / Query / Cost Details API** | Read only | Read only | Read only | Read only | Read only |
 | **Shared views** | Create, Read, Update, Delete | Create, Read, Update, Delete | Read only | Read only |  Create, Read, Update, Delete|
 | **Budgets** | Create, Read, Update, Delete | Create, Read, Update, Delete | Read only | Read only | Create, Read, Update, Delete |
 | **Alerts** | Read, Update | Read, Update | Read only | Read only | Read, Update |
@@ -128,7 +128,7 @@ The following tables show how Cost Management features can be utilized by each r
 
 | **Feature/Role** | **Enterprise Admin** | **Enterprise Read-Only** |
 | --- | --- | --- |
-| **Cost Analysis / Forecast / Query API** | Read only | Read only |
+| **Cost Analysis / Forecast / Query / Cost Details API** | Read only | Read only |
 | **Shared Views** | Create, Read, Update, Delete | Create, Read, Update, Delete |
 | **Budgets** | Create, Read, Update, Delete | Create, Read, Update, Delete |
 | **Alerts** | Read, Update | Read, Update |
@@ -139,7 +139,7 @@ The following tables show how Cost Management features can be utilized by each r
 
 | **Feature/Role** | **Enterprise Admin** | **Enterprise Read Only** | **Department Admin (only if "DA view charges" setting is on)** | **Department Read Only (only if "DA view charges" setting is on)** |
 | --- | --- | --- | --- | --- |
-| **Cost Analysis / Forecast / Query API** | Read only | Read only | Read only | Read only |
+| **Cost Analysis / Forecast / Query / Cost Details API** | Read only | Read only | Read only | Read only |
 | **Shared Views** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
 | **Budgets** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
 | **Alerts** | Read, Update | Read, Update | Read, Update | Read, Update |
@@ -150,7 +150,7 @@ The following tables show how Cost Management features can be utilized by each r
 
 | **Feature/Role** | **Enterprise Admin** | **Enterprise Read Only** | **Department Admin (only if "DA view charges" is on)** | **Department Read Only (only if "DA view charges" setting is on)** | **Account Owner (only if "AO view charges" setting is on)** |
 | --- | --- | --- | --- | --- | --- |
-| **Cost Analysis / Forecast / Query API** | Read only | Read only | Read only | Read only | Read only |
+| **Cost Analysis / Forecast / Query / Cost Details API** | Read only | Read only | Read only | Read only | Read only |
 | **Shared Views** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
 | **Budgets** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
 | **Alerts** | Read, Update | Read, Update | Read, Update | Read, Update | Read, Update |
@@ -215,7 +215,7 @@ The following tables show how Cost Management features can be utilized by each r
 
 | **Feature/Role** | **Owner** | **Contributor** | **Reader** |
 | --- | --- | --- | --- |
-| **Cost Analysis / Forecast / Query API** | Read only | Read only | Read only |
+| **Cost Analysis / Forecast / Query / Cost Details API** | Read only | Read only | Read only |
 | **Shared Views** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
 | **Budgets** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
 | **Alerts** | Read, Update | Read, Update | Read, Update |
@@ -226,7 +226,7 @@ The following tables show how Cost Management features can be utilized by each r
 
 | **Feature/Role** | **Owner** | **Contributor** | **Reader** | **Invoice Manager** |
 | --- | --- | --- | --- | --- |
-| **Cost Analysis / Forecast / Query API** | Read only | Read only | Read only | Read only |
+| **Cost Analysis / Forecast / Query / Cost Details API** | Read only | Read only | Read only | Read only |
 | **Shared Views** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
 | **Budgets** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
 | **Alerts** | Read, Update | Read, Update | Read, Update | Create, Read, Update, Delete |
@@ -237,7 +237,7 @@ The following tables show how Cost Management features can be utilized by each r
 
 | **Feature/Role** | **Owner** | **Contributor** | **Reader** | **Azure Subscription Creator** |
 | --- | --- | --- | --- | --- |
-| **Cost Analysis / Forecast / Query API** | Read only | Read only | Read only | Read only |
+| **Cost Analysis / Forecast / Query / Cost Details API** | Read only | Read only | Read only | Read only |
 | **Shared Views** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
 | **Budgets** | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete | Create, Read, Update, Delete |
 | **Alerts** | Read, Update | Read, Update | Read, Update | Read, Update |

@@ -1,11 +1,8 @@
 ---
- title: include file
- description: include file
- services: vpn-gateway
+ ms.topic: include
  author: cherylmc
  ms.service: vpn-gateway
- ms.topic: include
- ms.date: 10/28/2020
+ ms.date: 05/23/2022
  ms.author: cherylmc
 
 ---
@@ -27,8 +24,8 @@ You can generate client certificates by using the following methods:
 
   The steps in these articles generate a compatible client certificate, which you can then export and distribute.
 
-  * [Windows 10 PowerShell instructions](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientcert): These instructions require Windows 10 and PowerShell to generate certificates. The generated certificates can be installed on any supported P2S client.
+  * [Windows 10 or later PowerShell instructions](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientcert): These instructions require Windows 10 or later, and PowerShell to generate certificates. The generated certificates can be installed on any supported P2S client.
 
-  * [MakeCert instructions](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md): Use MakeCert if you don't have access to a Windows 10 computer for generating certificates. Although MakeCert is deprecated, you can still use it to generate certificates. You can install the generated certificates on any supported P2S client.
+  * [MakeCert instructions](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md): Use MakeCert if you don't have access to a Windows 10 or later computer for generating certificates. Although MakeCert is deprecated, you can still use it to generate certificates. You can install the generated certificates on any supported P2S client.
 
   * [Linux instructions](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md).

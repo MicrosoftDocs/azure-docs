@@ -83,7 +83,7 @@ The following example enables the Key Vault VM extension on an Azure Arc-enabled
     $location = "regionName"
 
     # Start the deployment
-    New-AzConnectedMachineExtension -ResourceGroupName $resourceGRoup -Location $location -MachineName $machineName -Name "KeyVaultForWindows or KeyVaultforLinux" -Publisher "Microsoft.Azure.KeyVault" -ExtensionType "KeyVaultforWindows or KeyVaultforLinux" -Setting (ConvertTo-Json $settings)
+    New-AzConnectedMachineExtension -ResourceGroupName $resourceGroup -Location $location -MachineName $machineName -Name "KeyVaultForWindows or KeyVaultforLinux" -Publisher "Microsoft.Azure.KeyVault" -ExtensionType "KeyVaultforWindows or KeyVaultforLinux" -Setting $settings
 ```
 
 ## List extensions installed

@@ -1,5 +1,5 @@
 ---
-title: Best practices for the Microsoft identity platform | Azure
+title: Best practices for the Microsoft identity platform
 description: Learn about best practices, recommendations, and common oversights when integrating with the Microsoft identity platform.
 services: active-directory
 author: rwike77

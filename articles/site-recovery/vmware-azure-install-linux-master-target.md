@@ -2,11 +2,11 @@
 title: Install a master target server for Linux VM failback with Azure Site Recovery
 description: Learn how to set up a Linux master target server for failback to an on-premises site during disaster recovery of VMware VMs to Azure using Azure Site Recovery.
 services: site-recovery
-author: Sharmistha-Rai
+author: v-pgaddala
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.author: sharrai
+ms.author: v-pgaddala
 ms.date: 05/27/2021
 ---
 

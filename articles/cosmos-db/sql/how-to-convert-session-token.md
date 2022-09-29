@@ -19,7 +19,7 @@ This article explains how to convert between different session token formats to 
 > [!NOTE]
 > By default, the SDK keeps track of the session token automatically and it will use the most recent session token.  For more information, please visit [Utilize session tokens](how-to-manage-consistency.md#utilize-session-tokens). The instructions in this article only apply with the following conditions:
 > * Your Azure Cosmos DB account uses Session consistency.
-> * You are managing the session tokens are manually.
+> * You are managing the session tokens manually.
 > * You are using multiple versions of the SDK at the same time.
 
 ## Session token formats

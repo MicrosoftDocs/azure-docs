@@ -241,46 +241,9 @@ In the preceding example, omitting the ```"university":1``` clause returns an er
 
 `cannot create unique index over {student_id : 1.0} with shard key pattern { university : 1.0 }`
 
-#### Note
-
-Support for unique index on existing collections with data is available in preview. You can sign up for the feature “Azure Cosmos DB API for MongoDB New Unique Indexes in existing collection” through the [Preview Features blade in the portal](./../access-previews.md).
-
 #### Limitations
 
-On accounts that have continuous backup or synapse link enabled, unique indexes will need to be created while the collection is empty.
-
-#### Unique partial indexes
-
-Unique partial indexes can be created by specifying a partialFilterExpression along with the 'unique' constraint in the index. This results in the unique constraint being applied only to the documents that meet the specified filter expression.
-
-The unique constraint will not be effective for documents that do not meet the specified criteria. As a result, other documents will not be prevented from being inserted into the collection.
-
-This feature is supported with the Cosmos DB API for MongoDB versions 3.6 and above.
-
-To create a unique partial index from Mongo Shell, use the command `db.collection.createIndex()` with the 'partialFilterExpression' option and 'unique' constraint.
-The partialFilterExpression option accepts a json document that specifies the filter condition using:
-
-* equality expressions (i.e. field: value or using the $eq operator),
-*'$exists: true' expression,
-* $gt, $gte, $lt, $lte expressions,
-* $type expressions,
-* $and operator at the top-level only
-
-The following command creates an index on collection `books` that specifies a unique constraint on the `title` field and a partial filter expression `rating: { $gte: 3 }`:
-
-```shell
-db.books.createIndex( 
-   { title: 1 }, 
-   { unique: true, partialFilterExpression: { rating: { $gte: 3 } } } 
-) 
-```
-
-To delete a partial unique index using from Mongo Shell, use the command `getIndexes()` to list the indexes in the collection.
-Then drop the index with the following command:
-
-```shell
-db.books.dropIndex("indexName")
-```
+Unique indexes need to be created while the collection is empty. 
 
 ### TTL indexes
 

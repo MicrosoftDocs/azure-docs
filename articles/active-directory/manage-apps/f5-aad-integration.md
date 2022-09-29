@@ -1,6 +1,5 @@
 ---
 title: Secure hybrid access with F5
-titleSuffix: Azure AD
 description: F5 BIG-IP Access Policy Manager and Azure Active Directory integration for Secure Hybrid Access
 author: gargi-sinha
 manager: martinco
@@ -8,7 +7,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/12/2020
+ms.date: 09/13/2022
 ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
@@ -164,11 +163,13 @@ Refer to the following guided configuration tutorials using Easy Button template
 
 - [F5 BIG-IP Easy Button for SSO to header-based and LDAP applications](f5-big-ip-ldap-header-easybutton.md)
 
-- [BIG-IP Easy Button for SSO to Oracle EBS (Enterprise Business Suite)](f5-big-ip-oracle-enterprise-business-suite-easy-button.md)
+- [F5-BIG-IP Easy Button for SSO to Oracle EBS (Enterprise Business Suite)](f5-big-ip-oracle-enterprise-business-suite-easy-button.md)
 
-- [BIG-IP Easy Button for SSO to Oracle JD Edwards](f5-big-ip-oracle-jde-easy-button.md)
+- [F5-BIG-IP Easy Button for SSO to Oracle JD Edwards](f5-big-ip-oracle-jde-easy-button.md)
 
-- [BIG-IP Easy Button for SSO to SAP ERP](f5-big-ip-sap-erp-easy-button.md)
+- [F5-BIG-IP Easy Button for SSO to Oracle PeopleSoft](f5-big-ip-oracle-peoplesoft-easy-button.md)
+
+- [F5-BIG-IP Easy Button for SSO to SAP ERP](f5-big-ip-sap-erp-easy-button.md)
 
 ## Azure AD B2B guest access
 Azure AD B2B guest access to SHA protected applications is also possible, but some scenarios may require some additional steps not covered in the tutorials. One example is Kerberos SSO, where a BIG-IP will perform kerberos constrained delegation (KCD) to obtain a service ticket from domain contollers. Without a local representation of a guest user exisiting locally, a domain controller will fail to honour the request on the basis that the user does not exist. To support this scenario, you would need to ensure external identities are flowed down from your Azure AD tenant to the directory used by the application. See [Grant B2B users in Azure AD access to your on-premises applications](../external-identities/hybrid-cloud-to-on-premises.md) for guidance.

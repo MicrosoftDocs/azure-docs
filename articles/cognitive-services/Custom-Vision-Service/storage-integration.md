@@ -9,6 +9,7 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 06/25/2021
 ms.author: pafarley
+ms.custom: cogserv-non-critical-vision
 ---
 
 # Integrate Azure storage for notifications and backup

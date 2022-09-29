@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/18/2021
+ms.date: 05/18/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use to deploy virtual machines on my Azure Stack Edge Pro GPU device.
 ---
@@ -108,7 +108,7 @@ You'll use this fixed-size VHD for all the subsequent steps in this article.
 
     ![Specify name and location for your VM](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image/create-virtual-machine-2.png)
 
-1. On the **Specify generation** page, choose **Generation 1** for the .vhd device image type, and then select **Next**.    
+1. On the **Specify generation** page, choose **Generation 1** or **Generation 2** for the .vhd device image type, and then select **Next**.    
 
     ![Specify generation](./media/azure-stack-edge-gpu-prepare-windows-vhd-generalized-image/create-virtual-machine-3.png)
 

@@ -1,6 +1,5 @@
 ---
-title: SSO between ADAL & MSAL apps (iOS/macOS) | Azure
-titleSuffix: Microsoft identity platform
+title: SSO between ADAL & MSAL apps (iOS/macOS)
 description: Learn how to share SSO between ADAL and MSAL apps
 services: active-directory
 author: mmacy

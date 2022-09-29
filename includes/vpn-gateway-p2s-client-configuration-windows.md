@@ -17,7 +17,7 @@ You can use the same VPN client configuration package on each Windows client com
 
 ### Install the configuration files
 
-1. Select the VPN client configuration files that correspond to the architecture of the Windows computer. For a 64-bit processor architecture, choose the 'VpnClientSetupAmd64' installer package. For a 32-bit processor architecture, choose the 'VpnClientSetupX86' installer package. 
+1. Select the VPN client configuration files that correspond to the architecture of the Windows computer. For a 64-bit processor architecture, choose the 'VpnClientSetupAmd64' installer package. For a 32-bit processor architecture, choose the 'VpnClientSetupX86' installer package.
 1. Double-click the package to install it. If you see a SmartScreen popup, click **More info**, then **Run anyway**.
 
 ### Verify and connect

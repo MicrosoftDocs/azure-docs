@@ -11,16 +11,16 @@ services: iot-edge
 
 # Create and provision IoT Edge for Linux on Windows devices at scale using symmetric keys
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article provides end-to-end instructions for autoprovisioning one or more [IoT Edge for Linux on Windows](iot-edge-for-linux-on-windows.md) devices using symmetric keys. You can automatically provision Azure IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml) (DPS). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before continuing.
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 >[!NOTE]
 >The latest version of IoT Edge for Linux on Windows continuous release (CR), based on IoT Edge version 1.2, is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). A clean installation may be required for devices going into production use once the general availability (GA) release is available. For more information, see [EFLOW continuous release](https://github.com/Azure/iotedge-eflow/wiki/EFLOW-Continuous-Release).
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 The tasks are as follows:
 
@@ -86,17 +86,17 @@ For Windows Admin Center, use the following steps:
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 Run the following command in an elevated PowerShell session with the placeholder values updated with your own values:
 
 ```powershell
-Provision-EflowVm -provisioningType DpsSymmetricKey -​scopeId PASTE_YOUR_ID_SCOPE_HERE -registrationId PASTE_YOUR_REGISTRATION_ID_HERE -symmKey PASTE_YOUR_PRIMARY_KEY_OR_DERIVED_KEY_HERE
+Provision-EflowVm -provisioningType DpsSymmetricKey -scopeId PASTE_YOUR_ID_SCOPE_HERE -registrationId PASTE_YOUR_REGISTRATION_ID_HERE -symmKey PASTE_YOUR_PRIMARY_KEY_OR_DERIVED_KEY_HERE
 ```
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 ## Verify successful installation
 
@@ -146,6 +146,15 @@ You can verify that the group enrollment that you created in device provisioning
        sudo iotedge check
        ```
 
+    >[!NOTE]
+    >On a newly provisioned device, you may see an error related to IoT Edge Hub:
+    >
+    >**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
+    >
+    >**Could not check current state of edgeHub container**
+    >
+    >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
+
 # [Windows Admin Center](#tab/windowsadmincenter)
 
 1. Select your IoT Edge device from the list of connected devices in Windows Admin Center to connect to it.
@@ -160,7 +169,7 @@ You can verify that the group enrollment that you created in device provisioning
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 1. Log in to your IoT Edge for Linux on Windows virtual machine using the following command in your PowerShell session:
@@ -192,8 +201,17 @@ You can verify that the group enrollment that you created in device provisioning
        sudo iotedge check
        ```
 
+    >[!NOTE]
+    >On a newly provisioned device, you may see an error related to IoT Edge Hub:
+    >
+    >**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
+    >
+    >**Could not check current state of edgeHub container**
+    >
+    >This error is expected on a newly provisioned device because the IoT Edge Hub module isn't running. To resolve the error, in IoT Hub, set the modules for the device and create a deployment. Creating a deployment for the device starts the modules on the device including the IoT Edge Hub module.
+
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
 

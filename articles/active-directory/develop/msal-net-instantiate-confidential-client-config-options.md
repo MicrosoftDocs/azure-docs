@@ -1,6 +1,5 @@
 ---
-title: Instantiate a confidential client app (MSAL.NET) | Azure
-titleSuffix: Microsoft identity platform
+title: Instantiate a confidential client app (MSAL.NET)
 description: Learn how to instantiate a confidential client application with configuration options using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: mmacy

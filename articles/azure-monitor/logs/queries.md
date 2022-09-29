@@ -3,9 +3,10 @@ title: Using queries in Azure Monitor Log Analytics
 description: Overview of log queries in Azure Monitor Log Analytics including different types of queries and sample queries that you can use.
 ms.subservice: logs
 ms.topic: article
-author: bwren
-ms.author: bwren
-ms.date: 05/20/2021
+author: guywild
+ms.author: guywild
+ms.reviewer: roygal
+ms.date: 06/22/2022
 ---
 
 # Using queries in Azure Monitor Log Analytics
@@ -80,7 +81,7 @@ The query interface is populated with the following types of queries:
 
 **Legacy queries:** Log queries previously saved in the query explorer experience and queries Azure solutions that are installed in the workspace. These are listed in the query dialog box under **Legacy queries**.
 >[!TIP]
-> Legacy Quereis are only avaiable in a Log Analytics Workspace.
+> Legacy queries are only available in a Log Analytics Workspace.
 
 ## Effect of query scope
 The queries that are available when you open Log Analytics is determined by the current [query scope ](scope.md).

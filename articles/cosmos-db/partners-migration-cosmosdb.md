@@ -1,8 +1,9 @@
 ---
 title: Migration and application development partners for Azure Cosmos DB 
 description: Lists Microsoft partners with migration solutions that support Azure Cosmos DB.
-author: rothja
-ms.author: jroth
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/26/2021
@@ -22,7 +23,7 @@ From NoSQL migration to application development, you can choose from a variety o
 |[Altoros Development LLC](https://www.altoros.com/)  |  IoT, Personalization Retail (inventory), Serverless architectures NoSQL migration, App development|   USA |
 |[Avanade](https://www.avanade.com/) | IoT, Retail (inventory), Serverless Architecture, App development | Austria, Germany, Switzerland, Italy, Norway, Spain, UK, Canada |
 |[Accenture](https://www.accenture.com/) | IoT, Retail (inventory), Serverless Architecture, App development |Global|
-|[Capax Global LLC](https://www.capaxglobal.com/) | IoT, Personalization, Retail (inventory), Operational Analytics (Spark), Serverless architecture, App development|    USA     |  
+|Capax Global LLC | IoT, Personalization, Retail (inventory), Operational Analytics (Spark), Serverless architecture, App development|    USA     |  
 | [Capgemini](https://www.capgemini.com/) | Retail (inventory), IoT, Operational Analytics (Spark), App development | USA, France, UK, Netherlands, Finland  |
 | [Cognizant](https://www.cognizant.com/) | IoT, Personalization, Retail (inventory), Operational Analytics  (Spark), App development |USA, Canada, UK, Denmark, Netherlands, Switzerland, Australia, Japan |
 |[Infosys](https://www.infosys.com/)     | App development      |    USA    |  

@@ -9,17 +9,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 07/05/2022
 ms.author: pafarley
 ms.custom: seodec18
 ---
 
-# Detect adult content
+# Adult content detection
 
 Computer Vision can detect adult material in images so that developers can restrict the display of these images in their software. Content flags are applied with a score between zero and one so developers can interpret the results according to their own preferences.
 
-> [!NOTE]
-> Much of this functionality is offered by the [Azure Content Moderator](../content-moderator/overview.md) service. See this alternative for solutions to more rigorous content moderation scenarios, such as text moderation and human review workflows.
+Try out the adult content detection features quickly and easily in your browser using Vision Studio.
+
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://portal.vision.cognitive.azure.com/)
 
 ## Content flag definitions
 

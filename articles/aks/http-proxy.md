@@ -4,11 +4,11 @@ description: Use the HTTP proxy configuration feature for Azure Kubernetes Servi
 services: container-service
 author: nickomang
 ms.topic: article
-ms.date: 09/09/2021
+ms.date: 05/23/2022
 ms.author: nickoman
 ---
 
-# HTTP proxy support in Azure Kubernetes Service (preview)
+# HTTP proxy support in Azure Kubernetes Service
 
 Azure Kubernetes Service (AKS) clusters, whether deployed into a managed or custom virtual network, have certain outbound dependencies necessary to function properly. Previously, in environments requiring internet access to be routed through HTTP proxies, this was a problem. Nodes had no way of bootstrapping the configuration, environment variables, and certificates necessary to access internet services.
 
@@ -16,12 +16,9 @@ This feature adds HTTP proxy support to AKS clusters, exposing a straightforward
 
 Some more complex solutions may require creating a chain of trust to establish secure communications across the network. The feature also enables installation of a trusted certificate authority onto the nodes as part of bootstrapping a cluster.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 ## Limitations and other details
 
 The following scenarios are **not** supported:
-- Monitoring addon
 - Different proxy configurations per node pool
 - Updating proxy settings post cluster creation
 - User/Password authentication
@@ -34,40 +31,7 @@ By default, *httpProxy*, *httpsProxy*, and *trustedCa* have no value.
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
-* [Azure CLI installed](/cli/azure/install-azure-cli).
-
-### Install the `aks-preview` Azure CLI
-
-You also need the *aks-preview* Azure CLI extension version 0.5.25 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-### Register the `HTTPProxyConfigPreview` preview feature
-
-To use the feature, you must also enable the `HTTPProxyConfigPreview` feature flag on your subscription.
-
-Register the `HTTPProxyConfigPreview` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "HTTPProxyConfigPreview"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/HTTPProxyConfigPreview')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+* Latest version of [Azure CLI installed](/cli/azure/install-azure-cli).
 
 ## Configuring an HTTP proxy using Azure CLI 
 
@@ -143,6 +107,19 @@ For example, assuming a new file has been created with the base64 encoded string
 ```azurecli
 az aks update -n $clusterName -g $resourceGroup --http-proxy-config aks-proxy-config-2.json
 ```
+
+## Monitoring add-on configuration
+
+When using the HTTP proxy with the Monitoring add-on, the following configurations are supported:
+
+  - Outbound proxy without authentication
+  - Outbound proxy with username & password authentication
+  - Outbound proxy with trusted cert for Log Analytics endpoint
+
+The following configurations are not supported:
+
+  - The Custom Metrics and Recommended Alerts features are not supported when using proxy with trusted cert
+  - Outbound proxy is not supported with Azure Monitor Private Link Scope (AMPLS)
 
 ## Next steps
 - For more on the network requirements of AKS clusters, see [control egress traffic for cluster nodes in AKS][aks-egress].

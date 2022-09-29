@@ -94,7 +94,7 @@ The configuration would look like:
 2. Create Backend pool **MyBackendPoolOfPublicILB** and add the VMs.  
    1. Select the Virtual network  
    1. Select the VMs and their IP addresses and add them to the backend pool  
-3. Create a NAT gateway for outbound internet access. For more information see [Tutorial: Create a NAT gateway - Azure CLI](../../../virtual-network/nat-gateway/tutorial-create-nat-gateway-cli.md).
+3. Create a NAT gateway for outbound internet access. For more information see [Quickstart: Create a NAT gateway - Azure CLI](../../../virtual-network/nat-gateway/quickstart-create-nat-gateway-cli.md).
 4. Create Network Security group rules to restrict access to specific Public End Points. If there is existing Network Security Group, you can adjust it. The example below shows how to enable access to the Azure management API: 
    1. Navigate to the Network Security Group
    1. Click Outbound Security Rules

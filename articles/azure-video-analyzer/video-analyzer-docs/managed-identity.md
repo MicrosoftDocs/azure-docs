@@ -9,6 +9,8 @@ ms.custom: ignite-fall-2021
 
 # Managed identity
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 A common challenge for developers is the management of secrets and credentials to secure communication between different services. On Azure, managed identities eliminate the need for developers having to manage credentials by providing an identity for the Azure resource in Azure Active Directory (Azure AD) and using it to obtain Azure AD tokens.
 
 When you create an Azure Video Analyzer account, you must associate an Azure storage account with it. If you use Video Analyzer to record the live video from a camera, that data is stored as blobs in a container in the storage account. You can optionally associate an IoT Hub with your Video Analyzer account – this is needed if you use Video Analyzer edge module as a [transparent gateway](./cloud/use-remote-device-adapter.md). You must use a managed identity to grant the Video Analyzer account the appropriate access to the storage account and  IoT Hub (if needed for your solution) as follows.

@@ -7,7 +7,7 @@ ms.author: danlep
 ---
 More information about policies:
 
-+ [Policy overview](../articles/api-management/api-management-howto-policies.md)
++ [Policies overview](../articles/api-management/api-management-howto-policies.md)
 + [Set or edit policies](../articles/api-management/set-edit-policies.md)
 + [Policy expressions](../articles/api-management/api-management-policy-expressions.md)
 + [Policy reference](../articles/api-management/api-management-policies.md) for a full list of policy statements and their settings

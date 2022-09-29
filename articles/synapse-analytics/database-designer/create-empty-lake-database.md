@@ -19,12 +19,14 @@ In this article, you'll learn how to create an empty [lake database](./concepts-
 
 - At least Synapse User role permissions are required for exploring a lake database template from Gallery.
 - Synapse Administrator, Synapse Contributor, or Synapse Artifact Publisher permissions are required on the Synapse workspace for creating a lake database.
-- Storage Blob Data Contributor permissions are required on data lake.
+- Storage Blob Data Contributor permissions are required on data lake when using the create table **From data lake** option. 
 
 ## Create lake database from database template
 1. From your Azure Synapse Analytics workspace **Home** hub, select the **Data** tab on the left. The **Data** tab will open and you will see the list of databases that already exist in your workspace.
-2. Hover over the **+** button and select, then choose **Lake database (preview)**.
-![Screenshot showing create empty lake database](./media/create-empty-lake-database/create-empty-lakedb.png)
+2. Hover over the **+** button and select, then choose **Lake database**.
+
+    ![Screenshot showing create empty lake database](./media/create-empty-lake-database/create-empty-lakedb.png)
+
 3. The database designer tab will open with an empty database.
 4. The database designer has **Properties** on the right that need to be configured.
     - **Name** - Give your database a name. Names cannot be edited after the database is published, so make sure the name you choose is correct.

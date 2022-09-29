@@ -17,7 +17,7 @@ You can use Azure Backup to protect your Windows Server from corruptions, attack
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at <https://portal.azure.com>.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a Recovery Services vault
 

@@ -1,21 +1,21 @@
 ---
-title: Troubleshoot Azure Files problems in Linux | Microsoft Docs
-description: Troubleshooting Azure Files problems in Linux. See common issues related to Azure Files when you connect from Linux clients, and see possible resolutions.
-author: jeffpatt24
+title: Troubleshoot Azure Files problems in Linux (SMB) | Microsoft Docs
+description: Troubleshooting Azure Files problems in Linux. See common issues related to SMB Azure file shares when you connect from Linux clients, and see possible resolutions.
+author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 10/16/2018
-ms.author: jeffpatt
+ms.date: 09/12/2022
+ms.author: kendownie
 ms.subservice: files
 ---
 # Troubleshoot Azure Files problems in Linux (SMB)
 
-This article lists common problems that are related to Azure Files when you connect from Linux clients. It also provides possible causes and resolutions for these problems. 
+This article lists common problems that are related to SMB Azure file shares when you connect from Linux clients. It also provides possible causes and resolutions for these problems. 
 
-In addition to the troubleshooting steps in this article, you can use [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux) to ensure that the Linux client has correct prerequisites. AzFileDiagnostics automates the detection of most of the symptoms mentioned in this article. It helps set up your environment to get optimal performance. You can also find this information in the [Azure Files shares troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). The troubleshooter provides steps to help you with problems connecting, mapping, and mounting Azure Files shares.
+In addition to the troubleshooting steps in this article, you can use [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux) to ensure that the Linux client has correct prerequisites. AzFileDiagnostics automates the detection of most of the symptoms mentioned in this article. It helps set up your environment to get optimal performance. You can also find this information in the [Azure file shares troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). The troubleshooter provides steps to help you with problems connecting, mapping, and mounting Azure file shares.
 
 > [!IMPORTANT]
-> The content of this article only applies to SMB shares. For details on NFS shares, see [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md).
+> The content of this article only applies to SMB shares. For details on NFS shares, see [Troubleshoot NFS Azure file shares](storage-troubleshooting-files-nfs.md).
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -30,7 +30,7 @@ In addition to the troubleshooting steps in this article, you can use [AzFileDia
 
 Common causes for this problem are:
 
-- You're using an Linux distribution with an outdated SMB client, see [Use Azure Files with Linux](storage-how-to-use-files-linux.md) for more information on common Linux distributions available in Azure that have compatible clients.
+- You're using an Linux distribution with an outdated SMB client. See [Use Azure Files with Linux](storage-how-to-use-files-linux.md) for more information on common Linux distributions available in Azure that have compatible clients.
 - SMB utilities (cifs-utils) are not installed on the client.
 - The minimum SMB version, 2.1, is not available on the client.
 - SMB 3.x encryption is not supported on the client. The preceding table provides a list of Linux distributions that support mounting from on-premises and cross-region using encryption. Other distributions require kernel 4.11 and later versions.
@@ -285,7 +285,7 @@ If you can't upgrade to the latest kernel versions, you can work around this pro
 ## "CIFS VFS: error -22 on ioctl to get interface list" when you mount an Azure file share by using SMB 3.x
 
 ### Cause
-This error is logged because Azure Files [does not currently support SMB multichannel](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
+This error is logged because Azure Files [doesn't currently support SMB multichannel](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
 
 ### Solution
 This error can be ignored.
@@ -315,6 +315,40 @@ use:
 sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino,mapchars
 ```
 
+<a id="dns-account-migration"></a>
+## DNS issues with live migration of Azure storage accounts
+
+File I/Os on the mounted filesystem start giving "Host is down" or "Permission denied" errors. Linux dmesg logs on the client will have repeated errors like:
+
+Status code returned 0xc000006d STATUS_LOGON_FAILURE
+cifs_setup_session: 2 callbacks suppressed
+CIFS VFS: \\contoso.file.core.windows.net Send error in SessSetup = -13
+ 
+You'll also see that the server FQDN now resolves to a different IP address than what it’s currently connected to.
+
+### Cause
+
+For capacity load balancing purposes, storage accounts are sometimes live-migrated from one storage cluster to another. Account migration triggers Azure Files traffic to be redirected from the source cluster to the destination cluster by updating the DNS mappings to point to the destination cluster. This causes all traffic to the source cluster from that account to be blocked. It’s expected that the SMB client picks up the DNS updates and redirects further traffic to the destination cluster. However, due to a bug in the Linux SMB kernel client, this redirection didn't take effect. As a result, the data traffic kept going to the source cluster, which had stopped serving this account post migration.
+
+### Workaround
+
+This issue can be mitigated by simply rebooting the client OS, but you might run into the issue again if you don't upgrade your client OS to a Linux distro version with account migration support. Note that umount and remount of the share may appear to fix the issue temporarily.
+
+### Solution
+
+For a permanent fix, upgrade your client OS to a Linux distro version with account migration support. Several fixes for the Linux SMB kernel client were recently submitted to the mainline Linux kernel. Kernel version 5.15+ and Keyutils-1.6.2+ have the fixes. However, these fixes are yet to be backported by popular Linux distros into their stable kernels. Some distros have backported these fixes, and you can check if the following fixes exist in the distro version you're using:
+
+[cifs: On cifs_reconnect, resolve the hostname again](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4e456b30f78c429b183db420e23b26cde7e03a78)
+
+[cifs: use the expiry output of dns_query to schedule next resolution](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=506c1da44fee32ba1d3a70413289ad58c772bba6)
+
+[cifs: set a minimum of 120s for next dns resolution](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=4ac0536f8874a903a72bddc57eb88db774261e3a)
+
+[cifs: To match file servers, make sure the server hostname matches](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=7be3248f313930ff3d3436d4e9ddbe9fccc1f541)
+
+[cifs: fix memory leak of smb3_fs_context_dup::server_hostname](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=869da64d071142d4ed562a3e909deb18e4e72c4e)
+
+[dns: Apply a default TTL to records obtained from getaddrinfo()](https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git/commit/?id=75e7568dc516db698093b33ea273e1b4a30b70be)
 
 ## Need help? Contact support.
 

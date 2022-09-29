@@ -44,6 +44,8 @@ To configure the integration of EthicsPoint Incident Management (EPIM) into Azur
 1. In the **Add from the gallery** section, type **EthicsPoint Incident Management (EPIM)** in the search box.
 1. Select **EthicsPoint Incident Management (EPIM)** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for EthicsPoint Incident Management (EPIM)
 
 Configure and test Azure AD SSO with EthicsPoint Incident Management (EPIM) using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in EthicsPoint Incident Management (EPIM).
@@ -84,7 +86,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     |
   
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier,Reply URL and Sign-On URL. Contact [EthicsPoint Incident Management (EPIM) Client support team](https://www.navexglobal.com/company/contact-us) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier,Reply URL and Sign-On URL. Contact [EthicsPoint Incident Management (EPIM) Client support team](https://www.navex.com/en-us/products/navex-ethics-compliance/ethicspoint-hotline-incident-management/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -120,11 +122,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure EthicsPoint Incident Management (EPIM) SSO
 
-To configure single sign-on on **EthicsPoint Incident Management (EPIM)** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [EthicsPoint Incident Management (EPIM) support team](https://www.navexglobal.com/company/contact-us). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **EthicsPoint Incident Management (EPIM)** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [EthicsPoint Incident Management (EPIM) support team](https://www.navex.com/en-us/products/navex-ethics-compliance/ethicspoint-hotline-incident-management/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create EthicsPoint Incident Management (EPIM) test user
 
-In this section, you create a user called Britta Simon in EthicsPoint Incident Management (EPIM). Work with [EthicsPoint Incident Management (EPIM) support team](https://www.navexglobal.com/company/contact-us) to add the users in the EthicsPoint Incident Management (EPIM) platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in EthicsPoint Incident Management (EPIM). Work with [EthicsPoint Incident Management (EPIM) support team](https://www.navex.com/en-us/products/navex-ethics-compliance/ethicspoint-hotline-incident-management/) to add the users in the EthicsPoint Incident Management (EPIM) platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO
 

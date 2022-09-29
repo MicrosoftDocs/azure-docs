@@ -10,12 +10,18 @@ The next step is to download the Azure Spatial Anchors packages for Unity.
 
 To use Azure Spatial Anchors in Unity, you need to download **both** the **core package** (`com.microsoft.azure.spatial-anchors-sdk.core`) and a **platform-specific package** for each platform that you plan to support.
 
-| Platform | Package name                                    |
+| Platform | Required package names                                    |
 |----------|-------------------------------------------------|
-| All Platforms  | `com.microsoft.azure.spatial-anchors-sdk.core@<version_number>` |
-| Android  | `com.microsoft.azure.spatial-anchors-sdk.android@<version_number>` |
-| iOS      | `com.microsoft.azure.spatial-anchors-sdk.ios@<version_number>`     |
-| HoloLens | `com.microsoft.azure.spatial-anchors-sdk.windows@<version_number>` |
+| HoloLens | `com.microsoft.azure.spatial-anchors-sdk.core@<version_number>`<br>`com.microsoft.azure.spatial-anchors-sdk.windows@<version_number>` |
+| Android  | `com.microsoft.azure.spatial-anchors-sdk.core@<version_number>`<br>`com.microsoft.azure.spatial-anchors-sdk.android@<version_number>` |
+| iOS      | `com.microsoft.azure.spatial-anchors-sdk.core@<version_number>`<br>`com.microsoft.azure.spatial-anchors-sdk.ios@<version_number>`|
+
+## [Install with Mixed Reality Feature Tool](#tab/unity-package-mixed-reality-feature-tool)
+
+> [!NOTE]
+> The <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Mixed Reality Feature Tool</a> currently only supports Windows.
+
+Continue to the next step. You'll use the <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Mixed Reality Feature Tool</a> in a later step.
 
 ## [Download with web browser](#tab/unity-package-web-ui)
 
@@ -40,9 +46,5 @@ npm pack com.microsoft.azure.spatial-anchors-sdk.core@<version_number> --registr
 > ```
 
 The Azure Spatial Anchors core package will be downloaded to the folder where you ran the command. **Repeat** this step to download the package for each platform that you plan to support.
-
-## [Install with Mixed Reality Feature Tool](#tab/unity-package-mixed-reality-feature-tool)
-
-Continue to the next step. You'll use the <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Mixed Reality Feature Tool</a> in a later step.
 
 ---

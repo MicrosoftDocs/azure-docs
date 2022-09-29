@@ -1,7 +1,7 @@
 ---
 title: Remove access to a delegation
 description: Learn how to remove access to resources that had been delegated to a service provider for Azure Lighthouse.
-ms.date: 09/08/2021
+ms.date: 06/22/2022
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 ---
@@ -66,7 +66,7 @@ Get-AzManagedServicesAssignment -Scope "/subscriptions/{delegatedSubscriptionId}
 
 # Delete the registration assignment
 
-Remove-AzManagedServicesAssignment -ResourceId "/subscriptions/{delegatedSubscriptionId}/providers/Microsoft.ManagedServices/registrationAssignments/{assignmentGuid}"
+Remove-AzManagedServicesAssignment -Name "<Assignmentname>" -Scope "/subscriptions/{delegatedSubscriptionId}"
 ```
 
 ### Azure CLI

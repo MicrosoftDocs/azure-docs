@@ -168,6 +168,8 @@ But you'll also want to become familiar with methodologies for loading an index 
 
 + [Create a search index](search-how-to-create-search-index.md)
 
++ [Create an index alias](search-how-to-alias.md)
+
 + [Data import overview](search-what-is-data-import.md)
 
 + [Add, Update or Delete Documents (REST)](/rest/api/searchservice/addupdate-or-delete-documents) 

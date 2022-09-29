@@ -63,6 +63,9 @@ In these cases, you don't need to create a product and add APIs to it first.
 
 Each API Management instance comes with an immutable, all-APIs subscription (also called an *all-access* subscription). This built-in subscription makes it straightforward to test and debug APIs within the test console.
 
+> [!WARNING]
+> The all-access subscription enables access to every API in the API Management instance and should only be used by authorized users. Never use this subscription for routine API access or embed the all-access subscription key in client apps.
+
 > [!NOTE]
 > If you're using an API-scoped subscription or the all-access subscription, any [policies](api-management-howto-policies.md) configured at the product scope aren't applied to requests from that subscription.
 
@@ -76,13 +79,14 @@ Creating a subscription without assigning an owner makes it a standalone subscri
 
 ## Create subscriptions in Azure portal
 
-API publishers can [create subscriptions](api-management-howto-create-subscriptions.md) directly in the Azure portal:
-
-![Flexible subscriptions](./media/api-management-subscriptions/flexible-subscription.png)
+API publishers can [create subscriptions](api-management-howto-create-subscriptions.md) directly in the Azure portal. 
 
 ## How API Management handles requests with or without subscription keys
 
 By default, a developer can only access a product or API by using a subscription key. Under certain scenarios, API publishers might want to publish a product or a particular API to the public without the requirement of subscriptions. While a publisher could choose to enable unsecured access to certain APIs, configuring another mechanism to secure client access is recommended.
+
+> [!CAUTION]
+> Use care when configuring a product or an API that doesn't require a subscription. This configuration may be overly permissive and may make an API more vulnerable to certain [API security threats](mitigate-owasp-api-threats.md#security-misconfiguration).
 
 To disable the subscription requirement using the portal:
 

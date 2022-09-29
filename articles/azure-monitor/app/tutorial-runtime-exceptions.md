@@ -4,6 +4,7 @@ description: Tutorial to find and diagnose run-time exceptions in your applicati
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.custom: mvc
+ms.reviewer: vitalyg
 ---
 
 # Find and diagnose run-time exceptions with Azure Application Insights

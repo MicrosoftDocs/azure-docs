@@ -6,10 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/24/2021
+ms.date: 08/20/2022
 ---
 
 # Tutorial: Create automated approval-based workflows by using Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 This tutorial shows how to build an example [logic app](../logic-apps/logic-apps-overview.md) that automates an approval-based workflow. Specifically, this example logic app processes subscription requests for a mailing list that's managed by the [MailChimp](https://mailchimp.com/) service. This logic app includes various steps, which start by monitoring an email account for requests, sends these requests for approval, checks whether or not the request gets approval, adds approved members to the mailing list, and confirms whether or not new members get added to the list.
 

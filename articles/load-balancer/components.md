@@ -3,13 +3,13 @@ title: Azure Load Balancer components
 description: Overview of Azure Load Balancer components
 services: load-balancer
 documentationcenter: na
-author: asudbring
+author: mbender-ms
 ms.service: load-balancer
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/27/2021
-ms.author: allensu
+ms.author: mbender
 
 ---
 # Azure Load Balancer components
@@ -120,7 +120,7 @@ Basic load balancer doesn't support outbound rules.
 - Load Balancer backend pool cannot consist of a [Private Endpoint](../private-link/private-endpoint-overview.md).
 - Outbound flow from a backend VM to a frontend of an internal Load Balancer will fail.
 - A load balancer rule cannot span two virtual networks. All load balancer frontends and their backend instances must be in a single virtual network.  
-- Forwarding IP fragments isn't supported on load-balancing rules. IP fragmentation of UDP and TCP packets isn't supported on load-balancing rules. HA ports load-balancing rules can be used to forward existing IP fragments. For more information, see [High availability ports overview](load-balancer-ha-ports-overview.md).
+- Forwarding IP fragments isn't supported on load-balancing rules. IP fragmentation of UDP and TCP packets isn't supported on load-balancing rules. 
 - You can only have 1 Public Load Balancer and 1 internal Load Balancer per availability set
 
 ## Next steps

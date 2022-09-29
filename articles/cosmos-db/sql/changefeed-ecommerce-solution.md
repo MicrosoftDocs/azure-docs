@@ -1,13 +1,13 @@
 ---
 title: Use Azure Cosmos DB change feed to visualize real-time data analytics
 description: This article describes how change feed can be used by a retail company to understand user patterns, perform real-time data analysis and visualization
-author: timsander1
-ms.author: tisande
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
-ms.reviewer: wiassaf
 ms.date: 03/24/2022
 ms.custom: devx-track-java, cosmos-db-video
 ---

@@ -9,7 +9,7 @@ ms.topic: include
 ms.date: 11/02/2021
 ms.author: lajanuar
 recommendations: false
-ms.custom: ignite-fall-2021
+
 ---
 
 <!-- markdownlint-disable MD024 -->
@@ -40,7 +40,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
     > [!TIP]
     > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
 
-* After your resource deploys, click **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
+* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
   :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -54,11 +54,11 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 
 1. On the **Create a new project page**, enter **console** in the search box. Choose the **Console Application** template, then choose **Next**.
 
-    :::image type="content" source="../../media/quickstarts/create-new-project.png" alt-text="Screenshot: Visual Studio create new project page.":::
+    :::image type="content" source="../../media/quickstarts/create-new-project.png" alt-text="Screenshot of the Visual Studio create new project page.":::
 
 1. In the **Configure your new project** dialog window, enter `formRecognizer_quickstart` in the Project name box. Then choose Next.
 
-    :::image type="content" source="../../media/quickstarts/configure-new-project.png" alt-text="Screenshot: Visual Studio configure new project dialog window.":::
+    :::image type="content" source="../../media/quickstarts/configure-new-project.png" alt-text="Screenshot: Visual Studios configure new project dialog window.":::
 
 1. In the **Additional information** dialog window, select **.NET 5.0 (Current)**, and then select **Create**.
 
@@ -78,29 +78,35 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 
 ## Build your application
 
-To interact with the Form Recognizer service, you'll need to create an instance of the `FormRecognizerClient` class. To do so, you'll create an `AzureKeyCredential` with your apiKey and a `FormRecognizerClient`  instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
+To interact with the Form Recognizer service, you'll need to create an instance of the `FormRecognizerClient` class. To do so, you'll create an `AzureKeyCredential` with your key and a `FormRecognizerClient`  instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
+
+> [!NOTE]
+>
+> * Starting with .NET 6, new projects using the `console` template generate a new program style that differs from previous versions.
+> * The new output uses recent C# features that simplify the code you need to write.
+> * When you use the newer version, you only need to write the body of the `Main` method. You don't need to include top-level statements, global using directives, or implicit using directives.
+> * For more information, *see* [**New C# templates generate top-level statements**](/dotnet/core/tutorials/top-level-templates).
 
 1. Open the **Program.cs** file.
 
 1. Include the following using directives:
 
 ```csharp
-using System;
 using Azure;
 using Azure.AI.FormRecognizer;
 using Azure.AI.FormRecognizer.Models;
 using System.Threading.Tasks;
 ```
 
-1. Set your  `endpoint` and `apiKey`  environment variables and create your `AzureKeyCredential` and `FormRecognizerClient` instance:
+1. Set your  `endpoint` and `key`  environment variables and create your `AzureKeyCredential` and `FormRecognizerClient` instance:
 
 ```csharp
 private static readonly string endpoint = "your-form-recognizer-endpoint";
-private static readonly string apiKey = "your-api-key";
-private static readonly AzureKeyCredential credential = new AzureKeyCredential(apiKey);
+private static readonly string key = "your-api-key";
+private static readonly AzureKeyCredential credential = new AzureKeyCredential(key);
 ```
 
-1. Delete the line, `Console.Writeline("Hello World!");` , and add one of the **Try It** code samples to the **Main** method in the **Program.cs** file:
+1. Delete the line, `Console.Writeline("Hello World!");` , and add one of the **Try It** code samples to **Program.cs** file:
 
     :::image type="content" source="../../media/quickstarts/add-code-here.png" alt-text="Screenshot: add the sample code to the Main method.":::
 
@@ -111,8 +117,7 @@ private static readonly AzureKeyCredential credential = new AzureKeyCredential(a
     * [**Prebuilt Invoice**](#try-it-prebuilt-model)
 
 > [!IMPORTANT]
->
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](.(/azure/cognitive-services/cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../key-vault/general/overview.md). For more information, see the Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md) article.
 
 ## **Try it**: Layout model
 
@@ -124,7 +129,7 @@ Extract text, selection marks, text styles, and table structures, along with the
 > * We've added the file URI value to the `formUri` variable.
 > * To extract the layout from a given file at a URI, use the `StartRecognizeContentFromUriAsync` method.
 
-### Add the following code to your layout application **Main** method:
+### Add the following code to your layout application Program.cs file:
 
 ```csharp
 
@@ -132,15 +137,10 @@ FormRecognizerClient recognizerClient = AuthenticateClient();
 
 Task recognizeContent = RecognizeContent(recognizerClient);
 Task.WaitAll(recognizeContent);
-```
-
-### Add the following code below the **Main** method:
-
-```csharp
 
 private static FormRecognizerClient AuthenticateClient()
             {
-                var credential = new AzureKeyCredential(apiKey);
+                var credential = new AzureKeyCredential(key);
                 var client = new FormRecognizerClient(new Uri(endpoint), credential);
                 return client;
             }
@@ -191,27 +191,23 @@ This sample demonstrates how to analyze data from certain types of common docume
 
 ### Choose a prebuilt model
 
-You are not limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the prebuilt models currently supported by the Form Recognizer service:
+You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the prebuilt models currently supported by the Form Recognizer service:
 
 * [**Invoice**](../../concept-invoice.md): extracts text, selection marks, tables, fields, and key information from invoices.
 * [**Receipt**](../../concept-receipt.md): extracts text and key information from receipts.
 * [**ID document**](../../concept-id-document.md): extracts text and key information from driver licenses and international passports.
 * [**Business-card**](../../concept-business-card.md): extracts text and key information from business cards.
 
-### Add the following code to your prebuilt invoice application **Main** method
+### Add the following code to your prebuilt invoice application Program.cs file method
 
 ```csharp
 FormRecognizerClient recognizerClient = AuthenticateClient();
 
-            Task analyzeinvoice = AnalyzeInvoice(recognizerClient, invoiceUrl);
-            Task.WaitAll(analyzeinvoice);
-```
+  Task analyzeinvoice = AnalyzeInvoice(recognizerClient, invoiceUrl);
+  Task.WaitAll(analyzeinvoice);
 
-### Add the following code below the **Main** method:
-
-```csharp
    private static FormRecognizerClient AuthenticateClient() {
-     var credential = new AzureKeyCredential(apiKey);
+     var credential = new AzureKeyCredential(key);
      var client = new FormRecognizerClient(new Uri(endpoint), credential);
      return client;
    }
@@ -230,7 +226,7 @@ FormRecognizerClient recognizerClient = AuthenticateClient();
      if (invoice.Fields.TryGetValue("InvoiceId", out invoiceIdField)) {
        if (invoiceIdField.Value.ValueType == FieldValueType.String) {
          string invoiceId = invoiceIdField.Value.AsString();
-         Console.WriteLine($ "    Invoice Id: '{invoiceId}', with confidence {invoiceIdField.Confidence}");
+         Console.WriteLine($"    Invoice Id: '{invoiceId}', with confidence {invoiceIdField.Confidence}");
        }
      }
 
@@ -238,7 +234,7 @@ FormRecognizerClient recognizerClient = AuthenticateClient();
      if (invoice.Fields.TryGetValue("InvoiceDate", out invoiceDateField)) {
        if (invoiceDateField.Value.ValueType == FieldValueType.Date) {
          DateTime invoiceDate = invoiceDateField.Value.AsDate();
-         Console.WriteLine($ "    Invoice Date: '{invoiceDate}', with confidence {invoiceDateField.Confidence}");
+         Console.WriteLine($"    Invoice Date: '{invoiceDate}', with confidence {invoiceDateField.Confidence}");
        }
      }
 
@@ -246,7 +242,7 @@ FormRecognizerClient recognizerClient = AuthenticateClient();
      if (invoice.Fields.TryGetValue("DueDate", out dueDateField)) {
        if (dueDateField.Value.ValueType == FieldValueType.Date) {
          DateTime dueDate = dueDateField.Value.AsDate();
-         Console.WriteLine($ "    Due Date: '{dueDate}', with confidence {dueDateField.Confidence}");
+         Console.WriteLine($"    Due Date: '{dueDate}', with confidence {dueDateField.Confidence}");
        }
      }
 
@@ -254,7 +250,7 @@ FormRecognizerClient recognizerClient = AuthenticateClient();
      if (invoice.Fields.TryGetValue("VendorName", out vendorNameField)) {
        if (vendorNameField.Value.ValueType == FieldValueType.String) {
          string vendorName = vendorNameField.Value.AsString();
-         Console.WriteLine($ "    Vendor Name: '{vendorName}', with confidence {vendorNameField.Confidence}");
+         Console.WriteLine($"    Vendor Name: '{vendorName}', with confidence {vendorNameField.Confidence}");
        }
      }
 
@@ -262,7 +258,7 @@ FormRecognizerClient recognizerClient = AuthenticateClient();
      if (invoice.Fields.TryGetValue("VendorAddress", out vendorAddressField)) {
        if (vendorAddressField.Value.ValueType == FieldValueType.String) {
          string vendorAddress = vendorAddressField.Value.AsString();
-         Console.WriteLine($ "    Vendor Address: '{vendorAddress}', with confidence {vendorAddressField.Confidence}");
+         Console.WriteLine($"    Vendor Address: '{vendorAddress}', with confidence {vendorAddressField.Confidence}");
        }
      }
 
@@ -270,7 +266,7 @@ FormRecognizerClient recognizerClient = AuthenticateClient();
      if (invoice.Fields.TryGetValue("CustomerName", out customerNameField)) {
        if (customerNameField.Value.ValueType == FieldValueType.String) {
          string customerName = customerNameField.Value.AsString();
-         Console.WriteLine($ "    Customer Name: '{customerName}', with confidence {customerNameField.Confidence}");
+         Console.WriteLine($"    Customer Name: '{customerName}', with confidence {customerNameField.Confidence}");
        }
      }
 
@@ -278,7 +274,7 @@ FormRecognizerClient recognizerClient = AuthenticateClient();
      if (invoice.Fields.TryGetValue("CustomerAddress", out customerAddressField)) {
        if (customerAddressField.Value.ValueType == FieldValueType.String) {
          string customerAddress = customerAddressField.Value.AsString();
-         Console.WriteLine($ "    Customer Address: '{customerAddress}', with confidence {customerAddressField.Confidence}");
+         Console.WriteLine($"    Customer Address: '{customerAddress}', with confidence {customerAddressField.Confidence}");
        }
      }
 
@@ -286,7 +282,7 @@ FormRecognizerClient recognizerClient = AuthenticateClient();
      if (invoice.Fields.TryGetValue("CustomerAddressRecipient", out customerAddressRecipientField)) {
        if (customerAddressRecipientField.Value.ValueType == FieldValueType.String) {
          string customerAddressRecipient = customerAddressRecipientField.Value.AsString();
-         Console.WriteLine($ "    Customer address recipient: '{customerAddressRecipient}', with confidence {customerAddressRecipientField.Confidence}");
+         Console.WriteLine($"    Customer address recipient: '{customerAddressRecipient}', with confidence {customerAddressRecipientField.Confidence}");
        }
      }
 
@@ -294,7 +290,7 @@ FormRecognizerClient recognizerClient = AuthenticateClient();
      if (invoice.Fields.TryGetValue("InvoiceTotal", out invoiceTotalField)) {
        if (invoiceTotalField.Value.ValueType == FieldValueType.Float) {
          float invoiceTotal = invoiceTotalField.Value.AsFloat();
-         Console.WriteLine($ "    Invoice Total: '{invoiceTotal}', with confidence {invoiceTotalField.Confidence}");
+         Console.WriteLine($"    Invoice Total: '{invoiceTotal}', with confidence {invoiceTotalField.Confidence}");
        }
      }
    }

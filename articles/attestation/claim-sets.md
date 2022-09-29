@@ -38,7 +38,7 @@ Claims to be used by policy authors to define authorization rules in an SGX atte
 
 - **x-ms-sgx-mrsigner**: A string value, which identifies the author of SGX enclave.
 
-  MRSIGNER is the hash of the enclave author’s public key which is used to sign the enclave binary. By validating MRSIGNER via an attestation policy, customers can verify if trusted binaries are running inside an enclave. When the policy claim does not match the enclave author’s MRSIGNER, it implies that the enclave binary is not signed by a trusted source and the attestation fails.
+  MRSIGNER is the hash of the enclave author’s public key which is associated with the private key used to sign the enclave binary. By validating MRSIGNER via an attestation policy, customers can verify if trusted binaries are running inside an enclave. When the policy claim does not match the enclave author’s MRSIGNER, it implies that the enclave binary is not signed by a trusted source and the attestation fails.
   
   When an enclave author prefers to rotate MRSIGNER for security reasons, Azure Attestation policy must be updated to support the new and old MRSIGNER values before the binaries are updated. Otherwise authorization checks will fail resulting in attestation failures.
   
@@ -134,6 +134,8 @@ Azure Attestation includes the below claims in the attestation token for all att
 - **x-ms-attestation-type**: String value representing attestation type 
 - **x-ms-policy-hash**: Hash of Azure Attestation evaluation policy computed as BASE64URL(SHA256(UTF8(BASE64URL(UTF8(policy text)))))
 - **x-ms-policy-signer**: JSON object with a "jwk” member representing the key a customer used to sign their policy. This is applicable when customer uploads a signed policy
+- **x-ms-runtime**: JSON object containing "claims" that are defined and generated within the attested environment.  This is a specialization of the “enclave held data” concept, where the “enclave held data” is specifically formatted as a UTF-8 encoding of well formed JSON
+- **x-ms-inittime**: JSON object containing “claims” that are defined and verified at initialization time of the attested environment 
 
 Below claim names are used from [IETF JWT specification](https://tools.ietf.org/html/rfc7519)
 
@@ -156,6 +158,7 @@ tee | x-ms-attestation-type
 policy_hash | x-ms-policy-hash
 maa-policyHash | x-ms-policy-hash
 policy_signer  | x-ms-policy-signer
+rp_data  | nonce
 
 ### SGX attestation 
 
@@ -174,7 +177,8 @@ Below claims are generated and included in the attestation token by the service 
     - **quotehash**: SHA256 value of the evaluated quote
     - **tcbinfocertshash**: SHA256 value of the TCB Info issuing certs
     - **tcbinfocrlhash**: SHA256 value of the TCB Info issuing certs CRL list
-    - **tcbinfohash**: SHA256 value of the TCB Info collateral
+    - **tcbinfohash**: SHA256 value of the TCB Info collateral 
+- **x-ms-sgx-report-data**: SGX enclave report data field (usually SHA256 hash of x-ms-sgx-ehd) 
 
 Below claims are considered deprecated but are fully supported and will continue to be included in the future. It is recommended to use the non-deprecated claim names.
 
@@ -188,6 +192,28 @@ $svn | x-ms-sgx-svn
 $maa-ehd | x-ms-sgx-ehd
 $aas-ehd | x-ms-sgx-ehd
 $maa-attestationcollateral | x-ms-sgx-collateral
+
+### SEV-SNP attestation
+
+The following claims are additionally supported by the SevSnpVm attestation type: 
+
+- **x-ms-sevsnpvm-authorkeydigest**: SHA384 hash of the author signing key 
+- **x-ms-sevsnpvm-bootloader-svn** :AMD boot loader security version number (SVN)
+- **x-ms-sevsnpvm-familyId**: HCL family identification string
+- **x-ms-sevsnpvm-guestsvn**: HCL security version number (SVN)
+- **x-ms-sevsnpvm-hostdata**: Arbitrary data defined by the host at VM launch time
+- **x-ms-sevsnpvm-idkeydigest**: SHA384 hash of the identification signing key
+- **x-ms-sevsnpvm-imageId**: HCL image identification
+- **x-ms-sevsnpvm-is-debuggable**: Boolean value indicating whether AMD SEV-SNP debugging is enabled 
+- **x-ms-sevsnpvm-launchmeasurement**: Measurement of the launched guest image 
+- **x-ms-sevsnpvm-microcode-svn**: AMD microcode security version number (SVN
+- **x-ms-sevsnpvm-migration-allowed**: Boolean value indicating whether AMD SEV-SNP migration support is enabled 
+- **x-ms-sevsnpvm-reportdata**: Data passed by HCL to include with report, to verify that transfer key and VM configuration are correct 
+- **x-ms-sevsnpvm-reportid**: Report ID of the guest 
+- **x-ms-sevsnpvm-smt-allowed**: Boolean value indicating whether SMT is enabled on the host 
+- **x-ms-sevsnpvm-snpfw-svn**: AMD firmware security version number (SVN) 
+- **x-ms-sevsnpvm-tee-svn**: AMD trusted execution environment (TEE) security version number (SVN) 
+- **x-ms-sevsnpvm-vmpl**: VMPL that generated this report (0 for HCL) 
 
 ### TPM and VBS attestation
 

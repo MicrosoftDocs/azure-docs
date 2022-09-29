@@ -10,14 +10,14 @@ ms.date: 02/15/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
 ---
 # How to: Plan your Azure AD join implementation
 
-Azure AD join allows you to join devices directly to Azure AD without the need to join to on-premises Active Directory while keeping your users productive and secure. Azure AD join is enterprise-ready for both at-scale and scoped deployments. SSO access to on-premises resources is also available to devices that are Azure AD joined. For more information, see [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md).
+You can join devices directly to Azure Active Directory (Azure AD) without the need to join to on-premises Active Directory while keeping your users productive and secure. Azure AD join is enterprise-ready for both at-scale and scoped deployments. Single sign-on (SSO) access to on-premises resources is also available to devices that are Azure AD joined. For more information, see [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md).
 
 This article provides you with the information you need to plan your Azure AD join implementation.
 
@@ -40,7 +40,7 @@ To plan your Azure AD join implementation, you should familiarize yourself with:
 
 ## Review your scenarios 
 
-While hybrid Azure AD join may be preferred for certain scenarios, Azure AD join enables you to transition towards a cloud-first model with Windows. If you're planning to modernize your devices management and reduce device-related IT costs, Azure AD join provides a great foundation towards achieving those goals.  
+Azure AD join enables you to transition towards a cloud-first model with Windows. If you're planning to modernize your devices management and reduce device-related IT costs, Azure AD join provides a great foundation towards achieving those goals.  
  
 Consider Azure AD join if your goals align with the following criteria:
 
@@ -51,7 +51,7 @@ Consider Azure AD join if your goals align with the following criteria:
 
 ## Review your identity infrastructure  
 
-Azure AD join works in managed and federated environments. We think most organizations will deploy hybrid Azure AD join with managed domains. Managed domain scenarios don't require configuring a federation server.
+Azure AD join works in managed and federated environments. We think most organizations will deploy with managed domains. Managed domain scenarios don't require configuring and managing a federation server like Active Directory Federation Services (AD FS).
 
 ### Managed environment
 
@@ -75,12 +75,6 @@ If your identity provider doesn't support these protocols, Azure AD join doesn't
 > [!NOTE]
 > Currently, Azure AD join does not work with [AD FS 2019 configured with external authentication providers as the primary authentication method](/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). Azure AD join defaults to password authentication as the primary method, which results in authentication failures in this scenario
 
-### Smartcards and certificate-based authentication
-
-You can't use smartcards or certificate-based authentication to join devices to Azure AD. However, smartcards can be used to sign in to Azure AD joined devices if you have AD FS configured.
-
-**Recommendation:** Implement Windows Hello for Business for strong, password-less authentication to Windows 10 or newer.
-
 ### User configuration
 
 If you create users in your:
@@ -88,7 +82,7 @@ If you create users in your:
 - **On-premises Active Directory**, you need to synchronize them to Azure AD using [Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md). 
 - **Azure AD**, no extra setup is required.
 
-On-premises UPNs that are different from Azure AD UPNs aren't supported on Azure AD joined devices. If your users use an on-premises UPN, you should plan to switch to using their primary UPN in Azure AD.
+On-premises user principal names (UPNs) that are different from Azure AD UPNs aren't supported on Azure AD joined devices. If your users use an on-premises UPN, you should plan to switch to using their primary UPN in Azure AD.
 
 UPN changes are only supported starting Windows 10 2004 update. Users on devices with this update won't have any issues after changing their UPNs. For devices before the Windows 10 2004 update, users would have SSO and Conditional Access issues on their devices. They need to sign in to Windows through the "Other user" tile using their new UPN to resolve this issue. 
 
@@ -106,7 +100,7 @@ Azure AD join:
 
 ### Management platform
 
-Device management for Azure AD joined devices is based on an MDM platform such as Intune, and MDM CSPs. Starting in Windows 10 there is a built-in MDM agent that works with all compatible MDM solutions.
+Device management for Azure AD joined devices is based on a mobile device management (MDM) platform such as Intune, and MDM CSPs. Starting in Windows 10 there's a built-in MDM agent that works with all compatible MDM solutions.
 
 > [!NOTE]
 > Group policies are not supported in Azure AD joined devices as they are not connected to on-premises Active Directory. Management of Azure AD joined devices is only possible through MDM
@@ -114,7 +108,7 @@ Device management for Azure AD joined devices is based on an MDM platform such a
 There are two approaches for managing Azure AD joined devices:
 
 - **MDM-only** - A device is exclusively managed by an MDM provider like Intune. All policies are delivered as part of the MDM enrollment process. For Azure AD Premium or EMS customers, MDM enrollment is an automated step that is part of an Azure AD join.
-- **Co-management** -  A device is managed by an MDM provider and SCCM. In this approach, the SCCM agent is installed on an MDM-managed device to administer certain aspects.
+- **Co-management** -  A device is managed by an MDM provider and Microsoft Endpoint Configuration Manager. In this approach, the Microsoft Endpoint Configuration Manager agent is installed on an MDM-managed device to administer certain aspects.
 
 If you're using Group Policies, evaluate your GPO and MDM policy parity by using [Group Policy analytics](/mem/intune/configuration/group-policy-analytics) in Microsoft Endpoint Manager. 
 
@@ -126,7 +120,7 @@ Review supported and unsupported policies to determine whether you can use an MD
 If your MDM solution isn't available through the Azure AD app gallery, you can add it following the process 
 outlined in [Azure Active Directory integration with MDM](/windows/client-management/mdm/azure-active-directory-integration-with-mdm). 
 
-Through co-management, you can use SCCM to manage certain aspects of your devices while policies are delivered through your MDM platform. Microsoft Intune enables co-management with SCCM. For more information on co-management for Windows 10 or newer devices, see [What is co-management?](/configmgr/core/clients/manage/co-management-overview). If you use an MDM product other than Intune, check with your MDM provider on applicable co-management scenarios.
+Through co-management, you can use Microsoft Endpoint Configuration Manager to manage certain aspects of your devices while policies are delivered through your MDM platform. Microsoft Intune enables co-management with Microsoft Endpoint Configuration Manager. For more information on co-management for Windows 10 or newer devices, see [What is co-management?](/configmgr/core/clients/manage/co-management-overview). If you use an MDM product other than Intune, check with your MDM provider on applicable co-management scenarios.
 
 **Recommendation:** Consider MDM only management for Azure AD joined devices.
 
@@ -250,8 +244,8 @@ Before you can configure your mobility settings, you may have to add an MDM prov
 
 **To add an MDM provider**:
 
-1. On the **Azure Active Directory page**, in the **Manage** section, click `Mobility (MDM and MAM)`. 
-1. Click **Add application**.
+1. On the **Azure Active Directory page**, in the **Manage** section, select `Mobility (MDM and MAM)`. 
+1. Select **Add application**.
 1. Select your MDM provider from the list.
 
    :::image type="content" source="./media/azureadjoin-plan/04.png" alt-text="Screenshot of the Azure Active Directory Add an application page. Several M D M providers are listed." border="false":::

@@ -48,7 +48,7 @@ Akamai WAF integration includes the following components:
 
 - **Azure AD B2C Tenant** – The authorization server, responsible for verifying the user’s credentials using the custom policies defined in the tenant.  It's also known as the identity provider.
 
-- [**Azure Front Door**](../frontdoor/front-door-overview.md) – Responsible for enabling custom domains for Azure B2C tenant. All traffic from Cloudflare WAF will be routed to Azure Front Door before arriving at Azure AD B2C tenant.
+- [**Azure Front Door**](../frontdoor/front-door-overview.md) – Responsible for enabling custom domains for Azure B2C tenant. All traffic from Akamai WAF will be routed to Azure Front Door before arriving at Azure AD B2C tenant.
 
 - [**Akamai WAF**](https://www.akamai.com/us/en/resources/waf.jsp) – The web application firewall, which manages all traffic that is sent to the authorization server.
 

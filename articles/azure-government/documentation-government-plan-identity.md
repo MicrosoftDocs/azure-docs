@@ -4,7 +4,7 @@ description: Microsoft Azure Government provides the same ways to build applicat
 ms.service: azure-government
 ms.topic: article
 recommendations: false
-ms.date: 01/28/2022
+ms.date: 06/15/2022
 ---
 
 # Planning identity for Azure Government applications
@@ -27,10 +27,10 @@ Before determining the identity approach for your application, you need to know 
 
 When building any Azure application, you must first decide on the authentication technology:
 
-- **Applications using modern authentication** – Applications using OAuth, OpenID Connect, and/or other modern authentication protocols supported by Azure AD such as newly developed application built using PaaS technologies (for example, Web Apps, Azure SQL Database, and so on).
-- **Applications using legacy authentication protocols (Kerberos/NTLM)** – Applications typically migrated from on-premises (for example, lift-and-shift applications).
+- **Applications using modern authentication** – Applications using OAuth, OpenID Connect, and/or other modern authentication protocols supported by Azure AD such as newly developed application built using PaaS technologies, for example, Web Apps, Azure SQL Database, and so on.
+- **Applications using legacy authentication protocols (Kerberos/NTLM)** – Applications typically migrated from on-premises, for example, lift-and-shift applications.
 
-Based on this decision there are different considerations when building and deploying on Azure Government.
+Based on this decision, there are different considerations when building and deploying on Azure Government.
 
 ### Applications using modern authentication in Azure Government
 

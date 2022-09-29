@@ -8,7 +8,7 @@ ms.date: 01/10/2022
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
-manager: karenhoran
+manager: amycolannino
 ms.collection: M365-identity-device-management
 ---
 
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. Using a managed identity, you can authenticate to any [service that supports Azure AD authentication](services-azure-active-directory-support.md) without managing credentials. We are integrating managed identities for Azure resources and Azure AD authentication across Azure. This page provides links to services' content that can use managed identities to access other Azure resources. Each entry in the table includes a link to service documentation discussing managed identities.
 
 >[!IMPORTANT]
-> New content is added to docs.microsoft.com every day. This list does not include every article that talks about managed identities. Please refer to each service's content set for details on their managed identities support. Resource provider namespace information is available in the article titled [Resource providers for Azure services](../../azure-resource-manager/management/azure-services-resource-providers.md).
+> New technical content is added daily. This list does not include every article that talks about managed identities. Please refer to each service's content set for details on their managed identities support. Resource provider namespace information is available in the article titled [Resource providers for Azure services](../../azure-resource-manager/management/azure-services-resource-providers.md).
 
 The following Azure services support managed identities for Azure resources:
 
@@ -50,6 +50,7 @@ The following Azure services support managed identities for Azure resources:
 | Azure Import/Export             | [Use customer-managed keys in Azure Key Vault for Import/Export service](../../import-export/storage-import-export-encryption-key-portal.md)
 | Azure IoT Hub                   | [IoT Hub support for virtual networks with Private Link and Managed Identity](../../iot-hub/virtual-network-support.md)                                                                               |
 | Azure Kubernetes Service (AKS)  | [Use managed identities in Azure Kubernetes Service](../../aks/use-managed-identity.md)                                                                                                                           |
+| Azure Load Testing                | [Use managed identities for Azure Load Testing](../../load-testing/how-to-use-a-managed-identity.md)  |
 | Azure Logic Apps                | [Authenticate access to Azure resources using managed identities in Azure Logic Apps](../../logic-apps/create-managed-service-identity.md)                                                                                                       |
 | Azure Log Analytics cluster     | [Azure Monitor customer-managed key](../../azure-monitor/logs/customer-managed-keys.md)
 | Azure Machine Learning Services | [Use Managed identities with Azure Machine Learning](../../machine-learning/how-to-use-managed-identities.md?tabs=python)                                                                                         |
@@ -61,11 +62,12 @@ The following Azure services support managed identities for Azure resources:
 | Azure Resource Mover            | [Move resources across regions (from resource group)](../../resource-mover/move-region-within-resource-group.md)
 | Azure Site Recovery             | [Replicate machines with private endpoints](../../site-recovery/azure-to-azure-how-to-enable-replication-private-endpoints.md#enable-the-managed-identity-for-the-vault)                                  |
 | Azure Search                    | [Set up an indexer connection to a data source using a managed identity](../../search/search-howto-managed-identities-data-sources.md)                                                                                            |
+| Azure Service Bus               | [Authenticate a managed identity with Azure Active Directory to access Azure Service Bus resources](../../service-bus-messaging/service-bus-managed-service-identity.md)                                                                                                        |
 | Azure Service Fabric            | [Using Managed identities for Azure with Service Fabric](../../service-fabric/concepts-managed-identity.md)                                                                                                        |
 | Azure SignalR Service           | [Managed identities for Azure SignalR Service](../../azure-signalr/howto-use-managed-identity.md)                                                                                                     |
-| Azure Spring Cloud              | [How to enable system-assigned managed identity for Azure Spring Cloud application](../../spring-cloud/how-to-enable-system-assigned-managed-identity.md) |
-| Azure SQL                       | [Azure SQL Transparent Data Encryption with customer-managed key](../../azure-sql/database/transparent-data-encryption-byok-overview.md)                                                                                     |
-| Azure SQL Managed Instance      | [Azure SQL Transparent Data Encryption with customer-managed key](../../azure-sql/database/transparent-data-encryption-byok-overview.md)                                                                                       |
+| Azure Spring Apps               | [Enable system-assigned managed identity for an application in Azure Spring Apps](../../spring-apps/how-to-enable-system-assigned-managed-identity.md) |
+| Azure SQL                       | [Azure SQL Transparent Data Encryption with customer-managed key](/azure/azure-sql/database/transparent-data-encryption-byok-overview)                                                                                     |
+| Azure SQL Managed Instance      | [Azure SQL Transparent Data Encryption with customer-managed key](/azure/azure-sql/database/transparent-data-encryption-byok-overview)                                                                                       |
 | Azure Stack Edge                | [Manage Azure Stack Edge secrets using Azure Key Vault](../../databox-online/azure-stack-edge-gpu-activation-key-vault.md#recover-managed-identity-access)
 | Azure Static Web Apps           | [Securing authentication secrets in Azure Key Vault](../../static-web-apps/key-vault-secrets.md)
 | Azure Stream Analytics          | [Authenticate Stream Analytics to Azure Data Lake Storage Gen1 using managed identities](../../stream-analytics/stream-analytics-managed-identities-adls.md)                                                                                         |

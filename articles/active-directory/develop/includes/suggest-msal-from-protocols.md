@@ -1,5 +1,5 @@
 ---
-title: Prefer MSAL | Azure
+title: Prefer MSAL
 description: Include file indicating that it's best to use MSAL. 
 services: active-directory
 author: nickludwig

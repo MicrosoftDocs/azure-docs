@@ -1,8 +1,8 @@
 ---
 title: About Azure Migrate 
 description: Learn about the Azure Migrate service.
-author: ms-psharma
-ms.author: panshar
+author: v-ksreedevan
+ms.author: v-ksreedevan
 ms.manager: abhemraj
 ms.topic: overview
 ms.date: 04/15/2020
@@ -13,14 +13,14 @@ ms.custom: mvc
 
 This article provides a quick overview of the Azure Migrate service.
 
-Azure Migrate provides a centralized hub to assess and migrate on-premises servers, infrastructure, applications, and data to Azure. It provides the following:
+Azure Migrate provides a simplified migration, modernization, and optimization service for Azure. All pre-migration steps such as discovery, assessments, and right-sizing of on-premises resources are included for infrastructure, data, and applications. Azure Migrate’s extensible framework allows for integration of third-party tools, thus expanding the scope of supported use-cases. It provides the following:
 
 - **Unified migration platform**: A single portal to start, run, and track your migration to Azure.
 - **Range of tools**: A range of tools for assessment and migration. Azure Migrate tools include Azure Migrate: Discovery and assessment and Azure Migrate: Server Migration. Azure Migrate also integrates with other Azure services and tools, and with independent software vendor (ISV) offerings.
-- **Assessment and migration**: In the Azure Migrate hub, you can assess and migrate:
-    - **Servers, databases, and web apps**: Assess on-premises servers including web apps and SQL Server instances and migrate them to Azure virtual machines or Azure VMware Solution (AVS) (Preview).
-    - **Databases**: Assess on-premises databases and migrate them to Azure SQL Database or to SQL Managed Instance.
-    - **Web applications**: Assess on-premises web applications and migrate them to Azure App Service.
+- **Assessment, migration and modernization**: In the Azure Migrate hub, you can assess, migrate, and modernize:
+    - **Servers, databases and web apps**: Assess on-premises servers including web apps and SQL Server instances and migrate them to Azure virtual machines or Azure VMware Solution (AVS) (Preview).
+    - **Databases**: Assess on-premises SQL Server instances and databases to migrate them to an SQL Server on an Azure VM or an Azure SQL Managed Instance or to an Azure SQL Database.
+    - **Web applications**: Assess on-premises web applications and migrate them to Azure App Service and Azure Kubernetes Service.
     - **Virtual desktops**: Assess your on-premises virtual desktop infrastructure (VDI) and migrate it to Azure Virtual Desktop.
     - **Data**: Migrate large amounts of data to Azure quickly and cost-effectively using Azure Data Box products.
 
@@ -85,6 +85,7 @@ The Azure Migrate: Server Migration tool helps in migrating servers to Azure:
 On-premises VMware VMs | Migrate VMs to Azure using agentless or agent-based migration.<br/><br/> For agentless migration, Server Migration uses the same appliance that is used by Discovery and assessment tool for discovery and assessment of servers.<br/><br/> For agent-based migration, Server Migration uses a replication appliance.
 On-premises Hyper-V VMs | Migrate VMs to Azure.<br/><br/> Server Migration uses provider agents installed on Hyper-V host for the migration.
 On-premises physical servers or servers hosted on other clouds | You can migrate physical servers to Azure. You can also migrate other virtualized servers, and VMs from other public clouds, by treating them as physical servers for the purpose of migration. Server Migration uses a replication appliance for the migration.
+Web apps hosted on Windows OS in a VMware environment | You can perform agentless migration of ASP.NET web apps at-scale to [Azure App Service](https://azure.microsoft.com/services/app-service/) using Azure Migrate.
 
 ## Selecting assessment and migration tools
 
@@ -96,7 +97,7 @@ In the Azure Migrate hub, you select the tool you want to use for assessment or 
 
 ## Movere
 
-Movere is a software as a service (SaaS) platform. It increases business intelligence by accurately presenting entire IT environments within a single day. Organizations and enterprises grow, change, and digitally optimize. As they do so, Movere provides them with the needed confidence to see and control their environments, whatever the platform, application, or geography.
+Movere is a Software as a Service (SaaS) platform. It increases business intelligence by accurately presenting entire IT environments within a single day. Organizations and enterprises grow, change, and digitally optimize. As they do so, Movere provides them with the needed confidence to see and control their environments, whatever the platform, application, or geography.
 
 Microsoft [acquired](https://azure.microsoft.com/blog/microsoft-acquires-movere-to-help-customers-unlock-cloud-innovation-with-seamless-migration-tools/) Movere, and it's no longer sold as a standalone offer. Movere is available through Microsoft Solution Assessment and Microsoft Cloud Economics Program. [Learn more](https://www.movere.io) about Movere.
 

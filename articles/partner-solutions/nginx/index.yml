@@ -1,0 +1,41 @@
+### YamlMime:Landing
+
+title: NGINX for Azure (preview)
+summary: NGINX for Azure (preview) is part of Marketplace. Use NGINX for Azure to combine the benefits of NGINX and the Azure cloud. You can learn how to create an NGINX deployment and manage it. You also can read about how you get support for your NGINX deployment.
+
+metadata:
+  title: NGINX with Azure 
+  description: NGINX integrates with Azure to combine the benefits of NGINX and the Azure cloud.
+  ms.custom: event-tier1-build-2022
+  ms.topic: landing-page
+  author: flang-msft
+  ms.author: franlanglois
+  ms.date: 05/12/2022
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card (optional)
+  - title: About NGINX for Azure (preview)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is NGINX for Azure (preview)?
+            url: nginx-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage your NGINX resource
+            url: nginx-manage.md
+
+  # Card
+  - title: Create an NGINX deployment
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Get started with NGINX
+            url: nginx-create.md
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshooting NGINX for Azure (preview)
+            url: nginx-troubleshoot.md
+
+  

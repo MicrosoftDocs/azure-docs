@@ -7,10 +7,6 @@ ms.date: 03/28/2022
 
 # Understanding the LocalConfiguration.json file - C agent
 
-> [!NOTE]
-> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Defender for IoT micro agent troubleshooting (Preview)](troubleshoot-defender-micro-agent.md).
->
-
 The Defender  for IoT security agent uses configurations from a local configuration file.
 The security agent reads the configuration once,  at agent start-up.
 The configuration found in the local configuration file contains authentication configuration and other agent related configurations.

@@ -97,10 +97,10 @@ deployment. If there are no updates in progress, the status is returned as “Id
 ### Importing
 
 Importing is how your updates are ingested into Device Update so they can be deployed to devices. Device Update supports rolling out a single update per device. This makes it ideal for
-full-image updates that update an entire OS partition at once, or an [APT manifest](device-update-apt-manifest.md)] that describes all the packages you want to update
+full-image updates that update an entire OS partition at once, or an [APT manifest](device-update-apt-manifest.md) that describes all the packages you want to update
 on your device from a designated repository. To import updates into Device Update, you first create an import manifest 
 describing the update, then upload the update file(s) and the import 
-manifest to an Internet-accessible location. After that, you can use the Azure portal or the [Device Update
+manifest to an Azure Storage container. After that, you can use the Azure portal or the [Device Update
 REST API](/rest/api/deviceupdate/) to initiate the asynchronous process of update import. Device Update uploads the files, processes
 them, and makes them available for distribution to IoT devices.
 

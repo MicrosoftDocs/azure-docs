@@ -1,7 +1,7 @@
 ---
-title: Sentence pairing and alignment - Custom Translator
+title: "Legacy: Sentence pairing and alignment - Custom Translator"
 titleSuffix: Azure Cognitive Services
-description: During the training execution, sentences present in parallel documents are paired or aligned. Custom Translator learns translations one sentence at a time, by reading a sentence, the translation of this sentence. Then it aligns words and phrases in these two sentences to each other.
+description: During the training execution, sentences present in parallel documents are paired or aligned. Custom Translator learns translations one sentence at a time, by reading a sentence and translating it. Then it aligns words and phrases in these two sentences to each other.
 author: laujan
 manager: nitinme
 ms.service: cognitive-services
@@ -9,6 +9,7 @@ ms.subservice: translator-text
 ms.date: 04/19/2021
 ms.author: lajanuar
 ms.topic: conceptual
+ms.custom: cogserv-non-critical-translator
 #Customer intent: As a Custom Translator user, I want to know how sentence alignment works, so that I can have better understanding of underlying process of sentence extraction, pairing, filtering, aligning.
 ---
 
@@ -31,7 +32,7 @@ and upload with an `.align` extension. The `.align` extension signals Custom
 Translator that it should skip sentence alignment.
 
 For best results, try to make sure that you have one sentence per line in your
-files. Don't have newline characters within a sentence as this will cause poor
+ files. Don't have newline characters within a sentence, it will cause poor
 alignments.
 
 ## Suggested minimum number of sentences
@@ -50,7 +51,7 @@ For a training to succeed, the table below shows the minimum number of sentences
 > - Training will not start and will fail if the 10,000 minimum sentence count for Training is not met.
 > - Tuning and Testing are optional. If you do not provide them, the system will remove an appropriate percentage from Training to use for validation and testing.
 > - You can train a model using only dictionary data. Please refer to [What is Dictionary](./what-is-dictionary.md).
-> -  If your dictionary contains more than 250,000 sentences, our Document Translator is a better choice. Please refer to [Document Translator](../document-translation/overview.md).
+> - If your dictionary contains more than 250,000 sentences, our Document Translation feature is a better choice. Please refer to [Document Translation](../document-translation/overview.md).
 > - Free (F0) subscription training has a maximum limit of 2,000,000 characters. 
 
 ## Next steps

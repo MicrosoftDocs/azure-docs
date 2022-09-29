@@ -1,6 +1,5 @@
 ---
-title: Tutorial - Create a Blazor Server app that uses the Microsoft identity platform for authentication | Azure
-titleSuffix: Microsoft identity platform
+title: Tutorial - Create a Blazor Server app that uses the Microsoft identity platform for authentication
 description: In this tutorial, you set up authentication using the Microsoft identity platform in a Blazor Server app.
 author: knicholasa
 

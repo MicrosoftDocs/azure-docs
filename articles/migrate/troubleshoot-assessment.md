@@ -189,6 +189,15 @@ Your assessment was created with an Azure region that has been deprecated and he
 
 When you select **Reserved Instances**, the **Discount (%)** and **VM uptime** properties aren't applicable. As your assessment was created with an invalid combination of these properties, the **Edit** and **Recalculate** buttons are disabled. Create a new assessment. [Learn more](./concepts-assessment-calculation.md#whats-an-assessment).
 
+## Why are some of my assessments marked as "to be upgraded to latest assessment version"? 
+
+Recalculate your assessment to view the upgraded Azure SQL assessment experience to identify the ideal migration target for your SQL deployments across Azure SQL Managed Instances, SQL Server on Azure VM, and Azure SQL DB:
+   - We recommended migrating instances to *SQL Server on Azure VM* as per the Azure best practices.
+   - *Right sized Lift and Shift* - Server to *SQL Server on Azure VM*. We recommend this when SQL Server credentials are not available. 
+   - Enhanced user-experience that covers readiness and cost estimates for multiple migration targets for SQL deployments in one assessment.
+
+We recommend that you export your existing assessment before recalculating.
+
 ## I don't see performance data for some network adapters on my physical servers
 
 This issue can happen if the physical server has Hyper-V virtualization enabled. On these servers, because of a product gap, Azure Migrate currently discovers both the physical and virtual network adapters. The network throughput is captured only on the virtual network adapters discovered.

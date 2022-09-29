@@ -4,6 +4,7 @@ description: This sample Azure CLI script shows how to restore an Azure Database
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: single-server
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli

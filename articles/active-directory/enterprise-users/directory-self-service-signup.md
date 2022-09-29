@@ -3,16 +3,16 @@ title: Self-service sign-up for email-verified users - Azure AD | Microsoft Docs
 description: Use self-service sign-up in an Azure Active Directory (Azure AD) organization
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: overview
 ms.workload: identity
-ms.date: 09/01/2021
-ms.author: curtand
+ms.date: 06/23/2022
+ms.author: barclayn
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 ---
 # What is self-service sign-up for Azure Active Directory?
 
-This article explains how to use self-service sign-up to populate an organization in Azure Active Directory (Azure AD). If you want to take over a domain name from an unmanaged Azure AD organization, see [Take over an unmanaged tenant as administrator](domains-admin-takeover.md).
+This article explains how to use self-service sign-up to populate an organization in Azure Active Directory (Azure AD), part of Microsoft Entra. If you want to take over a domain name from an unmanaged Azure AD organization, see [Take over an unmanaged tenant as administrator](domains-admin-takeover.md).
 
 ## Why use self-service sign-up?
 

@@ -6,11 +6,13 @@ author: jonels-msft
 ms.custom: mvc
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.topic: overview
-ms.date: 10/15/2021
+ms.topic: conceptual
+ms.date: 09/27/2022
 ---
 
 # Product updates for PostgreSQL - Hyperscale (Citus)
+
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 ## Updates feed
 

@@ -1,6 +1,5 @@
 ---
-title: Use MSAL in a national cloud app | Azure
-titleSuffix: Microsoft identity platform
+title: Use MSAL in a national cloud app
 description: The Microsoft Authentication Library (MSAL) enables application developers to acquire tokens in order to call secured web APIs. These web APIs can be Microsoft Graph, other Microsoft APIs, partner web APIs, or your own web API. MSAL supports multiple application architectures and platforms.
 services: active-directory
 author: negoe

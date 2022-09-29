@@ -13,7 +13,7 @@ ms.topic: how-to
 
 # Upload metrics to Azure Monitor
 
-Periodically, you can export monitoring metrics and then upload them to Azure. The export and upload of data also creates and update the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
+Periodically, you can export monitoring metrics and then upload them to Azure. The export and upload of data also creates and update the data controller, SQL managed instance, and PostgreSQL server resources in Azure.
 
 With Azure Arc data services, you can optionally upload your metrics to Azure Monitor so you can aggregate and analyze metrics, raise alerts, send notifications, or trigger automated actions. 
 
@@ -155,7 +155,7 @@ echo %SPN_AUTHORITY%
 
 ### Upload metrics to Azure Monitor
 
-To upload metrics for your Azure Arc-enabled SQL managed instances and Azure Arc-enabled PostgreSQL Hyperscale server groups run, the following CLI commands:
+To upload metrics for your Azure Arc-enabled SQL managed instances and Azure Arc-enabled PostgreSQL servers run, the following CLI commands:
 
  
 1. Export all metrics to the specified file:
@@ -204,8 +204,7 @@ Once your metrics are uploaded, you can view them from the Azure portal.
 > Please note that it can take a couple of minutes for the uploaded data to be processed before you can view the metrics in the portal.
 
 
-To view your metrics in the portal, use this link to open the portal: <https://portal.azure.com>
-Then, search for your database instance by name in the search bar:
+To view your metrics, navigate to the [Azure portal](https://portal.azure.com). Then, search for your database instance by name in the search bar:
 
 You can view CPU utilization on the Overview page or if you want more detailed metrics you can click on metrics from the left navigation panel
 

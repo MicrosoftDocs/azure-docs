@@ -66,6 +66,7 @@ Container create options enable many scenarios, but here are some that come up m
 * [Give modules access to host storage](how-to-access-host-storage-from-module.md)
 * [Map host port to module port](#map-host-port-to-module-port)
 * [Restrict module memory and CPU usage](#restrict-module-memory-and-cpu-usage)
+* [GPU-optimize an IoT Edge module](#gpu-optimize-an-iot-edge-module)
 
 ### Map host port to module port
 
@@ -103,8 +104,8 @@ Once stringified for the deployment manifest, the same configuration would look 
 You can declare how much of the host resources a module can use. This control is helpful to ensure that one module can't consume too much memory or CPU usage and prevent other processes from running on the device. You can manage these settings with [Docker container create options](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) in the **HostConfig** group, including:
 
 * **Memory**: Memory limit in bytes. For example, 268435456 bytes = 256 MB.
-* **MemorySwap**: Total memory limit (memory + swap). For example, 536870912 bytes = 512 MB
-* **CpuPeriod**: The length of a CPU period in microseconds. The default value is 100000 so, for example, a value of 25000 limits a container to 25% of the CPU resources.
+* **MemorySwap**: Total memory limit (memory + swap). For example, 536870912 bytes = 512 MB.
+* **NanoCpus**: CPU quota in units of 10<sup>-9</sup> (1 billionth) CPUs. For example, 250000000 nanocpus = 0.25 CPU.
 
 In the template.json format, these values would look like the following example:
 
@@ -113,7 +114,7 @@ In the template.json format, these values would look like the following example:
   "HostConfig": {
     "Memory": 268435456,
     "MemorySwap": 536870912,
-    "CpuPeriod": 25000
+    "NanoCpus": 250000000
   }
 }
 ```
@@ -123,6 +124,22 @@ Once stringified for the final deployment manifest, these values would look like
 ```json
 "createOptions":"{\"HostConfig\":{\"Memory\":268435456,\"MemorySwap\":536870912,\"CpuPeriod\":25000}}"
 ```
+
+### GPU-optimize an IoT Edge module
+
+If you're running your IoT Edge module on a GPU-optimized virtual machine, you can enable an IoT Edge module to connect to your GPU as well. To do this with an existing module, add some specifications to your `createOptions`:
+
+```json
+{"HostConfig": {"DeviceRequests": [{"Count": -1,"Capabilities": [["gpu"]]}]}}
+```
+
+To confirm these settings were successfully added, use the Docker inspect command to see the new setting in a JSON printout.
+
+```bash
+sudo docker inspect <YOUR-MODULE-NAME>
+```
+
+To learn more about how your device and virtual machine connect to a GPU, see [Configure, connect, and verify an IoT Edge module for a GPU](configure-connect-verify-gpu.md).
 
 ## Next steps
 

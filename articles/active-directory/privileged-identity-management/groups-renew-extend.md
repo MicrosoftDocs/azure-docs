@@ -3,23 +3,23 @@ title: Renew expired group owner or member assignments in Privileged Identity Ma
 description: Learn how to extend or renew role-assignable group assignments in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: amsliu
+manager: amycolannino
 ms.reviewer: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 10/07/2021
-ms.author: curtand
+ms.date: 06/24/2022
+ms.author: amsliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 
 # Extend or renew privileged access group assignments (preview) in Privileged Identity Management
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) provides controls to manage the access and assignment lifecycle for privileged access groups. Administrators can assign roles using start and end date-time properties. When the assignment end approaches, Privileged Identity Management sends email notifications to the affected users or groups. It also sends email notifications to administrators of the resource to ensure that appropriate access is maintained. Assignments might be renewed and remain visible in an expired state for up to 30 days, even if access is not extended.
+Privileged Identity Management (PIM) in Azure Active Directory (Azure AD), part of Microsoft Entra, provides controls to manage the access and assignment lifecycle for privileged access groups. Administrators can assign roles using start and end date-time properties. When the assignment end approaches, Privileged Identity Management sends email notifications to the affected users or groups. It also sends email notifications to administrators of the resource to ensure that appropriate access is maintained. Assignments might be renewed and remain visible in an expired state for up to 30 days, even if access is not extended.
 
 ## Who can extend and renew
 

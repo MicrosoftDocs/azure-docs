@@ -1,11 +1,8 @@
 ---
 title: NYC Taxi and Limousine green dataset
-titleSuffix: Azure Open Datasets
 description: Learn how to use the NYC Taxi and Limousine green dataset in Azure Open Datasets.
 ms.service: open-datasets
 ms.topic: sample
-author: peterclu
-ms.author: peterlu
 ms.date: 04/16/2021
 ---
 
@@ -165,7 +162,7 @@ Sample not available for this platform/package combination.
 
 ```python
 # This is a package in preview.
-# You need to pip install azureml-opendatasets in Databricks cluster. https://docs.microsoft.com/en-us/azure/data-explorer/connect-from-databricks#install-the-python-library-on-your-azure-databricks-cluster
+# You need to pip install azureml-opendatasets in Databricks cluster. https://learn.microsoft.com/azure/data-explorer/connect-from-databricks#install-the-python-library-on-your-azure-databricks-cluster
 from azureml.opendatasets import NycTlcGreen
 
 from datetime import datetime

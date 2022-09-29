@@ -6,7 +6,7 @@ author: dearandyxu
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 07/05/2021
+ms.date: 09/26/2022
 ---
 
 # Incrementally load data from multiple tables in SQL Server to a database in Azure SQL Database using the Azure portal
@@ -60,7 +60,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 * **SQL Server**. You use a SQL Server database as the source data store in this tutorial. 
-* **Azure SQL Database**. You use a database in Azure SQL Database as the sink data store. If you don't have a database in SQL Database, see [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) for steps to create one. 
+* **Azure SQL Database**. You use a database in Azure SQL Database as the sink data store. If you don't have a database in SQL Database, see [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) for steps to create one. 
 
 ### Create source tables in your SQL Server database
 

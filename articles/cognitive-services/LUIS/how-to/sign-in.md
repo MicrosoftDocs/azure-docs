@@ -7,7 +7,7 @@ author: aahill
 ms.manager: nitinme
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 12/14/2021
+ms.date: 07/19/2022
 ---
 # Sign in to the LUIS portal and create an app
 

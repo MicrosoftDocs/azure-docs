@@ -3,13 +3,13 @@ title: Azure DDoS Protection features
 description: Learn Azure DDoS Protection features
 services: ddos-protection
 documentationcenter: na
-author: aletheatoh
+author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
-ms.author: yitoh
+ms.author: abell
 
 ---
 # Azure DDoS Protection Standard features

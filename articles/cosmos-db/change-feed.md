@@ -1,12 +1,12 @@
 ---
 title: Working with the change feed support in Azure Cosmos DB 
 description: Use Azure Cosmos DB change feed support to track changes in documents, event-based processing like triggers, and keep caches and analytic systems up-to-date 
-author: timsander1
-ms.author: tisande
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/07/2021
-ms.reviewer: sngun
 ms.custom: seodec18, "seo-nov-2020"
 ---
 # Change feed in Azure Cosmos DB

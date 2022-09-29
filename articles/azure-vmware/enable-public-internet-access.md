@@ -2,8 +2,10 @@
 title: Enable public internet for Azure VMware Solution workloads
 description: This article explains how to use the public IP functionality in Azure Virtual WAN.
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 06/25/2021
 ---
+
 # Enable public internet for Azure VMware Solution workloads
 
 Public IP is a feature in Azure VMware Solution connectivity. It makes resources, such as web servers, virtual machines (VMs), and hosts accessible through a public network. 
@@ -53,8 +55,6 @@ In this scenario, you'll publish the IIS webserver to the internet. Use the publ
 1. Sign in to the Azure portal and then search for and select **Azure VMware Solution**.
 
 1. Select the Azure VMware Solution private cloud.
-
-   :::image type="content" source="media/public-ip-usage/avs-private-cloud-resource.png" alt-text="Screenshot of the Azure VMware Solution private cloud." lightbox="media/public-ip-usage/avs-private-cloud-resource.png":::
 
 1. Under **Manage**, select **Connectivity**.
 
@@ -142,7 +142,7 @@ Once all components are deployed, you can see them in the added Resource group. 
 
 1. Select a hub from the list and select **Add**.
 
-   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Screenshot that shows the selected hubs that will be converted to Secured Virtual Hubs." lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
+   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-policy.png" alt-text="Screenshot that shows the selected hubs that will be converted to Secured Virtual Hubs." lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-policy.png":::
 
 1. Select **Next: Tags**. 
 

@@ -62,7 +62,7 @@ For NodeJS the Speech SDK doesn't natively support file access directly, so we'l
 Before you can initialize a `SpeechRecognizer` object, you need to create a configuration that uses your subscription key and subscription region. Insert this code next.
 
 > [!NOTE]
-> The Speech SDK will default to recognizing using en-us for the language, see [Specify source language for speech to text](../../../../how-to-specify-source-language.md) for information on choosing the source language.
+> The Speech SDK will default to recognizing using en-us for the language, see [How to recognize speech](../../../../how-to-recognize-speech.md) for information on choosing the source language.
 
  ```javascript
    // now create the audio-config pointing to our stream and

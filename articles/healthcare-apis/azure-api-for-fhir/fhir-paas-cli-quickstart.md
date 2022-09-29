@@ -2,12 +2,12 @@
 title: 'Quickstart: Deploy Azure API for FHIR using Azure CLI'
 description: In this quickstart, you'll learn how to deploy Azure API for FHIR in Azure using the Azure CLI.
 services: healthcare-apis
-author: dougseven
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 03/21/2022
-ms.author: dseven
+ms.date: 06/03/2022
+ms.author: kesheth
 ms.custom: devx-track-azurecli, mode-api
 ---
 
@@ -86,3 +86,5 @@ In this quickstart guide, you've deployed the Azure API for FHIR into your subsc
 
 >[!div class="nextstepaction"]
 >[Configure Private Link](configure-private-link.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

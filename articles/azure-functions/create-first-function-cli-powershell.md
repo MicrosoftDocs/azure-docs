@@ -118,7 +118,7 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
     # [Azure PowerShell](#tab/azure-powershell)
 
     ```azurepowershell
-    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime PowerShell -FunctionsVersion 3 -Location '<REGION>'
+    New-AzFunctionApp -Name <APP_NAME> -ResourceGroupName AzureFunctionsQuickstart-rg -StorageAccount <STORAGE_NAME> -Runtime PowerShell -FunctionsVersion 4 -Location '<REGION>'
     ```
 
     The [New-AzFunctionApp](/powershell/module/az.functions/new-azfunctionapp) cmdlet creates the function app in Azure.

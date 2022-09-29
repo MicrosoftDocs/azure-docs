@@ -15,37 +15,29 @@ ms.custom: mqtt, devx-track-python, devx-track-azurecli
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
-This tutorial shows you how to:
+This article shows you how to create:
 
-* Use the Azure portal to create an IoT Hub and create a device identity in your IoT hub.
+* **dmpatterns_getstarted_device.py**: a simulated device app with a direct method that reboots the device and reports the last reboot time. Direct methods are invoked from the cloud.
 
-* Create a simulated device app that contains a direct method that reboots that device. Direct methods are invoked from the cloud.
-
-* Create a Python console app that calls the reboot direct method in the simulated device app through your IoT hub.
-
-At the end of this tutorial, you have two Python console apps:
-
-* **dmpatterns_getstarted_device.py**, which connects to your IoT hub with the device identity created earlier, receives a reboot direct method, simulates a physical reboot, and reports the time for the last reboot.
-
-* **dmpatterns_getstarted_service.py**, which calls a direct method in the simulated device app, displays the response, and displays the updated reported properties.
+* **dmpatterns_getstarted_service.py**: a Python console app that calls the direct method in the simulated device app through your IoT hub. It displays the response and updated reported properties.
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
 ## Prerequisites
 
+* An IoT Hub. Create one with the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+
+* A registered device. Register one in the [Azure portal](iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub).
+
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
 
 * Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
-
-## Create an IoT hub
-
-[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## Register a new device in the IoT hub
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-## Create a simulated device app
+## Create a device app with a direct method
 
 In this section, you:
 
@@ -156,7 +148,7 @@ In this section, you:
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
-## Trigger a remote reboot on the device using a direct method
+## Create a service app to trigger a reboot
 
 In this section, you create a Python console app that initiates a remote reboot on a device using a direct method. The app uses device twin queries to discover the last reboot time for that device.
 

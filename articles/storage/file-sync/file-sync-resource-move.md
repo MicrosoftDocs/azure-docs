@@ -1,11 +1,11 @@
 ---
 title: Azure File Sync resource moves and topology changes
 description: Learn how to move sync resources across resource groups, subscriptions, and Azure Active Directory (AAD) tenants.
-author: fauhse
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 04/13/2021
-ms.author: fauhse
+ms.author: kendownie
 ms.subservice: files
 ---
 
@@ -23,14 +23,14 @@ When planning to make changes to the Azure File Sync cloud resources, it's impor
     * :::image type="icon" source="media/storage-sync-resource-move/storage-sync-resource-move-cloud-endpoint.png" border="false"::: Cloud endpoint
     * :::image type="icon" source="media/storage-sync-resource-move/storage-sync-resource-move-server-endpoint.png" border="false"::: Server endpoint
 
-In Azure File Sync, the only resource capable of moving is the Storage Sync Service resource. Any subresources are bound to its parent and cannot move to another Storage Sync Service.
+In Azure File Sync, the only resource capable of moving is the Storage Sync Service resource. Any subresources are bound to its parent and can't move to another Storage Sync Service.
 
 **Azure storage resources (in hierarchical order)**
 
 * :::image type="icon" source="media/storage-sync-resource-move/storage-sync-resource-move-storage-account.png" border="false"::: Storage account
     * :::image type="icon" source="media/storage-sync-resource-move/storage-sync-resource-move-file-share.png" border="false"::: File share
 
-In Azure Storage, the only resource capable of moving is the storage account. An Azure file share, as a subresource, cannot move to a different storage account.
+In Azure Storage, the only resource capable of moving is the storage account. An Azure file share, as a subresource, can't move to a different storage account.
 
 ## Supported combinations
 
@@ -62,13 +62,13 @@ When planning your resource move, there are different considerations for [moving
 
 ### Move to a new Azure Active Directory tenant
 
-Individual resources like a Storage Sync Service or storage accounts, cannot move by themselves to a different AAD tenant. Only Azure subscriptions can move AAD tenants. Think about your subscription structure in the new AAD tenant. You can use a dedicated subscription for Azure File Sync. 
+Individual resources like a Storage Sync Service or storage accounts, can't move by themselves to a different AAD tenant. Only Azure subscriptions can move AAD tenants. Think about your subscription structure in the new AAD tenant. You can use a dedicated subscription for Azure File Sync. 
 
 1. Create an Azure subscription (or determine an existing one in the old tenant that should move.
 1. [Perform a subscription move within the same AAD tenant](#move-within-the-same-azure-active-directory-tenant) of your Storage Sync Service and all associated storage accounts.
 1. Sync will stop. Complete your tenant move immediately or [restore sync's ability to access the storage accounts that moved](#azure-file-sync-storage-access-authorization). You can then move to the new AAD tenant later.
 
-Once all related Azure File Sync resources have been sequestered into their own subscription, you are ready to move the entire subscription to the target AAD tenant. The [transfer subscription guide](../../role-based-access-control/transfer-subscription.md) allows you to plan and execute such a transfer.
+Once all related Azure File Sync resources have been sequestered into their own subscription, you're ready to move the entire subscription to the target AAD tenant. The [transfer subscription guide](../../role-based-access-control/transfer-subscription.md) allows you to plan and execute such a transfer.
 
 > [!WARNING]
 > When you transfer a subscription from one tenant to another, sync will stop immediately. You have to manually authorize sync to access the relevant storage accounts in the new subscription. The [Azure File Sync storage access authorization](#azure-file-sync-storage-access-authorization) section will provide the necessary steps.
@@ -87,7 +87,7 @@ Once all related Azure File Sync resources have been sequestered into their own 
 
 ## Azure File Sync storage access authorization
 
-When storage accounts are moved to either a new subscription or are moved within a subscription to a new Azure Active Directory (AAD) tenant, sync will stop. Role-based access (RBAC) is used to authorize Azure File Sync to access a storage account and these role assignments are not migrated with the resources.
+When storage accounts are moved to either a new subscription or are moved within a subscription to a new Azure Active Directory (AAD) tenant, sync will stop. Role-based access control (RBAC) is used to authorize Azure File Sync to access a storage account, and these role assignments are not migrated with the resources.
 
 ### Azure File Sync service principal
 
@@ -120,21 +120,21 @@ This assignment is typically done automatically through the user context of the 
 
 ## Move to a different Azure region
 
-The Azure File Sync resource *Storage Sync Service* and the storage accounts that contain file shares that are syncing, have an Azure region they are deployed in. You determine that region when you create a resource. The region of the Storage Sync Service and storage account resources must match. These regions cannot be changed on either resource type after their creation.
+The Azure File Sync resource *Storage Sync Service* and the storage accounts that contain file shares that are syncing, have an Azure region they are deployed in. You determine that region when you create a resource. The region of the Storage Sync Service and storage account resources must match. These regions can't be changed on either resource type after their creation.
 
-Assigning a different region to a resource is different from a [region fail-over](#region-fail-over), which can be supported, depending on your storage account redundancy setting.
+Assigning a different region to a resource is different from a [region fail-over](#region-fail-over), which can be supported depending on your storage account redundancy setting.
 
 ## Region fail-over
 
-[Azure storage offers geo-redundancy options](../common/storage-redundancy.md#geo-redundant-storage) for a storage account. These redundancy options can pose problems for storage accounts used with Azure File Sync. The main reason is that replication between geographically distant regions is not performed by Azure File Sync, but by a storage replication technology built-in to the storage subsystem in Azure. It cannot have an understanding of application state and Azure File Sync is an application with files syncing to and from Azure file shares at any given moment. If you opt for any of these geographically disbursed storage redundancy options, you won't lose all of your data in a large-scale disaster. However, you need to [anticipate data loss](../common/storage-disaster-recovery-guidance.md#anticipate-data-loss).
+[Azure storage offers geo-redundancy options](../common/storage-redundancy.md#geo-redundant-storage) for a storage account. These redundancy options can pose problems for storage accounts used with Azure File Sync. The main reason is that replication between geographically distant regions is not performed by Azure File Sync, but by a storage replication technology built-in to the storage subsystem in Azure. It can't have an understanding of application state and Azure File Sync is an application with files syncing to and from Azure file shares at any given moment. If you opt for any of these geographically disbursed storage redundancy options, you won't lose all of your data in a large-scale disaster. However, you need to [anticipate data loss](../common/storage-disaster-recovery-guidance.md#anticipate-data-loss).
 
 > [!CAUTION]
-> Fail-over is never an appropriate substitute to provisioning your resources in the correct Azure region. If your resources are in the "wrong" region, you need to consider stopping sync and setting sync up again to new Azure file shares that are deployed in your desired region.
+> Failover is never an appropriate substitute to provisioning your resources in the correct Azure region. If your resources are in the "wrong" region, you need to consider stopping sync and setting sync up again to new Azure file shares that are deployed in your desired region.
 
-A regional fail-over can be started by Microsoft in a catastrophic event that will render data centers in an Azure region incapacitated for an extended period of time. The definition of downtime your business can sustain might be less than the time Microsoft is prepared to let pass before starting a regional fail-over. For a situation like that, [fail-overs can also be initiated by customers](../common/storage-initiate-account-failover.md).
+A regional failover can be started by Microsoft in a catastrophic event that will render data centers in an Azure region incapacitated for an extended period of time. The definition of downtime your business can sustain might be less than the time Microsoft is prepared to let pass before starting a regional fail-over. For a situation like that, [failovers can also be initiated by customers](../common/storage-initiate-account-failover.md).
 
 > [!IMPORTANT]
-> In the event of a fail-over, you need to file a support ticket for your impacted Storage Sync Services for sync to work again.
+> In the event of a failover, you need to file a support ticket for your impacted Storage Sync Services for sync to work again.
 
 ## See also
 

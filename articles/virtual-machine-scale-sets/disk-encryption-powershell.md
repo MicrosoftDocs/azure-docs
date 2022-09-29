@@ -14,8 +14,6 @@ ms.custom: mimckitt, devx-track-azurepowershell
 
 # Encrypt OS and attached data disks in a virtual machine scale set with Azure PowerShell
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
-
 The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts.  This article shows you how to use Azure PowerShell to create and encrypt a virtual machine scale set. For more information on applying Azure Disk Encryption to a virtual machine scale set, see [Azure Disk Encryption for Virtual Machine Scale Sets](disk-encryption-overview.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]

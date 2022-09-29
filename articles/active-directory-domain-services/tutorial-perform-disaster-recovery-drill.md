@@ -3,13 +3,13 @@ title: Tutorial - Perform a disaster recovery drill in Azure AD Domain Services 
 description: Learn how to perform a disaster recovery drill using replica sets in Azure AD Domain Services
 services: active-directory-ds
 author: justinha
-manager: karenhoran
+manager: amycolannino
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/22/2021
+ms.date: 06/16/2022
 ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to perform a disaster recovery drill by using replica sets in Azure Active Directory Domain Services to demonstrate resiliency for geographically distributed domain data.
@@ -36,7 +36,7 @@ The following requirements must be in place to complete the DR drill:
 
 ## Environment validation 
 
-1. Log into the client machine with a domain account. 
+1. Log in to the client machine with a domain account. 
 1. Install the Active Directory Domain Services RSAT tools. 
 1. Start an elevated PowerShell window.
 1. Perform basic domain validation checks: 
@@ -49,7 +49,7 @@ The following requirements must be in place to complete the DR drill:
 
 ## Perform the disaster recovery drill 
 
-You will be performing these operations for each replica set in the Azure AD DS instance. This will simulate an outage for each replica set. When domain controllers are not reachable, the client will automatically failover to a reachable domain controller and this experience should be seamless to the end user or workload. Therefore it is critical that applications and services don't point to a specific domain controller. 
+You will be performing these operations for each replica set in the Azure AD DS instance. This will simulate an outage for each replica set. When domain controllers are not reachable, the client will automatically fail over to a reachable domain controller and this experience should be seamless to the end user or workload. Therefore it is critical that applications and services don't point to a specific domain controller. 
 
 1. Identify the domain controllers in the replica set that you want to simulate going offline. 
 1. On the client machine, connect to one of the domain controllers using `nltest /sc_reset:[domain]\[domain controller name]`. 

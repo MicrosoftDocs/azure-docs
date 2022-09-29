@@ -25,9 +25,9 @@ All device communication with DPS must be secured using TLS/SSL. Therefore, DPS 
 
 ## Connecting to DPS
 
-A device can use the MQTT protocol to connect to a DPS using any of the following options.
+A device can use the MQTT protocol to connect to a DPS instance using any of the following options.
 
-* Libraries in the [Azure IoT Provisioning SDKs](../iot-hub/iot-hub-devguide-sdks.md#microsoft-azure-provisioning-sdks).
+* Libraries in the [Azure IoT Provisioning SDKs](libraries-sdks.md).
 * The MQTT protocol directly.
 
 ## Using the MQTT protocol directly (as a device)

@@ -6,7 +6,7 @@ ms.author: chugu
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 06/30/2021
+ms.date: 08/11/2022
 ---
 # How to get lineage from SQL Server Integration Services (SSIS) into Microsoft Purview
 
@@ -21,6 +21,8 @@ This article elaborates on the data lineage aspects of SQL Server Integration Se
 The current scope of support includes the lineage extraction from SSIS packages executed by Azure Data Factory SSIS integration runtime.
 
 On premises SSIS lineage extraction is not supported yet.
+
+Only source and destination are supported for Microsoft Purview SSIS lineage running from Data Factory’s SSIS Execute Package activity. Transformations under SSIS are not yet supported.
 
 ### Supported data stores
 

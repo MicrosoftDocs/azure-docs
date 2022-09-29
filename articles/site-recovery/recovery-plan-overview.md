@@ -80,7 +80,7 @@ You can use a recovery plan to trigger a test failover. Use the following best p
 
 ## Watch a recovery plan video
 
-Watch a quick example video showing an on-click failover for a recovery plan for a two-tier WordPress app.
+Watch a quick example [video](https://youtu.be/1KUVdtvGqw8) showing an on-click failover for a recovery plan for a two-tier WordPress app.
     
 ## Next steps
 

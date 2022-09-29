@@ -31,7 +31,7 @@ The [Custom Script Extension](../extensions/custom-script-linux.md) is primarily
 The [Run Command](run-command.md) feature enables virtual machine and application management and troubleshooting using scripts, and is available even when the machine is not reachable, for example if the guest firewall doesn't have the RDP or SSH port open.
 
 * Run scripts in Azure virtual machines.
-* Can be run using [Azure portal](run-command.md), [REST API](/rest/api/compute/virtual-machines-run-commands/run-command), [Azure CLI](/cli/azure/vm/run-command#az-vm-run-command-invoke), or [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand)
+* Can be run using [Azure portal](run-command.md), [REST API](../windows/run-command.md), [Azure CLI](/cli/azure/vm/run-command#az-vm-run-command-invoke), or [PowerShell](/powershell/module/az.compute/invoke-azvmruncommand)
 * Quickly run a script and view output and repeat as needed in the Azure portal.
 * Script can be typed directly or you can run one of the built-in scripts.
 * Run PowerShell script in Windows machines and Bash script in Linux machines.

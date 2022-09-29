@@ -10,9 +10,9 @@ metadata:
   ms.subservice: fhir
   ms.topic: landing-page 
   ms.collection: collection
-  author: ginalee-dotcom
-  ms.author: ginle
-  ms.date: 03/14/2022
+  author: mmitrik
+  ms.author: mmitrik
+  ms.date: 05/04/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,6 +25,10 @@ landingContent:
           - text: About DICOM service
             url: dicom-services-overview.md
       - linkListType: quickstart
+        links:
+          - text: Get started with DICOM service
+            url: get-started-with-dicom.md
+      - linkListType: deploy
         links:
           - text: Deploy DICOM Services using the Azure portal
             url: deploy-dicom-services-in-azure.md

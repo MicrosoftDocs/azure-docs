@@ -1,12 +1,13 @@
 ---
 title: LINQ to SQL translation in Azure Cosmos DB
 description: Learn the LINQ operators supported and how the LINQ queries are mapped to SQL queries in Azure Cosmos DB.
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/06/2021
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
 
 ---
 # LINQ to SQL translation

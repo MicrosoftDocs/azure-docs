@@ -1,6 +1,5 @@
 ---
 title: Custom token cache serialization (MSAL4j)
-titleSuffix: Microsoft identity platform
 description: Learn how to serialize the token cache for MSAL for Java
 services: active-directory
 author: mmacy

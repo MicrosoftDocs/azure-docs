@@ -13,6 +13,8 @@ ms.custom: mvc, devx-track-azurecli, mode-api
 
 # Quickstart: Create an Azure Database for PostgreSQL Flexible Server using Azure CLI
 
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+
 This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) commands in [Azure Cloud Shell](https://shell.azure.com) to create an Azure Database for PostgreSQL Flexible Server in five minutes. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 
@@ -47,7 +49,7 @@ Create an [Azure resource group](../../azure-resource-manager/management/overvie
 az group create --name myresourcegroup --location westus
 ```
 
-Create a flexible server with the `az postgres flexible-server create` command. A server can contain multiple databases. The following command creates a server using service defaults and values from your Azure CLI's [local context](/cli/azure/local-context): 
+Create a flexible server with the `az postgres flexible-server create` command. A server can contain multiple databases. The following command creates a server using service defaults and values from your Azure CLI's [local context](https://docs.azure.cn/cli/local-context): 
 
 ```azurecli
 az postgres flexible-server create

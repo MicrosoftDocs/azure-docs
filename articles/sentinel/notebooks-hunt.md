@@ -4,7 +4,7 @@ description: Launch and run notebooks with the Microsoft Sentinel hunting capabi
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
-ms.custom: mvc, ignite-fall-2021
+ms.custom: mvc, ignite-fall-2021, event-tier1-build-2022
 ms.date: 04/04/2022
 #Customer intent: As a security analyst, I want to deploy and launch a Jupyter notebook to hunt for security threats.
 ---
@@ -156,7 +156,7 @@ After you've created an AML workspace, start launching your notebooks in your Az
 
 1. At the top of the page, select a **Compute** instance to use for your notebook server.
 
-    If you don't have a compute instance, [create a new one](../machine-learning/how-to-create-manage-compute-instance.md?tabs=#use-the-script-in-the-studio). If your compute instance is stopped, make sure to start it. For more information, see [Run a notebook in the Azure Machine Learning studio](../machine-learning/how-to-run-jupyter-notebooks.md).
+    If you don't have a compute instance, [create a new one](../machine-learning/how-to-create-manage-compute-instance.md?tabs=#create). If your compute instance is stopped, make sure to start it. For more information, see [Run a notebook in the Azure Machine Learning studio](../machine-learning/how-to-run-jupyter-notebooks.md).
 
     Only you can see and use the compute instances you create. Your user files are stored separately from the VM and are shared among all compute instances in the workspace.
 
@@ -262,9 +262,9 @@ Other resources:
 
 - **Find more notebooks** in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks):
 
-  - The [`Sample-Notebooks`](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/Sample-Notebooks) directory includes sample notebooks that are saved with data that you can use to show intended output.
+  - The [`Example-Notebooks`](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/tutorials-and-examples/example-notebooks) directory includes sample notebooks that are saved with data that you can use to show intended output.
 
-  - The [`HowTos`](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/HowTos) directory includes notebooks that describe concepts such as setting your default Python version, creating Microsoft Sentinel bookmarks from a notebook, and more.
+  - The [`HowTos`](https://github.com/Azure/Azure-Sentinel-Notebooks/tree/master/tutorials-and-examples/how-tos) directory includes notebooks that describe concepts such as setting your default Python version, creating Microsoft Sentinel bookmarks from a notebook, and more.
 
 For more information, see:
 

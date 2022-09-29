@@ -1,8 +1,8 @@
 ---
 title: How Personalizer Works - Personalizer
 description: The Personalizer _loop_ uses machine learning to build the model that predicts the top action for your content. The model is trained exclusively on your data that you sent to it with the Rank and Reward calls.
-author: jeffmend
-ms.author: jeffme
+author: jcodella
+ms.author: jacodel
 ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/24/2022
+ms.date: 05/24/2022
 ms.author: jeedes
 
 ---
@@ -31,6 +31,9 @@ To get started, you need the following items:
 * Along with Cloud Application Administrator, Application Administrator can also add or manage applications in Azure AD.
 For more information, see [Azure built-in roles](../roles/permissions-reference.md).
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
@@ -47,6 +50,8 @@ To configure the integration of iAuditor into Azure AD, you need to add iAuditor
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **iAuditor** in the search box.
 1. Select **iAuditor** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for iAuditor
 
@@ -69,7 +74,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot shows to edit Basic S A M L Configuration.](common/edit-urls.png "Basic Configuration")
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
@@ -96,7 +101,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. iAuditor application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
-	![image](common/default-attributes.png)
+	![Screenshot shows the image of iAuditor application.](common/default-attributes.png "Attributes")
 
 1. In addition to above, iAuditor application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre-populated but you can review them as per your requirements.
 	
@@ -108,7 +113,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (PEM)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificate-base64-download.png)
+	![Screenshot shows the Certificate download link.](common/certificate-base64-download.png "Certificate")
 
 ### Create an Azure AD test user
 

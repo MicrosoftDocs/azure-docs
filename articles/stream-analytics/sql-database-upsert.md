@@ -1,9 +1,6 @@
 ---
 title: Update or merge records in Azure SQL Database with Azure Functions
 description: This article describes how to use Azure Functions to update or merge records from Azure Stream Analytics to Azure SQL Database
-author: fleid
-
-ms.author: fleide
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/03/2021
@@ -242,7 +239,7 @@ You can now test the wiring between the local function and the database by debug
 [{"DeviceId":3,"Value":13.4,"Timestamp":"2021-11-30T03:22:12.991Z"},{"DeviceId":4,"Value":41.4,"Timestamp":"2021-11-30T03:22:12.991Z"}]
 ```
 
-The function can now be [published](../azure-functions/create-first-function-vs-code-csharp.md#publish-the-project-to-azure) to Azure. An [application setting](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) should be set for `SqlConnectionString`. The Azure SQL **Server** firewall should [allow Azure services](../azure-sql/database/network-access-controls-overview.md) in for the live function to reach it.
+The function can now be [published](../azure-functions/create-first-function-vs-code-csharp.md#publish-the-project-to-azure) to Azure. An [application setting](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) should be set for `SqlConnectionString`. The Azure SQL **Server** firewall should [allow Azure services](/azure/azure-sql/database/network-access-controls-overview) in for the live function to reach it.
 
 The function can then be defined as an output in the ASA job, and used to replace records instead of inserting them.
 
@@ -368,7 +365,7 @@ You can now test the wiring between the local function and the database by debug
 [{"DeviceId":3,"Value":13.4,"Timestamp":"2021-11-30T03:22:12.991Z"},{"DeviceId":4,"Value":41.4,"Timestamp":"2021-11-30T03:22:12.991Z"}]
 ```
 
-The function can now be [published](../azure-functions/create-first-function-vs-code-csharp.md#publish-the-project-to-azure) to Azure. An [application setting](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) should be set for `SqlConnectionString`. The Azure SQL **Server** firewall should [allow Azure services](../azure-sql/database/network-access-controls-overview.md) in for the live function to reach it.
+The function can now be [published](../azure-functions/create-first-function-vs-code-csharp.md#publish-the-project-to-azure) to Azure. An [application setting](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) should be set for `SqlConnectionString`. The Azure SQL **Server** firewall should [allow Azure services](/azure/azure-sql/database/network-access-controls-overview) in for the live function to reach it.
 
 The function can then be defined as an output in the ASA job, and used to replace records instead of inserting them.
 

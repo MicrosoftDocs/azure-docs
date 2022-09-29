@@ -10,14 +10,14 @@ ms.date: 02/15/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
 ---
 # Azure AD registered devices
 
-The goal of Azure AD registered devices is to provide your users with support for bring your own device (BYOD) or mobile device scenarios. In these scenarios, a user can access your organization’s resources using a personal device.
+The goal of Azure AD registered - also known as Workplace joined - devices is to provide your users with support for bring your own device (BYOD) or mobile device scenarios. In these scenarios, a user can access your organization’s resources using a personal device.
 
 | Azure AD Registered | Description |
 | --- | --- |

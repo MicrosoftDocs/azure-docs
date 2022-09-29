@@ -1,10 +1,10 @@
 ---
-title: Tutorial`:` Use a managed identity to access Azure Key Vault - Linux - Azure AD 
+title: "Tutorial: Use a managed identity to access Azure Key Vault - Linux"
 description: A tutorial that walks you through the process of using a Linux VM system-assigned managed identity to access Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: barclayn
-manager: karenhoran
+manager: amycolannino
 editor: daveba
 
 ms.service: active-directory
@@ -103,6 +103,7 @@ To complete these steps, you need an SSH client.  If you are using Windows, you
 2. **Connect** to the VM with the SSH client of your choice. 
 3. In the terminal window, use CURL to make a request to the local managed identities for Azure resources endpoint to get an access token for Azure Key Vault.  
  
+ 
     The CURL request for the access token is below.  
     
     ```bash

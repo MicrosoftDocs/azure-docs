@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 11/29/2021
+ms.date: 08/22/2022
 ms.author: glenga
 ms.custom: fasttrack-edit
 ---
@@ -18,8 +18,8 @@ This table shows the bindings that are supported in the major versions of the Az
 | [Event Grid](../articles/azure-functions/functions-bindings-event-grid.md)              |✔|✔|✔| |✔|
 | [Event Hubs](../articles/azure-functions/functions-bindings-event-hubs.md)              |✔|✔|✔| |✔|
 | [HTTP & webhooks](../articles/azure-functions/functions-bindings-http-webhook.md)             |✔|✔|✔| |✔|
-| [IoT Hub](../articles/azure-functions/functions-bindings-event-iot.md)             |✔|✔|✔| |✔|
-| [Kafka](https://github.com/azure/azure-functions-kafka-extension)<sup>2</sup>             | |✔|✔| |✔|
+| [IoT Hub](../articles/azure-functions/functions-bindings-event-iot.md)             |✔|✔|✔| ||
+| [Kafka](../articles/azure-functions/functions-bindings-kafka.md)<sup>2</sup>             | |✔|✔| |✔|
 | [Mobile Apps](../articles/azure-functions/functions-bindings-mobile-apps.md)             |✔| | |✔|✔|
 | [Notification Hubs](../articles/azure-functions/functions-bindings-notification-hubs.md) |✔|| | |✔|
 | [Queue storage](../articles/azure-functions/functions-bindings-storage-queue.md)         |✔|✔|✔| |✔|

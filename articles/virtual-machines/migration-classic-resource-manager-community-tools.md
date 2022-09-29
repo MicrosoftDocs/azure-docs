@@ -40,7 +40,7 @@ This is a collection of helper tools created as part of enterprise migrations fr
 ## migAz
 migAz is an additional option to migrate a complete set of classic IaaS resources to Azure Resource Manager IaaS resources. The migration can occur within the same subscription or between different subscriptions and subscription types (ex: CSP subscriptions).
 
-[Link to the tool documentation](https://github.com/Azure/migAz)
+- [Link to the tool documentation](https://social.technet.microsoft.com/wiki/contents/articles/52069.azure-resources-migration-with-migaz-tool.aspx)
 
 ## Next Steps
 

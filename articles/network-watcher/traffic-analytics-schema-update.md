@@ -1,33 +1,52 @@
 ﻿---
-title: Azure Traffic Analytics schema update - March 2020 | Microsoft Docs
-description: Sample queries with new fields in the Traffic Analytics schema.
+title: Azure Traffic Analytics schema update - March 2020
+description: Sample queries with new fields in the Traffic Analytics schema. Use these three examples to replace the deprecated fields with the new ones.
 services: network-watcher
 documentationcenter: na
-author: vinigam
-manager: agummadi
+author: Harsha-CS
+manager: vinigam
 editor: 
 
 ms.service: network-watcher
-ms.topic: article
+ms.topic: how-to
+ms.custom: kr2b-contr-experiment
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 01/07/2021
-ms.author: vinigam
+ms.date: 06/13/2022
+ms.author: harshacs
 
 ---
-# Sample queries with new fields in the Traffic Analytics schema (August 2019 schema update)
+# Sample queries with new fields in the Traffic Analytics schema (March 2020 schema update)
 
-The [Traffic Analytics log schema](./traffic-analytics-schema.md) includes the following new fields: **SrcPublicIPs_s**, **DestPublicIPs_s**, **NSGRule_s**. The new fields provide information about source and destination IPs, and they simplify queries.
+The [Traffic Analytics log schema](./traffic-analytics-schema.md) includes the following new fields:
 
-In the next few months, the following older fields will be deprecated: **VMIP_s**, **Subscription_g**, **Region_s**, **NSGRules_s**, **Subnet_s**, **VM_s**, **NIC_s**, **PublicIPs_s**, **FlowCount_d**.
+- `SrcPublicIPs_s`
+- `DestPublicIPs_s`
+- `NSGRule_s`
+
+The new fields provide information about source and destination IPs, and they simplify queries.
+
+The following older fields will be deprecated in future:
+
+- `VMIP_s`
+- `Subscription_g`
+- `Region_s`
+- `NSGRules_s`
+- `Subnet_s`
+- `VM_s`
+- `NIC_s`
+- `PublicIPs_s`
+- `FlowCount_d`
 
 The following three examples show how to replace the old fields with the new ones.
 
 ## Example 1: VMIP_s, Subscription_g, Region_s, Subnet_s, VM_s, NIC_s, and PublicIPs_s fields
 
-We don't have to infer source and destination cases from the **FlowDirection_s** field for AzurePublic and ExternalPublic flows. It can also be inappropriate to use the **FlowDirection_s** field for a network virtual appliance.
+The schema doesn't have to infer source and destination cases from the `FlowDirection_s` field for AzurePublic and ExternalPublic flows. It can also be inappropriate to use the `FlowDirection_s` field for a network virtual appliance.
 
-```Old Kusto query
+Previous Kusto query:
+
+```kusto
 AzureNetworkAnalytics_CL
 | where SubType_s == "FlowLog" and FASchemaVersion_s == "1"
 | extend isAzureOrExternalPublicFlows = FlowType_s in ("AzurePublic", "ExternalPublic")
@@ -47,8 +66,9 @@ SourcePublicIPsAggregated = iif(isAzureOrExternalPublicFlows and FlowDirection_s
 DestPublicIPsAggregated = iif(isAzureOrExternalPublicFlows and FlowDirection_s == 'O', PublicIPs_s, "N/A")
 ```
 
+New Kusto query:
 
-```New Kusto query
+```kusto
 AzureNetworkAnalytics_CL
 | where SubType_s == "FlowLog" and FASchemaVersion_s == "2"
 | extend SourceAzureVM = iif(isnotempty(VM1_s), VM1_s, "N/A"),
@@ -69,13 +89,17 @@ DestPublicIPsAggregated = iif(isnotempty(DestPublicIPs_s), DestPublicIPs_s, "N/A
 
 ## Example 2: NSGRules_s field
 
-The old field used the format:
+The old field used the following format:
 
-`<Index value 0)>|<NSG_ RuleName>|<Flow Direction>|<Flow Status>|<FlowCount ProcessedByRule>`
+```kusto
+<Index value 0)>|<NSG_ RuleName>|<Flow Direction>|<Flow Status>|<FlowCount ProcessedByRule>
+```
 
-We no longer aggregate data across a network security group (NSG). In the updated schema, **NSGList_s** contains only one NSG. Also **NSGRules** contains only one rule. We removed the complicated formatting here and in other fields as shown in the example.
+The schema no longer aggregates data across a network security group (NSG). In the updated schema, `NSGList_s` contains only one NSG. Also, `NSGRules` contains only one rule. The complicated formatting has been removed here and in other fields, as shown in the following example.
 
-```Old Kusto query
+Previous Kusto query:
+
+```kusto
 AzureNetworkAnalytics_CL
 | where SubType_s == "FlowLog" and FASchemaVersion_s == "1"
 | extend NSGRuleComponents = split(NSGRules_s, "|")
@@ -87,7 +111,9 @@ AzureNetworkAnalytics_CL
 | project NSGName, NSGRuleName, FlowDirection, FlowStatus, FlowCountProcessedByRule
 ```
 
-```New Kusto query
+New Kusto query:
+
+```kusto
 AzureNetworkAnalytics_CL
 | where SubType_s == "FlowLog" and FASchemaVersion_s == "2"
 | extend NSGRuleComponents = split(NSGRules_s, "|")
@@ -100,20 +126,20 @@ FlowCountProcessedByRule = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_
 
 ## Example 3: FlowCount_d field
 
-Because we do not club data across the NSG, the **FlowCount_d** is simply:
+Because the schema doesn't club data across the NSG, the `FlowCount_d` is simply:
 
-**AllowedInFlows_d** + **DeniedInFlows_d** + **AllowedOutFlows_d** + **DeniedOutFlows_d**
+`AllowedInFlows_d` + `DeniedInFlows_d` + `AllowedOutFlows_d` + `DeniedOutFlows_d`
 
-Only one of the four fields will be nonzero. The other three fields will be zero. The fields populate to indicate the status and count in the NIC where the flow was captured.
+Only one of the four fields is nonzero. The other three fields are zero. The fields populate to indicate the status and count in the NIC where the flow was captured.
 
 To illustrate these conditions:
 
-- If the flow was allowed, one of the "Allowed" prefixed fields will be populated.
-- If the flow was denied, one of the "Denied" prefixed fields will be populated.
-- If the flow was inbound, one of the "InFlows_d" suffixed fields will be populated.
-- If the flow was outbound, one of the "OutFlows_d" suffixed fields will be populated.
+- If the flow was allowed, one of the `Allowed` prefixed fields is populated.
+- If the flow was denied, one of the `Denied` prefixed fields is populated.
+- If the flow was inbound, one of the `InFlows_d` suffixed fields is populated.
+- If the flow was outbound, one of the `OutFlows_d` suffixed fields is populated.
 
-Depending on the conditions, we know which one of the four fields will be populated.
+Depending on the conditions, it's clear which of the four fields is populated.
 
 ## Next steps
 

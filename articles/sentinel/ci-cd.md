@@ -1,50 +1,31 @@
 ---
 title: Deploy custom content from your repository
-description: This article describes how to create connections with a GitHub or Azure DevOps repository where you can save your custom content and deploy it to Microsoft Sentinel.
-author: batamig
+description: This article describes how to create connections with a GitHub or Azure DevOps repository where you can manage your custom content and deploy it to Microsoft Sentinel.
+author: austinmccollum
 ms.topic: how-to
-ms.date: 11/09/2021
-ms.author: bagol
-ms.custom: ignite-fall-2021
+ms.date: 8/25/2022
+ms.author: austinmc
+#Customer intent: As a SOC collaborator or MSSP analyst, I want to know how to connect my source control repositories for continuous integration and continuous delivery (CI/CD). Specifically as an MSSP content manager, I want to know how to deploy one solution to many customer workspaces and still be able to tailor custom content for their environments.
 ---
 
 # Deploy custom content from your repository (Public preview)
 
+When creating custom content, you can manage it from your own Microsoft Sentinel workspaces, or an external source control repository. This article describes how to create and manage connections between Microsoft Sentinel and GitHub or Azure DevOps repositories. Managing your content in an external repository allows you to make updates to that content outside of Microsoft Sentinel, and have it automatically deployed to your workspaces. For more information, see [Update custom content with repository connections](ci-cd-custom-content.md).
+
 > [!IMPORTANT]
 >
-> The Microsoft Sentinel **Repositories** page is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-Microsoft Sentinel *content* is Security Information and Event Management (SIEM) or Security Orchestration, Automation, and Response (SOAR) resources that assist customers with ingesting, monitoring, alerting, hunting, automating response, and more in Microsoft Sentinel. For example, Microsoft Sentinel content includes data connectors, parsers, workbooks, and analytics rules. For more information, see [About Microsoft Sentinel content and solutions](sentinel-solutions.md).
-
-You can use the out-of-the-box (built-in) content provided in the Microsoft Sentinel Content hub and customize it for your own needs, or create your own custom content from scratch.
-
-When creating custom content, you can store and manage it in your own Microsoft Sentinel workspaces, or an external source control repository, including GitHub and Azure DevOps repositories. This article describes how to create and manage the connections between Microsoft Sentinel and external source control repositories. Managing your content in an external repository allows you to make updates to that content outside of Microsoft Sentinel, and have it automatically deployed to your workspaces.
-
-> [!TIP]
-> This article does *not* describe how to create specific types of content from scratch. For more information, see the relevant [Microsoft Sentinel GitHub wiki](https://github.com/Azure/Azure-Sentinel/wiki#get-started) for each content type.
->
+> The Microsoft Sentinel **Repositories** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites and scope
 
-Before connecting your Microsoft Sentinel workspace to an external source control repository, make sure that you have:
+Microsoft Sentinel currently supports connections to GitHub and Azure DevOps repositories. Before connecting your Microsoft Sentinel workspace to your source control repository, make sure that you have:
 
-- Access to a GitHub or Azure DevOps repository, with any custom content files you want to deploy to your workspaces, in relevant [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/index.yml).
+- An **Owner** role in the resource group that contains your Microsoft Sentinel workspace *or* a combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection
+- Contributor access to your GitHub or Azure DevOps repository
+- Actions enabled for GitHub and Pipelines enabled for Azure DevOps
+- Ensure custom content files you want to deploy to your workspaces are in relevant [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/index.yml).
 
-    Microsoft Sentinel currently supports connections only with GitHub and Azure DevOps repositories.
-
-- An **Owner** role in the resource group that contains your Microsoft Sentinel workspace. This role is required to create the connection between Microsoft Sentinel and your source control repository. If you are unable to use the Owner role in your environment, you can instead use the combination of **User Access Administrator** and **Sentinel Contributor** roles to create the connection.
-
-### Maximum connections and deployments
-
-- Each Microsoft Sentinel workspace is currently limited to **five connections**.
-
-- Each Azure resource group is limited to **800 deployments** in its deployment history. If you have a high volume of ARM template deployments in your resource group(s), you may see an `Deployment QuotaExceeded` error. For more information, see [DeploymentQuotaExceeded](/azure/azure-resource-manager/templates/deployment-quota-exceeded) in the Azure Resource Manager templates documentation.
-
-### Validate your content
-
-Deploying content to Microsoft Sentinel via a repository connection does not validate that content other than verifying that the data is in the correct ARM template format.
-
-We recommend that you validate your content templates using your regular validation process. You can leverage the [Microsoft Sentinel GitHub validation process](https://github.com/Azure/Azure-Sentinel/wiki#test-your-contribution) and tools to set up your own validation process.
+For more information, see [Validate your content](ci-cd-custom-content.md#validate-your-content)
 
 ## Connect a repository
 
@@ -114,7 +95,7 @@ Each connection can support multiple types of custom content, including analytic
 
 After the connection is created, a new workflow or pipeline is generated in your repository, and the content stored in your repository is deployed to your Microsoft Sentinel workspace.
 
-The deployment time may vary depending on the amount of content that you're deploying. 
+The deployment time may vary depending on the volume of content that you're deploying. 
 
 ### View the deployment status
 
@@ -125,17 +106,13 @@ After the deployment is complete:
 
 - The content stored in your repository is displayed in your Microsoft Sentinel workspace, in the relevant Microsoft Sentinel page.
 
-- The connection details on the **Repositories** page are updated with the link to the connection's deployment logs. For example:
+- The connection details on the **Repositories** page are updated with the link to the connection's deployment logs and the status and time of the last deployment. For example:
 
-    :::image type="content" source="media/ci-cd/deployment-logs-link.png" alt-text="Screenshot of a GitHub repository connection's deployment logs.":::
+    :::image type="content" source="media/ci-cd/deployment-logs-status.png" alt-text="Screenshot of a GitHub repository connection's deployment logs.":::
 
 ### Customize the deployment workflow
 
-The default content deployment deploys all of the relevant custom content from the connected repository branch whenever a push is made to anything in that branch.
-
-If the default configuration for your content deployment from GitHub or Azure DevOps does not meet all your requirements, you can modify the experience to fit your needs.
-
-For example, you may want to configure different deployment triggers, or deploy content only from a specific root folder.
+The default workflow only deploys content that has been modified since the last deployment based on commits to the repository. But you may want to turn off smart deployments or perform other customizations. For example, you can configure different deployment triggers, or deploy content exclusively from a specific root folder.
 
 Select one of the following tabs depending on your connection type:
 
@@ -145,7 +122,7 @@ Select one of the following tabs depending on your connection type:
 
 1. In GitHub, go to your repository and find your workflow in the `.github/workflows` directory.
 
-    The workflow name is shown in the first line of the workflow file, and has the following default naming convention: `Deploy Content to <workspace-name> [<deployment-id>]`.
+    The workflow file is the YML file starting with `sentinel-deploy-xxxxx.yml`. Open that file and the workflow name is shown in the first line and has the following default naming convention: `Deploy Content to <workspace-name> [<deployment-id>]`.
 
     For example: `name: Deploy Content to repositories-demo [xxxxx-dk5d-3s94-4829-9xvnc7391v83a]`
 
@@ -169,11 +146,14 @@ Select one of the following tabs depending on your connection type:
 
         For more information, see the [GitHub documentation](https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows#configuring-workflow-events) on configuring workflow events.
 
+    - **To disable smart deployments**:
+        The smart deployments behavior is separate from the deployment trigger discussed above. Navigate to the `jobs` section of your workflow. Switch the `smartDeployment` default value from `true` to `false`. This will turn off the smart deployments functionality and all future deployments for this connection will redeploy all the repository's relevant content files to the connected workspace(s) once this change is committed. 
+
     - **To modify the deployment path**:
 
         In the default configuration shown above for the `on` section, the wildcards (`**`) in the first line in the `paths` section indicate that the entire branch is in the path for the deployment triggers.
 
-        This default configuration means that a deployment workflow is triggered any time that content is pushed to any part of the branch.
+        This default configuration means that a deployment workflow is triggered anytime that content is pushed to any part of the branch.
 
         Later on in the file, the `jobs` section includes the following default configuration: `directory: '${{ github.workspace }}'`. This line indicates that the entire GitHub branch is in the path for the content deployment, without filtering for any folder paths.
 
@@ -209,6 +189,9 @@ For more information, see the [GitHub documentation](https://docs.github.com/en/
 
         Modify this trigger to any available Azure DevOps Triggers, such as to scheduling or pull request triggers. For more information, see the [Azure DevOps trigger documentation](/azure/devops/pipelines/yaml-schema).
 
+    - **To disable smart deployments**:
+        The smart deployments behavior is separate from the deployment trigger discussed above. Navigate to the `ScriptArguments` section of your pipeline. Switch the `smartDeployment` default value from `true` to `false`. This will turn off the smart deployments functionality and all future deployments for this connection will redeploy all the repository's relevant content files to the connected workspace(s) once this change is committed. 
+
     - **To modify the deployment path**:
 
         The default configuration for the `trigger` section has the following code, which indicates that the `main` branch is in the path for the deployment triggers:
@@ -220,7 +203,7 @@ For more information, see the [GitHub documentation](https://docs.github.com/en/
                 - main
         ```
 
-        This default configuration means that a deployment pipeline is triggered any time that content is pushed to any part of the `main` branch.
+        This default configuration means that a deployment pipeline is triggered anytime that content is pushed to any part of the `main` branch.
 
         To deploy content from a specific folder path only, add the folder name to the `include` section, for the trigger, and the `steps` section, for the deployment path, below as needed.
 
@@ -248,15 +231,20 @@ For more information, see the [Azure DevOps documentation](/azure/devops/pipelin
 > [!IMPORTANT]
 > In both GitHub and Azure DevOps, make sure that you keep the trigger path and deployment path directories consistent.
 >
-## Edit or delete content in your repository
 
-After you've successfully created a connection to your source control repository, anytime that content in that repository is modified or added, the deployment workflow runs again and deploys all content in the repository to all connected Microsoft Sentinel workspaces.
+## Edit content
+
+After you've successfully created a connection to your source control repository, anytime content in that repository is modified or added, the modified content is deployed to all connected Microsoft Sentinel workspaces.
 
 We recommend that you edit any content stored in a connected repository *only* in the repository, and not in Microsoft Sentinel. For example, to make changes to your analytics rules, do so directly in GitHub or Azure DevOps.
 
 If you have edited the content in Microsoft Sentinel, make sure to export it to your source control repository to prevent your changes from being overwritten the next time the repository content is deployed to your workspace.
 
-If you are deleting content, make sure to delete it from both your repository and the Azure portal. Deleting content from your repository does not delete it from your Microsoft Sentinel workspace.
+## Delete content
+
+Deleting content from your repository doesn't delete it from your Microsoft Sentinel workspace. If you want to remove content that was deployed through repositories, make sure to delete it from both your repository and Sentinel. For example, set a filter for the content based on source name to make is easier to identify content from repositories.
+
+:::image type="content" source="media/ci-cd/delete-repo-content.png" alt-text="Screenshot of analytics rules filtered by source name of repositories.":::
 
 ## Remove a repository connection
 
@@ -288,7 +276,7 @@ For more information, see:
 
 - [Discover and deploy Microsoft Sentinel solutions (Public preview)](sentinel-solutions-deploy.md)
 - [Microsoft Sentinel data connectors](connect-data-sources.md)
-- [Advanced Security Information Model (ASIM) parsers (Public preview)](normalization-about-parsers.md)
+- [Advanced Security Information Model (ASIM) parsers (Public preview)](normalization-parsers-overview.md)
 - [Visualize collected data](get-visibility.md)
 - [Create custom analytics rules to detect threats](detect-threats-custom.md)
 - [Hunt for threats with Microsoft Sentinel](hunting.md)
