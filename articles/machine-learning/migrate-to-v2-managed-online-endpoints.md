@@ -23,7 +23,7 @@ You can deploy directly to the new compute target with your previous models and 
 > The scripts are preview and are provided without a service level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!IMPORTANT]
-> **The scoring URL will be changed after migration**. For example, the scoring url for ACI web service is like `http://aaaaaa-bbbbb-1111.westus.azurecontainer.io/score`, the scoring url for AKS web service is like `http://1.2.3.4:80/api/v1/service/aks-service/score`, while the new one is like `https://endpoint-name.westus.inference.ml.azure.com/score`.
+> **The scoring URL will be changed after migration**. For example, the scoring url for ACI web service is like `http://aaaaaa-bbbbb-1111.westus.azurecontainer.io/score` and the scoring url for AKS web service is like `http://1.2.3.4:80/api/v1/service/aks-service/score`. The scoring URI for a managed online endpoint is like `https://endpoint-name.westus.inference.ml.azure.com/score`.
 
 ## Supported Scenarios and Differences
 
