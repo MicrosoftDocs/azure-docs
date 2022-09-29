@@ -72,6 +72,11 @@ my_training_data_input = Input(
     mode=InputOutputModes.DIRECT
 )
 ```
+
+# [Studio](#tab/Studio)
+
+Please refer to Cli/Sdk tabs for reference.
+
 ---
 
 ### Using pre-labeled training data from local machine
