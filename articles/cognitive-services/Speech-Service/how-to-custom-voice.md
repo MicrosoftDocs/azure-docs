@@ -23,11 +23,11 @@ ms.author: eur
  
 ## Set up your Azure account
 
-A Speech service subscription is required before you can use Custom Neural Voice. Follow these instructions to create a Speech service subscription in Azure. If you don't have an Azure account, you can sign up for a new one.  
+A Speech resource is required before you can use Custom Neural Voice. Follow these instructions to create a Speech resource in Azure. If you don't have an Azure account, you can sign up for a new one.  
 
-Once you've created an Azure account and a Speech service subscription, you'll need to sign in to Speech Studio and connect your subscription.
+Once you've created an Azure account and a Speech resource, you'll need to sign in to Speech Studio and connect your subscription.
 
-1. Get your Speech service subscription key from the Azure portal.
+1. Get your Speech resource key from the Azure portal.
 1. Sign in to [Speech Studio](https://aka.ms/speechstudio), and then select **Custom Voice**.
 1. Select your subscription and create a speech project.
 1. If you want to switch to another Speech subscription, select the **cog** icon at the top.

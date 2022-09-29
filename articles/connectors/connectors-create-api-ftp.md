@@ -33,7 +33,7 @@ The FTP connector has different versions, based on [logic app type and host envi
 |------------------------|-------------|-------------------|
 | **Consumption** | Multi-tenant Azure Logic Apps | Managed connector (Standard class). For more information, review the following documentation: <br><br>- [FTP managed connector reference](/connectors/ftp) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
 | **Consumption** | Integration service environment (ISE) | Managed connector (Standard class) and ISE version, which has different message limits than the Standard class. For more information, review the following documentation: <br><br>- [FTP managed connector reference](/connectors/ftp) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Standard class) and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string. For more information, review the following documentation: <br><br>- [FTP managed connector reference](/connectors/ftp) <br>- [FTP built-in connector operations](#built-in-operations) section later in this article <br>- [Managed connectors in Azure Logic Apps](managed.md) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Azure-hosted) and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string. For more information, review the following documentation: <br><br>- [FTP managed connector reference](/connectors/ftp) <br>- [FTP built-in connector operations](#built-in-operations) section later in this article <br>- [Managed connectors in Azure Logic Apps](managed.md) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
 ||||
 
 ## Limitations
@@ -90,9 +90,9 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 1. In the [Azure portal](https://portal.azure.com), and open your blank logic app workflow in the designer.
 
-1. On the designer, under the search box, select **All**.
+1. On the designer, under the search box, select **Standard**. In the search box, enter **ftp**.
 
-1. In the search box, enter **ftp**. From the triggers list, select the trigger named **When a filed is added or modified (properties only)**.
+1. From the triggers list, select the trigger named **When a filed is added or modified (properties only)**.
 
    ![Screenshot shows Azure portal, Consumption workflow designer, and FTP trigger selected.](./media/connectors-create-api-ftp/ftp-select-trigger-consumption.png)
 
@@ -229,7 +229,7 @@ Before you can use an FTP action, your workflow must already start with a trigge
 
    1. On the designer, under the trigger or any other actions, select **New step**.
 
-   1. Under the **Choose an operation** search box, select **All**.
+   1. Under the **Choose an operation** search box, select **Standard**.
 
    1. In the search box, enter **ftp get file metadata**.
 
@@ -247,7 +247,7 @@ Before you can use an FTP action, your workflow must already start with a trigge
    ![Screenshot shows Consumption workflow designer and FTP connection profile for an action.](./media/connectors-create-api-ftp/ftp-action-connection-consumption.png)
 
 1. After the **Get file metadata** action information box appears, click inside the **File** box so that the dynamic content list opens.
-   
+
    You can now select outputs from the preceding trigger.
 
 1. In the dynamic content list, under **When a file is added or modified**, select **List of Files Id**.
@@ -258,7 +258,7 @@ Before you can use an FTP action, your workflow must already start with a trigge
 
 1. On the designer, under the **Get file metadata** action, select **New step**.
 
-1. Under the **Choose an operation** search box, select **All**.
+1. Under the **Choose an operation** search box, select **Standard**.
 
 1. In the search box, enter **ftp get file content**.
 
@@ -278,17 +278,17 @@ Before you can use an FTP action, your workflow must already start with a trigge
 
    ![Screenshot shows Consumption workflow designer, "Get file content" action, and "File" property with "Id" entered.](./media/connectors-create-api-ftp/ftp-get-file-content-id-entered-consumption.png)
 
-1. When you're done, save your logic app workflow.
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
 ### [Standard](#tab/standard)
 
-The steps to add and use an FTP action differ based on whether your workflow uses an "Azure" managed connector trigger or a built-in connector trigger.
+The steps to add and use an FTP action differ based on whether your workflow uses the built-in connector or the managed, Azure-hosted connector.
 
-* [**Workflows with a built-in trigger**](#built-in-trigger-workflows): Describes the steps for workflows that start with a built-in trigger.
+* [**Built-in trigger**](#built-in-trigger-workflows): Describes the steps to add a built-in action.
 
   If you used the FTP built-in trigger, and you want the content from a newly added or updated file, you can use a **For each** loop to iterate through the array that's returned by the trigger. You can then use just the **Get file content** action without any other intermediary actions. For more information about FTP built-in connector operations, review [FTP built-in connector operations](#ftp-built-in-connector-operations) later in this article.
 
-* [**Workflows with a managed trigger**](#managed-trigger-workflows): Describes the steps for workflows that start with a managed trigger.
+* [**Managed trigger**](#managed-trigger-workflows): Describes the steps to add a managed action.
 
  If you used the FTP managed connector trigger, and want the content from a newly added or modified file, you can use a **For each** loop to iterate through the array that's returned by the trigger. You then have to use intermediary actions such as the FTP action named **Get file metadata** before you use the **Get file content** action.
 
@@ -327,7 +327,9 @@ The steps to add and use an FTP action differ based on whether your workflow use
 
    ![Screenshot shows Standard workflow designer and "Get file content" action complete.](./media/connectors-create-api-ftp/ftp-action-get-file-content-complete-built-in-standard.png)
 
-1. Add any other actions that your workflow needs. When you're done, save your logic app workflow.
+1. Add any other actions that your workflow needs. 
+
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
 <a name="managed-trigger-workflows"></a>
 
@@ -384,7 +386,9 @@ The steps to add and use an FTP action differ based on whether your workflow use
 
    ![Screenshot shows Standard workflow designer, "Get file content" action, and "File" property set to "Id" action output.](./media/connectors-create-api-ftp/ftp-get-file-content-complete-azure-standard.png)
 
-1. Add any other actions that your workflow needs. When you're done, save your logic app workflow.
+1. Add any other actions that your workflow needs.
+
+1. When you're done, save your workflow. On the designer toolbar, select **Save**.
 
 ---
 
@@ -398,7 +402,7 @@ To check that your workflow returns the content that you expect, add another act
 
    1. On the designer, under the **Get file content** action, select **New step**.
 
-   1. Under the **Choose an operation** search box, select **All**.
+   1. Under the **Choose an operation** search box, select **Standard**.
 
    1. In the search box, enter **office 365 outlook send an email**. From the actions list, select the Office 365 Outlook action named **Send an email**.
 

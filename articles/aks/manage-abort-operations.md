@@ -3,7 +3,7 @@ title: Abort an Azure Kubernetes Service (AKS) long running operation
 description: Learn how to terminate a long running operation on an Azure Kubernetes Service cluster at the node pool or cluster level. 
 services: container-service
 ms.topic: article
-ms.date: 09/06/2022
+ms.date: 09/08/2022
 
 ---
 
@@ -25,6 +25,24 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 ## Abort a long running operation
 
+### [Azure CLI](#tab/azure-cli)
+
+You can use the [az aks nodepool](/cli/azure/aks/nodepool) command with the `operation-abort` argument to abort an operation on a node pool or a managed cluster.
+
+The following example terminates an operation on a node pool on a specified cluster by its name and resource group that holds the cluster.
+
+```azurecli-interactive
+az aks nodepool operation-abort --resource-group myResourceGroup --cluster-name myAKSCluster --name myNodePool 
+```
+
+The following example terminates an operation against a specified managed cluster its name and resource group that holds the cluster.
+
+```azurecli-interactive
+az aks operation-abort --name myAKSCluster --resource-group myResourceGroup
+```
+
+In the response, an HTTP status code of 204 is returned.
+
 ### [Azure REST API](#tab/azure-rest)
 
 You can use the Azure REST API [Abort](/rest/api/aks/managed-clusters) operation to stop an operation against the Managed Cluster.
@@ -39,28 +57,6 @@ The following example terminates a process for a specified managed cluster.
 
 ```rest
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedclusters/{resourceName}/abort
-```
-
-In the response, an HTTP status code of 204 is returned.
-
-### [Azure CLI](#tab/azure-cli)
-
-You can use the [az aks nodepool](/cli/azure/aks/nodepool) command with the `operation-abort` argument to abort an operation on a node pool or a managed cluster.
-
-The following example terminates an operation on a node pool on a specified cluster by its name and resource group that holds the cluster.
-
-```azurecli-interactive
-az aks nodepool operation-abort\
-
---resource-group myResourceGroup \
-
---cluster-name myAKSCluster \
-```
-
-The following example terminates an operation against a specified managed cluster its name and resource group that holds the cluster.
-
-```azurecli-interactive
-az aks operation-abort --name myAKSCluster --resource-group myResourceGroup
 ```
 
 In the response, an HTTP status code of 204 is returned.

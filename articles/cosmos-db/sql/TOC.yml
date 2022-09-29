@@ -24,6 +24,9 @@
     - name: Create resources - JSON template
       displayName: ARM, Resource Manager, Template, JSON
       href: quick-create-template.md
+    - name: Create resources - Terraform template
+      displayName: ARM, Resource Manager, Template, Terraform
+      href: quick-create-terraform.md
 - name: Tutorials
   items:
     - name: Create and manage data
@@ -137,6 +140,8 @@
           displayName: ARM
         - name: Bicep syntax templates
           href: bicep-samples.md
+        - name: Terraform syntax templates
+          href: terraform-samples.md
     - name: Azure Resource Graph queries
       href: ../resource-graph-samples.md
 - name: Concepts
@@ -418,6 +423,8 @@
           href: ../how-to-define-unique-keys.md
         - name: Perform transactional batch operations
           href: transactional-batch.md
+        - name: Delete items by partition key (preview)
+          href: how-to-delete-by-partition-key.md
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
           href: find-request-unit-charge.md
@@ -1036,12 +1043,13 @@
         - name: Using Resource Manager templates
           href: manage-with-templates.md
           displayName: ARM
+        - name: Using Terraform 
+          href: manage-with-terraform.md
+          displayName: Terraform
         - name: Move between regions
           href: ../how-to-move-regions.md
         - name: Prevent changes or deletion
           href: ../resource-locks.md
-        - name: Back up and restore
-          items:
     - name: Global distribution
       items:
         - name: Distribute data globally tutorial
@@ -1073,7 +1081,9 @@
             - name: Use Always Encrypted
               href: ../how-to-always-encrypted.md
             - name: Configure customer-managed keys
-              href: ../how-to-setup-cmk.md
+              href: ../how-to-setup-customer-managed-keys.md
+            - name: Configure cross-tenant customer-managed keys
+              href: ../how-to-setup-cross-tenant-customer-managed-keys.md
             - name: Access Azure Key Vault with managed identity
               href: ../access-key-vault-managed-identity.md
         - name: Managed Identity
@@ -1255,8 +1265,8 @@
       href: ../policy-reference.md
 - name: Resources
   items:
-    - name: Build your skills with Microsoft Learn
-      href: /learn/browse/?products=azure-cosmos-db
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/?products=azure-cosmos-db
     - name: FAQ
       href: ../faq.yml?toc=/azure/cosmos-db/sql/toc.json
     - name: Whitepapers

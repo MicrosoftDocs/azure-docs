@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/17/2022
+ms.date: 09/17/2022
 
 ms.author: justinha
 author: justinha
@@ -66,7 +66,7 @@ The following table outlines when an authentication method can be used during a 
 | Windows Hello for Business     | Yes                    | MFA\*                      |
 | Microsoft Authenticator app    | Yes                    | MFA and SSPR              |
 | FIDO2 security key             | Yes                    | MFA                       |
-| Certificate-based authentication (preview) | Yes        | MFA and SSPR              |
+| Certificate-based authentication (preview) | Yes        | No              |
 | OATH hardware tokens (preview) | No                     | MFA and SSPR              |
 | OATH software tokens           | No                     | MFA and SSPR              |
 | SMS                            | Yes                    | MFA and SSPR              |

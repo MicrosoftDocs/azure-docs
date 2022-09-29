@@ -16,7 +16,7 @@ ms.custom: kr2b-contr-experiment
 
 # Explore Azure Hybrid Benefit for bring-your-own-subscription Linux virtual machines
 
-Azure Hybrid Benefit provides software updates and integrated support directly from Azure for Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines. Azure Hybrid Benefit for bring-your-own-subscription (BYOS) virtual machines is a licensing benefit that's currently in public preview. It lets you switch RHEL and SLES BYOS virtual machines generated from custom on-premises images or from Azure Marketplace to pay-as-you-go billing. 
+Azure Hybrid Benefit provides software updates and integrated support directly from Azure for Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) virtual machines. Azure Hybrid Benefit for bring-your-own-subscription (BYOS) virtual machines is a licensing benefit that lets you switch RHEL and SLES BYOS virtual machines generated from custom on-premises images or from Azure Marketplace to pay-as-you-go billing. 
 
 >[!IMPORTANT]
 > To do the reverse and switch from a RHEL pay-as-you-go virtual machine or SLES pay-as-you-go virtual machine to a BYOS virtual machine, see [Explore Azure Hybrid Benefit for pay-as-you-go Linux virtual machines](./azure-hybrid-benefit-linux.md).
@@ -31,7 +31,7 @@ Azure Hybrid Benefit converts BYOS billing to pay-as-you-go, so that you pay onl
 
 Azure Hybrid Benefit for BYOS virtual machines is available to all RHEL and SLES virtual machines that come from a custom image. It's also available to all RHEL and SLES BYOS virtual machines that come from an Azure Marketplace image. 
 
-Azure Dedicated Host instances and SQL hybrid benefits aren't eligible for Azure Hybrid Benefit if you're already using Azure Hybrid Benefit with Linux virtual machines. Virtual machine scale sets are reserved instances, so they also can't use Azure Hybrid Benefit for BYOS virtual machines.
+Azure dedicated host instances and SQL hybrid benefits are not eligible for Azure Hybrid Benefit if you already use Azure Hybrid Benefit with Linux virtual machines. Azure Hybrid Benefit for BYOS virtual machines does not support virtual machine scale sets and reserved instances (RIs).
 
 ## Get started
 

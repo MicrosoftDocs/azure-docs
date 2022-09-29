@@ -29,7 +29,7 @@ This tutorial covers the following tasks:
 > * Debug the failed script
 > * Clean up resources
 
-For a Learn module that covers deployment scripts, see [Extend ARM templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts/).
+For a Learn module that covers deployment scripts, see [Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts/).
 
 ## Prerequisites
 

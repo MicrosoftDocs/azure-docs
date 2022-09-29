@@ -22,9 +22,7 @@ In this article, you learn how to secure an Azure Machine Learning workspace and
 >
 > * [Virtual network overview](how-to-network-security-overview.md)
 > * [Secure the training environment](how-to-secure-training-vnet.md)
-> * For securing inference, see the following documents:
->     * If using CLI v1 or SDK v1 - [Secure inference environment](./v1/how-to-secure-inferencing-vnet.md)
->     * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
+> * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
 > * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 > * [Use custom DNS](how-to-custom-dns.md)
 > * [Use a firewall](how-to-access-azureml-behind-firewall.md)
@@ -239,7 +237,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     This code returns a value similar to `"/subscriptions/{GUID}/resourceGroups/{resourcegroupname}/providers/Microsoft.ContainerRegistry/registries/{ACRname}"`. The last part of the string is the name of the Azure Container Registry for the workspace.
 
-    # [Azure portal](#tab/portal)
+    # [Portal](#tab/portal)
 
     From the overview section of your workspace, the __Registry__ value links to the Azure Container Registry.
 
@@ -286,7 +284,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
     
     For more information, see the [update()](/python/api/azureml-core/azureml.core.workspace.workspace#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) method reference.
 
-    # [Azure portal](#tab/portal)
+    # [Portal](#tab/portal)
 
     Currently there isn't a way to set the image build compute from the Azure portal.
 
@@ -357,10 +355,7 @@ This article is part of a series on securing an Azure Machine Learning workflow.
 
 * [Virtual network overview](how-to-network-security-overview.md)
 * [Secure the training environment](how-to-secure-training-vnet.md)
-* [Secure online endpoints (inference)](how-to-secure-online-endpoint.md)
-* For securing inference, see the following documents:
-    * If using CLI v1 or SDK v1 - [Secure inference environment](./v1/how-to-secure-inferencing-vnet.md)
-    * If using CLI v2 or SDK v2 - [Network isolation for managed online endpoints](how-to-secure-online-endpoint.md)
+* [Secure the inference environment](how-to-secure-inferencing-vnet.md)
 * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 * [Use custom DNS](how-to-custom-dns.md)
 * [Use a firewall](how-to-access-azureml-behind-firewall.md)

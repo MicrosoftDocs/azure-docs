@@ -2,7 +2,7 @@
 title: Data types in Bicep
 description: Describes the data types that are available in Bicep
 ms.topic: conceptual
-ms.date: 07/06/2022
+ms.date: 09/16/2022
 ---
 
 # Data types in Bicep
@@ -156,6 +156,8 @@ var environmentSettings = {
 
 output accessorResult string = environmentSettings['dev'].name
 ```
+
+[!INCLUDE [JSON object ordering](../../../includes/resource-manager-object-ordering-bicep.md)]
 
 ## Strings
 

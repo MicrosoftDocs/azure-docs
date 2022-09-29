@@ -7,8 +7,6 @@ ms.date: 08/08/2022
 
 # What's new in Microsoft Defender for IoT?
 
-[!INCLUDE [Banner for top of topics](../includes/banner.md)]
-
 This article lists Microsoft Defender for IoT's new features and enhancements for end-user organizations from the last nine months.
 
 Features released earlier than nine months ago are listed in [What's new archive for Microsoft Defender for IoT for organizations](release-notes-archive.md).
@@ -46,6 +44,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 | Version | Date released | End support date |
 |--|--|--|
+| 22.2.6 | 09/2022 | 04/2023 |
 | 22.2.5 | 08/2022 | 04/2023 |
 | 22.2.4 | 07/2022 | 04/2023 |
 | 22.2.3 | 07/2022 | 04/2023 |
@@ -60,11 +59,63 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
 
+## September 2022
+
+|Service area  |Updates  |
+|---------|---------|
+|**OT networks**     |**Sensor software version 22.2.6**: <br> - Bug fixes and stability improvements <br>- Enhancements to the device type classification algorithm<br><br>- **Microsoft Sentinel integration**: <br>- [Investigation enhancements with IOT device entities](#investigation-enhancements-with-iot-device-entities-in-microsoft-sentinel)<br>- [Updates to the Microsoft Defender for IoT solution](#updates-to-the-microsoft-defender-for-iot-solution-in-microsoft-sentinels-content-hub) |
+
+### Investigation enhancements with IOT device entities in Microsoft Sentinel
+
+Defender for IoT's integration with Microsoft Sentinel now supports an IoT device entity page. When investigating incidents and monitoring IoT security in Microsoft Sentinel, you can now identify your most sensitive devices and jump directly to more details on each device entity page.
+
+The IoT device entity page provides contextual device information about an IoT device, with basic device details and device owner contact information. Device owners are defined by site in the **Sites and sensors** page in Defender for IoT.
+
+The IoT device entity page can help prioritize remediation based on device importance and business impact, as per each alert's site, zone, and sensor. For example:
+
+:::image type="content" source="media/release-notes/iot-device-entity-page.png" alt-text="Screenshot of the IoT device entity page in Microsoft Sentinel.":::
+
+You can also now hunt for vulnerable devices on the Microsoft Sentinel **Entity behavior** page. For example, view the top five IoT devices with the highest number of alerts, or search for a device by IP address or device name:
+
+:::image type="content" source="media/release-notes/entity-behavior-iot-devices-alerts.png" alt-text="Screenshot of the Entity behavior page in Microsoft Sentinel.":::
+
+For more information, see [Investigate further with IoT device entities](https://review.learn.microsoft.com/en-us/azure/sentinel/iot-advanced-threat-monitoring#investigate-further-with-iot-device-entities) and [Site management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#site-management-options-from-the-azure-portal).
+
+### Updates to the Microsoft Defender for IoT solution in Microsoft Sentinel's content hub
+
+This month, we've released version 2.0 of the **Microsoft Defender for IoT** solution in Microsoft Sentinel's content hub, previously known as the **IoT/OT Threat Monitoring with Defender for IoT** solution.
+
+Updates in this version of the solution include:
+
+- **A name change**. If you'd previously installed the **IoT/OT Threat Monitoring with Defender for IoT** solution in your Microsoft Sentinel workspace, the solution is automatically renamed to **Microsoft Defender for IoT**, even if you don't update the solution.
+
+- **Workbook improvements**: The **Defender for IoT** workbook now includes:
+
+    - A new **Overview** dashboard with key metrics on the device inventory, threat detection, and security posture. For example:
+
+        :::image type="content" source="media/release-notes/sentinel-workbook-overview.png" alt-text="Screenshot of the new Overview tab in the IoT OT Threat Monitoring with Defender for IoT workbook." lightbox="media/release-notes/sentinel-workbook-overview.png":::
+
+    - A new **Vulnerabilities** dashboard with details about CVEs shown in your network and their related vulnerable devices. For example:
+
+        :::image type="content" source="media/release-notes/sentinel-workbook-vulnerabilities.png" alt-text="Screenshot of the new Vulnerability tab in the IoT OT Threat Monitoring with Defender for IoT workbook." lightbox="media/release-notes/sentinel-workbook-vulnerabilities.png":::
+
+    - Improvements on the **Device inventory** dashboard, including access to device recommendations, vulnerabilities, and direct links to the Defender for IoT device details pages. The **Device inventory** dashboard in the **IoT/OT Threat Monitoring with Defender for IoT** workbook is fully aligned with the Defender for IoT [device inventory data](how-to-manage-device-inventory-for-organizations.md).
+
+- **Playbook updates**: The **Microsoft Defender for IoT** solution now supports the following SOC automation functionality with new playbooks:
+
+    - **Automation with CVE details**: Use the *AD4IoT-CVEAutoWorkflow* playbook to enrich incident comments with CVEs of related devices based on Defender for IoT data. The incidents are triaged, and if the CVE is critical, the asset owner is notified about the incident by email.
+
+    - **Automation for email notifications to device owners**. Use the *AD4IoT-SendEmailtoIoTOwner* playbook to have a notification email automatically sent to a device's owner about new incidents. Device owners can then reply to the email to update the incident as needed. Device owners are defined at the site level in Defender for IoT.
+
+    - **Automation for incidents with sensitive devices**:  Use the *AD4IoT-AutoTriageIncident* playbook to automatically update an incident's severity based on the devices involved in the incident, and their sensitivity level or importance to your organization. For example, any incident involving a sensitive device can be automatically escalated to a higher severity level.
+
+For more information, see [Investigate Microsoft Defender for IoT incidents with Microsoft Sentinel](/azure/sentinel/iot-advanced-threat-monitoring?toc=%2Fazure%2Fdefender-for-iot%2Forganizations%2Ftoc.json&bc=%2Fazure%2Fdefender-for-iot%2Fbreadcrumb%2Ftoc.json).
+
 ## August 2022
 
-- **Sensor software version 22.2.5**: Minor version with stability improvements
-- [New alert columns with timestamp data](#new-alert-columns-with-timestamp-data)
-- [Sensor health from the Azure portal (Public preview)](#sensor-health-from-the-azure-portal-public-preview)
+|Service area  |Updates  |
+|---------|---------|
+|**OT networks**     |**Sensor software version 22.2.5**: Minor version with stability improvements<br><br>**Sensor software version 22.2.4**: [New alert columns with timestamp data](#new-alert-columns-with-timestamp-data)<br><br>**Sensor software version 22.1.3**: [Sensor health from the Azure portal (Public preview)](#sensor-health-from-the-azure-portal-public-preview) |
 
 ### New alert columns with timestamp data
 
@@ -244,11 +295,12 @@ The **IoT OT Threat Monitoring with Defender for IoT** solution now ensures that
 
 This synchronization overrides any status defined in Defender for IoT, in the Azure portal or the sensor console, so that the alert statuses match that of the related incident.
 
-Update your **IoT OT Threat Monitoring with Defender for IoT** solution to use the latest synchronization support, including the new **AD4IoT-AutoAlertStatusSync** playbook. After updating the solution, make sure that you also take the [required steps](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended#update-alert-statuses-in-defender-for-iot) to ensure that the new playbook works as expected. 
+Update your **IoT OT Threat Monitoring with Defender for IoT** solution to use the latest synchronization support, including the new [**AD4IoT-AutoAlertStatusSync** playbook](../../sentinel/iot-advanced-threat-monitoring.md#update-alert-statuses-in-defender-for-iot). After updating the solution, make sure that you also take the [required steps](../../sentinel/iot-advanced-threat-monitoring.md#playbook-prerequisites) to ensure that the new playbook works as expected.
 
 For more information, see:
 
-- [Tutorial: Integrate Defender for Iot and Sentinel](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended)
+- [Integrate Defender for Iot and Sentinel](../../sentinel/iot-advanced-threat-monitoring.md)
+- [Update alert statuses playbook](../../sentinel/iot-advanced-threat-monitoring.md#update-alert-statuses-in-defender-for-iot)
 - [View and manage alerts on the Defender for IoT portal (Preview)](how-to-manage-cloud-alerts.md)
 - [View alerts on your sensor](how-to-view-alerts.md)
 
@@ -344,7 +396,7 @@ For more information, see [Use Azure Monitor workbooks in Microsoft Defender for
 
 The IoT OT Threat Monitoring with Defender for IoT solution in Microsoft Sentinel is now GA. In the Azure portal, use this solution to help secure your entire OT environment, whether you need to protect existing OT devices or build security into new OT innovations.
 
-For more information, see [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md) and [Tutorial: Integrate Defender for IoT and Sentinel](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended).
+For more information, see [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md) and [Tutorial: Investigate Microsoft Defender for IoT devices with Microsoft Sentinel](../../sentinel/iot-advanced-threat-monitoring.md).
 
 ### Edit and delete devices from the Azure portal (Public preview)
 
@@ -581,7 +633,7 @@ The following Defender for IoT options and configurations have been moved, remov
 
 The new **IoT OT Threat Monitoring with Defender for IoT solution** is available and provides enhanced capabilities for Microsoft Defender for IoT integration with Microsoft Sentinel. The **IoT OT Threat Monitoring with Defender for IoT solution** is a set of bundled content, including analytics rules, workbooks, and playbooks, configured specifically for Defender for IoT data. This solution currently supports only Operational Networks (OT/ICS). 
 
-For information on integrating with Microsoft Sentinel, see [Tutorial: Integrate Defender for Iot and Sentinel](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended)
+For information on integrating with Microsoft Sentinel, see [Tutorial: Connect Microsoft Defender for IoT with Microsoft Sentinel](../../sentinel/iot-solution.md) and [Tutorial: Investigate and detect threats for IoT devices](../../sentinel/iot-advanced-threat-monitoring.md).
 
 ### Apache Log4j vulnerability
 

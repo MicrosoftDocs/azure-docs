@@ -10,7 +10,7 @@ ms.date: 03/29/2022
 
 VMware HCX Advanced and its associated Cloud Manager are no longer pre-deployed in Azure VMware Solution. Instead, you'll install it through the Azure portal as an add-on. You'll still download the HCX Connector OVA and deploy the virtual appliance on your on-premises vCenter Server. 
 
-Any edition of VMware HCX supports 25 site pairings (on-premises to cloud or cloud to cloud) in a single HCX manager system.  The default is HCX Advanced, but you can open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to have HCX Enterprise Edition enabled. Once the service is generally available, you'll have 30 days to decide on your next steps. You can turn off or opt out of the HCX Enterprise Edition service but keep HCX Advanced as it's part of the node cost.
+Any edition of VMware HCX supports 25 site pairings (on-premises to cloud or cloud to cloud) in a single HCX manager system.  The default is HCX Advanced, but you can open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to have HCX Enterprise Edition enabled. VMware HCX Enterprise edition is  available and supported on Azure VMware Solution, at no additional cost.
 
 Downgrading from HCX Enterprise Edition to HCX Advanced is possible without redeploying. First, ensure you've reverted to an HCX Advanced configuration state and not using the Enterprise features. If you plan to downgrade, ensure that no scheduled migrations, features like RAV and [HCX Mobility Optimized Networking (MON)](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-0E254D74-60A9-479C-825D-F373C41F40BC.html) are in use.
 
@@ -30,7 +30,7 @@ After you're finished, follow the recommended next steps at the end to continue 
 
 - [Prepare for HCX installations](https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-A631101E-8564-4173-8442-1D294B731CEB.html)
 
-- If you plan to use VMware HCX Enterprise, make sure you've enabled the [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) add-on through a [support request](https://portal.azure.com/#create/Microsoft.Support). It's a free 12-month trial in Azure VMware Solution.
+- If you plan to use VMware HCX Enterprise, make sure you've enabled the [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) add-on through a [support request](https://portal.azure.com/#create/Microsoft.Support). 
 
 - [VMware blog series - cloud migration](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html)
 

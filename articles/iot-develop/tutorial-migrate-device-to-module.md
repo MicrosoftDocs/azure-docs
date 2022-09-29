@@ -86,17 +86,17 @@ Add a module called **my-module** to the **my-module-device**:
 
 If you haven't already done so, clone the Azure IoT Hub Device C# SDK GitHub repository to your local machine:
 
-Open a command prompt in a folder of your choice. Use the following command to clone the [Azure IoT C# Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository into this location:
+Open a command prompt in a folder of your choice. Use the following command to clone the [Azure IoT C# SDK](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository into this location:
 
 ```cmd
-git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
+git clone https://github.com/Azure/azure-iot-sdk-csharp.git
 ```
 
 ## Prepare the project
 
 To open and prepare the sample project:
 
-1. Open the *azure-iot-sdk-csharp\iot-hub\Samples\device\PnpDeviceSamples\Thermostat\Thermostat.csproj* project file in Visual Studio 2019.
+1. Open the *azure-iot-sdk-csharp\iothub\device\samples\solutions\PnpDeviceSamples\Thermostat\Thermostat.csproj* project file in Visual Studio 2019.
 
 1. In Visual Studio, navigate to **Project > Thermostat Properties > Debug**. Then add the following environment variables to the project:
 
@@ -105,7 +105,7 @@ To open and prepare the sample project:
     | IOTHUB_DEVICE_SECURITY_TYPE | connectionString |
     | IOTHUB_MODULE_CONNECTION_STRING | The module connection string you made a note of previously |
 
-    To learn more about the sample configuration, see the [sample readme](https://github.com/Azure-Samples/azure-iot-samples-csharp/blob/main/iot-hub/Samples/device/PnpDeviceSamples/readme.md).
+    To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/solutions/PnpDeviceSamples#readme).
 
 ## Modify the code
 

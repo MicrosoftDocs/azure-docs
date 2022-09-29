@@ -598,7 +598,7 @@
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-site-recovery.html
   - name: Learning path
-    href: /learn/azure/
+    href: /training/azure/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/site-recovery/
   - name: Pricing calculator

@@ -413,6 +413,8 @@
           href: diagnostic-queries-mongodb.md
         - name: Prevent rate-limiting errors
           href: prevent-rate-limiting-errors.md
+        - name: Optimize query and storage costs when upgrading
+          href: compression-cost-savings.md
     - name: Analytics and BI with Azure Synapse Link
       items:
         - name: Configure Azure Synapse Link
@@ -467,7 +469,9 @@
         - name: Restrict user access to data operations only
           href: ../how-to-restrict-user-data.md
         - name: Configure customer-managed keys
-          href: ../how-to-setup-cmk.md
+          href: ../how-to-setup-customer-managed-keys.md
+        - name: Configure cross-tenant customer-managed keys
+          href: ../how-to-setup-cross-tenant-customer-managed-keys.md
         - name: Use a managed identity
           href: ../how-to-setup-managed-identity.md
     - name: Monitor
@@ -520,8 +524,8 @@
       href: /cli/azure/azure-cli-reference-for-cosmos-db
 - name: Resources
   items:
-    - name: Build your skills with Microsoft Learn
-      href: /learn/browse/?products=azure-cosmos-db
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/?products=azure-cosmos-db
     - name: FAQ
       href: ../faq.yml
     - name: Whitepapers

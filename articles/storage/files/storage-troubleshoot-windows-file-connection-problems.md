@@ -4,7 +4,7 @@ description: Troubleshoot problems with SMB Azure file shares in Windows. See co
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 08/26/2022
+ms.date: 09/09/2022
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
@@ -600,6 +600,101 @@ if ($null -ne $application) {
    Remove-AzureADApplication -ObjectId $application.ObjectId
 }
 ```
+
+### Error - Service principal password has expired in Azure AD
+
+If you've previously enabled Azure AD Kerberos authentication through manual limited preview steps, the password for the storage account's service principal is set to expire every six months. Once the password expires, users won't be able to get Kerberos tickets to the file share.
+
+To mitigate this, you have two options: either rotate the service principal password in Azure AD every six months, or disable Azure AD Kerberos, delete the existing application, and reconfigure Azure AD Kerberos using the Azure portal.
+
+#### Option 1: Update the service principal password using PowerShell
+
+1. Install the latest Az.Storage and AzureAD modules. Use PowerShell 5.1, because currently the AzureAD module doesn't work in PowerShell 7. Azure Cloud Shell won't work in this scenario. For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-Az-ps).
+
+To install the modules, open PowerShell with elevated privileges and run the following commands:
+
+```azurepowershell
+Install-Module -Name Az.Storage 
+Install-Module -Name AzureAD
+```
+
+2. Set the required variables for your tenant, subscription, storage account name, and resource group name by running the following cmdlets, replacing the values with the ones relevant to your environment.
+
+```azurepowershell
+$tenantId = "<MyTenantId>" 
+$subscriptionId = "<MySubscriptionId>" 
+$resourceGroupName = "<MyResourceGroup>" 
+$storageAccountName = "<MyStorageAccount>"
+```
+
+3. Generate a new kerb1 key and password for the service principal.
+
+```azurepowershell
+Connect-AzAccount -Tenant $tenantId -SubscriptionId $subscriptionId 
+$kerbKeys = New-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName -KeyName "kerb1" -ErrorAction Stop | Select-Object -ExpandProperty Keys 
+$kerbKey = $kerbKeys | Where-Object { $_.KeyName -eq "kerb1" } | Select-Object -ExpandProperty Value 
+$azureAdPasswordBuffer = [System.Linq.Enumerable]::Take([System.Convert]::FromBase64String($kerbKey), 32); 
+$password = "kk:" + [System.Convert]::ToBase64String($azureAdPasswordBuffer);
+```
+
+4. Connect to Azure AD and retrieve the tenant information, application, and service principal.
+
+```azurepowershell
+Connect-AzureAD 
+$azureAdTenantDetail = Get-AzureADTenantDetail; 
+$azureAdTenantId = $azureAdTenantDetail.ObjectId 
+$azureAdPrimaryDomain = ($azureAdTenantDetail.VerifiedDomains | Where-Object {$_._Default -eq $true}).Name 
+$application = Get-AzureADApplication -Filter "DisplayName eq '$($storageAccountName)'" -ErrorAction Stop; 
+$servicePrincipal = Get-AzureADServicePrincipal -Filter "AppId eq '$($application.AppId)'" 
+if ($servicePrincipal -eq $null) { 
+  Write-Host "Could not find service principal corresponding to application with app id $($application.AppId)" 
+  Write-Error -Message "Make sure that both service principal and application exist and are correctly configured" -ErrorAction Stop 
+} 
+```
+
+5. Set the password for the storage account's service principal.
+
+```azurepowershell
+$Token = ([Microsoft.Open.Azure.AD.CommonLibrary.AzureSession]::AccessTokens['AccessToken']).AccessToken; 
+$Uri = ('https://graph.windows.net/{0}/{1}/{2}?api-version=1.6' -f $azureAdPrimaryDomain, 'servicePrincipals', $servicePrincipal.ObjectId) 
+$json = @' 
+{ 
+  "passwordCredentials": [ 
+  { 
+    "customKeyIdentifier": null, 
+    "endDate": "<STORAGEACCOUNTENDDATE>", 
+    "value": "<STORAGEACCOUNTPASSWORD>", 
+    "startDate": "<STORAGEACCOUNTSTARTDATE>" 
+  }] 
+} 
+'@ 
+ 
+$now = [DateTime]::UtcNow 
+$json = $json -replace "<STORAGEACCOUNTSTARTDATE>", $now.AddHours(-12).ToString("s") 
+ $json = $json -replace "<STORAGEACCOUNTENDDATE>", $now.AddMonths(6).ToString("s") 
+$json = $json -replace "<STORAGEACCOUNTPASSWORD>", $password 
+ 
+$Headers = @{'authorization' = "Bearer $($Token)"} 
+ 
+try { 
+  Invoke-RestMethod -Uri $Uri -ContentType 'application/json' -Method Patch -Headers $Headers -Body $json  
+  Write-Host "Success: Password is set for $storageAccountName" 
+} catch { 
+  Write-Host $_.Exception.ToString() 
+  Write-Host "StatusCode: " $_.Exception.Response.StatusCode.value 
+  Write-Host "StatusDescription: " $_.Exception.Response.StatusDescription 
+}
+```
+
+#### Option 2: Disable Azure AD Kerberos, delete the existing application, and reconfigure
+
+If you don't want to rotate the service principal password every six months, you can follow these steps. Be sure to save domain properties (domainName and domainGUID) before disabling Azure AD Kerberos, as you'll need them during reconfiguration if you want to configure directory and file-level permissions through Windows File Explorer.
+
+1. [Disable Azure AD Kerberos](storage-files-identity-auth-azure-active-directory-enable.md#disable-azure-ad-authentication-on-your-storage-account)
+1. [Delete the existing application](#cause-2-an-application-already-exists-for-the-storage-account)
+1. [Reconfigure Azure AD Kerberos via the Azure portal](storage-files-identity-auth-azure-active-directory-enable.md#enable-azure-ad-kerberos-authentication-for-hybrid-user-accounts-preview)
+
+Once you've reconfigured Azure AD Kerberos, the new experience will auto-create and manage the newly created application.
 
 ## Need help?
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.

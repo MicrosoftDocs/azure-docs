@@ -105,7 +105,7 @@ For Azure VMs, the following high availability configurations are supported on D
 	- [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_sapase.md)
 	- [SAP MaxDB, liveCache, and Content Server deployment on Azure VMs](./dbms_guide_maxdb.md)
 - HANA Large Instances high availability scenarios are detailed in:
-	- [Supported scenarios for HANA Large Instances- HSR with STONITH for high availability](./hana-supported-scenario.md#hsr-with-stonith-for-high-availability)
+	- [Supported scenarios for HANA Large Instances- HSR with fencing for high availability](./hana-supported-scenario.md#hsr-with-fencing-for-high-availability)
 	- [Supported scenarios for HANA Large Instances - Host auto failover (1+1)](./hana-supported-scenario.md#host-auto-failover-11)
 
 > [!IMPORTANT]

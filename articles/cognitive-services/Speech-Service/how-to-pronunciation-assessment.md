@@ -43,7 +43,8 @@ This table lists some of the key configuration parameters for pronunciation asse
 | `ReferenceText` | The text that the pronunciation will be evaluated against. | 
 | `GradingSystem` | The point system for score calibration. The `FivePoint` system gives a 0-5 floating point score, and `HundredMark` gives a 0-100 floating point score. | 
 | `Granularity` | Determines the lowest level of evaluation granularity. Scores for levels above or equal to the minimal value are returned.  Accepted values are `Phoneme`, which shows the score on the full text, word, syllable, and phoneme level, `Syllable`, which shows the score on the full text, word, and syllable level, `Word`, which shows the score on the full text and word level, or `FullText`, which shows the score on the full text level only. The provided full reference text can be a word, sentence, or paragraph, and it depends on your input reference text.| 
-| `EnableMiscue` | Enables miscue calculation when the pronounced words are compared to the reference text. If this value is `True`, the `ErrorType` result value can be set to `Omission` or `Insertion` based on the comparison. Accepted values are `False` and `True`. Default: `False`. | 
+| `EnableMiscue` | Enables miscue calculation when the pronounced words are compared to the reference text. If this value is `True`, the `ErrorType` result value can be set to `Omission` or `Insertion` based on the comparison. Accepted values are `False` and `True`. Default: `False`. |
+| `ScenarioId` | A GUID indicating a customized point system. |
 
 You must create a `PronunciationAssessmentConfig` object with the reference text, grading system, and granularity. Enabling miscue and other configuration settings are optional. 
 
@@ -505,7 +506,6 @@ Pronunciation assessment results for the spoken word "hello" are shown as a JSON
 	"Offset": 7500000,
 	"Duration": 13800000,
 	"DisplayText": "Hello.",
-	"SNR": 34.879055,
 	"NBest": [
 		{
 			"Confidence": 0.975003,

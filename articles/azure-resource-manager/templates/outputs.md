@@ -2,7 +2,7 @@
 title: Outputs in templates
 description: Describes how to define output values in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
-ms.date: 01/19/2022
+ms.date: 09/16/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -144,6 +144,10 @@ az deployment group show \
 ```
 
 ---
+
+## Object sorting in outputs
+
+[!INCLUDE [JSON object ordering](../../../includes/resource-manager-object-ordering-arm-template.md)]
 
 ## Next steps
 

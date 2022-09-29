@@ -28,7 +28,11 @@
   - name: Build and monitor Zero Trust
     href: /security/zero-trust/integrate/sentinel-solution?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Integrate with Microsoft Defender for IoT
-    href: iot-solution.md
+    items: 
+    - name: Connect Defender for IoT data with Microsoft Sentinel
+      href: iot-solution.md
+    - name: Investigate Defender for IoT incidents with Microsoft Sentinel
+      href: iot-advanced-threat-monitoring.md
   - name: Integrate with Microsoft Purview
     href: purview-solution.md
 - name: Concepts
@@ -240,6 +244,8 @@
         href: ama-migrate.md
       - name: CEF over Syslog sources
         href: connect-common-event-format.md
+      - name: DNS via AMA
+        href: connect-dns-ama.md
       - name: Syslog (raw) sources
         href: connect-syslog.md
       - name: Microsoft Sentinel Data Collector API
@@ -368,6 +374,10 @@
       href: investigate-cases.md
     - name: Relate alerts to incidents
       href: relate-alerts-to-incidents.md
+    - name: Create incidents manually
+      href: create-incident-manually.md
+    - name: Delete incidents
+      href: delete-incident.md
     - name: Search large datasets
       href: search-jobs.md
     - name: Restore historical data
@@ -380,6 +390,8 @@
     items:
     - name: Create automation rules
       href: create-manage-use-automation-rules.md
+    - name: Add advanced conditions to automation rules
+      href: add-advanced-conditions-to-automation-rules.md
     - name: Authenticate playbooks to Microsoft Sentinel
       href: authenticate-playbooks-to-sentinel.md
     - name: Use triggers and actions in playbooks
@@ -514,6 +526,8 @@
       href: cef-name-mapping.md
     - name: Windows security event sets
       href: windows-security-event-id-reference.md
+    - name: DNS over AMA reference
+      href: dns-ama-fields.md
   - name: Detection and analysis references
     items:
     - name: Top Microsoft Sentinel workbooks
@@ -559,8 +573,8 @@
     - name: Microsoft Sentinel skill-up training  
       href: skill-up-resources.md
     - name: Learn modules for Microsoft Sentinel
-      href: /learn/browse/?expanded=azure&products=azure-sentinel
+      href: /training/browse/?expanded=azure&products=azure-sentinel
     - name: Learn modules for Kusto Query Language (KQL)
-      href: /learn/browse/?expanded=azure&terms=kusto%20query%20language
+      href: /training/browse/?expanded=azure&terms=kusto%20query%20language
   - name: Archived what's new (older than six months)
     href: whats-new-archive.md

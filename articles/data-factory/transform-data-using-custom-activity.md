@@ -8,7 +8,7 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell, synapse
-ms.date: 09/09/2021
+ms.date: 09/22/2022
 ---
 
 # Use custom activities in an Azure Data Factory or Azure Synapse Analytics pipeline

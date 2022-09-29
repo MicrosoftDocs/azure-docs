@@ -326,9 +326,9 @@
   - name: Learning paths
     items:  
     - name: 'Extend IoT solutions by using Azure Digital Twins'
-      href: /learn/paths/extend-iot-solutions-by-using-azure-digital-twins/
+      href: /training/paths/extend-iot-solutions-by-using-azure-digital-twins/
     - name: 'Set up a mixed reality project for Azure Digital Twins in Unity'
-      href: /learn/modules/set-up-mixed-reality-azure-digital-twins-unity/
+      href: /training/modules/set-up-mixed-reality-azure-digital-twins-unity/
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc
   - name: Azure tools
