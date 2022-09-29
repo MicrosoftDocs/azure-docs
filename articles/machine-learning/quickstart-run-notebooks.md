@@ -44,7 +44,7 @@ Create a new notebook in studio.
 
 1. On the upper right of each notebook cell is a toolbar of actions you can use for that cell.  Select the **Convert to markdown cell** tool to change the cell to markdown.
 
-    :::image type="content" source="media/quickstart-run-notebooks/convert-to-markdown.png" alt-text="Screenshot: Convert to markdown":::
+    :::image type="content" source="media/quickstart-run-notebooks/convert-to-markdown.png" alt-text="Screenshot: Convert to markdown.":::
 
 1. Double-click on the cell to open it.
 1. Inside the cell, type:
