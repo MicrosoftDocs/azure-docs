@@ -17,7 +17,7 @@ ms.custom: references_regions
 
 The Speech service allows you to [convert text into synthesized speech](#convert-text-to-speech) and [get a list of supported voices](#get-a-list-of-voices) for a region by using a REST API. In this article, you'll learn about authorization options, query options, how to structure a request, and how to interpret a response.
 
-The text-to-speech REST API supports neural text-to-speech voices, which support specific languages and dialects that are identified by locale. Each available endpoint is associated with a region. A subscription key for the endpoint or region that you plan to use is required. Here are links to more information:
+The text-to-speech REST API supports neural text-to-speech voices, which support specific languages and dialects that are identified by locale. Each available endpoint is associated with a region. A Speech resource key for the endpoint or region that you plan to use is required. Here are links to more information:
 
 - For a complete list of voices, see [Language and voice support for the Speech service](language-support.md?tabs=stt-tts).
 - For information about regional availability, see [Speech service supported regions](regions.md#speech-service).
@@ -77,7 +77,7 @@ This table lists required and optional headers for text-to-speech requests:
 
 | Header | Description | Required or optional |
 |--------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | Your subscription key for the Speech service. | Either this header or `Authorization` is required. |
+| `Ocp-Apim-Subscription-Key` | Your Speech resource key. | Either this header or `Authorization` is required. |
 | `Authorization` | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Either this header or `Ocp-Apim-Subscription-Key` is required. |
 
 ### Request body
@@ -92,7 +92,7 @@ This request requires only an authorization header:
 GET /cognitiveservices/voices/list HTTP/1.1
 
 Host: westus.tts.speech.microsoft.com
-Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
+Ocp-Apim-Subscription-Key: YOUR_RESOURCE_KEY
 ```
 
 ### Sample response
@@ -204,8 +204,8 @@ The HTTP status code for each response indicates success or common errors.
 |------------------|-------------|-----------------|
 | 200 | OK | The request was successful. |
 | 400 | Bad request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common reason is a header that's too long. |
-| 401 | Unauthorized | The request is not authorized. Make sure your subscription key or token is valid and in the correct region. |
-| 429 | Too many requests | You have exceeded the quota or rate of requests allowed for your subscription. |
+| 401 | Unauthorized | The request is not authorized. Make sure your resource key or token is valid and in the correct region. |
+| 429 | Too many requests | You have exceeded the quota or rate of requests allowed for your resource. |
 | 502 | Bad gateway    | There's a network or server-side problem. This status might also indicate invalid headers. |
 
 
@@ -215,7 +215,7 @@ The `v1` endpoint allows you to convert text to speech by using [Speech Synthesi
 
 ### Regions and endpoints
 
-These regions are supported for text-to-speech through the REST API. Be sure to select the endpoint that matches your subscription region.
+These regions are supported for text-to-speech through the REST API. Be sure to select the endpoint that matches your Speech resource region.
 
 [!INCLUDE [](includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
@@ -263,16 +263,16 @@ The HTTP status code for each response indicates success or common errors:
 |------------------|-------------|-----------------|
 | 200 | OK | The request was successful. The response body is an audio file. |
 | 400 | Bad request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common reason is a header that's too long. |
-| 401 | Unauthorized | The request is not authorized. Make sure your subscription key or token is valid and in the correct region. |
+| 401 | Unauthorized | The request is not authorized. Make sure your Speech resource key or token is valid and in the correct region. |
 | 415 | Unsupported media type | It's possible that the wrong `Content-Type` value was provided. `Content-Type` should be set to `application/ssml+xml`. |
-| 429 | Too many requests | You have exceeded the quota or rate of requests allowed for your subscription. |
+| 429 | Too many requests | You have exceeded the quota or rate of requests allowed for your resource. |
 | 502 | Bad gateway    | There's a network or server-side problem. This status might also indicate invalid headers. |
 
 If the HTTP status is `200 OK`, the body of the response contains an audio file in the requested format. This file can be played as it's transferred, saved to a buffer, or saved to a file.
 
 ## Audio outputs
 
-The supported streaming and non-streaming audio formats are sent in each request as the `X-Microsoft-OutputFormat` header. Each format incorporates a bit rate and encoding type. The Speech service supports 48-kHz, 24-kHz, 16-kHz, and 8-kHz audio outputs. Prebuilt neural voices are created from samples that use a 24-khz sample rate. All voices can upsample or downsample to other sample rates when synthesizing.
+The supported streaming and non-streaming audio formats are sent in each request as the `X-Microsoft-OutputFormat` header. Each format incorporates a bit rate and encoding type. The Speech service supports 48-kHz, 24-kHz, 16-kHz, and 8-kHz audio outputs. Each prebuilt neural voice model is available at 24kHz and high-fidelity 48kHz. 
 
 #### [Streaming](#tab/streaming)
 
@@ -322,9 +322,8 @@ riff-48khz-16bit-mono-pcm
 ***
 
 > [!NOTE]
-> en-US-AriaNeural, en-US-JennyNeural and zh-CN-XiaoxiaoNeural are available in public preview in 48Khz output. Other voices support 24khz upsampled to 48khz output.
-
-> [!NOTE]
+> If you select 48kHz output format, the high-fidelity voice model with 48kHz will be invoked accordingly. The sample rates other than 24kHz and 48kHz can be obtained through upsampling or downsampling when synthesizing, for example, 44.1kHz is downsampled from 48kHz.
+>
 > If your selected voice and output format have different bit rates, the audio is resampled as necessary. You can decode the `ogg-24khz-16bit-mono-opus` format by using the [Opus codec](https://opus-codec.org/downloads/).
 
 ## Next steps

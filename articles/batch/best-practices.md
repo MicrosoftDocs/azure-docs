@@ -46,7 +46,7 @@ Batch node agents are not automatically upgraded for pools that have non-zero co
 
 Before you recreate or resize your pool, you should download any node agent logs for debugging purposes if you are experiencing issues with your Batch pool or compute nodes, as discussed in the [Nodes](#nodes) section.
 
-[!NOTE]
+> [!NOTE]
 > For general guidance about security in Azure Batch, see [Batch security and compliance best practices](security-best-practices.md).
 
 ### Pool lifetime and billing

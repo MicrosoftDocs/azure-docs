@@ -4966,6 +4966,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/cognitive-services/Speech-Service/rest-speech-to-text-v3-1.md ",
+            "redirect_url": "/azure/cognitive-services/speech-service/migrate-v3-0-to-v3-1",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/cognitive-services/text-analytics/concepts/data-limits.md",
             "redirect_url": "/azure/cognitive-services/language-service/overview",
             "redirect_document_id": false

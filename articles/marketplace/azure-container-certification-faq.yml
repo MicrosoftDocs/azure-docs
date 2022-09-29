@@ -25,9 +25,11 @@ sections:
           Vulnerability failure
         answer: |
           A vulnerability is an exploitable risk and/or an unsecured entry points that can be used by malicious actors for nefarious actions.       
-          If you're planning to publish container products, you should scan your product for vulnerability and fix them before publishing the container product. 
+          If you're planning to publish container products, we strongly recommend you to scan your product for vulnerability and fix them before publishing the container product. 
           If your existing container products have vulnerabilities in them, you should deprecate/hide the affected offer and republish after fixing the vulnerabilities.   
-
+          
+          You may use **Microsoft Defender** to scan your product by copying images to your ACR or use other scanners such as **Aqua Security, Qualys Container Security, Clair, TwistLock**. 
+          
       - question: |
           Malware failure
         answer: |

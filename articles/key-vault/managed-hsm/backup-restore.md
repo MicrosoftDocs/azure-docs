@@ -66,7 +66,7 @@ az keyvault backup start --hsm-name mhsmdemo2 --storage-account-name mhsmdemobac
 Full restore allows you to completely restore the contents of the HSM with a previous backup, including all keys, versions, attributes, tags, and role assignments. Everything currently stored in the HSM will be wiped out, and it will return to the same state it was in when the source backup was created.
 
 > [!IMPORTANT]
-> Full restore is a very destructive and disruptive operation. Therefore it is mandatory to have completed a full backup within last 30 minutes before a `restore` operation can be performed.
+> Full restore is a very destructive and disruptive operation. Therefore it is mandatory to have completed a full backup at least 30 minutes prior to a `restore` operation can be performed.
 
 Restore is a data plane operation. The caller starting the restore operation must have permission to perform dataAction **Microsoft.KeyVault/managedHsm/restore/start/action**. The source HSM where the backup was created and the destination HSM where the restore will be performed **must** have the same Security Domain. See more [about Managed HSM Security Domain](security-domain.md).
 

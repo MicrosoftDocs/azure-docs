@@ -27,7 +27,7 @@ keywords: document processing
 
 In this article, you'll use the Form Recognizer REST API with the Sample Labeling tool to train a custom model with manually labeled data.
 
-> [!VIDEO https://docs.microsoft.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
+> [!VIDEO https://learn.microsoft.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
 ## Prerequisites
 

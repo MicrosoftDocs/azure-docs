@@ -339,7 +339,7 @@ You can also run a published pipeline from the studio:
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
-1. [View your workspace](../how-to-manage-workspace.md#view).
+1. [View your workspace](../how-to-manage-workspace.md#find-a-workspace).
 
 1. On the left, select **Endpoints**.
 
