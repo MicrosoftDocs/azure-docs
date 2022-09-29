@@ -696,27 +696,27 @@ items:
     items:
     - name: APIs for data access
       items:
-      - name: REST API reference for Blob Storage
+      - name: REST API
         href: /rest/api/storageservices/blob-service-rest-api
-      - name: .NET SDK for Blob Storage
+      - name: .NET SDK
         href: /dotnet/api/overview/azure/storage
-      - name: Java SDK for Blob Storage
+      - name: Java SDK
         href: /java/api/overview/azure/storage
-      - name: Python SDK for Blob Storage
+      - name: Python SDK
         href: /python/api/overview/azure/storage
-      - name: JavaScript SDK for Blob Storage
+      - name: JavaScript SDK
         href: /javascript/api/overview/azure/storage
     - name: APIs for resource management
       items:
-      - name: REST API reference for Storage Resource Provider
+      - name: REST API
         href: /rest/api/storagerp/
-      - name: .NET SDK for Storage Resource Provider 
+      - name: .NET SDK
         href: /dotnet/api/overview/azure/storage/management
-      - name: Java SDK for Storage Resource Provider 
+      - name: Java SDK
         href: /java/api/overview/azure/storage/management
-      - name: Python SDK for Storage Resource Provider 
+      - name: Python SDK
         href: /python/api/overview/azure/storage/management
-      - name: JavaScript SDK for Storage Resource Provider 
+      - name: JavaScript SDK
         href: /javascript/api/overview/azure/storage/management
     - name: Spring Cloud Azure
       href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/storage/blobs/toc.json#resource-handing
