@@ -4,7 +4,7 @@ description: Learn how to configure replication to another region for Azure VMs,
 author: v-pgaddala
 manager: rochakm
 ms.topic: how-to
-ms.date: 04/29/2018
+ms.date: 09/29/2022
 
 ---
 
@@ -126,7 +126,6 @@ To enable replication for an added disk, do the following:
 After the enable replication job runs, and the initial replication finishes, the replication health warning for the disk issue is removed.
 
 >[!NOTE]
->
 > - During initial replication the status might take some time to refresh, without progress. Click the **Refresh** button, to get the latest status.
 > - If a recovery point has not been generated in last 60 minutes, the replication health of the virtual machine will become critical.
 
