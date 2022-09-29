@@ -202,11 +202,11 @@ curl -X GET https://<your-language-resource-endpoint>/language/analyze-text/jobs
 }
 ```
 
-## Issue/resolution Conversation summarization
+## Issue resolution Conversation summarization
 
 [!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
 
-The following example will get you started with issue/resolution conversation summarization:
+The following example will get you started with issue resolution conversation summarization:
 
 1. Copy the command below into a text editor. The BASH example uses the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character instead.
 
@@ -311,7 +311,7 @@ curl -X GET    https://<your-language-resource-endpoint>/language/analyze-conver
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Conversation-summarization" target="_target">I ran into an issue</a>
 
-### Issue/resolution conversation summarization example JSON response
+### Issue resolution conversation summarization example JSON response
 
 ```json
 {
