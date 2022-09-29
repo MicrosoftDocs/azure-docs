@@ -838,7 +838,7 @@ sections:
         answer: |
           The OpenTelemetry community uses [stable or experimental](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/versioning-and-stability.md) to signal the maturity of a piece of software. Separately, Azure Monitor uses "Public Preview" and "GA" to signal stability and support commitment.
           
-         If your application is written in Java, we recommend our [OpenTelemetry-based offering](./app/java-in-process-agent.md) for everyone which [GA'd in November 2020](https://azure.microsoft.com/updates/java-agent-application-insights-ga/).
+          If your application is written in Java, we recommend our [OpenTelemetry-based offering](./app/java-in-process-agent.md) for everyone which [GA'd in November 2020](https://azure.microsoft.com/updates/java-agent-application-insights-ga/).
           
           If your application is written in C#, JavaScript (Node.js), or Python, the current Application Insights SDKs for C# ([ASP.NET](app/asp-net.md) and [ASP.NET Core](app/asp-net-core.md)) and [JavaScript (Node.js)](app/nodejs.md) or [OpenCensus Python](app/opencensus-python.md) still offer the most feature-rich experience in Application Insights. To understand the feature gaps, review the [limitations of the preview release](app/opentelemetry-enable.md#limitations-of-the-preview-release).
           
