@@ -76,15 +76,15 @@ The following sections walk through the prerequisites for each supported Azure S
 
 ### [Azure SQL Managed Instance](#tab/azure-sql-mi)
 
-[!INCLUDE [dms-ads-sqlmi-prereq](/azure/includes/dms-ads-sqlmi-prereq]
+[!INCLUDE [dms-ads-sqlmi-prereq](/azure/includes/dms-ads-sqlmi-prereq)]
 
 ### [SQL Server on Azure Virtual Machine](#tab/azure-sql-vm)
 
-[!INCLUDE [dms-ads-sqlvm-prereq](/azure/includes/dms-ads-sqlvm-prereq]
+[!INCLUDE [dms-ads-sqlvm-prereq](/azure/includes/dms-ads-sqlvm-prereq)]
 
 ### [Azure SQL Database (Preview)](#tab/azure-sql-db)
 
-[!INCLUDE [dms-ads-sqldb-prereq](/azure/includes/dms-ads-sqldb-prereq]
+[!INCLUDE [dms-ads-sqldb-prereq](/azure/includes/dms-ads-sqldb-prereq)]
 
 ---
 
