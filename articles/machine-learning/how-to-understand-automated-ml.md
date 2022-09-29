@@ -50,8 +50,6 @@ The following steps and video, show you how to view the run history and model ev
 1. In the **Models** tab, select the **Algorithm name** for the model you want to evaluate.
 1. In the **Metrics** tab, use the checkboxes on the left to view metrics and charts.
 
-![Steps to view metrics in studio](./media/how-to-understand-automated-ml/how-to-studio-metrics.gif)
-
 ## Classification metrics
 
 Automated ML calculates performance metrics for each classification model generated for your experiment. These metrics are based on the scikit learn implementation. 
