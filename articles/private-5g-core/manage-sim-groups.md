@@ -46,7 +46,7 @@ To create a new SIM group:
    - Set **Region** to **East US**.
    - Select your private mobile network from the **Mobile network** drop-down menu.
 
-    :::image type="content" source="media/manage-sim-groups/create-sim-group-basics-tab.png" alt-text="Screenshot of the Azure portal showing the Basics configuration tab.":::
+        :::image type="content" source="media/manage-sim-groups/create-sim-group-basics-tab.png" alt-text="Screenshot of the Azure portal showing the Basics configuration tab.":::
 
 1. Select **Next: Encryption**.
 1. On the **Encryption** configuration tab, select your chosen encryption type next to **Encryption Type**. By default, Microsoft-managed keys (MMK) is selected. Once created, you cannot change the encryption type of a SIM group.
@@ -57,12 +57,12 @@ To create a new SIM group:
 
 1. Select **Next: SIMs**.
 1. On the **SIMs** configuration tab, select your chosen input method by selecting the appropriate option next to **How would you like to input the SIMs information?**. You can then input the information you collected for your SIMs.
- 
+
     - If you decided that you don't want to provision any SIMs at this point, select **Add SIMs later**.
     - If you select **Add manually**, a new set of fields will appear under **Enter SIM profile configurations**. Fill out the first row of these fields with the correct settings for the first SIM you want to provision. If you've got more SIMs you want to provision, add the settings for each of these SIMs to a new row.
     - If you select **Upload JSON file**, the **Upload SIM profile configurations** field will appear. Use this field to upload your chosen JSON file.
 
-    :::image type="content" source="media/manage-sim-groups/create-sim-group-sims-tab.png" alt-text="Screenshot of the Azure portal showing the SIMs configuration tab.":::
+        :::image type="content" source="media/manage-sim-groups/create-sim-group-sims-tab.png" alt-text="Screenshot of the Azure portal showing the SIMs configuration tab.":::
 
 1. Select **Review + create**.
 1. Azure will now validate the configuration values you've entered. You should see a message indicating that your values have passed validation. 
