@@ -43,7 +43,7 @@ Using a configuration file is the preferred method, but the other methods can be
 
 ## Configuration file
 
-Creating a configuration file is the preferred method of establishing settings for BlobFuse2. Once you have provided the desired settings in the file, reference the configuration file when using the `blobfuse2 mount` or other commands. Example:
+Creating a configuration file is the preferred method of establishing settings for BlobFuse2. Once you have specified the desired settings in the file, reference the configuration file when using the `blobfuse2 mount` or other commands. Example:
 
 ````bash
 blobfuse2 mount ./mount --config-file=./config.yaml

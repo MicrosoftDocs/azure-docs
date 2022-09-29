@@ -120,11 +120,11 @@ However, there are some key differences in the way BlobFuse2 behaves:
 
 - **Write-streaming**:
 
-  Concurrent read- and write-streaming of large file data can produce unpredictable results.
+  Concurrent read- and write-streaming of large file data can produce unpredictable results. Simultaneously writing to the same blob from different threads is not supported.
 
 ### Data integrity
 
-The file caching behavior plays an important role in the integrity of the data being read and written to for a Blob Storage file system mount. Streaming mode is recommended for use with large files, which supports both read- and write-streaming. BlobFuse2 caches blocks of streaming files in memory. For smaller files, the entire file is cached to a local disk.
+The file caching behavior plays an important role in the integrity of the data being read and written to a Blob Storage file system mount. Streaming mode is recommended for use with large files, which supports both read- and write-streaming. BlobFuse2 caches blocks of streaming files in memory. For smaller files, the entire file is cached to a local disk.
 
 BlobFuse2 supports both read and write operations. Continuous synchronization of data written to storage by using other APIs or other mounts of BlobFuse2 isn't guaranteed. For data integrity, it's recommended that multiple sources don't modify the same blob, especially at the same time. If one or more applications attempt to write to the same file simultaneously, the results could be unexpected. Depending on the timing of multiple write operations and the freshness of the cache for each, the result could be that the last writer wins and previous writes are lost, or generally that the updated file isn't in the desired state.
 
