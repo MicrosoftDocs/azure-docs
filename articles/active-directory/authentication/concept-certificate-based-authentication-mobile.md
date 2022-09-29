@@ -29,7 +29,7 @@ Azure AD CBA is supported for certificates on-device on native browsers as well 
 
 - Android version must be Android 5.0 (Lollipop) or later.
 - iOS version must be iOS 9 or later.
-- Microsoft Authenticator is required for Office applications on iOS.
+- Microsoft Authenticator is required for Office applications and Outlook on iOS.
 
 ## Microsoft mobile applications support
 
