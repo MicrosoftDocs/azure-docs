@@ -12,7 +12,7 @@ The console output shows the full conversation and summary. Here's an example of
 ```output
 Conversation summary:
     issue: Customer wants to sign up for insurance.
-    resolution: Customer was advised that customer would be contacted by the agent to confirm their application.
+    resolution: Customer was advised that customer would be contacted by the insurance company.
 ```
 
 If you specify the `--output FILE` optional [argument](/azure/cognitive-services/speech-service/call-center-quickstart#usage-and-arguments), a JSON version of the results are written to the file. The file output is a combination of the JSON responses from the [batch transcription](/azure/cognitive-services/speech-service/batch-transcription) (Speech), [sentiment](/azure/cognitive-services/language-service/sentiment-opinion-mining/overview) (Language), and [conversation summarization](/azure/cognitive-services/language-service/summarization/overview?tabs=conversation-summarization) (Language) APIs. 
@@ -55,7 +55,7 @@ The `conversationAnalyticsResults` property contains a JSON object with the resu
             },
             {
               "aspect": "resolution",
-              "text": "Customer was advised that customer would be contacted by the agent to confirm their application"
+              "text": "Customer was advised that customer would be contacted by the insurance company"
             }
           ],
           "warnings": []
