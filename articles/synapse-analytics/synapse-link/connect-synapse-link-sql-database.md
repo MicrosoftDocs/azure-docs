@@ -21,7 +21,7 @@ This article provides a step-by-step guide for getting started with Azure Synaps
 
 ## Prerequisites
 
-* [Create a new Synapse workspace](https://portal.azure.com/#create/Microsoft.Synapse) to get Azure Synapse Link for SQL. Make sure to check "Disable Managed virtual network" and "Allow connections from all IP address" when creating Synapse workspace.
+* [Create a new Synapse workspace](https://portal.azure.com/#create/Microsoft.Synapse) to get Azure Synapse Link for SQL. The current tutorial is to create Synapse link for SQL in public network. The assumption is that you have checked "Disable Managed virtual network" and "Allow connections from all IP address" when creating Synapse workspace. If you want to configure Synapse link for Azure SQL Database with network security, please also refer to [this](connect-synapse-link-sql-database-vnet.md).
 
 * For DTU-based provisioning, make sure your Azure SQL Database service is at least Standard tier with a minimum of 100 DTUs. Free, Basic, or Standard tiers with fewer than 100 DTUs provisioned are not supported.
 
