@@ -362,6 +362,8 @@
           href: ../reserved-capacity.md
         - name: Optimize using rate limiting
           href: ../rate-limiting-requests.md
+    - name: Jupyter notebooks
+      href: ../jupyter-notebooks.md
 - name: How to
   items:
     - name: Access preview features

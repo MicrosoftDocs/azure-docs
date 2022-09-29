@@ -233,6 +233,8 @@
           href: ../compliance.md
         - name: Data residency
           href: ../data-residency.md
+    - name: Jupyter notebooks
+      href: ../jupyter-notebooks.md
 - name: How to
   items:
     - name: Develop applications

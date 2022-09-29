@@ -762,32 +762,32 @@
     },
     {
       "source_path_from_root": "/articles/cosmos-db/gremlin/create-graph-console.md",
-      "redirect_url": "/azure/cosmos-db/gremlin/quickstart-console.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/quickstart-console",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cosmos-db/gremlin/create-graph-dotnet.md",
-      "redirect_url": "/azure/cosmos-db/gremlin/quickstart-dotnet.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/quickstart-dotnet",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cosmos-db/gremlin/create-graph-java.md",
-      "redirect_url": "/azure/cosmos-db/gremlin/quickstart-java.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/quickstart-java",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cosmos-db/gremlin/create-graph-nodejs.md",
-      "redirect_url": "/azure/cosmos-db/gremlin/quickstart-nodejs.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/quickstart-nodejs",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cosmos-db/gremlin/create-graph-php.md",
-      "redirect_url": "/azure/cosmos-db/gremlin/quickstart-php.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/quickstart-php",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cosmos-db/gremlin/create-graph-python.md",
-      "redirect_url": "/azure/cosmos-db/gremlin/quickstart-python.md",
+      "redirect_url": "/azure/cosmos-db/gremlin/quickstart-python",
       "redirect_document_id": false
     },
     {
