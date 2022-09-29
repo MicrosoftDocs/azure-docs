@@ -32,7 +32,9 @@ No auth is not supported for managed online endpoint. If you use the migration s
 For key auth, the original keys will be used. Token-based auth is also supported.
 
 ### TLS
-For ACI service secured with HTTPS, you don't need to provide your own certificates anymore, all the managed online endpoints are protected by TLS. Custom DNS name is not supported also.
+For ACI service secured with HTTPS, you don't need to provide your own certificates anymore, all the managed online endpoints are protected by TLS.
+
+Custom DNS name **isn't** supported.
 
 ### Resource Requirements
 [ContainerResourceRequirements](/python/api/azureml-core/azureml.core.webservice.aci.containerresourcerequirements) is not supported, you can choose the proper [SKU](reference-managed-online-endpoints-vm-sku-list.md) for your inferencing.
