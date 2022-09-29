@@ -26,7 +26,7 @@ Supported in General Availability, to set up inbound calling for Dynamics 365 OC
 
 **Inbound calling with ACS Call Automation SDK**
 
-Available in [private preview](../voice-video-calling/call-automation.md)
+[Available in private preview](../voice-video-calling/call-automation.md)
 
 **Inbound calling with Azure Bot Framework**
 
