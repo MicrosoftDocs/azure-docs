@@ -2,11 +2,11 @@
 title: Manage network slices - Azure portal
 titleSuffix: Azure Private 5G Core Preview
 description: With this how-to guide, learn how to manage network slices for Azure Private 5G Core Preview through the Azure portal.  
-author: djrmetaswitch
-ms.author: drichards
+author: b-branco
+ms.author: biancabranco
 ms.service: private-5g-core
 ms.topic: how-to 
-ms.date: 09/14/2022
+ms.date: 09/29/2022
 ms.custom: template-how-to
 ---
 
