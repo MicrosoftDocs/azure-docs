@@ -48,13 +48,17 @@ sections:
       - question: How can I identify the VMs and scale sets in my subscription that are running on images that are scheduled for deprecation?
         answer: |
           You can search for the scheduled or deprecated image in your subscription (your subscription ID and name is provided at the bottom of the email notification you received) in the following ways:
+          
+          
           If you are notified that an image is deprecated on only the Offer or plan (SKU) level, you can search for all virtual machines from the top search bar on the Azure Portal and edit the columns as seen below to include Publisher, Offer, Plan  as below. This will not give the version information, only up to the Plan information.
            
                         
           If you are notified that an image is deprecated on the offer, plan (SKU) or version level, you can use Azure Resource Graph Explorer on the Azure portal to find the specific version for images in your subscription that your VM or scale set is running on.
           
+
           Run the queries below in the Azure Resource Graph explorer query window and uncomment the optional filters (delete the “//” to uncomment a line) to the Offer, Plan (SKU) or version level you are looking for.
           
+
           To find the details of the image versions that are being used by VMs: 
           
           ```
@@ -79,44 +83,45 @@ sections:
           |project name, subscriptionId, resourceGroup, ImagePublisher=properties.virtualMachineProfile.storageProfile.imageReference.publisher,ImageOffer=properties.virtualMachineProfile.storageProfile.imageReference.offer,imageSku=properties.virtualMachineProfile.storageProfile.imageReference.sku, imageVersion=properties.virtualMachineProfile.storageProfile.imageReference.version
           ```
           
-           
           
           
-          PowerShell:
-          
-          List VM with deprecated images at version level. To find VMs using a deprecated Version (Replace highlighted value with version you are looking for):
-          
-          ```
-          (Get-AzVM -ResourceGroupName $rgname -Name $vmname).StorageProfile.ImageReference.ExactVersion   
-          ```
-          
-          To find scale set using a deprecated Version (Replace highlighted value with version you are looking for):
-          
-          ```
-          $vmsslist = Get-AzVmss
-          $vmsslist | where {$_.virtualMachineProfile.storageProfile.imageReference.Version -eq '14393.4402.2105052108'} | Select-Object -Property ResourceGroupName, Name, @{label='imageOffer'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Offer}}, @{label='imagePublisher'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Publisher}}, @{label='imageSKU'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Sku}}, @{label='imageVersion'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Version}}
-          ```
-          
-          List scale sets with deprecated images at plan/SKU level
-          To find scale sets using a deprecated SKU (Replace highlighted value with SKU you are looking for):
-          
-          ```
-          $vmsslist = Get-AzVmss
-          $vmsslist | where {$_.virtualMachineProfile.storageProfile.imageReference.Sku -eq '2016-Datacenter'} | Select-Object -Property ResourceGroupName, Name, @{label='imageOffer'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Offer}}, @{label='imagePublisher'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Publisher}}, @{label='imageSKU'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Sku}}, @{label='imageVersion'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Version}}
-          ```
-          
-          Using Azure CLI:
-          List VM with deprecated image at Plan/SKU level
+          **Using Azure CLI:**
+
+
+          List VM with deprecated image at Plan/SKU level.
           
           ```
           az vm show --resource-group $rgName --name $vmName --query "storageProfile.imageReference.exactVersion
           az vm list --query "[?storageProfile.imageReference.sku=='2016-Datacenter'].{VM:id, imageOffer:storageProfile.imageReference.offer, imagePublisher:StorageProfile.imageReference.publisher, imageSku: storageProfile.imageReference.sku, imageVersion:storageProfile.imageReference.version}"
           ```
           
-          List VM with deprecated image at version level
+          List VM with deprecated image at version level.
           
           ```
           az vm list --query "[?storageProfile.imageReference.version=='14393.4402.2105052108'].{VM:id, imageOffer:storageProfile.imageReference.offer, imagePublisher:StorageProfile.imageReference.publisher, imageSku: storageProfile.imageReference.sku, imageVersion:storageProfile.imageReference.version}"
+          ```
+          
+          
+          **Using PowerShell:**
+          
+          List VM with deprecated images at version level. 
+          
+          ```
+          (Get-AzVM -ResourceGroupName $rgname -Name $vmname).StorageProfile.ImageReference.ExactVersion   
+          ```
+          
+          To find scale set using a deprecated version.
+          
+          ```
+          $vmsslist = Get-AzVmss
+          $vmsslist | where {$_.virtualMachineProfile.storageProfile.imageReference.Version -eq '14393.4402.2105052108'} | Select-Object -Property ResourceGroupName, Name, @{label='imageOffer'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Offer}}, @{label='imagePublisher'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Publisher}}, @{label='imageSKU'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Sku}}, @{label='imageVersion'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Version}}
+          ```
+          
+          List scale sets with deprecated images at plan/SKU level.
+          
+          ```
+          $vmsslist = Get-AzVmss
+          $vmsslist | where {$_.virtualMachineProfile.storageProfile.imageReference.Sku -eq '2016-Datacenter'} | Select-Object -Property ResourceGroupName, Name, @{label='imageOffer'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Offer}}, @{label='imagePublisher'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Publisher}}, @{label='imageSKU'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Sku}}, @{label='imageVersion'; expression={$_.virtualMachineProfile.storageProfile.imageReference.Version}}
           ```
           
           When an image is deprecated, there is no impact on existing VMs and no action is required. You can choose to migrate your workloads to a new image if you have a specific concern.
@@ -130,52 +135,57 @@ sections:
           We recommend that you create custom images from free Marketplace images (images that do not have Plan Info) that are scheduled for deprecation or already deprecated. For Paid Marketplace images, we suggest you create custom images from the latest version of the image. Workloads running on custom images created from a deprecated paid image will no longer work after the paid image is deprecated.
           
           **You want to migrate to another offer/plan/version:**
-          First search for other offers, plans or versions from the same publisher with the following commands (Replace all highlighted values as needed):
+
+
+          First, search for other offers, plans, or versions from the same publisher.
           
-              **To migrate to another offer:**
+          **To migrate to another offer:**
+
+            Using the Azure CLI:
           
-              PowerShell:
+            ```
+            az vm image list --location "west europe" --publisher "MicrosoftWindowsServer" 
+            ```
+
           
-              ```
-              Get-AzVMImage -Location "west europe" -PublisherName “MicrosoftWindowsServer” 
-              ```
+            Using PowerShell:
           
-              Azure CLI:
+            ```
+            Get-AzVMImage -Location "west europe" -PublisherName “MicrosoftWindowsServer” 
+            ```
           
-              ```
-              az vm image list --location "west europe" --publisher "MicrosoftWindowsServer" 
-              ```
           
-              **To migrate to another Plan:** 
-              Search for other plans under the same offer and then migrate to that plan.
+          **To migrate to another Plan:** 
+            
+            Search for other plans under the same offer and then migrate to that plan.
           
-              PowerShell:
+            PowerShell:
           
-              ```
-              Get-AzVMImage -Location "west europe" -PublisherName “MicrosoftWindowsServer” -Offer “WindowsServer”
-              ``` 
+            ```
+            Get-AzVMImage -Location "west europe" -PublisherName “MicrosoftWindowsServer” -Offer “WindowsServer”
+            ``` 
           
-              Azure CLI:
+            Azure CLI:
           
-              ```
-              az vm image list --location "west europe" --publisher "MicrosoftWindowsServer" --offer "WindowsServer" 
-              ```
+            ```
+            az vm image list --location "west europe" --publisher "MicrosoftWindowsServer" --offer "WindowsServer" 
+            ```
           
-              **To migrate to another version:** 
+          **To migrate to another version:** 
               
-              Search for another version (we suggest migrating to the latest version)  
+            Search for another version. We suggest migrating to the latest version.  
           
-              PowerShell:
+            PowerShell:
           
-              ```
-              Get-AzVMImage -Location "west europe" -PublisherName “MicrosoftWindowsServer” -Offer “WindowsServer” -Skus "2019-Datacenter-with-Containers"
-              ```
+            ```
+            Get-AzVMImage -Location "west europe" -PublisherName “MicrosoftWindowsServer” -Offer “WindowsServer” -Skus "2019-Datacenter-with-Containers"
+            ```
           
-              Azure CLI:
+            Azure CLI:
           
-              ```
-              az vm image list --location "west europe" --publisher "MicrosoftWindowsServer" --offer "WindowsServer" --sku "2019-Datacenter-with-Containers" --all"
-              ```
+            ```
+            az vm image list --location "west europe" --publisher "MicrosoftWindowsServer" --offer "WindowsServer" --sku "2019-Datacenter-with-Containers" --all"
+            ```
           
         
           You need to verify that your workloads are supported and will run properly on the new image before migrating your workloads to the new image.
