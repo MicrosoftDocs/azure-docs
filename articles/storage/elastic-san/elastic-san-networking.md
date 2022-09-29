@@ -156,13 +156,6 @@ Currently, you must use either the Azure PowerShell module or Azure CLI to manag
     > [!TIP]
     > To add a network rule for a subnet in a virtual network belonging to another Azure AD tenant, use a fully-qualified **VirtualNetworkResourceId** parameter in the form "/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name".
 
-- Remove a network rule for a virtual network and subnet.
-
-    ```powershell
-    $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
-    Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
-    ```
-
 #### [Azure CLI](#tab/azure-cli)
 
 - Install the [Azure CLI](/cli/azure/install-azure-cli) and [sign in](/cli/azure/authenticate-azure-cli).
@@ -189,14 +182,6 @@ Currently, you must use either the Azure PowerShell module or Azure CLI to manag
     > To add a rule for a subnet in a virtual network belonging to another Azure AD tenant, use a fully-qualified subnet ID in the form "/subscriptions/\<subscription-ID\>/resourceGroups/\<resourceGroup-Name\>/providers/Microsoft.Network/virtualNetworks/\<vNet-name\>/subnets/\<subnet-name\>".
     >
     > You can use the **subscription** parameter to retrieve the subnet ID for a virtual network belonging to another Azure AD tenant.
-
-- Remove a network rule for a virtual network and subnet.
-
-    ```azurecli
-    subnetid=$(az network vnet subnet show --resource-group "myresourcegroup" --vnet-name "myvnet" --name "mysubnet" --query id --output tsv)
-    az storage account network-rule remove --resource-group "myresourcegroup" --account-name "mystorageaccount" --subnet $subnetid
-    ```
-
 ---
 
 ## Next steps
