@@ -26,11 +26,10 @@
       expanded: true
   - name: DDoS IP Protection
     items:
-    - name: Portal
-      href: manage-ddos-protection-ip.md
     - name: PowerShell
       href: manage-ddos-protection-powershell-ip.md
       expanded: true
+
 - name: Tutorials
   items:
   - name: View and configure DDoS telemetry

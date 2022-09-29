@@ -47,10 +47,7 @@ landingContent:
         links:
           - text: Create and configure Azure DDoS Network Protection using the Azure portal
             url: manage-ddos-protection.md
-          - text: Create and configure Azure DDoS IP Protection using the Azure portal
-            url: manage-ddos-protection-ip.md
-
-
+          
   # Card
   - title: Configure attack analytics
     linkLists:
