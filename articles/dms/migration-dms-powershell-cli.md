@@ -87,7 +87,7 @@ If your target is **Azure SQL Database (Preview)**, ensure that the login used t
 * If you're using the Azure Database Migration Service for the first time, ensure that Microsoft.DataMigration resource provider is registered in your subscription. You can follow the steps to [register the resource provider](./quickstart-create-data-migration-service-portal.md#register-the-resource-provider)
 
     > [!IMPORTANT]
-    > If your target is Azure SQL Database (Preview), you don't neet backups to perform this migration. The migration to Azure SQL Database is considered a logical migration which involves the pre-creation of the database and the data movement (peformed by DMS).
+    > If your migration target is Azure SQL Database (Preview), you don't need backups to perform this migration. The migration to Azure SQL Database is considered a logical migration involving the database's pre-creation and data movement (performed by DMS).
 
 ## Automate database migrations
 Using Azure PowerShell [Az.DataMigration](/powershell/module/az.datamigration) or Azure CLI [az datamigration](/cli/azure/datamigration), you can migrate databases by automating the creation of the Azure Database Migration Service, configuring database migrations for online migration, and performing a cutover. There are several more commands and functionality that are documented in [Azure Samples](https://github.com/Azure-Samples/data-migration-sql).
