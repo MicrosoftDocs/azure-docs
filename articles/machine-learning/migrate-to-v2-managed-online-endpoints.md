@@ -78,7 +78,15 @@ Use the following steps to run the scripts:
 2. Install [Python SDK V1](/python/api/overview/azure/ml/install) to run the python script.
 3. Install [Azure CLI](/cli/azure/install-azure-cli).
 4. Clone the repository to your local env. For example, `git clone https://github.com/Azure/azureml-examples`.
-5. Edit the subscription/resourcegroup/workspace/service name info in migrate-service.sh, also the expected new endpoint name and deployment name. We recommend that the new endpoint name is different from the previous one. Otherwise, the original service will not be displayed if you check your endpoints on the portal.
+5. Edit the following values in the `migrate-service.sh` file. Replace the values with ones that apply to your configuration.
+
+    * `<SUBSCRIPTION_ID>` - The subscription ID of your Azure subscription that contains your workspace.
+    * `<RESOURCEGROUP_NAME>` - The resource group that contains your workspace.
+    * `<WORKSPACE_NAME>` - The workspace name.
+    * `<SERVICE_NAME>` - The name of your existing ACI/AKS service.
+    * `<LOCAL_PATH>` - A local path where resources and templates used by the script are downloaded.
+    * `<NEW_ENDPOINT_NAME>` - The name of the new endpoint that will be created. We recommend that the new endpoint name is different from the previous service name. Otherwise, the original service will not be displayed if you check your endpoints on the portal.
+    * `<NEW_DEPLOYMENT_NAME>` - The name of the deployment to the new endpoint.
 6. Execute the bash script, it will take about 5-10 minutes to finish the new deployment.
 7. After the deployment is done successfully, you can verify the endpoint with [invoke command](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-invoke).
 
