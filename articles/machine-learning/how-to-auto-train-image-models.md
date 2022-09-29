@@ -1,7 +1,7 @@
 ---
 title: Set up AutoML for computer vision 
 titleSuffix: Azure Machine Learning
-description: Set up Azure Machine Learning automated ML to train computer vision models  with the CLI v2 and Python SDK v2 (preview).
+description: Set up Azure Machine Learning automated ML to train computer vision models  with the CLI v2 and Python SDK v2.
 services: machine-learning
 author: swatig007
 ms.author: swatig
@@ -20,10 +20,7 @@ ms.date: 07/13/2022
 > * [v1](v1/how-to-auto-train-image-models-v1.md)
 > * [v2 (current version)](how-to-auto-train-image-models.md)
 
-> [!IMPORTANT]
-> This feature is currently in public preview. This preview version is provided without a service-level agreement. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-In this article, you learn how to train computer vision models on image data with automated ML with the Azure Machine Learning CLI extension v2 or the Azure Machine Learning Python SDK v2 (preview).
+In this article, you learn how to train computer vision models on image data with automated ML with the Azure Machine Learning CLI extension v2 or the Azure Machine Learning Python SDK v2.
 
 Automated ML supports model training for computer vision tasks like image classification, object detection, and instance segmentation. Authoring AutoML models for computer vision tasks is currently supported via the Azure Machine Learning Python SDK. The resulting experimentation runs, models, and outputs are accessible from the Azure Machine Learning studio UI. [Learn more about automated ml for computer vision tasks on image data](concept-automated-ml.md).
 
@@ -42,7 +39,7 @@ Automated ML supports model training for computer vision tasks like image classi
 
 * An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
 
-* The Azure Machine Learning Python SDK v2 (preview) installed.
+* The Azure Machine Learning Python SDK v2 installed.
 
     To install the SDK you can either,  
     * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. For more information, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
@@ -125,7 +122,7 @@ Field| Description
 
 The following is a sample JSONL file for image classification:
 
-```python
+```json
 {
       "image_url": "azureml://subscriptions/<my-subscription-id>/resourcegroups/<my-resource-group>/workspaces/<my-workspace>/datastores/<my-datastore>/paths/image_data/Image_01.png",
       "image_details":
@@ -150,7 +147,7 @@ The following is a sample JSONL file for image classification:
 
   The following code is a sample JSONL file for object detection:
 
-  ```python
+  ```json
   {
       "image_url": "azureml://subscriptions/<my-subscription-id>/resourcegroups/<my-resource-group>/workspaces/<my-workspace>/datastores/<my-datastore>/paths/image_data/Image_01.png",
       "image_details":
@@ -873,5 +870,5 @@ Review detailed code examples and use cases in the [GitHub notebook repository f
 ---
 ## Next steps
 
-* [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
+* [Tutorial: Train an object detection model with AutoML and Python](tutorial-auto-train-image-models.md).
 * [Troubleshoot automated ML experiments](how-to-troubleshoot-auto-ml.md).
