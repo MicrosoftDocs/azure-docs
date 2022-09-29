@@ -63,7 +63,27 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 |Service area  |Updates  |
 |---------|---------|
-|**OT networks**     |**All supported OT sensor software versions**: [Device vulnerabilities from the Azure portal](#device-vulnerabilities-from-the-azure-portal) <br><br>**Sensor software version 22.2.6**: <br> - Bug fixes and stability improvements <br>- Enhancements to the device type classification algorithm<br><br>- **Microsoft Sentinel integration**: <br>- [Investigation enhancements with IOT device entities](#investigation-enhancements-with-iot-device-entities-in-microsoft-sentinel)<br>- [Updates to the Microsoft Defender for IoT solution](#updates-to-the-microsoft-defender-for-iot-solution-in-microsoft-sentinels-content-hub) |
+|**OT networks**     |**All supported OT sensor software versions**:  <br>- [Device vulnerabilities from the Azure portal](#device-vulnerabilities-from-the-azure-portal)<br>- [Security recommendations for OT networks](#security-recommendations-for-ot-networks)<br><br>**Sensor software version 22.2.6**: <br> - Bug fixes and stability improvements <br>- Enhancements to the device type classification algorithm<br><br>- **Microsoft Sentinel integration**: <br>- [Investigation enhancements with IOT device entities](#investigation-enhancements-with-iot-device-entities-in-microsoft-sentinel)<br>- [Updates to the Microsoft Defender for IoT solution](#updates-to-the-microsoft-defender-for-iot-solution-in-microsoft-sentinels-content-hub) |
+### Security recommendations for OT networks
+
+Defender for IoT now provides security recommendations to help customers manage their OT/IoT network security posture. Defender for IoT recommendations help users form actionable, prioritized mitigation plans that address the unique challenges of OT/IoT networks. Use recommendations for lower your network's risk and attack surface.
+
+You can see the following security recommendations from the Azure portal for detected devices across your networks:
+
+- **Review PLC operating mode**. Devices with this recommendation are found with PLCs set to unsecure operating mode states. We recommend setting PLC operating modes to the **Secure Run** state if access is no longer required to the PLC to reduce the threat of malicious PLC programming.
+
+- **Review unauthorized devices**. Devices with this recommendation must be identified and authorized as part of the network baseline. We recommend taking action to identify any indicated devices. Disconnect any devices from your network that remain unknown even after investigation to reduce the threat of rogue or potentially malicious devices.
+
+Access security recommendations from one of the following locations:
+
+- The **Recommendations** page, which displays all current recommendations across all detected OT devices.
+
+- The **Recommendations** tab on a device details page, which displays all current recommendations for the selected device.
+
+From either location, select a recommendation to drill down further and view lists of all detected OT devices that are currently in a *healthy* or *unhealthy* state, according to the selected recommendation. From the **Unhealthy devices** or **Healthy devices** tab, select a device link to jump to the selected device details page. For example:
+
+:::image type="content" source="media/release-notes/recommendations.png" alt-text="Screenshot of the Review PLC operating mode recommendation page.":::
+
 ### Device vulnerabilities from the Azure portal
 
 Defender for IoT now provides vulnerability data in the Azure portal for detected OT network devices. Vulnerability data is based on the repository of standards based vulnerability data documented at the [US government National Vulnerability Database (NVD)](https://www.nist.gov/programs-projects/national-vulnerability-database-nvd).
