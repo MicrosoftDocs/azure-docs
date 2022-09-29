@@ -586,7 +586,7 @@ items:
               href: essentials/collect-custom-metrics-guestos-vm-cloud-service-classic.md
           - name: Send to Event Hubs
             href: agents/diagnostics-extension-stream-event-hubs.md
-          - name: Send to Logs
+          - name: Send to Log Analytics
             href: agents/diagnostics-extension-logs.md
           - name: Send to Application Insights
             href: agents/diagnostics-extension-to-application-insights.md
