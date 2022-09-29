@@ -10,17 +10,78 @@ metadata:
   author: seesharprun
   ms.author: sidandrews
   ms.reviewer: dech
-
 title: Frequently asked questions about Jupyter Notebooks in Azure Cosmos DB (preview)
 summary: |
   [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-  Azure Cosmos DB built-in Jupyter Notebooks are directly integrated into the Azure portal and your Azure Cosmos DB accounts, making them convenient and easy to use. Developers, data scientists, engineers, and analysts can use the familiar Jupyter Notebooks experience to do data exploration, data cleaning, data transformations, numerical simulations, statistical modeling, data visualization, and machine learning.
-  
+  Azure Cosmos DB built-in Jupyter Notebooks are directly integrated into the Azure portal and your Azure Cosmos DB accounts, making them convenient and easy to use. Developers, data scientists, engineers, and analysts can use the familiar Jupyter Notebooks experience to perform common tasks. These common tasks include:
+
+  - data exploration
+  - data cleaning
+  - data transformations
+  - numerical simulations
+  - statistical modeling
+  - data visualization
+  - machine learning
+
+  :::image type="content" source="./media/notebooks/cosmos-notebooks-overview.png" alt-text="Jupyter Notebooks visualizations in Azure Cosmos DB":::
 sections:
   - name: General
     questions:
       - question: |
-          Question?
+          When will the notebook preview feature be available for me to use?
         answer: |
-          Answer
+          The feature is slowly being rolled out in flights across all of our customers. If you don't have the feature already, you should expect to see it sometime in the future.
+      - question: |
+          Is the notebook feature available in all Azure regions and clouds?
+        answer: |
+          The feature is only available in the Azure public cloud today and in specific regions within Azure.
+      - question: |
+          Is the notebook feature available in any Azure Cosmos DB account?
+        answer: |
+          The feature is only available in certain Azure Cosmos DB SQL, Gremlin, Table, MongoDB, or Cassandra API accounts that are part of the existing flight.
+      - question: |
+          Are there any Azure Cosmos DB features that are incompatible with the Jupyter Notebooks feature?
+        answer: |
+          Azure Cosmos DB accounts connected to a Virtual Network, using Private Link, or with certain IP firewall rules won't be able to use the notebook feature.
+
+          > [!TIP]
+          > If your networking configuration is incompatible with the notebooks feature, the notebooks icon will be disabled in the Data Explorer.
+      - question: | 
+          Where can I learn more about the notebook feature in Azure Cosmos DB?
+        answer: |
+          To learn more about the Jupyter Notebooks feature in Azure Cosmos DB
+      - question: |
+          Is there a tutorial on how to use the notebook feature in Azure Cosmos DB, see [Jupyter Notebooks in Azure Cosmos DB (preview)](notebooks-overview.md)
+        answer: |
+          To create your first Jupyter Notebook in Azure Cosmos DB, see [Tutorial: Create a Jupyter Notebook in Azure Cosmos DB to analyze and visualize data (preview)](tutorial-create-notebook.md).
+  - name: Persistence
+    questions:
+      - question: |
+          How are notebooks stored after I'm done using them?
+        answer: |
+          Notebooks are temporary on-demand compute instances that are spun-up in real time as you need them. Notebooks exist in a temporary workspace and are NOT saved by default. If a notebook is left idle for too long, it will be automatically disposed.
+      - question: |
+          How can I save my notebooks between sessions?
+        answer: |
+          You have two options to persist a notebook:
+
+          1. **Export the notebook**: You can use the export option to download a notebook from the temporary workspace to your local machine.
+          1. **Connect to GitHub**: You can connect to a GitHub repository to persist and source control notebooks between sessions.
+      - question: |
+          Will my notebook become idle?
+        answer: |
+          After a pre-determined amount of time, your notebook may become idle because you haven't used your browser, or no user has used the compute instance.
+
+          > [!IMPORTANT]
+          > It's important that you save work often to avoid accidentally losing your progress in a notebook.
+  - name: Collaboration
+    questions:
+      - question: |
+          Can more than one user collaborate on a notebook?
+        answer: |
+          Yes. The preferred method of collaboration is to use GitHub to source control notebooks and have different users reuse notebooks.
+      - question: |
+          Can multiple users work on notebooks concurrently in the same account?
+        answer: |
+          Yes. Multiple users, up to a limit, can use the notebook feature concurrently in the same account.

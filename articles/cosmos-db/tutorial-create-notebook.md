@@ -13,23 +13,21 @@ ms.reviewer: dech
 
 # Tutorial: Create a Jupyter Notebook in Azure Cosmos DB to analyze and visualize data (preview)
 
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 This article describes how to use built-in Jupyter notebooks to import sample retail data to Azure Cosmos DB. You will see how to use the SQL and Azure Cosmos DB magic commands to run queries, analyze the data, and visualize the results.
 
 ## Prerequisites
 
-* [Enable notebooks on an Azure Cosmos account](enable-notebooks.md)
+- [Enable notebooks on an Azure Cosmos account](enable-notebooks.md)
 
 ## Create the resources and import data
- 
+
 In this section, you will create the Azure Cosmos database, container, and import the retail data to the container.
 
 1. Navigate to your Azure Cosmos account and open the **Data Explorer.**
 
 1. Go to the **Notebooks** tab, select `…` next to **My Notebooks** and create a **New Notebook**. Select **Python 3** as the default Kernel.
-
-   :::image type="content" source="./media/create-notebook-visualize-data/create-new-notebook.png" alt-text="Create a new notebook":::
 
 1. After a new notebook is created, you can rename it to something like **VisualizeRetailData.ipynb.**
 
@@ -48,9 +46,7 @@ In this section, you will create the Azure Cosmos database, container, and impor
 
    To run a cell, select `Shift + Enter` Or select the cell and choose **Run Active Cell** option at the data explorer navigation bar.
 
-   :::image type="content" source="./media/create-notebook-visualize-data/run-active-cell.png" alt-text="Run the active cell":::
-
-   The database and container are created in your current Azure Cosmos account. The container is provisioned with 400 RU/s. You will see the following output after the database and container is created. 
+   The database and container are created in your current Azure Cosmos account. The container is provisioned with 400 RU/s. You will see the following output after the database and container is created.
 
    ```console
     Database RetailDemo created
@@ -58,8 +54,6 @@ In this section, you will create the Azure Cosmos database, container, and impor
    ```
 
    You can also refresh the **Data** tab and see the newly created resources:
-
-   :::image type="content" source="media/create-notebook-visualize-data/refresh-data-tab.png" alt-text="Refresh the data tab to see the new container":::
 
 1. Next you will import the sample retail data into Azure Cosmos container. Here is the format of an item from the retail data:
 
@@ -134,22 +128,18 @@ In a new notebook cell, run the following code to read the first 10 items from t
 df_cosmos.head(10)
 ```
 
-:::image type="content" source="./media/create-notebook-visualize-data/run-query-get-top10-items.png" alt-text="Run query to get top 10 items":::
-
 ## Run queries and analyze your data
 
 In this section, you will run some queries on the data retrieved.
 
-* **Query1:** Run a Group by query on the DataFrame to get the sum of total sales revenue for each country/region and display 5 items from the results. In a new notebook cell, run the following code:
+- **Query1:** Run a Group by query on the DataFrame to get the sum of total sales revenue for each country/region and display 5 items from the results. In a new notebook cell, run the following code:
 
    ```python
    df_revenue = df_cosmos.groupby("Country").sum().reset_index()
    display(df_revenue.head(5))
    ```
 
-   :::image type="content" source="./media/create-notebook-visualize-data/total-sales-revenue-output.png" alt-text="Total sales revenue output":::
-
-* **Query2:** To get a list of top five purchased items, open a new notebook cell and run the following code:
+- **Query2:** To get a list of top five purchased items, open a new notebook cell and run the following code:
 
    ```python
    import pandas as pd
@@ -157,8 +147,6 @@ In this section, you will run some queries on the data retrieved.
    ## What are the top 5 purchased items?
    pd.DataFrame(df_cosmos[df_cosmos['Action']=='Purchased'].groupby('Item').size().sort_values(ascending=False).head(5), columns=['Count'])
    ```
-
-   :::image type="content" source="./media/create-notebook-visualize-data/top5-purchased-items.png" alt-text="Top five purchased items":::
 
 ## Visualize your data  
 
@@ -234,8 +222,6 @@ In this section, you will run some queries on the data retrieved.
 
    The output displays the world map with different colors. The colors darker to lighter represent the countries/regions with highest revenue to lowest revenue.
 
-   :::image type="content" source="./media/create-notebook-visualize-data/countries-revenue-map-visualization.png" alt-text="Countries/regions revenue map visualization":::
-
 1. Let's see another case of data visualization. The WebsiteData container has record of users who viewed an item, added to their cart, and purchased the item. Let's plot the conversion rate of items purchased. Run the following code in a new cell to visualize the conversion rate for each item:
 
    ```python
@@ -285,8 +271,7 @@ In this section, you will run some queries on the data retrieved.
    show(p)
    ```
 
-   :::image type="content" source="./media/create-notebook-visualize-data/visualize-purchase-conversion-rate.png" alt-text="Visualize purchase conversion rate":::
-
 ## Next steps
 
-* To learn more about Python notebook commands, see [how to use built-in notebook commands and features in Azure Cosmos DB](use-python-notebook-features-and-commands.md) article.
+- [Learn about the Jupyter Notebooks feature in Azure Cosmos DB](notebooks-overview.md)
+- [Review the FAQ on Jupyter Notebook support](notebooks-faq.yml)
