@@ -26,29 +26,25 @@ items:
         href: quickstart-storage-explorer.md
       - name: PowerShell
         href: storage-quickstart-blobs-powershell.md
-      - name: CLI
+      - name: Azure CLI
         href: storage-quickstart-blobs-cli.md
       - name: .NET
-        items:
-        - name: .NET (v12 SDK)
-          href: storage-quickstart-blobs-dotnet.md
+        href: storage-quickstart-blobs-dotnet.md
       - name: Java
         items:
-        - name: Java (v12 SDK)
+        - name: Java
           href: storage-quickstart-blobs-java.md
         - name: Spring
           href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage?toc=/azure/storage/blobs/toc.json
       - name: Python
-        items:
-        - name: Python (v12 SDK)
-          href: storage-quickstart-blobs-python.md
+        href: storage-quickstart-blobs-python.md
       - name: JavaScript
         items:
         - name: JavaScript for Node.js
           href: storage-quickstart-blobs-nodejs.md
         - name: JavaScript for browser
           href: quickstart-blobs-javascript-browser.md
-      - name: C++ (v12 SDK)
+      - name: C++
         href: quickstart-blobs-c-plus-plus.md
       - name: Go
         href: storage-quickstart-blobs-go.md
