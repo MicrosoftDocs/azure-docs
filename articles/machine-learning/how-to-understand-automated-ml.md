@@ -44,7 +44,7 @@ After your automated ML experiment completes, a history of the jobs can be found
 The following steps and video, show you how to view the run history and model evaluation metrics and charts in the studio:
 
 1. [Sign into the studio](https://ml.azure.com/) and navigate to your workspace.
-1. In the left menu, select **Experiments**.
+1. In the left menu, select **Runs**.
 1. Select your experiment from the list of experiments.
 1. In the table at the bottom of the page, select an automated ML job.
 1. In the **Models** tab, select the **Algorithm name** for the model you want to evaluate.
