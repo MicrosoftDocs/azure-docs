@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Migrate SQL Server to Azure SQL Managed Instance offline using Azure Data Studio"
 titleSuffix: Azure Database Migration Service
-description: Migrate SQL Server to an Azure SQL Managed Instance offline using Azure Data Studio with Azure Database Migration Service (Preview)
+description: Migrate SQL Server to an Azure SQL Managed Instance offline using Azure Data Studio with Azure Database Migration Service
 services: dms
 author: croblesm
 ms.author: roblescarlos

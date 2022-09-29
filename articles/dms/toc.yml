@@ -56,9 +56,11 @@
   expanded: true
   items:
   - name: Migrate SQL Server
-    items: 
+    items:
     - name: to Azure SQL Database
       href: tutorial-sql-server-to-azure-sql.md
+    - name: to Azure SQL Database (offline) using Azure Data Studio
+      href: tutorial-sql-server-azure-sql-db-offline-ads.md
     - name: to Azure SQL Managed Instance (online) using Azure Data Studio
       href: tutorial-sql-server-managed-instance-online-ads.md
     - name: to Azure SQL Managed Instance (offline) using Azure Data Studio
@@ -126,8 +128,10 @@
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/dms
-
+    href: /cli/azure/datamigration
+- name: Powershell
+    href: /powershell/module/az.datamigration
+  
 - name: Resources
   items: 
   - name: Frequently asked questions
