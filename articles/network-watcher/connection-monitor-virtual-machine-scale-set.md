@@ -178,7 +178,7 @@ In the Azure portal, to create a test group in a connection monitor, you specify
 * **Disable test group**: You can select this check box to disable monitoring for all sources and destinations that the test group specifies. This selection is cleared by default.
 * **Name**: Name your test group.
 * **Sources**: You can specify both Azure VMs and on-premises machines as sources if agents are installed on them. To learn about installing an agent for your source, see [Install monitoring agents](./connection-monitor-overview.md#install-monitoring-agents).
-   * To choose Azure agents, select the **Azure endpoints** tab. Here you see only VMs or Virtual Machine scale sets that are bound to the region that you specified when you created the connection monitor. By default, VMs and Virtual Machine scale sets are grouped into the subscription that they belong to. These groups are collapsed. 
+   * To choose Azure agents, select the **Azure endpoints** tab. Here you see only VMs or virtual machine scale sets that are bound to the region that you specified when you created the connection monitor. By default, VMs and virtual machine scale sets are grouped into the subscription that they belong to. These groups are collapsed. 
    
        You can drill down from the **Subscription** level to other levels in the hierarchy:
 
@@ -251,7 +251,7 @@ In the Azure portal, to create a test group in a connection monitor, you specify
 * **Test Groups**: You can add one or more Test Groups to a Connection Monitor. These test groups can consist of multiple Azure or Non-Azure endpoints.
     * For selected Azure VMs or Azure virtual machine scale sets and Non-Azure endpoints without monitoring extensions, the extension for Azure VMs and the Network Performance Monitor solution for Non-Azure endpoints will be auto enablement once the creation of Connection Monitor begins.
     * In case the virtual machine scale set selected is set for manual upgradation, the user will have to upgrade the scale set post Network Watcher extension installation in order to continue setting up the Connection Monitor with virtual machine scale set as endpoints. In-case the virtual machine scale set is set to auto upgradation, the user need not worry about any upgradation after Network Watcher extension installation.
-    * In the scenario mentioned above, user can consent to auto upgradation of virtual machine scale set with auto enablement of Network Watcher extension during the creation of Connection Monitor for Virtual Machine scale sets with manual upgradation. This would eliminate the need for the user to manually upgrade the virtual machine scale set after installing the Network Watcher extension.   
+    * In the scenario mentioned above, user can consent to auto upgradation of virtual machine scale set with auto enablement of Network Watcher extension during the creation of Connection Monitor for virtual machine scale sets with manual upgradation. This would eliminate the need for the user to manually upgrade the virtual machine scale set after installing the Network Watcher extension.   
 
    :::image type="content" source="./media/connection-monitor-2-preview/consent-vmss-auto-upgrade.png" alt-text="Screenshot that shows where to set up a test groups and consent for auto-upgradation of VMSS in Connection Monitor.":::
 
