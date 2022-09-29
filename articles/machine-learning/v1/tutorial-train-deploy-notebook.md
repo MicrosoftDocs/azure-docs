@@ -43,15 +43,27 @@ Azure Machine Learning includes a cloud notebook server in your workspace for an
 
 You complete the following experiment setup and run steps in Azure Machine Learning studio. This consolidated interface includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
 
-[!INCLUDE [clone repo v1](../../../includes/machine-learning-clone-v1-repo.md)]
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
 
+1. Select your subscription and the workspace you created.
 
+1. On the left, select **Notebooks**.
+
+1. At the top, select the **Samples** tab.
+
+1. Open the **v1 (<version>)** folder. The version number represents the current v1 release for the Python SDK.
+
+1. Select the **...** button at the right of the **tutorials** folder, and then select **Clone**.
+
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="Screenshot that shows the Clone tutorials folder.":::
+
+1. A list of folders shows each user who accesses the workspace. Select your folder to clone the **tutorials**  folder there.
 
 ## Open the cloned notebook
 
-1. Open the **MachineLearningNotebooks** folder that was cloned into your **Files** section.
+1. Open the **tutorials** folder that was cloned into your **User files** section.
 
-1. Select the **quickstart-azureml-in-10mins.ipynb** file from your **MachineLearningNotebooks/tutorials/compute-instance-quickstarts/quickstart-azureml-in-10mins** folder. 
+1. Select the **quickstart-azureml-in-10mins.ipynb** file from your **tutorials/compute-instance-quickstarts/quickstart-azureml-in-10mins** folder. 
 
     :::image type="content" source="media/tutorial-train-deploy-notebook/expand-folder.png" alt-text="Screenshot shows the Open tutorials folder.":::
 
