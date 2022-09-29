@@ -586,7 +586,7 @@ items:
               href: essentials/collect-custom-metrics-guestos-vm-cloud-service-classic.md
           - name: Send to Event Hubs
             href: agents/diagnostics-extension-stream-event-hubs.md
-          - name: Send to Log Analytics
+          - name: Send to Logs
             href: agents/diagnostics-extension-logs.md
           - name: Send to Application Insights
             href: agents/diagnostics-extension-to-application-insights.md
@@ -1276,10 +1276,10 @@ items:
       items: 
       - name: Overview
         href: containers/container-insights-prometheus.md
+      - name: Send to Prometheus
+        href: containers/container-insights-prometheus-metrics-addon.md
       - name: Send to Logs
         href: containers/container-insights-prometheus-monitoring-addon.md
-      - name: Send to managed Prometheus
-        href: containers/container-insights-prometheus-metrics-addon.md
     - name: Configure
       items:
       - name: Agent management
@@ -1316,10 +1316,10 @@ items:
         href: containers/container-insights-livedata-metrics.md
     - name: Alerting
       items:
-      - name: Create log alert rules
-        href: containers/container-insights-log-alerts.md
       - name: Create metric alert rules
         href: containers/container-insights-metric-alerts.md
+      - name: Create log alert rules
+        href: containers/container-insights-log-alerts.md
     - name: Manage cost and usage
       href: containers/container-insights-cost.md
     - name: Disable monitoring
