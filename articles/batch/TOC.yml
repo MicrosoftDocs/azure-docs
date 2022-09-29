@@ -103,18 +103,18 @@
     href: high-availability-disaster-recovery.md
   - name: Task runtime environment variables
     href: batch-compute-node-environment-variables.md
-  - name: Retirements
+  - name: Feature retirements
     items:
-    - name: Batch Certificates Migration Guide
+    - name: Batch certificates
       href: batch-certificate-migration-guide.md
-    - name: Batch pools without public IP addresses classic Retirement Migration Guide
+    - name: Pools without public IP addresses (classic)
       href: batch-pools-without-public-IP-addresses-classic-retirement-migration-guide.md
-    - name: Batch TLS 1.0_1 Migration Guide
+    - name: TLS 1.0 and TLS 1.1 
       href: batch-tls-101-migration-guide.md
-    - name: Job Pool Lifetime Statistics Migration Guide
+    - name: Job and pool lifetime statistics
       href: job-pool-lifetime-statistics-migration-guide.md
-    - name: Low Priority VMs Retirement Migration Guide
-      href: low-priority-VMs-retirement-migration-guide.md
+    - name: Low-priority virtual machines
+      href: low-priority-vms-retirement-migration-guide.md
 - name: How-to guides
   items:
   - name: Manage Batch accounts
