@@ -66,21 +66,27 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 
 4. In the opened view, you can see the tags the devices already have. To add a new basic tag, provide a **name** and **value** for the tag. The format for key and value pair is found in [Tags and properties format](iot-hub-devguide-device-twins.md#tags-and-properties-format). Select **Save** to save the rule
   
-  :::image type="content" source="./media/iot-hubs-manage-device-twin-tags/iot-hub-device-add-basic-tag.png" alt-text="Assign Tags to devices screen.":::
+   :::image type="content" source="./media/iot-hubs-manage-device-twin-tags/iot-hub-device-add-basic-tag.png" alt-text="Assign Tags to devices screen.":::
 
 5. After saving, you can view the tags that were added by clicking **Assign Tags** again. 
 
    :::image type="content" source="./media/iot-hubs-manage-device-twin-tags/iot-hub-device-view-basic-tag.png" alt-text="View tags added to devices.":::
 
-6. Alternatively, you can add a nested tag by clicking the advanced tab in the **Assign Tags**
-
-   ![nested tags](./media/iot-hubs-manage-device-twin-tags/iot-hub-device-advanced-nested-tag.png)
-
-## Query basic and nested tags
-1. Following the example above, you can filter devices using the query box
+## Add and view nested tags
+1. Following the example above, you can add a nested tag by clicking the advanced tab in the **Assign Tags** and add a nested json object with two values.
+   ```json
+   {
+	   "deploymentLocation": {
+	       "building": "43",
+	       "floor": "1"
+	   }
+   }
+   ```
+2. Click **Save**
+   ![nested tags](./media/iot-hubs-manage-device-twin-tags/iot-hub-device-twin-tag-add-nested-tag.png)
+3. Select the devices again and click **Assign Tags** to view the newly added tags
+    ![nested tags](./media/iot-hubs-manage-device-twin-tags/iot-hub-device-twin-tag-view-nested-tag.png)
    
-   :::image type="content" source="./media/iot-hubs-manage-device-twin-tags/iot-hub-device-query-tags-2.png" alt-text="querying nested tags.":::
-
 ## Update and delete device twin tags from multiple devices using Azure Portal
 1. Select the two or more devices, click **Assign Tags**.
 2. In the opened panel, you can update existing tags by typing the target tag name in the **Name** field, and the new string in the **Value** field.
@@ -89,7 +95,7 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 4. Click **Save** to delete the tag from the devices that contains the matching tag name.
    
 ## Managing device twin tags using Azure CLI
-The following section walk through several examples of tagging using Azure CLI. For full references to the [device twin CLI](https://docs.microsoft.com/cli/azure/iot/hub/device-twin?view=azure-cli-latest#az-iot-hub-device-twin-update)
+The following section walk through several examples of tagging using Azure CLI. For full references to the [device twin CLI](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-update)
 
 1. At the command prompt, run the [login command](/cli/azure/get-started-with-azure-cli):
 
@@ -143,7 +149,7 @@ The following section walk through several examples of tagging using Azure CLI. 
  > If you are using Powershell or CloudShell>Powershell mode, you need to add a forward slash '\\' to escape all the double quotes. Example:  --tags '{\\"country\\":\\"US\\"}'
     
 ## Create Jobs to set Tags using Azure CLI
-For full references to the [IoT Hub Jobs CLI](/cli/azure/iot/hub/job?view=azure-cli-latest#az-iot-hub-job-create-examples)
+For full references to the [IoT Hub Jobs CLI](/cli/azure/iot/hub/job#az-iot-hub-job-create-examples)
 
 ## Next steps
 
