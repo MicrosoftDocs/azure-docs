@@ -54,11 +54,6 @@ The CLI v2 is useful in the following scenarios:
 
 ## Azure Machine Learning Python SDK v2
 
-> [!IMPORTANT]
-> SDK v2 is currently in public preview.
-> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Azure ML Python SDK v2 is an updated Python SDK package, which allows users to:
 
 * Submit training jobs
@@ -127,5 +122,5 @@ The Azure Machine Learning Python SDK v1 doesn't have a planned deprecation date
 * Get started with SDK v2
 
     * [Install and set up SDK (v2)](https://aka.ms/sdk-v2-install)
-    * [Train models with the Azure ML Python SDK v2 (preview)](how-to-train-model.md)
-    * [Tutorial: Create production ML pipelines with Python SDK v2 (preview) in a Jupyter notebook](tutorial-pipeline-python-sdk.md)
+    * [Train models with the Azure ML Python SDK v2](how-to-train-model.md)
+    * [Tutorial: Create production ML pipelines with Python SDK v2 in a Jupyter notebook](tutorial-pipeline-python-sdk.md)
