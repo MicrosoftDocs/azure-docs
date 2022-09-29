@@ -37,7 +37,7 @@ SQL Server to SQL Server on Azure Virtual Machine|[Online](/azure/dms/tutorial-s
 SQL Server to Azure SQL Database (Preview)| [Offline](/azure/dms/tutorial-sql-server-azure-sql-db-offline-ads)
 
 > [!IMPORTANT]
-> If your target is Azure SQL Database (Preview), make sure to deploy the database schema before starting the migration. You can use tools as [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension), [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension), or [DMA](/sql/dma/dma-overview).
+> If your target is Azure SQL Database (Preview), make sure to deploy the database schema before starting the migration. You can use tools as [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension) or, [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension) for Azure Data Studio.
 
 The following 16-minute video explains recent updates and features added to the Azure SQL migration extension in Azure Data Studio. Including the new workflow for SQL Server database assessments and SKU recommendations.
 
