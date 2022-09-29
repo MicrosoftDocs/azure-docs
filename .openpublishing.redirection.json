@@ -795,11 +795,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-vmware/enable-public-internet-access.md",
-      "redirect_url": "/azure",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/remoteapp/remoteapp-appreqs.md",
       "redirect_url": "/azure",
       "redirect_document_id": false
