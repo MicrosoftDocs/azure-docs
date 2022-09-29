@@ -21,9 +21,9 @@ The following table shows each development environment covered in this article, 
 
 | Environment | Pros | Cons |
 | --- | --- | --- |
-| [Local environment](#local) | Full control of your development environment and dependencies. Run with any build tool, environment, or IDE of your choice. | Takes longer to get started. Necessary SDK packages must be installed, and an environment must also be installed if you don't already have one. |
-| [The Data Science Virtual Machine (DSVM)](#dsvm) | Similar to the cloud-based compute instance (Python is pre-installed), but with additional popular data science and machine learning tools pre-installed. Easy to scale and combine with other custom tools and workflows. | A slower getting started experience compared to the cloud-based compute instance. |
-| [Azure Machine Learning compute instance](#compute-instance) | Easiest way to get started. The SDK is already installed in your workspace VM, and notebook tutorials are pre-cloned and ready to run. | Lack of control over your development environment and dependencies. Additional cost incurred for Linux VM (VM can be stopped when not in use to avoid charges). See [pricing details](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
+| [Local environment](#local-computer-or-remotee-vm-environment) | Full control of your development environment and dependencies. Run with any build tool, environment, or IDE of your choice. | Takes longer to get started. Necessary SDK packages must be installed, and an environment must also be installed if you don't already have one. |
+| [The Data Science Virtual Machine (DSVM)](#data-science-virtual-machine) | Similar to the cloud-based compute instance (Python is pre-installed), but with additional popular data science and machine learning tools pre-installed. Easy to scale and combine with other custom tools and workflows. | A slower getting started experience compared to the cloud-based compute instance. |
+| [Azure Machine Learning compute instance](#azure-machine-learning-compute-instance) | Easiest way to get started. The SDK is already installed in your workspace VM, and notebook tutorials are pre-cloned and ready to run. | Lack of control over your development environment and dependencies. Additional cost incurred for Linux VM (VM can be stopped when not in use to avoid charges). See [pricing details](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
 | [Azure Databricks](how-to-configure-databricks-automl-environment.md) | Ideal for running large-scale intensive machine learning workflows on the scalable Apache Spark platform. | Overkill for experimental machine learning, or smaller-scale experiments and workflows. Additional cost incurred for Azure Databricks. See [pricing details](https://azure.microsoft.com/pricing/details/databricks/). |
 
 This article also provides additional usage tips for the following tools:
@@ -36,7 +36,7 @@ This article also provides additional usage tips for the following tools:
 
 * Azure Machine Learning workspace. If you don't have one, you can create an Azure Machine Learning workspace through the [Azure portal](how-to-manage-workspace.md), [Azure CLI](how-to-manage-workspace-cli.md#create-a-workspace), and [Azure Resource Manager templates](how-to-create-workspace-template.md).
 
-### <a id="workspace"></a> Local and DSVM only: Create a workspace configuration file
+### Local and DSVM only: Create a workspace configuration file
 
 The workspace configuration file is a JSON file that tells the SDK how to communicate with your Azure Machine Learning workspace. The file is named *config.json*, and it has the following format:
 
@@ -80,7 +80,7 @@ Create a workspace configuration file in one of the following methods:
         ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, workspace)
     ```
 
-## <a id="local"></a>Local computer or remote VM environment
+## Local computer or remote VM environment
 
 You can set up an environment on a local computer or remote virtual machine, such as an Azure Machine Learning compute instance or Data Science VM. 
 
@@ -96,11 +96,11 @@ To configure a local development environment or remote VM:
 
 1. Activate your newly created Python virtual environment.
 1. Install the [Azure Machine Learning Python SDK](/python/api/overview/azure/ai-ml-readme).
-1. To configure your local environment to use your Azure Machine Learning workspace, [create a workspace configuration file](#workspace) or use an existing one.
+1. To configure your local environment to use your Azure Machine Learning workspace, [create a workspace configuration file](#local-and-dsvm-only-create-a-workspace-configuration-file) or use an existing one.
 
 Now that you have your local environment set up, you're ready to start working with Azure Machine Learning. See the [Azure Machine Learning Python getting started guide](tutorial-1st-experiment-hello-world.md) to get started.
 
-### <a id="jupyter"></a>Jupyter Notebooks
+### Jupyter Notebooks
 
 When running a local Jupyter Notebook server, it's recommended that you create an IPython kernel for your Python virtual environment. This helps ensure the expected kernel and package import behavior.
 
@@ -121,7 +121,7 @@ When running a local Jupyter Notebook server, it's recommended that you create a
     > [!TIP]
     For example notebooks, see the [AzureML-Examples](https://github.com/Azure/azureml-examples) repository. SDK examples are located under [/sdk/python](https://github.com/Azure/azureml-examples/tree/main/sdk/python). For example, the [Configuration notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/configuration.ipynb) example.
 
-### <a id="vscode"></a>Visual Studio Code
+### Visual Studio Code
 
 To use Visual Studio Code for development:
 
@@ -135,7 +135,7 @@ Once you have the Visual Studio Code extension installed, use it to:
 * [Run and debug experiments](how-to-debug-visual-studio-code.md)
 * [Deploy trained models](tutorial-train-deploy-image-classification-model-vscode.md).
 
-## <a id="compute-instance"></a>Azure Machine Learning compute instance
+## Azure Machine Learning compute instance
 
 The Azure Machine Learning [compute instance](concept-compute-instance.md) is a secure, cloud-based Azure workstation that provides data scientists with a Jupyter Notebook server, JupyterLab, and a fully managed machine learning environment.
 
@@ -152,7 +152,7 @@ In addition to a Jupyter Notebook server and JupyterLab, you can use compute ins
 
 You can also use the Azure Machine Learning Visual Studio Code extension to [connect to a remote compute instance using VS Code](how-to-set-up-vs-code-remote.md).
 
-## <a id="dsvm"></a>Data Science Virtual Machine
+## Data Science Virtual Machine
 
 The Data Science VM is a customized virtual machine (VM) image you can use as a development environment. It's designed for data science work that's pre-configured tools and software like:
 
@@ -192,25 +192,25 @@ To use the Data Science VM as a development environment:
         az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:dsvm-windows:server-2016:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --authentication-type password
         ```
 
-1. Activate the conda environment containing the Azure Machine Learning SDK.
+1. Create a conda environment for the Azure Machine Learning SDK:
 
-    * For Ubuntu Data Science VM:
+    ```bash
+    conda create -n py310 python=310
+    ```
 
-        ```bash
-        conda activate py36
-        ```
+1. Once the environment has been created, activate it and install the SDK
 
-    * For Windows Data Science VM:
+    ```bash
+    conda activate py310
+    pip install azure-ai-ml
+    ``` 
 
-        ```bash
-        conda activate AzureML
-        ```
+1. To configure the Data Science VM to use your Azure Machine Learning workspace, [create a workspace configuration file](#local-and-dsvm-only-create-a-workspace-configuration-file) or use an existing one.
 
-1. To configure the Data Science VM to use your Azure Machine Learning workspace, [create a workspace configuration file](#workspace) or use an existing one.
-
-Similar to local environments, you can use Visual Studio Code and the [Azure Machine Learning Visual Studio Code extension](#vscode) to interact with Azure Machine Learning.
-
-For more information, see [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
+    > [!TIP]
+    > Similar to local environments, you can use Visual Studio Code and the [Azure Machine Learning Visual Studio Code extension](#visual-studio-code) to interact with Azure Machine Learning.
+    >
+    > For more information, see [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 
 
 ## Next steps
