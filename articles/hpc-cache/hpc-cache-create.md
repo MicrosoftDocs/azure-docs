@@ -4,7 +4,7 @@ description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/28/2022
+ms.date: 09/29/2022
 ms.author: v-erinkelly 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -39,7 +39,7 @@ In **Service Details**, set the cache name and these other attributes:
 
 ## Choose cache type and capacity
 <!-- referenced from GUI - update aka.ms/hpc-cache-iops link if you change this header text - also check for cross-reference from add storage article -->
-***[ - must update aka link to this heading in aka - ]***
+***[ - will update aka link to this heading at publish time - ]***
 
 On the **Cache** page, specify the type and size of cache to create. These values determine your cache's capabilities, including:
 
@@ -51,8 +51,8 @@ On the **Cache** page, specify the type and size of cache to create. These value
 
 First, choose the type of cache you want. Options include:
 
-* Read-write standard caching - A flexible, general-purpose cache
-* Read-only caching - A high-throughput cache designed to minimize latency in file access
+* **Read-write standard caching** - A flexible, general-purpose cache
+* **Read-only caching** - A high-throughput cache designed to minimize latency for file access
 
 Read more about these cache type options below in [Choose the cache type for your needs](#choose-the-cache-type-for-your-needs).
 
@@ -75,7 +75,7 @@ Azure HPC Cache manages which files are cached and pre-loaded to maximize cache 
 
 Choose a cache storage size that can comfortably hold the active set of working files, plus additional space for metadata and other overhead.
 
-Throughput and cache size also affect how many storage targets are supported for a particular cache. If you want to use more than 10 storage targets with your cache, you must choose the highest available cache storage size value available for your throughput size, or choose one of the high-throughput read-only configurations. Learn more in [Add storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets).
+Throughput and cache size also affect how many storage targets are supported for a particular cache. If you want to use more than 10 storage targets with your cache, you must choose the highest available cache storage size value available for your throughput size, or choose the high-throughput read-only configuration. Learn more in [Add storage targets](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets).
 
 If you need help sizing your cache correctly, contact Microsoft Service and Support.
 
@@ -101,7 +101,7 @@ This table explains some important differences between the two options.
 | Throughput sizes | 2, 4, or 8 GB/sec | 4.5, 9, or 16 GB/sec |
 | Cache sizes | 3, 6, or 12 TB for 2 GB/sec<br/> 6, 12, or 24 TB for 4 GB/sec<br/> 12, 24, or 48 TB for 8 GB/sec| 21 TB for 4.5 GB/sec <br/> 42 TB for 9 GB/sec <br/> 84 TB for 16 GB/sec |
 | Maximum number of storage targets | [10 or 20](hpc-cache-add-storage.md#size-your-cache-correctly-to-support-your-storage-targets) depending on cache size selection | 20 |
-| Compatible storage target types | Azure blob, on-premises NFS storage, NFS-enabled blob | on-premises NFS storage <br/>NFS-enabled blob storage is in preview for this combination |
+| Compatible storage target types | Azure Blob, on-premises NFS storage, NFS-enabled blob | on-premises NFS storage <br/>NFS-enabled blob storage is in preview for this combination |
 | Caching styles | Read caching or read-write caching | Read caching only |
 | Cache can be stopped to save cost when not needed | Yes | No |
 
