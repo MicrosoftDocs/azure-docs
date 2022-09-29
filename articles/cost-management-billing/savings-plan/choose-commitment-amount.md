@@ -13,11 +13,11 @@ ms.author: banders
 
 # Choose an Azure saving plan commitment amount
 
-You should purchase savings plans based on consistent base usage. Committing to a greater spend than your historical usage results in an underutilized commitment, which should be avoided whenever possible. Unused commitment doesn't carry over from one hour to next. Usage exceeding the savings plan commitment is charged using more expensive pay-as-you-go rates.
+You should purchase savings plans based on consistent base usage. Committing to a greater spend than your historical usage could result in an underutilized commitment, which should be avoided when possible. Unused commitment doesn't carry over from one hour to next. Usage exceeding the savings plan commitment is charged using more expensive pay-as-you-go rates.
 
 ## Savings plan purchase recommendations
 
-Savings plan purchase recommendations are calculated by analyzing your hourly usage data over the last 7, 30, and 60 days. Azure calculates what your costs would have been if you had a savings plan and compares it with your actual pay-as-you-go costs incurred over the time duration. The calculation is performed for every quantity that you used during the time frame. The quantity that maximizes your savings is recommended.
+Savings plan purchase recommendations are calculated by analyzing your hourly usage data over the last 7, 30, and 60 days. Azure calculates what your costs would have been if you had a savings plan and compares it with your actual pay-as-you-go costs incurred over the time duration. The calculation is performed for every quantity that you used during the time frame. The commitment amount that maximizes your savings is recommended.
 
 For example, you might use 500 VMs most of the time, but sometimes usage spikes to 700 VMs. In this example, Azure calculates your savings for both the 500 and 700 VM quantities. Since the 700 VM usage is sporadic, the recommendation calculation determines that savings are maximized for a savings plan commitment that is sufficient to cover 500 VMs and the recommendation is provided for that commitment.
 
@@ -31,7 +31,7 @@ Note the following points:
 
 ## Recommendations in the Azure portal
 
-Savings plan purchases calculated by the recommendations engine are shown on the **Recommended** tab in the Azure portal.
+Savings plan purchases are calculated by the recommendations engine for the selected term and scope, based on last 30-days of usage. Recommendations are shown in the savings plan purchase experience in the Azure Portal.
 
 ## Need help? Contact us.
 

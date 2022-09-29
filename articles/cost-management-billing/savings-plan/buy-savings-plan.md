@@ -17,11 +17,25 @@ Azure savings plans help you save money by committing to an hourly spend for one
 
 ## Who can buy a savings plan
 
-You can buy a savings plan for an Azure subscription that's of type Enterprise (MS-AZR-0017P or MS-AZR-0148P) or Microsoft Customer Agreement (MCA). Partners with Modern Partner Agreements can also use the Azure portal to purchase Azure savings plans. EA admins can purchase savings plans – other permissions on a subscription aren't required. Billing profile contributors or higher can purchase savings plans
+You can buy a savings plan for an Azure subscription that's of type Enterprise (MS-AZR-0017P or MS-AZR-0148P), Microsoft Customer Agreement (MCA) or Microsoft Partner Agreement.
 
-Enterprise Agreement (EA) customers can limit purchases to EA admins by disabling the **Add Savings Plan** option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Navigate to the **Policies** menu to change settings.
+Savings plan discounts only apply to resources associated with subscriptions purchased through an Enterprise Agreement, Microsoft Customer Agreement, or Microsoft Partner Agreement.
 
-Savings plan discounts only apply to resources associated with subscriptions purchased through an Enterprise Agreement and Microsoft Customer Agreement.
+### Enterprise Agreement customers
+
+-	EA admins with write permissions can directly purchase savings plans from **Cost Management + Billing** > **Savings plan**. No specific permissions on a subscription is needed.
+-	Subscription owners for one of the subscriptions in the EA enrollment can purchase savings plans from **Home** > **Savings plan**.
+-	Enterprise Agreement (EA) customers can limit purchases to EA admins only by disabling the **Add Savings Plan** option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Navigate to the **Policies** menu to change settings. 
+
+### Microsoft Customer Agreement (MCA) customers
+
+-	Customers with pilling profile contributor permissions and above can purchase savings plans from **Cost Management + Billing** > **Savings plan** experience. No specific permissions on a subscription needed.
+-	Subscription owners for one of the subscriptions in the billing profile can purchase savings plans from **Home** > **Savings plan**.
+-	To disallow savings plan purchases on a billing profile, billing profile contributors can navigate to the Policies menu under the billing profile and adjust **Azure Savings Plan** option.
+
+### Microsoft Partner Agreement partners
+
+-	Partners can use **Home** > **Savings plan** in the Azure Portal to purchase savings plans for thier customers.
 
 ## Scope savings plans
 
@@ -31,9 +45,10 @@ You can scope a savings plan to a shared scope, management group, subscription, 
 
 You have four options to scope a savings plan, depending on your needs:
 
-- **Shared scope** - Applies the savings plan discounts to matching resources in eligible subscriptions that are in the billing context. If a subscription was moved to a different billing context, the benefit no longer applies to the subscription. It does continue to apply to other subscriptions in the billing context.
-  - For Enterprise Agreement customers, the billing context is the enrollment. The savings plan shared scope would include multiple Active Directory tenants in an enrollment.
+- **Shared scope** - Applies the savings plan discounts to matching resources in eligible subscriptions that are in the billing scope. If a subscription was moved to a different billing scope, the benefit no longer applies to the subscription. It does continue to apply to other subscriptions in the billing scope.
+  - For Enterprise Agreement customers, the billing scope is the enrollment. The savings plan shared scope would include multiple Active Directory tenants in an enrollment.
   - For Microsoft Customer Agreement customers, the billing scope is the billing profile.
+  - For Microsoft Partner Agreement, the billing scope is a customer.
 - **Single subscription scope** - Applies the savings plan discounts to the matching resources in the selected subscription.
 - **Management group** - Applies the savings plan discounts to the matching resource in the list of subscriptions that are a part of both the management group and billing scope. To scope a savings plan to a management group, you must have at least read permission on the management group.
 - **Single resource group scope** - Applies the savings plan discounts to the matching resources in the selected resource group only.

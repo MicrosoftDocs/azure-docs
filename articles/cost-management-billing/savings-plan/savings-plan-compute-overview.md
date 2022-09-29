@@ -87,7 +87,9 @@ Savings plan purchases can't be canceled or refunded.
 - **Azure Dedicated Host** - Only the compute costs are included with the Dedicated host.
 - **Container Instances** 
 - **Azure Premium Functions**
-- **Azure App Services**
+- **Azure App Services** - Not all App Services are eligible.
+
+Some exclusions apply to the above services.
 
 For Windows virtual machines and SQL Database, the savings plan discount doesn't apply to the software costs. You can cover the licensing costs with [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 

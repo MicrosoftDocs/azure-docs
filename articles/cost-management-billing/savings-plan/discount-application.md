@@ -19,7 +19,7 @@ Each hour with savings plan, your eligible compute usage is discounted until you
 
 The benefit is first applied to the product that has the greatest savings plan discount when compared to the equivalent pay-as-you-go rate (see your price list for savings plan pricing). The application prioritization is done to ensure that you receive the maximum benefit from your savings plan investment. We multiply the savings plan rate to that product's usage and deduct the result from the savings plan commitment. The process repeats until the commitment is exhausted (or until there's no more usage to consume the benefit).
 
-A savings plan discount only applies to resources associated with Enterprise, Microsoft Partner Agreement, and Microsoft Customer Agreements. Resources that run in a subscription with other offer types don't receive the discount.
+A savings plan discount only applies to resources associated with Enterprise Agreement, Microsoft Partner Agreement, and Microsoft Customer Agreements. Resources that run in a subscription with other offer types don't receive the discount.
 
 ## When the savings plan term expires
 

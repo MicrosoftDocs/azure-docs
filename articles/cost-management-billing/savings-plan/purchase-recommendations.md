@@ -19,7 +19,7 @@ The following steps define how recommendations are calculated:
 
 1. The recommendation engine evaluates the hourly usage for your resources in the given scope over the past 7, 30, and 60 days.
 2. Based on the usage data, the engine simulates your costs with and without a savings plan.
-3. The costs are simulated for different commitment amounts, and the amount that maximizes the savings is recommended.
+3. The costs are simulated for different commitment amounts, and the commitment amount that maximizes the savings is recommended.
 4. The recommendation calculations include any discounts that you might have on your on-demand usage rates.
 
 ## Purchase recommendations in the Azure portal
