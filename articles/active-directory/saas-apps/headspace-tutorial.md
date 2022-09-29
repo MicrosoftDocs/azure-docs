@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/09/2022
+ms.date: 09/26/2022
 ms.author: jeedes
 
 ---
@@ -49,6 +49,8 @@ To configure the integration of Headspace into Azure AD, you need to add Headspa
 1. In the **Add from the gallery** section, type **Headspace** in the search box.
 1. Select **Headspace** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Headspace
 
 Configure and test Azure AD SSO with Headspace using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Headspace.
@@ -78,13 +80,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `urn:auth0:<Auth0TenantName>:<CustomerConnectionName>`
 
     b. In the **Reply URL** textbox, type a value using the following pattern:
-    `https://auth.<Enviornment>.headspace.com/login/callback?connection=<CustomerConnectionName>`
+    `https://auth.<Environment>.headspace.com/login/callback?connection=<CustomerConnectionName>`
 
-    c. In the **Sign on URL** textbox, type a value using the following pattern:
-    `https://<Environment>.headspace.com/sso-login`
+    c. In the **Sign on URL** textbox, type the URL:
+    `https://headspace.com/sso-login`
 
     > [!Note]
-    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Headspace Client support team](mailto:ecosystem-integration-squad@headspace.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Headspace Client support team](mailto:ecosystem-integration-squad@headspace.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Headspace application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 

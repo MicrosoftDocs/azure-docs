@@ -248,13 +248,15 @@
   items:
   - name: Azure Cache for Redis FAQs
     href: cache-faq.yml
+  - name: Retirements from Azure Cache for Redis
+    href: cache-retired-features.md
   - name: Videos
     href: https://www.youtube.com/results?search_query=azure+redis+cache
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-cache-redis.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cache/
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-redis-cache
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-redis-cache
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=databases

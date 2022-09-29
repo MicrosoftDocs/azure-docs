@@ -4,7 +4,7 @@ description: Learn how to diagnose and fix .NET SDK request timeout exceptions.
 author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 09/01/2022
+ms.date: 09/16/2022
 ms.author: jroth
 ms.topic: troubleshooting
 ms.reviewer: mjbrown
@@ -15,6 +15,14 @@ ms.custom: devx-track-dotnet
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 The HTTP 408 error occurs if the SDK was unable to complete the request before the timeout limit occurred.
+
+It is important to make sure the application design is following our [guide for designing resilient applications with Azure Cosmos DB SDKs](conceptual-resilient-sdk-applications.md) to make sure it correctly reacts to different network conditions. Your application should have retries in place for timeout errors as these are normally expected in a distributed system.
+
+When evaluating the case for timeout errors:
+
+* What is the impact measured in volume of operations affected compared to the operations succeeding? Is it within the service SLAs?
+* Is the P99 latency / availability affected?
+* Are the failures affecting all your application instances or only a subset? When the issue is reduced to a subset of instances, it's commonly a problem related to those instances.
 
 ## Customize the timeout on the Azure Cosmos DB .NET SDK
 

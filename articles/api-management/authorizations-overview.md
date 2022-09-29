@@ -51,7 +51,7 @@ For public preview the following limitations exist:
 - Maximum configured number of authorization providers per API Management instance: 1,000
 - Maximum configured number of authorizations per authorization provider: 10,000
 - Maximum configured number of access policies per authorization: 100
-- Maximum requests per minute per authorization: 100
+- Maximum requests per minute per service: 250
 - Authorization code PKCE flow with code challenge isn't supported.
 - Authorizations feature isn't supported on self-hosted gateways.
 - API documentation is not available yet. Please see [this](https://github.com/Azure/APIManagement-Authorizations) GitHub repository with samples.  

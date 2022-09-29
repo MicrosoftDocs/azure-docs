@@ -1,9 +1,8 @@
 ---
 title: Azure Storage samples using Python | Microsoft Docs
 description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the Python storage client libraries.
-author: normesta
-
-ms.author: normesta
+author: pauljewellmsft
+ms.author: pauljewell
 ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
@@ -567,10 +566,10 @@ The following tables provide an overview of our samples repository and the scena
 
 To view the complete Python sample libraries, go to:
 
-- [Azure blob code samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
+- [Azure Blob code samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 - [Azure Data Lake code samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
 - [Azure Files code samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-share/samples)
-- [Azure queue code samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples)
+- [Azure Queue code samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples)
 
 You can browse and clone the GitHub repository for each library.
 

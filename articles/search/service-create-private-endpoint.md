@@ -128,8 +128,8 @@ In this section, you'll create a new Azure Cognitive Search service with a Priva
     | VM architecture | Accept the default **x64**. |
     | Size | Accept the default **Standard D2S v3**. |
     | **ADMINISTRATOR ACCOUNT** |  |
-    | Username | Enter the user name of the administrator.. |
-    | Password | Enter the password. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
+    | Username | Enter the user name of the administrator. Use an account that's valid for your Azure subscription. You'll want to sign into Azure portal from the VM so that you can manage your search service. |
+    | Password | Enter the account password. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     | Confirm Password | Reenter password. |
     | **INBOUND PORT RULES** |  |
     | Public inbound ports | Accept the default **Allow selected ports**. |
@@ -169,9 +169,9 @@ Download and then connect to the virtual machine as follows:
 
 1. Select **Connect**. After selecting the **Connect** button, **Connect to virtual machine** opens.
 
-1. Select **Download RDP File**. Azure creates a Remote Desktop Protocol (*.rdp*) file and downloads it to your computer.
+1. Select **Download RDP File**. Azure creates a Remote Desktop Protocol (`.rdp`) file and downloads it to your computer.
 
-1. Open the downloaded.rdp* file.
+1. Open the downloaded `.rdp` file.
 
     1. If prompted, select **Connect**.
 

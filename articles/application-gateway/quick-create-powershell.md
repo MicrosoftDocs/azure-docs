@@ -129,6 +129,7 @@ $defaultlistener = New-AzApplicationGatewayHttpListener `
 $frontendRule = New-AzApplicationGatewayRequestRoutingRule `
   -Name rule1 `
   -RuleType Basic `
+  -Priority 100 `
   -HttpListener $defaultlistener `
   -BackendAddressPool $backendPool `
   -BackendHttpSettings $poolSettings

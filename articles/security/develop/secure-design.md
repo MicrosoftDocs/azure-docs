@@ -61,7 +61,7 @@ with security best practices on Azure:
     assess your own DevOps progression.
 
   - [Top 5 security items to consider before pushing to
-    production](/learn/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca)
+    production](/training/modules/top-5-security-items-to-consider/index?WT.mc_id=Learn-Blog-tajanca)
     shows you how to help secure your web applications on Azure and
     protect your apps against the most common and dangerous web
     application attacks.
@@ -552,7 +552,7 @@ identities for Azure resources, your Azure web app can access secret
 configuration values easily and securely without storing any secrets in
 your source control or configuration. To learn more, see [Manage secrets
 in your server apps with Azure Key
-Vault](/learn/modules/manage-secrets-with-azure-key-vault/).
+Vault](/training/modules/manage-secrets-with-azure-key-vault/).
 
 ### Implement fail-safe measures
 

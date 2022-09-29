@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM backup
 description: Provides a summary of support settings and limitations when backing up Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 07/19/2022
+ms.date: 09/07/2022
 ms.custom: references_regions 
 ms.reviewer: geg
 author: v-amallick
@@ -73,7 +73,7 @@ Here's what's supported if you want to back up Linux machines.
 Back up Linux Azure VMs with the Linux Azure VM agent | File consistent backup.<br/><br/> App-consistent backup using [custom scripts](backup-azure-linux-app-consistent.md).<br/><br/> During restore, you can create a new VM, restore a disk and use it to create a VM, or restore a disk, and use it to replace a disk on an existing VM. You can also restore individual files and folders.
 Back up Linux Azure VMs with MARS agent | Not supported.<br/><br/> The MARS agent can only be installed on Windows machines.
 Back up Linux Azure VMs with DPM/MABS | Not supported.
-Backup Linux Azure VMs with docker mount points | Currently, Azure Backup doesn’t support exclusion of docker mount points as these are mounted at different paths every time.
+Back up Linux Azure VMs with docker mount points | Currently, Azure Backup doesn’t support exclusion of docker mount points as these are mounted at different paths every time.
 
 ## Operating system support (Linux)
 
@@ -100,9 +100,9 @@ Azure Backup provides support for customers to author their own pre-post scripts
 --- | ---
 Maximum recovery points per protected instance (machine/workload) | 9999.
 Maximum expiry time for a recovery point | No limit (99 years).
-Maximum backup frequency to vault (Azure VM extension) | Once a day.
-Maximum backup frequency to vault (MARS agent) | Three backups per day.
-Maximum backup frequency to DPM/MABS | Every 15 minutes for SQL Server.<br/><br/> Once an hour for other workloads.
+Maximum backup-frequency to vault (Azure VM extension) | Once a day.
+Maximum backup-frequency to vault (MARS agent) | Three backups per day.
+Maximum backup-frequency to DPM/MABS | Every 15 minutes for SQL Server.<br/><br/> Once an hour for other workloads.
 Recovery point retention | Daily, weekly, monthly, and yearly.
 Maximum retention period | Depends on backup frequency.
 Recovery points on DPM/MABS disk | 64 for file servers, and 448 for app servers.<br/><br/> Tape recovery points are unlimited for on-premises DPM.
@@ -134,7 +134,9 @@ The following table summarizes support for backup during VM management tasks, su
 
 **Restore** | **Supported**
 --- | ---
-Restore across subscription/region/zone. | Not supported.
+<a name="backup-azure-cross-subscription-restore">Restore across subscription</a> | [Cross Subscription Restore](backup-azure-arm-restore-vms.md#restore-options) is now supported in Azure VMs.
+[Restore across region](backup-azure-arm-restore-vms.md#cross-region-restore) | Supported.
+Restore across zone | Unsupported.
 Restore to an existing VM | Use replace disk option.
 Restore disk with storage account enabled for Azure Storage Service Encryption (SSE) | Not supported.<br/><br/> Restore to an account that doesn't have SSE enabled.
 Restore to mixed storage accounts |Not supported.<br/><br/> Based on the storage account type, all restored disks will be either premium or standard, and not mixed.
@@ -214,7 +216,7 @@ Azure Backup supports encryption for in-transit and at-rest data:
 
 Network traffic to Azure:
 
-- Backup traffic from servers to the Recovery Services vault is encrypted by using Advanced Encryption Standard 256.
+- Backup-traffic from servers to the Recovery Services vault is encrypted by using Advanced Encryption Standard 256.
 - Backup data is sent over a secure HTTPS link.
 - The backup data is stored in the Recovery Services vault in encrypted form.
 - Only you have the encryption key to unlock this data. Microsoft can't decrypt the backup data at any point.

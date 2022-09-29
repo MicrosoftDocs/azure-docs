@@ -42,6 +42,9 @@ Get started with facial recognition using the Face client library for Python. Fo
 
     Create a new Python script&mdash;*quickstart-file.py*, for example. Then open it in your preferred editor or IDE and paste in the following code.
 
+    > [!NOTE]
+    > If you haven't received access to the Face service using the [intake form](https://aka.ms/facerecognition), some of these functions won't work.
+
     [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart-single.py?name=snippet_single)]
 
 1. Enter your key and endpoint into the corresponding fields.

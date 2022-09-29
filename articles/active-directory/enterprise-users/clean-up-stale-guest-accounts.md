@@ -18,23 +18,23 @@ ms.collection: M365-identity-device-management
 
 As users collaborate with external partners, it’s possible that many guest accounts get created in Azure Active Directory (Azure AD) tenants over time. When collaboration ends and the users no longer access your tenant, the guest accounts may become stale. Admins can use Access Reviews to automatically review inactive guest users and block them from signing in, and later, delete them from the directory.
 
-Learn more about [how to manage inactive user accounts in Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-manage-inactive-user-accounts).
+Learn more about [how to manage inactive user accounts in Azure AD](https://learn.microsoft.com/azure/active-directory/reports-monitoring/howto-manage-inactive-user-accounts).
 
 There are a few recommended patterns that are effective at cleaning up stale guest accounts:
 
 1. Create a multi-stage review whereby guests self-attest whether they still need access. A second-stage reviewer assesses results and makes a final decision. Guests with denied access are disabled and later deleted.
 
-2. Create a review to remove inactive external guests. Admins define inactive as period of days. They disable and later delete guests that don’t sign in to the tenant within that time frame. By default, this doesn't affect recently created users. [Learn more about how to identify inactive accounts](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-manage-inactive-user-accounts#how-to-detect-inactive-user-accounts).
+2. Create a review to remove inactive external guests. Admins define inactive as period of days. They disable and later delete guests that don’t sign in to the tenant within that time frame. By default, this doesn't affect recently created users. [Learn more about how to identify inactive accounts](https://learn.microsoft.com/azure/active-directory/reports-monitoring/howto-manage-inactive-user-accounts#how-to-detect-inactive-user-accounts).
 
 Use the following instructions to learn how to create Access Reviews that follow these patterns. Consider the configuration recommendations and then make the needed changes that suit your environment.
 
 ## Create a multi-stage review for guests to self-attest continued access
 
-1. Create a [dynamic group](https://docs.microsoft.com/azure/active-directory/enterprise-users/groups-create-rule) for the guest users you want to review. For example,
+1. Create a [dynamic group](https://learn.microsoft.com/azure/active-directory/enterprise-users/groups-create-rule) for the guest users you want to review. For example,
 
    `(user.userType -eq "Guest") and (user.mail -contains "@contoso.com") and (user.accountEnabled -eq true)`
 
-2. To [create an Access Review](https://docs.microsoft.com/azure/active-directory/governance/create-access-review)
+2. To [create an Access Review](https://learn.microsoft.com/azure/active-directory/governance/create-access-review)
     for the dynamic group, navigate to **Azure Active Directory > Identity Governance > Access Reviews**.
 
 3. Select **New access review**.
@@ -98,11 +98,11 @@ Use the following instructions to learn how to create Access Reviews that follow
 
 ## Create a review to remove inactive external guests
 
-1. Create a [dynamic group](https://docs.microsoft.com/azure/active-directory/enterprise-users/groups-create-rule) for the guest users you want to review. For example,
+1. Create a [dynamic group](https://learn.microsoft.com/azure/active-directory/enterprise-users/groups-create-rule) for the guest users you want to review. For example,
 
    `(user.userType -eq "Guest") and (user.mail -contains "@contoso.com") and (user.accountEnabled -eq true)`
 
-2. To [create an access review](https://docs.microsoft.com/azure/active-directory/governance/create-access-review) for the dynamic group, navigate to **Azure Active Directory > Identity Governance > Access Reviews**.
+2. To [create an access review](https://learn.microsoft.com/azure/active-directory/governance/create-access-review) for the dynamic group, navigate to **Azure Active Directory > Identity Governance > Access Reviews**.
 
 3. Select **New access review**.
 

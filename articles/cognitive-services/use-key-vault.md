@@ -5,7 +5,7 @@ author: aahill
 ms.author: aahi
 ms.service: cognitive-services
 ms.topic: how-to
-ms.date: 09/01/2022
+ms.date: 09/13/2022
 zone_pivot_groups: programming-languages-set-twenty-eight
 ---
 
@@ -112,7 +112,7 @@ To set environment variables, use one the following commands. `KEY_VAULT_NAME` w
 Create and assign persisted environment variable, given the value.
 
 ```CMD
-setx KEY_VAULT_NAME="Your-Key-Vault-Name"
+setx KEY_VAULT_NAME "Your-Key-Vault-Name"
 ```
 
 In a new instance of the **Command Prompt**, read the environment variable.
