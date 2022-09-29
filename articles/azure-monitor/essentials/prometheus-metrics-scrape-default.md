@@ -1,12 +1,12 @@
 ---
-title: Default Prometheus metrics configuration in Azure Monitor
+title: Default Prometheus metrics configuration in Azure Monitor (preview)
 description: Lists the default targets, dashboards, and recording rules for Prometheus metrics in Azure Monitor.
 ms.topic: conceptual
 ms.date: 09/28/2022
 ms.reviewer: aul
 ---
 
-# Default Prometheus metrics configuration in Azure Monitor
+# Default Prometheus metrics configuration in Azure Monitor (preview)
 
 This article lists the default targets, dashboards, and recording rules when you [configure Container insights to collect Prometheus metrics by enabling metrics-addon](../containers/container-insights-prometheus-metrics-addon.md) for any AKS cluster.
 

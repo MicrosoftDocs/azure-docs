@@ -1,12 +1,12 @@
 ---
-title: Minimal Prometheus ingestion profile in Azure Monitor
+title: Minimal Prometheus ingestion profile in Azure Monitor (preview)
 description: Describes how the setting for minimal ingestion profile for Prometheus metrics in Azure Monitor is configured and how you can modify it to collect additional data.
 ms.topic: conceptual
 ms.date: 09/28/2022
 ms.reviewer: aul
 ---
 
-# Minimal ingestion profile for Prometheus metrics in Azure Monitor
+# Minimal ingestion profile for Prometheus metrics in Azure Monitor (preview)
 When Prometheus metric scraping is enabled for a cluster in Container insights, it collects a minimal amount of data by default. This helps reduce ingestion volume of series/metrics used by default dashboards, default recording rules & default alerts. This article describes how this setting is configured and how you can modify it to collect additional data.
 
 ## Configuration setting

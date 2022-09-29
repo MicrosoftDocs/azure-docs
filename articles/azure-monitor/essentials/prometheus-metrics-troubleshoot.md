@@ -1,18 +1,14 @@
 ---
-title: Troubleshoot collection of Prometheus metrics in Azure Monitor
+title: Troubleshoot collection of Prometheus metrics in Azure Monitor (preview)
 description: Steps that you can take if you aren't collecting Prometheus metrics as expected.
 ms.topic: conceptual
 ms.date: 09/28/2022
 ms.reviewer: aul
 ---
 
-# Troubleshoot collection of Prometheus metrics in Azure Monitor
+# Troubleshoot collection of Prometheus metrics in Azure Monitor (preview)
 
 Follow the steps in this article to determine the cause of Prometheus metrics not being collected as expected in Azure Monitor.
-
-## Azure Monitor workspace throttling
-
-Verify that the volume of metrics sent to the Azure Monitor workspace isn't over the limit.
 
 ## Pod status
 
@@ -81,3 +77,7 @@ Agent based scraping currently has the limitations in the following table:
 | Label value length | Less than or equal to 1023 characters. When this limit is exceeded for any time-series in a job, the entire scrape job will fail, and metrics will be dropped from that job before ingestion. You can see up=0 for that job and also target Ux will show the reason for up=0. |
 | Number of labels per timeseries | Less than or equal to 63. When this limit is exceeded for any time-series in a job, the entire scrape job will fail, and metrics will be dropped from that job before ingestion. You can see up=0 for that job and also target Ux will show the reason for up=0. |
 | Metric name length | Less than or equal to 511 characters. When this limit is exceeded for any time-series in a job, only that particular series will be dropped. MetricextensionConsoleDebugLog will have traces for the dropped metric. |
+
+## Next steps
+
+- 

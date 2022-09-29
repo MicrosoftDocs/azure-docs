@@ -1,16 +1,19 @@
 ---
-title: Customize scraping of Prometheus metrics in Azure Monitor
+title: Customize scraping of Prometheus metrics in Azure Monitor (preview)
 description: Customize metrics scraping for a Kubernetes cluster with the metrics addon in Azure Monitor.
 ms.topic: conceptual
 ms.date: 09/28/2022
 ms.reviewer: aul
 ---
 
-# Customize scraping of Prometheus metrics in Azure Monitor
+# Customize scraping of Prometheus metrics in Azure Monitor (preview)
 
 This article provides instructions on customizing metrics scraping for a Kubernetes cluster with the [metrics addon](../containers/container-insights-prometheus-metrics-addon.md) in Azure Monitor.
 
-Three different configmaps can be configured to change the default settings of the metrics addon. These configmaps are:
+## Configmaps
+
+Three different configmaps can be configured to change the default settings of the metrics addon:
+
 - ama-metrics-settings-configmap
 - ama-metrics-prometheus-config
 - ama-metrics-prometheus-config-node
@@ -33,7 +36,7 @@ The following table has a list of all the default targets that the Azure Monitor
 | apiserver | bool | `false` | Scrape the kubernetes api server in the k8s cluster without any extra scrape config. |
 | prometheuscollectorhealth | bool | `false` | Scrape info about the prometheus-collector container such as the amount and size of timeseries scraped. |
 
-If you want to turn on the scraping of the default targets that aren't enabled by default, edit the configmap `ama-metrics-settings-configmap` [configmap](https://aka.ms/azureprometheus-addon-settings-configmap) to update the targets listed under `default-scrape-settings-enabled` to `true` and apply the configmap to your cluster.
+If you want to turn on the scraping of the default targets that aren't enabled by default, edit the configmap `ama-metrics-settings-configmap` [configmap](https://aka.ms/azureprometheus-addon-settings-configmap) to update the targets listed under `default-scrape-settings-enabled` to `true`, and apply the configmap to your cluster.
 
 ### Customizing metrics collected by default targets
 By default, for all the default targets, only minimal metrics used in the default recording rules, alerts, and Grafana dashboards are ingested as described in [minimal-ingestion-profile](prometheus-metrics-scrape-configuration-minimal.md). To collect all metrics from default targets, in the configmap under `default-targets-metrics-keep-list`, set `minimalingestionprofile` to `false`.
