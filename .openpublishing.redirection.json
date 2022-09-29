@@ -1,5 +1,25 @@
 {
     "redirections": [
+    {
+      "source_path": "articles/storage/blobs/storage-quickstart-blobs-dotnet-legacy.md",
+      "redirect_url": "/previous-versions/azure/storage/blobs/storage-quickstart-blobs-dotnet-legacy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-quickstart-blobs-java-legacy.md",
+      "redirect_url": "/previous-versions/azure/storage/blobs/storage-quickstart-blobs-java-legacy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-quickstart-blobs-python-legacy.md",
+      "redirect_url": "/previous-versions/azure/storage/blobs/storage-quickstart-blobs-python-legacy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-quickstart-blobs-xamarin.md",
+      "redirect_url": "/previous-versions/azure/storage/blobs/storage-quickstart-blobs-xamarin",
+      "redirect_document_id": false
+    },
         {
             "source_path": "articles/iot-hub/iot-hub-rm-template.md",
             "redirect_url": "/azure/iot-hub/iot-hub-rm-template-powershell",
