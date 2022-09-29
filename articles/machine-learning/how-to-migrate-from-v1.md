@@ -133,14 +133,16 @@ For a comparison of SDK v1 and v2 code, see
 
 ### Data (datasets in v1)
 
-Datasets are renamed to data assets. The mapping of v1 and v2 assets is shown below:
-* V1 FileDataset = V2 Folder (uri_folder, mode: ro_mount)
-* V1 TabularDataset = V2 Table (mltable, mode: direct)
+Datasets are renamed to data assets. *Backwards compatibility* is provided, which means you can use V1 Datasets in V2. When you consume a V1 Dataset in a V2 job you will notice they are automatically mapped into V2 types as follows:
+
+* V1 FileDataset = V2 Folder (`uri_folder`)
+* V1 TabularDataset = V2 Table (`mltable`)
+
+It should be noted that *forwards compatibility* is **not** provided, which means you **cannot** use V2 data assets in V1.
 
 This article talks more about handling data in v2 - [Read and write data in a job](how-to-read-write-data-v2.md)
 
 For a comparison of SDK v1 and v2 code, see [Data assets in SDK v1 and v2](migrate-to-v2-assets-data.md).
-
 
 ### Model
 
