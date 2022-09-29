@@ -53,7 +53,10 @@ The migration tool will map the CPU/Memory requirement to corresponding SKU. If 
 "(" means greater than and "]" means less than or equal to. For example, “(0, 1]” means “greater than 0 and less than or equal to 1”.
 
 ### Network Isolation
-For private workspace and VNET scenarios, check [Use network isolation with managed online endpoints (preview)](how-to-secure-online-endpoint.md?tabs=model). As there are many settings for your workspace and VNET, we strongly suggest that redeploy through our new CLI instead of the below script tool.
+For private workspace and VNet scenarios, see [Use network isolation with managed online endpoints (preview)](how-to-secure-online-endpoint.md?tabs=model).
+
+> [!IMPORTANT]
+> As there are many settings for your workspace and VNet, we strongly suggest that redeploy through the Azure CLI extension v2 for machine learning instead of the script tool.
 
 ## Not supported
 + [EncryptionProperties](/python/api/azureml-core/azureml.core.webservice.aci.encryptionproperties) for ACI container isn't supported.
