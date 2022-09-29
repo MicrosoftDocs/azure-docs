@@ -86,9 +86,8 @@ You can specify the following QoS settings on a service:
 Each SIM policy includes:
 
 - Top-level settings that are applied to every SIM using the SIM policy. These settings include the default network slice, the UE aggregated maximum bit rate (UE-AMBR) for downloads and uploads, and the RAT/Frequency Priority ID (RFSP ID).
-- A *network scope*, which defines how SIMs using this SIM policy will connect to the data network. You can use the network scope to determine the following settings:
+- A *network scope*, which defines the network slice and data network that the SIM policy applies to. You can use the network scope to determine the following settings:
 
-  - The network slice that will be used ... <!-- TODO -->
   - The services (as described in [Services](#services)) offered to SIMs on this data network.
   - A set of QoS characteristics that will be used to form the default QoS flow for PDU sessions (or EPS bearer for PDN connections in 4G networks).
 

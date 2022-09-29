@@ -2,8 +2,8 @@
 title: Manage network slices - Azure portal
 titleSuffix: Azure Private 5G Core Preview
 description: With this how-to guide, learn how to manage network slices for Azure Private 5G Core Preview through the Azure portal.  
-author: djrmetaswitch
-ms.author: drichards
+author: b-branco
+ms.author: biancabranco
 ms.service: private-5g-core
 ms.topic: how-to 
 ms.date: 09/14/2022
@@ -44,7 +44,7 @@ Collect the values in the following table for the slice you want to provision.
    |---------|---------|
    | The name for the slice. | **Slice name** |
    | The slice/service type (SST) value. This is an integer and indicates the expected services and features for the network slice. Each slice in a network must have a unique SST value. </br></br>You can use the standard values specified in section 5.15.2.2 of [3GPP TS 23.501](https://www.etsi.org/deliver/etsi_ts/123500_123599/123501/17.05.00_60/ts_123501v170500p.pdf). For example: </br></br>1 - eMBB. This is a slice suitable for the handling of 5G enhanced mobile broadband. </br>2 - URLLC. This is a slice suitable for the handling of ultra-reliable low latency communications. </br>3 - MIoT. This is a slice suitable for the handling of massive IoT. </br></br>You can also use a non-standard value. | **Slice Service Type (SST)** |
-   | The slice differentiator (SD) value. This setting is optional and can be used to ... <!-- TODO --> | **Slice Differentiator (SD)** |
+   | The slice differentiator (SD) value. This setting is optional and can be used to complement the SST value for further slice differentiation. | **Slice Differentiator (SD)** |
 
 ## Create a network slice
 
