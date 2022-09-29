@@ -1,11 +1,11 @@
 ---
-title: Understand the Azure IoT Hub query language | Microsoft Docs
+title: Understand the Azure IoT Hub query language
 description: Developer guide - description of the SQL-like IoT Hub query language used to retrieve information about device/module twins and jobs from your IoT hub.
 author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 09/08/2022
+ms.date: 09/29/2022
 ms.author: kgremban
 ms.custom: devx-track-csharp
 ---
@@ -31,7 +31,7 @@ You can run queries against your IoT hub directly in the Azure portal.
 
 You also can run queries within your applications using the Azure IoT service SDKs and service APIs.
 
-For example code implementing IoT Hub queries, see the [Add queries with the service SDK](#add-queries-with-the-service-sdk) section.
+For example code implementing IoT Hub queries, see the [Query examples with the service SDKs](#query-examples-with-the-service-sdks) section.
 
 For links to SDK reference pages and samples, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
 
@@ -270,7 +270,7 @@ In routes conditions, the following string functions are supported:
 | ENDS_WITH(x, y) | Returns a Boolean indicating whether the first string expression ends with the second. |
 | CONTAINS(x,y) | Returns a Boolean indicating whether the first string expression contains the second. |
 
-## Add queries with the service SDK
+## Query examples with the service SDKs
 
 ### C# example
 
