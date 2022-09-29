@@ -47,20 +47,31 @@ The following scenarios aren't supported:
 - Configuring other certificate-to-user account bindings, such as using the **subject + issuer** or **Issuer + Serial Number**, aren’t available in this release.
 - Currently, password can't be disabled when CBA is enabled and the option to sign in using a password is displayed.
 
-## Supported OS platforms
+## Supported operating systems
+
+| Operating system | Certificate on-device/Derived PIV |       Smart cards      |
+|:-----------------|:---------------------------------:|:----------------------:|
+| Windows          |          &#x2705;                 |        &#x2705;        |
+| MacOS            |          &#x2705;                 |        &#x2705;        |
+| iOS              |          &#x2705;                 | Supported vendors only |
+| Android          |          &#x2705;                 | Supported vendors only |
 
 
-## Supported browsers by OS platforms
+## Supported browsers
 
-## Smartcard providers
+| Operating system |  Chrome certificate on-device   |  Chrome smart card   |   Safari certificate on-device  |   Safari  smart card |    Edge as Profile certificate on-device    |    Edge as Profile smart card    |   Edge as Browser  certificate on-device    |   Edge as Browser smart card    |      Android certificate on-device |      Android certificate smart card |
+|:-----------------|:----------:|:----------:|:----------:|:----------:|:-----------------|:----------:|:----------:|:----------:|:----------:|:----------:|
+| Windows          |  &#x2705;  |  &#x2705;  |  &#x2705;  |  &#x2705;  |     &#x2705;     |  &#x2705;  |  &#x2705;  |  &#x2705;  |     N/A    |    N/A     |
+| MacOS            |  &#x2705;  |  &#x2705;  |  &#x2705;  |  &#x2705;  |     &#x2705;     |  &#x2705;  |  &#x2705;  |  &#x2705;  |     N/A    |    N/A     |
+| iOS              |  &#10060;  |  &#10060;  |  &#x2705;  |  Supported vendors only  |     &#x2705;     |  Supported vendors only  |  &#10060;  |  &#10060;  |     N/A    |    N/A     |
+| Android          |  &#10060;  | &#10060;  |  &#10060;  |  &#10060;  |     &#x2705;     |  Supported vendors only  |   &#10060;  |   &#10060;  |    &#x2705;    |    Supported vendors only     |
 
-|Provider | Windows | Mac OS | iOS | Android |
-|---------|---------|------|-------|---------|
-|YubiKey | ![y] | ![y] | ![y] | ![y] |
+## Smart card providers
 
-<!--Image references-->
-[y]: ./media/fido2-compatibility/yes.png
-[n]: ./media/fido2-compatibility/no.png
+|Provider  |  Windows   |   Mac OS   |    iOS     |   Android  |
+|:---------|:----------:|:----------:|:----------:|:----------:|
+|YubiKey   |  &#x2705;  |  &#x2705;  |  &#x2705;  |  &#x2705;  |
+
 
 ## Next steps
 

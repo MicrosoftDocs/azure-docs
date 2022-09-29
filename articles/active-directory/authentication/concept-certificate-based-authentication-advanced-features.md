@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/27/2022
+ms.date: 09/29/2022
 
 
 ms.author: justinha
@@ -18,12 +18,13 @@ ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
 
-# Advanced features for Azure AD certificate-based authentication (CBA)
+# Advanced features for Azure AD certificate-based authentication 
 
+This topic covers how to use one certificate for multiple accounts and support for external identities who use certificate-based authentication (CBA).
 
 ## Using one certificate for multiple accounts 
 
-certificateUserIds attribute is a unique constraint multi valued attribute. An admin can use multiple bindings and add appropriate values into the multi values and achieve authenticating into multiple accounts using one certificate.
+The certificateUserIds attribute is a unique constraint multi valued attribute. An admin can use multiple bindings and add appropriate values into the multi values and achieve authenticating into multiple accounts using one certificate.
 
 The Azure AD user object lookup happens with the Azure AD UPN the user enters ( on in case of Windows login the Azure AD UPN that windows send) and the username bindings is used to validate the certificate to successfully authenticate the user. Also, if the admin has configured multiple bindings, Azure AD will evaluate all the bindings until a successful authentication, or all the bindings are evaluated. This helps the admin use specific configurations to achieve one certificate to multiple accounts.
 
@@ -46,7 +47,7 @@ The above configuration would allow the same certificate to be used by Bob for b
  
 If the tenant Admin wishes for that certificate to ONLY be used for Bob productivity account and block the use of the certificate on other accounts, they would configure Bob's productivity account to hold all of the values available in the username mapping policy. 
 
-In this example to lock Bobs certificate to only Bob's productivity account as certificateUserIds attribute has unique constraint and no other user account can have the same values.
+In this example, to lock Bob's certificate to only Bob's productivity account as certificateUserIds attribute has unique constraint and no other user account can have the same values.
  
 **Bobs Productivity Account**
  
