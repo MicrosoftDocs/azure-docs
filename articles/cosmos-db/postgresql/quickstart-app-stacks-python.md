@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: quickstart
 recommendations: false
-ms.date: 08/24/2022
+ms.date: 09/28/2022
 ---
 
-# Use Python to connect and run SQL on Azure Cosmos DB for PostgreSQL
+# Use Python to connect and run SQL commands on Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -24,16 +24,16 @@ This quickstart shows you how to use Python code on macOS, Ubuntu Linux, or Wind
 - An Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free).
 - [Python](https://www.python.org/downloads) 2.7 or 3.6+.
 - The latest [pip](https://pip.pypa.io/en/stable/installing) package installer.
-- [psycopg2](https://pypi.python.org/pypi/psycopg2-binary/ installed by using `pip` in a terminal or command prompt window. For more information, see [How to install psycopg2](https://www.psycopg.org/docs/install.html).
+- [psycopg2](https://pypi.python.org/pypi/psycopg2-binary) installed by using `pip` in a terminal or command prompt window. For more information, see [How to install psycopg2](https://www.psycopg.org/docs/install.html).
 - An Azure Cosmos DB for PostgreSQL cluster. To create a cluster, see [Create a cluster in the Azure portal](quickstart-create-portal.md).
-  
-  The code samples in this article use your cluster name and password. In the Azure portal, your cluster name appears at the top of your cluster page.
-  
-  :::image type="content" source="media/howto-app-stacks/cluster-name.png" alt-text="Screenshot of the cluster name in the Azure portal.":::
+
+The code samples in this article use your cluster name and password. In the Azure portal, your cluster name appears at the top of your cluster page.
+
+:::image type="content" source="media/howto-app-stacks/cluster-name.png" alt-text="Screenshot of the cluster name in the Azure portal.":::
 
 ## Connect, create a table, and insert data
 
-The following code example creates a connection pool to your Postgres database by using the [psycopg2.pool](https://www.psycopg.org/docs/pool.html) library, uses `pool.getconn()` to get a connection from the pool, and uses [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) functions to create a table and insert data.
+The following code example creates a connection pool to your Postgres database by using the [psycopg2.pool](https://www.psycopg.org/docs/pool.html) library, and uses `pool.getconn()` to get a connection from the pool. The code then uses [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) functions with SQL CREATE TABLE and INSERT INTO statements to create a table and insert data.
 
 [!INCLUDE[why-connection-pooling](includes/why-connection-pooling.md)]
 

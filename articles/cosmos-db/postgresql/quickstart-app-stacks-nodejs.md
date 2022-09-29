@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: quickstart
 recommendations: false
-ms.date: 09/27/2022
+ms.date: 09/28/2022
 ---
 
-# Use Node.js to connect and run SQL on Azure Cosmos DB for PostgreSQL
+# Use Node.js to connect and run SQL commands on Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -23,13 +23,8 @@ This quickstart shows you how to use Node.js code to connect to a cluster, and t
 
 - An Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free).
 - An Azure Cosmos DB for PostgreSQL cluster. To create a cluster, see [Create a cluster in the Azure portal](quickstart-create-portal.md).
-  
-  The code samples in this article use your cluster name and password. In the Azure portal, your cluster name appears at the top of your cluster page.
-  
-  :::image type="content" source="media/howto-app-stacks/cluster-name.png" alt-text="Screenshot of the cluster name in the Azure portal.":::
-
 - [Node.js](https://nodejs.org) installed.
-- For various samples, you need the following packages installed:
+- For various samples, the following packages installed:
 
   - [pg](https://www.npmjs.com/package/pg) PostgreSQL client for Node.js.
   - [pg-copy-streams](https://www.npmjs.com/package/pg-copy-streams)
@@ -47,13 +42,15 @@ This quickstart shows you how to use Node.js code to connect to a cluster, and t
   npm list
   ```
 
-To run the code in these examples, you can launch Node.js from the Bash shell, terminal, or Windows command prompt by typing `node`. Then run the example JavaScript code interactively by copying and pasting the code into the prompt.
+To run the code in these examples, you can launch Node.js from the Bash shell, terminal, or Windows command prompt by typing `node`. Then run the example JavaScript code interactively by copying and pasting the code into the prompt. Or, you can save the JavaScript code into a *\<filename>.js* file, and then run `node <filename>.js` with the file name as a parameter.
 
-Or, you can save the JavaScript code into a *<filename>.js* file, and then run `node <filename>.js` with the file name as a parameter.
+The code samples in this article use your cluster name and password. You can see your cluster name at the top of your cluster page in the Azure portal.
+
+:::image type="content" source="media/howto-app-stacks/cluster-name.png" alt-text="Screenshot of the cluster name in the Azure portal.":::
 
 ## Connect, create a table, and insert data
 
-All examples in this article need to connect to the database. You can put the connection logic into its own module for reuse. You use the [pg](https://node-postgres.com) client object to interface with the PostgreSQL server.
+All examples in this article need to connect to the database. You can put the connection logic into its own module for reuse. Use the [pg](https://node-postgres.com) client object to interface with the PostgreSQL server.
 
 [!INCLUDE[why-connection-pooling](includes/why-connection-pooling.md)]
 
@@ -308,12 +305,6 @@ async function importCsvDatabase() {
 ```
 
 ### COPY command to load in-memory data
-
- Install it with node package manager (npm) for JavaScript like this:
-
-```bash
-npm install through2
-```
 
 The following code copies in-memory data to a table. The code requires the [through2](https://www.npmjs.com/package/through2) package, which allows pipe chaining.
 

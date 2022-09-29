@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: quickstart
 recommendations: false
-ms.date: 09/27/2022
+ms.date: 09/28/2022
 ---
 
-# Use Ruby to connect and run SQL on Azure Cosmos DB for PostgreSQL
+# Use Ruby to connect and run SQL commands on Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -224,8 +224,7 @@ def executeretry(sql,retryCount)
   begin
     for a in 1..retryCount do
       begin
-        # NOTE: Replace the host and password arguments in the connection string.
-        # (The connection string can be obtained from the Azure portal)
+        # NOTE: Replace <cluster> and <password> in the connection string.
         connection = PG::Connection.new("host=c.<cluster>.postgres.database.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
         resultSet = connection.exec(sql)
         return resultSet.each

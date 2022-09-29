@@ -40,14 +40,14 @@ Your cluster has a default database named `citus`. To connect to the database, y
 
 1. Paste your psql connection string into the shell.
 
-1. In the connection string, replace `{your_password}` with your cluster password, and then press Enter. For example:
+1. In the connection string, replace `{your_password}` with your cluster password, and then press Enter.
 
    :::image type="content" source="media/quickstart-connect-psql/cloud-shell-run-psql.png" alt-text="Screenshot that shows running psql in the Cloud Shell.":::
 
-   When psql successfully connects to the database, you see a new prompt:
+   When psql successfully connects to the database, you see a new `citus=>` prompt:
 
    ```bash
-   psql (14.2 (Debian 14.2-1.pgdg100+1))
+   psql (14.2, server 14.5)
    SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
    Type "help" for help.
    
@@ -67,7 +67,7 @@ Your cluster has a default database named `citus`. To connect to the database, y
    ```bash
     server_version
    ----------------
-    14.2
+    14.5
    (1 row)
    ```
 

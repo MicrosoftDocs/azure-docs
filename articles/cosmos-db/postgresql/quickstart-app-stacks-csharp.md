@@ -1,5 +1,5 @@
 ---
-title: Use #C to connect and run SQL on Azure Cosmos DB for PostgreSQL
+title: Use #C to connect and run SQL commands on Azure Cosmos DB for PostgreSQL
 description: See how to use C# to connect and run SQL statements on Azure Cosmos DB for PostgreSQL.
 ms.author: sasriram
 author: saimicrosoft
@@ -10,7 +10,7 @@ recommendations: false
 ms.date: 09/27/2022
 ---
 
-# Use C# to connect and run SQL on Azure Cosmos DB for PostgreSQL
+# Use C# to connect and run SQL commands on Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -26,9 +26,9 @@ This quickstart shows you how to use C# code to connect to a cluster, and then u
 - In Visual Studio, the [Npgsql](https://www.nuget.org/packages/Npgsql) NuGet package installed.
 - An Azure Cosmos DB for PostgreSQL cluster. To create a cluster, see [Create a cluster in the Azure portal](quickstart-create-portal.md).
   
-  The code samples in this article use your cluster name and password. In the Azure portal, your cluster name appears at the top of your cluster page.
-  
-  :::image type="content" source="media/howto-app-stacks/cluster-name.png" alt-text="Screenshot of the cluster name in the Azure portal.":::
+The code samples in this article use your cluster name and password. You can see your cluster name at the top of your cluster page in the Azure portal.
+
+:::image type="content" source="media/howto-app-stacks/cluster-name.png" alt-text="Screenshot of the cluster name in the Azure portal.":::
 
 ## Connect, create a table, and insert data
 
@@ -232,7 +232,7 @@ namespace Driver
 
 ## Delete data
 
-Use the following code to connect and delete data using a DELETE SQL statement. In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
+Use the following code to connect and delete data by using a DELETE SQL statement. In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 
 ```csharp

@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: quickstart
 recommendations: false
-ms.date: 09/27/2022
+ms.date: 09/28/2022
 ---
 
-# Use Java to connect and run SQL on Azure Cosmos DB for PostgreSQL
+# Use Java to connect and run SQL commands on Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
@@ -26,9 +26,9 @@ This quickstart shows you how to use Java code to connect to a cluster, and then
 - The [Apache Maven](https://maven.apache.org) build tool.
 - An Azure Cosmos DB for PostgreSQL cluster. To create a cluster, see [Create a cluster in the Azure portal](quickstart-create-portal.md).
   
-  The code samples in this article use your cluster name and password. In the Azure portal, your cluster name appears at the top of your cluster page.
-  
-  :::image type="content" source="media/howto-app-stacks/cluster-name.png" alt-text="Screenshot of the cluster name in the Azure portal.":::
+The code samples in this article use your cluster name and password. In the Azure portal, your cluster name appears at the top of your cluster page.
+
+:::image type="content" source="media/howto-app-stacks/cluster-name.png" alt-text="Screenshot of the cluster name in the Azure portal.":::
 
 ## Set up the Java project and connection
 
@@ -101,14 +101,14 @@ Using your favorite integrated development environment (IDE), create a new Java 
 
 In *src/main/resources/*, create an *application.properties* file with the following contents. Replace \<cluster> with your cluster name, and replace \<password> with your administrative password.
 
-The `?ssl=true&sslmode=require` string in the `db.url` property tells the JDBC driver to use Transport Layer Security (TLS) when connecting to the database. It's mandatory to use TLS with Azure Cosmos DB for PostgreSQL, and is a good security practice.
-
 ```properties
 driver.class.name=org.postgresql.Driver
 db.url=jdbc:postgresql://c.<cluster>.postgres.database.azure.com:5432/citus?ssl=true&sslmode=require
 db.username=citus
 db.password=<password>
 ```
+
+The `?ssl=true&sslmode=require` string in the `db.url` property tells the JDBC driver to use Transport Layer Security (TLS) when connecting to the database. It's mandatory to use TLS with Azure Cosmos DB for PostgreSQL, and is a good security practice.
 
 ## Create tables
 
@@ -242,7 +242,7 @@ Next, add the Java code that uses JDBC to store and retrieve data from your clus
 1. You can now execute this main class with your favorite tool:
 
    - Using your IDE, you should be able to right-click on the `DemoApplication` class and execute it.
-   - Using Maven, you can run the application by executing: `mvn exec:java -Dexec.mainClass="com.example.demo.DemoApplication"`.
+   - Using Maven, you can run the application by executing:<br>`mvn exec:java -Dexec.mainClass="com.example.demo.DemoApplication"`.
 
 The application should connect to the Azure Cosmos DB for PostgreSQL, create a database schema, and then close the connection, as you should see in the console logs:
 
@@ -331,7 +331,7 @@ This class is a domain model mapped on the `Pharmacy` table that you created whe
 
 ## Insert data
 
-In the *DemoApplication.java* file, after the `main` method, add the following method to insert data into the database:
+In the *DemoApplication.java* file, after the `main` method, add the following method that uses the INSERT INTO SQL statement to insert data into the database:
 
 ``` Java
 private static void insertData(Pharmacy todo, Connection connection) throws SQLException {
@@ -349,7 +349,7 @@ private static void insertData(Pharmacy todo, Connection connection) throws SQLE
 }
 ```
 
-You can now add the two following lines in the main method:
+Add the two following lines in the main method:
 
 ```java
 Pharmacy todo = new Pharmacy(0,"Target","Sunnyvale","California",94001);
@@ -371,9 +371,9 @@ Executing the main class should now produce the following output:
 
 ## Read data
 
-Let's read the data previously inserted, to validate that our code works correctly.
+Read the data you previously inserted to validate that your code works correctly.
 
-In the *DemoApplication.java* file, after the `insertData` method, add the following method to read data from the database:
+In the *DemoApplication.java* file, after the `insertData` method, add the following method that uses the SELECT SQL statement to read data from the database:
 
 ```  java
 private static Pharmacy readData(Connection connection) throws SQLException {
@@ -395,7 +395,7 @@ private static Pharmacy readData(Connection connection) throws SQLException {
 }
 ```
 
-You can now add the following line in the main method:
+Add the following line in the main method:
 
 ```  java
 todo = readData(connection);
@@ -420,7 +420,7 @@ Executing the main class should now produce the following output:
 
 Update the data you previously inserted.
 
-Still in the `src/main/java/DemoApplication.java` file, after the `readData` method, add the following method to update data inside the database:
+Still in the *DemoApplication.java* file, after the `readData` method, add the following method to update data inside the database by using the UPDATE SQL statement:
 
 ``` java
 private static void updateData(Pharmacy todo, Connection connection) throws SQLException {
@@ -437,7 +437,7 @@ private static void updateData(Pharmacy todo, Connection connection) throws SQLE
 
 ```
 
-You can now add the two following lines in the main method:
+Add the two following lines in the main method:
 
 ``` java
 todo.setcity("Guntur");
@@ -464,9 +464,7 @@ Executing the main class should now produce the following output:
 
 ## Delete data
 
-Finally, delete the data you previously inserted.
-
-Still in the *DemoApplication.java* file, after the `updateData` method, add the following method to delete data inside the database:
+Finally, delete the data you previously inserted. Still in the *DemoApplication.java* file, after the `updateData` method, add the following method to delete data inside the database by using the DELETE SQL statement:
 
 ``` java
 private static void deleteData(Pharmacy todo, Connection connection) throws SQLException {
@@ -571,7 +569,7 @@ Executing the `main` class should now produce the following output:
 
 ### COPY command to load in-memory data
 
-The following code is an example for copying in-memory data to a table.
+The following code copies in-memory data to a table.
 
 ```java
 private static void inMemory(Connection connection) throws SQLException,IOException

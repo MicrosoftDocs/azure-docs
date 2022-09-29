@@ -92,14 +92,14 @@ Create your Azure Cosmos DB for PostgreSQL cluster in the [Azure portal](https:/
 
      > [!NOTE]
      > The cluster name must be globally unique across Azure because it
-     > creates a DNS entry. If `link-demo-sg` is unavailable, enter another name and adjust the steps below accordingly.
+     > creates a DNS entry. If `link-demo-sg` is unavailable, enter another name and adjust the following steps accordingly.
 
    - **Location**: Select **East US**.
    - **Password**: Enter and then confirm a password.
 
 1. Select **Next: Networking**.
 1. On the **Networking** tab, for **Connectivity method**, select **Private access**.
-1. On the **Create private endpoint** screen, enter or select appropriate values for:
+1. On the **Create private endpoint** screen, enter or select the following values:
 
    - **Resource group**: `link-demo`
    - **Location**: `(US) East US`
@@ -142,7 +142,7 @@ cluster. Now you can deprovision the resources.
 
 Delete the resource group, and the resources inside will be deprovisioned:
 
-```sh
+```azurecli
 az group delete --resource-group link-demo
 
 # press y to confirm
