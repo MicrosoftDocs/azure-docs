@@ -6229,6 +6229,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/storage/blobs/reference.md",
+            "redirect_url": "/azure/storage/blobs/storage-blobs-introduction",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/storage-client-side-encryption.md",
             "redirect_url": "/azure/storage/common/storage-client-side-encryption",
             "redirect_document_id": true

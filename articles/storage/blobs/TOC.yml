@@ -692,8 +692,30 @@ items:
             href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=/azure/storage/blobs/toc.json
   - name: Reference
     items:
-    - name: Blob Storage API reference
-      href: ../blobs/reference.md
+    - name: APIs for data access
+      items:
+      - name: REST API reference for Blob Storage
+        href: /rest/api/storageservices/blob-service-rest-api
+      - name: .NET SDK for Blob Storage
+        href: /dotnet/api/overview/azure/storage
+      - name: Java SDK for Blob Storage
+        href: /java/api/overview/azure/storage
+      - name: Python SDK for Blob Storage
+        href: /python/api/overview/azure/storage
+      - name: JavaScript SDK for Blob Storage
+        href: /javascript/api/overview/azure/storage
+    - name: APIs for resource management
+      items:
+      - name: REST API reference for Storage Resource Provider
+        href: /rest/api/storagerp/
+      - name: .NET SDK for Storage Resource Provider 
+        href: /dotnet/api/overview/azure/storage/management
+      - name: Java SDK for Storage Resource Provider 
+        href: /java/api/overview/azure/storage/management
+      - name: Python SDK for Storage Resource Provider 
+        href: /python/api/overview/azure/storage/management
+      - name: JavaScript SDK for Storage Resource Provider 
+        href: /javascript/api/overview/azure/storage/management
     - name: Spring Cloud Azure
       href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/storage/blobs/toc.json#resource-handing
     - name: AzCopy v10
