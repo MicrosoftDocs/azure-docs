@@ -19,7 +19,7 @@ Azure savings plans help you save money by committing to an hourly spend for one
 
 You can buy a savings plan for an Azure subscription that's of type Enterprise (MS-AZR-0017P or MS-AZR-0148P), Microsoft Customer Agreement (MCA) or Microsoft Partner Agreement.
 
-Savings plan discounts only apply to resources associated with subscriptions purchased through an Enterprise Agreement, Microsoft Customer Agreement, or Microsoft Partner Agreement.
+Savings plan discounts only apply to resources associated with subscriptions purchased through an Enterprise Agreement, Microsoft Customer Agreement, or Microsoft Partner Agreement (MPA).
 
 ### Enterprise Agreement customers
 
@@ -109,14 +109,16 @@ Depending on how you pay for your Azure subscription, email savings plan notific
 
 For customers with EA subscriptions:
 
-- Notifications are sent only to the EA notification contacts.
+- Notifications are sent to EA administrators and EA notification contacts.
 - Users added to a savings plan using Azure RBAC (IAM) permission don't receive any email notifications.
 
 For customers with MCA subscriptions:
 
 - The purchaser receives a purchase notification.
-- At the time of purchase, the subscription billing account owner receives a purchase notification.
-- The billing account owner receives all other notifications.
+
+For Microsoft Partner Agreement partners:
+
+- Notifications are sent to the partner.
 
 ## Need help? Contact us.
 

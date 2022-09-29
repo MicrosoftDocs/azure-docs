@@ -68,12 +68,6 @@ If the original purchase was made as an overage, the original invoice on which t
 
 The original invoice is canceled, and a new invoice is created. The money is refunded to the credit card that was used for the original purchase. If you've changed your card, [contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-### Pay-as-you-go invoice payments and CSP program
-
-The original reservation purchase invoice is canceled and then a new invoice is created for the refund. For exchanges, the new invoice shows the refund and the new purchase. The refund amount is adjusted against the purchase. If you only refunded a reservation, then the prorated amount stays with Microsoft and it's adjusted against a future reservation purchase. If you bought a reservation at pay-as-you-go rates and later move to a CSP, the reservation can be returned and repurchased without a penalty.
-
-Although a CSP customer can't exchange, cancel, renew, or refund a reservation themself, they can ask their partner to do it on their behalf.
-
 ## Cancel, exchange, and refund policies
 
 You can't cancel, exchange or refund a savings plan.
