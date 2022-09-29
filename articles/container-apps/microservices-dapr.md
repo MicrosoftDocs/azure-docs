@@ -176,6 +176,8 @@ $IdentityId = (Get-AzUserAssignedIdentity -ResourceGroupName $ResourceGroupName 
 $ClientId = (Get-AzUserAssignedIdentity -ResourceGroupName $ResourceGroupName -Name 'nodeAppIdentity').ClientId
 ```
 
+---
+
 2. Assign the `Storage Blob Data Contributor` role to the user-assigned identity
 
 Retrieve the subscription ID for your current subscription.
@@ -191,6 +193,8 @@ SUBSCRIPTION_ID=$(az account show --query id --output tsv)
 ```azurepowershell
 $SubscriptionId=$(Get-AzContext).Subscription.id
 ```
+
+---
 
 # [Bash](#tab/bash)
 
