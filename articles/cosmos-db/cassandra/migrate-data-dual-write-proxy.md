@@ -32,9 +32,9 @@ The following image illustrates the pattern. The dual-write proxy is used to cap
 
 * [Review the basics of connecting to an Azure Cosmos DB for Apache Cassandra](connect-spark-configuration.md).
 
-* Review the [supported features in the Azure Cosmos DB for Apache Cassandra](cassandra-support.md) to ensure compatibility.
+* Review the [supported features in the Azure Cosmos DB for Apache Cassandra](support.md) to ensure compatibility.
 
-* [Use cqlsh for validation](cassandra-support.md#cql-shell).
+* [Use cqlsh for validation](support.md#cql-shell).
 
 * Ensure you have network connectivity between your source cluster and target API for Cassandra endpoint.
 
@@ -270,4 +270,4 @@ After the historical data load is complete, your databases should be in sync and
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Introduction to the Azure Cosmos DB for Apache Cassandra](cassandra-introduction.md)
+> [Introduction to the Azure Cosmos DB for Apache Cassandra](introduction.md)

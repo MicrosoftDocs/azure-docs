@@ -44,11 +44,11 @@ From the [Try Azure Cosmos DB home page](https://aka.ms/trycosmosdb), select an 
 
 Launch the Quickstart in Data Explorer in Azure portal to start using Azure Cosmos DB or get started with our documentation. 
 
-* [API for NoSQL Quickstart](sql/create-cosmosdb-resources-portal.md#add-a-database-and-a-container)
-* [API for MongoDB Quickstart](mongodb/create-mongodb-python.md#learn-the-object-model)
-* [API for Apache Cassandra](cassandra/cassandra-adoption.md)
-* [API for Apache Gremlin](graph/create-graph-console.md#add-a-graph)
-* [API for Table](table/create-table-dotnet.md)
+* [API for NoSQL Quickstart](nosql/quickstart-portal.md#create-container-database)
+* [API for MongoDB Quickstart](mongodb/quickstart-python.md#learn-the-object-model)
+* [API for Apache Cassandra](cassandra/adoption.md)
+* [API for Apache Gremlin](gremlin/quickstart-console.md#add-a-graph)
+* [API for Table](table/quickstart-dotnet.md)
 
 You can also get started with one of the learning resources in Data Explorer.
 
@@ -118,15 +118,15 @@ There can only be one free Try Azure Cosmos DB account per Microsoft account. Yo
 After you create a Try Azure Cosmos DB sandbox account, you can start building apps with Azure Cosmos DB with the following articles:
 
 * Use [API for NoSQL to build a console app using .NET](sql/sql-api-get-started.md) to manage data in Azure Cosmos DB. 
-* Use [API for MongoDB to build a sample app using Python](mongodb/create-mongodb-python.md) to manage data in Azure Cosmos DB.
+* Use [API for MongoDB to build a sample app using Python](mongodb/quickstart-python.md) to manage data in Azure Cosmos DB.
 * [Download a notebook from the gallery](publish-notebook-gallery.md#download-a-notebook-from-the-gallery) and analyze your data.
 * Learn more about [understanding your Azure Cosmos DB bill](understand-your-bill.md)
 * Get started with Azure Cosmos DB with one of our quickstarts:
-    * [Get started with Azure Cosmos DB for NoSQL](sql/create-cosmosdb-resources-portal.md#add-a-database-and-a-container)
-    * [Get started with Azure Cosmos DB for MongoDB](mongodb/create-mongodb-python.md#learn-the-object-model)
-    * [Get started with Azure Cosmos DB for Cassandra](cassandra/cassandra-adoption.md)
-    * [Get started with Azure Cosmos DB for Gremlin](graph/create-graph-console.md#add-a-graph)
-    * [Get started with Azure Cosmos DB for Table](table/create-table-dotnet.md)
+    * [Get started with Azure Cosmos DB for NoSQL](nosql/quickstart-portal.md#create-container-database)
+    * [Get started with Azure Cosmos DB for MongoDB](mongodb/quickstart-python.md#learn-the-object-model)
+    * [Get started with Azure Cosmos DB for Cassandra](cassandra/adoption.md)
+    * [Get started with Azure Cosmos DB for Gremlin](gremlin/quickstart-console.md#add-a-graph)
+    * [Get started with Azure Cosmos DB for Table](table/quickstart-dotnet.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for [capacity planning](sql/estimate-ru-with-capacity-planner.md).
 * If all you know is the number of vCores and servers in your existing database cluster, see [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md).
 * If you know typical request rates for your current database workload, see [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md).

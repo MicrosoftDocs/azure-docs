@@ -30,7 +30,7 @@ Before following the instructions in this Power BI tutorial, ensure that you hav
 
 * [Download the latest version of Power BI Desktop](https://powerbi.microsoft.com/desktop).
 
-* [Create an Azure Cosmos DB database account](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account) and add data to your Azure Cosmos DB containers.
+* [Create an Azure Cosmos DB database account](quickstart-portal.md#create-container-database) and add data to your Azure Cosmos DB containers.
 
 To share your reports in PowerBI.com, you must have an account in PowerBI.com.  To learn more about Power BI and Power BI Pro, see [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
 

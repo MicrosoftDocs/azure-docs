@@ -13,7 +13,7 @@ ms.devlang: csharp
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 > [!IMPORTANT]
-> It is important to note that the v3 of the .NET SDK is currently available and a migration plan from v2 to v3 is available [here](migrate-dotnet-v3.md). To learn about the Azure Cosmos DB .NET SDK v2, see the [Release notes](sql-api-sdk-dotnet.md), the [.NET GitHub repository](https://github.com/Azure/azure-cosmos-dotnet-v2), .NET SDK v2 [Performance Tips](performance-tips.md), and the [Troubleshooting guide](troubleshoot-dot-net-sdk.md).
+> It is important to note that the v3 of the .NET SDK is currently available and a migration plan from v2 to v3 is available [here](migrate-dotnet-v3.md). To learn about the Azure Cosmos DB .NET SDK v2, see the [Release notes](sdk-dotnet-v2.md), the [.NET GitHub repository](https://github.com/Azure/azure-cosmos-dotnet-v2), .NET SDK v2 [Performance Tips](performance-tips.md), and the [Troubleshooting guide](troubleshoot-dotnet-sdk.md).
 >
 
 This article highlights some of the considerations to upgrade your existing v1 .NET application to Azure Cosmos DB .NET SDK v2 for API for NoSQL. Azure Cosmos DB .NET SDK v2 corresponds to the `Microsoft.Azure.DocumentDB` namespace. You can use the information provided in this document if you are migrating your application from any of the following Azure Cosmos DB .NET Platforms to use the v2 SDK `Microsoft.Azure.Cosmos`:
@@ -39,7 +39,7 @@ Most of the retry logic and lower levels of the SDK remains largely unchanged.
 
 In addition to the numerous performance improvements, new feature investments made in the latest SDK will not be back ported to older versions.
 
-Additionally, the older SDKs will be replaced by newer versions and the v1 SDK will go into [maintenance mode](sql-api-sdk-dotnet.md). For the best development experience, we recommend migrating your application to a later version of the SDK.
+Additionally, the older SDKs will be replaced by newer versions and the v1 SDK will go into [maintenance mode](sdk-dotnet-v2.md). For the best development experience, we recommend migrating your application to a later version of the SDK.
 
 ## Major changes from v1 SDK to v2 SDK
 
@@ -47,7 +47,7 @@ Additionally, the older SDKs will be replaced by newer versions and the v1 SDK w
 
 The .NET v2 SDK now supports both direct and gateway mode. Direct mode supports connectivity through TCP protocol and offers better performance as it connects directly to the backend replicas with fewer network hops.
 
-For more details, read through the [Azure Cosmos DB SQL SDK connectivity modes guide](sql-sdk-connection-modes.md).
+For more details, read through the [Azure Cosmos DB SQL SDK connectivity modes guide](sdk-connection-modes.md).
 
 ### Session token formatting
 
@@ -67,17 +67,17 @@ The 2.1.x library has the following key changes:
 * Advanced extensions to implement the `ChangeFeedDocument` interface and class for additional error handling and tracing
 * Added support for using a custom store to persist continuation tokens per partition
 
-For more information, see the change feed processor library [release notes](sql-api-sdk-dotnet-changefeed.md).
+For more information, see the change feed processor library [release notes](sdk-dotnet-change-feed-v2.md).
 
 ### Using the bulk executor library
 
 The v2 bulk executor library currently has a dependency on the Azure Cosmos DB .NET SDK 2.5.1 or later.
 
-For more information, see the [Azure Cosmos DB bulk executor library overview](../bulk-executor-overview.md) and the .NET bulk executor library [release notes](sql-api-sdk-bulk-executor-dot-net.md).
+For more information, see the [Azure Cosmos DB bulk executor library overview](../bulk-executor-overview.md) and the .NET bulk executor library [release notes](sdk-dotnet-bulk-executor-v2.md).
 
 ## Next steps
 
-* Read about [additional performance tips](sql-api-get-started.md) using Azure Cosmos DB for API for NoSQL v2 for optimization your application to achieve max performance
+* Read about [additional performance tips](quickstart-dotnet.md) using Azure Cosmos DB for API for NoSQL v2 for optimization your application to achieve max performance
 * Learn more about [what you can do with the v2 SDK](samples-dotnet.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB?
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 

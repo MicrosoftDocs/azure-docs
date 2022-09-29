@@ -47,5 +47,5 @@ The following screenshot shows how to configure an alert of type critical when t
 
 ## Next steps
 
-* Monitor Azure Cosmos DB data by using [diagnostic settings](cosmosdb-monitor-resource-logs.md) in Azure.
+* Monitor Azure Cosmos DB data by using [diagnostic settings](monitor-resource-logs.md) in Azure.
 * [Audit Azure Cosmos DB control plane operations](audit-control-plane-logs.md)

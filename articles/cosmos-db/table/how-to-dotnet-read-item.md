@@ -60,4 +60,4 @@ The [``TableClient.GetEntityAsync<>``](/dotnet/api/azure.data.tables.tableclient
 Now that you've read various items, try one of our tutorials on querying Azure Cosmos DB for Table data.
 
 > [!div class="nextstepaction"]
-> [Query Azure Cosmos DB by using the API for Table](tutorial-query-table.md)
+> [Query Azure Cosmos DB by using the API for Table](tutorial-query.md)

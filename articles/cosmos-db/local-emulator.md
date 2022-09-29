@@ -215,7 +215,7 @@ Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZ
 
 ### API for NoSQL
 
-Once you have the Azure Cosmos DB Emulator running on your desktop, you can use any supported [Azure Cosmos DB SDK](sql-api-sdk-dotnet-standard.md) or the [Azure Cosmos DB REST API](/rest/api/cosmos-db/) to interact with the emulator. The Azure Cosmos DB Emulator also includes a built-in data explorer that lets you create containers for API for NoSQL or MongoDB. By using the data explorer, you can view and edit items without writing any code.
+Once you have the Azure Cosmos DB Emulator running on your desktop, you can use any supported [Azure Cosmos DB SDK](nosql/sdk-dotnet-v3.md) or the [Azure Cosmos DB REST API](/rest/api/cosmos-db/) to interact with the emulator. The Azure Cosmos DB Emulator also includes a built-in data explorer that lets you create containers for API for NoSQL or MongoDB. By using the data explorer, you can view and edit items without writing any code.
 
 ```csharp
 // Connect to the Azure Cosmos DB Emulator running locally
@@ -227,7 +227,7 @@ CosmosClient client = new CosmosClient(
 
 ### API for MongoDB
 
-Once you have the Azure Cosmos DB Emulator running on your desktop, you can use the [Azure Cosmos DB's API for MongoDB](mongodb/mongodb-introduction.md) to interact with the emulator. Start the emulator from [command prompt](emulator-command-line-parameters.md) as an administrator with "/EnableMongoDbEndpoint". Then use the following connection string to connect to the API for MongoDB account:
+Once you have the Azure Cosmos DB Emulator running on your desktop, you can use the [Azure Cosmos DB's API for MongoDB](mongodb/introduction.md) to interact with the emulator. Start the emulator from [command prompt](emulator-command-line-parameters.md) as an administrator with "/EnableMongoDbEndpoint". Then use the following connection string to connect to the API for MongoDB account:
 
 ```bash
 mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true

@@ -106,7 +106,7 @@ Built-in notebooks for Azure Cosmos DB are currently available in 29 Azure regio
 
 ## Next steps
 
-* Learn about the benefits of [Azure Cosmos DB Jupyter Notebooks](../cosmosdb-jupyter-notebooks.md)
+* Learn about the benefits of [Azure Cosmos DB Jupyter Notebooks](../jupyter-notebooks.md)
 * [Explore notebook samples gallery](https://cosmos.azure.com/gallery.html)
 * [Publish notebooks to the Azure Cosmos DB notebook gallery](publish-notebook-gallery.md)
 * [Use Python notebook features and commands](use-python-notebook-features-and-commands.md)

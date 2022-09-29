@@ -5,25 +5,25 @@
     - name: Develop app - .NET
       href: quickstart-dotnet.md
     - name: Develop app - Node.js
-      href: create-sql-api-nodejs.md
+      href: quickstart-nodejs.md
     - name: Develop app - Java
-      href: create-sql-api-java.md
+      href: quickstart-java.md
     - name: Develop app - Spring Data
-      href: create-sql-api-spring-data.md
+      href: quickstart-java-spring-data.md
     - name: Develop app - Python
-      href: create-sql-api-python.md
+      href: quickstart-python.md
     - name: Develop app - Spark v3
-      href: create-sql-api-spark.md
+      href: quickstart-spark.md
     - name: Develop app - Go
-      href: create-sql-api-go.md
+      href: quickstart-go.md
     - name: Create resources - Azure portal
-      href: create-cosmosdb-resources-portal.md
+      href: quickstart-portal.md
     - name: Create resources - Bicep template
       displayName: ARM, Resource Manager, Template, Bicep
-      href: quick-create-bicep.md
+      href: quickstart-template-bicep.md
     - name: Create resources - JSON template
       displayName: ARM, Resource Manager, Template, JSON
-      href: quick-create-template.md
+      href: quickstart-template-json.md
     - name: Create resources - Terraform template
       displayName: ARM, Resource Manager, Template, Terraform
       href: quick-create-terraform.md
@@ -34,23 +34,23 @@
         - name: Build a console app
           items:
             - name: .NET
-              href: sql-api-get-started.md
+              href: quickstart-dotnet.md
             - name: Java
-              href: create-sql-api-java.md
+              href: quickstart-java.md?tabs=sync
             - name: Async Java
-              href: create-sql-api-java.md
+              href: quickstart-java.md?tabs=async
             - name: Node.js
-              href: sql-api-nodejs-get-started.md
+              href: quickstart-nodejs.md
         - name: Build a web app
           items:
             - name: .NET
-              href: sql-api-dotnet-application.md
+              href: tutorial-dotnet-web-app.md
             - name: Java
-              href: sql-api-java-application.md
+              href: tutorial-java-web-app.md
             - name: Node.js
-              href: sql-api-nodejs-application.md
+              href: tutorial-nodejs-web-app.md
     - name: Query data
-      href: tutorial-query-sql-api.md
+      href: tutorial-query.md
     - name: Spring Boot app on Azure Kubernetes Service
       href: tutorial-springboot-azure-kubernetes-service.md
 - name: Samples
@@ -58,13 +58,13 @@
     - name: .NET
       href: samples-dotnet.md
     - name: Java
-      href: sql-api-java-sdk-samples.md
+      href: samples-java.md
     - name: Spring Data
-      href: sql-api-spring-data-sdk-samples.md
+      href: samples-java-spring-data.md
     - name: Node.js
-      href: sql-api-nodejs-samples.md
+      href: samples-nodejs.md
     - name: Python
-      href: sql-api-python-samples.md
+      href: samples-python.md
     - name: PowerShell
       href: powershell-samples.md
     - name: Azure CLI
@@ -124,7 +124,7 @@
     - name: Templates
       items:
         - name: JSON syntax templates
-          href: templates-samples-sql.md
+          href: samples-resource-manager-templates.md
           displayName: ARM
         - name: Bicep syntax templates
           href: bicep-samples.md
@@ -359,9 +359,11 @@
           displayName: free tier
           href: ../optimize-dev-test.md
         - name: Optimize cost with reserved capacity
-          href: ../cosmos-db-reserved-capacity.md
+          href: ../reserved-capacity.md
         - name: Optimize using rate limiting
           href: ../rate-limiting-requests.md
+    - name: Jupyter notebooks
+      href: ../jupyter-notebooks.md
 - name: How to
   items:
     - name: Access preview features
@@ -393,7 +395,7 @@
         - name: Designing resilient applications
           href: conceptual-resilient-sdk-applications.md
         - name: Connectivity modes
-          href: sql-sdk-connection-modes.md
+          href: sdk-connection-modes.md
     - name: Operations on containers and items
       items:
         - name: Create a container
@@ -439,7 +441,7 @@
         - name: Migrate from change feed processor library
           href: how-to-migrate-from-change-feed-library.md
         - name: Async Java sample with change feed
-          href: create-sql-api-java-changefeed.md
+          href: how-to-java-change-feed.md
     - name: SQL query
       items:
         - name: Getting started
@@ -879,7 +881,7 @@
         - name: Spark Connector
           items:
             - name: Spark 3.x OLTP Connector
-              href: sql-api-sdk-java-spark-v3.md
+              href: sdk-java-spark-v3.md
             - name: Throughput control
               href: throughput-control-spark.md
         - name: ASP.NET session state and cache provider
@@ -889,7 +891,7 @@
             - name: About bulk executor library
               href: ../bulk-executor-overview.md
             - name: Bulk executor - .NET library
-              href: bulk-executor-dot-net.md
+              href: bulk-executor-dotnet.md
             - name: Migrate from bulk executor to .NET SDK
               href: how-to-migrate-from-bulk-executor-library.md
             - name: Bulk executor - Java library
@@ -913,9 +915,9 @@
         - name: Query
           items:
             - name: Get query execution metrics
-              href: profile-sql-api-query.md
+              href: query-metrics-performance.md
             - name: Tune query performance
-              href: sql-api-query-metrics.md
+              href: query-metrics.md
             - name: Optimize query performance when using SDK
               href: performance-tips-query-sdk.md
         - name: Indexing
@@ -932,7 +934,7 @@
             - name: Best practices for .NET SDK
               href: best-practice-dotnet.md
             - name: Performance tips for .NET SDK v3
-              href: performance-tips-dotnet-sdk-v3-sql.md
+              href: performance-tips-dotnet-sdk-v3.md
             - name: Performance tips for .NET SDK v2
               href: performance-tips.md
         - name: Java
@@ -940,7 +942,7 @@
             - name: Best practices for Java SDK
               href: best-practice-java.md
             - name: Performance tips for Java SDK v4
-              href: performance-tips-java-sdk-v4-sql.md
+              href: performance-tips-java-sdk-v4.md
             - name: Async Java SDK v2
               href: performance-tips-async-java.md
             - name: Sync Java SDK v2
@@ -974,23 +976,23 @@
         - name: .NET
           items:
             - name: General Troubleshooting .NET SDK
-              href: troubleshoot-dot-net-sdk.md
+              href: troubleshoot-dotnet-sdk.md
             - name: Troubleshoot request header too large
-              href: troubleshoot-dot-net-sdk-request-header-too-large.md
+              href: troubleshoot-dotnet-sdk-request-header-too-large.md
             - name: Troubleshoot request timeout
-              href: troubleshoot-dot-net-sdk-request-timeout.md
+              href: troubleshoot-dotnet-sdk-request-timeout.md
             - name: Troubleshoot slow requests
-              href: troubleshoot-dot-net-sdk-slow-request.md
+              href: troubleshoot-dotnet-sdk-slow-request.md
             - name: Troubleshoot service unavailable
               href: troubleshoot-service-unavailable.md
         - name: Java
           items:
             - name: Troubleshoot Java SDK v4
-              href: troubleshoot-java-sdk-v4-sql.md
+              href: troubleshoot-java-sdk-v4.md
             - name: Troubleshoot request timeout
-              href: troubleshoot-request-timeout-java-sdk-v4-sql.md
+              href: troubleshoot-java-sdk-request-timeout.md
             - name: Troubleshoot service unavailable
-              href: troubleshoot-service-unavailable-java-sdk-v4-sql.md
+              href: troubleshoot-java-sdk-service-unavailable.md
             - name: Troubleshoot- Async Java SDK v2
               href: troubleshoot-java-async-sdk.md
     - name: Analytics and BI with Azure Synapse Link
@@ -1041,7 +1043,7 @@
     - name: Global distribution
       items:
         - name: Distribute data globally tutorial
-          href: tutorial-global-distribution-sql-api.md
+          href: tutorial-global-distribution.md
         - name: Configure multi-region writes
           href: how-to-multi-master.md
         - name: Manage consistency levels
@@ -1096,11 +1098,11 @@
     - name: Monitor
       items:
         - name: Monitor Azure Cosmos DB
-          href: ../monitor-cosmos-db.md
+          href: ../monitor.md
         - name: Use Azure monitor metrics
           items:
             - name: Azure Monitor for Azure Cosmos DB
-              href: ../cosmosdb-insights-overview.md
+              href: ../insights-overview.md
             - name: Scenarios to monitor
               href: ../use-metrics.md
             - name: Monitor server-side latency
@@ -1114,11 +1116,11 @@
         - name: Use Azure monitor logs
           items:
             - name: Monitor with diagnostic logs
-              href: ../cosmosdb-monitor-resource-logs.md
+              href: ../monitor-resource-logs.md
             - name: Troubleshoot issues using basic queries
-              href: ../cosmosdb-monitor-logs-basic-queries.md
+              href: ../monitor-logs-basic-queries.md
             - name: Troubleshoot issues using advanced queries
-              href: ../cosmos-db-advanced-queries.md
+              href: ../advanced-queries.md
             - name: Audit control plane logs
               href: ../audit-control-plane-logs.md
         - name: Configure alerts
@@ -1128,7 +1130,7 @@
             - name: Create alert on logical partition key size
               href: ../how-to-alert-on-logical-partition-key-storage-size.md
         - name: Monitoring data reference
-          href: ../monitor-cosmos-db-reference.md
+          href: ../monitor-reference.md
         - name: Third-party monitoring solutions
           href: ../monitoring-solutions.md
     - name: Server-side programming
@@ -1154,17 +1156,17 @@
     - name: Migrate data
       items:
         - name: Options to migrate data into Azure Cosmos DB
-          href: ../cosmosdb-migrationchoices.md
+          href: ../migration-choices.md
         - name: Using .NET bulk support
-          href: tutorial-sql-api-dotnet-bulk-import.md
+          href: tutorial-dotnet-bulk-import.md
         - name: Using the Data Migration tool
           href: ../import-data.md
         - name: Migrate hundreds of terabytes of data into Azure Cosmos DB
-          href: ../migrate-cosmosdb-data.md
+          href: ../migrate.md
         - name: Migrate to API for NoSQL using Striim
           href: migrate-data-striim.md
         - name: Migrate one-to-few relational data
-          href: migrate-relational-to-cosmos-db-sql-api.md
+          href: migrate-relational-data.md
         - name: Migrate - Couchbase to API for NoSQL
           href: couchbase-cosmos-migration.md
         - name: Migrate - DynamoDB to API for NoSQL
@@ -1204,41 +1206,41 @@
     - name: .NET SDKs
       items:
         - name: .NET SDK v3
-          href: sql-api-sdk-dotnet-standard.md
+          href: sdk-dotnet-v3.md
         - name: .NET SDK v2 (legacy)
-          href: sql-api-sdk-dotnet.md
+          href: sdk-dotnet-v2.md
         - name: .NET Core SDK v2 (legacy)
-          href: sql-api-sdk-dotnet-core.md
+          href: sdk-dotnet-core-v2.md
         - name: .NET change feed library v2 (legacy)
-          href: sql-api-sdk-dotnet-changefeed.md
+          href: sdk-dotnet-change-feed-v2.md
         - name: .NET bulk executor library v2 (legacy)
-          href: sql-api-sdk-bulk-executor-dot-net.md
+          href: sdk-dotnet-bulk-executor-v2.md
     - name: Java SDKs and Connectors
       items:
         - name: Java SDK v4
-          href: sql-api-sdk-java-v4.md
+          href: sdk-java-v4.md
         - name: Async Java SDK v2 (legacy)
-          href: sql-api-sdk-async-java.md
+          href: sdk-java-async-v2.md
         - name: Sync Java SDK v2 (legacy)
-          href: sql-api-sdk-java.md
+          href: sdk-java-v2.md
         - name: Spring Data Connector v2 (legacy)
-          href: sql-api-sdk-java-spring-v2.md
+          href: sdk-java-spring-data-v2.md
         - name: Spring Data Connector v3
-          href: sql-api-sdk-java-spring-v3.md
+          href: sdk-java-spring-data-v3.md
         - name: Spark 3.x OLTP Connector
-          href: sql-api-sdk-java-spark-v3.md
+          href: sdk-java-spark-v3.md
         - name: Spark 2.x LTS OLTP Connector
-          href: sql-api-sdk-java-spark.md
+          href: sdk-java-spark-v2.md
         - name: Java bulk executor library v2 (legacy)
-          href: sql-api-sdk-bulk-executor-java.md
+          href: sdk-java-bulk-executor-v2.md
     - name: Azure CLI
       href: /cli/azure/azure-cli-reference-for-cosmos-db
     - name: Node.js
-      href: sql-api-sdk-node.md
+      href: sdk-nodejs.md
     - name: Python
-      href: sql-api-sdk-python.md
+      href: sdk-python.md
     - name: Go
-      href: sql-api-sdk-go.md
+      href: sdk-go.md
     - name: REST (Data plane)
       href: /rest/api/cosmos-db/
     - name: REST (Management plane)
@@ -1260,7 +1262,7 @@
     - name: Whitepapers
       href: ../whitepapers.md?toc=/azure/cosmos-db/sql/toc.json
     - name: Partners
-      href: ../partners-migration-cosmosdb.md?toc=/azure/cosmos-db/sql/toc.json
+      href: ../partners-migration.md?toc=/azure/cosmos-db/sql/toc.json
     - name: Microsoft Q&A question page
       href: /answers/topics/azure-cosmos-db.html
     - name: Videos

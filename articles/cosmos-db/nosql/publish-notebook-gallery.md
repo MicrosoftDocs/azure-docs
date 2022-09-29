@@ -12,7 +12,7 @@ ms.author: dech
 # Publish notebooks to the Azure Cosmos DB notebook gallery
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-Azure Cosmos DB built-in Jupyter Notebooks are directly integrated into your Azure Cosmos DB accounts in the Azure portal. Using these notebooks, you can analyze and visualize your data from the Azure portal. Built-in notebooks for Azure Cosmos DB are currently available in [many regions](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all). To use notebooks, [create a new Azure Cosmos DB account](create-cosmosdb-resources-portal.md) or [enable notebooks on an existing account](enable-notebooks.md) in one of these regions.
+Azure Cosmos DB built-in Jupyter Notebooks are directly integrated into your Azure Cosmos DB accounts in the Azure portal. Using these notebooks, you can analyze and visualize your data from the Azure portal. Built-in notebooks for Azure Cosmos DB are currently available in [many regions](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all). To use notebooks, [create a new Azure Cosmos DB account](quickstart-portal.md) or [enable notebooks on an existing account](enable-notebooks.md) in one of these regions.
 
 The notebook environment in the Azure portal has some samples published by the Azure Cosmos DB team. It also has a public gallery where you can publish and share your own notebooks. After a notebook is published to the gallery, it's available for all the Azure Cosmos DB users to view and use. In this article, you will learn how to use notebooks from the public gallery and publish your notebook to the gallery.
 
@@ -79,7 +79,7 @@ Use the following steps to publish a notebook:
 
 ## Next steps
 
-* Learn about the benefits of [Azure Cosmos DB Jupyter Notebooks](../cosmosdb-jupyter-notebooks.md)
+* Learn about the benefits of [Azure Cosmos DB Jupyter Notebooks](../jupyter-notebooks.md)
 * [Use Python notebook features and commands](use-python-notebook-features-and-commands.md)
 * [Use C# notebook features and commands](use-csharp-notebook-features-and-commands.md)
 * [Import notebooks from a GitHub repo](import-github-notebooks.md)

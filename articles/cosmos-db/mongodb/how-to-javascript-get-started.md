@@ -28,7 +28,7 @@ This article shows you how to connect to Azure Cosmos DB for MongoDB using the n
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 * [Node.js LTS](https://nodejs.org/en/download/)
 * [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
-* [Azure Cosmos DB for MongoDB resource](quickstart-javascript.md#create-an-azure-cosmos-db-account)
+* [Azure Cosmos DB for MongoDB resource](quickstart-nodejs.md#create-an-azure-cosmos-db-account)
 
 ## Create a new JavaScript app
 

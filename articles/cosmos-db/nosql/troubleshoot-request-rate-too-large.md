@@ -70,7 +70,7 @@ Each PartitionKeyRangeId maps to one physical partition. If there's one Partitio
 :::image type="content" source="media/troubleshoot-request-rate-too-large/split-norm-utilization-by-pkrange-hot-partition.png" alt-text="Normalized RU Consumption by PartitionKeyRangeId chart with a hot partition.":::
 
 To see which logical partition keys are consuming the most RU/s,
-use [Azure Diagnostic Logs](../cosmosdb-monitor-resource-logs.md). This sample query sums up the total request units consumed per second on each logical partition key.
+use [Azure Diagnostic Logs](../monitor-resource-logs.md). This sample query sums up the total request units consumed per second on each logical partition key.
 
 > [!IMPORTANT]
 > Enabling diagnostic logs incurs a separate charge for the Log Analytics service, which is billed based on the volume of data ingested. It's recommended you turn on diagnostic logs for a limited amount of time for debugging, and turn off when no longer required. See [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details.
@@ -123,7 +123,7 @@ If there's high percent of rate limited requests and there's an underlying hot p
 ### Step 3: Determine what requests are returning 429 responses
 
 #### How to investigate requests with 429 responses
-Use [Azure Diagnostic Logs](../cosmosdb-monitor-resource-logs.md) to identify which requests are returning 429 responses and how many RUs they consumed. This sample query aggregates at the minute level.
+Use [Azure Diagnostic Logs](../monitor-resource-logs.md) to identify which requests are returning 429 responses and how many RUs they consumed. This sample query aggregates at the minute level.
 
 > [!IMPORTANT]
 > Enabling diagnostic logs incurs a separate charge for the Log Analytics service, which is billed based on volume of data ingested. It is recommended you turn on diagnostic logs for a limited amount of time for debugging, and turn off when no longer required. See [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details.
@@ -216,7 +216,7 @@ Retry the request. If the error persists for several minutes, file a support tic
 
 ## Next steps
 * [Monitor normalized RU/s consumption](../monitor-normalized-request-units.md) of your database or container.
-* [Diagnose and troubleshoot](troubleshoot-dot-net-sdk.md) issues when you use the Azure Cosmos DB .NET SDK.
-* Learn about performance guidelines for [.NET v3](performance-tips-dotnet-sdk-v3-sql.md) and [.NET v2](performance-tips.md).
-* [Diagnose and troubleshoot](troubleshoot-java-sdk-v4-sql.md) issues when you use the Azure Cosmos DB Java v4 SDK.
-* Learn about performance guidelines for [Java v4 SDK](performance-tips-java-sdk-v4-sql.md).
+* [Diagnose and troubleshoot](troubleshoot-dotnet-sdk.md) issues when you use the Azure Cosmos DB .NET SDK.
+* Learn about performance guidelines for [.NET v3](performance-tips-dotnet-sdk-v3.md) and [.NET v2](performance-tips.md).
+* [Diagnose and troubleshoot](troubleshoot-java-sdk-v4.md) issues when you use the Azure Cosmos DB Java v4 SDK.
+* Learn about performance guidelines for [Java v4 SDK](performance-tips-java-sdk-v4.md).

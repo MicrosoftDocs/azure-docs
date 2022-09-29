@@ -15,7 +15,7 @@ Alerts are used to set up recurring tests to monitor the availability and respon
 
 You can receive an alert based on the metrics, activity log events, or Log Analytics logs on your Azure Cosmos DB account:
 
-* **Metrics** - The alert triggers when the value of a specified metric crosses a threshold you assign. For example, when the total request units consumed exceed 1000 RU/s. This alert is triggered both when the condition is first met and then afterwards when that condition is no longer being met. See the [monitoring data reference](monitor-cosmos-db-reference.md#metrics) article for different metrics available in Azure Cosmos DB.
+* **Metrics** - The alert triggers when the value of a specified metric crosses a threshold you assign. For example, when the total request units consumed exceed 1000 RU/s. This alert is triggered both when the condition is first met and then afterwards when that condition is no longer being met. See the [monitoring data reference](monitor-reference.md#metrics) article for different metrics available in Azure Cosmos DB.
 
 * **Activity log events** – This alert triggers when a certain event occurs. For example, when the keys of your Azure Cosmos DB account are accessed or refreshed.
 

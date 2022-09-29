@@ -46,7 +46,7 @@ Use the Azure Cosmos DB [capacity calculator](estimate-ru-with-capacity-planner.
 
 ### Existing applications ###
 
-If you have an existing application using standard (manual) provisioned throughput, you can use [Azure Monitor metrics](cosmosdb-insights-overview.md) to determine if your traffic pattern is suitable for autoscale. 
+If you have an existing application using standard (manual) provisioned throughput, you can use [Azure Monitor metrics](insights-overview.md) to determine if your traffic pattern is suitable for autoscale. 
 
 First, find the [normalized request unit consumption metric](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric) of your database or container. Normalized utilization is a measure of how much you are currently using your standard (manual) provisioned throughput. The closer the number is to 100%, the more you are fully using your provisioned RU/s. [Learn more](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric) about the metric.
 
@@ -133,7 +133,7 @@ When using autoscale, use Azure Monitor to see the provisioned autoscale max RU/
 
 ## Next steps
 * Use [RU calculator](https://cosmos.azure.com/capacitycalculator/) to estimate throughput for new workloads.
-* Use [Azure Monitor](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) to monitor your existing workloads.
+* Use [Azure Monitor](monitor.md#view-operation-level-metrics-for-azure-cosmos-db) to monitor your existing workloads.
 * Learn how to [provision autoscale throughput on an Azure Cosmos DB database or container](how-to-provision-autoscale-throughput.md).
 * Review the [autoscale FAQ](autoscale-faq.yml).
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.

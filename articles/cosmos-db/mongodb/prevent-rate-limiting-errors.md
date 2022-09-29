@@ -60,7 +60,7 @@ Requests are retried continuously (over and over again) until a 60-second timeou
 
 You can view the rate limiting errors (429) that are retried server-side in the Azure Cosmos DB Metrics pane. Keep in mind that these errors don't go to the client when SSR is enabled, since they are handled and retried server-side.
 
-You can search for log entries containing *estimatedDelayFromRateLimitingInMilliseconds* in your [Azure Cosmos DB resource logs](../cosmosdb-monitor-resource-logs.md).
+You can search for log entries containing *estimatedDelayFromRateLimitingInMilliseconds* in your [Azure Cosmos DB resource logs](../monitor-resource-logs.md).
 
 ### Will server-side retry affect my consistency level?
 

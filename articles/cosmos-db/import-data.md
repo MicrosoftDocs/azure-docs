@@ -16,13 +16,13 @@ ms.date: 08/26/2021
 This tutorial provides instructions on using the Azure Cosmos DB Data Migration tool, which can import data from various sources into Azure Cosmos DB containers and tables. You can import from JSON files, CSV files, SQL, MongoDB, Azure Table storage, Amazon DynamoDB, and even Azure Cosmos DB API for NoSQL collections. You migrate that data to collections and tables for use with Azure Cosmos DB. The Data Migration tool can also be used when migrating from a single partition collection to a multi-partition collection for the API for NoSQL.
 
 > [!NOTE]
-> The Azure Cosmos DB Data Migration tool is an open source tool designed for small migrations. For larger migrations, view our [guide for ingesting data](cosmosdb-migrationchoices.md).
+> The Azure Cosmos DB Data Migration tool is an open source tool designed for small migrations. For larger migrations, view our [guide for ingesting data](migration-choices.md).
 
-* **[API for NoSQL](./introduction.md)** - You can use any of the source options provided in the Data Migration tool to import data at a small scale. [Learn about migration options for importing data at a large scale](cosmosdb-migrationchoices.md).
-* **[API for Table](table/introduction.md)** - You can use the Data Migration tool to import data. For more information, see [Import data for use with the Azure Cosmos DB API for Table](table/table-import.md).
-* **[Azure Cosmos DB's API for MongoDB](mongodb/mongodb-introduction.md)** - The Data Migration tool doesn't support Azure Cosmos DB's API for MongoDB either as a source or as a target. If you want to migrate the data in or out of collections in Azure Cosmos DB, refer to [How to migrate MongoDB data to an Azure Cosmos DB database with Azure Cosmos DB's API for MongoDB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json) for instructions. You can still use the Data Migration tool to export data from MongoDB to Azure Cosmos DB API for NoSQL collections for use with the API for NoSQL.
-* **[API for Cassandra](graph-introduction.md)** - The Data Migration tool isn't a supported import tool for API for Cassandra accounts. [Learn about migration options for importing data into API for Cassandra](cosmosdb-migrationchoices.md#azure-cosmos-db-api-for-cassandra)
-* **[API for Gremlin](graph-introduction.md)** - The Data Migration tool isn't a supported import tool for API for Gremlin accounts at this time. [Learn about migration options for importing data into API for Gremlin](cosmosdb-migrationchoices.md#other-apis) 
+* **[API for NoSQL](./introduction.md)** - You can use any of the source options provided in the Data Migration tool to import data at a small scale. [Learn about migration options for importing data at a large scale](migration-choices.md).
+* **[API for Table](table/introduction.md)** - You can use the Data Migration tool to import data. For more information, see [Import data for use with the Azure Cosmos DB API for Table](table/import.md).
+* **[Azure Cosmos DB's API for MongoDB](mongodb/introduction.md)** - The Data Migration tool doesn't support Azure Cosmos DB's API for MongoDB either as a source or as a target. If you want to migrate the data in or out of collections in Azure Cosmos DB, refer to [How to migrate MongoDB data to an Azure Cosmos DB database with Azure Cosmos DB's API for MongoDB](../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json) for instructions. You can still use the Data Migration tool to export data from MongoDB to Azure Cosmos DB API for NoSQL collections for use with the API for NoSQL.
+* **[API for Cassandra](gremlin/introduction.md)** - The Data Migration tool isn't a supported import tool for API for Cassandra accounts. [Learn about migration options for importing data into API for Cassandra](migration-choices.md#azure-cosmos-db-api-for-cassandra)
+* **[API for Gremlin](introduction.md)** - The Data Migration tool isn't a supported import tool for API for Gremlin accounts at this time. [Learn about migration options for importing data into API for Gremlin](migration-choices.md#other-apis) 
 
 This tutorial covers the following tasks:
 
@@ -60,7 +60,7 @@ The Data Migration tool is an open-source solution that imports data to Azure Co
 While the import tool includes a graphical user interface (dtui.exe), it can also be driven from the command-line (dt.exe). In fact, there's an option to output the associated command after setting up an import through the UI. You can transform tabular source data, such as SQL Server or CSV files, to create hierarchical relationships (subdocuments) during import. Keep reading to learn more about source options, sample commands to import from each source, target options, and viewing import results.
 
 > [!NOTE]
-> You should only use the Azure Cosmos DB migration tool for small migrations. For large migrations, view our [guide for ingesting data](cosmosdb-migrationchoices.md).
+> You should only use the Azure Cosmos DB migration tool for small migrations. For large migrations, view our [guide for ingesting data](migration-choices.md).
 
 ## <a id="Install"></a>Installation
 
@@ -265,7 +265,7 @@ dt.exe /s:CsvFile /s.Files:.\Employees.csv /t:DocumentDBBulk /t.ConnectionString
 
 The Azure Table storage source importer option allows you to import from an individual Azure Table storage table. Optionally, you can filter the table entities to be imported.
 
-You may output data that was imported from Azure Table Storage to Azure Cosmos DB tables and entities for use with the API for Table. Imported data can also be output to collections and documents for use with the API for NoSQL. However, API for Table is only available as a target in the command-line utility. You can't export to API for Table by using the Data Migration tool user interface. For more information, see [Import data for use with the Azure Cosmos DB API for Table](table/table-import.md).
+You may output data that was imported from Azure Table Storage to Azure Cosmos DB tables and entities for use with the API for Table. Imported data can also be output to collections and documents for use with the API for NoSQL. However, API for Table is only available as a target in the command-line utility. You can't export to API for Table by using the Data Migration tool user interface. For more information, see [Import data for use with the Azure Cosmos DB API for Table](table/import.md).
 
 :::image type="content" source="./media/import-data/azuretablesource.png" alt-text="Screenshot of Azure Table storage source options":::
 
@@ -633,4 +633,4 @@ Trying to do capacity planning for a migration to Azure Cosmos DB?
   * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 > [!div class="nextstepaction"]
->[How to query data?](../cosmos-db/tutorial-query-sql-api.md)
+>[How to query data?](nosql/tutorial-query.md)

@@ -23,7 +23,7 @@ API for Cassandra in Azure Cosmos DB has become a great choice for enterprise wo
 
 [Kafka Connect](https://kafka.apache.org/documentation/#connect) is a platform to stream data between [Apache Kafka](https://kafka.apache.org/) and other systems in a scalable and reliable manner. It supports several off the shelf connectors, which means that you don't need custom code to integrate external systems with Apache Kafka.
 
-This article will demonstrate how to use a combination of Kafka connectors to set up a data pipeline to continuously synchronize records from a relational database such as [PostgreSQL](https://www.postgresql.org/) to [Azure Cosmos DB for Apache Cassandra](cassandra-introduction.md).
+This article will demonstrate how to use a combination of Kafka connectors to set up a data pipeline to continuously synchronize records from a relational database such as [PostgreSQL](https://www.postgresql.org/) to [Azure Cosmos DB for Apache Cassandra](introduction.md).
 
 ## Overview
 
@@ -37,7 +37,7 @@ Data in PostgreSQL table will be pushed to Apache Kafka using the [Debezium Post
 ## Prerequisites
 
 * [Provision an Azure Cosmos DB for Apache Cassandra account](manage-data-dotnet.md#create-a-database-account)
-* [Use cqlsh for validation](cassandra-support.md#cql-shell)
+* [Use cqlsh for validation](support.md#cql-shell)
 * JDK 8 or above
 * [Docker](https://www.docker.com/) (optional)
 

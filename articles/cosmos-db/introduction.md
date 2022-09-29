@@ -91,11 +91,11 @@ Any [web, mobile, gaming, and IoT application](use-cases.md) that needs to handl
 Get started with Azure Cosmos DB with one of our quickstarts:
 
 - Learn [how to choose an API](choose-api.md) in Azure Cosmos DB
-- [Get started with Azure Cosmos DB for NoSQL](create-sql-api-dotnet.md)
+- [Get started with Azure Cosmos DB for NoSQL](nosql/quickstart-dotnet.md)
 - [Get started with Azure Cosmos DB for MongoDB](mongodb/create-mongodb-nodejs.md)
 - [Get started with Azure Cosmos DB for Apache Cassandra](cassandra/manage-data-dotnet.md)
-- [Get started with Azure Cosmos DB for Apache Gremlin](create-graph-dotnet.md)
-- [Get started with Azure Cosmos DB for Table](table/create-table-dotnet.md)
+- [Get started with Azure Cosmos DB for Apache Gremlin](gremlin/quickstart-dotnet.md)
+- [Get started with Azure Cosmos DB for Table](table/quickstart-dotnet.md)
 - [A whitepaper on next-gen app development with Azure Cosmos DB](https://azure.microsoft.com/resources/microsoft-azure-cosmos-db-flexible-reliable-cloud-nosql-at-any-scale/)
 - Trying to do capacity planning for a migration to Azure Cosmos DB?
     - If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 

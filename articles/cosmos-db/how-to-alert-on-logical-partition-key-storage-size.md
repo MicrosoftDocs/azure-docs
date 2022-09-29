@@ -21,7 +21,7 @@ In this article, we’ll create an alert that will trigger if the storage for a 
 
 We’ll be using data from the **PartitionKeyStatistics** log category in Diagnostic Logs to create our alert. Diagnostic Logs is an opt-in feature, so you’ll need to enable it before proceeding. In our example, we’ll use the recommended Resource Specific Logs option. 
 
-Follow the instructions in [Monitor Azure Cosmos DB data by using diagnostic settings in Azure](cosmosdb-monitor-resource-logs.md) to ensure:
+Follow the instructions in [Monitor Azure Cosmos DB data by using diagnostic settings in Azure](monitor-resource-logs.md) to ensure:
 - Diagnostic Logs is enabled on the Azure Cosmos DB account(s) you want to monitor
 - You have configured collection of the **PartitionKeyStatistics** log category
 - The Diagnostic logs are being sent to a Log Analytics workspace

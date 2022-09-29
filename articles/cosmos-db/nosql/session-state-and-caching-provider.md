@@ -25,7 +25,7 @@ There are many external storage providers available, that can store the session 
 
 ## Session state scenarios
 
-Azure Cosmos DB can be used as a session state provider through the extension package [Microsoft.Extensions.Caching.Cosmos](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Cosmos) uses the [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-standard.md), using a Container as an effective session storage based on a key/value approach where the key is the session identifier.
+Azure Cosmos DB can be used as a session state provider through the extension package [Microsoft.Extensions.Caching.Cosmos](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Cosmos) uses the [Azure Cosmos DB .NET SDK](sdk-dotnet-v3.md), using a Container as an effective session storage based on a key/value approach where the key is the session identifier.
 
 Once the package is added, you can use `AddCosmosCache` as part of your Startup process (services.AddSession and app.UseSession are [common initialization](/aspnet/core/fundamentals/app-state?view=aspnetcore-5.0#configure-session-stat&preserve-view=true) steps required for any session state provider):
 
@@ -114,7 +114,7 @@ public class MyBusinessClass
 ## Troubleshooting and diagnosing
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-Since the Azure Cosmos DB provider uses the .NET SDK underneath, all the existing [performance guidelines](performance-tips-dotnet-sdk-v3-sql.md) and [troubleshooting guides](troubleshoot-dot-net-sdk.md) apply to understanding any potential issue. Note, there is a distinct way to get access to the Diagnostics from the underlying Azure Cosmos DB operations because they cannot be exposed through the IDistributedCache APIs.
+Since the Azure Cosmos DB provider uses the .NET SDK underneath, all the existing [performance guidelines](performance-tips-dotnet-sdk-v3.md) and [troubleshooting guides](troubleshoot-dotnet-sdk.md) apply to understanding any potential issue. Note, there is a distinct way to get access to the Diagnostics from the underlying Azure Cosmos DB operations because they cannot be exposed through the IDistributedCache APIs.
 
 Registering the optional diagnostics delegate will allow you to capture and conditionally log any diagnostics to troubleshoot any cases like high latency:
 

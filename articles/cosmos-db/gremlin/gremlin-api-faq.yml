@@ -117,7 +117,7 @@ sections:
       - question: |
           Why am I getting the "Gremlin Query Compilation Error: Unable to find any method" error?
         answer: |
-          Azure Cosmos DB for Gremlin implements a subset of the functionality defined in the Gremlin surface area. For supported steps and more information, see [Gremlin support](gremlin-support.md) article.
+          Azure Cosmos DB for Gremlin implements a subset of the functionality defined in the Gremlin surface area. For supported steps and more information, see [Gremlin support](support.md) article.
           
           The best workaround is to rewrite the required Gremlin steps with the supported functionality, since all essential Gremlin steps are supported by Azure Cosmos DB.
           
@@ -158,5 +158,5 @@ additionalContent: |
 
   ## Next steps
   
-  * [Azure Cosmos DB for Gremlin wire protocol support](../gremlin-support.md)
-  * Create, query, and traverse an Azure Cosmos DB graph database using the [Gremlin console](create-graph-console.md)
+  * [Azure Cosmos DB for Gremlin wire protocol support](support.md)
+  * Create, query, and traverse an Azure Cosmos DB graph database using the [Gremlin console](quickstart-console.md)

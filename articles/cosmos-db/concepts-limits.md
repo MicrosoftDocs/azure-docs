@@ -46,7 +46,7 @@ An Azure Cosmos DB container (or shared throughput database) using manual throug
 
 The current and minimum throughput of a container or a database can be retrieved from the Azure portal or the SDKs. For more information, see [Provision throughput on containers and databases](set-throughput.md). 
 
-The actual minimum RU/s may vary depending on your account configuration. You can use [Azure Monitor metrics](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) to view the history of provisioned throughput (RU/s) and storage on a resource. 
+The actual minimum RU/s may vary depending on your account configuration. You can use [Azure Monitor metrics](monitor.md#view-operation-level-metrics-for-azure-cosmos-db) to view the history of provisioned throughput (RU/s) and storage on a resource. 
 
 #### Minimum throughput on container 
 
@@ -288,11 +288,11 @@ Read more about Azure Cosmos DB's core concepts [global distribution](distribute
 
 Get started with Azure Cosmos DB with one of our quickstarts:
 
-* [Get started with Azure Cosmos DB for NoSQL](create-sql-api-dotnet.md)
+* [Get started with Azure Cosmos DB for NoSQL](nosql/quickstart-dotnet.md)
 * [Get started with Azure Cosmos DB for MongoDB](mongodb/create-mongodb-nodejs.md)
 * [Get started with Azure Cosmos DB for Cassandra](cassandra/manage-data-dotnet.md)
-* [Get started with Azure Cosmos DB for Gremlin](create-graph-dotnet.md)
-* [Get started with Azure Cosmos DB for Table](table/create-table-dotnet.md)
+* [Get started with Azure Cosmos DB for Gremlin](gremlin/quickstart-dotnet.md)
+* [Get started with Azure Cosmos DB for Table](table/quickstart-dotnet.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
     * If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

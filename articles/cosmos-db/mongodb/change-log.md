@@ -32,7 +32,7 @@ The Azure Cosmos DB Linux emulator with API for MongoDB support provides a local
 ### 16-MB limit per document in API for MongoDB (Preview)
 The 16-MB document limit in the Azure Cosmos DB for MongoDB provides developers the flexibility to store more data per document. This ease-of-use feature will speed up your development process in these cases. 
 
-[Learn more](./mongodb-introduction.md)
+[Learn more](./introduction.md)
 
 
 ### Azure Cosmos DB for MongoDB data plane Role-Based Access Control (RBAC) (Preview)
@@ -50,7 +50,7 @@ The unique partial indexes feature allows you more flexibility to specify exactl
 ### Azure Cosmos DB for MongoDB unique index reindexing (Preview)
 The unique index feature for Azure Cosmos DB allows you to create unique indexes when your collection was empty and didn't contain documents. This feature provides you with more flexibility by giving you the ability to create unique indexes whenever you want to—meaning there’s no need to plan unique indexes ahead of time before inserting any data into the collection. 
 
-[Learn more](./mongodb-indexing.md) and enable the feature today by [submitting a support ticket request](https://azure.microsoft.com/support/create-ticket/)
+[Learn more](./indexing.md) and enable the feature today by [submitting a support ticket request](https://azure.microsoft.com/support/create-ticket/)
 
 
 ### Azure Cosmos DB for MongoDB supports version 4.2

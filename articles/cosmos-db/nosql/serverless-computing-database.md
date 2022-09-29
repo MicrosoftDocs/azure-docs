@@ -80,11 +80,11 @@ The following images show the code in the Azure portal for this scenario.
 
 ### Gaming use case - Azure Functions trigger and output binding for Azure Cosmos DB 
 
-In gaming, when a new user is created you can search for other users who might know them by using the [Azure Cosmos DB for Gremlin](../graph-introduction.md). You can then write the results to an Azure Cosmos DB or SQL database for easy retrieval.
+In gaming, when a new user is created you can search for other users who might know them by using the [Azure Cosmos DB for Gremlin](../introduction.md). You can then write the results to an Azure Cosmos DB or SQL database for easy retrieval.
 
 **Implementation:** Use an Azure Functions trigger and output binding for Azure Cosmos DB
 
-1. Using an Azure Cosmos DB [graph database](../graph-introduction.md) to store all users, you can create a new function with an Azure Functions trigger for Azure Cosmos DB. 
+1. Using an Azure Cosmos DB [graph database](../introduction.md) to store all users, you can create a new function with an Azure Functions trigger for Azure Cosmos DB. 
 2. Whenever a new user is inserted, the function is invoked, and then the result is stored using an **output binding**.
 3. The function queries the graph database to search for all the users that are directly related to the new user and returns that dataset to the function.
 4. This data is then stored in Azure Cosmos DB, which can then be easily retrieved by any front-end application that shows the new user their connected friends.

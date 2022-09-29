@@ -17,7 +17,7 @@ ms.custom: devx-track-python, devx-track-js, devx-track-csharp, devx-track-azure
 In Azure Cosmos DB, data is indexed following [indexing policies](../index-policy.md) that are defined for each container. The default indexing policy for newly created containers enforces range indexes for any string or number. This policy can be overridden with your own custom indexing policy.
 
 > [!NOTE]
-> The method of updating indexing policies described in this article only applies to Azure Cosmos DB's API for NoSQL. Learn about indexing in [Azure Cosmos DB's API for MongoDB](../mongodb/mongodb-indexing.md) and [Secondary indexing in Azure Cosmos DB for Apache Cassandra.](../cassandra/secondary-indexing.md)
+> The method of updating indexing policies described in this article only applies to Azure Cosmos DB's API for NoSQL. Learn about indexing in [Azure Cosmos DB's API for MongoDB](../mongodb/indexing.md) and [Secondary indexing in Azure Cosmos DB for Apache Cassandra.](../cassandra/secondary-indexing.md)
 
 ## Indexing policy examples
 
@@ -467,7 +467,7 @@ await client.GetDatabase("database").DefineContainer(name: "container", partitio
 
 ## Use the Java SDK
 
-The `DocumentCollection` object from the [Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) (see [this Quickstart](create-sql-api-java.md) regarding its usage) exposes `getIndexingPolicy()` and `setIndexingPolicy()` methods. The `IndexingPolicy` object they manipulate lets you change the indexing mode and add or remove included and excluded paths.
+The `DocumentCollection` object from the [Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) (see [this Quickstart](quickstart-java.md) regarding its usage) exposes `getIndexingPolicy()` and `setIndexingPolicy()` methods. The `IndexingPolicy` object they manipulate lets you change the indexing mode and add or remove included and excluded paths.
 
 ```java
 // Retrieve the container's details
@@ -549,7 +549,7 @@ containerResponse.subscribe(result -> {
 
 ## Use the Node.js SDK
 
-The `ContainerDefinition` interface from [Node.js SDK](https://www.npmjs.com/package/@azure/cosmos) (see [this Quickstart](create-sql-api-nodejs.md) regarding its usage) exposes an `indexingPolicy` property that lets you change the `indexingMode` and add or remove `includedPaths` and `excludedPaths`.
+The `ContainerDefinition` interface from [Node.js SDK](https://www.npmjs.com/package/@azure/cosmos) (see [this Quickstart](quickstart-nodejs.md) regarding its usage) exposes an `indexingPolicy` property that lets you change the `indexingMode` and add or remove `includedPaths` and `excludedPaths`.
 
 Retrieve the container's details
 
@@ -621,7 +621,7 @@ const indexTransformationProgress = replaceResponse.headers['x-ms-documentdb-col
 
 # [Python SDK V3](#tab/pythonv3)
 
-When using the [Python SDK V3](https://pypi.org/project/azure-cosmos/) (see [this Quickstart](create-sql-api-python.md) regarding its usage), the container configuration is managed as a dictionary. From this dictionary, it is possible to access the indexing policy and all its attributes.
+When using the [Python SDK V3](https://pypi.org/project/azure-cosmos/) (see [this Quickstart](quickstart-python.md) regarding its usage), the container configuration is managed as a dictionary. From this dictionary, it is possible to access the indexing policy and all its attributes.
 
 Retrieve the container's details
 

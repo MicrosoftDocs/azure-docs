@@ -24,7 +24,7 @@ landingContent:
           - text: Manage your data using a .NET Console app 
             url: quickstart-dotnet.md
           - text: Manage your data using a JavaScript app
-            url: create-sql-api-nodejs.md     
+            url: quickstart-nodejs.md     
       - linkListType: concept
         links:       
           - text: Getting started with SQL queries
@@ -34,14 +34,14 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Build a .NET web app to manage your data
-            url: sql-api-dotnet-application.md
+            url: tutorial-dotnet-web-app.md
           - text: Java app with Async SDK
-            url: create-sql-api-java.md
+            url: quickstart-java.md
           - text: Query data with SQL queries
-            url: tutorial-query-sql-api.md
+            url: tutorial-query.md
       - linkListType: how-to-guide
         links:
           - text: Tune query performance 
-            url: sql-api-query-metrics.md
+            url: query-metrics.md
           - text: Define stored procedures, triggers, UDFs
             url: how-to-write-stored-procedures-triggers-udfs.md      

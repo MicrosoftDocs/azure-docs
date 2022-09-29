@@ -355,7 +355,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 Azure Cosmos DB for MongoDB supports documents encoded in MongoDB BSON format. The 4.0 API version enhances the internal usage of this format to improve performance and reduce costs. Documents written or updated through an endpoint running 4.0+ benefit from this.
  
-In an [upgrade scenario](upgrade-mongodb-version.md), documents written prior to the upgrade to version 4.0+ will not benefit from the enhanced performance until they are updated via a write operation through the 4.0+ endpoint.
+In an [upgrade scenario](upgrade-version.md), documents written prior to the upgrade to version 4.0+ will not benefit from the enhanced performance until they are updated via a write operation through the 4.0+ endpoint.
 
 16MB document support raises the size limit for your documents from 2MB to 16MB. This limit only applies to collections created after this feature has been enabled. Once this feature is enabled for your database account, it cannot be disabled. This feature is not compatible with the Azure Synapse Link feature and/or Continuous Backup.
 
@@ -539,7 +539,7 @@ $polygon | No |
 When using the `findOneAndUpdate` operation with API for MongoDB version 4.0, sort operations on a single field and multiple fields are supported. Sort operations on multiple fields was a limitation of previous wire protocols.
 
 ## Indexing
-The API for MongoDB [supports a variety of indexes](mongodb-indexing.md) to enable sorting on multiple fields, improve query performance, and enforce uniqueness.
+The API for MongoDB [supports a variety of indexes](indexing.md) to enable sorting on multiple fields, improve query performance, and enforce uniqueness.
 
 ## GridFS
 

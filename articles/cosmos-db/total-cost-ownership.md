@@ -50,7 +50,7 @@ The serverless provisioning model of Azure Cosmos DB eliminates the need to over
 
 * **You automatically get all enterprise capabilities, at no additional cost.** Azure Cosmos DB offers the most comprehensive set of compliance certifications, security, and encryption at rest and in motion at no additional cost (compared to our competition). You automatically get regional availability anywhere in the world. You can span your database across any number of Azure regions and add or remove regions at any point.
 
-* **You can save up to 65% of costs with reserved capacity:** Azure Cosmos DB [reserved capacity](cosmos-db-reserved-capacity.md) helps you save money by pre-paying for Azure Cosmos DB resources for either one year or three years. You can significantly reduce your costs with one-year or three-year upfront commitments and save between 20-65% discounts when compared to the regular pricing. On your mission-critical workloads you can get better SLAs in terms of provisioning capacity.
+* **You can save up to 65% of costs with reserved capacity:** Azure Cosmos DB [reserved capacity](reserved-capacity.md) helps you save money by pre-paying for Azure Cosmos DB resources for either one year or three years. You can significantly reduce your costs with one-year or three-year upfront commitments and save between 20-65% discounts when compared to the regular pricing. On your mission-critical workloads you can get better SLAs in terms of provisioning capacity.
 
 ## Capacity planning
 

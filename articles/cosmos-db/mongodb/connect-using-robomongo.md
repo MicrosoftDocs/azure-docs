@@ -15,7 +15,7 @@ ms.author: gahllevy
 To connect to Azure Cosmos DB account using Robo 3T, you must:
 
 * Download and install [Robo 3T](https://robomongo.org/)
-* Have your Azure Cosmos DB [connection string](connect-mongodb-account.md) information
+* Have your Azure Cosmos DB [connection string](connect-account.md) information
 
 > [!NOTE]
 > Currently, Robo 3T v1.2 and lower versions are supported with Azure Cosmos DB's API for MongoDB.
@@ -24,7 +24,7 @@ To connect to Azure Cosmos DB account using Robo 3T, you must:
 
 To add your Azure Cosmos DB account to the Robo 3T connection manager, perform the following steps:
 
-1. Retrieve the connection information for your Azure Cosmos DB account configured with Azure Cosmos DB's API MongoDB using the instructions [here](connect-mongodb-account.md).
+1. Retrieve the connection information for your Azure Cosmos DB account configured with Azure Cosmos DB's API MongoDB using the instructions [here](connect-account.md).
 
     :::image type="content" source="./media/connect-using-robomongo/connectionstringblade.png" alt-text="Screenshot of the connection string blade":::
 2. Run the *Robomongo* application.

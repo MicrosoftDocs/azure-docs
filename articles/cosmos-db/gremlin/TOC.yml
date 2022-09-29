@@ -3,29 +3,29 @@
 - name: Overview
   items:
     - name: What is Azure Cosmos DB for Apache Gremlin?
-      href: graph-introduction.md
+      href: introduction.md
     - name: Wire protocol support
-      href: gremlin-support.md
+      href: support.md
     - name: FAQ
       href: gremlin-api-faq.yml
 - name: Quickstarts
   items:
     - name: Gremlin console
-      href: create-graph-console.md
+      href: quickstart-console.md
     - name: .NET
-      href: create-graph-dotnet.md
+      href: quickstart-dotnet.md
     - name: Java
-      href: create-graph-java.md
+      href: quickstart-java.md
     - name: Node.js
-      href: create-graph-nodejs.md
+      href: quickstart-nodejs.md
     - name: Python
-      href: create-graph-python.md
+      href: quickstart-python.md
     - name: PHP
-      href: create-graph-php.md
+      href: quickstart-php.md
 - name: Tutorials
   items:
     - name: Query data using Gremlin
-      href: tutorial-query-graph.md
+      href: tutorial-query.md
 - name: Samples
   items:
     - name: Azure CLI
@@ -94,9 +94,9 @@
         - name: Partitioning overview
           href: ../partitioning-overview.md
         - name: Graph data modeling
-          href: graph-modeling.md
+          href: modeling.md
         - name: Designing for partitioned graph data
-          href: graph-partitioning.md
+          href: partitioning.md
     - name: Throughput (RU/s)
       items:
         - name: Request units
@@ -199,7 +199,7 @@
           displayName: free tier
           href: ../optimize-dev-test.md
         - name: Optimize cost with reserved capacity
-          href: ../cosmos-db-reserved-capacity.md
+          href: ../reserved-capacity.md
         - name: Optimize using rate limiting
           href: ../rate-limiting-requests.md
     - name: Enterprise readiness
@@ -212,34 +212,36 @@
           href: ../compliance.md
         - name: Data residency
           href: ../data-residency.md
+    - name: Jupyter notebooks
+      href: ../jupyter-notebooks.md
 - name: How to
   items:
     - name: Develop applications
       items:
         - name: Graph data modeling
-          href: graph-modeling.md
+          href: modeling.md
         - name: Designing for partitioned graph data
-          href: graph-partitioning.md
+          href: partitioning.md
         - name: Create a container - API for Apache Gremlin
-          href: how-to-create-container-gremlin.md
+          href: how-to-create-container.md
         - name: Allocate throughput - API for Apache Gremlin
           displayName: request units, RUs, RU, collection level
-          href: how-to-provision-throughput-gremlin.md
+          href: how-to-provision-throughput.md
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
-          href: find-request-unit-charge-gremlin.md
+          href: find-request-unit-charge.md
         - name: Optimize Gremlin queries
-          href: graph-execution-profile.md
+          href: execution-profile.md
         - name: Use regional endpoints
           href: use-regional-endpoints.md
         - name: Access system document properties
-          href: access-system-properties-gremlin.md
+          href: access-system-properties.md
         - name: Response Headers
-          href: gremlin-headers.md
+          href: headers.md
         - name: Limits
-          href: gremlin-limits.md
+          href: limits.md
         - name: Monitor using Diagnostics Logs
-          href: diagnostic-queries-gremlin.md
+          href: diagnostic-queries.md
     - name: Use developer tools
       items:
         - name: Develop locally with emulator
@@ -325,11 +327,11 @@
     - name: Monitor
       items:
         - name: Monitor Azure Cosmos DB
-          href: ../monitor-cosmos-db.md
+          href: ../monitor.md
         - name: Use Azure monitor metrics
           items:
             - name: Azure Monitor for Azure Cosmos DB
-              href: ../cosmosdb-insights-overview.md
+              href: ../insights-overview.md
             - name: Scenarios to monitor
               href: ../use-metrics.md
             - name: Monitor server-side latency
@@ -343,11 +345,11 @@
         - name: Use Azure monitor logs
           items:
             - name: Monitor with diagnostic logs
-              href: ../cosmosdb-monitor-resource-logs.md
+              href: ../monitor-resource-logs.md
             - name: Troubleshoot issues using basic queries
-              href: ../cosmosdb-monitor-logs-basic-queries.md
+              href: ../monitor-logs-basic-queries.md
             - name: Troubleshoot issues using advanced queries
-              href: ../cosmos-db-advanced-queries.md
+              href: ../advanced-queries.md
             - name: Audit control plane logs
               href: ../audit-control-plane-logs.md
         - name: Configure alerts
@@ -357,25 +359,25 @@
             - name: Create alert on logical partition key size
               href: ../how-to-alert-on-logical-partition-key-storage-size.md
         - name: Monitoring data reference
-          href: ../monitor-cosmos-db-reference.md
+          href: ../monitor-reference.md
         - name: Third-party monitoring solutions
           href: ../monitoring-solutions.md
     - name: Migrate data to API for Apache Gremlin
       items:
         - name: Import using graph bulk executor
-          href: bulk-executor-graph-dotnet.md
+          href: bulk-executor-dotnet.md
     - name: Gremlin partner solutions
       items:
         - name: Visualization solutions
-          href: graph-visualization-partners.md
+          href: visualization-partners.md
         - name: Modeling solutions
-          href: graph-modeling-tools.md
+          href: modeling-tools.md
         - name: Supply chain traceability solution
           href: supply-chain-traceability-solution.md
 - name: Reference
   items:
     - name: Response Headers
-      href: gremlin-headers.md
+      href: headers.md
     - name: PowerShell
       href: /powershell/module/az.cosmosdb/#cosmos-db&preserve-view=true
     - name: REST resource provider
@@ -393,7 +395,7 @@
     - name: Whitepapers
       href: ../whitepapers.md
     - name: Partners
-      href: ../partners-migration-cosmosdb.md
+      href: ../partners-migration.md
     - name: Microsoft Q&A question page
       href: /answers/topics/azure-cosmos-db.html
     - name: Videos

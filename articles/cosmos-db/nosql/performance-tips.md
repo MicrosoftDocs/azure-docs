@@ -16,19 +16,19 @@ ms.custom: devx-track-dotnet, contperf-fy21q2
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
 > [!div class="op_single_selector"]
-> * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
+> * [.NET SDK v3](performance-tips-dotnet-sdk-v3.md)
 > * [.NET SDK v2](performance-tips.md)
-> * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
+> * [Java SDK v4](performance-tips-java-sdk-v4.md)
 > * [Async Java SDK v2](performance-tips-async-java.md)
 > * [Sync Java SDK v2](performance-tips-java.md)
 
-Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You don't have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call. To learn more, see [how to provision container throughput](how-to-provision-container-throughput.md) or [how to provision database throughput](how-to-provision-database-throughput.md). But because Azure Cosmos DB is accessed via network calls, there are client-side optimizations you can make to achieve peak performance when you use the [SQL .NET SDK](sql-api-sdk-dotnet-standard.md).
+Azure Cosmos DB is a fast and flexible distributed database that scales seamlessly with guaranteed latency and throughput. You don't have to make major architecture changes or write complex code to scale your database with Azure Cosmos DB. Scaling up and down is as easy as making a single API call. To learn more, see [how to provision container throughput](how-to-provision-container-throughput.md) or [how to provision database throughput](how-to-provision-database-throughput.md). But because Azure Cosmos DB is accessed via network calls, there are client-side optimizations you can make to achieve peak performance when you use the [SQL .NET SDK](sdk-dotnet-v3.md).
 
 So, if you're trying to improve your database performance, consider these options:
 
 ## Upgrade to the .NET V3 SDK
 
-The [.NET v3 SDK](https://github.com/Azure/azure-cosmos-dotnet-v3) is released. If you use the .NET v3 SDK, see the [.NET v3 performance guide](performance-tips-dotnet-sdk-v3-sql.md) for the following information:
+The [.NET v3 SDK](https://github.com/Azure/azure-cosmos-dotnet-v3) is released. If you use the .NET v3 SDK, see the [.NET v3 performance guide](performance-tips-dotnet-sdk-v3.md) for the following information:
 
 - Defaults to Direct TCP mode
 - Stream API support
@@ -96,7 +96,7 @@ Edit your `app.config` or `web.config` files:
 
 **Connection policy: Use direct connection mode**
 
-.NET V2 SDK default connection mode is gateway. You configure the connection mode during the construction of the `DocumentClient` instance by using the `ConnectionPolicy` parameter. If you use direct mode, you need to also set the `Protocol` by using the `ConnectionPolicy` parameter. To learn more about different connectivity options, see the [connectivity modes](sql-sdk-connection-modes.md) article.
+.NET V2 SDK default connection mode is gateway. You configure the connection mode during the construction of the `DocumentClient` instance by using the `ConnectionPolicy` parameter. If you use direct mode, you need to also set the `Protocol` by using the `ConnectionPolicy` parameter. To learn more about different connectivity options, see the [connectivity modes](sdk-connection-modes.md) article.
 
 ```csharp
 Uri serviceEndpoint = new Uri("https://contoso.documents.net");
@@ -122,7 +122,7 @@ In scenarios where you have sparse access and if you notice a higher connection 
 
 **Call OpenAsync to avoid startup latency on first request**
 
-By default, the first request has higher latency because it needs to fetch the address routing table. When you use [SDK V2](sql-api-sdk-dotnet.md), call `OpenAsync()` once during initialization to avoid this startup latency on the first request. The call looks like: `await client.OpenAsync();`
+By default, the first request has higher latency because it needs to fetch the address routing table. When you use [SDK V2](sdk-dotnet-v2.md), call `OpenAsync()` once during initialization to avoid this startup latency on the first request. The call looks like: `await client.OpenAsync();`
 
 > [!NOTE]
 > `OpenAsync` will generate requests to obtain the address routing table for all the containers in the account. For accounts that have many containers but whose application accesses a subset of them, `OpenAsync` would generate an unnecessary amount of traffic, which would make the initialization slow. So using `OpenAsync` might not be useful in this scenario because it slows down application startup.
@@ -146,7 +146,7 @@ To reduce latency and CPU jitter, we recommend that you enable accelerated netwo
 
 **Install the most recent SDK**
 
-The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. See the [Azure Cosmos DB SDK](sql-api-sdk-dotnet-standard.md) pages to determine the most recent SDK and review improvements.
+The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. See the [Azure Cosmos DB SDK](sdk-dotnet-v3.md) pages to determine the most recent SDK and review improvements.
 
 **Use a singleton Azure Cosmos DB client for the lifetime of your application**
 
@@ -182,9 +182,9 @@ Azure Cosmos DB requests are made over HTTPS/REST when you use gateway mode. The
 During performance testing, you should increase load until a small rate of requests are throttled. If requests are throttled, the client application should back off on throttle for the server-specified retry interval. Respecting the backoff ensures you spend a minimal amount of time waiting between retries. 
 
 Retry policy support is included in these SDKs:
-- Version 1.8.0 and later of the [.NET SDK for SQL](sql-api-sdk-dotnet.md) and the [Java SDK for SQL](sql-api-sdk-java.md)
-- Version 1.9.0 and later of the [Node.js SDK for SQL](sql-api-sdk-node.md) and the [Python SDK for SQL](sql-api-sdk-python.md)
-- All supported versions of the [.NET Core](sql-api-sdk-dotnet-core.md) SDKs 
+- Version 1.8.0 and later of the [.NET SDK for SQL](sdk-dotnet-v2.md) and the [Java SDK for SQL](sdk-java-v2.md)
+- Version 1.9.0 and later of the [Node.js SDK for SQL](sdk-nodejs.md) and the [Python SDK for SQL](sdk-python.md)
+- All supported versions of the [.NET Core](sdk-dotnet-core-v2.md) SDKs 
 
 For more information, see [RetryAfter](/dotnet/api/microsoft.azure.documents.documentclientexception.retryafter).
     

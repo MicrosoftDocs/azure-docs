@@ -79,7 +79,7 @@ ProgrammaticDriverConfigLoaderBuilder configBuilder = DriverConfigLoader.program
 
 You can view the rate limiting errors (429) that are retried server-side in the Azure Cosmos DB Metrics pane. These errors don't go to the client when SSR is enabled, since they are handled and retried server-side.
 
-You can search for log entries containing *estimatedDelayFromRateLimitingInMilliseconds* in your [Azure Cosmos DB resource logs](../cosmosdb-monitor-resource-logs.md).
+You can search for log entries containing *estimatedDelayFromRateLimitingInMilliseconds* in your [Azure Cosmos DB resource logs](../monitor-resource-logs.md).
 
 ### Will server-side retry affect my consistency level?
 
@@ -99,6 +99,6 @@ To learn more about troubleshooting common errors, see this article:
 See the following articles to learn about throughput provisioning in Azure Cosmos DB:
 
 * [Request units and throughput in Azure Cosmos DB](../request-units.md)
-* [Provision throughput on containers and databases](../how-to-provision-throughput-cassandra.md) 
-* [Partition key best practices](../cassandra-partitioning.md)
+* [Provision throughput on containers and databases](how-to-provision-throughput.md) 
+* [Partition key best practices](partitioning.md)
 

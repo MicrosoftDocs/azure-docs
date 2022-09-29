@@ -88,7 +88,7 @@ The following JSON object represents the data format in Azure Cosmos DB
 
 ## Migrate your data
 
-There are various options available to migrate your data to Azure Cosmos DB. To learn more, see the [Options to migrate your on-premises or cloud data to Azure Cosmos DB](../cosmosdb-migrationchoices.md) article.
+There are various options available to migrate your data to Azure Cosmos DB. To learn more, see the [Options to migrate your on-premises or cloud data to Azure Cosmos DB](../migration-choices.md) article.
 
 ## Migrate your code
 
@@ -141,13 +141,13 @@ client_documentDB = new CosmosClient("your connectionstring from the Azure porta
 
 With Azure Cosmos DB, you can use the following options to optimize your connection:
 
-* **ConnectionMode** - Use direct connection mode to connect to the data nodes in the Azure Cosmos DB service. Use gateway mode only to initialize and cache the logical addresses and refresh on updates. For more information, see [connectivity modes](sql-sdk-connection-modes.md).
+* **ConnectionMode** - Use direct connection mode to connect to the data nodes in the Azure Cosmos DB service. Use gateway mode only to initialize and cache the logical addresses and refresh on updates. For more information, see [connectivity modes](sdk-connection-modes.md).
 
 * **ApplicationRegion** - This option is used to set the preferred geo-replicated region that is used to interact with Azure Cosmos DB. For more information, see [global distribution](../distribute-data-globally.md).
 
 * **ConsistencyLevel** - This option is used to override default consistency level. For more information, see [consistency levels](../consistency-levels.md).
 
-* **BulkExecutionMode** - This option is used to execute bulk operations by setting the *AllowBulkExecution* property to true. For more information, see [bulk import](tutorial-sql-api-dotnet-bulk-import.md).
+* **BulkExecutionMode** - This option is used to execute bulk operations by setting the *AllowBulkExecution* property to true. For more information, see [bulk import](tutorial-dotnet-bulk-import.md).
 
    ```csharp
    client_cosmosDB = new CosmosClient(" Your connection string ",new CosmosClientOptions()
@@ -519,5 +519,5 @@ As you can see, Azure Cosmos DB supports natural queries (SQL), operations are a
 
 - Learn about [performance optimization](performance-tips.md).
 - Learn about [optimize reads and writes](../key-value-store-cost.md)
-- Learn about [Monitoring in Azure Cosmos DB](../monitor-cosmos-db.md)
+- Learn about [Monitoring in Azure Cosmos DB](../monitor.md)
 

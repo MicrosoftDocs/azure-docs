@@ -17,7 +17,7 @@ Azure Cosmos DB supports many APIs, such as SQL, MongoDB, Cassandra, Gremlin, an
 
 The cost of all database operations is normalized by Azure Cosmos DB and is expressed by Request Units (or RUs, for short). Request charge is the request units consumed by all your database operations. You can think of RUs as a performance currency abstracting the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Azure Cosmos DB. No matter which API you use to interact with your Azure Cosmos DB container, costs are always measured by RUs. Whether the database operation is a write, point read, or query, costs are always measured in RUs. To learn more, see the [request units and it's considerations](../request-units.md) article.
 
-This article presents the different ways you can find the [request unit](../request-units.md) (RU) consumption for any operation executed against a container in Azure Cosmos DB for Table. If you are using a different API, see [API for MongoDB](../mongodb/find-request-unit-charge-mongodb.md), [API for Cassandra](../cassandra/find-request-unit-charge-cassandra.md), [API for Gremlin](../find-request-unit-charge-gremlin.md), and [API for NoSQL](../find-request-unit-charge.md) articles to find the RU/s charge.
+This article presents the different ways you can find the [request unit](../request-units.md) (RU) consumption for any operation executed against a container in Azure Cosmos DB for Table. If you are using a different API, see [API for MongoDB](../mongodb/find-request-unit-charge.md), [API for Cassandra](../cassandra/find-request-unit-charge.md), [API for Gremlin](../gremlin/find-request-unit-charge.md), and [API for NoSQL](../find-request-unit-charge.md) articles to find the RU/s charge.
 
 ## Use the .NET SDK
 
@@ -32,7 +32,7 @@ if (tableResult.RequestCharge.HasValue) // would be false when using Azure Stora
 }
 ```
 
-For more information, see [Quickstart: Build a API for Table app by using the .NET SDK and Azure Cosmos DB](create-table-dotnet.md).
+For more information, see [Quickstart: Build a API for Table app by using the .NET SDK and Azure Cosmos DB](quickstart-dotnet.md).
 
 ## Next steps
 

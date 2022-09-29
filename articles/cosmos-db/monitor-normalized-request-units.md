@@ -19,7 +19,7 @@ The **Normalized RU Consumption** metric is a metric between 0% to 100% that is 
 
 For example, suppose you have a container where you set [autoscale max throughput](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) of 20,000 RU/s (scales between 2000 - 20,000 RU/s) and you have two partition key ranges (physical partitions) *P1* and *P2*. Because Azure Cosmos DB distributes the provisioned throughput equally across all the partition key ranges, *P1* and *P2* each can scale between 1000 - 10,000 RU/s. Suppose in a 1 minute interval, in a given second, *P1* consumed 6000 request units and *P2* consumed 8000 request units. The normalized RU consumption of P1 is 60% and 80% for *P2*. The overall normalized RU consumption of the entire container is MAX(60%, 80%) = 80%.
 
-If you're interested in seeing the request unit consumption at a per second interval, along with operation type, you can use the opt-in feature [Diagnostic Logs](cosmosdb-monitor-resource-logs.md) and query the **PartitionKeyRUConsumption** table. To get a high-level overview of the operations and status code your application is performing on the Azure Cosmos DB resource, you can use the built-in Azure Monitor **Total Requests** (API for NoSQL), **Mongo Requests**, **Gremlin Requests**, or **Cassandra Requests** metric. Later you can filter on these requests by the 429 status code and split them by **Operation Type**.
+If you're interested in seeing the request unit consumption at a per second interval, along with operation type, you can use the opt-in feature [Diagnostic Logs](monitor-resource-logs.md) and query the **PartitionKeyRUConsumption** table. To get a high-level overview of the operations and status code your application is performing on the Azure Cosmos DB resource, you can use the built-in Azure Monitor **Total Requests** (API for NoSQL), **Mongo Requests**, **Gremlin Requests**, or **Cassandra Requests** metric. Later you can filter on these requests by the 429 status code and split them by **Operation Type**.
 
 ## What to expect and do when normalized RU/s is higher
 
@@ -88,7 +88,7 @@ In general, for a production workload using autoscale, if you see between 1-5% o
 
    :::image type="content" source="./media/monitor-account-key-updates/select-account-scope.png" alt-text="Select the account scope to view metrics" border="true":::
 
-4. Next you can select a metric from the list of available metrics. You can select metrics specific to request units, storage, latency, availability, Cassandra, and others. To learn in detail about all the available metrics in this list, see the [Metrics by category](monitor-cosmos-db-reference.md) article. In this example, let’s select **Normalized RU Consumption** metric and **Max** as the aggregation value.
+4. Next you can select a metric from the list of available metrics. You can select metrics specific to request units, storage, latency, availability, Cassandra, and others. To learn in detail about all the available metrics in this list, see the [Metrics by category](monitor-reference.md) article. In this example, let’s select **Normalized RU Consumption** metric and **Max** as the aggregation value.
 
    In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter.
 
@@ -106,6 +106,6 @@ The normalized request unit consumption metric for each container is displayed a
 
 ## Next steps
 
-* Monitor Azure Cosmos DB data by using [diagnostic settings](cosmosdb-monitor-resource-logs.md) in Azure.
+* Monitor Azure Cosmos DB data by using [diagnostic settings](monitor-resource-logs.md) in Azure.
 * [Audit Azure Cosmos DB control plane operations](audit-control-plane-logs.md)
 * [Diagnose and troubleshoot Azure Cosmos DB request rate too large (429) exceptions](nosql/troubleshoot-request-rate-too-large.md)

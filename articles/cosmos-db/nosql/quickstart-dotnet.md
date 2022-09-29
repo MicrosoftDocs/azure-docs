@@ -18,12 +18,12 @@ ms.custom: devx-track-csharp
 > [!div class="op_single_selector"]
 >
 > * [.NET](quickstart-dotnet.md)
-> * [Node.js](create-sql-api-nodejs.md)
-> * [Java](create-sql-api-java.md)
-> * [Spring Data](create-sql-api-spring-data.md)
-> * [Python](create-sql-api-python.md)
-> * [Spark v3](create-sql-api-spark.md)
-> * [Go](create-sql-api-go.md)
+> * [Node.js](quickstart-nodejs.md)
+> * [Java](quickstart-java.md)
+> * [Spring Data](quickstart-java-spring-data.md)
+> * [Python](quickstart-python.md)
+> * [Spark v3](quickstart-spark.md)
+> * [Go](quickstart-go.md)
 >
 
 Get started with the Azure Cosmos DB client library for .NET to create databases, containers, and items within your account.  Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb). Follow these steps to  install the package and try out example code for basic tasks.
@@ -50,7 +50,7 @@ This section walks you through creating an Azure Cosmos DB account and setting u
 
 ### <a id="create-account"></a>Create an Azure Cosmos DB account
 
-[!INCLUDE [Create resource tabbed conceptual - ARM, Azure CLI, PowerShell, Portal](./includes/quickstart-arm.md)]
+[!INCLUDE [Create resource tabbed conceptual - ARM, Azure CLI, PowerShell, Portal](./includes/create-resources.md)]
 
 ### Create a new .NET app
 
@@ -92,7 +92,7 @@ Build succeeded.
 
 ## Object model
 
-[!INCLUDE [Explain DOCUMENT DB object model](./includes/quickstart-object-model.md)]
+[!INCLUDE [Explain DOCUMENT DB object model](./includes/object-model.md)]
 
 You'll use the following .NET classes to interact with these resources:
 
@@ -190,7 +190,7 @@ Created item:   68719518391     [gear-surf-surfboards]
 
 ## Clean up resources
 
-[!INCLUDE [Clean up resources - Azure CLI, PowerShell, Portal](./includes/quickstart-clean-up-resources.md)]
+[!INCLUDE [Clean up resources - Azure CLI, PowerShell, Portal](./includes/clean-up-resources.md)]
 
 ## Next steps
 

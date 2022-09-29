@@ -13,7 +13,7 @@ ms.author: thvankra
 # Azure Cosmos DB Spark Connector - throughput control
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-The [Spark Connector](create-sql-api-spark.md) allows you to communicate with Azure Cosmos DB using [Apache Spark](https://spark.apache.org/). This article describes how the throughput control feature works. Check out our [Spark samples in GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples) to get started using throughput control.
+The [Spark Connector](quickstart-spark.md) allows you to communicate with Azure Cosmos DB using [Apache Spark](https://spark.apache.org/). This article describes how the throughput control feature works. Check out our [Spark samples in GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples) to get started using throughput control.
 
 ## Why is throughput control important?
 
@@ -106,5 +106,5 @@ In each client record, the `loadFactor` attribute represents the load on the giv
 ## Next steps
 
 * [Spark samples in GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples).
-* [Manage data with Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL](create-sql-api-spark.md).
+* [Manage data with Azure Cosmos DB Spark 3 OLTP Connector for API for NoSQL](quickstart-spark.md).
 * Learn more about [Apache Spark](https://spark.apache.org/).

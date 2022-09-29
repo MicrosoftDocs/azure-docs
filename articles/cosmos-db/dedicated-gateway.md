@@ -29,7 +29,7 @@ cosmoscachefeedback@microsoft.com
 
 ## Connection modes
 
-There are two [connectivity modes](./sql/sql-sdk-connection-modes.md) for Azure Cosmos DB, Direct mode and Gateway mode. With Gateway mode you can connect to either the standard gateway or the dedicated gateway depending on the endpoint you configure.
+There are two [connectivity modes](./nosql/sdk-connection-modes.md) for Azure Cosmos DB, Direct mode and Gateway mode. With Gateway mode you can connect to either the standard gateway or the dedicated gateway depending on the endpoint you configure.
 
 :::image type="content" source="./media/dedicated-gateway/connection-policy.png" alt-text="Diagram that shows how Azure Cosmos DB connectivity modes work." :::
 

@@ -3,7 +3,7 @@
 - name: Overview
   items:
     - name: What is Azure Cosmos DB for MongoDB?
-      href: mongodb-introduction.md
+      href: introduction.md
     - name: API versions
       items:
         - name: API version 4.2
@@ -15,7 +15,7 @@
         - name: API version 3.2
           href: feature-support-32.md
         - name: Upgrade API version
-          href: upgrade-mongodb-version.md
+          href: upgrade-version.md
     - name: FAQ
       href: mongodb-faq.yml
     - name: Change log
@@ -23,15 +23,15 @@
 - name: Quickstarts
   items:
     - name: Develop app - Node.js
-      href: quickstart-javascript.md
+      href: quickstart-nodejs.md
     - name: Develop app - Python
-      href: create-mongodb-python.md
+      href: quickstart-python.md
     - name: Develop app - Java
-      href: create-mongodb-java.md
+      href: quickstart-java.md
     - name: Develop app - .NET
       href: quickstart-dotnet.md
     - name: Develop app - Golang
-      href: create-mongodb-go.md
+      href: quickstart-go.md
 - name: Tutorials
   items:
     - name: 1 - Create and manage data
@@ -53,11 +53,11 @@
             - name: Part 6 - Perform CRUD operations
               href: tutorial-develop-nodejs-part-6.md
         - name: Node.js and React app
-          href: tutorial-develop-mongodb-react.md
+          href: tutorial-develop-react.md
     - name: 2 - Query data
-      href: tutorial-query-mongodb.md
+      href: tutorial-query.md
     - name: 3 - Distribute data globally
-      href: tutorial-global-distribution-mongodb.md
+      href: tutorial-global-distribution.md
 - name: Samples
   items:
     - name: Azure CLI
@@ -256,7 +256,7 @@
           displayName: free tier
           href: ../optimize-dev-test.md
         - name: Optimize cost with reserved capacity
-          href: ../cosmos-db-reserved-capacity.md
+          href: ../reserved-capacity.md
         - name: Optimize using rate limiting
           href: ../rate-limiting-requests.md
     - name: Enterprise readiness
@@ -269,6 +269,8 @@
           href: ../compliance.md
         - name: Data residency
           href: ../data-residency.md
+    - name: Jupyter notebooks
+      href: ../jupyter-notebooks.md
 - name: How to
   items:
     - name: Use developer tools
@@ -277,7 +279,7 @@
           href: custom-commands.md
           displayName: custom commands
         - name: Get the connection string
-          href: connect-mongodb-account.md
+          href: connect-account.md
         - name: Community tools
           items:
             - name: Connect using Studio 3T
@@ -344,13 +346,13 @@
               href: /azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
-          href: find-request-unit-charge-mongodb.md
+          href: find-request-unit-charge.md
         - name: Change streams
           href: change-streams.md
         - name: Manage data indexing
-          href: mongodb-indexing.md
+          href: indexing.md
         - name: Time to live
-          href: mongodb-time-to-live.md
+          href: time-to-live.md
         - name: Use multi-document transactions
           href: use-multi-document-transactions.md
         - name: Access preview features
@@ -360,7 +362,7 @@
     - name: Migrate data to Azure Cosmos DB
       items:
         - name: Options to migrate data into Azure Cosmos DB
-          href: ../cosmosdb-migrationchoices.md
+          href: ../migration-choices.md
         - name: Estimate RU/s with capacity planner
           displayName: request units, RUs, RU, capacity
           href: estimate-ru-capacity-planner.md
@@ -384,9 +386,9 @@
     - name: Manage API for MongoDB resources
       items:
         - name: Create a collection
-          href: how-to-create-container-mongodb.md
+          href: how-to-create-container.md
         - name: Allocate throughput
-          href: how-to-provision-throughput-mongodb.md
+          href: how-to-provision-throughput.md
         - name: Limit total account throughput
           displayName: cost, RUs, RU
           href: ../limit-total-account-throughput.md
@@ -406,7 +408,7 @@
         - name: Troubleshoot query performance
           href: troubleshoot-query-performance.md
         - name: Troubleshoot API for MongoDB queries with diagnostics
-          href: diagnostic-queries-mongodb.md
+          href: diagnostic-queries.md
         - name: Prevent rate-limiting errors
           href: prevent-rate-limiting-errors.md
         - name: Optimize query and storage costs when upgrading
@@ -473,11 +475,11 @@
     - name: Monitor
       items:
         - name: Monitor Azure Cosmos DB
-          href: ../monitor-cosmos-db.md
+          href: ../monitor.md
         - name: Use Azure monitor metrics
           items:
             - name: Azure Monitor for Azure Cosmos DB
-              href: ../cosmosdb-insights-overview.md
+              href: ../insights-overview.md
             - name: Scenarios to monitor
               href: ../use-metrics.md
             - name: Monitor server-side latency
@@ -491,11 +493,11 @@
         - name: Use Azure monitor logs
           items:
             - name: Monitor with diagnostic logs
-              href: ../cosmosdb-monitor-resource-logs.md
+              href: ../monitor-resource-logs.md
             - name: Troubleshoot issues using basic queries
-              href: ../cosmosdb-monitor-logs-basic-queries.md
+              href: ../monitor-logs-basic-queries.md
             - name: Troubleshoot issues using advanced queries
-              href: ../cosmos-db-advanced-queries.md
+              href: ../advanced-queries.md
             - name: Audit control plane logs
               href: ../audit-control-plane-logs.md
         - name: Configure alerts
@@ -505,7 +507,7 @@
             - name: Create alert on logical partition key size
               href: ../how-to-alert-on-logical-partition-key-storage-size.md
         - name: Monitoring data reference
-          href: ../monitor-cosmos-db-reference.md
+          href: ../monitor-reference.md
         - name: Third-party monitoring solutions
           href: ../monitoring-solutions.md
 - name: Reference
@@ -527,7 +529,7 @@
     - name: Whitepapers
       href: ../whitepapers.md
     - name: Partners
-      href: ../partners-migration-cosmosdb.md
+      href: ../partners-migration.md
     - name: Microsoft Q&A question page
       href: /answers/topics/azure-cosmos-db.html
     - name: Videos

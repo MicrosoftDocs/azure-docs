@@ -358,7 +358,7 @@ The examples below use a service principal with a `ClientSecretCredential` insta
 
 ### In .NET
 
-The Azure Cosmos DB RBAC is currently supported in the [.NET SDK V3](sql-api-sdk-dotnet-standard.md).
+The Azure Cosmos DB RBAC is currently supported in the [.NET SDK V3](nosql/sdk-dotnet-v3.md).
 
 ```csharp
 TokenCredential servicePrincipal = new ClientSecretCredential(
@@ -370,7 +370,7 @@ CosmosClient client = new CosmosClient("<account-endpoint>", servicePrincipal);
 
 ### In Java
 
-The Azure Cosmos DB RBAC is currently supported in the [Java SDK V4](sql-api-sdk-java-v4.md).
+The Azure Cosmos DB RBAC is currently supported in the [Java SDK V4](nosql/sdk-java-v4.md).
 
 ```java
 TokenCredential ServicePrincipal = new ClientSecretCredentialBuilder()
@@ -387,7 +387,7 @@ CosmosAsyncClient Client = new CosmosClientBuilder()
 
 ### In JavaScript
 
-The Azure Cosmos DB RBAC is currently supported in the [JavaScript SDK V3](sql-api-sdk-node.md).
+The Azure Cosmos DB RBAC is currently supported in the [JavaScript SDK V3](nosql/sdk-nodejs.md).
 
 ```javascript
 const servicePrincipal = new ClientSecretCredential(
@@ -402,7 +402,7 @@ const client = new CosmosClient({
 
 ### In Python
 
-The Azure Cosmos DB RBAC is supported in the [Python SDK versions 4.3.0b4](sql-api-sdk-python.md) and higher.
+The Azure Cosmos DB RBAC is supported in the [Python SDK versions 4.3.0b4](nosql/sdk-python.md) and higher.
 
 ```python
 aad_credentials = ClientSecretCredential(
@@ -430,7 +430,7 @@ When you access the [Azure Cosmos DB Explorer](https://cosmos.azure.com/?feature
 
 ## Audit data requests
 
-When using the Azure Cosmos DB RBAC, [diagnostic logs](cosmosdb-monitor-resource-logs.md) get augmented with identity and authorization information for each data operation. This lets you perform detailed auditing and retrieve the Azure AD identity used for every data request sent to your Azure Cosmos DB account.
+When using the Azure Cosmos DB RBAC, [diagnostic logs](monitor-resource-logs.md) get augmented with identity and authorization information for each data operation. This lets you perform detailed auditing and retrieve the Azure AD identity used for every data request sent to your Azure Cosmos DB account.
 
 This additional information flows in the **DataPlaneRequests** log category and consists of two extra columns:
 
@@ -478,7 +478,7 @@ Azure portal support for role management is not available yet.
 
 ### Which SDKs in Azure Cosmos DB API for NoSQL support RBAC?
 
-The [.NET V3](sql-api-sdk-dotnet-standard.md), [Java V4](sql-api-sdk-java-v4.md), [JavaScript V3](sql-api-sdk-node.md) and [Python V4.3+](sql-api-sdk-python.md) SDKs are currently supported.
+The [.NET V3](nosql/sdk-dotnet-v3.md), [Java V4](nosql/sdk-java-v4.md), [JavaScript V3](nosql/sdk-nodejs.md) and [Python V4.3+](nosql/sdk-python.md) SDKs are currently supported.
 
 ### Is the Azure AD token automatically refreshed by the Azure Cosmos DB SDKs when it expires?
 

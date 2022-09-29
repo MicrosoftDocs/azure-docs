@@ -34,21 +34,21 @@ In certain conditions, the HTTP 503 Service Unavailable error will include a sub
 | SubStatus Code | Description |
 |----------|-------------|
 | 20001 | The service unavailable error happened because there are client side [connectivity issues](#client-side-transient-connectivity-issues) (failures attempting to connect). The client attempted to recover by [retrying](conceptual-resilient-sdk-applications.md#timeouts-and-connectivity-related-failures-http-408503) but all retries failed. |
-| 20002 | The service unavailable error happened because there are client side [timeouts](troubleshoot-dot-net-sdk-request-timeout.md#troubleshooting-steps). The client attempted to recover by [retrying](conceptual-resilient-sdk-applications.md#timeouts-and-connectivity-related-failures-http-408503) but all retries failed. |
+| 20002 | The service unavailable error happened because there are client side [timeouts](troubleshoot-dotnet-sdk-request-timeout.md#troubleshooting-steps). The client attempted to recover by [retrying](conceptual-resilient-sdk-applications.md#timeouts-and-connectivity-related-failures-http-408503) but all retries failed. |
 | 20003 | The service unavailable error happened because there are underlying I/O errors related to the operating system. See the exception details for the related I/O error. |
-| 20004 | The service unavailable error happened because [client machine's CPU is overloaded](troubleshoot-dot-net-sdk-request-timeout.md#high-cpu-utilization). |
+| 20004 | The service unavailable error happened because [client machine's CPU is overloaded](troubleshoot-dotnet-sdk-request-timeout.md#high-cpu-utilization). |
 | 20005 | The service unavailable error happened because client machine's threadpool is starved. Verify any potential [blocking async calls in your code](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios/blob/master/AsyncGuidance.md#avoid-using-taskresult-and-taskwait). |
 | >= 21001 | This service unavailable error happened due to a transient service condition. Verify the conditions in the above section, confirm if you have retry policies in place. If the volume of these errors is high compared with successes, reach out to Azure Support. |
 
 ### The required ports are being blocked
 
-Verify that all the [required ports](sql-sdk-connection-modes.md#service-port-ranges) are enabled.
+Verify that all the [required ports](sdk-connection-modes.md#service-port-ranges) are enabled.
 
 ### Client-side transient connectivity issues
 
 Service unavailable exceptions can surface when there are transient connectivity problems that are causing timeouts and can be safely retried following the [design recommendations](conceptual-resilient-sdk-applications.md#timeouts-and-connectivity-related-failures-http-408503).
 
-Follow the [request timeout troubleshooting steps](troubleshoot-dot-net-sdk-request-timeout.md#troubleshooting-steps) to resolve it.
+Follow the [request timeout troubleshooting steps](troubleshoot-dotnet-sdk-request-timeout.md#troubleshooting-steps) to resolve it.
 
 ### Service outage
 
@@ -56,7 +56,7 @@ Check the [Azure status](https://azure.status.microsoft/status) to see if there'
 
 ## Next steps
 
-* [Diagnose and troubleshoot](troubleshoot-dot-net-sdk.md) issues when you use the Azure Cosmos DB .NET SDK.
-* [Diagnose and troubleshoot](troubleshoot-java-sdk-v4-sql.md) issues when you use the Azure Cosmos DB Java SDK.
-* Learn about performance guidelines for [.NET](performance-tips-dotnet-sdk-v3-sql.md).
-* Learn about performance guidelines for [Java](performance-tips-java-sdk-v4-sql.md).
+* [Diagnose and troubleshoot](troubleshoot-dotnet-sdk.md) issues when you use the Azure Cosmos DB .NET SDK.
+* [Diagnose and troubleshoot](troubleshoot-java-sdk-v4.md) issues when you use the Azure Cosmos DB Java SDK.
+* Learn about performance guidelines for [.NET](performance-tips-dotnet-sdk-v3.md).
+* Learn about performance guidelines for [Java](performance-tips-java-sdk-v4.md).

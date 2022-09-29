@@ -37,7 +37,7 @@ When you start modeling data in Azure Cosmos DB try to treat your entities as **
 
 For comparison, let's first see how we might model data in a relational database. The following example shows how a person might be stored in a relational database.
 
-:::image type="content" source="./media/sql-api-modeling-data/relational-data-model.png" alt-text="Relational database model" border="false":::
+:::image type="content" source="./media/modeling-data/relational-data-model.png" alt-text="Relational database model" border="false":::
 
 The strategy, when working with relational databases, is to normalize all your data. Normalizing your data typically involves taking an entity, such as a person, and breaking it down into discrete components. In the example above, a person may have multiple contact detail records, and multiple address records. Contact details can be further broken down by further extracting common fields like a type. The same applies to address, each record can be of type *Home* or *Business*.
 
@@ -296,7 +296,7 @@ In the above example, we've dropped the unbounded collection on the publisher do
 In a relational database *many-to-many* relationships are often modeled with join tables, which just join records from other tables together.
 
 
-:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Join tables" border="false":::
+:::image type="content" source="./media/modeling-data/join-table.png" alt-text="Join tables" border="false":::
 
 You might be tempted to replicate the same thing using documents and produce a data model that looks similar to the following.
 

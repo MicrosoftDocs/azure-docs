@@ -17,7 +17,7 @@
    
 4. On the **Select API option** page, select **Azure Cosmos DB for MongoDB** > **Create**.
 
-   The API determines the type of account to create. Select **Azure Cosmos DB for MongoDB**  because you will create a collection that works with MongoDB in this quickstart. To learn more, see [Overview of Azure Cosmos DB for MongoDB](../mongodb-introduction.md).
+   The API determines the type of account to create. Select **Azure Cosmos DB for MongoDB**  because you will create a collection that works with MongoDB in this quickstart. To learn more, see [Overview of Azure Cosmos DB for MongoDB](../mongodb/introduction.md).
 
    :::image type="content" source="./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-select-api.png" alt-text="Screenshot of the Select API option pane.":::
 

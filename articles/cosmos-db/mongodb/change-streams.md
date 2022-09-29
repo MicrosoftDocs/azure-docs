@@ -152,5 +152,5 @@ The following error codes and messages are supported when using change streams:
 
 ## Next steps
 
-* [Use time to live to expire data automatically in Azure Cosmos DB's API for MongoDB](mongodb-time-to-live.md)
-* [Indexing in Azure Cosmos DB's API for MongoDB](mongodb-indexing.md)
+* [Use time to live to expire data automatically in Azure Cosmos DB's API for MongoDB](time-to-live.md)
+* [Indexing in Azure Cosmos DB's API for MongoDB](indexing.md)

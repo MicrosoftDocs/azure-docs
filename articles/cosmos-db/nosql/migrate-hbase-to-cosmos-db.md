@@ -187,7 +187,7 @@ When executing queries that request sorted data, HBase will return the result qu
 
 ### Deployment considerations
 
-You can use [the Azure portal or Azure CLI to deploy the Azure Cosmos DB for NoSQL](create-cosmosdb-resources-portal.md). Since the migration destination is Azure Cosmos DB for NoSQL, select "NoSQL" for the API as a parameter when deploying. In addition, set Geo-Redundancy, Multi-region Writes, and Availability Zones according to your availability requirements.
+You can use [the Azure portal or Azure CLI to deploy the Azure Cosmos DB for NoSQL](quickstart-portal.md). Since the migration destination is Azure Cosmos DB for NoSQL, select "NoSQL" for the API as a parameter when deploying. In addition, set Geo-Redundancy, Multi-region Writes, and Availability Zones according to your availability requirements.
 
 ### Network consideration
 
@@ -370,7 +370,7 @@ Here is an example to migrate your data to Azure Cosmos DB. It assumes that HBas
 
 Apache Spark – Apache HBase Connector repository can be found at [Apache Spark - Apache HBase Connector](https://github.com/hortonworks-spark/shc)
 
-For Azure Cosmos DB Spark connector, refer to the [Quick Start Guide](create-sql-api-spark.md) and download the appropriate library for your Spark version.
+For Azure Cosmos DB Spark connector, refer to the [Quick Start Guide](quickstart-spark.md) and download the appropriate library for your Spark version.
 
 1. Copy hbase-site.xml to your Spark configuration directory.
 
@@ -463,11 +463,11 @@ Phoenix is supported as a Data Factory data source. Refer to the following docum
 
 ## Migrate your code
 
-This section describes the differences between creating applications in Azure Cosmos DB for NoSQLs and HBase. The examples here use Apache HBase 2.x APIs and [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md).
+This section describes the differences between creating applications in Azure Cosmos DB for NoSQLs and HBase. The examples here use Apache HBase 2.x APIs and [Azure Cosmos DB Java SDK v4](sdk-java-v4.md).
 
 These HBase's sample codes are based on those described in [HBase's official documentation](https://hbase.apache.org/book.html).
 
-The code for Azure Cosmos DB presented here is based on the [Azure Cosmos DB for NoSQL: Java SDK v4 examples](sql-api-java-sdk-samples.md) documentation. You can access the full code example from the documentation.
+The code for Azure Cosmos DB presented here is based on the [Azure Cosmos DB for NoSQL: Java SDK v4 examples](samples-java.md) documentation. You can access the full code example from the documentation.
 
 The mappings for code migration are shown here, but the HBase RowKeys and Azure Cosmos DB Partition Keys used in these examples are not always well designed. Design according to the actual data model of the migration source.
 
@@ -823,7 +823,7 @@ Data security is a shared responsibility of the customer and the database provid
 | Local data  replication within a data center                 | The HDFS  mechanism allows you to have multiple replicas across nodes within a single  file system. | Azure Cosmos DB  automatically replicates data to maintain high availability, even within a  single data center. You can choose the consistency level yourself. |
 | Automatic data  backups                                      | There is no automatic  backup function. You need to implement data backup yourself. | Azure Cosmos DB is  backed up regularly and stored in the geo redundant storage. |
 | Protect and  isolate sensitive data                          | For example, if  you are using Apache Ranger, you can use Ranger policy to apply the policy to  the table. | You can separate  personal and other sensitive data into specific containers and read / write,  or limit read-only access to specific users. |
-| Monitoring for  attacks                                      | It needs to be  implemented using third party products.        | By using [audit logging and activity logs](../monitor-cosmos-db.md), you can monitor your account  for normal and abnormal activity. |
+| Monitoring for  attacks                                      | It needs to be  implemented using third party products.        | By using [audit logging and activity logs](../monitor.md), you can monitor your account  for normal and abnormal activity. |
 | Responding to  attacks                                       | It needs to be  implemented using third party products.        | When you contact  Azure support and report a potential attack, a five-step incident response  process begins. |
 | Ability to  geo-fence data to adhere to data governance restrictions | You need to check  the restrictions of each country and implement it yourself. | Guarantees data  governance for sovereign regions (Germany, China, US Gov, etc.). |
 | Physical  protection of servers in protected data centers    | It depends on the  data center where the system is located.  | For a list of the latest certifications,  see the global [Azure compliance site](/compliance/regulatory/offering-home?view=o365-worldwide&preserve-view=true). |
@@ -833,13 +833,13 @@ For more information on security, please refer to [Security in Azure Cosmos DB -
 
 ## Monitoring
 
-HBase typically monitors the cluster using the cluster metric web UI or with Ambari, Cloudera Manager, or other monitoring tools. Azure Cosmos DB allows you to use the monitoring mechanism built into the Azure platform. For more information on Azure Cosmos DB monitoring, see [Monitor Azure Cosmos DB](../monitor-cosmos-db.md).
+HBase typically monitors the cluster using the cluster metric web UI or with Ambari, Cloudera Manager, or other monitoring tools. Azure Cosmos DB allows you to use the monitoring mechanism built into the Azure platform. For more information on Azure Cosmos DB monitoring, see [Monitor Azure Cosmos DB](../monitor.md).
 
 If your environment implements HBase system monitoring to send alerts, such as by email, you may be able to replace it with Azure Monitor alerts. You can receive alerts based on metrics or activity log events for your Azure Cosmos DB account.
 
 For more information on alerts in Azure Monitor, please refer to [Create alerts for Azure Cosmos DB using Azure Monitor](../create-alerts.md)
 
-Also, see [Azure Cosmos DB metrics and log types](../monitor-cosmos-db-reference.md) that can be collected by Azure Monitor.
+Also, see [Azure Cosmos DB metrics and log types](../monitor-reference.md) that can be collected by Azure Monitor.
 
 ## Backup & disaster recovery
 

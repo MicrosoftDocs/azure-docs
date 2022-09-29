@@ -22,7 +22,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Cosmos DB for Apache Cassandra?
-            url: cassandra-introduction.md
+            url: introduction.md
       - linkListType: quickstart
         links:
           - text: Manage your data using a .NET Core app
@@ -32,18 +32,18 @@ landingContent:
       - linkListType: concept
         links:  
           - text: Wire protocol compatibility with Apache Cassandra
-            url: cassandra-support.md 
+            url: support.md 
           - text: Elastic scaling
             url: scale-account-throughput.md 
           - text: Secondary indexes
             url: secondary-indexing.md   
           - text: Partitioning 
-            url: cassandra-partitioning.md                  
+            url: partitioning.md                  
       - linkListType: how-to-guide
         links:
           - text: From Apache Cassandra to API for Cassandra
-            url: cassandra-adoption.md         
+            url: adoption.md         
           - text: Connect to API for Cassandra from Spark
             url: connect-spark-configuration.md 
           - text: Change feed support with query predicates
-            url: cassandra-change-feed.md
+            url: change-feed.md

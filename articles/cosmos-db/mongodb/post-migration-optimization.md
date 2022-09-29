@@ -56,7 +56,7 @@ In order to optimize price and performance, we recommend that you step through y
 ## Globally distribute your data
 
 Azure Cosmos DB is available in all [Azure regions](https://azure.microsoft.com/regions/#services) worldwide. 
-1. Follow the guidance in the article [Distribute data globally on Azure Cosmos DB's API for MongoDB](tutorial-global-distribution-mongodb.md) in order to globally distribute your data. After selecting the default consistency level for your Azure Cosmos DB account, you can associate one or more Azure regions (depending on your global distribution needs). For high availability and business continuity, we always recommend running in at least 2 regions. You can review the tips for [optimizing cost of multi-region deployments in Azure Cosmos DB](../optimize-cost-regions.md).
+1. Follow the guidance in the article [Distribute data globally on Azure Cosmos DB's API for MongoDB](tutorial-global-distribution.md) in order to globally distribute your data. After selecting the default consistency level for your Azure Cosmos DB account, you can associate one or more Azure regions (depending on your global distribution needs). For high availability and business continuity, we always recommend running in at least 2 regions. You can review the tips for [optimizing cost of multi-region deployments in Azure Cosmos DB](../optimize-cost-regions.md).
 
 ## Set consistency level
 
@@ -77,7 +77,7 @@ The processing of cutting-over or connecting your application allows you to swit
 4. Use the connection information in your application's configuration (or other relevant places) to reflect the Azure Cosmos DB's API for MongoDB connection in your app.
 :::image type="content" source="./media/post-migration-optimization/connection-string.png" alt-text="Screenshot shows the settings for a Connection String.":::
 
-For more details, please see the [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md) page.
+For more details, please see the [Connect a MongoDB application to Azure Cosmos DB](connect-account.md) page.
 
 ## Tune for optimal performance
 
@@ -88,10 +88,10 @@ One convenient fact about [indexing](#optimize-the-indexing-policy), [global dis
 * Trying to do capacity planning for a migration to Azure Cosmos DB?
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
     * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md)
-* [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md)
+* [Connect a MongoDB application to Azure Cosmos DB](connect-account.md)
 * [Connect to Azure Cosmos DB account using Studio 3T](connect-using-mongochef.md)
 * [How to globally distribute reads using Azure Cosmos DB's API for MongoDB](readpreference-global-distribution.md)
-* [Expire data with Azure Cosmos DB's API for MongoDB](mongodb-time-to-live.md)
+* [Expire data with Azure Cosmos DB's API for MongoDB](time-to-live.md)
 * [Consistency Levels in Azure Cosmos DB](../consistency-levels.md)
 * [Indexing in Azure Cosmos DB](../index-overview.md)
 * [Request Units in Azure Cosmos DB](../request-units.md)

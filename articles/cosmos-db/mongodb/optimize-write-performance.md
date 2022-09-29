@@ -25,7 +25,7 @@ If your application writes a massive amount of data to a single shard, this won'
 One example of doing this would be a product catalog application that is sharded on the category field. Instead of writing to one category (shard) at a time, it's better write to all categories simultaneously to achieve the maximum write throughput. 
 
 ## Reduce the number of indexes
-[Indexing](../mongodb-indexing.md) is a great feature to drastically reduce the time it takes to query your data. For the most flexible query experience, the API for MongoDB enables a wildcard index on your data by default to make queries against all fields blazing-fast. However, all indexes, which include wildcard indexes introduce additional load when writing data because writes change the collection and indexes. 
+[Indexing](../mongodb/indexing.md) is a great feature to drastically reduce the time it takes to query your data. For the most flexible query experience, the API for MongoDB enables a wildcard index on your data by default to make queries against all fields blazing-fast. However, all indexes, which include wildcard indexes introduce additional load when writing data because writes change the collection and indexes. 
 
 Reducing the number of indexes to only the indexes you need to support your queries will make your writes faster and cheaper. As a general rule, we recommend the following:
 
@@ -53,7 +53,7 @@ If you are writing more than 1,000 documents at a time per process/thread, clien
 
 ## Next steps
 
-* Learn more about [indexing in the API for MongoDB](../mongodb-indexing.md).
+* Learn more about [indexing in the API for MongoDB](../mongodb/indexing.md).
 * Learn more about [Azure Cosmos DB's sharding/partitioning](../partitioning-overview.md).
 * Learn more about [troubleshooting common issues](error-codes-solutions.md).
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.

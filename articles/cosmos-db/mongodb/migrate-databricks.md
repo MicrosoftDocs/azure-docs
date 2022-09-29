@@ -174,5 +174,5 @@ After you migrate the data, you can connect to Azure Cosmos DB and manage the da
 
 ## Next steps
 
-* [Manage indexing in Azure Cosmos DB's API for MongoDB](mongodb-indexing.md)
-* [Find the request unit charge for operations](find-request-unit-charge-mongodb.md)
+* [Manage indexing in Azure Cosmos DB's API for MongoDB](indexing.md)
+* [Find the request unit charge for operations](find-request-unit-charge.md)

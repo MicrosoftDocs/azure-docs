@@ -22,7 +22,7 @@ For a video overview of the concepts discussed in this article, see:
 
 ## Connectivity modes
 
-Azure Cosmos DB SDKs can connect to the service in two [connectivity modes](sql-sdk-connection-modes.md). The .NET and Java SDKs can connect to the service in both Gateway and Direct mode, while the others can only connect in Gateway mode. Gateway mode uses the HTTP protocol and Direct mode uses the TCP protocol.
+Azure Cosmos DB SDKs can connect to the service in two [connectivity modes](sdk-connection-modes.md). The .NET and Java SDKs can connect to the service in both Gateway and Direct mode, while the others can only connect in Gateway mode. Gateway mode uses the HTTP protocol and Direct mode uses the TCP protocol.
 
 Gateway mode is always used to fetch metadata such as the account, container, and routing information regardless of which mode SDK is configured to use. This information is cached in memory and is used to connect to the [service replicas](../partitioning-overview.md#replica-sets).
 
@@ -56,7 +56,7 @@ The short answer is **yes**. But not all errors make sense to retry on, some of 
 | 401 | No | No | [Not authorized](troubleshoot-unauthorized.md) |
 | 403 | Optional | No | [Forbidden](troubleshoot-forbidden.md) |
 | 404 | No | No | [Resource is not found](troubleshoot-not-found.md) |
-| 408 | Yes | Yes | [Request timed out](troubleshoot-dot-net-sdk-request-timeout.md) |
+| 408 | Yes | Yes | [Request timed out](troubleshoot-dotnet-sdk-request-timeout.md) |
 | 409 | No | No | Conflict failure is when the identity (ID and partition key) provided for a resource on a write operation has been taken by an existing resource or when a [unique key constraint](../unique-keys.md) has been violated. |
 | 410 | Yes | Yes | Gone exceptions (transient failure that shouldn't violate SLA) |
 | 412 | No | No | Precondition failure is where the operation specified an eTag that is different from the version available at the server. It's an [optimistic concurrency](database-transactions-optimistic-concurrency.md#optimistic-concurrency-control) error. Retry the request after reading the latest version of the resource and updating the eTag on the request.
@@ -93,7 +93,7 @@ Network timeouts and connectivity failures are among the most common errors. The
 
 If the account has multiple regions available, the SDKs will also attempt a [cross-region retry](troubleshoot-sdk-availability.md#transient-connectivity-issues-on-tcp-protocol).
 
-Because of the nature of timeouts and connectivity failures, these might not appear in your [account metrics](../monitor-cosmos-db.md), as they only cover failures happening on the service side.
+Because of the nature of timeouts and connectivity failures, these might not appear in your [account metrics](../monitor.md), as they only cover failures happening on the service side.
 
 It's recommended for applications to have their own retry policy for these scenarios and take into consideration how to resolve write timeouts. For example, retrying on a Create timeout can yield an HTTP 409 (Conflict) if the previous request did reach the service, but it would succeed if it didn't.
 
@@ -108,7 +108,7 @@ For further implementation details regarding a language see:
 
 From the client perspective, any retries will affect the end to end latency of an operation. When your application P99 latency is being affected, understanding the retries that are happening and how to address them is important.
 
-Azure Cosmos DB SDKs provide detailed information in their logs and diagnostics that can help identify which retries are taking place. For more information, see [how to collect .NET SDK diagnostics](troubleshoot-dot-net-sdk-slow-request.md#capture-diagnostics) and [how to collect Java SDK diagnostics](troubleshoot-java-sdk-v4-sql.md#capture-the-diagnostics).
+Azure Cosmos DB SDKs provide detailed information in their logs and diagnostics that can help identify which retries are taking place. For more information, see [how to collect .NET SDK diagnostics](troubleshoot-dotnet-sdk-slow-request.md#capture-diagnostics) and [how to collect Java SDK diagnostics](troubleshoot-java-sdk-v4.md#capture-the-diagnostics).
 
 ## What about regional outages?
 
@@ -130,7 +130,7 @@ If all the application instances are affected, or the percentage of affected ope
 
 * Learn about [multiregional environments retry scenarios and configurations](troubleshoot-sdk-availability.md)
 * Review the [Availability SLAs](../high-availability.md#slas)
-* Use the latest [.NET SDK](sql-api-sdk-dotnet-standard.md)
-* Use the latest [Java SDK](sql-api-sdk-java-v4.md)
-* Use the latest [Python SDK](sql-api-sdk-python.md)
-* Use the latest [Node SDK](sql-api-sdk-node.md)
+* Use the latest [.NET SDK](sdk-dotnet-v3.md)
+* Use the latest [Java SDK](sdk-java-v4.md)
+* Use the latest [Python SDK](sdk-python.md)
+* Use the latest [Node SDK](sdk-nodejs.md)

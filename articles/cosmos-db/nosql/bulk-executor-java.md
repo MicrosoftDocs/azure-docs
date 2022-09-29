@@ -15,9 +15,9 @@ ms.custom: devx-track-java
 # Perform bulk operations on Azure Cosmos DB data
 [!INCLUDE[NoSQL](../includes/appliesto-nosql.md)]
 
-This tutorial provides instructions on performing bulk operations in the [Azure Cosmos DB Java V4 SDK](sql-api-sdk-java-v4.md). This version of the SDK comes with the bulk executor library built-in. If you're using an older version of Java SDK, it's recommended to [migrate to the latest version](migrate-java-v4-sdk.md). Azure Cosmos DB Java V4 SDK is the current recommended solution for Java bulk support. 
+This tutorial provides instructions on performing bulk operations in the [Azure Cosmos DB Java V4 SDK](sdk-java-v4.md). This version of the SDK comes with the bulk executor library built-in. If you're using an older version of Java SDK, it's recommended to [migrate to the latest version](migrate-java-v4-sdk.md). Azure Cosmos DB Java V4 SDK is the current recommended solution for Java bulk support. 
 
-Currently, the bulk executor library is supported only by Azure Cosmos DB for NoSQL and API for Gremlin accounts. To learn about using bulk executor .NET library with API for Gremlin, see [perform bulk operations in Azure Cosmos DB for Gremlin](../graph/bulk-executor-graph-dotnet.md).
+Currently, the bulk executor library is supported only by Azure Cosmos DB for NoSQL and API for Gremlin accounts. To learn about using bulk executor .NET library with API for Gremlin, see [perform bulk operations in Azure Cosmos DB for Gremlin](../gremlin/bulk-executor-dotnet.md).
 
 
 ## Prerequisites
@@ -35,7 +35,7 @@ Currently, the bulk executor library is supported only by Azure Cosmos DB for No
   
   - On Ubuntu, you can run `apt-get install maven` to install Maven.
 
-* Create an Azure Cosmos DB for NoSQL account by using the steps described in the [create database account](create-sql-api-java.md#create-a-database-account) section of the Java quickstart article.
+* Create an Azure Cosmos DB for NoSQL account by using the steps described in the [create database account](quickstart-java.md#create-a-database-account) section of the Java quickstart article.
 
 ## Clone the sample application
 

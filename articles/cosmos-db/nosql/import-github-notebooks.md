@@ -57,7 +57,7 @@ After editing the notebook, you can [Publish it to the notebook gallery](publish
 
 ## Next steps
 
-* Learn about the benefits of [Azure Cosmos DB Jupyter notebooks.](../cosmosdb-jupyter-notebooks.md)
+* Learn about the benefits of [Azure Cosmos DB Jupyter notebooks.](../jupyter-notebooks.md)
 * [Explore notebook samples gallery](https://cosmos.azure.com/gallery.html)
 * [Publish notebooks to the Azure Cosmos DB notebook gallery](publish-notebook-gallery.md)
 * [Use Python notebook features and commands](../use-python-notebook-features-and-commands.md)

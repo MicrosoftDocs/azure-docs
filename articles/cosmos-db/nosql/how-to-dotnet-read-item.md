@@ -55,7 +55,7 @@ This example reads an item as a data stream directly:
 
 The [``Container.ReadItemStreamAsync``](/dotnet/api/microsoft.azure.cosmos.container.readitemstreamasync) method returns the item as a [``Stream``](/dotnet/api/system.io.stream) without deserializing the contents.
 
-If you aren't planning to deserialize the items directly, using the stream APIs can improve performance by handing off the item as a stream directly to the next component of your application. For more tips on how to optimize the SDK for high performance scenarios, see [SDK performance tips](performance-tips-dotnet-sdk-v3-sql.md#sdk-usage).
+If you aren't planning to deserialize the items directly, using the stream APIs can improve performance by handing off the item as a stream directly to the next component of your application. For more tips on how to optimize the SDK for high performance scenarios, see [SDK performance tips](performance-tips-dotnet-sdk-v3.md#sdk-usage).
 
 ## Read multiple items asynchronously
 

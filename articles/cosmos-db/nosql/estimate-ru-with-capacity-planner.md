@@ -77,7 +77,7 @@ The prices shown in the Azure Cosmos DB capacity planner are estimates based on 
 
 * If all you know is the number of vcores and servers in your existing sharded and replicated database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
 * Learn more about [Azure Cosmos DB's pricing model](../how-pricing-works.md).
-* Create a new [Azure Cosmos DB account, database, and container](create-cosmosdb-resources-portal.md).
+* Create a new [Azure Cosmos DB account, database, and container](quickstart-portal.md).
 * Learn how to [optimize provisioned throughput cost](../optimize-cost-throughput.md).
-* Learn how to [optimize cost with reserved capacity](../cosmos-db-reserved-capacity.md).
+* Learn how to [optimize cost with reserved capacity](../reserved-capacity.md).
 

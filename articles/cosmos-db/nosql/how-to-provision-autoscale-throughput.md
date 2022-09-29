@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 
 This article explains how to provision autoscale throughput on a database or container (collection, graph, or table) in Azure Cosmos DB for NoSQL. You can enable autoscale on a single container, or provision autoscale throughput on a database and share it among all the containers in the database.
 
-If you are using a different API, see [API for MongoDB](../mongodb/how-to-provision-throughput-mongodb.md), [API for Cassandra](../cassandra/how-to-provision-throughput-cassandra.md), [API for Gremlin](../graph/how-to-provision-throughput-gremlin.md) articles to provision the throughput.
+If you are using a different API, see [API for MongoDB](../mongodb/how-to-provision-throughput.md), [API for Cassandra](../cassandra/how-to-provision-throughput.md), [API for Gremlin](../gremlin/how-to-provision-throughput.md) articles to provision the throughput.
 
 ## Azure portal
 
@@ -240,7 +240,7 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 
 ## Azure Resource Manager
 
-Azure Resource Manager templates can be used to provision autoscale throughput on a new database or container-level resource for all Azure Cosmos DB APIs. See [Azure Resource Manager templates for Azure Cosmos DB](./templates-samples-sql.md) for samples. By design, Azure Resource Manager templates cannot be used to migrate between provisioned and autoscale throughput on an existing resource. 
+Azure Resource Manager templates can be used to provision autoscale throughput on a new database or container-level resource for all Azure Cosmos DB APIs. See [Azure Resource Manager templates for Azure Cosmos DB](./samples-resource-manager-templates.md) for samples. By design, Azure Resource Manager templates cannot be used to migrate between provisioned and autoscale throughput on an existing resource. 
 
 ## Azure CLI
 
