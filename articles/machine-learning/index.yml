@@ -36,6 +36,8 @@ landingContent:
         links:   
         - text: Set up resources
           url: quickstart-create-resources.md
+        - text: Run Jupyter notebooks
+          url: quickstart-run-notebooks.md
         - text: "Azure Machine Learning in a day"
           url: tutorial-azure-ml-in-a-day.md
 

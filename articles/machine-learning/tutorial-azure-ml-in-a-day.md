@@ -41,29 +41,9 @@ The steps you'll take are:
     * Create a workspace.
     * Create a cloud-based compute instance to use for your development environment.
 
-* Create a new notebook or copy our notebook.  If you want start with a fresh notebook:
-
-    1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
-    1. Select your subscription and the workspace you created.
-    1. On the left, select **Notebooks**.
-    1. Select **Create new file** and name your notebook.    
-        
-        :::image type="content" source="media/tutorial-azure-ml-in-a-day/create-new-file.png" alt-text="Screenshot: create a new notebook file.":::
-
-* Or get the full tutorial notebook from studio:
-
-    1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
-    1. Select your subscription and the workspace you created.
-    1. On the left, select **Notebooks**.
-    1. At the top, select the **Samples** tab.
-    1. Open the folder with a version number on it. This number represents the current release for the Python SDK.
-    1. Select the **...** button at the right of the **tutorials** folder, and then select **Clone**.
-    
-        :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="Screenshot that shows the Clone tutorials folder.":::
-    
-    1. A list of folders shows each user who accesses the workspace. Select your folder to clone the **tutorials**  folder there.
-    1. Open the notebook from the **tutorials/compute-instance-quickstarts/quickstart-azureml-in-10mins** folder in your **File** section.
-
+* Create a new notebook or copy our notebook.
+    * Follow the [Quickstart: Run Juypter notebook in Azure Machine Learning studio](quickstart-run-notebooks.md) steps to create a new notebook.
+    * Or use the steps in the quickstart to [clone the v2 tutorials folder](quickstart-run-notebooks.md#learn-from-sample-notebooks), then open the notebook from the **tutorials/azureml-in-a-day/azureml-in-a-day.ipynb** folder in your **File** section.
 
 ## Run your notebook
 
