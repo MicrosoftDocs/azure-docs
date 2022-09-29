@@ -18,7 +18,6 @@ ms.devlang: azurecli
 You learn how to:
 
 > [!div class="checklist"]
-
 > - Create a Container Apps environment to host your container apps
 > - Create an Azure Blob Storage account
 > - Create a Dapr state store component for the Azure Blob storage
