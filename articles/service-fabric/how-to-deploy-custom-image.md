@@ -14,7 +14,7 @@ ms.date: 09/15/2022
 Custom windows images are like marketplace images, but you create them yourself for each new node type within a cluster. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations.  Once you create a custom windows image, you can then deploy to one or more new node types within a Service Fabric Managed Cluster.  
 
 ## Before you begin
-Ensure that you have created a custom image.  [Tutorial - Create custom VM images with the Azure CLI - Azure Virtual Machines | Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images)
+Ensure that you have [created a custom image](../virtual-machines/linux/tutorial-custom-images.md).
 Custom image is enabled with Service Fabric Managed Cluster (SFMC) API version 2022-08-01-preview and forward. To use custom images, customer must grant SFMC First Party AAD App read access to the VM image (Managed Image or Shared Gallery) so that SFMC has permission to read and create VM with the image.  Please check [Add a managed identity to a Service Fabric Managed Cluster node type](https://docs.microsoft.com/en-us/azure/service-fabric/how-to-managed-identity-managed-cluster-virtual-machine-scale-sets#prerequisites) as reference on how to obtain information about SFMC First Party AAD App and grant it access to the resources.  Reader access is sufficient:
  
 Role definition name: Reader
