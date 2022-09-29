@@ -13,30 +13,6 @@ Track user activity on a sensor's event timeline, or by viewing audit logs gener
 
 - **Audit logs** record key activity data at the time of occurrence. Use audit logs generated on the on-premises management console to understand which changes were made, when, and by whom.
 
-## View user activity on the sensor's Event Timeline
-
-Select **Event Timeline** from the sensor side menu. If needed, verify that  **User Operations** filter is set to **Show**.
-
-For example:
-
-:::image type="content" source="media/how-to-create-and-manage-users/track-user-activity.png" alt-text="Screenshot of the Event timeline showing a user that signed in to Defender for IoT.":::
-
-Use the filters or search using CTRL+F to find the information of interest to you.
-<!--remove this, needs other improvement for event timeline
-The maximum number of events displayed depends on the [hardware profile](how-to-install-software.md#install-ot-monitoring-software) configured for your sensor during installation. While the event timeline isn't limited by time, after the maximum number of events is reached, the oldest events are deleted.
-
-|Hardware profile  |Number of events displayed  |
-|---------|---------|
-| C5600     |   10 million events      |
-| E1800    |   10 million events      |
-| E1000     |   6 million events     |
-| E500     |   6 million events     |
-| L500     |  3 million events       |
-| L100     |   500 thousand events      |
-| L60     |   500 thousand events      |
-
-For more information, see [Which appliances do I need?](ot-appliance-sizing.md)
--->
 ## View audit log data on the on-premises management console
 
 In the on-premises management console, select **System Settings > System Statistics**, and then select **Audit log**.

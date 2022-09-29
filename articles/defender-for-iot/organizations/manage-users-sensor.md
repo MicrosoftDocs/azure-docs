@@ -123,44 +123,44 @@ This procedure is not supported for users with **Security analyst** or **Read-on
 
 1. Select **Save** when you're done.
 
-### Recover another sensor user's password
+### Recover privileged access to a sensor
 
-This procedure describes how to the *cyberx* or *support* users can recover another user's password on an OT network sensor.
+This procedure descries how to recover privileged access to a sensor, for the *cyberx*, *support*, or *cyberx_host* users. For more information, see [Default privileged on-premises users](how-to-install-software.md#default-privileged-on-premises-users).
 
-This procedure is not supported for users with **Admin*, **Security analyst** or **Read-only** roles. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md). <!--is it supported for admin users?-->
+**To recover privileged access to a sensor**:
 
-**To recover a sensor user's password**:
+1. Start signing in to the OT network sensor. On the sign-in screen, select **Password recovery**. For example:
 
-1. Start signing in to the OT network sensor. On the sign-in screen, select **Password recovery**. FOR EXAMPLE: TBD
+    TBD image
 
-1. Select either **CyberX** or **Support** from the drop-down menu, depending on how you're signing in, and copy the unique identifier code to the clipboard. For example:
+1. From the TBD menu, select the user whose password you're recovering, either **Cyberx**, **Support**, or **CyberX_Host**.
 
-    :::image type="content" source="media/how-to-create-and-manage-users/password-recovery-screen.png" alt-text="Screenshot of selecting either the Defender for IoT user or the support user.":::
+    A unique identifier code appears in the TBD field. For example:
 
-1. On the Azure portal:
+    TBD image
 
-    1. Go to the Defender for IoT **Sites and Sensors** page.
+1. Copy the unique identifier code to the clipboard.
 
-    1. From the Azure toolbar, select the **Subscription Filter** icon :::image type="icon" source="media/password-recovery-images/subscription-icon.png" border="false":::  and make sure that the subscription your sensor is connected to is selected.
+1. Go the Defender for IoT **Sites and sensors** page in the Azure portal. You may want to open the Azure portal in a new browser tab or window, keeping your sensor console open.
 
-    1. Select the **More Actions** drop down menu, and select **Recover on-premises management console password**. This is the relevant option, even if you're recovering a password for a sensor user.
+    In your Azure portal settings > **Directories + subscriptions**, make sure that you've selected the subscription where your sensor was onboarded to Defender for IoT.
 
-        :::image type="content" source="media/how-to-create-and-manage-users/recover-password.png" alt-text="Screenshot of the recover on-premises management console password option.":::
+1. On the **Sites and sensors** page, locate the sensor that you're working with, and select the options menu (**...**) on the right > **Recover my password**. For example:
 
-    1. Enter the unique identifier that you received on the **Password recovery** screen from either the sensor or the on-premises management console, and then select **Recover**. The `password_recovery.zip` file is downloaded.
+    TBD
 
-        :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Screenshot of entering enter the unique identifier and then selecting recover." lightbox="media/how-to-create-and-manage-users/enter-identifier.png":::
+1. In the **Recover** dialog, enter the unique identifier that you've copied to the clipboard from your sensor. A **password_recovery.zip** file is automatically downloaded.
 
-       [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
+    [!INCLUDE [root-of-trust](includes/root-of-trust.md)]
 
-1. Back on the sensor or on-premises management console, on the **Password recovery** screen, select **Upload**.
-
-1. In the **Upload Password Recovery File** dialog, select **Browse** to locate your `password_recovery.zip` file, or drag the `password_recovery.zip` to the window.
+1. Back on the sensor console, on the **Password recovery** screen, select **Upload**, and upload the **password_recovery.zip** file you downloaded from the Azure portal.
 
     > [!NOTE]
-    > An error message may appear indicating the file is invalid. To avoid this error message, ensure that you selected the right subscription before downloading the `password_recovery.zip`, and try again.
+    > If an error message appears, indicating that the file is invalid, you may have had an incorrect subscription selected in your Azure portal settings. Return to Azure, and select the settings icon in the top toolbar. On the **Directories + subscriptions** page, make sure that you've selected the subscription where your sensor was onboarded to Defender for IoT. Then repeat the steps in Azure to download the **password_recovery.zip** file and upload it on the sensor again.
 
-1. Select **Next** and then select your user account. A system-generated password for your management console appears for you to use.
+1. Select **Next**. A system-generated password for your management console appears for you to use for the selected user. Make sure to write the password down as it won't be shown again.
+
+1. Select **Next** again to sign into your sensor.
 
 ## Control user session timeouts
 
@@ -200,12 +200,36 @@ For more information, see [Work with Defender for IoT CLI commands](references-w
 
     - **To adjust an inactivity timeout period**, adjust the `= <number>` value to the required time, in seconds.
 
+## Track sensor user activity with the Event Timeline
 
+This procedure describes how to track user activity on a specific sensor, and is available for the *cyberx*, *support*, and *cyberx_host* users, and any user with the **Admin** role.
 
+**To use the sensor's Event Timeline**:
 
-## Track sensor user activity
+Sign into the sensor console and select **Event Timeline** from the left-hand menu.
 
-TBD
+On the **Event Timeline** page, make sure that the **User Operations** filter is set to **Show**.
+
+For example:
+
+:::image type="content" source="media/how-to-create-and-manage-users/track-user-activity.png" alt-text="Screenshot of the Event timeline showing a user that signed in to Defender for IoT.":::
+
+Use the filters or search using CTRL+F to find the information of interest to you.
+<!--remove this, needs other improvement for event timeline
+The maximum number of events displayed depends on the [hardware profile](how-to-install-software.md#install-ot-monitoring-software) configured for your sensor during installation. While the event timeline isn't limited by time, after the maximum number of events is reached, the oldest events are deleted.
+
+|Hardware profile  |Number of events displayed  |
+|---------|---------|
+| C5600     |   10 million events      |
+| E1800    |   10 million events      |
+| E1000     |   6 million events     |
+| E500     |   6 million events     |
+| L500     |  3 million events       |
+| L100     |   500 thousand events      |
+| L60     |   500 thousand events      |
+
+For more information, see [Which appliances do I need?](ot-appliance-sizing.md)
+-->
 
 ## Next steps
 
