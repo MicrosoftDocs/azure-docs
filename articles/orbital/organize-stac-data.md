@@ -13,7 +13,7 @@ ms.author: taiyee
 
 This reference architecture shows an end-to-end implementation of [SpatioTemporal Asset Catalog (STAC)](https://stacspec.org) creation to structure geospatial data. In this document, we'll use the publicly available [National Agriculture Imagery Program (NAIP)](https://catalog.data.gov/dataset/national-agriculture-imagery-program-naip) data set using geospatial libraries on Azure. The architecture can be adapted to take data sets from other sources such as Satellite imagery providers, [Azure Orbital Ground Station (AOGS)](https://azure.microsoft.com/products/orbital/), or Bring Your Own Data (BYOD).
 
-The implementation consists of four stages Data extraction, Metadata generation, Cataloging & Data discovery via [STAC FastAPI](https://github.com/stac-utils/stac-fastapi). This article also shows how to build STAC based on a new data source or on bring-your-own-data. 
+The implementation consists of four stages: Data acquisition, Metadata generation, Cataloging, and Data discovery via [STAC FastAPI](https://github.com/stac-utils/stac-fastapi). This article also shows how to build STAC based on a new data source or on bring-your-own-data. 
 
 An implementation of this architecture is available on [GitHub](https://github.com/Azure/Azure-Orbital-STAC).
 
@@ -25,7 +25,7 @@ Spaceborne data collection is becoming increasingly common. There are various da
 
 The STAC community has defined a specification to remove these complexities and spur common tooling. The STAC specification is a common language to describe geospatial information, so it can more easily be worked with, indexed, and discovered. There are many deployed products that are built on top of STAC and one such is [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com/docs/overview/about) providing a multi-petabyte STAC catalog of global environmental data for sustainability research.
 
-Our [sample solution](https://github.com/Azure/Azure-Orbital-STAC) uses open source tools such as STAC FastAPI, [pystac](https://github.com/stac-utils/pystac), Microsoft Planetary Computer APIs](https://github.com/microsoft/planetary-computer-apis) and open standard geospatial libraries (listed in the [Components](#components) section) to run the solution on Azure.
+Our [sample solution](https://github.com/Azure/Azure-Orbital-STAC) uses open source tools such as STAC FastAPI, [pystac](https://github.com/stac-utils/pystac), [Microsoft Planetary Computer APIs](https://github.com/microsoft/planetary-computer-apis) and open standard geospatial libraries (listed in the [Components](#components) section) to run the solution on Azure.
 
 
 ### Potential use cases
@@ -56,7 +56,7 @@ The following sections describe the four stages in the architecture.
 **Data acquisition**
 
 - Spaceborne data is provided by various data providers including [Airbus](https://oneatlas.airbus.com/home), [NAIP/USDA (via the Planetary Computer API)](https://planetarycomputer.microsoft.com/dataset/naip), and [Maxar](https://www.maxar.com). 
-- In the sample solution we, use the NAIP dataset provided by [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com/docs/overview/about).
+- In the sample solution we use the NAIP dataset provided by [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com/docs/overview/about).
 
 **Metadata generation**
 
@@ -75,7 +75,7 @@ The following sections describe the four stages in the architecture.
   - It's a related group of STAC Items that is made available by a data provider.
   - Search queries for discovering the assets are scoped at the STAC Collection level.
   - It's generated for a data provider, NAIP in this case and this JSON metadata is uploaded to an Azure Storage container.
-  - The upload of a [STAC Collection](https://stacspec.org/en/about/stac-spec/) triggers a message to Azure Service Bus.
+  - The upload of a [STAC Collection](https://stacspec.org/en/about/stac-spec/) metadata file triggers a message to Azure Service Bus.
   - The processor processes this metadata on Azure Kubernetes Cluster and ingests to the STAC Catalog database (PostgreSQL database). There are different processors for different data providers and each processor subscribes to the respective Service Bus Topic.
 
 - STAC Item and asset
