@@ -211,7 +211,7 @@ To use the Data Science VM as a development environment:
 
 Similar to local environments, you can use Visual Studio Code and the [Azure Machine Learning Visual Studio Code extension](#vscode) to interact with Azure Machine Learning.
 
-For more information, see [Data Science Virtual Machines](../https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
+For more information, see [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 
 
 ## Next steps
