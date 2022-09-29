@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 09/20/2022
 ms.author: jianleishen
 ---
 
@@ -238,6 +238,8 @@ To configure it programmatically, add the `additionalColumns` property in your c
     }
 ]
 ```
+>[!TIP]
+>After configuring additional columns remember to map them to you destination sink, in the Mapping tab.
 
 ## Auto create sink tables
 

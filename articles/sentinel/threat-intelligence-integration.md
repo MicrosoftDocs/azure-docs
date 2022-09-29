@@ -154,7 +154,7 @@ Besides being used to import threat indicators, threat intelligence feeds can al
 
 ### RiskIQ Passive Total
 
-- Find and enable incident enrichment playbooks for [RiskIQ Passive Total](https://www.riskiq.com/products/passivetotal/) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks). Search for subfolders beginning with "Enrich-SentinelIncident-RiskIQ-".
+- Find and enable incident enrichment playbooks for [RiskIQ Passive Total](https://www.riskiq.com/products/passivetotal/) in the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/RiskIQ/Playbooks).
 - See [more information](https://techcommunity.microsoft.com/t5/azure-sentinel/enrich-azure-sentinel-security-incidents-with-the-riskiq/ba-p/1534412) on working with RiskIQ playbooks.
 - See the RiskIQ PassiveTotal Logic App [connector documentation](/connectors/riskiqpassivetotal/).
 

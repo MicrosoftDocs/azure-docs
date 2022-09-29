@@ -138,7 +138,7 @@ You can use the **Data Export** pane to export your MySQL data.
 
 You can use the **Data Import** pane to import or restore exported data from the data export operation or from the mysqldump command.
 
-1. In MySQL Workbench, on the **Navigator** pane, select **Data Export/Restore**.
+1. In MySQL Workbench, on the **Navigator** pane, select **Data Import/Restore**.
 1. Select the project folder or self-contained SQL file, select the schema to import into, or select the **New** button to define a new schema.
 1. Select **Start Import** to begin the import process.
 

@@ -1,15 +1,15 @@
 ---
 title: Troubleshoot common Azure deployment errors
-description: Describes common Azure deployment errors for resources that are deployed with Bicep files or Azure Resource Manager templates (ARM templates).
+description: Troubleshoot common Azure deployment errors for resources that are deployed with Bicep files or Azure Resource Manager templates (ARM templates).
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date:  08/05/2022
+ms.date:  09/12/2022
 ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot common Azure deployment errors
 
-This article describes common Azure deployment errors, and provides information about solutions. Azure resources can be deployed with Bicep files or Azure Resource Manager templates (ARM templates). If you can't find the error code for your deployment error, see [Find error code](find-error-code.md).
+This article describes how to troubleshoot common Azure deployment errors, and provides information about solutions. Azure resources can be deployed with Bicep files or Azure Resource Manager templates (ARM templates). If you can't find the error code for your deployment error, see [Find error code](find-error-code.md).
 
 If your error code isn't listed, submit a GitHub issue. On the right side of the page, select **Feedback**. At the bottom of the page, under **Feedback** select **This page**. Provide your documentation feedback but **don't include confidential information** because GitHub issues are public.
 

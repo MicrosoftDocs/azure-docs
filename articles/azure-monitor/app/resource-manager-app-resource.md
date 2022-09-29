@@ -31,7 +31,7 @@ param type string
 @description('Which Azure Region to deploy the resource to. This must be a valid Azure regionId.')
 param regionId string
 
-@description('See documentation on tags: https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources.')
+@description('See documentation on tags: https://learn.microsoft.com/azure/azure-resource-manager/management/tag-resources.')
 param tagsArray object
 
 @description('Source of Azure Resource Manager deployment')
@@ -78,7 +78,7 @@ resource component 'Microsoft.Insights/components@2020-02-02' = {
     "tagsArray": {
       "type": "object",
       "metadata": {
-        "description": "See documentation on tags: https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources."
+        "description": "See documentation on tags: https://learn.microsoft.com/azure/azure-resource-manager/management/tag-resources."
       }
     },
     "requestSource": {
@@ -152,7 +152,7 @@ param type string
 @description('Which Azure Region to deploy the resource to. This must be a valid Azure regionId.')
 param regionId string
 
-@description('See documentation on tags: https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources.')
+@description('See documentation on tags: https://learn.microsoft.com/azure/azure-resource-manager/management/tag-resources.')
 param tagsArray object
 
 @description('Source of Azure Resource Manager deployment')
@@ -203,7 +203,7 @@ resource component 'Microsoft.Insights/components@2020-02-02' = {
     "tagsArray": {
       "type": "object",
       "metadata": {
-        "description": "See documentation on tags: https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources."
+        "description": "See documentation on tags: https://learn.microsoft.com/azure/azure-resource-manager/management/tag-resources."
       }
     },
     "requestSource": {

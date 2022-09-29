@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 08/19/2022
+ms.date: 09/05/2022
 ---
 # Copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics
 
@@ -58,6 +58,7 @@ For Dynamics 365 specifically, the following application types are supported:
 - Dynamics 365 for Field Service
 - Dynamics 365 for Project Service Automation
 - Dynamics 365 for Marketing
+
 This connector doesn't support other application types like Finance, Operations, and Talent.
 
 >[!TIP]
@@ -530,7 +531,7 @@ To write data into a lookup field using alternate key columns, follow this guida
     :::image type="content" source="./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping-alternate-key-2.png" alt-text="Screenshot shows mapping columns to lookup fields via alternate keys step 2.":::
 
 > [!Note]
-> Currently this is only supported in mapping data flows.
+> Currently this is only supported when you use inline mode in the sink transformation of mapping data flows.
 
 ## Mapping data flow properties
 

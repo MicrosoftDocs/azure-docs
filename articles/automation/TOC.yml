@@ -78,8 +78,12 @@
               href: disable-managed-identity-for-automation.md
             - name: Remove user-assigned managed identity
               href: remove-user-assigned-identity.md
+            - name: Migrate Run As account to managed identity
+              href: migrate-run-as-accounts-managed-identity.md  
             - name: Troubleshoot managed identity
               href: troubleshoot/managed-identity.md
+            - name: FAQ on Migration to managed identity
+              href: automation-managed-identity-faq.md 
         - name: Run As account
           items:
             - name: Create Run As account
@@ -168,7 +172,7 @@
               href: troubleshoot/runbooks.md
             - name: Data to collect when opening a case for Microsoft Azure Automation
               href: troubleshoot/collect-data-microsoft-azure-automation-case.md
-        - name: Work with a Hybrid Runbook Worker
+        - name: Work with Hybrid Runbook Worker
           items:
             - name: Deploy extension-based worker
               href: extension-based-hybrid-runbook-worker-install.md

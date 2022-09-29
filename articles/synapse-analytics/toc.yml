@@ -206,6 +206,8 @@ items:
         href: troubleshoot/workspaces-created-by-sdk.md
       - name: Troubleshoot reading UTF-8 text
         href: troubleshoot/reading-utf8-text.md
+      - name: Troubleshoot Spark job failures
+        href: spark/apache-spark-handle-livy-error.md
     - name: Move workspace to new region
       href: how-to-move-workspace-from-one-region-to-another.md
     - name: Move workspace to another tenant
@@ -886,12 +888,16 @@ items:
       items:
       - name: Configure Synapse Link
         href: ./synapse-link/connect-synapse-link-sql-database.md
+      - name: Configure Synapse Link with managed virtual network
+        href: ./synapse-link/connect-synapse-link-sql-database-vnet.md
       - name: Known limitations and issues
         href: ./synapse-link/synapse-link-for-sql-known-issues.md
     - name: SQL Server 2022
       items:
       - name: Configure Synapse Link
         href: ./synapse-link/connect-synapse-link-sql-server-2022.md
+      - name: Configure Synapse Link with managed virtual network
+        href: ./synapse-link/connect-synapse-link-sql-server-2022-vnet.md
       - name: Known limitations and issues
         href: ./synapse-link/synapse-link-for-sql-known-issues.md
     - name: Dataverse
@@ -1065,6 +1071,8 @@ items:
         href: ../data-factory/connector-google-bigquery.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Google Cloud Storage
         href: ../data-factory/connector-google-cloud-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+      - name: Google Sheets
+        href: ../data-factory/connector-google-sheets.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Greenplum
         href: ../data-factory/connector-greenplum.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: HBase

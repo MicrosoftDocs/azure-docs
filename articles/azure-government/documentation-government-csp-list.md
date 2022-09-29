@@ -45,7 +45,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Alcala Consulting Inc.](https://www.alcalaconsulting.com/)|
 |[Alliance Enterprises, Inc.](https://www.allianceenterprises.com)|
 |[Alvarez Technology Group](https://www.alvareztg.com/)|
-|[Amalgama Technologies Inc](http://amalgamatetech.com/)|
+|Amalgama Technologies Inc|
 |[Ambonare](https://redriver.com/press-release/austinacquisition)|
 |[American Technology Services LLC](https://networkats.com/)|
 |[Anautics](https://anautics.com)|
@@ -197,7 +197,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[GRS Technology Solutions](https://www.grstechnologysolutions.com)|
 |[Hanu Software Solutions Inc.](https://www.hanusoftware.com/hanu/#contact)|
 |[Harmonia Holdings Group LLC](https://www.harmonia.com)|
-|[Harborgrid Inc.](https://www.harborgrid.com)|
+|Harborgrid Inc.|
 |[HCL Technologies](https://www.hcltech.com/aerospace-and-defense)|
 |[HD Dynamics](https://www.hddynamics.com/)|
 |[Heartland Business Systems LLC](https://www.hbs.net/home)|
@@ -237,7 +237,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[ITInfra](https://itinfra.biz/)|
 |[ITsavvy](https://www.itsavvy.com)|
 |[IV4, Inc](https://www.iv4.com)|
-|[J and C Landwehr LLC](https://jandclandwehr.com/)|
+|J and C Landwehr LLC|
 |[Jackpine Technologies](https://www.jackpinetech.com)|
 |[Jacobs Technolgy Inc.](https://www.jacobs.com/)|
 |[Jadex Strategic Group](https://jadexstrategic.com)|

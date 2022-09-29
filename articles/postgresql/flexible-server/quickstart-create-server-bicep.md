@@ -11,7 +11,7 @@ ms.date: 05/12/2022
 
 # Quickstart: Use a Bicep to create an Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 Flexible server is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. You can use [Bicep](../../azure-resource-manager/bicep/overview.md) to provision a PostgreSQL Flexible Server to deploy multiple servers or multiple databases on a server.
 
@@ -105,14 +105,14 @@ Follow these steps to verify if your server was created in Azure.
 
 # [Azure portal](#tab/portal)
 
-[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Database for PostgreSQL Flexible Servers**.
 1. In the database list, select your new server to view the **Overview** page to manage the server.
 
 # [PowerShell](#tab/PowerShell)
 
-[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 You'll have to enter the name of the new server to view the details of your Azure Database for PostgreSQL Flexible server.
 
@@ -124,7 +124,7 @@ Write-Host "Press [ENTER] to continue..."
 
 # [CLI](#tab/CLI)
 
-[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 You'll have to enter the name and the resource group of the new server to view details about your Azure Database for PostgreSQL Flexible Server.
 
@@ -146,7 +146,7 @@ To delete the resource group:
 
 # [Portal](#tab/azure-portal)
 
-[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 In the [portal](https://portal.azure.com), select the resource group you want to delete.
 
@@ -155,7 +155,7 @@ In the [portal](https://portal.azure.com), select the resource group you want to
 
 # [PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name ExampleResourceGroup
@@ -163,7 +163,7 @@ Remove-AzResourceGroup -Name ExampleResourceGroup
 
 # [Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 ```azurecli-interactive
 az group delete --name ExampleResourceGroup

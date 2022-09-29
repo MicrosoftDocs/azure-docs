@@ -95,11 +95,11 @@ items:
     - name: Add role assignment conditions
       items:
       - name: Portal
-        href: ../common/storage-auth-abac-portal.md?toc=/azure/storage/blobs/toc.json
+        href: storage-auth-abac-portal.md
       - name: PowerShell
-        href: ../common/storage-auth-abac-powershell.md?toc=/azure/storage/blobs/toc.json
+        href: storage-auth-abac-powershell.md
       - name: CLI
-        href: ../common/storage-auth-abac-cli.md?toc=/azure/storage/blobs/toc.json
+        href: storage-auth-abac-cli.md
   - name: Samples
     items:
     - name: .NET
@@ -148,19 +148,23 @@ items:
           - name: Authorize with Azure roles
             href: authorize-access-azure-active-directory.md
           - name: Authorize with conditions
-            href: ../common/storage-auth-abac.md?toc=/azure/storage/blobs/toc.json
+            href: storage-auth-abac.md
           - name: Actions and attributes for conditions
-            href: ../common/storage-auth-abac-attributes.md?toc=/azure/storage/blobs/toc.json
+            href: storage-auth-abac-attributes.md
           - name: Security for conditions
-            href: ../common/storage-auth-abac-security.md?toc=/azure/storage/blobs/toc.json
+            href: storage-auth-abac-security.md
           - name: Example conditions
-            href: ../common/storage-auth-abac-examples.md?toc=/azure/storage/blobs/toc.json
+            href: storage-auth-abac-examples.md
         - name: Authorize with Shared Key
           href: /rest/api/storageservices/authorize-with-shared-key
         - name: Delegate access with shared access signatures (SAS)
           href: ../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json
       - name: Authorizing management operations
         href: ../common/authorization-resource-provider.md?toc=/azure/storage/blobs/toc.json
+      - name: Migrate to passwordless connections
+        href: ../common/migrate-azure-credentials.md
+      - name: Passwordless connections between multiple services
+        href: ../common/multiple-identity-scenarios.md
     - name: Security
       items:
       - name: Security recommendations
@@ -554,6 +558,8 @@ items:
           href: blobfuse2-how-to-deploy.md
         - name: Deploy BlobFuse v1 on Linux
           href: storage-how-to-mount-container-linux.md
+        - name: Health Monitor
+          href: blobfuse2-health-monitor.md
         - name: Troubleshooting
           href: blobfuse2-troubleshooting.md
       - name: Azure Data Factory
@@ -562,8 +568,6 @@ items:
         href: secure-file-transfer-protocol-support-how-to.md
       - name: Mount storage by using NFS
         href: network-file-system-protocol-support-how-to.md
-      - name: Mount storage from Linux using BlobFuse
-        href: storage-how-to-mount-container-linux.md
       - name: Transfer data with the Data Movement library
         href: ../common/storage-use-data-movement-library.md?toc=/azure/storage/blobs/toc.json
     - name: Develop applications
@@ -611,7 +615,9 @@ items:
             - name: Manage blob properties and metadata
               href: storage-blob-properties-metadata.md
             - name: Create and manage leases
-              href: storage-blob-container-lease.md              
+              href: storage-blob-container-lease.md 
+          - name: Implement a retry policy
+            href: storage-retry-policy.md          
         - name: JavaScript
           items:
           - name: Get started
@@ -626,6 +632,8 @@ items:
             items:
             - name: Create a container
               href: storage-blob-container-create-javascript.md
+            - name: Get container URL
+              href: storage-blob-get-url-javascript.md
             - name: Delete and restore containers
               href: storage-blob-container-delete-javascript.md
             - name: List containers
@@ -636,6 +644,8 @@ items:
             items:
             - name: Upload blobs
               href: storage-blob-upload-javascript.md
+            - name: Get blob URL
+              href: storage-blob-get-url-javascript.md
             - name: Download blobs
               href: storage-blob-download-javascript.md
             - name: Copy blobs
@@ -914,6 +924,23 @@ items:
       href: data-lake-storage-integrate-with-services-tutorials.md
   - name: Concepts
     items:
+    - name: Authorization
+      items:
+      - name: Authorizing data operations
+        href: ../common/authorize-data-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        items:
+        - name: Authorize with Azure AD
+          items:
+          - name: Authorize with Azure roles
+            href: authorize-access-azure-active-directory.md
+          - name: Authorize with conditions
+            href: storage-auth-abac.md
+          - name: Actions and attributes for conditions
+            href: storage-auth-abac-attributes.md
+          - name: Security for conditions
+            href: storage-auth-abac-security.md
+          - name: Example conditions
+            href: storage-auth-abac-examples.md
     - name: Best practices
       href: data-lake-storage-best-practices.md
     - name: Query acceleration

@@ -279,8 +279,11 @@ There are three types of autoscale profiles:
 > The autoscale user interface in the Azure portal enforces end times for recurrence profiles, and begins running the autoscale setting's default profile in between recurrence profiles.
     
 ## Autoscale evaluation
-Given that autoscale settings can have multiple profiles, and each profile can have multiple metric rules, it is important to understand how an autoscale setting is evaluated. Each time the autoscale job runs, it begins by choosing the profile that is applicable. Then autoscale evaluates the minimum and maximum values, and any metric rules in the profile, and decides if a scale action is necessary.
+Given that Autoscale settings can have multiple profiles, and each profile can have multiple metric rules, it is important to understand how an Autoscale setting is evaluated. The Autoscale job runs every 30 to 60 seconds, depending on the resource type. Each time the Autoscale job runs, it begins by choosing the profile that is applicable. Then Autoscale evaluates the minimum and maximum values, and any metric rules in the profile, and decides if a scale action is necessary.
 
+
+
+Given that Autoscale settings can have multiple profiles, and each profile can have multiple metric rules, it is important to understand how an Autoscale setting is evaluated. The Autoscale job runs every 30 to 60 seconds, depending on the resource type. Each time the Autoscale job runs, it begins by choosing the profile that is applicable. Then Autoscale evaluates the minimum and maximum values, and any metric rules in the profile, and decides if a scale action is necessary.
 ### Which profile will autoscale pick?
 
 Autoscale uses the following sequence to pick the profile:
