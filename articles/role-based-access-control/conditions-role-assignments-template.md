@@ -93,6 +93,6 @@ az deployment group create --resource-group example-group --template-file rbac-t
 
 ## Next steps
 
-- [Example Azure role assignment conditions](../storage/blobs/storage-auth-abac-examples.md)
+- [Example Azure role assignment conditions for Blob Storage](../storage/blobs/storage-auth-abac-examples.md)
 - [Troubleshoot Azure role assignment conditions](conditions-troubleshoot.md)
 - [Assign Azure roles using Azure Resource Manager templates](role-assignments-template.md)

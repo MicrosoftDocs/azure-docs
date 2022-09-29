@@ -1,9 +1,9 @@
 ---
 title: Find unhealthy DNS records in Azure DNS - PowerShell script sample
 description: In this article, learn how to use an Azure PowerShell script to find unhealthy DNS records.
-author: asudbring
-ms.author: allensu # Microsoft employees only
-ms.date: 11/10/2021
+author: greg-lindsay
+ms.author: greglin
+ms.date: 09/27/2022
 ms.topic: sample
 ms.service: dns
 
@@ -16,7 +16,7 @@ The following Azure PowerShell script finds unhealthy DNS records in Azure DNS.
 
 ```azurepowershell-interactive
 <#
-    1.	Install Pre requisites Az PowerShell modules  (https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-5.7.0)
+    1.	Install Pre requisites Az PowerShell modules  (https://learn.microsoft.com/powershell/azure/install-az-ps?view=azps-5.7.0)
     2.	From PowerShell prompt navigate to folder where the script is saved and run the following command
         .\ Get-AzDNSUnhealthyRecords.ps1 -SubscriptionId <subscription id> -ZoneName <zonename>
         Replace subscription id with subscription id of interest.

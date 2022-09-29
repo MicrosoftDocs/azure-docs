@@ -6,7 +6,7 @@ ms.author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: quickstart
-ms.date: 10/14/2021
+ms.date: 08/18/2022
 ms.custom: template-quickstart, devx-track-azurecli, mode-api
 ---
 

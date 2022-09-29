@@ -7,11 +7,13 @@ author: jcocchi
 ms.author: jucocchi
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/02/2022
+ms.date: 08/23/2022
 tags: connectors
 ---
 
 # Process and create Azure Cosmos DB documents using Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 From your workflow in Azure Logic Apps, you can connect to Azure Cosmos DB and work with documents by using the [Azure Cosmos DB connector](/connectors/documentdb/). This connector provides triggers and actions that your workflow can use for Azure Cosmos DB operations. For example, actions include creating or updating, reading, querying, and deleting documents.
 

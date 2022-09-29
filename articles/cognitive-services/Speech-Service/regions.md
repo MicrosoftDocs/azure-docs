@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/27/2022
+ms.date: 09/16/2022
 ms.author: eur
 ms.custom: references_regions, ignite-fall-2021
 ---

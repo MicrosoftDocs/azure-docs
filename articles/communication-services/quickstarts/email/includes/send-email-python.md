@@ -152,11 +152,7 @@ while True:
             break
 ```
 
-| Status Name | Description |
-| ----------- | ------------|
-| Queued | The email has been placed in the queue for delivery. |
-| OutForDelivery | The email is currently en route to its recipient(s). |
-| Dropped | The email message was dropped before the delivery could be successfully completed. |
+[!INCLUDE [Email Message Status](./email-message-status.md)]
 
 ## Run the code
 
@@ -169,3 +165,49 @@ python send-email.py
 ## Sample code
 
 You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-email)
+
+## Advanced
+
+### Send an email message to multiple recipients
+
+We can define multiple recipients by adding additional EmailAddresses to the EmailRecipients object. These addresses can be added as `To`, `CC`, or `BCC` recipients.
+
+```python
+to_address_1 = EmailAddress(email="<emailalias1@emaildomain.com>")
+to_address_2 = EmailAddress(email="<emailalias2@emaildomain.com>")
+cc_address = EmailAddress(email="<ccemailalias@emaildomain.com>")
+bcc_address = EmailAddress(email="<bccemailalias@emaildomain.com>")
+
+recipient = EmailRecipients(to=[to_address_1, to_address_2], cc=[cc_address], bcc=[bcc_address])
+```
+
+You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-email-advanced/send-email-multiple-recipients)
+
+
+### Send an email message with attachments
+
+We can add an attachment by defining an EmailAttachment object and adding it to our EmailMessage object. Read the attachment file and encode it using Base64. Decode the bytes as a string and pass it into the EmailAttachment object.
+
+```python
+import base64
+
+with open("<your-attachment-path>", "rb") as file:
+    file_bytes = file.read()
+
+file_bytes_b64 = base64.b64encode(file_bytes)
+
+attachment = EmailAttachment(
+    name="<your-attachment-name>",
+    attachment_type="<your-attachment-file-type>",
+    content_bytes_base64=file_bytes_b64.decode()
+)
+
+message = EmailMessage(
+    sender="<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>",
+    content=content,
+    recipients=recipients,
+    attachments=[attachment]
+)
+```
+
+You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-email-advanced/send-email-attachments)

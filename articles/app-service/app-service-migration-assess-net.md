@@ -29,4 +29,4 @@ For more information on web apps assessment, see:
 
 
 Next steps:
-[At-scale migration of .NET web apps](/learn/modules/migrate-app-service-migration-assistant/)
+[At-scale migration of .NET web apps](/training/modules/migrate-app-service-migration-assistant/)
