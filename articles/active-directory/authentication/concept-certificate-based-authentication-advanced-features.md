@@ -51,8 +51,7 @@ In this example, to lock Bob's certificate to only Bob's productivity account as
  
 **Bobs Productivity Account**
  
-AAD User Principal Name = Bob.Smith@Contoso.com 
-
+AAD User Principal Name = Bob.Smith@Contoso.com <br>
 certificateUserIDs = [ x509:\<PN\>Bob.Smith@Contoso.com , x509:\<SKI\>89b0f468c1abea65ec22f0a882b8fda6fdd6750p]
 
 ## External identity support
