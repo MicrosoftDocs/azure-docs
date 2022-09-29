@@ -8,13 +8,12 @@ ms.devlang: azurecli
 ---
 
 # Enable partitioning for an Azure Service Bus Premium namespace (Preview)
-Service Bus partitions enable queues and topics, or messaging entities, to be partitioned across multiple message brokers and messaging stores. Partitioning means that the overall throughput of a partitioned entity is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store doesn't render a partitioned queue or topic unavailable. Partitioned queues and topics can contain all advanced Service Bus features, such as support for transactions and sessions. For more information, See [Partitioned queues and topics](service-bus-partitioning.md). This article shows you different ways to enable duplicate partitioning for a Service Bus Premium namespace. All entities in this namespace will be partitioned.
+Service Bus partitions enable queues and topics, or messaging entities, to be partitioned across multiple message brokers and messaging stores. Partitioning means that the overall throughput of a partitioned entity is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store, for example during an upgrade, doesn't render a partitioned queue or topic unavailable. Partitioned queues and topics can contain all advanced Service Bus features, such as support for transactions and sessions. For more information, See [Partitioned queues and topics](service-bus-partitioning.md). This article shows you different ways to enable duplicate partitioning for a Service Bus Premium namespace. All entities in this namespace will be partitioned.
 
 > [!IMPORTANT]
 > - Partitioning is available at entity creation for namespaces in the Premium SKU. Any previously existing partitioned entities in Premium namespaces continue to work as expected.
 > - It's not possible to change the partitioning option on any existing namespace. You can only set the option when you create a namespace.
 > - The assigned messaging units are always a multiplier of the amount of partitions in a namespace, and are equally distributed across the partitions. For example, in a namespace with 16MU and 4 partitions, each partition will be assigned 4MU.
-> - Besides providing higher scalability, this feature will also provide better stability and reliability. As message retries are done on the different partitions, if a single partition is not reachable, for example due to upgrades, the next partition should work, meaning there is no downtime.
 
 > [!NOTE]
 > Some limitations may be encountered during public preview, which will be resolved before going into GA. 
