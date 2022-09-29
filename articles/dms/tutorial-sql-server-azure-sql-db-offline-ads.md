@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
 > [!IMPORTANT]
-> **Online** migrations for Azure Database targets, are not currently available.
+> **Online** migrations for Azure SQL Database targets, are not currently available.
 
 ## Prerequisites
 

@@ -23,7 +23,7 @@ The key benefits of using the Azure SQL migration extension for Azure Data Studi
 - An enhanced assessment mechanism that can evaluate SQL Server instances, identifying databases ready for migration to the different Azure SQL targets.
     > [!NOTE]
     > You can assess SQL Server databases running on Windows and Linux Operating systems using the Azure SQL migration extension.
-- A SKU recommendation engine (Preview) that collects performance data from the source SQL Server instance on-premises, generating right-sized SKU recommendations based on your Azure SQL target.
+- An SKU recommendation engine (Preview) that collects performance data from the source SQL Server instance on-premises, generating right-sized SKU recommendations based on your Azure SQL target.
 - A reliable Azure service powered by Azure Database Migration Service that orchestrates data movement activities to deliver a seamless migration experience.
 - The ability to run online (for migrations requiring minimal downtime) or offline (for migrations where downtime persists through the migration) migration modes to suit your business requirements.
 - The flexibility to create and configure a self-hosted integration runtime to provide your own compute for accessing the source SQL Server and backups in your on-premises environment.
@@ -32,9 +32,9 @@ Check the following step-by-step tutorials for more information about each speci
 
 | Migration scenario | Migration mode
 |---------|---------|
-SQL Server to Azure SQL Managed Instance| [Online](/azure/dms/tutorial-sql-server-managed-instance-online-ads) / [Offline](/azure/dms/tutorial-sql-server-to-virtual-machine-offline-ads)
+SQL Server to Azure SQL Managed Instance| [Online](/azure/dms/tutorial-sql-server-managed-instance-online-ads) / [Offline](/azure/dms/tutorial-sql-server-managed-instance-offline-ads)
 SQL Server to SQL Server on Azure Virtual Machine|[Online](/azure/dms/tutorial-sql-server-to-virtual-machine-online-ads) / [Offline](/azure/dms/tutorial-sql-server-to-virtual-machine-offline-ads)
-SQL Server to Azure SQL Database (Preview)| [Offline](/azure/dms/tutorial-sql-server-to-azure-sql)
+SQL Server to Azure SQL Database (Preview)| [Offline](/azure/dms/tutorial-sql-server-azure-sql-db-offline-ads)
 
 > [!IMPORTANT]
 > If your target is Azure SQL Database (Preview), make sure to deploy the database schema before starting the migration. You can use tools as [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension), [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension), or [DMA](/sql/dma/dma-overview).
@@ -85,6 +85,8 @@ The following sections walk through the prerequisites for each supported Azure S
 ### [Azure SQL Database (Preview)](#tab/azure-sql-db)
 
 [!INCLUDE [dms-ads-sqlmi-prereq](/azure/includes/dms-ads-sqlmi-prereq]
+
+---
 
 ### Recommendations for using self-hosted integration runtime for database migrations
 - Use a single self-hosted integration runtime for multiple source SQL Server databases.
