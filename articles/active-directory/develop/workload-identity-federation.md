@@ -45,7 +45,7 @@ Create a trust relationship between the external IdP and an app or user-assigned
 
 The workflow for exchanging an external token for an access token is the same, however, for all scenarios. The following diagram shows the general workflow of a workload exchanging an external token for an access token and then accessing Azure AD protected resources.
 
-:::image type="content" source="media/workload-identity-federation/workflow.svg" alt-text="Shows an external token exchanged for an access token and accessing Azure" border="false":::
+:::image type="content" source="media/workload-identity-federation/workflow.svg" alt-text="Diagram showing an external token exchanged for an access token and accessing Azure" border="false":::
 
 1. The external workload (such as a GitHub Actions workflow) requests a token from the external IdP (such as GitHub).
 1. The external IdP issues a token to the external workload.
