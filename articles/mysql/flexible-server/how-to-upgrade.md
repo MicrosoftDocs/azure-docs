@@ -60,7 +60,6 @@ This feature will enable customers to perform in-place upgrades of their MySQL 5
 
     :::image type="content" source="./media/how-to-upgrade/4-how-to-upgrade.png" alt-text="Screenshot showing upgrade.":::
 
-
 ## Perform Planned Major version upgrade from MySQL 5.7 to MySQL 8.0 using Azure CLI
 
 Follow these steps to perform major version upgrade for your Azure Database of MySQL 5.7 server using Azure CLI.
@@ -69,7 +68,6 @@ Follow these steps to perform major version upgrade for your Azure Database of M
 
     This upgrade requires version 2.40.0 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed. Run az version to find the version and dependent libraries that are installed. To upgrade to the latest version, run az upgrade.
 
-
 2. After you sign in, run the [az mysql server upgrade](/cli/azure/mysql/server#az-mysql-server-upgrade) command.
 
     ```azurecli
@@ -77,7 +75,6 @@ Follow these steps to perform major version upgrade for your Azure Database of M
     ```
 
 3. Under confirmation prompt, type “y” for confirming or “n” to stop the upgrade process and enter.
-
 
 ## Perform major version upgrade from MySQL 5.7 to MySQL 8.0 on read replica using Azure portal
 
@@ -96,21 +93,26 @@ Follow these steps to perform major version upgrade for your Azure Database of M
 
 6. Now go to your primary server and perform major version upgrade on it.
 
-
 ## Perform minimal downtime major version upgrade from MySQL 5.7 to MySQL 8.0 using read replicas
 
 1.	In the Azure portal, select your existing Azure Database for MySQL 5.7.
+
 2.	Create a [read replica](./how-to-read-replicas-portal.md) from your primary server.
+
 3.	Upgrade your [read replica to version](#perform-planned-major-version-upgrade-from-mysql-57-to-mysql-80-using-azure-cli) 8.0.
+
 4.	Once you confirm that the replica server is running on version 8.0, stop your application from connecting to your primary server.
+
 5.	Check replication status, and make sure replica is all caught up with primary, so all the data is in sync and ensure there are no new operations performed in primary.
 Confirm with the show slave status command on the replica server to view the replication status.
+
     ```azurecli
      SHOW SLAVE STATUS\G
     ```
     If the state of Slave_IO_Running and Slave_SQL_Running are "yes" and the value of Seconds_Behind_Master is "0", replication is working well. Seconds_Behind_Master indicates how late the replica is. If the value isn't "0", it means that the replica is processing updates. Once you confirm Seconds_Behind_Master is "0" it's safe to stop replication.
 
 6.	Promote your read replica to primary by stopping replication.
+
 7.	Set Server Parameter read_only to 0 that is, OFF to start writing on promoted primary.
 
     Point your application to the new primary (former replica) which is running server 8.0. Each server has a unique connection string. Update your application to point to the (former) replica instead of the source.
@@ -118,24 +120,21 @@ Confirm with the show slave status command on the replica server to view the rep
 >[!Note]
 > This scenario will have downtime during steps 4, 5 and 6 only.
 
-
 ## Frequently asked questions
-- Will this cause downtime of the server and if so, how long?
 
+- Will this cause downtime of the server and if so, how long?
   To have minimal downtime during upgrades, follow the steps mentioned under - [Perform minimal downtime major version upgrade from MySQL 5.7 to MySQL 8.0 using read replicas](#perform-minimal-downtime-major-version-upgrade-from-mysql-57-to-mysql-80-using-read-replicas).
   The server will be unavailable during the upgrade process, so we recommend you perform this operation during your planned maintenance window. The estimated downtime depends on the database size, storage size provisioned (IOPs provisioned), and the number of tables on the database. The upgrade time is directly proportional to the number of tables on the server. To estimate the downtime for your server environment, we recommend to first perform upgrade on restored copy of the server.
 
 
 - When will this upgrade feature be GA?
-
   The GA of this feature will be planned by December 2022. However, the feature is production ready and fully supported by Azure so you should run it with confidence in your environment. As a recommended best practice, we strongly suggest you run and test it first on a restored copy of the server so you can estimate the downtime during upgrade, and perform application compatibility test before you run it on production.
 
 - What happens to my backups after upgrade?
-
   All backups (automated/on-demand) taken before major version upgrade, when used for restoration will always restore to a server with older version (5.7).
   All the backups (automated/on-demand) taken after major version upgrade will restore to server with upgraded version (8.0). It's highly recommended to take on-demand backup before you perform the major version upgrade for an easy rollback.
 
 
-  ## Next steps
-  - Learn more on [how to configure scheduled maintenance](./how-to-maintenance-portal.md) for your Azure Database for MySQL flexible server.
-  - Learn about what's new in [MySQL version 8.0](https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html).
+## Next steps
+- Learn more on [how to configure scheduled maintenance](./how-to-maintenance-portal.md) for your Azure Database for MySQL flexible server.
+- Learn about what's new in [MySQL version 8.0](https://dev.mysql.com/doc/refman/8.0/en/mysql-nutshell.html).
