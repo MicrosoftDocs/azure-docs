@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 09/19/2022
 ms.author: banders
 ---
 
@@ -33,6 +33,8 @@ The following table illustrates the costs for your virtual machine after you pur
 A reservation discount is "*use-it-or-lose-it*". So, if you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.
 
 When you shut down a resource or scale the number of VMs, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are *lost*.
+
+Stopped VMs are billed and continue to use reservation hours. Deallocate or delete VM resources or scale-in other VMs to use your available reservation hours with other workloads.
 
 ## Reservation discount for non-Windows VMs
 

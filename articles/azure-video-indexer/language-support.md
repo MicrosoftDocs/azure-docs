@@ -12,6 +12,13 @@ ms.date: 09/14/2022
 
 This article provides a comprehensive list of language support by service features in Azure Video Indexer. For the list and definitions of all the features, see [Overview](video-indexer-overview.md).
 
+> [!NOTE]
+> The list below contains the source languages for transcription that are supported by the Video Indexer API. Some languages are supported only through the 
+> API and not through the Video Indexer website or widgets.
+>
+> To make sure a language is supported for search, transcription, or translation by the Azure Video Indexer website and widgets, see the [frontend language 
+> support table](#language-support-in-frontend-experiences) further below.
+
 ## General language support
 
 This section describes language support in Azure Video Indexer.
@@ -108,10 +115,10 @@ This section describes language support in Azure Video Indexer.
 
 The following table describes language support in the Azure Video Indexer frontend experiences.
 
-* portal - the portal column lists supported languages for the [web portal](https://aka.ms/vi-portal-link)
-* widgets - the [widgets](video-indexer-embed-widgets.md) column lists supported languages for translating the index file
+* website - the website column lists supported languages for the [Azure Video Indexer website](https://aka.ms/vi-portal-link). For for more information, see [Get started](video-indexer-get-started.md).
+* widgets - the [widgets](video-indexer-embed-widgets.md) column lists supported languages for translating the index file. For for more information, see [Get started](video-indexer-embed-widgets.md).
 
-| **Language**                      | **Code**       | **Portal** | **Widgets**   | 
+| **Language**                      | **Code**       | **Website** | **Widgets**   | 
 |:------------:|:------------:|:--------------------:|:-------:|
 | Afrikaans                        | `af-ZA`      |           | ✔ |  
 | Arabic (Iraq)                    | `ar-IQ`      |           |  |
@@ -186,7 +193,7 @@ The following table describes language support in the Azure Video Indexer fronte
 | Urdu                             | `ur-PK`      |           | ✔ |  
 | Vietnamese                       | `vi-VN`      | ✔         | ✔ |
 
-
 ## Next steps
 
-[Overview](video-indexer-overview.md)
+- [Overview](video-indexer-overview.md)
+- [Release notes](release-notes.md)

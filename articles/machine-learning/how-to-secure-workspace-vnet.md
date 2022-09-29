@@ -237,7 +237,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     This code returns a value similar to `"/subscriptions/{GUID}/resourceGroups/{resourcegroupname}/providers/Microsoft.ContainerRegistry/registries/{ACRname}"`. The last part of the string is the name of the Azure Container Registry for the workspace.
 
-    # [Azure portal](#tab/portal)
+    # [Portal](#tab/portal)
 
     From the overview section of your workspace, the __Registry__ value links to the Azure Container Registry.
 
@@ -284,7 +284,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
     
     For more information, see the [update()](/python/api/azureml-core/azureml.core.workspace.workspace#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) method reference.
 
-    # [Azure portal](#tab/portal)
+    # [Portal](#tab/portal)
 
     Currently there isn't a way to set the image build compute from the Azure portal.
 

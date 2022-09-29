@@ -58,7 +58,7 @@ From the Azure portal, you can view the Azure AD Audit logs and download as comm
 
 * **[Microsoft Sentinel](../../sentinel/overview.md)** – enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities.
 
-* **[Sigma rule templates](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)** - Sigma is an evolving open standard for writing rules and templates that automated management tools can use to parse log files. Where Sigma templates exist for our recommended search criteria, we've added a link to the Sigma repo. The Sigma templates aren't written, tested, and managed by Microsoft. Rather, the repo and templates are created and collected by the worldwide IT security community.
+* **[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)** - Sigma is an evolving open standard for writing rules and templates that automated management tools can use to parse log files. Where Sigma templates exist for our recommended search criteria, we've added a link to the Sigma repo. The Sigma templates aren't written, tested, and managed by Microsoft. Rather, the repo and templates are created and collected by the worldwide IT security community.
 
 * **[Azure Monitor](../..//azure-monitor/overview.md)** – enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
 
@@ -78,8 +78,8 @@ Azure AD registered and Azure AD joined devices possess primary refresh tokens (
 
  | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 | - |- |- |- |- |
-| Device registration or join completed without MFA| Medium| Sign-in logs| Activity: successful authentication to Device Registration Service. <br>And<br>No MFA required| Alert when: Any device registered or joined without MFA<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/SigninLogs/SuspiciousSignintoPrivilegedAccount.yaml)<br>[Sigma rules template](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
-| Changes to the Device Registration MFA toggle in Azure AD| High| Audit log| Activity: Set device registration policies| Look for: The toggle being set to off. There isn't audit log entry. Schedule periodic checks.<br>[Sigma rules template](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+| Device registration or join completed without MFA| Medium| Sign-in logs| Activity: successful authentication to Device Registration Service. <br>And<br>No MFA required| Alert when: Any device registered or joined without MFA<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/SigninLogs/SuspiciousSignintoPrivilegedAccount.yaml)<br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+| Changes to the Device Registration MFA toggle in Azure AD| High| Audit log| Activity: Set device registration policies| Look for: The toggle being set to off. There isn't audit log entry. Schedule periodic checks.<br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 | Changes to Conditional Access policies requiring domain joined or compliant device.| High| Audit log| Changes to CA policies<br>| Alert when: Change to any policy requiring domain joined or compliant, changes to trusted locations, or accounts or devices added to MFA policy exceptions. |
 
 You can create an alert that notifies appropriate administrators when a device is registered or joined without MFA by using Microsoft Sentinel.
@@ -103,8 +103,8 @@ It might not be possible to block access to all cloud and software-as-a-service 
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 | - |- |- |- |- |
-| Sign-ins by non-compliant devices| High| Sign-in logs| DeviceDetail.isCompliant == false| If requiring sign-in from compliant devices, alert when: any sign in by non-compliant devices, or any access without MFA or a trusted location.<p>If working toward requiring devices, monitor for suspicious sign-ins.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/SigninLogs/SuccessfulSigninFromNon-CompliantDevice.yaml)<br><br>[Sigma rules template](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
-| Sign-ins by unknown devices| Low| Sign-in logs| DeviceDetail is empty, single factor authentication, or from a non-trusted location| Look for: any access from out of compliance devices, any access without MFA or trusted location<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/SigninLogs/AnomolousSingleFactorSignin.yaml)<br><br>[Sigma rules template](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+| Sign-ins by non-compliant devices| High| Sign-in logs| DeviceDetail.isCompliant == false| If requiring sign-in from compliant devices, alert when: any sign in by non-compliant devices, or any access without MFA or a trusted location.<p>If working toward requiring devices, monitor for suspicious sign-ins.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/SigninLogs/SuccessfulSigninFromNon-CompliantDevice.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+| Sign-ins by unknown devices| Low| Sign-in logs| DeviceDetail is empty, single factor authentication, or from a non-trusted location| Look for: any access from out of compliance devices, any access without MFA or trusted location<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/SigninLogs/AnomolousSingleFactorSignin.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 
 ### Use LogAnalytics to query
 
@@ -146,7 +146,7 @@ Attackers who have compromised a user’s device may retrieve the [BitLocker](/w
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 | - |- |- |- |- |
-| Key retrieval| Medium| Audit logs| OperationName == "Read BitLocker key"| Look for: key retrieval, other anomalous behavior by users retrieving keys.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/AuditLogs/BitLockerKeyRetrieval.yaml)<br><br>[Sigma rules template](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+| Key retrieval| Medium| Audit logs| OperationName == "Read BitLocker key"| Look for: key retrieval, other anomalous behavior by users retrieving keys.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/AuditLogs/BitLockerKeyRetrieval.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 
 In LogAnalytics create a query such as
 
@@ -162,7 +162,7 @@ Global administrators and cloud Device Administrators automatically get local ad
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 | - |- |- |- |- |
-| Users added to global or device admin roles| High| Audit logs| Activity type = Add member to role.| Look for: new users added to these Azure AD roles, subsequent anomalous behavior by machines or users.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/4ad195f4fe6fdbc66fb8469120381e8277ebed81/Detections/AuditLogs/UserAddedtoAdminRole.yaml)<br><br>[Sigma rules template](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+| Users added to global or device admin roles| High| Audit logs| Activity type = Add member to role.| Look for: new users added to these Azure AD roles, subsequent anomalous behavior by machines or users.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/4ad195f4fe6fdbc66fb8469120381e8277ebed81/Detections/AuditLogs/UserAddedtoAdminRole.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 
 ## Non-Azure AD sign-ins to virtual machines
 

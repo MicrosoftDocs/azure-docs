@@ -169,12 +169,12 @@ Windows 7 and 8.1 devices are not affected by this issue after UPN changes.
 
 **Known Issues**
 
-Your organization may use [MAM app protection policies](https://docs.microsoft.com/mem/intune/apps/app-protection-policy) to protect corporate data in apps on end users' devices.
+Your organization may use [MAM app protection policies](https://learn.microsoft.com/mem/intune/apps/app-protection-policy) to protect corporate data in apps on end users' devices.
 MAM app protection policies are currently not resiliant to UPN changes. UPN changes can break the connection between existing MAM enrollments and active users in MAM integrated applications, resulting in undefined behavior. This could leave data in an unprotected state.
 
 **Work Around**
 
-IT admins should [issue a selective wipe](https://docs.microsoft.com/mem/intune/apps/apps-selective-wipe) to impacted users following UPN changes. This will force impacted end users to reauthenticate and reenroll with their new UPNs.
+IT admins should [issue a selective wipe](https://learn.microsoft.com/mem/intune/apps/apps-selective-wipe) to impacted users following UPN changes. This will force impacted end users to reauthenticate and reenroll with their new UPNs.
 
 ## Microsoft Authenticator known issues and workarounds
 

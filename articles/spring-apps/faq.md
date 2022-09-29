@@ -37,17 +37,17 @@ Security and privacy are among the top priorities for Azure and Azure Spring App
 
 ### How does Azure Spring Apps host my applications?
 
-Each service instance in Azure Spring Apps is backed by a fully dedicated Kubernetes cluster with multiple worker nodes. Azure Spring Apps manages the underlying Kubernetes cluster for you, including high availability, scalability, Kubernetes version upgrade, and so on.
+Each service instance in Azure Spring Apps is backed by Azure Kubernetes Service with multiple worker nodes. Azure Spring Apps manages the underlying Kubernetes cluster for you, including high availability, scalability, Kubernetes version upgrade, and so on.
 
 Azure Spring Apps intelligently schedules your applications on the underlying Kubernetes worker nodes. To provide high availability, Azure Spring Apps distributes applications with 2 or more instances on different nodes.
 
 ### In which regions is Azure Spring Apps Basic/Standard tier available?
 
-East US, East US 2, Central US, South Central US, North Central US, West US, West US 2, West US 3, West Europe, North Europe, UK South, Southeast Asia, Australia East, Canada Central, UAE North, Central India, Korea Central, East Asia, Japan East, South Africa North, Brazil South, France Central, Germany West Central, Switzerland North, China East 2 (Mooncake), China North 2 (Mooncake), and China North 3 (Mooncake). [Learn More](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
+East US, East US 2, Central US, South Central US, North Central US, West US, West US 2, West US 3, West Europe, North Europe, UK South, Southeast Asia, Australia East, Canada Central, Canada East, UAE North, Central India, Korea Central, East Asia, Japan East, South Africa North, Brazil South, France Central, Germany West Central, Switzerland North, China East 2 (Mooncake), China North 2 (Mooncake), and China North 3 (Mooncake). [Learn More](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
 
 ### In which regions is Azure Spring Apps Enterprise tier available?
 
-East US, East US 2, Central US, South Central US, North Central US, West US, West US 2, West US 3, West Europe, North Europe, UK South, Southeast Asia, Australia East, Canada Central, UAE North, Central India, Korea Central, East Asia, Japan East, South Africa North, Brazil South, France Central, Germany West Central, and Switzerland North.
+East US, East US 2, Central US, South Central US, North Central US, West US, West US 2, West US 3, West Europe, North Europe, UK South, Southeast Asia, Australia East, Canada Central, Canada East, UAE North, Central India, Korea Central, East Asia, Japan East, South Africa North, Brazil South, France Central, Germany West Central, and Switzerland North.
 
 ### Is any customer data stored outside of the specified region?
 

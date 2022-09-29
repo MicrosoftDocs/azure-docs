@@ -75,7 +75,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Learning path
-            url: /learn/paths/monitor-usage-performance-availability-resources-azure-monitor/
+            url: /training/paths/monitor-usage-performance-availability-resources-azure-monitor/
 
   # Card
   - title: Reference - CLI

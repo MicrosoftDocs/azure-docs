@@ -21,7 +21,7 @@ This feature is available in all the service tiers (also known as SKUs). For inf
 
 The article gives you an overview of the soft delete policy and walks you through the step by step process to enable the soft delete policy using Azure CLI and Azure portal.
 
-You can use the Azure Cloud Shell or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.0.74 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli](/cli/azure/install-azure-cli).
+You can use the Azure Cloud Shell or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.0.74 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ## Prerequisites   
 

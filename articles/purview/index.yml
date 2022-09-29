@@ -39,7 +39,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Microsoft Purview
-            url: /learn/modules/intro-to-azure-purview/
+            url: /training/modules/intro-to-azure-purview/
   # Card
   - title: Get started
     linkLists:

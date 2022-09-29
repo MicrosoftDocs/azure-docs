@@ -701,6 +701,15 @@ groups:
     title: CLI
   - id: rest-api
     title: REST
+- id: speech-cli-rest
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a tool or API
+  pivots:
+  - id: speech-cli
+    title: CLI
+  - id: rest-api
+    title: REST
 - id: programming-languages-set-nineteen
   title: Programming languages
   prompt: Choose a programming language
@@ -1657,6 +1666,15 @@ groups:
     title: Azure portal
   - id: azure-cli
     title: Azure CLI
+# Owner: cebundy
+- id: container-apps-interface-types
+  title: Interaction type
+  prompt: Select how you want to interact with Azure
+  pivots:
+  - id: azure-portal
+    title: Azure portal
+  - id: command-line
+    title: Command Line
 # Owner: duau
 - id: front-door-tiers
   title: Front Door tiers
@@ -1822,6 +1840,15 @@ groups:
     title: On-premises management console
 # Owner: v-yilinhu
 - id: programming-languages-batch-linux-nodes
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+# Owner: maximrytych-ms
+- id: acs-programming-languages-csharp-python
   title: Programming languages
   prompt: Choose a programming language
   pivots:
