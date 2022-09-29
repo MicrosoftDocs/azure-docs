@@ -15,7 +15,7 @@ This article describes the kinds of Azure Monitor alerts you can create, and hel
 
 There are four types of alerts:
 - [Metric alerts](#metric-alerts)
-- [Prometheus metric alerts](#prometheus-alerts-preview)
+- [Prometheus alerts](#prometheus-alerts-preview)
 - [Log alerts](#log-alerts)
 - [Activity log alerts](#activity-log-alerts)
 - [Smart detection alerts](#smart-detection-alerts)
