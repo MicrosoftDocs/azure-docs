@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/15/2022
+ms.date: 09/29/2022
 ms.author: tamram
 ms.subservice: common
 ---
@@ -31,6 +31,7 @@ The Azure Storage platform includes the following data services:
 
 - [Azure Blobs](../blobs/storage-blobs-introduction.md): A massively scalable object store for text and binary data. Also includes support for big data analytics through Data Lake Storage Gen2.
 - [Azure Files](../files/storage-files-introduction.md): Managed file shares for cloud or on-premises deployments.
+- [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md): Fully managed, highly available with dual protocol support. 
 - [Azure Queues](../queues/storage-queues-introduction.md): A messaging store for reliable messaging between application components.
 - [Azure Tables](../tables/table-storage-overview.md): A NoSQL store for schemaless storage of structured data.
 - [Azure Disks](../../virtual-machines/managed-disks-overview.md): Block-level storage volumes for Azure VMs.
@@ -43,11 +44,12 @@ Azure provides a variety of storage tools and services, including Azure Storage.
 
 ## Sample scenarios for Azure Storage services
 
-The following table compares Files, Blobs, Disks, Queues, and Tables, and shows example scenarios for each.
+The following table compares Files, Azure NetApp Files, Blobs, Disks, Queues, and Tables, and shows example scenarios for each.
 
 | Feature | Description | When to use |
 |--------------|-------------|-------------|
 | **Azure Files** |Offers fully managed cloud file shares that you can access from anywhere via the industry standard Server Message Block (SMB) protocol.<br><br>You can mount Azure file shares from cloud or on-premises deployments of Windows, Linux, and macOS. | You want to "lift and shift" an application to the cloud that already uses the native file system APIs to share data between it and other applications running in Azure.<br/><br/>You want to replace or supplement on-premises file servers or NAS devices.<br><br> You want to store development and debugging tools that need to be accessed from many virtual machines. |
+| **Azure NetApp Files** | Offers a fully managed, highly available, enterprise-grade NAS service that can handle the most demanding, high-performance, low-latency workloads requiring advanced data management capabilities. Azure NetApp Files is built on NetApp's bare metal with ONTAP storage OS running inside the Azure datacenter for a consistent Azure experience and an on-premises like performance. | You have a difficult-to-migrate workload such as POSIX-compliant Linux and Windows applications, SAP HANA, databases, high-performance compute (HPC) infrastructure and apps, and enterprise web applications. <br></br> You require upport for multiple file-storage protocols in a single service, including NFSv3, NFSv4.1, and SMB3.1.x, enables a wide range of application lift-and-shift scenarios, with no need for code changes. |
 | **Azure Blobs** | Allows unstructured data to be stored and accessed at a massive scale in block blobs.<br/><br/>Also supports [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) for enterprise big data analytics solutions. | You want your application to support streaming and random access scenarios.<br/><br/>You want to be able to access application data from anywhere.<br/><br/>You want to build an enterprise data lake on Azure and perform big data analytics. |
 | **Azure Disks** | Allows data to be persistently stored and accessed from an attached virtual hard disk. | You want to "lift and shift" applications that use native file system APIs to read and write data to persistent disks.<br/><br/>You want to store data that is not required to be accessed from outside the virtual machine to which the disk is attached. |
 | **Azure Queues** | Allows for asynchronous message queueing between application components. | You want to decouple application components and use asynchronous messaging to communicate between them.<br><br>For guidance around when to use Queue storage versus Service Bus queues, see [Storage queues and Service Bus queues - compared and contrasted](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md). |
@@ -86,6 +88,14 @@ File shares can be used for many common scenarios:
 For more information about Azure Files, see [Introduction to Azure Files](../files/storage-files-introduction.md).
 
 Some SMB features are not applicable to the cloud. For more information, see [Features not supported by the Azure File service](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).
+
+## Azure NetApp Files
+
+[Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) is an enterprise-class, high-performance, metered file storage service. Azure NetApp Files supports any workload type and is highly available by default. You can select service and performance levels, create NetApp accounts, capacity pools, volumes, and manage data protection.
+
+For more information about Azure NetApp Files, refer to [Introduction to Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md).
+
+For a comparison of Azure Files and Azure NetApp Files, refer to [Azure Files and Azure NetApp Files comparison](../files/storage-files-netapp-comparison.md).
 
 ## Queue storage
 
