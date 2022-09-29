@@ -106,27 +106,6 @@ When  `--logs-destination` is set to `azure-monitor`, create diagnostic settings
 
 For more information about Azure Monitor diagnostic settings commands, see [az monitor diagnostic-settings](/cli/azure/monitor/diagnostic-settings).  Container Apps log categories are `ContainerAppConsoleLogs` and `ContainerAppSystemLogs`.
 
-TODO: Finish example.  Mike/Anthony, can you provide the CLI command arguments?  Do I need to add more example?  Is the information correct for the logs parameter?
-
-```azurecli
-For example, to create a diagnostic setting to send the container console logs category to a storage account: (Replace \<PLACEHOLDERS\> with your values:)
-
-```azurecli
-az monitor diagnostic-settings create \
-  --name my-diagnostics-setting \
-  --resource <RESOURCE_GROUP> \
-  --storage-account STORAGE_ACCOUNT_NAME>\
-  --logs  '[
-     {
-       "category": "ContainerAppConsoleLogs",
-       "enabled": true,
-       "retentionPolicy": {
-         "enabled": true,
-         "days": 0
-       }
-     }
-   ]'
-```
 
 ## Next steps
 
