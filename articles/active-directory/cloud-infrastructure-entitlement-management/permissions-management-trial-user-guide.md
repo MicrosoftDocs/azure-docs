@@ -1,5 +1,5 @@
 ---
-title: Trial Playbook - Microsoft Entra Permissions Management
+title: Trial User Guide - Microsoft Entra Permissions Management
 description: How to get started with your Entra Permissions free trial
 services: active-directory
 author: jenniferf-skc
@@ -11,11 +11,11 @@ ms.date: 09/01/2022
 ms.author: jfields
 ---
 
-# Trial playbook: Microsoft Entra Permissions Management
+# Trial user guide: Microsoft Entra Permissions Management
 
-Welcome to the Microsoft Entra Permissions Management trial playbook!
+Welcome to the Microsoft Entra Permissions Management trial user guide!
 
-This playbook is a simple guide to help you make the most of your free trial, including the Permissions Management Cloud Infrastructure Assessment to help you identify and remediate the most critical permission risks across your multicloud infrastructure. Using the suggested steps in this playbook from the Microsoft Identity team, you'll learn how Permissions Management can assist you to protect all your users and data.
+This user guide is a simple guide to help you make the most of your free trial, including the Permissions Management Cloud Infrastructure Assessment to help you identify and remediate the most critical permission risks across your multicloud infrastructure. Using the suggested steps in this user guide from the Microsoft Identity team, you'll learn how Permissions Management can assist you to protect all your users and data.
 
 ## What is Permissions Management? 
 
@@ -28,7 +28,7 @@ Permissions Management helps your organization tackle cloud permissions by enabl
 -   Enforce least privilege - Right-size permissions based on usage and activity and enforce permissions on-demand at cloud scale.
 -   Monitor and detect anomalies - Detect anomalous permission usage and generate detailed forensic reports.
 
-![Diagram, schematic Description automatically generated](media/permissions-management-trial-playbook/microsoft-entra-permissions-management-diagram.png)
+![Diagram, schematic Description automatically generated](media/permissions-management-trial-user-guide/microsoft-entra-permissions-management-diagram.png)
 
 
 ## Step 1: Set-up Permissions Management
@@ -182,23 +182,23 @@ Use the **Activity triggers** dashboard to view information and set alerts and t
 
         Example: Any activity done by root:
 
-        ![Diagram, Any activity done by root user in AWS.](media/permissions-management-trial-playbook/custom-alerts-1.png)
+        ![Diagram, Any activity done by root user in AWS.](media/permissions-management-trial-user-guide/custom-alerts-1.png)
 
         Alert for monitoring any direct Azure role assignment
 
-        ![Diagram, Alert for monitoring any direct Azure role assignment done by anyone other than Admin user.](media/permissions-management-trial-playbook/custom-alerts-2.png)
+        ![Diagram, Alert for monitoring any direct Azure role assignment done by anyone other than Admin user.](media/permissions-management-trial-user-guide/custom-alerts-2.png)
 
 -   Access to critical sensitive resources
 
     Example: Alert for monitoring any action on Azure resources
 
-    ![Diagram, Alert for monitoring any action on Azure resources.](media/permissions-management-trial-playbook/custom-alerts-3.png)
+    ![Diagram, Alert for monitoring any action on Azure resources.](media/permissions-management-trial-user-guide/custom-alerts-3.png)
 
 -   Use of break glass accounts like root in AWS, global admin in Azure AD accessing subscriptions, etc.
 
     Example: BreakGlass users should be used for emergency access only.
 
-    ![Diagram, Example of break glass account users used for emergency access only.](media/permissions-management-trial-playbook/custom-alerts-4.png)
+    ![Diagram, Example of break glass account users used for emergency access only.](media/permissions-management-trial-user-guide/custom-alerts-4.png)
 
 -  Create and view reports
 
