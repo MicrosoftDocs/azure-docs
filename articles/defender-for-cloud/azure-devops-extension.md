@@ -1,6 +1,6 @@
 ---
 title: Configure the Microsoft Security DevOps Azure DevOps extension
-description: Learn how to configure the Microsoft Security DevOps Azure Devops extension.
+description: Learn how to configure the Microsoft Security DevOps Azure DevOps extension.
 ms.date: 09/20/2022
 ms.topic: how-to
 ---
