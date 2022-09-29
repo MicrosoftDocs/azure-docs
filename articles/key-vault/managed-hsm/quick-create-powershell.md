@@ -17,7 +17,7 @@ In this quickstart, you will create and activate an Azure Key Vault Managed HSM 
 
 If you do not have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-The service is available in limited regions – To learn more about availability, please see [Azure Dedicated HSM purshase options](https://azure.microsoft.com/en-us/pricing/details/azure-dedicated-hsm).
+The service is available in limited regions – To learn more about availability, please see [Azure Dedicated HSM purshase options](https://azure.microsoft.com/pricing/details/azure-dedicated-hsm).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
