@@ -59,12 +59,16 @@ The following scenarios aren't supported:
 
 ## Supported browsers
 
-| Operating system |  Chrome certificate on-device   |  Chrome smart card   |   Safari certificate on-device  |   Safari  smart card |    Edge as Profile certificate on-device    |    Edge as Profile smart card    |   Edge as Browser  certificate on-device    |   Edge as Browser smart card    |      Android certificate on-device |      Android certificate smart card |
-|:-----------------|:----------:|:----------:|:----------:|:----------:|:-----------------|:----------:|:----------:|:----------:|:----------:|:----------:|
-| Windows          |  &#x2705;  |  &#x2705;  |  &#x2705;  |  &#x2705;  |     &#x2705;     |  &#x2705;  |  &#x2705;  |  &#x2705;  |     N/A    |    N/A     |
-| MacOS            |  &#x2705;  |  &#x2705;  |  &#x2705;  |  &#x2705;  |     &#x2705;     |  &#x2705;  |  &#x2705;  |  &#x2705;  |     N/A    |    N/A     |
-| iOS              |  &#10060;  |  &#10060;  |  &#x2705;  |  Supported vendors only  |     &#x2705;     |  Supported vendors only  |  &#10060;  |  &#10060;  |     N/A    |    N/A     |
-| Android          |  &#10060;  | &#10060;  |  &#10060;  |  &#10060;  |     &#x2705;     |  Supported vendors only  |   &#10060;  |   &#10060;  |    &#x2705;    |    Supported vendors only     |
+| Operating system |  Chrome certificate on-device   |  Chrome smart card   |   Safari certificate on-device  |   Safari  smart card |    Edge certificate on-device    |    Edge smart card    |
+|:-----------------|:----------:|:----------:|:----------:|:----------:|:-----------------|:----------:|
+| Windows          |  &#x2705;  |  &#x2705;  |  &#x2705;  |  &#x2705;  |     &#x2705;     |  &#x2705;  |  
+| MacOS            |  &#x2705;  |  &#x2705;  |  &#x2705;  |  &#x2705;  |     &#x2705;     |  &#x2705;  | 
+| iOS              |  &#10060;  |  &#10060;  |  &#x2705;  |  Supported vendors only  |      &#10060;     |  &#10060; |
+| Android          | &#x2705;  | &#10060;    |  N/A       | N/A        |    &#10060;     | &#10060;  |
+
+>[!NOTE]
+> On Edge, users can sign into edge to set up profile with MSAL like the Add account flow in profile. When logged into Edge with a profile, CBA is supported with 
+> on-device certificates and smart cards.
 
 ## Smart card providers
 
