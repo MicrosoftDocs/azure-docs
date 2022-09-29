@@ -14,6 +14,7 @@ Service Bus partitions enable queues and topics, or messaging entities, to be pa
 > - Partitioning is available at entity creation for namespaces in the Premium SKU. Any previously existing partitioned entities in Premium namespaces continue to work as expected.
 > - It's not possible to change the partitioning option on any existing namespace. You can only set the option when you create a namespace.
 > - The assigned messaging units are always a multiplier of the amount of partitions in a namespace, and are equally distributed across the partitions. For example, in a namespace with 16MU and 4 partitions, each partition will be assigned 4MU.
+> - Besides providing higher scalability, this feature will also provide better stability and reliability. As message retries are done on the different partitions, if a single partition is not reachable, for example due to upgrades, the next partition should work, meaning there is no downtime.
 
 > [!NOTE]
 > Some limitations may be encountered during public preview, which will be resolved before going into GA. 
