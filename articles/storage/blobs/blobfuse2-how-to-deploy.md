@@ -124,7 +124,7 @@ For details about all of the configuration parameters for BlobFuse2, consult the
 
 The basic steps for configuring BlobFuse2 in preparation for mounting are:
 
-1. [Configure a temporary path for caching or streaming](#configure-a-temporary-path-for-caching)
+1. [Configure a temporary path for caching or streaming](#configure-a-temporary-path-for-caching-or-streaming)
 1. [Create an empty directory for mounting the blob container](#create-an-empty-directory-for-mounting-the-blob-container)
 1. [Authorize access to your storage account](#authorize-access-to-your-storage-account)
 
