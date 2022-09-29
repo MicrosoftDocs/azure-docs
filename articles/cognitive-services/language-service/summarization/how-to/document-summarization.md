@@ -81,13 +81,15 @@ Using the above example, the API might return the following summarized sentences
 **Abstractive summarization**:
 - "Microsoft is taking a more holistic, human-centric approach to learning and understanding. We believe XYZ-code will enable us to fulfill our long-term vision: cross-domain transfer learning, spanning modalities and languages. Over the past five years, we have achieved human performance on benchmarks in."
 
-### Try extractive document summarization
+### Try document extractive summarization
 
-You can use extractive document summarization to get summaries of articles, papers, or documents. To see an example, see the [quickstart article](../quickstart.md).
+You can use document extractive summarization to get summaries of articles, papers, or documents. To see an example, see the [quickstart article](../quickstart.md).
 
-### Try abstractive document summarization
+### Try document abstractive summarization
 
-The following example will get you started with abstractive document summarization:
+[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2195178)
+
+The following example will get you started with document abstractive summarization:
 
 1. Copy the command below into a text editor. The BASH example uses the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character instead.
 
@@ -189,10 +191,6 @@ curl -X GET https://<your-language-resource-endpoint>/language/analyze-text/jobs
     }
 }
 ```
-
-# [Conversation summarization](#tab/conversation-summarization)
-
-[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2195178)
 
 |parameter  |Description  |
 |---------|---------|

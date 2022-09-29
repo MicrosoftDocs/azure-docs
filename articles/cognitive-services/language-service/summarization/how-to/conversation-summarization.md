@@ -22,21 +22,21 @@ ms.custom: language-service-summarization, ignite-fall-2021, event-tier1-build-2
 
 ## Conversation summarization types
 
+- Chapter title and narrative (general conversation) are designed to summarize a conversation into chapter titles, and a summarization of the conversation's contents. This summarization type works on conversations with any number of parties. 
+
 - Issues and resolution (call center focused) is designed to summarize text chat logs between customers and customer-service agents. This feature is capable of providing both issues and resolutions present in these logs, which occur between two parties. 
 
 :::image type="content" source="../media/conversation-summary-diagram.svg" alt-text="A diagram for sending data to the conversation summarization issues and resolution feature.":::
-
-- Narrative and chapter title (general conversation) are designed to summarize a conversation into chapter titles, and a summarization of the conversation's contents. This summarization type works on conversations with any number of parties. 
 
 The AI models used by the API are provided by the service, you just have to send content for analysis.
 
 ## Features
 
-The conversation summarization API uses natural language processing techniques to locate key issues and resolutions in text-based chat logs. Conversation summarization will return issues and resolutions found from the text input.
+The conversation summarization API uses natural language processing techniques to summarize conversations into shorter summaries per request. Conversation summarization can summarize for issues and resolutions discussed in a two-party conversation or summarize a long conversation into chapters and a short narrative for each chapter.
 
-There's another feature in Azure Cognitive Service for Language named [document summarization](../overview.md?tabs=document-summarization) that can summarize sentences from large documents. When you're deciding between document summarization and conversation summarization, consider the following points:
-* Extractive summarization returns sentences that collectively represent the most important or relevant information within the original content.
-* Conversation summarization returns summaries based on full chat logs including a reason for the chat (a problem), and the resolution. For example, a chat log between a customer and a customer service agent.
+There's another feature in Azure Cognitive Service for Language named [document summarization](../overview.md?tabs=document-summarization) that is more suitable to summarize documents into concise summaries. When you're deciding between document summarization and conversation summarization, consider the following points:
+* Input genre: Conversation summarization can operate on both chat text and speech transcripts. which have speakers and their utterances. Document summarization operations on text.
+* Purpose of summarization: for example, conversation issue and resolution summarization returns a reason and the resolution for a chat between a customer and a customer service agent.
 
 ## Submitting data
 
@@ -48,17 +48,17 @@ When you submit data to conversation summarization, we recommend sending one cha
 
 ### Get summaries from text chats
 
-You can use conversation summarization to get summaries from 2-person chats between customer service agents, and customers. To see an example using text chats, see the [quickstart article](../quickstart.md).
+You can use conversation issue and resolution summarization to get summaries as you need. To see an example using text chats, see the [quickstart article](../quickstart.md).
 
 ### Get summaries from speech transcriptions 
 
-Conversation summarization also enables you to get summaries from speech transcripts by using the [Speech service's speech-to-text feature](../../../Speech-Service/call-center-overview.md). The following example shows a short conversation that you might include in your API requests.
+Conversation issue and resolution summarization also enables you to get summaries from speech transcripts by using the [Speech service's speech-to-text feature](../../../Speech-Service/call-center-overview.md). The following example shows a short conversation that you might include in your API requests.
 
 ```json
 "conversations":[
    {
       "id":"abcdefgh-1234-1234-1234-1234abcdefgh",
-      "language":"En",
+      "language":"en",
       "modality":"transcript",
       "conversationItems":[
          {
@@ -383,11 +383,9 @@ Example JSON response:
 
 For long conversation, the model might segment it into multiple cohesive parts, and summarize each segment. There is also a lengthy `contexts` field for each summary, which tells from which range of the input conversation we generated the summary.
 
-## Getting conversation summarization results
+## Getting conversation issue and resolution summarization results
 
-[!INCLUDE [availability](../includes/regional-availability.md)]
-
-The following text is an example of content you might submit for summarization. This is only an example, the API can accept much longer input text. See [data limits](../../concepts/data-limits.md) for more information.
+The following text is an example of content you might submit for conversation issue and resolution summarization. This is only an example, the API can accept much longer input text. See [data limits](../../concepts/data-limits.md) for more information.
  
 **Agent**: "*Hello, how can I help you*?"
 
@@ -403,7 +401,6 @@ In the above example, the API might return the following summarized sentences:
 |---------|----|
 |  "Customer wants to upgrade their subscription. Customer doesn't know how."       | issue  |
 | "Customer needs to press upgrade button, and sign in."     | resolution |
-
 
 ## See also
 

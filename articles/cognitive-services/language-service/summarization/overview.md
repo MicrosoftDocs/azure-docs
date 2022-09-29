@@ -40,24 +40,24 @@ There are two types of document summarization this API provides:
     * Multiple returned sentences: Determine the maximum number of sentences to be returned. For example, if you request a three-sentence summary extractive summarization will return the three highest scored sentences.
     * Positional information: The start position and length of extracted sentences.
 * **Abstractive summarization**: Generates a summary that may not use the same words as those in the document, but captures the main idea.
-    * Single returned sentences: Abstractive summarization returns a single sentence that summarizes the entire text within the document. 
-    * Contextual input range: The range of the input document that was used to generated the summary.
+    * Summary texts: Abstractive summarization returns a summary for each contextual input range within the document. A long document may be segmented so multiple groups of summary texts may be returned with their contextual input range. 
+    * Contextual input range: The range within the input document that was used to generate the summary text.
 
 As an example, consider the following paragraph of text:
 
-*"Document summarization uses natural language processing techniques to generate a summary for documents. There are two general approaches to automatic summarization, extractive and abstractive. Extractive summarization extracts sentences that collectively represent the most important or relevant information within the original content, and abstractive summarization generates a summary with concise, coherent sentences or words which is not simply extract sentences from the original document. These features are designed to shorten content that could be considered too long to read."*
+*"At Microsoft, we have been on a quest to advance AI beyond existing techniques, by taking a more holistic, human-centric approach to learning and understanding. As Chief Technology Officer of Azure AI Cognitive Services, I have been working with a team of amazing scientists and engineers to turn this quest into a reality. In my role, I enjoy a unique perspective in viewing the relationship among three attributes of human cognition: monolingual text (X), audio or visual sensory signals, (Y) and multilingual (Z). At the intersection of all three, there’s magic—what we call XYZ-code as illustrated in Figure 1—a joint representation to create more powerful AI that can speak, hear, see, and understand humans better. We believe XYZ-code will enable us to fulfill our long-term vision: cross-domain transfer learning, spanning modalities and languages. The goal is to have pre-trained models that can jointly learn representations to support a broad range of downstream AI tasks, much in the way humans do today. Over the past five years, we have achieved human performance on benchmarks in conversational speech recognition, machine translation, conversational question answering, machine reading comprehension, and image captioning. These five breakthroughs provided us with strong signals toward our more ambitious aspiration to produce a leap in AI capabilities, achieving multi-sensory and multilingual learning that is closer in line with how humans learn and understand. I believe the joint XYZ-code is a foundational component of this aspiration, if grounded with external knowledge sources in the downstream AI tasks."*
 
-The document summarization feature would simplify the text into the following key sentences:
+he document summarization API request is processed upon receipt of the request by creating a job for the API backend. If the job succeeded, the output of the API will be returned. The output will be available for retrieval for 24 hours. After this time, the output is purged. Due to multilingual and emoji support, the response may contain text offsets. See [how to process offsets](https://learn.microsoft.com/en-us/azure/cognitive-services/language-service/concepts/multilingual-emoji-support) for more information.
+
+Using the above example, the API might return the following summarized sentences:
 
 **Extractive summarization**:
-- "Document summarization uses natural language processing techniques to generate a summary for documents."
-- "There are two general approaches to auto summarization, extractive and abstractive."
-- "Extractive summarization extracts sentences that collectively represent the most important or relevant information within the original content and abstractive summarization generates a summary with concise, coherent sentences or words words which is not simply extract sentences from the original document."
+- "At Microsoft, we have been on a quest to advance AI beyond existing techniques, by taking a more holistic, human-centric approach to learning and understanding."
+- "We believe XYZ-code will enable us to fulfill our long-term vision: cross-domain transfer learning, spanning modalities and languages."
+- "The goal is to have pre-trained models that can jointly learn representations to support a broad range of downstream AI tasks, much in the way humans do today."
 
 **Abstractive summarization**:
-- "Document summarization uses natural language processing techniques to generate a summary for documents."
-- "There are two general approaches to auto summarization, extractive and abstractive."
-- "These features are designed to shorten content that could be considered too long to read."
+- "Microsoft is taking a more holistic, human-centric approach to learning and understanding. We believe XYZ-code will enable us to fulfill our long-term vision: cross-domain transfer learning, spanning modalities and languages. Over the past five years, we have achieved human performance on benchmarks in."
 
 # [Conversation summarization](#tab/conversation-summarization)
 
@@ -77,7 +77,7 @@ Conversation summarization supports the following features:
 * **Chapter title summarization**: Gives suggested chapter titles of the input conversation.
 * **Narrative summarization**: Gives call notes, meeting notes or chat summaries of the input conversation.
 
-## When to use issue resolution summarization
+## When to use issue and resolution summarization
 
 * When there are aspects of an “issue” and “resolution”, such as:
    * The reason for a service chat/call (the issue).
@@ -155,7 +155,7 @@ As you use document summarization in your applications, see the following refere
 
 |Development option / language  |Reference documentation |Samples  |
 |---------|---------|---------|
-|REST API     | [REST API documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Analyze)        |         |
+|REST API     | [REST API documentation](https://go.microsoft.com/fwlink/?linkid=2195178)        |         |
 |C#     | [C# documentation](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)        | [C# samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)        |
 | Java     | [Java documentation](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true)        | [Java Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples) |
 |JavaScript     | [JavaScript documentation](/javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true)        | [JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/textanalytics/ai-text-analytics/samples/v5) |

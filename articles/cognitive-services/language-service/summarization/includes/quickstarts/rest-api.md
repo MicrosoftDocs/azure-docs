@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 # [Document summarization](#tab/document-summarization)
 
-[Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Analyze)
+[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2195178)
 
 # [Conversation summarization](#tab/conversation-summarization)
 
@@ -51,7 +51,7 @@ Choose the type of summarization you would like to perform, and select one of th
 
 # [Document summarization](#tab/document-summarization)
 
-[Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/)
+[Reference documentation](https://go.microsoft.com/fwlink/?linkid=2195178)
 
 |parameter  |Description  |
 |---------|---------|
@@ -64,9 +64,9 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 
 ## Document summarization
 
-### Extractive document summarization example
+### Document extractive summarization example
 
-The following example will get you started with extractive document summarization:
+The following example will get you started with document extractive summarization:
 
 1. Copy the command below into a text editor. The BASH example uses the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character instead.
 
@@ -124,7 +124,7 @@ curl -X GET https://<your-language-resource-endpoint>/language/analyze-text/jobs
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Document-summarization" target="_target">I ran into an issue</a>
 
-### Extractive document summarization example JSON response
+### Document extractive summarization example JSON response
 
 ```json
 {
@@ -202,85 +202,90 @@ curl -X GET https://<your-language-resource-endpoint>/language/analyze-text/jobs
 
 # [Conversation summarization](#tab/conversation-summarization)
 
-## Issue resolution Conversation summarization
+## Conversation issue and resolution summarization
 
-The following example will get you started with issue resolution conversation summarization:
+The following example will get you started with conversation issue and resolution summarization:
 
 1. Copy the command below into a text editor. The BASH example uses the `\` line continuation character. If your console or terminal uses a different line continuation character, use that character instead.
 
 ```bash
-curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conversations/jobs?api-version=2022-05-15-preview \
+curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conversations/jobs?api-version=2022-10-01-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-language-resource-key>" \
 -d \
 ' 
 {
-    "displayName": "Analyze conversations from 123",
-    "analysisInput": {
-        "conversations": [
-            {
-                "modality": "text",
-                "id": "conversation1",
-                "language": "en",
-                "conversationItems": [
-                    {
-                        "text": "Hello, you’re chatting with Rene. How may I help you?",
-                        "id": "1",
-                        "role": "Agent",
-                        "participantId": "Agent_1"
-                    },
-                    {
-                        "text": "Hi, I tried to set up wifi connection for Smart Brew 300 espresso machine, but it didn’t work.",
-                        "id": "2",
-                        "role": "Customer",
-                        "participantId": "Customer_1"
-                    },
-                    {
-                        "text": "I’m sorry to hear that. Let’s see what we can do to fix this issue. Could you please try the following steps for me? First, could you push the wifi connection button, hold for 3 seconds, then let me know if the power light is slowly blinking on and off every second?",
-                        "id": "3",
-                        "role": "Agent",
-                        "participantId": "Agent_1"
-                    },
-                    {
-                        "text": "Yes, I pushed the wifi connection button, and now the power light is slowly blinking.",
-                        "id": "4",
-                        "role": "Customer",
-                        "participantId": "Customer_1"
-                    },
-                    {
-                        "text": "Great. Thank you! Now, please check in your Contoso Coffee app. Does it prompt to ask you to connect with the machine?",
-                        "id": "5",
-                        "role": "Agent",
-                        "participantId": "Agent_1"
-                    },
-                    {
-                        "text": "No. Nothing happened.",
-                        "id": "6",
-                        "role": "Customer",
-                        "participantId": "Customer_1"
-                    },
-                    {
-                        "text": "I’m very sorry to hear that. Let me see if there’s another way to fix the issue. Please hold on for a minute.",
-                        "id": "7",
-                        "role": "Agent",
-                        "participantId": "Agent_1"
-                    }
-                ]
-            }
-        ]
-    },
-    "tasks": [
-        {
-            "taskName": "analyze 1",
-            "kind": "ConversationalSummarizationTask",
-            "parameters": {
-                "summaryAspects": [
-                    "Issue",
-                    "Resolution"
-                ]
-            }
-        }
+  "displayName": "Conversation Task Example",
+  "analysisInput": {
+    "conversations": [
+      {
+        "conversationItems": [
+          {
+            "text": "Hello, you’re chatting with Rene. How may I help you?",
+            "id": "1",
+            "role": "Agent",
+            "participantId": "Agent_1"
+          },
+          {
+            "text": "Hi, I tried to set up wifi connection for Smart Brew 300 espresso machine, but it didn’t work.",
+            "id": "2",
+            "role": "Customer",
+            "participantId": "Customer_1"
+          },
+          {
+            "text": "I’m sorry to hear that. Let’s see what we can do to fix this issue. Could you please try the following steps for me? First, could you push the wifi connection button, hold for 3 seconds, then let me know if the power light is slowly blinking on and off every second?",
+            "id": "3",
+            "role": "Agent",
+            "participantId": "Agent_1"
+          },
+          {
+            "text": "Yes, I pushed the wifi connection button, and now the power light is slowly blinking.",
+            "id": "4",
+            "role": "Customer",
+            "participantId": "Customer_1"
+          },
+          {
+            "text": "Great. Thank you! Now, please check in your Contoso Coffee app. Does it prompt to ask you to connect with the machine? ",
+            "id": "5",
+            "role": "Agent",
+            "participantId": "Agent_1"
+          },
+          {
+            "text": "No. Nothing happened.",
+            "id": "6",
+            "role": "Customer",
+            "participantId": "Customer_1"
+          },
+          {
+            "text": "I’m very sorry to hear that. Let me see if there’s another way to fix the issue. Please hold on for a minute.",
+            "id": "7",
+            "role": "Agent",
+            "participantId": "Agent_1"
+          }
+        ],
+        "modality": "text",
+        "id": "conversation1",
+        "language": "en"
+      }
     ]
+  },
+  "tasks": [
+    {
+      "taskName": "Conversation Task 1",
+      "kind": "ConversationalSummarizationTask",
+      "parameters": {
+        "summaryAspects": ["issue"]
+      }
+    },
+    {
+      "taskName": "Conversation Task 2",
+      "kind": "ConversationalSummarizationTask",
+      "parameters": {
+        "summaryAspects": ["resolution"],
+        "sentenceCount": 1
+      }
+    }
+  ]
 }
 '
 ```
@@ -295,13 +300,13 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conve
 5. Get the `operation-location` from the response header. The value will look similar to the following URL:
 
 ```http
-https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678
+https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678?api-version=2022-10-01-preview
 ```
 
 6. To get the results of the request, use the following cURL command. Be sure to replace `<my-job-id>` with the numerical ID value you received from the previous `operation-location` response header:
 
 ```bash
-curl -X GET    https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/my-job-id \
+curl -X GET https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/<my-job-id>?api-version=2022-10-01-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: <your-language-resource-key>"
 ```
@@ -309,51 +314,69 @@ curl -X GET    https://<your-language-resource-endpoint>/language/analyze-conver
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Summarization&Page=quickstart&Section=Conversation-summarization" target="_target">I ran into an issue</a>
 
-### Issue resolution conversation summarization example JSON response
+### Conversation issue and resolution summarization example JSON response
 
 ```json
 {
-    "jobId": "738120e1-7987-4d19-af0c-89d277762a2f",
-    "lastUpdatedDateTime": "2022-05-31T16:52:59Z",
-    "createdDateTime": "2022-05-31T16:52:51Z",
-    "expirationDateTime": "2022-06-01T16:52:51Z",
-    "status": "succeeded",
-    "errors": [],
-    "displayName": "Analyze conversations from 123",
-    "tasks": {
-        "completed": 1,
-        "failed": 0,
-        "inProgress": 0,
-        "total": 1,
-        "items": [
+  "jobId": "02ec5134-78bf-45da-8f63-d7410291ec40",
+  "lastUpdatedDateTime": "2022-09-29T17:43:02Z",
+  "createdDateTime": "2022-09-29T17:43:01Z",
+  "expirationDateTime": "2022-09-30T17:43:01Z",
+  "status": "succeeded",
+  "errors": [],
+  "displayName": "Conversation Task Example",
+  "tasks": {
+    "completed": 2,
+    "failed": 0,
+    "inProgress": 0,
+    "total": 2,
+    "items": [
+      {
+        "kind": "conversationalSummarizationResults",
+        "taskName": "Conversation Task 1",
+        "lastUpdateDateTime": "2022-09-29T17:43:02.3584219Z",
+        "status": "succeeded",
+        "results": {
+          "conversations": [
             {
-                "kind": "conversationalSummarizationResults",
-                "taskName": "analyze 1",
-                "lastUpdateDateTime": "2022-05-31T16:52:59.85913Z",
-                "status": "succeeded",
-                "results": {
-                    "conversations": [
-                        {
-                            "id": "conversation1",
-                            "summaries": [
-                                {
-                                    "aspect": "issue",
-                                    "text": "Customer tried to set up wifi connection for Smart Brew 300 machine, but it didn't work"
-                                },
-                                {
-                                    "aspect": "resolution",
-                                    "text": "Asked customer to try the following steps | Asked customer for the power light | Checked if the app is prompting to connect to the machine | Transferred the call to a tech support"
-                                }
-                            ],
-                            "warnings": []
-                        }
-                    ],
-                    "errors": [],
-                    "modelVersion": "2022-05-15-preview"
+              "summaries": [
+                {
+                  "aspect": "issue",
+                  "text": "Customer wants to connect their Smart Brew 300 to their Wi-Fi. | The Wi-Fi connection didn't work."
                 }
+              ],
+              "id": "conversation1",
+              "warnings": []
             }
-        ]
-    }
+          ],
+          "errors": [],
+          "modelVersion": "latest"
+        }
+      },
+      {
+        "kind": "conversationalSummarizationResults",
+        "taskName": "Conversation Task 2",
+        "lastUpdateDateTime": "2022-09-29T17:43:02.2099663Z",
+        "status": "succeeded",
+        "results": {
+          "conversations": [
+            {
+              "summaries": [
+                {
+                  "aspect": "resolution",
+                  "text": "Asked customer to check if the power light is blinking on and off every second."
+                }
+              ],
+              "id": "conversation1",
+              "warnings": []
+            }
+          ],
+          "errors": [],
+          "modelVersion": "latest"
+        }
+      }
+    ]
+  }
 }
 ```
 
