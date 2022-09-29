@@ -64,8 +64,6 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 
 ## Document summarization
 
-[!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
-
 ### Extractive document summarization example
 
 The following example will get you started with extractive document summarization:
@@ -205,8 +203,6 @@ curl -X GET https://<your-language-resource-endpoint>/language/analyze-text/jobs
 # [Conversation summarization](#tab/conversation-summarization)
 
 ## Issue resolution Conversation summarization
-
-[!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
 
 The following example will get you started with issue resolution conversation summarization:
 
