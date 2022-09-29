@@ -115,6 +115,7 @@ You can create multiple Data Collection Rules that point to the same Data Collec
         }
       }
   ```
+  Similar to the regular Resource Manager onboarding process, the `Monitoring Data Reader` role will need to be assigned for every Azure Monitor workspace linked to Grafana. This will allow the Azure Managed Grafana resource to read data from the Azure Monitor workspace and is a requirement for viewing the metrics.
 
 ## Send different metrics to different Azure Monitor workspaces
 
