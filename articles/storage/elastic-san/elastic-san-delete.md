@@ -13,7 +13,7 @@ ms.subservice: elastic-san
 
 In order to delete an elastic storage area network (SAN), you first need to disconnect every volume in your Elastic SAN (preview) from any connected hosts.
 
-You can disconnect a volume from a connected host with the iSCSI disconnect command.
+You can disconnect a volume from a connected host with the `Iscsicli logouttarget` and `iscsicli RemoveTargetPortal` commands.
 
 When your SAN has no active connections, you may delete it using the Azure portal or Azure PowerShell module.
 
