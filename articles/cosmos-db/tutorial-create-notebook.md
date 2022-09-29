@@ -19,8 +19,6 @@ This article describes how to use built-in Jupyter notebooks to import sample re
 
 ## Prerequisites
 
-- [Enable notebooks on an Azure Cosmos account](enable-notebooks.md)
-
 ## Create the resources and import data
 
 In this section, you will create the Azure Cosmos database, container, and import the retail data to the container.

@@ -250,7 +250,7 @@
     - name: Jupyter notebooks
       items:
         - name: Overview
-          href: ../notebooks.md
+          href: ../notebooks-overview.md
         - name: FAQ
           href: ../notebooks-faq.yml
 - name: How to
