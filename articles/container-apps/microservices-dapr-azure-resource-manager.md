@@ -342,4 +342,5 @@ Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
 
 ## Next steps
 
-> [!div class="nextstepaction"] > [Application lifecycle management](application-lifecycle-management.md)
+> [!div class="nextstepaction"]
+> [Application lifecycle management](application-lifecycle-management.md)
