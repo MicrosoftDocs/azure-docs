@@ -57,7 +57,7 @@ For private workspace and VNET scenarios, check [Use network isolation with mana
 
 ## Not supported
 1. [EncryptionProperties](/python/api/azureml-core/azureml.core.webservice.aci.encryptionproperties) for ACI container is not supported.
-2. ACI webservices deployed through deploy_from_model and deploy_from_image are not supported by the migration tool, redeploy manually through CLI/SDK V2.
++ ACI webservices deployed through deploy_from_model and deploy_from_image isn't supported by the migration tool. Redeploy manually through CLI/SDK V2.
 
 ## Migration Steps
 
