@@ -54,7 +54,7 @@ sections:
       - question: |
           Is there a tutorial on how to use the notebook feature in Azure Cosmos DB, see [Jupyter Notebooks in Azure Cosmos DB (preview)](notebooks-overview.md)
         answer: |
-          To create your first Jupyter Notebook in Azure Cosmos DB, see [Tutorial: Create a Jupyter Notebook in Azure Cosmos DB to analyze and visualize data (preview)](tutorial-create-notebook.md).
+          To create your first Jupyter Notebook in Azure Cosmos DB SQL API, see [Tutorial: Create a Jupyter Notebook in Azure Cosmos DB SQL API to analyze and visualize data (preview)](sql/tutorial-create-notebook.md).
   - name: Persistence
     questions:
       - question: |

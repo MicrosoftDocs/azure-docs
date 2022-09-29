@@ -101,5 +101,5 @@ You can import the data from Azure Cosmos containers or the results of queries i
 
 To get started with built-in Jupyter Notebooks in Azure Cosmos DB, see the following articles:
 
-- [Create your first notebook in an Azure Cosmos DB account](tutorial-create-notebook.md)
+- [Create your first notebook in an Azure Cosmos DB SQL API account](sql/tutorial-create-notebook.md)
 - [Review the FAQ on Jupyter Notebook support](notebooks-faq.yml)

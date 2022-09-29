@@ -26,7 +26,7 @@
     - name: 3 - Distribute data globally
       href: tutorial-global-distribution-table.md
     - name: Create Jupyter notebooks
-      href: ../tutorial-create-notebook.md
+      href: ../sql/tutorial-create-notebook.md
 - name: Samples
   items:
     - name: .NET

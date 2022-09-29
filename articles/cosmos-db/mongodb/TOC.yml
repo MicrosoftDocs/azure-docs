@@ -59,7 +59,7 @@
     - name: 3 - Distribute data globally
       href: tutorial-global-distribution-mongodb.md
     - name: Create Jupyter notebooks
-      href: ../tutorial-create-notebook.md
+      href: ../sql/tutorial-create-notebook.md
 - name: Samples
   items:
     - name: Azure CLI

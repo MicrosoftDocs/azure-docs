@@ -38,7 +38,7 @@
       displayName: import
       href: migrate-data.md
     - name: Create Jupyter notebooks
-      href: ../tutorial-create-notebook.md
+      href: ../sql/tutorial-create-notebook.md
 - name: Samples
   items:
     - name: Azure CLI
