@@ -232,6 +232,8 @@ items:
         items:
         - name: Default configuration
           href: essentials/prometheus-metrics-scrape-default.md
+        - name: High scale
+          href: essentials/prometheus-metrics-scrape-scale.md
         - name: Custom configuration
           href: essentials/prometheus-metrics-scrape-configuration.md
         - name: Create and validate custom scrape config
