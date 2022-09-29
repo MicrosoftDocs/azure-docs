@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli, devplatv2
 
 # Upgrade to v2
 
-Azure Machine Learning's v2 REST APIs, Azure CLI extension, and Python SDK (preview) introduce consistency and a set of new features to accelerate the production machine learning lifecycle. This article provides an overview of upgrading to v2 with recommendations to help you decide on v1, v2, or both.
+Azure Machine Learning's v2 REST APIs, Azure CLI extension, and Python SDK introduce consistency and a set of new features to accelerate the production machine learning lifecycle. This article provides an overview of upgrading to v2 with recommendations to help you decide on v1, v2, or both.
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ Optionally, if you want to upgrade specific parts of your existing code to v2, p
 
 ## Which v2 API should I use?
 
-In v2 interfaces via REST API, CLI, and Python SDK (preview) are available. The interface you should use depends on your scenario and preferences.
+In v2 interfaces via REST API, CLI, and Python SDK are available. The interface you should use depends on your scenario and preferences.
 
 |API|Notes|
 |-|-|
