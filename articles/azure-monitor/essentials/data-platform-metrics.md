@@ -25,11 +25,11 @@ There are multiple types of metrics supported by Azure Monitor Metrics:
 - Native metrics use tools in Azure Monitor for analysis and alerting.
   - Platform metrics are collected from Azure resources. They require no configuration and have no cost.
   - Custom metrics are collected from different sources that you configure including applications and agents running on virtual machines.
-- Prometheus metrics (preview) are collected from Kubernetes clusters including Azure Kubernets service (AKS) and use industry standard tools for analyzing and alerting such as PromQL and Grafana.
+- Prometheus metrics (preview) are collected from Kubernetes clusters including Azure Kubernetes service (AKS) and use industry standard tools for analyzing and alerting such as PromQL and Grafana.
 
 ![Diagram that shows sources and uses of metrics.](media/data-platform-metrics/metrics-overview.png)
 
-The differences between each of the metrics is summarized in the following table.
+The differences between each of the metrics are summarized in the following table.
 
 | Category | Native platform metrics | Native custom metrics | Prometheus metrics |
 |:---|:---|:---|:---|
