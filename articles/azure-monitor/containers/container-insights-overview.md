@@ -24,7 +24,7 @@ Container insights deliver a comprehensive monitoring experience to understand t
 - Review the resource utilization of workloads running on the host that are unrelated to the standard processes that support the pod.
 - Identify capacity needs and determine the maximum load that the cluster can sustain by understanding the behavior of the cluster under average and heaviest loads.
 - Configure alerts to proactively notify you or record when CPU and memory utilization on nodes or containers exceed your thresholds, or when a health state change occurs in the cluster at the infrastructure or nodes health rollup.
-- Integrate with [Prometheus](https://prometheus.io/docs/introduction/overview/) to view application and workload metrics it collects from nodes and Kubernetes by using [queries](container-insights-log-query.md) to create custom alerts and dashboards and perform detailed analysis.
+- Integrate with [Prometheus](https://aka.ms/azureprometheus-promio-docs) to view application and workload metrics it collects from nodes and Kubernetes by using [queries](container-insights-log-query.md) to create custom alerts and dashboards and perform detailed analysis.
 
 
 The following video provides an intermediate-level deep dive to help you learn about monitoring your AKS cluster with Container insights. The video refers to *Azure Monitor for Containers*, which is the previous name for *Container insights*.
@@ -50,7 +50,6 @@ Container insights supports clusters running the Linux and Windows Server 2019 o
 
 >[!NOTE]
 > Container insights support for Windows Server 2022 operating system and AKS for ARM nodes is in public preview.
-
 
 ## Next steps
 

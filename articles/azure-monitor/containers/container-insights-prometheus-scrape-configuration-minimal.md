@@ -10,7 +10,7 @@ ms.reviewer: aul
 When Prometheus metric scraping is enabled for a cluster in Container insights, it collects a minimal amount of data by default. This helps reduce ingestion volume of series/metrics used by default dashboards, default recording rules & default alerts. This article describes how this setting is configured and how you can modify it to collect additional data.
 
 ## Configuration setting
-The setting `default-targets-metrics-keep-list.minimalIngestionProfile="true"` is enabled by default on the metrics addon. You can specify this setting in [ama-metrics-settings-configmap](https://github.com/Azure/prometheus-collector/blob/main/otelcollector/configmaps/ama-metrics-settings-configmap.yaml) under default-targets-metrics-keep-list section. 
+The setting `default-targets-metrics-keep-list.minimalIngestionProfile="true"` is enabled by default on the metrics addon. You can specify this setting in [ama-metrics-settings-configmap](https://aka.ms/azureprometheus-addon-settings-configmap) under default-targets-metrics-keep-list section. 
 
 ## Scenarios
 

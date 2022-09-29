@@ -154,8 +154,8 @@ The `rules` section will have the following properties for alerting rules.
 | `rules.action[].actionGroupId` | false | string | One or more action group resource IDs. Each is activated when an alert is fired. |
 ## Reference
 
-- [Recording rules](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/#defining-recording-rules)
-- [Alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/)
+- [Recording rules](https://aka.ms/azureprometheus-promio-recrules)
+- [Alerting rules](https://aka.ms/azureprometheus-promio-alertrules)
 
 
 

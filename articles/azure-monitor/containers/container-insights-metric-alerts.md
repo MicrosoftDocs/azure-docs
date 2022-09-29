@@ -33,8 +33,8 @@ The only method currently available for creating Prometheus metric alert rules i
 
 1. Download the template that includes the set of alert rules that you want to enable. See [Alert rule details](#alert-rule-details) for a listing of the rules for each.
 
-   - [Community alerts](https://github.com/Azure/prometheus-collector/blob/main/GeneratedMonitoringArtifacts/Default/DefaultAlerts.json)
-   - [Recommended alerts](https://github.com/Azure/prometheus-collector/blob/main/mixins/kubernetes/rules/recording_and_alerting_rules/templates/ci_recommended_alerts.json).
+   - [Community alerts](https://aka.ms/azureprometheus-communityalerts)
+   - [Recommended alerts](https://aka.ms/azureprometheus-recommendedalerts)
 
 2. Deploy the template using any standard methods for installing Resource Manager templates. See [Resource Manager template samples for Azure Monitor](../resource-manager-samples.md) for guidance.
 
@@ -192,7 +192,7 @@ The following metrics have unique behavior characteristics:
 
 
 ### Community alert rules
-These are hand-picked alerts from Prometheus community. Source code for these mixin alerts can be found in [GitHub](https://github.com/Azure/prometheus-collector/tree/main/mixins).
+These are hand-picked alerts from Prometheus community. Source code for these mixin alerts can be found in [GitHub](https://aka.ms/azureprometheus-mixins).
 
 - KubeJobNotCompleted
 - KubeJobFailed
