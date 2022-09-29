@@ -57,7 +57,7 @@ The vmImageResourceId will be passed along to the VM ScaleSet as image reference
  
 Auto OS upgrade is also supported for custom image. To enable auto OS upgrade, the node type must not be pinned to a specific image version, i.e. must use a gallery image (Microsoft.Compute/galleries/images), for example:
  
-/subscriptions/<subscriptionID>/resourceGroups/<myRG>/providers/Microsoft.Compute/galleries/<CustomImageGallery>/images/<CustomImageDef>
+`/subscriptions/<subscriptionID>/resourceGroups/<myRG>/providers/Microsoft.Compute/galleries/<CustomImageGallery>/images/<CustomImageDef>`
  
 When node type is created with this as vmImageResourceId and the cluster has [auto OS upgrade](how-to-managed-cluster-upgrades.md) enabled, SFMC will monitor the published versions for this image definition and if any new version is published, start to reimage the VM ScaleSets created with this image definition which will bring them to the latest version.
 
