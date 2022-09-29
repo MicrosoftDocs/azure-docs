@@ -223,7 +223,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
-    The following code snippet demonstrates how to get the container registry information using the [Azure Machine Learning SDK](/python/api/overview/azure/ml/):
+    The following code snippet demonstrates how to get the container registry information using the [Azure Machine Learning SDK](/python/api/overview/azure/ai-ml-readme):
 
    ```python
     # import required libraries
@@ -276,7 +276,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     # [Python SDK](#tab/python)
 
-    The following code snippet demonstrates how to update the workspace to set a build compute using the [Azure Machine Learning SDK](/python/api/overview/azure/ml/). Replace `mycomputecluster` with the name of the cluster to use:
+    The following code snippet demonstrates how to update the workspace to set a build compute using the [Azure Machine Learning SDK](/python/api/overview/azure/ai-ml-readme). Replace `mycomputecluster` with the name of the cluster to use:
 
     [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
@@ -304,7 +304,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
     ```
 
     
-    For more information, see the [update()](/python/api/azureml-core/azureml.core.workspace.workspace#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) method reference.
+    For more information, see the [begin_update](/python/api/azure-ai-ml/azure.ai.ml.operations.workspaceoperations#azure-ai-ml-operations-workspaceoperations-begin-update) method reference.
 
     # [Portal](#tab/portal)
 
