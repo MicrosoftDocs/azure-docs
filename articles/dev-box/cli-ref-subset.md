@@ -15,12 +15,34 @@ In addition to the Azure admin portal and the Dev Box user portal, you can use D
 
 ## Setup
 
-1. [Download and install the Azure CLI](/cli/azure/install-azure-cli)
+1. Download and install the [Azure CLI](/cli/azure/install-azure-cli).
 
-2. Install the Microsoft Dev Box AZ CLI extension -
+2. Install the Microsoft Dev Box AZ CLI extension:
+    #### [Install by using a PowerShell script](#tab/Option1/)
+ 
+    Using <https://aka.ms/DevCenter/Install-DevCenterCli.ps1> uninstalls any existing Microsoft Dev Box CLI extension and installs the latest version.
 
-    **Option 1**:
-    using <https://aka.ms/DevCenter/Install-DevCenterCli.ps1> uninstalls any existing Microsoft Dev Box CLI extension and installs the latest version.
+    ```azurepowershell
+    write-host "Setting Up DevCenter CLI"
+    
+    # Get latest version
+    $indexResponse = Invoke-WebRequest -Method Get -Uri "https://fidalgosetup.blob.core.windows.net/cli-extensions/index.json" -UseBasicParsing
+    $index = $indexResponse.Content | ConvertFrom-Json
+    $versions = $index.extensions.devcenter
+    $latestVersion = $versions[0]
+    if ($latestVersion -eq $null) {
+        throw "Could not find a valid version of the CLI."
+    }
+    
+    # remove existing
+    write-host "Attempting to remove existing CLI version (if any)"
+    az extension remove -n devcenter
+    
+    # Install new version
+    $downloadUrl = $latestVersion.downloadUrl
+    write-host "Installing from url " $downloadUrl
+    az extension add --source=$downloadUrl -y
+    ```
 
     To execute the script directly in PowerShell:
 
@@ -28,13 +50,17 @@ In addition to the Azure admin portal and the Dev Box user portal, you can use D
    iex "& { $(irm https://aka.ms/DevCenter/Install-DevCenterCli.ps1 ) }"
    ```
 
-    > Note - Ensure 'source' in above command is pointed to the downloaded file
+    The final line of the script enables you to specify the location of the source file to download. If you want to access the file from a different location, update 'source' in the script to point to the downloaded file in the new location.
 
-    **Option 2**: manually run this command in the CLI
+    #### [Install manually](#tab/Option2/)
+  
+    Manually run this command in the CLI:
 
     ```azurecli
     az extension add --source https://fidalgosetup.blob.core.windows.net/cli-extensions/devcenter-0.1.0-py3-none-any.whl
     ```
+
+    ---
 
 3. Log in to Azure CLI with your work account.
 
