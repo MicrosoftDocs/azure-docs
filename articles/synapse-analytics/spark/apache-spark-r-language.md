@@ -14,7 +14,7 @@ ms.date: 09/27/2022
 
 Azure Synapse Analytics provides built-in R support for Apache Spark. As part of this, data scientists can leverage Azure Synapse Analytics notebooks to write and run their R code. This also includes support for [SparkR](https://spark.apache.org/docs/latest/sparkr.html) and [SparklyR](https://spark.rstudio.com/), which allows users to interact with Spark using familiar Spark or R interfaces.
 
-In this article, you will learn how to use R for Apache Spark with Azure Synapse Analytics..
+In this article, you will learn how to use R for Apache Spark with Azure Synapse Analytics.
 
 ## R Runtime
 
