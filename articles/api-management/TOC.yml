@@ -397,6 +397,26 @@
         items:
             - name: Policy reference index
               href: api-management-policies.md
+            - name: check-header
+              href: check-header-policy.md
+            - name: get-authorization-context
+              href: get-authorization-context-policy.md
+            - name: ip-filter
+              href: ip-filter-policy.md
+            - name: quota
+              href: quota-policy.md
+            - name: quota-by-key
+              href: quota-by-key-policy.md
+            - name: rate-limit
+              href: rate-limit-policy.md
+            - name: rate-limit-by-key
+              href: rate-limit-by-key-policy.md
+            - name: set-header
+              href: set-header-policy.md
+            - name: validate-client-certificate
+              href: validate-client-certificate-policy.md
+            - name: validate-jwt
+              href: validate-jwt-policy.md 
             - name: Access restriction policies
               href: api-management-access-restriction-policies.md
             - name: Advanced policies
