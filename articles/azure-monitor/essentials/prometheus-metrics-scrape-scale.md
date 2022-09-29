@@ -11,7 +11,7 @@ This article provides guidance on performance that can be expected when collecti
 
 
 ## CPU and Memory
-The CPU and memory usage is correlated with the number of bytes of each sample and the number of samples scraped. The benchmarks below are based on the [default targets scraped](../containers/container-insights-prometheus-scrape-default.md), volume of custom metrics scraped, and number of nodes, pods, and containers. These numbers are meant as a reference since usage can still vary significantly depending on the number of timeseries and bytes per metric.
+The CPU and memory usage is correlated with the number of bytes of each sample and the number of samples scraped. The benchmarks below are based on the [default targets scraped](prometheus-metrics-scrape-default.md), volume of custom metrics scraped, and number of nodes, pods, and containers. These numbers are meant as a reference since usage can still vary significantly depending on the number of timeseries and bytes per metric.
 
 The upper volume limit per pod is currently about 3-3.5 million samples per minute, depending on the number of bytes per sample. This limitation will be eliminated when sharding is added to the feature.
 
