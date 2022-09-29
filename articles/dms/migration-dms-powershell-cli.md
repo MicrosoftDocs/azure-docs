@@ -49,9 +49,11 @@ Pre-requisites that are common across all supported migration scenarios using Az
     > [!IMPORTANT]
     > Azure account is only required when running the migration steps and is not required for assessment or Azure recommendation steps process.
 * Create a target [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/create-configure-managed-instance-powershell-quickstart), [SQL Server on Azure [Virtual Machine](/azure/azure-sql/virtual-machines/windows/sql-vm-create-powershell-quickstart), or [Azure SQL](/azure/azure-sql/database/single-database-create-quickstart) Database (Preview)](/azure/azure-sql/database/single-database-create-quickstart)
-    > [!IMPORTANT] If your target is Azure SQL Database (Preview) you have to migrate database schema from source to target using [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension) or, [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension) for Azure Data Studio.
+    > [!IMPORTANT] 
+    > If your target is Azure SQL Database (Preview) you have to migrate database schema from source to target using [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension) or, [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension) for Azure Data Studio.
     > 
     > If you have an existing Azure Virtual Machine, it should be registered with [SQL IaaS Agent extension in Full management mode](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management#management-modes).
+
 * If your target is **Azure SQL Managed Instance** or **SQL Server on Azure Virtual Machine** ensure that the logins used to connect the source SQL Server are members of the *sysadmin* server role or have `CONTROL SERVER` permission.
 If your target is **Azure SQL Database (Preview)**, ensure that the login used to connect the source SQL Server is a member, and the `db_datareader`` and login for the target SQL server is `db_owner`.
 * Use one of the following storage options for the full database and transaction log backup files: 

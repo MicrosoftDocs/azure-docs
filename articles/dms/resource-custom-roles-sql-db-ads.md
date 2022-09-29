@@ -4,14 +4,14 @@ titleSuffix: Azure Database Migration Service
 description: Learn to use the custom roles for SQL Server to Azure SQL Database (Preview) migrations.
 services: database-migration
 author: croblesm
-ms.author: robles.carlos
+ms.author: roblescarlos
 manager: 
 ms.reviewer: 
 ms.service: dms
 ms.workload: data-services
 ms.custom: ""
 ms.topic: conceptual
-ms.date: 09/16/2022
+ms.date: 09/28/2022
 ---
 
 # Custom roles for SQL Server to Azure SQL Database (Preview) migrations using ADS

@@ -144,7 +144,7 @@
   - name: Azure CLI
     href: /cli/azure/datamigration
   - name: Powershell
-      href: /powershell/module/az.datamigration
+    href: /powershell/module/az.datamigration
   
 - name: Resources
   items: 

@@ -11,7 +11,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: tutorial
-ms.date: 28/09/2022
+ms.date: 09/28/2022
 ---
 # Tutorial: Migrate SQL Server to an Azure SQL Database offline using Azure Data Studio with DMS (Preview)
 
@@ -117,7 +117,8 @@ Close the recommendations blade, and press the **Next**** button to continue wit
 7. After the installation is complete, the **Microsoft Integration Runtime Configuration Manager** will automatically launch to begin the registration process.  
 8. Copy and paste one of the authentication keys provided in the wizard screen in Azure Data Studio. If the authentication key is valid, a green check icon is displayed in the Integration Runtime Configuration Manager, indicating that you can continue to **Register**.  
 9. After completing the registration of the self-hosted integration runtime, close the **Microsoft Integration Runtime Configuration Manager** and switch back to the migration wizard in Azure Data Studio.
-   > [!Note] Refer https://learn.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime for additional information regarding self-hosted integration runtime.
+   > [!Note]
+   > Refer [Create and configure a self-hosted integration runtime](/azure/data-factory/create-self-hosted-integration-runtime) for additional information regarding self-hosted integration runtime.
 10. Select **Test connection** in the **Create Azure Database Migration Service** screen in Azure Data Studio to validate that the newly created DMS is connected to the newly registered self-hosted integration runtime. 
     :::image type="content" source="media/tutorial-sql-server-azure-sql-db-offline-ads/create-dms-ir-connected.png" alt-text="Test IR connectivity":::
 11. Review the summary and select **Start migration** to start the database migration.
@@ -144,7 +145,7 @@ Close the recommendations blade, and press the **Next**** button to continue wit
 6. Click on the **Refresh** link to update the status. As you can see from the screenshot below, DMS has updated the migration status to *In progress*.
 :::image type="content" source="media/tutorial-sql-server-azure-sql-db-offline-ads/monitor-migration-dashboard-inprogress.png" alt-text="In progress status ":::
 7. Click on the database name link to open the table-level view. The upper section of this dashboard displays the current status of the migration, while the lower section provides a detailed status of each table.
-:::image type="content" source="tutorial-sql-server-azure-sql-db-offline-ads/monitor-migration-monitoring-panel-inprogress.png" alt-text="Monitoring table migration":::
+:::image type="content" source="/media/tutorial-sql-server-azure-sql-db-offline-ads/monitor-migration-monitoring-panel-inprogress.png" alt-text="Monitoring table migration":::
 8. After all table data is migrated to the Azure SQL Database (Preview) target, DMS will update the migration status from *In progress* to *Succeeded*. 
 :::image type="content" source="media/tutorial-sql-server-azure-sql-db-offline-ads/monitor-migration-dashboard-succeeded.png" alt-text="Succeeded status":::
 9. Once again, you can click on the database name link to open the table-level view. The upper section of this dashboard displays the current status of the migration; the lower section provides information to verify all data is the same on both the source and the target (*rows read vs. rows copied*).
@@ -153,7 +154,7 @@ Close the recommendations blade, and press the **Next**** button to continue wit
 At this point, you have completed the migration to Azure SQL Database. We encourage you to go through a series of post-migration tasks to ensure everything functions smoothly and efficiently. 
 
 > [!IMPORTANT]
-> Be sure to take advantage of the advanced cloud-based features offered by Azure SQL Database, such as [built-in high availability](/azure/azure-sql/database/high-availability-sla), [threat detection](/azure/azure-sql/database/azure-defender-for-sql), and [monitoring and tuning your workload](/azure/azure-sql/database/monitor-tune-overview?view=azuresql).
+> Be sure to take advantage of the advanced cloud-based features offered by Azure SQL Database, such as [built-in high availability](/azure/azure-sql/database/high-availability-sla), [threat detection](/azure/azure-sql/database/azure-defender-for-sql), and [monitoring and tuning your workload](/azure/azure-sql/database/monitor-tune-overview).
 
 ## Next steps
 
