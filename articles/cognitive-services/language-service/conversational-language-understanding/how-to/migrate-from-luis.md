@@ -19,10 +19,10 @@ ms.custom: language-service-clu, ignite-fall-2021
 
 CLU offers the following advantages over LUIS: 
 
-1. Improved accuracy with state-of-the-art machine learning models for better intent classification and entity extraction. 
-2. Multilingual support for model learning and training. 
-3. Ease of integration with different CLU and [custom question answering](../../question-answering/overview.md) projects using [orchestration workflow](../../orchestration-workflow/overview.md). 
-4. The ability to add testing data within the experience using Language Studio and APIs for model performance evaluation prior to deployment. 
+- Improved accuracy with state-of-the-art machine learning models for better intent classification and entity extraction. 
+- Multilingual support for model learning and training. 
+- Ease of integration with different CLU and [custom question answering](../../question-answering/overview.md) projects using [orchestration workflow](../../orchestration-workflow/overview.md). 
+- The ability to add testing data within the experience using Language Studio and APIs for model performance evaluation prior to deployment. 
 
 To get started, you can [create a new project](../quickstart.md?pivots=language-studio#create-a-conversational-language-understanding-project) or [migrate your LUIS application](#migrate-your-luis-applications). 
 
