@@ -18,6 +18,9 @@ ms.custom: "devx-track-js, devx-track-csharp"
 
 Speech Synthesis Markup Language (SSML) is an XML-based markup language that lets developers specify how input text is converted into synthesized speech by using text-to-speech. Compared to plain text, SSML allows developers to fine-tune the pitch, pronunciation, speaking rate, volume, and more of the text-to-speech output. Normal punctuation, such as pausing after a period, or using the correct intonation when a sentence ends with a question mark are automatically handled.
 
+> [!TIP]
+> Author plain text and SSML using the [Audio Content Creation](https://aka.ms/audiocontentcreation) tool in Speech Studio. You can listen to the output audio and adjust the SSML to improve speech synthesis. For more information, see [Speech synthesis with the Audio Content Creation tool](how-to-audio-content-creation.md).
+
 The Speech service implementation of SSML is based on the World Wide Web Consortium's [Speech Synthesis Markup Language Version 1.0](https://www.w3.org/TR/2004/REC-speech-synthesis-20040907/).
 
 > [!IMPORTANT]
