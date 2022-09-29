@@ -14,6 +14,8 @@ ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, cli
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows
+
+[!INCLUDE [dev v2](../../includes/machine-learning-dev-v2.md)]
 	
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
 > * [v1](./v1/how-to-setup-authentication.md)
@@ -37,11 +39,6 @@ Azure AD Conditional Access can be used to further control or restrict access to
 
 * Create an [Azure Machine Learning workspace](how-to-manage-workspace.md).
 * [Configure your development environment](how-to-configure-environment.md) or use a [Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md) and install the [Azure Machine Learning SDK v2](https://aka.ms/sdk-v2-install).
-
-    > [!IMPORTANT]
-    > SDK v2 is currently in public preview.
-    > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-    > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 * Install the [Azure CLI](/cli/azure/install-azure-cli).
 
