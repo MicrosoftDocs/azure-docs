@@ -95,21 +95,21 @@ landingContent:
       - linkListType: reference
         links:
         - text: Python SDK (v2)
-          url: /python/api/overview/azure/ml/installv2
-        - text: REST API 
-          url: /rest/api/azureml/
+          url: /python/api/overview/azure/ai-ml-readme
         - text: CLI (v2)
           url: /cli/azure/ml/
-        - text: Algorithm & component reference 
+        - text: REST API 
+          url: /rest/api/azureml/
+        - text: Algorithm & component reference
           url: ./algorithm-module-reference/module-reference.md
   # Card
   - title: Resources
     linkLists:
       - linkListType: reference
         links:
-        - text: Python SDK code examples
+        - text: Python SDK (v2) code examples
           url: https://github.com/Azure/azureml-examples/blob/main/sdk/python/README.md
-        - text: v2 CLI code examples
+        - text: CLI (v2) code examples
           url: https://github.com/Azure/azureml-examples/blob/main/cli/README.md
         - text: ML Studio (classic) documentation
           url: ./classic/index.yml
