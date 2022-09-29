@@ -1,7 +1,7 @@
 ---
-title: Migrate datastore management from SDK v1 to SDK v2
+title: Upgrade datastore management to SDK v2
 titleSuffix: Azure Machine Learning
-description: Migrate datastore management from v1 to v2 of Azure Machine Learning SDK
+description: Upgrade datastore management from v1 to v2 of Azure Machine Learning SDK
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.reviewer: sgilley
 ms.custom: migration
 ---
 
-# Migrate datastore management from SDK v1 to SDK v2
+# Upgrade datastore management to SDK v2
 
 Azure Machine Learning Datastores securely keep the connection information to your data storage on Azure, so you don't have to code it in your scripts. V2 Datastore concept remains mostly unchanged compared with V1. The difference is we won't support SQL-like data sources via AzureML Datastores. We'll support SQL-like data sources via AzureML data import&export functionalities.
 
