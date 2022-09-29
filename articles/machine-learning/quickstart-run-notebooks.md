@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Run notebooks"
 titleSuffix: Azure Machine Learning
-description: Create an Azure Machine Learning workspace and cloud resources that can be used to train machine learning models.
+description: Learn to run Jupyter notebooks in studio, and find sample notebooks to learn more about Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -44,8 +44,8 @@ Create a new notebook in studio.
 
     :::image type="content" source="media/quickstart-run-notebooks/convert-to-markdown.png" alt-text="Screenshot: Convert to markdown":::
 
-1. Double click on the cell to open it.
-1. Inside the cell, type the following:
+1. Double-click on the cell to open it.
+1. Inside the cell, type:
 
     ```markdown
     # Testing a new notebook
@@ -55,7 +55,7 @@ Create a new notebook in studio.
 ## Create a code cell
 
 1. Just below the cell, select **+ Code** to create a new code cell.
-1. Inside this cell, type the following
+1. Inside this cell, type:
 
     ```python
     print("Hello, world!")
@@ -80,8 +80,8 @@ Create a new notebook in studio.
     print(two)
     ```
 
-1. Run this new cell.  
-1. Your notebooks now looks like this:
+1. Run the new cell.  
+1. Your notebook now looks like this:
 
     :::image type="content" source="media/quickstart-run-notebooks/notebook.png" alt-text="Screenshot: Notebook contents.":::
 
@@ -89,20 +89,25 @@ Create a new notebook in studio.
 
 There are sample notebooks available in studio to use so you can learn more about Azure Machine Learning.  To find these samples:
 
-1. Still in the **Notebooks** section, select **Samples** a the top.
+1. Still in the **Notebooks** section, select **Samples** at the top.
 
     :::image type="content" source="media/quickstart-run-notebooks/samples.png" alt-text="Screenshot: Sample notebooks.":::
 
 1. The **v1** folder can be used with the previous, v1 version of the SDK. 
-1. Use notebooks in the **v2** folder for examplesl that show the current version of the SDK, v2.
+1. Use notebooks in the **v2** folder for examples that show the current version of the SDK, v2.
 1. When you select a notebook, you'll see a read-only version of the notebook.  
-1. Select **Clone this notebook** to add a copy of it to your files.  This action will also copy the rest of the folder's content for that notebook.
-1. You can also clone an entire folder.  Select the **"..."** at the right of a folder to get the menu, then select **Clone**.
+1. Select a notebook, then select **Clone this notebook** to add a copy of it to your files.  This action will also copy the rest of the folder's content for that notebook.
+
+## Clone tutorials folder
+
+1. You can also clone an entire folder.  
+1. Select the **"..."** at the right of a folder to get the menu, then select **Clone**.
 1. Clone the **v2/tutorials** folder.  
     
     :::image type="content" source="media/quickstart-run-notebooks/clone-folder.png" alt-text="Screenshot: clone v2 tutorials folder.":::
 
-1. Now go back to **Files** to see the cloned folder in your files.
+1. Now go back to **Files** to see the cloned folder in your files.  
+1. Run the notebooks in this folder to learn more about using the Python SDK v2 to train and deploy models.
 
 ## Clean up resources
 
