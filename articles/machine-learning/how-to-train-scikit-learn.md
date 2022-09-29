@@ -38,7 +38,6 @@ You can run this code in either an Azure Machine Learning compute instance, or y
 
  - Create a Jupyter notebook server and run the code in the following sections.
     - [Install the Azure Machine Learning SDK (v2)](https://aka.ms/sdk-v2-install).
-    - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
 
 
 ## Set up the experiment
