@@ -388,8 +388,17 @@ func visemeReceivedHandler(event speech.SpeechSynthesisVisemeEventArgs) {
 
 func wordBoundaryHandler(event speech.SpeechSynthesisWordBoundaryEventArgs) {
 	defer event.Close()
+	boundaryType := ""
+	switch event.BoundaryType {
+	case 0:
+		boundaryType = "Word"
+	case 1:
+		boundaryType = "Punctuation"
+	case 2:
+		boundaryType = "Sentence"
+	}
 	fmt.Println("WordBoundary event")
-	fmt.Printf("\tBoundaryType %d\n", event.BoundaryType)
+	fmt.Printf("\tBoundaryType %v\n", boundaryType)
 	fmt.Printf("\tAudioOffset: %dms\n", (event.AudioOffset+5000)/10000)
 	fmt.Printf("\tDuration %d\n", event.Duration)
 	fmt.Printf("\tText %s\n", event.Text)
@@ -413,6 +422,9 @@ func main() {
 		return
 	}
 	defer speechConfig.Close()
+
+	// Required for WordBoundary event sentences.
+	speechConfig.SetProperty(common.SpeechServiceResponseRequestSentenceBoundary, "true")
 
 	speechSynthesizer, err := speech.NewSpeechSynthesizerFromConfig(speechConfig, audioConfig)
 	if err != nil {

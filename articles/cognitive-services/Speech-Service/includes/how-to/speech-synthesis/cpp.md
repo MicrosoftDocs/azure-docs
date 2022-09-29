@@ -215,6 +215,9 @@ int main()
 
     auto speechConfig = SpeechConfig::FromSubscription(speechKey, speechRegion);
 
+    // Required for WordBoundary event sentences.
+    speechConfig->SetProperty(PropertyId::SpeechServiceResponse_RequestSentenceBoundary, "true");
+
     const auto ssml = R"(<speak version='1.0' xml:lang='en-US' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts='http://www.w3.org/2001/mstts'>
         <voice name = 'en-US-JennyNeural'>
             <mstts:viseme type = 'redlips_front' />
