@@ -69,7 +69,7 @@ For private workspace and VNet scenarios, see [Use network isolation with manage
 
 ### With our [CLI](how-to-deploy-managed-online-endpoints.md) or [SDK preview](how-to-deploy-managed-online-endpoint-sdk-v2.md)
 Redeploy manually with your model files and environment definition.
-You can find our examples on [azureml-examples](https://github.com/Azure/azureml-examples). Specifically, this is the [SDK example for managed online endpoint](https://github.com/Azure/azureml-examples/tree/main/sdk/endpoints/online/managed).
+You can find our examples on [azureml-examples](https://github.com/Azure/azureml-examples). Specifically, this is the [SDK example for managed online endpoint](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online/managed).
 
 ### With our [migration tool](https://aka.ms/moeonboard) (preview)
 This tool will automatically create new managed online endpoint based on your existing web services. Your original services won't be affected. You can safely route the traffic to the new endpoint and then delete the old one.
