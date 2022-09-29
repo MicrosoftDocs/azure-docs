@@ -1,0 +1,49 @@
+---
+title: Azure direct routing known limitations  - Azure Communication Services
+description: Known limitations of direct routing in Azure Communication Services.
+author: boris-bazilevskiy
+manager: rcole
+services: azure-communication-services
+
+ms.author: bobazile
+ms.date: 09/29/2022
+ms.topic: conceptual
+ms.service: azure-communication-services
+ms.subservice: pstn
+---
+
+# Known limitations in Azure telephony
+
+## Azure Communication Services direct routing known limitations
+
+This article provides information about limitations and known issues related to the Azure Communication Services direct routing
+
+1. Anonymous calling is not supported
+    - will be fixed in GA release
+1. Different set of Media Processors (MP) is used with different IP addresses. Currently [any Azure IP address](./direct-routing-infrastructure.md#media-traffic-ip-and-port-ranges) can be used for media connection between Azure MP and Session Border Controller (SBC).
+    - will be fixed in GA release
+1. Azure Communication Services SBC Fully Qualified Domain Name (FQDN) must be different from Teams Direct Routing SBC FQDN
+1. Wildcard SBC certificates require additional workaround. Please contact Azure support for details.
+    - will be fixed in GA release
+1. Media bypass/optimization is not supported
+1. No indication of SBC connection status/details in Azure portal
+    - will be fixed in GA release
+1. Azure Communication Services direct routing is not available in Government Clouds
+1. Multi-tenant trunks are not supported
+1. Location-based routing is not supported
+1. No quality dashboard is available for customers
+1. Enhanced 911 is not supported 
+1. PSTN numbers missing from Call Summary logs 
+
+## Next steps
+
+### Conceptual documentation
+
+- [Phone number types in Azure Communication Services](./plan-solution.md)
+- [Plan for Azure direct routing](./direct-routing-infrastructure.md)
+- [Pair the Session Border Controller and configure voice routing](./direct-routing-provisioning.md)
+- [Pricing](../pricing.md)
+
+### Quickstarts
+
+- [Call to Phone](../../quickstarts/telephony/pstn-call.md)
