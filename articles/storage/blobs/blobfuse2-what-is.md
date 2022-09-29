@@ -47,8 +47,9 @@ A full list of BlobFuse2 features is in the [BlobFuse2 README](https://github.co
 
 - Mount an Azure storage blob container or Data Lake Storage Gen2 file system on Linux
 - Use basic file system operations, such as mkdir, opendir, readdir, rmdir, open, read, create, write, close, unlink, truncate, stat, and rename
-- Local caching to improve subsequent access times
+- Local file caching to improve subsequent access times
 - Streaming to support reading and writing large files
+- Gain insights into mount activities and resource usage using BlobFuse2 Health Monitor
 - Parallel downloads and uploads to improve access time for large files
 - Multiple mounts to the same container for read-only workloads
 
@@ -59,6 +60,7 @@ Blobfuse2 has more feature support and improved performance in multiple user sce
 - Improved caching
 - More management support through new Azure CLI commands
 - Additional logging support
+- The addition of write-streaming for large files (read-streaming was previous supported)
 - Gain insights into mount activities and resource usage using BlobFuse2 Health Monitor
 - Compatibility and upgrade options for existing BlobFuse v1 users
 - Version checking and upgrade prompting

@@ -110,10 +110,10 @@ To build the BlobFuse2 binaries from source:
 You can configure BlobFuse2 with a variety of settings. Some of the common settings used include:
 
 - Logging location and options
-- Temporary file path for caching or streaming
+- Temporary file path for caching
 - Information about the Azure storage account and blob container to be mounted
 
-The settings can be configured in a yaml configuration file, using environment variables, or as parameters passed to the BlobFuse2 commands. The preferred method is to use the yaml configuration file.
+The settings can be configured in a yaml configuration file, using environment variables, or as parameters passed to the BlobFuse2 commands. The preferred method is to use the configuration file.
 
 For details about all of the configuration parameters for BlobFuse2, consult the complete reference material for each:
 
@@ -124,21 +124,41 @@ For details about all of the configuration parameters for BlobFuse2, consult the
 
 The basic steps for configuring BlobFuse2 in preparation for mounting are:
 
-1. [Configure a temporary path for caching or streaming](#configure-a-temporary-path-for-caching-or-streaming)
+1. [Configure caching](#configure-caching)
 1. [Create an empty directory for mounting the blob container](#create-an-empty-directory-for-mounting-the-blob-container)
 1. [Authorize access to your storage account](#authorize-access-to-your-storage-account)
 
-### Configure a temporary path for caching or streaming
+### Configure caching
 
-BlobFuse2 provides native-like performance by requiring a temporary path in the file system to buffer and cache any open files. For this temporary path, choose the most performant disk available, or use a ramdisk for the best performance.
+BlobFuse2 provides native-like performance by using local file-caching techniques. The caching configuration and behavior varies, depending on whether you are streaming large files or accessing smaller files.
+
+#### Configure caching for streaming large files
+
+In streaming mode, BlobFuse2 caches blocks of files in memory. The configuration settings related to caching for streaming are under the `stream:` settings in your configuration file as follows:
+
+```configuration file
+stream:
+    Block-size-mb:
+        For read only mode, the size of each block to be cached in memory while streaming (in MB)
+        For read/write mode: the size of newly created blocks
+    Max-buffers: The total number of buffers to store blocks in
+    Buffer-size-mb: The size for each buffer
+```
+
+#### Configure caching for smaller files
+
+Smaller files are cached to a temporary path specified under `file_cache:` in the configuration file as follows:
+
+```configuration file
+file_cache:
+    path: <path to local disk cache>
+```
 
 > [!NOTE]
 > BlobFuse2 stores all open file contents in the temporary path. Make sure to have enough space to accommodate all open files.
 >
 
-#### Choose a caching disk option
-
-There are 3 common options for configuring the temporary path for caching:
+There are 3 common options for configuring the temporary path for file caching:
 
 - [Use a local high-performing disk](#use-a-local-high-performing-disk)
 - [Use a ramdisk](#use-a-ramdisk)
