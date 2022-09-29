@@ -9,11 +9,13 @@ ms.reviewer: cegraybl
 
 # Azure Container Registry (ACR) introduces the Conditional Access policy
 
-Azure Container Registry (ACR) gives you the option to create and configure the *Conditional Access policy*. You can refer to the ACR's conditional access policy here in the [azure-built-in-policy definition's](policy-reference.md)  
+Azure Container Registry (ACR) gives you the option to create and configure the *Conditional Access policy*. 
 
-The [Conditional Access Policy](/azure/active-directory/conditional-access/overview.md) is designed to enforce strong authentication. The authentication is based on the location, trusted and compliant devices, user assigned roles, authorization method, and the client applications. The policy enables the security to meet the organizations compliance requirements and keep the data and user accounts safe.
+The [Conditional Access Policy](/azure/active-directory/conditional-access/overview) is designed to enforce strong authentication. The authentication is based on the location, trusted and compliant devices, user assigned roles, authorization method, and the client applications. The policy enables the security to meet the organizations compliance requirements and keep the data and user accounts safe.
 
-Learn more about [Conditional Access Policy](/azure/active-directory/conditional-access/overview.md), the [conditions](/azure/active-directory/conditional-access/overview.md#common-signals,) you'll take it into consideration to make [policy decisions.](/azure/active-directory/conditional-access/overview.md#common-decisions)
+Learn more about [Conditional Access Policy](/azure/active-directory/conditional-access/overview), the [conditions](/azure/active-directory/conditional-access/overview#common-signals) you'll take it into consideration to make [policy decisions.](/azure/active-directory/conditional-access/overview#common-decisions)
+
+Conditional Access policy applies after the first-factor authentication to the Azure Container Registry is complete. The policy blocks or grants access based upon the controls.
 
 In this article, you'll learn to
 
@@ -27,9 +29,9 @@ In this article, you'll learn to
 
 ## Create and configure a Conditional Access policy - Azure portal
 
-The Azure Active Directory allows you to create a Conditional Access policy for both Active Directory users, and Service Principal users.
+The Azure Active Directory allows you to create a Conditional Access policy for both Active Directory users, and Service Principal users. To configure Conditional Access policy for the registry you must disable `authentication-as-arm`.
 
-In this tutorial, we create a basic Conditional Access policy for Azure Container Registry from the Azure portal.
+In this tutorial, we create a basic Conditional Access policy for the Azure Container Registry from the Azure portal.
 
 First, create a Conditional Access policy and assign your test group of users as follows:
 
@@ -69,8 +71,8 @@ First, create a Conditional Access policy and assign your test group of users as
 
 1. Under **Grant**, filter and choose from options to enforce grant access or block access, during a sign-in event to the Azure portal. In this case grant access with *Require multifactor authentication*, then choose **Select**.
 
-
-
+>[!TIP]
+> To configure and grant multi-factor authentication, see [configure and conditions for multi-factor authentication.](/azure/active-directory/authentication/tutorial-enable-azure-mfa#configure-the-conditions-for-multi-factor-authentication)
 
 1. Under **Session**, filter and choose from options to enable any control on session level experience of the cloud apps.
 
@@ -80,16 +82,33 @@ First, create a Conditional Access policy and assign your test group of users as
 
     :::image type="content" alt-text="A screenshot to activate the conditional access policy." source="media/container-registry-enable-conditional-policy/06-enable-conditional-access-policy.png":::
 
-We have now completed creating and configuring the Conditional Access policy for the Azure Container Registry.
+We have now completed creating the Conditional Access policy for the Azure Container Registry.
+
+## Disable the authentication-as-arm in ACR - Azure CLI
+
+Second, to configure the Conditional Access policy for ACR, follow the below steps to disable the `authentication-as-arm`.
+
+Disabling the `azureADAuthenticationAsArmPolicy` will force the registry to use ACR audience token. You can use Azure CLI version 2.0.76 or later, run `az --version` to find the version. 
+
+1. Run the command to show the current configuration of the registry's policy for authentication using ARM tokens with the registry. If the status is `enabled`, then both ACRs and ARM audience tokens can be used for authentication. If the status is `disabled` it means only ACR's audience tokens can be used for authentication.
+
+    ```azurecli-interactive
+    az acr config authentication-as-arm show -r <registry>
+    ```
+
+1. Run the command to update the status of the registry's policy.
+
+    ```azurecli-interactive
+    az acr config authentication-as-arm update -r <registry> --status [enabled/disabled]
+     ```
 
 ## Enable Conditional Access policy in the Azure Container Registry (ACR) 
 
-To assign the Conditional Access policy, you have to sign in to the [Azure portal](https://portal.azure.com) after configuring the Conditional Access policy with Azure Container Registry.
+To assign the Conditional Access policy, you have to sign in to the [Azure portal](https://portal.azure.com) after configuring the Conditional Access policy with Azure Container Registry. Refer to the ACR's built-in policy definitions in the [azure-container-registry-built-in-policy definition's](policy-reference.md)  
 
-You can Assign the Conditional Access policy in two ways, as below:
+You can enable the Conditional Access policy, as follows:
  
 >* Assign a built-in Conditional Access policy definition - Azure portal.
->* Disable the azureADAuthenticationAsArmPolicy - Azure CLI.
 
 ### Assign a built-in policy definition to disable ARM audience token authentication - Azure portal.
   
@@ -131,22 +150,6 @@ Azure Container Registry has two built-in policy definitions for Conditional Acc
 1. Select **Review+Create**
 
    :::image type="content" source="media/container-registry-enable-conditional-policy/06-enable-policy.png" alt-text="Screenshot to activate a Conditional Access policy":::
-
-### Disable the authentication-as-arm in ACR - Azure CLI
-
-Disabling the `azureADAuthenticationAsArmPolicy` will force the registry to use ACR audience token. You can use Azure CLI version 2.0.76 or later, run `az --version` to find the version. 
-
-1. Run the command to show the current configuration of the registry's policy for authentication using ARM tokens with the registry. If the status is `enabled`, then both ACRs and ARM audience tokens can be used for authentication. If the status is `disabled` it means only ACR's audience tokens can be used for authentication.
-
-    ```azurecli-interactive
-    az acr config authentication-as-arm show -r <registry>
-    ```
-
-1. Run the command to update the status of the registry's policy.
-
-    ```azurecli-interactive
-    az acr config authentication-as-arm update -r <registry> --status [enabled/disabled]
-     ```
 
 ## Next steps
 
