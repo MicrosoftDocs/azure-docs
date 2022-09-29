@@ -125,6 +125,11 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 spring.cloud.azure.appconfiguration.stores[0].endpoints[0]="https://<first-replica-endpoint>.azconfig.io"
 spring.cloud.azure.appconfiguration.stores[0].endpoints[1]="https://<second-replica-endpoint>.azconfig.io"
 ```
+> [!NOTE]
+> The failover support is available if you use version of **2.9.0** or later of any of the following packages.
+> - `azure-spring-cloud-appconfiguration-config`
+> - `azure-spring-cloud-appconfiguration-config-web`
+> - `azure-spring-cloud-starter-appconfiguration-config`
 
 :::zone-end
 
