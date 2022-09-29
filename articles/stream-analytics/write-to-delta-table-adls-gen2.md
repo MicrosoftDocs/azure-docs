@@ -13,7 +13,6 @@ ms.date: 09/28/2022
 This tutorial shows how you can create a Stream Analytics job to write to a Delta table in Azure Data Lake Storage Gen2. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-
 > * Deploy an event generator that sends data to your event hub
 > * Create a Stream Analytics job
 > * Configure Azure Data Lake Storage Gen2 to which the Delta table will be stored in

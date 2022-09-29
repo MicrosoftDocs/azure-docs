@@ -1,5 +1,6 @@
 ---
-title: Azure Stream Analytics - writing to Delta Lake table 
+title: Azure Stream Analytics - Writing to Delta Lake table 
+
 description: This article describes how to write data to a delta lake table stored in Azure Data Lake Storage Gen2.
 author: an-emma    
 ms.author: raan
@@ -16,7 +17,8 @@ Delta Lake is an open format that brings reliability, quality and performance to
 
 A stream analytics job can be configured to write through a native delta lake output connector, either to a new or a pre-created Delta table in an Azure Data Lake Storage Gen2 account. This connector is optimized for high-speed ingestion to delta tables in append mode and also provides exactly once semantics, which guarantees that no data is lost or duplicated. Ingesting real-time data streams from Azure Event Hubs into Delta tables allows you to perform ad-hoc interactive or batch analytics.  
 
-## Delta Lake Configuration
+## Delta Lake configuration
+
 
 To write data in Delta Lake, you need to connect to an Azure Data Lake Storage Gen2 account. The below table lists the properties related to Delta Lake configuration.
 
@@ -29,7 +31,8 @@ To write data in Delta Lake, you need to connect to an Azure Data Lake Storage G
 
 To see the full list of ADLS Gen2 configuration, see [ALDS Gen2 Overview](blob-storage-azure-data-lake-gen2-output.md).
 
-### Delta Path Name
+### Delta Path name
+
 
 The Delta Path Name is used to specify the location and name of your Delta Lake table stored in Azure Data Lake Storage Gen2.
 
@@ -61,11 +64,13 @@ Example output files:
 
 To create a new Delta Lake table, you need to specify a Delta Path Name that doesn't lead to any existing tables. If there's already a Delta Lake table existing with the same name and in the location specified by the Delta Path name, by default, Azure Stream Analytics writes new records to the existing table.
 
-### Exactly Once Delivery
+### Exactly once delivery
+
 
 The transaction log enables Delta Lake to guarantee exactly once processing. Azure Stream Analytics also provides exactly once delivery when output data to Azure Data Lake Storage Gen2 during one single job run.
 
-### Schema Enforcement
+### Schema enforcement
+
 
 Schema enforcement means that all new writes to a table are enforced to be compatible with the target table's schema at write time, to ensure data quality.
 
@@ -75,10 +80,11 @@ At the failure of schema conversion, the job behavior will follow the [output da
 
 ## Limitations
 
-1. Dynamic partition key isn't supported.
-1. Writing to Delta lake is append only.
-1. Schema checking in query testing isn't available.
-1. Checkpoints for delta lake aren't taken by Stream Analytics.
+- Dynamic partition key isn't supported.
+- Writing to Delta lake is append only.
+- Schema checking in query testing isn't available.
+- Checkpoints for delta lake aren't taken by Stream Analytics.
+
 
 ## Next steps
 
