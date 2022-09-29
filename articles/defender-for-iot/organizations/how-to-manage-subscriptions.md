@@ -190,7 +190,7 @@ Billing changes will take effect one hour after cancellation of the previous sub
 
 **To switch to a new subscription**:
 
-**For OT sensors**
+**For OT sensors**:
 
 1. In the Azure portal, [onboard a new plan for OT networks](#onboard-a-defender-for-iot-plan-for-ot-networks) to the new subscription you want to use. 
 
@@ -204,7 +204,7 @@ Billing changes will take effect one hour after cancellation of the previous sub
 
 1. If relevant, [cancel the Defender for IoT plan](#cancel-a-defender-for-iot-plan-from-a-subscription) from the previous subscription.
 
-**For Enterprise IoT sensors**
+**For Enterprise IoT sensors**:
 
 1. In Defender for Endpoint, [onboard a new plan for Enterprise IoT networks](#onboard-a-defender-for-iot-plan-for-enterprise-iot-networks) to the new subscription you want to use.
 
