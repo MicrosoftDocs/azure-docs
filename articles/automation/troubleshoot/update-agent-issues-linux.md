@@ -51,7 +51,9 @@ The operating system check verifies if the Hybrid Runbook Worker is running one 
 
 To verify if a VM is an Azure VM, check for Asset tag value using the below command:
 
-`sudo dmidecode`
+```
+sudo dmidecode
+```
 
 If the asset tag is different than 7783-7084-3265-9085-8269-3286-77, then reboot VM to initiate re-registration. 
 
@@ -70,7 +72,9 @@ This task checks if the folder is present -
  
 To fix this issue, you must start the OMS Agent service by using the following command: 
 
- `sudo /opt/microsoft/omsagent/bin/service_control restart`
+```
+ sudo /opt/microsoft/omsagent/bin/service_control restart
+```
 
 To validate you can perform process check using the below command: 
 
@@ -112,9 +116,9 @@ Validate to check if the following two paths exists:
 ### Hybrid Runbook Worker Status
 
 This check makes sure the Hybrid Runbook Worker is running on the machine. The processes in the example below should be present if the Hybrid Runbook Worker is running correctly.
-
-`ps -ef | grep python`
-
+```
+ps -ef | grep python
+```
 
 ```
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -142,11 +146,15 @@ If the issue still persists, run the [omsagent Log Collector tool](https://githu
 
 To fix the issue, either remove the proxy or make sure that the proxy address is able to access the [prerequisite URL](../automation-network-configuration.md#update-management-and-change-tracking-and-inventory).
 
-You can validate the task by running the **HTTP_PROXY** command.
+You can validate the task by running the below command:
+
+```
+HTTP_PROXY
+```
 
 ### IMDS connectivity check
 
-To fix this issue, allow access to IP **169.254.169.254**. For more information, see [Access Azure Instance Metadata Service][Azure Instance Metadata Service (Windows)](../../virtual-machines/windows/instance-metadata-service.md#azure-instance-metadata-service-windows)
+To fix this issue, allow access to IP **169.254.169.254**. For more information, see [Access Azure Instance Metadata Service](../../virtual-machines/windows/instance-metadata-service.md#azure-instance-metadata-service-windows)
 
 After the network changes, you can either rerun the Troubleshooter or run the below commands to validate: 
 
@@ -156,7 +164,9 @@ After the network changes, you can either rerun the Troubleshooter or run the be
 
 ### General internet connectivity
 
-This check makes sure that the machine has access to the internet and can be ignored if you have blocked internet and allowed only specific URLs. CURL on any http url.
+This check makes sure that the machine has access to the internet and can be ignored if you have blocked internet and allowed only specific URLs. 
+
+CURL on any http url.
 
 ### Registration endpoint
 
@@ -195,13 +205,18 @@ Curl on provided OMS endpoint
 
 ### Software Repositories
 
-Fix this issue by allowing the [prerequisite Repo URL for RHEL](https://learn.microsoft.com/azure/virtual-machines/workloads/redhat/redhat-rhui#troubleshoot-connection-problems-to-azure-rhui)
+Fix this issue by allowing the prerequisite Repo URL. For more information, see [RHEL](https://learn.microsoft.com/azure/virtual-machines/workloads/redhat/redhat-rhui#troubleshoot-connection-problems-to-azure-rhui)
+
 Post making Network changes you can either rerun the Troubleshooter or
-Curl on software repositories configured in package manager. Refreshing repos sudo apt-get update would be helpful to confirm the communication as well.
 
-`sudo apt-get check`
-`sudo yum check-update`
+Curl on software repositories configured in package manager. 
 
+Refreshing repos would help to confirm the communication. 
+
+```
+sudo apt-get check
+sudo yum check-update
+```
 > [!NOTE]
 > The check is available only in offline mode.
 

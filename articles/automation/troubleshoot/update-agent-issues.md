@@ -71,14 +71,15 @@ To fix, follow the steps to [Enable TLS 1.2](../../azure-monitor/agents/agent-wi
 To fix the issue, start **HealthService** service 
 
 ```
-Start-Service -Name *HealthService* -ErrorAction SilentlyContinue`
+Start-Service -Name *HealthService* -ErrorAction SilentlyContinue
 ```
 
 ### Hybrid Runbook Worker
 To fix the issue, do a force re-registration of Hybrid Runbook Worker.
 
 ```
-Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force *Restart-service healthservice
+Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force 
+Restart-service healthservice
 
 ```
 
@@ -100,7 +101,9 @@ See [Network requirements](../../azure-monitor/agents/agent-windows-troubleshoot
 
 To validate: Check VMs connected workspace or Heartbeat table of corresponding log analytics.
 
-`Heartbeat | where Computer =~ ""`
+```
+Heartbeat | where Computer =~ ""
+```
 
 ### Windows update service status
 
@@ -151,8 +154,10 @@ Simplifies the ongoing management of your network security rules. Allow the [pre
 
 After the network changes, you can either rerun the Troubleshooter or run the below commands to validate:
 
-`$uri = "https://eus2-jobruntimedata-prod-su1.azure-automation.net"`
-`*Invoke-WebRequest -URI $uri -UseBasicParsing `
+```
+$uri = "https://eus2-jobruntimedata-prod-su1.azure-automation.net"
+Invoke-WebRequest -URI $uri -UseBasicParsing
+```
 
 
 ### Proxy settings
@@ -162,12 +167,16 @@ If the proxy is enabled, ensure that you have access to the [prerequisite URLs](
 
 To check if the proxy is set correctly, use the below commands: 
 
-`netsh winhttp show proxy` 
+```
+netsh winhttp show proxy
+```
 
 or check the registry key **ProxyEnable** is set to 1 in 
 
-`HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings` 
+```
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings
 
+```
 
 ### IMDS endpoint connectivity
 
@@ -221,7 +230,10 @@ To fix, remove the registry keys from:
 
 Configure reboot according to Update Management schedule configuration. 
 
-`AlwaysAutoRebootAtScheduledTime AlwaysAutoRebootAtScheduledTimeMinutes`
+```
+AlwaysAutoRebootAtScheduledTime 
+AlwaysAutoRebootAtScheduledTimeMinutes
+```
 
 For more information, see [Configure reboot settings](../update-management/configure-wuagent.md#configure-reboot-settings)
 
