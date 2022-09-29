@@ -28,52 +28,7 @@ To learn how to configure customer-managed keys for an existing storage account,
 
 ## Use a user-assigned managed identity to authorize access to the key vault
 
-When you enable customer-managed keys for a new storage account, you must specify a user-assigned managed identity. The user-assigned managed identity will be used to authorize access to the key vault that contains the key. You must create the user-assigned identity before you configure customer-managed keys.
-
-A user-assigned is a standalone Azure resource. To learn more about user-assigned managed identities, see [Managed identity types](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). To learn how to create and manage a user-assigned managed identity, see [Manage user-assigned managed identities](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md).
-
-The user-assigned managed identity must have permissions to access the key in the key vault. Assign the **Key Vault Crypto Service Encryption User** role to the user-assigned managed identity with key vault scope to grant these permissions.
-
-### [Azure portal](#tab/azure-portal)
-
-Before you can configure customer-managed keys with a user-assigned managed identity, you must assign the **Key Vault Crypto Service Encryption User** role to the user-assigned managed identity, scoped to the key vault. This role grants the user-assigned managed identity permissions to access the key in the key vault. For more information on assigning Azure RBAC roles with the Azure portal, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
-
-When you configure customer-managed keys with the Azure portal, you can select an existing user-assigned identity through the portal user interface. For details, see [Configure customer-managed keys for a new storage account](#configure-customer-managed-keys-for-a-new-storage-account).
-
-### [PowerShell](#tab/azure-powershell)
-
-The following example shows how to retrieve the user-assigned managed identity and assign to it the required RBAC role. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples:
-
-```azurepowershell
-$userIdentity = Get-AzUserAssignedIdentity -Name <user-assigned-identity> `
-    -ResourceGroupName $rgName
-
-New-AzRoleAssignment -ObjectId $userIdentity.PrincipalId `
-    -RoleDefinitionName "Key Vault Crypto Service Encryption User" `
-    -Scope $keyVault.ResourceId
-```
-
-### [Azure CLI](#tab/azure-cli)
-
-The following example shows how to retrieve the user-assigned managed identity and assign to it the required RBAC role. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples:
-
-```azurecli
-principalId=$(az identity show --name <user-assigned-identity> \
-    --resource-group $rgName \
-    --query principalId \
-    --output tsv)
-
-identityResourceId=$(az identity show --name <user-assigned-identity> \
-    --resource-group $rgName \
-    --query id \
-    --output tsv)
-
-az role assignment create --assignee-object-id $principalId \
-    --role "Key Vault Crypto Officer" \
-    --scope $kvResourceId
-```
-
----
+[!INCLUDE [storage-customer-managed-keys-key-vault-user-assigned-identity-include](../../../includes/storage-customer-managed-keys-key-vault-user-assigned-identity-include.md)]
 
 ## Configure customer-managed keys for a new storage account
 
@@ -227,10 +182,10 @@ az storage account create \
     --kind StorageV2 \
     --identity-type SystemAssigned,UserAssigned \
     --user-identity-id $identityResourceId \
-    --encryption-key-vault $key_vault_uri \
+    --encryption-key-vault $keyVaultUri \
     --encryption-key-name $keyName \
     --encryption-key-source Microsoft.Keyvault \
-    --encryption-key-version $key_version \
+    --encryption-key-version $keyVersion \
     --key-vault-user-identity-id $identityResourceId
 ```
 
