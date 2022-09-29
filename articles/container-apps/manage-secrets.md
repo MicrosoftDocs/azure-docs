@@ -142,4 +142,5 @@ Here, the environment variable named `connection-string` gets its value from the
 
 ## Next steps
 
-> [!div class="nextstepaction"] > [Containers](containers.md)
+> [!div class="nextstepaction"]
+> [Containers](containers.md)
