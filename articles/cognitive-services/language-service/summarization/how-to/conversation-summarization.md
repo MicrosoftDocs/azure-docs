@@ -22,11 +22,11 @@ ms.custom: language-service-summarization, ignite-fall-2021, event-tier1-build-2
 
 ## Conversation summarization types
 
-- Issues and resolution (call center focused) is designed to summarize text chat logs between customers and customer-service agents. This feature is capable of providing both issues and resolutions present in these logs. 
+- Issues and resolution (call center focused) is designed to summarize text chat logs between customers and customer-service agents. This feature is capable of providing both issues and resolutions present in these logs, which occur between two parties. 
 
 :::image type="content" source="../media/conversation-summary-diagram.svg" alt-text="A diagram for sending data to the conversation summarization issues and resolution feature.":::
 
-- Narrative and chapter title (general conversation) are designed to summarize a conversation into chapter titles, and a summarization of the conversation's contents.
+- Narrative and chapter title (general conversation) are designed to summarize a conversation into chapter titles, and a summarization of the conversation's contents. This summarization type works on conversations with any number of parties. 
 
 The AI models used by the API are provided by the service, you just have to send content for analysis.
 
