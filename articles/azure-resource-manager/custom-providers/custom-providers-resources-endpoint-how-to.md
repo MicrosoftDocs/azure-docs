@@ -171,7 +171,7 @@ Sample Azure Resource Manager Template:
 
 Parameter | Required | Description
 ---|---|---
-resourceTypeName | *yes* | The **name** of the **resourceType** defined in the custom provider.
+resourceTypeName | *yes* | The **name** of the **resourceType** defined in the custom resource provider.
 resourceProviderName | *yes* | The custom resource provider instance name.
 customResourceName | *yes* | The custom resource name.
 

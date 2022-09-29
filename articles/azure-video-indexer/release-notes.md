@@ -43,22 +43,48 @@ var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Loc
 
 ## September 2022
 
-### General availability of Azure Resource Management (ARM)
+### General availability of ARM-based accounts
 
-With the ARM-based [paid (unlimited)](accounts-overview.md) account you are able to use: 
+With an Azure Resource Management (ARM) based [paid (unlimited)](accounts-overview.md) account you are able to use: 
 
 - [Azure role-based access control (RBAC)](../role-based-access-control/overview.md).
 - Managed Identity to better secure the communication between your Azure Media Services and Azure Video Indexer account, Network Service Tags, and native integration with Azure Monitor to monitor your account (audit and indexing logs). 
 - Scale and automate your [deployment with ARM-template](deploy-with-arm-template.md), [bicep](deploy-with-bicep.md) or terraform. 
 - [Create logic apps connector for ARM-based accounts](logic-apps-connector-arm-accounts.md).   
- 
+
 To create an ARM-based account, see [create an account](create-account-portal.md).
+
+### Slate detection insights (preview)
+
+The following slate detection (a movie post-production) insights are automatically identified when indexing a video using the advanced indexing option:
+
+* Clapperboard detection with metadata extraction.
+* Digital patterns detection, including color bars.
+* Textless slate detection, including scene matching.
+
+For details, see [Slate detection](slate-detection-insight.md).
 
 ### New source languages support for STT, translation, and search
 
 Now supporting source languages for STT (speech-to-text), translation, and search in Ukraine and Vietnamese. It means transcription, translation, and search features are also supported for these languages in Azure Video Indexer web applications, widgets and APIs.
 
 For more information, see [supported languages](language-support.md).
+
+### Edit the name speakers in the transcription
+
+You can now use the [Azure Video Indexer website](https://www.videoindexer.ai/) to edit the name of the speakers in the transcription. 
+
+### Word level time annotation with confidence score
+
+An annotation is any type of additional information that is added to an already existing text, be it a transcription of an audio file or an original text file. 
+
+Now supporting word level time annotation with confidence score. 
+
+### Azure Monitor integration enabling indexing logs 
+
+The new set of logs, described below, enables you to better monitor your indexing pipeline.
+
+Azure Video Indexer now supports Diagnostics settings for indexing events. You can now export logs monitoring upload, and re-indexing of media files through diagnostics settings to Azure Log Analytics, Storage, Event Hubs, or a third-party solution.
 
 ### Expanded the supported languages in LID and MLID through the API
 

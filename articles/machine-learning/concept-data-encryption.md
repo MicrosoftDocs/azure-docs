@@ -77,7 +77,7 @@ For more information on creating and using a deployment configuration, see the f
 
 * [Where and how to deploy](how-to-deploy-managed-online-endpoints.md)
 
-For more information on using a customer-managed key with ACI, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#encrypt-data-with-a-customer-managed-key).
+For more information on using a customer-managed key with ACI, see [Encrypt deployment data](../container-instances/container-instances-encrypt-data.md).
 
 ### Azure Kubernetes Service
 

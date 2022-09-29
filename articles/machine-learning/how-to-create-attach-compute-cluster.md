@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli, cliv2, sdkv1, event-tier1-build-2022
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
-ms.date: 09/20/2022
+ms.date: 09/21/2022
 ---
 
 # Create an Azure Machine Learning compute cluster
@@ -197,58 +197,7 @@ In the studio, choose **Low Priority** when you create a VM.
 
 ## Set up managed identity
 
-[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
-
-# [Python SDK](#tab/python)
-
-
-# [Azure CLI](#tab/azure-cli)
-
-[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
-
-
-### Create a new managed compute cluster with managed identity
-
-Use this command:
-
-```azurecli
-az ml compute create -f create-cluster.yml
-```
-
-Where the contents of *create-cluster.yml* are as follows: 
-
-* User-assigned managed identity
-
-    :::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-user-identity.yml":::
-
-* System-assigned managed identity
-
-    :::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-system-identity.yml":::
-
-### Add a managed identity to an existing cluster
-
-To update an existing cluster:
-
-* User-assigned managed identity
-
-    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-mlcompute-update-to-user-identity.sh":::
-
-* System-assigned managed identity
-
-    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-mlcompute-update-to-system-identity.sh":::
-
-
-# [Studio](#tab/azure-studio)
-
-During cluster creation or when editing compute cluster details, in the **Advanced settings**, toggle **Assign a managed identity** and specify a system-assigned identity or user-assigned identity.
-
----
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-note.md)]
-
-### Managed identity usage
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-default.md)]
+For information on how to configure a managed identity with your compute cluster, see [Set up authentication between Azure Machine Learning and other services](how-to-identity-based-service-authentication.md#compute-cluster).
 
 ## Troubleshooting
 
@@ -264,5 +213,5 @@ If your Azure Machine Learning compute cluster appears stuck at resizing (0 -> 0
 
 Use your compute cluster to:
 
-* [Submit a training run](./how-to-train-sdk.md) 
+* [Submit a training run](./how-to-train-model.md) 
 * [Run batch inference](./tutorial-pipeline-batch-scoring-classification.md).

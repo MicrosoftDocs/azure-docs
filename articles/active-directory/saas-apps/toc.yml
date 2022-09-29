@@ -356,6 +356,8 @@
         href: britive-tutorial.md
       - name: Broadcom DX SaaS
         href: broadcom-dx-saas-tutorial.md  
+      - name: Broker groupe Achat Solutions
+        href: broker-groupe-tutorial.md
       - name: BrowserStack Single Sign-on
         href: browserstack-single-sign-on-tutorial.md
       - name: Brushup
@@ -1485,8 +1487,6 @@
         href: mihcm-tutorial.md  
       - name: Mimecast
         href: mimecast-personal-portal-tutorial.md
-      - name: Mindflash
-        href: mindflash-tutorial.md
       - name: MindTickle
         href: mindtickle-tutorial.md
       - name: Mind Tools Toolkit
@@ -2387,6 +2387,8 @@
         href: trakopolis-tutorial.md
       - name: Trakstar
         href: trakstar-tutorial.md
+      - name: Trakstar Learn
+        href: mindflash-tutorial.md
       - name: TransPerfect GlobalLink Dashboard
         href: transperfect-globallink-dashboard-tutorial.md
       - name: TravelPerk

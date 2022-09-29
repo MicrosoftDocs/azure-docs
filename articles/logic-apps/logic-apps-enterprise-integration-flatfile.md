@@ -29,7 +29,7 @@ This article shows how to add the **Flat File** encoding and decoding actions to
 
 For more information, review the following documentation:
 
-* [Consumption versus Standard logic apps](logic-apps-overview.md#resource-type-and-host-environment-differences)
+* [Consumption versus Standard logic apps](logic-apps-overview.md#resource-environment-differences)
 * [Integration account built-in connectors](../connectors/built-in.md#integration-account-built-in)
 * [Built-in connectors overview for Azure Logic Apps](../connectors/built-in.md)
 * [Managed or Azure-hosted connectors in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)

@@ -8,8 +8,10 @@ items:
   - name: Introduction to Data Factory
     href: introduction.md
     displayName: orchestration
-  - name: What's new in Azure Data Factory
+  - name: What's new (recent months)
     href: whats-new.md
+  - name: What's new (archived months)
+    href: whats-new-archive.md
   - name: Compare current version to version 1
     href: compare-versions.md
     displayName: timeout
@@ -1261,7 +1263,7 @@ items:
     href: industry-sap-connectors.md
   - name: SAP templates
     href: industry-sap-templates.md
-  - name: SAP change data capture (CDC) solution (preview)
+  - name: SAP change data capture (CDC) capabilities (preview)
     items:
     - name: Overview and architecture
       href: sap-change-data-capture-introduction-architecture.md

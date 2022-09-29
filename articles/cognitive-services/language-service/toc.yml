@@ -1129,6 +1129,8 @@ items:
       - name: Overview
         displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers, Post-Call Analytics
         href: /azure/cognitive-services/speech-service/call-center-overview?context=/azure/cognitive-services/language-service/context/context
+      - name: Post-call transcription and analytics quickstart
+        href: /azure/cognitive-services/speech-service/call-center-quickstart?context=/azure/cognitive-services/language-service/context/context
       - name: Ingestion Client
         href: /azure/cognitive-services/speech-service/ingestion-client?context=/azure/cognitive-services/language-service/context/context
 - name: Tutorials
