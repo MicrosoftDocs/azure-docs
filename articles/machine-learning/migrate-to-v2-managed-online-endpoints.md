@@ -77,7 +77,7 @@ Use the following steps to run the scripts:
 1. Use a bash shell to run the scripts. For example, a terminal session on Linux or the Windows Subsystem for Linux (WSL).
 2. Install [Python SDK V1](/python/api/overview/azure/ml/install) to run the python script.
 3. Install [Azure CLI](/cli/azure/install-azure-cli).
-4. Clone our repository to your local env, git clone https://github.com/Azure/azureml-examples.
+4. Clone the repository to your local env. For example, `git clone https://github.com/Azure/azureml-examples`.
 5. Edit the subscription/resourcegroup/workspace/service name info in migrate-service.sh, also the expected new endpoint name and deployment name. We recommend that the new endpoint name is different from the previous one. Otherwise, the original service will not be displayed if you check your endpoints on the portal.
 6. Execute the bash script, it will take about 5-10 minutes to finish the new deployment.
 7. After the deployment is done successfully, you can verify the endpoint with [invoke command](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-invoke).
