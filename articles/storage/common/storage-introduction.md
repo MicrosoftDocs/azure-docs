@@ -157,7 +157,7 @@ Azure NetApp Files data traffic is inherently secure by design, as it does not p
 
 To ensure that your data is durable, Azure Storage stores multiple copies of your data. When you set up your storage account, you select a redundancy option. For more information, see [Azure Storage redundancy](./storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-Azure NetApp Files provides locally redundant storage with [99.99% availability](https://azure.microsoft.com/en-us/support/legal/sla/netapp/v1_1/).
+Azure NetApp Files provides locally redundant storage with [99.99% availability](https://azure.microsoft.com/support/legal/sla/netapp/v1_1/).
 
 ## Transfer data to and from Azure Storage
 
@@ -169,7 +169,7 @@ Azure NetApp Files provides NFS and SMB volumes. You can use any file-based copy
 
 When making decisions about how your data is stored and accessed, you should also consider the costs involved. For more information, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
-Azure NetApp Files cloud file storage service is charged per hour based on the provisioned [capacity pool](../../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy#capacity_pools) capacity. For more information, see [Azure NetApp Files storage pricing](https://azure.microsoft.com/en-us/pricing/details/netapp/).
+Azure NetApp Files cloud file storage service is charged per hour based on the provisioned [capacity pool](../../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy#capacity_pools.md) capacity. For more information, see [Azure NetApp Files storage pricing](https://azure.microsoft.com/pricing/details/netapp/).
 
 ## Storage APIs, libraries, and tools
 
