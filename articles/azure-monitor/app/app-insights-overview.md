@@ -18,10 +18,10 @@ The [log trace](asp-net-trace-logs.md) is associated with other telemetry to giv
 
 Application Insights provides other features including, but not limited to:
 
-- [Live Metrics](live-stream.md) – observe activity from your deployed application in real time with no effect on the host environment 
-- [Availability](availability-overview.md)  – also known as “Synthetic Transaction Monitoring”, probe your applications external endpoint(s) to test the overall availability and responsiveness over time 
-- [GitHub or Azure DevOps integration](work-item-integration.md) – create GitHub or Azure DevOps work items in context of Application Insights data 
-- [Usage](usage-overview.md) – understand which features are popular with users and how users interact and use your application 
+- [Live Metrics](live-stream.md) – observe activity from your deployed application in real time with no effect on the host environment
+- [Availability](availability-overview.md)  – also known as “Synthetic Transaction Monitoring”, probe your applications external endpoint(s) to test the overall availability and responsiveness over time
+- [GitHub or Azure DevOps integration](work-item-integration.md) – create [GitHub](https://learn.microsoft.com/training/paths/github-administration-products/) or [Azure DevOps](https://learn.microsoft.com/azure/devops/?view=azure-devops) work items in context of Application Insights data
+- [Usage](usage-overview.md) – understand which features are popular with users and how users interact and use your application
 - [Smart Detection](proactive-diagnostics.md) – automatic failure and anomaly detection through proactive telemetry analysis
 
 In addition, Application Insights supports [Distributed Tracing](distributed-tracing.md), also known as “distributed component correlation”. This feature allows [searching for](diagnostic-search.md) and [visualizing](transaction-diagnostics.md) an end-to-end flow of a given execution or transaction. The ability to trace activity end-to-end is increasingly important for applications that have been built as distributed components or [microservices](https://learn.microsoft.com/azure/architecture/guide/architecture-styles/microservices).

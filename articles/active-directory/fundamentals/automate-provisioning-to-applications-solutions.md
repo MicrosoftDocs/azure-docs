@@ -77,7 +77,7 @@ The table depicts common scenarios and the recommended technology.
 
 ## Automate provisioning users into non-Microsoft applications
 
-After identities are in Azure AD through HR-provisioning or Azure AD Connect Could Sync / Azure AD Connect Sync, the employee can use the identity to access Teams, SharePoint, and Microsoft 365 applications. However, employees still need access to many Microsoft applications to perform their work.
+After identities are in Azure AD through HR-provisioning or Azure AD Connect cloud sync / Azure AD Connect sync, the employee can use the identity to access Teams, SharePoint, and Microsoft 365 applications. However, employees still need access to many Microsoft applications to perform their work.
 
 ![Automation decision matrix](media/automate-user-provisioning-to-applications-solutions/automate-provisioning-decision-matrix.png)
 
