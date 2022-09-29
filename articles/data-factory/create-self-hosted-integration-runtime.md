@@ -264,7 +264,7 @@ You can associate multiple nodes by installing the self-hosted integration runti
 
 #### Scale out
 
-When processor usage is high and available memory is low on the self-hosted IR, add a new node to help scale out the load across machines. If activities fail because they time out or the self-hosted IR node is offline, it helps if you add a node to the gateway.
+When processor usage is high and available memory is low on the self-hosted IR, add a new node to help scale out the load across machines. If activities fail because they time out or the self-hosted IR node is offline, it helps if you add a node to the gateway. The self-hosted integration runtime job manager follows a round robin distribution of jobs across nodes.
 
 #### Scale up
 
