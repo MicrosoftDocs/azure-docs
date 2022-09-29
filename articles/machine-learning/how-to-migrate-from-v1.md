@@ -36,9 +36,9 @@ A new v2 project can reuse existing resources like workspaces and compute and ex
 Some feature gaps in v2 include:
 
 - Spark support in jobs - this is currently in preview in v2.
-- Publishing jobs (pipelines in v1) as endpoints.
+- Publishing jobs (pipelines in v1) as endpoints. You can however, schedule pipelines without publishing.
 - Support for SQL/database datastores.
-- Built-in components in the designer.
+- Ability to use classic prebuilt components in the designer with v2.
 
 You should then ensure the features you need in v2 meet your organization's requirements, such as being generally available. 
 
@@ -130,6 +130,14 @@ For a comparison of SDK v1 and v2 code, see
 * [Parallel Run](migrate-to-v2-execution-parallel-run-step.md)
 * [Pipelines](migrate-to-v2-execution-pipeline.md)
 * [AutoML](migrate-to-v2-execution-automl.md)
+
+### Designer
+
+You can use designer to build pipelines using your own v2 custom components and the new prebuilt components from registry. In this situation, you can use v1 or v2 data assets in your pipeline. 
+
+You can continue to use designer to build pipelines using classic prebuilt components and v1 dataset types (tabular, file). You cannot use existing designer classic prebuilt components with v2 data asset.
+
+You cannot build a pipeline using both existing designer classic prebuilt components and v2 custom components.
 
 ### Data (datasets in v1)
 
