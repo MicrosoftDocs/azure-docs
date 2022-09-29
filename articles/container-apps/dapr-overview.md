@@ -28,7 +28,7 @@ This guide provides insight into core Dapr concepts and details regarding the Da
 
 ## Dapr APIs
 
-:::image type="content" source="media/dapr-overview/building_blocks.png" alt-text="Diagram that shows Dapr APIs.":::
+:::image type="content" source="media/dapr-overview/azure-container-apps-dapr-building-blocks.png" alt-text="Diagram that shows Dapr APIs.":::
 
 | Dapr API                                              | Description                                                                                                                                                     |
 | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -171,11 +171,11 @@ There are a few approaches supported in container apps to securely establish con
 2. Using a Dapr Secret Store component reference
 3. Using Platform-managed Kubernetes secrets
 
-#### Using Managed Identity
+#### Using managed identity
 
 For Azure-hosted services, Dapr can use the managed identity of the scoped container apps to authenticate to the backend service provider. When using managed identity, you don't need to include secret information in a component manifest. Using managed identity is preferred as it eliminates storage of sensitive input in components and doesn't require managing a secret store.
 
-#### Using a Dapr Secret Store Component reference
+#### Using a Dapr secret store component reference
 
 When you create Dapr components for non-AD enabled services, certain metadata fields require sensitive input values. The recommended approach for retrieving these secrets is to reference an existing Dapr secret store component that securely accesses secret information.
 
