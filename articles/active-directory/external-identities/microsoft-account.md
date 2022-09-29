@@ -25,7 +25,7 @@ Microsoft accounts are set up by a user to get access to consumer-oriented Micro
 
 ## Guest sign-in using Microsoft accounts
 
-Microsoft account is available by default in the list of ***External Identities > All identity providers***. No further configuration is needed to allow guest users to sign in with their Microsoft account using either the invitation flow, or a self-service sign-up user flow.
+Microsoft account is available by default in the list of **External Identities** > **All identity providers**. No further configuration is needed to allow guest users to sign in with their Microsoft account using either the invitation flow, or a self-service sign-up user flow.
 
 :::image type="content" source="media/microsoft-account/microsoft-account-identity-provider.png" alt-text="Microsoft account in the identity providers list":::
 
