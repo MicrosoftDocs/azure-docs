@@ -27,18 +27,18 @@ This article discusses how to run the troubleshooter for Azure machines from the
 
 For Azure machines, you can launch the Troubleshoot Update Agent page by selecting the **Troubleshoot** link under the **Update Agent Readiness** column in the portal. For non-Azure machines, the link brings you to this article. See [Troubleshoot offline](#troubleshoot-offline) to troubleshoot a non-Azure machine.
 
-:::image type="content" source="../media/update-agent-issues/vm-list.png" alt-text="Screenshot of the Update Management list of virtual machines":::
+:::image type="content" source="../media/update-agent-issues/vm-list.png" alt-text="Screenshot of the Update Management list of virtual machines.":::
 
 > [!NOTE]
 > To check the health of the Hybrid Runbook Worker, the VM must be running. If the VM isn't running, a **Start the VM** button appears.
 
 On the Troubleshoot Update Agent page, select **Run checks** to start the troubleshooter. The troubleshooter uses [Run Command](../../virtual-machines/windows/run-command.md) to run a script on the machine, to verify dependencies. When the troubleshooter is finished, it returns the result of the checks.
 
-:::image type="content" source="../media/update-agent-issues/troubleshoot-page.png" alt-text="Screenshot of the Troubleshoot Update Agent page":::
+:::image type="content" source="../media/update-agent-issues/troubleshoot-page.png" alt-text="Screenshot of the Troubleshoot Update Agent page.":::
 
 Results are shown on the page when they're ready. The checks sections show what's included in each check.
 
-:::image type="content" source="../media/update-agent-issues/actionable-tasks-windows-inline.png" alt-text="Screenshot of Windows Troubleshooter" border="false" lightbox="../media/update-agent-issues/actionable-tasks-windows-expanded.png":::
+:::image type="content" source="../media/update-agent-issues/actionable-tasks-windows-inline.png" alt-text="Screenshot of Windows Troubleshooter." border="false" lightbox="../media/update-agent-issues/actionable-tasks-windows-expanded.png":::
 
 ## Prerequisite checks
 
@@ -239,7 +239,7 @@ AlwaysAutoRebootAtScheduledTimeMinutes
 For more information, see [Configure reboot settings](../update-management/configure-wuagent.md#configure-reboot-settings)
 
 
-### WSUS Server configuration
+### WSUS server configuration
 
 If the environment is set to get updates from WSUS, ensure that it is approved in WSUS before the update deployment. For more information, see [WSUS configuration settings](../update-management/configure-wuagent.md#make-wsus-configuration-settings). If your environment is not using WSUS, ensure that you remove the WSUS server settings and [reset Windows update component](https://learn.microsoft.com/windows/deployment/update/windows-update-resources#how-do-i-reset-windows-update-components).
 

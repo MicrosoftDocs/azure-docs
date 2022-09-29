@@ -27,19 +27,19 @@ This article discusses how to run the troubleshooter for Azure machines from the
 
 For Azure machines, select the **troubleshoot** link under the **Update Agent Readiness** column in the portal to open the Troubleshoot Update Agent page. For non-Azure machines, the link brings you to this article. To troubleshoot a non-Azure machine, see the instructions in the **Troubleshoot offline** section.
 
-:::image type="content" source="../media/update-agent-issues-linux/vm-list.png" alt-text="Screenshot of VM list page":::
+:::image type="content" source="../media/update-agent-issues-linux/vm-list.png" alt-text="Screenshot of VM list page.":::
 
 > [!NOTE]
 > The checks require the VM to be running. If the VM isn't running, **Start the VM** appears.
 
 On the Troubleshoot Update Agent page, select **Run Checks** to start the troubleshooter. The troubleshooter uses [Run command](../../virtual-machines/linux/run-command.md) to run a script on the machine to verify the dependencies. When the troubleshooter is finished, it returns the result of the checks.
 
-:::image type="content" source="../media/update-agent-issues-linux/troubleshoot-page.png" alt-text="Screenshot of Troubleshoot page":::
+:::image type="content" source="../media/update-agent-issues-linux/troubleshoot-page.png" alt-text="Screenshot of Troubleshoot page.":::
 
 
 When the checks are finished, the results are returned in the window. The check sections provide information on what each check is looking for.
 
-:::image type="content" source="../media/update-agent-issues-linux/actionable-tasks-linux-inline.png" alt-text="Screenshot of Linux Troubleshooter" border="false" lightbox="../media/update-agent-issues-linux/actionable-tasks-linux-expanded.png":::
+:::image type="content" source="../media/update-agent-issues-linux/actionable-tasks-linux-inline.png" alt-text="Screenshot of Linux Troubleshooter." border="false" lightbox="../media/update-agent-issues-linux/actionable-tasks-linux-expanded.png":::
 
 
 ## Prerequisite checks
@@ -48,7 +48,7 @@ When the checks are finished, the results are returned in the window. The check 
 
 The operating system check verifies if the Hybrid Runbook Worker is running one of the [supported operating systems](../update-management/operating-system-requirements.md#supported-operating-systems).
 
-### Dmidecode Check
+### Dmidecode check
 
 To verify if a VM is an Azure VM, check for Asset tag value using the below command:
 
@@ -69,7 +69,7 @@ This task checks if the folder is present -
 
 */etc/opt/microsoft/omsagent/conf/omsadmin.conf*
 
-### Monitoring Agent Status
+### Monitoring Agent status
  
 To fix this issue, you must start the OMS Agent service by using the following command: 
 
@@ -114,7 +114,7 @@ Validate to check if the following two paths exists:
 /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/VERSION </br> /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/configuration.py
 ```
 
-### Hybrid Runbook Worker Status
+### Hybrid Runbook Worker status
 
 This check makes sure the Hybrid Runbook Worker is running on the machine. The processes in the example below should be present if the Hybrid Runbook Worker is running correctly.
 ```
@@ -204,7 +204,7 @@ Post making Network changes you can either rerun the Troubleshooter or
 Curl on provided OMS endpoint
 
 
-### Software Repositories
+### Software repositories
 
 Fix this issue by allowing the prerequisite Repo URL. For RHEL, see [here](https://learn.microsoft.com/azure/virtual-machines/workloads/redhat/redhat-rhui#troubleshoot-connection-problems-to-azure-rhui).
 
