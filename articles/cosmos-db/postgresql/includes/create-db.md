@@ -5,59 +5,55 @@
  ms.service: cosmos-db
  ms.subservice: postgresql
  ms.topic: include
- ms.date: 06/29/2022
+ ms.date: 09/28/2022
  ms.author: jonels
  ms.custom: include file
 ---
 
-If you don't have an Azure subscription, create a
-[free](https://azure.microsoft.com/free/) account before you begin.
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-Sign in to the [Azure portal](https://portal.azure.com) and follow these steps
-to create an Azure Cosmos DB for PostgreSQL cluster:
+## Create a cluster
+
+Sign in to the [Azure portal](https://portal.azure.com) and follow these steps to create an Azure Cosmos DB for PostgreSQL cluster:
 
 # [Direct link](#tab/direct)
 
-Visit [Create cluster](https://portal.azure.com/#view/Microsoft_Azure_DocumentDB/CreatePostgreSQL.ReactView) in the Azure portal.
+Go to [Create an Azure Cosmos DB for PostgreSQL cluster](https://portal.azure.com/#view/Microsoft_Azure_DocumentDB/CreatePostgreSQL.ReactView) in the Azure portal.
 
-# [Via portal search](#tab/portal-search)
+# [Portal search](#tab/portal-search)
 
-1. Visit the [Azure portal](https://portal.azure.com/) and search for
-   **citus**. Select **Azure Cosmos DB for PostgreSQL**.
-   ![search for citus](media/quickstart-create-portal/portal-search.png)
-2. Select **+ Create**.
-   ![create button](media/quickstart-create-portal/create-button.png)
-3. Select the **cluster** deployment option.
-   ![deployment options](media/quickstart-create-portal/deployment-option.png)
+1. In the [Azure portal](https://portal.azure.com), search for *cosmosdb* and select **Azure Cosmos DB** from the results.
+
+   :::image type="content" source="media/quickstart-create-portal/portal-search.png" alt-text="Screenshot showing search for cosmosdb.":::
+
+1. On the **Azure Cosmos DB** screen, select **Create**.
+
+   :::image type="content" source="media/quickstart-create-portal/create-button.png" alt-text="Screenshot showing Create for Azure Cosmos DB.":::
+
+1. On the **Select API option** screen, select **Create** on the **PostgreSQL** tile.
+
+   :::image type="content" source="media/quickstart-create-portal/deployment-option.png" alt-text="Screenshot of the Select API options screen.":::
 
 ---
 
-1. Fill out the **Basics** form.
-   ![basic info form](media/quickstart-create-portal/basics.png)
+On the **Create an Azure Cosmos DB for PostgreSQL cluster** form:
+
+1. Fill out the information on the **Basics** tab.
+
+   :::image type="content" source="media/quickstart-create-portal/basics.png" alt-text="Screenshot showing the Basics tab of the Create screen.":::
 
    Most options are self-explanatory, but keep in mind:
 
-   * The cluster name will determine the DNS name your
-     applications use to connect, in the form
-     `cluster-name.postgres.database.azure.com`.
-   * The admin username is required to be the value `citus`.
-   * You can choose a database version. Azure Cosmos DB for PostgreSQL always supports the
-     latest PostgreSQL version, within one day of release.
+   * The cluster name determines the DNS name your applications use to connect, in the form `<clustername>.postgres.database.azure.com`.
+   * You can choose a database version. Azure Cosmos DB for PostgreSQL always supports the latest PostgreSQL version, within one day of release.
+   * The admin username must be the value `citus`.
 
-2. Select **Configure cluster**.
+1. Select **Next : Networking** at the bottom of the screen.
+1. On the **Networking** screen, select **Allow public access from Azure services and resources within Azure to this cluster**.
 
-   ![compute and storage](media/quickstart-create-portal/compute.png)
+   :::image type="content" source="media/quickstart-create-portal/networking.png" alt-text="Screenshot showing the Networking tab of the Create screen.":::
 
-3. Select **Save**.
+1. Select **Review + create**, and when validation passes, select **Create** to create the cluster.
 
-4. Select **Next : Networking >** at the bottom of the screen.
-5. In the **Networking** tab, select **Allow public access from Azure services
-   and resources within Azure to this cluster**.
-
-   ![networking configuration](media/quickstart-create-portal/networking.png)
-
-6. Select **Review + create** and then **Create** to create the server.
-   Provisioning takes a few minutes.
-7. The page will redirect to monitor deployment. When the live status changes
-   from **Deployment is in progress** to **Your deployment is complete**.
-   After this transition, select **Go to resource**.
+1. Provisioning takes a few minutes. The page redirects to monitor deployment. When the status changes
+   from **Deployment is in progress** to **Your deployment is complete**, select **Go to resource**.

@@ -1,66 +1,65 @@
 ---
-title: Node.js app to connect and query Azure Cosmos DB for PostgreSQL
-description: Learn to query Azure Cosmos DB for PostgreSQL using Node.js
+title: Use Node.js to connect and query Azure Cosmos DB for PostgreSQL
+description: See how to use Node.js to connect and run SQL statements on Azure Cosmos DB for PostgreSQL.
 ms.author: sasriram
 author: saimicrosoft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: quickstart
 recommendations: false
-ms.date: 08/24/2022
+ms.date: 09/28/2022
 ---
 
-# Node.js app to connect and query Azure Cosmos DB for PostgreSQL
+# Use Node.js to connect and run SQL commands on Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-In this article, you'll connect to a cluster using a Node.js application. We'll see how to use SQL statements to query, insert, update and delete data in the database. The steps in this article assume that you're familiar with developing using Node.js and are new to working with Azure Cosmos DB for PostgreSQL.
+This quickstart shows you how to use Node.js code to connect to a cluster, and then use SQL statements to create a table and insert, query, update, and delete data in the database. The steps in this article assume that you're familiar with Node.js development, and are new to working with Azure Cosmos DB for PostgreSQL.
 
 > [!TIP]
->
-> The process of creating a NodeJS application with Azure Cosmos DB for PostgreSQL is the same as working with ordinary PostgreSQL.
+> The process of creating a Node.js app with Azure Cosmos DB for PostgreSQL is the same as working with ordinary PostgreSQL.
 
-## Setup
+## Prerequisites
 
-### Prerequisites
+- An Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free).
+- An Azure Cosmos DB for PostgreSQL cluster. To create a cluster, see [Create a cluster in the Azure portal](quickstart-create-portal.md).
+- [Node.js](https://nodejs.org) installed.
+- For various samples, the following packages installed:
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
-* Create a cluster using this link [Create cluster](quickstart-create-portal.md)
-* [Node.js](https://nodejs.org/)
+  - [pg](https://www.npmjs.com/package/pg) PostgreSQL client for Node.js.
+  - [pg-copy-streams](https://www.npmjs.com/package/pg-copy-streams).
+  - [through2](https://www.npmjs.com/package/through2) to allow pipe chaining.
 
-Install [pg](https://www.npmjs.com/package/pg), which is a PostgreSQL client for Node.js.
-To do so, run the node package manager (npm) for JavaScript from your command line to install the pg client.
+   Install these packages from your command line by using the JavaScript `npm` node package manager.
+  
+  ```bash
+  npm install <package name>
+  ```
 
-```bash
-npm install pg
-```
+  Verify the installation by listing the packages installed.
 
-Verify the installation by listing the packages installed.
+  ```bash
+  npm list
+  ```
 
-```bash
-npm list
-```
+You can launch Node.js from the Bash shell, terminal, or Windows command prompt by typing `node`. Then run the example JavaScript code interactively by copying and pasting the code into the prompt. Or, you can save the JavaScript code into a *\<filename>.js* file, and then run `node <filename>.js` with the file name as a parameter.
 
-### Get database connection information
+> [!NOTE]
+> Because each code sample finishes by ending the connection pool, you need to start a new Node.js session to build a new pool for each of the samples.
 
-To get the database credentials, you can use the **Connection strings** tab in the Azure portal. See the screenshot below.
+The code samples in this article use your cluster name and password. You can see your cluster name at the top of your cluster page in the Azure portal.
 
-![Diagram showing NodeJS connection string.](media/howto-app-stacks/01-python-connection-string.png)
+:::image type="content" source="media/howto-app-stacks/cluster-name.png" alt-text="Screenshot of the cluster name in the Azure portal.":::
 
-### Running JavaScript code in Node.js
+## Connect, create a table, and insert data
 
-You may launch Node.js from the Bash shell, Terminal or Windows Command Prompt by typing `node`, then run the example JavaScript code interactively by copy and pasting it onto the prompt. Alternatively, you may save the JavaScript code into a text file and launch `node filename.js` with the file name as a parameter to run it.
-
-## Connect, create table and insert data
-
-All examples in this article need to connect to the database. Let's put the
-connection logic into its own module for reuse. We'll use the
-[pg.Client](https://node-postgres.com/) object to
-interface with the PostgreSQL server.
+All examples in this article need to connect to the database. You can put the connection logic into its own module for reuse. Use the [pg](https://node-postgres.com) client object to interface with the PostgreSQL server.
 
 [!INCLUDE[why-connection-pooling](includes/why-connection-pooling.md)]
 
-Create a folder called `db` and inside this folder create `citus.js` file with the common connection code:
+### Create the common connection module
+
+Create a folder called *db*, and inside this folder create a *citus.js* file that contains the following common connection code. In this code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```javascript
 /**
@@ -73,10 +72,10 @@ const pool = new Pool({
   max: 300,
   connectionTimeoutMillis: 5000,
 
-  host: '<host>',
+  host: 'c.<cluster>.postgres.database.azure.com',
   port: 5432,
   user: 'citus',
-  password: '<your password>',
+  password: '<password>',
   database: 'citus',
   ssl: true,
 });
@@ -86,8 +85,10 @@ module.exports = {
 };
 ```
 
-Next, use the following code to connect and load the data using CREATE TABLE
-and INSERT INTO SQL statements. 
+### Create a table
+
+Use the following code to connect and load the data by using CREATE TABLE
+and INSERT INTO SQL statements. The code creates a new `pharmacy` table and inserts some sample data.
 
 ```javascript
 /**
@@ -109,7 +110,7 @@ async function queryDatabase() {
   try {
     /* Real application code would probably request a dedicated client with
        pool.connect() and run multiple queries with the client. In this
-       example, we're running only one query, so we use the pool.query()
+       example, you're running only one query, so you use the pool.query()
        helper method to run it on the first available idle client.
     */
 
@@ -125,15 +126,12 @@ async function queryDatabase() {
 queryDatabase();
 ```
 
-To execute the code above, run `node create.js`. This command will create a new "pharmacy" table and insert some sample data.
-
-## Super power of Distributed Tables
+## Distribute tables
 
 Azure Cosmos DB for PostgreSQL gives you [the super power of distributing tables](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. The command below enables you to distribute a table. You can learn more about `create_distributed_table` and the distribution column [here](quickstart-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
 
-> [!TIP]
->
-> Distributing your tables is optional in a an Azure Cosmos DB for PostgreSQL cluster with no worker nodes.
+> [!NOTE]
+> Distributing tables lets them grow across any worker nodes added to the cluster.
 
 Use the following code to connect to the database and distribute the table.
 
@@ -164,7 +162,7 @@ queryDatabase();
 
 ## Read data
 
-Use the following code to connect and read the data using a SELECT SQL statement.
+Use the following code to connect and read the data by using a SELECT SQL statement.
 
 ```javascript
 /**
@@ -193,7 +191,7 @@ queryDatabase();
 
 ## Update data
 
-Use the following code to connect and read the data using a UPDATE SQL statement.
+Use the following code to connect and update the data by using an UPDATE SQL statement.
 
 ```javascript
 /**
@@ -224,7 +222,7 @@ queryDatabase();
 
 ## Delete data
 
-Use the following code to connect and read the data using a DELETE SQL statement.
+Use the following code to connect and delete the data by using a DELETE SQL statement.
 
 ```javascript
 /**
@@ -253,22 +251,13 @@ async function queryDatabase() {
 queryDatabase();
 ```
 
-## COPY command for super fast ingestion
+## COPY command for fast ingestion
 
 The COPY command can yield [tremendous throughput](https://www.citusdata.com/blog/2016/06/15/copy-postgresql-distributed-tables) while ingesting data into Azure Cosmos DB for PostgreSQL. The COPY command can ingest data in files, or from micro-batches of data in memory for real-time ingestion.
 
 ### COPY command to load data from a file
 
-Before running code below, install
-[pg-copy-streams](https://www.npmjs.com/package/pg-copy-streams). To do so,
-run the node package manager (npm) for JavaScript from your command line.
-
-```bash
-npm install pg-copy-streams
-```
-
-The following code is an example for copying data from a CSV file to a database table.
-It requires the file [pharmacies.csv](https://download.microsoft.com/download/d/8/d/d8d5673e-7cbf-4e13-b3e9-047b05fc1d46/pharmacies.csv).
+The following code copies data from a CSV file to a database table. The code requires the [pg-copy-streams](https://www.npmjs.com/package/pg-copy-streams) package and the file [pharmacies.csv](https://download.microsoft.com/download/d/8/d/d8d5673e-7cbf-4e13-b3e9-047b05fc1d46/pharmacies.csv).
 
 ```javascript
 /**
@@ -318,17 +307,9 @@ async function importCsvDatabase() {
 })();
 ```
 
-### COPY command to load data in-memory
+### COPY command to load in-memory data
 
-Before running the code below, install
-[through2](https://www.npmjs.com/package/through2) package. This package allows pipe
-chaining.  Install it with node package manager (npm) for JavaScript like this:
-
-```bash
-npm install through2
-```
-
-The following code is an example for copying in-memory data to a table.
+The following code copies in-memory data to a table. The code requires the [through2](https://www.npmjs.com/package/through2) package, which allows pipe chaining.
 
 ```javascript
 /**
@@ -387,19 +368,21 @@ async function importInMemoryDatabase() {
 })();
 ```
 
-## App retry during database request failures
+## App retry for database request failures
 
 [!INCLUDE[app-stack-next-steps](includes/app-stack-retry-intro.md)]
+
+In this code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```javascript
 const { Pool } = require('pg');
 const { sleep } = require('sleep');
 
 const pool = new Pool({
-  host: '<host>',
+  host: 'c.<cluster>.postgres.database.azure.com',
   port: 5432,
   user: 'citus',
-  password: '<your password>',
+  password: '<password>',
   database: 'citus',
   ssl: true,
   connectionTimeoutMillis: 0,

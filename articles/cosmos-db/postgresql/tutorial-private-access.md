@@ -1,28 +1,32 @@
 ---
-title: Create cluster with private access - Azure Cosmos DB for PostgreSQL
-description: Connect a VM to a cluster private endpoint
+title: Create a cluster with private access - Azure Cosmos DB for PostgreSQL
+description: Use Azure CLI to create a virtual network and virtual machine, then connect the VM to a cluster private endpoint.
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: tutorial
-ms.date: 01/14/2022
+ms.date: 09/28/2022
 ---
 
-# Create cluster with private access in Azure Cosmos DB for PostgreSQL
+# Connect to a cluster with private access in Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-This tutorial creates a virtual machine and a cluster,
+This tutorial creates a virtual machine (VM) and an Azure Cosmos DB for PostgreSQL cluster,
 and establishes [private access](concepts-private-access.md) between
 them.
 
+## Prerequisites
+
+- An Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free).
+- If you want to run the code locally, [Azure CLI](/cli/azure/install-azure-cli) installed. You can also run the code in [Azure Cloud Shell](/azure/cloud-shell/overview).
+
 ## Create a virtual network
 
-First, we’ll set up a resource group and virtual network. It will hold our
-cluster and virtual machine.
+First, set up a resource group and virtual network to hold your cluster and VM.
 
-```sh
+```azurecli
 az group create \
 	--name link-demo \
 	--location eastus
@@ -46,10 +50,9 @@ az network vnet subnet create \
 
 ## Create a virtual machine
 
-For demonstration, we’ll use a virtual machine running Debian Linux, and the
-`psql` PostgreSQL client.
+For demonstration, create a VM running Debian Linux and the `psql` PostgreSQL client.
 
-```sh
+```azurecli
 # provision the VM
 
 az vm create \
@@ -77,66 +80,48 @@ az vm run-command invoke \
 
 ## Create a cluster with a private link
 
-1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
+Create your Azure Cosmos DB for PostgreSQL cluster in the [Azure portal](https://portal.azure.com).
 
-2. Select **Databases** from the **New** page, and select **Azure Cosmos DB for PostgreSQL**
-   from the **Databases** page.
+1. In the portal, select **Create a resource** in the upper left-hand corner.
+1. On the **Create a resource** page, select **Databases**, and then select **Azure Cosmos DB**.
+1. On the **Select API option** page, on the **PostgreSQL** tile, select **Create**.
+1. On the **Create an Azure Cosmos DB for PostgreSQL cluster** page, fill out the following information:
 
-3. For the deployment option, select the **Create** button under **Azure Cosmos DB for PostgreSQL cluster**.
+   - **Resource group**: Select **New**, then enter *link-demo*.
+   - **Cluster name**: Enter *link-demo-sg*.
 
-4. Fill out the new server details form with the following information:
+     > [!NOTE]
+     > The cluster name must be globally unique across Azure because it
+     > creates a DNS entry. If `link-demo-sg` is unavailable, enter another name and adjust the following steps accordingly.
 
-	- **Resource group**: `link-demo`
-	- **Cluster name**: `link-demo-sg`
-	- **Location**: `East US`
-	- **Password**: (your choice)
+   - **Location**: Select **East US**.
+   - **Password**: Enter and then confirm a password.
 
-	> [!NOTE]
-	>
-	> The cluster name must be globally unique across Azure because it
-	> creates a DNS entry. If `link-demo-sg` is unavailable, please choose
-	> another name and adjust the steps below accordingly.
+1. Select **Next: Networking**.
+1. On the **Networking** tab, for **Connectivity method**, select **Private access**.
+1. On the **Create private endpoint** screen, enter or select the following values:
 
-5. Select **Configure cluster**, choose the **Basic** plan, and select
-   **Save**.
+   - **Resource group**: `link-demo`
+   - **Location**: `(US) East US`
+   - **Name**: `link-demo-sg-c-pe1`
+   - **Target sub-resource**: `coordinator`
+   - **Virtual network**: `link-demo-net`
+   - **Subnet**: `link-demo-subnet`
+   - **Integrate with private DNS zone**: Yes
 
-6. Select **Next: Networking** at the bottom of the page.
+1. Select **OK**.
+1. After you create the private endpoint, select **Review + create** and then select **Create** to create your cluster.
 
-7. Select **Private access**.
+## Access the cluster privately from the VM
 
-8. A screen appears called **Create private endpoint**. Enter these values and
-   select **OK**:
+The private link allows the VM to connect to the cluster, and prevents external hosts from doing so. In this step, you check that the psql database client on your VM can communicate with the coordinator node of the cluster. In the code, replace `{your_password}` with your cluster password.
 
-	- **Resource group**: `link-demo`
-	- **Location**: `(US) East US`
-	- **Name**: `link-demo-sg-c-pe1`
-	- **Target sub-resource**: `coordinator`
-	- **Virtual network**: `link-demo-net`
-	- **Subnet**: `link-demo-subnet`
-	- **Integrate with private DNS zone**: Yes
-
-9. After creating the private endpoint, select **Review + create** to create
-   your cluster.
-
-## Access the cluster privately from the virtual machine
-
-The private link allows our virtual machine to connect to our cluster,
-and prevents external hosts from doing so. In this step, we'll check that
-the `psql` database client on our virtual machine can communicate with the
-coordinator node of the cluster.
-
-```sh
-# save db URI
-
-#
-# obtained from Settings -> Connection Strings in the Azure portal
-
-#
+```azurecli
 # replace {your_password} in the string with your actual password
 
 PG_URI='host=c.link-demo-sg.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require'
 
-# attempt to connect to cluster with psql in the virtual machine
+# Attempt to connect to cluster with psql in the VM
 
 az vm run-command invoke \
 	--resource-group link-demo \
@@ -152,12 +137,12 @@ was able to execute the command, and the private link worked.
 
 ## Clean up resources
 
-We've seen how to create a private link between a virtual machine and a
-cluster. Now we can deprovision the resources.
+You've seen how to create a private link between a VM and a
+cluster. Now you can deprovision the resources.
 
 Delete the resource group, and the resources inside will be deprovisioned:
 
-```sh
+```azurecli
 az group delete --resource-group link-demo
 
 # press y to confirm

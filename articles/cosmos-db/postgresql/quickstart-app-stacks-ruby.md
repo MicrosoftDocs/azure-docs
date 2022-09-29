@@ -1,53 +1,48 @@
 ---
-title: Ruby app to connect and query Azure Cosmos DB for PostgreSQL 
-description: Learn to query Azure Cosmos DB for PostgreSQL using Ruby
+title: Use Ruby to connect and query Azure Cosmos DB for PostgreSQL 
+description: See how to use Ruby to connect and run SQL statements on Azure Cosmos DB for PostgreSQL.
 ms.author: sasriram
 author: saimicrosoft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: quickstart
 recommendations: false
-ms.date: 08/24/2022
+ms.date: 09/28/2022
 ---
 
-# Ruby app to connect and query Azure Cosmos DB for PostgreSQL
+# Use Ruby to connect and run SQL commands on Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-In this how-to article, you'll connect to a cluster using a Ruby application. We'll see how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you're familiar with developing using Node.js, and are new to working with Azure Cosmos DB for PostgreSQL.
+This quickstart shows you how to use Ruby code to connect to a cluster, and then use SQL statements to create a table and insert, query, update, and delete data in the database. The steps in this article assume that you're familiar with Ruby development, and are new to working with Azure Cosmos DB for PostgreSQL.
 
 > [!TIP]
->
 > The process of creating a Ruby app with Azure Cosmos DB for PostgreSQL is the same as working with ordinary PostgreSQL.
 
-## Setup
+## Prerequisites
 
-### Prerequisites
+- An Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free).
+- [Ruby](https://www.ruby-lang.org/en/downloads) installed.
+- [Ruby pg](https://rubygems.org/gems/pg), the PostgreSQL module for Ruby.
+- An Azure Cosmos DB for PostgreSQL cluster. To create a cluster, see [Create a cluster in the Azure portal](quickstart-create-portal.md).
+  
+The code samples in this article use your cluster name and password. In the Azure portal, your cluster name appears at the top of your cluster page.
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
-* Create a cluster using this link [Create cluster](quickstart-create-portal.md)
-* [Ruby](https://www.ruby-lang.org/en/downloads/)
-* [Ruby pg](https://rubygems.org/gems/pg/), the PostgreSQL module for Ruby
+:::image type="content" source="media/howto-app-stacks/cluster-name.png" alt-text="Screenshot of the cluster name in the Azure portal.":::
 
-### Get database connection information
+## Connect, create a table, and insert data
 
-To get the database credentials, you can use the **Connection strings** tab in the Azure portal. See below screenshot.
-
-![Diagram showing ruby connection string.](media/howto-app-stacks/01-python-connection-string.png)
-
-## Connect, create table, insert data
-
-Use the following code to connect and create a table using CREATE TABLE SQL statement, followed by INSERT INTO SQL statements to add rows into the table.
+Use the following code to connect and create a table by using the CREATE TABLE SQL statement, then add rows to the table by using the INSERT INTO SQL statement.
 
 The code uses a `PG::Connection` object with constructor to connect to Azure Cosmos DB for PostgreSQL. Then it calls method `exec()` to run the DROP, CREATE TABLE, and INSERT INTO commands. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating. For more information about these classes and methods, see the [Ruby pg reference documentation](https://rubygems.org/gems/pg).
 
+In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```ruby
 require 'pg'
 begin
-    # NOTE: Replace the host and password arguments in the connection string.
-    # (The connection string can be obtained from the Azure portal)
-    connection = PG::Connection.new("host=<server name> port=5432 dbname=citus user=citus password={your password} sslmode=require")
+    # NOTE: Replace <cluster> and <password> in the connection string.
+    connection = PG::Connection.new("host=c.<cluster>.postgres.database.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
     puts 'Successfully created connection to database'
 
     # Drop previous table of same name if one exists
@@ -72,25 +67,23 @@ ensure
 end
 ```
 
-## Use the super power of distributed tables
+## Distribute tables
 
 Azure Cosmos DB for PostgreSQL gives you [the super power of distributing tables](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. The command below enables you to distribute a table. You can learn more about `create_distributed_table` and the distribution column [here](quickstart-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
 
-> [!TIP]
->
-> Distributing your tables is optional in a an Azure Cosmos DB for PostgreSQL cluster with no worker nodes.
+> [!NOTE]
+> Distributing tables lets them grow across any worker nodes added to the cluster.
 
-Use the following code to connect to the database and distribute the table:
+Use the following code to connect to the database and distribute the table. In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```ruby
 require 'pg'
 begin
-    # NOTE: Replace the host and password arguments in the connection string.
-    # (The connection string can be obtained from the Azure portal)
-    connection = PG::Connection.new("host=<server name> port=5432 dbname=citus user=citus password={your password} sslmode=require")
-    puts 'Successfully created connection to database'
+    # NOTE: Replace <cluster> and <password> in the connection string.
+    connection = PG::Connection.new("host=c.<cluster>.postgres.database.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
+    puts 'Successfully created connection to database.'
 
-    # Super power of Distributed Tables.
+    # Super power of distributed tables.
     connection.exec("select create_distributed_table('pharmacy','pharmacy_id');") 
 rescue PG::Error => e
     puts e.message
@@ -103,15 +96,14 @@ end
 
 Use the following code to connect and read the data using a SELECT SQL statement.
 
-The code uses a `PG::Connection` object with constructor new to connect to Azure Cosmos DB for PostgreSQL. Then it calls method `exec()` to run the SELECT command, keeping the results in a result set. The result set collection is iterated using the `resultSet.each` do loop, keeping the current row values in the row variable. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating. For more information about these classes and methods, see the [Ruby pg reference documentation](https://rubygems.org/gems/pg).
+The code calls method `exec()` to run the SELECT command, keeping the results in a result set. The result set collection is iterated using the `resultSet.each` do loop, keeping the current row values in the row variable. In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```ruby
 require 'pg'
 begin
-    # NOTE: Replace the host and password arguments in the connection string.
-    # (The connection string can be obtained from the Azure portal)
-    connection = PG::Connection.new("host=<server name> port=5432 dbname=citus user=citus password={your password} sslmode=require")
-    puts 'Successfully created connection to database'
+    # NOTE: Replace <cluster> and <password> in the connection string.
+    connection = PG::Connection.new("host=c.<cluster>.postgres.database.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
+    puts 'Successfully created connection to database.'
 
     resultSet = connection.exec('SELECT * from pharmacy')
     resultSet.each do |row|
@@ -126,17 +118,14 @@ end
 
 ## Update data
 
-Use the following code to connect and update the data using a UPDATE SQL statement.
-
-The code uses a `PG::Connection` object with constructor to connect to Azure Cosmos DB for PostgreSQL. Then it calls method `exec()` to run the UPDATE command. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating. For more information about these classes and methods, see the [Ruby pg reference documentation](https://rubygems.org/gems/pg).
+Use the following code to connect and update the data by using a UPDATE SQL statement. In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```ruby
 require 'pg'
 begin
-    # NOTE: Replace the host and password arguments in the connection string.
-    # (The connection string can be obtained from the Azure portal)
-    connection = PG::Connection.new("host=<server name> port=5432 dbname=citus user=citus password={your password} sslmode=require")
-    puts 'Successfully created connection to database'
+    # NOTE: Replace <cluster> and <password> in the connection string.
+    connection = PG::Connection.new("host=c.<cluster>.postgres.database.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
+    puts 'Successfully created connection to database.'
 
     # Modify some data in table.
     connection.exec('UPDATE pharmacy SET city = %s WHERE pharmacy_id = %d;' % ['\'guntur\'',100])
@@ -150,17 +139,14 @@ end
 
 ## Delete data
 
-Use the following code to connect and read the data using a DELETE SQL statement.
-
-The code uses a `PG::Connection` object with constructor new to connect to Azure Cosmos DB for PostgreSQL. Then it calls method `exec()` to run the DELETE command. The code checks for errors using the `PG::Error` class. Then it calls method `close()` to close the connection before terminating. For more information about these classes and methods, see the [Ruby pg reference documentation](https://rubygems.org/gems/pg).
+Use the following code to connect and delete data using a DELETE SQL statement. In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```ruby
 require 'pg'
 begin
-    # NOTE: Replace the host and password arguments in the connection string.
-    # (The connection string can be obtained from the Azure portal)
-    connection = PG::Connection.new("host=<server name> port=5432 dbname=citus user=citus password={your password} sslmode=require")
-    puts 'Successfully created connection to database'
+    # NOTE: Replace <cluster> and <password> in the connection string.
+    connection = PG::Connection.new("host=c.<cluster>.postgres.database.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
+    puts 'Successfully created connection to database.'
 
     # Delete some data in table.
     connection.exec('DELETE FROM pharmacy WHERE city = %s;' % ['\'guntur\''])
@@ -178,26 +164,23 @@ The COPY command can yield [tremendous throughput](https://www.citusdata.com/blo
 
 ### COPY command to load data from a file
 
-The following code is an example for copying data from a CSV file to a database table.
-
-It requires the file [pharmacies.csv](https://download.microsoft.com/download/d/8/d/d8d5673e-7cbf-4e13-b3e9-047b05fc1d46/pharmacies.csv).
+The following code copies data from a CSV file to a database table. It requires the file [pharmacies.csv](https://download.microsoft.com/download/d/8/d/d8d5673e-7cbf-4e13-b3e9-047b05fc1d46/pharmacies.csv). In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```ruby
 require 'pg'
 begin
     filename = String('pharmacies.csv')
 
-    # NOTE: Replace the host and password arguments in the connection string.
-    # (The connection string can be obtained from the Azure portal)
-    connection = PG::Connection.new("host=<server name> port=5432 dbname=citus user=citus password={your password} sslmode=require")
-    puts 'Successfully created connection to database'
+    # NOTE: Replace <cluster> and <password> in the connection string.
+    connection = PG::Connection.new("host=c.<cluster>.postgres.database.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
+    puts 'Successfully created connection to database.'
 
     # Copy the data from Csv to table.
     result = connection.copy_data "COPY pharmacy FROM STDIN with csv" do
         File.open(filename , 'r').each do |line|
             connection.put_copy_data line
         end
-    puts 'Copied csv data successfully .'
+    puts 'Copied csv data successfully.'
     end      
 rescue PG::Error => e
     puts e.message
@@ -206,23 +189,22 @@ ensure
 end
 ```
 
-### COPY command to load data in-memory
+### COPY command to load in-memory data
 
-The following code is an example for copying in-memory data to a table.
+The following code copies in-memory data to a table. In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```ruby
 require 'pg'
 begin
-    # NOTE: Replace the host and password arguments in the connection string.
-    # (The connection string can be obtained from the Azure portal)
-    connection = PG::Connection.new("host=<server name> port=5432 dbname=citus user=citus password={your password} sslmode=require")
-    puts 'Successfully created connection to database'
+    # NOTE: Replace <cluster> and <password> in the connection string.
+    connection = PG::Connection.new("host=c.<cluster>.postgres.database.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
+    puts 'Successfully created connection to database.'
 
     enco = PG::TextEncoder::CopyRow.new
     connection.copy_data "COPY pharmacy FROM STDIN", enco do
         connection.put_copy_data [5000,'Target','Sunnyvale','California','94001']
         connection.put_copy_data [5001, 'CVS','San Francisco','California','94002']
-        puts 'Copied inmemory data successfully .'
+        puts 'Copied in-memory data successfully.'
     end
 rescue PG::Error => e
     puts e.message
@@ -230,10 +212,11 @@ ensure
     connection.close if connection
 end
 ```
-## App retry during database request failures
+## App retry for database request failures
 
 [!INCLUDE[app-stack-next-steps](includes/app-stack-retry-intro.md)]
 
+In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 ```ruby
 require 'pg'
 
@@ -241,9 +224,8 @@ def executeretry(sql,retryCount)
   begin
     for a in 1..retryCount do
       begin
-        # NOTE: Replace the host and password arguments in the connection string.
-        # (The connection string can be obtained from the Azure portal)
-        connection = PG::Connection.new("host=<Server Name> port=5432 dbname=citus user=citus password={Your Password} sslmode=require")
+        # NOTE: Replace <cluster> and <password> in the connection string.
+        connection = PG::Connection.new("host=c.<cluster>.postgres.database.azure.com port=5432 dbname=citus user=citus password=<password> sslmode=require")
         resultSet = connection.exec(sql)
         return resultSet.each
       rescue PG::Error => e

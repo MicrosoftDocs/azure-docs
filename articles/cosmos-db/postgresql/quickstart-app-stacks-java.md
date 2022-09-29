@@ -1,45 +1,44 @@
 ---
-title: Java app to connect and query Azure Cosmos DB for PostgreSQL
-description: Learn building a simple app on Azure Cosmos DB for PostgreSQL using Java
+title: Java app to connect and run SQL commands on Azure Cosmos DB for PostgreSQL
+description: See how to create a Java app that connects and runs SQL statements on Azure Cosmos DB for PostgreSQL.
 ms.author: sasriram
 author: saimicrosoft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: quickstart
 recommendations: false
-ms.date: 08/24/2022
+ms.date: 09/28/2022
 ---
 
-# Java app to connect and query Azure Cosmos DB for PostgreSQL
+# Java app to connect and run SQL commands on Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-In this document, you'll learn how to connect to a cluster using a Java application. You'll see how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you're familiar with developing using Java and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity), and are new to working with Azure Cosmos DB for PostgreSQL.
+This quickstart shows you how to build a Java app that connects to a cluster, and then uses SQL statements to create a table and insert, query, update, and delete data in the database. The steps in this article assume that you're familiar with Java development and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity), and are new to working with Azure Cosmos DB for PostgreSQL.
 
 > [!TIP]
->
 > The process of creating a Java app with Azure Cosmos DB for PostgreSQL is the same as working with ordinary PostgreSQL.
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
-* Create a cluster using this link [Create cluster](quickstart-create-portal.md)
-* A supported [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8 (included in Azure Cloud Shell).
-* The [Apache Maven](https://maven.apache.org/) build tool.
+- An Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free).
+- A supported [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 8, which is included in [Azure Cloud Shell](/azure/cloud-shell/overview).
+- The [Apache Maven](https://maven.apache.org) build tool.
+- An Azure Cosmos DB for PostgreSQL cluster. To create a cluster, see [Create a cluster in the Azure portal](quickstart-create-portal.md).
+  
+The code samples in this article use your cluster name and password. In the Azure portal, your cluster name appears at the top of your cluster page.
 
-## Setup
+:::image type="content" source="media/howto-app-stacks/cluster-name.png" alt-text="Screenshot of the cluster name in the Azure portal.":::
 
-### Get Database Connection Information
+## Set up the Java project and connection
 
-To get the database credentials, you can use the **Connection strings** tab in the Azure portal. Replace the password placeholder with the actual password. See below screenshot.
-
-![Diagram showing Java connection string.](media/howto-app-stacks/02-java-connection-string.png)
+Create a new Java project and a configuration file to connect to Azure Cosmos DB for PostgreSQL.
 
 ### Create a new Java project
 
-Using your favorite IDE, create a new Java project with groupId **test** and artifactId **crud**. Add a `pom.xml` file in its root directory:
+Using your favorite integrated development environment (IDE), create a new Java project with groupId `test` and artifactId `crud`. In the project's root directory, add a *pom.xml* file with the following contents. This file configures [Apache Maven](https://maven.apache.org) to use Java 18 and a recent PostgreSQL driver for Java.
 
-```XML
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -98,172 +97,156 @@ Using your favorite IDE, create a new Java project with groupId **test** and art
 </project>
 ```
 
-This file configures [Apache Maven](https://maven.apache.org/) to use:
+### Configure the database connection
 
-* Java 18
-* A recent PostgreSQL driver for Java
+In *src/main/resources/*, create an *application.properties* file with the following contents. Replace \<cluster> with your cluster name, and replace \<password> with your administrative password.
 
-### Prepare a configuration file to connect to Azure Cosmos DB for PostgreSQL
-
-Create a `src/main/resources/application.properties` file, and add:
-
-``` properties
+```properties
 driver.class.name=org.postgresql.Driver
-db.url=jdbc:postgresql://<host>:5432/citus?ssl=true&sslmode=require
+db.url=jdbc:postgresql://c.<cluster>.postgres.database.azure.com:5432/citus?ssl=true&sslmode=require
 db.username=citus
 db.password=<password>
 ```
 
-Replace the  \<host\> using the Connection string that you gathered previously. Replace \<password\> with the password that you set for the database.
-
-> [!NOTE]
->
-> We append `?ssl=true&sslmode=require` to the configuration property url, to tell the JDBC driver to use TLS (Transport Layer Security) when connecting to the database. It's mandatory to use TLS with Azure Cosmos DB for PostgreSQL, and it is a good security practice.
+The `?ssl=true&sslmode=require` string in the `db.url` property tells the JDBC driver to use Transport Layer Security (TLS) when connecting to the database. It's mandatory to use TLS with Azure Cosmos DB for PostgreSQL, and is a good security practice.
 
 ## Create tables
 
-### Create an SQL file to generate the database schema
+Configure a database schema that has distributed tables. Connect to the database to create the schema and tables.
 
-We'll use a `src/main/resources/schema.sql` file in order to create a database schema. Create that file, with the following content:
+### Generate the database schema
 
-``` SQL
+In *src/main/resources/*, create a *schema.sql* file with the following contents:
+
+```sql
 DROP TABLE IF EXISTS public.pharmacy;
 CREATE TABLE  public.pharmacy(pharmacy_id integer,pharmacy_name text ,city text ,state text ,zip_code integer);
 CREATE INDEX idx_pharmacy_id ON public.pharmacy(pharmacy_id);
 ```
 
-### Use the super power of distributed tables
+### Distribute tables
 
 Azure Cosmos DB for PostgreSQL gives you [the super power of distributing tables](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. The command below enables you to distribute a table. You can learn more about `create_distributed_table` and the distribution column [here](quickstart-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
 
-> [!TIP]
->
-> Distributing your tables is optional in a an Azure Cosmos DB for PostgreSQL cluster with no worker nodes.
+> [!NOTE]
+> Distributing tables lets them grow across any worker nodes added to the cluster.
 
-Append the below command to the `schema.sql` file in the previous section if you wanted to distribute your table.
+To distribute tables, append the following line to the *schema.sql* file you created in the previous section.
 
 ```SQL
 select create_distributed_table('public.pharmacy','pharmacy_id');
 ```
 
-### Connect to the database, and create schema
+### Connect to the database and create the schema
 
-Next, add the Java code that will use JDBC to store and retrieve data from your cluster.
+Next, add the Java code that uses JDBC to store and retrieve data from your cluster. The code uses the *application.properties* and *schema.sql* files to connect to the cluster and create the schema.
 
-#### Connection Pooling Setup
 
-Using the code below, create a `DButil.java` file, which contains the `DButil`
-class. The `DBUtil` class sets up a connection pool to PostgreSQL using
-[HikariCP](https://github.com/brettwooldridge/HikariCP). In the example
-application, we'll be using this class to connect to PostgreSQL and start
-querying.
+1. Create a *DButil.java* file with the following code, which contains the `DButil` class. The `DBUtil` class sets up a connection pool to PostgreSQL using [HikariCP](https://github.com/brettwooldridge/HikariCP). You use this class to connect to PostgreSQL and start querying.
 
-[!INCLUDE[why-connection-pooling](includes/why-connection-pooling.md)]
+   [!INCLUDE[why-connection-pooling](includes/why-connection-pooling.md)]
 
-```java
-//DButil.java
-package test.crud;
+   ```java
+   //DButil.java
+   package test.crud;
+   
+   import java.io.FileInputStream;
+   import java.io.IOException;
+   import java.sql.SQLException;
+   import java.util.Properties;
+   
+   import javax.sql.DataSource;
+   
+   import com.zaxxer.hikari.HikariDataSource;
+   
+   public class DButil {
+       private static final String DB_USERNAME = "db.username";
+       private static final String DB_PASSWORD = "db.password";
+       private static final String DB_URL = "db.url";
+       private static final String DB_DRIVER_CLASS = "driver.class.name";
+       private static Properties properties =  null;
+       private static HikariDataSource datasource;
+   
+       static {
+           try {
+               properties = new Properties();
+               properties.load(new FileInputStream("src/main/java/application.properties"));
+   
+               datasource = new HikariDataSource();
+               datasource.setDriverClassName(properties.getProperty(DB_DRIVER_CLASS ));
+               datasource.setJdbcUrl(properties.getProperty(DB_URL));
+               datasource.setUsername(properties.getProperty(DB_USERNAME));
+               datasource.setPassword(properties.getProperty(DB_PASSWORD));
+               datasource.setMinimumIdle(100);
+               datasource.setMaximumPoolSize(1000000000);
+               datasource.setAutoCommit(true);
+               datasource.setLoginTimeout(3);
+           } catch (IOException | SQLException  e) {
+               e.printStackTrace();
+           }
+       }
+       public static DataSource getDataSource() {
+           return datasource;
+       }
+   }
+   ```
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.Properties;
+1. In *src/main/java/*, create a *DemoApplication.java* file that contains the following code:
 
-import javax.sql.DataSource;
+   ``` java
+   package test.crud;
+   import java.io.IOException;
+   import java.sql.*;
+   import java.util.*;
+   import java.util.logging.Logger;
+   import java.io.FileInputStream;
+   import java.io.FileOutputStream;
+   import org.postgresql.copy.CopyManager;
+   import org.postgresql.core.BaseConnection;
+   import java.io.IOException;
+   import java.io.Reader;
+   import java.io.StringReader;
+   
+   public class DemoApplication {
+   
+       private static final Logger log;
+   
+       static {
+           System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
+           log =Logger.getLogger(DemoApplication.class.getName());
+       }
+       public static void main(String[] args)throws Exception
+       {
+           log.info("Connecting to the database");
+           Connection connection = DButil.getDataSource().getConnection();
+           System.out.println("The Connection Object is of Class: " + connection.getClass());
+           log.info("Database connection test: " + connection.getCatalog());
+           log.info("Creating table");
+           log.info("Creating index");
+           log.info("distributing table");
+           Scanner scanner = new Scanner(DemoApplication.class.getClassLoader().getResourceAsStream("schema.sql"));
+           Statement statement = connection.createStatement();
+           while (scanner.hasNextLine()) {
+               statement.execute(scanner.nextLine());
+           }
+           log.info("Closing database connection");
+           connection.close();
+       }
+   
+   }
+   ```
+   
+   > [!NOTE]
+   > The database `user` and `password` credentials are used when executing `DriverManager.getConnection(properties.getProperty("url"), properties);`. The credentials are stored in the *application.properties* file, which is passed as an argument.
 
-import com.zaxxer.hikari.HikariDataSource;
+1. You can now execute this main class with your favorite tool:
 
-public class DButil {
-    private static final String DB_USERNAME = "db.username";
-    private static final String DB_PASSWORD = "db.password";
-    private static final String DB_URL = "db.url";
-    private static final String DB_DRIVER_CLASS = "driver.class.name";
-    private static Properties properties =  null;
-    private static HikariDataSource datasource;
-
-    static {
-        try {
-            properties = new Properties();
-            properties.load(new FileInputStream("src/main/java/application.properties"));
-
-            datasource = new HikariDataSource();
-            datasource.setDriverClassName(properties.getProperty(DB_DRIVER_CLASS ));
-            datasource.setJdbcUrl(properties.getProperty(DB_URL));
-            datasource.setUsername(properties.getProperty(DB_USERNAME));
-            datasource.setPassword(properties.getProperty(DB_PASSWORD));
-            datasource.setMinimumIdle(100);
-            datasource.setMaximumPoolSize(1000000000);
-            datasource.setAutoCommit(true);
-            datasource.setLoginTimeout(3);
-        } catch (IOException | SQLException  e) {
-            e.printStackTrace();
-        }
-    }
-    public static DataSource getDataSource() {
-        return datasource;
-    }
-}
-```
-
-Create a `src/main/java/DemoApplication.java` file that contains:
-
-``` java
-package test.crud;
-import java.io.IOException;
-import java.sql.*;
-import java.util.*;
-import java.util.logging.Logger;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import org.postgresql.copy.CopyManager;
-import org.postgresql.core.BaseConnection;
-import java.io.IOException;
-import java.io.Reader;
-import java.io.StringReader;
-
-public class DemoApplication {
-
-    private static final Logger log;
-
-    static {
-        System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
-        log =Logger.getLogger(DemoApplication.class.getName());
-    }
-    public static void main(String[] args)throws Exception
-    {
-        log.info("Connecting to the database");
-        Connection connection = DButil.getDataSource().getConnection();
-        System.out.println("The Connection Object is of Class: " + connection.getClass());
-        log.info("Database connection test: " + connection.getCatalog());
-        log.info("Creating table");
-        log.info("Creating index");
-        log.info("distributing table");
-        Scanner scanner = new Scanner(DemoApplication.class.getClassLoader().getResourceAsStream("schema.sql"));
-        Statement statement = connection.createStatement();
-        while (scanner.hasNextLine()) {
-            statement.execute(scanner.nextLine());
-        }
-        log.info("Closing database connection");
-        connection.close();
-    }
-
-}
-```
-
-The above code will use the **application.properties** and **schema.sql** files to connect to Azure Cosmos DB for PostgreSQL and create the schema.
-
-> [!NOTE]
->
-> The database credentials are stored in the user and password properties of the application.properties file. Those credentials are used when executing `DriverManager.getConnection(properties.getProperty("url"), properties);`, as the properties file is passed as an argument.
-
-You can now execute this main class with your favorite tool:
-
-* Using your IDE, you should be able to right-click on the `DemoApplication` class and execute it.
-* Using Maven, you can run the application by executing: `mvn exec:java -Dexec.mainClass="com.example.demo.DemoApplication"`.
+   - Using your IDE, you should be able to right-click on the `DemoApplication` class and execute it.
+   - Using Maven, you can run the application by executing:<br>`mvn exec:java -Dexec.mainClass="com.example.demo.DemoApplication"`.
 
 The application should connect to the Azure Cosmos DB for PostgreSQL, create a database schema, and then close the connection, as you should see in the console logs:
 
-```
+```output
 [INFO   ] Loading application properties
 [INFO   ] Connecting to the database
 [INFO   ] Database connection test: citus
@@ -275,7 +258,7 @@ The application should connect to the Azure Cosmos DB for PostgreSQL, create a d
 
 Create a new `Pharmacy` Java class, next to the `DemoApplication` class, and add the following code:
 
-``` Java
+``` java
 public class Pharmacy {
     private Integer pharmacy_id;
     private String pharmacy_name;
@@ -344,11 +327,11 @@ public class Pharmacy {
 }
 ```
 
-This class is a domain model mapped on the `Pharmacy` table that you created when executing the `schema.sql` script.
+This class is a domain model mapped on the `Pharmacy` table that you created when executing the *schema.sql* script.
 
-## Insert data into Azure Cosmos DB for PostgreSQL
+## Insert data
 
-In the `src/main/java/DemoApplication.java` file, after the `main` method, add the following method to insert data into the database:
+In the *DemoApplication.java* file, after the `main` method, add the following method that uses the INSERT INTO SQL statement to insert data into the database:
 
 ``` Java
 private static void insertData(Pharmacy todo, Connection connection) throws SQLException {
@@ -366,7 +349,7 @@ private static void insertData(Pharmacy todo, Connection connection) throws SQLE
 }
 ```
 
-You can now add the two following lines in the main method:
+Add the two following lines in the main method:
 
 ```java
 Pharmacy todo = new Pharmacy(0,"Target","Sunnyvale","California",94001);
@@ -375,7 +358,7 @@ insertData(todo, connection);
 
 Executing the main class should now produce the following output:
 
-```
+```output
 [INFO   ] Loading application properties
 [INFO   ] Connecting to the database
 [INFO   ] Database connection test: citus
@@ -386,11 +369,11 @@ Executing the main class should now produce the following output:
 [INFO   ] Closing database connection
 ```
 
-## Reading data from Azure Cosmos DB for PostgreSQL
+## Read data
 
-Let's read the data previously inserted, to validate that our code works correctly.
+Read the data you previously inserted to validate that your code works correctly.
 
-In the `src/main/java/DemoApplication.java` file, after the `insertData` method, add the following method to read data from the database:
+In the *DemoApplication.java* file, after the `insertData` method, add the following method that uses the SELECT SQL statement to read data from the database:
 
 ```  java
 private static Pharmacy readData(Connection connection) throws SQLException {
@@ -412,7 +395,7 @@ private static Pharmacy readData(Connection connection) throws SQLException {
 }
 ```
 
-You can now add the following line in the main method:
+Add the following line in the main method:
 
 ```  java
 todo = readData(connection);
@@ -420,7 +403,7 @@ todo = readData(connection);
 
 Executing the main class should now produce the following output:
 
-```
+```output
 [INFO   ] Loading application properties
 [INFO   ] Connecting to the database
 [INFO   ] Database connection test: citus
@@ -433,11 +416,11 @@ Executing the main class should now produce the following output:
 [INFO   ] Closing database connection
 ```
 
-## Updating data
+## Update data
 
-Let's update the data we previously inserted.
+Update the data you previously inserted.
 
-Still in the `src/main/java/DemoApplication.java` file, after the `readData` method, add the following method to update data inside the database:
+Still in the *DemoApplication.java* file, after the `readData` method, add the following method to update data inside the database by using the UPDATE SQL statement:
 
 ``` java
 private static void updateData(Pharmacy todo, Connection connection) throws SQLException {
@@ -454,7 +437,7 @@ private static void updateData(Pharmacy todo, Connection connection) throws SQLE
 
 ```
 
-You can now add the two following lines in the main method:
+Add the two following lines in the main method:
 
 ``` java
 todo.setcity("Guntur");
@@ -463,7 +446,7 @@ updateData(todo, connection);
 
 Executing the main class should now produce the following output:
 
-```
+```output
 [INFO   ] Loading application properties
 [INFO   ] Connecting to the database
 [INFO   ] Database connection test: citus
@@ -479,11 +462,9 @@ Executing the main class should now produce the following output:
 [INFO   ] Closing database connection
 ```
 
-## Deleting data
+## Delete data
 
-Finally, let's delete the data we previously inserted.
-
-Still in the `src/main/java/DemoApplication.java` file, after the `updateData` method, add the following method to delete data inside the database:
+Finally, delete the data you previously inserted. Still in the *DemoApplication.java* file, after the `updateData` method, add the following method to delete data inside the database by using the DELETE SQL statement:
 
 ``` java
 private static void deleteData(Pharmacy todo, Connection connection) throws SQLException {
@@ -503,7 +484,7 @@ deleteData(todo, connection);
 
 Executing the main class should now produce the following output:
 
-```
+```output
 [INFO   ] Loading application properties
 [INFO   ] Connecting to the database
 [INFO   ] Database connection test: citus
@@ -522,15 +503,13 @@ Executing the main class should now produce the following output:
 [INFO   ] Closing database connection
 ```
 
-## COPY command for super fast ingestion
+## COPY command for fast ingestion
 
 The COPY command can yield [tremendous throughput](https://www.citusdata.com/blog/2016/06/15/copy-postgresql-distributed-tables) while ingesting data into Azure Cosmos DB for PostgreSQL. The COPY command can ingest data in files, or from micro-batches of data in memory for real-time ingestion.
 
 ### COPY command to load data from a file
 
-The following code is an example for copying data from a CSV file to a database table.
-
-It requires the file [pharmacies.csv](https://download.microsoft.com/download/d/8/d/d8d5673e-7cbf-4e13-b3e9-047b05fc1d46/pharmacies.csv).
+The following code copies data from a CSV file to a database table. The code sample requires the file [pharmacies.csv](https://download.microsoft.com/download/d/8/d/d8d5673e-7cbf-4e13-b3e9-047b05fc1d46/pharmacies.csv).
 
 ```java
 public static long
@@ -568,7 +547,7 @@ log.info("Copied "+ c +" rows using COPY command");
 
 Executing the `main` class should now produce the following output:
 
-```
+```output
 [INFO   ] Loading application properties
 [INFO   ] Connecting to the database
 [INFO   ] Database connection test: citus
@@ -588,9 +567,9 @@ Executing the `main` class should now produce the following output:
 [INFO   ] Closing database connection
 ```
 
-### COPY command to load data in-memory
+### COPY command to load in-memory data
 
-The following code is an example for copying in-memory data to table.
+The following code copies in-memory data to a table.
 
 ```java
 private static void inMemory(Connection connection) throws SQLException,IOException
@@ -621,7 +600,7 @@ inMemory(connection);
 
 Executing the main class should now produce the following output:
 
-```
+```output
 [INFO   ] Loading application properties
 [INFO   ] Connecting to the database
 [INFO   ] Database connection test: citus
@@ -642,9 +621,11 @@ Executing the main class should now produce the following output:
 [INFO   ] Closing database connection
 ```
 
-## App retry during database request failures
+## App retry for database request failures
 
 [!INCLUDE[app-stack-next-steps](includes/app-stack-retry-intro.md)]
+
+In this code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```java
 package test.crud;
@@ -666,8 +647,8 @@ public class DemoApplication
         log = Logger.getLogger(DemoApplication.class.getName());
     }
     private static final String DB_USERNAME = "citus";
-    private static final String DB_PASSWORD = "<Your Password>";
-    private static final String DB_URL = "jdbc:postgresql://<Server Name>:5432/citus?sslmode=require";
+    private static final String DB_PASSWORD = "<password>";
+    private static final String DB_URL = "jdbc:postgresql://c.<cluster>.postgres.database.azure.com:5432/citus?sslmode=require";
     private static final String DB_DRIVER_CLASS = "org.postgresql.Driver";
     private static HikariDataSource datasource;
 

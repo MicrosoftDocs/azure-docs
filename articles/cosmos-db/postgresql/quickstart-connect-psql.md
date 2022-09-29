@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: connect to a cluster with psql - Azure Cosmos DB for PostgreSQL'
-description: Quickstart to connect psql to Azure Cosmos DB for PostgreSQL.
+title: 'Quickstart: Connect to Azure Cosmos DB for PostgreSQL with psql'
+description: See how to use Azure Cloud Shell to connect to Azure Cosmos DB for PostgreSQL by using psql.
 ms.author: jonels
 author: jonels-msft
 recommendations: false
@@ -8,63 +8,54 @@ ms.service: cosmos-db
 ms.subservice: postgresql
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 05/05/2022
+ms.date: 09/28/2022
 ---
 
 # Connect to a cluster with psql
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
+This quickstart shows you how to use the [psql](https://www.postgresql.org/docs/current/app-psql.html) connection string in [Azure Cloud Shell](/azure/cloud-shell/overview) to connect to an Azure Cosmos DB for PostgreSQL cluster.
+
 ## Prerequisites
 
-To follow this quickstart, you'll first need to:
-
-* [Create a cluster](quickstart-create-portal.md) in the Azure portal.
+- An Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free).
+- An Azure Cosmos DB for PostgreSQL cluster. To create a cluster, see [Create a cluster in the Azure portal](quickstart-create-portal.md).
 
 ## Connect
 
-When you create your cluster, a default database named **citus** is created. To connect to your database server, you need a connection string and the admin password.
+Your cluster has a default database named `citus`. To connect to the database, you use a connection string and the admin password.
 
-1. Obtain the connection string. In the cluster page, select the
-   **Connection strings** menu item.
+1. In the Azure portal, on your cluster page, select the **Connection strings** menu item, and then copy the **psql** connection string.
 
-   ![get connection string](media/quickstart-connect-psql/get-connection-string.png)
+   :::image type="content" source="media/quickstart-connect-psql/get-connection-string.png" alt-text="Screenshot that shows copying the psql connection string.":::
 
-   Find the string marked **psql**. It will be of the form, `psql
-   "host=c.servergroup.postgres.database.azure.com port=5432 dbname=citus
-   user=citus password={your_password} sslmode=require"`
+   The **psql** string is of the form `psql "host=c.<cluster>.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require"`. Notice that the host name starts with a `c.`, for example `c.mycluster.postgres.database.azure.com`. This prefix indicates the coordinator node of the cluster. The default `dbname` and `username` are `citus` and can't be changed.
 
-   * Copy the string.
-   * Replace "{your\_password}" with the administrative password you chose earlier.
-   * Notice the hostname starts with a `c.`, for instance
-     `c.demo.postgres.database.azure.com`. This prefix indicates the
-     coordinator node of the cluster.
-   * The default dbname and username is `citus` and can't be changed.
+1. Open Azure Cloud Shell by selecting the **Cloud Shell** icon on the top menu bar.
 
-2. Open the Azure Cloud Shell. Select the **Cloud Shell** icon in the Azure portal.
-
-   ![cloud shell icon](media/quickstart-connect-psql/open-cloud-shell.png)
+   :::image type="content" source="media/quickstart-connect-psql/open-cloud-shell.png" alt-text="Screenshot that shows the Cloud Shell icon.":::
 
    If prompted, choose an Azure subscription in which to store Cloud Shell data.
 
-3. In the shell, paste the psql connection string, *substituting your password
-   for the string `{your_password}`*, then press enter. For example:
+1. Paste your psql connection string into the shell.
 
-   ![run psql in cloud
-   shell](media/quickstart-connect-psql/cloud-shell-run-psql.png)
+1. In the connection string, replace `{your_password}` with your cluster password, and then press Enter.
 
-   When psql successfully connects to the database, you'll see a new prompt:
+   :::image type="content" source="media/quickstart-connect-psql/cloud-shell-run-psql.png" alt-text="Screenshot that shows running psql in the Cloud Shell.":::
 
-   ```
-   psql (14.2 (Debian 14.2-1.pgdg100+1))
+   When psql successfully connects to the database, you see a new `citus=>` prompt:
+
+   ```bash
+   psql (14.2, server 14.5)
    SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
    Type "help" for help.
    
    citus=>
    ```
 
-4. Run a test query. Copy the following command and paste it into the psql
-   prompt, then press enter to run:
+1. Run a test query. Paste the following command into the psql
+   prompt, and then press Enter.
 
    ```sql
    SHOW server_version;
@@ -73,10 +64,10 @@ When you create your cluster, a default database named **citus** is created. To 
    You should see a result matching the PostgreSQL version you selected
    during cluster creation. For instance:
 
-   ```
+   ```bash
     server_version
    ----------------
-    14.2
+    14.5
    (1 row)
    ```
 

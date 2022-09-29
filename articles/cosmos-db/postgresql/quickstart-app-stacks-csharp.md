@@ -1,48 +1,46 @@
 ---
-title: C# app to connect and query Azure Cosmos DB for PostgreSQL
-description: Learn to query Azure Cosmos DB for PostgreSQL using C#
+title: Use #C to connect and run SQL commands on Azure Cosmos DB for PostgreSQL
+description: See how to use C# to connect and run SQL statements on Azure Cosmos DB for PostgreSQL.
 ms.author: sasriram
 author: saimicrosoft
 ms.service: cosmos-db
 ms.subservice: postgresql
 ms.topic: quickstart
 recommendations: false
-ms.date: 08/24/2022
+ms.date: 09/27/2022
 ---
 
-# C# app to connect and query Azure Cosmos DB for PostgreSQL
+# Use C# to connect and run SQL commands on Azure Cosmos DB for PostgreSQL
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-In this document, you'll learn how to connect to a cluster using a C# application. You'll see how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you're familiar with developing using C#, and are new to working with Azure Cosmos DB for PostgreSQL.
+This quickstart shows you how to use C# code to connect to a cluster, and then use SQL statements to create a table and insert, query, update, and delete data in the database. The steps in this article assume that you're familiar with C# development, and are new to working with Azure Cosmos DB for PostgreSQL.
 
 > [!TIP]
->
 > The process of creating a C# app with Azure Cosmos DB for PostgreSQL is the same as working with ordinary PostgreSQL.
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
-* Create a cluster using this link [Create cluster](quickstart-create-portal.md)
-* Install the [.NET SDK](https://dotnet.microsoft.com/download) for your platform (Windows, Ubuntu Linux, or macOS) for your platform.
-* Install [Visual Studio](https://www.visualstudio.com/downloads/) to build your project.
-* Install the [Npgsql](https://www.nuget.org/packages/Npgsql/) NuGet package in Visual Studio.
+- An Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free).
+- [Visual Studio](https://www.visualstudio.com/downloads) with the .NET desktop development workload installed. Or [install the .NET SDK](https://dotnet.microsoft.com/download) for your Windows, Ubuntu Linux, or macOS platform.
+- In Visual Studio, a C# console project with the [Npgsql](https://www.nuget.org/packages/Npgsql) NuGet package installed.
+- An Azure Cosmos DB for PostgreSQL cluster. To create a cluster, see [Create a cluster in the Azure portal](quickstart-create-portal.md).
+  
+The code samples in this article use your cluster name and password. You can see your cluster name at the top of your cluster page in the Azure portal.
 
-## Get database connection information
+:::image type="content" source="media/howto-app-stacks/cluster-name.png" alt-text="Screenshot of the cluster name in the Azure portal.":::
 
-To get the database credentials, you can use the **Connection strings** tab in the Azure portal. See below screenshot.
+## Connect, create a table, and insert data
 
-![Diagram showing C# connection string.](media/howto-app-stacks/03-csharp-connection-string.png)
+In Visual Studio, use the following code to connect to your cluster and load data using CREATE TABLE and INSERT INTO SQL statements. The code uses these `NpgsqlCommand` class methods:
 
-## Step 1: Connect, create table, and insert data
-
-Use the following code to connect and load the data using CREATE TABLE and INSERT INTO SQL statements. The code uses these `NpgsqlCommand` class methods:
-
-* [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to Azure Cosmos DB for PostgreSQL,
+* [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to Azure Cosmos DB for PostgreSQL
 * [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) to set the CommandText property
-* [ExecuteNonQuery()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) to run database commands.
+* [ExecuteNonQuery()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) to run database commands
 
 [!INCLUDE[why-connection-pooling](includes/why-connection-pooling.md)]
+
+In the following code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```csharp
 using System;
@@ -54,8 +52,8 @@ namespace Driver
        
         static void Main(string[] args)
         {
-            // Replace below argument with connection string from portal.
-            var connStr = new NpgsqlConnectionStringBuilder("Server = <host> Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require; Pooling = true; Minimum Pool Size=0; Maximum Pool Size =50 ");
+            // Replace <cluster> with your cluster name and <password> with your password:
+            var connStr = new NpgsqlConnectionStringBuilder("Server = c.<cluster>.postgres.database.azure.com; Database = citus; Port = 5432; User Id = citus; Password = <password>; Ssl Mode = Require; Pooling = true; Minimum Pool Size=0; Maximum Pool Size =50 ");
 
             connStr.TrustServerCertificate = true;
 
@@ -97,13 +95,14 @@ namespace Driver
 }
 ```
 
-## Step 2: Use the super power of distributed tables
+## Distribute tables
 
-Azure Cosmos DB for PostgreSQL gives you [the super power of distributing tables](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. The command below enables you to distribute a table. You can learn more about `create_distributed_table` and the distribution column [here](quickstart-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
+Azure Cosmos DB for PostgreSQL gives you [the super power of distributing tables](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. Use the following code to distribute a table. You can learn more about `create_distributed_table` and the distribution column at [Distribution column (also known as shard key)](quickstart-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
 
-> [!TIP]
->
-> Distributing your tables is optional in a an Azure Cosmos DB for PostgreSQL cluster with no worker nodes.
+> [!NOTE]
+> Distributing tables lets them grow across any worker nodes added to the cluster.
+
+In the following code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```csharp
 using System;
@@ -115,8 +114,8 @@ namespace Driver
       
         static void Main(string[] args)
         {
-            // Replace below argument with connection string from portal.
-            var connStr = new NpgsqlConnectionStringBuilder("Server = <host> Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require; Pooling = true; Minimum Pool Size=0; Maximum Pool Size =50");
+            // Replace <cluster> with your cluster name and <password> with your password:
+            var connStr = new NpgsqlConnectionStringBuilder("Server = c.<cluster>.postgres.database.azure.com; Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require; Pooling = true; Minimum Pool Size=0; Maximum Pool Size =50");
 
             connStr.TrustServerCertificate = true;
 
@@ -138,14 +137,16 @@ namespace Driver
 }
 ```
 
-## Step 3: Read data
+## Read data
 
-Use the following code to connect and read the data using a SELECT SQL statement. The code uses these `NpgsqlCommand` class methods:
+Use the following code to connect and read the data by using a SELECT SQL statement. The code uses these `NpgsqlCommand` class methods:
 
 * [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) to establish a connection to Azure Cosmos DB for PostgreSQL.
 * [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) and [ExecuteReader()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteReader) to run the database commands.
 * [Read()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_Read) to advance to the record in the results.
 * [GetInt32()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetInt32_System_Int32_) and [GetString()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_GetString_System_Int32_) to parse the values in the record.
+
+In the following code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```csharp
 using System;
@@ -157,12 +158,12 @@ namespace Driver
 
         static void Main(string[] args)
         {
-            // Replace below argument with connection string from portal.
-            var connStr = new NpgsqlConnectionStringBuilder("Server = <host> Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require; Pooling = true; Minimum Pool Size=0; Maximum Pool Size =50 ");
+            // Replace <cluster> with your cluster name and <password> with your password:
+            var connStr = new NpgsqlConnectionStringBuilder("Server = c.<cluster>.postgres.database.azure.com; Database = citus; Port = 5432; User Id = citus; Password = <password>; Ssl Mode = Require; Pooling = true; Minimum Pool Size=0; Maximum Pool Size =50 ");
 
             connStr.TrustServerCertificate = true;
 
-            using (var conn = new NpgsqlConnection(connStr))
+            using (var conn = new NpgsqlConnection(connStr.ToString()))
             {
                 Console.Out.WriteLine("Opening connection");
                 conn.Open();
@@ -192,9 +193,9 @@ namespace Driver
 }
 ```
 
-## Step 4: Update data
+## Update data
 
-Use the following code to connect and update data using an UPDATE SQL statement.
+Use the following code to connect and update data by using an UPDATE SQL statement. In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```csharp
 using System;
@@ -205,8 +206,8 @@ namespace Driver
     {
         static void Main(string[] args)
         {
-            // Replace below argument with connection string from portal.
-            var connStr = new NpgsqlConnectionStringBuilder("Server = <host> Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require; Pooling = true; Minimum Pool Size=0; Maximum Pool Size =50 ");
+            // Replace <cluster> with your cluster name and <password> with your password:
+            var connStr = new NpgsqlConnectionStringBuilder("Server = c.<cluster>.postgres.database.azure.com; Database = citus; Port = 5432; User Id = citus; Password = <password>; Ssl Mode = Require; Pooling = true; Minimum Pool Size=0; Maximum Pool Size =50 ");
 
             connStr.TrustServerCertificate = true;
 
@@ -229,9 +230,10 @@ namespace Driver
 }
 ```
 
-## Step 5: Delete data
+## Delete data
 
-Use the following code to connect and delete data using a DELETE SQL statement.
+Use the following code to connect and delete data by using a DELETE SQL statement. In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
+
 
 ```csharp
 using System;
@@ -243,8 +245,8 @@ namespace Driver
        
         static void Main(string[] args)
         {
-            // Replace below argument with connection string from portal.
-            var connStr = new NpgsqlConnectionStringBuilder("Server = <host> Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require; Pooling = true; Minimum Pool Size=0; Maximum Pool Size =50 ");
+            // Replace <cluster> with your cluster name and <password> with your password:
+            var connStr = new NpgsqlConnectionStringBuilder("Server = c.<cluster>.postgres.database.azure.com; Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require; Pooling = true; Minimum Pool Size=0; Maximum Pool Size =50 ");
 
             connStr.TrustServerCertificate = true;
 
@@ -267,15 +269,16 @@ namespace Driver
 }
 ```
 
-## COPY command for super fast ingestion
+## COPY command for fast ingestion
 
 The COPY command can yield [tremendous throughput](https://www.citusdata.com/blog/2016/06/15/copy-postgresql-distributed-tables) while ingesting data into Azure Cosmos DB for PostgreSQL. The COPY command can ingest data in files, or from micro-batches of data in memory for real-time ingestion.
 
 ### COPY command to load data from a file
 
-The following code is an example for copying data from a CSV file to a database table.
+The following example code copies data from a CSV file to a database table.
 
-It requires the file [pharmacies.csv](https://download.microsoft.com/download/d/8/d/d8d5673e-7cbf-4e13-b3e9-047b05fc1d46/pharmacies.csv).
+The code sample requires the file [pharmacies.csv](https://download.microsoft.com/download/d/8/d/d8d5673e-7cbf-4e13-b3e9-047b05fc1d46/pharmacies.csv) to be in your *Documents* folder. In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
+
 
 ```csharp
 using Npgsql;
@@ -287,8 +290,8 @@ public class csvtotable
         String sDestinationSchemaAndTableName = "pharmacy";
         String sFromFilePath = "C:\\Users\\Documents\\pharmacies.csv";
        
-        // Replace below argument with connection string from portal.
-        var connStr = new NpgsqlConnectionStringBuilder("Server = <host> Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require; Pooling = true; Minimum Pool Size=0; Maximum Pool Size =50 ");
+        // Replace <cluster> with your cluster name and <password> with your password:
+        var connStr = new NpgsqlConnectionStringBuilder("Server = c.<cluster>.postgres.database.azure.com; Database = citus; Port = 5432; User Id = citus; Password = <password>; Ssl Mode = Require; Pooling = true; Minimum Pool Size=0; Maximum Pool Size =50 ");
             
         connStr.TrustServerCertificate = true;
 
@@ -312,9 +315,9 @@ public class csvtotable
 }
 ```
 
-### COPY command to load data in-memory
+### COPY command to load in-memory data
 
-The following code is an example for copying in-memory data to table.
+The following example code copies in-memory data to a table. In the code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```csharp
 using Npgsql;
@@ -327,8 +330,8 @@ namespace Driver
         static async Task Main(string[] args)
         {
          
-             // Replace below argument with connection string from portal.
-            var connStr = new NpgsqlConnectionStringBuilder("Server = <host> Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require; Pooling = true; Minimum Pool Size=0; Maximum Pool Size =50 ");
+             // Replace <cluster> with your cluster name and <password> with your password:
+            var connStr = new NpgsqlConnectionStringBuilder("Server = c.<cluster>.postgres.database.azure.com; Database = citus; Port = 5432; User Id = citus; Password = <password>; Ssl Mode = Require; Pooling = true; Minimum Pool Size=0; Maximum Pool Size =50 ");
 
             connStr.TrustServerCertificate = true;
 
@@ -351,9 +354,11 @@ namespace Driver
     }
 }
 ```
-## App retry during database request failures
+## App retry for database request failures
 
 [!INCLUDE[app-stack-next-steps](includes/app-stack-retry-intro.md)]
+
+In this code, replace \<cluster> with your cluster name and \<password> with your administrator password.
 
 ```csharp
 using System;
@@ -366,7 +371,9 @@ namespace Driver
 {
     public class Reconnect
     {
-        static string connStr = new NpgsqlConnectionStringBuilder("Server = <host name>; Database = citus; Port = 5432; User Id = citus; Password = {Your Password}; Ssl Mode = Require; Pooling = true; Minimum Pool Size=0; Maximum Pool Size =50;TrustServerCertificate = true").ToString();
+        
+        // Replace <cluster> with your cluster name and <password> with your password:
+        static string connStr = new NpgsqlConnectionStringBuilder("Server = c.<cluster>.postgres.database.azure.com; Database = citus; Port = 5432; User Id = citus; Password = <password>; Ssl Mode = Require; Pooling = true; Minimum Pool Size=0; Maximum Pool Size =50;TrustServerCertificate = true").ToString();
         static string executeRetry(string sql, int retryCount)
         {
             for (int i = 0; i < retryCount; i++)
