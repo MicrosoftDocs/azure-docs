@@ -1,7 +1,7 @@
 ---
-title: Create event-based triggers
+title: Create storage event triggers
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to create a trigger in an Azure Data Factory or Azure Synapse Analytics that runs a pipeline in response to an event.
+description: Learn how to create a trigger in an Azure Data Factory or Azure Synapse Analytics that runs a pipeline in response to a storage event.
 ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
