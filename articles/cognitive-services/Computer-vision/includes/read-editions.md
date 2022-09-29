@@ -1,5 +1,5 @@
 ---
-title: "Read OCR editions
+title: "Read OCR editions"
 titleSuffix: "Azure Cognitive Services"
 services: cognitive-services
 author: PatrickFarley

@@ -41,8 +41,8 @@ When using the Read operation, use the following values for the optional `model-
 | Not provided | Latest GA model |
 | latest | Latest GA model|
 | [2022-04-30](../whats-new.md#may-2022) | Latest GA model. 164 languages for print text and 9 languages for handwritten text along with several enhancements on quality and performance |
-| [2022-01-30-preview](../whats-new.md#february-2022) | Preview model adds print text support for Hindi, Arabic and related languages. For handwriitten text, adds support for Japanese and Korean. |
-| [2021-09-30-preview](../whats-new.md#september-2021) | Preview model adds print text support for Russian and other Cyrillic languages, For handwriitten text,  adds support for Chinese Simplified, French, German, Italian, Portuguese, and Spanish. |
+| [2022-01-30-preview](../whats-new.md#february-2022) | Preview model adds print text support for Hindi, Arabic and related languages. For handwritten text, adds support for Japanese and Korean. |
+| [2021-09-30-preview](../whats-new.md#september-2021) | Preview model adds print text support for Russian and other Cyrillic languages, For handwritten text,  adds support for Chinese Simplified, French, German, Italian, Portuguese, and Spanish. |
 | 2021-04-12 | 2021 GA model |
 
 ### Input language

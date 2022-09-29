@@ -54,7 +54,7 @@ Use the Image Analysis client library for JavaScript to analyze a remote image f
 
     ### Install the client library
 
-    Install the `ms-rest-azure` and `@azure/cognitiveservices-computervision` NPM package:
+    Install the `ms-rest-azure` and `@azure/cognitiveservices-computervision` npm package:
 
     ```console
     npm install @azure/cognitiveservices-computervision
