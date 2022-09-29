@@ -38,8 +38,8 @@ Refer to the native [UI Library overview](/azure/communication-services/concepts
 Clone repo and open `CommunicationCallingXamarinSampleApp.sln` in Visual Studio
 
 #### For Android
-
-Set `CommunicationCallingXamarinSampleApp.Android` as startup project, build solution and select a device or emulator to run application.
+1. Navigate to `/XamarinAndroidBindings/` and in this directory in terminal run `sh downloadJarScript` [Learn More](XamarinAndroidBindings/README.md#download-jarsaars)
+2. Set `CommunicationCallingXamarinSampleApp.Android` as start up project, build solution and select a device or emulator to run application.
 
 #### For iOS
 
