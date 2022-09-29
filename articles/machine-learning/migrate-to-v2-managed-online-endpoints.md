@@ -13,11 +13,11 @@ ms.reviewer: blackmist
 ms.custom: migration
 ---
 
-# Migration steps for ACI webs ervices to managed online endpoints
+# Migration steps for ACI web services to managed online endpoints
 
 [Managed online endpoints](concept-endpoints.md#what-are-online-endpoints) help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure. Details can be found on [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-managed-online-endpoints.md).
 
-You can deploy directly to the new compute target with your previous models and environments, or leverage the [scripts](https://aka.ms/moeonboard) (preview) provided by us to export the current services then deploy to the new compute without affecting your existing services. If you regularly create and delete ACI services, we strongly recommend the deploying directly and not using the scripts. 
+You can deploy directly to the new compute target with your previous models and environments, or use the [scripts](https://aka.ms/moeonboard) (preview) provided by us to export the current services then deploy to the new compute without affecting your existing services. If you regularly create and delete ACI services, we strongly recommend the deploying directly and not using the scripts. 
 
 > [!IMPORTANT]
 > The scripts are preview and are provided without a service level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -28,7 +28,7 @@ You can deploy directly to the new compute target with your previous models and 
 ## Supported Scenarios and Differences
 
 ### Auth Mode
-No auth is not supported for managed online endpoint. If you use the migration scripts, it will convert it to key auth.
+No auth isn't supported for managed online endpoint. If you use the migration scripts, it will convert it to key auth.
 For key auth, the original keys will be used. Token-based auth is also supported.
 
 ### TLS
@@ -37,7 +37,7 @@ For ACI service secured with HTTPS, you don't need to provide your own certifica
 Custom DNS name **isn't** supported.
 
 ### Resource Requirements
-[ContainerResourceRequirements](/python/api/azureml-core/azureml.core.webservice.aci.containerresourcerequirements) is not supported, you can choose the proper [SKU](reference-managed-online-endpoints-vm-sku-list.md) for your inferencing.
+[ContainerResourceRequirements](/python/api/azureml-core/azureml.core.webservice.aci.containerresourcerequirements) isn't supported, you can choose the proper [SKU](reference-managed-online-endpoints-vm-sku-list.md) for your inferencing.
 The migration tool will map the CPU/Memory requirement to corresponding SKU. If you choose to redeploy manually through CLI/SDK V2, we also suggest the corresponding SKU for your new deployment.
 
 | CPU request | Memory request in GB | Suggested SKU |
@@ -90,7 +90,7 @@ Use the following steps to run the scripts:
     * `<WORKSPACE_NAME>` - The workspace name.
     * `<SERVICE_NAME>` - The name of your existing ACI service.
     * `<LOCAL_PATH>` - A local path where resources and templates used by the script are downloaded.
-    * `<NEW_ENDPOINT_NAME>` - The name of the new endpoint that will be created. We recommend that the new endpoint name is different from the previous service name. Otherwise, the original service will not be displayed if you check your endpoints on the portal.
+    * `<NEW_ENDPOINT_NAME>` - The name of the new endpoint that will be created. We recommend that the new endpoint name is different from the previous service name. Otherwise, the original service won't be displayed if you check your endpoints on the portal.
     * `<NEW_DEPLOYMENT_NAME>` - The name of the deployment to the new endpoint.
 6. Run the bash script. For example, `./migrate-service.sh`. It will take about 5-10 minutes to finish the new deployment.
 
