@@ -21,20 +21,20 @@ There can be many reasons why your machine isn't showing up as ready (healthy) d
 This article discusses how to run the troubleshooter for Azure machines from the Azure portal, and non-Azure machines in the [offline scenario](#troubleshoot-offline).
 
 > [!NOTE]
-> The troubleshooter script now includes checks for Windows Server Update Services (WSUS) and for the autodownload and install keys.
+> The troubleshooter script now includes checks for Windows Server Update Services (WSUS) and for the auto download and install keys.
 
 ## Start the troubleshooter
 
 For Azure machines, you can launch the Troubleshoot Update Agent page by selecting the **Troubleshoot** link under the **Update Agent Readiness** column in the portal. For non-Azure machines, the link brings you to this article. See [Troubleshoot offline](#troubleshoot-offline) to troubleshoot a non-Azure machine.
 
-![Screenshot of the Update Management list of virtual machines](../media/update-agent-issues/vm-list.png)
+:::image type="content" source="../media/update-agent-issues/vm-list.png" alt-text="Screenshot of the Update Management list of virtual machines":::
 
 > [!NOTE]
 > To check the health of the Hybrid Runbook Worker, the VM must be running. If the VM isn't running, a **Start the VM** button appears.
 
 On the Troubleshoot Update Agent page, select **Run checks** to start the troubleshooter. The troubleshooter uses [Run Command](../../virtual-machines/windows/run-command.md) to run a script on the machine, to verify dependencies. When the troubleshooter is finished, it returns the result of the checks.
 
-![Screenshot of the Troubleshoot Update Agent page](../media/update-agent-issues/troubleshoot-page.png)
+:::image type="content" source="../media/update-agent-issues/troubleshoot-page.png" alt-text="Screenshot of the Troubleshoot Update Agent page":::
 
 Results are shown on the page when they're ready. The checks sections show what's included in each check.
 
@@ -109,8 +109,9 @@ Heartbeat | where Computer =~ ""
 
  To fix this issue, start **wuaserv** service.
 
-
-`Start-Service -Name wuauserv -ErrorAction SilentlyContinue`
+```
+Start-Service -Name wuauserv -ErrorAction SilentlyContinue
+```
 
 ## Connectivity checks
 

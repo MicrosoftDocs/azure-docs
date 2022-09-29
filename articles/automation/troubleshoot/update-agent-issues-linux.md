@@ -27,14 +27,15 @@ This article discusses how to run the troubleshooter for Azure machines from the
 
 For Azure machines, select the **troubleshoot** link under the **Update Agent Readiness** column in the portal to open the Troubleshoot Update Agent page. For non-Azure machines, the link brings you to this article. To troubleshoot a non-Azure machine, see the instructions in the **Troubleshoot offline** section.
 
-![VM list page](../media/update-agent-issues-linux/vm-list.png)
+:::image type="content" source="../media/update-agent-issues-linux/vm-list.png" alt-text="Screenshot of VM list page":::
 
 > [!NOTE]
 > The checks require the VM to be running. If the VM isn't running, **Start the VM** appears.
 
 On the Troubleshoot Update Agent page, select **Run Checks** to start the troubleshooter. The troubleshooter uses [Run command](../../virtual-machines/linux/run-command.md) to run a script on the machine to verify the dependencies. When the troubleshooter is finished, it returns the result of the checks.
 
-![Troubleshoot page](../media/update-agent-issues-linux/troubleshoot-page.png)
+:::image type="content" source="../media/update-agent-issues-linux/troubleshoot-page.png" alt-text="Screenshot of Troubleshoot page":::
+
 
 When the checks are finished, the results are returned in the window. The check sections provide information on what each check is looking for.
 
@@ -205,7 +206,7 @@ Curl on provided OMS endpoint
 
 ### Software Repositories
 
-Fix this issue by allowing the prerequisite Repo URL. For more information, see [RHEL](https://learn.microsoft.com/azure/virtual-machines/workloads/redhat/redhat-rhui#troubleshoot-connection-problems-to-azure-rhui)
+Fix this issue by allowing the prerequisite Repo URL. For RHEL, see [here](https://learn.microsoft.com/azure/virtual-machines/workloads/redhat/redhat-rhui#troubleshoot-connection-problems-to-azure-rhui).
 
 Post making Network changes you can either rerun the Troubleshooter or
 
