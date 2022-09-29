@@ -32,9 +32,7 @@ After the file has been uploaded and indexed, if you want to view the timeline o
 
 ### Clapperboards
 
-Clapperboards contain titles, like: *production*, *roll*, *scene*, *take* and values associated with each title.
-
-The titles and their values' quality may not always be recognizable. For more information, see [limitations](#clapperboard-limitations).
+Clapperboards contain fields with titles (for example, *production*, *roll*, *scene*, *take*) and values (content) associated with each title. 
 
 For example, take this clapperboard:
 
@@ -85,11 +83,13 @@ The following table describes fields found in json:
 
 ## Clapperboard limitations
 
+The values may not always be correctly identified by the detection algorithm. Here are some limitations:
+
 - The titles of the fields appearing on the clapper board are optimized to identify the most popular fields appearing on top of clapper boards.  
 - Handwritten text or digital digits may not be correctly identified by the fields detection algorithm.
-- The algorithm is optimized to identify fields categories that appear horizontally.  
-- The clapper board may not be detected if the frame is blurred or that the text written on it can't be identified by the human eye.  
-- Empty fields’ values may lead to wrong fields categories.  
+- The algorithm is optimized to identify fields' categories that appear horizontally.  
+- The clapperboard may not be detected if the frame is blurred or that the text written on it can't be identified by the human eye.  
+- Empty fields’ values may lead to to wrong fields categories.  
 <!-- If a part of a clapper board is hidden a value with the highest confidence is shown.  -->
 
 ## Next steps
