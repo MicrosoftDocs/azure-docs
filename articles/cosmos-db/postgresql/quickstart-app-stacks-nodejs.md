@@ -27,7 +27,7 @@ This quickstart shows you how to use Node.js code to connect to a cluster, and t
 - For various samples, the following packages installed:
 
   - [pg](https://www.npmjs.com/package/pg) PostgreSQL client for Node.js.
-  - [pg-copy-streams](https://www.npmjs.com/package/pg-copy-streams)
+  - [pg-copy-streams](https://www.npmjs.com/package/pg-copy-streams).
   - [through2](https://www.npmjs.com/package/through2) to allow pipe chaining.
 
    Install these packages from your command line by using the JavaScript `npm` node package manager.
@@ -42,7 +42,10 @@ This quickstart shows you how to use Node.js code to connect to a cluster, and t
   npm list
   ```
 
-To run the code in these examples, you can launch Node.js from the Bash shell, terminal, or Windows command prompt by typing `node`. Then run the example JavaScript code interactively by copying and pasting the code into the prompt. Or, you can save the JavaScript code into a *\<filename>.js* file, and then run `node <filename>.js` with the file name as a parameter.
+You can launch Node.js from the Bash shell, terminal, or Windows command prompt by typing `node`. Then run the example JavaScript code interactively by copying and pasting the code into the prompt. Or, you can save the JavaScript code into a *\<filename>.js* file, and then run `node <filename>.js` with the file name as a parameter.
+
+> [!NOTE]
+> Because each code sample finishes by ending the connection pool, you need to start a new Node.js session to build a new pool for each of the samples.
 
 The code samples in this article use your cluster name and password. You can see your cluster name at the top of your cluster page in the Azure portal.
 

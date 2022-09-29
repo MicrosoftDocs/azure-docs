@@ -23,7 +23,7 @@ This quickstart shows you how to use Python code on macOS, Ubuntu Linux, or Wind
 
 - An Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free).
 - [Python](https://www.python.org/downloads) 2.7 or 3.6+.
-- The latest [pip](https://pip.pypa.io/en/stable/installing) package installer.
+- The latest [pip](https://pip.pypa.io/en/stable/installing) package installer. Most versions of Python already install `pip`.
 - [psycopg2](https://pypi.python.org/pypi/psycopg2-binary) installed by using `pip` in a terminal or command prompt window. For more information, see [How to install psycopg2](https://www.psycopg.org/docs/install.html).
 - An Azure Cosmos DB for PostgreSQL cluster. To create a cluster, see [Create a cluster in the Azure portal](quickstart-create-portal.md).
 
@@ -38,6 +38,9 @@ The following code example creates a connection pool to your Postgres database b
 [!INCLUDE[why-connection-pooling](includes/why-connection-pooling.md)]
 
 In the following code, replace \<cluster> with your cluster name and \<password> with your administrator password.
+
+> [!NOTE]
+>  This example closes the connection at the end, so if you want to run the other samples in the article in the same session, don't include the `# Clean up` section when you run this sample.
 
 ```python
 import psycopg2
@@ -158,7 +161,7 @@ with open('pharmacies.csv', 'r') as f:
     # Notice that we don't need the `csv` module.
     next(f) # Skip the header row.
     cursor.copy_from(f, 'pharmacy', sep=',')
-print("copying data completed")
+    print("copying data completed")
 ```
 
 ### COPY command to load in-memory data
