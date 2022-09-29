@@ -129,7 +129,7 @@ New-AzResourceGroup -Name $imageResourceGroup -Location $location
     'Az.ImageBuilder', 'Az.ManagedServiceIdentity' | ForEach-Object {Install-Module -Name $_ -AllowPrerelease}
 
     # Create the identity
-    New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName
+    New-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName -Location $location
 
     $identityNameResourceId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).Id
     $identityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageResourceGroup -Name $identityName).PrincipalId
