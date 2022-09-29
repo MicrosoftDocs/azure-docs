@@ -1,7 +1,7 @@
 ---
-title:  "Control egress traffic for an Azure Spring Apps (ASA) instance"
-description: Offer an example of creating a UDR Azure Spring Apps VNet instance
-author: YinglueZhang-MS
+title:  Control egress traffic for an Azure Spring Apps (ASA) instance
+description: Learn how to control egress traffic for an Azure Spring Apps (ASA) instance
+author: karlerickson
 ms.author: yinglzh
 ms.service: spring-apps
 ms.topic: article
@@ -15,26 +15,28 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article describes how to secure outbound traffic from your Azure Spring Apps (ASA) applications. The following two articles are highly recommended to read before you start this article. It provides a simple example of a UDR instance. UDR is an advanced feature that lets you fully control the egress traffic. It may be used in scenarios like disallowing ASA auto-generated public IP.
-
-- [Introduction to Azure Spring Apps VNet](how-to-deploy-in-azure-virtual-network.md)
-- [Customer Responsibilities for Running Azure Spring Apps in VNET](vnet-customer-responsibilities.md)
-- [Introduction to outbound type of ASA](concept-outbound-type.md)
+This article describes how to secure outbound traffic from your Azure Spring Apps applications. It provides a simple example of a user-defined route (UDR) instance. UDR is an advanced feature that lets you fully control egress traffic. It may be used in scenarios such as disallowing an Azure Spring Apps auto-generated public IP.
 
 ## Prerequisites
 
-- All prerequisites of [Azure Spring Apps VNet instance](how-to-deploy-in-azure-virtual-network.md)
+- All prerequisites for deploying Azure Spring Apps in a virtual network. For more information, see [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
 - API version of `2022-09-01 preview` or greater
 - CLI version extension of 1.1.7 or greater
+- The following articles:
+  - [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md)
+  - [Customer responsibilities for running Azure Spring Apps in VNET](vnet-customer-responsibilities.md)
+  - [Customize Azure Spring Cloud egress with a User-Defined Route](concept-outbound-type.md)
 
-## An Example of Azure Spring Apps UDR Instance
 
-This article provides an example (as the following image) of Azure Spring Apps VNet instance using user-defined-routing
-![Screenshot that shows arch of the udr example](./media/how-to-create-udr-instance/udr-example-arch.png)
+## Azure Spring Apps UDR instance example
 
-### Set configuration via environment variables
+The following illustration shows an example of an Azure Spring Apps VNet instance using a user-defined route.
 
-Define a set of environment variables to be used in resource creations.
+:::image type="content" source="media/how-to-create-udr-instance/udr-example-arch.png" lightbox="media/how-to-create-udr-instance/udr-example-arch.png" alt-text="Graphic showing user-defined routing architecture.":::
+
+### Set configuration using environment variables
+
+The following example shows how to define a set of environment variables to be used in resource creation.
 
 ```bash
 PREFIX="asa-egress"
@@ -57,7 +59,9 @@ ASA_NAME="${PREFIX}-instance"
 
 ### Create a virtual network with multiple subnets
 
-Provision a virtual network with three separate subnets, one for the user apps, one for service runtime and one for the firewall.
+This section shows how to provision a virtual network with three separate subnets--one for the user apps, one for service runtime, and one for the firewall.
+
+First create a resource group, as shown in the following example.
 
 ```azurecli
 # Create Resource Group
@@ -65,7 +69,7 @@ Provision a virtual network with three separate subnets, one for the user apps, 
 az group create --name $RG --location $LOC
 ```
 
-Create a virtual network with three subnets to host the ASA instance and the Azure Firewall. Each will have their own subnet. Let's start with the ASA network.
+Then create a virtual network with three subnets to host the ASA instance and the Azure Firewall, as shown in the following example.
 
 ```azurecli
 # Dedicated virtual network with ASA app subnet
@@ -95,20 +99,18 @@ az network vnet subnet create \
     --address-prefix 10.42.3.0/24
 ```
 
-### Create and set up an Azure Firewall with a UDR
+### Create and set up an Azure Firewall with a user-defined route
 
-Azure Firewall outbound rules must be configured. The main purpose of the firewall is to enable organizations to configure granular egress traffic rules out of the ASA instance.
+To create and set up an Azure Firewall with a user-defined route, configure Azure Firewall outbound rules. The firewall lets you configure granular egress traffic rules from a Azure Spring Apps instance.
 
 > [!IMPORTANT]
-> If your cluster or application creates a large number of outbound connections directed to the same or small subset of destinations, you might require more firewall frontend IPs to avoid maxing out the ports per frontend IP.
-> For more information on how to create an Azure firewall with multiple IPs, see [**here**](../firewall/quick-create-multiple-ip-template.md)
-Create a standard SKU public IP resource that will be used as the Azure Firewall frontend address.
+> If your cluster or application creates a large number of outbound connections directed to the same or small subset of destinations, you might require more firewall frontend IPs to avoid reaching the maximum ports per front-end IP. For more information on how to create an Azure firewall with multiple IPs, see [Quickstart: Create an Azure Firewall with multiple public IP addresses - ARM template](../firewall/quick-create-multiple-ip-template.md). Create a standard SKU public IP resource that will be used as the Azure Firewall front-end address.
 
 ```azurecli
 az network public-ip create -g $RG -n $FWPUBLICIP_NAME -l $LOC --sku "Standard"
 ```
 
-Add cli-extension to create an Azure Firewall.
+The following example shows how to install the Azure Firewall preview CLI extension and deploy Azure Firewall.
 
 ```azurecli
 # Install Azure Firewall preview CLI extension
@@ -120,11 +122,10 @@ az extension add --name azure-firewall
 az network firewall create -g $RG -n $FWNAME -l $LOC --enable-dns-proxy true
 ```
 
-The IP address created earlier can now be assigned to the firewall frontend.
+The following example shows how to assign the IP address you created to the firewall front end.
 
 > [!NOTE]
-> Set up of the public IP address to the Azure Firewall may take a few minutes.
-> To leverage FQDN on network rules we need DNS proxy enabled, when enabled the firewall will listen on port 53 and will forward DNS requests to the DNS server specified above. This will allow the firewall to translate that FQDN automatically.
+> Setting up the public IP address to the Azure Firewall may take a few minutes. To leverage FQDN on network rules, enable DNS proxy. When enabled, the firewall will listen on port 53 and forward DNS requests to the specified DNS server. The firewall can then translate the FQDN automatically.
 
 ```azurecli
 # Configure Firewall IP Config
@@ -132,7 +133,7 @@ The IP address created earlier can now be assigned to the firewall frontend.
 az network firewall ip-config create -g $RG -f $FWNAME -n $FWIPCONFIG_NAME --public-ip-address $FWPUBLICIP_NAME --vnet-name $VNET_NAME
 ```
 
-When the previous command has succeeded, save the firewall frontend IP address for configuration later.
+When the operation has completed, save the firewall front-end IP address for configuration later, as shown in the following example.
 
 ```azurecli
 # Capture Firewall IP Address for Later Use
