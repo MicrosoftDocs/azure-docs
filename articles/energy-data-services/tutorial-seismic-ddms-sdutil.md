@@ -72,9 +72,9 @@ Install required dependencies:
 
 ### Configuration
 
-1. Clone the [sdutil repository](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable) and open in VSCode.
+1. Clone the [sdutil repository](https://community.opengroup.org/osdu/platform/domain-data-mgmt-services/seismic/seismic-dms-suite/seismic-store-sdutil/-/tree/azure/stable) and open in your favorite editor.
 
-2. Replace the contents of `config.yaml` in the `sdlib` folder with the following yaml and fill in the three templatized values (tow `<meds-instance-url>` and `<put refresh token here...>`):
+2. Replace the contents of `config.yaml` in the `sdlib` folder with the following yaml and fill in the three templatized values (two instances of `<meds-instance-url>` and one `<put refresh token here...>`):
 
   ```yaml
   seistore:
