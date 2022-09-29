@@ -96,8 +96,6 @@ When geo-replication is enabled, and if one replica isn't accessible, you can le
 
 :::zone target="docs" pivot="framework-dotnet"
 
-<!-- ### [.NET](#tab/dotnet) -->
-
 ```csharp
 configurationBuilder.AddAzureAppConfiguration(options =>
 {
@@ -122,8 +120,6 @@ configurationBuilder.AddAzureAppConfiguration(options =>
 :::zone-end
 
 :::zone target="docs" pivot="framework-spring"
-
-<!-- ### [Java Spring](#tab/spring) -->
 
 ```properties
 spring.cloud.azure.appconfiguration.stores[0].endpoints[0]="https://<first-replica-endpoint>.azconfig.io"
