@@ -88,7 +88,7 @@ Use the following procedure to replicate Azure Disk Encryption-enabled VMs to an
 1. Select **Next**.   
 1. In **Virtual machines**, select each VM that you want to replicate. You can only select machines for which replication can be enabled. You can select up to ten VMs. Then, select **Next**.
 
-   :::image type="Virtual machine selection" source="./media/azure-to-azure-how-to-enable-replication/virtual-machine-selection.png" alt-text="Screenshot that highlights where you select virtual machines.":::
+   :::image type="Virtual machine selection" source="./media/azure-to-azure-how-to-enable-replication-ade-vms/virtual-machine-selection.png" alt-text="Screenshot that highlights where you select virtual machines.":::
 
 1. In **Replication settings**, you can configure the following settings:
     1. Under **Location and Resource group**,
