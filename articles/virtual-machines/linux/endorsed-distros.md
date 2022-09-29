@@ -28,13 +28,6 @@ The Azure Linux Agent is already pre-installed on Azure Marketplace images and i
 
 ## Partners
 
-### CoreOS
-
-CoreOS is scheduled to be [end of life](https://coreos.com/os/eol/) by May 26, 2020.
-Microsoft has two (2) channels of migration for CoreOS users.
-
-- Flatcar by Kinvolk (see the "Flatcar Container Linux by Kinvolk" entry.)
-- [Fedora Core OS](https://docs.fedoraproject.org/en-US/fedora-coreos/provisioning-azure/) (customers must upload their own image. Here is the [migration documentation](https://docs.fedoraproject.org/en-US/fedora-coreos/migrate-cl/)).
 
 ### credativ
 
