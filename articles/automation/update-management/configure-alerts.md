@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 # How to create alerts for Update Management
 
-Alerts in Azure proactively notify you of results from runbook jobs, service health issues, or other scenarios related to your Automation account. Azure Automation does not include pre-configured alert rules, but you can create your own based on data that it generates. This article provides guidance on creating alert rules using the metrics included with Update Management.
+Alerts in Azure proactively notify you of results from runbook jobs, service health issues, or other scenarios related to your Automation account. Azure Automation does not include pre-configured alert rules, but you can create your own based on data that it generates. This article provides guidance on creating alert rules using the metrics included with Update Management
 
 ## Available metrics
 
@@ -53,7 +53,7 @@ Follow the steps below to set up alerts to let you know the status of an update 
 
     ![Screenshot shows the Define alert details section with Alert rule name, Description, and Severity fields highlighted.](./media/manage-updates-for-vm/define-alert-details.png)
 
-1. Select **Yes** to enable the alert rule.
+1. Select **Yes** to enable the alert rule
 
 ## Configure action groups for your alerts
 

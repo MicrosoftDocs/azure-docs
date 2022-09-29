@@ -4,7 +4,7 @@ description: Learn how to change approval and requestor information settings for
 services: active-directory
 documentationCenter: ''
 author: owinfreyATL
-manager: karenhoran
+manager: amycolannino
 editor: 
 ms.service: active-directory
 ms.workload: identity

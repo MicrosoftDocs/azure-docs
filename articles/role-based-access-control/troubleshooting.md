@@ -9,7 +9,7 @@ ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: troubleshooting
-ms.date: 07/28/2022
+ms.date: 09/26/2022
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -27,10 +27,10 @@ When you try to assign a role, you get the following error message:
 
 **Cause**
 
-Azure supports up to **2000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope.
+Azure supports up to **4000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope.
 
 > [!NOTE]
-> Starting November 2021, the role assignments limit for all Azure subscriptions is being automatically increased from **2000** to **4000**. There is no action that you need to take for your subscription. The limit increase will take several months.
+> For specialized clouds, such as Azure Government and Azure China 21Vianet, the limit is **2000** role assignments per subscription.
 
 **Solution**
 
@@ -119,6 +119,31 @@ The reason is likely a replication delay. The service principal is created in on
 **Solution**
 
 Set the `principalType` property to `ServicePrincipal` when creating the role assignment. You must also set the `apiVersion` of the role assignment to `2018-09-01-preview` or later. For more information, see [Assign Azure roles to a new service principal using the REST API](role-assignments-rest.md#new-service-principal) or [Assign Azure roles to a new service principal using Azure Resource Manager templates](role-assignments-template.md#new-service-principal).
+
+### Symptom - ARM template role assignment returns BadRequest status
+
+When you try to deploy an ARM template that assigns a role to a service principal you get the error:
+
+`Tenant ID, application ID, principal ID, and scope are not allowed to be updated. (code: RoleAssignmentUpdateNotPermitted)`
+
+**Cause**
+
+The role assignment `name` is not unique, and it is viewed as an update.
+
+**Solution**
+Provide an idempotent unique value for the role assignment `name`
+
+```
+{
+    "type": "Microsoft.Authorization/roleAssignments",
+    "apiVersion": "2018-09-01-preview",
+    "name": "[guid(concat(resourceGroup().id, variables('resourceName'))]",
+    "properties": {
+        "roleDefinitionId": "[variables('roleDefinitionId')]",
+        "principalId": "[variables('principalId')]"
+    }
+}
+```
 
 ### Symptom - Role assignments with identity not found
 
@@ -219,17 +244,25 @@ After you move a resource, you must re-create the role assignment. Eventually, t
 
 ### Symptom - Role assignment changes are not being detected
 
-You recently added or updated a role assignment, but the changes are not being detected.
+You recently added or updated a role assignment, but the changes are not being detected. You might see the message `Status: 401 (Unauthorized)`.
 
-**Cause**
+**Cause 1**
 
 Azure Resource Manager sometimes caches configurations and data to improve performance. When you assign roles or remove role assignments, it can take up to 30 minutes for changes to take effect.
 
-**Solution**
+**Solution 1**
 
 If you are using the Azure portal, Azure PowerShell, or Azure CLI, you can force a refresh of your role assignment changes by signing out and signing in. If you are making role assignment changes with REST API calls, you can force a refresh by refreshing your access token.
 
 If you are add or remove a role assignment at management group scope and the role has `DataActions`, the access on the data plane might not be updated for several hours. This applies only to management group scope and the data plane.
+
+**Cause 2**
+
+You added managed identities to a group and assigned a role to that group. The back-end services for managed identities maintain a cache per resource URI for around 24 hours.
+
+**Solution 2**
+
+It can take several hours for changes to a managed identity's group or role membership to take effect. For more information, see [Limitation of using managed identities for authorization](../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization).
 
 ## Custom roles
 
@@ -313,7 +346,7 @@ When you try to create a new custom role, you get the following message:
 
 **Cause**
 
-Azure supports up to **5000** custom roles in a directory. (For Azure Germany and Azure China 21Vianet, the limit is 2000 custom roles.)
+Azure supports up to **5000** custom roles in a directory. (For Azure China 21Vianet, the limit is 2000 custom roles.)
 
 **Solution**
 

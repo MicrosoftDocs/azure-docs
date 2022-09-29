@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/24/2021
+ms.date: 09/12/2022
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 

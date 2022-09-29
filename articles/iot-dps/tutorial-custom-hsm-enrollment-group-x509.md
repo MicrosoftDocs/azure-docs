@@ -606,6 +606,8 @@ In this section, you create two device certificates and their full chain certifi
 
 1. To create the private key, X.509 certificate, and full chain certificate for the second device, copy and paste this script into your GitBash command prompt. To create certificates for more devices, you can modify the `registration_id` variable declared at the beginning of the script.
 
+    # [Windows](#tab/windows)
+
     ```bash
     registration_id=device-02
     echo $registration_id
@@ -614,6 +616,19 @@ In this section, you create two device certificates and their full chain certifi
     openssl ca -batch -config ./openssl_device_intermediate_ca.cnf -passin pass:1234 -extensions usr_cert -days 30 -notext -md sha256 -in ./csr/${registration_id}.csr.pem -out ./certs/${registration_id}.cert.pem
     cat ./certs/${registration_id}.cert.pem ./certs/azure-iot-test-only.intermediate.cert.pem ./certs/azure-iot-test-only.root.ca.cert.pem > ./certs/${registration_id}-full-chain.cert.pem
     ```
+
+    # [Linux](#tab/linux)
+
+    ```bash
+    registration_id=device-02
+    echo $registration_id
+    openssl genrsa -out ./private/${registration_id}.key.pem 4096
+    openssl req -config ./openssl_device_intermediate_ca.cnf -key ./private/${registration_id}.key.pem -subj "/CN=$registration_id" -new -sha256 -out ./csr/${registration_id}.csr.pem
+    openssl ca -batch -config ./openssl_device_intermediate_ca.cnf -passin pass:1234 -extensions usr_cert -days 30 -notext -md sha256 -in ./csr/${registration_id}.csr.pem -out ./certs/${registration_id}.cert.pem
+    cat ./certs/${registration_id}.cert.pem ./certs/azure-iot-test-only.intermediate.cert.pem ./certs/azure-iot-test-only.root.ca.cert.pem > ./certs/${registration_id}-full-chain.cert.pem
+    ```
+
+    ---
 
     >[!NOTE]
     > This script uses the registration ID as the base filename for the private key and certificate files. If your registration ID contains characters that aren't valid filename characters, you'll need to modify the script accordingly.
@@ -632,7 +647,7 @@ You'll use the following files in the rest of this tutorial:
 | device-01 private key          | *private/device-01.key.pem* | Used by the device to verify ownership of the device certificate during authentication with DPS. |
 | device-01 full chain certificate  | *certs/device-01-full-chain.cert.pem* | Presented by the device to authenticate and register with DPS. |
 | device-02 private key          | *private/device-02.key.pem* | Used by the device to verify ownership of the device certificate during authentication with DPS. |
-| device-02 full chain certificate  | *certs/device-01-full-chain.cert.pem* | Presented by the device to authenticate and register with DPS. |
+| device-02 full chain certificate  | *certs/device-02-full-chain.cert.pem* | Presented by the device to authenticate and register with DPS. |
 
 ## Verify ownership of the root certificate
 
