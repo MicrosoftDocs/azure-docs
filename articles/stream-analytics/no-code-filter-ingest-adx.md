@@ -41,7 +41,7 @@ This article describes how you can use the no code editor to easily create a Str
 
     :::image type="content" source="./media/no-code-filter-ingest-adx/filter-operator-configuration.png" alt-text="Screenshot that shows the filter operator configuration." lightbox="./media/no-code-filter-ingest-adx/filter-operator-configuration.png" :::
 
-1. Select the **Manage** tile. In the **Manage fields** configuration panel, choose the fields you want to output to event hub. If you want to add all the fields, click **Add all fields**.
+1. Select the **Manage** tile. In the **Manage fields** configuration panel, choose the fields you want to output to event hub. If you want to add all the fields, select **Add all fields**.
 
     :::image type="content" source="./media/no-code-filter-ingest-adx/manage-fields-configuration.png" alt-text="Screenshot that shows the manage field operator configuration." lightbox="./media/no-code-filter-ingest-adx/manage-fields-configuration.png" :::
 
@@ -50,7 +50,7 @@ This article describes how you can use the no code editor to easily create a Str
     > [!NOTE]
     > The table must exist in your selected database and the table schema must exactly match the number of fields and their types that your data preview generates.  
 
-    :::image type="content" source="./media/no-code-filter-ingest-adx/adx-output-configuration.png" alt-text="Screenshot that shows the adx  output configuration." lightbox="./media/no-code-filter-ingest-adx/adx-output-configuration.png" :::
+    :::image type="content" source="./media/no-code-filter-ingest-adx/adx-output-configuration.png" alt-text="Screenshot that shows the Kusto output configuration." lightbox="./media/no-code-filter-ingest-adx/adx-output-configuration.png" :::
 
 1. Optionally, select **Get static preview/Refresh static preview** to see the data preview that will be ingested in event hub.  
     :::image type="content" source="./media/no-code-filter-ingest-adx/no-code-output-static-preview.png" alt-text="Screenshot showing the Get static preview/Refresh static preview option." lightbox="./media/no-code-filter-ingest-adx/no-code-output-static-preview.png" :::
@@ -63,9 +63,9 @@ This article describes how you can use the no code editor to easily create a Str
     - **Output data error handling** – It allows you to specify the behavior you want when a job’s output to your destination fails due to data errors. By default, your job retries until the write operation succeeds. You can also choose to drop such output events.  
         :::image type="content" source="./media/no-code-filter-ingest-adx/no-code-start-job.png" alt-text="Screenshot showing the Start Stream Analytics job options where you can change the output time, set the number of streaming units, and select the Output data error handling options." lightbox="./media/no-code-filter-ingest-adx/no-code-start-job.png" :::
 
-1. After you select **Start**, the job starts running within two minutes and the metrics will be open in tab section below.   
+1. After you select **Start**, the job starts running within two minutes, and the metrics will be open in tab section below.   
 
-    :::image type="content" source="./media/no-code-filter-ingest-adx/job-metrics-after-started.png" alt-text="Screenshot that shows the job metrics data after it is started." lightbox="./media/no-code-filter-ingest-adx/job-metrics-after-started.png" :::
+    :::image type="content" source="./media/no-code-filter-ingest-adx/job-metrics-after-started.png" alt-text="Screenshot that shows the job metrics data after it's started." lightbox="./media/no-code-filter-ingest-adx/job-metrics-after-started.png" :::
 
     You can also see the job under the Process Data section on the **Stream Analytics jobs** tab. Select **Open metrics** to monitor it or stop and restart it, as needed.
 

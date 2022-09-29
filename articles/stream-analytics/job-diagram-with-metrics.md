@@ -11,17 +11,17 @@ ms.date: 09/26/2022
 
 # Stream Analytics job diagram (preview) in Azure portal
 
-The job diagram in the Azure portal can help you visualize your job's query steps (logical concept) or streamingnode (physical concept) with its input source, output destination, and metrics. You can use the job diagram to examine the metrics for each step or streaming node and quickly identify the source of a problem when you troubleshoot issues.
+The job diagram in the Azure portal can help you visualize your job's query steps (logical concept) or streaming node (physical concept) with its input source, output destination, and metrics. You can use the job diagram to examine the metrics for each step or streaming node and quickly identify the source of a problem when you troubleshoot issues.
 
 Job diagram has two types: 
-* **Physical diagram**: it visualizes the Stream Analytics job metrics with the physical computation concept: streaming node dimension. A streaming node represents a set of compute resources that's used to process job's input data. To learn more details about the streaming node dimension, see [Azure Stream Analytics node name dimension](./stream-analytics-job-metrics-dimensions.md#node-name-dimension).
-* **Logical diagram**: it visualizes the Stream Analytics job metrics with the logical concept: query step based on job's queries. To learn more, see [Debugging with the job logical diagram (preview) in Azure portal](./stream-analytics-job-logical-diagram-with-metrics.md).
+* **Physical diagram**: it visualizes the key metrics of Stream Analytics job with the physical computation concept: streaming node dimension. A streaming node represents a set of compute resources that's used to process job's input data. To learn more details about the streaming node dimension, see [Azure Stream Analytics node name dimension](./stream-analytics-job-metrics-dimensions.md#node-name-dimension).
+* **Logical diagram**: it visualizes the key metrics of Stream Analytics job with the logical concept: query step based on job's queries. To learn more, see [Debugging with the job logical diagram (preview) in Azure portal](./stream-analytics-job-logical-diagram-with-metrics.md).
 
 This article describes the two types of job diagram that can be used for your guide.
 
 ## Using the job diagram
 
-In the Azure portal, while in a Stream Analytics job, under **Developer tools**, select **Job diagram (preview)**:
+In the Azure portal, locate and select a Stream Analytics job. Then select **Job diagram (preview)** under **Developer tools**: 
 
 :::image type="content" source="./media/job-diagram-with-metrics/diagram-location-in-portal-tree.png" alt-text="Screenshot that shows job diagram location in portal tree." lightbox="./media/job-diagram-with-metrics/diagram-location-in-portal-tree.png":::
 
@@ -35,26 +35,26 @@ The following screenshot shows a job physical diagram with a default time period
 
 :::image type="content" source="./media/job-diagram-with-metrics/3-physical-diagram-sections.png" alt-text="Screenshot that shows job physical diagram sections." lightbox="./media/job-diagram-with-metrics/3-physical-diagram-sections.png":::
 
-1. **Command bar section**: this is the command area where you can configure the time range of the job metrics, switch/configure heatmap visualization, search a streaming node, and switch view between **Diagram** and **Table**. 
+1. **Command bar section**: it's the command area where you can configure the time range of the job metrics, switch/configure heatmap visualization, search a streaming node, and switch view between **Diagram** and **Table**. 
     * **Heatmap settings**: the heatmap setting enables you to sort the nodes in diagram based on your wanted metrics and sorting type. The metrics can be CPU/memory utilization, watermark delay, input event, and backlogged input events.
     * **Time range**: you can choose different time range and job run to view the diagram and metrics.
     * **Job run**: Job run is inside **Time range**. When a job is started, restarted or scaled-up/down (SU changes), a new job run will be generated. One job run maps on job physical diagram.
-    * **Diagram/Table view switcher**: you can switch the view between diagram and table.The table view is shown as below:
+    * **Diagram/Table view switcher**: you can switch the view between diagram and table. The table view is shown as below:
 
         :::image type="content" source="./media/job-diagram-with-metrics/4-physical-diagram-table-view.png" alt-text="Screenshot that shows job physical diagram with table overview."  lightbox="./media/job-diagram-with-metrics/4-physical-diagram-table-view.png":::
 
-1. **Diagram/Table section**: this is the place where you can view the metrics (aggregated within the selected time range) in streaming node level with diagram view or table view. Each box in this section represents a streaming node which is used to process the input data. The metrics on each node are:
+1. **Diagram/Table section**: it's the place where you can view the metrics (aggregated within the selected time range) in streaming node level with diagram view or table view. Each box in this section represents a streaming node that is used to process the input data. The metrics on each node are:
     * **Input Events** (Aggregation type: SUM)
     * **CPU % Utilization** (Aggregation type: Avg)
     * **SU (Memory) % Utilization** (Aggregation type: Max)
     * **Partition IDs** (A list, no aggregation)
     * **Watermark Delay** (Aggregation type: Max)
-    * **Backlogged Input Events**  (Aggregation type: SUM)
+    * **Backlogged Input Events** (Aggregation type: SUM)
 
-    For more details about the metrics definition, see [Azure Stream Analytics node name dimension](./stream-analytics-job-metrics-dimensions.md#node-name-dimension).
-1. **Chart section**: this is the place where you can view the historical metrics data within the selected time range. The default metrics shown in the default chart are **SU (Memory) % Utilization** and **CPU % Utilization**". You can also add more charts by clicking **Add chart**.
+    For more information about the metrics definition, see [Azure Stream Analytics node name dimension](./stream-analytics-job-metrics-dimensions.md#node-name-dimension).
+1. **Chart section**: it's the place where you can view the historical metrics data within the selected time range. The default metrics shown in the default chart are **SU (Memory) % Utilization** and **CPU % Utilization**". You can also add more charts by clicking **Add chart**.
 
-The **Diagram/Table section** and **Chart section** can be interactive with each other. You can select multiple nodes in **Diagram/Table section** to get the metrics in **Chart section** filtered by the selected nodes and vise versa.
+The **Diagram/Table section** and **Chart section** can be interactive with each other. You can select multiple nodes in **Diagram/Table section** to get the metrics in **Chart section** filtered by the selected nodes and vice versa.
 
 :::image type="content" source="./media/job-diagram-with-metrics/5-job-physical-diagram-node-chart-interaction.png" alt-text="Screenshot that shows job physical diagram node chart interaction."  lightbox="./media/job-diagram-with-metrics/5-job-physical-diagram-node-chart-interaction.png":::
 
@@ -64,15 +64,15 @@ To learn more about how to debug with physical diagram, see [Debugging with the 
 
 ## Job logical diagram
 
-The job logical diagram has the similar layout to the physical diagram that also has the 3 sections as well, but with different metrics and configuration settings.
+The job logical diagram has the similar layout to the physical diagram that also has the three sections as well, but with different metrics and configuration settings.
 
 :::image type="content" source="./media/job-diagram-with-metrics/3-logical-diagram-overview.png" alt-text="Screenshot that shows job logical diagram sections."  lightbox="./media/job-diagram-with-metrics/3-logical-diagram-overview.png":::
 
 1. **Command bar section**: in logical diagram, you can operate the cloud job (Stop, Delete), and configure the time range of the job metrics. Only diagram view is available for logical diagram.
-2. **Diagram section**: the node box in this selection represents the job's input, output, and query steps. You can view the metrics in the node directly or in the chart section interactively by clicking certain node in this section. For more details about the metrics definition, see [Azure Stream Analytics node name dimension](./stream-analytics-job-metrics-dimensions.md#node-name-dimension).
+2. **Diagram section**: the node box in this selection represents the job's input, output, and query steps. You can view the metrics in the node directly or in the chart section interactively by clicking certain node in this section. For more information about the metrics definition, see [Azure Stream Analytics node name dimension](./stream-analytics-job-metrics-dimensions.md#node-name-dimension).
 3. **Chart section**: the chart section in logical diagram has two tabs: **Metrics** and **Activity Logs**.
-    * **Metrics**: job's metrics data is shown here when the corresponding metrics is selected in the right panel. 
-    * **Activity Logs**: job's operations performed on jobs is shown here. When the job's diagnostic log is enabled, it is also shown here. To learn more about the job logs, see [Azure Stream Analytics job logs](./stream-analytics-job-diagnostic-logs.md).
+    * **Metrics**: job's metrics data is shown here when the corresponding metrics are selected in the right panel. 
+    * **Activity Logs**: job's operations performed on jobs is shown here. When the job's diagnostic log is enabled, it's also shown here. To learn more about the job logs, see [Azure Stream Analytics job logs](./stream-analytics-job-diagnostic-logs.md).
 
    When a job logical diagram is loaded, this job's metrics: Watermark delay, Input events, Output Events, and Backlogged Input Events are shown in the chart section for the latest 30 minutes.
 

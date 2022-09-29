@@ -66,18 +66,18 @@ You'll see the chart below with the input events metric filtered by the partitio
 
 ### What further action can you take?
 
-As shown in the example, the partitions (0 and 1) are having significantly more input data than other partitions are. We call this **data skew**. The streaming nodes that are processing the partitions with data skew need to consume more CPU and memory resources than others do which affect the job's performance and increase watermark delay. You can check the CPU and memory usage in the two streaming nodes as well in the physical diagram. To mitigate this, you need to repartition your input data more evenly. 
+As shown in the example, the partitions (0 and 1) are having more input data than other partitions are. We call this **data skew**. The streaming nodes that are processing the partitions with data skew need to consume more CPU and memory resources than others do which affect the job's performance and increase watermark delay. You can check the CPU and memory usage in the two streaming nodes as well in the physical diagram. To mitigate it, you need to repartition your input data more evenly. 
 
 
 ## Identify the cause of overloaded CPU or memory
 
-When a parallel job continues having watermark delay increasing without data skew situation, it may caused by all streaming nodes having big amount of data. How do you identify your job is falling into this case with physical diagram?
+When a parallel job continues having watermark delay increasing without data skew situation, it may be caused by all streaming nodes having significant amount of data. How do you identify your job is falling into this case with physical diagram?
 
-1. Open the job physical diagram, go to your job Azure portal under **Monitoring**, select **Job diagram (preview)**, and switch to **Physical diagram**. You will see the physical diagram loaded as below.
+1. Open the job physical diagram, go to your job Azure portal under **Monitoring**, select **Job diagram (preview)**, and switch to **Physical diagram**. You'll see the physical diagram loaded as below.
 
-    :::image type="content" source="./media/job-physical-diagram-debug/5-overloaded-cpu-memory-physical-diagram.png" alt-text="Screenshot that shows overloaded cpu and memory in all nodes." lightbox="./media/job-physical-diagram-debug/5-overloaded-cpu-memory-physical-diagram.png":::
+    :::image type="content" source="./media/job-physical-diagram-debug/5-overloaded-cpu-memory-physical-diagram.png" alt-text="Screenshot that shows the overview of the overloaded cpu and memory job." lightbox="./media/job-physical-diagram-debug/5-overloaded-cpu-memory-physical-diagram.png":::
 
-2. Check the CPU and memory utilization in each streaming node to see if the utilization in all streaming nodes is too high. If the CPU and SU utilization is very high (more than 80 percent) in all streaming nodes, you can conclude that this job has a large amount of data being processed within each streaming node. 
+2. Check the CPU and memory utilization in each streaming node to see if the utilization in all streaming nodes is too high. If the CPU and SU utilization is high (more than 80 percent) in all streaming nodes, you can conclude that this job has a large amount of data being processed within each streaming node. 
 
     From above case, the CPU utilization is around 90% and memory utilization is 100% already. It shows that each streaming node is running out of resource to process the data. 
 
@@ -85,11 +85,11 @@ When a parallel job continues having watermark delay increasing without data ske
 
 3. Check how many partitions are allocated into each streaming node so that you can decide if you need more streaming nodes to balance the partitions to reduce the burden of the existing streaming nodes.
 
-    For this case, each streaming node is having 4 partitions allocated which looks too much to a streaming node. 
+    For this case, each streaming node is having four partitions allocated which looks too much to a streaming node. 
 
 ### What further action can you take?
 
-You may consider to reduce the partition count for each streaming node to reduce the input data by doubling the SUs to have each streaming node handle two partitions (increase streaming node count from 8 o 16). Or you can quadruple the SUs to have each streaming node handle data from one partition.
+You may consider to reduce the partition count for each streaming node to reduce the input data by doubling the SUs to have each streaming node handle two partitions (increase streaming node count from 8 to 16). Or you can quadruple the SUs to have each streaming node handle data from one partition.
 
 To learn more about the relationship between streaming node and streaming unit, see [Understand streaming unit and streaming node](stream-analytics-streaming-unit-consumption.md#understand-streaming-unit-and-streaming-node).
 
@@ -102,4 +102,4 @@ What should you do if the watermark delay is still increasing when one streaming
 * [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md)
 * [Scale Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Stream Analytics query language reference](/stream-analytics-query/stream-analytics-query-language-reference)
-* [Analyze Stream Analytics job performance by using metrics and dimensions](./stream-analytics-job-analysis-with-metric-dimensions)
+* [Analyze Stream Analytics job performance by using metrics and dimensions](./stream-analytics-job-analysis-with-metric-dimensions.md)

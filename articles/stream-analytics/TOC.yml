@@ -408,7 +408,7 @@
       href: app-insights-export-stream-analytics.md
     - name: Export to SQL using Stream Analytics
       href: app-insights-export-sql-stream-analytics.md
-  - name: Debug and optimize job using job diagram (preview)
+  - name: Debug and optimize using job diagram (preview)
     items:
     - name: Optimize query using job diagram simulator (preview)
       href: optimize-query-using-job-diagram-simulator.md

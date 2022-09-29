@@ -19,9 +19,7 @@ The job logical diagram is also available in Stream Analytics extension for VS C
 
 ## Using the job logical diagram
 
-In the Azure portal, while in a Stream Analytics job, under **Developer tools**, select **Job diagram (preview)**:
-
-
+In the Azure portal, locate and select a Stream Analytics job. Then select **Job diagram (preview)** under **Developer tools**: 
 
 :::image type="content" source="./media/stream-analytics-job-diagram-with-metrics-new/1-stream-analytics-job-diagram-with-metrics-portal.png" alt-text="Screenshot that shows job diagram with metrics - location.":::
 
@@ -34,11 +32,11 @@ If you select one of the nodes in diagram section, the metrics data and the metr
 
 :::image type="content" source="./media/stream-analytics-job-diagram-with-metrics-new/3-job-logical-diagram-node-selection.png" alt-text="Screenshot that shows job logical diagram node selection." lightbox="./media/stream-analytics-job-diagram-with-metrics-new/3-job-logical-diagram-node-selection.png":::
 
-To see the query script snippet that is mapping the corresponding query step, click the **'{}'** in the query step node as below:
+To see the query script snippet that is mapping the corresponding query step, select the **'{}'** in the query step node as below:
 
 :::image type="content" source="./media/stream-analytics-job-diagram-with-metrics-new/4-job-logical-diagram-query-step-mapping-to-script.png" alt-text="Screenshot that shows job logical diagram query step mapping to script.":::
 
-To see the job overview information summary, click the **Job Summary** button in right side.
+To see the job overview information summary, select the **Job Summary** button in right side.
 
 :::image type="content" source="./media/stream-analytics-job-diagram-with-metrics-new/5-job-logical-diagram-job-summary.png" alt-text="Screenshot that shows job logical diagram job summary." lightbox="./media/stream-analytics-job-diagram-with-metrics-new/5-job-logical-diagram-job-summary.png":::
 
@@ -53,14 +51,14 @@ A job's metrics provides lots of insights to your job's health. You can view the
 ### Is the job running well with its computation resource?
 
 *   **SU (Memory) % utilization** is the percentage of memory utilized by your job. If SU (Memory) % utilization is consistently over 80%, it shows the job is approaching to the maximum allocated memory.
-*   **CPU % utilization** is the percentage of CPU utilized by your job. There might be spikes intermittently for this metric. Thus, we often check its average percentage data. High CPU utilization indicates that there might be CPU bottleneck if the number of backlogged input events or watermark delay increases at the same time.
+*   **CPU % utilization** is the percentage of CPU utilized by your job. There might be spikes intermittently for this metric. Thus, we often check its average percentage data. High CPU utilization indicates that there might be CPU bottleneck when the number of backlogged input events or watermark delay increases at the same time.
 
  
 ### How much data is being read?
 
 The input data related metrics can be viewed under **Input** category in the chart section. They're available in the step of the input.
 *   **Input events** is the number of data events read.
-*   **Input events bytes** is the number of event bytes read. This can be used to validate that events are being sent to the input source. 
+*   **Input events bytes** is the number of event bytes read. It can be used to validate that events are being sent to the input source. 
 *   **Input source received** is the number of messages read by the job.
  
 ### Are there any errors in data processing?
@@ -71,11 +69,11 @@ The input data related metrics can be viewed under **Input** category in the cha
  
 ### Are there any events out of order that are being dropped or adjusted?
 
-*   **Out of order events** is the number of events received out of order that were either dropped or given an adjusted timestamp, based on the Event Ordering Policy. This can be impacted by the configuration of the **"Out of order events"** setting under **Event ordering** section in Azure portal.
+*   **Out of order events** is the number of events received out of order that were either dropped or given an adjusted timestamp, based on the Event Ordering Policy. It can be impacted by the configuration of the **"Out of order events"** setting under **Event ordering** section in Azure portal.
  
 ### Is the job falling behind in processing input data streams?
 
-*   **Backlogged input events** tells you how many more messages from the input need to be processed. When this number is consistently greater than 0, it means your job can't process the data as fast as it's coming in. In this case you may need to increase the number of Streaming Units and/or make sure your job can be parallelized. You can see more info on this in the [query parallelization page](./stream-analytics-parallelization.md). 
+*   **Backlogged input events** tells you how many more messages from the input need to be processed. When this number is consistently greater than 0, it means your job can't process the data as fast as it's coming in. In this case, you may need to increase the number of Streaming Units and/or make sure your job can be parallelized. You can see more info in the [query parallelization page](./stream-analytics-parallelization.md). 
 
 
 ## Get help
