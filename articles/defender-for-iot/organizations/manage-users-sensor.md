@@ -21,7 +21,7 @@ For more information, see [Install OT monitoring software](how-to-install-softwa
 
 ## Add new OT sensor users
 
-This procedure describes how to create new users for a specific OT network sensor, and is available for the *cyberx* and *support* users, and any user with the **Admin** role.
+This procedure describes how to create new users for a specific OT network sensor, and is available for the *cyberx*, *support*, and *cyberx_host* users, and any user with the **Admin** role.
 
 **To add a user**:
 

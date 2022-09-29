@@ -7,25 +7,25 @@ ms.topic: how-to
 
 # Create and manage users on an on-premises management console
 
-Microsoft Defender for IoT provides tools both in the Azure portal and on-premises for managing user access across Defender for IoT resources.
+Microsoft Defender for IoT provides tools for managing user access in the [Azure portal](manage-users-portal.md), the [OT network sensor](manage-users-sensor.md), and the on-premises management console.
 
-This article describes how to manage on-premises users directly on the on-premises management console you want your users to access.
+This article describes how to manage on-premises users directly on an on-premises management console.
 
 ## Default privileged users
 
-By default, each on-premises management console is installed with the *cyberx* and *support* users, which have access to advanced tools for troubleshooting and setup. Administrator users should sign in with these user credentials, create an initial user with an **Administrator** role, and then create extra users for security analysts and read-only users.
+By default, each on-premises management console is installed with the privileged *cyberx* and *support* users, which have access to advanced tools for troubleshooting and setup.
 
-For more information, see [Install OT monitoring software](how-to-install-software.md?tabs=on-prem#install-ot-monitoring-software#install-ot-monitoring-software) and [Default privileged on-premises users](how-to-install-software.md#default-privileged-on-premises-users).
+When setting up a sensor for the first time, sign in with one of these user credentials, create an initial user with an **Administrator** role, and then create extra users for security analysts and read-only users.
 
-## Add new users
+For more information, see [Install OT monitoring software](how-to-install-software.md#install-ot-monitoring-software) and [Default privileged on-premises users](how-to-install-software.md#default-privileged-on-premises-users).
+
+## Add new on-premises management console users
 
 This procedure describes how to create new users for an on-premises management console, and is available for the *cyberx* and *support* users, and any user with the **Administrator** role.
 
-<!--validate this procedure-->
-
 **To add a user**:
 
-1. Sign in to the sensor console or an on-premises management console, and select **Users**. For example:
+1. Sign in to the on-premises management console and select **Users** > **+ Add user**.
 
 1. Select **Create user** and then define the following values:
 
