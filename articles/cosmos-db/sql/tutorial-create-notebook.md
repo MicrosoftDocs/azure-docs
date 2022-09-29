@@ -247,6 +247,36 @@ In this section, you'll create the Azure Cosmos database, container, and import 
 
 1. Create another new code cell.
 
+1. In the code cell, create a dictionary by adding unique permutations of the **Item** field as the key and the data in the **Price** field as the value.
+
+    ```csharp
+    var dictionary = new Dictionary<string, decimal>();
+
+    foreach(var result in results)
+    {
+        dictionary.TryAdd (result.Item, result.Price); 
+    }
+
+    dictionary
+    ```
+
+1. Select **Run Active Cell** to only run the command in this specific cell.
+
+1. Observe the output with unique combinations of the **Item** and **Price** fields.
+
+    ```output
+    ...
+    Denim Jacket:31.99
+    Fleece Jacket:65
+    Sandals:12
+    Socks:3.75
+    Sandal:35.5
+    Light Jeans:80
+    ...
+    ```
+
+1. Create another new code cell.
+
 1. In the code cell, output the **results** variable.
 
     ```csharp
