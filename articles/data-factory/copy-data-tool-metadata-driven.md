@@ -204,6 +204,6 @@ This pipeline will copy objects from one group. The objects belonging to this gr
 ## Next steps
 Try these tutorials that use the Copy Data tool:
 
-- [Quickstart: create a data factory using the Copy Data tool](quickstart-copy-data-tool.md)
-- [Tutorial: copy data in Azure using the Copy Data tool](tutorial-copy-data-tool.md) 
-- [Tutorial: copy on-premises data to Azure using the Copy Data tool](tutorial-hybrid-copy-data-tool.md)
+- [Quickstart: Create a data factory using the Copy Data tool](quickstart-hellow-world-copy-data-tool.md)
+- [Tutorial: Copy data in Azure using the Copy Data tool](tutorial-copy-data-tool.md) 
+- [Tutorial: Copy on-premises data to Azure using the Copy Data tool](tutorial-hybrid-copy-data-tool.md)
