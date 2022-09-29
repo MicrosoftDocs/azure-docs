@@ -80,6 +80,8 @@ items:
       href: how-to/orchestration-projects.md
   - name: Migrate
     items:
+    - name: Migrate to conversational language understanding
+      href: ../language-service/conversational-language-understanding/how-to/migrate-from-luis.md?context=/azure/cognitive-services/LUIS/context/context
     - name: Migrate to V3 Authoring APIs
       href: luis-migration-authoring-entities.md
     - name: Migrate to V3 Prediction APIs
