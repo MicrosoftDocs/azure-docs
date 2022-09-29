@@ -11,7 +11,7 @@ ms.topic: how-to
 # Disable local authentication in Automation
 
 > [!IMPORTANT]
-> Update Management patching will not work when local authentication is disabled.
+> Update Management patching will not work when local authentication is disabled. When you disable local authentication, it impacts the starting a runbook using a webhook, Automation Desired State Configuration and agent-based Hybrid Runbook Workers. For more information, see the [available alternatives](#compatibility).
 
 Azure Automation provides Microsoft Azure Active Directory (Azure AD) authentication support for all Automation service public endpoints. This critical security enhancement removes certificate dependencies and gives organizations control to disable local authentication methods. This feature provides you with seamless integration when centralized control and management of identities and resource credentials through Azure AD is required.
 
