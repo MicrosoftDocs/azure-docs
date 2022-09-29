@@ -13,11 +13,11 @@ ms.author: banders
 
 # What are Azure savings plans for compute?
 
-Azure savings plans save you money when you have consistent usage of a particular Azure savings plan help you save money by allow you to commit to a fixed hourly spend on compute services for one-year or three-year terms. A savings plan can significantly reduce your resource costs by up to 66% from pay-as-you-go prices. Discount rates per meter vary by commitment term (1-year or 3-year), not commitment amount.
+Azure savings plans save you money when you have consistent usage of Azure compute resources. An Azure savings plan helps you save money by allowing you to commit to a fixed hourly spend on compute services for one-year or three-year terms. A savings plan can significantly reduce your resource costs by up to 66% from pay-as-you-go prices. Discount rates per meter vary by commitment term (1-year or 3-year), not commitment amount.
 
-Each hour with savings plan, your compute usage is discounted until you reach your commitment amount – subsequent usage afterward is priced at pay-as-you-go rates. Savings plan commitments are priced in USD for MCA/MPA customers, and in local currency for EA customers. Usage from compute services such as VMs, dedicated hosts, container instances, Azure premium functions and Azure app services are eligible for savings plan discounts.
+Each hour with savings plan, your compute usage is discounted until you reach your commitment amount – subsequent usage afterward is priced at pay-as-you-go rates. Savings plan commitments are priced in USD for Microsoft Customer Agreement and Microsoft Partner Agreement customers, and in local currency for EA customers. Usage from compute services such as VMs, dedicated hosts, container instances, Azure premium functions, and Azure app services are eligible for savings plan discounts.
 
-You can acquire a savings plan by making a new commitment, or you can trade in one or more active RIs for a savings plan. When you acquire a savings plan via RI trade in, the RI(s) will be canceled, and the monetary value of the unused RI benefits will be converted to the equivalent hourly commitment for the savings plan. The commitment may not be sufficient for your needs, and while you may not reduce it, you can increase it to cover your needs.
+You can acquire a savings plan by making a new commitment, or you can trade in one or more active reservations for a savings plan. When you acquire a savings plan with a reservation trade in, the reservation is canceled. The monetary value of the unused reservation benefits are converted to the equivalent hourly commitment for the savings plan. The commitment may not be sufficient for your needs, and while you may not reduce it, you can increase it to cover your needs.
 
 After you purchase a savings plan, the discount automatically applies to matching resources. Savings plans provide a billing discount and don't affect the runtime state of your resources.
 
@@ -73,7 +73,7 @@ For more information about savings plan permissions in the Azure portal, see [
 
 ## Manage savings plan after purchase
 
-After you buy an Azure savings plan, you can update the scope to apply savings plan to a different subscription and change who can manage the savings plan.
+After you buy an Azure savings plan, you can update the scope to apply the savings plan to a different subscription and change who can manage the savings plan.
 
 For more information, see [Manage Azure savings plans](manage-savings-plan.md).
 

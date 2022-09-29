@@ -131,7 +131,7 @@ Savings plan costs are available in [cost analysis](https://aka.ms/costanalysi
 
 :::image type="content" source="./media/utilization-cost-reports/portal-cost-analysis-amortized-view.png" alt-text="Example showing where to select amortized cost in cost analysis." lightbox="./media/utilization-cost-reports/portal-cost-analysis-amortized-view.png" :::
 
-Group by _Charge Type_ to see a breakdown of usage, purchases, and refunds; or by _Pricing Model_ for a breakdown of savings plan and on-demand costs. You can also group by _Benefit_ and use the _BenefitId_ and _BenefitName_ associated with your Savings Plan to identify the costs related to specific savings plan purchases. The only savings plan costs that you see when looking at actual cost are purchases. Costs aren't allocated to the individual resources that used the benefit when looking at amortized cost. You'll also see a new _**UnusedBenefit**_ ** plan  charge type when looking at amortized cost.
+Group by _Charge Type_ to see a breakdown of usage, purchases, and refunds; or by _Pricing Model_ for a breakdown of savings plan and on-demand costs. You can also group by _Benefit_ and use the _BenefitId_ and _BenefitName_ associated with your Savings Plan to identify the costs related to specific savings plan purchases. The only savings plan costs that you see when looking at actual cost are purchases. Costs aren't allocated to the individual resources that used the benefit when looking at amortized cost. You'll also see a new _**UnusedBenefit**_ plan charge type when looking at amortized cost.
 
 ## Next steps
 

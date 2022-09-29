@@ -25,10 +25,10 @@ There's no obligation to renew and you can opt out of the renewal at any time be
 
 The following conditions are required to renew a savings plan:
 
-For Enterprise Agreements (DA) and Microsoft Customer Agreements (MCA):
+For Enterprise Agreements (EA) and Microsoft Customer Agreements (MCA):
 
-MCA - You must be a billing profile contributor
-EA - You must be an EA admin with write access
+- MCA - You must be a billing profile contributor
+- EA - You must be an EA admin with write access
 
 For Microsoft Partner Agreements (MPA):
 
@@ -77,7 +77,7 @@ Azure may not process the renewal if:
 
 - Payment can't be collected
 - A system error occurs during renewal
-- The enterprise agreement (EA) is renewed into a different EA
+- The EA agreement is renewed into a different EA
 
 You'll receive an email notification if any of the preceding conditions occur, and the renewal is deactivated.
 
@@ -88,7 +88,7 @@ Renewal notification emails are sent 30 days before expiration and again on the 
 Emails are sent to different people depending on your purchase method:
 
 - EA customers - Emails are sent to the notification contacts set on the EA portal or Enterprise Administrators who are automatically enrolled to receive usage notifications.
-- MPA – No email notifications are currently sent for Microsoft Partner Agreement subscriptions.
+- MPA - No email notifications are currently sent for Microsoft Partner Agreement subscriptions.
 
 ## Need help? Contact us.
 

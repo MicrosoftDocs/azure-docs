@@ -40,5 +40,5 @@ If you have Azure savings plan for compute questions, contact your  account team
 ## Next steps
 
 - [Manage Azure savings plans](manage-savings-plan.md)
-- [Usage data for enterprise subscriptions](enterprise-usage-data.md)
+- [View Azure savings plan cost and usage details](utilization-cost-reports.md)
 - [Software costs not included in saving plan](software-costs-not-included.md)

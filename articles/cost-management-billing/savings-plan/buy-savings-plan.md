@@ -13,7 +13,7 @@ ms.author: banders
 
 # Buy an Azure savings plan
 
-Azure savings plans help you save money by committing to an hourly spend for one-year or three-years plans for Azure compute resources. Saving plans discounts apply to usage from virtual machines, dedicated hosts, container instances, app services and Azure premium functions. The hourly commitment is priced in USD for Microsoft Customer Agreement customers and local currency for Enterprise customers. Before you enter a commitment to buy a savings plan, be sure to review the following sections to prepare for your purchase.
+Azure savings plans help you save money by committing to an hourly spend for one-year or three-years plans for Azure compute resources. Saving plans discounts apply to usage from virtual machines, Dedicated Hosts, Container Instances, App Services and Azure Premium Functions. The hourly commitment is priced in USD for Microsoft Customer Agreement customers and local currency for Enterprise customers. Before you enter a commitment to buy a savings plan, be sure to review the following sections to prepare for your purchase.
 
 ## Who can buy a savings plan
 

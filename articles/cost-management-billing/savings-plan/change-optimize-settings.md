@@ -69,7 +69,7 @@ You can't change the billing subscription after a savings plan is purchased.
 
 If you find that your organization's savings plans are being underused:
 
-- Change the scope of the savings plan to **shared* so that it applies more broadly. For more information, see [Change the savings plan scope](manage-savings-plan.md#change-the-savings-plan-scope).
+- Change the scope of the savings plan to *shared* so that it applies more broadly. For more information, see [Change the savings plan scope](manage-savings-plan.md#change-the-savings-plan-scope).
 
 ## Need help? Contact us.
 

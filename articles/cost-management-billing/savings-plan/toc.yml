@@ -13,8 +13,6 @@
     href: discount-application.md
   - name: Windows and SQL costs not included
     href: software-costs-not-included.md
-  - name: Enterprise and Microsoft Customer Agreement usage data
-    href: enterprise-usage-data.md
   - name: Cancellation policy
     href: cancel-savings-plan.md
 - name: How-to guides
@@ -23,7 +21,7 @@
     href: choose-commitment-amount.md
   - name: Buy a saving plan
     href: buy-savings-plan.md
-  - name: Trade reservation for savings plan
+  - name: Trade a reservation for a savings plan
     href: reservation-trade-in.md
   - name: Permissions, View and Manage
     items:

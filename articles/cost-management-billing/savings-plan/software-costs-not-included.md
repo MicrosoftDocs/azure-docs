@@ -13,7 +13,7 @@ ms.date: 09/23/2022
 
 # Software costs not included in saving plan
 
-Savings plan discounts apply only to the infrastructure costs and not to the software costs. If you use Windows VM, and you have a savings plan, and you don't have an Azure Hybrid Benefit for your VM reservations, then you're charged for the software meters listed in the following sections.
+Savings plan discounts apply only to the infrastructure costs and not to the software costs. If you use Windows VMs, and you have a savings plan, and you don't have an Azure Hybrid Benefit for your VM reservations, then you're charged for the software meters listed in the following sections.
 
 ## Windows software meters not included in savings plan cost
 
@@ -40,7 +40,7 @@ Savings plan discounts apply only to the infrastructure costs and not to the sof
 | 904c5c71-1eb7-43a6-961c-d305a9681624 | Reservation-Windows Svr (256 Core) | All except B Series |
 | 6fdab81b-4284-4df9-8939-c237cc7462fe | Reservation-Windows Svr (96 Core) | All except B Series |
 
-## Cloud services software meters not included in reservation cost**
+## Cloud services software meters not included in reservation cost
 
 | **MeterId** | **MeterName in usage file** |
 | --- | --- |
@@ -56,7 +56,7 @@ Savings plan discounts apply only to the infrastructure costs and not to the sof
 
 ## Get rates for Azure meters
 
-You can get the cost of each of the meters with the Azure Retail Prices API. For information on how to get the rates for an Azure meter, see [Azure Retail Prices overview](/rest/api/cost-management/retail-prices/azure-retail-prices).
+You can get the pay-as-you-go cost of each of the meters with the Azure Retail Prices API. For information on how to get the rates for an Azure meter, see [Azure Retail Prices overview](/rest/api/cost-management/retail-prices/azure-retail-prices).
 
 ## Need help? Contact us.
 
@@ -70,4 +70,4 @@ To learn more about Azure savings plans, see the following articles:
 - [Prepay for virtual machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
 - [Manage an Azure savings plan](manage-savings-plan.md)
 - [How saving plan discount is applied](discount-application.md)
-- [Usage data for enterprise subscriptions](enterprise-usage-data.md)
+- [View Azure savings plan cost and usage details](utilization-cost-reports.md)

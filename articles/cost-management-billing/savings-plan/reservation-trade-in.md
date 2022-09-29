@@ -13,7 +13,7 @@ ms.author: banders
 
 # Self-service trade-in for Azure savings plans
 
-Azure Savings Plans provide flexibility to help meet your evolving needs by providing discounted rates for VMs, dedicated hosts, container instances, Azure premium functions and Azure app services, across all supported regions.
+Azure savings plans provide flexibility to help meet your evolving needs by providing discounted rates for VMs, dedicated hosts, container instances, Azure premium functions and Azure app services, across all supported regions.
 
 If you find that your Azure VMs, Dedicated Hosts, or Azure App Services reservations, don't provide the necessary flexibility you require, you can trade these reservations for a savings plan. When you trade-in a reservation and purchase a savings plan, you can select a savings plan term of either one-year to three-year.
 
@@ -88,5 +88,5 @@ If you have Azure savings plan for compute questions, contact your  account team
 - To learn more about Azure saving plan, see the following articles:
   - [What are Azure savings plans?](savings-plan-compute-overview.md)
   - [How a savings plan discount is applied](discount-application.md)
-  - [Understand savings plan usage data for enterprise subscriptions](enterprise-usage-data.md)
+  - [View Azure savings plan cost and usage details](utilization-cost-reports.md)
   - [Software costs not included in savings plan](software-costs-not-included.md)

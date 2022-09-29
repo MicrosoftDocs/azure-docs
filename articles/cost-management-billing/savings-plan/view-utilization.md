@@ -39,4 +39,4 @@ You can get the [Savings plan utilization](https://go.microsoft.com/fwlink/?link
 ## Next steps
 
 - [Manage Azure savings plan](manage-savings-plan.md)
-- [Usage data for enterprise subscriptions](enterprise-usage-data.md)
+- [View Azure savings plan cost and usage details](utilization-cost-reports.md)
