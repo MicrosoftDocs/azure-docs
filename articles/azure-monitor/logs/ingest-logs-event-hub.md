@@ -37,7 +37,7 @@ To send events from Azure Event Hubs to Azure Monitor Logs, you need to have the
     
     The event hub must contain events. You can send events to your event hub by following the steps in [Send and receive events in Azure Event Hubs tutorials](../../event-hubs/event-hubs-create.md#next-steps) or by [configuring the diagnostic settings of Azure resources](../essentials/diagnostic-settings.md#create-diagnostic-settings).
 
-## Collect subscription and resource details
+## Collect required information
 
 You'll need your subscription ID, resource group name, workspace name, and workspace resource ID in subsequent steps:
 
@@ -71,7 +71,7 @@ To create a custom table into which to ingest events, in the Azure portal:
                     {
                         "name": "TimeGenerated",
                         "type": "datetime",
-                        "description": "The time at which the data was generated"
+                        "description": "The time at which the data was ingested"
                     },
                     {
                         "name": "RawData",
@@ -130,7 +130,7 @@ To create a data collection rule in the Azure portal:
        - `RawData` - Body of the event. For more information, see [Read events](../../event-hubs/event-hubs-features.md#read-events).
        - `Properties` - User properties from the event. For more information, see [Read events](../../event-hubs/event-hubs-features.md#read-events).
     
-    - `datasources` - Specifies the [event hub consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) (optional) and the stream to which you ingest the data.
+    - `datasources` - Specifies the [event hub consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) and the stream to which you ingest the data.
     - `destinations` - Specifies the destination workspace.
     - `dataFlows` - Matches the stream with the destination workspace and specifies the transformation query and the destination table.
     - `transformKql` - Specifies a transformation to apply to the incoming data (stream declaration) before it's sent to the workspace. In our example, we set `transformKql` to `source`, which doesn't modify the data from the source in any way, because we're mapping incoming data to a custom table we've created specifically with the corresponding schema. If you're ingesting data to a table with a different schema or to filter data before ingestion, [define a data collection transformation](../essentials/data-collection-transformations.md).
@@ -252,13 +252,12 @@ To create a data collection rule in the Azure portal:
     ```
 1. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule and then provide values for the parameters defined in the template, including: 
 
-    - **Region** - Region for the data collection rule. Populated automatically based on the subscription you select. 
+    - **Region** - Region for the data collection rule. Populated automatically based on the resource group you select. 
     - **Data Collection Rule Name** - Give the rule a name.
-    - **Location** - Set to be the same location as the workspace.
-    - **Workspace Name** and **Workspace Resource ID** - The same values you use to [create a destination table for event hub data in your Log Analytics workspace](#create-a-destination-table-for-event-hub-data-in-your-log-analytics-workspace). 
+    - **Workspace Resource ID** - See [Collect required information](#collect-required-information). 
     - **Endpoint Resource ID** - As set when you [create the data collection endpoint](#create-a-data-collection-endpoint).
     - **Table Name** - The name of the destination table. In our example, and whenever you use a custom table, the table name ends with the suffix *_CL*. 
-    - **Consumer Group** - When left blank, Azure sets the [event hub consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) to `$Default`. 
+    - **Consumer Group** - By default, this is set to `$Default`. If needed, change the value to set a different [event hub consumer group](../../event-hubs/event-hubs-features.md#consumer-groups). 
 
     :::image type="content" source="media/ingest-logs-event-hub/data-collection-rule-custom-template-deployment.png" lightbox="media/ingest-logs-event-hub/data-collection-rule-custom-template-deployment.png" alt-text="Screenshot showing the Custom Template Deployment screen with the deployment values for the data collection rule set up in this tutorial.":::
 
@@ -310,9 +309,9 @@ To find the `<identity_resource_Id>`, `<principal_id>,` and `<client_id>` values
     :::image type="content" source="media/ingest-logs-event-hub/managed-identity-resource-id.png" lightbox="media/ingest-logs-event-hub/managed-identity-resource-id.png" alt-text="Screenshot showing Resource JSON screen with the managed identity resource ID highlighted.":::
 ## Grant the event hub permission to the data collection rule
 
-With [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), you can give any event hub permission to send events to the data collection rule and data collection endpoint you created:
+With [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), you can give any event hub or event hub namespace permission to send events to the data collection rule and data collection endpoint you created. When you grant the permissions to the event hub namespace, all event hubs within the namespace inherit the permissions. 
 
-1. From the event hub in the Azure portal, select **Access Control (IAM)** > **Add role assignment**. 
+1. From the event hub or event hub namespace in the Azure portal, select **Access Control (IAM)** > **Add role assignment**. 
 
     :::image type="content" source="media/ingest-logs-event-hub/event-hub-add-role-assignment.png" lightbox="media/ingest-logs-event-hub/event-hub-add-role-assignment.png" alt-text="Screenshot that shows the Access control screen for the data collection rule.":::
 
@@ -334,7 +333,10 @@ With [managed identity](../../active-directory/managed-identities-azure-resource
 
 The final step is to associate the data collection rule to the event hub from which you want to collect events. 
 
-You can associate a single data collection rule with multiple event hubs that share the same [consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) and ingest data to the same stream; otherwise, create a separate rule for consumer group and stream.
+You can associate a single data collection rule with multiple event hubs that share the same [consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) and ingest data to the same stream, or you can associate a unique data collection rule to each event hub.
+
+> [!IMPORTANT]
+> You must associate at least one data collection rule to the event hub to ingest data from an event hub. When you delete all data collection rules associations related to the event hub, you'll stop ingesting data from the event hub.
 
 To create a data collection rule association in the Azure portal:
 
