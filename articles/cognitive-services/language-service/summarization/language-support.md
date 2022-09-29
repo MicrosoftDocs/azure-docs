@@ -21,24 +21,24 @@ Use this article to learn which natural languages are supported by document and 
 
 ## Languages supported by extractive document summarization 
 
-| Language              | Language code |  Starting with model version |     Notes          |
-|:----------------------|:-------------:|:-------------------------------:|:------------------:|
-| Chinese-Simplified    | `zh-hans`     | 2021-08-01                      | `zh` also accepted |
-| English               | `en`          | 2021-08-01                      |                    |
-| French                | `fr`          | 2021-08-01                      |                    |
-| German                | `de`          | 2021-08-01                      |                    |
-| Italian               | `it`          | 2021-08-01                      |                    |
-| Japanese              | `ja`          | 2021-08-01                      |                    |
-| Korean                | `ko`          | 2021-08-01                      |                    |
-| Spanish               | `es`          | 2021-08-01                      |                    |
-| Portuguese (Brazil)   | `pt-BR`       | 2021-08-01                      |                    |
-| Portuguese (Portugal) | `pt-PT`       | 2021-08-01                      | `pt` also accepted |
+| Language              | Language code |      Notes          |
+|-----------------------|---------------|---------------------|
+| Chinese-Simplified    | `zh-hans`     |  `zh` also accepted |
+| English               | `en`          |                     |
+| French                | `fr`          |                     |
+| German                | `de`          |                     |
+| Italian               | `it`          |                     |
+| Japanese              | `ja`          |                     |
+| Korean                | `ko`          |                     |
+| Spanish               | `es`          |                     |
+| Portuguese (Brazil)   | `pt-BR`       |                     |
+| Portuguese (Portugal) | `pt-PT`       |  `pt` also accepted |
 
 ## Languages supported by abstractive document summarization
 
-| Language              | Language code |  Starting with model version |     Notes          |
-|:----------------------|:-------------:|:-------------------------------:|:------------------:|
-| English               | `en`          | 2022-10-01-preview                      |                    |
+| Language              | Language code |      Notes          |
+|-----------------------|---------------|---------------------|
+| English               | `en`          |                     |
 
 # [Conversation summarization (preview)](#tab/conversation-summarization)
 
@@ -46,9 +46,9 @@ Use this article to learn which natural languages are supported by document and 
 
 Conversation summarization supports the following languages:
 
-| Language              | Language code |  Starting with model version |     Notes          |
-|:----------------------|:-------------:|:-------------------------------:|:------------------:|
-| English               | `en`          | `2022-05-15`                      |                    |
+| Language              | Language code |      Notes          |
+|-----------------------|---------------|---------------------|
+| English               | `en`          |                     |
 
 ---
 

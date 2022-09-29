@@ -45,10 +45,6 @@ There is another feature in Azure Cognitive Service for Language, [key phrases e
 
 ## Determine how to process the data (optional)
 
-### Specify the document summarization model
-
-By default, document summarization will use the latest available AI model on your text. You can also configure your API requests to use a specific [model version](../../concepts/model-lifecycle.md).
-
 ### Input languages
 
 When you submit documents to be processed by key phrase extraction, you can specify which of [the supported languages](../language-support.md) they're written in. if you don't specify a language, key phrase extraction will default to English. The API may return offsets in the response to support different [multilingual and emoji encodings](../../concepts/multilingual-emoji-support.md). 
