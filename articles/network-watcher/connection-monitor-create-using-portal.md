@@ -17,29 +17,29 @@ ms.author: vinigam
 > Starting 1 July 2021, you will not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You will also not be able to add new connection monitors in Connection Monitor (classic). You can continue to use the tests and connection monitors created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor ](migrate-to-connection-monitor-from-network-performance-monitor.md) or  [migrate from Connection Monitor (classic)](migrate-to-connection-monitor-from-connection-monitor-classic.md) to the new Connection Monitor in Azure Network Watcher before 29 February 2024.
 
 > [!IMPORTANT]
-> Connection Monitor will now support end to end connectivity checks from and to *Azure Virtual Machine Scale Sets*, enabling faster performance monitoring and network troubleshooting across scale sets 
+> Connection Monitor supports end to end connectivity checks from and to *Azure Virtual Machine Scale Sets*, enabling faster performance monitoring and network troubleshooting across scale sets 
 
-Learn how to use Connection Monitor to monitor communication between your resources. This article describes how to create a monitor by using the Azure portal. Connection Monitor supports hybrid and Azure cloud deployments.
+This article describes how to create a monitor using the Azure portal. Connection Monitor supports hybrid and Azure cloud deployments.
 
 
 ## Before you begin 
 
-In connection monitors that you create by using Connection Monitor, you can add both on-premises machines, Azure VMs and Azure virtual machine scale sets as sources. These connection monitors can also monitor connectivity to endpoints. The endpoints can be on Azure or on any other URL or IP.
+In monitors that you create using the Connection Monitor, you can add on-premises machines, Azure VMs and Azure virtual machine scale sets as sources. These connection monitors can also monitor connectivity to endpoints. The endpoints can be on Azure or on any other URL or IP.
 
 Here are some definitions to get you started:
 
-* **Connection monitor resource**. A region-specific Azure resource. All the following entities are properties of a connection monitor resource.
-* **Endpoint**. A source or destination that participates in connectivity checks. Examples of endpoints include:
-	* Azure VMs.
-	* Azure virtual networks.
-	* Azure subnets.
-	* On-premises agents.
-	* On-premises subnets.
-	* On-premises custom networks that include multiple subnets.
-	* URLs and IPs.
-* **Test configuration**. A protocol-specific configuration for a test. Based on the protocol you choose, you can define the port, thresholds, test frequency, and other parameters.
-* **Test group**. The group that contains source endpoints, destination endpoints, and test configurations. A connection monitor can contain more than one test group.
-* **Test**. The combination of a source endpoint, destination endpoint, and test configuration. A test is the most granular level at which monitoring data is available. The monitoring data includes the percentage of checks that failed and the round-trip time (RTT).
+* **Connection monitor resource** - A region-specific Azure resource. All the following entities are properties of a connection monitor resource.
+* **Endpoint** - A source or destination that participates in connectivity checks. Examples of endpoints include:
+	* Azure VMs
+	* Azure virtual networks
+	* Azure subnets
+	* On-premises agents
+	* On-premises subnets
+	* On-premises custom networks that include multiple subnets
+	* URLs and IPs
+* **Test configuration** - A protocol-specific configuration for a test. Based on the protocol you choose, you can define the port, thresholds, test frequency, and other parameters.
+* **Test group** - The group that contains source endpoints, destination endpoints, and test configurations. A connection monitor can contain more than one test group.
+* **Test** - The combination of a source endpoint, destination endpoint, and test configuration. A test is the most granular level at which monitoring data is available. The monitoring data includes the percentage of checks that failed and the round-trip time (RTT).
 
 :::image type="content" source="./media/connection-monitor-2-preview/cm-tg-2.png" alt-text="Diagram that shows a connection monitor and defines the relationship between test groups and tests.":::
 
@@ -48,27 +48,26 @@ Here are some definitions to get you started:
 
 ## Create a connection monitor
 
-To create a monitor in Connection Monitor by using the Azure portal:
 > [!Note]
-> Connection Monitor now supports Azure Monitor Agent extension, thus eliminating the dependency on the legacy Log Analytics agent. 
+> Connection Monitor now supports the Azure Monitor Agent extension, thus eliminating the dependency on the legacy Log Analytics agent 
+
+To create a connection monitor using the Azure portal, follow these steps: 
 
 1. On the Azure portal home page, go to **Network Watcher**.
 1. In the left pane, in the **Monitoring** section, select **Connection monitor**.
 
-   You'll see all the connection monitors that were created in Connection Monitor. To see the connection monitors that were created in the classic Connection Monitor, go to the **Connection monitor** tab.
+   You'll see all the monitors that were created in Connection Monitor displayed. To see the connection monitors that were created in classic Connection Monitor, go to the **Connection monitor** tab.
 
    :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Screenshot that shows connection monitors created in Connection Monitor.":::
-   
-	
+   	
 1. In the **Connection Monitor** dashboard, select **Create**.
 
 1. In the **Basics** tab, enter the following details: 
-   * **Connection Monitor Name**: Enter a name for your connection monitor. Use the standard naming rules for Azure resources.
-   * **Subscription**: Select a subscription for your connection monitor.
-   * **Region**: Select a region for your connection monitor. You can select only the source VMs that are created in this region.
-   * **Workspace configuration**: Choose a custom workspace or the default workspace. Your workspace holds your monitoring data.
-       * To use the default workspace, select the check box. 
-       * To choose a custom workspace, clear the check box. Then select the subscription and region for your custom workspace. 
+   * **Connection Monitor Name** - Enter a name for your connection monitor. Use the standard naming rules for Azure resources.
+   * **Subscription** - Select a subscription for your connection monitor.
+   * **Region** - Select a region for your connection monitor. You can select only the source VMs that are created in this region.
+   * **Workspace configuration** - Choose a custom workspace or the default workspace. Your workspace holds your monitoring data.
+       * To choose a custom workspace, clear the default workspace check box. Then, select the subscription and region for your custom workspace. 
 
    :::image type="content" source="./media/connection-monitor-2-preview/create-cm-basics.png" alt-text="Screenshot that shows the Basics tab in Connection Monitor.":::
    
@@ -93,7 +92,7 @@ To create a monitor in Connection Monitor by using the Azure portal:
 
 1. When you're ready to create the connection monitor, at the bottom of the **Review + create** tab, select **Create**.
 
-Connection Monitor creates the connection monitor resource in the background.
+The Connection Monitor creates the connection monitor resource in the background.
 
 ## Create test groups in a connection monitor
 
@@ -104,17 +103,17 @@ Each test group in a connection monitor includes sources and destinations that g
 
 In the Azure portal, to create a test group in a connection monitor, you specify values for the following fields:
 
-* **Test group Name**: Enter the name of your test group.
-* **Sources**: Select **Add sources** to specify both Azure VMs and on-premises machines as sources if agents are installed on them. To learn about installing an agent for your source, see [Install monitoring agents](./connection-monitor-overview.md#install-monitoring-agents).
+* **Test group Name** - Enter the name of your test group.
+* **Sources** - Select **Add sources** to specify both Azure VMs and on-premises machines as sources if agents are installed on them. To learn about installing an agent for your source, see [Install monitoring agents](./connection-monitor-overview.md#install-monitoring-agents).
    * To choose Azure agents, select the **Azure endpoints** tab. Here you see only VMs or virtual machine scale sets that are bound to the region that you specified when you created the connection monitor. By default, VMs and virtual machine scale sets are grouped into the subscription that they belong to. These groups are collapsed. 
    
-       You can drill down from the **Subscription** level to other levels in the hierarchy:
+       You can drill down to further levels in the hierarchy from the **Subscription** level:
 
       **Subscription** > **Resource group** > **VNET** > **Subnet** > **VMs with agents** 
 
       You can also change the **Group by** selector to start the tree from any other level. For example, if you group by virtual network, you see the VMs that have agents in the hierarchy **VNET** > **Subnet** > **VMs with agents**.
 
-       When you select a VNET, subnet, a single VM or a virtual machine scale set the corresponding resource ID is set as the endpoint. By default, all VMs in the selected VNET or subnet participate in monitoring. To reduce the scope, either select specific subnets or agents or change the value of the scope property. 
+       When you select a VNET, subnet, a single VM, or a virtual machine scale set, the corresponding resource ID is set as the endpoint. By default, all VMs in the selected VNET or subnet participate in monitoring. To reduce the scope, either select specific subnets or agents or change the value of the scope property. 
 
       :::image type="content" source="./media/connection-monitor-2-preview/add-sources-1.png" alt-text="Screenshot that shows the Add Sources pane and the Azure endpoints including virtual machine scale sets tab in Connection Monitor.":::
 
