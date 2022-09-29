@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) MLTable YAML schema.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mldata
+ms.subservice: mltable
 ms.topic: reference
 ms.custom: cliv2, event-tier1-build-2022
 
@@ -67,7 +67,6 @@ These are transforms that all mltable-artifact files support:
 - `drop_columns`: Drops the specified columns from the table. This transform supports regex so that users can drop columns matching a particular pattern.
 - `keep_columns`: Keeps only the specified columns in the table. This transform supports regex so that users can keep columns matching a particular pattern.
 
-
 ## MLTable transformations: read_delimited
 
 ```yaml
@@ -118,6 +117,7 @@ transformations:
 ```
 
 ### Json lines transformations
+Only flat Json files are supported.
 Below are the supported transformations that are specific for json lines:
 
 - `include_path` Boolean to keep path information as column in the MLTable. Defaults to False. This is useful when reading multiple files, and want to know which file a particular record originated from, or to keep useful information in file path.
