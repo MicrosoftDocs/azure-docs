@@ -67,35 +67,13 @@ United Kingdom | UK South
 
 The following table lists the supported operating systems for Azure VMs and Azure Arc-enabled servers. Before you enable update management center (preview), ensure that the target machines meet the operating system requirements.
 
->[!NOTE]
-> For Azure VMs, we currently support a combination of Offer, Publisher, and SKU of the VM image. Ensure you match all three to confirm support.
 
 # [Azure VMs](#tab/azurevm-os)
 
-[Azure VMs](../virtual-machines/index.yml) are: 
- 
-   | Publisher | Operating System | SKU |
-   |----------|-------------|-------------|
-   | Canonical | UbuntuServer | 16.04-LTS, 18.04-LTS |
-   | Canonical | 0001-com-ubuntu-server-focal | 20_04-LTS |
-   | Canonical | 0001-com-ubuntu-pro-focal | pro-20_04-LTS |
-   | Canonical | 0001-com-ubuntu-pro-bionic | pro-18_04-LTS |
-   | Red Hat | RHEL | 7-RAW, 7-LVM, 6.8, 6.9, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7_9, 8, 8.1, 8.2, 8_3, 8-LVM |    
-   | Red Hat | RHEL-RAW | 8-RAW |     
-   | OpenLogic | CentOS | 6.8, 6.9, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7_8, 7_9, 8.0, 8_1, 8_2, 8_3 |
-   | OpenLogic | CentOS-LVM | 7-LVM, 8-LVM |
-   | SUSE | SLES-12-SP5 | Gen1, Gen2 |
-   | SUSE | SLES-15-SP2 | Gen1, Gen2 |
-   | MicrosoftWindowsServer  | WindowsServer | 2022-datacenter </br> 2022-datacenter-g2 </br> 2022-datacenter-azure-edition</br> 2022-datacenter-azure-edition-smalldisk </br> 2022-datacenter-core-g2 </br> |
-   | MicrosoftWindowsServer	 | WindowsServer | 2019-Datacenter</br> 2019-Datacenter-Core</br> 2019-datacenter-gensecond </br> 2019-Datacenter-smalldisk </br> 2019-Datacenter-with-Containers </br> 2019-datacenter-with-Containers </br> 2019-Datacenter-Server-Core |
-   | MicrosoftWindowsServer	 | WindowsServer | 2016-Datacenter</br> 2016-datacenter-gensecond</br> 2016-Datacenter-smalldisk </br> 2016-Datacenter-Server-Core </br> 2016-Datacenter-Server-Containers |
-   | MicrosoftWindowsServer | MicrosoftServerOperatingSystems-Previews | Windows-Server-2022-Azure-Edition-Preview, Windows-Server-2019-Azure-Edition-Preview |
-   | MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter |
-   | MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 |
-   | MicrosoftVisualStudio | VisualStudio | VS-2017-ENT-Latest-WS2016 | 
-   
-   >[!NOTE]
-   > Custom images are currently not supported.
+>[!NOTE]
+> - For [Azure VMs](../virtual-machines/index.yml), we currently support a combination of Offer, Publisher, and SKU of the VM image. Ensure you match all three to confirm support. 
+> - See the list of [supported OS images](../virtual-machines/automatic-vm-guest-patching.md#supported-os-images). 
+> - Custom images are currently not supported.
 
 # [Azure Arc-enabled servers](#tab/azurearc-os)
 

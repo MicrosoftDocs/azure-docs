@@ -34,7 +34,7 @@ In this tutorial, you accomplish the following tasks:
 
 ## Prerequisites
 
-* Familiarity with Azure Virtual Networks and IP networking. If you are not familiar, try the [Fundamentals of computer networking](/learn/modules/network-fundamentals/) module.
+* Familiarity with Azure Virtual Networks and IP networking. If you are not familiar, try the [Fundamentals of computer networking](/training/modules/network-fundamentals/) module.
 * While most of the steps in this article use the Azure portal or the Azure Machine Learning studio, some steps use the Azure CLI extension for Machine Learning v2.
 
 ## Limitations

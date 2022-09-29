@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 ms.service: cognitive-services
-ms.topic: conceptual
-ms.date: 03/14/2022
+ms.topic: overview
+ms.date: 09/21/2022
 ms.author: aahi
 keywords: on-premises, Docker, container, Kubernetes
 #Customer intent: As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
 ---
 
-# Azure Cognitive Services containers
+# What are Azure Cognitive Services containers?
 
 Azure Cognitive Services provides several [Docker containers](https://www.docker.com/what-container) that let you use the same APIs that are available in Azure, on-premises. Using these containers gives you the flexibility to bring Cognitive Services closer to your data for compliance, security or other operational reasons. Container support is currently available for a subset of Azure Cognitive Services.
 

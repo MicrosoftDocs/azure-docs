@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/13/2022
+ms.custom: engagement-fy23
 tags: connectors
 ---
 
@@ -48,7 +49,7 @@ The Service Bus connector has different versions, based on [logic app workflow t
 
 * The logic app workflow where you connect to your Service Bus namespace and messaging entity. To start your workflow with a Service Bus trigger, you have to start with a blank workflow. To use a Service Bus action in your workflow, start your workflow with any trigger.
 
-* If your logic app resource uses a managed identity to authenticate access to your Service Bus namespace and messaging entity, make sure that you've assigned role permissions at the corresponding levels. For example, to access a queue, the managed identity requires a role that has the necessary permissions for that queue.
+* If your logic app resource uses a managed identity for authenticating access to your Service Bus namespace and messaging entity, make sure that you've assigned role permissions at the corresponding levels. For example, to access a queue, the managed identity requires a role that has the necessary permissions for that queue.
 
   Each managed identity that accesses a *different* messaging entity should have a separate connection to that entity. If you use different Service Bus actions to send and receive messages, and those actions require different permissions, make sure to use different connections.
 
@@ -59,6 +60,10 @@ The Service Bus connector has different versions, based on [logic app workflow t
 ### Infinite loops
 
 [!INCLUDE [Warning about creating infinite loops](../../includes/connectors-infinite-loops.md)]
+
+### Peek-lock
+
+Peek-lock operations are available only with the Azure Service Bus managed connector, not the built-in connector.
 
 ### Limit on saved sessions in connector cache
 
