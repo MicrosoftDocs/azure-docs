@@ -27,7 +27,6 @@ This article describes how to secure outbound traffic from your Azure Spring App
   - [Customer responsibilities for running Azure Spring Apps in VNET](vnet-customer-responsibilities.md)
   - [Customize Azure Spring Cloud egress with a User-Defined Route](concept-outbound-type.md)
 
-
 ## Azure Spring Apps UDR instance example
 
 The following illustration shows an example of an Azure Spring Apps VNet instance using a user-defined route.
@@ -64,7 +63,7 @@ This section shows how to provision a virtual network with three separate subnet
 First create a resource group, as shown in the following example.
 
 ```azurecli
-# Create Resource Group
+# Create resource group.
 
 az group create --name $RG --location $LOC
 ```
@@ -72,7 +71,7 @@ az group create --name $RG --location $LOC
 Then create a virtual network with three subnets to host the ASA instance and the Azure Firewall, as shown in the following example.
 
 ```azurecli
-# Dedicated virtual network with ASA app subnet
+# Dedicated virtual network with ASA app subnet.
 
 az network vnet create \
     --resource-group $RG \
@@ -82,7 +81,7 @@ az network vnet create \
     --subnet-name $ASA_APP_SUBNET_NAME \
     --subnet-prefix 10.42.1.0/24
 
-# Dedicated subnet for ASA service runtime subnet
+# Dedicated subnet for ASA service runtime subnet.
 
 az network vnet subnet create \
     --resource-group $RG \
@@ -90,7 +89,7 @@ az network vnet subnet create \
     --name $ASA_SERVICE_RUNTIME_SUBNET_NAME\
     --address-prefix 10.42.2.0/24
 
-# Dedicated subnet for Azure Firewall (Firewall name cannot be changed)
+# Dedicated subnet for Azure Firewall. (Firewall name cannot be changed.)
 
 az network vnet subnet create \
     --resource-group $RG \
@@ -113,11 +112,11 @@ az network public-ip create -g $RG -n $FWPUBLICIP_NAME -l $LOC --sku "Standard"
 The following example shows how to install the Azure Firewall preview CLI extension and deploy Azure Firewall.
 
 ```azurecli
-# Install Azure Firewall preview CLI extension
+# Install Azure Firewall preview CLI extension.
 
 az extension add --name azure-firewall
 
-# Deploy Azure Firewall
+# Deploy Azure Firewall.
 
 az network firewall create -g $RG -n $FWNAME -l $LOC --enable-dns-proxy true
 ```
@@ -128,7 +127,7 @@ The following example shows how to assign the IP address you created to the fire
 > Setting up the public IP address to the Azure Firewall may take a few minutes. To leverage FQDN on network rules, enable DNS proxy. When enabled, the firewall will listen on port 53 and forward DNS requests to the specified DNS server. The firewall can then translate the FQDN automatically.
 
 ```azurecli
-# Configure Firewall IP Config
+# Configure firewall IP config.
 
 az network firewall ip-config create -g $RG -f $FWNAME -n $FWIPCONFIG_NAME --public-ip-address $FWPUBLICIP_NAME --vnet-name $VNET_NAME
 ```
@@ -136,7 +135,7 @@ az network firewall ip-config create -g $RG -f $FWNAME -n $FWIPCONFIG_NAME --pub
 When the operation has completed, save the firewall front-end IP address for configuration later, as shown in the following example.
 
 ```azurecli
-# Capture Firewall IP Address for Later Use
+# Capture firewall IP address for later use.
 
 FWPUBLIC_IP=$(az network public-ip show -g $RG -n $FWPUBLICIP_NAME --query "ipAddress" -o tsv)
 FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurations[0].privateIpAddress" -o tsv  | tr -d '[:space:]')
@@ -144,12 +143,12 @@ FWPRIVATE_IP=$(az network firewall show -g $RG -n $FWNAME --query "ipConfigurati
 
 ### Create a UDR with a hop to Azure Firewall
 
-Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change any of Azure's default routing, you do so by creating a route table.
+Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you want to change Azure's default routing, create a route table.
 
-Create an empty route table to be associated with a given subnet. The route table will define the next hop as the Azure Firewall created above. Each subnet can have zero or one route table associated to it.
+The following example shows how to create a route table to be associated with a specified subnet. The route table defines the next hop, as in the Azure Firewall you created. Each subnet can one route table associated with it, or could have no associated route table.
 
 ```azurecli
-# Create UDR and add a route for Azure Firewall
+# Create UDR and add a route for Azure Firewall.
 
 az network route-table create -g $RG -l $LOC --name $APP_ROUTE_TABLE_NAME
 az network route-table route create -g $RG --name $FWROUTE_NAME --route-table-name $APP_ROUTE_TABLE_NAME --address-prefix 0.0.0.0/0 --next-hop-type VirtualAppliance --next-hop-ip-address $FWPRIVATE_IP
@@ -159,26 +158,26 @@ az network route-table route create -g $RG --name $FWROUTE_NAME --route-table-na
 
 ### Adding firewall rules
 
-Add [necessary rules](vnet-customer-responsibilities.md) for ASA
+The following example shows hot to add rules to your firewall. For more information, see [Customer responsibilities for running Azure Spring Apps in VNET](vnet-customer-responsibilities.md).
 
 ```azurecli
-# Add FW Network Rules
+# Add firewall network rules.
 
 az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'asafwnr' -n 'apiudp' --protocols 'UDP' --source-addresses '*' --destination-addresses "AzureCloud" --destination-ports 1194 --action allow --priority 100
 az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'asafwnr' -n 'springcloudtcp' --protocols 'TCP' --source-addresses '*' --destination-addresses "AzureCloud" --destination-ports 443 445
 az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'asafwnr' -n 'time' --protocols 'UDP' --source-addresses '*' --destination-fqdns 'ntp.ubuntu.com' --destination-ports 123
 
-# Add FW Application Rules
+# Add firewall application rules.
 
 az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwar' -n 'fqdn' --source-addresses '*' --protocols 'http=80' 'https=443' --fqdn-tags "AzureKubernetesService" --action allow --priority 100
 ```
 
 ### Associate the route tables to Subnets
 
-To associate the cluster with the firewall, the dedicated subnet for the cluster's subnet must reference the route table created above. App and service runtime subnets need to be associated with corresponding route tables.
+To associate the cluster with the firewall, the dedicated subnet for the cluster's subnet must reference the route table you created. App and service runtime subnets must be associated with corresponding route tables. The following example shows how to associate a route table with a subnet.
 
 ```azurecli
-# Associate route table with next hop to Firewall to the ASA subnet
+# Associate route table with next hop to Firewall to the Azure Spring Apps subnet.
 
 az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $ASA_APP_SUBNET_NAME --route-table $APP_ROUTE_TABLE_NAME
 
@@ -186,7 +185,9 @@ az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $ASA_SERVICE_
 
 ```
 
-### Follow the following doc to add role for ASA RP
+### Add a role for an Azure Spring Apps RP
+
+The following example shows how to add a role for an Azure Spring Apps RP.
 
 ```azurecli
 VIRTUAL_NETWORK_RESOURCE_ID=`az network vnet show \
@@ -201,15 +202,17 @@ az role assignment create \
     --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
 ```
 
-### Create a UDR ASA instance
+### Create a UDR Azure Spring Apps instance
+
+The following example shows how to create a UDR Azure Spring Apps instance.
 
 ```azurecli
 az spring create -n $ASA_NAME -g $RG --vnet $VNET_NAME --app-subnet $ASA_APP_SUBNET_NAME --service-runtime-subnet $ASA_SERVICE_RUNTIME_SUBNET_NAME --outbound-type userDefinedRouting
 ```
 
-Now you can access the public IP of the firewall from the internet, and the firewall will route the traffic into the ASA subnets according to your routing rules.
+You can now access the public IP of the firewall from the internet. The firewall will route traffic into Azure Spring Apps subnets according to your routing rules.
 
 ## Next steps
 
-- [Troubleshooting Azure Spring Apps in VNET](troubleshooting-vnet.md)
-- [Customer Responsibilities Azure Spring Apps in VNET](vnet-customer-responsibilities.md)
+- [Troubleshooting Azure Spring Apps in virtual networks](troubleshooting-vnet.md)
+- [Customer responsibilities for running Azure Spring Apps in VNET](vnet-customer-responsibilities.md)
