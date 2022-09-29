@@ -156,6 +156,8 @@ New-AzUserAssignedIdentity -ResourceGroupName $ResourceGroupName -Name 'nodeAppI
 
 ```
 
+---
+
 Retrieve the `principalId` and `id` properties and store in variables.
 
 # [Bash](#tab/bash)
@@ -245,7 +247,7 @@ echo $STORAGE_ACCOUNT_NAME
 echo $CLIENT_ID
 ```
 
-Navigate to the directory in which you stored the component yaml file and run the following command to configure the Dapr component in the Container Apps environment. For more information about configuring Dapr components, see [Configure Dapr components](dapr-overview.md#dapr-components).
+Navigate to the directory in which you stored the component yaml file and run the following command to configure the Dapr component in the Container Apps environment. For more information about configuring Dapr components, see [Configure Dapr components](dapr-overview.md).
 
 ```azurecli
 az containerapp env dapr-component set \
@@ -471,4 +473,5 @@ Remove-AzResourceGroup -Name $ResourceGroupName -Force
 
 ## Next steps
 
-> [!div class="nextstepaction"] > [Application lifecycle management](application-lifecycle-management.md)
+> [!div class="nextstepaction"]
+> [Application lifecycle management](application-lifecycle-management.md)
