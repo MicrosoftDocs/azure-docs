@@ -111,7 +111,7 @@ The following table summarizes our migration or deployment recommendations for w
 
 |Scenario |Description |
 |---------|------------|
-| New or existing cluster deployment [runs a supported version](#dependencies) of Azure Identity client library | No migration steps are required.<br> Sample deployment resources:<ul><li> [Deploy and configure workload identity on a new cluster][deploy-configure-workload-identity-new-cluster]</ul></li> <ul><li>[Tutorial: Use a workload identity with an application on AKS][tutorial-use-workload-identity] |
+| New or existing cluster deployment [runs a supported version](#dependencies) of Azure Identity client library | No migration steps are required.<br> Sample deployment resources:<br> - [Deploy and configure workload identity on a new cluster][deploy-configure-workload-identity-new-cluster]<br> - [Tutorial: Use a workload identity with an application on AKS][tutorial-use-workload-identity] |
 | New or existing cluster deployment [runs an unsupported version](#dependencies) of Azure Identity client library| Update container image to use a supported version of the Azure Identity SDK, or use the [migration sidecar][workload-identity-migration-sidecar]. |
 
 ## Next steps

@@ -22,7 +22,7 @@ An Azure AD workload identity (preview) is an identity used by an application ru
 
 ### Prerequisites
 
-- You have installed the latest version of the `aks-preview` extension, version 0.5.102 or later. To learn more, see [How to install extensions][how-to-install-extensions].
+- Installed the latest version of the `aks-preview` extension, version 0.5.102 or later. To learn more, see [How to install extensions][how-to-install-extensions].
 
 Azure AD workload identity (preview) is supported on both Windows and Linux clusters.
 
@@ -62,7 +62,7 @@ Azure AD workload identity (preview) is supported on both Windows and Linux clus
     > If the URL is empty, verify you have installed the latest version of the `aks-preview` extension, version 0.5.102 or later. Also verify you've [enabled the
     > OIDC issuer][enable-oidc-issuer] (preview).
 
-5. Establish a federated identity credential between the Azure AD application and the service account issuer and subject subject. Get the object ID of the Azure AD application. Update the values for `serviceAccountName` and `serviceAccountNamespace` with the Kubernetes service account name and its namespace.
+5. Establish a federated identity credential between the Azure AD application and the service account issuer and subject. Get the object ID of the Azure AD application. Update the values for `serviceAccountName` and `serviceAccountNamespace` with the Kubernetes service account name and its namespace.
 
     ```bash
     export APPLICATION_OBJECT_ID="$(az ad app show --id ${APPLICATION_CLIENT_ID} --query id -otsv)"

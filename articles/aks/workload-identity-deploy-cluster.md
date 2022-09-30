@@ -116,7 +116,7 @@ metadata:
 EOF
 ```
 
-The following output resemble successful creation of the identity:
+The following output resembles successful creation of the identity:
 
 ```output
 Serviceaccount/workload-identity-sa created

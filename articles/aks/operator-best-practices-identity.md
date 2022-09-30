@@ -171,7 +171,7 @@ When pods request a security token from Azure Active Directory to access to an A
 
 In the following example, a developer creates a pod that uses a managed identity to request access to Azure SQL Database:
 
-![Pod identities allow a pod to automatically request access to other resources](media/operator-best-practices-identity/pod-identities.png)
+![Pod identities allow a pod to automatically request access to other resources.](media/operator-best-practices-identity/pod-identities.png)
 
 1. Cluster operator creates a service account to map identities when pods request access to resources.
 1. The NMI server is deployed to relay any pod requests, along with the Azure Resource Provider, for access tokens to Azure AD.
