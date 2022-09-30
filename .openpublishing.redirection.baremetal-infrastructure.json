@@ -15,7 +15,7 @@
             "source_path": "articles/baremetal-infrastructure/workloads/nc2-public-preview/get-started.md",
             "redirect_url": "/azure/baremetal-infrastructure/workloads/nutanix-cloud-clusters-on-azure/get-started",
             "redirect_document_id": false
-        }  
+        },  
         {
             "source_path": "articles/baremetal-infrastructure/workloads/nc2-public-preview/nc2-baremetal-overview.md",
             "redirect_url": "/azure/baremetal-infrastructure/workloads/nutanix-cloud-clusters-on-azure/nc2-baremetal-overview",
