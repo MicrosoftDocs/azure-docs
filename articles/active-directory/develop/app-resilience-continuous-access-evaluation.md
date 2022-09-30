@@ -114,7 +114,7 @@ try {
     // use the claims challenge to acquire a new access token...
   }
 } catch(error) {
-  // handle errors
+  // ...
 }
 
 // helper function to parse the www-authenticate header
@@ -136,9 +136,9 @@ Your app would then use the claims challenge to acquire a new access token for t
 
 ```javascript
 const tokenRequest = {
-  claims: window.atob(claimsChallenge), // decode the base64 string
-  scopes: ['User.Read']
-  account: msalInstance.getActiveAccount();
+    claims: window.atob(claimsChallenge), // decode the base64 string
+    scopes: ['User.Read']
+    account: msalInstance.getActiveAccount();
 };
 
 let tokenResponse;
