@@ -407,13 +407,17 @@ In addition, the [load test results file](./how-to-export-test-results.md) is av
 
 ---
 
-## Define test pass/fail criteria
+## Define test fail criteria
 
-In this section, you'll add criteria to determine whether your load test passes or fails. If at least one of the pass/fail criteria evaluates to `true`, the load test is unsuccessful.
+Azure Load Testing enables you to define load test fail criteria. These are criteria that determine when a load test should pass or fail. For example, your load test should fail when the average response time is greater than a specific value, or when too many errors occur.
 
-You can specify these criteria in the test configuration YAML file:
+When you run a load test as part of a CI/CD pipeline, the status of the pipeline run will reflect the status of the load test. This allows you to quickly identify performance regressions, or degraded application behavior when the application is experiencing high load.
 
-1. Edit the *SampleApp.yml* file in your GitHub repository.  
+In this section, you'll configure test fail criteria based on the average response time and the error rate.
+
+You can specify load test fail criteria for Azure Load Testing in the test configuration YAML file. Learn more about [configuring load test fail criteria](./how-to-define-test-criteria.md).
+
+1. Edit the *SampleApp.yml* file in your fork of the sample application GitHub repository.
 
 1. Add the following snippet at the end of the file:
 
@@ -430,17 +434,17 @@ You can specify these criteria in the test configuration YAML file:
 
 1. Commit and push the changes to the main branch of the repository.
     
-    The changes will trigger the Azure Pipelines CI/CD workflow.
+    The changes will trigger the CI/CD workflow.
 
-1. On the page for pipeline runs, select the most recent entry from the list.
+1. After the test finishes, notice that the CI/CD pipeline run has failed.
 
-    After the load test finishes, you'll notice that the pipeline failed because the average response time was higher than the number that you specified in the pass/fail criteria.
+    In the CI/CD output log, you find that the test failed because one of the fail criteria was met. The load test average response time was higher than the value that you specified in the pass/fail criteria.
 
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/test-criteria-failed.png" alt-text="Screenshot that shows pipeline logs after failed test criteria.":::
 
     The Azure Load Testing service evaluates the criteria during the test run. If any of these conditions fails, Azure Load Testing service returns a nonzero exit code. This code informs the CI/CD workflow that the test has failed.
 
-1. Edit the *SampleApp.yml* file and change the test's pass/fail criteria:
+1. Edit the *SampleApp.yml* file and change the test's pass/fail criteria to increase the criterion for average response time:
 
     ```yaml
     failureCriteria: 
@@ -448,11 +452,9 @@ You can specify these criteria in the test configuration YAML file:
         - percentage(error) > 20
     ```
     
-1. Commit the changes to trigger the Azure Pipelines CI/CD workflow. 
-    
-    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/test-criteria-passed.png" alt-text="Screenshot that shows pipeline logs after all test criteria pass.":::
+1. Commit the changes to trigger the CI/CD workflow again.
 
-    The load test now succeeds and the pipeline finishes successfully.
+    After the test finishes, you notice that the load test and the CI/CD workflow run complete successfully.
 
 ## Clean up resources
 
@@ -460,10 +462,9 @@ You can specify these criteria in the test configuration YAML file:
 
 ## Next steps
 
-You've now created an Azure Pipelines CI/CD workflow that uses Azure Load Testing for automatically running load tests. By using pass/fail criteria, you can set the status of the CI/CD workflow. With parameters, you can make the running of load tests configurable.
+You've now created a CI/CD workflow that uses Azure Load Testing to automate running load tests. By using load test fail criteria, you can set the status of the CI/CD workflow and quickly identify performance and application behavior degradations.
 
-* Learn more about [comparing results from multiple test runs](./how-to-compare-multiple-test-runs.md).
-* Learn more about the [Azure Load Testing task](/azure/devops/pipelines/tasks/test/azure-load-testing).
-* Learn more about [Parameterizing a load test](./how-to-parameterize-load-tests.md).
-* Learn more [Define test pass/fail criteria](./how-to-define-test-criteria.md).
 * Learn more about [Configuring server-side monitoring](./how-to-monitor-server-side-metrics.md).
+* Learn more about [Comparing results across multiple test runs](./how-to-compare-multiple-test-runs.md).
+* Learn more about [Parameterizing a load test](./how-to-parameterize-load-tests.md).
+* Learn more about [Defining test pass/fail criteria](./how-to-define-test-criteria.md).
