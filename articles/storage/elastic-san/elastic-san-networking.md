@@ -22,7 +22,7 @@ Each volume group supports up to 200 virtual network rules.
 > [!IMPORTANT]
 > If you delete a subnet that has been included in a network rule, it will be removed from the network rules for the volume group. If you create a new subnet with the same name, it won't have access to the volume group. To allow access, you must explicitly authorize the new subnet in the network rules for the volume group.
 
-### Required permissions
+## Required permissions
 
 To enable service point for Azure Storage, the user must have the appropriate permissions for the virtual network. This operation can be performed by a user that has been given permission to the Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftnetwork) via a custom Azure role.
 
@@ -31,13 +31,13 @@ An Elastic SAN and the virtual networks granted access may be in different subsc
 > [!NOTE]
 > Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through PowerShell, CLI and REST APIs. Such rules cannot be configured through the Azure portal, though they may be viewed in the portal.
 
-### Available virtual network regions
+## Available virtual network regions
 
 By default, service endpoints work between virtual networks and service instances in the same Azure region. When using service endpoints with Azure Storage, service endpoints also work between virtual networks and service instances in a [paired region](../../availability-zones/cross-region-replication-azure.md). If you want to use a service endpoint to grant access to virtual networks in other regions, you must register the `AllowGlobalTagsForStorage` feature in the subscription of the virtual network. This capability is currently in public preview. 
 
 Service endpoints allow continuity during a regional failover. When planning for disaster recovery during a regional outage, you should create the virtual networks in the paired region in advance. Enable service endpoints for Azure Storage, with network rules granting access from these alternative virtual networks. Then apply these rules to your zone-redundant SANs.
 
-### Enabling access to virtual networks in other regions (preview)
+## Enabling access to virtual networks in other regions (preview)
 
 > 
 > [!IMPORTANT]
@@ -51,11 +51,11 @@ To enable access from a virtual network that is located in another region over s
 > For updating the existing service endpoints to access a volume group in another region, perform an [update subnet](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) operation on the subnet after registering the subscription with the `AllowGlobalTagsForStorage` feature. Similarly, to go back to the old configuration, perform an [update subnet](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) operation after deregistering the subscription with the `AllowGlobalTagsForStorage` feature. 
 
 
-#### [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 During the preview you must use either PowerShell or the Azure CLI to enable this feature.
 
-#### [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 - Open a Windows PowerShell command window.
 
@@ -89,7 +89,7 @@ During the preview you must use either PowerShell or the Azure CLI to enable thi
    Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowGlobalTagsForStorage
    ```
 
-#### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 - Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
 
@@ -118,18 +118,18 @@ During the preview you must use either PowerShell or the Azure CLI to enable thi
 
 ---
 
-### Managing virtual network rules
+## Managing virtual network rules
 
 You can manage virtual network rules for volume groups through the Azure portal, PowerShell, or CLI. 
 
 > [!NOTE]
 > If you registered the `AllowGlobalTagsForStorage` feature, and you want to enable access to your volumes from a virtual network/subnet in another Azure AD tenant, or in a region other than the region of the SAN or its paired region, then you must use PowerShell or the Azure CLI. The Azure portal does not show subnets in other Azure AD tenants or in regions other than the region of the storage account or its paired region, and hence cannot be used to configure access rules for virtual networks in other regions.
 
-#### [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 Currently, you must use either the Azure PowerShell module or Azure CLI to manage virtual network rules for a volume group.
 
-#### [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 - Install the [Azure PowerShell](/powershell/azure/install-Az-ps) and [sign in](/powershell/azure/authenticate-azureps).
 
@@ -154,9 +154,9 @@ Currently, you must use either the Azure PowerShell module or Azure CLI to manag
     ```
 
     > [!TIP]
-    > To add a network rule for a subnet in a virtual network belonging to another Azure AD tenant, use a fully-qualified **VirtualNetworkResourceId** parameter in the form "/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name".
+    > To add a network rule for a subnet in a virtual network belonging to another Azure AD tenant, use a fully qualified **VirtualNetworkResourceId** parameter in the form "/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name".
 
-#### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 - Install the [Azure CLI](/cli/azure/install-azure-cli) and [sign in](/cli/azure/authenticate-azure-cli).
 
@@ -178,10 +178,10 @@ Currently, you must use either the Azure PowerShell module or Azure CLI to manag
     az elastic-san volume-group update -e $sanName -g $resourceGroupName --name $volumeGroupName --network-acls "{virtualNetworkRules:[{id:/subscriptions/subscriptionID/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/vnetName/subnets/default, action:Allow}]}"
     ```
 
-    > [!TIP]
-    > To add a rule for a subnet in a virtual network belonging to another Azure AD tenant, use a fully-qualified subnet ID in the form "/subscriptions/\<subscription-ID\>/resourceGroups/\<resourceGroup-Name\>/providers/Microsoft.Network/virtualNetworks/\<vNet-name\>/subnets/\<subnet-name\>".
-    >
-    > You can use the **subscription** parameter to retrieve the subnet ID for a virtual network belonging to another Azure AD tenant.
+> [!TIP]
+> To add a rule for a subnet in a virtual network belonging to another Azure AD tenant, use a fully-qualified subnet ID in the form "/subscriptions/\<subscription-ID\>/resourceGroups/\<resourceGroup-Name\>/providers/Microsoft.Network/virtualNetworks/\<vNet-name\>/subnets/\<subnet-name\>".
+>
+> You can use the **subscription** parameter to retrieve the subnet ID for a virtual network belonging to another Azure AD tenant.
 ---
 
 ## Next steps

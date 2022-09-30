@@ -29,7 +29,7 @@ There are two layers when it comes to performance and storage, the total storage
 
 There are two ways to provision storage for an Elastic SAN: You can either provision base capacity or additional capacity. Each TiB of base capacity also increases your SAN's IOPS and throughput (MB/s) but costs more than each TiB of additional capacity. Increasing additional capacity doesn't increase your SAN's IOPS or throughput (MB/s).
 
-When provisioning storage for an Elastic SAN, consider how much storage you require and how much performance you require. Using a combination of base capacity and additional capacity too meet these requirements allows you to optimize your costs. For example, if you needed 100 TiB of storage but only needed 250,000 IOPS and 4,000 MB/s, you could provision 50 TiB in your base capacity and 50 Tib in your additional capacity.
+When provisioning storage for an Elastic SAN, consider how much storage you require and how much performance you require. Using a combination of base capacity and additional capacity to meet these requirements allows you to optimize your costs. For example, if you needed 100 TiB of storage but only needed 250,000 IOPS and 4,000 MB/s, you could provision 50 TiB in your base capacity and 50 TiB in your additional capacity.
 
 ### Volumes
 

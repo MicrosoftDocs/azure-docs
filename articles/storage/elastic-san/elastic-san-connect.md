@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 10/12/2022
 ms.author: rogarana
 ms.subservice: elastic-san
+ms.custom: references_regions
 ---
 
 # Connect to Elastic SAN (preview) volumes
@@ -126,7 +127,7 @@ az elastic-san volume-group list -e $sanName -g $resourceGroupName -v $searchedV
 
 You should see a list of output that looks like the following:
 
-:::image type="content" source="media/elastic-san-create/elastic-san-vol.png" alt-text="Screenshot of command output." lightbox="media/elastic-san-create/elastic-san-vol.png":::
+:::image type="content" source="media/elastic-san-create/elastic-san-volume.png" alt-text="Screenshot of command output." lightbox="media/elastic-san-create/elastic-san-volume.png":::
 
 
 
