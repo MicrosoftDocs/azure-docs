@@ -64,7 +64,7 @@ This command creates an app with the following settings:
 
 ### [Azure portal](#tab/azure-portal)
 
-Use the following steps to update the ingress settings for an existing service's application.
+Use the following steps to update the ingress settings for an application hosted by an existing service instance.
 
 1. Sign in to the portal using an account associated with the Azure subscription that contains the Azure Spring Apps instance.
 1. Navigate to the **Apps** pane, and then select the app you want to configure.
