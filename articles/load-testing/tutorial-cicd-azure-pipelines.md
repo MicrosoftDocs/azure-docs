@@ -102,18 +102,20 @@ To grant access to your Azure Load Testing resource, assign the Load Test Contri
 1. Assign the `Load Test Contributor` role to the service principal. Replace the placeholder text `<resource-group-name>` with the Azure Load Testing resource group name.
 
     ```azurecli-interactive
-    subscription_id=$(az account show --query "id" -o tsv)
-    echo $subscription_id
+    subscription=$(az account show --query "id" -o tsv)
+    echo $subscription
 
     az role assignment create --assignee $object_id \
         --role "Load Test Contributor" \
-        --scope /subscriptions/$subscription_id/resourceGroups/<resource-group-name> \
-        --subscription $subscription_id
+        --scope /subscriptions/$subscription/resourceGroups/<resource-group-name> \
+        --subscription $subscription
     ```
 
 # [GitHub Actions](#tab/github)
 
-To access your Azure Load Testing resource from the GitHub Actions workflow, you'll create an Azure Active Directory [service principal](/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your GitHub Actions workflow in Azure Active Directory. You grant permissions to the service principal to enable GitHub Actions to create and run a load test with your Azure Load Testing resource.
+To access your Azure Load Testing resource from the GitHub Actions workflow, you first create an Azure Active Directory [service principal](/active-directory/develop/app-objects-and-service-principals#service-principal-object). This service principal represents your GitHub Actions workflow in Azure Active Directory. 
+
+Next, you grant permissions to the service principal to create and run a load test with your Azure Load Testing resource.
 
 [!INCLUDE [cli-launch-cloud-shell-sign-in](../../includes/cli-launch-cloud-shell-sign-in.md)]
 
@@ -124,11 +126,11 @@ Create a service principal in the Azure subscription and assign the Contributor 
 1. Create a service principal and assign the `Contributor` role:
 
     ```azurecli-interactive
-    subscription_id=$(az account show --query "id" -o tsv)
-    echo $subscription_id
+    subscription=$(az account show --query "id" -o tsv)
+    echo $subscription
 
     az ad sp create-for-rbac --name "my-load-test-cicd" --role contributor \
-                             --scopes /subscriptions/$subscription_id \
+                             --scopes /subscriptions/$subscription \
                              --sdk-auth
     ```
 
@@ -179,8 +181,8 @@ To grant access to your Azure Load Testing resource, assign the Load Test Contri
     ```azurecli-interactive
     az role assignment create --assignee $object_id \
         --role "Load Test Contributor" \
-        --scope /subscriptions/$subscription_id/resourceGroups/<resource-group-name> \
-        --subscription $subscription_id
+        --scope /subscriptions/$subscription/resourceGroups/<resource-group-name> \
+        --subscription $subscription
     ```
 ---
 
