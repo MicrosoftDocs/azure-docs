@@ -11,19 +11,32 @@ ms.date: 10/22/2020
 
 # Monitoring Azure IoT Hub data reference
 
-See [Monitor Azure IoT Hub](monitor-iot-hub.md) for details on collecting and analyzing monitoring data for Azure IoT Hub.
+To get started with Azure monitoring, see [Monitor Azure IoT Hub](monitor-iot-hub.md) to understand how to collect and analyze monitoring data for Azure IoT Hub. 
+
+This article is a reference for implementing Azure monitoring.
+
+The major sections in this reference article:
+
+* [**Metrics**](monitor-iot-hub-reference.md#metrics): lists of IoT Hub platform metrics by topic
+* [**Metric dimensions**](monitor-iot-hub-reference.md#metric-dimensions): dimensions for routing and event grid metrics
+* [**Resource logs**](monitor-iot-hub-reference.md#resource-logs): logs by category types and schemas collected for Azure IoT Hub
+* [**Azure Monitor Logs tables**](monitor-iot-hub-reference.md#azure-monitor-logs-tables): discusses Azure Monitor Logs Kusto tables
+
+  Or, go directly to the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
 
 ## Metrics
 
 This section lists all the automatically collected platform metrics for Azure IoT Hub. The resource provider namespace for IoT Hub metrics is **Microsoft.Devices** and the type Namespace is **IoTHubs**.
 
-The following subsections break out the IoT Hub platform metrics by general category and list them by the display name that they appear in the Azure portal with. Information is also provided relevant to the metrics that appear in each subsection.
+The following subsections show the IoT Hub platform metrics by general category and list metrics by their display name as assigned in the Azure portal.
 
-You can also find a single table that lists all of the IoT Hub platform metrics by metric name under [Microsoft.Devices/IotHubs](../azure-monitor/essentials/metrics-supported.md#microsoftdevicesiothubs) in the Azure Monitor documentation. Be aware that this table does not provide some of the information, like [supported aggregations](#supported-aggregations) for some metrics, available in this article.
+You can also find a single table that lists all the IoT Hub platform metrics by metric name under [Microsoft.Devices/IotHubs](../azure-monitor/essentials/metrics-supported.md#microsoftdevicesiothubs) in the Azure Monitor documentation. This table doesn't provide all information, like [supported aggregations](#supported-aggregations) for some metrics, available in this article.
 
 To learn about metrics supported by other Azure services, see [Supported metrics with Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 **Topics in this section**
+
+Select a topic to jump to its information on this page.
 
 - [Supported aggregations](#supported-aggregations)
 - [Cloud to device command metrics](#cloud-to-device-command-metrics)
@@ -49,13 +62,13 @@ For most metrics, all aggregation types are valid; however, for count metrics, t
 
 * For **Single-point** count metrics, IoT Hub registers a single data point -- essentially a 1 -- every time the measured operation occurs. Azure Monitor then sums these data points over the specified granularity. Examples of **Single-point** metrics are *Telemetry messages sent* and *C2D message deliveries completed*. For these metrics, the only relevant aggregation type is Total (Sum). The portal allows you to choose minimum, maximum, and average; however, these values will always be 1.
 
-* For **Snapshot** count metrics, IoT Hub registers a total count when the measured operation occurs. Currently, there are three **Snapshot** metrics emitted by IoT Hub: *Total number of messages used*, *Total devices (preview)*, and *Connected devices (preview)*. Because these metrics present a "total" quantity every time they are emitted, summing them over the specified granularity makes no sense. Azure Monitor limits you to selecting average, minimum, and maximum for the aggregation type for these metrics.
+* For **Snapshot** count metrics, IoT Hub registers a total count when the measured operation occurs. Currently, there are three **Snapshot** metrics emitted by IoT Hub: *Total number of messages used*, *Total devices*, and *Connected devices*. Because these metrics present a "total" quantity every time they are emitted, summing them over the specified granularity makes no sense. Azure Monitor limits you to selecting average, minimum, and maximum for the aggregation type for these metrics.
 
 ### Cloud to device command metrics
 
 |Metric Display Name|Metric|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|C2D Messages Expired (preview)|C2DMessagesExpired|Count|Total|Number of expired cloud-to-device messages|None|
+|C2D Messages Expired|C2DMessagesExpired|Count|Total|Number of expired cloud-to-device messages|None|
 |C2D message deliveries completed|c2d.commands.egress.complete.success|Count|Total|Number of cloud-to-device message deliveries completed successfully by the device|None|
 |C2D messages abandoned|c2d.commands.egress.abandon.success|Count|Total|Number of cloud-to-device messages abandoned by the device|None|
 |C2D messages rejected|c2d.commands.egress.reject.success|Count|Total|Number of cloud-to-device messages rejected by the device|None|
@@ -109,15 +122,15 @@ For *Total number of messages used*, only minimum, maximum, and average aggregat
 |Metric Display Name|Metric|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
 |Total devices (deprecated)|devices.totalDevices|Count|Total|Number of devices registered to your IoT hub|None|
-|Connected devices (deprecated) |devices.connectedDevices.allProtocol|Count|Total|Number of devices connected to your IoT hub|None|
-|Total devices (preview)|totalDeviceCount|Count|Average|Number of devices registered to your IoT hub|None|
-|Connected devices (preview)|connectedDeviceCount|Count|Average|Number of devices connected to your IoT hub|None|
+|Connected devices (deprecated)|devices.connectedDevices.allProtocol|Count|Total|Number of devices connected to your IoT hub|None|
+|Total devices|totalDeviceCount|Count|Average|Number of devices registered to your IoT hub|None|
+|Connected devices|connectedDeviceCount|Count|Average|Number of devices connected to your IoT hub|None|
 
 For *Total devices (deprecated)* and *Connected devices (deprecated)*, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
 
-For *Total devices (preview)* and *Connected devices (preview)*, only minimum, maximum, and average aggregations are valid. For more information, see [Supported aggregations](#supported-aggregations).
+For *Total devices* and *Connected devices*, only minimum, maximum, and average aggregations are valid. For more information, see [Supported aggregations](#supported-aggregations).
 
-*Connected devices (preview)* and *Total devices (preview)* are not exportable via diagnostic settings.
+*Total devices* and *Connected devices* aren't exportable via diagnostic settings.
 
 ### Device telemetry metrics
 
@@ -146,8 +159,8 @@ For metrics with a **Unit** value of **Count**, only total (sum) aggregation is 
 
 |Metric Display Name|Metric|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|Event Grid deliveries (preview)|EventGridDeliveries|Count|Total|The number of IoT Hub events published to Event Grid. Use the Result dimension for the number of successful and failed requests. EventType dimension shows the type of event (https://aka.ms/ioteventgrid).|Result,<br/>EventType<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
-|Event Grid latency (preview)|EventGridLatency|Milliseconds|Average|The average latency (milliseconds) from when the Iot Hub event was generated to when the event was published to Event Grid. This number is an average between all event types. Use the EventType dimension to see latency of a specific type of event.|EventType<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
+|Event Grid deliveries|EventGridDeliveries|Count|Total|The number of IoT Hub events published to Event Grid. Use the Result dimension for the number of successful and failed requests. EventType dimension shows the type of event (https://aka.ms/ioteventgrid).|Result,<br/>EventType<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
+|Event Grid latency|EventGridLatency|Milliseconds|Average|The average latency (milliseconds) from when the Iot Hub event was generated to when the event was published to Event Grid. This number is an average between all event types. Use the EventType dimension to see latency of a specific type of event.|EventType<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
 
 For metrics with a **Unit** value of **Count**, only total (sum) aggregation is valid. Minimum, maximum, and average aggregations always return 1. For more information, see [Supported aggregations](#supported-aggregations).
 
@@ -175,8 +188,8 @@ For metrics with a **Unit** value of **Count**, only total (sum) aggregation is 
 |Metric Display Name|Metric|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
 | Routing Deliveries (preview) |RoutingDeliveries | Count | Total |This is the routing delivery metric. Use the dimensions to identify the delivery status for a specific endpoint or for a specific routing source.| Result,<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*. |
-| Routing Delivery Data Size In Bytes (preview)|RoutingDataSizeInBytesDelivered| Bytes | Total |The total number of bytes routed by IoT Hub to custom endpoint and built-in endpoint. Use the dimensions to identify data size routed to a specific endpoint or for a specific routing source.| RoutingSource,<br>EndpointType<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
-| Routing Latency (preview) |RoutingDeliveryLatency| Milliseconds | Average |This is the routing delivery latency metric. Use the dimensions to identify the latency for a specific endpoint or for a specific routing source.| RoutingSource,<br>EndpointType,<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
+| Routing Delivery Message Size In Bytes (preview)|RoutingDataSizeInBytesDelivered| Bytes | Total |The total number of bytes routed by IoT Hub to custom endpoint and built-in endpoint. Use the dimensions to identify data size routed to a specific endpoint or for a specific routing source.| RoutingSource,<br>EndpointType<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
+| Routing Delivery Latency (preview) |RoutingDeliveryLatency| Milliseconds | Average |This is the routing delivery latency metric. Use the dimensions to identify the latency for a specific endpoint or for a specific routing source.| RoutingSource,<br>EndpointType,<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
 |Routing: blobs delivered to storage|d2c.endpoints.egress.storage.blobs|Count|Total|The number of times IoT Hub routing delivered blobs to storage endpoints.|None|
 |Routing: data delivered to storage|d2c.endpoints.egress.storage.bytes|Bytes|Total|The amount of data (bytes) IoT Hub routing delivered to storage endpoints.|None|
 |Routing: message latency for Event Hub|d2c.endpoints.latency.eventHubs|Milliseconds|Average|The average latency (milliseconds) between message ingress to IoT Hub and message ingress into custom endpoints of type Event Hub. This does not include messages routes to built-in endpoint (events).|None|
