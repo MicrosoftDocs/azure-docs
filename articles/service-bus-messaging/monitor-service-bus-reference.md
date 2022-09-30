@@ -58,8 +58,8 @@ The following two types of errors are classified as **user errors**:
 | Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions | 
 | ---------- | ---------- | ----- | --- | --- | --- | 
 |Active Connections| No | Count | Total | The number of active connections on a namespace and on an entity in the namespace. Value for this metric is a point-in-time value. Connections that were active immediately after that point-in-time may not be reflected in the metric. | |
-|Connections Opened | No | Count | Average | The number of open connections. | Entity name|
-|Connections Closed | No | Count | Average | The number of closed connections. | Entity name|
+|Connections Opened | No | Count | Average | The number of connections opened. Value for this metric is an aggregation, and includes all connections that were opened in the aggregration time window. | Entity name|
+|Connections Closed | No | Count | Average | The number of connections closed. Value for this metric is an aggregation, and includes all connections that were opened in the aggregration time window. | Entity name|
 
 ### Resource usage metrics
 

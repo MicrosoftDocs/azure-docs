@@ -132,8 +132,9 @@ Use the following tables to ensure that required firewalls are open on your work
 
 | Protocol | Transport | In/Out | Port | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|
-| HTTPS | TCP | Out | 443 | Access to Azure | Sensor |  `*.azure-devices.net`<br> `*.blob.core.windows.net`<br> `*.servicebus.windows.net`|
-| HTTPS | TCP | Out | 443 | Remote sensor upgrades from the Azure portal  | Sensor| `download.microsoft.com`|
+| HTTPS | TCP | Out | 443 | Access to Azure | Sensor |**For OT sensor versions 22.x**: Download the list from the **Sites and sensors** page in the Azure portal. Select an OT sensor with software versions 22.x or higher, or a site with one or more supported sensor versions. Then, select **More options > Download endpoint details**. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).<br><br>**For OT sensor versions 10.x**:  `*.azure-devices.net`<br> `*.blob.core.windows.net`<br> `*.servicebus.windows.net`|
+| HTTPS | TCP | Out | 443 | Remote sensor updates from the Azure portal  | Sensor| `download.microsoft.com`|
+
 
 ### Sensor access to the on-premises management console
 
@@ -184,9 +185,7 @@ This section provides troubleshooting for common issues when preparing your netw
 
     1. Use the **support** user and password to sign in.
 
-    1. Use the command **network list** to see the current IP address. For example:
-
-        :::image type="content" source="media/how-to-set-up-your-network/list-of-network-commands.png" alt-text="Screenshot of the network list command.":::
+    1. Use the command **network list** to see the current IP address.
 
 4. If the network parameters are misconfigured, use the following procedure to change it:
 

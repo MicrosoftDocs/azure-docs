@@ -314,38 +314,6 @@ By default no sampling is enabled in the Java auto-instrumentation and SDK. Curr
 * To configure sampling overrides that override the default sampling rate and apply different sampling rates to selected requests and dependencies, use the [sampling override guide](./java-standalone-sampling-overrides.md#getting-started).
 * To configure fixed-rate sampling that applies to all of your telemetry, use the [fixed rate sampling guide](./java-standalone-config.md#sampling).
 
-#### Configuring Java 2.x SDK
-
-1. Download and configure your web application with the latest [Application Insights Java SDK](./java-2x-get-started.md).
-
-2. **Enable the fixed-rate sampling module** by adding the following snippet to `ApplicationInsights.xml` file:
-
-    ```xml
-    <TelemetryProcessors>
-        <BuiltInProcessors>
-            <Processor type="FixedRateSamplingTelemetryProcessor">
-                <!-- Set a percentage close to 100/N where N is an integer. -->
-                <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
-                <Add name="SamplingPercentage" value="50" />
-            </Processor>
-        </BuiltInProcessors>
-    </TelemetryProcessors>
-    ```
-
-3. You can include or exclude specific types of telemetry from sampling using the following tags inside the `Processor` tag's `FixedRateSamplingTelemetryProcessor`:
-   
-    ```xml
-    <ExcludedTypes>
-        <ExcludedType>Request</ExcludedType>
-    </ExcludedTypes>
-
-    <IncludedTypes>
-        <IncludedType>Exception</IncludedType>
-    </IncludedTypes>
-    ```
-
-The telemetry types that can be included or excluded from sampling are: `Dependency`, `Event`, `Exception`, `PageView`, `Request`, and `Trace`.
-
 > [!NOTE]
 > For the sampling percentage, choose a percentage that is close to 100/N where N is an integer.  Currently sampling doesn't support other values.
 

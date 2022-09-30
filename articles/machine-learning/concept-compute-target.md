@@ -31,7 +31,6 @@ Azure Machine Learning has varying support across different compute targets. A t
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
-Learn more about how to [submit a training job to a compute target](how-to-set-up-training-targets.md).
 
 ## <a name="deploy"></a> Compute targets for inference
 
@@ -171,5 +170,4 @@ For more information, see [set up compute targets for model training and deploym
 ## Next steps
 
 Learn how to:
-* [Use a compute target to train your model](how-to-set-up-training-targets.md)
 * [Deploy your model to a compute target](how-to-deploy-managed-online-endpoints.md)

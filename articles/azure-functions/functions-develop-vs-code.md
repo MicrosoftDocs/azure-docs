@@ -337,7 +337,7 @@ The following steps publish your project to a new function app created with adva
     | ------ |  ----------- |
     | Enter a globally unique name for the new function app. | Type a globally unique name that identifies your new function app and then select Enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`. |
     | Select a runtime stack. | Choose the language version on which you've been running locally. |
-    | Select an OS. | Choose either Linux or Windows. Python apps must run on Linux |
+    | Select an OS. | Choose either Linux or Windows. Python apps must run on Linux. |
     | Select a resource group for new resources. | Choose **Create new resource group** and type a resource group name, like `myResourceGroup`, and then select enter. You can also select an existing resource group. |
     | Select a location for new resources. | Select a location in a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. |
     | Select a hosting plan. | Choose **Consumption** for serverless [Consumption plan hosting](consumption-plan.md), where you're only charged when your functions run. |

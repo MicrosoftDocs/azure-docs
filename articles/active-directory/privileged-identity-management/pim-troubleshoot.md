@@ -4,7 +4,7 @@ description: Learn how to troubleshoot system errors with roles in Azure AD Priv
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 editor: ''
 ms.service: active-directory
 ms.topic: how-to

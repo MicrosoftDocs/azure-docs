@@ -2,8 +2,8 @@
 
 |Example&nbsp;1 (onset for consonant, word-initial for vowel)|Example&nbsp;2 (intervocalic for consonant, word-medial nucleus for vowel)|Example&nbsp;3 (coda for consonant, word-final for vowel)|Comments|
 |--|--|--|--|
-| burger  /b er **1** r - g ax r/ | falafel  /f ax - l aa **1** - f ax  l/ | guitar  /g ih - t aa **1** r/ | The Speech service phone set puts stress after the vowel of the stressed syllable. |
-| inopportune /ih **2** - n aa - p ax r - t uw 1 n/ | dissimilarity  /d ih - s ih **2**- m ax -  l eh 1 - r ax - t iy/ | workforce /w er 1 r k - f ao **2** r s/ | The Speech service phone set puts stress after the vowel of the sub-stressed syllable. |
+| :::no-loc text="burger":::  /b er **1** r - g ax r/ | :::no-loc text="falafel":::  /f ax - l aa **1** - f ax  l/ | :::no-loc text="guitar":::  /g ih - t aa **1** r/ | The Speech service phone set puts stress after the vowel of the stressed syllable. |
+| :::no-loc text="inopportune"::: /ih **2** - n aa - p ax r - t uw 1 n/ | :::no-loc text="dissimilarity":::  /d ih - s ih **2**- m ax -  l eh 1 - r ax - t iy/ | :::no-loc text="workforce"::: /w er 1 r k - f ao **2** r s/ | The Speech service phone set puts stress after the vowel of the sub-stressed syllable. |
 
 #### English vowels
 

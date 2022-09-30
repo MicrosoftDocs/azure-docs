@@ -399,7 +399,7 @@ Make sure you save this file before you submit the job.
 
 Select the tab for the *run-pytorch.py* script, then select **Save and run script in terminal** to re-run the *run-pytorch.py* script. Make sure you've saved your changes to `pytorch-env.yml` first.
 
-This time when you visit the studio, go to the **Metrics** tab where you can now see live updates on the model training loss! It may take a 1 to 2 minutes before the training begins.
+This time when you visit the studio, go to the **Metrics** tab where you can now see live updates on the model training loss! It may take 1 to 2 minutes before the training begins.
 
 :::image type="content" source="media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="Training loss graph on the Metrics tab.":::
 

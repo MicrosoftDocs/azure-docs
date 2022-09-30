@@ -43,7 +43,7 @@ The following diagram illustrates that you can generate the code for automated M
 
 * An Azure Machine Learning workspace. To create the workspace, see [Create workspace resources](quickstart-create-resources.md).
 
-* This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [tutorial](tutorial-auto-train-models.md) or [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
+* This article assumes some familiarity with setting up an automated machine learning experiment. Follow the [tutorial](tutorial-auto-train-image-models.md) or [how-to](how-to-configure-auto-train.md) to see the main automated machine learning experiment design patterns.
 
 * Automated ML code generation is only available for experiments run on remote Azure ML compute targets. Code generation isn't supported for local runs.
 
@@ -51,7 +51,7 @@ The following diagram illustrates that you can generate the code for automated M
 
     * You can run your code via a Jupyter notebook in an [Azure Machine Learning compute instance](), which contains the latest Azure ML SDK already installed. The compute instance comes with a ready-to-use Conda environment that is compatible with the automated ML code generation (preview) capability.
 
-    * Alternatively, you can create a new local Conda environment on your local machine and then install the latest Azure ML SDK. [How to install AutoML client SDK in Conda environment with the `automl` package](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml#setup-using-a-local-conda-environment).
+    * Alternatively, you can create a new local Conda environment on your local machine and then install the latest Azure ML SDK. [How to install AutoML client SDK in Conda environment with the `automl` package](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml#setup-using-a-local-conda-environment).
 
 ##  Code generation with the SDK
 
@@ -417,7 +417,7 @@ For more information about AzureML environments, see [the Environment class docu
 
 Since the generated code isn’t driven by automated ML anymore, instead of creating an `AutoMLConfig` and then passing it to `experiment.submit()`, you need to create a [`ScriptRunConfig`](/python/api/azureml-core/azureml.core.scriptrunconfig) and provide the generated code (script.py) to it. 
 
-The following example contains the parameters and regular dependencies needed to run `ScriptRunConfig`, such as compute, environment, etc. For more information on how to use ScriptRunConfig, see [Configure and submit training runs](how-to-set-up-training-targets.md).
+The following example contains the parameters and regular dependencies needed to run `ScriptRunConfig`, such as compute, environment, etc. For more information on how to use ScriptRunConfig, see [Configure and submit training runs](v1/how-to-set-up-training-targets.md).
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -484,5 +484,5 @@ However, in order to load that model in a notebook in your custom local Conda en
 
 ## Next steps
 
-* Learn more about [how and where to deploy a model](/azure/machine-learning/how-to-deploy-managed-online-endpoints).
+* Learn more about [how and where to deploy a model](/azure/machine-learning/v1/how-to-deploy-and-where).
 * See how to [enable interpretability features](how-to-machine-learning-interpretability-automl.md) specifically within automated ML experiments.

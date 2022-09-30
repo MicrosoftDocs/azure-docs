@@ -6,7 +6,7 @@ ms.topic: article
 author: stevevi
 ms.author: stevevi
 recommendations: false
-ms.date: 03/02/2022
+ms.date: 08/30/2022
 ---
 
 # Public safety and justice in Azure Government
@@ -77,7 +77,7 @@ While the current CMVP FIPS 140 implementation guidance precludes a FIPS 140 val
 
 Proper protection and management of encryption keys is essential for data security. [Azure Key Vault](../key-vault/index.yml) is a cloud service for securely storing and managing secrets. Key Vault enables you to store your encryption keys in hardware security modules (HSMs) that are FIPS 140 validated. For more information, see [Data encryption key management](./azure-secure-isolation-guidance.md#data-encryption-key-management).
 
-With Key Vault, you can import or generate encryption keys in HSMs, ensuring that keys never leave the HSM protection boundary to support *bring your own key* (BYOK) scenarios. Keys generated inside the Key Vault HSMs aren't exportable – there can be no clear-text version of the key outside the HSMs. This binding is enforced by the underlying HSM. **Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents do not see or extract your cryptographic keys.**
+With Key Vault, you can import or generate encryption keys in HSMs, ensuring that keys never leave the HSM protection boundary to support *bring your own key* (BYOK) scenarios. Keys generated inside the Key Vault HSMs aren't exportable – there can be no clear-text version of the key outside the HSMs. This binding is enforced by the underlying HSM. **Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents don't see or extract your cryptographic keys.** For extra assurances, see [How does Azure Key Vault protect your keys?](../key-vault/managed-hsm/mhsm-control-data.md#how-does-azure-key-vault-managed-hsm-protect-your-keys) Therefore, if you use CMK stored in Azure Key Vault HSMs, you effectively maintain sole ownership of encryption keys.
 
 ### Data encryption in transit
 

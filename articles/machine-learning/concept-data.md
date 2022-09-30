@@ -345,6 +345,6 @@ Just like `uri_file` and `uri_folder`, you can create a data asset with `mltable
 
 - [Install and set up the CLI (v2)](how-to-configure-cli.md#install-and-set-up-the-cli-v2)
 - [Create datastores](how-to-datastore.md#create-datastores)
-- [Create data assets](how-to-create-register-data-assets.md#create-data-assets)
+- [Create data assets](how-to-create-data-assets.md#create-data-assets)
 - [Read and write data in a job](how-to-read-write-data-v2.md#read-and-write-data-in-a-job)
 - [Data administration](how-to-administrate-data-authentication.md#data-administration)

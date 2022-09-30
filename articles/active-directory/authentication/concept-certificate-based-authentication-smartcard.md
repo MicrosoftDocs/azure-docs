@@ -37,7 +37,7 @@ Users will get a primary refresh token (PRT) from Azure Active Directory after t
 ## Restrictions and caveats  
 
 - The Windows login only works with the latest preview build of Windows 11. We are working to backport the functionality to Windows 10 and Windows Server.
-- Only Windows machines that are joined to either or a hybrid environment can test SmartCard logon.  
+- Only Windows machines that are joined to either Azure AD or a hybrid environment can test SmartCard logon.  
 - Like in the other Azure AD CBA scenarios, the user must be on a managed domain or using staged rollout and cannot use a federated authentication model.
 
 ## Next steps

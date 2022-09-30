@@ -1,5 +1,5 @@
 ---
-title: Multi-instance GPU Node pool (preview)
+title: Multi-instance GPU Node pool
 description: Learn how to create a Multi-instance GPU Node pool and schedule tasks on it
 services: container-service
 ms.topic: article
@@ -12,8 +12,6 @@ ms.author: juda
 Nvidia's A100 GPU can be divided in up to seven independent instances. Each instance has their own memory and Stream Multiprocessor (SM). For more information on the Nvidia A100, follow [Nvidia A100 GPU][Nvidia A100 GPU]. 
 
 This article will walk you through how to create a multi-instance GPU node pool on Azure Kubernetes Service clusters and schedule tasks.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## GPU Instance Profile 
 
@@ -62,7 +60,7 @@ az aks nodepool add \
     --name mignode \
     --resourcegroup myresourcegroup \
     --cluster-name migcluster \
-    --node-size Standard_ND96asr_v4 \
+    --node-vm-size Standard_ND96asr_v4 \
     --gpu-instance-profile MIG1g
 ```
 

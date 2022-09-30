@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/22/2022
+ms.date: 08/22/2022
 ms.author: anfdocs
 ---
 # Performance impact of Kerberos on Azure NetApp Files NFSv4.1 volumes
@@ -63,6 +63,10 @@ There are two areas of focus: light load and upper limit. The following lists de
 * Average IOPS decreased by 77%
 * Average throughput decreased by 77% 
 * Average latency increased by 1.6 ms
+
+## Performance considerations with `nconnect`
+
+[!INCLUDE [nconnect krb5 performance warning](includes/kerberos-nconnect-performance.md)]
 
 ## Next steps  
 

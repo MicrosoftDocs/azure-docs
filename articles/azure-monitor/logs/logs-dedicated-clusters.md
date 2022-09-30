@@ -32,7 +32,7 @@ Capabilities that require dedicated clusters:
   | East US 2 | UK South | | | Southeast Asia |
   | South Central US | West Europe | | | East Asia |
   | US Gov Virginia | Sweden Central | | | China North 3 |
-  | West US 2 | | | | |
+  | West US 2 | Switzerland North | | | |
   | West US 3 | | | | |
 
 

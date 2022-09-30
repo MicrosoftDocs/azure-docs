@@ -37,6 +37,8 @@ For information on quota and region availability for ACI, see [Quotas and region
 
 - The [Azure CLI extension (v1) for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](../how-to-setup-vs-code.md).
 
+    [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+
 - The __Python__ code snippets in this article assume that the following variables are set:
 
     * `ws` - Set to your workspace.

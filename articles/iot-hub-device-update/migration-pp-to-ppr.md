@@ -32,7 +32,7 @@ For the Public Preview Refresh release, the Device Update agent needs to be upda
    
 4. Remove the old configuration file
    ```bash
-   rm -f /etc/adu/adu-conf.txt 
+   sudo rm -f /etc/adu/adu-conf.txt 
    ```
    
 5. Install the new agent
@@ -53,9 +53,9 @@ For the Public Preview Refresh release, the Device Update agent needs to be upda
 6. Enter your IoT device's device (or module, depending on how you [provisioned the device with Device Update](device-update-agent-provisioning.md)) primary connection string in the configuration file by running the command below.
 
    ```markdown
-   /etc/adu/du-config.json
+   sudo nano /etc/adu/du-config.json
    ```
- 7. Add your model and manufacturer details in the configuration file
+ 7. Add your model, manufacturer, agent name, connection type and other details in the configuration file
 
  8. Delete the old IoT/IoT Edge device from the public preview portal.
 

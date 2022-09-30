@@ -20,7 +20,7 @@
     - name: Manage tenants
       href: manage-tenants.md    
     - name: Find or create a company work account
-      href: company-work-accounts.md
+      href: /partner-center/azure-active-directory-tenants-and-partner-center?context=/azure/marketplace/context/context
     - name: Notifying Microsoft
       href: submit-legal-notice.md
   - name: Manage users
@@ -209,6 +209,8 @@
           href: azure-container-plan-availability.md
         - name: Plan technical configuration
           href: azure-container-plan-technical-configuration.md
+        - name: Container certification troubleshooting
+          href: azure-container-certification-faq.yml
   - name: Azure virtual machine offer
     items:
     - name: Plan the offer

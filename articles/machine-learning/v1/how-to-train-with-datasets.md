@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: mldata
 ms.author: yogipandey
 author: ynpandey
-ms.reviewer: nibaccam
+ms.reviewer: ssalgado
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, data4ml, sdkv1, event-tier1-build-2022
@@ -15,6 +15,10 @@ ms.custom: devx-track-python, data4ml, sdkv1, event-tier1-build-2022
 ---
 
 # Train models with Azure Machine Learning datasets 
+
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
+> * [v1](how-to-train-with-datasets.md)
+> * [v2 (current version)](../how-to-read-write-data-v2.md)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
