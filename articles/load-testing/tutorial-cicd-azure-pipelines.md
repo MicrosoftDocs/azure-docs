@@ -75,8 +75,8 @@ Create a service connection in Azure Pipelines so that your CI/CD workflow has a
     | Field | Value |
     | ----- | ----- |
     | **Scope level** | *Subscription*. |
-    | **Subscription** | Select the Azure subscription that contains your load testing resource. |
-    | **Resource group** | Paste the JSON role assignment credentials you copied earlier. |
+    | **Subscription** | Select the Azure subscription that will host your load testing resource. |
+    | **Resource group** | Leave empty. The pipeline creates a new resource group for the Azure Load Testing resource. |
     | **Service connection name** | Enter a unique name for the service connection. You'll use this name later, to configure the pipeline definition. |
     | **Grant access permission to all pipelines** | Checked. |
 
@@ -99,7 +99,7 @@ To grant access to your Azure Load Testing resource, assign the Load Test Contri
     echo $object_id
     ```
     
-1. Assign the `Load Test Contributor` role to the service principal. Replace the placeholder text `<resource-group-name>` with the Azure Load Testing resource group name.
+1. Assign the `Load Test Contributor` role to the service principal:
 
     ```azurecli-interactive
     subscription=$(az account show --query "id" -o tsv)
@@ -107,7 +107,7 @@ To grant access to your Azure Load Testing resource, assign the Load Test Contri
 
     az role assignment create --assignee $object_id \
         --role "Load Test Contributor" \
-        --scope /subscriptions/$subscription/resourceGroups/<resource-group-name> \
+        --scope /subscriptions/$subscription \
         --subscription $subscription
     ```
 
@@ -182,12 +182,12 @@ To grant access to your Azure Load Testing resource, assign the Load Test Contri
     echo $object_id
     ```
 
-1. Assign the `Load Test Contributor` role to the service principal. Replace the placeholder text `<resource-group-name>` with the Azure Load Testing resource group name.
+1. Assign the `Load Test Contributor` role to the service principal:
 
     ```azurecli-interactive
     az role assignment create --assignee $object_id \
         --role "Load Test Contributor" \
-        --scope /subscriptions/$subscription/resourceGroups/<resource-group-name> \
+        --scope /subscriptions/$subscription \
         --subscription $subscription
     ```
 ---
