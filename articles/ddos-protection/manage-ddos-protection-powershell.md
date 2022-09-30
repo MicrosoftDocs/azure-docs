@@ -8,7 +8,7 @@ ms.service: ddos-protection
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/23/2022
+ms.date: 10/12/2022
 ms.author: abell 
 ms.custom: devx-track-azurepowershell, mode-api
 
