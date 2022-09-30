@@ -22,10 +22,6 @@ In this article, you learn to restore a dedicated SQL pool (formerly SQL DW) usi
 
 **Verify your DTU capacity.** Each dedicated SQL pool (formerly SQL DW) is hosted by a [logical SQL server](/azure/azure-sql/database/logical-servers) (for example, myserver.database.windows.net) which has a default DTU quota.  Verify that the server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md).
 
-## SQL pool restore naming conventions
-
-Before restoring a deleted SQL pool, make sure that you haven't created a new pool with the same name as the deleted pool. Because the restore point for the deleted SQL pool will be replaced by the newly provisioned SQL pool.
-
 ## Restore a deleted data warehouse through PowerShell
 
 To restore a deleted dedicated SQL pool (formerly SQL DW), use the [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) cmdlet. If the corresponding server has been deleted as well, you can't restore that data warehouse.
