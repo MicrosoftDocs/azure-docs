@@ -70,7 +70,7 @@ See [Create diagnostic setting to collect platform logs and metrics in Azure](/a
 | Category | Description  |
 |:---|:---|
 |Audit | Read/Write operations|
-|Indexing Logs| Monitor the indexing process form upload to indexing and Re-indexing when needed|
+|Indexing Logs| Monitor the indexing process from upload to indexing and Re-indexing when needed|
 
 :::image type="content" source="./media/monitor/toc-diagnostics-save.png" alt-text="Screenshot of diagnostic settings." lightbox="./media/monitor/toc-diagnostics-save.png":::
 
