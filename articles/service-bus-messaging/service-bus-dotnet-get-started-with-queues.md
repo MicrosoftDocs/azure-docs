@@ -423,52 +423,51 @@ In this section, you'll add code to retrieve messages from the queue.
     
     ### [Connection string](#tab/connection-string)
     
-    
-        ```csharp
-            // The Service Bus client types are safe to cache and use as a singleton for the lifetime
-            // of the application, which is best practice when messages are being published or read
-            // regularly.
-            //
-            // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
-            // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
+    ```csharp
+        // The Service Bus client types are safe to cache and use as a singleton for the lifetime
+        // of the application, which is best practice when messages are being published or read
+        // regularly.
+        //
+        // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
+        // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
 
-            var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
-            client = new ServiceBusClient(connectionString, clientOptions);
-    
-            // create a processor that we can use to process the messages
-            processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
+        var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
+        client = new ServiceBusClient(connectionString, clientOptions);
 
-            try
-            {
-                // add handler to process messages
-                processor.ProcessMessageAsync += MessageHandler;
+        // create a processor that we can use to process the messages
+        processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
 
-                // add handler to process any errors
-                processor.ProcessErrorAsync += ErrorHandler;
+        try
+        {
+            // add handler to process messages
+            processor.ProcessMessageAsync += MessageHandler;
 
-                // start processing 
-                await processor.StartProcessingAsync();
+            // add handler to process any errors
+            processor.ProcessErrorAsync += ErrorHandler;
 
-                Console.WriteLine("Wait for a minute and then press any key to end the processing");
-                Console.ReadKey();
+            // start processing 
+            await processor.StartProcessingAsync();
 
-                // stop processing 
-                Console.WriteLine("\nStopping the receiver...");
-                await processor.StopProcessingAsync();
-                Console.WriteLine("Stopped receiving messages");
-            }
-            finally
-            {
-                // Calling DisposeAsync on client types is required to ensure that network
-                // resources and other unmanaged objects are properly cleaned up.
-                await processor.DisposeAsync();
-                await client.DisposeAsync();
-            }
-        ```
+            Console.WriteLine("Wait for a minute and then press any key to end the processing");
+            Console.ReadKey();
+
+            // stop processing 
+            Console.WriteLine("\nStopping the receiver...");
+            await processor.StopProcessingAsync();
+            Console.WriteLine("Stopped receiving messages");
+        }
+        finally
+        {
+            // Calling DisposeAsync on client types is required to ensure that network
+            // resources and other unmanaged objects are properly cleaned up.
+            await processor.DisposeAsync();
+            await client.DisposeAsync();
+        }
+    ```
     
     ---
 
-5. Here's what your `Program.cs` should look like:  
+5. The completed `Program` class should match the following code:
     
     ### [Passwordless (Recommended)](#tab/passwordless)
     
