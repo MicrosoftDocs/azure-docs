@@ -5,7 +5,7 @@ author: Rodrigossz
 ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/12/2021
+ms.date: 09/29/2022
 ms.reviewer: mjbrown
 ms.custom: synapse-cosmos-db
 ---
