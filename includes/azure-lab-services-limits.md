@@ -26,12 +26,12 @@ The following limits are for the number of Azure Lab Services resources.
 | Subscription type | Limit |
 |------|------|-------|
 | Default | 2 |
-| Pay As You Go, MSDN DevTest, MPN, Azure In Open | 500 |
+| Pay As You Go, MPN, Azure In Open | 500 |
 | Enterprise Agreement | 500 | 
 | MSDN | 500 |
 | Internal | 500 |
 | Sponsored | 100 |
-| CSP, CSPDEVTEST | 500 |
+| CSP | 500 |
 | Azure Pass | 100 |
 | Free Trial | 100 |
 | Azure for Students | 100|
@@ -41,12 +41,12 @@ The following limits are for the number of Azure Lab Services resources.
 | Subscription type | Limit |
 |------|------|-------|
 | Default | 2 |
-| Pay As You Go, MSDN DevTest, MPN, Azure In Open | 500 |
+| Pay As You Go, MPN, Azure In Open | 500 |
 | Enterprise Agreement | 500 | 
 | MSDN | 500 |
 | Internal | 500 |
 | Sponsored | 15 |
-| CSP, CSPDEVTEST | 500 |
+| CSP | 500 |
 | Azure Pass | 25 |
 | Free Trial | 15 |
 | Azure for Students | 15|
