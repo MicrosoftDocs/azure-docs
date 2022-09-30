@@ -684,9 +684,6 @@
   items: 
     - name: Troubleshoot secure workspace connectivity
       href: how-to-troubleshoot-secure-connection-workspace.md
-    - name: VS Code interactive debugging
-      displayName: vscode,remote,debug,pipelines,deployments,ssh
-      href: how-to-debug-visual-studio-code.md
     - name: Troubleshoot SerializationError
       href: how-to-troubleshoot-serialization-error.md
     - name: Troubleshoot descriptor error
