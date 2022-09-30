@@ -52,7 +52,7 @@ The same behavior applies when you:
 
 Certain machine learning scenarios involve working with private data. In such cases, data scientists may not have direct access to data as Azure AD users. In this scenario, a [managed identity](how-to-identity-based-service-authentication.md) of compute can be used for data access authentication, so that data can only be accessed from a compute instance or a machine learning compute cluster executing a training job.
 
-In this approach, the admin grants the compute instance or compute cluster managed identity Storage Blob Data Reader permissions on the storage. The individual data scientists don't need to be granted access. For more information, see [Set up managed identity on a compute cluster](how-to-create-attach-compute-cluster.md#set-up-managed-identity) and [Assign managed identity to a compute instance(preview)](how-to-create-manage-compute-instance.md#assign-managed-identity-(preview))
+In this approach, the admin grants the compute instance or compute cluster managed identity Storage Blob Data Reader permissions on the storage. The individual data scientists don't need to be granted access. For more information, see [Set up managed identity on a compute cluster](how-to-create-attach-compute-cluster.md#set-up-managed-identity) and [Assign managed identity to a compute instance(preview)](how-to-create-manage-compute-instance.md#assign-managed-identity-preview)
 
 ## Prerequisites
 
