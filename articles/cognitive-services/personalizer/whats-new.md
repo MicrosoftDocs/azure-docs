@@ -17,7 +17,7 @@ Learn what's new in Azure Personalizer. These items may include release notes, v
 ## Release notes
 
 ### September 2022
-* Personalizer Inference Explainabiltiy is now available as a Public Preview. Enabling inference explainability returns feature scores on every Rank API call, providing insight into how influential each feature is to the actions chosen by your Personalizer model. [Learn more about Inference Explainability] (concepts-features#inference-explainability).
+* Personalizer Inference Explainabiltiy is now available as a Public Preview. Enabling inference explainability returns feature scores on every Rank API call, providing insight into how influential each feature is to the actions chosen by your Personalizer model. [Learn more about Inference Explainability](concepts-features.md#inference-explainability).
 * Personalizer SDK now available in [Java](https://search.maven.org/artifact/com.azure/azure-ai-personalizer/1.0.0-beta.1/jar) and [Javascript](https://www.npmjs.com/package/@azure-rest/ai-personalizer).
 
 ### April 2022
