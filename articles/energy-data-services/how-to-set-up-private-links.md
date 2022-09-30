@@ -92,13 +92,16 @@ Use the following steps to create a private endpoint for an existing Microsoft E
 
  
 15.	 Once the deployment is complete, select **Go to resource**. 
+
 [![Screenshot of MEDS resource created](media/how-to-set-up-private-links/pvtlink-7deploy.png)](media/how-to-set-up-private-links/pvtlink-7deploy.png#lightbox)
  
  
 16.	The Private Endpoint created is **Auto-approved**.
+
 [![Screenshot of private link created with auto-approval](media/how-to-set-up-private-links/pvtlink-8request-response.png)](media/how-to-set-up-private-links/pvtlink-8request-response.png#lightbox)
  
 17.	Select the **Microsoft Energy Data Services** instance and navigate to the **Networking** tab to see the Private Endpoint created.
+
 [![Screenshot of private link showing connection state as auto-approved](media/how-to-set-up-private-links/pvtlink-9auto-approved.png)](media/how-to-set-up-private-links/pvtlink-9auto-approved.png#lightbox)
 
 
