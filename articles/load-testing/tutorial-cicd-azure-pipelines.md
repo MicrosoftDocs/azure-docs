@@ -137,12 +137,18 @@ Create a service principal in the Azure subscription and assign the Contributor 
     The output is a JSON object that represents the service principal. You'll use this information to authenticate with Azure in the GitHub Actions workflow.
 
     ```output
+    Creating 'contributor' role assignment under scope '/subscriptions/123abc45-6789-0abc-def1-234567890abc'
     {
-      "clientId": "<GUID>",
-      "clientSecret": "<GUID>",
-      "subscriptionId": "<GUID>",
-      "tenantId": "<GUID>",
-      (...)
+      "clientId": "00000000-0000-0000-0000-000000000000",
+      "clientSecret": "00000000-0000-0000-0000-000000000000",
+      "subscriptionId": "00000000-0000-0000-0000-000000000000",
+      "tenantId": "00000000-0000-0000-0000-000000000000",
+      "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
+      "resourceManagerEndpointUrl": "https://management.azure.com/",
+      "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+      "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
+      "galleryEndpointUrl": "https://gallery.azure.com/",
+      "managementEndpointUrl": "https://management.core.windows.net/"    
     }
     ```
 
