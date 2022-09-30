@@ -24,7 +24,7 @@ Invitation emails are a critical component to bring partners on board as B2B col
 
 ## Explaining the email
 
-Let's look at a few elements of the email so you know how best to use their capabilities.
+Let's look at a few elements of the email so you know how best to use their capabilities. These elements might look slightly different in some email clients. 
 
 ### Subject
 
