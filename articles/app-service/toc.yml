@@ -506,7 +506,7 @@
           href: /troubleshoot/azure/app-service/web-apps-performance-faqs?toc=/azure/app-service/toc.json
         - name: App Service Compliance with PCI Standards
           href: /troubleshoot/azure/app-service/app-service-compliance-wit?toc=/azure/app-service/toc.json
-        - name: Backup and restore app services
+        - name: Back up and restore app services
           href: /troubleshoot/azure/app-service/backing-up-restoring-and-cloning-microsoft-azure-app-services?toc=/azure/app-service/toc.json
         - name: Built-in Linux containers FAQs
           href: /troubleshoot/azure/app-service/faqs-app-service-linux?toc=/azure/app-service/toc.json
