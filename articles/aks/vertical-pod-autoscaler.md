@@ -29,7 +29,7 @@ Vertical Pod Autoscaler provides the following benefits:
 ## Limitations
 
 * Vertical Pod autoscaling supports a maximum of 500 `VerticalPodAutoscaler` objects per cluster.
-* With this preview release, you can't change the `controlledValue` and `updateMode` VPA objects. While you can see them from the `managedCluster` object, they're reserved for future use.
+* With this preview release, you can't change the `controlledValue` and `updateMode`  of `managedCluster` object.
 
 ## Before you begin
 
