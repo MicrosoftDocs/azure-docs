@@ -192,18 +192,22 @@ To grant access to your Azure Load Testing resource, assign the Load Test Contri
     ```
 ---
 
-## Configure the Azure Pipelines workflow to run a load test
+## Configure the CI/CD workflow to run a load test
 
-In this section, you'll set up an Azure Pipelines workflow that triggers the load test. The sample application repository already contains a pipelines definition file *azure-pipeline.yml*. 
+You'll now create a CI/CD workflow to create and run a load test for the sample application. The sample application repository already contains a CI/CD workflow definition that first deploys the application to Azure, and then creates a load test based on JMeter test script (*SampleApp.jmx*). You'll update the sample workflow definition file to specify the Azure subscription and application details.
 
-The Azure Pipelines workflow performs the following steps for every update to the main branch:
+On the first CI/CD workflow run, it creates a new Azure Load Testing resource in your Azure subscription by using the *ARMTemplate/template.json* Azure Resource Manager (ARM) template. Learn more about ARM templates [here](/azure-resource-manager/templates/overview).
 
-- Deploy the sample Node.js application to an Azure App Service web app.
-- Create an Azure Load Testing resource using the *ARMTemplate/template.json* Azure Resource Manager (ARM) template, if the resource doesn't exist yet. Learn more about ARM templates [here](../azure-resource-manager/templates/overview.md).
-- Trigger Azure Load Testing to create and run the load test, based on the Apache JMeter script and the test configuration YAML file in the repository.
-- Invoke Azure Load Testing by using the [Azure Load Testing task](/azure/devops/pipelines/tasks/test/azure-load-testing) and the sample Apache JMeter script *SampleApp.jmx* and the load test configuration file *SampleApp.yaml*.
+# [Azure Pipelines](#tab/pipelines)
 
-Follow these steps to configure the Azure Pipelines workflow for your environment:
+You'll create a new Azure pipeline that is linked to your fork of the sample application repository. This repository contains the following items:
+
+- The sample application source code.
+- The *azure-pipelines.yml* pipeline definition file.
+- The *SampleApp.jmx* JMeter test script.
+- The *SampleApp.yaml* Azure Load Testing configuration file.
+
+To create and run the load test, the Azure Pipelines definition uses the [Azure Load Testing task](/azure/devops/pipelines/tasks/test/azure-load-testing) extension from the Azure DevOps Marketplace.
 
 1. Install the **Azure Load Testing** task extension from the Azure DevOps Marketplace.
 
@@ -223,7 +227,13 @@ Follow these steps to configure the Azure Pipelines workflow for your environmen
 
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/create-pipeline-select-repo.png" alt-text="Screenshot that shows how to select the sample application's GitHub repository.":::
 
-    The repository contains an *azure-pipeline.yml* pipeline definition file. The following snippet shows how to use the [Azure Load Testing task](/azure/devops/pipelines/tasks/test/azure-load-testing) in Azure Pipelines:
+    Azure Pipelines automatically detects the *azure-pipelines.yml* pipeline definition file.
+
+1. Notice that the pipeline definition contains the `LoadTest` stage, which has two tasks.
+
+    The first task deploys a new Azure load testing resource using the `AzureResourceManagerTemplateDeployment` task.
+
+    Next, the `AzureLoadTest` [Azure Load Testing task](/azure/devops/pipelines/tasks/test/azure-load-testing) creates and starts a load test. This task uses the `SampleApp.yaml` [load test configuration file](./reference-test-config-yaml.md), which contains the configuration parameters for the load test, such as the number of parallel test engines.
 
     ```yml
     - task: AzureLoadTest@1
@@ -241,9 +251,9 @@ Follow these steps to configure the Azure Pipelines workflow for your environmen
           ]
     ```
 
-    You'll now modify the pipeline to connect to your Azure Load Testing service.
-
 1. On the **Review** tab, replace the following placeholder text in the YAML code:
+
+    These variables are used to configure the deployment of the sample application, and to create the load test.
 
     |Placeholder  |Value  |
     |---------|---------|
@@ -255,15 +265,19 @@ Follow these steps to configure the Azure Pipelines workflow for your environmen
 
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/create-pipeline-review.png" alt-text="Screenshot that shows the Azure Pipelines Review tab when you're creating a pipeline.":::
 
-    These variables are used to configure the Azure Pipelines tasks for deploying the sample application to Azure, and to connect to your Azure Load Testing resource.
-
 1. Select **Save and run**, enter text for **Commit message**, and then select **Save and run**.
 
-    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/create-pipeline-save.png" alt-text="Screenshot that shows selections for saving and running a new Azure pipeline.":::
+    Azure Pipelines now runs the CI/CD workflow and will deploy the sample application and create the load test.
 
-    Azure Pipelines now runs the CI/CD workflow. You can monitor the status and logs by selecting the pipeline job.
+1. Select **Pipelines** in the left navigation, and then select new pipeline run from the list to monitor the status.
+
+    You can view the detailed run log by by selecting the pipeline job.
 
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/create-pipeline-status.png" alt-text="Screenshot that shows how to view pipeline job details.":::
+
+# [GitHub Actions](#tab/github)
+
+---
 
 ## View load test results
 
