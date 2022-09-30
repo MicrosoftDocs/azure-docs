@@ -25,7 +25,7 @@ In this quickstart, you will do the following steps:
 If you're new to the service, see [Service Bus overview](service-bus-messaging-overview.md) before you do this quickstart.
 
 - **Azure subscription**. To use Azure services, including Azure Service Bus, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/).
-- **Microsoft Visual Studio 2019**. The Azure Service Bus client library makes use of new features that were introduced in C# 8.0.  You can still use the library with  previous C# language versions, but the new syntax won't be available. To make use of the full syntax, we recommend that you compile with the .NET Core SDK 3.0 or higher and language version set to `latest`. If you're using Visual Studio, versions before Visual Studio 2019 aren't compatible with the tools needed to build C# 8.0 projects.
+- **Microsoft Visual Studio 2022**. The sample application makes use of new features that were introduced in C# 10.0.  You can still use the Servicei Bus client library with  previous C# language versions, but the syntax may vary. To make use of the latest syntax, we recommend that you install .NET 6.0 or higher and set the language version to `latest`. If you're using Visual Studio, versions before Visual Studio 2022 aren't compatible with the tools needed to build C# 10.0 projects.
 
 [!INCLUDE [service-bus-create-namespace-portal-passwordless](./includes/service-bus-create-namespace-portal-passwordless.md)]
 
@@ -40,7 +40,7 @@ This section shows you how to create a .NET Core console application to send mes
 
 ### Create a console application
 
-1. Start Visual Studio 2019.
+1. Start Visual Studio 2022.
 1. Select **Create a new project**.
 1. On the **Create a new project** dialog box, do the following steps: If you don't see this dialog box, select **File** on the menu, select **New**, and then select **Project**.
     1. Select **C#** for the programming language.
@@ -100,7 +100,7 @@ To copy the primary connection string for your namespace, follow these steps:
 3. On the **Shared access policies** page, select **RootManageSharedAccessKey**.
 4. In the **Policy: RootManageSharedAccessKey** window, select the copy button next to **Primary Connection String**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
    
-    :::image type="content" source="./media/service-bus-create-namespace-portal/connection-string.png" alt-text="Screenshot shows an S A S policy called RootManageSharedAccessKey, which includes keys and connection strings.":::
+    :::image type="content" source="includes/media/service-bus-create-namespace-portal/connection-string.png" alt-text="Screen shows a SAS policy called RootManageSharedAccessKey, which includes keys and connection strings.":::
 
     You can use this page to copy primary key, secondary key, primary connection string, and secondary connection string.
 
@@ -108,212 +108,149 @@ To copy the primary connection string for your namespace, follow these steps:
 
 ## Add code to send messages to the queue
 
-Within the `Program` class, add the following use statements and properties, just before the `Main` method.
+1. Replace the contents of `program.cs` with the following code. The important steps are outlined below, with additional information in the code comments.
 
-### [Passwordless (Recommended)](#tab/passwordless)
+    ### [Passwordless (Recommended)](#tab/passwordless)
 
-Replace `<QUEUE NAME>` with the name of your queue.
+    > [!IMPORTANT]
+    > Make sure to update the `queueName` variable and the `queueNamespace` values in the code snippets with the values from the service bus you created.
 
-```csharp
-
-using System.Threading.Tasks;
-using Azure.Identity;
-using Azure.Messaging.ServiceBus;
-
-// name of your Service Bus queue
-static string queueName = "<QUEUE NAME>";
-
-// the client that owns the connection and can be used to create senders and receivers
-static ServiceBusClient client;
-
-// the sender used to publish messages to the queue
-static ServiceBusSender sender;
-
-// number of messages to be sent to the queue
-private const int numOfMessages = 3;
-
-```
-
-### [Connection string](#tab/connection-string)
-
-Make sure to replace the property place holders `<NAMESPACE CONNECTION STRING>` with the primary connection string to your Service Bus namespace. And, replace `<QUEUE NAME>` with the name of your queue.
-
-```csharp
-
-using System.Threading.Tasks;
-using Azure.Identity;
-using Azure.Messaging.ServiceBus;
-
-// connection string value
-static string connectionString = "<CONNECTION STRING>";
-
-// name of your Service Bus queue
-static string queueName = "<QUEUE NAME>";
-
-// the client that owns the connection and can be used to create senders and receivers
-static ServiceBusClient client;
-
-// the sender used to publish messages to the queue
-static ServiceBusSender sender;
-
-// number of messages to be sent to the queue
-private const int numOfMessages = 3;
-
-```
-
----
-
-1. Replace code in the `Main` method so that your `program.cs` file matches the following code. See code comments for details about the code. Here are the important steps from the code.  
-    1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the passwordless `DefaultAzureCredential` or the primary connection string to the namespace.
+    1. Declares the required variables, such as the `queuename` and the `client` and `sender` objects. 
+    1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the passwordless `DefaultAzureCredential` object. `DefaultAzureCredential` will automatically discover and use the credentials of your Visual Studio login to authenticate to Azure Service Bus.
     1. Invokes the [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) method on the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object to create a [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) object for the specific Service Bus queue.
     1. Creates a [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) object by using the [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync) method.
     1. Add messages to the batch using the [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage).
     1. Sends the batch of messages to the Service Bus queue using the [ServiceBusSender.SendMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync) method.
 
-### [Passwordless (Recommended)](#tab/passwordless)
-
-```csharp
-    using System;
-    using System.Threading.Tasks;
-    using Azure.Messaging.ServiceBus;
-    
-    namespace QueueSender
-    {
-        class Program
+    ```csharp
+        using Azure.Messaging.ServiceBus;
+        
+        // name of your Service Bus queue
+        string queueName = "<QUEUE-NAME>";
+        
+        // the client that owns the connection and can be used to create senders and receivers
+        ServiceBusClient client;
+        
+        // the sender used to publish messages to the queue
+        ServiceBusSender sender;
+        
+        // number of messages to be sent to the queue
+        const int numOfMessages = 3;
+        
+        // The Service Bus client types are safe to cache and use as a singleton for the lifetime
+        // of the application, which is best practice when messages are being published or read
+        // regularly.
+        //
+        // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
+        // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
+        var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
+        client = new ServiceBusClient("<NAMESPACE-NAME>", new DefaultAzureCredential());
+        sender = client.CreateSender(queueName);
+        
+        // create a batch 
+        using ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
+        
+        for (int i = 1; i <= numOfMessages; i++)
         {
-            // name of your Service Bus queue
-            static string queueName = "<QUEUE NAME>";
-    
-            // the client that owns the connection and can be used to create senders and receivers
-            static ServiceBusClient client;
-    
-            // the sender used to publish messages to the queue
-            static ServiceBusSender sender;
-    
-            // number of messages to be sent to the queue
-            private const int numOfMessages = 3;
-    
-            static async Task Main()
+            // try adding a message to the batch
+            if (!messageBatch.TryAddMessage(new ServiceBusMessage($"Message {i}")))
             {
-                // The Service Bus client types are safe to cache and use as a singleton for the lifetime
-                // of the application, which is best practice when messages are being published or read
-                // regularly.
-                //
-                // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
-                // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
-    
-                var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
-                client = new ServiceBusClient(new DefaultAzureCredential(), clientOptions);
-                sender = client.CreateSender(queueName);
-    
-                // create a batch 
-                using ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
-    
-                for (int i = 1; i <= numOfMessages; i++)
-                {
-                    // try adding a message to the batch
-                    if (!messageBatch.TryAddMessage(new ServiceBusMessage($"Message {i}")))
-                    {
-                        // if it is too large for the batch
-                        throw new Exception($"The message {i} is too large to fit in the batch.");
-                    }
-                }
-    
-                try
-                {
-                    // Use the producer client to send the batch of messages to the Service Bus queue
-                    await sender.SendMessagesAsync(messageBatch);
-                    Console.WriteLine($"A batch of {numOfMessages} messages has been published to the queue.");
-                }
-                finally
-                {
-                    // Calling DisposeAsync on client types is required to ensure that network
-                    // resources and other unmanaged objects are properly cleaned up.
-                    await sender.DisposeAsync();
-                    await client.DisposeAsync();
-                }
-    
-                Console.WriteLine("Press any key to end the application");
-                Console.ReadKey();
+                // if it is too large for the batch
+                throw new Exception($"The message {i} is too large to fit in the batch.");
             }
         }
-    }   
-```
+        
+        try
+        {
+            // Use the producer client to send the batch of messages to the Service Bus queue
+            await sender.SendMessagesAsync(messageBatch);
+            Console.WriteLine($"A batch of {numOfMessages} messages has been published to the queue.");
+        }
+        finally
+        {
+            // Calling DisposeAsync on client types is required to ensure that network
+            // resources and other unmanaged objects are properly cleaned up.
+            await sender.DisposeAsync();
+            await client.DisposeAsync();
+        }
+        
+        Console.WriteLine("Press any key to end the application");
+        Console.ReadKey();
+    ```
+    
+    ### [Connection string](#tab/connection-string)
 
-### [Connection string](#tab/connection-string)
+    > [!IMPORTANT]
+    > Make sure to update the `queueName` variable and the `connectionString` values in the code snippets with the values from the service bus you created.
 
-```csharp
-    using System;
-    using System.Threading.Tasks;
+    1. Declares the required variables, such as the `queuename`, `connectionString` and the `client` and `sender` objects.
+    1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the connection string.
+    1. Invokes the [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) method on the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object to create a [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) object for the specific Service Bus queue.
+    1. Creates a [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) object by using the [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync) method.
+    1. Add messages to the batch using the [ServiceBusMessageBatch.TryAddMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch.tryaddmessage).
+    1. Sends the batch of messages to the Service Bus queue using the [ServiceBusSender.SendMessagesAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.sendmessagesasync) method.
+
+    ```csharp
     using Azure.Messaging.ServiceBus;
     
-    namespace QueueSender
+    // connection string to your Service Bus namespace
+    string connectionString = "<NAMESPACE CONNECTION STRING>";
+    
+    // name of your Service Bus queue
+    string queueName = "<QUEUE NAME>";
+    
+    // the client that owns the connection and can be used to create senders and receivers
+    ServiceBusClient client;
+    
+    // the sender used to publish messages to the queue
+    ServiceBusSender sender;
+    
+    // number of messages to be sent to the queue
+    const int numOfMessages = 3;
+    
+    // The Service Bus client types are safe to cache and use as a singleton for the lifetime
+    // of the application, which is best practice when messages are being published or read
+    // regularly.
+    //
+    // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
+    // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
+    
+    var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
+    client = new ServiceBusClient(connectionString, clientOptions);
+    sender = client.CreateSender(queueName);
+    
+    // create a batch 
+    using ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
+    
+    for (int i = 1; i <= numOfMessages; i++)
     {
-        class Program
+        // try adding a message to the batch
+        if (!messageBatch.TryAddMessage(new ServiceBusMessage($"Message {i}")))
         {
-            // connection string to your Service Bus namespace
-            static string connectionString = "<NAMESPACE CONNECTION STRING>";
-
-            // name of your Service Bus queue
-            static string queueName = "<QUEUE NAME>";
-    
-            // the client that owns the connection and can be used to create senders and receivers
-            static ServiceBusClient client;
-    
-            // the sender used to publish messages to the queue
-            static ServiceBusSender sender;
-    
-            // number of messages to be sent to the queue
-            private const int numOfMessages = 3;
-    
-            static async Task Main()
-            {
-                // The Service Bus client types are safe to cache and use as a singleton for the lifetime
-                // of the application, which is best practice when messages are being published or read
-                // regularly.
-                //
-                // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
-                // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
-    
-                var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
-                client = new ServiceBusClient(connectionString, clientOptions);
-                sender = client.CreateSender(queueName);
-    
-                // create a batch 
-                using ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
-    
-                for (int i = 1; i <= numOfMessages; i++)
-                {
-                    // try adding a message to the batch
-                    if (!messageBatch.TryAddMessage(new ServiceBusMessage($"Message {i}")))
-                    {
-                        // if it is too large for the batch
-                        throw new Exception($"The message {i} is too large to fit in the batch.");
-                    }
-                }
-    
-                try
-                {
-                    // Use the producer client to send the batch of messages to the Service Bus queue
-                    await sender.SendMessagesAsync(messageBatch);
-                    Console.WriteLine($"A batch of {numOfMessages} messages has been published to the queue.");
-                }
-                finally
-                {
-                    // Calling DisposeAsync on client types is required to ensure that network
-                    // resources and other unmanaged objects are properly cleaned up.
-                    await sender.DisposeAsync();
-                    await client.DisposeAsync();
-                }
-    
-                Console.WriteLine("Press any key to end the application");
-                Console.ReadKey();
-            }
+            // if it is too large for the batch
+            throw new Exception($"The message {i} is too large to fit in the batch.");
         }
-    }   
-```
-
----
+    }
+    
+    try
+    {
+        // Use the producer client to send the batch of messages to the Service Bus queue
+        await sender.SendMessagesAsync(messageBatch);
+        Console.WriteLine($"A batch of {numOfMessages} messages has been published to the queue.");
+    }
+    finally
+    {
+        // Calling DisposeAsync on client types is required to ensure that network
+        // resources and other unmanaged objects are properly cleaned up.
+        await sender.DisposeAsync();
+        await client.DisposeAsync();
+    }
+    
+    Console.WriteLine("Press any key to end the application");
+    Console.ReadKey();
+    ```
+    
+    ---
 
 6. Build the project, and ensure that there are no errors.
 7. Run the program and wait for the confirmation message.
@@ -327,6 +264,7 @@ private const int numOfMessages = 3;
     1. On the **Overview** page, select the queue in the bottom-middle pane.
 
         :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/select-queue.png" alt-text="Image showing the Service Bus Namespace page in the Azure portal with the queue selected." lightbox="./media/service-bus-dotnet-get-started-with-queues/select-queue.png":::
+
     1. Notice the values in the **Essentials** section.
 
     :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/sent-messages-essentials.png" alt-text="Image showing the number of messages received and the size of the queue" lightbox="./media/service-bus-dotnet-get-started-with-queues/sent-messages-essentials.png":::
@@ -410,7 +348,7 @@ In this section, you'll add code to retrieve messages from the queue.
     
     ---
 
-3. Add the following methods to the `Program` class below the existing `main` method to handle received messages and any errors.
+3. Append the following methods to the end of the `Program` class.
 
     ```csharp
     // handle received messages
@@ -431,108 +369,101 @@ In this section, you'll add code to retrieve messages from the queue.
     }
     ```
 
-4. Replace code in the `Main` method with the following code. See code comments for details about the code. Here are the important steps from the code.
-    1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using `DefaultAzureCredential` (Passwordless approach) or the primary connection string to the namespace.
+4. Append the following code to the end of the Program` class. The important steps are outlined below, with additional information in the code comments.
+    
+    ### [Passwordless (Recommended)](#tab/passwordless)
+
+     1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the passwordless `DefaultAzureCredential` object. `DefaultAzureCredential` will automatically discover and use the credentials of your Visual Studio login to authenticate to Azure Service Bus.
     1. Invokes the [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) method on the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object to create a [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object for the specified Service Bus queue.
     1. Specifies handlers for the [ProcessMessageAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) and [ProcessErrorAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processerrorasync) events of the [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object.
     1. Starts processing messages by invoking the [StartProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.startprocessingasync) on the [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object.
     1. When user presses a key to end the processing, invokes the [StopProcessingAsync](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.stopprocessingasync) on the [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object.
 
-        For more information, see code comments.
-    
-    ### [Passwordless (Recommended)](#tab/passwordless)
     
     ```csharp
-            static async Task Main()
-            {
-                // The Service Bus client types are safe to cache and use as a singleton for the lifetime
-                // of the application, which is best practice when messages are being published or read
-                // regularly.
-                //
-                // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
-                // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
-    
-                var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
-                client = new ServiceBusClient(new DefaultAzureCredential(), clientOptions);
-        
-                // create a processor that we can use to process the messages
-                processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
-    
-                try
-                {
-                    // add handler to process messages
-                    processor.ProcessMessageAsync += MessageHandler;
-    
-                    // add handler to process any errors
-                    processor.ProcessErrorAsync += ErrorHandler;
-    
-                    // start processing 
-                    await processor.StartProcessingAsync();
-    
-                    Console.WriteLine("Wait for a minute and then press any key to end the processing");
-                    Console.ReadKey();
-    
-                    // stop processing 
-                    Console.WriteLine("\nStopping the receiver...");
-                    await processor.StopProcessingAsync();
-                    Console.WriteLine("Stopped receiving messages");
-                }
-                finally
-                {
-                    // Calling DisposeAsync on client types is required to ensure that network
-                    // resources and other unmanaged objects are properly cleaned up.
-                    await processor.DisposeAsync();
-                    await client.DisposeAsync();
-                }
-            }
+        // The Service Bus client types are safe to cache and use as a singleton for the lifetime
+        // of the application, which is best practice when messages are being published or read
+        // regularly.
+        //
+        // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
+        // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
+        var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
+        client = new ServiceBusClient("<NAMESPACE-NAME>", new DefaultAzureCredential());
+
+        // create a processor that we can use to process the messages
+        processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
+
+        try
+        {
+            // add handler to process messages
+            processor.ProcessMessageAsync += MessageHandler;
+
+            // add handler to process any errors
+            processor.ProcessErrorAsync += ErrorHandler;
+
+            // start processing 
+            await processor.StartProcessingAsync();
+
+            Console.WriteLine("Wait for a minute and then press any key to end the processing");
+            Console.ReadKey();
+
+            // stop processing 
+            Console.WriteLine("\nStopping the receiver...");
+            await processor.StopProcessingAsync();
+            Console.WriteLine("Stopped receiving messages");
+        }
+        finally
+        {
+            // Calling DisposeAsync on client types is required to ensure that network
+            // resources and other unmanaged objects are properly cleaned up.
+            await processor.DisposeAsync();
+            await client.DisposeAsync();
+        }
     ```
     
     ### [Connection string](#tab/connection-string)
     
     
         ```csharp
-                static async Task Main()
-                {
-                    // The Service Bus client types are safe to cache and use as a singleton for the lifetime
-                    // of the application, which is best practice when messages are being published or read
-                    // regularly.
-                    //
-                    // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
-                    // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
-        
-                    var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
-                    client = new ServiceBusClient(connectionString, clientOptions);
-            
-                    // create a processor that we can use to process the messages
-                    processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
-        
-                    try
-                    {
-                        // add handler to process messages
-                        processor.ProcessMessageAsync += MessageHandler;
-        
-                        // add handler to process any errors
-                        processor.ProcessErrorAsync += ErrorHandler;
-        
-                        // start processing 
-                        await processor.StartProcessingAsync();
-        
-                        Console.WriteLine("Wait for a minute and then press any key to end the processing");
-                        Console.ReadKey();
-        
-                        // stop processing 
-                        Console.WriteLine("\nStopping the receiver...");
-                        await processor.StopProcessingAsync();
-                        Console.WriteLine("Stopped receiving messages");
-                    }
-                    finally
-                    {
-                        // Calling DisposeAsync on client types is required to ensure that network
-                        // resources and other unmanaged objects are properly cleaned up.
-                        await processor.DisposeAsync();
-                        await client.DisposeAsync();
-                    }
-                }
+            // The Service Bus client types are safe to cache and use as a singleton for the lifetime
+            // of the application, which is best practice when messages are being published or read
+            // regularly.
+            //
+            // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
+            // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
+
+            var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
+            client = new ServiceBusClient(connectionString, clientOptions);
+    
+            // create a processor that we can use to process the messages
+            processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
+
+            try
+            {
+                // add handler to process messages
+                processor.ProcessMessageAsync += MessageHandler;
+
+                // add handler to process any errors
+                processor.ProcessErrorAsync += ErrorHandler;
+
+                // start processing 
+                await processor.StartProcessingAsync();
+
+                Console.WriteLine("Wait for a minute and then press any key to end the processing");
+                Console.ReadKey();
+
+                // stop processing 
+                Console.WriteLine("\nStopping the receiver...");
+                await processor.StopProcessingAsync();
+                Console.WriteLine("Stopped receiving messages");
+            }
+            finally
+            {
+                // Calling DisposeAsync on client types is required to ensure that network
+                // resources and other unmanaged objects are properly cleaned up.
+                await processor.DisposeAsync();
+                await client.DisposeAsync();
+            }
         ```
     
     ---
@@ -542,171 +473,152 @@ In this section, you'll add code to retrieve messages from the queue.
     ### [Passwordless (Recommended)](#tab/passwordless)
     
     ```csharp
-    using System;
-    using System.Threading.Tasks;
-    using Azure.Messaging.ServiceBus;
-    
-    namespace QueueReceiver
-    {
-        class Program
+        using Azure.Messaging.ServiceBus;
+        
+        // name of your Service Bus queue
+        string queueName = "<QUEUE NAME>";
+        
+        // the client that owns the connection and can be used to create senders and receivers
+        ServiceBusClient client;
+        
+        // the sender used to publish messages to the queue
+        ServiceBusSender sender;
+        
+        // number of messages to be sent to the queue
+        const int numOfMessages = 3;
+        
+        // The Service Bus client types are safe to cache and use as a singleton for the lifetime
+        // of the application, which is best practice when messages are being published or read
+        // regularly.
+        //
+        // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
+        // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
+        var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
+        client = new ServiceBusClient("<NAMESPACE-NAME>", new DefaultAzureCredential());
+        
+        // create a processor that we can use to process the messages
+        processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
+        
+        try
         {
-            // name of your Service Bus queue
-            static string queueName = "<QUEUE NAME>";
-    
-    
-            // the client that owns the connection and can be used to create senders and receivers
-            static ServiceBusClient client;
-    
-            // the processor that reads and processes messages from the queue
-            static ServiceBusProcessor processor;
-    
-            // handle received messages
-            static async Task MessageHandler(ProcessMessageEventArgs args)
-            {
-                string body = args.Message.Body.ToString();
-                Console.WriteLine($"Received: {body}");
-    
-                // complete the message. messages is deleted from the queue. 
-                await args.CompleteMessageAsync(args.Message);
-            }
-    
-            // handle any errors when receiving messages
-            static Task ErrorHandler(ProcessErrorEventArgs args)
-            {
-                Console.WriteLine(args.Exception.ToString());
-                return Task.CompletedTask;
-            }
-    
-            static async Task Main()
-            {
-                // The Service Bus client types are safe to cache and use as a singleton for the lifetime
-                // of the application, which is best practice when messages are being published or read
-                // regularly.
-                //
-                // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
-                // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
-    
-                var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
-                client = new ServiceBusClient(new DefaultAzureCredential(), clientOptions);
-    
-                // create a processor that we can use to process the messages
-                processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
-    
-                try
-                {
-                    // add handler to process messages
-                    processor.ProcessMessageAsync += MessageHandler;
-    
-                    // add handler to process any errors
-                    processor.ProcessErrorAsync += ErrorHandler;
-    
-                    // start processing 
-                    await processor.StartProcessingAsync();
-    
-                    Console.WriteLine("Wait for a minute and then press any key to end the processing");
-                    Console.ReadKey();
-    
-                    // stop processing 
-                    Console.WriteLine("\nStopping the receiver...");
-                    await processor.StopProcessingAsync();
-                    Console.WriteLine("Stopped receiving messages");
-                }
-                finally
-                {
-                    // Calling DisposeAsync on client types is required to ensure that network
-                    // resources and other unmanaged objects are properly cleaned up.
-                    await processor.DisposeAsync();
-                    await client.DisposeAsync();
-                }
-            }
+            // add handler to process messages
+            processor.ProcessMessageAsync += MessageHandler;
+        
+            // add handler to process any errors
+            processor.ProcessErrorAsync += ErrorHandler;
+        
+            // start processing 
+            await processor.StartProcessingAsync();
+        
+            Console.WriteLine("Wait for a minute and then press any key to end the processing");
+            Console.ReadKey();
+        
+            // stop processing 
+            Console.WriteLine("\nStopping the receiver...");
+            await processor.StopProcessingAsync();
+            Console.WriteLine("Stopped receiving messages");
         }
-    }
+        finally
+        {
+            // Calling DisposeAsync on client types is required to ensure that network
+            // resources and other unmanaged objects are properly cleaned up.
+            await processor.DisposeAsync();
+            await client.DisposeAsync();
+        }
+        
+        // handle received messages
+        static async Task MessageHandler(ProcessMessageEventArgs args)
+        {
+            string body = args.Message.Body.ToString();
+            Console.WriteLine($"Received: {body}");
+        
+            // complete the message. message is deleted from the queue. 
+            await args.CompleteMessageAsync(args.Message);
+        }
+        
+        // handle any errors when receiving messages
+        static Task ErrorHandler(ProcessErrorEventArgs args)
+        {
+            Console.WriteLine(args.Exception.ToString());
+            return Task.CompletedTask;
+        }
     ```
     
     ### [Connection string](#tab/connection-string)
     
     ```csharp
-    using System;
-    using System.Threading.Tasks;
-    using Azure.Messaging.ServiceBus;
-    
-    namespace QueueReceiver
-    {
-        class Program
+        using Azure.Messaging.ServiceBus;
+        
+        // connection string to your Service Bus namespace
+        string connectionString = "<QUEUE CONNECTION STRING>";
+        
+        // name of your Service Bus queue
+        string queueName = "<QUEUE NAME>";
+        
+        // the client that owns the connection and can be used to create senders and receivers
+        ServiceBusClient client;
+        
+        // the sender used to publish messages to the queue
+        ServiceBusSender sender;
+        
+        // number of messages to be sent to the queue
+        const int numOfMessages = 3;
+        
+        // The Service Bus client types are safe to cache and use as a singleton for the lifetime
+        // of the application, which is best practice when messages are being published or read
+        // regularly.
+        //
+        // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
+        // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
+        var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
+        client = new ServiceBusClient(connectionString, clientOptions);
+                
+        // create a processor that we can use to process the messages
+        processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
+        
+        try
         {
-            // connection string to your Service Bus namespace
-            static string connectionString = "<NAMESPACE CONNECTION STRING>";
-    
-            // name of your Service Bus queue
-            static string queueName = "<QUEUE NAME>";
-    
-            // the client that owns the connection and can be used to create senders and receivers
-            static ServiceBusClient client;
-    
-            // the processor that reads and processes messages from the queue
-            static ServiceBusProcessor processor;
-    
-            // handle received messages
-            static async Task MessageHandler(ProcessMessageEventArgs args)
-            {
-                string body = args.Message.Body.ToString();
-                Console.WriteLine($"Received: {body}");
-    
-                // complete the message. messages is deleted from the queue. 
-                await args.CompleteMessageAsync(args.Message);
-            }
-    
-            // handle any errors when receiving messages
-            static Task ErrorHandler(ProcessErrorEventArgs args)
-            {
-                Console.WriteLine(args.Exception.ToString());
-                return Task.CompletedTask;
-            }
-    
-            static async Task Main()
-            {
-                // The Service Bus client types are safe to cache and use as a singleton for the lifetime
-                // of the application, which is best practice when messages are being published or read
-                // regularly.
-                //
-                // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
-                // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
-    
-                var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
-                client = new ServiceBusClient(connectionString, clientOptions);
-    
-                // create a processor that we can use to process the messages
-                processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
-    
-                try
-                {
-                    // add handler to process messages
-                    processor.ProcessMessageAsync += MessageHandler;
-    
-                    // add handler to process any errors
-                    processor.ProcessErrorAsync += ErrorHandler;
-    
-                    // start processing 
-                    await processor.StartProcessingAsync();
-    
-                    Console.WriteLine("Wait for a minute and then press any key to end the processing");
-                    Console.ReadKey();
-    
-                    // stop processing 
-                    Console.WriteLine("\nStopping the receiver...");
-                    await processor.StopProcessingAsync();
-                    Console.WriteLine("Stopped receiving messages");
-                }
-                finally
-                {
-                    // Calling DisposeAsync on client types is required to ensure that network
-                    // resources and other unmanaged objects are properly cleaned up.
-                    await processor.DisposeAsync();
-                    await client.DisposeAsync();
-                }
-            }
+            // add handler to process messages
+            processor.ProcessMessageAsync += MessageHandler;
+        
+            // add handler to process any errors
+            processor.ProcessErrorAsync += ErrorHandler;
+        
+            // start processing 
+            await processor.StartProcessingAsync();
+        
+            Console.WriteLine("Wait for a minute and then press any key to end the processing");
+            Console.ReadKey();
+        
+            // stop processing 
+            Console.WriteLine("\nStopping the receiver...");
+            await processor.StopProcessingAsync();
+            Console.WriteLine("Stopped receiving messages");
         }
-    }
+        finally
+        {
+            // Calling DisposeAsync on client types is required to ensure that network
+            // resources and other unmanaged objects are properly cleaned up.
+            await processor.DisposeAsync();
+            await client.DisposeAsync();
+        }
+        
+        // handle received messages
+        static async Task MessageHandler(ProcessMessageEventArgs args)
+        {
+            string body = args.Message.Body.ToString();
+            Console.WriteLine($"Received: {body}");
+        
+            // complete the message. message is deleted from the queue. 
+            await args.CompleteMessageAsync(args.Message);
+        }
+        
+        // handle any errors when receiving messages
+        static Task ErrorHandler(ProcessErrorEventArgs args)
+        {
+            Console.WriteLine(args.Exception.ToString());
+            return Task.CompletedTask;
+        }
     ```
     
     ---
