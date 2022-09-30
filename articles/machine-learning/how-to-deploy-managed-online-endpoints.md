@@ -1,7 +1,7 @@
 ---
-title: Deploy an ML model by using an online endpoint
+title: Deploy machine learning models to online endpoints
 titleSuffix: Azure Machine Learning
-description: Learn to deploy your machine learning model as a web service that's to Azure.
+description: Learn to deploy your machine learning model as a online endpoint that's to Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -10,19 +10,29 @@ ms.author: sehan
 ms.reviewer: larryfr
 ms.date: 08/31/2022
 ms.topic: how-to
-ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2, event-tier1-build-2022
+ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2, event-tier1-build-2022, sdkv2
 ---
 
 # Deploy and score a machine learning model by using an online endpoint
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
+
+> [!IMPORTANT]
+> SDK v2 is currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Learn how to use an online endpoint to deploy your model, so you don't have to create and manage the underlying infrastructure. You'll begin by deploying a model on your local machine to debug any errors, and then you'll deploy and test it in Azure.
 
 You'll also learn how to view the logs and monitor the service-level agreement (SLA). You start with a model and end up with a scalable HTTPS/REST endpoint that you can use for online and real-time scoring. 
 
-Managed online endpoints help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure. The main example in this doc uses managed online endpoints for deployment. To use Kubernetes instead, see the notes in this document inline with the managed online endpoint discussion. For more information, see [What are Azure Machine Learning endpoints?](concept-endpoints.md).
+Online endpoints are endpoints that are used for online (real-time) inferencing. There are two types of online endpoints: **managed online endpoints** and **Kubernetes online endpoints**. For more information on endpoints, and differences between managed online endpoints and Kubernetes online endpoints, see [What are Azure Machine Learning endpoints?](concept-endpoints.md#managed-online-endpoints-vs-kubernetes-online-endpoints).
+
+Managed online endpoints help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure. 
+
+The main example in this doc uses managed online endpoints for deployment. To use Kubernetes instead, see the notes in this document inline with the managed online endpoint discussion. 
 
 ## Prerequisites
 
@@ -78,10 +88,10 @@ The following snippet shows the *endpoints/online/managed/sample/endpoint.yml* f
 
 The reference for the endpoint YAML format is described in the following table. To learn how to specify these attributes, see the YAML example in [Prepare your system](#prepare-your-system) or the [online endpoint YAML reference](reference-yaml-endpoint-online.md). For information about limits related to managed endpoints, see [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
 
-| Key | Description |
-| --- | --- |
-| `$schema`    | (Optional) The YAML schema. To see all available options in the YAML file, you can view the schema in the preceding example in a browser.|
-| `name`       | The name of the endpoint. It must be unique in the Azure region.<br>Naming rules are defined under [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).|
+| Key         | Description                                                                                                                                                                                                                                                 |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `$schema`   | (Optional) The YAML schema. To see all available options in the YAML file, you can view the schema in the preceding example in a browser.                                                                                                                   |
+| `name`      | The name of the endpoint. It must be unique in the Azure region.<br>Naming rules are defined under [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).                                               |
 | `auth_mode` | Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. `key` doesn't expire, but `aml_token` does expire. (Get the most recent token by using the `az ml online-endpoint get-credentials` command.) |
 
 The example contains all the files needed to deploy a model on an online endpoint. To deploy a model, you must have:
@@ -97,15 +107,15 @@ The following snippet shows the *endpoints/online/managed/sample/blue-deployment
 
 The table describes the attributes of a `deployment`:
 
-| Key | Description |
-| --- | --- |
-| `name`  | The name of the deployment. |
-| `model` | In this example, we specify the model properties inline: `path`. Model files are automatically uploaded and registered with an autogenerated name. For related best practices, see the tip in the next section. |
-| `code_configuration.code.path` | The directory on the local development environment that contains all the Python source code for scoring the model. You can use nested directories and packages. |
+| Key                                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`                              | The name of the deployment.                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| `model`                             | In this example, we specify the model properties inline: `path`. Model files are automatically uploaded and registered with an autogenerated name. For related best practices, see the tip in the next section.                                                                                                                                                                                                                                 |
+| `code_configuration.code.path`      | The directory on the local development environment that contains all the Python source code for scoring the model. You can use nested directories and packages.                                                                                                                                                                                                                                                                                 |
 | `code_configuration.scoring_script` | The Python file that's in the `code_configuration.code.path` scoring directory on the local development environment. This Python code must have an `init()` function and a `run()` function. The function `init()` will be called after the model is created or updated (you can use it to cache the model in memory, for example). The `run()` function is called at every invocation of the endpoint to do the actual scoring and prediction. |
-| `environment` | Contains the details of the environment to host the model and code. In this example, we have inline definitions that include the`path`. We'll use `environment.docker.image` for the image. The `conda_file` dependencies will be installed on top of the image. For more information, see the tip in the next section. |
-| `instance_type` | The VM SKU that will host your deployment instances. For more information, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). |
-| `instance_count` | The number of instances in the deployment. Base the value on the workload you expect. For high availability, we recommend that you set `instance_count` to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoint quotas](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints). |
+| `environment`                       | Contains the details of the environment to host the model and code. In this example, we have inline definitions that include the`path`. We'll use `environment.docker.image` for the image. The `conda_file` dependencies will be installed on top of the image. For more information, see the tip in the next section.                                                                                                                         |
+| `instance_type`                     | The VM SKU that will host your deployment instances. For more information, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md).                                                                                                                                                                                                                                                                 |
+| `instance_count`                    | The number of instances in the deployment. Base the value on the workload you expect. For high availability, we recommend that you set `instance_count` to at least `3`. We reserve an extra 20% for performing upgrades. For more information, see [managed online endpoint quotas](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).                                                                                  |
 
 During deployment, the local files such as the Python source for the scoring model, are uploaded from the development environment.
 
@@ -195,13 +205,13 @@ The output should appear similar to the following JSON. The `provisioning_state`
 
 The following table contains the possible values for `provisioning_state`:
 
-| State | Description |
-| ----- | ----- |
-| __Creating__ | The resource is being created. |
-| __Updating__ | The resource is being updated. |
-| __Deleting__ | The resource is being deleted. |
-| __Succeeded__ | The create/update operation was successful. |
-| __Failed__ | The create/update/delete operation has failed. |
+| State         | Description                                    |
+| ------------- | ---------------------------------------------- |
+| __Creating__  | The resource is being created.                 |
+| __Updating__  | The resource is being updated.                 |
+| __Deleting__  | The resource is being deleted.                 |
+| __Succeeded__ | The create/update operation was successful.    |
+| __Failed__    | The create/update/delete operation has failed. |
 
 ### Invoke the local endpoint to score data by using your model
 
