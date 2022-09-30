@@ -378,6 +378,11 @@
         - name: Troubleshoot the ParallelRunStep
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
+    - name: Visual Studio Code
+      items:
+        - name: VS Code interactive debugging
+          displayName: vscode,remote,debug,pipelines,deployments,ssh
+          href: ../how-to-debug-visual-studio-code.md
 - name: Reference (v1)
   items: 
   - name: Machine learning CLI pipeline YAML reference
