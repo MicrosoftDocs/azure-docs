@@ -124,7 +124,7 @@ Ignored catalog items are caused by adding two or more catalog items with the sa
 Invalid catalog items can be caused due to a variety of reasons. Potential issues are:
 
   - **Manifest schema errors**
-    - Ensure that your catalog item manifest matches the required schema as described [here](./configure-catalog-item.md#manifest).
+    - Ensure that your catalog item manifest matches the required schema as described [here](./configure-catalog-item.md#add-a-new-catalog-item).
 
   - **Validation errors**
     - Ensure that the manifest's engine type is correctly configured as "ARM".
