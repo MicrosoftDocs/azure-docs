@@ -42,9 +42,9 @@ With Azure Cache for Redis, one server is the _primary_ node, while the other is
 >
 >
 
-If the _primary_ node in a cache is unavailable, the _replica_ automatically promotes itself to become the new primary. This process is called a _failover_. A failover is just two nodes, primary/replica, trading roles, replica/primary, with one of the nodes possibly going offline for a few minutes. The original replica waits a sufficiently long time before taking over in case that the original primary node recovers quickly.
+If the _primary_ node in a cache is unavailable, the _replica_ automatically promotes itself to become the new primary. This process is called a _failover_. A failover is just two nodes, primary/replica, trading roles, replica/primary, with one of the nodes possibly going offline for a few minutes. In most failovers, the primary and replica nodes coordinate the handover so you have near zero time without a primary.
 
-The former primary becomes the replica, and does a full data synchronization with the new primary so that it has another copy of the cache data. The key is that when a node is unavailable, it's a temporary condition and it comes back online.
+The former primary goes offline briefly to receive updates from the new primary. Then, the now replica comes back online and rejoins the cache fully synchronized. The key is that when a node is unavailable, it's a temporary condition and it comes back online.
 
 A typical failover sequence looks like this, when a primary needs to go down for maintenance:
 
