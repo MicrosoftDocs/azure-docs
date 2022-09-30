@@ -558,4 +558,4 @@ GET https://{your app subdomain}.azureiotcentral.com/api/scheduledJobs/scheduled
 
 ## Next steps
 
-Now that you've learned how to manage jobs with the REST API, a suggested next step is to learn how to [Manage IoT Central applications with the REST API](/learn/modules/manage-iot-central-apps-with-rest-api/).
+Now that you've learned how to manage jobs with the REST API, a suggested next step is to learn how to [Manage IoT Central applications with the REST API](/training/modules/manage-iot-central-apps-with-rest-api/).

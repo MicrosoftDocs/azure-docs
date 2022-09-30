@@ -53,9 +53,6 @@ After you've uploaded [training datasets](./how-to-custom-speech-test-and-train.
     > [!IMPORTANT]
     > Take note of the **Expiration** date. This is the last date that you can use your custom model for speech recognition. For more information, see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md).
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Train-a-model&Section=Create-a-model" target="_target">I ran into an issue</a>
-
 ::: zone-end
 
 ::: zone pivot="speech-cli"
@@ -66,7 +63,7 @@ To create a model with datasets for training, use the `spx csr model create` com
 - Set the required `dataset` parameter to the ID of a dataset that you want used for training. To specify multiple datasets, set the `datasets` (plural) parameter and separate the IDs with a semicolon.
 - Set the required `language` parameter. The dataset locale must match the locale of the project. The locale can't be changed later. The Speech CLI `language` parameter corresponds to the `locale` property in the JSON request and response.
 - Set the required `name` parameter. This is the name that will be displayed in the Speech Studio. The Speech CLI `name` parameter corresponds to the `displayName` property in the JSON request and response.
-- Optionally, you can set the `baseModel` parameter. If you don't specify the `baseModel`, the default base model for the locale is used. 
+- Optionally, you can set the `base` property. For example: `--base 1aae1070-7972-47e9-a977-87e3b05c457d`. If you don't specify the `base`, the default base model for the locale is used. The Speech CLI `base` parameter corresponds to the `baseModel` property in the JSON request and response.
 
 Here's an example Speech CLI command that creates a model with datasets for training:
 
@@ -75,10 +72,7 @@ spx csr model create --project YourProjectId --name "My Model" --description "My
 ```
 
 > [!NOTE]
-> In this example, the `baseModel` isn't set, so the default base model for the locale is used. The base model URI is returned in the response.
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=CLI&Pillar=Speech&Product=Custom-speech&Page=Train-a-model&Section=Create-a-model" target="_target">I ran into an issue</a>
+> In this example, the `base` isn't set, so the default base model for the locale is used. The base model URI is returned in the response.
 
 You should receive a response body in the following format:
 
@@ -132,13 +126,13 @@ spx help csr model
 
 ::: zone pivot="rest-api"
 
-To create a model with datasets for training, use the [CreateModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateModel) operation of the [Speech-to-text REST API v3.0](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To create a model with datasets for training, use the [CreateModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateModel) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the `project` property to the URI of an existing project. This is recommended so that you can also view and manage the model in Speech Studio. You can make a [GetProjects](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request to get available projects.
 - Set the required `datasets` property to the URI of the datasets that you want used for training.
 - Set the required `locale` property. The model locale must match the locale of the project and base model. The locale can't be changed later.
 - Set the required `displayName` property. This is the name that will be displayed in the Speech Studio.
-- Optionally, you can set the `baseModel` property. If you don't specify the `baseModel`, the default base model for the locale is used. 
+- Optionally, you can set the `baseModel` property. For example: `"baseModel": {"self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/1aae1070-7972-47e9-a977-87e3b05c457d"}`. If you don't specify the `baseModel`, the default base model for the locale is used. 
 
 Make an HTTP POST request using the URI as shown in the following example. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
 
@@ -161,9 +155,6 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 
 > [!NOTE]
 > In this example, the `baseModel` isn't set, so the default base model for the locale is used. The base model URI is returned in the response.
-
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Train-a-model&Section=Create-a-model" target="_target">I ran into an issue</a>
 
 You should receive a response body in the following format:
 
@@ -229,20 +220,17 @@ Follow these instructions to copy a model to a project in another region:
 
 After the model is successfully copied, you'll be notified and can view it in the target project.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Speech-studio&Pillar=Speech&Product=Custom-speech&Page=Train-a-model&Section=Copy-a-model" target="_target">I ran into an issue</a>
-
 ::: zone-end
 
 ::: zone pivot="speech-cli"
 
-Copying a model directly to a project in another region is not supported with the Speech CLI. You can copy a model to a project in another region using the [Speech Studio](https://aka.ms/speechstudio/customspeech) or [Speech-to-text REST API v3.0](rest-speech-to-text.md).
+Copying a model directly to a project in another region is not supported with the Speech CLI. You can copy a model to a project in another region using the [Speech Studio](https://aka.ms/speechstudio/customspeech) or [Speech-to-text REST API](rest-speech-to-text.md).
 
 ::: zone-end
 
 ::: zone pivot="rest-api"
 
-To copy a model to another Speech resource, use the [CopyModelToSubscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) operation of the [Speech-to-text REST API v3.0](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To copy a model to another Speech resource, use the [CopyModelToSubscriptionToSubscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscriptionToSubscription) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
 - Set the required `targetSubscriptionKey` property to the key of the destination Speech resource.
 
@@ -257,20 +245,17 @@ curl -v -X POST -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-
 > [!NOTE]
 > Only the `targetSubscriptionKey` property in the request body has information about the destination Speech resource.
 
-> [!div class="nextstepaction"]
-> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=Custom-speech&Page=Train-a-model&Section=Copy-a-model" target="_target">I ran into an issue</a>
-
 You should receive a response body in the following format:
 
 ```json
 {
-  "self": "https://westus2.api.cognitive.microsoft.com/speechtotext/v3.0/models/9df35ddb-edf9-4e91-8d1a-576d09aabdae",
+  "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/9df35ddb-edf9-4e91-8d1a-576d09aabdae",
   "baseModel": {
-    "self": "https://westus2.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/eb5450a7-3ca2-461a-b2d7-ddbb3ad96540"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/base/eb5450a7-3ca2-461a-b2d7-ddbb3ad96540"
   },
   "links": {
-    "manifest": "https://westus2.api.cognitive.microsoft.com/speechtotext/v3.0/models/9df35ddb-edf9-4e91-8d1a-576d09aabdae/manifest",
-    "copyTo": "https://westus2.api.cognitive.microsoft.com/speechtotext/v3.0/models/9df35ddb-edf9-4e91-8d1a-576d09aabdae/copyto"
+    "manifest": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/9df35ddb-edf9-4e91-8d1a-576d09aabdae/manifest",
+    "copyTo": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/models/9df35ddb-edf9-4e91-8d1a-576d09aabdae/copyto"
   },
   "properties": {
     "deprecationDates": {
@@ -328,7 +313,7 @@ You should receive a response body in the following format:
 ```json
 {
   "project": {
-    "self": "https://westus2.api.cognitive.microsoft.com/speechtotext/v3.0/projects/e6ffdefd-9517-45a9-a89c-7b5028ed0e56"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/e6ffdefd-9517-45a9-a89c-7b5028ed0e56"
   },
 }
 ```
@@ -343,16 +328,16 @@ spx help csr model
 
 ::: zone pivot="rest-api"
 
-To connect a new model to a project of the Speech resource where the model was copied, use the [UpdateModel](https://westus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateModel) operation of the [Speech-to-text REST API v3.0](rest-speech-to-text.md). Construct the request body according to the following instructions:
+To connect a new model to a project of the Speech resource where the model was copied, use the [UpdateModel](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UpdateModel) operation of the [Speech-to-text REST API](rest-speech-to-text.md). Construct the request body according to the following instructions:
 
-- Set the required `project` property to the URI of an existing project. This is recommended so that you can also view and manage the model in Speech Studio. You can make a [GetProjects](https://westus2.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request to get available projects.
+- Set the required `project` property to the URI of an existing project. This is recommended so that you can also view and manage the model in Speech Studio. You can make a [GetProjects](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request to get available projects.
 
-Make an HTTP PATCH request using the URI as shown in the following example. Use the URI of the new model. You can get the new model ID from the `self` property of the [CopyModelToSubscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) response body. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
+Make an HTTP PATCH request using the URI as shown in the following example. Use the URI of the new model. You can get the new model ID from the `self` property of the [CopyModelToSubscriptionToSubscription](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscriptionToSubscription) response body. Replace `YourSubscriptionKey` with your Speech resource key, replace `YourServiceRegion` with your Speech resource region, and set the request body properties as previously described.
 
 ```azurecli-interactive
 curl -v -X PATCH -H "Ocp-Apim-Subscription-Key: YourSubscriptionKey" -H "Content-Type: application/json" -d '{
   "project": {
-    "self": "https://westus2.api.cognitive.microsoft.com/speechtotext/v3.0/projects/e6ffdefd-9517-45a9-a89c-7b5028ed0e56"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/e6ffdefd-9517-45a9-a89c-7b5028ed0e56"
   },
 }'  "https://YourServiceRegion.api.cognitive.microsoft.com/speechtotext/v3.0/models"
 ```
@@ -362,7 +347,7 @@ You should receive a response body in the following format:
 ```json
 {
   "project": {
-    "self": "https://westus2.api.cognitive.microsoft.com/speechtotext/v3.0/projects/e6ffdefd-9517-45a9-a89c-7b5028ed0e56"
+    "self": "https://eastus.api.cognitive.microsoft.com/speechtotext/v3.0/projects/e6ffdefd-9517-45a9-a89c-7b5028ed0e56"
   },
 }
 ```

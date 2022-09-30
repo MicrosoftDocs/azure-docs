@@ -41,7 +41,7 @@ New for this release:
 - Arc-enabled PostgreSQL server
   - Removed Hyperscale/Citus scale-out capabilities. Focus will be on providing a single node Postgres server service. All user experiences have had terms and concepts like `Hyperscale`, `server groups`, `worker nodes`, `coordinator nodes`, and so forth. removed.  **BREAKING CHANGE**
   - The postgresql container image is based on [CBL-Mariner](https://github.com/microsoft/CBL-Mariner) base OS image.
-  - Only PostgreSQL version 14 is supported for now. Versions 11 and 12 have been removed.  Two new images are introduced: `arc-postgres-14` and `arc-postgresql-agent`.  The `arc-postgres-11` and `arc-postgres-12` container images are removed going forward.  If you use the container image sync script, get the latest image once this [pull request](https://github.com/microsoft/azure_arc/pull/1340) has merged.
+  - Only PostgreSQL version 14 is supported for now. Versions 11 and 12 have been removed.  Two new images are introduced: `arc-postgres-14` and `arc-postgresql-agent`.  The `arc-postgres-11` and `arc-postgres-12` container images are removed going forward.
   - The postgresql CRD version has been updated to v1beta3.  Some properties such as `workers` have been removed or changed.  Update any scripts or automation you have as needed to align to the new CRD schema. **BREAKING CHANGE**
 
 - `arcdata` Azure CLI extension

@@ -303,7 +303,7 @@ AKS doesn't apply Network Security Groups (NSGs) to its subnet and doesn't modif
 
 ## How does Time syncronization work in AKS?
 
-AKS nodes run the "chrony" service which pulls time from the localhost, which in turn sync time with ntp.ubuntu.com.  Containers running on pods get the time from the AKS nodes.  Applications launched inside a container use time from the container of the pod.
+AKS nodes run the "chrony" service which pulls time from the localhost.  Containers running on pods get the time from the AKS nodes.  Applications launched inside a container use time from the container of the pod.
 
 <!-- LINKS - internal -->
 
