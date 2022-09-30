@@ -150,8 +150,10 @@
       href: reference-json-reliable-webpubsub-subprotocol.md
     - name: Reliable Protobuf WebSocket subprotocol
       href: reference-protobuf-reliable-webpubsub-subprotocol.md
-  - name: CloudEvents extension for Azure Web PubSub
+  - name: CloudEvents HTTP extension for event handler
     href: reference-cloud-events.md
+  - name: CloudEvents AMQP extension for Event Hubs listener
+    href: reference-cloud-events-amqp.md
   - name: Functions trigger and bindings
     href: reference-functions-bindings.md
   - name: Data plane REST API and SDKs

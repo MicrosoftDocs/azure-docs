@@ -1,6 +1,6 @@
 ---
-title: Reference - CloudEvents AMQP extension for Azure Web PubSub
-description: The reference describes CloudEvents AMQP extension defined for Azure Web PubSub service
+title: Reference - CloudEvents AMQP extension for Event Hubs listener
+description: The reference describes the data format that Azure Web PubSub service sends to Event Hubs listener.
 author: Y-Sindo
 ms.author: zityang
 ms.service: azure-web-pubsub
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 09/30/2022
 ---
 
-# CloudEvents AMQP extension for Azure Web PubSub
+# CloudEvents extension for Event Hubs listener
 
 Service delivers client events to Event Hubs event listeners using [CloudEvents AMQP protocol binding](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/amqp-protocol-binding.md).
 
@@ -32,7 +32,7 @@ This extension defines attributes used by Web PubSub for every event it produces
 | `time`  | The time when the service send the event, in the format "yyyy-MM-ddTHH:mm:ssZ"  | 2021-01-01T00:00:00Z  |
 | `userid`\*  | The ID of user  | user1  |
 | `subprotocol`\*  | The subprotocol name  | json.webpubsub.azure.v1  |
-| `connectionstate`\* | Defines the state for the connection. You can reset the value in the response header of event handlers. See [Web PubSub CloudEvents attributes](./reference-cloud-events.md#attributes) for more information.  | anystring  |
+| `connectionstate`\* | Defines the state for the connection. You can reset the value in the response header of event handlers. For more information about connection state, see [Web PubSub CloudEvents attributes](./reference-cloud-events.md#attributes).  | anystring  |
 | `type`  | The event type  | azure.webpubsub.sys.connect  |
 | `datacontenttype`  | Content type of message body  | application/json  |
 

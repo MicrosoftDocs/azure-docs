@@ -1,6 +1,6 @@
 ---
-title: Reference - CloudEvents HTTP extension for Azure Web PubSub
-description: The reference describes CloudEvents HTTP extension defined for Azure Web PubSub service
+title: Reference - CloudEvents HTTP extension for event handler
+description: The reference describes CloudEvents HTTP extension defined for event handler
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 11/08/2021
 ---
 
-#  CloudEvents HTTP extension for Azure Web PubSub
+#  CloudEvents HTTP extension for event handler
 
 Service delivers client events to the upstream webhook using the [CloudEvents HTTP protocol binding](https://github.com/cloudevents/spec/blob/v1.0.1/http-protocol-binding.md).
 
