@@ -20,7 +20,9 @@ sections:
       - question: I got an email that my image is scheduled for deprecation, what does this mean?
         answer: |
           You might have received an email telling you that your Virtual machine is running on images that are scheduled for deprecation or already deprecated. There are several reasons an image can be deprecated by the publisher, which might be due to security issues or the image reaching end of life. 
-          
+
+
+          |![Screenshot of the email that warns about a image deprecation.](./media/deprecated-images/deprecated-main.png)
            
           
           An image can be deprecated on the version, plan or offer level:
