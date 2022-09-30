@@ -66,7 +66,7 @@ Follow these steps before importing your solutions from OCP GTM:
 
     :::image type="content" source="media/co-sell-migrate/welcome-overveiw.png" alt-text="Displays overview page":::
 
-1. To begin migrating, select the **Solutions** tab, which displays all the solutions associated to your Partner IDs.
+1. To begin migrating, select the **Solutions** tab, which displays all the solutions associated to your PartnerIDs.
 
     :::image type="content" source="media/co-sell-migrate/solutions-tab.png" alt-text="Partner Center Overview page, Solutions tab.":::
 

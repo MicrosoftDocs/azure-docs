@@ -87,7 +87,7 @@ You can then assign the appropriate user roles and permissions to your users, so
 
    Microsoft Cloud Partner Program detects your subscription and displays the **Publisher profile** pane.
 
-1. Select the Partner ID you want to link to your publisher account and enter your company name.
+1. Select the PartnerID you want to link to your publisher account and enter your company name.
 
 1. Read the terms and conditions in the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement), and then select **Accept and continue** to complete your enrollment.
 
