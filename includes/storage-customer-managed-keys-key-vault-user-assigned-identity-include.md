@@ -55,7 +55,7 @@ principalId=$(az identity show --name <user-assigned-identity> \
     --output tsv)
 
 az role assignment create --assignee-object-id $principalId \
-    --role "Key Vault Crypto Officer" \
+    --role " Key Vault Crypto Service Encryption User" \
     --scope $kvResourceId
 ```
 

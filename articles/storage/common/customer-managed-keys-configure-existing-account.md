@@ -57,9 +57,11 @@ When you configure customer-managed keys with the Azure portal with a system-ass
 
 #### [PowerShell](#tab/azure-powershell)
 
-To assign a system-assigned managed identity to your storage account, call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount):
+To assign a system-assigned managed identity to your storage account, first call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount):
 
 ```azurepowershell
+$accountName = "<storage-account>"
+
 $storageAccount = Set-AzStorageAccount -ResourceGroupName $rgName `
     -Name $accountName `
     -AssignIdentity
@@ -77,9 +79,11 @@ New-AzRoleAssignment -ObjectId $storageAccount.Identity.PrincipalId `
 
 #### [Azure CLI](#tab/azure-cli)
 
-To authenticate access to the key vault with a system-assigned managed identity, assign the system-assigned managed identity to the storage account by calling [az storage account update](/cli/azure/storage/account#az-storage-account-update):
+To authenticate access to the key vault with a system-assigned managed identity, first assign the system-assigned managed identity to the storage account by calling [az storage account update](/cli/azure/storage/account#az-storage-account-update):
 
 ```azurecli
+accountName="<storage-account>"
+
 az storage account update \
     --name $accountName \
     --resource-group $rgName \
@@ -92,7 +96,7 @@ Next, assign to the system-assigned managed identity the required RBAC role, sco
 principalId = $(az storage account show --name $accountName --resource-group $rgName --query identity.principalId)
 
 az role assignment create --assignee-object-id $principalId \
-    --role "Key Vault Crypto Officer" \
+    --role "Key Vault Crypto Service Encryption User" \
     --scope $kvResourceId
 ```
 
@@ -151,6 +155,8 @@ To configure customer-managed keys for an existing account with automatic updati
 Next, call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) to update the storage account's encryption settings, omitting the key version. Include the **-KeyvaultEncryption** option to enable customer-managed keys for the storage account.
 
 ```azurepowershell
+$accountName = "<storage-account>"
+
 Set-AzStorageAccount -ResourceGroupName $rgName `
     -AccountName $accountName `
     -KeyvaultEncryption `
@@ -165,13 +171,15 @@ To configure customer-managed keys for an existing account with automatic updati
 Next, call [az storage account update](/cli/azure/storage/account#az-storage-account-update) to update the storage account's encryption settings, omitting the key version. Include the `--encryption-key-source` parameter and set it to `Microsoft.Keyvault` to enable customer-managed keys for the account.
 
 ```azurecli
-key_vault_uri=$(az keyvault show \
+accountName="<storage-account>"
+
+keyVaultUri=$(az keyvault show \
     --name $kvName \
     --resource-group $rgName \
     --query properties.vaultUri \
     --output tsv)
 
-az storage account update
+az storage account update \
     --name $accountName \
     --resource-group $rgName \
     --encryption-key-name $keyName \
@@ -210,6 +218,8 @@ To configure customer-managed keys with manual updating of the key version, expl
 Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
 
 ```azurepowershell
+$accountName = "<storage-account>"
+
 Set-AzStorageAccount -ResourceGroupName $rgName `
     -AccountName $accountName `
     -KeyvaultEncryption `
@@ -227,19 +237,21 @@ To configure customer-managed keys with manual updating of the key version, expl
 Remember to replace the placeholder values in brackets with your own values.
 
 ```azurecli
-key_vault_uri=$(az keyvault show \
+accountName="<storage-account>"
+
+keyVaultUri=$(az keyvault show \
     --name $kvName \
     --resource-group $rgName \
     --query properties.vaultUri \
     --output tsv)
 
-key_version=$(az keyvault key list-versions \
+keyVersion=$(az keyvault key list-versions \
     --name $keyName \
     --vault-name $kvName \
     --query [-1].kid \
     --output tsv | cut -d '/' -f 6)
 
-az storage account update
+az storage account update \
     --name $accountName \
     --resource-group $rgName \
     --encryption-key-name $keyName \
