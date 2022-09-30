@@ -511,7 +511,7 @@ The patch addresses invoices that don't have subline item fields detected such a
 > [!NOTE]
 > There are no updates to JavaScript SDK v3.1.0.
 
-| [Reference documentation](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest&preserve-view=true)| [npm package dependency form-recognizer 3.1.0](https://www.npmjs.com/package/@azure/ai-form-recognizer) |
+| [Reference documentation](/javascript/api/@azure/cognitiveservices-formrecognizer/formrecognizerclient?view=azure-node-latest&preserve-view=true)| [npm package dependency form-recognizer 3.1.0](https://www.npmjs.com/package/@azure/ai-form-recognizer) |
 
 ### [**Python**](#tab/python)
 
@@ -606,7 +606,7 @@ The updated Layout API table feature adds header recognition with column headers
 
 ### [**JavaScript**](#tab/javascript)
 
-| [Reference documentation](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest&preserve-view=true)| [npm package dependency form-recognizer 3.1.0](https://www.npmjs.com/package/@azure/ai-form-recognizer)  |
+| [Reference documentation](/javascript/api/@azure/cognitiveservices-formrecognizer/formrecognizerclient?view=azure-node-latest&preserve-view=true)| [npm package dependency form-recognizer 3.1.0](https://www.npmjs.com/package/@azure/ai-form-recognizer)  |
 
 #### **Non-breaking changes**
 
@@ -736,9 +736,9 @@ npm package version 3.1.0-beta.3
 
 * **New methods to analyze data from identity documents**:
 
-    **[azure-ai-form-recognizer-formrecognizerclient-beginrecognizeidentitydocumentsfromurl](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-preview&preserve-view=true&branch=main#beginRecognizeIdDocumentsFromUrl_string__BeginRecognizeIdDocumentsOptions_)**
+    **azure-ai-form-recognizer-formrecognizerclient-beginrecognizeidentitydocumentsfromurl**
 
-    **[beginRecognizeIdDocuments](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-preview&preserve-view=true&branch=main#@azure-ai-form-recognizer-formrecognizerclient-beginrecognizeidentitydocuments)**
+    **beginRecognizeIdDocuments**
 
     For a list of field values, _see_ [Fields extracted](./concept-id-document.md) in our Form Recognizer documentation.
 
@@ -751,7 +751,7 @@ npm package version 3.1.0-beta.3
 
 * Added support for a **[ReadingOrder](/javascript/api/@azure/ai-form-recognizer/formreadingorder?view=azure-node-latest&preserve-view=true to the URL)** type to the content recognition methods. This option enables you to control the algorithm that the service uses to determine how recognized lines of text should be ordered. You can specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
 
-* Split **[FormField](/javascript/api/@azure/ai-form-recognizer/formfield?view=azure-node-preview&preserve-view=true)** type into several different interfaces. This update shouldn't cause any API compatibility issues except in certain edge cases (undefined valueType).
+* Split **FormField** type into several different interfaces. This update shouldn't cause any API compatibility issues except in certain edge cases (undefined valueType).
 
 * Migrated to the **2.1-preview.3** Form Recognizer service endpoint for all REST API calls.
 

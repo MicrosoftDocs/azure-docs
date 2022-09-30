@@ -45,10 +45,11 @@ The intent of the table columns is explained by the following items:
 | [Marko](https://markojs.com/) | `public` | n/a |
 | [Meteor](https://www.meteor.com/) | `bundle` | n/a |
 | [Mithril](https://mithril.js.org/) | `dist` | n/a |
+| [NextJs](https://nextjs.org/) | `/` | n/a |
 | [Polymer](https://www.polymer-project.org/) | `build/default` | n/a |
 | [Preact](https://preactjs.com/) | `build` | n/a |
 | [React](https://reactjs.org/) | `build` | n/a |
-| [RedwoodJS](https://redwoodjs.com/) | `web/dist` | `yarn rw build` |
+| [RedwoodJS](https://redwoodjs.com/) | `web/dist` | `yarn rw build web` |
 | [Stencil](https://stenciljs.com/) | `www` | n/a |
 | [Svelte](https://svelte.dev/) | `public` | n/a |
 | [Three.js](https://threejs.org/) | `/` | n/a |
