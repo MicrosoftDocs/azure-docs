@@ -85,14 +85,34 @@ When you use a manual QoS capacity pool with, for example, an SAP HANA system, a
 
 Azure NetApp Files allows you to create volumes up to 500 TiB in size, exceeding the previous 100-TiB limit. Large volumes begin at a capacity of 102,401 GiB and scale up to 500 TiB, whereas regular Azure NetApp Files volumes, which are offered between 100 GiB and 102,400 GiB. 
 
-> [!IMPORTANT]
-> Large volumes for Azure NetApp Files is currently in public preview. This preview is offered under the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) and is controlled via Azure Feature Exposure Control (AFEC) settings on a per subscription basis. To access this feature, contact your account team. 
+### Register the feature 
+
+Large volumes for Azure NetApp Files is currently in public preview. This preview is offered under the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) and is controlled via Azure Feature Exposure Control (AFEC) settings on a per subscription basis. To access this feature, contact your account team. 
+
+Follow the registration steps if you're using the feature for the first time.
+
+1.  Register the feature by running the following commands:
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLargeVolumes
+    ```
+
+2. Check the status of the feature registration: 
+
+    > [!NOTE]
+    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is `Registered` before continuing.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLargeVolumes
+    ```
+
+You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ### Considerations and requirements for large volumes
 
 * Existing volumes cannot be resized over 100 TiB. You cannot convert Azure NetApp Files to large volumes.
-* Large volume cannot be resized below 100 TiB and can only be resized up to 30% of lowest provisioned size. 
 * Large volumes must be created at a size greater than 100 TiB. A single volume cannot exceed 500 TiB.  
+* Large volume cannot be resized below 100 TiB and can only be resized up to 30% of lowest provisioned size. 
 * You cannot use large volumes in a cross-region replication relationship.
 * You cannot create a large volume from a backup.
 * You cannot create a backup from a large volume.
@@ -111,7 +131,7 @@ Azure NetApp Files allows you to create volumes up to 500 TiB in size, exceeding
 
 Before you can use large volumes, you must first request [an increase in regional capacity quota](azure-netapp-files-resource-limits.md#request-limit-increase).
 
-Once your capacity quota has increased, you can create volumes that are up to 500 TiB in size. When creating a volume, after you designate the volume quota, you must select **Yes** for the **Large volume** field. Once created, you can manage your large volumes in the same you would standard volumes. 
+Once your capacity quota has increased, you can create volumes that are up to 500 TiB in size. When creating a volume, after you designate the volume quota, you must select **Yes** for the **Large volume** field. Once created, you can manage your large volumes in the same manner as standard volumes. 
 
 ## Next steps
 
