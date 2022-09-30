@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/30/2022
+ms.date: 09/30/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -44,8 +44,11 @@ The sign in flow involves the following steps:
 Depending on the users' SSO session and Azure AD identity settings, they might be prompted to:
 
 - Provide their email address or phone number.
+
 - Enter their password or sign in with the [Microsoft authenticator app](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6).
+
 - Complete multifactor authentication.
+
 - Accept the consent page. Your customer's tenant administrator can [grant tenant-wide admin consent to an app](../active-directory/manage-apps/grant-admin-consent.md). When consent is granted, the consent page won't be presented to users.
 
 Upon successful sign in, Azure AD returns a token to Azure AD B2C. Azure AD B2C validates and reads the token claims, and then returns a token to your application.
@@ -85,8 +88,7 @@ Finally, add the multitenant app to the Azure AD app gallery. Follow the instruc
     | Application (Client) ID | Provide the ID of [your Azure AD B2C application](#step-1-register-your-application-in-azure-ad-b2c). |
     | Application sign in URL|Provide the app sign in URL as it's configured in [Step 3. Prepare your app](#step-3-prepare-your-app).|
     | Multitenant| Select **Yes**. |
-    | | |
 
 ## Next steps
 
-- Learn how to [Publish your app to the Azure AD app gallery](../active-directory/manage-apps/v2-howto-app-gallery-listing.md).
+- Learn how to [Publish your Azure AD app to the Azure AD app gallery](../active-directory/manage-apps/v2-howto-app-gallery-listing.md).

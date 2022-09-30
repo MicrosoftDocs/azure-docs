@@ -3,7 +3,7 @@
 ## FRONT MATTER START
 title: Azure Active Directory B2C documentation # < 60 chars
 summary: >
-  Azure Active Directory B2C (Azure AD B2C) is a customer identity access management (CIAM) solution that enables you to sign up and sign in users into your apps. Also, use Azure AD B2C to secure your web APIs. Learn how to use Azure AD B2C with our guide, tutorials, and code samples.
+  Azure Active Directory B2C (Azure AD B2C) is a customer identity access management (CIAM) solution that enables you to sign up and sign in your customers into your apps and APIs. Your customers use their preferred social, enterprise, or local account identities to get single sign-on access to your applications. Learn how to use Azure AD B2C with our guide, tutorials, and code samples.
 brand: azure
 
 metadata:
@@ -23,7 +23,7 @@ metadata:
 ##HIGHLIGHTED CONTENT #############################################################################################################################
 highlightedContent:
   items:
-    - title: What is the Azure AD B2C?
+    - title: What is Azure AD B2C?
       itemType: overview # controls the icon image and super-title text
       url: overview.md
     - title: Azure AD features supported in Azure AD B2C
@@ -36,7 +36,7 @@ highlightedContent:
       url: technical-overview.md
       itemType: overview
     - title: Customer success scenarios
-      url: https://customers.microsoft.com/
+      url: https://customers.microsoft.com/en-us/search?sq=b2c&ff=story_product_categories%26%3EAzure&p=2&so=story_publish_date%20desc
       itemType: overview
     - title: Pricing
       url: https://azure.microsoft.com/pricing/details/active-directory-b2c/
@@ -47,7 +47,7 @@ highlightedContent:
 ## BAND 2 ####################################################################################################################################################
 productDirectory:
   sections:
-    - title: Authenticate and authorize your customers and apps for any application type.
+    - title: Authenticate and authorize for any app type
       summary: Select the app type that you want to build to access documentation focusing on it.
       items:
         ## ROW 1 ######################
@@ -87,8 +87,8 @@ productDirectory:
 
 ## BAND 3 - CONCEPTUAL CONTENT #############################################################################################################################
 conceptualContent:
-  title: Learn about Azure AD B2C
-  summary: Quickly access documentation for adding authentication and authorization to your applications. Use the documentation to also customize your applications to match your organization branding and your unique authentication flows. 
+  title: Quickly access Azure AD B2C documentation 
+  summary: Get quick access to our guides and tutorials for your most common scenarios. 
   items:
     ## CARD 1 ######################
     ##- title: Overview of Azure AD B2C
@@ -204,9 +204,6 @@ conceptualContent:
     ## CARD 6 ######################
     - title: Customize
       links:
-          - text: Customize user experiences using custom policies
-            url: index-create-custom-policy.yml
-            itemType: how-to-guide
           # - text: Define custom user attributes
             # url: user-flow-custom-attributes.md
             # itemType: how-to-guide
@@ -218,7 +215,10 @@ conceptualContent:
             itemType: how-to-guide
           - text: Use custom domains 
             url: custom-domain.md
-            itemType: how-to-guide   
+            itemType: how-to-guide  
+          - text: Customize user experiences using custom policies
+            url: index-create-custom-policy.yml
+            itemType: how-to-guide 
           # - text: Use API connectors 
             # url: add-api-connector.md?pivots=b2c-user-flow
             # itemType: how-to-guide                     
@@ -330,13 +330,13 @@ conceptualContent:
 
 ## BAND 4 - TOOLS ###########################################################################################################################################
 tools:
-  title: Authenticate and authorize your customers and apps by using Microsoft authentication libraries (MSAL) with code samples
+  title: Easy app with Microsoft authentication libraries (MSAL)
   summary: >
-    GitHub hosts the open-source Microsoft Authentication Library (MSAL). Microsoft builds and supports MSAL, so, we recommend it for any app type that uses Azure AD B2C service for authentication and authorization.
+    GitHub hosts the open-source Microsoft Authentication Library (MSAL). Microsoft builds and supports MSAL. Access and use our MSAL samples for the most popular programming languages and frameworks. 
   items:
   ## ROW 1 ######################
   - title: MSAL.NET
-    url: https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/1-WebApp-OIDC/1-5-B2C/README.md
+    url: https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi
     imageSrc: https://docs.microsoft.com/media/logos/logo_Csharp.svg
   - title: MSAL Android
     url: https://github.com/Azure-Samples/ms-identity-android-java#b2cmodefragment-class

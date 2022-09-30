@@ -6,11 +6,9 @@
   - name: About Azure AD B2C
     expanded: true
     href: overview.md
-  - name: Technical and feature overview
+  - name: Technical overview
     href: technical-overview.md
     displayName: Azure AD B2C architecture, SLA, Azure AD B2C high availability, Azure AD B2C SLA, HA
-  - name: Supported Azure AD features
-    href: supported-azure-ad-features.md
     # Add learn module
   - name: 'Authenticate users: NodeJs quick course'
     href: /learn/modules/authenticate-users-node-web-app-use-azure-active-directory-b2c/ 
@@ -58,6 +56,8 @@
   items:
   - name: Compare solutions for External Identities
     href: ../active-directory/external-identities/external-identities-overview.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
+  - name: Supported Azure AD features
+    href: supported-azure-ad-features.md
   - name: Learn authentication basics
     items:
     - name: Authentication and authorization
@@ -131,10 +131,10 @@
         href: client-credentials-grant-flow.md
       - name: Register a Microsoft Graph application
         href: microsoft-graph-get-started.md
-      - name: Publish app in Azure AD app gallery
-        href: publish-app-to-azure-ad-app-gallery.md  
       - name: Register a SAML application
         href: saml-service-provider.md?tabs=windows&pivots=b2c-custom-policy 
+      - name: Publish app in Azure AD app gallery
+        href: publish-app-to-azure-ad-app-gallery.md  
     - name: Create a user flow or custom policy
       items:
       - name: Sign-up or sign-in policy
