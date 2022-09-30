@@ -84,7 +84,7 @@
       href: howto-policy-approved-app-or-app-protection.md
     - name: No persistent browser session
       href: howto-policy-persistent-browser-session.md
-    - name: Require compliant or hybrid joined devices
+    - name: Require compliant device, hybrid joined, or MFA for users
       href: howto-conditional-access-policy-compliant-device.md
     - name: Require MFA for Intune enrollment
       href: /mem/intune/enrollment/multi-factor-authentication?toc=/azure/active-directory/conditional-access/TOC.json

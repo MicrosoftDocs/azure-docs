@@ -1,5 +1,5 @@
 ---
-title: User risk-based Conditional Access - Azure Active Directory
+title: User risk-based password change - Azure Active Directory
 description: Create Conditional Access policies using Identity Protection user risk
 
 services: active-directory

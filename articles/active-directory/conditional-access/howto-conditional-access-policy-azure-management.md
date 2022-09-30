@@ -1,5 +1,5 @@
 ---
-title: Conditional Access - Require MFA for Azure management - Azure Active Directory
+title: Require MFA for Azure management with Conditional Access - Azure Active Directory
 description: Create a custom Conditional Access policy to require multifactor authentication for Azure management tasks
 
 services: active-directory

@@ -15,7 +15,7 @@ ms.reviewer: calebb, lhuangnorth, spunukol
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional Access: Require approved client apps or app protection policy
+# Common Conditional Access policy: Require approved client apps or app protection policy
 
 People regularly use their mobile devices for both personal and work tasks. While making sure staff can be productive, organizations also want to prevent data loss from applications on devices they may not manage fully. 
 

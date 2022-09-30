@@ -1,6 +1,6 @@
 ---
-title: Conditional Access -  - Azure Active Directory
-description: Create a custom Conditional Access policy 
+title: Require reauthentication with Conditional Access - Azure Active Directory
+description: Create a custom Conditional Access policy requiring reauthentication
 
 services: active-directory
 ms.service: active-directory
@@ -15,7 +15,7 @@ ms.reviewer: lhuangnorth
 
 ms.collection: M365-identity-device-management
 ---
-# No persistent browser session
+# Common Conditional Access policy: Require reauthentication and disable browser persistence
 
 Protect user access on unmanaged devices by preventing browser sessions from remaining signed in after the browser is closed and setting a sign-in frequency to 1 hour.
 

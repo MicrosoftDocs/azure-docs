@@ -1,6 +1,6 @@
 ---
-title: Conditional Access -  - Azure Active Directory
-description: Create a custom Conditional Access policy 
+title: Block unsupported platforms with Conditional Access - Azure Active Directory
+description: Create a custom Conditional Access policy to block unsupported platforms
 
 services: active-directory
 ms.service: active-directory
@@ -15,7 +15,7 @@ ms.reviewer: lhuangnorth
 
 ms.collection: M365-identity-device-management
 ---
-# Block access for unknown or unsupported device platform
+# Common Conditional Access policy: Block access for unknown or unsupported device platform
 
 Users will be blocked from accessing company resources when the device type is unknown or unsupported.
 

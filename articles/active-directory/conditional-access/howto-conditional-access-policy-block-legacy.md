@@ -1,5 +1,5 @@
 ---
-title: Conditional Access - Block legacy authentication - Azure Active Directory
+title: Block legacy authentication with Conditional Access - Azure Active Directory
 description: Create a custom Conditional Access policy to block legacy authentication protocols
 
 services: active-directory

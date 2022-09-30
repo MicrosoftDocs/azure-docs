@@ -1,6 +1,6 @@
 ---
-title: Conditional Access - Require compliant or hybrid joined devices - Azure Active Directory
-description: Create a custom Conditional Access policy to require compliant or hybrid joined devices
+title: Require compliant, hybrid joined devices, or MFA - Azure Active Directory
+description: Create a custom Conditional Access policy to require compliant, hybrid joined devices, or multifactor authentication
 
 services: active-directory
 ms.service: active-directory
@@ -15,7 +15,7 @@ ms.reviewer: calebb, lhuangnorth
 
 ms.collection: M365-identity-device-management
 ---
-# Common Conditional Access policy: Require compliant, hybrid Azure AD joined device, or multifactor authentication for all users
+# Common Conditional Access policy: Require a compliant device, hybrid Azure AD joined device, or multifactor authentication for all users
 
 Organizations who have deployed Microsoft Intune can use the information returned from their devices to identify devices that meet compliance requirements such as:
 
