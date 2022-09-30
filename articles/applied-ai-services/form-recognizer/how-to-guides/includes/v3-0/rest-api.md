@@ -22,17 +22,18 @@ ms.author: lajanuar
 
 * curl command line tool installed.
 
+    > [!NOTE]
+    > Windows 10 and Windows 11 ship with a copy of cURL.
+    >
+    > To check, open the command prompt and type the command below. If the help options display, cURL is installed in your Windows environment.
+
+    ```console
+       curl -help
+    ```
+
+   If cURL is not installed, follow the links below:
   * [Windows](https://curl.haxx.se/windows/)
   * [Mac or Linux](https://learn2torials.com/thread/how-to-install-curl-on-mac-or-linux-(ubuntu)-or-windows)
-
-* **PowerShell version 7.*+** (or a similar command-line application.):
-  * [Windows](/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2&preserve-view=true)
-  * [macOS](/powershell/scripting/install/installing-powershell-on-macos?view=powershell-7.2&preserve-view=true)
-  * [Linux](/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.2&preserve-view=true)
-
-* To check your PowerShell version, type the following commands:
-  * Windows: `Get-Host | Select-Object Version`
-  * macOS or Linux: `$PSVersionTable`
 
 * A Form Recognizer (single-service) or Cognitive Services (multi-service) resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource, in the Azure portal, to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
@@ -43,20 +44,9 @@ ms.author: lajanuar
 
   :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-* You'll need a document file at a URL. For this project, you can use the sample forms provided in the table below for each feature:
+## Set your environment variables
 
-    **Sample documents**
-
-    | **Feature**   | **{modelID}**   | **{document-url}** |
-    | --- | --- |--|
-    | **Read model** | prebuilt-read | [Sample brochure](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png) |
-    | **Layout model** | prebuilt-layout | [Sample booking confirmation](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/layout.png) |
-    | **General document model** | prebuilt-document | [Sample SEC report](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) |
-    | **W-2 form model**  | prebuilt-tax.us.w2 | [Sample W-2 form](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/w2.png) |
-    | **Invoice model**  | prebuilt-invoice | [Sample invoice](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/raw/master/curl/form-recognizer/rest-api/invoice.pdf) |
-    | **Receipt model**  | prebuilt-receipt | [Sample receipt](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/receipt.png) |
-    | **ID document model**  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
-    | **Business card model**  | prebuilt-businessCard | [Sample business card](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg) |
+[!INCLUDE [environment-variables](set-environment-variables.md)]
 
 ## Analyze documents and get results
 
@@ -64,30 +54,86 @@ ms.author: lajanuar
 
 ### Analyze document (POST Request)
 
-Before you run the cURL command, make the following changes:
+Using the table below as a reference, replace `{modelID}` and `{document-url}` with your desired values:
 
-1. Replace `{endpoint}` with the endpoint value from your Azure portal Form Recognizer instance.
+| **Feature**   | **{modelID}**   | **{document-url}** |
+| --- | --- |--|
+| **Read model** | prebuilt-read | [Sample brochure](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/read.png) |
+| **Layout model** | prebuilt-layout | [Sample booking confirmation](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/layout.png) |
+| **General document model** | prebuilt-document | [Sample SEC report](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) |
+| **W-2 form model**  | prebuilt-tax.us.w2 | [Sample W-2 form](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/w2.png) |
+| **Invoice model**  | prebuilt-invoice | [Sample invoice](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/raw/master/curl/form-recognizer/rest-api/invoice.pdf) |
+| **Receipt model**  | prebuilt-receipt | [Sample receipt](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/receipt.png) |
+| **ID document model**  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
+| **Business card model**  | prebuilt-businessCard | [Sample business card](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg) |
 
-1. Replace `{key}` with the key value from your Azure portal Form Recognizer instance.
+### POST request
 
-1. Using the table below as a reference, replace `{modelID}` and `{your-document-url}` with your desired values.
-
-1. You'll need a document file at a URL. For this quickstart, you can use the sample forms provided in the table below for each feature.
-
-> [!IMPORTANT]
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](../../../../../key-vault/general/overview.md). For more information, *see* Cognitive Services [security](../../../../../cognitive-services/cognitive-services-security.md).
-
-#### POST request
+At a command prompt, run the following cURL command. We have added the endpoint and key environment variables created in the set environment variables section above. Replace those variables if your's differs from the code below. Remember to replace the `{modelID}` and `{document-url}` parameters.
 
 ```bash
-curl -v -i POST "{endpoint}/formrecognizer/documentModels/{modelID}:analyze?api-version=2022-08-31" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{'urlSource': '{your-document-url}'}"
+curl -i -X POST "%FR_ENDPOINT%formrecognizer/documentModels/{modelID}:analyze?api-version=2022-08-31" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: %FR_KEY%" --data-ascii "{'urlSource': '{document-url}'}"
 ```
+
+#### Format the cURL JSON response
+
+ The curl command line tool doesn't format API responses containing JSON document, which can make the content difficult to read. You can format the JSON response by including the pipe character followed by an output processing tool.
+
+#### [Windows](#tab/windows)
+
+### Use NodeJS
+
+* You can use the NodeJS **json tool** as a JSON formatter for curl.
+
+* If you don't have [Node.js](https://nodejs.org/about/releases/) installed, download and install the latest version.
+
+* Open a new command prompt and install the **json tool** with the following command :
+
+   ```console
+  npm install -g jsontool
+  ```
+
+* Now, you can prettify print JSON output by including `| json ` with your GET requests.
+
+  Example:
+
+  ```console
+   curl -i -X GET "{endpoint}formrecognizer/documentModels/prebuilt-read/analyzeResults/6f000000-a2xx-4dxx-95xx-869xyxyxyxyx?api-version=2022-08-31"-H "Ocp-Apim-Subscription-Key: {subscription key}" | json
+  ```
+
+#### [macOS](#tab/macOS)
+
+* The **json_pp** command tool ships with macOS and can be used as a JSON formatter for curl.
+
+* You can prettify print the JSON output by including `| json_pp` with your GET requests.
+
+   Example:
+
+ ```console
+   curl -i -X GET "{endpoint}formrecognizer/documentModels/prebuilt-read/analyzeResults/6f000000-a2xx-4dxx-95xx-869xyxyxyxyx?api-version=2022-08-31"-H "Ocp-Apim-Subscription-Key: {subscription key}" | json_pp
+  ```
+
+#### [Linux](#tab/linux)
+
+* The **json_pp** command line tool is pre-installed in most Linux distributions. If it's not included, you can use your distribution's package manager to install it.
+
+* You can prettify print the JSON output by including `| json_pp` with your GET requests.
+
+Example:
+
+ ```console
+   curl -i -X GET "{endpoint}formrecognizer/documentModels/prebuilt-read/analyzeResults/6f000000-a2xx-4dxx-95xx-869xyxyxyxyx?api-version=2022-08-31"-H "Ocp-Apim-Subscription-Key: {subscription key}" | json_pp
+  ```
+
+---
+
+
 
 #### POST response
 
-You'll receive a `202 (Success)` response that includes an **Operation-location** header. The value of this header contains a `resultID` that can be queried to get the status of the asynchronous operation:
+You'll receive a `202 (Success)` response that includes an **Operation-location** header. You will use the value of this header to retrieve the response results.
 
-:::image type="content" source="../../../media/quickstarts/operation-location-result-id.png" alt-text="{alt-text}":::
+:::image type="content" source="../../../media/how-to/rest-get-response.png" alt-text="{alt-text}":::
 
 ### Get analyze results (GET Request)
 
@@ -102,7 +148,7 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
 #### GET request
 
 ```bash
-curl -v -X GET "{POST response}" -H "Ocp-Apim-Subscription-Key: {key}"
+curl -v -X GET "{POST response}" -H "Ocp-Apim-Subscription-Key: {key}" | json
 ```
 
 #### Examine the response
