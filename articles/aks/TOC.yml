@@ -172,7 +172,7 @@
   items:
     - name: Cluster operations
       items:
-        - name: Use Virtical Pod Autoscaler (preview)
+        - name: Use Vertical Pod Autoscaler (preview)
           href: vertical-pod-autoscaler.md
         - name: Scale an AKS cluster
           href: scale-cluster.md
