@@ -144,6 +144,8 @@ In this example, you'll update a web page to display its content as you configur
     // Existing code in Program.cs
     // ... ...
 
+    builder.Services.AddRazorPages();
+
     // Bind configuration "TestApp:Settings" section to the Settings object
     builder.Services.Configure<Settings>(builder.Configuration.GetSection("TestApp:Settings"));
 
@@ -159,10 +161,10 @@ In this example, you'll update a web page to display its content as you configur
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
+        services.AddRazorPages();
+
         // Bind configuration "TestApp:Settings" section to the Settings object
         services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
-
-        services.AddRazorPages();
     }
     ```
     ---
