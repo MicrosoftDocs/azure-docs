@@ -369,7 +369,7 @@ Azure Load Testing enables you to view the results of the load test run directly
 - Total number of errors.
 - Error rate.
 
-In addition, the [load test results file](./how-to-export-test-results.md) is available as a workflow run artifact, which you can download for additional reporting.
+In addition, the [load test results file](./how-to-export-test-results.md) is available as a workflow run artifact, which you can download for further reporting.
 
 # [Azure Pipelines](#tab/pipelines)
 
@@ -409,9 +409,9 @@ In addition, the [load test results file](./how-to-export-test-results.md) is av
 
 ## Define test fail criteria
 
-Azure Load Testing enables you to define load test fail criteria. These are criteria that determine when a load test should pass or fail. For example, your load test should fail when the average response time is greater than a specific value, or when too many errors occur.
+Azure Load Testing enables you to define load test fail criteria. These criteria determine when a load test should pass or fail. For example, your load test should fail when the average response time is greater than a specific value, or when too many errors occur.
 
-When you run a load test as part of a CI/CD pipeline, the status of the pipeline run will reflect the status of the load test. This allows you to quickly identify performance regressions, or degraded application behavior when the application is experiencing high load.
+When you run a load test as part of a CI/CD pipeline, the status of the pipeline run will reflect the status of the load test. This approach allows you to quickly identify performance regressions, or degraded application behavior when the application is experiencing high load.
 
 In this section, you'll configure test fail criteria based on the average response time and the error rate.
 
