@@ -63,7 +63,7 @@ Here's an example. Assume you bought a reservation for five Standard_D1 VMs, the
 
 The reservation discount application ignores the meter used for VMs and only evaluates ServiceType. Look at the `ServiceType` value in `AdditionalInfo` to determine the instance flexibility group/series information for your VMs. The values are in your usage CSV file.
 
-You can't directly change the instance flexibility group/series of the reservation after purchase. However, you can *exchange* a VM reservation from one instance flexibility group/series to another. For more information about reservation exchanges, see [Exchanges and refunds for Azure Reservations](../reservations/exchange-and-refund-azure-reservations.md)
+You can't directly change the instance flexibility group/series of the reservation after purchase. However, you can *exchange* a VM reservation from one instance flexibility group/series to another. For more information about reservation exchanges, see [Exchanges and refunds for Azure Reservations](../reservations/exchange-and-refund-azure-reservations.md).
 
 ## Services that get VM reservation discounts
 
