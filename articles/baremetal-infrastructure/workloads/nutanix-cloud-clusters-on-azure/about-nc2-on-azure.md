@@ -1,6 +1,6 @@
 ---
-title: About NC2 on Azure Public Preview
-description: Learn about NC2 on Azure Public Preview and the benefits it offers.
+title: About Nutanix Cloud Clusters on Azure
+description: Learn about Nutanix Cloud Clusters on Azure and the benefits it offers.
 ms.topic: overview
 ms.subservice: baremetal-nutanix
 ms.date: 03/31/2021
