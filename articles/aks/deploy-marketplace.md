@@ -22,11 +22,41 @@ Included among these solutions are Kubernetes application-based Container offers
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
+## Register feature flags
+
+You must have registered the `Microsoft.KubernetesConfiguration/extensions` and `Microsoft.ContainerService/managedClusters` feature flags on your subscription. The following command will register both:
+
+```azurecli-interactive
+az feature register --name extensions --namespace Microsoft.KubernetesConfiguration
+az feature register --name managedClusters --namespace Microsoft.ContainerService
+```
+
+You can check on the registration status by using the az feature list command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.KubernetesConfiguration/extensions')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/managedClusters')].{Name:name,State:properties.state}"
+```
+
+Once ready, refresh the registration of the `Microsoft.KubernetesConfiguration` and `Microsoft.ContainerService`   resource providers by using the `az provider register` command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.KubernetesConfiguration
+az provider register --namespace Microsoft.ContainerService
+```
+
+
 ## Browse offers
 
 - Begin by visiting the Azure portal and searching for *"Marketplace"* in the top search bar.
 
-- You can search for an offer or publisher directly by name or browse all offers. To find Kubernetes application offers, use the *Product type* filter for *Azure Containers*. Once you've decided on an application, click on the offer.
+- You can search for an offer or publisher directly by name or browse all offers. To find Kubernetes application offers, use the *Product type* filter for *Azure Containers*. 
+
+- > [!IMPORTANT]
+  > The *Azure Containers* category includes both Kubernetes applications and standalone container images. This walkthrough is Kubernetes application-specific. If you find the steps to deploy an offer differ in some way, you are most likely trying to deploy a container image-based offer instead of a Kubernetes-application based offer.
+
+
+- Once you've decided on an application, click on the offer.
 
     :::image type="content" source="./media/deploy-marketplace/browse-marketplace-inline.png" alt-text="Screenshot of the Azure portal Marketplace offer page. The product type filter, set to Azure Containers, is highlighted and several offers are shown." lightbox="./media/deploy-marketplace/browse-marketplace-full.png":::
 

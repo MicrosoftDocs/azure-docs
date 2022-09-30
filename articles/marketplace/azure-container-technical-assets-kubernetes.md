@@ -53,7 +53,9 @@ Once your offer is published, your application will leverage the [cluster exte
 
 ## Grant access to your Azure Container Registry
 
-As part of the publishing process, Microsoft will deep copy your CNAB from your ACR to a Microsoft-owned, Azure Marketplace-specific ACR. This step requires you to grant Microsoft access to your registry. To accomplish this, we will create a service principal based off of a first-party application responsible for handling this process:
+As part of the publishing process, Microsoft will deep copy your CNAB from your ACR to a Microsoft-owned, Azure Marketplace-specific ACR. This step requires you to grant Microsoft access to your registry.
+
+Microsoft has created a first-party application responsible for handling this process with an `id` of `32597670-3e15-4def-8851-614ff48c1efa`. To begin, create a service principal based off of the application:
 
 # [Linux](#tab/linux)
 
@@ -71,6 +73,19 @@ Finally, create a role assignment to grant the service principal the ability to 
 
 ```azurecli-interactive
 az role assignment create --assignee <sp-id> --scope <registry-id> --role acrpull
+```
+
+Finally, register the `Microsoft.PartnerCenterIngestion` resource provider on the same subscription used to create the Azure Container Registry:
+
+```azurecli
+az login
+az provider register --namespace Microsoft.PartnerCenterIngestion --subscription <subscription-id>
+```
+
+Monitor the registration and confirm it has completed before proceeding:
+
+```azurecli-interactive
+az provider show -n Microsoft.PartnerCenterIngestion --subscription <subscription-id>
 ```
 
 # [Windows](#tab/windows)
@@ -91,10 +106,24 @@ Make note of the service principal's ID. Next, obtain your registry's full ID:
 Get-AzContainerRegistry -ResourceGroupName <resource-group> -Name <registry-name>
 ```
 
-Finally, create a role assignment to grant the service principal the ability to pull from your registry:
+Next, create a role assignment to grant the service principal the ability to pull from your registry:
 
 ```powershell-interactive
 New-AzRoleAssignment -ObjectId <sp-id> -Role acrpull -Scope <registry-id>
+```
+
+Finally, register the `Microsoft.PartnerCenterIngestion` resource provider on the same subscription used to create the Azure Container Registry:
+
+```powershell-interactive
+Connect-AzAccount
+Select-AzSubscription -SubscriptionId <subscription-id>
+Register-AzResourceProvider -ProviderNamespace Microsoft.PartnerCenterIngestion
+```
+
+Monitor the registration and confirm it has completed before proceeding:
+
+```powershell-interactive
+Get-AzResourceProvider -ProviderNamespace Microsoft.PartnerCenterIngestion
 ```
 
 ---

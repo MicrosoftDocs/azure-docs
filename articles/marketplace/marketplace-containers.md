@@ -16,7 +16,7 @@ Azure container offers help you publish your container image to Azure Marketplac
 
 Azure container offers are transaction offers that are deployed and billed through Azure Marketplace. The listing option a user sees is **Get It Now**.
 
-Use the Azure Container offer type when your solution is a Docker container image that's set up as a Kubernetes-based Azure Container instance.
+Use the Azure Container offer type when your solution is a Docker container image that's set up as a Kubernetes-based Azure Container instance or a Kubernetes application meant to be deployed on a managed Azure Kubernetes Service (AKS) cluster.
 
 > [!NOTE]
 > An Azure Container instance is a run-time docker instance that provides the fastest and simplest way to run a container in Azure, without having to manage any virtual machines or adopt a higher-level service. Container instances can be deployed directly to Azure or orchestrated by Azure Kubernetes Services or Azure Kubernetes Service Engine.  
@@ -107,12 +107,22 @@ You can choose to opt into Microsoft-supported marketing and sales channels. Whe
 
 ## Container offer requirements
 
+For a container image-based offer, the following requirements apply:
+
 | Requirement | Details |  
 |:--- |:--- |  
 | Billing and metering | Support either the free or BYOL billing model. |
 | Image built from a Dockerfile | Container images must be based on the Docker image specification and built from a Dockerfile. For more information about building Docker images, see the "Usage" section of [Dockerfile reference](https://docs.docker.com/engine/reference/builder/#usage). |
 | Hosting in an Azure Container Registry repository | Container images must be hosted in an Azure Container Registry repository. For more information about working with Azure Container Registry, see [Quickstart: Create a private container registry by using the Azure portal](../container-registry/container-registry-get-started-portal.md).<br><br> |
 | Image tagging | Container images must contain at least one tag (maximum number of tags: 16). For more information about tagging an image, see the `docker tag` page on the [Docker Documentation](https://docs.docker.com/engine/reference/commandline/tag) site. |
+
+For a Kubernetes application-based offer, the following requirements apply:
+
+| Requirement | Details |  
+|:--- |:--- |  
+| Billing and metering | Support one of the PerCore, PerEveryCoreInCluster, or BYOL billing models. |
+| Artifacts packaged as a Cloud Native Application Bundle (CNAB) | The Helm chart, manifest, createUiDefinition.json, and optional Azure Resource Manager template must be packaged as a CNAB. For more information, see [prepare technical assets][azure-kubernetes-technical-assets]. |
+| Hosting in an Azure Container Registry repository | The CNAB must be hosted in an Azure Container Registry repository. For more information about working with Azure Container Registry, see [Quickstart: Create a private container registry by using the Azure portal](../container-registry/container-registry-get-started-portal.md).<br><br> |
 
 ## Next steps
 

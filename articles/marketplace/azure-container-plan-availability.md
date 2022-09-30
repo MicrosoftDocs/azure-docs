@@ -1,6 +1,6 @@
 ---
-title: Set plan availability for an Azure Container offer in Microsoft AppSource.
-description: Set plan availability for an Azure Container offer in Microsoft AppSource.
+title: Set plan pricing and availability for an Azure Container offer in Microsoft AppSource.
+description: Set plan pricing and availability for an Azure Container offer in Microsoft AppSource.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
@@ -32,23 +32,22 @@ If you've already set prices for your plan in US dollar (USD) currency and add a
 
 When you remove a market, customers from that market who are using active deployments won't be able to create new deployments or scale up their existing deployments. Existing deployments aren't affected.
 
-Select Save to continue.
+Select *Save* to continue.
 
 ## Pricing
 
 For the License model, select *Custom price* to configure pricing for this plan, or *Bring your own license* (BYOL) to let customers use this plan with their existing license.
 
-For a custom priced plan, Microsoft will charge the customer for their hourly usage and bill them monthly. This is our Pay-as-you-go plan, where customers are only billed for the hours that they've used. When you select this plan, you can choose one of the following pricing options:
-
-- Free: Set the hourly price at 0 and your container offer is sold as equivalent to a free offer.
-
-- Per core: Your Azure Container offer is listed with pricing based on the critical CPU cores used. You provide the price for one CPU core and we’ll increment the pricing based on the size of the hardware used by your application for the critical cores you’ve tagged in your application as the ones that should generate usage.
-
-- Per every core in cluster: Your Azure Container offer is listed with pricing based on the CPU cores used. You provide the price for one CPU core and we’ll increment the pricing based on the size of the hardware used by your application.
-
 > [!NOTE]
 > To ensure the prices are correct before you publish them, export the pricing spreadsheet and review them in each market. Before you export pricing data, first select *Save draft* to save pricing changes.
 > When selecting a pricing option, Microsoft does the currency conversion for the pricing options selected.
+
+For a custom priced plan, Microsoft will charge the customer for their hourly usage and bill them monthly. This is our Pay-as-you-go plan, where customers are only billed for the hours that they've used. When you select this plan, you can choose one of the following pricing options:
+
+- Free: Set the hourly price at 0 and your container offer is sold as equivalent to a free offer.
+- Per core: Your Azure Container offer is listed with pricing based on the critical CPU cores used. You provide the price for one CPU core and we’ll increment the pricing based on the size of the hardware used by your application for the critical cores you’ve tagged in your application as the ones that should generate usage.
+- Per every core in cluster: Your Azure Container offer is listed with pricing based on the CPU cores used. You provide the price for one CPU core and we’ll increment the pricing based on the size of the hardware used by your application.
+
 
 ## Plan visibility
 
