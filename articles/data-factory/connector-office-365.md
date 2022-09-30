@@ -15,7 +15,7 @@ ms.author: jianleishen
 
 Azure Data Factory and Synapse Analytics pipelines integrate with [Microsoft Graph data connect](/graph/data-connect-concept-overview), allowing you to bring the rich organizational data in your Microsoft 365 (Office 365) tenant into Azure in a scalable way and build analytics applications and extract insights based on these valuable data assets. Integration with Privileged Access Management provides secured access control for the valuable curated data in Microsoft 365 (Office 365).  Please refer to [this link](/graph/data-connect-concept-overview) for an overview on Microsoft Graph data connect and refer to [this link](/graph/data-connect-policies#licensing) for licensing information.
 
-This article outlines how to use the Copy Activity to copy data and Data Flow to transform data from Microsoft 365 (Office 365). For an introduction to copy data, read [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity. For an introduction to transforming data, read [mapping data flow overview](concepts-data-flow-overview.md).
+This article outlines how to use the Copy Activity to copy data and Data Flow to transform data from Microsoft 365 (Office 365). For an introduction to copy data, read the [copy activity overview](copy-activity-overview.md). For an introduction to transforming data, read [mapping data flow overview](concepts-data-flow-overview.md).
 
 > [!NOTE]
 > Microsoft 365 Data Flow connector is currently in preview. To participate, use this sign-up form: [M365 + Analytics Preview](https://aka.ms/m365-analytics-preview).
@@ -334,7 +334,7 @@ To copy data from Microsoft 365 (Office 365), the following properties are suppo
 
 ## Transform data with the Microsoft 365 connector
 
-Microsoft 365 datasets can be used as source with mapping data flow taking care of flattening the dataset automatically. This allows the users to concentrate on leveraging the flattened dataset to accelerate their analytics scenarios.
+Microsoft 365 datasets can be used as a source with mapping data flows. The data flow will transform the data by flattening the dataset automatically. This allows users to concentrate on leveraging the flattened dataset to accelerate their analytics scenarios.
 
 ### Mapping data flow properties
 
@@ -344,21 +344,21 @@ To create a mapping data flow using the Microsoft 365 connector as a source, com
 
     :::image type="content" source="media/connector-office-365/connector-office-365-mapping-data-flow-data-flow-debug.png" alt-text="Screenshot of the data flow debug button in mapping data flow.":::
 
-1. In the mapping data flow editor, select **Add Source**.
+2. In the mapping data flow editor, select **Add Source**.
 
     :::image type="content" source="media/connector-office-365/connector-office-365-mapping-data-flow-add-source.png" alt-text="Screenshot of add source in mapping data flow.":::
 
-1. On the tab **Source settings**, select **Inline** in the **Source type** property, **Microsoft 365 (Office 365)** in the **Inline dataset type**, and the Microsoft 365 linked service that you have created earlier.
+3. On the tab **Source settings**, select **Inline** in the **Source type** property, **Microsoft 365 (Office 365)** in the **Inline dataset type**, and the Microsoft 365 linked service that you have created earlier.
 
     :::image type="content" source="media/connector-office-365/connector-office-365-mapping-data-flow-select-dataset.png" alt-text="Screenshot of the select dataset option in source settings of mapping data flow source.":::
 
-1. On the tab **Source options** select the **Table name** of the Microsoft 365 table that you would like to transform. Also select the **Auto flatten** option to decide if you would like data flow to auto flatten the source dataset.
+4. On the tab **Source options** select the **Table name** of the Microsoft 365 table that you would like to transform. Also select the **Auto flatten** option to decide if you would like data flow to auto flatten the source dataset.
 
     :::image type="content" source="media/connector-office-365/connector-office-365-mapping-data-flow-source-options.png" alt-text="Screenshot of the source options of mapping data flow source.":::
 
-1. For the tabs **Projection**, **Optimize** and **Inspect**, please follow [mapping data flow](concepts-data-flow-overview.md).
+5. For the tabs **Projection**, **Optimize** and **Inspect**, please follow [mapping data flow](concepts-data-flow-overview.md).
 
-1. On the tab **Data preview** click on the **Refresh** button to fetch a sample dataset for validation.
+6. On the tab **Data preview** click on the **Refresh** button to fetch a sample dataset for validation.
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
