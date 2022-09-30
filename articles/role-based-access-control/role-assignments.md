@@ -7,7 +7,7 @@ author: johndowns
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/15/2022
+ms.date: 09/30/2022
 ms.author: jodowns
 ---
 # Understand Azure role assignments
@@ -51,7 +51,7 @@ The following shows an example of the properties in a role assignment when displ
 }
 ```
 
-The following shows an example of the properties in a role assignment when displayed using the [Azure portal](role-assignments-list-portal.md), [Azure CLI](role-assignments-list-cli.md), or the [REST API](role-assignments-list-rest.md):
+The following shows an example of the properties in a role assignment when displayed using the [Azure CLI](role-assignments-list-cli.md), or the [REST API](role-assignments-list-rest.md):
 
 ```json
 {
