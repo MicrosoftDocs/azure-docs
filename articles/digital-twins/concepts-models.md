@@ -419,7 +419,7 @@ While designing models to reflect the entities in your environment, it can be us
 
 ### Upload and delete models in bulk
 
-Here are two sample projects that can simplify dealing with multiple models at once:
+Here are two sample projects that can simplify dealing with multiple models at once. They currently only work with [version 2 of DTDL](concepts-models.md#supported-dtdl-versions).
 * [Model uploader](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#uploadmodels): Once you're finished creating, extending, or selecting your models, you need to upload them to your Azure Digital Twins instance to make them available for use in your solution. If you have many models to upload, or if they have many interdependencies that would make ordering individual uploads complicated, you can use this model uploader sample to upload many models at once.
 * [Model deleter](https://github.com/Azure/opendigitaltwins-tools/tree/main/ADTTools#deletemodels): This sample can be used to delete all models in an Azure Digital Twins instance at once. It contains recursive logic to handle model dependencies through the deletion process. 
 
