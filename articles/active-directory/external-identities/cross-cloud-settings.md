@@ -1,6 +1,6 @@
 ---
 title: Configure B2B collaboration Microsoft cloud settings - Azure AD
-description: Use Microsoft cloud settings to enable cross-cloud B2B collaboration between sovereign (national) Microsoft Azure clouds (aka cross-cloud b2b).
+description: Use Microsoft cloud settings to enable cross-cloud B2B collaboration between sovereign (national) Microsoft Azure clouds.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
