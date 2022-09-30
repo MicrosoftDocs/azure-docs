@@ -264,7 +264,7 @@ deployment_id = result["id"]
 
 ### Deploy a model with Azure CLI
 
-The following Azure CLI command example shows how to use the Azure CLI to deploy your customized model. With the Azure CLI, you must specify a name for the deployment of your customized model. For more information about using the Azure CLI to deploy customized models, see <a href="https://learn.microsoft.com/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest" target="_blank">az cognitiveservices account deployment</a> in the <a href="https://learn.microsoft.com/cli/azure/?view=azure-cli-latest" target="_blank">Azure Command-Line Interface (CLI) documentation</a>. 
+The following Azure CLI command example shows how to use the Azure CLI to deploy your customized model. With the Azure CLI, you must specify a name for the deployment of your customized model. For more information about using the Azure CLI to deploy customized models, see [az cognitiveservices account deployment](/cli/azure/cognitiveservices/account/deployment) in the [Azure Command-Line Interface (CLI) documentation](/cli/azure).
 
 To run this Azure CLI command in a console window, you must replace the following placeholders with the corresponding values for your customized model:
 
@@ -345,8 +345,8 @@ When you're done with your customized model, you can delete the deployment and m
 
 You can use various methods to delete the deployment for your customized model:
 
-- <a href="https://learn.microsoft.com/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio#delete-your-model-deployment">Azure OpenAI Studio</a>
-- [Azure CLI](/cli/azure/cognitiveservices/account/deployment?view=azure-cli-latest&preserve-view=true#az-cognitiveservices-account-deployment-delete)
+- [Azure OpenAI Studio](/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio#delete-your-model-deployment)</a>
+- [Azure CLI](/cli/azure/cognitiveservices/account/deployment?preserve-view=true#az-cognitiveservices-account-deployment-delete)
 - [REST APIs](../reference.md#delete-a-deployment) 
 - Python SDK
 
@@ -362,7 +362,7 @@ result = openai.Deployment.delete(sid=deployment_id)
 
 Similarly, you can use various methods to delete your customized model:
 
-- <a href="https://learn.microsoft.com/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio#delete-your-customized-model">Azure OpenAI Studio</a>
+- [Azure OpenAI Studio](/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio#delete-your-customized-model)
 - [REST APIs](../reference.md#delete-a-specific-fine-tuning-job) 
 - Python SDK
 
@@ -381,8 +381,8 @@ result = openai.FineTune.delete(sid=job_id)
 
 You can optionally delete training and validation files you've uploaded for training, and result files generated during training, from your Azure OpenAI subscription. You can use the following methods to delete your training, validation, and result files:
 
-- <a href="https://learn.microsoft.com/azure/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio#delete-your-training-files">Azure OpenAI Studio</a>
- [REST APIs](../reference.md#delete-a-file) 
+- [Azure OpenAI Studio](/cognitive-services/openai/how-to/fine-tuning?pivots=programming-language-studio#delete-your-training-files)
+- [REST APIs](../reference.md#delete-a-file) 
 - Python SDK
 
 The following Python example uses the Python SDK to delete the training, validation, and result files for your customized model.
