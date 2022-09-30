@@ -264,10 +264,10 @@ For more information, see
 Teams Meeting Notes is a feature that allows users to take notes during their Teams meeting. This support document describes the feature in detail: [Take meeting notes in Teams](https://support.microsoft.com/office/take-meeting-notes-in-teams-3eadf032-0ef8-4d60-9e21-0691d317d103).  
 
 **Known issues** <br>
-When you change a user’s UPN, the meeting notes created under the old UPN are no longer accessible by the user whose UPN changed or by any other user who had access to the meeting notes.  
+When a user’s UPN changes, the meeting notes created under the old UPN are no longer accessible by that user or any other user via Microsoft Teams or the Meeting Notes URL.   
 
 **Workaround**<br>
-After the UPN change, users can recover the meeting notes they lost access to from OneDrive. Meeting notes created after the UPN change are not affected.  
+After the UPN change, users can recover the meeting notes they lost access to by downloading them from OneDrive (navigate to My Files -> Microsoft Teams Data -> Wiki). New meeting notes created after the UPN change are not affected and should behave as normal.  
 
 
 
