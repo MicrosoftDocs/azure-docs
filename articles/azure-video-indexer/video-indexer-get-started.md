@@ -28,9 +28,7 @@ This quickstart shows you how to sign in to the Azure Video Indexer [website](ht
 
 [!INCLUDE [accounts](./includes/create-accounts-intro.md)]
 
-## Sign up for Azure Video Indexer
-
-## Upload a video using the Azure Video Indexer website
+## Sign up and upload a video
 
 ### Supported browsers
 
@@ -51,7 +49,7 @@ The following list shows the supported browsers that you can use for the Azure V
 
 See the [input container/file formats](/azure/media-services/latest/encode-media-encoder-standard-formats-reference) article for a list of file formats that you can use with Azure Video Indexer.
 
-### Upload a video
+### Upload 
 
 1. Sign in on the [Azure Video Indexer](https://www.videoindexer.ai/) website.
 1. To upload a video, press the **Upload** button or link.
