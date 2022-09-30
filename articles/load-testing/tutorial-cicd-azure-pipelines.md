@@ -277,6 +277,86 @@ To create and run the load test, the Azure Pipelines definition uses the [Azure 
 
 # [GitHub Actions](#tab/github)
 
+You'll create a GitHub Actions workflow in your fork of the sample application repository. This repository contains the following items:
+
+- The sample application source code.
+- The *.github/workflows/workflow.yml* GitHub Actions workflow.
+- The *SampleApp.jmx* JMeter test script.
+- The *SampleApp.yaml* Azure Load Testing configuration file.
+
+To create and run the load test, the GitHub Actions workflow uses the [Azure Load Testing Action](https://github.com/marketplace/actions/azure-load-testing) from the GitHub Actions Marketplace.
+
+The sample application repository already contains a sample workflow file *.github/workflows/workflow.yml*. The GitHub Actions workflow performs the following steps for every update to the main branch:
+
+
+- Invoke Azure Load Testing by using the [Azure Load Testing Action](https://github.com/marketplace/actions/azure-load-testing) and the sample Apache JMeter script *SampleApp.jmx* and the load test configuration file *SampleApp.yaml*.
+
+1. Open the *.github/workflows/workflow.yml* GitHub Actions workflow file in your sample application's repository.
+
+1. Notice the `loadTest` job, which creates and runs the load test:
+
+    - The `azure/login` action authenticates with Azure, by using the `AZURE_CREDENTIALS` secret to pass the service principal credentials.
+
+        ```yml
+          - name: Login to Azure
+            uses: azure/login@v1
+            continue-on-error: false
+            with:
+              creds: ${{ secrets.AZURE_CREDENTIALS }}
+        ```
+
+    - The `azure/arm-deploy` action deploys a new Azure load testing resource in your Azure subscription.
+
+        ```yml
+            - name: Create Azure Load Testing resource
+                    uses: azure/arm-deploy@v1
+                    with:
+                      resourceGroupName: ${{ env.LOAD_TEST_RESOURCE_GROUP }}
+                      template: ./ARMTemplate/template.json
+                      parameters: ./ARMTemplate/parameters.json name=${{ env.LOAD_TEST_RESOURCE }} location="${{ env.LOCATION }}"
+        ```
+
+    - The `azure/load-testing` [Azure Load Testing Action](https://github.com/marketplace/actions/azure-load-testing) creates and starts a load test. This action uses the `SampleApp.yaml` [load test configuration file](./reference-test-config-yaml.md), which contains the configuration parameters for the load test, such as the number of parallel test engines.
+
+        ```yml
+          - name: 'Azure Load Testing'
+            uses: azure/load-testing@v1
+            with:
+              loadTestConfigFile: 'SampleApp.yaml'
+              loadTestResource: ${{ env.LOAD_TEST_RESOURCE }}
+              resourceGroup: ${{ env.LOAD_TEST_RESOURCE_GROUP }}
+              env: |
+                [
+                  {
+                  "name": "webapp",
+                  "value": "${{ env.AZURE_WEBAPP_NAME }}.azurewebsites.net"
+                  }
+                ]          
+        ```
+
+        If a load test already exists, the `azure/load-testing` action won't create a new load test, but will add a test run to this load test. To identify regressions over time, you can then [compare multiple test runs](./how-to-compare-multiple-test-runs.md).
+    
+1. Replace the following placeholder text at the beginning of the workflow definition file:
+
+    These variables are used to configure the deployment of the sample application, and to create the load test.
+
+    |Placeholder  |Value  |
+    |---------|---------|
+    |`<Name of your webapp>`     | The name of the Azure App Service web app. |
+    |`<Name of your load test resource>`     | The name of your Azure Load Testing resource. |
+    |`<Name of your load test resource group>`     | The name of the resource group that contains the Azure Load Testing resource. |
+
+    ```yaml
+    env:
+      AZURE_WEBAPP_NAME: "<Name of your webapp>"    # set this to your application's name
+      LOAD_TEST_RESOURCE: "<Name of your load test resource>"
+      LOAD_TEST_RESOURCE_GROUP: "<Name of your load test resource group>"
+    ```
+
+1. Commit your changes to the main branch.
+
+    The commit will trigger the GitHub Actions workflow in your repository. Verify that the workflow is running by going to the **Actions** tab.
+
 ---
 
 ## View load test results
@@ -295,7 +375,7 @@ To view the results of the load test in the pipeline log:
 
     After the load test finishes, you can view the test summary information and the client-side metrics in the pipeline log. The log also shows the URL to go to the Azure Load Testing dashboard for this load test.
 
-2. In the pipeline log view, select **Load Test**, and then select **1 artifact produced** to download the result files for the load test.
+1. In the pipeline log view, select **Load Test**, and then select **1 artifact produced** to download the result files for the load test.
 
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/create-pipeline-download-results.png" alt-text="Screenshot that shows how to download the load test results.":::
 
