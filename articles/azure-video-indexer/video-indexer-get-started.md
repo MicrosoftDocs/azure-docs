@@ -9,6 +9,8 @@ ms.custom: mode-other
 
 # Quickstart: How to sign up and upload your first video
 
+[!INCLUDE [accounts](./includes/arm-accounts.md)]
+
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
 
 This quickstart shows you how to sign in to the Azure Video Indexer [website](https://www.videoindexer.ai/) and how to upload your first video. 
