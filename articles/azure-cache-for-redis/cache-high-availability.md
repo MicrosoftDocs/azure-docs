@@ -31,7 +31,7 @@ Applicable tiers: **Standard**, **Premium**, **Enterprise**, **Enterprise Flash*
 
 Azure Cache for Redis has a high availability architecture that ensures your managed instance is functioning, even when outages affect the underlying virtual machines (VMs). Whether the outage is planned or unplanned outages, Azure Cache for Redis delivers much greater percentage availability rates than what's attainable by hosting Redis on a single VM.
 
-An Azure Cache for Redis in the Standard or Premium tier runs on a pair of Redis servers by default. The two servers are hosted on dedicated VMs. Open-source Redis allows only one server to handle data write requests.
+An Azure Cache for Redis in the applicable tiers runs on a pair of Redis servers by default. The two servers are hosted on dedicated VMs. Open-source Redis allows only one server to handle data write requests.
 
 With Azure Cache for Redis, one server is the _primary_ node, while the other is the _replica_. After it provisions the server nodes, Azure Cache for Redis assigns primary and replica roles to them. The primary node usually is responsible for servicing write and read requests from  clients. On a write operation, it commits a new key and a key update to its internal memory and replies immediately to the client. It forwards the operation to the _replica_ asynchronously.
 
