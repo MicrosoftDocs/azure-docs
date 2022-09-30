@@ -53,7 +53,6 @@
     - name: "Migrate endpoints"
       displayName: migration, v1, v2
       href: ../migrate-to-v2-deploy-endpoints.md  
-
 - name: Concepts (v1)
   items:
   - name: Model training
@@ -85,7 +84,6 @@
   expanded: true
   items:
     - name: Python get started (Day 1)
-      expanded: true
       items:
         - name: 1. Run a Python script
           href: tutorial-1st-experiment-hello-world.md
