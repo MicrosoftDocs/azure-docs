@@ -93,6 +93,8 @@ For Unix, run this command:
 
 # [Python](#tab/python)
 
+### Clone the sample repository
+
 To run the training examples, first clone the examples repository and change into the `sdk` directory:
 
 ```bash
@@ -103,9 +105,48 @@ cd azureml-examples/sdk
 > [!TIP]
 > Use `--depth 1` to clone only the latest commit to the repository, which reduces time to complete the operation.
 
+### Connect to Azure Machine Learning workspace
+
+The [workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
+
+1. Import the required libraries:
+
+    ```python
+    # import required libraries
+    from azure.ai.ml import MLClient
+    from azure.ai.ml.entities import (
+        ManagedOnlineEndpoint,
+        ManagedOnlineDeployment,
+        Model,
+        Environment,
+        CodeConfiguration,
+    )
+    from azure.identity import DefaultAzureCredential
+    ```
+
+1. Configure workspace details and get a handle to the workspace:
+
+    To connect to a workspace, we need identifier parameters - a subscription, resource group and workspace name. We'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. This example uses the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential).
+
+    ```python
+    # enter details of your AzureML workspace
+    subscription_id = "<SUBSCRIPTION_ID>"
+    resource_group = "<RESOURCE_GROUP>"
+    workspace = "<AZUREML_WORKSPACE_NAME>"
+    ```
+
+    ```python
+    # get a handle to the workspace
+    ml_client = MLClient(
+        DefaultAzureCredential(), subscription_id, resource_group, workspace
+    )
+    ```
+
 ---
 
 ## Review the endpoint and deployment configurations
+
+# [Azure CLI](#tab/azure-cli)
 
 The following snippet shows the *endpoints/online/managed/sample/endpoint.yml* file: 
 
@@ -155,6 +196,20 @@ For more information about the YAML schema, see the [online endpoint YAML refere
 > 1. Use the [endpoint YAML](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/kubernetes/kubernetes-endpoint.yml) to target Kubernetes instead of the managed endpoint YAML. You'll need to edit the YAML to change the value of `target` to the name of your registered compute target. You can use this [deployment.yaml](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/kubernetes/kubernetes-blue-deployment.yml) that has additional properties applicable to Kubernetes deployment.
 >
 > All the commands that are used in this article (except the optional SLA monitoring and Azure Log Analytics integration) can be used either with managed endpoints or with Kubernetes endpoints.
+
+# [Python](#tab/python)
+
+
+
+
+
+
+
+
+
+
+
+---
 
 ### Register your model and environment separately
 
