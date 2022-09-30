@@ -160,31 +160,34 @@ The types **Count** and **“Sum** can be misleading for certain metrics (connec
 - Expired Keys
   - The number of items expired from the cache during the specified reporting interval. This value maps to `expired_keys` from the Redis INFO command.
 - Geo Replication Connectivity Lag (preview)
-  - Depicts the time (in seconds) since the last successful data synchronization between geo-primary & geo-secondary. If the link goes down, this value continues to increase, indicating a problem.
-  -**This metric is only emitted from the geo-secondary cache instance. On the geo-primary instance, this metric will have no value.** 
-  -This metric is only available for Premium tier geo-replication enabled caches.
+  - Depicts the time, in seconds, since the last successful data synchronization between geo-primary & geo-secondary. If the link goes down, this value continues to increase, indicating a problem.
+  - This metric is only emitted **from the geo-secondary** cache instance. On the geo-primary instance, this metric has no value.
+  - This metric is only available in the Premium tier for caches with geo-replication enabled.
 - Geo Replication Data Sync Offset (preview)
-  - Depicts the approximate amount of data in bytes that has yet to be synchronized to geo-secondary cache.
-  - **This metric is only emitted from the geo-primary cache instance. On the geo-secondary instance, this metric will have no value**
-  - This metric is only available for Premium tier geo-replication enabled caches.
+  - Depicts the approximate amount of data, in bytes, that has yet to be synchronized to geo-secondary cache.
+  - This metric is only emitted **from the geo-secondary** cache instance. On the geo-primary instance, this metric has no value.
+  - This metric is only available in the Premium tier for caches with geo-replication enabled.
 - Geo Replication Full Sync Event Finished (preview)
   - Depicts the completion of full synchronization between geo-replicated caches. When you see lots of writes on geo-primary, and replication between the two caches can’t keep up, then a full sync is needed. A full sync involves copying the complete data from geo-primary to geo-secondary by taking an RDB snapshot rather than a partial sync that occurs on normal instances. See [this page](https://redis.io/docs/manual/replication/#how-redis-replication-works) for a more detailed explanation.
   - This metric reports zero most of the time because geo-replication uses partial resynchronizations for any new data added after the initial full synchronization.
-  - **This metric is only emitted from the geo-secondary cache instance. On the geo-primary instance, this metric will have no value.** 
-  - This metric is only available for Premium tier geo-replication enabled caches.
+  - This metric is only emitted **from the geo-secondary** cache instance. On the geo-primary instance, this metric has no value.
+  - This metric is only available in the Premium tier for caches with geo-replication enabled.
+
 - Geo Replication Full Sync Event Started (preview)
   - Depicts the start of full synchronization between geo-replicated caches. When there are a lot of writes in geo-primary, and replication between the two caches can’t keep up, then a full sync is needed. A full sync involves copying the complete data from geo-primary to geo-secondary by taking an RDB snapshot rather than a partial sync that occurs on normal instances. See [this page](https://redis.io/docs/manual/replication/#how-redis-replication-works) for a more detailed explanation.
   - This metric reports zero most of the time because geo-replication uses partial resynchronizations for any new data added after the initial full synchronization.
-  - **This metric is only emitted from the geo-secondary cache instance. On the geo-primary instance, this metric will have no value.** 
-  - This metric is only available for Premium tier geo-replication enabled caches.
+  - This metric is only emitted **from the geo-secondary** cache instance. On the geo-primary instance, this metric has no value.
+  - This metric is only available in the Premium tier for caches with geo-replication enabled.
+
 - Geo Replication Healthy
   - Depicts the status of the geo-replication link between caches. There can be two possible states that the replication link can be in:
     - 0 disconnected/unhealthy
     - 1 – healthy
-  - **This metric is only emitted from the geo-secondary cache instance. On the geo-primary instance, this metric will have no value.**  
-  - This feature is GA for the Enterprise and Enterprise Flash tiers, and in preview on the Premium tier.
+  - This metric is only emitted **from the geo-secondary** cache instance. On the geo-primary instance, this metric has no value.
+  - This metric is only available in the Premium tier for caches with geo-replication enabled.
+
 > [!IMPORTANT]
-> Geo-replication metrics will be affected by monthly internal maintenance operations.The Azure Cache for Redis service periodically patches all caches with the latest platform features and improvements. During these updates, each cache node will be taken offline, which will temporarily disable the geo-replication link. If your geo replication link is unhealthy, check to see if it was caused by a patching event on either the geo-primary or geo-secondary cache by going to the **Diagnose and Solve Problems** blade in the portal. Depending on the amount of data in the cache, the downtime from patching can take anywhere from a few minutes to an hour. If the geo-replication link is unhealthy for over an hour, [file a support request](https://learn.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). 
+> Geo-replication metrics are affected by monthly internal maintenance operations. The Azure Cache for Redis service periodically patches all caches with the latest platform features and improvements. During these updates, each cache node is taken offline, which temporarily disables the geo-replication link. If your geo replication link is unhealthy, check to see if it was caused by a patching event on either the geo-primary or geo-secondary cache by using **Diagnose and Solve Problems**  from the Resource menu in the portal. Depending on the amount of data in the cache, the downtime from patching can take anywhere from a few minutes to an hour. If the geo-replication link is unhealthy for over an hour, [file a support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 >
 - Gets
   - The number of get operations from the cache during the specified reporting interval. This value is the sum of the following values from the Redis INFO all command: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit`, and `cmdstat_getrange`, and is equivalent to the sum of cache hits and misses during the reporting interval.
