@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 07/27/2022
+ms.date: 09/30/2022
 ---
 
 #  Azure Web PubSub service internals
@@ -66,7 +66,7 @@ The events fall into two categories:
 * Synchronous events (blocking)
     Synchronous events block the client workflow. When such an event trigger fails, the service drops the client connection.
     * `connect`
-    * `message`: If subprotocol is not used and the service can't find any [event handler](#event-handler) or event listener to deliver the event, the service also drops the client connection.
+    * `message`: If subprotocol is not used and the service can't find any [event handler](#event-handler) or [event listener](#event-listener) to deliver the event, the service also drops the client connection.
 * Asynchronous events (non-blocking)
     Asynchronous events don't block the client workflow, it acts as some notification to the upstream event handler or event listener. When such an event trigger fails, the service logs the error detail.
     * `connected`

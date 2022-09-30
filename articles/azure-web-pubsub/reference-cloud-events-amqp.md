@@ -5,7 +5,7 @@ author: Y-Sindo
 ms.author: zityang
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 09/23/2021
+ms.date: 09/30/2022
 ---
 
 # CloudEvents AMQP extension for Azure Web PubSub
