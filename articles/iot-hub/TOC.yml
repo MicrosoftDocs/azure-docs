@@ -97,9 +97,14 @@
       - name: IoT Hub endpoints
         displayName: multi-tenant service, resource provider, device identity management, device identities, device twin management, jobs management, device endpoints, service endpoints, custom endpoints, endpoint health
         href: iot-hub-devguide-endpoints.md
-      - name: Query language
-        displayName: SQL-like, module twin queries,  device queries,  set of device twins, RegistryManager, query expressions, jobs queries
-        href: iot-hub-devguide-query-language.md
+      - name: Queries
+        items:
+        - name: Query language overview
+          href: iot-hub-devguide-query-language.md
+        - name: Device and module twin queries
+          href: query-twins.md
+        - name: Job queries
+          href: query-jobs.md
       - name: Quotas and throttling
         displayName: jobs device operations, traffic shaping, device identity registry operations, device connections throttle, latency
         href: iot-hub-devguide-quotas-throttling.md
