@@ -1,5 +1,5 @@
 ---
-title: Azure Elastic SAN Networking (preview)
+title: Azure Elastic SAN networking (preview)
 description: An overview of Azure Elastic SAN (preview), a service that enables you to create and use network file shares in the cloud using either SMB or NFS protocols.
 author: roygara
 ms.service: storage
