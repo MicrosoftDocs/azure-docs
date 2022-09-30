@@ -346,7 +346,7 @@ device.objectId -ne null
 
 ## Extension properties and custom extension properties
 
-Extension attributes and custom extension properties are supported as string properties in dynamic membership rules. [Extension attributes](/graph/api/resources/onpremisesextensionattributes) can be synced from on-premises Window Server Active Directory or updated using Microsoft Graph and take the format of "ExtensionAttributeX", where X equals 1 - 15. Here's an example of a rule that uses an extension attribute as a property:
+Extension attributes and custom extension properties are supported as string properties in dynamic membership rules. [Extension attributes](/graph/api/resources/onpremisesextensionattributes) can be synced from on-premises Window Server Active Directory or updated using Microsoft Graph and take the format of "ExtensionAttributeX", where X equals 1 - 15. Multi-value extension properties are not supported in dynamic membership rules. Here's an example of a rule that uses an extension attribute as a property:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")

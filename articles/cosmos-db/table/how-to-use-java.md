@@ -6,8 +6,8 @@ ms.subservice: cosmosdb-table
 ms.devlang: Java
 ms.topic: sample
 ms.date: 12/10/2020
-author: sakash279
-ms.author: akshanka
+author: rothja
+ms.author: jroth
 ms.custom: devx-track-java
 ---
 

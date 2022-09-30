@@ -281,7 +281,7 @@ curl -X GET -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: applicat
         "value": [
           {
             "displayName": "source1",
-            "sourceUri": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/overview/overview",
+            "sourceUri": "https://learn.microsoft.com/azure/cognitive-services/qnamaker/overview/overview",
             "sourceKind": "url",
             "lastUpdatedDateTime": "2021-05-01T15:13:22Z"
           },
@@ -669,7 +669,7 @@ curl -X PATCH -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: applic
         "op": "add",
         "value":{
             "id": 1,
-            "answer": "The latest question answering docs are on https://docs.microsoft.com",
+            "answer": "The latest question answering docs are on https://learn.microsoft.com",
             "source": "source5",
             "questions": [
                 "Where do I find docs for question answering?"

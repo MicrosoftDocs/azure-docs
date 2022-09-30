@@ -945,4 +945,4 @@ Consider the following takeaways from this project:
 
 You have completed this series of C# tutorials - you should have gained valuable knowledge of the Azure Cognitive Search APIs.
 
-For further reference and tutorials, consider browsing [Microsoft Learn](/learn/browse/?products=azure), or the other tutorials in the [Azure Cognitive Search documentation](./index.yml).
+For further reference and tutorials, consider browsing the [Microsoft Learn training catalog](/training/browse/?products=azure) or the other tutorials in the [Azure Cognitive Search documentation](./index.yml).
