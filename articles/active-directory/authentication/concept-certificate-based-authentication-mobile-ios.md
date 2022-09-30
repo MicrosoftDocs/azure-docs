@@ -1,12 +1,12 @@
 ---
-title: Azure Active Directory certificate-based authentication on mobile devices (Android and iOS) - Azure Active Directory
-description: Learn about Azure Active Directory certificate-based authentication on mobile devices (Android and iOS)
+title: Azure Active Directory certificate-based authentication on iOS devices - Azure Active Directory
+description: Learn about Azure Active Directory certificate-based authentication on iOS devices
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/23/2022
+ms.date: 09/30/2022
 
 ms.author: justinha
 author: vimrang
@@ -16,18 +16,17 @@ ms.reviewer: vimrang
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
-# Azure Active Directory certificate-based authentication on mobile devices (Android and iOS)
+# Azure Active Directory certificate-based authentication on iOS
 
-Android and iOS devices can use certificate-based authentication (CBA) to authenticate to Azure Active Directory (Azure AD) using a client certificate on their device when connecting to:
+Devices that run iOS can use certificate-based authentication (CBA) to authenticate to Azure Active Directory (Azure AD) using a client certificate on their device when connecting to:
 
 - Office mobile applications such as Microsoft Outlook and Microsoft Word
 - Exchange ActiveSync (EAS) clients
 
-Azure AD CBA is supported for certificates on-device on native browsers as well as on Microsoft first-party applications on both iOS and Android devices. 
+Azure AD CBA is supported for certificates on-device on native browsers as well as on Microsoft first-party applications on iOS devices. 
 
 ## Prerequisites
 
-- Android version must be Android 5.0 (Lollipop) or later.
 - iOS version must be iOS 9 or later.
 - Microsoft Authenticator is required for Office applications and Outlook on iOS.
 
@@ -51,8 +50,6 @@ Azure AD CBA is supported for certificates on-device on native browsers as well 
 
 On iOS 9 or later, the native iOS mail client is supported. 
 
-Certain Exchange ActiveSync applications on Android 5.0 (Lollipop) or later are supported. 
-
 To determine if your email application supports Azure AD CBA, contact your application developer.
 
 ## Known issue
@@ -66,7 +63,7 @@ On iOS, users will see a "double prompt", where they must click the option to us
 - [Limitations with Azure AD CBA](concept-certificate-based-authentication-limitations.md)
 - [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
 - [Windows SmartCard logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
-- [CertificateUserIDs](concept-certificate-based-authentication-certificateuserids.md)
+- [Certificate user IDs](concept-certificate-based-authentication-certificateuserids.md)
 - [How to migrate federated users](concept-certificate-based-authentication-migration.md)
 - [FAQ](certificate-based-authentication-faq.yml)
 

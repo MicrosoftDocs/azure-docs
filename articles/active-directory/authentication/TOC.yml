@@ -197,8 +197,10 @@
       - name: Windows SmartCard logon
         href: concept-certificate-based-authentication-smartcard.md
       - name: Mobile devices
-        href: concept-certificate-based-authentication-mobile.md
-      - name: Sync rules for certificateUserIds
+        href: concept-certificate-based-authentication-mobile-ios.md
+      - name: Mobile devices
+        href: concept-certificate-based-authentication-mobile-android.md
+      - name: Certificate user IDs
         href: concept-certificate-based-authentication-certificateuserids.md
       - name: Migrate federated users
         href: concept-certificate-based-authentication-migration.md

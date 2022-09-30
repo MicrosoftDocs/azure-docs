@@ -399,6 +399,6 @@ To enable CBA and configure username bindings using Graph API, complete the foll
 - [Limitations with Azure AD CBA](concept-certificate-based-authentication-limitations.md)
 - [Windows SmartCard logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
 - [Azure AD CBA on mobile devices (Android and iOS)](concept-certificate-based-authentication-mobile.md)
-- [CertificateUserIDs](concept-certificate-based-authentication-certificateuserids.md)
+- [Certificate user IDs](concept-certificate-based-authentication-certificateuserids.md)
 - [How to migrate federated users](concept-certificate-based-authentication-migration.md)
 - [FAQ](certificate-based-authentication-faq.yml)
