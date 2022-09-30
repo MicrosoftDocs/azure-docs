@@ -42,7 +42,7 @@ The Azure Machine Learning SDK for Python allows you to build and run machine le
 
 * [What is the Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro)
 * [Install/update the SDK](/python/api/overview/azure/ml/install)
-* [Configure a development environment for Azure Machine Learning](../how-to-configure-environment.md)
+* [Configure a development environment for Azure Machine Learning](how-to-configure-environment-v1.md)
 
 ### Run configuration
 
