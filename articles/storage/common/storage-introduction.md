@@ -169,7 +169,7 @@ Azure NetApp Files provides NFS and SMB volumes. You can use any file-based copy
 
 When making decisions about how your data is stored and accessed, you should also consider the costs involved. For more information, see [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
-Azure NetApp Files cloud file storage service is charged per hour based on the provisioned [capacity pool](../../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy#capacity_pools.md) capacity. For more information, see [Azure NetApp Files storage pricing](https://azure.microsoft.com/pricing/details/netapp/).
+Azure NetApp Files cloud file storage service is charged per hour based on the provisioned [capacity pool](../../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy.md#capacity_pools) capacity. For more information, see [Azure NetApp Files storage pricing](https://azure.microsoft.com/pricing/details/netapp/).
 
 ## Storage APIs, libraries, and tools
 
