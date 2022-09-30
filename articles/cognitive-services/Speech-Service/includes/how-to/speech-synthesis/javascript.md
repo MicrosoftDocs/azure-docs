@@ -371,7 +371,7 @@ Here's an example that shows how to subscribe to events for speech synthesis. Yo
     speechSynthesizer.bookmarkReached = function (s, e) {
         var str = `BookmarkReached event: \
             \r\n\tAudioOffset: ${(e.audioOffset + 5000) / 10000}ms \
-            \r\n\tText: \"${e.Text}\".`;
+            \r\n\tText: \"${e.text}\".`;
         console.log(str);
     };
 
