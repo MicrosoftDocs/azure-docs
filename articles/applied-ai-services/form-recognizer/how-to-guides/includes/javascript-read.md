@@ -11,7 +11,7 @@ ms.author: lajanuar
 recommendations: false
 ---
 
-[Reference documentation](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-latest&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_4.0.0-beta.3/sdk/formrecognizer/ai-form-recognizer/) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.3) | [Samples](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v4-beta/javascript/README.md)
+[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0/index.html) | [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Samples](https://github.com/witemple-msft/azure-sdk-for-js/tree/7e3196f7e529212a6bc329f5f06b0831bf4cc174/sdk/formrecognizer/ai-form-recognizer/samples/v4) |[Supported REST API versions](../../sdk-overview.md)
 
 ## Prerequisites
 
@@ -54,7 +54,7 @@ recommendations: false
 1. Install the `ai-form-recognizer` client library and `azure/identity` npm packages:
 
     ```console
-    npm install @azure/ai-form-recognizer@4.0.0-beta.3 @azure/identity
+    npm i @azure/ai-form-recognizer @azure/identity
     ```
 
     * Your app's `package.json` file will be updated with the dependencies.
@@ -98,7 +98,7 @@ const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-servi
 async function main() {
   // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
   const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
-  const poller = await client.beginAnalyzeDocument("prebuilt-read", formUrl);
+  const poller = await client.beginAnalyzeDocument("prebuilt-read", formUrlRead);
 
   const { content, pages, languages, styles } = await poller.pollUntilDone();
 
@@ -170,9 +170,10 @@ main().catch((error) => {
 
 <!-- markdownlint-disable MD036 -->
 
-2. Once you've added a code sample to your application, navigate to the folder where you have your form recognizer application (form-recognizer-app).
+1. Once you've added a code sample to your application, navigate to the folder where you have your form recognizer application (form-recognizer-app).
 
-3. Type the following command in your terminal:
+1. Type the following command in your terminal:
+
     ```console
     node index.js
     ```

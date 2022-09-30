@@ -130,7 +130,7 @@ client.configuration_profile_assignments.create_or_update(
     "default", rg, vm, assignment)
 ```
 
-Run the python file: 
+Run the Python file: 
 
 `python app.py`
 

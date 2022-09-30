@@ -9,7 +9,7 @@ ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 01/20/2022
-ms.author: pdecarlo 
+ms.author: pdecarlo
 
 ---
 # Run Azure IoT Edge on Ubuntu Virtual Machines
@@ -33,7 +33,7 @@ On first boot, the virtual machine [installs the latest version of the Azure IoT
 
 ## Deploy using Deploy to Azure Button
 
-The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure-button.md) allows for streamlined deployment of [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) maintained on GitHub.  This section will demonstrate usage of the Deploy to Azure Button contained in the [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy) project repository.  
+The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure-button.md) allows for streamlined deployment of [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) maintained on GitHub.  This section will demonstrate usage of the Deploy to Azure Button contained in the [iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy) project repository.
 
 1. We will deploy an Azure IoT Edge enabled Linux VM using the iotedge-vm-deploy Azure Resource Manager template.  To begin, click the button below:
    :::moniker range="iotedge-2018-06"
@@ -123,9 +123,9 @@ The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure
    --resource-group IoTEdgeResources \
    --template-uri "https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.1/edgeDeploy.json" \
    --parameters dnsLabelPrefix='my-edge-vm1' \
-   --parameters adminUsername='<REPLACE_WITH_USERNAME>' \
    --parameters deviceConnectionString=$(az iot hub device-identity connection-string show --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
    --parameters authenticationType='password' \
+   --parameters adminUsername='<REPLACE_WITH_USERNAME>' \
    --parameters adminPasswordOrKey="<REPLACE_WITH_SECRET_PASSWORD>"
    ```
 
@@ -133,8 +133,8 @@ The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure
 
    ```azurecli-interactive
    #Generate the SSH Key
-   ssh-keygen -m PEM -t rsa -b 4096 -q -f ~/.ssh/iotedge-vm-key -N ""  
-    
+   ssh-keygen -m PEM -t rsa -b 4096 -q -f ~/.ssh/iotedge-vm-key -N ""
+
    #Create a VM using the iotedge-vm-deploy script
    az deployment group create \
    --resource-group IoTEdgeResources \
@@ -164,8 +164,8 @@ The [Deploy to Azure Button](../azure-resource-manager/templates/deploy-to-azure
 
    ```azurecli-interactive
    #Generate the SSH Key
-   ssh-keygen -m PEM -t rsa -b 4096 -q -f ~/.ssh/iotedge-vm-key -N ""  
-    
+   ssh-keygen -m PEM -t rsa -b 4096 -q -f ~/.ssh/iotedge-vm-key -N ""
+
    #Create a VM using the iotedge-vm-deploy script
    az deployment group create \
    --resource-group IoTEdgeResources \

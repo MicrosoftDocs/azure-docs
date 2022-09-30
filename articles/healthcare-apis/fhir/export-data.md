@@ -1,12 +1,12 @@
 ---
 title: Executing the export by invoking $export command on FHIR service
 description: This article describes how to export FHIR data using $export
-author: ranvijaykumar
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2022
-ms.author: mikaelw
+ms.author: kesheth
 ---
 # How to export FHIR data
 
@@ -39,8 +39,7 @@ The FHIR service supports `$export` at the following levels:
 * [Patient](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---all-patients): `GET {{fhirurl}}/Patient/$export`
 * [Group of patients*](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---group-of-patients) – *The FHIR service exports all referenced resources but doesn't export the characteristics of the group resource itself: `GET {{fhirurl}}/Group/[ID]/$export`
 
-When data is exported, a separate file is created for each resource type. The FHIR service will create a new file when the size of a single exported file exceeds 64 MB. The result is that you may get multiple files for a resource type, which will be enumerated (e.g., `Patient-1.ndjson`, `Patient-2.ndjson`). 
-
+With export, data is exported in multiple files each containing resources of only one type. No individual file will exceed 100,000 resource records. The result is that you may get multiple files for a resource type, which will be enumerated (for example, `Patient-1.ndjson`, `Patient-2.ndjson`). 
 > [!Note] 
 > `Patient/$export` and `Group/[ID]/$export` may export duplicate resources if a resource is in multiple groups or in a compartment of more than one resource.
 

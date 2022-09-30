@@ -28,6 +28,8 @@
           href: howto-upgrade.md
         - name: Use spot nodes
           href: howto-spot-nodes.md
+        - name: Use GPU workloads
+          href: howto-gpu-workloads.md
     - name: Networking 
       items:
         - name: Create a private Azure Red Hat OpenShift cluster

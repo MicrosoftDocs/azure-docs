@@ -17,8 +17,8 @@ author: eur
 ## Convert text to speech
 
 At a command prompt, run the following command. Insert these values into the command:
-- Your subscription key for the Speech service
-- Your Speech service region
+- Your Speech resource key
+- Your Speech resource region
 
 You might also want to change the following values:
 - The `X-Microsoft-OutputFormat` header value, which controls the audio output format. You can find a list of supported audio output formats in the [text-to-speech REST API reference](../../../rest-text-to-speech.md#audio-outputs).

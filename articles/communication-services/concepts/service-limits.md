@@ -14,30 +14,30 @@ ms.subservice: data
 ---
 # Service limits for Azure Communication Services
 
-This document explains some of the limitations of Azure Communication Services and what to do if you are running into these limitations. 
+This document explains the limitations of Azure Communication Services APIs and possible resolutions.
 
 ## Throttling patterns and architecture
-When you hit service limitations you will generally receive an HTTP status code 429 (Too many requests). In general, the following are best practices for handling throttling:
+When you hit service limitations, you'll generally receive an HTTP status code 429 (Too many requests). In general, the following are best practices for handling throttling:
 
 - Reduce the number of operations per request.
 - Reduce the frequency of calls.
-- Avoid immediate retries, because all requests accrue against your usage limits.
+- Avoid immediate retries because all requests accrue against your usage limits.
 
-You can find more general guidance on how to set up your service architecture to handle throttling and limitations in the [Azure Architecture](/azure/architecture) documentation for [throttling patterns](/azure/architecture/patterns/throttling).
+You can find more general guidance on how to set up your service architecture to handle throttling and limitations in the [Azure Architecture](/azure/architecture) documentation for [throttling patterns](/azure/architecture/patterns/throttling). Throttling limits can be increased through [a request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## Acquiring phone numbers
-Before trying to acquire a phone number, make sure your subscription meets the [geographic and subscription](./telephony/plan-solution.md) requirements, otherwise you can't purchase a phone number. The below limitations apply to purchasing numbers through the [Phone Numbers SDK](./reference.md) and the [Azure portal](https://portal.azure.com/).
+Before acquiring a phone number, make sure your subscription meets the [geographic and subscription](./telephony/plan-solution.md) requirements. Otherwise, you can't purchase a phone number. The below limitations apply to purchasing numbers through the [Phone Numbers SDK](./reference.md) and the [Azure portal](https://portal.azure.com/).
 
 | Operation | Scope | Timeframe | Limit (number of requests) |
-| --- | -- | -- | -- |
+|---|--|--|--|
 | Purchase phone number | Azure tenant | - | 1 |
-| Search for phone numbers | Azure tenant | 1 week | 5 |
+| Search for phone numbers | Azure tenant | one week | 5 |
 
 ### Action to take
 
 For more information, see the [phone number types](./telephony/plan-solution.md) concept page and the [telephony concept](./telephony/telephony-concept.md) overview page.
 
-If you would like to purchase more phone numbers or put in a special order, follow the [instructions here](https://github.com/Azure/Communication/blob/master/special-order-numbers.md). If you would like to port toll-free phone numbers from external accounts to their Azure Communication Services account follow the [instructions here](https://github.com/Azure/Communication/blob/master/port-numbers.md).
+If you want to purchase more phone numbers or place a special order, follow the [instructions here](https://github.com/Azure/Communication/blob/master/special-order-numbers.md). If you would like to port toll-free phone numbers from external accounts to their Azure Communication Services account, follow the [instructions here](https://github.com/Azure/Communication/blob/master/port-numbers.md).
 
 ## Identity
 
@@ -51,12 +51,12 @@ If you would like to purchase more phone numbers or put in a special order, foll
 | **exchangeTokens**| 30 | 500 |
 
 ### Action to take
-We always recommend you acquire identities and tokens in advance of starting other transactions like creating chat threads or starting calls, for example, right when your webpage is initially loaded or when the app is starting up. 
+We recommend acquiring identities and tokens before creating chat threads or starting calls. For example, when the webpage loads or the application starts. 
 
 For more information, see the [identity concept overview](./authentication.md) page.
 
 ## SMS
-When sending or receiving a high volume of messages, you might receive a ```429``` error. This indicates you are hitting the service limitations and your messages will be queued to be sent once the number of requests is below the threshold.
+When sending or receiving a high volume of messages, you might receive a ```429``` error. This error indicates you're hitting the service limitations, and your messages will be queued to be sent once the number of requests is below the threshold.
 
 Rate Limits for SMS:
 
@@ -65,16 +65,16 @@ Rate Limits for SMS:
 |Send Message|Per Number|60|200|200|
 
 ### Action to take
-If you require sending an amount of messages that exceeds the rate-limits, please email us at phone@microsoft.com.
+If you require to send a volume of messages that exceed the rate limits, email us at phone@microsoft.com.
 
 For more information on the SMS SDK and service, see the [SMS SDK overview](./sms/sdk-features.md) page or the [SMS FAQ](./sms/sms-faq.md) page.
 
 ## Email
-Sending high volume of messages has a set of limitation on the number of email messages that you can send. If you hit these limits, your messages will not be queued to be sent. You can submit these requests again, once the Retry-After time expires.
+Sending a high volume of messages has a set of limitations on the number of email messages you can send. If you hit these limits, your messages won't be queued to be sent. You can submit these requests again, once the Retry-After time expires.
 
 ### Rate Limits 
 
-|Operation|Scope|Timeframe (minutes)| Limit (number of email) |
+|Operation|Scope|Timeframe (minutes)| Limit (number of emails) |
 |---------|-----|-------------|-------------------|
 |Send Email|Per Subscription|1|10|
 |Send Email|Per Subscription|60|25|
@@ -86,10 +86,10 @@ Sending high volume of messages has a set of limitation on the number of email m
 | **Name**         | Limit  |
 |--|--|
 |Number of recipients in Email|50 |
-|Attachment size - per messages|10 MB |
+|Attachment size - per message |10 MB |
 
 ### Action to take
-This sandbox setup is to help developers to start building the application and gradually you can request to increase the sending volume as soon as the application is ready to go live. If you require sending a number of messages that exceeds the rate-limits, please submit a support request to increase to your desired sending limit.
+This sandbox setup is to help developers start building the application. You can gradually request to increase the sending volume once the application is ready to go live. Submit a support request to raise your desired sending limit if you require sending a volume of messages exceeding the rate limits.
 
 ## Chat
 
@@ -135,8 +135,8 @@ The Communication Services Calling SDK supports the following streaming configur
 
 | Limit                                                         | Web                         | Windows/Android/iOS        |
 | ------------------------------------------------------------- | --------------------------- | -------------------------- |
-| **Maximum # of outgoing local streams that can be sent simultaneously**     | 1 video or 1 screen sharing | 1 video + 1 screen sharing |
-| **Maximum # of incoming remote streams that can be rendered simultaneously** | 4 videos + 1 screen sharing | 6 videos + 1 screen sharing |
+| **Maximum # of outgoing local streams that you can send simultaneously**     | one video or one screen sharing | one video + one screen sharing |
+| **Maximum # of incoming remote streams that you can render simultaneously** | four videos + one screen sharing | six videos + one screen sharing |
 
 While the Calling SDK won't enforce these limits, your users may experience performance degradation if they're exceeded.
 
@@ -160,7 +160,7 @@ The following timeouts apply to the Communication Services Calling SDKs:
 For more information about the voice and video calling SDK and service, see the [calling SDK overview](./voice-video-calling/calling-sdk-features.md) page or [known issues](./known-issues.md).
 
 ## Teams Interoperability and Microsoft Graph
-If you are using a Teams interoperability scenario, you will likely end up using some Microsoft Graph APIs to create [meetings](/graph/cloud-communications-online-meetings).  
+Using a Teams interoperability scenario, you'll likely use some Microsoft Graph APIs to create [meetings](/graph/cloud-communications-online-meetings).  
 
 Each service offered through Microsoft Graph has different limitations; service-specific limits are [described here](/graph/throttling) in more detail.
 
@@ -177,11 +177,9 @@ You can find more information on Microsoft Graph [throttling](/graph/throttling)
 | **Issue Relay Configuration** | 5 | 30000|
 
 ### Action to take
-We always recommend you acquire tokens in advance of starting other transactions like creating a relay connection. 
+We recommend acquiring tokens before starting other transactions, like creating a relay connection. 
 
 For more information, see the [network traversal concept overview](./network-traversal.md) page.
 
-## Still need help?
-See the [help and support](../support.md) options available to you.
-
 ## Next steps
+See the [help and support](../support.md) options.

@@ -28,7 +28,7 @@ public class Program
 }
 ```
 
-For more information on environment variables, see [Environment variables and application configuration](../../../../cognitive-services-security.md#environment-variables-and-application-configuration).
+For more information on environment variables, see [Environment variables and application configuration](../../../../cognitive-services-environment-variables.md).
 
 ## Create a speech translation configuration
 
