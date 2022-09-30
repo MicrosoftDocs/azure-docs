@@ -512,6 +512,8 @@
           href: troubleshoot-performance-degradation.md
         - name: Troubleshoot domain and certificate issues
           href: troubleshoot-domain-ssl-certificates.md
+        - name: FAQs about create or delete web apps 
+          href: /troubleshoot/azure/app-service/create-delete-resources-faq?toc=/azure/app-service/toc.json
     - name: IP address change
       items:
       - name: Inbound IP address
