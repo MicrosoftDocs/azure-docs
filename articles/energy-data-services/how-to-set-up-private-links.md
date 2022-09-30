@@ -88,7 +88,7 @@ Use the following steps to create a private endpoint for an existing Microsoft E
 13.	Select **Review + create**. On the Review + create page, Azure validates your configuration.
 14.	When you see the Validation passed message, select **Create**.
 
-[![Screenshot of summary screen while creating MEDS instance](media/how-to-manage-private-links/pvtlink-6review.png)](media/how-to-manage-private-links/pvtlink-6review#lightbox)
+[![Screenshot of summary screen while creating MEDS instance](media/how-to-manage-private-links/pvtlink-6review.png)](media/how-to-manage-private-links/pvtlink-6review.png#lightbox)
 
  
 15.	 Once the deployment is complete, select **Go to resource**. 
