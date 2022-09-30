@@ -123,7 +123,7 @@ This is the list of known limitations for Azure Synapse Link for SQL.
     FROM sys.databases
     WHERE name = 'logical_database_name'
     ```
-1. Open an Azure support ticket requesting a database failover.
+1. Open an Azure support ticket requesting a database failover. Alternately, you could change the Service Level Objective (SLO) of your database instead of opening a ticket.
 
 ## Next steps
 
