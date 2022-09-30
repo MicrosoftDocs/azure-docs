@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/29/2022
+ms.date: 09/30/2022
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
@@ -96,10 +96,7 @@ Use the following steps to sign into a device, change the password, and fetch th
 
 ## Apply initial configuration to a device
 
-Use the following steps to prepare a JSON file with the configuration to apply to one or more devices.
-
-> [!NOTE]
-> Use a config.json file that meets the needs of your organization. A [sample config.json file is available here](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/tree/master/ZTP/).
+Use the following steps to create a device configuration package in PowerShell and then apply the configuration to one or more devices.
 
 Run the following cmdlets in PowerShell:
 
@@ -200,7 +197,10 @@ Run the following cmdlets in PowerShell:
 
 Once a config.json file has been created, as in the previous example, with the desired configuration, use the JSON file to change configuration settings on one or more devices that aren't activated.
 
-This sequence of PowerShell cmdlets signs into the device, applies the device setup configuration package with device configuration settings from a JSON file, verifies completion of device configuration changes, and then fetches the new device configuration.
+> [!NOTE]
+> Use a config.json file that meets the needs of your organization. A [sample config.json file is available here](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/tree/master/ZTP/).
+
+This sequence of PowerShell cmdlets signs into the device, applies the device configuration settings from a JSON file, verifies completion of the operation, and then fetches the new device configuration.
 
 Run the following cmdlets in PowerShell:
 
@@ -210,7 +210,7 @@ Run the following cmdlets in PowerShell:
    Set-Login "https://<IP address>" "<Password>"
    ```
 
-1. Before you run the device configuration operation, ensure that the JSON file uses the device node.id of the device to be changed. 
+1. Before you run the device configuration operation, ensure that the JSON file uses the node.id of the device to be changed. 
 
    > [!NOTE]
    > Each device has a unique node.id. To change device configuration settings, the node.id in the JSON file must match the node.id of the device to be changed.
@@ -286,7 +286,7 @@ Use the following steps to activate an Azure Stack Edge device. Note that activa
 1. Create an activation object and set the activation property.
 
    ```azurepowershell
-   $activation = New-Object PsObject -Property @{activationkey=$AactivationKey; ServiceEncryptionKey=""}
+   $activation = New-Object PsObject -Property @{activationkey=$ActivationKey; ServiceEncryptionKey=""}
    ```
 
 1. Create a package with the activation object and activation key.
