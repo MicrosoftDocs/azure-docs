@@ -52,7 +52,7 @@ The email starts with a brief warning to the user about phishing, alerting them 
 
 ### Inviter's information and invitation message
 
-The email includes the name and primary domain associated with the organization sending the invitation. This information should help the invitee make an informed decision about accepting the invitation. The inviter can includes a message as part of their invitation to the [directory, group, or app](add-users-administrator.md), or when they [use the invitation API](customize-invitation-api.md). The message is highlighted in the main section of the email. The inviter’s name and profile image is also included, if they’ve set one. The message itself is a text area, so for security reasons, it doesn't process HTML tags.
+The email includes the name and primary domain associated with the organization sending the invitation. This information should help the invitee make an informed decision about accepting the invitation. The inviter can include a message as part of their invitation to the [directory, group, or app](add-users-administrator.md), or when they [use the invitation API](customize-invitation-api.md). The message is highlighted in the main section of the email. The inviter’s name and profile image are also included if they’ve set one. The message itself is a text area, so for security reasons, it doesn't process HTML tags.
 
 ![Image of the invitation message in the email](media/invitation-email-elements/invitation-message-inviters-info.png)
 
