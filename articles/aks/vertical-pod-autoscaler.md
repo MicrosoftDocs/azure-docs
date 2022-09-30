@@ -14,9 +14,9 @@ This article provides an overview of Vertical Pod Autoscaler (VPA) (preview) in 
 
 Vertical Pod Autoscaler provides the following benefits:
 
-* It analyzes and adjusts processor and memory resources to *right size* your applications. VPA is not only responsible for scaling up, but also for scaling down based on their resource use over time.
+* It analyzes and adjusts processor and memory resources to *right size* your applications. VPA isn't only responsible for scaling up, but also for scaling down based on their resource use over time.
 
-* A Pod is evicted if it needs to change its resource requests based on if its scaling mode is set to *auto* or *recreate*.
+* A Pod is evicted if it needs to change its resource requests if its scaling mode is set to *auto* or *recreate*.
 
 * Set CPU and memory constraints for individual containers by specifying a resource policy
 
@@ -29,7 +29,7 @@ Vertical Pod Autoscaler provides the following benefits:
 ## Limitations
 
 * Vertical Pod autoscaling supports a maximum of 500 `VerticalPodAutoscaler` objects per cluster.
-* With this preview release, you cannot change the `controlledValue` and `updateMode` VPA objects. While you can see them from the `managedCluster` object, they are reserved for future use.
+* With this preview release, you can't change the `controlledValue` and `updateMode` VPA objects. While you can see them from the `managedCluster` object, they're reserved for future use.
 
 ## Before you begin
 
@@ -100,7 +100,7 @@ vpa-updater-56f9bfc96f-jgq2g                1/1     Running   0          41m
 
 ## Test your Vertical Pod Autoscaler installation
 
-The following steps create a deployment with two pods, each running a single container that requests 100 millicores and tries to utilize slightly above 500 millicores. Also created is a VPA config pointing at the deployment. The VPA observes the behavior of the pods, and after about five minutes, they are updated with a higher CPU request.
+The following steps create a deployment with two pods, each running a single container that requests 100 millicores and tries to utilize slightly above 500 millicores. Also created is a VPA config pointing at the deployment. The VPA observes the behavior of the pods, and after about five minutes, they're updated with a higher CPU request.
 
 1. Create a file named `hamster.yaml` and copy in the following manifest of the Vertical Pod Autoscaler example from the [kubernetes/autoscaler][kubernetes-autoscaler-github-repo] GitHub repository.
 
@@ -155,7 +155,7 @@ The following steps create a deployment with two pods, each running a single con
         Environment:  <none>
     ```
 
-    The pod has 100 millicpu and 50 Mibibytes of memory reserved in this example. For this sample application, the pod needs less than 100 millicpu to run, so there is no CPU capacity available. The pods also reserves much less memory than needed. The Vertical Pod Autoscaler *vpa-recommender* deployment analyzes the pods hosting the hamster application to see if the CPU and memory requirements are appropriate. If adjustments are needed, the vpa-updater relaunches the pods with updated values.
+    The pod has 100 millicpu and 50 Mibibytes of memory reserved in this example. For this sample application, the pod needs less than 100 millicpu to run, so there's no CPU capacity available. The pods also reserves much less memory than needed. The Vertical Pod Autoscaler *vpa-recommender* deployment analyzes the pods hosting the hamster application to see if the CPU and memory requirements are appropriate. If adjustments are needed, the vpa-updater relaunches the pods with updated values.
 
 1. Wait for the vpa-updater to launch a new hamster pod. This should take a few minutes. You can monitor the pods using the [kubectl get][kubectl-get] command.
 
