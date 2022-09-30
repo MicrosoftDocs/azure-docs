@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 07/20/2022
+ms.date: 09/30/2022
 ---
 
 # Create an Azure Container offer
@@ -62,6 +62,8 @@ Enter a descriptive name that we'll use to refer to this offer solely within Par
 ## Setup details
 
 You have two options – one is to sell and the other is to only list your offer using Microsoft.
+
+:::image type="content" source="./media/azure-container/sell-offer.png" alt-text="A screenshot of the Azure portal showing a selector to sell through Microsoft or only list the offer through Microsoft.":::
 
 If you are publishing Kubernetes applications, you can choose to sell through Microsoft and let Microsoft host transactions on your behalf. In this case, a set of required technical configuration will be needed for your service.
 
