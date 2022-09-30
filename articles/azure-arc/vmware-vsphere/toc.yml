@@ -33,3 +33,5 @@
       href: /cli/azure/connectedvmware
     - name: Azure Arc resource bridge
       href:  /cli/azure/arcappliance
+  - name: Support Matrix for Arc-enabled VMware vSphere
+    href: support-matrix-for-arc-enabled-vmware-vsphere.md
