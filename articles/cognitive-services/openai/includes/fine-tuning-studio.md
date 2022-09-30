@@ -20,9 +20,9 @@ keywords:
 - Access granted to the Azure OpenAI service in the desired Azure subscription
 
     Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
-- An Azure OpenAI resource with a deployed model
+- An Azure OpenAI resource
     
-    For more information about creating a resource and deploying a model, see [Create a resource and deploy a model using Azure OpenAI](../how-to/create-resource.md).
+    For more information about creating a resource, see [Create a resource and deploy a model using Azure OpenAI](../how-to/create-resource.md).
 
 ## Fine-tuning workflow
 
@@ -101,9 +101,10 @@ Navigate to the Azure OpenAI Studio at <a href="https://oai.azure.com/" target="
 
 You'll first land on our main page for the Azure OpenAI Studio. From here, you can start fine-tuning a custom model.
 
-If a deployment isn't detected for your resource, a prompt to create a new deployment is displayed on the landing page. Select **Create new deployment** and follow the steps provided in the [Deploy a model](../how-to/create-resource.md?pivots=web-portal#deploy-a-model) section of [Create a resource and deploy a model using Azure OpenAI](../how-to/create-resource.md) to create a deployment you can then use to start fine-tuning a custom model.
+Select the **Start fine-tuning a custom model** button under **Manage deployments and models** section of the landing page, highlighted in the following picture, to start fine-tuning a custom model. 
 
-If you have a deployment for your resource, select the **Start fine-tuning a custom model** button under **Manage deployments and models** section of the landing page, highlighted in the following picture, to start fine-tuning a custom model. 
+> [!NOTE]
+> If your resource doesn't have a model already deployed in it, a warning is displayed. You can ignore that warning for the purposes of fine-tuning a model, because you'll be fine-tuning and deploying a new customized model.
 
 :::image type="content" source="../media/fine-tuning/studio-portal.png" alt-text="Screenshot of the landing page of the Azure OpenAI Studio with sections highlighted." lightbox="../media/fine-tuning/studio-portal.png":::
 
@@ -120,9 +121,9 @@ The first step in creating a customized model is to choose a base model. The **B
 - `ada`
 - `babbage`
 - `curie`
-- `code-cushman-001`*
-- `davinci`*
-    * available by request
+- `code-cushman-001`\*
+- `davinci`\*
+    \* available by request
 
 For more information about our base models, see [Models](../concepts/models.md). Select a base model from the **Base model type** dropdown, as shown in the following picture, and then select **Next** to continue.
 

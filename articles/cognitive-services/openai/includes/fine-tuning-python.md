@@ -22,9 +22,9 @@ keywords:
 - Access granted to the Azure OpenAI service in the desired Azure subscription
 
     Currently, access to this service is granted only by application. You can apply for access to the Azure OpenAI service by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>. Open an issue on this repo to contact us if you have an issue.
-- An Azure OpenAI resource with a deployed model
+- An Azure OpenAI resource
     
-    For more information about creating a resource and deploying a model, see [Create a resource and deploy a model using Azure OpenAI](../how-to/create-resource.md).
+    For more information about creating a resource, see [Create a resource and deploy a model using Azure OpenAI](../how-to/create-resource.md).
 - The following Python libraries: os, json
 
 ## Fine-tuning workflow
@@ -96,9 +96,9 @@ The first step in creating a customized model is to choose a base model. The cho
 - `ada`
 - `babbage`
 - `curie`
-- `code-cushman-001`*
-- `davinci`*
-    * available by request
+- `code-cushman-001`\*
+- `davinci`\*
+    \* available by request
 
 You can use the [Models API](../reference.md#models) to identify which models are fine-tunable. For more information about our base models, see [Models](../concepts/models.md).
 
