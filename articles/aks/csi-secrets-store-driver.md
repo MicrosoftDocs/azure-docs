@@ -5,13 +5,13 @@ author: nickomang
 ms.author: nickoman
 ms.service: container-service
 ms.topic: how-to 
-ms.date: 8/02/2022
+ms.date: 9/22/2022
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster
 
-The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integration of an Azure key vault as a secrets store with an Azure Kubernetes Service (AKS) cluster via a [CSI volume][kube-csi].
+The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integration of an Azure key vault as a secret store with an Azure Kubernetes Service (AKS) cluster via a [CSI volume][kube-csi].
 
 ## Limitations
 
@@ -21,7 +21,7 @@ The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integra
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Before you start, ensure that your version of the Azure CLI is 2.30.0 or later. If it's an earlier version, [install the latest version](/cli/azure/install-azure-cli).
-- If restricting Ingress to the cluster, ensure Ports 9808 and 8095 are open. 
+- If restricting Ingress to the cluster, ensure Ports 9808 and 8095 are open.
 
 ### Supported Kubernetes versions
 
@@ -117,7 +117,9 @@ Take note of the following properties for use in the next section:
 ## Provide an identity to access the Azure key vault
 
 The Secrets Store CSI Driver allows for the following methods to access an Azure key vault:
-- An [Azure Active Directory pod identity][aad-pod-identity]
+
+- An [Azure Active Directory pod identity][aad-pod-identity] (preview)
+- An [Azure Active Directory workload identity][aad-workload-identity] (preview)
 - A user-assigned or system-assigned managed identity
 
 Follow the instructions in [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver][identity-access-methods] for your chosen method.
@@ -136,7 +138,7 @@ kubectl exec busybox-secrets-store-inline -- cat /mnt/secrets-store/ExampleSecre
 
 ## Obtain certificates and keys
 
-The Azure Key Vault design makes sharp distinctions between keys, secrets, and certificates. The Key Vault service’s certificates features were designed to make use of its key and secret capabilities. When a key vault certificate is created, an addressable key and secret are also created with the same name. The key allows key operations, and the secret allows the retrieval of the certificate value as a secret. 
+The Azure Key Vault design makes sharp distinctions between keys, secrets, and certificates. The Key Vault service’s certificates features were designed to make use of its key and secret capabilities. When a key vault certificate is created, an addressable key and secret are also created with the same name. The key allows key operations, and the secret allows the retrieval of the certificate value as a secret.
 
 A key vault certificate also contains public x509 certificate metadata. The key vault stores both the public and private components of your certificate in a secret. You can obtain each individual component by specifying the `objectType` in `SecretProviderClass`. The following table shows which objects map to the various resources associated with your certificate:
 
@@ -312,26 +314,15 @@ The following table lists the metrics provided by the Secrets Store CSI Driver:
 Now that you've learned how to use the Azure Key Vault Provider for Secrets Store CSI Driver with an AKS cluster, see [Enable CSI drivers for Azure Disks and Azure Files on AKS][csi-storage-drivers].
 
 <!-- LINKS INTERNAL -->
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
 [az-aks-disable-addons]: /cli/azure/aks#az-aks-disable-addons
-[key-vault-provider]: ../key-vault/general/key-vault-integrate-kubernetes.md
 [csi-storage-drivers]: ./csi-storage-drivers.md
-[create-key-vault]: ../key-vault/general/quick-create-cli.md
-[set-secret-key-vault]: ../key-vault/secrets/quick-create-portal.md
-[aks-managed-identity]: ./use-managed-identity.md
 [identity-access-methods]: ./csi-secrets-store-identity-access.md
 [aad-pod-identity]: ./use-azure-ad-pod-identity.md
-[kubernetes-version-support]: ./supported-kubernetes-versions.md?tabs=azure-cli#kubernetes-version-support-policy
+[aad-workload-identity]: workload-identity-overview.md
 
 <!-- LINKS EXTERNAL -->
 [kube-csi]: https://kubernetes-csi.github.io/docs/
-[key-vault-provider-install]: https://azure.github.io/secrets-store-csi-driver-provider-azure/getting-started/installation
-[sample-secret-provider-class]: https://azure.github.io/secrets-store-csi-driver-provider-azure/getting-started/usage/#create-your-own-secretproviderclass-object
 [reloader]: https://github.com/stakater/Reloader
-
+[kubernetes-version-support]: ./supported-kubernetes-versions.md?tabs=azure-cli#kubernetes-version-support-policy
