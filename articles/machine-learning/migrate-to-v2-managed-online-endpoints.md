@@ -25,9 +25,9 @@ You can deploy directly to the new compute target with your previous models and 
 > [!IMPORTANT]
 > **The scoring URL will be changed after upgrade**. For example, the scoring url for ACI web service is like `http://aaaaaa-bbbbb-1111.westus.azurecontainer.io/score`. The scoring URI for a managed online endpoint is like `https://endpoint-name.westus.inference.ml.azure.com/score`.
 
-## Supported Scenarios and Differences
+## Supported scenarios and differences
 
-### Auth Mode
+### Auth mode
 No auth isn't supported for managed online endpoint. If you use the upgrade scripts, it will convert it to key auth.
 For key auth, the original keys will be used. Token-based auth is also supported.
 
@@ -36,7 +36,7 @@ For ACI service secured with HTTPS, you don't need to provide your own certifica
 
 Custom DNS name **isn't** supported.
 
-### Resource Requirements
+### Resource requirements
 [ContainerResourceRequirements](/python/api/azureml-core/azureml.core.webservice.aci.containerresourcerequirements) isn't supported, you can choose the proper [SKU](reference-managed-online-endpoints-vm-sku-list.md) for your inferencing.
 The upgrade tool will map the CPU/Memory requirement to corresponding SKU. If you choose to redeploy manually through CLI/SDK V2, we also suggest the corresponding SKU for your new deployment.
 
@@ -55,7 +55,7 @@ The upgrade tool will map the CPU/Memory requirement to corresponding SKU. If yo
 > [!IMPORTANT]
 > When upgrading from ACI, there will be some changes in how you'll be charged. See [our blog](https://aka.ms/acimoemigration) for a rough cost comparison to help you choose the right VM SKUs for your workload.
 
-### Network Isolation
+### Network isolation
 For private workspace and VNet scenarios, see [Use network isolation with managed online endpoints (preview)](how-to-secure-online-endpoint.md?tabs=model).
 
 > [!IMPORTANT]
@@ -65,7 +65,7 @@ For private workspace and VNet scenarios, see [Use network isolation with manage
 + [EncryptionProperties](/python/api/azureml-core/azureml.core.webservice.aci.encryptionproperties) for ACI container isn't supported.
 + ACI web services deployed through deploy_from_model and deploy_from_image isn't supported by the upgrade tool. Redeploy manually through CLI/SDK V2.
 
-## Upgrade Steps
+## Upgrade steps
 
 ### With our [CLI](how-to-deploy-managed-online-endpoints.md) or [SDK preview](how-to-deploy-managed-online-endpoint-sdk-v2.md)
 Redeploy manually with your model files and environment definition.
