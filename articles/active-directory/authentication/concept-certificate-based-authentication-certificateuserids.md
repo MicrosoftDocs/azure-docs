@@ -1,12 +1,12 @@
 ---
-title: CertificateUserIds for Azure AD certificate-based authentication - Azure Active Directory 
-description: Learn about CertificateUserIds for Azure AD certificate-based authentication without federation
+title: Certificate user IDs for Azure AD certificate-based authentication - Azure Active Directory 
+description: Learn about Certificate user IDs for Azure AD certificate-based authentication without federation
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/20/2022
+ms.date: 09/30/2022
 
 ms.author: justinha
 author: vimrang
@@ -17,25 +17,25 @@ ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
 
-# CertificateUserIds 
+# Synchronize Certificate user IDs 
 
-Azure AD has added a new user object attribute **CertificateUserIds**, which is multivalued. The attribute allows up to four values and each value can be of 120-character length. This attribute can store any value and doesn't need to be in email Id format. It can store non-routable UPNs like _bob@woodgrove or _bob@local_.
+Azure AD has a user object attribute named **certificateUserIds**, which is multivalued. The attribute allows up to four values, and each value can be of 120-character length. It can store any value and doesn't need to be in email ID format. It can store non-routable UPNs like _bob@woodgrove or _bob@local_.
  
-## Supported patterns for certificateUserIds
+## Supported patterns for Certificate user IDs
  
-The values stored in certificateUserIds should be in the format described in the following table.
+The values stored in **certificateUserIds** should be in the format described in the following table.
  
 |Certificate mapping Field | Examples of values in CertificateUserIds |
 |--------------------------|--------------------------------------|
-|PrincipalName | “X509:\<PN\>bob@woodgrove.com” |
+|PrincipalName | “X509:\<PN>bob@woodgrove.com” |
 |PrincipalName | “X509:\<PN>bob@woodgrove”     | 
-|RFC822Name	| “X509:\<RFC822\>user@woodgrove.com” |
-|X509SKI | “X509:\<SKI\>123456789abcdef”|
-|X509SHA1PublicKey |“X509:\<SHA1-PUKEY\>123456789abcdef” |
+|RFC822Name	| “X509:\<RFC822>user@woodgrove.com” |
+|X509SKI | “X509:\<SKI>123456789abcdef”|
+|X509SHA1PublicKey |“X509:\<SHA1-PUKEY>123456789abcdef” |
  
-## Update CertificateUserIds in the Azure portal
+## Update Certificate user IDs in the Azure portal
  
-Tenant admins can use Azure portal to update the CertificateUserIds attribute for a user account:
+Tenant admins can use the following steps Azure portal to update Certificate user IDs for a user account:
 
 1. In the Azure AD portal, click **All users (preview)**. 
 
@@ -57,13 +57,13 @@ Tenant admins can use Azure portal to update the CertificateUserIds attribute fo
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/add.png" alt-text="Screenshot of how to add a CertificateUserID.":::
 
-1. Enter the value of the certificateUserIds and click **Save**. You can add up to four values, each of 120 characters.
+1. Enter the value and click **Save**. You can add up to four values, each of 120 characters.
 
-   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/add.png" alt-text="Screenshot of a value to enter for CertificateUserId.":::
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/save.png" alt-text="Screenshot of a value to enter for CertificateUserId.":::
  
-## Update CertificateUserIds using Azure AD Connect for federated users
+## Update Certificate user IDs using Azure AD Connect for federated users
 
-To update CertificateUserIds for federated users, configure Azure AD Connect to sync UserPrincipalName to CertificateUserIds. 
+To update Certificate user IDs for federated users, configure Azure AD Connect to sync userPrincipalName to certificateUserIds. 
 
 1. On the Azure AD Connect server, find and start the **Synchronization Rules Editor**.
 
@@ -92,26 +92,25 @@ To update CertificateUserIds for federated users, configure Azure AD Connect to 
 1. Click **OK** to confirm. 
 
 > [!NOTE]
-> Customers should use latest version of Azure ADConnect. Please visit [Download latest AADConnect](https://www.microsoft.com/en-us/download/details.aspx?id=47594) for downloading latest version. 
+> Make sure you use the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594). 
 
-## Complex transformation using syn rule Expressions
+## Complex transformation using sync rule expressions
 
-If you want to manipulate values to be synchronized to Azure AD or you have to construct more complex values which are sources out of multiple sources, you can use declarative provisioning expressions in AADConnect Sync rule editor.  
+You can use declarative provisioning expressions in the Azure AD Connect Sync rule editor to manipulate values that are synchronized to Azure AD, or construct more complex values from multiple sources.  
 
-If you want to learn more on declarative provisioning expressions, please look at [Azure AD Connect: Declarative Provisioning Expressions](https://learn.microsoft.com/en-us/azure/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions)
+For more information about declarative provisioning expressions, see [Azure AD Connect: Declarative Provisioning Expressions](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions).
 
-**Synchronizing X509:<PN>PrincipalNameValue**
+### Synchronize X509:\<PN>PrincipalNameValue
  
-Create an outbound synchronization rule. Choose “Expression” in the flow type. Choose the target attribute as <certificateUserIds>, and in the source field you add the expression <"X509:<PN>"&[userPrincipalName]>. If your source attribute is not UserPrincipalName, you can change the expression accordingly.
+To synchronize X509:\<PN>PrincipalNameValue, create an outbound synchronization rule, and choose **Expression** in the flow type. Choose the target attribute as \<certificateUserIds>, and in the source field, add the expression <"X509:\<PN>"&[userPrincipalName]>. If your source attribute isn't userPrincipalName, you can change the expression accordingly.
  
-    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/pnexpression.png" alt-text="Screenshot of how to edit a rule.":::
+:::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/pnexpression.png" alt-text="Screenshot of how to edit a rule.":::
  
-**Synchronizing X509:<RFC822>RFC822Name**
+### Synchronize X509:\<RFC822>RFC822Name
 
-Create an outbound synchronization rule. Choose “Expression” in the flow type. Choose the target attribute as <certificateUserIds>, and in the source field you add the expression <"X509:<RFC822>"&[userPrincipalName]>. If your source attribute is not UserPrincipalName, you can change the expression accordingly.  
+To synchronize X509:\<RFC822>RFC822Name, create an outbound synchronization rule, choose **Expression** in the flow type. Choose the target attribute as \<certificateUserIds>, and in the source field, add the expression <"X509:\<RFC822>"&[userPrincipalName]>. If your source attribute isn't userPrincipalName, you can change the expression accordingly.  
 
-   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/rfc822expression.png" alt-text="Screenshot of how to edit a rule.":::
-
+:::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/rfc822expression.png" alt-text="Screenshot of how to edit a rule.":::
 
 ## Next steps
 
