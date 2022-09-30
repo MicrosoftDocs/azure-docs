@@ -180,6 +180,7 @@ Currently, you must use either the Azure PowerShell module or Azure CLI to manag
 
 > [!TIP]
 > To add a rule for a subnet in a virtual network belonging to another Azure AD tenant, use a fully-qualified subnet ID in the form "/subscriptions/\<subscription-ID\>/resourceGroups/\<resourceGroup-Name\>/providers/Microsoft.Network/virtualNetworks/\<vNet-name\>/subnets/\<subnet-name\>".
+>
 > You can use the **subscription** parameter to retrieve the subnet ID for a virtual network belonging to another Azure AD tenant.
 ---
 ---
