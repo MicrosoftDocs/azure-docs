@@ -37,7 +37,7 @@ Document summarization returns a rank score as a part of the system response alo
 
 There is another feature in Azure Cognitive Service for Language, [key phrases extraction](./../../key-phrase-extraction/how-to/call-api.md), that can extract key information. When deciding between key phrase extraction and extractive summarization, consider the following:
 * Key phrase extraction returns phrases while extractive summarization returns sentences.
-* Extractive summarization returns sentences together with a rank score, and. Top ranked sentences will be returned per request.
+* Extractive summarization returns sentences together with a rank score, and top ranked sentences will be returned per request.
 * Extractive summarization also returns the following positional information:
     * Offset: The start position of each extracted sentence.
     * Length: The length of each extracted sentence.
@@ -121,7 +121,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/
 ```
 2. Make the following changes in the command where needed:
 - Replace the value `your-language-resource-key` with your key.
-- Replace the first part of te request URL `your-language-resource-endpoint` with your endpoint URL.
+- Replace the first part of the request URL `your-language-resource-endpoint` with your endpoint URL.
 
 3. Open a command prompt window (for example: BASH).
 
