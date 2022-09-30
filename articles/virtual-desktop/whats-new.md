@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 09/06/2022
+ms.date: 09/30/2022
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -19,6 +19,26 @@ Azure Virtual Desktop updates regularly. This article is where you'll find out a
 - Bug fixes
 
 Make sure to check back here often to keep up with new updates.
+
+## September 2022
+
+Here's what changed in September 2022:
+
+### Single sign-on and passwordless authentication now in public preview
+
+The ability to enable an Azure AD-based single sign-on experience and support for passwordless authentication, using Windows Hello and security devices (like FIDO2 keys) is now in public preview. This feature is available for Windows 10, Windows, 11 and Windows Server 2022 session hosts with the September Cumulative Update Preview installed. The single sign-on experience currently compatible with the Windows Desktop and web clients. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-public-preview-of-sso-and-passwordless-authentication/ba-p/3638244). 
+
+### Connection graphics data logs for Azure Virtual Desktop now in public preview
+
+The ability to collect graphics data for your Azure Virtual Desktop connections through Azure Log Analytics is now in public preview. This data can help administrators understand factors across the server, client, and network that contribute to slow or choppy experiences for a user. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/collect-and-query-graphics-data-for-azure-virtual-desktop/m-p/3638565). 
+
+### Multimedia redirection enhancements now in public preview
+
+An upgraded version of multimedia redirection (MMR) for Azure Virtual Desktop is now in public preview. We've made various improvements to this version, including more supported websites, remote app browser support, and enhancements to media controls for better clarity and one-click tracing. Learn more at [Use multimedia redirection on Azure Virtual Desktop (preview)](multimedia-redirection.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/new-multimedia-redirection-upgrades-on-azure-virtual-desktop-are/m-p/3639520). 
+
+### Grouping costs by Azure Virtual Desktop host pool now in public preview
+
+Microsoft Cost Management has a new feature in public preview that lets you group Azure Virtual Desktop costs with Azure tags by using the cm-resource-parent tag key. Cost grouping makes it easier to understand and manage costs by host pool. Learn more at [Tag Azure Virtual Desktop resources to manage costs](tag-virtual-desktop-resources.md) and [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/group-costs-by-host-pool-with-cost-management-now-in-public/ba-p/3638285). 
 
 ## August 2022
 
