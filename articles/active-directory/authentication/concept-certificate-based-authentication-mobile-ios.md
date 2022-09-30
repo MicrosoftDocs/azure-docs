@@ -59,12 +59,11 @@ On iOS, users will see a "double prompt", where they must click the option to us
 ## Next steps
 
 - [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
-- [Technical deep dive for Azure AD CBA](concept-certificate-based-authentication-technical-deep-dive.md)   
-- [Limitations with Azure AD CBA](concept-certificate-based-authentication-limitations.md)
+- [Technical deep dive for Azure AD CBA](concept-certificate-based-authentication-technical-deep-dive.md)
 - [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
-- [Windows SmartCard logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
+- [Azure AD CBA on Android devices](concept-certificate-based-authentication-mobile-android.md)
+- [Windows smart card logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
 - [Certificate user IDs](concept-certificate-based-authentication-certificateuserids.md)
 - [How to migrate federated users](concept-certificate-based-authentication-migration.md)
+- [Advanced features](concept-certificate-based-authentication-advanced-features.md)
 - [FAQ](certificate-based-authentication-faq.yml)
-
-
