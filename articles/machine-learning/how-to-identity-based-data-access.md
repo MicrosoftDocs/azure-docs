@@ -71,7 +71,7 @@ In this approach, the admin grants the compute instance or compute cluster manag
 
 ## Create and register datastores
 
-When you register a storage service on Azure as a datastore, you automatically create and register that datastore to a specific workspace. See [Storage access permissions](#storage-access-permissions) for guidance on required permission types. You also have the option to manually create the storage you want to connect to without any special permissions, and you just need the name.
+When you register a storage service on Azure as a datastore, you automatically create and register that datastore to a specific workspace. See [Storage access permissions](#storage-access-permissions) for guidance on required permission types. You can also to manually create the storage you want to connect to without any special permissions, and you just need the name.
 
 See [Work with virtual networks](#work-with-virtual-networks) for details on how to connect to data storage behind virtual networks.
 
@@ -137,7 +137,7 @@ Identity-based data access supports connections to **only** the following storag
 
 To access these storage services, you must have at least [Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) access to the storage account. Only storage account owners can [change your access level via the Azure portal](../storage/blobs/assign-azure-role-data-access.md). 
 
-If you prefer to not use your user identity (Azure Active Directory), you also have the option to grant a workspace managed-system identity (MSI) permission to create the datastore. To do so, you must have Owner permissions to the storage account and add the `grant_workspace_access= True` parameter to your data register method. 
+If you prefer to not use your user identity (Azure Active Directory), you can also grant a workspace managed-system identity (MSI) permission to create the datastore. To do so, you must have Owner permissions to the storage account and add the `grant_workspace_access= True` parameter to your data register method. 
 
 If you're training a model on a remote compute target and want to access the data for training, the compute identity must be granted at least the Storage Blob Data Reader role from the storage service. Learn how to [set up managed identity on a compute cluster](how-to-create-attach-compute-cluster.md#set-up-managed-identity).
 
