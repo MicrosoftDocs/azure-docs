@@ -20,7 +20,7 @@ ms.custom: migration
 You can deploy directly to the new compute target with your previous models and environments, or use the [scripts](https://aka.ms/moeonboard) (preview) provided by us to export the current services and then deploy to the new compute without affecting your existing services. If you regularly create and delete ACI services, we strongly recommend the deploying directly and not using the scripts. 
 
 > [!IMPORTANT]
-> The scripts are preview and are provided without a service level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> The scripts are preview and are provided without a service level agreement.
 
 > [!IMPORTANT]
 > **The scoring URL will be changed after migration**. For example, the scoring url for ACI web service is like `http://aaaaaa-bbbbb-1111.westus.azurecontainer.io/score`. The scoring URI for a managed online endpoint is like `https://endpoint-name.westus.inference.ml.azure.com/score`.
