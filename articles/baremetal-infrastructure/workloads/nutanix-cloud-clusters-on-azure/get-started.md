@@ -32,4 +32,4 @@ and User Guide](https://download.nutanix.com/documentation/hosted/Nutanix-Cloud-
 Learn more:
 
 > [!div class="nextstepaction"]
-> [About the Public Preview](about-the-public-preview.md)
+> [About the Public Preview](about-nc2-on-azure.md)
