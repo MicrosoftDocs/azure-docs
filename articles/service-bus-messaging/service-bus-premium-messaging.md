@@ -30,10 +30,6 @@ Not only is this performance more predictable and available, but it is also fast
 
 The following sections discuss a few differences between Premium and Standard messaging tiers.
 
-### Partitioned queues and topics
-
-Partitioned queues and topics aren't supported in Premium Messaging. For more information about partitioning, see [Partitioned queues and topics](service-bus-partitioning.md).
-
 ### Express entities
 
 Because Premium messaging runs in an isolated run-time environment, express entities aren't supported in Premium namespaces. An express entity holds a message in memory temporarily before writing it to persistent storage. If you have code running under Standard messaging and want to port it to the Premium tier, ensure that the express entity feature is disabled.
@@ -55,13 +51,13 @@ The CPU and memory usage are tracked and displayed to you for the following reas
 
 ## Messaging unit - How many are needed?
 
-When provisioning an Azure Service Bus Premium namespace, the number of messaging units allocated must be specified. These messaging units are dedicated resources that are allocated to the namespace.
+When provisioning an Azure Service Bus Premium namespace, the number of messaging units allocated must be specified. These messaging units are dedicated resources that are allocated to the namespace. When partitioning has been enabled on the namespace, the messaging units are equally distributed across the partitions.
 
 The number of messaging units allocated to the Service Bus Premium namespace can be **dynamically adjusted** to factor in the change (increase or decrease) in workloads.
 
 There are a few factors to take into consideration when deciding the number of messaging units for your architecture:
 
-- Start with ***1 or 2 messaging units*** allocated to your namespace.
+- Start with ***1 or 2 messaging units*** allocated to your namespace, or ***1 message unit per partition***.
 - Study the CPU usage metrics within the [Resource usage metrics](monitor-service-bus-reference.md#resource-usage-metrics) for your namespace.
     - If CPU usage is ***below 20%***, you might be able to ***scale down*** the number of messaging units allocated to your namespace.
     - If CPU usage is ***above 70%***, your application will benefit from ***scaling up*** the number of messaging units allocated to your namespace.

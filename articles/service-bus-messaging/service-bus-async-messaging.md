@@ -26,7 +26,7 @@ There are several ways to handle message and entity issues, and there are guidel
 * Throttling from an external system on which Service Bus depends. Throttling occurs from interactions with storage and compute resources.
 * Issue for a system on which Service Bus depends. For example, a given part of storage can encounter issues.
 * Failure of Service Bus on single subsystem. In this situation, a compute node can get into an inconsistent state and must restart itself, causing all entities it serves to load balance to other nodes. This in turn can cause a short period of slow message processing.
-* Failure of Service Bus within an Azure datacenter. This is a "catastrophic failure" during which the system is unreachable for many minutes or a few hours.
+* Failure of Service Bus within an Azure data-center. This is a "catastrophic failure" during which the system is unreachable for many minutes or a few hours.
 
 > [!NOTE]
 > The term **storage** can mean both Azure Storage and SQL Azure.
@@ -38,7 +38,7 @@ Service Bus contains a number of mitigations for these issues. The following sec
 ### Throttling
 With Service Bus, throttling enables cooperative message rate management. Each individual Service Bus node houses many entities. Each of those entities makes demands on the system in terms of CPU, memory, storage, and other facets. When any of these facets detects usage that exceeds defined thresholds, Service Bus can deny a given request. The caller receives a server busy exception and retries after 10 seconds.
 
-As a mitigation, the code must read the error and halt any retries of the message for at least 10 seconds. Since the error can happen across pieces of the customer application, it is expected that each piece independently executes the retry logic. The code can reduce the probability of being throttled by enabling partitioning on a queue or topic.
+As a mitigation, the code must read the error and halt any retries of the message for at least 10 seconds. Since the error can happen across pieces of the customer application, it is expected that each piece independently executes the retry logic. The code can reduce the probability of being throttled by enabling partitioning on a namespace, queue or topic.
 
 ### Issue for an Azure dependency
 Other components within Azure can occasionally have service issues. For example, when a system that Service Bus uses is being upgraded, that system can temporarily experience reduced capabilities. To work around these types of issues, Service Bus regularly investigates and implements mitigations. Side effects of these mitigations do appear. For example, to handle transient issues with storage, Service Bus implements a system that allows message send operations to work consistently. Due to the nature of the mitigation, a sent message can take up to 15 minutes to appear in the affected queue or subscription and be ready for a receive operation. Generally speaking, most entities will not experience this issue. However, given the number of entities in Service Bus within Azure, this mitigation is sometimes needed for a small subset of Service Bus customers.

@@ -12,9 +12,13 @@ ms.custom: devx-track-csharp
 Azure Service Bus employs multiple message brokers to process messages and multiple messaging stores to store messages. A conventional queue or topic is handled by a single message broker and stored in one messaging store. Service Bus *partitions* enable queues and topics, or *messaging entities*, to be partitioned across multiple message brokers and messaging stores. Partitioning means that the overall throughput of a partitioned entity is no longer limited by the performance of a single message broker or messaging store. In addition, a temporary outage of a messaging store doesn't render a partitioned queue or topic unavailable. Partitioned queues and topics can contain all advanced Service Bus features, such as support for transactions and sessions.
 
 > [!NOTE]
-> Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. It isn't available for the Premium messaging SKU anymore, but any previously existing partitioned entities from when they were supported in Premium namespaces will continue to work as expected.
+> There are some differences between the Basic / Standard and Premium SKU when it comes to partitioning.
+> - Partitioning is available at entity creation for all queues and topics in Basic or Standard SKUs. A namespace can have both partitioned and non-partitioned entities.
+> - Partitioning is available at namespace creation for the Premium messaging SKU, and all queues and topics in that namespace will be partitioned. Any previously migrated partitioned entities in Premium namespaces will continue to work as expected.
+> - When partitioning is enabled in the Basic or Standard SKUs, we will always create 16 partitions.
+> - When partitioning is enabled in the Premium SKU, the amount of partitions is specified during namespace creation.
  
-It isn't possible to change the partitioning option on any existing queue or topic; you can only set the option when you create the entity.
+It isn't possible to change the partitioning option on any existing namespace, queue or topic; you can only set the option when you create the entity.
 
 ## How it works
 
@@ -101,23 +105,18 @@ Service Bus supports automatic message forwarding from, to, or between partition
 * **High consistency features**: If an entity uses features such as sessions, duplicate detection, or explicit control of partitioning key, then the messaging operations are always routed to specific partition. If any of the partitions experience high traffic or the underlying store is unhealthy, those operations fail and availability is reduced. Overall, the consistency is still much higher than non-partitioned entities; only a subset of traffic is experiencing issues, as opposed to all the traffic. For more information, see this [discussion of availability and consistency](../event-hubs/event-hubs-availability-and-consistency.md).
 * **Management**: Operations such as Create, Update, and Delete must be performed on all the partitions of the entity. If any partition is unhealthy, it could result in failures for these operations. For the Get operation, information such as message counts must be aggregated from all partitions. If any partition is unhealthy, the entity availability status is reported as limited.
 * **Low volume message scenarios**: For such scenarios, especially when using the HTTP protocol, you may have to perform multiple receive operations in order to obtain all the messages. For receive requests, the front end performs a receive on all the partitions and caches all the responses received. A subsequent receive request on the same connection would benefit from this caching and receive latencies will be lower. However, if you have multiple connections or use HTTP, that establishes a new connection for each request. As such, there is no guarantee that it would land on the same node. If all existing messages are locked and cached in another front end, the receive operation returns **null**. Messages eventually expire and you can receive them again. HTTP keep-alive is recommended. When using partitioning in low-volume scenarios, receive operations may take longer than expected. Hence, we recommend that you don't use partitioning in these scenarios. Delete any existing partitioned entities and recreate them with partitioning disabled to improve performance.
-* **Browse/Peek messages**: The peek operation doesn't always return the number of messages asked for. There are two common reasons for this behavior. One reason is that the aggregated size of the collection of messages exceeds the maximum size of 256 KB. Another reason is that in partitioned queues or topics, a partition may not have enough messages to return the requested number of messages. In general, if an application wants to peek/browse a specific number of messages, it should call the peek operation repeatedly until it gets that number of messages, or there are no more messages to peek. For more information, including code samples, see [Message browsing](message-browsing.md).
+* **Browse/Peek messages**: The peek operation doesn't always return the number of messages asked for. There are two common reasons for this behavior. One reason is that the aggregated size of the collection of messages exceeds the maximum size. Another reason is that in partitioned queues or topics, a partition may not have enough messages to return the requested number of messages. In general, if an application wants to peek/browse a specific number of messages, it should call the peek operation repeatedly until it gets that number of messages, or there are no more messages to peek. For more information, including code samples, see [Message browsing](message-browsing.md).
 
 ## Partitioned entities limitations
 Currently Service Bus imposes the following limitations on partitioned queues and topics:
 
-* Partitioned queues and topics aren't supported in the Premium messaging tier. Sessions are supported in the premier tier by using SessionId. 
 * Partitioned queues and topics don't support sending messages that belong to different sessions in a single transaction.
-* Service Bus currently allows up to 100 partitioned queues or topics per namespace. Each partitioned queue or topic counts towards the quota of 10,000 entities per namespace (doesn't apply to Premium tier).
-
+* Service Bus currently allows up to 100 partitioned queues or topics per namespace for the Basic and Standard SKU. Each partitioned queue or topic counts towards the quota of 10,000 entities per namespace.
 
 ## Next steps
-You can enable partitioning by using Azure portal, PowerShell, CLI, Resource Manager template, .NET, Java, Python, and JavaScript. For more information, see [Enable partitioning](enable-partitions.md). 
+You can enable partitioning by using Azure portal, PowerShell, CLI, Resource Manager template, .NET, Java, Python, and JavaScript. For more information, see [Enable partitioning (Basic / Standard)](enable-partitions-basic-standard.md) or [Enable partitioning (Premium)](enable-partitions-premium.md).
 
 Read about the core concepts of the AMQP 1.0 messaging specification in the [AMQP 1.0 protocol guide](service-bus-amqp-protocol-guide.md).
 
 [Azure portal]: https://portal.azure.com
-[QueueDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.enablepartitioning
-[TopicDescription.EnablePartitioning]: /dotnet/api/microsoft.servicebus.messaging.topicdescription.enablepartitioning
-[QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto
 [AMQP 1.0 support for Service Bus partitioned queues and topics]: ./service-bus-amqp-protocol-guide.md
