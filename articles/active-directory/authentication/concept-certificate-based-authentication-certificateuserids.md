@@ -98,7 +98,7 @@ To update certificate user IDs for federated users, configure Azure AD Connect t
 
 You can use declarative provisioning expressions in the Azure AD Connect Sync rule editor to manipulate values that are synchronized to Azure AD, or construct more complex values from multiple sources.  
 
-For more information about declarative provisioning expressions, see [Azure AD Connect: Declarative Provisioning Expressions](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions).
+For more information about declarative provisioning expressions, see [Azure AD Connect: Declarative Provisioning Expressions](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions.md).
 
 ### Synchronize X509:\<PN>PrincipalNameValue
  
