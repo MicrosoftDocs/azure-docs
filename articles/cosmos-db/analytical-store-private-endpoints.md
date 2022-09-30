@@ -4,18 +4,25 @@ description: Learn how to set up managed private endpoints for Azure Cosmos DB a
 author: AnithaAdusumilli
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 09/29/2022
 ms.author: anithaa
 
 ---
 
 # Configure Azure Private Link for Azure Cosmos DB analytical store
-[!INCLUDE[NoSQL, MongoDB](includes/appliesto-nosql-mongodb.md)]
+[!INCLUDE[NoSQL, MongoDB, Gremlin](includes/appliesto-nosql-mongodb-gremlin.md)]
 
 In this article, you will learn how to set up managed private endpoints for Azure Cosmos DB analytical store. If you are using the transactional store, see [Private endpoints for the transactional store](how-to-configure-private-endpoints.md) article. Using [managed private endpoints](../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md), you can restrict network access of your Azure Cosmos DB analytical store, to a Managed Virtual Network associated with your Azure Synapse workspace. Managed private endpoints establish a private link to your analytical store.
 
 > [!NOTE]
 > If you are using Private DNS Zones for Azure Cosmos DB and wish to create a Synapse managed private endpoint to the analytical store sub-resource, you must first create a DNS zone for the analytical store (`privatelink.analytics.cosmos.azure.com`) linked to your Azure Cosmos DB's virtual network.
+
+> [!NOTE]
+> Synapse Link for API for Gremlin is now in preview. You can enable Synapse Link in your new or existing graphs using Azure CLI. For more information on how to configure it, click [here](configure-synapse-link.md).
+
+> [!NOTE]
+> Synapse Link for API for Gremlin is now in preview. You can enable Synapse Link in your new or existing graphs using Azure CLI. For more information on how to configure it, click [here](configure-synapse-link.md).
+
 
 ## Enable a private endpoint for the analytical store
 

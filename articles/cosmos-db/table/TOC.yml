@@ -25,6 +25,8 @@
       href: tutorial-query.md
     - name: 3 - Distribute data globally
       href: tutorial-global-distribution.md
+    - name: Create Jupyter notebooks
+      href: ../nosql/tutorial-create-notebook.md
 - name: Samples
   items:
     - name: .NET
@@ -234,7 +236,11 @@
         - name: Data residency
           href: ../data-residency.md
     - name: Jupyter notebooks
-      href: ../jupyter-notebooks.md
+      items:
+        - name: Overview
+          href: ../notebooks-overview.md
+        - name: FAQ
+          href: ../notebooks-faq.yml
 - name: How to
   items:
     - name: Develop applications
