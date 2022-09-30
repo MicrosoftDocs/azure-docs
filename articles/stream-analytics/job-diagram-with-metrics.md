@@ -3,7 +3,7 @@ title: Stream Analytics job diagram (preview) in Azure portal
 description: This article describes the Azure Stream Analytics job diagram with metrics in Azure portal.
 titleSuffix: Azure Stream Analytics
 author: xujxu
-ms.author: xujxu
+ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/26/2022
