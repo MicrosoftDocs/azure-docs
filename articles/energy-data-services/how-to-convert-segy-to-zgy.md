@@ -18,7 +18,7 @@ In this article, you will learn how to convert SEG-Y formatted data to the ZGY f
 ## Prerequisites
 
 1. Download and install [Postman](https://www.postman.com/) desktop app.
-2. Import the [oZGY Conversions.postman_collection](https://community.opengroup.org/osdu/platform/pre-shipping/-/blob/main/R3-M9/Azure-M9/Services/DDMS/oZGY%20Conversions.postman_collection.json) into Postman. All curl commands used below are added to this collection. Update your Environment file accordingly
+2. Import the [oZGY Conversions.postman_collection](https://github.com/microsoft/meds-samples/blob/main/postman/SegyToZgyConversion%20Workflow%20using%20SeisStore%20R3%20CI-CD%20v1.0.postman_collection.json) into Postman. All curl commands used below are added to this collection. Update your Environment file accordingly
 3. Ensure that your Microsoft Energy Data Services Preview instance is created already
 4. Clone the **sdutil** repo as shown below:
   ```markdown
