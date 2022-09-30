@@ -157,7 +157,7 @@ FWPRIVATE_IP=$(az network firewall show \
     --resource-group $RG \
     --name $FWNAME \
     --query "ipConfigurations[0].privateIpAddress" \
-    --output tsv  | tr -d '[:space:]')
+    --output tsv | tr -d '[:space:]')
 ```
 
 ### Create a user-defined route with a hop to Azure Firewall
@@ -257,7 +257,6 @@ az network vnet subnet update
     --vnet-name $VNET_NAME \
     --name $ASA_SERVICE_RUNTIME_SUBNET_NAME \
     --route-table $SERVICE_RUNTIME_ROUTE_TABLE_NAME
-
 ```
 
 ### Add a role for an Azure Spring Apps RP
