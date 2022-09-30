@@ -24,7 +24,7 @@ In this article, you learn to restore a dedicated SQL pool (formerly SQL DW) usi
 
 ## SQL pool restore naming conventions
 
-Before restoring a deleted SQL pool, make sure that you haven't created a new pool with the same name as the deleted pool. Because the restore point for the previous SQL pool will be overwritten by the new SQL pool.
+Before restoring a deleted SQL pool, make sure that you haven't created a new pool with the same name as the deleted pool. Because the restore point for the deleted SQL pool will be replaced by the newly provisioned SQL pool.
 
 ## Restore a deleted data warehouse through PowerShell
 
