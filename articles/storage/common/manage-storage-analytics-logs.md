@@ -4,7 +4,7 @@ description: Learn how to monitor a storage account in Azure by using Azure Stor
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/09/2022
+ms.date: 09/30/2022
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
@@ -142,7 +142,7 @@ Log data can accumulate in your account over time which can increase the cost of
    > [!div class="mx-imgBorder"]
    > ![Modify the retention period in the Azure portal](./media/manage-storage-analytics-logs/modify-retention-period.png)
 
-   The default number of days for new storage accounts is seven days. If you do not want to set a retention policy, enter zero. If there is no retention policy, it is up to you to delete the monitoring data.
+   The default number of days for new storage accounts is seven days. If you do not want to set a retention policy, leave the **Delete data** checkbox unchecked. If there is no retention policy, it is up to you to delete the monitoring data.
 
 4. Click **Save**.
 
