@@ -265,11 +265,11 @@ az network vnet subnet update
 The following example shows how to add a role for an Azure Spring Apps RP.
 
 ```azurecli
-VIRTUAL_NETWORK_RESOURCE_ID=`az network vnet show \
+VIRTUAL_NETWORK_RESOURCE_ID=$(az network vnet show \
     --name $VNET_NAME \
     --resource-group $RG \
     --query "id" \
-    --output tsv`
+    --output tsv)
 
 az role assignment create \
     --role "Owner" \
