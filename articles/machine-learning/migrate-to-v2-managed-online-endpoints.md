@@ -1,7 +1,7 @@
 ---
-title: Migration steps for ACI web services to managed online endpoints
+title: Upgrade steps for ACI web services to managed online endpoints
 titleSuffix: Azure Machine Learning
-description: Migration steps for ACI web services to managed online endpoints in Azure Machine Learning
+description: Upgrade steps for ACI web services to managed online endpoints in Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,10 +10,10 @@ author: shohei1029
 ms.author: shnagata
 ms.date: 09/28/2022
 ms.reviewer: blackmist
-ms.custom: migration
+ms.custom: upgrade
 ---
 
-# Migration steps for ACI web services to managed online endpoints
+# Upgrade steps for ACI web services to managed online endpoints
 
 [Managed online endpoints](concept-endpoints.md#what-are-online-endpoints) help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure. Details can be found on [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-managed-online-endpoints.md).
 
@@ -23,12 +23,12 @@ You can deploy directly to the new compute target with your previous models and 
 > The scripts are preview and are provided without a service level agreement.
 
 > [!IMPORTANT]
-> **The scoring URL will be changed after migration**. For example, the scoring url for ACI web service is like `http://aaaaaa-bbbbb-1111.westus.azurecontainer.io/score`. The scoring URI for a managed online endpoint is like `https://endpoint-name.westus.inference.ml.azure.com/score`.
+> **The scoring URL will be changed after upgrade**. For example, the scoring url for ACI web service is like `http://aaaaaa-bbbbb-1111.westus.azurecontainer.io/score`. The scoring URI for a managed online endpoint is like `https://endpoint-name.westus.inference.ml.azure.com/score`.
 
 ## Supported Scenarios and Differences
 
 ### Auth Mode
-No auth isn't supported for managed online endpoint. If you use the migration scripts, it will convert it to key auth.
+No auth isn't supported for managed online endpoint. If you use the upgrade scripts, it will convert it to key auth.
 For key auth, the original keys will be used. Token-based auth is also supported.
 
 ### TLS
@@ -38,7 +38,7 @@ Custom DNS name **isn't** supported.
 
 ### Resource Requirements
 [ContainerResourceRequirements](/python/api/azureml-core/azureml.core.webservice.aci.containerresourcerequirements) isn't supported, you can choose the proper [SKU](reference-managed-online-endpoints-vm-sku-list.md) for your inferencing.
-The migration tool will map the CPU/Memory requirement to corresponding SKU. If you choose to redeploy manually through CLI/SDK V2, we also suggest the corresponding SKU for your new deployment.
+The upgrade tool will map the CPU/Memory requirement to corresponding SKU. If you choose to redeploy manually through CLI/SDK V2, we also suggest the corresponding SKU for your new deployment.
 
 | CPU request | Memory request in GB | Suggested SKU |
 | :----| :---- | :---- |
@@ -63,15 +63,15 @@ For private workspace and VNet scenarios, see [Use network isolation with manage
 
 ## Not supported
 + [EncryptionProperties](/python/api/azureml-core/azureml.core.webservice.aci.encryptionproperties) for ACI container isn't supported.
-+ ACI web services deployed through deploy_from_model and deploy_from_image isn't supported by the migration tool. Redeploy manually through CLI/SDK V2.
++ ACI web services deployed through deploy_from_model and deploy_from_image isn't supported by the upgrade tool. Redeploy manually through CLI/SDK V2.
 
-## Migration Steps
+## Upgrade Steps
 
 ### With our [CLI](how-to-deploy-managed-online-endpoints.md) or [SDK preview](how-to-deploy-managed-online-endpoint-sdk-v2.md)
 Redeploy manually with your model files and environment definition.
 You can find our examples on [azureml-examples](https://github.com/Azure/azureml-examples). Specifically, this is the [SDK example for managed online endpoint](https://github.com/Azure/azureml-examples/tree/main/sdk/python/endpoints/online/managed).
 
-### With our [migration tool](https://aka.ms/moeonboard) (preview)
+### With our [upgrade tool](https://aka.ms/moeonboard) (preview)
 This tool will automatically create new managed online endpoint based on your existing web services. Your original services won't be affected. You can safely route the traffic to the new endpoint and then delete the old one.
 
 Use the following steps to run the scripts:
@@ -102,7 +102,7 @@ Use the following steps to run the scripts:
 7. After the deployment is completes successfully, you can verify the endpoint with the [az ml online-endpoint invoke](/cli/azure/ml/online-endpoint#az-ml-online-endpoint-invoke) command.
 
 ## Contact us
-If you have any questions or feedback on the migration script, contact us at moeonboard@microsoft.com.
+If you have any questions or feedback on the upgrade script, contact us at moeonboard@microsoft.com.
 
 ## Next steps
 
