@@ -28,7 +28,6 @@ The example scripts in this article are used to classify iris flower images to b
 Whether you're training a machine learning scikit-learn model from the ground-up or you're bringing an existing model into the cloud, you can use Azure Machine Learning to scale out open-source training jobs using elastic cloud compute resources. You can build, deploy, version, and monitor production-grade models with Azure Machine Learning.
 
 ## Prerequisites
-<!-- M.A: update the prerequisites (path to the notebook) before sign-off -->
 
 You can run the code for this article in either an Azure Machine Learning compute instance, or your own Jupyter Notebook.
 
