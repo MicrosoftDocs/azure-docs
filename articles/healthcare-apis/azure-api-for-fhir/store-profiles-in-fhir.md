@@ -66,15 +66,19 @@ Profiles are also specified by various Implementation Guides (IGs). Some common 
 
 ### Storing profiles
 
-To store profiles in Azure API for FHIR, you can `POST` the `StructureDefinition` with the profile content in the body of the request.
+To store profiles in Azure API for FHIR, you can `PUT` the `StructureDefinition` with the profile content in the body of the request. An update or a conditional update are both good methods to store profiles on the FHIR service. Use the conditional update if you are unsure which to use.
 
+Standard `PUT`: `PUT http://<your Azure API for FHIR base URL>/StructureDefinition/profile-id`
 
-`POST http://<your Azure API for FHIR base URL>/StructureDefinition`
+**or**
+
+Conditional update: `PUT http://<your Azure API for FHIR base URL>/StructureDefinition?url=http://sample-profile-url`
 
 ```
 { 
 "resourceType" : "StructureDefinition",
 "id" : "profile-id",
+"url": "http://sample-profile-url"
 	…
 }
 ```
@@ -82,7 +86,7 @@ To store profiles in Azure API for FHIR, you can `POST` the `StructureDefinition
 For example, if you'd like to store the `us-core-allergyintolerance` profile, you'd use the following rest command with the US Core allergy intolerance profile in the body. We've included a snippet of this profile for the example.
 
 ```rest
-POST https://myAzureAPIforFHIR.azurehealthcareapis.com/StructureDefinition?url=http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
+PUT https://myAzureAPIforFHIR.azurehealthcareapis.com/StructureDefinition?url=http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
 ```
 
 ```json
@@ -167,7 +171,7 @@ The `Capability Statement` lists all possible behaviors of Azure API for FHIR. A
 - `CapabilityStatement.rest.resource.profile`
 - `CapabilityStatement.rest.resource.supportedProfile`
 
-For example, if you `POST` a US Core Patient profile, which starts like this:
+For example, if you save a US Core Patient profile, which starts like this:
 
 ```json
 {

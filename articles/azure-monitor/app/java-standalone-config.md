@@ -18,7 +18,7 @@ Connection string and role name are the most common settings needed to get start
 
 ```json
 {
-  "connectionString": "InstrumentationKey=...",
+  "connectionString": "...",
   "role": {
     "name": "my cloud role name"
   }
@@ -53,7 +53,7 @@ Connection string is required. You can find your connection string in your Appli
 
 ```json
 {
-  "connectionString": "InstrumentationKey=..."
+  "connectionString": "..."
 }
 ```
 
@@ -70,11 +70,7 @@ If you specify a relative path, it will be resolved relative to the directory wh
 }
 ```
 
-The file should contain only the connection string, for example:
-
-```
-InstrumentationKey=...;IngestionEndpoint=...;LiveEndpoint=...
-```
+The file should contain only the connection string and nothing else.
 
 Not setting the connection string will disable the Java agent.
 
@@ -280,11 +276,11 @@ Connection string overrides allow you to override the [default connection string
     "connectionStringOverrides": [
       {
         "httpPathPrefix": "/myapp1",
-        "connectionString": "12345678-0000-0000-0000-0FEEDDADBEEF"
+        "connectionString": "..."
       },
       {
         "httpPathPrefix": "/myapp2",
-        "connectionString": "87654321-0000-0000-0000-0FEEDDADBEEF"
+        "connectionString": "..."
       }
     ]
   }
@@ -797,7 +793,7 @@ Please configure specific options based on your needs.
 
 ```json
 {
-  "connectionString": "InstrumentationKey=...",
+  "connectionString": "...",
   "role": {
     "name": "my cloud role name"
   },

@@ -42,8 +42,6 @@ Once you're inside your IoT application, use the left pane to access various fea
 > [!NOTE]
 > The items you see in the left pane depend on your user role. Learn more about [managing users and roles](howto-manage-users-roles.md).
 
-<!-- TODO: Needs a new screenshot and entry. -->
-
 :::row:::
   :::column span="":::
 
@@ -149,6 +147,12 @@ This page lets you view and create rules based on device data. When a rule fires
 :::image type="content" source="Media/overview-iot-central-tour/export.png" alt-text="Data Export":::
 
 Data export enables you to set up streams of data to external systems. To learn more, see the [Export your data in Azure IoT Central](./howto-export-to-blob-storage.md) article.
+
+### Audit logs
+
+:::image type="content" source="Media/overview-iot-central-tour/audit.png" alt-text="Screenshot of audit logs page.":::
+
+Audit logs enable you to view a list of recent changes made in your IoT Central application. To learn more, see the [Use audit logs to track activity in your IoT Central application](howto-use-audit-logs.md) article.
 
 ### Permissions
 

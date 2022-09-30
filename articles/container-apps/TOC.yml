@@ -78,8 +78,12 @@
       href: scale-app.md
     - name: Manage secrets
       href: manage-secrets.md
-    - name: Use managed identities
-      href: managed-identity.md
+    - name: Managed identities
+      items:
+      - name: Use managed identities
+        href: managed-identity.md
+      - name: Azure Container Registry image pull with managed identity
+        href: managed-identity-image-pull.md
     - name: Monitor an app
       href: monitor.md
     - name: Manage revisions
