@@ -267,6 +267,15 @@ The version of the Functions runtime that hosts your function app. A tilde (`~`)
 |---|------------|
 |FUNCTIONS\_EXTENSION\_VERSION|`~3`|
 
+The following major runtime version values are supported:
+
+| Value | Runtime target | Comment |
+| ------ | -------- | --- |
+| `~4` | 4.x | Recommended |
+| `~3` | 3.x | Support ends December 13, 2022 |
+| `~2` | 2.x | No longer supported |
+| `~1` | 1.x | Supported |
+
 ## FUNCTIONS\_V2\_COMPATIBILITY\_MODE
 
 This setting enables your function app to run in a version 2.x compatible mode on the version 3.x runtime. Use this setting only if encountering issues when [upgrading your function app from version 2.x to 3.x of the runtime](functions-versions.md#migrating-from-2x-to-3x).
@@ -556,6 +565,16 @@ Indicates whether all outbound traffic from the app is routed through the virtua
 |Key|Sample value|
 |---|------------|
 |WEBSITE\_VNET\_ROUTE\_ALL|`1`|
+
+## App Service site settings
+
+Some configurations must be set at the App Service level as site settings, such as language versions. These settings are usually set in the portal, by using REST APIs, or by using Azure CLI or Azure PowerShell. The following are site settings that could be required, depending on your runtime language, OS, and versions: 
+
+| Site setting | Description |
+| --- | --- |
+| linuxFxVersion | Sets the specific base container image (language and version) used when running on Linux. Use the following Azure CLI command to see a table of currently supported `linuxFxVersion` values:<br><pre>`az functionapp list-runtimes --os linux --query "[].{stack:join(' ', [runtime, version]), LinuxFxVersion:linux_fx_version, SupportedFunctionsVersions:to_string(supported_functions_versions[])}" --output table`</pre></br>This command requires you to upgrade to version 2.40 of the Azure CLI.  |
+| netFrameworkVersion | Sets the specific version of .NET for C# functions. For more information, see [Migrating from 3.x to 4.x](functions-versions.md#migrating-from-3x-to-4x). |
+| powerShellVersion | Sets the specific version of PowerShell on which your functions run. For more information, see [Changing the PowerShell version](functions-reference-powershell.md#changing-the-powershell-version). When running locally, you instead use the [`FUNCTIONS_WORKER_RUNTIME_VERSION`](functions-reference-powershell.md#running-local-on-a-specific-version) setting in the local.settings.json file. |
 
 ## Next steps
 
