@@ -728,7 +728,7 @@ This section lists common error codes and messages reported by mapping data flow
 ### Error code: DF-SAPODP-NotReached
 
 - **Message**: partner '.*' not reached
-- **Causes and recommendations:**: This is a connectivity issue. Different causes may lead to this issue. Check below list for possible cause analysis and related recommendation.
+- **Causes and recommendations**: A connectivity issue. Different causes may lead to this issue. Check below list for possible cause analysis and related recommendation.
   |Cause analysis|Recommendation|
   |:---|:---|
   |Your SAP server is shut down.|Check your SAP server is started.|
