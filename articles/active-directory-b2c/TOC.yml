@@ -117,8 +117,8 @@
     items: 
     - name: Register apps
       items:
-      - name: Register apps documentation 
-        href: index-register-apps.yml
+      - name: Register apps 
+        href: register-apps.md
       - name: Register a single-page application (SPA)
         href: tutorial-register-spa.md
       - name: Register a web application

@@ -138,7 +138,7 @@ conceptualContent:
     - title: 'Authenticate: Sign in users'
       links:
           - text: Register your applications
-            url: index-register-apps.yml
+            url: register-apps.md
             itemType: tutorial
           - text: Create user flows
             url: index-create-user-flow.yml
