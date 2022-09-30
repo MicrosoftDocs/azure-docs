@@ -97,7 +97,7 @@ To configure a local development environment or remote VM:
 
 1. Activate your newly created Python virtual environment.
 1. Install the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install).
-1. To configure your local environment to use your Azure Machine Learning workspace, [create a workspace configuration file](#workspace) or use an existing one.
+1. To configure your local environment to use your Azure Machine Learning workspace, [create a workspace configuration file](#local-and-dsvm-only-create-a-workspace-configuration-file) or use an existing one.
 
 Now that you have your local environment set up, you're ready to start working with Azure Machine Learning. See the [Azure Machine Learning Python getting started guide](tutorial-1st-experiment-hello-world.md) to get started.
 
@@ -207,7 +207,7 @@ To use the Data Science VM as a development environment:
         conda activate AzureML
         ```
 
-1. To configure the Data Science VM to use your Azure Machine Learning workspace, [create a workspace configuration file](#workspace) or use an existing one.
+1. To configure the Data Science VM to use your Azure Machine Learning workspace, [create a workspace configuration file](#local-and-dsvm-only-create-a-workspace-configuration-file) or use an existing one.
 
 Similar to local environments, you can use Visual Studio Code and the [Azure Machine Learning Visual Studio Code extension](#visual-studio-code) to interact with Azure Machine Learning.
 
