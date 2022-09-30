@@ -6,7 +6,7 @@ ms.service: deployment-environments
 ms.topic: overview
 ms.author: meghaanand
 author: anandmeg
-ms.date: 09/19/2022
+ms.date: 10/12/2022
 ---
 
 # What is Azure Deployment Environments Preview?

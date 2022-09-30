@@ -5,7 +5,7 @@ description: Learn how to configure a catalog in your dev center to provide cura
 ms.service: deployment-environments
 ms.author: meghaanand
 author: anandmeg
-ms.date: 08/18/2022
+ms.date: 10/12/2022
 ms.topic: how-to
 ---
 

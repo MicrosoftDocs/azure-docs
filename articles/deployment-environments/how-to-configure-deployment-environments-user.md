@@ -5,7 +5,7 @@ description: Learn how to configure access for developers by using the Deploymen
 ms.service: deployment-environments
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 09/23/2022
+ms.date: 10/12/2022
 ms.topic: how-to
 ---
 

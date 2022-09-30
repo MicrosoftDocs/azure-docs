@@ -5,7 +5,7 @@ ms.service: deployment-environments
 ms.topic: conceptual
 ms.author: meghaanand
 author: anandmeg
-ms.date: 09/20/2022
+ms.date: 10/12/2022
 ---
 # Scenarios for using Azure Deployment Environments Preview
 
