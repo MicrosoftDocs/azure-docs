@@ -26,6 +26,7 @@ Group writeback requires enabling both the original and new versions of the feat
  
 >[!Note] 
 >It is recommended that you follow the [swing migration](how-to-upgrade-previous-version.md#swing-migration) method for rolling out the new group writeback feature in your environment. This method will provide a clear contingency plan in the event that a major rollback is necessary. 
+>
 >The enhanced group writeback feature is enabled on the tenant and not per Azure AD Connect client instance. Please be sure that all Azure AD Connect client instances are updated to a minimal build version of 1.6.4.0 or later.
 
   
