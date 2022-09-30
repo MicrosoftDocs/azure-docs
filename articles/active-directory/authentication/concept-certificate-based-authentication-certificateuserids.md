@@ -1,6 +1,6 @@
 ---
-title: Certificate user IDs for Azure AD certificate-based authentication - Azure Active Directory 
-description: Learn about Certificate user IDs for Azure AD certificate-based authentication without federation
+title: Synchronize certificate user IDs for Azure AD certificate-based authentication - Azure Active Directory 
+description: Learn about certificate user IDs for Azure AD certificate-based authentication without federation
 
 services: active-directory
 ms.service: active-directory
@@ -17,11 +17,11 @@ ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
 
-# Synchronize Certificate user IDs 
+# Synchronize certificate user IDs 
 
-Azure AD has a user object attribute named **certificateUserIds**, which is multivalued. The attribute allows up to four values, and each value can be of 120-character length. It can store any value and doesn't need to be in email ID format. It can store non-routable UPNs like _bob@woodgrove or _bob@local_.
+You can add certificate user IDs to users in Azure AD can have certificate user IDs. a multivalued attribute named **certificateUserIds**. The attribute allows up to four values, and each value can be of 120-character length. It can store any value, and doesn't require email ID format. It can store non-routable User Principal Names (UPNs) like _bob@woodgrove_ or _bob@local_.
  
-## Supported patterns for Certificate user IDs
+## Supported patterns for certificate user IDs
  
 The values stored in **certificateUserIds** should be in the format described in the following table.
  
@@ -33,9 +33,9 @@ The values stored in **certificateUserIds** should be in the format described in
 |X509SKI | “X509:\<SKI>123456789abcdef”|
 |X509SHA1PublicKey |“X509:\<SHA1-PUKEY>123456789abcdef” |
  
-## Update Certificate user IDs in the Azure portal
+## Update certificate user IDs in the Azure portal
  
-Tenant admins can use the following steps Azure portal to update Certificate user IDs for a user account:
+Tenant admins can use the following steps Azure portal to update certificate user IDs for a user account:
 
 1. In the Azure AD portal, click **All users (preview)**. 
 
@@ -49,9 +49,9 @@ Tenant admins can use the following steps Azure portal to update Certificate use
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/view.png" alt-text="Screenshot of View authorization info.":::
 
-1. Click **Edit Certificate user IDs**.
+1. Click **Edit certificate user IDs**.
 
-   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/edit-cert.png" alt-text="Screenshot of Edit Certificate user IDs.":::
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/edit-cert.png" alt-text="Screenshot of Edit certificate user IDs.":::
 
 1. Click **Add**.
 
@@ -61,9 +61,9 @@ Tenant admins can use the following steps Azure portal to update Certificate use
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/save.png" alt-text="Screenshot of a value to enter for CertificateUserId.":::
  
-## Update Certificate user IDs using Azure AD Connect for federated users
+## Update certificate user IDs using Azure AD Connect for federated users
 
-To update Certificate user IDs for federated users, configure Azure AD Connect to sync userPrincipalName to certificateUserIds. 
+To update certificate user IDs for federated users, configure Azure AD Connect to sync userPrincipalName to certificateUserIds. 
 
 1. On the Azure AD Connect server, find and start the **Synchronization Rules Editor**.
 
@@ -92,7 +92,7 @@ To update Certificate user IDs for federated users, configure Azure AD Connect t
 1. Click **OK** to confirm. 
 
 > [!NOTE]
-> Make sure you use the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594). 
+> Make sure you use the latest version of [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594). 
 
 ## Complex transformation using sync rule expressions
 
