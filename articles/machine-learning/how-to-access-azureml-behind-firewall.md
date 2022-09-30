@@ -82,7 +82,7 @@ These rule collections are described in more detail in [What are some Azure Fire
     > [!TIP]
     > * AzureContainerRegistry.region is only needed for custom Docker images. Including small modifications (such as additional packages) to base images provided by Microsoft.
     > * MicrosoftContainerRegistry.region is only needed if you plan on using the _default Docker images provided by Microsoft_, and _enabling user-managed dependencies_.
-    > * AzureKeyVault.region is only needed if your workspace was created with the [hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) flag enabled.
+    > * AzureKeyVault.region is only needed if your workspace was created with the [hbi_workspace](/python/api/azure-ai-ml/azure.ai.ml.entities.workspace) flag enabled.
     > * For entries that contain `region`, replace with the Azure region that you're using. For example, `AzureContainerRegistry.westus`.
 
 1. Add __Application rules__ for the following hosts:
@@ -305,7 +305,7 @@ The hosts in the following tables are owned by Microsoft, and provide services r
 **Azure Machine Learning compute instance and compute cluster hosts**
 
 > [!TIP]
-> * The host for __Azure Key Vault__ is only needed if your workspace was created with the [hbi_workspace](/python/api/azureml-core/azureml.core.workspace%28class%29#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) flag enabled.
+> * The host for __Azure Key Vault__ is only needed if your workspace was created with the [hbi_workspace](/python/api/azure-ai-ml/azure.ai.ml.entities.workspace) flag enabled.
 > * Ports 8787 and 18881 for __compute instance__ are only needed when your Azure Machine workspace has a private endpoint.
 > * In the following table, replace `<storage>` with the name of the default storage account for your Azure Machine Learning workspace.
 > * Websocket communication must be allowed to the compute instance. If you block websocket traffic, Jupyter notebooks won't work correctly.
