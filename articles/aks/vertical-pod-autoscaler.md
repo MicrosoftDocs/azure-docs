@@ -3,7 +3,7 @@ title: Vertical Pod Autoscaling (preview) in Azure Kubernetes Service (AKS)
 description: Learn how to vertically autoscale your pod on an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 09/29/2022
+ms.date: 09/30/2022
 ---
 
 # Vertical Pod Autoscaling (preview) in Azure Kubernetes Service (AKS)
@@ -16,7 +16,7 @@ Vertical Pod Autoscaler provides the following benefits:
 
 * It analyzes and adjusts processor and memory resources to *right size* your applications. VPA is not only responsible for scaling up, but also for scaling down based on their resource use over time.
 
-* A Pod is evicted if it needs to change its resource requests based on if its scaling mode is set to *auto*
+* A Pod is evicted if it needs to change its resource requests based on if its scaling mode is set to *auto* or *recreate*.
 
 * Set CPU and memory constraints for individual containers by specifying a resource policy
 
@@ -29,11 +29,11 @@ Vertical Pod Autoscaler provides the following benefits:
 ## Limitations
 
 * Vertical Pod autoscaling supports a maximum of 500 `VerticalPodAutoscaler` objects per cluster.
-* With this preview release, you cannot change the `controllerValue` and `updateMode` properties. While you can see them from the `managedCluster` object, they are reserved for future use.
+* With this preview release, you cannot change the `controlledValue` and `updateMode` VPA objects. While you can see them from the `managedCluster` object, they are reserved for future use.
 
 ## Before you begin
 
-* Your AKS cluster is running Kubernetes version 1.22 and higher.
+* AKS cluster is running Kubernetes version 1.24 and higher.
 
 * The Azure CLI version 2.0.64 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
@@ -205,7 +205,7 @@ The following steps create a deployment with two pods, each running a single con
 
 ## Set Pod Autoscaler requests automatically
 
-Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automatically set resource requests on Pods when the updateMode is set to **Auto**.
+Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automatically set resource requests on Pods when the updateMode is set to **Auto** or **Recreate**.
 
 1. Enable VPA for your cluster by running the following command. Replace cluster name `myAKSCluster` with the name of your AKS cluster and replace `myResourceGroup` with the name of the resource group the cluster is hosted in.
 
