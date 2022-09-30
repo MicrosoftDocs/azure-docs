@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/12/2021
+ms.date: 09/30/2022
 
 ms.author: mimart
 author: msmimart
@@ -37,8 +37,8 @@ The subject of the email follows this pattern:
 We use a LinkedIn-like pattern for the From address. This pattern should make it clear that although the email comes from invites@microsoft.com, the invitation is from another organization. The format is: Microsoft Invitations <invites@microsoft.com> or Microsoft invitations on behalf of &lt;tenantname&gt; <invites@microsoft.com>. 
 
 > [!NOTE]
-> For the Azure service operated by [21Vianet in China](https://github.com/MicrosoftDocs/azure-china-pr/blob/main/azure-china/overview-operations.md), the sender address is Invites@oe.21vianet.com.  
-> For the [Azure AD Government](https://github.com/MicrosoftDocs/azure-docs-pr/blob/main/articles/azure-government/documentation-government-plan-identity.md), the sender address is invites@azuread.us.
+> For the Azure service operated by [21Vianet in China](azure-china-pr/blob/main/azure-china/overview-operations.md), the sender address is Invites@oe.21vianet.com.  
+> For the [Azure AD Government](azure-government/documentation-government-plan-identity.md), the sender address is invites@azuread.us.
 
 ### Reply To
 
