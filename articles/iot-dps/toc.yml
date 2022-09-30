@@ -92,6 +92,8 @@ items:
     items:
     - name: Manage enrollments - Portal
       href: how-to-manage-enrollments.md
+    - name: Manage linked IoT hubs
+      href: how-to-manage-linked-iot-hubs.md
     - name: Manage allocation policies
       href: how-to-use-allocation-policies.md
     - name: Configure verified CA certificates
