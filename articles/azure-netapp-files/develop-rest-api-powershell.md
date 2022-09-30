@@ -21,9 +21,9 @@ The REST API for the Azure NetApp Files service defines HTTP operations against 
 
 ## Azure NetApp Files REST API specification
 
-The REST API specification for Azure NetApp Files is published through [GitHub](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager):
+The REST API specification for Azure NetApp Files is published through [GitHub](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/netapp/resource-manager):
 
-`https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager`
+`https://github.com/Azure/azure-rest-api-specs/tree/main/specification/netapp/resource-manager`
 
 
 ## Access the Azure NetApp Files REST API  
