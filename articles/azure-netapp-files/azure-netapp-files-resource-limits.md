@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/07/2022
+ms.date: 09/30/2022
 ms.author: anfdocs
 ---
 # Resource limits for Azure NetApp Files
