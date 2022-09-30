@@ -13,7 +13,7 @@ ms.topic: reference
 
 # Azure Machine Learning compute instance image release notes
 
-In this article, learn about Azure Machine Learning compute instance image releases. Azure Machine Learning maintains host operating system images for [Azure ML compute instance](/azure/machine-learning/concept-compute-instance) and [Data Science Virtual Machines](/azure/machine-learning/data-science-virtual-machine/release-notes). Due to the rapidly evolving needs and package updates, we target to release new Azure Data Science Virtual Machine for Windows and Ubuntu images every month. Azure Machine Learning checks and validates any machine learning packages that may require an upgrade. 
+In this article, learn about Azure Machine Learning compute instance image releases. Azure Machine Learning maintains host operating system images for [Azure ML compute instance](/azure/machine-learning/concept-compute-instance) and [Data Science Virtual Machines](/azure/machine-learning/data-science-virtual-machine/release-notes). Due to the rapidly evolving needs and package updates, we target to release new images every month. Azure Machine Learning checks and validates any machine learning packages that may require an upgrade. 
 
 Updates incorporate the latest OS-related patches from the original Linux OS publisher. In addition to patches applied by the original publisher, Azure Machine Learning updates system packages when updates are available. For details on the patching process, see [Vulnerability Management](https://learn.microsoft.com/en-us/azure/machine-learning/concept-vulnerability-management).
 
