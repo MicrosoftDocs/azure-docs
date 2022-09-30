@@ -29,7 +29,7 @@ Main changes:
 - `Conda` to version `4.14.0`
 - `Azure Machine Learning SDK` to version `1.45.0`
  
-Main Environment Specific Updates:
+Main environment specific updates:
 
 `azureml_py38`:
 - `azureml-core` to version `1.45.0`
