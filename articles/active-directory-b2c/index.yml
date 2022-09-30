@@ -141,7 +141,7 @@ conceptualContent:
             url: register-apps.md
             itemType: tutorial
           - text: Create user flows
-            url: index-create-user-flow.yml
+            url: add-sign-up-and-sign-in-policy.md?pivots=b2c-user-flow
             itemType: how-to-guide
           # - text: Sign-in options
             # url: sign-in-options.md
@@ -217,7 +217,7 @@ conceptualContent:
             url: custom-domain.md
             itemType: how-to-guide  
           - text: Customize user experiences using custom policies
-            url: index-create-custom-policy.yml
+            url: add-sign-up-and-sign-in-policy.md?pivots=b2c-custom-policy            
             itemType: how-to-guide 
           # - text: Use API connectors 
             # url: add-api-connector.md?pivots=b2c-user-flow
