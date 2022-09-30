@@ -595,6 +595,14 @@ This section lists common error codes and messages reported by mapping data flow
 - **Cause**: The SQL database's firewall setting blocks the data flow to access.
 - **Recommendation**: Please check the firewall setting for your SQL database, and allow Azure services and resources to access this server.
 
+### Error code: DF-MSSQL-InvalidCertificate
+
+- **Message**: SQL server configuration error, please either install a trusted certificate on your server or change 'encrypt' connection string setting to false and 'trustServerCertificate' connection string setting to true.
+- **Cause**: SQL server configuration error.
+- **Recommendations**: Install a trusted certificate on your SQL server, or change `encrypt` connection string setting to false and `trustServerCertificate` connection string setting to true.
+
+
+
 ### Error code: DF-PGSQL-InvalidCredential
 
 - **Message**: User/password should be specified.
@@ -719,7 +727,7 @@ This section lists common error codes and messages reported by mapping data flow
 
 ### Error code: DF-SAPODP-NotReached
 
-- **Message**: partner '*' not reached
+- **Message**: partner '.*' not reached
 - **Causes and recommendations:**: This is a connectivity issue. Different causes may lead to this issue. Check below list for possible cause analysis and related recommendation.
   |Cause analysis|Recommendation|
   |:---|:---|
@@ -747,14 +755,33 @@ This section lists common error codes and messages reported by mapping data flow
 ### Error code: DF-SAPODP-SourceNotSupportDelta
 
 - **Message**: Source .* does not support deltas
-- **Cause**: Your SAP source doesn't support CDC.
-- **Recommendation**: Refer to this [Document](https://userapps.support.sap.com/sap/support/knowledge/en/2752413).
+- **Cause**: The ODP context/ODP name you specified does not support delta.
+- **Recommendation**: Enable delta mode for your SAP source, or select **Full on every run** as run mode in data flow. For more information, see this [document](https://userapps.support.sap.com/sap/support/knowledge/en/2752413).
 
 ### Error code: DF-SAPODP-SAPI-LIMITATION
 
 - **Message**: Error Number 518, Source .* not found, not released or not authorized
 - **cause**: Check if your context is SAPI. If so, in SAPI context, you can only extract the relevant extractors for SAP tables.
 - **Recommendations**: Refer to this [document](https://userapps.support.sap.com/sap/support/knowledge/en/2646092).
+
+### Error code: DF-SAPODP-KeyColumnsNotSpecified
+
+
+- **Message**: Key column(s) should be specified for non-insertable operations (updates/deletes)
+- **Cause**: This error occurs when you skip selecting **Key Columns** in the sink table.
+- **Recommendations**: Allowing delete, upsert and update options requires a key column to be specified. Specify one or more columns for the row matching in sink.
+
+### Error code: DF-SAPODP-InsufficientResource
+
+- **Message**: A short dump has occurred in a database operation
+- **Cause**: SAP system ran out of resources, which resulted in short dump in SAP server.
+- **Recommendations**: Contact your SAP administrator to address the problem in SAP instance and retry.
+
+### Error code: DF-SAPODP-ExecuteFuncModuleWithPointerFailed
+
+- **Message**: Execute function module .* with pointer .* failed
+- **Cause**: SAP system issue.
+- **Recommendations**: Go to SAP instance, and check ST22 (short dump, similar to windows dump) and review the code where the error happened. In most cases, SAP offers hints on various possibilities for further troubleshooting.
 
 ### Error code: DF-Snowflake-IncompatibleDataType
 
@@ -818,6 +845,18 @@ This section lists common error codes and messages reported by mapping data flow
 - **Message**: Storage type can either be blob or gen2.
 - **Cause**: An invalid storage type is provided for staging.
 - **Recommendation**: Check the storage type of the linked service used for staging and make sure that it's Blob or Gen2.
+
+### Error code: DF-SQLDW-StagingStorageNotSupport
+
+- **Message**: Staging Storage with partition DNS enabled is not supported if enable staging. Please uncheck enable staging in sink using Synapse Analytics.
+- **Cause**: Staging storage with partition DNS enabled is not supported if you enable staging.
+- **Recommendations**: Uncheck **Enable staging** in sink when using Azure Synapse Analytics.
+
+### Error code: DF-SQLDW-DataTruncation
+
+- **Message**: Your target table has a column with (n)varchar or (n)varbinary type that has a smaller column length limitation than real data, please either adjust the column definition in your target table or change the source data.
+- **Cause**: Your target table has a column with varchar or varbinary type that has a smaller column length limitation than real data.
+- **Recommendations**: Adjust the column definition in your target table or change the source data.
 
 ### Error code: DF-Synapse-DBNotExist
 
