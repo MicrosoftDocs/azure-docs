@@ -110,7 +110,7 @@ sequenceDiagram
     EdgeGateway->>ContosoIotHub: Let's talk securely with TLS 🔒
     EdgeGateway->>ContosoIotHub: Here's my certificate 📜
     ContosoIotHub->>ContosoIotHub: Check if certificate thumbprint matches record
-    note over EdgeGateway, ContosoIotHub: *Cryptographic magic happens*
+    note over EdgeGateway, ContosoIotHub: Cryptographic algorithms
     ContosoIotHub->>EdgeGateway: Great, let's connect
 -->
 
@@ -188,7 +188,7 @@ sequenceDiagram
     TempSensor->>EdgeGateway: Let's talk securely with TLS 🔒
     EdgeGateway-)TempSensor: Ok, this certificate chain proves my legitimacy 📜
     TempSensor->>TempSensor: Check trusted root certificate store
-    note over TempSensor, EdgeGateway: *Cryptographic magic happens*
+    note over TempSensor, EdgeGateway: Cryptographic algorithms
     TempSensor->>EdgeGateway: Name checks out, private root CA found 🙂, let's connect
 -->
 
@@ -305,17 +305,17 @@ In summary, *TempSensor* can trust *EdgeGateway* because:
 - This private root CA is also stored in the TempSensor as trusted root CA earlier
 - Cryptographic algorithms verify that the ownership and issuance chain can be trusted
 
-### PS: Certificates for non-edgeHub modules
+### Certificates for other modules
 
-Other modules, not just `edgeHub` can also get server certs issued by Edge CA. For example if you had a Grafana module, that could have a web interface. It can also get a cert from Edge CA. Modules are basically just leaf devices hosted in the container, but being able to get a cert from IoT Edge module runtime is a special privilege. They just have to call the "workload API" to receive the trust bundle (again which is basically just the root CA cert). 
+Other modules can get server certificates issued by *Edge CA*. For example if you had a *Grafana* module, that could have a web interface. It can also get a cert from *Edge CA*. Modules are treated as leaf devices hosted in the container. However, being able to get a certificate from the IoT Edge module runtime is a special privilege. Modules call the *workload API* to receive the trust bundle. Azure IoT SDKs can do this for you using `ModuleClient.CreateFromEnvironmentAsync()`. You can also manually call the API to get the trust bundle.
 
-Azure IoT SDKs can do this for you under the covers using for example `ModuleClient.CreateFromEnvironmentAsync()`. Or you can manually call the API manually to get the trust bundle.
+## Gateway verifies device identity
 
-## Part 4: *Is this really from TempSensor?*
+How does *EdgeGateway* verify it's communicating with *TempSensor*? EdgeGateway uses *TLS client authentication* to authenticate TempSensor. 
 
-Just like earlier, EdgeGateway uses *TLS client authentication* to authenticate TempSensor. Some small differences, let's see.
+:::image type="content" source="./media/iot-edge-certs/verify-sensor-identity.svg" alt-text="Sequence diagram showing certificate exchange from IoT Edge device to gateway with certificate check verification from IoT Hub certificates.":::
 
-```mermaid
+<!-- mermaid
 sequenceDiagram
     participant TempSensor
     participant EdgeGateway
@@ -324,37 +324,36 @@ sequenceDiagram
     TempSensor->>EdgeGateway: Let's talk securely with TLS 🔒
     TempSensor->>EdgeGateway: Here's my certificate 📜
     opt If online
-        EdgeGateway-->>ContosoIotHub: Can you give me the latest list of certificates?
-        ContosoIotHub-->>EdgeGateway: Here you go 📜📜📜
+        EdgeGateway- ->>ContosoIotHub: Can you give me the latest list of certificates?
+        ContosoIotHub- ->>EdgeGateway: Here you go 📜📜📜
     end
     EdgeGateway->>EdgeGateway: Verify certificate against record
-    note over TempSensor, EdgeGateway: *Cryptographic magic happens*
+    note over TempSensor, EdgeGateway: Cryptographic algorithms
     EdgeGateway->>TempSensor: Great, let's connect
-```
-The major difference here is that EdgeGateway relies on ContosoIotHub as the source of truth for the record of the certificates. EdgeGateway also keeps an offline copy (cache) in case there's no internet.
+-->
+
+The sequences is similar to *ContosoIotHub* verifying a device. However, in a nested scenario, *EdgeGateway* relies on *ContosoIotHub* as the source of truth for the record of the certificates. *EdgeGateway* also keeps an offline copy or cache in case there's no connection to the cloud.
 
 > [!TIP]
-> Also, unlike IoT Edge itself, downstream (normal) devices are not limited to thumbprint X.509 auth here. X.509 CA auth is also an option. So like instead of just looking for a match on the thumbprint, EdgeGateway can also check if TempSensor's certificate is rooted in a CA that is uploaded to ContosoIotHub.
+> Unlike IoT Edge devices, downstream IoT devices are not limited to thumbprint X.509 authentication. X.509 CA authentication is also an option. Instead of just looking for a match on the thumbprint, *EdgeGateway* can also check if *TempSensor's* certificate is rooted in a CA that has been uploaded to *ContosoIotHub*.
 
-### Conclusion
+In summary, *EdgeGateway* can trust *TempSensor* because:
 
-EdgeGateway knows that it can trust TempSensor because 
+- *TempSensor* presented a valid *IoT device identity certificate* for its name
+- The identity certificate's thumbprint matches the one uploaded to *ContosoIotHub*
+- Cryptographic algorithms verify that the ownership and issuance chain can be trusted
 
-- TempSensor showed a valid **IoT device identity certificate** for its name
-- This certificate's thumbprint matches the one uploaded to earlier to ContosoIotHub
-- Again, cryptographic magic verifies that the ownership can be trusted
+## Scenario summary
 
-## Part 5: Recap
-
-So, what did we learn? These are the core scenarios where IoT Edge uses certificates, either ones it owns, or ones it verifies.
+These are the core scenarios where IoT Edge uses certificates:
 
 | Actor | Purpose | Certificate |
 |---|---|---|
-| IoT Edge | Ensure it's talking to the right IoT Hub | IoT Hub server certificate |
-| IoT Hub | Ensure the request came from a legit IoT Edge device | IoT Edge identity certificate |
-| Child device | Ensure it's talking to the right IoT Edge gateway | IoT Edge module server certificate |
-| IoT Edge | Sign new module server certificates (e.g. for `edgeHub`) | Edge CA certificate |
-| IoT Edge | Ensure the request came from a legit child device | IoT device identity certificate |
+| IoT Edge | Ensure it's communicating to the right IoT Hub | IoT Hub server certificate |
+| IoT Hub | Ensure the request came from a legitimate IoT Edge device | IoT Edge identity certificate |
+| Child device | Ensure it's communicating to the right IoT Edge gateway | IoT Edge module server certificate |
+| IoT Edge | Sign new module server certificates. For example, *edgeHub* | Edge CA certificate |
+| IoT Edge | Ensure the request came from a legitimate child device | IoT device identity certificate |
 
 ## Where do you get the certs and how do you manage them?
 
