@@ -19,7 +19,7 @@
           href: quickstart-portal.md
         - name: Command line
           href: get-started.md
-      - name: With existing container image
+      - name: With an existing container image
         expanded: true
         items:
         - name: Azure portal
