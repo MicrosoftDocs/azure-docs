@@ -25,6 +25,9 @@ Use the following steps to create a private endpoint for an existing Microsoft E
 1.	From the **All resources** pane, choose a Microsoft Energy Data Services Preview instance.
 2.	Select **Networking** from the list of settings.
  
+  [![Screenshot for public access under Networking tab for Private Links.](media/media/how-to-set-up-private-links/pvtlink-1Networking.png)](media/how-to-set-up-private-links/pvtlink-1Networking.png#lightbox)
+  
+   
 3.	Select **Public Access** and select **Enabled from all networks** to allow traffic from all networks.
 4.	To block traffic from all networks, select **Disabled**.
 5.	Select **Private access** tab and select **Create a private endpoint**, to create a Private Endpoint Connection.
