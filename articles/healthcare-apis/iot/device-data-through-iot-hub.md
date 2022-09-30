@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 03/25/2022
+ms.date: 09/29/2022
 ms.author: jasteppe
 ---
 
@@ -41,7 +41,7 @@ For more information on Azure role-based access control, see [Azure role-based a
 
 Azure IoT Hub supports a feature called [message routing](../../iot-hub/iot-hub-devguide-messages-d2c.md). Message routing provides the capability to send device data to various Azure services (for example: event hub, Storage Accounts, and Service Buses). MedTech service uses this feature to allow an IoT Hub to connect and send device messages to the MedTech service device message event hub endpoint.
 
-Follow these directions to grant access to the IoT Hub user-assigned managed identity to your MedTech service device message event hub and set up message routing: [Configure message routing with managed identities](../../iot-hub/iot-hub-managed-identity.md#egress-connectivity-from-iot-hub-to-other-azure-resources). 
+Follow these directions to grant access to the IoT Hub system-assigned managed identity to your MedTech service device message event hub and set up message routing: [Configure message routing with managed identities](../../iot-hub/iot-hub-managed-identity.md#egress-connectivity-from-iot-hub-to-other-azure-resources).
 
 ## Send device message to IoT Hub
 
@@ -49,7 +49,14 @@ Use your device (real or simulated) to send the sample heart rate message shown 
 
 This message will get routed to MedTech service, where the message will be transformed into a FHIR Observation resource and stored into FHIR service.
 
+> [!IMPORTANT]
+> To avoid device spoofing in device-to-cloud messages, Azure IoT Hub enriches all messages with additional properties. To learn more about these properties, see [Anti-spoofing properties](/azure/iot-hub/iot-hub-devguide-messages-construct#anti-spoofing-properties)
+
+> [!TIP]
+> To learn about IoT Hub device message enrichment and IotJsonPathContentTemplate mappings usage with the MedTech service device mapping, see [How to use IotJsonPathContentTemplate mappings](how-to-use-iot-jsonpath-content-mappings.md) 
+
 ```json
+
 {
   "HeartRate": 80,
   "RespiratoryRate": 12,
@@ -61,7 +68,9 @@ This message will get routed to MedTech service, where the message will be trans
   },
   "Activity": "walking"
 }
+
 ```
+
 > [!IMPORTANT]
 > Make sure to send the device message that conforms to the [Device mappings](how-to-use-device-mappings.md) and [FHIR destinations mappings](how-to-use-fhir-mappings.md) configured with your MedTech service.
 
@@ -81,4 +90,4 @@ To learn about the different stages of data flow within MedTech service, see
 >[!div class="nextstepaction"]
 >[MedTech service data flow](iot-data-flow.md)
 
-(FHIR&#174;) is a registered trademark of HL7 and is used with the permission of HL7.
+FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

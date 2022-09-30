@@ -6309,6 +6309,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/storage/blobs/reference.md",
+            "redirect_url": "/azure/storage/blobs/storage-blobs-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/queues/reference.md",
+            "redirect_url": "/azure/storage/queues/storage-queues-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/files/reference.md",
+            "redirect_url": "/azure/storage/files/storage-files-introduction",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/storage-client-side-encryption.md",
             "redirect_url": "/azure/storage/common/storage-client-side-encryption",
             "redirect_document_id": true
@@ -21276,12 +21291,12 @@
         {
             "source_path_from_root": "/articles/storage/vs-storage-cloud-services-getting-started-queues.md",
             "redirect_url": "/azure/visual-studio/vs-storage-cloud-services-getting-started-queues",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/vs-storage-cloud-services-getting-started-tables.md",
             "redirect_url": "/azure/visual-studio/vs-storage-cloud-services-getting-started-tables",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/vs-storage-cloud-services-what-happened.md",
