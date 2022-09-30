@@ -41,7 +41,7 @@ For any other facility, [configure a Custom Logs data source](data-sources-custo
 The Log Analytics agent for Linux will only collect events with the facilities and severities that are specified in its configuration. You can configure Syslog through the Azure portal or by managing configuration files on your Linux agents.
 
 ### Configure Syslog in the Azure portal
-Configure Syslog from the [Agent configuration menu](../agents/agent-data-sources.md#configuring-data-sources) for the Log Analytics workspace. This configuration is delivered to the configuration file on each Linux agent.
+Configure Syslog from the [Agent configuration menu](../agents/agent-data-sources.md#configure-data-sources) for the Log Analytics workspace. This configuration is delivered to the configuration file on each Linux agent.
 
 You can add a new facility by clicking **Add facility**. For each facility, only messages with the selected severities will be collected.  Check the severities for the particular facility that you want to collect. You cannot provide any additional criteria to filter messages.
 
