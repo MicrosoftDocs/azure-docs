@@ -18,7 +18,7 @@ ms.custom: aaddev
 
 # Prompt behavior with MSAL.js
 
-MSAL.js allows passing a prompt value as part of its login or token request methods. Based on your application scenario, you can customize the Azure AD prompt behavior for a request by setting the **prompt** parameter in the request object: 
+MSAL.js allows passing a prompt value as part of its login or token request methods. Based on your application scenario, you can customize the Azure AD prompt behavior for a request by setting the **prompt** parameter in the [request object](https://azuread.github.io/microsoft-authentication-library-for-js/ref/modules/_azure_msal_common.html#commonauthorizationurlrequest): 
 
 ```javascript
 import { PublicClientApplication } from "@azure/msal-browser";
@@ -55,7 +55,7 @@ The following prompt values can be used when authenticating with the Microsoft i
 | `select_account` | Interrupts single sign-on by providing an account selection experience listing all the accounts in session or an option to choose a different account altogether. |
 | `create` | Triggers a sign-up dialog allowing external users to create an account. For more information, see: [Self-service sign-up](../external-identities/self-service-sign-up-overview.md) |
 
-MSAL will throw an **invalid_prompt** error for any unsupported prompt values:
+MSAL.js will throw an `invalid_prompt` error for any unsupported prompt values:
 
 > invalid_prompt_value: Supported prompt values are 'login', 'select_account', 'consent', 'create' and 'none'.  Please see here for valid configuration options: https://azuread.github.io/microsoft-authentication-library-for-js/ref/modules/_azure_msal_common.html#commonauthorizationurlrequest Given value: my_custom_prompt
 
@@ -76,9 +76,9 @@ It's important to note that **prompt** is a protocol-level parameter and signals
 
 ## Interactive requests with prompt=none
 
-Generally, when you need to make a silent request, use a silent MSAL method (`ssoSilent`, `acquireTokenSilent`), and handle any *login_required*/*interaction_required* errors with an interactive method (`loginPopup`, `loginRedirect`, `acquireTokenPopup`, `acquireTokenRedirect`). 
+Generally, when you need to make a silent request, use a silent MSAL.js method (`ssoSilent`, `acquireTokenSilent`), and handle any *login_required* or *interaction_required* errors with an interactive method (`loginPopup`, `loginRedirect`, `acquireTokenPopup`, `acquireTokenRedirect`). 
 
-In some cases however, the prompt value `none` can be used together with an interactive MSAL method to achieve silent authentication. For instance, due to the third-party cookie restrictions in some browsers, `ssoSilent` requests will fail despite an active user session with Azure AD. As a remedy, you can pass the prompt value `none` to an interactive request such as `loginPopup`. MSAL then will open a popup window to Azure AD and Azure AD will honor the prompt value by utilizing the existing session cookie.
+In some cases however, the prompt value `none` can be used together with an interactive MSAL.js method to achieve silent authentication. For instance, due to the third-party cookie restrictions in some browsers, `ssoSilent` requests will fail despite an active user session with Azure AD. As a remedy, you can pass the prompt value `none` to an interactive request such as `loginPopup`. MSAL.js will then open a popup window to Azure AD and Azure AD will honor the prompt value by utilizing the existing session cookie.
 
 ## Next steps
 
