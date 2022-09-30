@@ -1447,6 +1447,8 @@
         href: manifestly-checklists-tutorial.md  
       - name: Mapbox
         href: mapbox-tutorial.md
+      - name: Mapiq
+        href: mapiq-tutorial.md
       - name: Mapiq Essentials
         href: mapiq-essentials-tutorial.md  
       - name: Maptician
