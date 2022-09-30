@@ -20,13 +20,13 @@ Consider deploying Front Door in conjunction with any publicly facing web applic
 
 ## Well-architected solutions on Azure
 
-The [Azure Well-Architected Framework](/azure/architecture/framework/) describes five pillars of architectural excellence. Azure Front Door has features and capabilities that address each of the five pillars.
+The [Azure Well-Architected Framework](/azure/architecture/framework/) describes five pillars of architectural excellence. Azure Front Door helps you to address each of the five pillars by using its built-in features and capabilities.
 
 ### Performance efficiency
 
-Front Door provides a powerful content delivery network (CDN) to cache content at the network edge. Almost all web applications contain cacheable content. Static assets like images and JavaScript files are cacheable. Also, many APIs return responses that can be cached, even for a short duration. Caching helps to improve the performance of your application, and to reduce the load on your application servers.
+Front Door provides a powerful content delivery network (CDN) to [cache content at the network edge](front-door-caching.md). Almost all web applications contain cacheable content. Static assets like images and JavaScript files are cacheable. Also, many APIs return responses that can be cached, even for a short duration. Caching helps to improve the performance of your application, and to reduce the load on your application servers.
 
-Additionally, Front Door's global traffic acceleration capabilities help to improve the performance of dynamic web applications by routing requests through Microsoft's high-speed backbone network.
+Additionally, Front Door's global traffic acceleration capabilities help to [improve the performance of dynamic web applications](front-door-traffic-acceleration.md) by routing requests through Microsoft's high-speed backbone network.
 
 ### Security
 
@@ -55,6 +55,15 @@ You can also deploy and configure Front Door by using infrastructure as code (Ia
 ## Solution architecture
 
 When you deploy a solution that uses Azure Front Door, you should consider...
+
+:::image type="content" source="./media/overview/front-door-overview.png" alt-text="Diagram of Azure Front Door routing user traffic to endpoints." lightbox="./media/overview/front-door-overview-expanded.png" border="false":::
+<!-- TODO redo this diagram -->
+
+
+
+### Client to Front Door
+
+### Front Door to origin
 
 ## Next steps
 
