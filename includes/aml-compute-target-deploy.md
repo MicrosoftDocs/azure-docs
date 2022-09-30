@@ -25,4 +25,4 @@ The compute target you use to host your model will affect the cost and availabil
 > When choosing a cluster SKU, first scale up and then scale out. Start with a machine that has 150% of the RAM your model requires, profile the result and find a machine that has the performance you need. Once you've learned that, increase the number of machines to fit your need for concurrent inference.
 
 > [!NOTE]
-> * Container instances require the SDK or CLI v1 and are suitable only for small models less than 1 GB in size.
+> Container instances require the SDK or CLI v1 and are suitable only for small models less than 1 GB in size.
