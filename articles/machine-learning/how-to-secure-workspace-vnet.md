@@ -34,7 +34,6 @@ In this article you learn how to enable the following workspaces resources in a 
 > [!div class="checklist"]
 > - Azure Machine Learning workspace
 > - Azure Storage accounts
-> - Azure Machine Learning datastores and datasets
 > - Azure Key Vault
 > - Azure Container Registry
 
@@ -314,54 +313,6 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
 > [!TIP]
 > When ACR is behind a VNet, you can also [disable public access](../container-registry/container-registry-access-selected-networks.md#disable-public-network-access) to it.
-
-## Datastores and datasets
-The following table lists the services that you need to skip validation for:
-
-| Service | Skip validation required? |
-| ----- |:-----:|
-| Azure Blob storage | Yes |
-| Azure File share | Yes |
-| Azure Data Lake Store Gen1 | No |
-| Azure Data Lake Store Gen2 | No |
-| Azure SQL Database | Yes |
-| PostgreSql | Yes |
-
-> [!NOTE]
-> Azure Data Lake Store Gen1 and Azure Data Lake Store Gen2 skip validation by default, so you don't have to do anything.
-
-The following code sample creates a new Azure Blob datastore and sets `skip_validation=True`.
-
-```python
-blob_datastore = Datastore.register_azure_blob_container(workspace=ws,  
-
-                                                         datastore_name=blob_datastore_name,  
-
-                                                         container_name=container_name,  
-
-                                                         account_name=account_name, 
-
-                                                         account_key=account_key, 
-
-                                                         skip_validation=True ) // Set skip_validation to true
-```
-
-### Use datasets
-
-The syntax to skip dataset validation is similar for the following dataset types:
-- Delimited file
-- JSON 
-- Parquet
-- SQL
-- File
-
-The following code creates a new JSON dataset and sets `validate=False`.
-
-```python
-json_ds = Dataset.Tabular.from_json_lines_files(path=datastore_paths, 
-
-validate=False) 
-```
 
 ## Securely connect to your workspace
 
