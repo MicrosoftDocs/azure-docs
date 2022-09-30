@@ -1,18 +1,18 @@
 ---
-title: How to configure event listener
-description: Guidance about how to configure Event Hubs as event listener
+title: Send client events to Event Hubs
+description: Guidance about how to configure Event Hubs as event listener to send client events to Event Hubs.
 author: Y-Sindo
 ms.author: zityang
 ms.service: azure-web-pubsub
 ms.topic: how-to
-ms.date: 09/28/2022
+ms.date: 09/30/2022
 ---
 
-# How to configure Event Hubs as event listener
+# Send client events to Event Hubs
 
 ## Overview
 
-Event listener listens to the incoming client events. Currently we support Event Hubs as event listener endpoint. You can use Event Hubs listener to collect your client events without exposing a publicly accessible endpoint. For more information on how event listeners work, see [Azure Web PubSub service internals](concept-service-internals.md#event-listener).
+If you want to listen to your [client events](concept-service-internals.md#terms) without exposing a publicly accessible endpoint, you can configure an "event listener" rule with an [event hub](https://azure.microsoft.com/products/event-hubs/) endpoint, and a filter to specify which kinds of events it concerns. You can configure multiple event listeners at the same time. Web PubSub service notifies all concerning event listeners in parallel when a client event comes.
 
 This tutorial shows you how to authorize your Web PubSub service to connect to Event Hubs and how to add an event listener rule to your service settings.
 
@@ -59,7 +59,7 @@ Find your Azure Web PubSub service from **Azure portal**. Navigate to **Identity
 
 ## Next steps
 
-In this article, you learned how event listeners work and how to configure an event listener with an event hub endpoint. To learn the data format sent to Event Hubs and how to process the data in the Event Hubs, read the following specification and documents.
+In this article, you learned how event listeners work and how to configure an event listener with an event hub endpoint. To learn the data format sent to Event Hubs, read the following specification.
 
 > [!div class="nextstepaction"]
 > [Specification: CloudEvents AMQP extension for Azure Web PubSub](./reference-cloud-events-amqp.md)
