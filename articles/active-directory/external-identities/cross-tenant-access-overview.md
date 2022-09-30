@@ -68,8 +68,8 @@ You can configure organization-specific settings by adding an organization and m
 
 Microsoft cloud settings let you collaborate with organizations from different Microsoft Azure clouds. With Microsoft cloud settings, you can establish mutual B2B collaboration between the following clouds:
 
-- Microsoft Azure global cloud and Microsoft Azure Government
-- Microsoft Azure global cloud and Microsoft Azure China 21Vianet
+- Microsoft Azure commercial cloud and Microsoft Azure Government
+- Microsoft Azure commercial cloud and Microsoft Azure China (operated by 21Vianet)
 
 > [!NOTE]
 > Microsoft Azure Government includes the Office GCC-High and DoD clouds.
@@ -77,8 +77,9 @@ Microsoft cloud settings let you collaborate with organizations from different M
 To set up B2B collaboration, both organizations configure their Microsoft cloud settings to enable the partner's cloud. Then each organization uses the partner's tenant ID to find and add the partner to their organizational settings. From there, each organization can allow their default cross-tenant access settings apply to the partner, or they can configure partner-specific inbound and outbound settings. After you establish B2B collaboration with a partner in another cloud, you'll be able to:
 
 - Use B2B collaboration to invite a user in the partner tenant to access resources in your organization, including web line-of-business apps, SaaS apps, and SharePoint Online sites, documents, and files.
+- Use B2B collaboration to grant users from a partner tenant to access and manage configurations in the Azure portal
 - Use B2B collaboration to [share Power BI content to a user in the partner tenant](/power-bi/enterprise/service-admin-azure-ad-b2b#cross-cloud-b2b).
-- Apply Conditional Access policies to the B2B collaboration user and opt to trust device claims (compliant claims and hybrid Azure AD joined claims) from the user’s home tenant.
+- Apply Conditional Access policies to the B2B collaboration user and opt to trust multi-factor authentication or device claims (compliant claims and hybrid Azure AD joined claims) from the user’s home tenant.
 
 > [!NOTE]
 > B2B direct connect is not supported for collaboration with Azure AD tenants in a different Microsoft cloud.
