@@ -1,9 +1,8 @@
 ---
 title: Support matrix for Arc-enabled VMware vSphere (preview)
 description: In this article, you'll learn about the support matrix for Arc-enabled VMware vSphere including vCenter Server versions supported, network requirements etc.
-ms.topic: reference 
-ms.custom: references_regions
-ms.date: 09/23/2022
+ms.topic: how-to 
+ms.date: 09/30/2022
 
 # Customer intent: As a VI admin, I want to understand the support matrix for Arc-enabled VMware vSphere.
 ---
@@ -12,7 +11,7 @@ ms.date: 09/23/2022
 
 This article documents the prerequisites and support requirements for using the [Arc-enabled VMware vSphere (preview)](overview.md) to manage your VMware vSphere VMs through Azure Arc.
 
-To use Arc-enabled VMware vSphere, you must deploy an Azure Arc Resource Bridge in your VMware vSphere environment. The Resource Bridge provides an ongoing connection between your VMware vCenter Server and Azure. Once you've connected your VMware vCenter Server to Azure, components on the Resource Bridge discover your vCenter inventory. You can enable them in Azure and start performing virtual hardware and guest OS operations on them using Azure Arc.
+To use Arc-enabled VMware vSphere, you must deploy an Azure Arc resource bridge in your VMware vSphere environment. The resource bridge provides an ongoing connection between your VMware vCenter Server and Azure. Once you've connected your VMware vCenter Server to Azure, components on the resource bridge discover your vCenter inventory. You can enable them in Azure and start performing virtual hardware and guest OS operations on them using Azure Arc.
 
 
 ## VMware vSphere Requirements
@@ -27,31 +26,31 @@ You need a vSphere account that can:
 - Read all inventory. 
 - Deploy and update VMs to all the resource pools (or clusters), networks, and VM templates that you want to use with Azure Arc.
 
-This account is used for the ongoing operation of Azure Arc-enabled VMware vSphere (preview) and the deployment of the Azure Arc Resource Bridge (preview) VM.
+This account is used for the ongoing operation of Azure Arc-enabled VMware vSphere (preview) and the deployment of the Azure Arc resource bridge (preview) VM.
 
-### Resource Bridge resource requirements 
+### Resource bridge resource requirements 
 
-For Arc-enabled VMware vSphere, Resource Bridge has the following minimum virtual hardware requirements
+For Arc-enabled VMware vSphere, resource bridge has the following minimum virtual hardware requirements
 
 - 16 GB of memory
 - 4 vCPUs
 - An external virtual switch that can provide access to the internet directly or through a proxy. If internet access is through a proxy or firewall, ensure [these URLs](#resource-bridge-networking-requirements) are allow-listed.
 
-### Resource Bridge networking requirements
+### Resource bridge networking requirements
 
-The following firewall URL exceptions are needed for the Azure Arc Resource Bridge VM:
+The following firewall URL exceptions are needed for the Azure Arc resource bridge VM:
 
 | **Service** | **Port** | **URL** | **Direction** | **Notes**|
 | --- | --- | --- | --- | --- |
 | Microsoft container registry | 443 | https://mcr.microsoft.com | Appliance VM IP and control plane endpoint need outbound connection. | Required to pull container images for installation. |
 | Azure Arc Identity service | 443 | https://*.his.arc.azure.com | Appliance VM IP and control plane endpoint need outbound connection. | Manages identity and access control for Azure resources |
 | Azure Arc configuration service | 443	| https://*.dp.kubernetesconfiguration.azure.com | Appliance VM IP and control plane endpoint need outbound connection. | Used for Kubernetes cluster configuration. |
-| Cluster connect service | 443	| https://*.servicebus.windows.net | Appliance VM IP and control plane endpoint need outbound connection. | Provides cloud-enabled communication to connect on-premise resources with the cloud. |
-| Guest Notification service | 443 | https://guestnotificationservice.azure.com	| Appliance VM IP and control plane endpoint need outbound connection. | Used to connect on-premise resources to Azure. |
+| Cluster connect service | 443	| https://*.servicebus.windows.net | Appliance VM IP and control plane endpoint need outbound connection. | Provides cloud-enabled communication to connect on-premises resources with the cloud. |
+| Guest Notification service | 443 | https://guestnotificationservice.azure.com	| Appliance VM IP and control plane endpoint need outbound connection. | Used to connect on-premises resources to Azure. |
 | SFS API endpoint | 443 | msk8s.api.cdp.microsoft.com | Host machine, Appliance VM IP and control plane endpoint need outbound connection. | Used when downloading product catalog, product bits, and OS images from SFS. |
-| Resource Bridge (appliance) Dataplane service | 443 | https://*.dp.prod.appliances.azure.com | Appliance VM IP and control plane endpoint need outbound connection. | Communicate with resource provider in Azure. |
-| Resource Bridge (appliance) container image download | 443 | *.blob.core.windows.net, https://ecpacr.azurecr.io | Appliance VM IP and control plane endpoint need outbound connection. | Required to pull container images. |
-| Resource Bridge (appliance) image download | 80 | *.dl.delivery.mp.microsoft.com | Host machine, Appliance VM IP and control plane endpoint need outbound connection. | Download the Arc Resource Bridge OS images. |
+| Resource bridge (appliance) Dataplane service | 443 | https://*.dp.prod.appliances.azure.com | Appliance VM IP and control plane endpoint need outbound connection. | Communicate with resource provider in Azure. |
+| Resource bridge (appliance) container image download | 443 | *.blob.core.windows.net, https://ecpacr.azurecr.io | Appliance VM IP and control plane endpoint need outbound connection. | Required to pull container images. |
+| Resource bridge (appliance) image download | 80 | *.dl.delivery.mp.microsoft.com | Host machine, Appliance VM IP and control plane endpoint need outbound connection. | Download the Arc resource bridge OS images. |
 | Azure Arc for K8s container image download | 443 | https://azurearcfork8sdev.azurecr.io | Appliance VM IP and control plane endpoint need outbound connection. | Required to pull container images. |
 | ADHS telemetry service | 443 | adhs.events.data.microsoft.com  | Appliance VM IP and control plane endpoint need outbound connection.	Runs inside the appliance/mariner OS. | Used periodically to send Microsoft required diagnostic data from control plane nodes. Used when telemetry is coming off Mariner, which would mean any K8s control plane. |
 | Microsoft events data service | 443 | v20.events.data.microsoft.com  | Appliance VM IP and control plane endpoint need outbound connection. | Used periodically to send Microsoft required diagnostic data from the Azure Stack HCI or Windows Server host. Used when telemetry is coming off Windows like Windows Server or HCI. |
@@ -78,7 +77,7 @@ To enable guest management (install the Arc connected machine agent), ensure
 
 - VM is powered on
 - VM has VMware tools installed and running
-- Resource Bridge has access to the host on which the VM is running
+- Resource bridge has access to the host on which the VM is running
 - VM is running a [supported operating system](#supported-operating-systems)
 - VM has internet connectivity directly or through proxy. If the connection is through a proxy, ensure [these URLs](#networking-requirements) are allow-listed.
 
