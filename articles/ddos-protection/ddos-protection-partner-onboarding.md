@@ -5,7 +5,7 @@ ms.service: ddos-protection
 documentationcenter: na
 author: AbdullahBell
 ms.topic: how-to
-ms.date: 09/23/2022
+ms.date: 10/12/2022
 ms.author: abell
 ---
 # Partnering with Azure DDoS Protection

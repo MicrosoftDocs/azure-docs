@@ -8,7 +8,7 @@ ms.service: ddos-protection
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/22/2022
+ms.date: 10/12/2022
 ms.author: abell
 
 ---
