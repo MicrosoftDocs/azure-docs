@@ -2,6 +2,10 @@
     "redirections": [
                                                                                                                                                     
         {
+            "source_path": "articles/baremetal-infrastructure/workloads/nc2-public-preview/about-the-public-preview.md",
+            "redirect_url": "/azure/baremetal-infrastructure/workloads/nutanix-cloud-clusters-on-azure/about-nc2-on-azure",
+            "redirect_document_id": false
+        }, {
             "source_path": "articles/baremetal-infrastructure/workloads/nc2-public-preview/architecture.md",
             "redirect_url": "/azure/baremetal-infrastructure/workloads/nutanix-cloud-clusters-on-azure/architecture",
             "redirect_document_id": false
