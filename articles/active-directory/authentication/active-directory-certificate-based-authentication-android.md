@@ -1,12 +1,12 @@
 ---
-title: Android certificate-based authentication - Azure Active Directory
+title: Android certificate-based authentication with federation - Azure Active Directory
 description: Learn about the supported scenarios and the requirements for configuring certificate-based authentication in solutions with Android devices
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 09/30/2022
 
 ms.author: justinha
 author: justinha
@@ -15,7 +15,7 @@ ms.reviewer: annaba
 
 ms.collection: M365-identity-device-management
 ---
-# Azure Active Directory certificate-based authentication on Android
+# Azure Active Directory certificate-based authentication with federation on Android
 
 Android devices can use certificate-based authentication (CBA) to authenticate to Azure Active Directory using a client certificate on their device when connecting to:
 

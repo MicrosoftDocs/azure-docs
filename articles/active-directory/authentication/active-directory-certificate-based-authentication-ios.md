@@ -1,12 +1,12 @@
 ---
-title: Certificate-based authentication on iOS - Azure Active Directory
+title: Certificate-based authentication with federation on iOS - Azure Active Directory
 description: Learn about the supported scenarios and the requirements for configuring certificate-based authentication for Azure Active Directory in solutions with iOS devices
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/04/2022
+ms.date: 09/30/2022
 
 ms.author: justinha
 author: justinha
@@ -14,7 +14,7 @@ manager: amycolannino
 
 ms.collection: M365-identity-device-management
 ---
-# Azure Active Directory certificate-based authentication on iOS
+# Azure Active Directory certificate-based authentication with federation on iOS
 
 To improve security, iOS devices can use certificate-based authentication (CBA) to authenticate to Azure Active Directory (Azure AD) using a client certificate on their device when connecting to the following applications or services:
 
