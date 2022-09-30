@@ -57,20 +57,20 @@ dotnet new webapp --output TestAppConfig --framework netcoreapp3.1
 
 ## Connect to the App Configuration store
 
-1. Run the following command to add a [Microsoft.Azure.AppConfiguration.AspNetCore](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.AspNetCore) NuGet package reference:
+1. Navigate into the project's directory *TestAppConfig*, and run the following command to add a [Microsoft.Azure.AppConfiguration.AspNetCore](https://www.nuget.org/packages/Microsoft.Azure.AppConfiguration.AspNetCore) NuGet package reference:
 
     ```dotnetcli
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
     ```
 
-1. Run the following command in the same directory as the *.csproj* file. The command uses [Secret Manager](/aspnet/core/security/app-secrets) to store a secret named `ConnectionStrings:AppConfig`, which stores the connection string for your App Configuration store. Replace the `<your_connection_string>` placeholder with your App Configuration store's connection string. You can find the connection string under **Access Keys** in the Azure portal.
+1. Run the following command. The command uses [Secret Manager](/aspnet/core/security/app-secrets) to store a secret named `ConnectionStrings:AppConfig`, which stores the connection string for your App Configuration store. Replace the `<your_connection_string>` placeholder with your App Configuration store's connection string. You can find the connection string under **Access Keys** of your App Configuration store in the Azure portal.
 
     ```dotnetcli
     dotnet user-secrets init
     dotnet user-secrets set ConnectionStrings:AppConfig "<your_connection_string>"
     ```
 
-    > [!IMPORTANT]
+    > [!TIP]
     > Some shells will truncate the connection string unless it's enclosed in quotes. Ensure that the output of the `dotnet user-secrets list` command shows the entire connection string. If it doesn't, rerun the command, enclosing the connection string in quotes.
 
     Secret Manager stores the secret outside of your project tree, which helps prevent the accidental sharing of secrets within source code. It's used only to test the web app locally. When the app is deployed to Azure like [App Service](/azure/app-service/overview), use the *Connection strings*, *Application settings* or environment variables to store the connection string. Alternatively, you can [connect to App Configuration using managed identities](./howto-integrate-azure-managed-service-identity.md) or your other [Azure AD identities](./concept-enable-rbac.md).
@@ -120,7 +120,7 @@ dotnet new webapp --output TestAppConfig --framework netcoreapp3.1
 
 In this example, you'll update a web page to display its content as you configured in Azure App Configuration.
 
-1. Add a *Settings.cs* file at the root of your project directory. It defines a strongly-typed  `Settings` class for the configuration you're going to use. Replace the namespace with the name of your project. 
+1. Add a *Settings.cs* file at the root of your project directory. It defines a strongly typed `Settings` class for the configuration you're going to use. Replace the namespace with the name of your project. 
 
     ```csharp
     namespace TestAppConfig
@@ -135,7 +135,7 @@ In this example, you'll update a web page to display its content as you configur
     }
     ```
 
-1. Bind `TestApp:Settings` section in configuration to the `Settings` object.
+1. Bind the `TestApp:Settings` section in configuration to the `Settings` object.
 
     #### [.NET 6.x](#tab/core6x)
     Update *Program.cs* with the following code.
@@ -167,7 +167,7 @@ In this example, you'll update a web page to display its content as you configur
     ```
     ---
 
-1. Open *Index.cshtml.cs* in the *Pages* directory, and update the `IndexModel` class with the following code.
+1. Open *Index.cshtml.cs* in the *Pages* directory, and update the `IndexModel` class with the following code. Add `using Microsoft.Extensions.Options` namespace at the beginning of the file, if it's not already there.
 
     ```csharp
     public class IndexModel : PageModel
@@ -223,7 +223,7 @@ In this example, you'll update a web page to display its content as you configur
 
 1. Open a browser and navigate to the URL the app is listening on, as specified in the command output. It looks like `https://localhost:5001`. 
 
-    If you're working in the Azure Cloud Shell, select the *Web Preview* button followed by *Configure*. When prompted to configure the port for preview, enter *5000* and select *Open and browse*.
+    If you're working in the Azure Cloud Shell, select the *Web Preview* button followed by *Configure*. When prompted to configure the port for preview, enter *5000*, and select *Open and browse*.
 
     ![Locate the Web Preview button](./media/quickstarts/cloud-shell-web-preview.png)
 
@@ -241,7 +241,7 @@ In this quickstart, you:
 * Provisioned a new App Configuration store.
 * Connected to your App Configuration store using the App Configuration provider library.
 * Read your App Configuration store's key-values with the configuration provider library.
-* Displayed the content of a web page as how you configured it in your App Configuration store.
+* Displayed a web page as how you configured it in your App Configuration store.
 
 To learn how to configure your ASP.NET Core web app to dynamically refresh configuration settings, continue to the next tutorial.
 
