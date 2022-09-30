@@ -8,6 +8,8 @@ ms.author: juliako
 
 # What is Azure Video Indexer?
 
+[!INCLUDE [accounts](./includes/arm-accounts.md)]
+
 [!INCLUDE [regulation](./includes/regulation.md)]
 
 [!INCLUDE [Gate notice](./includes/face-limited-access.md)]
