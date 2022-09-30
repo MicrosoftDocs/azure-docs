@@ -58,7 +58,7 @@ certificateUserIDs = [ x509:\<PN\>Bob.Smith@Contoso.com , x509:\<SKI\>89b0f468c1
 
 An external identity can't perform multifactor authentication (MFA) to the resource tenant with Azure AD CBA. Instead, have the user perform MFA using CBA in the home tenant, and set up cross tenant settings for the resource tenant to trust MFA from the home tenant.
 
-For more information about how to enable **Trust multi-factor authentication from Azure AD tenants**, see [Configure B2B collaboration cross-tenant access](./external-identities/cross-tenant-access-settings-b2b-collaboration.md#to-change-inbound-trust-settings-for-mfa-and-device-claims).
+For more information about how to enable **Trust multi-factor authentication from Azure AD tenants**, see [Configure B2B collaboration cross-tenant access](../external-identities/cross-tenant-access-settings-b2b-collaboration.md#to-change-inbound-trust-settings-for-mfa-and-device-claims).
 
 ## Next steps
 
