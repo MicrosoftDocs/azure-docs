@@ -1,7 +1,7 @@
 ---
-title: Upgrade steps for ACI web services to managed online endpoints
+title: Upgrade steps for Container Instances web services to managed online endpoints
 titleSuffix: Azure Machine Learning
-description: Upgrade steps for ACI web services to managed online endpoints in Azure Machine Learning
+description: Upgrade steps for Azure Container Instances web services to managed online endpoints in Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,11 +13,11 @@ ms.reviewer: blackmist
 ms.custom: upgrade
 ---
 
-# Upgrade steps for ACI web services to managed online endpoints
+# Upgrade steps for Azure Container Instances web services to managed online endpoints
 
 [Managed online endpoints](concept-endpoints.md#what-are-online-endpoints) help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure. Details can be found on [Deploy and score a machine learning model by using an online endpoint](how-to-deploy-managed-online-endpoints.md).
 
-You can deploy directly to the new compute target with your previous models and environments, or use the [scripts](https://aka.ms/moeonboard) (preview) provided by us to export the current services and then deploy to the new compute without affecting your existing services. If you regularly create and delete ACI services, we strongly recommend the deploying directly and not using the scripts. 
+You can deploy directly to the new compute target with your previous models and environments, or use the [scripts](https://aka.ms/moeonboard) (preview) provided by us to export the current services and then deploy to the new compute without affecting your existing services. If you regularly create and delete Azure Container Instances (ACI) services, we strongly recommend the deploying directly and not using the scripts. 
 
 > [!IMPORTANT]
 > The scripts are preview and are provided without a service level agreement.
