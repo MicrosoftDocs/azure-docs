@@ -81,7 +81,7 @@ Create a service connection in Azure Pipelines so that your CI/CD workflow has a
 
 1. Select the service connection that you created from the list, and then select **Manage Service Principal**.
 
-    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/manage-service-principal.png" alt-text="Screenshot that shows selections for managing a service principal.":::
+    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/manage-service-principal.png" alt-text="Screenshot that shows selections for managing a service principal.":::
 
 1. In the Azure portal, copy the **Application (Client) ID** value.
 
@@ -222,7 +222,7 @@ To create and run the load test, the Azure Pipelines definition uses the [Azure 
 
 1. On the **Select** tab, select the sample application's forked repository.
 
-    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/create-pipeline-select-repo.png" alt-text="Screenshot that shows how to select the sample application's GitHub repository.":::
+    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/create-pipeline-select-repo.png" alt-text="Screenshot that shows how to select the sample application's GitHub repository.":::
 
     Azure Pipelines automatically detects the *azure-pipelines.yml* pipeline definition file.
 
@@ -262,7 +262,7 @@ To create and run the load test, the Azure Pipelines definition uses the [Azure 
     | `<Name of your load test resource>`     | The name of your Azure Load Testing resource. |
     | `<Name of your load test resource group>`     | The name of the resource group that contains the Azure Load Testing resource. |
 
-    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/create-pipeline-review.png" alt-text="Screenshot that shows the Azure Pipelines Review tab when you're creating a pipeline.":::
+    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/create-pipeline-review.png" alt-text="Screenshot that shows the Azure Pipelines Review tab when you're creating a pipeline.":::
 
 1. Select **Save and run**, enter text for **Commit message**, and then select **Save and run**.
 
@@ -272,7 +272,7 @@ To create and run the load test, the Azure Pipelines definition uses the [Azure 
 
     You can view the detailed run log by selecting the pipeline job.
 
-    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/create-pipeline-status.png" alt-text="Screenshot that shows how to view pipeline job details.":::
+    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/create-pipeline-status.png" alt-text="Screenshot that shows how to view pipeline job details.":::
 
 # [GitHub Actions](#tab/github)
 
@@ -376,33 +376,33 @@ In addition, the [load test results file](./how-to-export-test-results.md) is av
 
 1. Select the pipeline run to view the run summary.
 
-    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/create-pipeline-run-summary.png" alt-text="Screenshot that shows the pipeline run summary.":::
+    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/create-pipeline-run-summary.png" alt-text="Screenshot that shows the pipeline run summary.":::
 
 1. Select **Load Test** in the **Jobs** section to view the pipeline log.
 
-    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/create-pipeline-log.png" alt-text="Screenshot that shows the Azure Pipelines run log.":::
+    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/create-pipeline-log.png" alt-text="Screenshot that shows the Azure Pipelines run log.":::
 
     After the load test finishes, you can view the test summary information and the client-side metrics in the pipeline log. The log also shows the URL to go to the Azure Load Testing dashboard for this load test.
 
 1. In the pipeline log view, select **Load Test**, and then select **1 artifact produced** to download the result files for the load test.
 
-    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/create-pipeline-download-results.png" alt-text="Screenshot that shows how to download the load test results.":::
+    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/create-pipeline-download-results.png" alt-text="Screenshot that shows how to download the load test results.":::
 
 # [GitHub Actions](#tab/github)
 
 1. Select the **Actions** tab in your GitHub repository to view the list of workflow runs.
     
-    :::image type="content" source="./media/tutorial-cicd-github-actions/workflow-run-list.png" alt-text="Screenshot that shows the list of GitHub Actions workflow runs.":::
+    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/github-actions-workflow-run-list.png" alt-text="Screenshot that shows the list of GitHub Actions workflow runs.":::
     
 1. Select the workflow run from the list to open the run details and logging information.
 
-    :::image type="content" source="./media/tutorial-cicd-github-actions/github-actions-workflow-completed.png" alt-text="Screenshot that shows the workflow logging information.":::
+    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/github-actions-workflow-completed.png" alt-text="Screenshot that shows the workflow logging information.":::
 
     After the load test finishes, you can view the test summary information and the client-side metrics in the workflow log. The log also shows the steps to go to the Azure Load Testing dashboard for this load test.
 
 1. On the screen that shows the workflow run's details, select the **loadTestResults** artifact to download the result files for the load test.
 
-    :::image type="content" source="./media/tutorial-cicd-github-actions/github-actions-artifacts.png" alt-text="Screenshot that shows artifacts of the workflow run.":::
+    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/github-actions-artifacts.png" alt-text="Screenshot that shows artifacts of the workflow run.":::
 
 ---
 
@@ -439,7 +439,7 @@ You can specify load test fail criteria for Azure Load Testing in the test confi
 
     In the CI/CD output log, you find that the test failed because one of the fail criteria was met. The load test average response time was higher than the value that you specified in the pass/fail criteria.
 
-    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/test-criteria-failed.png" alt-text="Screenshot that shows pipeline logs after failed test criteria.":::
+    :::image type="content" source="./media/tutorial-identify-performance-regression-with-cicd/test-criteria-failed.png" alt-text="Screenshot that shows pipeline logs after failed test criteria.":::
 
     The Azure Load Testing service evaluates the criteria during the test run. If any of these conditions fails, Azure Load Testing service returns a nonzero exit code. This code informs the CI/CD workflow that the test has failed.
 

@@ -266,4 +266,4 @@ As a result, the overall performance of your application has improved.
 Advance to the next tutorial to learn how to set up an automated regression testing workflow by using Azure Pipelines or GitHub Actions.
 
 > [!div class="nextstepaction"]
-> [Set up automated regression testing](./tutorial-cicd-azure-pipelines.md)
+> [Set up automated regression testing](./tutorial-identify-performance-regression-with-cicd.md)
