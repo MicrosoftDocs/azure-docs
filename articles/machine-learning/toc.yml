@@ -775,6 +775,8 @@
     - name: CLI (v2) release notes
       displayName: what's, new, issues, bugs
       href: azure-machine-learning-release-notes-cli-v2.md
+    - name: Compute instance image release notes
+      href: azure-machine-learning-ci-image-release-notes.md
     - name: Azure roadmap
       href: https://azure.microsoft.com/roadmap/
     - name: Pricing
