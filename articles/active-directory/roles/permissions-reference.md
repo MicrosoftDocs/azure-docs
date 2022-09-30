@@ -2173,12 +2173,16 @@ Users with this role can manage [Teams-certified devices](https://www.microsoft.
 
  ## Tenant Creator
 
-Users with this role can create both Azure Active Directory and Azure Active Directory B2C tenants even if the tenant creation toggle is turned off in the user settings. Note that the creators will be assigned the Global administrator role on the new tenants they create.
+Assign the Teant Creator role to users who need to do the following tasks:
+-	Create both Azure Active Directory and Azure Active Directory B2C tenants even if the tenant creation toggle is turned off in the user settings
+> [!NOTE]
+
+The tenant creators will be assigned the Global administrator role on the new tenants they create.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/tenantManagement/tenants/create | Create new Azure AD or Azure AD B2C tenants |
+> | microsoft.directory/tenantManagement/tenants/create | Create new tenants in Azure Active Directory |
   
 ## Usage Summary Reports Reader
 
