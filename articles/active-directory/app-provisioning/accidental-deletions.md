@@ -13,7 +13,7 @@ ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
-# Enable accidental deletions prevention in the Azure AD provisioning service (Preview)
+# Enable accidental deletions prevention in the Azure AD provisioning service
 
 The Azure AD provisioning service includes a feature to help avoid accidental deletions. This feature ensures that users aren't disabled or deleted in an application unexpectedly.
 
