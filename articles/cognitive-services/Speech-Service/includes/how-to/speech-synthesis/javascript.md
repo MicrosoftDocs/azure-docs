@@ -373,7 +373,7 @@ Here's an example that shows how to subscribe to events for speech synthesis. Yo
             \r\n\tAudioOffset: ${(e.audioOffset + 5000) / 10000}ms \
             \r\n\tText: \"${e.Text}\".`;
         console.log(str);
-    }
+    };
 
     speechSynthesizer.synthesisCanceled = function (s, e) {
         console.log("SynthesisCanceled event");
@@ -401,7 +401,7 @@ Here's an example that shows how to subscribe to events for speech synthesis. Yo
             \r\n\tAudioOffset: ${(e.audioOffset + 5000) / 10000}ms \
             \r\n\tVisemeId: ${e.visemeId}`;
         console.log(str);
-    }
+    };
 
     speechSynthesizer.wordBoundary = function (s, e) {
         // Word, Punctuation, or Sentence
