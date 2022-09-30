@@ -71,7 +71,7 @@ In this approach, the admin grants the compute instance or compute cluster manag
 
 ## Create and register datastores
 
-When you register a storage service on Azure as a datastore, you automatically create and register that datastore to a specific workspace. See [Storage access permissions](#storage-access-permissions) for guidance on required permission types. You can also to manually create the storage you want to connect to without any special permissions, and you just need the name.
+When you register a storage service on Azure as a datastore, you automatically create and register that datastore to a specific workspace. See [Storage access permissions](#storage-access-permissions) for guidance on required permission types. You can also manually create the storage you want to connect to without any special permissions. You just need the name.
 
 See [Work with virtual networks](#work-with-virtual-networks) for details on how to connect to data storage behind virtual networks.
 
