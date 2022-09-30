@@ -725,17 +725,6 @@ This section lists common error codes and messages reported by mapping data flow
 - **Cause**: This error is a data flow system error or SAP server system error.
 - **Recommendation**: Check the error message. If it contains SAP server related error stacktrace, contact SAP admin for assistance. Otherwise, contact Microsoft support for further assistance.
 
-### Error code: DF-SAPODP-NotReached
-
-- **Message**: partner '.*' not reached
-- **Causes and recommendations**: A connectivity issue. Different causes may lead to this issue. Check below list for possible cause analysis and related recommendation.
-  |Cause analysis|Recommendation|
-  |:---|:---|
-  |Your SAP server is shut down.|Check your SAP server is started.|
-  |Your IP or port of the self-hosted integration runtime is not in SAP network security rule.|Check your IP or port of self-hosted integration runtime is in your SAP network security rule.|
-  |Self-hosted integration runtime proxy issue.|Check your self-hosted integration runtime proxy.|
-  |Incorrect parameters input (e.g. wrong SAP server name or IP).|Check your input parameters: SAP server name, IP.|
-
 ### Error code: DF-SAPODP-DependencyNotFound
 - **Message**: Could not load file or assembly 'sapnco, Version=*
 - **Cause**: You don't download and install SAP .NET connector on the machine of the self-hosted integration runtime.
