@@ -1,9 +1,9 @@
 ---
-title: Restore VMs using Cloud Backup for Virtual Machines
+title: Restore VMs using Cloud Backup for Virtual Machines (Preview)
 description: Learn how to restore virtual machines from a cloud backup to the vCenter. 
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 08/30/2022
+ms.date: 09/30/2022
 ---
 
 # Restore VMs using Cloud Backup for Virtual Machines (Preview)
@@ -98,7 +98,7 @@ You can restore existing VMDKs or deleted or detached VMDKs from either a primar
 1. In the VMware vSphere web client GUI, select **Menu** in the toolbar. Select **Inventory**, then **Virtual Machines and Templates**.
 1. In the left navigation, right-click a VM and select **NetApp Cloud Backup**. In the drop-down list, select **Restore**.
 1. In the Restore wizard, on the **Select Backup** page, select the backup copy from which you want to restore. To find the backup, do one of the following options:
-    * Search for a specific backup name or a partial backup name
+    * Search for a specific backup name or a partial backup name.
     * Filter the backup list by selecting the filter icon and a date and time range. Select if you want backups that contain VMware snapshots, if you want mounted backups, and primary location.
     Select **OK** to return to the wizard.
 1. On the **Select Scope** page, select **Particular virtual disk** in the Restore scope field, then select the virtual disk and destination datastore.

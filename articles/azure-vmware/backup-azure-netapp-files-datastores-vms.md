@@ -1,14 +1,14 @@
 ---
-title: Back up Azure NetApp Files datastores and VMs using Cloud Backup
+title: Back up Azure NetApp Files datastores and VMs using Cloud Backup (Preview)
 description: Learn how to back up datastores and Virtual Machines to the cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 08/30/2022
+ms.date: 09/30/2022
 ---
 
 # Back up Azure NetApp Files datastores and VMs using Cloud Backup for Virtual Machines (Preview)
 
-From the VMware vSphere client, you can back up datastores and Virtual Machines (VMs) to the cloud.
+From the VMware vSphere client, you can back up datastores and Virtual Machines (VMs) to the cloud. This article explains how to configure your subscription, create a backup policy, and create and back up a resource group. 
 
 ## Configure subscriptions
 
@@ -123,10 +123,11 @@ In addition to using the wizard, you can:
 
 Backup operations are performed on all the resources defined in a resource group. If a resource group has a policy attached and a schedule configured, backups occur automatically according to the schedule.
 
-### Prerequisites 
+## Prerequisites to backup resource groups
 
 * You must have created a resource group with a policy attached.
-    Do not start an on-demand backup job when a job to back up the Cloud Backup for Virtual Machines MySQL database is already running. Use the maintenance console to see the configured backup schedule for the MySQL database.
+    >[!NOTE]
+    > Do not start an on-demand backup job when a job to back up the Cloud Backup for Virtual Machines MySQL database is already running. Use the maintenance console to see the configured backup schedule for the MySQL database.
 
 ### Back up resource groups on demand
 
