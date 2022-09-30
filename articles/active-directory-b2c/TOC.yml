@@ -115,7 +115,7 @@
   items:
   - name: Authenticate and authorize
     items: 
-    - name: Register apps
+    - name: Register and configure apps 
       items:
       - name: Register apps 
         href: register-apps.md
