@@ -7,7 +7,7 @@ metadata:
   ms.service: active-directory
   ms.subservice: authentication
   ms.topic: faq
-  ms.date: 09/20/2022
+  ms.date: 09/30/2022
   ms.author: justinha
   author: vimrang
   manager: amycolannino
@@ -25,7 +25,7 @@ sections:
       - question: |
           Why don't I see an option to sign in to Azure Active Directory by using certificates after I enter my username?
         answer: |
-          An administrator needs to enable CBA for the tenant to make the sign-in with certificate option available for users. For more information, see [Step 2: Configure authentication binding policy](how-to-certificate-based-authentication.md#step-2-configure-authentication-binding-policy).
+          An administrator needs to enable CBA for the tenant to make the sign-in with certificate option available for users. For more information, see [Step 3: Configure authentication binding policy](how-to-certificate-based-authentication.md#step-3-configure-authentication-binding-policy).
 
       - question: |
           Where can I get more diagnostic information after a user sign-in failed? 
