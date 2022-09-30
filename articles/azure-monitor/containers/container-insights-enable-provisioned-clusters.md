@@ -4,8 +4,6 @@
 
 This private preview supports onboarding the Container Insights extension onto provisioned cluster.
 
-Provisioned cluster intro:
-
 Provisioning K8s clusters into environments is complex and error prone for many customers leading to multiple customer asking for simplifying provisioning (day 0) and maintaining (day1) clusters, namely 'k8s cluster lifecycle management' (LCM).
 
 For Arc Agent Onboarding Provisioned Clusters details:
@@ -22,24 +20,25 @@ CLI examples:
 - az hybridaks show
 - az hybridaks nodepool add
 
-# Pre-requisites
+## Pre-requisites
 
-azure-cli: 2.39.0+
+- azure-cli: 2.39.0+
 
-azure-cli-core: 2.39.0+
+- azure-cli-core: 2.39.0+
 
-K8s-extension: 1.3.2+
+- k8s-extension: 1.3.2+
 
-hybridaks (for provisioned cluster operation, optional):0.1.3+
+- hybridaks (for provisioned cluster operation, optional):0.1.3+
 
-Resource-graph: 2.1.0+
+- Resource-graph: 2.1.0+
 
-# Onboarding
+## Onboarding
 
 For testing provisioned cluster with onboarding extensions:
 
 Sample environment setup:
 
+```azcli 
 export k8sClusterName="akscluster0915"
 
 export resourceGroup="provCluGrpDs01"
@@ -52,31 +51,32 @@ export clusterRP="microsoft.hybridcontainerservice"
 
 export clusterType="provisionedclusters"
 
-$k8sClusterName="akscluster0915"
 
-$resourceGroup="provCluGrpDs01"
+$k8sClusterName="sampleClusterName"
 
-$location="eastus"
+$resourceGroup="sampleResourceGroup"
+
+$location="sampleLocation"
 
 $targetNamespace="arcextensions"
 
 $clusterRP="microsoft.hybridcontainerservice"
 
 $clusterType="provisionedclusters"
+```
 
-Useful command
-
-command for delete extension:
-
-az k8s-extension delete --cluster-name $k8sClusterName --resource-group $resourceGroup --cluster-type $clusterType --cluster-resource-provider $clusterRP --name azuremonitor-containers --yes
 
 ## Extension Onboarding with ARM Template using Managed Identity Auth
 
 1.1 Download the Azure Resource Manager Template and Parameter files
 
+```bash
 curl -L [https://github.com/microsoft/Docker-Provider/tree/longw/lcm-private-preview/scripts/onboarding/templates/arc-k8s-extension-provisionedcluster-msi-auth](https://github.com/microsoft/Docker-Provider/tree/longw/lcm-private-preview/scripts/onboarding/templates/arc-k8s-extension-provisionedcluster-msi-auth) -o existingClusterOnboarding.json
+```
 
+```bash
 curl -L [https://github.com/microsoft/Docker-Provider/tree/longw/lcm-private-preview/scripts/onboarding/templates/arc-k8s-extension-provisionedcluster-msi-auth](https://github.com/microsoft/Docker-Provider/tree/longw/lcm-private-preview/scripts/onboarding/templates/arc-k8s-extension-provisionedcluster-msi-auth) -o existingClusterParam.json
+```
 
 1.2 Edit the values in the parameter file.
 
@@ -88,63 +88,70 @@ curl -L [https://github.com/microsoft/Docker-Provider/tree/longw/lcm-private-pre
 
 1.3 Deploy the ARM template
 
-_ **az login** _
+```acli
+az login
 
-_ **az account set --subscription "Cluster Subscription Name"** _
+az account set --subscription "Cluster Subscription Name"
 
-_ **az deployment group create --resource-group $resourceGroup --template-file ./existingClusterOnboarding.json --parameters existingClusterParam.json** _
+az deployment group create --resource-group $resourceGroup --template-file ./existingClusterOnboarding.json --parameters existingClusterParam.json
+```
 
 ## Extension Onboarding with CLI using Managed Identity Auth
 
-_ **az login** _
+```acli
+az login
 
-_ **az account set --subscription "Cluster Subscription Name"** _
+az account set --subscription "Cluster Subscription Name"
 
-_ **az k8s-extension create --name azuremonitor-containers --cluster-name $k8sClusterName --resource-group $resourceGroup --cluster-type provisionedclusters --cluster-resource-provider microsoft.hybridcontainerservice --extension-type Microsoft.AzureMonitor.Containers --configuration-settings omsagent.useAADAuth=true** _
+az k8s-extension create --name azuremonitor-containers --cluster-name $k8sClusterName --resource-group $resourceGroup --cluster-type provisionedclusters --cluster-resource-provider microsoft.hybridcontainerservice --extension-type Microsoft.AzureMonitor.Containers --configuration-settings omsagent.useAADAuth=true
+```
 
 ## Validation
 
 ### Extension details
 
-command for listing extension details:
+Showing the extension details:
 
+```azcli
 az k8s-extension list --cluster-name $k8sClusterName --resource-group $resourceGroup --cluster-type $clusterType --cluster-resource-provider $clusterRP
+```
 
 ### Extension status
 
-Azure Resource Graph Query for portal change
+Querying the Azure Resource graph:
 
-Query:
-
+```KQL
 Resources | where type =~ 'Microsoft.HybridContainerService/provisionedClusters'
-
 | project clusterResourceId = id, name, location, arcproperties = parse\_json(tolower(properties))
-
 | project clusterResourceId, name, location, kubernetesVersion = tostring(arcproperties.kubernetesversion)
-
 | join kind=leftouter(KubernetesConfigurationResources
-
 | where type =~'Microsoft.KubernetesConfiguration/extensions'
-
 | project extensionResourceId = id, extensionProperties = parse\_json(tolower(properties)), subscriptionId, resourceGroup | extend clusterResourceId = '\<your cluster resource id\>' ) on clusterResourceId
+```
 
 ### Log Analytics data flow
 
-Validate all the Container Insights data types getting ingested to your configured Azure Log analytics
+Validate all the Container Insights data types are getting ingested to your configured Azure Log analytics
 
 ### Sample Query for checking in Azure Log analytics
 
+```KQL
 let SearchValue = "";//Please update term you would like to find in the table.
-
 KubePodInventory
-
 | where \* contains tostring(SearchValue)
-
 | take 1000
-
 Table name can be: ContainerInventory, ContainerLog, ContainerNodeInventory, InsightsMetrics, KubeEvents, KubeMonAgentEvents, KubeNodeInventory, KubePodInventory, KubeServices
+```
 
-# Known Issues/Limitations
+### Delete extension
+
+The command for deleting the extension:
+
+```azcli
+az k8s-extension delete --cluster-name $k8sClusterName --resource-group $resourceGroup --cluster-type $clusterType --cluster-resource-provider $clusterRP --name azuremonitor-containers --yes
+```
+
+## Known Issues/Limitations
 
 - Currently we do not support the onboarding & insights (single and multi-cluster) experience through azure portal, this capability will be available at public preview.
 - The metrics session does not support the provisioned resource type, the hybridaks team is working to onboard the provisioned cluster resource type to metrics
