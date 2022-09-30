@@ -41,7 +41,7 @@ For more information, see [Staged Rollout](../hybrid/how-to-connect-staged-rollo
 
 ## Use Azure AD connect to sync federated users 
 
-An AD FS admin can use **Synchronization Rules Editor** to create rules to sync the values of attributes from AD FS to Azure AD user objects. For more information, see [Sync rules for certificateUserIds](concept-certificate-based-authentication-certificateuserids.md#update-certificateuserids-using-azure-ad-connect-for-federated-users).
+An AD FS admin can use **Synchronization Rules Editor** to create rules to sync the values of attributes from AD FS to Azure AD user objects. For more information, see [Sync rules for certificateUserIds](concept-certificate-based-authentication-certificateuserids.md#update-certificate-user-ids-using-azure-ad-connect-for-federated-users).
 
 Azure AD Connect uses the AWS service to access Azure AD. It requires a special role named **Hybrid Identity Administrator**, which grants the necessary permissions. You need this role for permission to write to the new cloud attribute.
 
@@ -88,5 +88,5 @@ Azure AD Connect uses the AWS service to access Azure AD. It requires a special 
 - [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
 - [Windows SmartCard logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
 - [Azure AD CBA on mobile devices (Android and iOS)](concept-certificate-based-authentication-mobile.md)
-- [Sync rules for certificateUserIds](concept-certificate-based-authentication-certificateuserids.md)
+- [Certificate user IDs](concept-certificate-based-authentication-certificateuserids.md)
 - [FAQ](certificate-based-authentication-faq.yml)
