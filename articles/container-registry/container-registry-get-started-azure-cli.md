@@ -19,10 +19,10 @@ Because the Azure Cloud Shell doesn't include all required Docker components (th
 
 Create a resource group with the [az group create][az-group-create] command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-The following example creates a resource group named *my-resource-group* in the *eastus* location.
+The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
 ```azurecli
-az group create --name my-resource-group --location eastus
+az group create --name myResourceGroup --location eastus
 ```
 
 ## Create a container registry
@@ -32,7 +32,7 @@ In this quickstart you create a *Basic* registry, which is a cost-optimized opti
 Create an ACR instance using the [az acr create][az-acr-create] command. The registry name must be unique within Azure, and contain 5-50 lowercase alphanumeric characters. In the following example, *mycontainerregistry* is used. Update this to a unique value.
 
 ```azurecli
-az acr create --resource-group my-resource-group \
+az acr create --resource-group myResourceGroup \
   --name mycontainerregistry --sku Basic
 ```
 
@@ -42,12 +42,12 @@ When the registry is created, the output is similar to the following:
 {
   "adminUserEnabled": false,
   "creationDate": "2019-01-08T22:32:13.175925+00:00",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.ContainerRegistry/registries/mycontainerregistry",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/mycontainerregistry",
   "location": "eastus",
   "loginServer": "mycontainerregistry.azurecr.io",
   "name": "mycontainerregistry",
   "provisioningState": "Succeeded",
-  "resourceGroup": "my-resource-group",
+  "resourceGroup": "myResourceGroup",
   "sku": {
     "name": "Basic",
     "tier": "Basic"
