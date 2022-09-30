@@ -209,15 +209,13 @@ You'll create a new Azure pipeline that is linked to your fork of the sample app
 
 To create and run the load test, the Azure Pipelines definition uses the [Azure Load Testing task](/azure/devops/pipelines/tasks/test/azure-load-testing) extension from the Azure DevOps Marketplace.
 
-1. Install the **Azure Load Testing** task extension from the Azure DevOps Marketplace.
+1. Open the [Azure Load Testing task extension](https://marketplace.visualstudio.com/items?itemName=AzloadTest.AzloadTesting) in the Azure DevOps Marketplace, and select **Get it free**.
 
-    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/browse-marketplace.png" alt-text="Screenshot that shows how to browse the Visual Studio Marketplace for extensions.":::
-    
-    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/marketplace-load-testing-extension.png" alt-text="Screenshot that shows the button for installing the Azure Load Testing extension from the Visual Studio Marketplace.":::
+1. Select your Azure DevOps organization, and then select **Install** to install the extension.
 
-1. In your Azure DevOps project, select **Pipelines**, and then select **Create pipeline**.
+    If you don't have administrator privileges for the selected Azure DevOps organization, select **Request** to request an administrator to install the extension.
 
-    :::image type="content" source="./media/tutorial-cicd-azure-pipelines/create-pipeline.png" alt-text="Screenshot that shows selections for creating an Azure pipeline.":::
+1. In your Azure DevOps project, select **Pipelines** in the left navigation, and then select **Create pipeline**.
 
 1. On the **Connect** tab, select **GitHub**.
 
@@ -231,7 +229,7 @@ To create and run the load test, the Azure Pipelines definition uses the [Azure 
 
 1. Notice that the pipeline definition contains the `LoadTest` stage, which has two tasks.
 
-    The first task deploys a new Azure load testing resource using the `AzureResourceManagerTemplateDeployment` task.
+    The `AzureResourceManagerTemplateDeployment` task deploys a new Azure load testing resource in your Azure subscription.
 
     Next, the `AzureLoadTest` [Azure Load Testing task](/azure/devops/pipelines/tasks/test/azure-load-testing) creates and starts a load test. This task uses the `SampleApp.yaml` [load test configuration file](./reference-test-config-yaml.md), which contains the configuration parameters for the load test, such as the number of parallel test engines.
 
@@ -251,17 +249,19 @@ To create and run the load test, the Azure Pipelines definition uses the [Azure 
           ]
     ```
 
-1. On the **Review** tab, replace the following placeholder text in the YAML code:
+    If a load test already exists, the `AzureLoadTest` task won't create a new load test, but will add a test run to this load test. To identify regressions over time, you can then [compare multiple test runs](./how-to-compare-multiple-test-runs.md).
+
+1. On the **Review** tab, replace the following placeholder text at the beginning of the pipeline definition:
 
     These variables are used to configure the deployment of the sample application, and to create the load test.
 
     |Placeholder  |Value  |
     |---------|---------|
-    |`<Name of your webapp>`     | The name of the Azure App Service web app. |
+    | `<Name of your webapp>`     | The name of the Azure App Service web app. |
     | `<Name of your webARM Service connection>` | The name of the service connection that you created in the previous section. |
-    |`<Azure subscriptionId>`     | Your Azure subscription ID. |
-    |`<Name of your load test resource>`     | The name of your Azure Load Testing resource. |
-    |`<Name of your load test resource group>`     | The name of the resource group that contains the Azure Load Testing resource. |
+    | `<Azure subscriptionId>`     | Your Azure subscription ID. |
+    | `<Name of your load test resource>`     | The name of your Azure Load Testing resource. |
+    | `<Name of your load test resource group>`     | The name of the resource group that contains the Azure Load Testing resource. |
 
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/create-pipeline-review.png" alt-text="Screenshot that shows the Azure Pipelines Review tab when you're creating a pipeline.":::
 
@@ -354,6 +354,7 @@ You can specify these criteria in the test configuration YAML file:
 
 You've now created an Azure Pipelines CI/CD workflow that uses Azure Load Testing for automatically running load tests. By using pass/fail criteria, you can set the status of the CI/CD workflow. With parameters, you can make the running of load tests configurable.
 
+* Learn more about [comparing results from multiple test runs](./how-to-compare-multiple-test-runs.md).
 * Learn more about the [Azure Load Testing task](/azure/devops/pipelines/tasks/test/azure-load-testing).
 * Learn more about [Parameterizing a load test](./how-to-parameterize-load-tests.md).
 * Learn more [Define test pass/fail criteria](./how-to-define-test-criteria.md).
