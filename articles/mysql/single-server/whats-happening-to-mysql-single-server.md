@@ -8,7 +8,7 @@ author: markingmyname
 ms.author: maghan
 ms.reviewer: adig
 ms.custom: Single Server deprecation
-ms.date: 09/30/2022
+ms.date: 09/29/2022
 ---
 
 # What's happening to Azure Database for MySQL - Single Server?
@@ -98,7 +98,7 @@ A. Flexible server’s zone-redundant deployment provides 99.99% availability wi
 
 **Q. What migration options are available to help me migrate my single server to a flexible server?**
 
-A. You can use Azure Database Migration Service (DMS) to run [online](https://microsoft.sharepoint.com/teams/mysqlpms/Shared%20Documents/Single%20Server%20Deprecation%20+%20Migration/•%09Tutorial:%20Migrate%20Azure%20Database%20for%20MySQL%20-%20Single%20Server%20to%20Flexible%20Server%20online%20using%20DMS%20via%20the%20Azure%20portal%20-%20Azure%20Database%20Migration%20Service%20|%20Microsoft%20Docs) or [offline](https://microsoft.sharepoint.com/teams/mysqlpms/Shared%20Documents/Single%20Server%20Deprecation%20+%20Migration/•%09Tutorial:%20Migrate%20Azure%20Database%20for%20MySQL%20-%20Single%20Server%20to%20Flexible%20Server%20offline%20using%20DMS%20via%20the%20Azure%20portal%20-%20Azure%20Database%20Migration%20Service%20|%20Microsoft%20Docs) migrations (recommended). In addition, you can use community tools such as m[ydumper/myloader together with Data-in replication](../migrate/how-to-migrate-single-flexible-minimum-downtime.md) to perform migrations.
+A. You can use Azure Database Migration Service (DMS) to run [online](../../dms/tutorial-mysql-Azure-single-to-flex-online-portal.md) or [offline](../../dms/tutorial-mysql-azure-single-to-flex-offline-portal.md) migrations (recommended). In addition, you can use community tools such as m[ydumper/myloader together with Data-in replication](../migrate/how-to-migrate-single-flexible-minimum-downtime.md) to perform migrations.
 
 **Q. My single server is deployed in a region that doesn’t support flexible server. How should I proceed with migration?**
 
