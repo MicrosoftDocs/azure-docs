@@ -464,7 +464,7 @@ identity:
     - resource_id: identity_resource_id
 ```
 
-Once the managed identity is created, enable [identity-based data access enabled](how-to-identity-based-data-access.md) to your storage accounts for that identity. Then, when you worki on the compute instance, the managed identity is used automatically to authenticate against data stores.
+Once the managed identity is created, enable [identity-based data access enabled](how-to-datastore.md) to your storage accounts for that identity. Then, when you work on the compute instance, the managed identity is used automatically to authenticate against data stores.
 
 You can also use the managed identity manually to authenticate against other Azure resources. For example, to use it to get ARM access token, use following.
 
