@@ -12,7 +12,7 @@ ms.custom: template-how-to, ignite-fall-2021
 # Update Azure Percept DK over-the-air
 
 >[!CAUTION]
->**Over-the-air (OTA) update is no longer supported. To keep your Azure Percept DK software update-to-date, please refer to [Update the Azure Percept DK over a USB-C cable connection](./how-to-update-via-usb.md).**
+>**The OTA update on Azure Percept DK is no longer supported. For information on how to proceed, please visit [Update the Azure Percept DK over a USB-C cable connection](./how-to-update-via-usb.md).**
 
 Follow this guide to learn how to update the OS and firmware of the carrier board of your Azure Percept DK over-the-air (OTA) with Device Update for IoT Hub.
 
