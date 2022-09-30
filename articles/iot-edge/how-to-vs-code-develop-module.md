@@ -167,7 +167,7 @@ The [IoT Edge Dev Tool](https://github.com/Azure/iotedgedev) simplifies Azure Io
 
     ---
 
-The *iotedgedev init* script prompts you to complete several steps including:
+The *iotedgedev solution init* script prompts you to complete several steps including:
 
 * Authenticate to Azure
 * Choose an Azure subscription
