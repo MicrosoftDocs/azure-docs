@@ -14,7 +14,7 @@ Container insights can also scrape Prometheus metrics from your cluster for the 
 ## Collect additional data
 You may want to collect additional data in addition to the predefined set of data collected by Container insights. This data isn't used by Container insights views but is available for log queries and alerts like the other data it collects. This requires configuring the *monitoring addon* for the Azure Monitor agent, which is the one currently used by Container insights to send data to a Log Analytics workspace. 
 
-See [Collect Prometheus metrics Logs with Container insights](container-insights-prometheus-monitoring-addon.md) to configure your cluster to collect additional Prometheus metrics with the monitoring addon.
+See [Collect Prometheus metrics Logs with Container insights (preview)](container-insights-prometheus-monitoring-addon.md) to configure your cluster to collect additional Prometheus metrics with the monitoring addon.
 
 ## Send data to Azure Monitor managed service for Prometheus
 Container insights currently stores the data that it collects in Azure Monitor Logs. [Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md) is a fully managed Prometheus-compatible service that supports industry standard features such as PromQL, Grafana dashboards, and Prometheus alerts. This requires configuring the *metrics addon* for the Azure Monitor agent, which sends data to Prometheus. 

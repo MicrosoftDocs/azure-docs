@@ -1,12 +1,12 @@
 ---
-title: Minimal Prometheus ingestion profile in Azure Monitor
+title: Minimal Prometheus ingestion profile in Azure Monitor (preview)
 description: Describes how the setting for minimal ingestion profile for Prometheus metrics in Azure Monitor is configured and how you can modify it to collect additional data.
 ms.topic: conceptual
 ms.date: 09/28/2022
 ms.reviewer: aul
 ---
 
-# Minimal ingestion profile for Prometheus metrics in Azure Monitor
+# Minimal ingestion profile for Prometheus metrics in Azure Monitor (preview)
 When Prometheus metric scraping is enabled for a cluster in Container insights, it collects a minimal amount of data by default. This helps reduce ingestion volume of series/metrics used by default dashboards, default recording rules & default alerts. This article describes how this setting is configured and how you can modify it to collect additional data.
 
 ## Configuration setting
@@ -46,7 +46,7 @@ The following metrics are allow-listed with `minimalingestionprofile=true` for d
 `default-targets-metrics-keep-list.nodeexporter` = `"node_cpu_seconds_total|node_memory_MemAvailable_bytes|node_memory_Buffers_bytes|node_memory_Cached_bytes|node_memory_MemFree_bytes|node_memory_Slab_bytes|node_memory_MemTotal_bytes|node_netstat_Tcp_RetransSegs|node_netstat_Tcp_OutSegs|node_netstat_TcpExt_TCPSynRetrans|node_load1|node_load5|node_load15|node_disk_read_bytes_total|node_disk_written_bytes_total|node_disk_io_time_seconds_total|node_filesystem_size_bytes|node_filesystem_avail_bytes|node_network_receive_bytes_total|node_network_transmit_bytes_total|node_vmstat_pgmajfault|node_network_receive_drop_total|node_network_transmit_drop_total|node_disk_io_time_weighted_seconds_total|node_exporter_build_info|node_time_seconds|node_uname_info"`
 
 ### Minimal ingestion for OFF targets
-The following metrics that are allow-listed with `minimalingestionprofile=true` for default OFF targets. These metrics will not be collected by default as these targets are not scraped by default. You turn them on using `default-targets-metrics-keep-list.<target-name>=true`'.
+The following metrics that are allow-listed with `minimalingestionprofile=true` for default OFF targets. These metrics won't be collected by default as these targets aren't scraped by default. You turn them on using `default-targets-metrics-keep-list.<target-name>=true`'.
 
 `default-targets-metrics-keep-list.coredns` = `"coredns_build_info|coredns_panics_total|coredns_dns_responses_total|coredns_forward_responses_total|coredns_dns_request_duration_seconds|coredns_dns_request_duration_seconds_bucket|coredns_dns_request_duration_seconds_sum|coredns_dns_request_duration_seconds_count|coredns_forward_request_duration_seconds|coredns_forward_request_duration_seconds_bucket|coredns_forward_request_duration_seconds_sum|coredns_forward_request_duration_seconds_count|coredns_dns_requests_total|coredns_forward_requests_total|coredns_cache_hits_total|coredns_cache_misses_total|coredns_cache_entries|coredns_plugin_enabled|coredns_dns_request_size_bytes|coredns_dns_request_size_bytes_bucket|coredns_dns_request_size_bytes_sum|coredns_dns_request_size_bytes_count|coredns_dns_response_size_bytes|coredns_dns_response_size_bytes_bucket|coredns_dns_response_size_bytes_sum|coredns_dns_response_size_bytes_count|coredns_dns_response_size_bytes_bucket|coredns_dns_response_size_bytes_sum|coredns_dns_response_size_bytes_count|process_resident_memory_bytes|process_cpu_seconds_total|go_goroutines|kubernetes_build_info"`
 

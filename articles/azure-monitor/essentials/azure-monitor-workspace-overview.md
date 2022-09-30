@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor workspace overview
-description: Overview of Azure Monitor workspace which is a unique environment for data collected by Azure Monitor.
+title: Azure Monitor workspace overview (preview)
+description: Overview of Azure Monitor workspace, which is a unique environment for data collected by Azure Monitor.
 author: bwren 
 ms.topic: conceptual
 ms.date: 05/09/2022
@@ -37,14 +37,46 @@ In addition to the methods below, you may be given the option to create a new Az
 1. Open the **Azure Monitor workspaces** menu in the Azure portal.
 2. Click **Create**.
 
-    :::image type="content" source="media/azure-monitor-workspace-overview/view-azure-monitor-workspaces.png" alt-text="Screenshot of Azure Monitor workspaces menu and page." lightbox="media/azure-monitor-workspace-overview/view-azure-monitor-workspaces.png":::
+    :::image type="content" source="media/azure-monitor-workspace-overview/view-azure-monitor-workspaces.png" lightbox="media/azure-monitor-workspace-overview/view-azure-monitor-workspaces.png" alt-text="Screenshot of Azure Monitor workspaces menu and page.":::
 
 3. On the **Create an Azure Monitor Workspace** page, select a **Subscription** and **Resource group** where the workspace should be created.
 4. Provide a **Name** and a **Region** for the workspace.
 5. Click **Review + create** to create the workspace.
 
+### [CLI](#tab/cli)
+Use the following command to create an Azure Monitor workspace using Azure CLI.
+
+```azurecli
+az resource create --resource-group divyaj-test --namespace microsoft.monitor --resource-type accounts --name testmac0929 --location westus2 --properties {}
+```
+
 ### [Resource Manager](#tab/resource-manager)
-To be completed.
+Use the following Resource Manager template with any of the [standard deployment options](../resource-manager-samples.md#deploy-the-sample-templates) to create an Azure Monitor workspace.
+
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": ""
+        }
+    },
+    "resources": [
+        {
+            "type": "microsoft.monitor/accounts",
+            "apiVersion": "2021-06-03-preview",
+            "name": "[parameters('name')]",
+            "location": "[if(empty(parameters('location')), resourceGroup().location, parameters('location'))]"
+        }
+    ]
+}
+```
+
 
 ---
 
@@ -59,7 +91,10 @@ When you delete an Azure Monitor workspace, no soft-delete operation is performe
 2. Select your workspace.
 4. Click **Delete**.
 
-    :::image type="content" source="media/azure-monitor-workspace-overview/delete-azure-monitor-workspace.png" alt-text="Screenshot of Azure Monitor workspaces delete button." lightbox="media/azure-monitor-workspace-overview/delete-azure-monitor-workspace.png":::
+    :::image type="content" source="media/azure-monitor-workspace-overview/delete-azure-monitor-workspace.png" lightbox="media/azure-monitor-workspace-overview/delete-azure-monitor-workspace.png" alt-text="Screenshot of Azure Monitor workspaces delete button.":::
+
+### [CLI](#tab/cli)
+To be completed.
 
 ### [Resource Manager](#tab/resource-manager)
 To be completed.
@@ -70,7 +105,8 @@ To be completed.
 ## Link a Grafana workspace
 Connect an Azure Monitor workspace to an [Azure Managed Grafana](../../managed-grafana/overview.md) workspace to authorize Grafana to use the Azure Monitor workspace as a resource type in a Grafana dashboard. An Azure Monitor workspace can be connected to multiple Grafana workspaces, and a Grafana workspace can be connected to multiple Azure Monitor workspaces.
 
-
+> [!NOTE]
+> When you add the Azure Monitor workspace as a data source to Grafana, it will be listed in form `Managed_Prometheus_<azure-workspace-name>`.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -78,6 +114,9 @@ Connect an Azure Monitor workspace to an [Azure Managed Grafana](../../managed-g
 2. Select your workspace.
 3. Click **Linked Grafana workspaces**.
 4. Select a Grafana workspace.
+
+### [CLI](#tab/cli)
+To be completed.
 
 ### [Resource Manager](#tab/resource-manager)
 To be completed.
@@ -88,6 +127,5 @@ To be completed.
 ## Next steps
 
 - Learn more about the [Azure Monitor data platform](../data-platform.md).
-- Learn about [log data in Azure Monitor](../logs/data-platform-logs.md).
-- Learn about the [monitoring data available](../data-sources.md) for various resources in Azure.
+
 

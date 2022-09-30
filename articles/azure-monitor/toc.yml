@@ -1274,7 +1274,7 @@ items:
         href: containers/container-insights-region-mapping.md
       - name: Transition from Container monitoring solution
         href: containers/container-insights-transition-solution.md
-    - name: Collect Prometheus metrics
+    - name: Prometheus metrics
       items: 
       - name: Overview
         href: containers/container-insights-prometheus.md

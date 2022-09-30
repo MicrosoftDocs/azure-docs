@@ -43,7 +43,7 @@ The only method currently available for creating Prometheus alert rules is a Res
 
 ### Edit alert rules
 
- To edit the Prometheus alerts threshold or configure an action group for your AKS cluster, edit the appropriate values in the ARM template and redeploy it using any deployment method.
+ To edit the query and threshold or configure an action group for your alert rules, edit the appropriate values in the ARM template and redeploy it using any deployment method.
 
 ### Configure alertable metrics in ConfigMaps
 
@@ -114,7 +114,7 @@ The configuration change can take a few minutes to finish before taking effect, 
 
     :::image type="content" source="media/container-insights-metric-alerts/recommended-alerts-pane-enable.png" lightbox="media/container-insights-metric-alerts/recommended-alerts-pane-enable.png" alt-text="Screenshot showing list of recommended alerts and option for enabling each.":::
 
-3. Alert rules are not associated with an [action group](../alerts/action-groups.md) to notify users that an alert has been triggered. Select **No action group assigned** to open the **Action Groups** page, specify an existing or create an action group by selecting **Create action group**.
+3. Alert rules aren't associated with an [action group](../alerts/action-groups.md) to notify users that an alert has been triggered. Select **No action group assigned** to open the **Action Groups** page, specify an existing or create an action group by selecting **Create action group**.
 
     :::image type="content" source="media/container-insights-metric-alerts/select-action-group.png" lightbox="media/container-insights-metric-alerts/select-action-group.png" alt-text="Screenshot showing selection of an action group.":::
 
