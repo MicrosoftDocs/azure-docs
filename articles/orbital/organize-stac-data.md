@@ -41,13 +41,13 @@ Here are a couple of examples:
 
 ## Architecture
 
-:::image type="content" source="media/stac-architecture.png" alt-text="Diagram of STAC architecture" lightbox="media/stac-architecture.png":::
+:::image type="content" source="media/stac-architecture.png" alt-text="Diagram of STAC architecture." lightbox="media/stac-architecture.png":::
 
 Download a [Visio file](https://download.microsoft.com/download/5/6/4/564196b7-dd01-468a-af21-1da16489f298/stac_arch.vsdx) for this architecture.
 
 ### Dataflow 
 
-:::image type="content" source="media/stac-data-flow.png" alt-text="STAC dataflow diagram" lightbox="media/stac-data-flow.png":::
+:::image type="content" source="media/stac-data-flow.png" alt-text="STAC dataflow diagram." lightbox="media/stac-data-flow.png":::
 
 Download a [Visio file](https://download.microsoft.com/download/5/6/4/564196b7-dd01-468a-af21-1da16489f298/stac_data_flow.vsdx) for this dataflow.
 
@@ -104,7 +104,7 @@ The following Azure services are used in this architecture.
 - [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) is dedicated to big data analytics, and is built on [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs).
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) enables Azure resources to securely communicate with each other, the internet, and on-premises networks.
 - [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/overview) is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. It has richer capabilities such as zone resilient high availability (HA), predictable performance, maximum control, custom maintenance window, cost optimization controls, and simplified developer experience suitable for your enterprise workloads.
-- [API Management Services](https://azure.microsoft.com/services/api-management/) offers a scalable, multi-cloud API management platform for securing, publishing and analyzing APIs.
+- [API Management Services](https://azure.microsoft.com/services/api-management/) offers a scalable, multicloud API management platform for securing, publishing and analyzing APIs.
 - [Azure Kubernetes Services](/azure/aks/intro-kubernetes) offers the quickest way to start developing and deploying cloud-native apps, with built-in code-to-cloud pipelines and guardrails.
 - [Container Registry](/azure/container-registry/container-registry-intro) to store and manage your container images and related artifacts.
 - [Virtual Machine](/azure/virtual-machines/overview) (VM) gives you the flexibility of virtualization for a wide range of computing solutions. In a fully secured deployment, a user connects to a VM via Azure Bastion (described in the next item below) to perform a range of operations like copying files to storage accounts, running Azure CLI commands, and interacting with other services.  
@@ -169,7 +169,7 @@ At a high level, this deployment does the following:
 - Deploys Azure API Management service and publishes the endpoint for STAC FastAPI.
 - Packages the code and its dependencies, builds the Docker container images, and pushes them to Azure Container Registry.
 
-    :::image type="content" source="media/stac-deploy.png" alt-text="STAC deployment services" lightbox="media/stac-deploy.png":::
+    :::image type="content" source="media/stac-deploy.png" alt-text="Diagram of STAC deployment services." lightbox="media/stac-deploy.png":::
 
 Download a [Visio file](https://download.microsoft.com/download/5/6/4/564196b7-dd01-468a-af21-1da16489f298/stac_deploy.vsdx) for this implementation.
 
