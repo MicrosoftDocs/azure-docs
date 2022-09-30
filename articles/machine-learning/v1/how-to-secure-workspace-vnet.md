@@ -15,7 +15,7 @@ ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security, cliv1, s
 
 # Secure an Azure Machine Learning workspace with virtual networks (v1)
 
-[!INCLUDE [sdk/cli v1](../../includes/machine-learning-dev-v1.md)]
+[!INCLUDE [sdk/cli v1](../../../includes/machine-learning-dev-v1.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK/CLI extension you are using:"]
 > * [v1](how-to-secure-workspace-vnet.md)
