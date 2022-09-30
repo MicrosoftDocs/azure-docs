@@ -10,7 +10,7 @@ ms.date: 08/19/2021
 
 This article describes the architecture and processes used when you deploy disaster recovery replication, failover, and recovery of VMware virtual machines (VMs) between an on-premises VMware site and Azure using the [Azure Site Recovery](site-recovery-overview.md) service - Classic.
 
-For architecture details in Preview, [see this article](vmware-azure-architecture-preview.md)
+For details about modernized architecture, [see this article](vmware-azure-architecture-modernized.md)
 
 
 ## Architectural components
@@ -31,7 +31,7 @@ The following table and graphic provide a high-level view of the components used
 For Site Recovery to work as expected, you need to modify outbound network connectivity to allow your environment to replicate.
 
 > [!NOTE]
-> Site Recovery of VMware/Physical machines using Classic architecture doesn't support using an authentication proxy to control network connectivity. The same is supported when using the [modernized architecutre](vmware-azure-architecture-preview.md).
+> Site Recovery of VMware/Physical machines using Classic architecture doesn't support using an authentication proxy to control network connectivity. The same is supported when using the [modernized architecutre](vmware-azure-architecture-modernized.md).
 
 ### Outbound connectivity for URLs
 

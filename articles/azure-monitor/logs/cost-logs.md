@@ -182,7 +182,7 @@ The following query can be used to make a recommendation for the optimal pricing
 ```kusto
 // Set these parameters before running query
 // For Pay-As-You-Go (per-GB) and commitment tier pricing details, see https://azure.microsoft.com/pricing/details/monitor/.
-// You can see your per-node costs in your Azure usage and charge data. For more information, see https://docs.microsoft.com/en-us/azure/cost-management-billing/understand/download-azure-daily-usage.  
+// You can see your per-node costs in your Azure usage and charge data. For more information, see https://learn.microsoft.com/azure/cost-management-billing/understand/download-azure-daily-usage.  
 let PerNodePrice = 15.; // Monthly price per monitored node
 let PerNodeOveragePrice = 2.30; // Price per GB for data overage in the Per Node pricing tier
 let PerGBPrice = 2.30; // Enter the Pay-as-you-go price for your workspace's region (from https://azure.microsoft.com/pricing/details/monitor/)

@@ -12,7 +12,7 @@ This article recommends practices to follow when developing your Bicep files. Th
 
 ### Training resources
 
-If you would rather learn about Bicep best practices through step-by-step guidance, see [Structure your Bicep code for collaboration](/learn/modules/structure-bicep-code-collaboration/).
+If you would rather learn about Bicep best practices through step-by-step guidance, see [Structure your Bicep code for collaboration](/training/modules/structure-bicep-code-collaboration/).
 
 ## Parameters
 
