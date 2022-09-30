@@ -23,8 +23,7 @@ ms.custom: sdkv2, event-tier1-build-2022
 
 In this article, learn how to run your [TensorFlow](https://www.tensorflow.org/overview) training scripts at scale using Azure Machine Learning Python SDK v2.
 
-
-This example trains and registers a TensorFlow model to classify handwritten digits using a deep neural network (DNN).
+This example code in this article train a TensorFlow model to classify handwritten digits using a deep neural network (DNN), register the model, and deploy it to an online endpoint.
 
 <!-- M.A: removed link to existing model (v1 article): [existing model](./v1/how-to-deploy-and-where.md) -->
 Whether you're developing a TensorFlow model from the ground-up or you're bringing an existing model into the cloud, you can use Azure Machine Learning to scale out open-source training jobs using elastic cloud compute resources. You can build, deploy, version, and monitor production-grade models with Azure Machine Learning.
@@ -113,7 +112,7 @@ In this article, you'll reuse the curated AzureML environment `AzureML-tensorflo
 
 ## Configure and submit your training job
 
-In this section, we'll introduce the data for training and cover how to run a training job, using a training script that we've provided. To begin, you'll build the training job by configuring the command for running the training script. Then, you'll submit the training job to run in AzureML.
+In this section, we'll begin by introducing the data for training. We'll then cover how to run a training job, using a training script that we've provided. You'll learn to build the training job by configuring the command for running the training script. Then, you'll submit the training job to run in AzureML.
 
 ### Obtain the training data
 You'll use data from the Modified National Institute of Standards and Technology (MNIST) database of handwritten digits. This data is sourced from Yan LeCun's website and stored in an Azure storage account.
@@ -261,39 +260,29 @@ The code to deploy the model to the endpoint does the following:
 
 ### Test the deployment with a sample query
 
-Now that you've deployed the model to the endpoint, you can run inference with it using the `invoke` on the endpoint. To run the inference, use the sample request file `sample-request.json` from the *request* folder.
+Now that you've deployed the model to the endpoint, you can predict the output of the deployed model, using the `invoke` method on the endpoint. To run the inference, use the sample request file `sample-request.json` from the *request* folder.
 
 [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=invoke)]
 
+You can then print the returned predictions and plot them along with the input images. Use red font color and inverted image (white on black) to highlight the misclassified samples.
+
+[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=test_invoke)]
+
+Note that because the model accuracy is high, you might have to run the cell a few times before seeing a misclassified sample.
+
+### Clean up resources
+
+If you won't be using the endpoint, delete it to stop using the resource. Make sure no other deployments are using the endpoint before you delete it.
+
+[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=delete_endpoint)]
+
+> [!NOTE]
+> Expect this cleanup to take a bit of time to finish.
+
 
 ## Next steps
 
-In this article, you trained and registered a scikit-learn model, and you learned about deployment options. See these other articles to learn more about Azure Machine Learning.
-
-* [Track run metrics during training](how-to-log-view-metrics.md)
-* [Tune hyperparameters](how-to-tune-hyperparameters.md)
-
-
-## ---------------------------------------
-
-
-## Deploy a TensorFlow model
-
-The deployment how-to contains a section on registering models, but you can skip directly to [creating a compute target](./v1/how-to-deploy-and-where.md#choose-a-compute-target) for deployment, since you already have a registered model.
-
-### (Preview) No-code model deployment
-
-Instead of the traditional deployment route, you can also use the no-code deployment feature (preview) for TensorFlow. By registering your model as shown above with the `model_framework`, `model_framework_version`, and `resource_configuration` parameters, you can use the `deploy()` static function to deploy your model.
-
-```python
-service = Model.deploy(ws, "tensorflow-web-service", [model])
-```
-
-The full [how-to](./v1/how-to-deploy-and-where.md) covers deployment in Azure Machine Learning in greater depth.
-
-## Next steps
-
-In this article, you trained and registered a TensorFlow model, and learned about options for deployment. See these other articles to learn more about Azure Machine Learning.
+In this article, you trained and registered a TensorFlow model. You also deployed the model to an online endpoint. See these other articles to learn more about Azure Machine Learning.
 
 - [Track run metrics during training](how-to-log-view-metrics.md)
 - [Tune hyperparameters](how-to-tune-hyperparameters.md)
