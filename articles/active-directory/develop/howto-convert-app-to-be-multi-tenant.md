@@ -21,31 +21,31 @@ If you offer a Software as a Service (SaaS) application to many organizations, y
 
 For existing apps, add sign-in code via OAuth2, OpenID Connect, or SAML, and put a ["Sign in with Microsoft" button][AAD-App-Branding] in your application. This article assumes you’re familiar with building a single-tenant application for Azure AD. If not, start with one of the quickstarts on the [developer guide homepage][AAD-Dev-Guide].
 
-There are four steps to convert your application into an Azure AD multi-tenant app:
-
-In this how-to guide, you'll undertake the four steps needed to convert your app into an Azure AD multi-tenant app. You can also refer to the sample; [Build a multi-tenant SaaS web application that calls Microsoft Graph using Azure AD and OpenID Connect](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md).
+In this how-to guide, you'll undertake the four steps needed to convert a single tenant app into an Azure AD multi-tenant app. You can also refer to the sample; [Build a multi-tenant SaaS web application that calls Microsoft Graph using Azure AD and OpenID Connect](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md).
 
 ## Update registration to be multi-tenant
 
-By default, web app/API registrations in Azure AD are single-tenant. To make the registration multi-tenant, find the **Supported account types** section on the **Authentication** pane of your application registration in the [Azure portal][AZURE-portal]. Change the setting to **Accounts in any organizational directory**.
+By default, web app/API registrations in Azure AD are single-tenant when first creating them. To make the registration multi-tenant, look for the **Supported account types** section on the **Authentication** pane of the application registration in the [Azure portal][AZURE-portal]. Change the setting to **Accounts in any organizational directory**.
 
 By default, apps created via the Azure portal have a globally unique App ID URI set on app creation. The App ID URI is one of the ways an application is identified in protocol messages, and can be edited in the **Overview page**. The App ID URI for single tenant apps can be globally unique within that tenant, however for multi-tenant apps it must be globally unique across all tenants. This ensures that Azure AD can find the app across all tenants.
 
-If the name of your tenant was contoso.onmicrosoft.com then a valid App ID URI would be `https://contoso.onmicrosoft.com/myapp`. If your tenant had a verified domain of `contoso.com`, then a valid App ID URI would also be `https://contoso.com/myapp`. If the App ID URI doesn’t follow this pattern, setting an application as multi-tenant fails.
+If the name of your tenant was `contoso.onmicrosoft.com` then a valid App ID URI would be `https://contoso.onmicrosoft.com/myapp`. If the App ID URI doesn’t follow this pattern, setting an application as multi-tenant fails.
 
 ## Update your code to send requests to `/common`
 
-Edit your code and change the value for your tenant to `common`. With a multi-tenant application, because the application can't immediately tell which tenant the user is from, requests can't be sent to a tenant’s endpoint. Instead, requests are sent to an endpoint that multiplexes across all Azure AD tenants: `https://login.microsoftonline.com/common`. It is important to note that the `/common` endpoint is not a tenant or an issuer.
+With a multi-tenant application, because the application can't immediately tell which tenant the user is from, requests can't be sent to a tenant’s endpoint. Instead, requests are sent to an endpoint that multiplexes across all Azure AD tenants: `https://login.microsoftonline.com/common`. 
 
-In a single-tenant application, sign-in requests are sent to the tenant’s sign-in endpoint. For example, for contoso.onmicrosoft.com the endpoint would be: `https://login.microsoftonline.com/contoso.onmicrosoft.com`. Requests sent to a tenant’s endpoint can sign in users (or guests) in that tenant to applications in that tenant.
+Edit your code and change the value for your tenant to `common`. It's important to note that the `/common` endpoint isn't a tenant or an issuer.
 
-When the Microsoft identity platform receives a request on the `/common` endpoint, it signs the user in and, as a consequence, discovers which tenant the user is from. This endpoint works with all of the authentication protocols supported by the Azure AD (OpenID Connect, OAuth 2.0, SAML 2.0, WS-Federation).
+In a single-tenant application, sign-in requests are sent to the tenant’s sign-in endpoint. For example, for `contoso.onmicrosoft.com` the endpoint would be: `https://login.microsoftonline.com/contoso.onmicrosoft.com`. Requests sent to a tenant’s endpoint can sign in users (or guests) in that tenant to applications in that tenant.
+
+When the Microsoft identity platform receives a request on the `/common` endpoint, it signs the user in, thereby discovering which tenant the user is from. This endpoint works with all of the authentication protocols supported by the Azure AD (OpenID Connect, OAuth 2.0, SAML 2.0, WS-Federation).
 
 The sign-in response to the application then contains a token representing the user. The issuer value in the token tells an application what tenant the user is from. When a response returns from the `/common` endpoint, the issuer value in the token corresponds to the user’s tenant.
 
 ## Update your code to handle multiple issuer values
 
-Web applications and web APIs receive and validate tokens from the Microsoft identity platform. While native client applications request and receive tokens from the Microsoft identity platform, they do so to send them to APIs, where they are validated. Native applications do not validate access tokens and must treat them as opaque.
+Web applications and web APIs receive and validate tokens from the Microsoft identity platform. While native client applications request and receive tokens from the Microsoft identity platform, they do so to send them to APIs, where they're validated. Native applications don't validate access tokens and must treat them as opaque.
 
 Multi-tenant applications can’t validate tokens by matching the issuer value in the metadata with the `issuer` value in the token. A multi-tenant application needs logic to decide which issuer values are valid and which aren't based on the tenant ID portion of the issuer value. 
 
@@ -56,7 +56,7 @@ In the [multi-tenant samples][AAD-Samples-MT], issuer validation is disabled to 
 ```http
 https://sts.windows.net/{tenantid}/
 ```
-To ensure your app can support multiple tenants, modify the relevant section of you code to ensure that your issuer value is set to `{tenantid}`.
+To ensure your app can support multiple tenants, modify the relevant section of your code to ensure that your issuer value is set to `{tenantid}`.
 
 In contrast, single-tenant applications normally take endpoint values like:
 
@@ -84,11 +84,11 @@ When a single-tenant application validates a token, it checks the signature of t
 
 ## Understand user and admin consent and make appropriate code changes
 
-For a user to sign in to an application in Azure AD, the application must be represented in the user’s tenant. This allows the organization to do things like apply unique policies when users from their tenant sign in to the application. For a single-tenant application, this registration easier; it’s the one that happens when you register the application in the [Azure portal][AZURE-portal].
+For a user to sign in to an application in Azure AD, the application must be represented in the user’s tenant. This allows the organization to do things like apply unique policies when users from their tenant sign in to the application. For a single-tenant application, the [Azure portal][AZURE-portal] registration is easier.
 
-For a multi-tenant application, the initial registration for the application lives in the Azure AD tenant used by the developer. When a user from a different tenant signs in to the application for the first time, Azure AD asks them to consent to the permissions requested by the application. If they consent, then a representation of the application called a *service principal* is created in the user’s tenant, and sign-in can continue. A delegation is also created in the directory that records the user’s consent to the application. For details on the application's Application and ServicePrincipal objects, and how they relate to each other, see [Application objects and service principal objects][AAD-App-SP-Objects].
+For a multi-tenant application, the initial registration for the application resides in the Azure AD tenant used by the developer. When a user from a different tenant signs in to the application for the first time, Azure AD asks them to consent to the permissions requested by the application. If they consent, then a representation of the application called a *service principal* is created in the user’s tenant, and sign-in can continue. A delegation is also created in the directory that records the user’s consent to the application. For details on the application's Application and ServicePrincipal objects, and how they relate to each other, see [Application objects and service principal objects][AAD-App-SP-Objects].
 
-![Illustrates consent to single-tier app][Consent-Single-Tier]
+![Diagram which illustrates a user's consent to a single-tier app][Consent-Single-Tier]
 
 This consent experience is affected by the permissions requested by the application. The Microsoft identity platform supports two kinds of permissions, app-only and delegated.
 
@@ -97,19 +97,19 @@ This consent experience is affected by the permissions requested by the applicat
 
 Some permissions can be consented to by a regular user, while others require a tenant administrator’s consent.
 
-To learn more about user and admin consent, see [Configure the admin consent workflow](../manage-apps/configure-admin-consent-workflow.md).
+To learn more about admin consent, see [Configure the admin consent workflow](../manage-apps/configure-admin-consent-workflow.md).
 
 ### Admin consent
 
 App-only permissions always require a tenant administrator’s consent. If your application requests an app-only permission and a user tries to sign in to the application, an error message is displayed saying the user isn’t able to consent.
 
-Certain delegated permissions also require a tenant administrator’s consent. For example, the ability to write back to Azure AD as the signed in user requires a tenant administrator’s consent. Like app-only permissions, if an ordinary user tries to sign in to an application that requests a delegated permission that requires administrator consent, your application receives an error. Whether a permission requires admin consent is determined by the developer that published the resource, and can be found in the documentation for the resource. The permissions documentation for the [Microsoft Graph API][MSFT-Graph-permission-scopes] indicate which permissions require admin consent.
+Certain delegated permissions also require a tenant administrator’s consent. For example, the ability to write back to Azure AD as the signed in user requires a tenant administrator’s consent. Like app-only permissions, if an ordinary user tries to sign in to an application that requests a delegated permission that requires administrator consent, the app receives an error. Whether a permission requires admin consent is determined by the developer that published the resource, and can be found in the documentation for the resource. The permissions documentation for the [Microsoft Graph API][MSFT-Graph-permission-scopes] indicate which permissions require admin consent.
 
-If your application uses permissions that require admin consent, have a gesture such as a button or link where the admin can initiate the action. The request your application sends for this action is the usual OAuth2/OpenID Connect authorization request that also includes the `prompt=consent` query string parameter. Once the admin has consented and the service principal is created in the customer’s tenant, subsequent sign-in requests do not need the `prompt=consent` parameter. Since the administrator has decided the requested permissions are acceptable, no other users in the tenant are prompted for consent from that point forward.
+If your application uses permissions that require admin consent, consider adding a button or link where the admin can initiate the action. The request your application sends for this action is the usual OAuth2/OpenID Connect authorization request that also includes the `prompt=consent` query string parameter. Once the admin has consented and the service principal is created in the customer’s tenant, subsequent sign-in requests don't need the `prompt=consent` parameter. Since the administrator has decided the requested permissions are acceptable, no other users in the tenant are prompted for consent from that point forward.
 
 A tenant administrator can disable the ability for regular users to consent to applications. If this capability is disabled, admin consent is always required for the application to be used in the tenant. If you want to test your application with end-user consent disabled, you can find the configuration switch in the [Azure portal][AZURE-portal] in the **[User settings](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** section under **Enterprise applications**.
 
-The `prompt=consent` parameter can also be used by applications that request permissions that do not require admin consent. An example of when this would be used is if the application requires an experience where the tenant admin “signs up” one time, and no other users are prompted for consent from that point on.
+The `prompt=consent` parameter can also be used by applications that request permissions that don't require admin consent. An example of when this would be used is if the application requires an experience where the tenant admin “signs up” one time, and no other users are prompted for consent from that point on.
 
 If an application requires admin consent and an admin signs in without the `prompt=consent` parameter being sent, when the admin successfully consents to the application it will apply **only for their user account**. Regular users will still not be able to sign in or consent to the application. This feature is useful if you want to give the tenant administrator the ability to explore your application before allowing other users access.
 
@@ -151,7 +151,7 @@ Users and administrators can revoke consent to your application at any time:
 * Users revoke access to individual applications by removing them from their [Access Panel Applications][AAD-Access-Panel] list.
 * Administrators revoke access to applications by removing them using the [Enterprise applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) section of the [Azure portal][AZURE-portal].
 
-If an administrator consents to an application for all users in a tenant, users cannot revoke access individually. Only the administrator can revoke access, and only for the whole application.
+If an administrator consents to an application for all users in a tenant, users can't revoke access individually. Only the administrator can revoke access, and only for the whole application.
 
 ## Multi-tenant applications and caching access tokens
 
@@ -168,7 +168,7 @@ Multi-tenant applications can also get access tokens to call APIs that are prote
 
 ## Next steps
 
-In this article, you learned how to build an application that can sign in a user from any Azure AD tenant. After enabling Single Sign-On (SSO) between your app and Azure AD, you can also update your application to access APIs exposed by Microsoft resources like Microsoft 365. This lets you offer a personalized experience in your application, such as showing contextual information to the users, like their profile picture or their next calendar appointment.
+In this article, you learned how to convert a single tenant application to a multi-tenant application. After enabling Single Sign-On (SSO) between your app and Azure AD, you can also update your application to access APIs exposed by Microsoft resources like Microsoft 365. This lets you offer a personalized experience in your application, such as showing contextual information to the users, like their profile picture or their next calendar appointment.
 
 To learn more about making API calls to Azure AD and Microsoft 365 services like Exchange, SharePoint, OneDrive, OneNote, and more, visit [Microsoft Graph API][MSFT-Graph-overview].
 
