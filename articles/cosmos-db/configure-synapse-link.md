@@ -26,11 +26,11 @@ Azure Synapse Link is available for Azure Cosmos DB SQL API or for Azure Cosmos 
 * [Improve performance with Best Practices](#best)
 * [Use Azure Synapse serverless SQL pool to analyze and visualize data in Power BI](#analyze-with-powerbi)
 
-You can also checkout the training module on how to [configure Azure Synapse Link for Azure Cosmos DB.](/training/modules/configure-azure-synapse-link-with-azure-cosmos-db/)
+You can also check the training module on how to [configure Azure Synapse Link for Azure Cosmos DB.](/training/modules/configure-azure-synapse-link-with-azure-cosmos-db/)
 
 ## <a id="enable-synapse-link"></a>Enable Azure Synapse Link for Azure Cosmos DB accounts
 
-The first step to use Synapse Link is to enable it for your Azure Cosmos DB database account. This is an one time operation.
+The first step to use Synapse Link is to enable it for your Azure Cosmos DB database account.
 
 > [!NOTE]
 > If you want to use customer-managed keys with Azure Synapse Link, you must configure your account's managed identity in your Azure Key Vault access policy before enabling Synapse Link on your account. To learn more, see how to [Configure customer-managed keys using Azure Cosmos DB accounts' managed identities](how-to-setup-cmk.md#using-managed-identity) article.
@@ -266,7 +266,7 @@ You can find samples to get started with Azure Synapse Link on [GitHub](https://
 
 To learn more, see the following docs:
 
-* Checkout the training module on how to [configure Azure Synapse Link for Azure Cosmos DB.](/training/modules/configure-azure-synapse-link-with-azure-cosmos-db/)
+* Check the training module on how to [configure Azure Synapse Link for Azure Cosmos DB.](/training/modules/configure-azure-synapse-link-with-azure-cosmos-db/)
 
 * [Azure Cosmos DB analytical store overview.](analytical-store-introduction.md)
 
