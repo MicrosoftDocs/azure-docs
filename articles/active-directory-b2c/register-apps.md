@@ -16,9 +16,9 @@ ms.subservice: B2C
 
 # Register apps in Azure Active Directory B2C
 
-Before your [applications](application-types.md) can interact with Azure Active Directory B2C (Azure AD B2C), you must register them in a tenant that you manage. This tutorial shows you how to register a web application using the Azure portal. Azure. 
+Before your [applications](application-types.md) can interact with Azure Active Directory B2C (Azure AD B2C), you must register them in a tenant that you manage.
 
-Azure AD B2C supports authentication for various modern application architectures. The interaction of every application type with Azure AD B2C is different. Hence, you need to specify. 
+Azure AD B2C supports authentication for various modern application architectures. The interaction of every application type with Azure AD B2C is different. Hence, you need to specify the type of app that you want to register. 
 
 
 ## Prerequisites
