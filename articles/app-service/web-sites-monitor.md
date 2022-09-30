@@ -94,7 +94,7 @@ For an app, the available metrics are:
 | **Http 404** | The count of requests resulting in HTTP 404 status code. |
 | **Http 406** | The count of requests resulting in HTTP 406 status code. |
 | **Http 4xx** | The count of requests resulting in an HTTP status code ≥ 400 but < 500. |
-| **Http Server Errors** | The count of requests resulting in an HTTP status code ≥ 500 but < 600. |
+| **Http Server Errors** | The count of requests resulting in an HTTP status code ≥ 500 but < 600. The recorded requests are the ones that are reaching the backend service (the worker(s) hosting the web application). If the requests are present only at the FrontEnd level, they are not going to be recorded as Http Server Errors. It is recommended to use the Health Check feature / Application Insights availability tests in case you are suspecting a server related performance issues that is not reflected in the Http Server Errors records.|
 | **IO Other Bytes Per Second** | The rate at which the app process is issuing bytes to I/O operations that don't involve data, such as control operations.|
 | **IO Other Operations Per Second** | The rate at which the app process is issuing I/O operations that aren't read or write operations.|
 | **IO Read Bytes Per Second** | The rate at which the app process is reading bytes from I/O operations.|
