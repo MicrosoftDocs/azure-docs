@@ -1,6 +1,6 @@
 ---
 title: Configure custom partitioning to partition analytical store data (Preview)
-description: Learn how to trigger custom partitioning from Azure Synapse Spark notebook using Azure Synapse link for Azure Cosmos DB. It explains the configuration options.
+description: Learn how to trigger custom partitioning from Azure Synapse Spark notebook using Azure Synapse Link for Azure Cosmos DB. It explains the configuration options.
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -16,7 +16,7 @@ ms.custom: ignite-fall-2021
 Custom partitioning enables you to partition analytical store data, on fields that are commonly used as filters in analytical queries, resulting in improved query performance.
 To learn more about custom partitioning, see [what is custom partitioning](custom-partitioning-analytical-store.md) article.
 
-To use custom partitioning, you must enable Azure Synapse Link on your Azure Cosmos DB account. To learn more, see [how to configure Azure Synapse Link](configure-synapse-link.md). Custom partitioning execution can be triggered from Azure Synapse Spark notebook using Azure Synapse link for Azure Cosmos DB.
+To use custom partitioning, you must enable Azure Synapse Link on your Azure Cosmos DB account. To learn more, see [how to configure Azure Synapse Link](configure-synapse-link.md). Custom partitioning execution can be triggered from Azure Synapse Spark notebook using Azure Synapse Link for Azure Cosmos DB.
 
 > [!IMPORTANT]
 > Custom partitioning feature is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
