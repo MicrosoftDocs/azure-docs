@@ -68,7 +68,7 @@ If you prefer to use a browser to sign in and authenticate, you should remove th
 
 Next, get a handle to the workspace by providing your Subscription ID, Resource Group name, and workspace name. To find these parameters:
 
-1. Look in the upper-right corner of the Azure Machine Learning Studio toolbar for your workspace name.
+1. Look in the upper-right corner of the Azure Machine Learning studio toolbar for your workspace name.
 2. Select your workspace name to show your Resource Group and Subscription ID.
 3. Copy the values for Resource Group and Subscription ID into the code.
 
@@ -153,7 +153,7 @@ You'll use the general purpose `command` to run the training script and perform 
 - For the parameter values:
     - provide the compute cluster `cpu_compute_target = "cpu-cluster"` that you created for running this command;
     - provide the custom environment `sklearn-env` that you created for running the AzureML job;
-    - configure the command line action itself – in this case, the command is `python train_iris.py`. You can access the inputs and outputs in the command via the `${{ ... }}` notation; and
+    - configure the command line action itself—in this case, the command is `python train_iris.py`. You can access the inputs and outputs in the command via the `${{ ... }}` notation; and
     - configure the metadata such as the display name and experiment name; where an experiment is a container for all the iterations one does on a certain project. Note that all the jobs submitted under the same experiment name would be listed next to each other in AzureML studio.
 
 [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=job)]
@@ -180,7 +180,7 @@ As the job is executed, it goes through the following stages:
 
 ## Tune model hyperparameters
 
-Now that you've seen how to do a simple Scikit-learn training run using the SDK, let's see if we can further improve the accuracy of our model. We can tune and optimize our model's hyperparameters using Azure Machine Learning's [`sweep`](/python/api/azure-ai-ml/azure.ai.ml.sweep) capabilities.
+Now that you've seen how to do a simple Scikit-learn training run using the SDK, let's see if you can further improve the accuracy of your model. You can tune and optimize our model's hyperparameters using Azure Machine Learning's [`sweep`](/python/api/azure-ai-ml/azure.ai.ml.sweep) capabilities.
 
 To tune the model's hyperparameters, define the parameter space in which to search during training. You'll do this by replacing some of the parameters (`kernel` and `penalty`) passed to the training job with special inputs from the `azure.ml.sweep` package.
 
@@ -210,7 +210,7 @@ You can then register this model.
 [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/scikit-learn/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-with-sklearn.ipynb?name=register_model)]
 
 
-## Deployment
+## Deploy the model
 
 After you've registered your model, you can deploy it the same way as any other registered model in Azure ML. For more information about deployment, see [Deploy and score a machine learning model with managed online endpoint using Python SDK v2](how-to-deploy-managed-online-endpoint-sdk-v2.md).
 
