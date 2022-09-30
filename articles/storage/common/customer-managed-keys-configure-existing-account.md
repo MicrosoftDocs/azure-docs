@@ -93,7 +93,10 @@ az storage account update \
 Next, assign to the system-assigned managed identity the required RBAC role, scoped to the key vault. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples:
 
 ```azurecli
-principalId = $(az storage account show --name $accountName --resource-group $rgName --query identity.principalId)
+principalId=$(az storage account show --name $accountName \
+    --resource-group $rgName \
+    --query identity.principalId \
+    --output tsv)
 
 az role assignment create --assignee-object-id $principalId \
     --role "Key Vault Crypto Service Encryption User" \
