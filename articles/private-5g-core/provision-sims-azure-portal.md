@@ -90,7 +90,7 @@ You'll now begin the SIM provisioning process through the Azure portal.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 
-1. Select **View SIMs**.
+1. Select **Manage SIMs**.
 
     :::image type="content" source="media/provision-sims-azure-portal/view-sims.png" alt-text="Screenshot of the Azure portal showing the View SIMs button on a Mobile Network resource.":::
 
