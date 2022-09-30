@@ -16,9 +16,7 @@ items:
   items: 
     - name: Identify performance bottlenecks
       href: tutorial-identify-bottlenecks-azure-portal.md
-    - name: Automate regression tests with GitHub Actions
-      href: tutorial-cicd-github-actions.md
-    - name: Automate regression tests with Azure Pipelines
+    - name: Automate regression tests with CI/CD
       href: tutorial-cicd-azure-pipelines.md
 - name: Concepts
   items: 
