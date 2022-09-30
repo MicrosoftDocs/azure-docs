@@ -36,31 +36,33 @@ Provide a new catalog item to your development team as follows:
     :::image type="content" source="../deployment-environments/media/configure-catalog-item/create-subfolder-in-path.png" alt-text="Screenshot of subfolder in folder path containing ARM template and manifest file.":::
 
     1. **Add ARM template**
-    To implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). 
     
-    [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/overview.md) help you define the infrastructure and configuration of your Azure solution and repeatedly deploy it in a consistent state.
-    
-    To learn about how to get started with ARM templates, see the following:
-    
-    - [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/templates/syntax.md) describes the structure of an Azure Resource Manager template and the properties that are available in the different sections of a template.
-    - [Use linked templates](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell#use-relative-path-for-linked-templates) describes how to use linked templates with the new ARM `relativePath` property to easily modularize your templates and share core components between catalog items.
+        To implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). 
+        
+        [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/overview.md) help you define the infrastructure and configuration of your Azure solution and repeatedly deploy it in a consistent state.
+        
+        To learn about how to get started with ARM templates, see the following:
+        
+        - [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/templates/syntax.md) describes the structure of an Azure Resource Manager template and the properties that are available in the different sections of a template.
+        - [Use linked templates](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell#use-relative-path-for-linked-templates) describes how to use linked templates with the new ARM `relativePath` property to easily modularize your templates and share core components between catalog items.
 
     1. **Add manifest file**
-    The *manifest.yaml* file contains metadata related to the ARM template. 
     
-    The following is a sample *manifest.yaml* file.
-    
-    ```
-        name: WebApp
-        version: 1.0.0
-        description: Deploys an Azure Web App without a data store
-        engine:
-          type: ARM
-          templatePath: azuredeploy.json
-     ```     
-    
-    >[!NOTE]
-    > `version` is an optional field, and will later be used to support multiple versions of catalog items.
+        The *manifest.yaml* file contains metadata related to the ARM template. 
+        
+        The following is a sample *manifest.yaml* file.
+        
+        ```
+            name: WebApp
+            version: 1.0.0
+            description: Deploys an Azure Web App without a data store
+            engine:
+              type: ARM
+              templatePath: azuredeploy.json
+         ```     
+        
+        >[!NOTE]
+        > `version` is an optional field, and will later be used to support multiple versions of catalog items.
 
 1. On the **Catalogs** page of the dev center, select the specific repo, and then select **Sync**.
 
