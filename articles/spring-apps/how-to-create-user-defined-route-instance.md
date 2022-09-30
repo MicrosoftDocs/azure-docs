@@ -31,7 +31,7 @@ This article describes how to secure outbound traffic from your applications hos
 
 The following illustration shows an example of an Azure Spring Apps VNet instance using a user-defined route.
 
-:::image type="content" source="media/how-to-create-udr-instance/udr-example-arch.png" lightbox="media/how-to-create-udr-instance/udr-example-arch.png" alt-text="Architecture diagram showing user-defined routing.":::
+:::image type="content" source="media/how-to-create-user-defined-route-instance/user-defined-route-example-architecture.png" lightbox="media/how-to-create-user-defined-route-instance/user-defined-route-example-architecture.png" alt-text="Architecture diagram showing user-defined routing.":::
 
 ### Set configuration using environment variables
 
