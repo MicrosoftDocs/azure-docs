@@ -22,7 +22,7 @@ The user-assigned managed identity must have permissions to access the key in th
 
 Before you can configure customer-managed keys with a user-assigned managed identity, you must assign the **Key Vault Crypto Service Encryption User** role to the user-assigned managed identity, scoped to the key vault. This role grants the user-assigned managed identity permissions to access the key in the key vault. For more information on assigning Azure RBAC roles with the Azure portal, see [Assign Azure roles using the Azure portal](../articles/role-based-access-control/role-assignments-portal.md).
 
-When you configure customer-managed keys with the Azure portal, you can select an existing user-assigned identity through the portal user interface. For details, see [Configure customer-managed keys for a new storage account](#configure-customer-managed-keys-for-a-new-storage-account).
+When you configure customer-managed keys with the Azure portal, you can select an existing user-assigned identity through the portal user interface.
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -32,7 +32,9 @@ The following example shows how to retrieve the user-assigned managed identity a
 $userIdentity = Get-AzUserAssignedIdentity -Name <user-assigned-identity> `
     -ResourceGroupName $rgName
 
-New-AzRoleAssignment -ObjectId $userIdentity.PrincipalId `
+$principalId = $userIdentity.PrincipalId
+
+New-AzRoleAssignment -ObjectId $principalId `
     -RoleDefinitionName "Key Vault Crypto Service Encryption User" `
     -Scope $keyVault.ResourceId
 ```
@@ -42,14 +44,14 @@ New-AzRoleAssignment -ObjectId $userIdentity.PrincipalId `
 The following example shows how to retrieve the user-assigned managed identity and assign to it the required RBAC role, scoped to the key vault. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples:
 
 ```azurecli
-principalId=$(az identity show --name <user-assigned-identity> \
-    --resource-group $rgName \
-    --query principalId \
-    --output tsv)
-
 identityResourceId=$(az identity show --name <user-assigned-identity> \
     --resource-group $rgName \
     --query id \
+    --output tsv)
+
+principalId=$(az identity show --name <user-assigned-identity> \
+    --resource-group $rgName \
+    --query principalId \
     --output tsv)
 
 az role assignment create --assignee-object-id $principalId \
