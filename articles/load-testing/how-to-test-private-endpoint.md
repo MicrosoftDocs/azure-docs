@@ -8,7 +8,6 @@ ms.author: nicktrog
 author: ntrogh
 ms.date: 09/09/2022
 ms.topic: how-to
-ms.custom: references_regions
 ---
 
 # Test private endpoints by deploying Azure Load Testing in an Azure virtual network
@@ -36,9 +35,6 @@ When you start the load test, Azure Load Testing service injects the following A
 
 These resources are ephemeral and exist only for the duration of the load test run. If you restrict access to your virtual network, you need to [configure your virtual network](#configure-your-virtual-network) to enable communication between these Azure Load Testing and the injected VMs.
 
-> [!NOTE]
-> Virtual network support for Azure Load Testing is available in the following Azure regions: Australia East, East US, East US 2, and North Europe.
-
 > [!IMPORTANT]
 > Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -46,6 +42,7 @@ These resources are ephemeral and exist only for the duration of the load test r
 
 - An existing virtual network and a subnet to use with Azure Load Testing.
 - The virtual network must be in the same subscription and the same region as the Azure Load Testing resource.
+- You require the [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) role, or a parent of this role, on the virtual network. See [Check access for a user to Azure resources](/azure/role-based-access-control/check-access) to verify your permissions.
 - The subnet you use for Azure Load Testing must have enough unassigned IP addresses to accommodate the number of load test engines for your test. Learn more about [configuring your test for high-scale load](./how-to-high-scale-load.md).
 - The subnet shouldn't be delegated to any other Azure service. For example, it shouldn't be delegated to Azure Container Instances (ACI). Learn more about [subnet delegation](/azure/virtual-network/subnet-delegation-overview).
 - Azure CLI version 2.2.0 or later (if you're using CI/CD). Run `az --version` to find the version that's installed on your computer. If you need to install or upgrade the Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).

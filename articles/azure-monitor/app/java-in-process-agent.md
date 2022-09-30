@@ -30,23 +30,29 @@ This section shows you how to download the auto-instrumentation jar file.
 
 #### Download the jar file
 
-Download the [applicationinsights-agent-3.3.1.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.3.1/applicationinsights-agent-3.3.1.jar) file.
+Download the [applicationinsights-agent-3.4.1.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.4.1/applicationinsights-agent-3.4.1.jar) file.
 
 > [!WARNING]
-> 
-> If you're upgrading from 3.2.x:
-> 
->    -  Starting from 3.3.0, `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field. For details on how to re-enable this if needed, please see the [config options](./java-standalone-config.md#logginglevel)
+>
+> If you are upgrading from an earlier 3.x version,
+>
+> Starting from 3.4.0:
+>
+>    - Rate-limited sampling is now the default (if you have not configured a fixed percentage previously). By default, it will capture at most around 5 requests per second (along with their dependencies, traces and custom events). See [fixed-percentage sampling](./java-standalone-config.md#fixed-percentage-sampling) if you wish to revert to the previous behavior of capturing 100% of requests.
+>
+> Starting from 3.3.0:
+>
+>    - `LoggingLevel` is not captured by default as part of Traces' custom dimension since that data is already captured in the `SeverityLevel` field. For details on how to re-enable this if needed, please see the [config options](./java-standalone-config.md#logginglevel)
 >    - Exception records are no longer recorded for failed dependencies, they are only recorded for failed requests.
 >
-> If you're upgrading from 3.1.x:
+> Starting from 3.2.0:
 > 
->    -  Starting from 3.2.0, controller "InProc" dependencies are not captured by default. For details on how to enable this, please see the [config options](./java-standalone-config.md#autocollect-inproc-dependencies-preview).
+>    - Controller "InProc" dependencies are no longer captured by default. For details on how to re-enable these, please see the [config options](./java-standalone-config.md#autocollect-inproc-dependencies-preview).
 >    - Database dependency names are now more concise with the full (sanitized) query still present in the `data` field. HTTP dependency names are now more descriptive.
 >    This change can affect custom dashboards or alerts if they relied on the previous values.
 >    For details, see the [3.2.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0).
 > 
-> If you're upgrading from 3.0.x:
+> Starting from 3.1.0:
 > 
 >    - The operation names and request telemetry names are now prefixed by the HTTP method, such as `GET` and `POST`.
 >    This change can affect custom dashboards or alerts if they relied on the previous values.
@@ -56,7 +62,7 @@ Download the [applicationinsights-agent-3.3.1.jar](https://github.com/microsoft/
 
 #### Point the JVM to the jar file
 
-Add `-javaagent:"path/to/applicationinsights-agent-3.3.1.jar"` to your application's JVM args.
+Add `-javaagent:"path/to/applicationinsights-agent-3.4.1.jar"` to your application's JVM args.
 
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
@@ -74,7 +80,7 @@ Add `-javaagent:"path/to/applicationinsights-agent-3.3.1.jar"` to your applicati
         APPLICATIONINSIGHTS_CONNECTION_STRING=<Copy connection string from Application Insights Resource Overview>
         ```
 
-   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.3.1.jar` with the following content:
+   - Or you can create a configuration file named `applicationinsights.json`. Place it in the same directory as `applicationinsights-agent-3.4.1.jar` with the following content:
 
         ```json
         {

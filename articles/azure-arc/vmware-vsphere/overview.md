@@ -57,6 +57,10 @@ You can use Azure Arc-enabled VMware vSphere (preview) in these supported region
 
 - Canada Central
 
+## Data Residency
+
+Azure Arc-enabled VMware vSphere doesn't store/process customer data outside the region the customer deploys the service instance in.
+
 ## Next steps
 
 - [Connect VMware vCenter to Azure Arc using the helper script](quick-start-connect-vcenter-to-arc-using-script.md)
