@@ -3,7 +3,7 @@ title: "Azure Arc-enabled Kubernetes cluster extensions"
 services: azure-arc
 ms.service: azure-arc
 ms.custom: event-tier1-build-2022
-ms.date: 07/12/2022
+ms.date: 10/12/2022
 ms.topic: how-to
 description: "Deploy and manage lifecycle of extensions on Azure Arc-enabled Kubernetes"
 ---
@@ -28,7 +28,7 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 ## Prerequisites
 
 * [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0.
-* `connectedk8s` (version >= 1.2.0) and `k8s-extension` (version >= 1.0.0) Azure CLI extensions. Install these Azure CLI extensions by running the following commands:
+* `connectedk8s` (version >= 1.2.0) and `k8s-extension` (version >= 1.0.0) Azure CLI extensions. Install the latest version of these Azure CLI extensions by running the following commands:
   
     ```azurecli
     az extension add --name connectedk8s
@@ -269,6 +269,28 @@ az k8s-extension delete --name azuremonitor-containers --cluster-name <clusterNa
 
 >[!NOTE]
 > The Azure resource representing this extension gets deleted immediately. The Helm release on the cluster associated with this extension is only deleted when the agents running on the Kubernetes cluster have network connectivity and can reach out to Azure services again to fetch the desired state.
+
+## Considerations for hybrid deployment options
+
+You can deploy extensions to [connected AKS clusters on Azure Stack HCI](/azure-stack/aks-hci/connect-to-arc). However, there are a few key differences to keep in mind in order to deploy successfully:
+
+* The value for the `--cluster-type` parameter must be `provisionedClusters`.
+* The value for the `--cluster-resource-provider` must be `microsoft.hybridcontainerservice`.
+* When deleting an extension instance, you must add --yes to the command:
+
+   ```azurecli
+   az k8s-extension delete --name azuremonitor-containers --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type provisionedClusters --yes
+   ```
+
+In addition, you must be using the latest version of the Azure CLI `k8s-extension` module (version >= 1.3.3). Use the following commands to add or update to the latest version:
+
+```azurecli
+# add if you do not have this installed
+az extension add --name k8s-extension
+
+# update if you do have the module installed
+az extension update --name k8s-extension
+```
 
 ## Next steps
 
