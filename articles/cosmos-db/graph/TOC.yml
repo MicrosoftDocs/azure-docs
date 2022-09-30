@@ -26,6 +26,8 @@
   items:
     - name: Query data using Gremlin
       href: tutorial-query-graph.md
+    - name: Create Jupyter notebooks
+      href: ../sql/tutorial-create-notebook.md
 - name: Samples
   items:
     - name: Azure CLI
@@ -224,6 +226,12 @@
           href: ../compliance.md
         - name: Data residency
           href: ../data-residency.md
+    - name: Jupyter notebooks
+      items:
+        - name: Overview
+          href: ../notebooks-overview.md
+        - name: FAQ
+          href: ../notebooks-faq.yml
 - name: How to
   items:
     - name: Develop applications
@@ -314,7 +322,9 @@
         - name: Restrict user access to data operations only
           href: ../how-to-restrict-user-data.md
         - name: Configure customer-managed keys
-          href: ../how-to-setup-cmk.md
+          href: ../how-to-setup-customer-managed-keys.md
+        - name: Configure cross-tenant customer-managed keys
+          href: ../how-to-setup-cross-tenant-customer-managed-keys.md
         - name: Use a managed identity
           href: ../how-to-setup-managed-identity.md
     - name: Manage Azure Cosmos DB resources

@@ -8,9 +8,9 @@
     displayName: architecture, concepts, definitions, glossary
     href: concept-azure-machine-learning-architecture.md
 
-- name: Migration from v1 to v2
+- name: Upgrade to SDK v2
   items:
-    - name: Migration overview
+    - name: Upgrade overview
       displayName: migration
       href: ../how-to-migrate-from-v1.md
     - name: Migrate resources and assets
@@ -18,6 +18,9 @@
       - name: "Workspace"
         displayName: migration, v1, v2
         href: ../migrate-to-v2-resource-workspace.md
+      - name: "Compute"
+        displayName: migration, v1, v2
+        href: ../migrate-to-v2-resource-compute.md
       - name: "Datastore"
         displayName: migration, v1, v2
         href: ../migrate-to-v2-resource-datastore.md
@@ -75,6 +78,9 @@
     - name: Manage resources VS Code
       displayName: vscode,resources
       href: ../how-to-manage-resources-vscode.md
+    - name: Git integration
+      displayName: github gitlab
+      href: ../concept-train-model-git-integration.md
 - name: Tutorials (v1)
   expanded: true
   items:
@@ -115,6 +121,9 @@
     href: how-to-manage-workspace-cli.md
   - name: Set up software environments CLI (v1)
     href: how-to-use-environments.md
+  - name: Use private Python packages
+    displayName: pip, Conda, anaconda
+    href: how-to-use-private-python-packages.md
   - name: Create & manage compute resources
   - name: Workspace Diagnostics
     href: how-to-workspace-diagnostic-api.md
@@ -252,6 +261,9 @@
       href: how-to-use-mlflow.md
     - name: Log & view metrics
       href: how-to-log-view-metrics.md
+    - name: Visualize runs with TensorBoard
+      displayName: log, monitor, metrics
+      href: ../how-to-monitor-tensorboard.md
     - name: Interpret ML models
       displayName: SDK, interpret, explain, explainability, interpretability
       href: ../how-to-machine-learning-interpretability-aml.md
@@ -262,6 +274,9 @@
       href: how-to-prepare-datasets-for-automl-images-v1.md
     - name: Reinforcement learning
       href: how-to-use-reinforcement-learning.md
+    - name: Explain automated ML models
+      displayName: SDK, interpret, interpret, explain, explainability, interpretability, automated ML, automl, auto ml
+      href: how-to-machine-learning-interpretability-automl.md
   - name: Deploy models
     items:
     - name: Where and how to deploy
@@ -363,6 +378,11 @@
         - name: Troubleshoot the ParallelRunStep
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
+    - name: Visual Studio Code
+      items:
+        - name: VS Code interactive debugging
+          displayName: vscode,remote,debug,pipelines,deployments,ssh
+          href: ../how-to-debug-visual-studio-code.md
 - name: Reference (v1)
   items: 
   - name: Machine learning CLI pipeline YAML reference

@@ -129,7 +129,7 @@ To migrate, you'll need to change your code for submitting jobs to v2. We recomm
 
 What you run *within* the job does not need to be migrated to v2. However, it is recommended to remove any code specific to Azure ML from your model training scripts. This separation allows for an easier transition between local and cloud and is considered best practice for mature MLOps. In practice, this means removing `azureml.*` lines of code. Model logging and tracking code should be replaced with MLflow. For more details, see [how to use MLflow in v2](how-to-use-mlflow-cli-runs.md).
 
-We recommend migrating the code for creating jobs to v2. You can see [how to train models with the CLI (v2)](how-to-train-cli.md) and the [job YAML references](reference-yaml-job-command.md) for authoring jobs in v2 YAMLs.
+We recommend migrating the code for creating jobs to v2. You can see [how to train models](how-to-train-model.md) and the [job YAML references](reference-yaml-job-command.md) for authoring jobs in v2 YAMLs.
 
 For a comparison of SDK v1 and v2 code, see [Migrate script run from SDK v1 to SDK v2](migrate-to-v2-command-job.md).
 
@@ -150,7 +150,7 @@ For a comparison of SDK v1 and v2 code, see [Migrate data management from SDK v1
 
 Models created from v1 can be used in v2. In v2, explicit model types are introduced. Similar to data assets, it may be easier to re-create a v1 model as a v2 model, setting the type appropriately.
 
-We recommend migrating the code for creating models with [SDK](how-to-train-sdk.md) or [CLI](how-to-train-cli.md) to v2.
+We recommend migrating the code for creating models. For more information, see [How to train models](how-to-train-model.md).
 
 For a comparison of SDK v1 and v2 code, see 
 
