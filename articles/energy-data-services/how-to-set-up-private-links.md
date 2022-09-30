@@ -25,12 +25,14 @@ Use the following steps to create a private endpoint for an existing Microsoft E
 1.	From the **All resources** pane, choose a Microsoft Energy Data Services Preview instance.
 2.	Select **Networking** from the list of settings.
  
-  [![Screenshot for public access under Networking tab for Private Links](media/how-to-set-up-private-links/pvtlink-1Networking.png)](media/how-to-set-up-private-links/pvtlink-1Networking.png#lightbox)
+  [![Screenshot of public access under Networking tab for Private Links](media/how-to-set-up-private-links/pvtlink-1Networking.png)](media/how-to-set-up-private-links/pvtlink-1Networking.png#lightbox)
   
    
 3.	Select **Public Access** and select **Enabled from all networks** to allow traffic from all networks.
 4.	To block traffic from all networks, select **Disabled**.
 5.	Select **Private access** tab and select **Create a private endpoint**, to create a Private Endpoint Connection.
+ 
+ [![Screenshot of private access for Private Links](media/how-to-set-up-private-links/pvtlink-2create-private-endpoint.png)](media/how-to-set-up-private-links/pvtlink-2create-private-endpoint.png#lightbox)
  
 6.	In the Create a private endpoint - **Basics pane**, enter or select the following details:
 
@@ -45,7 +47,9 @@ Use the following steps to create a private endpoint for an existing Microsoft E
 |Region|	Select the region where you want to deploy Private Link. |
 	
 > NOTE: Auto-approval only happens when the Microsoft Energy Data Services Preview instance and the vnet for the private link are in the same subscription.
- 
+
+[![Screenshot of creating a MEDS instance with private link](media/how-to-set-up-private-links/pvtlink-3basics.png)](media/how-to-set-up-private-links/pvtlink-3basics.png#lightbox)
+
 7.	Select **Next: Resource.**
 8.	In **Create a private endpoint - Resource**, following information should be selected or available:
 
@@ -56,25 +60,42 @@ Use the following steps to create a private endpoint for an existing Microsoft E
 |Resource	|Your Microsoft Energy Data Services instance.|
 |Target sub-resource|	This defaults to MEDS. |
 	
+[![Screenshot of resource tab for private link during a MEDS instance creation](media/how-to-set-up-private-links/pvtlink-4resource.png)](media/how-to-set-up-private-links/pvtlink-4resource.png#lightbox)
 
  
 9.	Select **Next: Virtual Network.**
 10.	In Virtual Network screen, you can:
+
 * Configure Networking and Private IP Configuration settings. [Learn more](https://learn.microsoft.com/azure/private-link/create-private-endpoint-portal?tabs=dynamic-ip#create-a-private-endpoint)
+
 * Configure private endpoint with ASG. [Learn more](https://learn.microsoft.com/azure/private-link/configure-asg-private-endpoint?tabs=portal#create-private-endpoint-with-an-asg)
- 
+
+[![Screenshot of virtual network tab for private link during a MEDS instance creation](media/how-to-set-up-private-links/pvtlink-4virtualnetwork.png)](media/how-to-set-up-private-links/pvtlink-4virtualnetwork.png#lightbox)
+
+
 11.	Select **Next: DNS**. You can leave the default settings or learn more about DNS configuration. [Learn more](https://learn.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
- 
+
+
+[![Screenshot of DNS tab for private link during a MEDS instance creation](media/how-to-set-up-private-links/pvtlink-5dns.png)](media/how-to-set-up-private-links/pvtlink-5dns.png#lightbox)
+
 12.	Select **Next: Tags** and add tags to categorize resources.
 13.	Select **Review + create**. On the Review + create page, Azure validates your configuration.
 14.	When you see the Validation passed message, select **Create**.
 
+[![Screenshot of summary screen while creating MEDS instance](media/how-to-set-up-private-links/pvtlink-6review.png)](media/how-to-set-up-private-links/pvtlink-6review#lightbox)
+
  
 15.	 Once the deployment is complete, select **Go to resource**. 
+[![Screenshot of MEDS resource created](media/how-to-set-up-private-links/pvtlink-7deploy.png)](media/how-to-set-up-private-links/pvtlink-7deploy.png#lightbox)
+ 
  
 16.	The Private Endpoint created is **Auto-approved**.
+[![Screenshot of private link created with auto-approval](media/how-to-set-up-private-links/pvtlink-8request-response.png)](media/how-to-set-up-private-links/pvtlink-8request-response.png#lightbox)
  
 17.	Select the **Microsoft Energy Data Services** instance and navigate to the **Networking** tab to see the Private Endpoint created.
- 
+[![Screenshot of private link showing connection state as auto-approved](media/how-to-set-up-private-links/pvtlink-9auto-approved.png)](media/how-to-set-up-private-links/pvtlink-9auto-approved.png#lightbox)
+
 
 18.	When the Microsoft Energy Data Services and vnet are in different tenants or subscriptions, you will be required to **Approve** or **Reject** the **Private Endpoint** creation request. 
+
+[![Screenshot of private link showing approve or reject option](media/how-to-set-up-private-links/pvtlink-10awaitingapproval.png)](media/how-to-set-up-private-links/pvtlink-10awaitingapproval.png#lightbox)
