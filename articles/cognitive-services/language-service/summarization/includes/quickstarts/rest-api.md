@@ -101,7 +101,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-text/
 ```
 2. Make the following changes in the command where needed:
 - Replace the value `your-language-resource-key` with your key.
-- Replace the first part of te request URL `your-language-resource-endpoint` with your endpoint URL.
+- Replace the first part of the request URL `your-language-resource-endpoint` with your endpoint URL.
 
 3. Open a command prompt window (for example: BASH).
 
@@ -291,7 +291,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conve
 ```
 2. Make the following changes in the command where needed:
 - Replace the value `your-language-resource-key` with your key.
-- Replace the first part of te request URL `your-language-resource-endpoint` with your endpoint URL.
+- Replace the first part of the request URL `your-language-resource-endpoint` with your endpoint URL.
 
 3. Open a command prompt window (for example: BASH).
 

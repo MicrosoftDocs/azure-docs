@@ -332,7 +332,7 @@ curl -i -X POST https://<your-language-resource-endpoint>/language/analyze-conve
 
 4. Paste the command from the text editor into the command prompt window, then run the command.
 
-5. Get the `operation-location` from the response header. The value will look similar ot the following URL:
+5. Get the `operation-location` from the response header. The value will look similar to the following URL:
 
 ```http
 https://<your-language-resource-endpoint>/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678?api-version=2022-10-01-preview
