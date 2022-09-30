@@ -49,7 +49,7 @@
   - name: Migration to Azure SQL Database
     items: 
     - name: Custom roles for using Azure Data Studio Azure SQL Migration Extension with Azure SQL Database as a target 
-      href: resource-custom-roles-sql-db-ads.md
+      href: resource-custom-roles-sql-database-ads.md
   - name: Migration to Azure Database for MySQL
     items: 
     - name: MySQL to Azure Database for MySQL Data Migration - MySQL Consistent Backup 
@@ -64,7 +64,7 @@
   - name: Migrate SQL Server
     items:
     - name: to Azure SQL Database (offline) using Azure Data Studio
-      href: tutorial-sql-server-azure-sql-db-offline-ads.md
+      href: tutorial-sql-server-azure-sql-database-offline-ads.md
     - name: to Azure SQL Managed Instance (online) using Azure Data Studio
       href: tutorial-sql-server-managed-instance-online-ads.md
     - name: to Azure SQL Managed Instance (offline) using Azure Data Studio
@@ -143,7 +143,7 @@
   items:
   - name: Azure CLI
     href: /cli/azure/datamigration
-  - name: Powershell
+  - name: PowerShell
     href: /powershell/module/az.datamigration
   
 - name: Resources

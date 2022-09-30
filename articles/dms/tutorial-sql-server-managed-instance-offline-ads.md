@@ -119,7 +119,7 @@ After 10 minutes, you'll see a recommended configuration for your Azure SQL Mana
     |**Target database name** |The target database name can be modified if you wish to change the database name on the target during the migration process.            |
     |**Storage account details** |The resource group and storage account where backup files will be uploaded to. You don't need to create a container as DMS will automatically create a blob container in the specified storage account during the upload process.          |
 
-* For backups stored in an Azure storage blob container, specify the below details of the **Target database name**, **Resource group**, **Azure storage account**, **Blob container**, and **Last backup** file from** the corresponding drop-down lists. 
+* For backups stored in an Azure storage blob container, specify the below details of the **Target database name**, **Resource group**, **Azure storage account**, **Blob container**, and **Last backup file from** the corresponding drop-down lists. 
 
     |Field    |Description  |
     |---------|-------------|
@@ -136,7 +136,7 @@ After 10 minutes, you'll see a recommended configuration for your Azure SQL Mana
     > [!NOTE]
     > If you had previously created DMS using the Azure Portal, you cannot reuse it in the migration wizard in Azure Data Studio. Only DMS created previously using Azure Data Studio can be reused.
 1. Select the **Resource group** where you have an existing DMS or need to create a new one. The **Azure Database Migration Service** dropdown will list any existing DMS in the selected resource group.
-1. To reuse an existing DMS, select it from the dropdown list and press Next to view the summary screen and when ready to begin the migration, press the **Start** migration** button.
+1. To reuse an existing DMS, select it from the dropdown list and press Next to view the summary screen and when ready to begin the migration, press the **Start** migration button.
 1. To create a new DMS, select **Create new**. On the **Create Azure Database Migration Service**, screen provide the name for your DMS and select **Create**.
 1. After successfully creating DMS, you'll be provided with details to set up **integration runtime**.
 1. Select **Download and install integration runtime** to open the download link in a web browser. Complete the download. Install the integration runtime on a machine that meets the pre-requisites of connecting to the source SQL Server and the location containing the source backup.

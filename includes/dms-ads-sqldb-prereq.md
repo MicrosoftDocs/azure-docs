@@ -1,3 +1,11 @@
+---
+author: croblesm
+ms.author: roblescarlos
+ms.service: dms
+ms.topic: include
+ms.date: 09/30/2022
+---
+
 * [Download and install Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
 * [Install the Azure SQL migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension) from the Azure Data Studio marketplace
 * Have an Azure account that is assigned to one of the built-in roles listed below:
@@ -9,4 +17,4 @@
     > Azure account is only required when configuring the migration steps and is not required for assessment or Azure recommendation steps in the migration wizard.
 * Create a target [Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart).
 * Ensure that the login used to connect the source SQL Server is a member of the `db_datareader` and the login for the target SQL server is `db_owner`.
-* Migrate database schema from source to target using [SQL Server [dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension) or [SQL Database](/sql/azure-data-studio/extensions/sql-database-project-extension) Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension) for Azure Data Studio.
+* Migrate database schema from source to target using [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension), or [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension) for Azure Data Studio.

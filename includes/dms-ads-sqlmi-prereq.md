@@ -1,3 +1,11 @@
+---
+author: croblesm
+ms.author: roblescarlos
+ms.service: dms
+ms.topic: include
+ms.date: 09/30/2022
+---
+
 * [Download and install Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
 * [Install the Azure SQL migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension) from the Azure Data Studio marketplace
 * Have an Azure account that is assigned to one of the built-in roles listed below:

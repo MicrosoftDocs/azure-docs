@@ -34,7 +34,7 @@ Check the following step-by-step tutorials for more information about each speci
 |---------|---------|
 SQL Server to Azure SQL Managed Instance| [Online](/azure/dms/tutorial-sql-server-managed-instance-online-ads) / [Offline](/azure/dms/tutorial-sql-server-managed-instance-offline-ads)
 SQL Server to SQL Server on Azure Virtual Machine|[Online](/azure/dms/tutorial-sql-server-to-virtual-machine-online-ads) / [Offline](/azure/dms/tutorial-sql-server-to-virtual-machine-offline-ads)
-SQL Server to Azure SQL Database (Preview)| [Offline](/azure/dms/tutorial-sql-server-azure-sql-db-offline-ads)
+SQL Server to Azure SQL Database (Preview)| [Offline](/azure/dms/tutorial-sql-server-azure-sql-database-offline-ads)
 
 > [!IMPORTANT]
 > If your target is Azure SQL Database (Preview), make sure to deploy the database schema before starting the migration. You can use tools as [SQL Server dacpac extension](/sql/azure-data-studio/extensions/sql-server-dacpac-extension) or, [SQL Database Projects extension](/sql/azure-data-studio/extensions/sql-database-project-extension) for Azure Data Studio.
@@ -50,11 +50,10 @@ Create or reuse an existing DMS using the Azure SQL migration extension in Azure
 DMS uses Azure Data Factory's self-hosted integration runtime to access and upload valid backup files from your on-premises network share or your Azure Storage account.
 
 The workflow of the migration process is illustrated below.
-
-:::image type="content" source="media/migration-using-azure-data-studio/architecture-sql-migration.png" alt-text="Diagram of architecture for database migration using Azure Data Studio with DMS":::
+[ ![Architecture](media/migration-using-azure-data-studio/architecture-sql-migration.png)](media/migration-using-azure-data-studio/architecture-sql-migration-expanded.png#lightbox)
 
 1. **Source SQL Server**: SQL Server instance on-premises, private cloud, or any public cloud virtual machine. All versions of SQL Server 2008 and above are supported.
-2. **Target Azure SQL**: Supported Azure SQL targets are **Azure SQL Managed Instance**, **SQL Server on Azure Virtual Machines** (*registered with SQL IaaS extension - [full management mode](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management#management-modes)*) or, **Azure SQL Database (Preview)**.
+2. **Target Azure SQL**: Supported Azure SQL targets are **Azure SQL Managed Instance**, **SQL Server on Azure Virtual Machines** (*registered with SQL IaaS extension - [full management mode](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management#management-modes)*), or **Azure SQL Database (Preview)**.
 3. **Network File Share**: Server Message Block (SMB) network file share where backup files are stored for the database(s) to be migrated. Azure Storage blob containers and Azure Storage file share are also supported.
 4. **Azure Data Studio**: Download and install the [Azure SQL migration extension in Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension).
 5. **Azure DMS**: Azure service that orchestrates migration pipelines to do data movement activities from on-premises to Azure. DMS is associated with Azure Data Factory's (ADF) self-hosted integration runtime (IR) and provides the capability to register and monitor the self-hosted IR.
@@ -76,7 +75,7 @@ The following sections walk through the prerequisites for each supported Azure S
 
 ### [Azure SQL Managed Instance](#tab/azure-sql-mi)
 
-[!INCLUDE [dms-ads-sqlmi-prereq](../../includes//dms-ads-sqlmi-prereq.md)]
+[!INCLUDE [dms-ads-sqlmi-prereq](../../includes/dms-ads-sqlmi-prereq.md)]
 
 ### [SQL Server on Azure Virtual Machine](#tab/azure-sql-vm)
 
@@ -116,12 +115,12 @@ When you migrate the database(s) using the Azure SQL migration extension for Azu
     - SSIS packages
     - Server roles
     - Server audit
-- SQL Server 2008 and below as target versions aren't supported, when migrating to SQL Server on Azure Virtual Machines.
+- SQL Server 2008 and below as target versions aren't supported when migrating to SQL Server on Azure Virtual Machines.
 - If you're using SQL Server 2012 or SQL Server 2014, you need to store your source database backup files on an Azure Storage Blob Container instead of using the network share option. Store the backup files as page blobs since block blobs are only supported in SQL 2016 and after.
 - You can't use an existing self-hosted integration runtime created from Azure Data Factory for database migrations with DMS. Initially, the self-hosted integration runtime should be created using the Azure SQL migration extension in Azure Data Studio and can be reused for further database migrations. 
 
 ## Pricing
-- Azure Database Migration Service is free to use with the Azure SQL migration extension in Azure Data Studio. You can migrate multiple SQL Server databases using the Azure Database Migration Service at no charge for using the service or the Azure SQL migration extension.
+- Azure Database Migration Service is free to use with the Azure SQL migration extension in Azure Data Studio. You can migrate multiple SQL Server databases using the Azure Database Migration Service at no charge using the service or the Azure SQL migration extension.
 - There's no data movement or data ingress cost for migrating your databases from on-premises to Azure. If the source database is moved from another region or an Azure VM, you may incur [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) based on your bandwidth provider and routing scenario.
 - Provide your machine or on-premises server to install Azure Data Studio.
 - A self-hosted integration runtime is needed to access database backups from your on-premises network share.
