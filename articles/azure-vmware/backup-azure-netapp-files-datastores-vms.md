@@ -123,7 +123,7 @@ In addition to using the wizard, you can:
 
 Backup operations are performed on all the resources defined in a resource group. If a resource group has a policy attached and a schedule configured, backups occur automatically according to the schedule.
 
-## Prerequisites to backup resource groups
+## Prerequisites to back up resource groups
 
 * You must have created a resource group with a policy attached.
     >[!NOTE]
@@ -138,7 +138,7 @@ Backup operations are performed on all the resources defined in a resource group
     1.1 If the resource group has multiple policies configured, then in the **Backup Now** dialog box, select the policy you want to use for this backup operation.
 1. Select **OK** to initiate the backup.
     >[!NOTE]
-    >You can't rename a backup once it is created. 
+    >You can't rename a backup once it's created. 
 1. **Optional:** Monitor the operation progress by selecting **Recent Tasks** at the bottom of the window or on the dashboard Job Monitor for more details.
     If the pause operation fails for any of the VMs in the backup, then the backup completes with a warning and is marked as not VM-consistent even if the selected policy has VM consistency selected. In this case, it is possible that some of the VMs were successfully paused. In the job monitor, the failed VM details will show the paused as failed.
 

@@ -10,7 +10,7 @@ ms.date: 09/30/2022
 
 Cloud Backup for Virtual Machines enables you to restore virtual machines (VMs) from the cloud backup to the vCenter. 
 
-This topic covers how to:
+This article covers how to:
 * Restore VMs from backups
 * Restore deleted VMs from backups
 * Restore VM disks (VMDKs) from backups
@@ -49,7 +49,8 @@ You can restore VMs to the original datastore mounted on the original ESXi host 
 1. On the **Select Location** page, select the location for the primary or secondary location.
 1. Review the **Summary** page and then select **Finish**.
 1. **Optional:** Monitor the operation progress by selecting Recent Tasks at the bottom of the screen.
-1. Although the VMs are restored, they are not automatically added to their former resource groups. Therefore, you must manually add the restored VMs to the appropriate resource groups.
+
+Although the VMs are restored, they're not automatically added to their former resource groups. Therefore, you must manually add the restored VMs to the appropriate resource groups.
 
 ## Restore deleted VMs from backups
 
@@ -91,7 +92,7 @@ You can restore existing VMDKs or deleted or detached VMDKs from either a primar
 ### Considerations for restoring VMDKs
 
 * If the VMDK is deleted or detached from the VM, then the restore operation attaches the VMDK to the VM.
-* Attach and restore operations connect VMDKs using the default SCSI controller. VMDKs that are attached to a VM with a NVME controller are backed up, but for attach and restore operations they are connected back using a SCSI controller.
+* Attach and restore operations connect VMDKs using the default SCSI controller. VMDKs that are attached to a VM with an NVME controller are backed up, but for attach and restore operations they are connected back using a SCSI controller.
 
 ### Restore VMDKs
 
