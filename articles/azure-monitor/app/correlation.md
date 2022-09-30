@@ -1,11 +1,11 @@
 ---
 title: Azure Application Insights telemetry correlation | Microsoft Docs
-description: Application Insights telemetry correlation
+description: This article explains Application Insights telemetry correlation.
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.reviewer: sergkanz
 ms.devlang: csharp, java, javascript, python
 ms.custom: "devx-track-python, devx-track-csharp"
+ms.reviewer: rijolly
 ---
 
 # Telemetry correlation in Application Insights
@@ -15,7 +15,6 @@ In the world of microservices, every logical operation requires work to be done 
 This article explains the data model used by Application Insights to correlate telemetry sent by multiple components. It covers context-propagation techniques and protocols. It also covers the implementation of correlation tactics on different languages and platforms.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
-
 
 ## Data model for telemetry correlation
 
@@ -27,7 +26,11 @@ Every outgoing operation, such as an HTTP call to another component, is represen
 
 You can build a view of the distributed logical operation by using `operation_Id`, `operation_parentId`, and `request.id` with `dependency.id`. These fields also define the causality order of telemetry calls.
 
-In a microservices environment, traces from components can go to different storage items. Every component can have its own instrumentation key in Application Insights. To get telemetry for the logical operation, Application Insights queries data from every storage item. When the number of storage items is large, you'll need a hint about where to look next. The Application Insights data model defines two fields to solve this problem: `request.source` and `dependency.target`. The first field identifies the component that initiated the dependency request. The second field identifies which component returned the response of the dependency call.
+In a microservices environment, traces from components can go to different storage items. Every component can have its own connection string in Application Insights. To get telemetry for the logical operation, Application Insights queries data from every storage item. 
+
+When the number of storage items is large, you'll need a hint about where to look next. The Application Insights data model defines two fields to solve this problem: `request.source` and `dependency.target`. The first field identifies the component that initiated the dependency request. The second field identifies which component returned the response of the dependency call.
+
+For information on querying from multiple disparate instances by using the `app` query expression, see [app() expression in Azure Monitor query](../logs/app-expression.md#app-expression-in-azure-monitor-query).
 
 ## Example
 
@@ -41,7 +44,7 @@ You can analyze the resulting telemetry by running a query:
 | project timestamp, itemType, name, id, operation_ParentId, operation_Id
 ```
 
-In the results, note that all telemetry items share the root `operation_Id`. When an Ajax call is made from the page, a new unique ID (`qJSXU`) is assigned to the dependency telemetry, and the ID of the pageView is used as `operation_ParentId`. The server request then uses the Ajax ID as `operation_ParentId`.
+In the results, all telemetry items share the root `operation_Id`. When an Ajax call is made from the page, a new unique ID (`qJSXU`) is assigned to the dependency telemetry, and the ID of the pageView is used as `operation_ParentId`. The server request then uses the Ajax ID as `operation_ParentId`.
 
 | itemType   | name                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
@@ -50,7 +53,7 @@ In the results, note that all telemetry items share the root `operation_Id`. Whe
 | request    | GET Home/Stock            | KqKwlrSt9PA= | qJSXU              | STYz         |
 | dependency | GET /api/stock/value      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |
 
-When the call `GET /api/stock/value` is made to an external service, you need to know the identity of that server so you can set the `dependency.target` field appropriately. When the external service doesn't support monitoring, `target` is set to the host name of the service (for example, `stock-prices-api.com`). But if the service identifies itself by returning a predefined HTTP header, `target` contains the service identity that allows Application Insights to build a distributed trace by querying telemetry from that service.
+When the call `GET /api/stock/value` is made to an external service, you need to know the identity of that server so you can set the `dependency.target` field appropriately. When the external service doesn't support monitoring, `target` is set to the host name of the service. An example is `stock-prices-api.com`. But if the service identifies itself by returning a predefined HTTP header, `target` contains the service identity that allows Application Insights to build a distributed trace by querying telemetry from that service.
 
 ## Correlation headers using W3C TraceContext
 
@@ -74,41 +77,42 @@ The [W3C Trace-Context](https://w3c.github.io/trace-context/) and Application In
 |------------------------------------    |-------------------------------------------------|
 | `Id` of `Request` and `Dependency`     | [parent-id](https://w3c.github.io/trace-context/#parent-id)                                     |
 | `Operation_Id`                         | [trace-id](https://w3c.github.io/trace-context/#trace-id)                                           |
-| `Operation_ParentId`                   | [parent-id](https://w3c.github.io/trace-context/#parent-id) of this span's parent span. If this is a root span, then this field must be empty.     |
+| `Operation_ParentId`                   | [parent-id](https://w3c.github.io/trace-context/#parent-id) of this span's parent span. This field must be empty if it's a root span.|
 
 For more information, see [Application Insights telemetry data model](../../azure-monitor/app/data-model.md).
 
 ### Enable W3C distributed tracing support for .NET apps
 
-W3C TraceContext based distributed tracing is enabled by default in all recent
+W3C TraceContext-based distributed tracing is enabled by default in all recent
 .NET Framework/.NET Core SDKs, along with backward compatibility with legacy Request-Id protocol.
 
 ### Enable W3C distributed tracing support for Java apps
 
 #### Java 3.0 agent
 
-  Java 3.0 agent supports W3C out of the box and no additional configuration is needed.
+  Java 3.0 agent supports W3C out of the box, and no more configuration is needed.
 
 #### Java SDK
+
 - **Incoming configuration**
 
-  - For Java EE apps, add the following to the `<TelemetryModules>` tag in ApplicationInsights.xml:
+  For Java EE apps, add the following code to the `<TelemetryModules>` tag in *ApplicationInsights.xml*:
 
-    ```xml
-    <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule>
-       <Param name = "W3CEnabled" value ="true"/>
-       <Param name ="enableW3CBackCompat" value = "true" />
-    </Add>
-    ```
+  ```xml
+  <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule>
+     <Param name = "W3CEnabled" value ="true"/>
+     <Param name ="enableW3CBackCompat" value = "true" />
+  </Add>
+  ```
 
-  - For Spring Boot apps, add these properties:
+  For Spring Boot apps, add these properties:
 
-    - `azure.application-insights.web.enable-W3C=true`
-    - `azure.application-insights.web.enable-W3C-backcompat-mode=true`
+  - `azure.application-insights.web.enable-W3C=true`
+  - `azure.application-insights.web.enable-W3C-backcompat-mode=true`
 
 - **Outgoing configuration**
 
-  Add the following to AI-Agent.xml:
+  Add the following code to *AI-Agent.xml*:
 
   ```xml
   <Instrumentation>
@@ -121,40 +125,41 @@ W3C TraceContext based distributed tracing is enabled by default in all recent
   > [!NOTE]
   > Backward compatibility mode is enabled by default, and the `enableW3CBackCompat` parameter is optional. Use it only when you want to turn backward compatibility off.
   >
-  > Ideally, you would turn this off when all your services have been updated to newer versions of SDKs that support the W3C protocol. We highly recommend that you move to these newer SDKs as soon as possible.
+  > Ideally, you'll' turn off this mode when all your services are updated to newer versions of SDKs that support the W3C protocol. We highly recommend that you move to these newer SDKs as soon as possible.
 
-> [!IMPORTANT]
-> Make sure the incoming and outgoing configurations are exactly the same.
+It's important to make sure the incoming and outgoing configurations are exactly the same.
 
-### Enable W3C distributed tracing support for Web apps
+### Enable W3C distributed tracing support for web apps
 
 This feature is in `Microsoft.ApplicationInsights.JavaScript`. It's disabled by default. To enable it, use `distributedTracingMode` config. AI_AND_W3C is provided for backward compatibility with any legacy services instrumented by Application Insights.
 
-- **[npm based setup](./javascript.md#npm-based-setup)**
+- **[npm-based setup](./javascript.md#npm-based-setup)**
 
-Add the following configuration:
+   Add the following configuration:
   ```JavaScript
     distributedTracingMode: DistributedTracingModes.W3C
   ```
 
-- **[Snippet based setup](./javascript.md#snippet-based-setup)**
+- **[Snippet-based setup](./javascript.md#snippet-based-setup)**
 
-Add the following configuration:
+   Add the following configuration:
   ```
       distributedTracingMode: 2 // DistributedTracingModes.W3C
   ```
 > [!IMPORTANT]
-> To see all configurations required to enable correlation, see the [JavaScript correlation documentation](./javascript.md#enable-correlation).
+> To see all configurations required to enable correlation, see the [JavaScript correlation documentation](./javascript.md#enable-distributed-tracing).
 
 ## Telemetry correlation in OpenCensus Python
 
-OpenCensus Python supports [W3C Trace-Context](https://w3c.github.io/trace-context/) without requiring additional configuration.
+OpenCensus Python supports [W3C Trace-Context](https://w3c.github.io/trace-context/) without requiring extra configuration.
 
-As a reference, the OpenCensus data model can be found [here](https://github.com/census-instrumentation/opencensus-specs/tree/master/trace).
+For a reference, you can find the OpenCensus data model on [this GitHub page](https://github.com/census-instrumentation/opencensus-specs/tree/master/trace).
 
 ### Incoming request correlation
 
-OpenCensus Python correlates W3C Trace-Context headers from incoming requests to the spans that are generated from the requests themselves. OpenCensus will do this automatically with integrations for these popular web application frameworks: Flask, Django, and Pyramid. You just need to populate the W3C Trace-Context headers with the [correct format](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) and send them with the request. Here's a sample Flask application that demonstrates this:
+OpenCensus Python correlates W3C Trace-Context headers from incoming requests to the spans that are generated from the requests themselves. OpenCensus will correlate automatically with integrations for these popular web application frameworks: Flask, Django, and Pyramid. You just need to populate the W3C Trace-Context headers with the [correct format](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) and send them with the request.
+
+**Sample Flask application**
 
 ```python
 from flask import Flask
@@ -178,9 +183,11 @@ if __name__ == '__main__':
 ```
 
 This code runs a sample Flask application on your local machine, listening to port `8080`. To correlate trace context, you send a request to the endpoint. In this example, you can use a `curl` command:
+
 ```
 curl --header "traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01" localhost:8080
 ```
+
 By looking at the [Trace-Context header format](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format), you can derive the following information:
 
 `version`: `00`
@@ -191,19 +198,25 @@ By looking at the [Trace-Context header format](https://www.w3.org/TR/trace-cont
 
 `trace-flags`: `01`
 
-If you look at the request entry that was sent to Azure Monitor, you can see fields populated with the trace header information. You can find this data under Logs (Analytics) in the Azure Monitor Application Insights resource.
+If you look at the request entry that was sent to Azure Monitor, you can see fields populated with the trace header information. You can find the data under **Logs (Analytics)** in the Azure Monitor Application Insights resource.
 
-![Request telemetry in Logs (Analytics)](./media/opencensus-python/0011-correlation.png)
+![Screenshot that shows Request telemetry in Logs (Analytics).](./media/opencensus-python/0011-correlation.png)
 
-The `id` field is in the format `<trace-id>.<span-id>`, where the `trace-id` is taken from the trace header that was passed in the request and the `span-id` is a generated 8-byte array for this span.
+The `id` field is in the format `<trace-id>.<span-id>`, where `trace-id` is taken from the trace header that was passed in the request and `span-id` is a generated 8-byte array for this span.
 
-The `operation_ParentId` field is in the format `<trace-id>.<parent-id>`, where both the `trace-id` and the `parent-id` are taken from the trace header that was passed in the request.
+The `operation_ParentId` field is in the format `<trace-id>.<parent-id>`, where both `trace-id` and `parent-id` are taken from the trace header that was passed in the request.
 
 ### Log correlation
 
-OpenCensus Python enables you to correlate logs by adding a trace ID, a span ID, and a sampling flag to log records. You add these attributes by installing OpenCensus [logging integration](https://pypi.org/project/opencensus-ext-logging/). The following attributes will be added to Python `LogRecord` objects: `traceId`, `spanId`, and `traceSampled`. Note that this takes effect only for loggers that are created after the integration.
+OpenCensus Python enables you to correlate logs by adding a trace ID, a span ID, and a sampling flag to log records. You add these attributes by installing OpenCensus [logging integration](https://pypi.org/project/opencensus-ext-logging/). The following attributes will be added to Python `LogRecord` objects: `traceId`, `spanId`, and `traceSampled` (applicable only for loggers that are created after the integration).
 
-Here's a sample application that demonstrates this:
+Install the OpenCensus logging integration:
+
+```console
+python -m pip install opencensus-ext-logging
+```
+
+**Sample application**
 
 ```python
 import logging
@@ -228,11 +241,12 @@ When this code runs, the following prints in the console:
 2019-10-17 11:25:59,384 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=70da28f5a4831014 In the span
 2019-10-17 11:25:59,385 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 After the span
 ```
-Notice that there's a `spanId` present for the log message that's within the span. This is the same `spanId` that belongs to the span named `hello`.
 
-You can export the log data by using `AzureLogHandler`. For more information, see [this article](./opencensus-python.md#logs).
+Notice that there's a `spanId` present for the log message that's within the span. The `spanId` is the same as that which belongs to the span named `hello`.
 
-We can also pass trace information from one component to another for proper correlation. For example, consider a scenario where there are two components `module1` and `module2`. Module1 calls functions in Module2 and to get logs from both `module1` and `module2` in a single trace we can use following approach:
+You can export the log data by using `AzureLogHandler`. For more information, see [Set up Azure Monitor for your Python application](./opencensus-python.md#logs).
+
+We can also pass trace information from one component to another for proper correlation. For example, consider a scenario where there are two components, `module1` and `module2`. Module1 calls functions in Module2. To get logs from both `module1` and `module2` in a single trace, we can use the following approach:
 
 ```python
 # module1.py
@@ -281,6 +295,12 @@ def function_1(parent_tracer=None):
 
 ## Telemetry correlation in .NET
 
+Correlation is handled by default when onboarding an app. No special actions are required.
+
+* [Application Insights for ASP.NET Core applications](asp-net-core.md#application-insights-for-aspnet-core-applications)
+* [Configure Application Insights for your ASP.NET website](asp-net.md#configure-application-insights-for-your-aspnet-website)
+* [Application Insights for Worker Service applications (non-HTTP applications)](worker-service.md#application-insights-for-worker-service-applications-non-http-applications)
+
 .NET runtime supports distributed with the help of [Activity](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) and [DiagnosticSource](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md)
 
 The Application Insights .NET SDK uses `DiagnosticSource` and `Activity` to collect and correlate telemetry.
@@ -288,19 +308,18 @@ The Application Insights .NET SDK uses `DiagnosticSource` and `Activity` to coll
 <a name="java-correlation"></a>
 ## Telemetry correlation in Java
 
-[Java agent](./java-in-process-agent.md) supports automatic correlation of telemetry. It automatically populates `operation_id` for all telemetry (like traces, exceptions, and custom events) issued within the scope of a request. It also propagates the correlation headers (described earlier) for service-to-service calls via HTTP, if the [Java SDK agent](java-2x-agent.md) is configured.
+[Java agent](./java-in-process-agent.md) supports automatic correlation of telemetry. It automatically populates `operation_id` for all telemetry (like traces, exceptions, and custom events) issued within the scope of a request. It also propagates the correlation headers that were described earlier for service-to-service calls via HTTP, if the [Java SDK agent](java-2x-agent.md) is configured.
 
 > [!NOTE]
-> Application Insights Java agent auto-collects requests and dependencies for JMS, Kafka, Netty/Webflux, and more. For Java SDK only calls made via Apache HttpClient are supported for the correlation feature. Automatic context propagation across messaging technologies (like Kafka, RabbitMQ, and Azure Service Bus) isn't supported in the SDK.
+> Application Insights Java agent autocollects requests and dependencies for JMS, Kafka, Netty/Webflux, and more. For Java SDK, only calls made via Apache HttpClient are supported for the correlation feature. Automatic context propagation across messaging technologies like Kafka, RabbitMQ, and Azure Service Bus isn't supported in the SDK.
 
-> [!NOTE]
-> To collect custom telemetry you need to instrument the application with Java 2.6 SDK.
+To collect custom telemetry, you need to instrument the application with Java 2.6 SDK.
 
 ### Role names
 
-You might want to customize the way component names are displayed in the [Application Map](../../azure-monitor/app/app-map.md). To do so, you can manually set the `cloud_RoleName` by taking one of the following actions:
+You might want to customize the way component names are displayed in [Application Map](../../azure-monitor/app/app-map.md). To do so, you can manually set `cloud_RoleName` by taking one of the following actions:
 
-- For Application Insights Java agent 3.0, set the cloud role name as follows:
+- For Application Insights Java, set the cloud role name as follows:
 
     ```json
     {
@@ -309,25 +328,28 @@ You might want to customize the way component names are displayed in the [Applic
       }
     }
     ```
-    You can also set the cloud role name using the environment variable `APPLICATIONINSIGHTS_ROLE_NAME`.
 
-- With Application Insights Java SDK 2.5.0 and later, you can specify the `cloud_RoleName`
-  by adding `<RoleName>` to your ApplicationInsights.xml file:
+  You can also set the cloud role name by using the environment variable `APPLICATIONINSIGHTS_ROLE_NAME`.
+
+- With Application Insights Java SDK 2.5.0 and later, you can specify `cloud_RoleName`
+  by adding `<RoleName>` to your *ApplicationInsights.xml* file:
+
+   :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>
   <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
-     <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+     <ConnectionString>InstrumentationKey=00000000-0000-0000-0000-000000000000</ConnectionString>
      <RoleName>** Your role name **</RoleName>
      ...
   </ApplicationInsights>
   ```
 
-- If you use Spring Boot with the Application Insights Spring Boot Starter, you just need to set your custom name for the application in the application.properties file:
+- If you use Spring Boot with the Application Insights Spring Boot Starter, set your custom name for the application in the *application.properties* file:
 
   `spring.application.name=<name-of-app>`
 
-  The Spring Boot Starter automatically assigns `cloudRoleName` to the value you enter for the `spring.application.name` property.
+You can also set the cloud role name via environment variable or system property. See [Configuring cloud role name](./java-standalone-config.md#cloud-role-name) for details.
 
 ## Next steps
 

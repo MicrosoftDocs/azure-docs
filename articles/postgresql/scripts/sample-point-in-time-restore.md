@@ -12,6 +12,8 @@ ms.date: 02/11/2022
 
 # Restore an Azure Database for PostgreSQL server using Azure CLI
 
+[!INCLUDE[applies-to-postgres-single-flexible-server](../includes/applies-to-postgresql-single-flexible-server.md)]
+
 This sample CLI script restores a single Azure Database for PostgreSQL server to a previous point in time.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

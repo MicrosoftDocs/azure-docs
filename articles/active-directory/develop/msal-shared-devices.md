@@ -1,6 +1,5 @@
 ---
 title: Shared device mode overview
-titleSuffix: Microsoft identity platform | Azure
 description: Learn about shared device mode to enable device sharing for your frontline workers.
 services: active-directory
 author: brandwe

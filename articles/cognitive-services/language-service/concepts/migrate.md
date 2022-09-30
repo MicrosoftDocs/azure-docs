@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 12/03/2021
+ms.date: 07/27/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---

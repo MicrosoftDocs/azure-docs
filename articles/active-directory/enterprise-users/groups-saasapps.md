@@ -3,21 +3,21 @@ title: Use a group to manage access to SaaS apps - Azure AD | Microsoft Docs
 description: How to use groups in Azure Active Directory to assign access to SaaS applications that are integrated with Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/30/2021
-ms.author: curtand
+ms.date: 06/24/2022
+ms.author: barclayn
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 # Using a group to manage access to SaaS applications
 
-Using Azure Active Directory (Azure AD) with an Azure AD Premium license plan, you can use groups to assign access to a SaaS application that's integrated with Azure AD. For example, if you want to assign access for the marketing department to use five different SaaS applications, you can create an Office 365 or security group that contains the users in the marketing department, and then assign that group to these five SaaS applications that are needed by the marketing department. This way you can save time by managing the membership of the marketing department in one place. Users then are assigned to the application when they are added as members of the marketing group, and have their assignments removed from the application when they are removed from the marketing group. This capability can be used with hundreds of applications that you can add from within the Azure AD Application Gallery.
+Using Azure Active Directory (Azure AD), part of Microsoft Entra, with an Azure AD Premium license plan, you can use groups to assign access to a SaaS application that's integrated with Azure AD. For example, if you want to assign access for the marketing department to use five different SaaS applications, you can create an Office 365 or security group that contains the users in the marketing department, and then assign that group to these five SaaS applications that are needed by the marketing department. This way you can save time by managing the membership of the marketing department in one place. Users then are assigned to the application when they are added as members of the marketing group, and have their assignments removed from the application when they are removed from the marketing group. This capability can be used with hundreds of applications that you can add from within the Azure AD Application Gallery.
 
 > [!IMPORTANT]
 > You can use this feature only after you start an Azure AD Premium trial or purchase Azure AD Premium license plan.

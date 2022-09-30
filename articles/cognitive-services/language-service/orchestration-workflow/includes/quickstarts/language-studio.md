@@ -5,90 +5,87 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 03/16/2022
+ms.date: 06/29/2022
 ms.author: aahi
 ---
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
+* A [conversational language understanding](../../../conversational-language-understanding/quickstart.md) project.
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Orchestration-workflow&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 ## Sign in to Language Studio
 
-1. Go to the [Language Studio](https://aka.ms/languageStudio) and sign in with your Azure account. 
+[!INCLUDE [Sign in to Language studio](../language-studio/sign-in-studio.md)]
 
-2. In the **Choose a language resource** window that appears, find your Azure subscription, and choose your Language resource. If you don't have a resource, you can create a new one.
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Orchestration-workflow&Page=quickstart&Section=Sign-in-to-language-studio" target="_target">I ran into an issue</a>
 
-    > [!NOTE]
-    > Currently only resources with the standard (**S**) pricing tier can be used with the Conversational Language Understanding service.
-    
-    :::image type="content" source="../../../conversational-language-understanding/media/quickstart-language-resource.png" alt-text="A screenshot showing the resource selection screen in Language Studio." lightbox="../../../conversational-language-understanding/media/quickstart-language-resource.png":::
+## Create an orchestration workflow project
 
-## Create an orchestration project
+Once you have a Language resource created, create an orchestration workflow project. A project is a work area for building your custom ML models based on your data. Your project can only be accessed by you and others who have access to the Language resource being used.
 
-Once you have a Language resource associated with your account, create an orchestration workflow project. In this quickstart, you'll create a project that connects between different Conversation Language Understanding projects and Custom Question Answering projects.
+For this quickstart, complete the [conversational language understanding](../../../conversational-language-understanding/quickstart.md) quickstart to create a conversational language understanding project that will be used later.
 
-1. In [Language Studio](https://aka.ms/languageStudio), find the section labeled **Understand questions and conversational language** and select **Orchestration Workflow**.  
-   
-   :::image type="content" source="../../media/select-orchestration.png" alt-text="A screenshot showing the location of the orchestration workflow section in the Language Studio landing page." lightbox="../../media/select-orchestration.png"::: 
-    
+[!INCLUDE [Sign in to Language studio](../language-studio/create-project.md)]
 
-2. This will bring you to the **Orchestration workflow project** page. Select **+ Create new project**. To create a project, you will need to provide the following details:
-
-|Value  | Description  |
-|---------|---------|
-|Name     | A name for your project.        |
-|Description    | Optional project description.        |
-|Utterances primary language | The primary language of your project. Your training data should primarily be in this language. For this quickstart, choose **English**.        |
-
-Once you're done, select **Next** and review the details. Select **create project** to complete the process. You should now see the **Build Schema** screen in your project.
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Orchestration-workflow&Page=quickstart&Section=Create-an-orchestration-workflow-project" target="_target">I ran into an issue</a>
 
 ## Build schema
 
-1. Click on *+Add* button to add your intent.
-2. Give your intent a name and choose to connect the intent to an existing project.
-3. Click on *Add intent* button. 
-4. Enter **Greeting** as an intent. For this quickstart, select **No, I don't want to connect to a project**.
+After you complete the conversational language understanding quickstart and create an orchestration project, the next step is to add intents.
+
+To connect to the previously created conversational language understanding project:
+
+* In the **build schema** page in your orchestration project, click on **Add**, to add an intent.
+* In the window that appears, give your intent a name.
+* Select **Yes, I want to connect it to an existing project**.
+* From the connected services dropdown, select **Conversational Language Understanding**.
+* From the project name dropdown, select your conversational language understanding project.
+* Click on **Add intent** to create your intent.
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Orchestration-workflow&Page=quickstart&Section=Build-schema" target="_target">I ran into an issue</a>
 
 
-    :::image type="content" source="../../media/quickstart-intent.png" alt-text="A screenshot showing the schema page in Language studio." lightbox="../../media/quickstart-intent.png":::
+## Train your model
+ 
+To train a model, you need to start a training job. The output of a successful training job is your trained model.
 
-When you select the intent, you will see the [tag utterances](../../how-to/tag-utterances.md) page, where you can add examples for intents.
+[!INCLUDE [Train model](../language-studio/train-model.md)]
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Orchestration-workflow&Page=quickstart&Section=Train-model" target="_target">I ran into an issue</a>
 
-## Tag utterances
-
-In the tag utterances page, let's add a few examples to the intents. Select the **Greeting** intent from the drop-down box that says **Select Intent**.
-
-In the text box that says **Write your example utterance and press enter**, write the sentence "*Good evening*" and press enter to add it as an example utterance. 
-
-Add the rest of these utterances to the **Greeting** intent to the Training set. 
-
-|Utterance|
-|--|
-|*Good evening*|
-|*Good morning*|
-|*Hey*|
-|*What's up*|
-
-When you're done, select **Save Changes** to save the utterances and labels to the project. The icon next to the button will turn green when the changes are saved. Next, go to the **Train Model** page.
-
-:::image type="content" source="../../media/tagged-utterances.png" alt-text="A screenshot showing the intents tagging screen in Language Studio." lightbox="../../media/tagged-utterances.png":::
-
-## Train your model and view its details
-
-Select **train model** on the left of the screen. Select **Start a training job**. To train your model, you need to provide a name for the model. Write a name like "*v1*" and press the enter key. 
-
-You should see the **View model details** page. Wait until training completes, which may take about 5 minutes. When training succeeds, Select **Deploy Model** on the left of the screen.
 
 ## Deploy your model
 
-From the **Deploy model** page on the left of te screen, Select **Add deployment**. To deploy your model, you need to create a new deployment name. Write a name like "*staging*" and press the next button. 
+Generally after training a model you would review its evaluation details. In this quickstart, you will just deploy your model, and make it available for you to try in Language Studio, or you can call the [prediction API](https://aka.ms/clu-apis).
 
-Once you're done, select **Next** and review the details. For the connected projects, select which deployment name from the drop-down menu and press *Submit*.
+[!INCLUDE [Deploy model](../language-studio/deploy-model.md)]
 
-## Test your model
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Orchestration-workflow&Page=quickstart&Section=Deploy-model" target="_target">I ran into an issue</a>
 
-Select **Test model** on the left of the screen, and select the deployment name from the drop-down menu. Add your test, for example *Good morning* in the text field and click on **Run the test**. 
 
-You now see the top intent is **Greeting**.
+
+## Test model
+
+After your model is deployed, you can start using it to make predictions through [Prediction API](https://aka.ms/clu-apis). For this quickstart, you will use the [Language Studio](https://aka.ms/LanguageStudio) to submit an utterance, get predictions and visualize the results.
+
+
+[!INCLUDE [Test model](../language-studio/test-model.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Orchestration-workflow&Page=quickstart&Section=Test-model" target="_target">I ran into an issue</a>
+
+## Clean up resources
+
+[!INCLUDE [Delete project using Language studio](../language-studio/delete-project.md)]
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Language-studio&Pillar=Language&Product=Orchestration-workflow&Page=quickstart&Section=Clean-up-resources" target="_target">I ran into an issue</a>

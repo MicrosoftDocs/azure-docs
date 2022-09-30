@@ -4,7 +4,8 @@ description: Describes recent terminology changes made to Azure monitoring servi
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/08/2019
+ms.date: 06/07/2022
+ms.reviewer: bwren
 
 ---
 

@@ -61,7 +61,7 @@ Follow the steps below if you have an existing environment of Azure resources th
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw
     
 >[!NOTE]
-> If you have an existing gateway that is not zone-redundant (meaning it is Standard, High Performance, or Ultra Performance SKU), you will need to delete and [recreate the gateway](expressroute-howto-add-gateway-portal-resource-manager.md#create-the-virtual-network-gateway) using any SKU and a Standard, Static public IP address.
+> If you have an existing gateway that is not zone-redundant (meaning it is Standard, High Performance, or Ultra Performance SKU)  **and** uses a Basic public IP address, you will need to delete and [recreate the gateway](expressroute-howto-add-gateway-portal-resource-manager.md#create-the-virtual-network-gateway) using any SKU and a Standard, Static public IP address.
 
 ## Create a connection to a new virtual network
 
@@ -79,11 +79,10 @@ Follow the steps below if you plan to connect to a new set of Azure resources us
 While IPv6 support is available for connections to deployments in Public Azure regions, it doesn't support the following use cases:
 
 * Connections to *existing* ExpressRoute gateways that are not zone-redundant. Note that *newly* created ExpressRoute gateways of any SKU (both zone-redundant and not) using  a Standard, Static IP address can be used for dual-stack ExpressRoute connections
-* Global Reach connections between ExpressRoute circuits
 * Use of ExpressRoute with virtual WAN
 * FastPath with non-ExpressRoute Direct circuits
 * FastPath with circuits in the following peering locations: Dubai
-* Coexistence with VPN Gateway
+* Coexistence with VPN Gateway for IPv6 traffic. You can still configure coexistence with VPN Gateway in a dual-stack vnet, but VPN Gateway will only support IPv4 traffic.
 
 ## Next steps
 

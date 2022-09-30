@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to use the Azure CLI to create an Azure Kubernetes Services (AKS) cluster that uses virtual nodes to run pods.
 services: container-service
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 06/25/2022
 ms.custom: references_regions, devx-track-azurecli
 ---
 
@@ -79,47 +79,9 @@ az network vnet subnet create \
     --address-prefixes 10.241.0.0/16
 ```
 
-## Create a service principal or use a managed identity
+## Create an AKS cluster with managed identity
 
-To allow an AKS cluster to interact with other Azure resources, a cluster identity is used. This cluster identity can be automatically created by the Azure CLI or portal, or you can pre-create one and assign additional permissions. By default, this cluster identity is a managed identity. For more information, see [Use managed identities](use-managed-identity.md). You can also use a service principal as your cluster identity. The following steps show you how to manually create and assign the service principal to your cluster.
-
-Create a service principal using the [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command.
-
-```azurecli-interactive
-az ad sp create-for-rbac
-```
-
-The output is similar to the following example:
-
-```output
-{
-  "appId": "bef76eb3-d743-4a97-9534-03e9388811fc",
-  "displayName": "azure-cli-2018-11-21-18-42-00",
-  "name": "http://azure-cli-2018-11-21-18-42-00",
-  "password": "1d257915-8714-4ce7-a7fb-0e5a5411df7f",
-  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db48"
-}
-```
-
-Make a note of the *appId* and *password*. These values are used in the following steps.
-
-## Assign permissions to the virtual network
-
-To allow your cluster to use and manage the virtual network, you must grant the AKS service principal the correct rights to use the network resources.
-
-First, get the virtual network resource ID using [az network vnet show][az-network-vnet-show]:
-
-```azurecli-interactive
-az network vnet show --resource-group myResourceGroup --name myVnet --query id -o tsv
-```
-
-To grant the correct access for the AKS cluster to use the virtual network, create a role assignment using the [az role assignment create][az-role-assignment-create] command. Replace `<appId`> and `<vnetId>` with the values gathered in the previous two steps.
-
-```azurecli-interactive
-az role assignment create --assignee <appId> --scope <vnetId> --role Contributor
-```
-
-## Create an AKS cluster
+Instead of using a system-assigned identity, you can also use a user-assigned identity. For more information, see [Use managed identities](use-managed-identity.md).
 
 You deploy an AKS cluster into the AKS subnet created in a previous step. Get the ID of this subnet using [az network vnet subnet show][az-network-vnet-subnet-show]:
 
@@ -127,7 +89,7 @@ You deploy an AKS cluster into the AKS subnet created in a previous step. Get th
 az network vnet subnet show --resource-group myResourceGroup --vnet-name myVnet --name myAKSSubnet --query id -o tsv
 ```
 
-Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. Replace `<subnetId>` with the ID obtained in the previous step, and then `<appId>` and `<password>` with the values gathered in the previous section.
+Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. Replace `<subnetId>` with the ID obtained in the previous step.
 
 ```azurecli-interactive
 az aks create \
@@ -135,12 +97,7 @@ az aks create \
     --name myAKSCluster \
     --node-count 1 \
     --network-plugin azure \
-    --service-cidr 10.0.0.0/16 \
-    --dns-service-ip 10.0.0.10 \
-    --docker-bridge-address 172.17.0.1/16 \
     --vnet-subnet-id <subnetId> \
-    --service-principal <appId> \
-    --client-secret <password>
 ```
 
 After several minutes, the command completes and returns JSON-formatted information about the cluster.
@@ -241,7 +198,7 @@ The pod is assigned an internal IP address from the Azure virtual network subnet
 To test the pod running on the virtual node, browse to the demo application with a web client. As the pod is assigned an internal IP address, you can quickly test this connectivity from another pod on the AKS cluster. Create a test pod and attach a terminal session to it:
 
 ```console
-kubectl run -it --rm testvk --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+kubectl run -it --rm testvk --image=mcr.microsoft.com/dotnet/runtime-deps:6.0
 ```
 
 Install `curl` in the pod using `apt-get`:
@@ -299,13 +256,19 @@ AKS_SUBNET=myVirtualNodeSubnet
 NODE_RES_GROUP=$(az aks show --resource-group $RES_GROUP --name $AKS_CLUSTER --query nodeResourceGroup --output tsv)
 
 # Get network profile ID
-NETWORK_PROFILE_ID=$(az network profile list --resource-group $NODE_RES_GROUP --query [0].id --output tsv)
+NETWORK_PROFILE_ID=$(az network profile list --resource-group $NODE_RES_GROUP --query "[0].id" --output tsv)
 
 # Delete the network profile
 az network profile delete --id $NETWORK_PROFILE_ID -y
 
+# Grab the service association link ID
+SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
+
+# Delete the service association link for the subnet
+az resource delete --ids $SAL_ID --api-version 2021-10-01
+
 # Delete the subnet delegation to Azure Container Instances
-az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --remove delegations 0
+az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --remove delegations
 ```
 
 ## Next steps

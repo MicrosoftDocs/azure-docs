@@ -9,6 +9,8 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [header](includes/cloud-env.md)]
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 In this tutorial, you learn how to export a portion of video that has been recorded in Azure Video Analyzer account. This exported portion of video is saved as an MP4 file which can be downloaded and consumed outside of the Video Analyzer account.
 
 The topic demonstrates how to export a portion of the video using the Azure portal and a C# SDK code sample.

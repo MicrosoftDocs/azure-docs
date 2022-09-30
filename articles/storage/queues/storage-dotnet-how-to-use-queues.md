@@ -171,6 +171,9 @@ The [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) class enables 
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_CreateClient":::
 
+> [!TIP]
+> Messages that you send by using the [`QueueClient`](/dotnet/api/azure.storage.queues.queueclient) class, must be in a format that can be included in an XML request with UTF-8 encoding. Optionally, you can set the [MessageEncoding](/dotnet/api/azure.storage.queues.queueclientoptions.messageencoding) option to [Base64](/dotnet/api/azure.storage.queues.queuemessageencoding) to handle non-compliant messages.
+
 # [.NET v11 SDK](#tab/dotnetv11)
 
 The [`CloudQueueClient`](/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet-legacy&preserve-view=true) class enables you to retrieve queues stored in Queue Storage. Here's one way to create the service client:
@@ -493,5 +496,5 @@ Now that you've learned the basics of Queue Storage, follow these links to learn
 - View more feature guides to learn about additional options for storing data in Azure.
   - [Get started with Azure Table Storage using .NET](../../cosmos-db/tutorial-develop-table-dotnet.md) to store structured data.
   - [Get started with Azure Blob Storage using .NET](../blobs/storage-quickstart-blobs-dotnet.md) to store unstructured data.
-  - [Connect to SQL Database by using .NET (C#)](../../azure-sql/database/connect-query-dotnet-core.md) to store relational data.
+  - [Connect to SQL Database by using .NET (C#)](/azure/azure-sql/database/connect-query-dotnet-core) to store relational data.
 - Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).

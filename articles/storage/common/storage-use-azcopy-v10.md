@@ -4,7 +4,7 @@ description: AzCopy is a command-line utility that you can use to copy data to, 
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/22/2022
+ms.date: 09/29/2022
 ms.author: normesta
 ms.subservice: common
 ms.custom: contperf-fy21q2

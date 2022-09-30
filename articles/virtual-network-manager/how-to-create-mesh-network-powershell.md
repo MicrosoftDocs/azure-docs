@@ -1,8 +1,8 @@
 ---
 title: 'Create a mesh network topology with Azure Virtual Network Manager (Preview) - Azure PowerShell'
 description: Learn how to create a mesh network topology with Azure Virtual Network Manager using Azure PowerShell.
-author: duongau
-ms.author: duau
+author: mbender-ms    
+ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to
 ms.date: 11/02/2021
@@ -54,7 +54,7 @@ This section will help you create a network group containing the virtual network
     }' 
     ```
 
-1. Create the network group using either the static membership group (GroupMember) or the dynamic membership group (ConditionalMembership) define previously using New-AzNetworkManagerGroup.
+1. Create the network group using either the static membership group (GroupMember) or the dynamic membership group (ConditionalMembership) defined previously using New-AzNetworkManagerGroup.
 
     ```azurepowershell-interactive
     $ng = @{

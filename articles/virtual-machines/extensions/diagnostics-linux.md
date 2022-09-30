@@ -131,6 +131,24 @@ Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Lo
 
 ---
 
+### Enable auto update 
+
+The **recommendation** is to enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature, using the following PowerShell commands.
+
+# [Azure CLI](#tab/azcli)
+
+```azurecli
+az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 4.0 --resource-group <resource_group_name> --vm-name <vm_name> --protected-settings ProtectedSettings.json --settings PublicSettings.json --enable-auto-upgrade true
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+Set-AzVMExtension -ResourceGroupName <resource_group_name> -VMName <vm_name> -Location <vm_location> -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 4.0 -EnableAutomaticUpgrade $true
+```
+
+---
+
 ### Sample installation
 
 > [!NOTE]
@@ -455,7 +473,7 @@ Samples of the metrics specified in the `performanceCounters` section are collec
             "unit": "Percent",
             "annotation": [
                 {
-                    "displayName" : "Aggregate CPU %idle time",
+                    "displayName" : "cpu idle time",
                     "locale" : "en-us"
                 }
             ]
@@ -617,13 +635,13 @@ In a two-vCPU VM, if one vCPU is 100 percent busy and the other is 100 percent i
 
 Counter | `azure.vm.linux.guestmetrics` Display Name | Meaning
 --------- | ---------------------------------- | -------
-`PercentIdleTime` | `cpu/usage_idle` | Percentage of time during the aggregation window that processors ran the kernel idle loop
-`PercentProcessorTime` |  `cpu/usage_active` | Percentage of time running a non-idle thread
-`PercentIOWaitTime` |  `cpu/usage_iowait` | Percentage of time waiting for IO operations to finish
-`PercentInterruptTime` |  `cpu/usage_irq` | Percentage of time running hardware or software interrupts and DPCs (deferred procedure calls)
-`PercentUserTime` |  `cpu/usage_user` | Of non-idle time during the aggregation window, the percentage of time spent in user mode at normal priority
-`PercentNiceTime` |  `cpu/usage_nice` | Of non-idle time, the percentage spent at lowered (nice) priority
-`PercentPrivilegedTime` |  `cpu/usage_system` | Of non-idle time, the percentage spent in privileged (kernel) mode
+`PercentIdleTime` | `cpu idle time` | Percentage of time during the aggregation window that processors ran the kernel idle loop
+`PercentProcessorTime` |  `cpu percentage guest os` | Percentage of time running a non-idle thread
+`PercentIOWaitTime` |  `cpu io wait time` | Percentage of time waiting for IO operations to finish
+`PercentInterruptTime` |  `cpu interrupt time` | Percentage of time running hardware or software interrupts and DPCs (deferred procedure calls)
+`PercentUserTime` |  `cpu user time` | Of non-idle time during the aggregation window, the percentage of time spent in user mode at normal priority
+`PercentNiceTime` |  `cpu nice time` | Of non-idle time, the percentage spent at lowered (nice) priority
+`PercentPrivilegedTime` |  `cpu privileged time` | Of non-idle time, the percentage spent in privileged (kernel) mode
 
 The first four counters should sum to 100 percent. The last three counters also sum to 100 percent. These three counters subdivide the sum of `PercentProcessorTime`, `PercentIOWaitTime`, and `PercentInterruptTime`.
 
@@ -633,17 +651,17 @@ The Memory class of metrics provides information about memory use, paging, and s
 
 Counter | `azure.vm.linux.guestmetrics` Display Name | Meaning
 --------- | ---------------------------------- | -------
-`AvailableMemory` | `mem/available` | Available physical memory in MiB
-`PercentAvailableMemory` | `mem/available_percent` | Available physical memory as a percentage of total memory
-`UsedMemory` | `mem/used` | In-use physical memory (MiB)
-`PercentUsedMemory` | `mem/used_percent` | In-use physical memory as a percentage of total memory
-`PagesPerSec` | `kernel_vmstat/total_pages` | Total paging (read/write)
-`PagesReadPerSec` | `kernel_vmstat/pgpgin` | Pages read from the backing store, such as swap file, program file, and mapped file
-`PagesWrittenPerSec` | `kernel_vmstat/pgpgout` | Pages written to the backing store, such as swap file and mapped file
-`AvailableSwap` | `swap/free` | Unused swap space (MiB)
-`PercentAvailableSwap` | `swap/free_percent` | Unused swap space as a percentage of the total swap
-`UsedSwap` | `swap/used` | In-use swap space (MiB)
-`PercentUsedSwap` | `swap/used_percent` | In-use swap space as a percentage of the total swap
+`AvailableMemory` | `memory available` | Available physical memory in MiB
+`PercentAvailableMemory` | `mem. percent available` | Available physical memory as a percentage of total memory
+`UsedMemory` | `memory used` | In-use physical memory (MiB)
+`PercentUsedMemory` | `memory percentage` | In-use physical memory as a percentage of total memory
+`PagesPerSec` | `pages` | Total paging (read/write)
+`PagesReadPerSec` | `page reads` | Pages read from the backing store, such as swap file, program file, and mapped file
+`PagesWrittenPerSec` | `page writes` | Pages written to the backing store, such as swap file and mapped file
+`AvailableSwap` | `swap available` | Unused swap space (MiB)
+`PercentAvailableSwap` | `swap percent available` | Unused swap space as a percentage of the total swap
+`UsedSwap` | `swap used` | In-use swap space (MiB)
+`PercentUsedSwap` | `swap percent used` | In-use swap space as a percentage of the total swap
 
 This class of metrics has only one instance. The `"condition"` attribute has no useful settings and should be omitted.
 
@@ -655,14 +673,14 @@ LAD doesn't expose bandwidth metrics. You can get these metrics from host metric
 
 Counter | `azure.vm.linux.guestmetrics` Display Name | Meaning
 --------- | ---------------------------------- | -------
-`BytesTransmitted` | `net/bytes_sent` | Total bytes sent since startup
-`BytesReceived` | `net/bytes_recv` | Total bytes received since startup
-`BytesTotal` | `net/bytes_total` | Total bytes sent or received since startup
-`PacketsTransmitted` | `net/packets_sent` | Total packets sent since startup
-`PacketsReceived` | `net/packets_recv` | Total packets received since startup
-`TotalRxErrors` | `net/err_in` | Number of receive errors since startup
-`TotalTxErrors` | `net/err_out` | Number of transmit errors since startup
-`TotalCollisions` | `net/drop_total` | Number of collisions reported by the network ports since startup
+`BytesTransmitted` | `network out guest os` | Total bytes sent since startup
+`BytesReceived` | `network in guest os` | Total bytes received since startup
+`BytesTotal` | `network total bytes` | Total bytes sent or received since startup
+`PacketsTransmitted` | `packets sent` | Total packets sent since startup
+`PacketsReceived` | `packets received` | Total packets received since startup
+`TotalRxErrors` | `packets received errors` | Number of receive errors since startup
+`TotalTxErrors` | `packets sent errors` | Number of transmit errors since startup
+`TotalCollisions` | `network collisions` | Number of collisions reported by the network ports since startup
 
 ### builtin metrics for the File system class
 
@@ -670,18 +688,18 @@ The File system class of metrics provides information about file system usage. A
 
 Counter | `azure.vm.linux.guestmetrics` Display Name | Meaning
 --------- | ---------------------------------- | -------
-`FreeSpace` | `disk/free` | Available disk space in bytes
-`UsedSpace` | `disk/used` | Used disk space in bytes
-`PercentFreeSpace` | `disk/free_percent` | Percentage of free space
-`PercentUsedSpace` | `disk/used_percent` | Percentage of used space
-`PercentFreeInodes` | `disk/inodes_free_percent` | Percentage of unused index nodes (inodes)
-`PercentUsedInodes` | `disk/inodes_used_percent` | Percentage of allocated (in use) inodes summed across all file systems
-`BytesReadPerSecond` | `diskio/read_bytes_filesystem` | Bytes read per second
-`BytesWrittenPerSecond` | `diskio/write_bytes_filesystem` | Bytes written per second
-`BytesPerSecond` | `diskio/total_bytes_filesystem` | Bytes read or written per second
-`ReadsPerSecond` | `diskio/reads_filesystem` | Read operations per second
-`WritesPerSecond` | `diskio/writes_filesystem` | Write operations per second
-`TransfersPerSecond` | `diskio/total_transfers_filesystem` | Read or write operations per second
+`FreeSpace` | `filesystem free space` | Available disk space in bytes
+`UsedSpace` | `filesystem used space` | Used disk space in bytes
+`PercentFreeSpace` | `filesystem % free space` | Percentage of free space
+`PercentUsedSpace` | `filesystem % used space` | Percentage of used space
+`PercentFreeInodes` | `filesystem % free inodes` | Percentage of unused index nodes (inodes)
+`PercentUsedInodes` | `filesystem % used inodes` | Percentage of allocated (in use) inodes summed across all file systems
+`BytesReadPerSecond` | `filesystem read bytes/sec` | Bytes read per second
+`BytesWrittenPerSecond` | `filesystem write bytes/sec` | Bytes written per second
+`BytesPerSecond` | `filesystem bytes/sec` | Bytes read or written per second
+`ReadsPerSecond` | `filesystem reads/sec` | Read operations per second
+`WritesPerSecond` | `filesystem writes/sec` | Write operations per second
+`TransfersPerSecond` | `filesystem transfers/sec` | Read or write operations per second
 
 ### builtin metrics for the Disk class
 
@@ -691,16 +709,16 @@ When a device has multiple file systems, the counters for that device are, effec
 
 Counter | `azure.vm.linux.guestmetrics` Display Name | Meaning
 --------- | ---------------------------------- | -------
-`ReadsPerSecond` | `diskio/reads` | Read operations per second
-`WritesPerSecond` | `diskio/writes` | Write operations per second
-`TransfersPerSecond` | `diskio/total_transfers` | Total operations per second
-`AverageReadTime` | `diskio/read_time` | Average seconds per read operation
-`AverageWriteTime` | `diskio/write_time` | Average seconds per write operation
-`AverageTransferTime` | `diskio/io_time` | Average seconds per operation
-`AverageDiskQueueLength` | `diskio/iops_in_progress` | Average number of queued disk operations
-`ReadBytesPerSecond` | `diskio/read_bytes` | Number of bytes read per second
-`WriteBytesPerSecond` | `diskio/write_bytes` | Number of bytes written per second
-`BytesPerSecond` | `diskio/total_bytes` | Number of bytes read or written per second
+`ReadsPerSecond` | `disk reads` | Read operations per second
+`WritesPerSecond` | `disk writes` | Write operations per second
+`TransfersPerSecond` | `disk transfers` | Total operations per second
+`AverageReadTime` | `disk read time` | Average seconds per read operation
+`AverageWriteTime` | `disk write time` | Average seconds per write operation
+`AverageTransferTime` | `disk transfer time` | Average seconds per operation
+`AverageDiskQueueLength` | `disk queue length` | Average number of queued disk operations
+`ReadBytesPerSecond` | `disk read guest os` | Number of bytes read per second
+`WriteBytesPerSecond` | `disk write guest os` | Number of bytes written per second
+`BytesPerSecond` | `disk total bytes` | Number of bytes read or written per second
 
 ## Example LAD 4.0 configuration
 
@@ -792,7 +810,7 @@ In each case, data is also uploaded to:
             "annotation": [
               {
                 "locale": "en-us",
-                "displayName": "Aggregate CPU %utilization"
+                "displayName": "cpu percentage guest os"
               }
             ],
             "condition": "IsAggregate=TRUE",
@@ -806,7 +824,7 @@ In each case, data is also uploaded to:
             "annotation": [
               {
                 "locale": "en-us",
-                "displayName": "Used disk space on /"
+                "displayName": "Used disfilesystem used space"
               }
             ],
             "condition": "Name=\"/\"",

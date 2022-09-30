@@ -51,6 +51,7 @@ You'll complete the following tasks:
     * USB 2.0 A male to Micro USB male cable
     * Wired Ethernet access
     * Ethernet cable
+* An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prepare the development environment
 
@@ -496,6 +497,9 @@ Select **About** tab from the device page.
 :::zone pivot="iot-toolset-iar-ewarm, iot-toolset-mcuxpresso"
 :::image type="content" source="media/quickstart-devkit-nxp-mimxrt1060-evk/iot-central-device-about-iar.png" alt-text="Screenshot of NXP device information in IoT Central.":::
 :::zone-end
+
+> [!TIP]
+> To customize these views, edit the [device template](../iot-central/core/howto-edit-device-template.md).
 
 ## Troubleshoot and debug
 

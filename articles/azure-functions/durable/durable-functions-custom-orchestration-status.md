@@ -131,6 +131,30 @@ param($name)
 
 "Hello $name"
 ```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("HelloCities")
+public String helloCitiesOrchestrator(
+        @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
+    return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
+        String result = "";
+        result += ctx.callActivity("SayHello", "Tokyo", String.class).await() + ", ";
+        ctx.setCustomStatus("Tokyo");
+        result += ctx.callActivity("SayHello", "London", String.class).await() + ", ";
+        ctx.setCustomStatus("London");
+        result += ctx.callActivity("SayHello", "Seattle", String.class).await();
+        ctx.setCustomStatus("Seattle");
+        return result;
+    });
+}
+
+@FunctionName("SayHello")
+public String sayHello(@DurableActivityTrigger(name = "name") String name) {
+    return String.format("Hello %s!", name);
+}
+```
 ---
 
 And then the client will receive the output of the orchestration only when `CustomStatus` field is set to "London":
@@ -228,6 +252,29 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 # [PowerShell](#tab/powershell)
 
 The feature is not currently implemented in PowerShell
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("StartHelloCities")
+public HttpResponseMessage startHelloCities(
+        @HttpTrigger(name = "req") HttpRequestMessage<Void> req,
+        @DurableClientInput(name = "durableContext") DurableClientContext durableContext,
+        final ExecutionContext context) throws InterruptedException {
+
+    DurableTaskClient client = durableContext.getClient();
+    String instanceId = client.scheduleNewOrchestrationInstance("HelloCities");
+    context.getLogger().info("Created new Java orchestration with instance ID = " + instanceId);
+
+    OrchestrationMetadata metadata = client.waitForInstanceStart(instanceId, Duration.ofMinutes(5), true);
+    while (metadata.readCustomStatusAs(String.class) != "London") {
+        Thread.sleep(200);
+        metadata = client.getInstanceMetadata(instanceId, true);
+    }
+
+    return req.createResponseBuilder(HttpStatus.OK).build();
+}
+```
 
 ---
 
@@ -371,6 +418,50 @@ if ($userChoice -eq 3) {
 
 # Wait for user selection and refine the recommendation
 ```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("CityRecommender")
+public String cityRecommender(
+    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
+        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
+            int userChoice = ctx.getInput(int.class);
+            switch (userChoice) {
+                case 1:
+                    ctx.setCustomStatus(new Recommendation(
+                            new String[]{ "Tokyo", "Seattle" },
+                            new String[]{ "Spring", "Summer" }));
+                    break;
+                case 2:
+                    ctx.setCustomStatus(new Recommendation(
+                            new String[]{ "Seattle", "London" },
+                            new String[]{ "Summer" }));
+                    break;
+                case 3:
+                    ctx.setCustomStatus(new Recommendation(
+                            new String[]{ "Tokyo", "London" },
+                            new String[]{ "Spring", "Summer" }));
+                    break;
+            }
+
+            // Wait for user selection with an external event handler
+        });
+}
+
+class Recommendation {
+    public Recommendation() { }
+
+    public Recommendation(String[] cities, String[] seasons) {
+        this.recommendedCities = cities;
+        this.recommendedSeasons = seasons;
+    }
+
+    public String[] recommendedCities;
+    public String[] recommendedSeasons;
+}
+```
+
 ---
 
 ### Instruction specification
@@ -482,11 +573,47 @@ if ($isBookingConfirmed) {
 
 return $isBookingConfirmed
 ```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("ReserveTicket")
+public String reserveTicket(
+    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
+        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
+            String userID = ctx.getInput(String.class);
+            int discount = ctx.callActivity("CalculateDiscount", userID, int.class).await();
+            ctx.setCustomStatus(new DiscountInfo(discount, 60, "https://www.myawesomebookingweb.com"));
+
+            boolean isConfirmed = ctx.waitForExternalEvent("BookingConfirmed", boolean.class).await();
+            if (isConfirmed) {
+                ctx.setCustomStatus("Thank you for confirming your booking.");
+            } else {
+                ctx.setCustomStatus("There was a problem confirming your booking. Please try again.");
+            }
+
+            return isConfirmed;
+        });
+}
+
+class DiscountInfo {
+    public DiscountInfo() { }
+    public DiscountInfo(int discount, int discountTimeout, String bookingUrl) {
+        this.discount = discount;
+        this.discountTimeout = discountTimeout;
+        this.bookingUrl = bookingUrl;
+    }
+    public int discount;
+    public int discountTimeout;
+    public String bookingUrl;
+}
+```
+
 ---
 
-## Sample
+## Querying custom status with HTTP
 
-In the following sample, the custom status is set first;
+The following example shows how custom status values can be queried using the built-in HTTP APIs.
 
 # [C#](#tab/csharp)
 
@@ -549,6 +676,32 @@ Set-DurableCustomStatus -CustomStatus @{ nextActions = @('A', 'B', 'C');
 
 # ...do more work...
 ```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("MyCustomStatusOrchestrator")
+public String myCustomStatusOrchestrator(
+    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
+        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
+            // ... do work ...
+
+            // update the status of the orchestration with some arbitrary data
+            CustomStatusPayload payload = new CustomStatusPayload();
+            payload.nextActions = new String[] { "A", "B", "C" };
+            payload.foo = 2;
+            ctx.setCustomStatus(payload);
+
+            // ... do more work ...
+        });
+}
+
+class CustomStatusPayload {
+    public String[] nextActions;
+    public int foo;
+}
+```
+
 ---
 
 While the orchestration is running, external clients can fetch this custom status:

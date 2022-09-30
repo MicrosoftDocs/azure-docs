@@ -154,6 +154,7 @@ Network security group | Supported | Specify an existing resource in the target 
 Reserved (static) IP address | Supported | You can't currently configure this. The value defaults to the source value. <br/><br/> If the NIC on the source VM has a static IP address, and the target subnet has the same IP address available, it's assigned to the target VM.<br/><br/> If the target subnet doesn't have the same IP address available, the initiate move for the VM will fail.
 Dynamic IP address | Supported | You can't currently configure this. The value defaults to the source value.<br/><br/> If the NIC on the source has dynamic IP addressing, the NIC on the target VM is also dynamic by default.
 IP configurations | Supported | You can't currently configure this. The value defaults to the source value.
+VNET Peering | Not Retained | The VNET which is moved to the target region will not retain it’s VNET peering configuration present in the source region. To retain the peering, it needs to do be done again manually in the target region.
 
 ## Outbound access requirements
 

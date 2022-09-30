@@ -4,7 +4,7 @@ description: Learn about best practices for disaster recovery with Azure File Sy
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/18/2021
+ms.date: 05/24/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -54,7 +54,7 @@ If you enable cloud tiering, don't implement an on-premises backup solution. Wit
 
 If you decide to use an on-premises backup solution, backups should be performed on a server in the sync group with cloud tiering disabled. When performing a restore, use the volume-level or file-level restore options. Files restored using the file-level restore option will sync to all endpoints in the sync group and existing files will be replaced with the version restored from backup. Volume-level restores won't replace newer file versions in the cloud endpoint or other server endpoints.
 
-In Azure File Sync agent version 9 and above, [Volume Shadow Copy Service (VSS) snapshots](file-sync-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service) (including the **Previous Versions** tab) are supported on volumes with cloud tiering enabled. This allows you to perform self-service restores instead of relying on an admin to perform restores for you. However, you must enable previous version compatibility through PowerShell, which will increase your snapshot storage costs. VSS snapshots don't protect against disasters on the server endpoint itself, so they should only be used alongside cloud-side backups. For details, see [Self Service restore through Previous Versions and VSS](file-sync-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
+[Volume Shadow Copy Service (VSS) snapshots](file-sync-deployment-guide.md#optional-self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service) (including the **Previous Versions** tab) are supported on volumes with cloud tiering enabled. This allows you to perform self-service restores instead of relying on an admin to perform restores for you. However, you must enable previous version compatibility through PowerShell, which will increase your snapshot storage costs. VSS snapshots don't protect against disasters on the server endpoint itself, so they should only be used alongside cloud-side backups. For details, see [Self Service restore through Previous Versions and VSS](file-sync-deployment-guide.md#optional-self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
 
 ## Data redundancy
 

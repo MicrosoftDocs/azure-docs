@@ -10,7 +10,7 @@ ms.date: 03/25/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: vmahtani
 ms.custom: has-adal-ref
 ms.collection: M365-identity-device-management
@@ -21,7 +21,7 @@ Token expiration and refresh are a standard mechanism in the industry. When a cl
 
 Customers have expressed concerns about the lag between when conditions change for a user, and when policy changes are enforced. Azure AD has experimented with the "blunt object" approach of reduced token lifetimes but found they can degrade user experiences and reliability without eliminating risks.
 
-Timely response to policy violations or security issues really requires a "conversation" between the token issuer (Azure AD), and the relying party (enlightened app). This two-way conversation gives us two important capabilities. The relying party can see when properties change, like network location, and tell the token issuer. It also gives the token issuer a way to tell the relying party to stop respecting tokens for a given user because of account compromise, disablement, or other concerns. The mechanism for this conversation is continuous access evaluation (CAE). The goal is for response to be near real time, but latency of up to 15 minutes may be observed because of event propagation time.
+Timely response to policy violations or security issues really requires a "conversation" between the token issuer (Azure AD), and the relying party (enlightened app). This two-way conversation gives us two important capabilities. The relying party can see when properties change, like network location, and tell the token issuer. It also gives the token issuer a way to tell the relying party to stop respecting tokens for a given user because of account compromise, disablement, or other concerns. The mechanism for this conversation is continuous access evaluation (CAE). The goal for critical event evaluation is for response to be near real time, but latency of up to 15 minutes may be observed because of event propagation time; however, IP locations policy enforcement is instant.
 
 The initial implementation of continuous access evaluation focuses on Exchange, Teams, and SharePoint Online.
 
@@ -52,7 +52,7 @@ Continuous access evaluation is implemented by enabling services, like Exchange 
 This process enables the scenario where users lose access to organizational SharePoint Online files, email, calendar, or tasks, and Teams from Microsoft 365 client apps within minutes after a critical event. 
 
 > [!NOTE] 
-> Teams and SharePoint Online do not support user risk events.
+> SharePoint Online doesn't support user risk events.
 
 ### Conditional Access policy evaluation
 
@@ -121,7 +121,7 @@ If you aren't using CAE-capable clients, your default access token lifetime will
 
 ### User condition change flow
 
-In the following example, a Conditional Access administrator has configured a location based Conditional Access policy to only allow access from specific IP ranges:
+In the following example, a Conditional Access Administrator has configured a location based Conditional Access policy to only allow access from specific IP ranges:
 
 ![User condition event flow](./media/concept-continuous-access-evaluation/user-condition-change-flow.png)
 

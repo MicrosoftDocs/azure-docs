@@ -5,7 +5,7 @@ author: deseelam
 ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
-ms.date: 04/27/2021
+ms.date: 04/27/2022
 ---
 
 # Onboard on-premises servers in VMware virtual environment to Azure Arc   
@@ -32,7 +32,7 @@ Azure Arc allows you to manage your hybrid IT estate with a single pane of glass
     - Ensure that the Azure account is granted assignment to the [required Azure roles](../azure-arc/servers/prerequisites.md#required-permissions).
     - Make sure [the required URLs](../azure-arc/servers/network-requirements.md#urls) are not blocked if the discovered servers connect through a firewall or proxy server to communicate over the Internet.
     - Review the [regions supported](../azure-arc/servers/overview.md#supported-regions) for Azure Arc. 
-    - Azure Arc-enabled servers supports up to 5,000 machine instances in a resource group.
+    - Azure Arc-enabled servers support up to 5,000 machine instances in a resource group.
 
 
 ## Set up the Azure Migrate project  
@@ -57,7 +57,7 @@ Before you set up the appliance,
 Next,
 
 - Follow this article to [set up the Azure Migrate appliance](./tutorial-discover-vmware.md#set-up-the-appliance) to start vCenter Server discovery. To deploy the appliance, you can download and import an OVA template into VMware to create a server running in your vCenter Server.  
-- After deploying the appliance, you need to register it with the project before you initiate the discovery. Follow [these instructions](./tutorial-discover-vmware.md#register-the-appliance-with-azure-migrate) to register the appliance. 
+- After deploying the appliance, you need to register it with the project before you initiate the discovery. Follow [these instructions](./tutorial-discover-vmware.md#set-up-prerequisites-and-register-the-appliance) to register the appliance. 
 
 ## Configure the appliance and start discovery  
 
@@ -122,7 +122,7 @@ Once the vCenter Server discovery has been completed, software inventory (discov
 
 If you receive an error when onboarding to Azure Arc using the Azure Migrate appliance, the following section can help identify the probable cause and suggested steps to resolve your problem. 
 
-If you don't see the error code listed below or if the error code starts with **_AZCM_**, refer to [this guide for troubleshooting Azure Arc ](../azure-arc/servers/troubleshoot-agent-onboard.md)
+If you don't see the error code listed below or if the error code starts with **_AZCM_**, refer to [this guide for troubleshooting Azure Arc](../azure-arc/servers/troubleshoot-agent-onboard.md)
 
 ### Error 60001 - UnableToConnectToPhysicalServer  
 

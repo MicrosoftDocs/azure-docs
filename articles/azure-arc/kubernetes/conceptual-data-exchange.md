@@ -4,8 +4,6 @@ services: azure-arc
 ms.service: azure-arc
 ms.date: 11/23/2021
 ms.topic: conceptual
-author: shashankbarsin
-ms.author: shasb
 description: "This article provides information on data exchanged between Azure Arc-enabled Kubernetes cluster and Azure"
 keywords: "Kubernetes, Arc, Azure, containers"
 ---

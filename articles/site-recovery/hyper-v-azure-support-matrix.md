@@ -4,8 +4,8 @@ description: Summarizes the supported components and requirements for Hyper-V VM
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
-author: Sharmistha-Rai
-ms.author: sharrai
+author: v-pgaddala
+ms.author: v-pgaddala
 ---
 
 
@@ -34,7 +34,7 @@ Hyper-V (running without Virtual Machine Manager) | Windows Server 2022 (Server 
 Hyper-V (running with Virtual Machine Manager) | Virtual Machine Manager 2022  (Server core not supported), Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 <br/><br/> **Note:** Server core installation of these operating systems are also supported.  | If Virtual Machine Manager is used, Windows Server 2019 hosts should be managed in Virtual Machine Manager 2019. Similarly, Windows Server 2016 hosts should be managed in Virtual Machine Manager 2016.
 
 > [!NOTE]
-> Ensure that .NET Framework 4.6.2 or higher is present on the on-premise server.
+> Ensure that .NET Framework 4.6.2 or higher is present on the on-premises server.
 
 ## Replicated VMs
 
@@ -152,7 +152,7 @@ UEFI Secure boot | No | No
 --- | --- | ---
 Availability sets | Yes | Yes
 Availability zones | No | No
-HUB | Yes | Yes  
+HUB | Yes | Yes
 Managed disks | Yes, for failover.<br/><br/> Failback of managed disks isn't supported. | Yes, for failover.<br/><br/> Failback of managed disks isn't supported.
 
 ## Azure VM requirements

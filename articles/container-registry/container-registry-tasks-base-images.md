@@ -67,7 +67,7 @@ See the following tutorials for scenarios to automate application image builds a
 
 * [Automate container image builds when a base image is updated in the same registry](container-registry-tutorial-base-image-update.md)
 
-* [Automate container image builds when a base image is updated in a different registry](container-registry-tutorial-base-image-update.md)
+* [Automate container image builds when a base image is updated in a different registry](container-registry-tutorial-private-base-image-update.md)
 
 
 <!-- LINKS - External -->

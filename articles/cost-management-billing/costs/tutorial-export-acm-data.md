@@ -1,10 +1,10 @@
 ---
 title: Tutorial - Create and manage exported data from Cost Management
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description: This article shows you how you can create and manage exported Cost Management data so that you can use it in external systems.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/03/2021
+ms.date: 08/23/2022
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -243,6 +243,13 @@ Remove-AzCostManagementExport -Name DemoExport -Scope 'subscriptions/00000000-00
 
 Scheduled exports are affected by the time and day of week of when you initially create the export. When you create a scheduled export, the export runs at the same frequency for each export that runs later. For example, for a daily export of month-to-date costs export set at a daily frequency, the export runs daily. Similarly for a weekly export, the export runs every week on the same day as it is scheduled. The exact delivery time of the export isn't guaranteed and the exported data is available within four hours of run time.
 
+Exports are scheduled using Coordinated Universal Time (UTC). The Exports API always uses and displays UTC.
+
+- When you create an export using the [Exports API](/rest/api/cost-management/exports/create-or-update?tabs=HTTP), specify the `recurrencePeriod` in UTC time. The API doesn’t convert your local time to UTC.
+    - Example - A weekly export is scheduled on Friday, August 19 with `recurrencePeriod` set to 2:00 PM. The API receives the input as 2:00 PM UTC, Friday, August 19. The weekly export will be scheduled to run every Friday.
+- When you create an export in the Azure portal, its start date time is automatically converted to the equivalent UTC time.
+    - Example - A weekly export is scheduled on Friday, August 19 with the local time of 2:00 AM IST (UTC+5:30) from the Azure portal. The API receives the input as 8:30 PM, Thursday, August 18th. The weekly export will be scheduled to run every Thursday.
+
 Each export creates a new file, so older exports aren't overwritten.
 
 #### Create an export for multiple subscriptions
@@ -341,6 +348,11 @@ You can view the run history of your scheduled export by selecting an individual
 Select an export to view its run history.
 
 :::image type="content" source="./media/tutorial-export-acm-data/single-export-run-history.png" alt-text="Screenshot shows the run history of an export.":::
+
+### Export runs twice a day for the first five days of the month
+
+If you've created a daily export, you'll have two runs per day for the first five days of each month. One run executes and creates a file with the current month’s cost data. It's the run that's available for you to see in the run history. A second run also executes to create a file with all the costs from the prior month. The second run isn't currently visible in the run history. Azure executes the second run to ensure that your latest file for the past month contains all charges exactly as seen on your invoice. It runs because there are cases where latent usage and charges are included in the invoice up to 72 hours after the calendar month has closed. To learn more about Cost Management usage data updates, see [Cost and usage data updates and retention](understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). 
+
 
 ## Access exported data from other systems
 

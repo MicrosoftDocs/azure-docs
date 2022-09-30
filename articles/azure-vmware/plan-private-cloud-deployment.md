@@ -3,6 +3,7 @@ title: Plan the Azure VMware Solution deployment
 description: Learn how to plan your Azure VMware Solution deployment.  
 ms.topic: tutorial
 ms.custom: contperf-fy21q4
+ms.service: azure-vmware
 ms.date: 09/27/2021
 ---
 

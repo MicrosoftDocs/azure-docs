@@ -19,7 +19,6 @@ This API, on execution, resumes the scheduled execution of a paused commercial m
 | Method | Request URI |
 | ------------ | ------------- |
 | PUT | `https://api.partnercenter.microsoft.com/insights/v1/cmp/ScheduledReport/resume/{reportId}` |
-|||
 
 **Request header**
 
@@ -27,7 +26,6 @@ This API, on execution, resumes the scheduled execution of a paused commercial m
 | ------------ | ------------- | ------------- |
 | Authorization | string | Required. The Azure Active Directory (Azure AD) access token in the form `Bearer <token>` |
 | Content-Type | string | `Application/JSON` |
-||||
 
 **Path parameter**
 
@@ -38,7 +36,6 @@ None
 | Parameter name | Required | Type | Description |
 | ------------ | ------------- | ------------- | ------------- |
 | `reportId` | Yes | string | ID of the report being modified |
-|||||
 
 **Glossary**
 
@@ -96,4 +93,3 @@ Response payload:
 | `RecurrenceCount` | Recurrence count provided during report creation |
 | `CallbackUrl` | Callback URL provided in the request |
 | `Format` | Format of the report files |
-|||

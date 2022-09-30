@@ -4,12 +4,15 @@ description: Describes how to modify default monitoring for VM insights guest he
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/14/2020
+ms.date: 05/03/2022
 
 ---
 
 # Configure monitoring in VM insights guest health (preview)
 VM insights guest health allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. This article describes how you can modify default monitoring using the Azure portal. It also describes fundamental concepts of monitors required for [configuring monitoring using a data collection rule](vminsights-health-configure-dcr.md).
+
+[!INCLUDE [guest-health-deprecate](../../../includes/azure-monitor-guest-health-deprecation.md)]
+
 
 ## Open monitor configuration
 Open monitor configuration in the Azure portal by selecting the monitor and then the **Configuration** tab.

@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/30/2022
+ms.date: 04/30/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -101,7 +101,7 @@ In your own environment, if your SPA app uses MSAL.js 1.3 or earlier and the imp
 
 1. In the left menu, under **Manage**, select **Authentication**.
 
-1. Under **Implicit grant and hybrid flows**, select both the **Access tokens (used for implicit flows)** and **D tokens (used for implicit and hybrid flows)** check boxes.
+1. Under **Implicit grant and hybrid flows**, select both the **Access tokens (used for implicit flows)** and **ID tokens (used for implicit and hybrid flows)** check boxes.
 
 1. Select **Save**.
 
@@ -145,23 +145,49 @@ Your resulting code should look similar to following sample:
 
 ```javascript
 const msalConfig = {
-  auth: {
-    clientId: "<your-MyApp-application-ID>"
-    authority: b2cPolicies.authorities.signUpSignIn.authority,
-    knownAuthorities: [b2cPolicies.authorityDomain],
-  },
-  cache: {
-    cacheLocation: "localStorage",
-    storeAuthStateInCookie: true
-  }
+    auth: {
+      clientId: "<your-MyApp-application-ID>", // This is the ONLY mandatory field; everything else is optional.
+      authority: b2cPolicies.authorities.signUpSignIn.authority, // Choose sign-up/sign-in user-flow as your default.
+      knownAuthorities: [b2cPolicies.authorityDomain], // You must identify your tenant's domain as a known authority.
+      redirectUri: "http://localhost:6420", // You must register this URI on Azure Portal/App Registration. Defaults to "window.location.href".
+    },
+    cache: {
+      cacheLocation: "sessionStorage",  
+      storeAuthStateInCookie: false, 
+    },
+    system: {
+      loggerOptions: {
+        loggerCallback: (level, message, containsPii) => {
+          if (containsPii) {
+            return;
+          }
+          switch (level) {
+            case msal.LogLevel.Error:
+              console.error(message);
+              return;
+            case msal.LogLevel.Info:
+              console.info(message);
+              return;
+            case msal.LogLevel.Verbose:
+              console.debug(message);
+              return;
+            case msal.LogLevel.Warning:
+              console.warn(message);
+              return;
+          }
+        }
+      }
+    }
+  };
 };
 
 const loginRequest = {
-  scopes: ["openid", "profile"],
+  scopes: ["openid", ...apiConfig.b2cScopes],
 };
 
 const tokenRequest = {
-  scopes: apiConfig.b2cScopes
+  scopes: [...apiConfig.b2cScopes],  // e.g. ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"]
+  forceRefresh: false // Set this to "true" to skip a cached token and go to the server to get a new token
 };
 ```
 

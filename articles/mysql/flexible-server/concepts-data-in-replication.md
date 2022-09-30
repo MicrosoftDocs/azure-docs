@@ -1,10 +1,11 @@
 ---
 title: Data-in replication - Azure Database for MySQL Flexible
 description: Learn about using Data-in replication to synchronize from an external server into the Azure Database for MySQL Flexible service.
-author: SudheeshGH
-ms.author: sunaray
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
+author: VandhanaMehta
+ms.author: vamehta
 ms.date: 06/08/2021
 ---
 
@@ -35,7 +36,9 @@ For migration scenarios, use the [Azure Database Migration Service](https://azur
 The [*mysql system database*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) on the source server isn't replicated. In addition, changes to accounts and permissions on the source server aren't replicated. If you create an account on the source server and this account needs to access the replica server, manually create the same account on the replica server. To understand what tables are contained in the system database, see the [MySQL manual](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html).
 
 ### Data-in replication not supported on HA enabled servers
-Configuring Data-in replication for zone-redundant high availability servers isn't supported. On servers were HA is enabled, the stored procedures for replication `mysql.az_replication_*` won't be available. You can't use HA servers as source server when you use binary log files position-based replication. 
+It is not supported to configure Data-in replication for servers which have high availability (HA) option enabled. On HA enabled servers, the stored procedures for replication `mysql.az_replication_*` won't be available. 
+> [!Tip]
+>If you are using HA server as a source server, MySQL native binary log (binlog) file position-based replication would fail, when failover happens on the server. If replica server supports GTID based replication, we should configure GTID based replication.
 
 ### Filtering
 
@@ -45,7 +48,7 @@ Modifying the parameter `replicate_wild_ignore_table` used to create replication
 
 - The source server version must be at least MySQL version 5.7.
 - Our recommendation is to have the same version for source and replica server versions. For example, both must be MySQL version 5.7 or both must be MySQL version 8.0.
-- Our recommendation is to have a primary key in each table. If we have table without primary key, you might face slowness in replication.
+- Our recommendation is to have a primary key in each table. If we have table without primary key, you might face slowness in replication. 
 - The source server should use the MySQL InnoDB engine.
 - User must have permissions to configure binary logging and create new users on the source server.
 - Binary log files on the source server shouldn't be purged before the replica applies those changes. If the source is Azure Database for MySQL refer how to configure binlog_expire_logs_seconds for [Flexible server](./concepts-server-parameters.md#binlog_expire_logs_seconds) or [Single server](../concepts-server-parameters.md#binlog_expire_logs_seconds)

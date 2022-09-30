@@ -1,17 +1,17 @@
 ---
 title: "How to use the read model with Java programming language"
-description: Use the Form Recognizer prebuilt-read model and Java to extract printed and handwritten text from documents.
+description: Use the Form Recognizer prebuilt-read model and Java to extract printed (typeface) and handwritten text from documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 04/13/2022
+ms.date: 09/09/2022
 ms.author: lajanuar
 recommendations: false
 ---
 
-[Reference documentation](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_4.0.0-beta.4/sdk/formrecognizer/azure-ai-formrecognizer/) | [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-ai-formrecognizer/4.0.0-beta.4/jar) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
+[SDK reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0/index.html) | [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) | [Package (Maven)](https://oss.sonatype.org/#nexus-search;quick~azure-ai-formrecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_4.0.0/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)| [Supported REST API versions](../../sdk-overview.md)
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ recommendations: false
 * A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
     > [!TIP]
-    > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
+    > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. Later, you'll paste your key and endpoint into the code below:
 
@@ -77,7 +77,7 @@ This quickstart uses the Gradle dependency manager. You can find the client libr
         mavenCentral()
     }
     dependencies {
-        implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "4.0.0-beta.4")
+        implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "4.0.0")
     }
     ```
 
@@ -111,27 +111,30 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocumentFromUrl` method and pass `prebuilt-read` as the model Id. The returned value is an `AnalyzeResult` object containing data about the submitted document.
 > * We've added the file URI value to the `documentUrl` variable in the main method.
 
-1. Open the `FormRecognizer.java` file and copy the following code sample to paste into your application. **Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal**.
+1. Open the `FormRecognizer.java` file and copy the following code sample to paste into your application. **Make sure you update the key and endpoint variables with values from your Azure portal Form Recognizer instance**.
 
 ```java
 import com.azure.ai.formrecognizer.*;
-import com.azure.ai.formrecognizer.models.AnalyzeResult;
-import com.azure.ai.formrecognizer.models.DocumentLine;
-import com.azure.ai.formrecognizer.models.AnalyzedDocument;
-import com.azure.ai.formrecognizer.models.DocumentOperationResult;
-import com.azure.ai.formrecognizer.models.DocumentWord;
-import com.azure.ai.formrecognizer.models.DocumentTable;
+
+import com.azure.ai.formrecognizer.documentanalysis.models.*;
+import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClient;
+import com.azure.ai.formrecognizer.documentanalysis.DocumentAnalysisClientBuilder;
+
 import com.azure.core.credential.AzureKeyCredential;
 import com.azure.core.util.polling.SyncPoller;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Arrays;
+import java.time.LocalDate;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class FormRecognizer {
 
     // set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
-    private static final String endpoint = "https://formrecognizer-jp.cognitiveservices.azure.com/";
-    private static final String key = "092e23363b8b492dbc402cbebbf1c1d9";
+    private static final String endpoint = "<your-endpoint>";
+    private static final String key = "<your-key>";
 
         public static void main(String[] args) {
 
@@ -146,32 +149,32 @@ public class FormRecognizer {
 
         String modelId = "prebuilt-read";
 
-        SyncPoller < DocumentOperationResult, AnalyzeResult > analyzeLayoutResultPoller =
-            client.beginAnalyzeDocumentFromUrl(modelId, documentUrl);
+            SyncPoller < OperationResult, AnalyzeResult > analyzeLayoutResultPoller =
+                client.beginAnalyzeDocumentFromUrl(modelId, documentUrl);
 
-        AnalyzeResult analyzeLayoutResult = analyzeLayoutResultPoller.getFinalResult();
+            AnalyzeResult analyzeLayoutResult = analyzeLayoutResultPoller.getFinalResult();
 
-            // pages
-            analyzeLayoutResult.getPages().forEach(documentPage -> {
-                System.out.printf("Page has width: %.2f and height: %.2f, measured with unit: %s%n",
-                    documentPage.getWidth(),
-                    documentPage.getHeight(),
-                    documentPage.getUnit());
+                // pages
+                analyzeLayoutResult.getPages().forEach(documentPage -> {
+                    System.out.printf("Page has width: %.2f and height: %.2f, measured with unit: %s%n",
+                        documentPage.getWidth(),
+                        documentPage.getHeight(),
+                        documentPage.getUnit());
 
-            // lines
-            documentPage.getLines().forEach(documentLine ->
-                System.out.printf("Line %s is within a bounding box %s.%n",
-                    documentLine.getContent(),
-                    documentLine.getBoundingBox().toString()));
+                // lines
+                documentPage.getLines().forEach(documentLine ->
+                    System.out.printf("Line %s is within a bounding polygon %s.%n",
+                        documentLine.getContent(),
+                        documentLine.getBoundingPolygon().toString()));
 
-            // words
-            documentPage.getWords().forEach(documentWord ->
-                System.out.printf("Word '%s' has a confidence score of %.2f.%n",
-                    documentWord.getContent(),
-                    documentWord.getConfidence()));
-        });
+                // words
+                documentPage.getWords().forEach(documentWord ->
+                    System.out.printf("Word '%s' has a confidence score of %.2f.%n",
+                        documentWord.getContent(),
+                        documentWord.getConfidence()));
+            });
+        }
     }
-}
 ```
 
 > [!IMPORTANT]
@@ -213,4 +216,4 @@ To view the entire output,visit the Azure samples repository on GitHub to view t
 Try the layout model, which can extract selection marks and table structures in addition to what the read model offers.
 
 > [!div class="nextstepaction"]
-> [Use the Layout Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
+> [Use the Layout Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument)

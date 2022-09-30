@@ -42,7 +42,7 @@ To utilize the Azure BYOIP feature, you must perform the following steps prior t
 
 * The address range must be no smaller than a /24 so it will be accepted by Internet Service Providers.
 
-* A Route Origin Authorization (ROA) document that authorizes Microsoft to advertise the address range must be filled out by the customer on the appropriate Routing Internet Registry website. ARIN, RIPE, and APNIC.  
+* A Route Origin Authorization (ROA) document that authorizes Microsoft to advertise the address range must be filled out by the customer on the appropriate Routing Internet Registry (RIR) website or via their API. The RIR will require the ROA to be digitally signed with the Resource Public Key Infrastructure (RPKI) of your RIR.
     
     For this ROA:
         
@@ -52,7 +52,10 @@ To utilize the Azure BYOIP feature, you must perform the following steps prior t
     
     * The prefix length should exactly match the prefixes that can be advertised by Microsoft. For example, if you plan to bring 1.2.3.0/24 and 2.3.4.0/23 to Microsoft, they should both be named.
   
-    * After the ROA is complete and submitted, allow at least 24 hours for it to become available to Microsoft.
+    * After the ROA is complete and submitted, allow at least 24 hours for it to become available to Microsoft, where it will be verified to determine its authenticity and correctness as part of the provisioning process.
+
+> [!NOTE]
+> It is also recommended to create a ROA for any existing ASN that is advertising the range to avoid any issues during migration.
 
 ### Certificate readiness
 
@@ -81,7 +84,7 @@ The following steps show the steps required to prepare sample customer range (1.
     
     * [RIPE](https://www.ripe.net/manage-ips-and-asns/db/support/updating-the-ripe-database) - edit the "Remarks" of the inetnum record.
     
-    * [APNIC](https://www.apnic.net/manage-ip/using-whois/updating-whois/) - in order to edit the prefix record, contact helpdesk@apnic.net.
+    * [APNIC](https://www.apnic.net/manage-ip/using-whois/updating-whois/) - edit the “Remarks” of the inetnum record using MyAPNIC.
     
     * For ranges from either LACNIC or AFRINIC registries, create a support ticket with Microsoft.
      

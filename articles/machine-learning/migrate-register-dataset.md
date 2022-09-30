@@ -4,6 +4,7 @@ description: Rebuild Studio (classic) datasets in Azure Machine Learning designe
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 
 author: xiaoharper
@@ -26,12 +27,12 @@ You have three options to migrate a dataset to Azure Machine Learning. Read each
 |Cloud storage     | Option 2: [Register a dataset from a cloud source](#import-data-from-cloud-sources). <br><br>  Option 3: [Use the Import Data module to get data from a cloud source](#import-data-from-cloud-sources).        |
 
 > [!NOTE]
-> Azure Machine Learning also supports [code-first workflows](how-to-create-register-datasets.md) for creating and managing datasets. 
+> Azure Machine Learning also supports [code-first workflows](./v1/how-to-create-register-datasets.md) for creating and managing datasets. 
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An Azure Machine Learning workspace. [Create an Azure Machine Learning workspace](how-to-manage-workspace.md#create-a-workspace).
+- An Azure Machine Learning workspace. [Create workspace resources](quickstart-create-resources.md).
 - A Studio (classic) dataset to migrate.
 
 
@@ -119,9 +120,9 @@ If your data is already in a cloud storage service, and you want to keep your da
 
 Use the following steps to register a dataset to Azure Machine Learning from a cloud service: 
 
-1. [Create a datastore](how-to-connect-data-ui.md#create-datastores), which links the cloud storage service to your Azure Machine Learning workspace. 
+1. [Create a datastore](v1/how-to-connect-data-ui.md#create-datastores), which links the cloud storage service to your Azure Machine Learning workspace. 
 
-1. [Register a dataset](how-to-connect-data-ui.md#create-datasets). If you are migrating a Studio (classic) dataset, select the **Tabular** dataset setting.
+1. [Register a dataset](v1/how-to-connect-data-ui.md#create-datasets). If you are migrating a Studio (classic) dataset, select the **Tabular** dataset setting.
 
 After you register a dataset in Azure Machine Learning, you can use it in designer:
  
@@ -133,7 +134,7 @@ After you register a dataset in Azure Machine Learning, you can use it in design
 
 Use the following steps to import data directly to your designer pipeline:
 
-1. [Create a datastore](how-to-connect-data-ui.md#create-datastores), which links the cloud storage service to your Azure Machine Learning workspace. 
+1. [Create a datastore](v1/how-to-connect-data-ui.md#create-datastores), which links the cloud storage service to your Azure Machine Learning workspace. 
 
 After you create the datastore, you can use the [**Import Data**](algorithm-module-reference/import-data.md) module in the designer to ingest data from it:
 

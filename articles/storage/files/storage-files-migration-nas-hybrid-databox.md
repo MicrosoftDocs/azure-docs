@@ -1,11 +1,11 @@
 ---
 title: On-premises NAS migration to Azure File Sync via Data Box
 description: Learn how to migrate files from an on-premises Network Attached Storage (NAS) location to a hybrid cloud deployment by using Azure File Sync via Azure Data Box.
-author: fauhse
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 03/5/2021
-ms.author: fauhse
+ms.author: kendownie
 ms.subservice: files
 ---
 
@@ -114,13 +114,15 @@ When your Data Box arrives, it will have pre-provisioned SMB shares available fo
 Follow the steps in the Azure Data Box documentation:
 
 1. [Connect to Data Box](../../databox/data-box-deploy-copy-data.md).
-1. Copy data to Data Box.
+1. Copy data to Data Box. </br>You can use Robocopy (follow instruction below) or the new [Data Box data copy service](../../databox/data-box-deploy-copy-data-via-copy-service.md).
 1. [Prepare your Data Box for upload to Azure](../../databox/data-box-deploy-picked-up.md).
 
-The linked Data Box documentation specifies a Robocopy command. That command isn't suitable for preserving the full file and folder fidelity. Use this command instead:
+> [!TIP]
+> As an alternative to Robocopy, Data Box has created a data copy service. You can use this service to load files onto your Data Box with full fidelity. [Follow this data copy service tutorial](../../databox/data-box-deploy-copy-data-via-copy-service.md) and make sure to set the correct Azure file share target.
+
+Data Box documentation specifies a Robocopy command. That command isn't suitable for preserving the full file and folder fidelity. Use this command instead:
 
 [!INCLUDE [storage-files-migration-robocopy](../../../includes/storage-files-migration-robocopy.md)]
-
 
 ## Phase 6: Deploy the Azure File Sync cloud resource
 

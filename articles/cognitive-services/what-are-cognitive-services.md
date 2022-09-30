@@ -15,7 +15,7 @@ ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 
 # What are Azure Cognitive Services?
 
-Azure Cognitive Services are cloud-based artificial intelligence (AI) services that help you build cognitive intelligence into your applications. They are available as REST APIs, client library SDKs, and user interfaces. You can add cognitive features to your applications without having AI or data science skills. Cognitive Services enable you to build cognitive solutions that can see, hear, speak, understand, and even make decisions.
+Azure Cognitive Services are cloud-based artificial intelligence (AI) services that help developers build cognitive intelligence into applications without having direct AI or data science skills or knowledge. They are available through REST APIs and client library SDKs in popular development languages. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, and analyze.
 
 ## Categories of Cognitive Services
 
@@ -34,7 +34,7 @@ See the tables below to learn about the services offered within those categories
 |:-----------|:------------------|--|
 |[Computer Vision](./computer-vision/index.yml "Computer Vision")|The Computer Vision service provides you with access to advanced cognitive algorithms for processing images and returning information.| [Computer Vision quickstart](./computer-vision/quickstarts-sdk/client-library.md)|
 |[Custom Vision](./custom-vision-service/index.yml "Custom Vision Service")|The Custom Vision Service lets you build, deploy, and improve your own image classifiers. An image classifier is an AI service that applies labels to images, based on their visual characteristics. | [Custom Vision quickstart](./custom-vision-service/getting-started-build-a-classifier.md)|
-|[Face](./face/index.yml "Face")| The Face service provides access to advanced face algorithms, enabling face attribute detection and recognition.| [Face quickstart](./face/quickstarts/client-libraries.md)|
+|[Face](./computer-vision/index-identity.yml "Face")| The Face service provides access to advanced face algorithms, enabling face attribute detection and recognition.| [Face quickstart](./face/quickstarts/client-libraries.md)|
 
 ## Speech APIs
 
@@ -80,7 +80,7 @@ With Azure and Cognitive Services, you have access to several development option
 * Automation and integration tools like Logic Apps and Power Automate.
 * Deployment options such as Azure Functions and the App Service. 
 * Cognitive Services Docker containers for secure access.
-* Tools like Apache Spark, Azure Databricks, Azure Synapse Analytics, and Azure Kubernetes Service for Big Data scenarios. 
+* Tools like Apache Spark, Azure Databricks, Azure Synapse Analytics, and Azure Kubernetes Service for big data scenarios. 
 
 To learn more, see [Cognitive Services development options](./cognitive-services-development-options.md).
 

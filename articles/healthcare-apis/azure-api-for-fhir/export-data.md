@@ -1,12 +1,12 @@
 ---
 title: Executing the export by invoking $export command on Azure API for FHIR
 description: This article describes how to export FHIR data using $export for Azure API for FHIR
-author: caitlinv39
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/15/2022
-ms.author: cavoeg
+ms.date: 06/03/2022
+ms.author: kesheth
 ---
 
 # How to export FHIR data in Azure API for FHIR
@@ -128,7 +128,7 @@ Azure API for FHIR is provisioned.
 | West US 2            | 40.64.135.77      |
 
 > [!NOTE]
-> The above steps are similar to the configuration steps described in the document How to convert data to FHIR (Preview). For more information, see [Host and use templates](../../healthcare-apis/fhir/convert-data.md#host-and-use-templates)
+> The above steps are similar to the configuration steps described in the document **Converting your data to FHIR**. For more information, see [Configure ACR firewall](../../healthcare-apis/fhir/convert-data.md#configure-acr-firewall).
 
 ### Allowing specific IP addresses for the Azure storage account in the same region
 
@@ -144,3 +144,5 @@ In this article, you've learned how to export FHIR resources using $export comma
  
 >[!div class="nextstepaction"]
 >[Export de-identified data](de-identified-export.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

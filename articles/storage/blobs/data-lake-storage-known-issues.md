@@ -97,7 +97,7 @@ The setting for retention days is not yet supported, but you can delete logs man
 
 Currently, the WASB driver, which was designed to work with the Blob API only, encounters problems in a few common scenarios. Specifically, when it is a client to a hierarchical namespace enabled storage account. Multi-protocol access on Data Lake Storage won't mitigate these issues.
 
-Using the WASB driver as a client to a hierarchical namespace enabled storage account is not supported. Instead, we recommend that you use the [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) driver in your Hadoop environment. If you are trying to migrate off of an on-premise Hadoop environment with a version earlier than Hadoop branch-3, then please open an Azure Support ticket so that we can get in touch with you on the right path forward for you and your organization.
+Using the WASB driver as a client to a hierarchical namespace enabled storage account is not supported. Instead, we recommend that you use the [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) driver in your Hadoop environment. If you are trying to migrate off of an on-premises Hadoop environment with a version earlier than Hadoop branch-3, then please open an Azure Support ticket so that we can get in touch with you on the right path forward for you and your organization.
 
 ## Soft delete for blobs capability
 
@@ -105,7 +105,7 @@ If parent directories for soft-deleted files or directories are renamed, the sof
 
 ## Events
 
-If your account has an event subscription, read operations on the secondary endpoint will result in an error. To resolve this issue, remove event subscriptions.
+If your account has an event subscription, read operations on the secondary endpoint will result in an error. To resolve this issue, remove event subscriptions. Using the dfs endpoint (abfss://URI) for non-hierarchical namespace enabled accounts will not generate events, but the blob endpoint (wasb:// URI) will generate events.
 
 > [!TIP]
 > Read access to the secondary endpoint is available only when you enable read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS).

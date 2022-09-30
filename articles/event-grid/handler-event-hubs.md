@@ -71,11 +71,11 @@ See the following examples:
 ## Delivery properties
 Event subscriptions allow you to set up HTTP headers that are included in delivered events. This capability allows you to set custom headers that are required by a destination. You can set custom headers on the events that are delivered to Azure Event Hubs.
 
-If you need to publish events to a specific partition within an event hub, set the `ParitionKey` property on your event subscription to specify the partition key that identifies the target event hub partition.
+If you need to publish events to a specific partition within an event hub, set the `PartitionKey` property on your event subscription to specify the partition key that identifies the target event hub partition.
 
 | Header name | Header type |
 | :-- | :-- |
-|`PartitionKey` | Static |
+|`PartitionKey` | Static or dynamic |
 
 For more information, see [Custom delivery properties](delivery-properties.md). 
 

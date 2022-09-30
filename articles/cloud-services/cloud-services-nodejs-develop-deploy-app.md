@@ -183,7 +183,7 @@ For more information, see the [Node.js Developer Center].
 [Azure SDK for .NET 3.0]: https://www.microsoft.com/download/details.aspx?id=54917
 [Connect PowerShell]: /powershell/azure/
 [nodejs.org]: https://nodejs.org/
-[Overview of Creating a Hosted Service for Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
+[Overview of Creating a Hosted Service for Azure]: /azure/cloud-services/
 [Node.js Developer Center]: https://azure.microsoft.com/develop/nodejs/
 
 <!-- IMG List -->
@@ -195,6 +195,3 @@ For more information, see the [Node.js Developer Center].
 [A browser window displaying the hello world page; the URL indicates the page is hosted on Azure.]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
 [The status of the Stop-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
 [The status of the Remove-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
-
-
-

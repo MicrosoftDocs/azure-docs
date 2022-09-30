@@ -1,15 +1,15 @@
 ---
 title: Configure import settings in the FHIR service - Azure Health Data Services
-description: This article describes how to configure import settings in the FHIR service
-author: ginalee-dotcom
+description: This article describes how to configure import settings in the FHIR service.
+author: RuiyiC
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 04/16/2022
-ms.author: ranku
+ms.date: 06/06/2022
+ms.author: ruiyichen
 ---
 
-# Configure bulk import settings (Preview)
+# Configure bulk-import settings (Preview)
 
 The FHIR service supports $import operation that allows you to import data into FHIR service account from a storage account.
 
@@ -47,7 +47,7 @@ The final step is to set the import configuration of the FHIR service, which con
 > [!NOTE]
 > If you haven't assigned storage access permissions to the FHIR service, the import operations ($import) will fail.
 
-To specify the Azure Storage account, you need to use [Rest API](https://docs.microsoft.com/rest/api/healthcareapis/services/create-or-update) to update the FHIR service.
+To specify the Azure Storage account, you need to use [REST API](/rest/api/healthcareapis/services/create-or-update) to update the FHIR service.
 
 To get the request URL and body, browse to the Azure portal of your FHIR service. Select **Overview**, and then **JSON View**.
 
@@ -59,13 +59,20 @@ Copy the URL as request URL and do following changes of the JSON as body:
 - Set initialImportMode in importConfiguration to **true**
 - Drop off provisioningState.
 
-[ ![Screenshot of the importer configuration code example](media/bulk-import/importer-url-and-body.png) ](media/bulk-import/importer-url-and-body.png#lightbox)
+[ ![Screenshot of the importer configuration code example](media/bulk-import/import-url-and-body.png) ](media/bulk-import/import-url-and-body.png#lightbox)
 
 After you've completed this final step, you're ready to import data using $import.
+
+You can also use the **Deploy to Azure** button below to open custom Resource Manager template that updates the configuration for $import.
+
+ [![Deploy to Azure Button](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fiotc-device-bridge%2Fmaster%2Fazuredeploy.json)
 
 ## Next steps
 
 In this article, you've learned the FHIR service supports $import operation and how it allows you to import data into FHIR service account from a storage account. You also learned about the three steps used in configuring import settings in the FHIR service. For more information about converting data to FHIR, exporting settings to set up a storage account, and moving data to Azure Synapse, see
+
+>[!div class="nextstepaction"]
+>[Use $import](import-data.md)
 
 >[!div class="nextstepaction"]
 >[Converting your data to FHIR](convert-data.md)
@@ -75,3 +82,5 @@ In this article, you've learned the FHIR service supports $import operation and 
 
 >[!div class="nextstepaction"]
 >[Copy data from FHIR service to Azure Synapse Analytics](copy-to-synapse.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

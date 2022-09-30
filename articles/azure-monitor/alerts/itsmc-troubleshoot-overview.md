@@ -5,6 +5,7 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 2/23/2022
+ms.reviewer: nolavime
 
 ---
 # Troubleshoot problems in IT Service Management Connector
@@ -74,7 +75,7 @@ The following sections identify common symptoms, possible causes, and resolution
 
 ### Work items are not created
 
-**Cause**: There can be several reasons for this symptom:
+**Cause**: There can be several reasons for this:
 
 * Code was modified on the ServiceNow side.
 * Permissions are misconfigured.
@@ -92,7 +93,7 @@ The following sections identify common symptoms, possible causes, and resolution
 
 ### Sync connection 
 
-**Cause**: There can be several reasons for this symptom:
+**Cause**: There can be several reasons for this:
 
 * Templates are not shown as a part of the action definition dropdown and an error message is shown: "Can't retrieve the template configuration, see the connector logs for more information."
 * Values are not shown in the dropdowns of the default fields as a part of the action definition and an error message is shown: "No values found for the following fields: \<field names\>."
@@ -101,3 +102,14 @@ The following sections identify common symptoms, possible causes, and resolution
 **Resolution**: 
 * [Sync the connector](itsmc-resync-servicenow.md).
 * Check the [dashboard](itsmc-dashboard.md) and review the errors in the section for connector status. Then review the [common errors and their resolutions](itsmc-dashboard-errors.md)
+
+### In the incidents received from ServiceNow, the configuration item is blank 
+**Cause**: There can be several reasons for this:
+* The alert is not a log alert. Configuration items are only supported by log alerts.
+* The search results do not include the **Computer** or **Resource** column.
+* The values in the configuration item field do not match an entry in the CMDB.
+
+**Resolution**: 
+* Check if the alert is a log alert. If it isn't a log alert, configuration items are not supported.
+* If the search results do not have  a Computer or Resource column, add them to the query.
+* Check that the values in the Computer and Resource columns are identical to the values in the CMDB. If they are not, add a new entry to the CMDB with the matching values.

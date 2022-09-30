@@ -16,7 +16,7 @@ Follow this quickstart to get started with Azure Attestation. Learn how to manag
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. The user creating an attestation provider should have sufficient access levels on the subscription to create a resource (e.g: owner/contributor). Please refer [Azure built-in roles](../role-based-access-control/built-in-roles.md) for more information.
 
 ## Attestation provider
 

@@ -1,11 +1,12 @@
 ---
 title: Azure Service Fabric Standalone Package for Windows Server 
 description: Description and contents of the Azure Service Fabric Standalone package for Windows Server.
-author: maburlik
-
-ms.topic: conceptual
-ms.date: 8/10/2017
-ms.author: maburlik
+ms.topic: how-to
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/14/2022
 ---
 
 # Contents of Service Fabric Standalone package for Windows Server

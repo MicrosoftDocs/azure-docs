@@ -1,5 +1,5 @@
 ---
-title: Start and stop a node pool on Azure Kubernetes Service (AKS) (Preview)
+title: Start and stop a node pool on Azure Kubernetes Service (AKS)
 description: Learn how to start or stop a node pool on Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
@@ -8,49 +8,13 @@ author: qpetraroia
 ms.author: qpetraroia
 ---
 
-# Start and stop an Azure Kubernetes Service (AKS) node pool (Preview)
+# Start and stop an Azure Kubernetes Service (AKS) node pool
 
 Your AKS workloads may not need to run continuously, for example a development cluster that has node pools running specific workloads. To optimize your costs, you can completely turn off (stop) your node pools in your AKS cluster, allowing you to save on compute costs.
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][kubernetes-walkthrough-powershell], or [using the Azure portal][aks-quickstart-portal].
-
-### Install aks-preview CLI extension
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-You also need the *aks-preview* Azure CLI extension. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-### Register the `PreviewStartStopAgentPool` preview feature
-
-To use the feature, you must also enable the `PreviewStartStopAgentPool` feature flag on your subscription.
-
-Register the `PreviewStartStopAgentPool` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "PreviewStartStopAgentPool"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/PreviewStartStopAgentPool')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
 ## Stop an AKS node pool
 
@@ -126,8 +90,9 @@ You can verify your node pool has started using [az aks show][az-aks-show] and c
 <!-- LINKS - external -->
 
 <!-- LINKS - internal -->
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update

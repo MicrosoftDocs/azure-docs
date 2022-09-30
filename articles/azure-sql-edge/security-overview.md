@@ -1,14 +1,16 @@
 ---
-title: Secure Azure SQL Edge 
+title: Secure Azure SQL Edge
 description: Learn about security in Azure SQL Edge
-keywords: SQL Edge, security
-services: sql-edge
+author: rwestMSFT
+ms.author: randolphwest
+ms.reviewer: randolphwest
+ms.date: 09/22/2020
 ms.service: sql-edge
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
-ms.reviewer: jroth
-ms.date: 09/22/2020
+keywords:
+  - SQL Edge
+  - security
+services: sql-edge
 ---
 
 # Securing Azure SQL Edge
@@ -44,7 +46,7 @@ Authentication is the process of proving the user is who they claim to be. Azure
 
 ### Authorization   
 
-Authorization refers to the permissions assigned to a user within a database in Azure SQL Edge, and determines what the user is allowed to do. Permissions are controlled by adding user accounts to [database roles](/sql/relational-databases/security/authentication-access/database-level-roles) and assigning database-level permissions to those roles or by granting the user certain [object-level permissions](/sql/relational-databases/security/permissions-database-engine). For more information, see [Logins and users](../azure-sql/database/logins-create-manage.md).
+Authorization refers to the permissions assigned to a user within a database in Azure SQL Edge, and determines what the user is allowed to do. Permissions are controlled by adding user accounts to [database roles](/sql/relational-databases/security/authentication-access/database-level-roles) and assigning database-level permissions to those roles or by granting the user certain [object-level permissions](/sql/relational-databases/security/permissions-database-engine). For more information, see [Logins and users](/azure/azure-sql/database/logins-create-manage).
 
 As a best practice, create custom roles when needed. Add users to the role with the least privileges required to do their job function. Do not assign permissions directly to users. The server admin account is a member of the built-in db_owner role, which has extensive permissions and should only be granted to few users with administrative duties. For applications, use the [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) to specify the execution context of the called module or use [Application Roles](/sql/relational-databases/security/authentication-access/application-roles) with limited permissions. This practice ensures that the application that connects to the database has the least privileges needed by the application. Following these best practices also fosters separation of duties.
 

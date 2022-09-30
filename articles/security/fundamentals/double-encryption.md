@@ -12,7 +12,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/28/2021
+ms.date: 07/01/2022
 ms.author: terrylan
 ---
 # Double encryption
@@ -27,8 +27,8 @@ Azure provides double encryption for data at rest and data in transit.
 ## Data at rest
 Microsoft’s approach to enabling two layers of encryption for data at rest is:
 
-- **Disk encryption using customer-managed keys**. You provide your own key for disk encryption. You can bring your own keys to your Key Vault (BYOK – Bring Your Own Key), or generate new keys in Azure Key Vault to encrypt the desired resources.
-- **Infrastructure encryption using platform-managed keys**.  By default, disks are automatically encrypted at rest using platform-managed encryption keys.
+- **Encryption at rest using customer-managed keys**. You provide your own key for data encryption at rest. You can bring your own keys to your Key Vault (BYOK – Bring Your Own Key), or generate new keys in Azure Key Vault to encrypt the desired resources.
+- **Infrastructure encryption using platform-managed keys**.  By default, data is automatically encrypted at rest using platform-managed encryption keys.
 
 ## Data in transit
 Microsoft’s approach to enabling two layers of encryption for data in transit is:

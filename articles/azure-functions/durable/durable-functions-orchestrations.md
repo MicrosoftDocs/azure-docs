@@ -3,13 +3,13 @@ title: Durable Orchestrations - Azure Functions
 description: Introduction to the orchestration feature for Azure Durable Functions.
 author: cgillum
 ms.topic: overview
-ms.date: 05/11/2021
+ms.date: 05/06/2022
 ms.author: azfuncdf
-ms.devlang: csharp, javascript, powershell, python
+ms.devlang: csharp, javascript, powershell, python, java
 #Customer intent: As a developer, I want to understand durable orchestrations so that I can use them effectively in my applications.
 ---
 
-# Durable Orchestrations
+# Durable orchestrations
 
 Durable Functions is an extension of [Azure Functions](../functions-overview.md). You can use an *orchestrator function* to orchestrate the execution of other Durable functions within a function app. Orchestrator functions have the following characteristics:
 
@@ -40,7 +40,7 @@ An orchestration's instance ID is a required parameter for most [instance manage
 
 Orchestrator functions reliably maintain their execution state by using the [event sourcing](/azure/architecture/patterns/event-sourcing) design pattern. Instead of directly storing the current state of an orchestration, the Durable Task Framework uses an append-only store to record the full series of actions the function orchestration takes. An append-only store has many benefits compared to "dumping" the full runtime state. Benefits include increased performance, scalability, and responsiveness. You also get eventual consistency for transactional data and full audit trails and history. The audit trails support reliable compensating actions.
 
-Durable Functions uses event sourcing transparently. Behind the scenes, the `await` (C#) or `yield` (JavaScript/Python) operator in an orchestrator function yields control of the orchestrator thread back to the Durable Task Framework dispatcher. The dispatcher then commits any new actions that the orchestrator function scheduled (such as calling one or more child functions or scheduling a durable timer) to storage. The transparent commit action updates the execution history of the orchestration instance by appending all new events into storage, much like an append-only log. Similarly, the commit action creates messages in storage to schedule the actual work. At this point, the orchestrator function can be unloaded from memory. By default, Durable Functions uses Azure Storage as its runtime state store, but other [storage providers are also supported](durable-functions-storage-providers.md).
+Durable Functions uses event sourcing transparently. Behind the scenes, the `await` (C#) or `yield` (JavaScript/Python) operator in an orchestrator function yields control of the orchestrator thread back to the Durable Task Framework dispatcher. In the case of Java, there is no special language keyword. Instead, calling `.await()` on a task will yield control back to the dispatcher via a custom `Throwable`. The dispatcher then commits any new actions that the orchestrator function scheduled (such as calling one or more child functions or scheduling a durable timer) to storage. The transparent commit action updates the execution history of the orchestration instance by appending all new events into storage, much like an append-only log. Similarly, the commit action creates messages in storage to schedule the actual work. At this point, the orchestrator function can be unloaded from memory. By default, Durable Functions uses Azure Storage as its runtime state store, but other [storage providers are also supported](durable-functions-storage-providers.md).
 
 When an orchestration function is given more work to do (for example, a response message is received or a durable timer expires), the orchestrator wakes up and re-executes the entire function from the start to rebuild the local state. During the replay, if the code tries to call a function (or do any other async work), the Durable Task Framework consults the execution history of the current orchestration. If it finds that the [activity function](durable-functions-types-features-overview.md#activity-functions) has already executed and yielded a result, it replays that function's result and the orchestrator code continues to run. Replay continues until the function code is finished or until it has scheduled new async work.
 
@@ -57,15 +57,15 @@ The event-sourcing behavior of the Durable Task Framework is closely coupled wit
 # [C#](#tab/csharp)
 
 ```csharp
-[FunctionName("E1_HelloSequence")]
+[FunctionName("HelloCities")]
 public static async Task<List<string>> Run(
     [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     var outputs = new List<string>();
 
-    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Tokyo"));
-    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Seattle"));
-    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "London"));
+    outputs.Add(await context.CallActivityAsync<string>("SayHello", "Tokyo"));
+    outputs.Add(await context.CallActivityAsync<string>("SayHello", "Seattle"));
+    outputs.Add(await context.CallActivityAsync<string>("SayHello", "London"));
 
     // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
     return outputs;
@@ -79,9 +79,9 @@ const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context) {
     const output = [];
-    output.push(yield context.df.callActivity("E1_SayHello", "Tokyo"));
-    output.push(yield context.df.callActivity("E1_SayHello", "Seattle"));
-    output.push(yield context.df.callActivity("E1_SayHello", "London"));
+    output.push(yield context.df.callActivity("SayHello", "Tokyo"));
+    output.push(yield context.df.callActivity("SayHello", "Seattle"));
+    output.push(yield context.df.callActivity("SayHello", "London"));
 
     // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
     return output;
@@ -116,9 +116,25 @@ $output += Invoke-DurableActivity -FunctionName 'SayHello' -Input 'London'
 
 $output
 ```
+# [Java](#tab/java)
+
+```java
+@FunctionName("HelloCities")
+public String helloCitiesOrchestrator(
+        @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
+    return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
+        String result = "";
+        result += ctx.callActivity("SayHello", "Tokyo", String.class).await() + ", ";
+        result += ctx.callActivity("SayHello", "Seattle", String.class).await() + ", ";
+        result += ctx.callActivity("SayHello", "London", String.class).await();
+        return result;
+    });
+}
+```
+
 ---
 
-At each `await` (C#) or `yield` (JavaScript/Python) statement, the Durable Task Framework checkpoints the execution state of the function into some durable storage backend (Azure Table storage by default). This state is what's referred to as the *orchestration history*.
+Whenever an activity function is scheduled, the Durable Task Framework checkpoints the execution state of the function into some durable storage backend (Azure Table storage by default). This state is what's referred to as the *orchestration history*.
 
 ### History table
 
@@ -137,17 +153,17 @@ Upon completion, the history of the function shown earlier looks something like 
 
 | PartitionKey (InstanceId)                     | EventType             | Timestamp               | Input | Name             | Result                                                    | Status |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
-| eaee885b | ExecutionStarted      | 2021-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     |
+| eaee885b | ExecutionStarted      | 2021-05-05T18:45:28.852Z | null  | HelloCities      |                                                           |                     |
 | eaee885b | OrchestratorStarted   | 2021-05-05T18:45:32.362Z |       |                  |                                                           |                     |
-| eaee885b | TaskScheduled         | 2021-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | TaskScheduled         | 2021-05-05T18:45:32.670Z |       | SayHello         |                                                           |                     |
 | eaee885b | OrchestratorCompleted | 2021-05-05T18:45:32.670Z |       |                  |                                                           |                     |
 | eaee885b | TaskCompleted         | 2021-05-05T18:45:34.201Z |       |                  | """Hello Tokyo!"""                                        |                     |
 | eaee885b | OrchestratorStarted   | 2021-05-05T18:45:34.232Z |       |                  |                                                           |                     |
-| eaee885b | TaskScheduled         | 2021-05-05T18:45:34.435Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | TaskScheduled         | 2021-05-05T18:45:34.435Z |       | SayHello         |                                                           |                     |
 | eaee885b | OrchestratorCompleted | 2021-05-05T18:45:34.435Z |       |                  |                                                           |                     |
 | eaee885b | TaskCompleted         | 2021-05-05T18:45:34.763Z |       |                  | """Hello Seattle!"""                                      |                     |
 | eaee885b | OrchestratorStarted   | 2021-05-05T18:45:34.857Z |       |                  |                                                           |                     |
-| eaee885b | TaskScheduled         | 2021-05-05T18:45:34.857Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | TaskScheduled         | 2021-05-05T18:45:34.857Z |       | SayHello         |                                                           |                     |
 | eaee885b | OrchestratorCompleted | 2021-05-05T18:45:34.857Z |       |                  |                                                           |                     |
 | eaee885b | TaskCompleted         | 2021-05-05T18:45:34.919Z |       |                  | """Hello London!"""                                       |                     |
 | eaee885b | OrchestratorStarted   | 2021-05-05T18:45:35.032Z |       |                  |                                                           |                     |
@@ -157,17 +173,7 @@ Upon completion, the history of the function shown earlier looks something like 
 A few notes on the column values:
 
 * **PartitionKey**: Contains the instance ID of the orchestration.
-* **EventType**: Represents the type of the event. May be one of the following types:
-  * **OrchestratorStarted**: The orchestrator function resumed from an await or is running for the first time. The `Timestamp` column is used to populate the deterministic value for the `CurrentUtcDateTime` (.NET), `currentUtcDateTime` (JavaScript), and `current_utc_datetime` (Python) APIs.
-  * **ExecutionStarted**: The orchestrator function started executing for the first time. This event also contains the function input in the `Input` column.
-  * **TaskScheduled**: An activity function was scheduled. The name of the activity function is captured in the `Name` column.
-  * **TaskCompleted**: An activity function completed. The result of the function is in the `Result` column.
-  * **TimerCreated**: A durable timer was created. The `FireAt` column contains the scheduled UTC time at which the timer expires.
-  * **TimerFired**: A durable timer fired.
-  * **EventRaised**: An external event was sent to the orchestration instance. The `Name` column captures the name of the event and the `Input` column captures the payload of the event.
-  * **OrchestratorCompleted**: The orchestrator function awaited.
-  * **ContinueAsNew**: The orchestrator function completed and restarted itself with new state. The `Result` column contains the value, which is used as the input in the restarted instance.
-  * **ExecutionCompleted**: The orchestrator function ran to completion (or failed). The outputs of the function or the error details are stored in the `Result` column.
+* **EventType**: Represents the type of the event. You can find detailed descriptions of all the history event types [here](https://github.com/Azure/durabletask/tree/main/src/DurableTask.Core/History#readme).
 * **Timestamp**: The UTC timestamp of the history event.
 * **Name**: The name of the function that was invoked.
 * **Input**: The JSON-formatted input of the function.
@@ -176,7 +182,7 @@ A few notes on the column values:
 > [!WARNING]
 > While it's useful as a debugging tool, don't take any dependency on this table. It may change as the Durable Functions extension evolves.
 
-Every time the function resumes from an `await` (C#) or `yield` (JavaScript/Python), the Durable Task Framework reruns the orchestrator function from scratch. On each rerun, it consults the execution history to determine whether the current async operation has taken place.  If the operation took place, the framework replays the output of that operation immediately and moves on to the next `await` (C#) or `yield` (JavaScript/Python). This process continues until the entire history has been replayed. Once the current history has been replayed, the local variables will have been restored to their previous values.
+Every time the function is resumed after waiting for a task to complete, the Durable Task Framework reruns the orchestrator function from scratch. On each rerun, it consults the execution history to determine whether the current async task has completed.  If the execution history shows that the task has already completed, the framework replays the output of that task and moves on to the next task. This process continues until the entire execution history has been replayed. Once the current execution history has been replayed, the local variables will have been restored to their previous values.
 
 ## Features and patterns
 
@@ -190,7 +196,7 @@ For more information and for examples, see the [Sub-orchestrations](durable-func
 
 ### Durable timers
 
-Orchestrations can schedule *durable timers* to implement delays or to set up timeout handling on async actions. Use durable timers in orchestrator functions instead of `Thread.Sleep` and `Task.Delay` (C#), or `setTimeout()` and `setInterval()` (JavaScript), or `time.sleep()` (Python).
+Orchestrations can schedule *durable timers* to implement delays or to set up timeout handling on async actions. Use durable timers in orchestrator functions instead of language-native "sleep" APIs.
 
 For more information and for examples, see the [Durable timers](durable-functions-timers.md) article.
 
@@ -292,6 +298,10 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
 # [PowerShell](#tab/powershell)
 
 The feature is not currently supported in PowerShell.
+
+# [Java](#tab/java)
+
+The feature is not currently supported in Java.
 
 ---
 
@@ -430,6 +440,37 @@ param($location)
 "Hello $($location.City), $($location.State)!"
 # ...
 ```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("GetWeatherOrchestrator")
+public String getWeatherOrchestrator(
+    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
+        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
+            var location = new Location();
+            location.city = "Seattle";
+            location.state = "WA";
+            String weather = ctx.callActivity("GetWeather", location, String.class).await();
+            return weather;
+        });
+}
+
+@FunctionName("GetWeather")
+public String getWeather(@DurableActivityTrigger(name = "location") Location location) {
+    if (location.city.equals("Seattle") && location.state.equals("WA")) {
+        return "Cloudy";
+    } else {
+        return "Unknown";
+    }
+}
+
+class Location {
+    public String city;
+    public String state;
+}
+```
+
 ---
 
 ## Next steps

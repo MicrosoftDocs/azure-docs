@@ -1,12 +1,13 @@
 ---
 title: GetCurrentTimestamp in Azure Cosmos DB query language
 description: Learn about SQL system function GetCurrentTimestamp in Azure Cosmos DB.
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ms.custom: query-reference
 ---
 # GetCurrentTimestamp (Azure Cosmos DB)

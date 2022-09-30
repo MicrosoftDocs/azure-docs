@@ -1,8 +1,9 @@
 ---
 title: Create a Core (SQL) API serverless account, database and container for Azure Cosmos DB
 description: Create a Core (SQL) API serverless account, database and container for Azure Cosmos DB
-author: markjbrown
-ms.author: mjbrown
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample

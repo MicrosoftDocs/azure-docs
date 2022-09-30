@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to work with dates.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/30/2021
+ms.date: 05/03/2022
 ---
 
 # Date functions for Bicep
@@ -76,6 +76,94 @@ resource scheduler 'Microsoft.Automation/automationAccounts/schedules@2015-10-31
   }
 }
 ```
+
+## dateTimeFromEpoch
+
+`dateTimeFromEpoch(epochTime)`
+
+Converts an epoch time integer value to an ISO 8601 datetime.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| epochTime | Yes | int | The epoch time to convert to a datetime string. |
+
+### Return value
+
+An ISO 8601 datetime string.
+
+### Remarks
+
+This function requires **Bicep version 0.5.6 or later**.
+
+### Example
+
+The following example shows output values for the epoch time functions.
+
+```bicep
+param convertedEpoch int = dateTimeToEpoch(dateTimeAdd(utcNow(), 'P1Y'))
+
+var convertedDatetime = dateTimeFromEpoch(convertedEpoch)
+
+output epochValue int = convertedEpoch
+output datetimeValue string = convertedDatetime
+```
+
+The output is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| datetimeValue | String | 2023-05-02T15:16:13Z |
+| epochValue | Int | 1683040573 |
+
+## dateTimeToEpoch
+
+`dateTimeToEpoch(dateTime)`
+
+Converts an ISO 8601 datetime string to an epoch time integer value.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| dateTime | Yes | string | The datetime string to convert to an epoch time. |
+
+### Return value
+
+An integer that represents the number of seconds from midnight on January 1, 1970.
+
+### Remarks
+
+This function requires **Bicep version 0.5.6 or later**.
+
+### Examples
+
+The following example shows output values for the epoch time functions.
+
+```bicep
+param convertedEpoch int = dateTimeToEpoch(dateTimeAdd(utcNow(), 'P1Y'))
+
+var convertedDatetime = dateTimeFromEpoch(convertedEpoch)
+
+output epochValue int = convertedEpoch
+output datetimeValue string = convertedDatetime
+```
+
+The output is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| datetimeValue | String | 2023-05-02T15:16:13Z |
+| epochValue | Int | 1683040573 |
+
+The next example uses the epoch time value to set the expiration for a key in a key vault.
+
+:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.storage/storage-blob-encryption-with-cmk/main.bicep" highlight="20,65":::
 
 ## utcNow
 

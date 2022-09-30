@@ -20,7 +20,7 @@ Managed HSM is a cloud service that safeguards encryption keys. As these keys ar
 - Create an [Azure Active Directory Security Group](../../active-directory/fundamentals/active-directory-manage-groups.md) for the HSM Administrators (instead of assigning Administrator role to individuals). This will prevent "administration lock-out" in case of individual account deletion.
 - Lock down access to your management groups, subscriptions, resource groups and Managed HSMs - Use Azure RBAC to control access to your management groups, subscriptions, and resource groups
 - Create per key role assignments using [Managed HSM local RBAC](access-control.md#data-plane-and-managed-hsm-local-rbac).
-- To maintain separation of duties avoid assigning multiple roles to same principals. 
+- To maintain separation of duties avoid assigning multiple roles to same principals.
 - Use least privilege access principal to assign roles.
 - Create custom role definition with precise set of permissions.
 
@@ -30,7 +30,7 @@ Managed HSM is a cloud service that safeguards encryption keys. As these keys ar
 
 ## Backup
 
-- Make sure you take regular backups of your HSM. Backups can be done at the HSM level and for specific keys. 
+- Make sure you take regular backups of your HSM. Backups can be done at the HSM level and for specific keys.
 
 ## Turn on logging
 
@@ -41,12 +41,12 @@ Managed HSM is a cloud service that safeguards encryption keys. As these keys ar
 - [Soft Delete](soft-delete-overview.md) is on by default. You can choose a retention period between 7 and 90 days.
 - Turn on purge protection to prevent immediate permanent deletion of HSM or keys. When purge protection is on HSM or keys will remain in deleted state until the retention days have passed.
 
-## Generate and import keys from on-premise HSM
+## Generate and import keys from on-premises HSM
 
 > [!NOTE]
 > Keys created or imported into Managed HSM are not exportable.
 
-- To ensure long term portability and key durability, generate keys in your on-premise HSM and [import them to Managed HSM](hsm-protected-keys-byok.md). You will have a copy of your key securely stored in your on-premise HSM for future use.
+- To ensure long term portability and key durability, generate keys in your on-premises HSM and [import them to Managed HSM](hsm-protected-keys-byok.md). You will have a copy of your key securely stored in your on-premises HSM for future use.
 
 ## Next steps
 

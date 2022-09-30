@@ -185,4 +185,4 @@ When no longer needed, [delete the resource group](../azure-resource-manager/man
 - [ASP.NET Core with SQL Database](tutorial-dotnetcore-sqldb-app.md)
 - [Python with Postgres](tutorial-python-postgresql-app.md)
 - [PHP with MySQL](tutorial-php-mysql-app.md)
-- [Connect to Azure SQL database with Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
+- [Connect to Azure SQL database with Java](/azure/azure-sql/database/connect-query-java?toc=%2fazure%2fjava%2ftoc.json)

@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 03/19/2020
+ ms.date: 04/19/2022
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -27,8 +27,6 @@ Virtual WAN is available for the following regions:
 | South America |Brazil South |
 | South Korea | Korea Central, Korea South |
 | UAE | UAE North, UAE Central |
-
-
 
 ### Azure regions and geopolitical boundaries for national clouds
 

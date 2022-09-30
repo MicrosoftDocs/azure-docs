@@ -2,6 +2,7 @@
 title: Tutorial - Access your private cloud
 description: Learn how to access an Azure VMware Solution private cloud
 ms.topic: tutorial
+ms.service: azure-vmware
 ms.date: 08/13/2021
 ---
 

@@ -3,7 +3,7 @@ title: Use Azure Active Directory pod-managed identities in Azure Kubernetes Ser
 description: Learn how to use Azure AD pod-managed identities in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 3/12/2021
+ms.date: 8/27/2022
 
 ---
 
@@ -28,6 +28,7 @@ You must have the following resource installed:
 * A maximum of 200 pod identities are allowed for a cluster.
 * A maximum of 200 pod identity exceptions are allowed for a cluster.
 * Pod-managed identities are available on Linux node pools only.
+* This feature is only supported for Virtual Machine Scale Sets backed clusters.
 
 ### Register the `EnablePodIdentityPreview`
 
@@ -199,7 +200,7 @@ For a pod to use AAD pod-managed identity, the pod needs an *aadpodidbinding* la
 To run a sample application using AAD pod-managed identity, create a `demo.yaml` file with the following contents. Replace *POD_IDENTITY_NAME*, *IDENTITY_CLIENT_ID*, and *IDENTITY_RESOURCE_GROUP* with the values from the previous steps. Replace *SUBSCRIPTION_ID* with your subscription ID.
 
 > [!NOTE]
-> In the previous steps, you created the *POD_IDENTITY_NAME*, *IDENTITY_CLIENT_ID*, and *IDENTITY_RESOURCE_GROUP* variables. You can use a command such as `echo` to display the value you set for variables, for example `echo $IDENTITY_NAME`.
+> In the previous steps, you created the *POD_IDENTITY_NAME*, *IDENTITY_CLIENT_ID*, and *IDENTITY_RESOURCE_GROUP* variables. You can use a command such as `echo` to display the value you set for variables, for example `echo $POD_IDENTITY_NAME`.
 
 ```yml
 apiVersion: v1

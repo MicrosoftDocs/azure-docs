@@ -35,7 +35,7 @@ Create a new Azure Maps account with the following steps:
 
 1. Select **Create a resource** in the upper left-hand corner of the [Azure portal](https://portal.azure.com).
 2. Type **Azure Maps** in the *Search services and Marketplace* box.
-3. Select **Azure Maps** in the drop down list that appears, then select the **Create** button.
+3. Select **Azure Maps** in the drop-down list that appears, then select the **Create** button.
 4. On the **Create an Azure Maps Account resource** page, enter the following values then select the **Create** button:
     * The *Subscription* that you want to use for this account.
     * The *Resource group* name for this account. You may choose to *Create new* or *Select existing* resource group.
@@ -43,7 +43,7 @@ Create a new Azure Maps account with the following steps:
     * The *Pricing tier* for this account. Select **Gen2**.
     * Read the *License* and *Privacy Statement*, then select the checkbox to accept the terms.
 
-    :::image type="content" source="./media/quick-demo-map-app/create-account.png" alt-text="A screen shot showing the Create an Azure Maps Account resource page in the Azure portal." lightbox="./media/quick-demo-map-app/create-account.png":::
+    :::image type="content" source="./media/shared/create-account.png" alt-text="Screenshot showing the Create an Azure Maps Account resource page in the Azure portal." lightbox="./media/shared/create-account.png":::
 
 <a id="getkey"></a>
 
@@ -55,14 +55,14 @@ Once your Azure Maps account is successfully created, retrieve the primary key t
 2. In the settings section, select **Authentication**.
 3. Copy the **Primary Key** and save it locally to use later in this tutorial.
 
-:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Screen shot showing your Azure Maps Primary Key in the Azure portal" lightbox="./media/quick-demo-map-app/get-key.png":::
+:::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Screenshot showing your Azure Maps Primary Key in the Azure portal" lightbox="./media/quick-demo-map-app/get-key.png":::
 
 >[!NOTE]
 > This quickstart uses the [Shared Key](azure-maps-authentication.md#shared-key-authentication) authentication approach for demonstration purposes, but the preferred approach for any production environment is to use [Azure Active Directory](azure-maps-authentication.md#azure-ad-authentication) authentication.
 
 ## Download and update the Azure Maps demo
 
-1. Go to [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html). Copy the contents of the file.
+1. Go to [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/Samples/Tutorials/Interactive%20Search/Interactive%20Search%20Quickstart.html). Copy the contents of the file.
 2. Save the contents of this file locally as **AzureMapDemo.html**. Open it in a text editor.
 3. Add the **Primary Key** value you got in the preceding section
     1. Comment out all of the code in the `authOptions` function, this code is used for Azure Active Directory authentication.
@@ -77,7 +77,7 @@ Once your Azure Maps account is successfully created, retrieve the primary key t
 4. Try out the interactive search experience. In the search box on the upper-left corner of the demo web application, search for **restaurants**.
 5. Move your mouse over the list of addresses and locations that appear below the search box. Notice how the corresponding pin on the map pops out information about that location. For privacy of private businesses, fictitious names and addresses are shown.
 
-    :::image type="content" source="./media/quick-demo-map-app/interactive-search.png" alt-text="A screen shot showing the interactive map search web application." lightbox="./media/quick-demo-map-app/interactive-search.png":::
+    :::image type="content" source="./media/quick-demo-map-app/interactive-search.png" alt-text="Screenshot showing the interactive map search web application." lightbox="./media/quick-demo-map-app/interactive-search.png":::
 
 ## Clean up resources
 

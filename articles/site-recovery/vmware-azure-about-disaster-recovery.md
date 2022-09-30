@@ -10,6 +10,9 @@ ms.date: 08/19/2021
 
 This article provides an overview of disaster recovery for on-premises VMware VMs to Azure using the [Azure Site Recovery](site-recovery-overview.md) service.
 
+>[!NOTE]
+>You can now move your existing replicated items to modernized VMware disaster recovery experience. [Learn more](move-from-classic-to-modernized-vmware-disaster-recovery.md).
+
 ## What is BCDR?
 
 A business continuity and disaster recovery (BCDR) strategy helps keep your business up and running. During planned downtime and unexpected outages, BCDR keeps data safe and available, and ensures that apps continue running. In addition to platform BCDR features such as regional pairing, and high availability storage, Azure provides Recovery Services as an integral part of your BCDR solution. Recovery services include:

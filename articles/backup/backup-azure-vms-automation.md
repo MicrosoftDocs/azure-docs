@@ -2,7 +2,7 @@
 title: Back up and recover Azure VMs with PowerShell
 description: Describes how to back up and recover Azure VMs using Azure Backup with PowerShell
 ms.topic: conceptual
-ms.date: 01/04/2022
+ms.date: 04/25/2022
 ms.custom: devx-track-azurepowershell
 author: v-amallick
 ms.service: backup
@@ -434,10 +434,13 @@ To restore backup data, identify the backed-up item and the recovery point that 
 
 The basic steps to restore an Azure VM are:
 
-* Select the VM.
-* Choose a recovery point.
-* Restore the disks.
-* Create the VM from stored disks.
+> [!div class="checklist"]
+> * Select the VM.
+> * Choose a recovery point.
+> * Restore the disks.
+> * Create the VM from stored disks.
+
+Now, you can also use PowerShell to directly restore the backup content to a VM (original/new), without performing the above steps separately. For more information, see [Restore data to virtual machine using PowerShell](#restore-data-to-virtual-machine-using-powershell).
 
 ### Select the VM (when restoring files)
 
@@ -981,6 +984,48 @@ After the required files are copied, use [Disable-AzRecoveryServicesBackupRPMoun
 ```powershell
 Disable-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0] -VaultId $targetVault.ID
 ```
+
+## Restore data to virtual machine using PowerShell
+
+You can now directly restore data to original/alternate VM without performing multiple steps.
+
+### Restore data to original VM
+
+```powershell-interactive
+$vault = Get-AzRecoveryServicesVault -ResourceGroupName "resourceGroup" -Name "vaultName"
+$BackupItem = Get-AzRecoveryServicesBackupItem -BackupManagementType "AzureVM" -WorkloadType "AzureVM" -Name "V2VM" -VaultId $vault.ID
+$StartDate = (Get-Date).AddDays(-7)
+$EndDate = Get-Date
+$RP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $BackupItem -StartDate $StartDate.ToUniversalTime() -EndDate $EndDate.ToUniversalTime() -VaultId $vault.ID
+$OriginalLocationRestoreJob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $RP[0] -StorageAccountName "DestStorageAccount" -StorageAccountResourceGroupName "DestStorageAccRG" -VaultId $vault.ID -VaultLocation $vault.Location 
+```
+
+```output
+WorkloadName    Operation       Status          StartTime              EndTime
+------------    ---------       ------          ---------              -------
+V2VM            Restore         InProgress      26-Apr-16 1:14:01 PM   01-Jan-01 12:00:00 AM
+```
+
+The last command triggers an original location restore operation to restore the data in-place in the existing VM.
+
+###  Restore data to a newly created VM
+
+```powershell-interactive
+$vault = Get-AzRecoveryServicesVault -ResourceGroupName "resourceGroup" -Name "vaultName"
+$BackupItem = Get-AzRecoveryServicesBackupItem -BackupManagementType "AzureVM" -WorkloadType "AzureVM" -Name "V2VM" -VaultId $vault.ID
+$StartDate = (Get-Date).AddDays(-7)
+$EndDate = Get-Date
+$RP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $BackupItem -StartDate $StartDate.ToUniversalTime() -EndDate $EndDate.ToUniversalTime() -VaultId $vault.ID
+$AlternateLocationRestoreJob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $RP[0] -TargetResourceGroupName "Target_RG" -StorageAccountName "DestStorageAccount" -StorageAccountResourceGroupName "DestStorageAccRG" -TargetVMName "TagetVirtualMachineName" -TargetVNetName "Target_VNet" -TargetVNetResourceGroup "" -TargetSubnetName "subnetName" -VaultId $vault.ID -VaultLocation $vault.Location 
+```
+
+```output
+WorkloadName    Operation       Status          StartTime              EndTime
+------------    ---------       ------          ---------              -------
+V2VM            Restore         InProgress      26-Apr-16 1:14:01 PM   01-Jan-01 12:00:00 AM
+```
+
+The last command triggers an alternate location restore operation to create a new VM in *Target_RG* resource group as per the inputs specified by parameters *TargetVMName*, *TargetVNetName*, *TargetVNetResourceGroup*, *TargetSubnetName*. This ensures that the data is restored in the required VM, virtual network and subnet.
 
 ## Next steps
 

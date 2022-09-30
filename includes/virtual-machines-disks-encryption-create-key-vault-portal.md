@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 09/27/2021
+ ms.date: 06/16/2022
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -19,7 +19,7 @@ Setting up customer-managed keys for your disks will require you to create resou
     [![Screenshot of the Azure portal with the search dialog box expanded.](./media/virtual-machines-disk-encryption-portal/server-side-encryption-key-vault-portal-search.png)](./media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-portal-search-expanded.png#lightbox)
 
     > [!IMPORTANT]
-    > Your Azure key vault, disk encryption set, VM, disks, and snapshots must all be in the same region and subscription for deployment to succeed.
+    > Your disk encryption set, VM, disks, and snapshots must all be in the same region and subscription for deployment to succeed. Azure Key Vaults may be used from a different subscription but must be in the same region and tenant as your disk encryption set.
 
 1. Select **+Create** to create a new Key Vault.
 1. Create a new resource group.

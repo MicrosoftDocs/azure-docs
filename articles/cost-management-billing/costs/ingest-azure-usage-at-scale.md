@@ -1,10 +1,10 @@
 ---
 title: Retrieve large cost datasets recurringly with exports from Cost Management
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description: This article helps you regularly export large amounts of data with exports from Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/10/2021
+ms.date: 07/15/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -12,7 +12,7 @@ ms.reviewer: adwise
 ---
 # Retrieve large cost datasets recurringly with exports
 
-This article helps you regularly export large amounts of data with exports from Cost Management. Exporting is the recommended way to retrieve unaggregated cost data. Especially when usage files are too large to reliably call and download using the Usage Details API. Exported data is placed in the Azure Storage account that you choose. From there, you can load it into your own systems and analyze it as needed. To configure exports in the Azure portal, see [Export data](tutorial-export-acm-data.md).
+This article helps you regularly export large amounts of data with exports from Cost Management. Exporting is the recommended way to retrieve unaggregated cost data. Especially when usage files are too large to reliably call and download using the [Cost Details](/rest/api/cost-management/generate-cost-details-report) API. Exported data is placed in the Azure Storage account that you choose. From there, you can load it into your own systems and analyze it as needed. To configure exports in the Azure portal, see [Export data](tutorial-export-acm-data.md).
 
 If you want to automate exports at various scopes, the sample API request in the next section is a good starting point. You can use the Exports API to create automatic exports as a part of your general environment configuration. Automatic exports help ensure that you have the data that you need. You can use in your own organization's systems as you expand your Azure use.
 
@@ -28,47 +28,8 @@ Before you create your first export, consider your scenario and the configuratio
   - ActualCost - Shows the total usage and costs for the period specified, as they're accrued and shows on your bill.
   - AmortizedCost - Shows the total usage and costs for the period specified, with amortization applied to the reservation purchase costs that are applicable.
   - Usage - All exports created before July 20 2020 are of type Usage. Update all your scheduled exports as either ActualCost or AmortizedCost.
-- **Columns** – Defines the data fields you want included in your export file. They correspond with the fields available in the Usage Details API. For more information, see [Usage Details API](/rest/api/consumption/usagedetails/list).
-
-## Seed a historical cost dataset in Azure storage
-
-When setting up a data pipeline using exports, you might find it useful to seed your historical cost data. This historical data can then be loaded into the data store of your choice. We recommend creating one-time data exports in one month chunks. The following example explains how to create a one-time export using the Exports API. If you have a large dataset each month, we recommend setting `partitionData = true` for your one-time export to split it into multiple files. For more information, see [File partitioning for large datasets](tutorial-export-acm-data.md?tabs=azure-portal#file-partitioning-for-large-datasets).
-
-After you've seeded your historical dataset, you can then create a scheduled export to continue populating your cost data in Azure storage as your charges accrue moving forward. The next section has additional information. 
-
-```http
-PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.CostManagement/exports/{ExportName}?api-version=2021-10-01
-```
-
-Request body:
-
-```json
-{
-  "properties": {
-    "definition": {
-      "dataset": {
-        "granularity": "Daily",
-        "grouping": []
-      },
-      "timePeriod": {
-        "from": "2021-09-01T00:00:00.000Z",
-        "to": "2021-09-30T00:00:00.000Z"
-      },
-      "timeframe": "Custom",
-      "type": "ActualCost"
-    },
-    "deliveryInfo": {
-      "destination": {
-        "container": "{containerName}",
-        "rootFolderPath": "{folderName}",
-        "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}"
-      }
-    },
-    "format": "Csv",
-    "partitionData": false
-  }
-}
-```
+- **Columns** – Defines the data fields you want included in your export file. They correspond with the fields available in the [Cost Details](/rest/api/cost-management/generate-cost-details-report) API.
+- **Partitioning** - Set the option to true if you have a large dataset and would like it to be broken up into multiple files. This makes data ingestion much faster and easier. For more information about partitioning, see [File partitioning for large datasets](../costs/tutorial-export-acm-data.md#file-partitioning-for-large-datasets).
 
 ## Create a daily month-to-date export for a subscription
 

@@ -45,6 +45,7 @@ You'll complete the following tasks:
 * Use Azure IoT Central to create cloud components, view properties, view device telemetry, and call direct commands
 
 :::zone pivot="iot-toolset-cmake"
+
 ## Prerequisites
 
 * A PC running Windows 10
@@ -54,6 +55,7 @@ You'll complete the following tasks:
     * The [B-L4S5I-IOT01A](https://www.st.com/en/evaluation-tools/b-l4s5i-iot01a.html) (STM DevKit)
     * Wi-Fi 2.4 GHz
     * USB 2.0 A male to Micro USB male cable
+* An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prepare the development environment
 
@@ -428,7 +430,7 @@ To connect the device to Azure, you'll modify a configuration file for Azure IoT
 
 1. Select the sample project that you want to build and run. For example, ***sample_azure_iot_embedded_sdk_pnp.***
 
-1. Expand the ***command_hardware_code*** folder to open ***board_setup.c*** to configure the values for your WiFi to be used.
+1. Expand the ***common_hardware_code*** folder to open ***board_setup.c*** to configure the values for your WiFi to be used.
 
     |Symbol name|Value|
     |-----------|-----|
@@ -570,6 +572,10 @@ Select the **About** tab from the device page.
 :::zone-end
 
 :::zone pivot="iot-toolset-cmake"
+
+> [!TIP]
+> To customize these views, edit the [device template](../iot-central/core/howto-edit-device-template.md).
+
 ## Verify the device status
 
 To view the device status in IoT Central portal:

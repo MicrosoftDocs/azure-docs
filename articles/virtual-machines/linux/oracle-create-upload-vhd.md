@@ -9,7 +9,7 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: srijangupta
-
+ms.reviewer: mattmcinnes
 ---
 # Prepare an Oracle Linux virtual machine for Azure
 
@@ -82,7 +82,7 @@ You must complete specific configuration steps in the operating system for the v
 9. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this open "/boot/grub/menu.lst" in a text editor and ensure that the kernel includes the following parameters:
 
     ```config-grub
-    console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+    console=ttyS0 earlyprintk=ttyS0 
     ```
 
    This will ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues.
@@ -188,7 +188,7 @@ Preparing an Oracle Linux 7 virtual machine for Azure is very similar to Oracle 
 9. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this open "/etc/default/grub" in a text editor and edit the `GRUB_CMDLINE_LINUX` parameter, for example:
 
     ```config-grub
-    GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
+    GRUB_CMDLINE_LINUX="console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
 
    This will also ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. It also turns off the naming conventions for NICs in Oracle Linux 7 with the Unbreakable Enterprise Kernel. In addition to the above, it is recommended to *remove* the following parameters:

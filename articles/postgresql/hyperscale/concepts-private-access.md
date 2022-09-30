@@ -11,7 +11,9 @@ ms.date: 10/15/2021
 
 # Private access in Azure Database for PostgreSQL - Hyperscale (Citus)
 
-[!INCLUDE [azure-postgresql-hyperscale-access](../../../includes/azure-postgresql-hyperscale-access.md)]
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
+
+[!INCLUDE[azure-postgresql-hyperscale-access](../../../includes/azure-postgresql-hyperscale-access.md)]
 
 This page describes the private access option. For public access, see
 [here](concepts-firewall-rules.md).

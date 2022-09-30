@@ -30,7 +30,11 @@ This documentation contains the following article types:
 * [**Quickstarts**](client-libraries.md) are getting-started instructions to guide you through making requests to the service.  
 * [**How-to guides**](try-text-api.md) contain instructions for using the service in more specific or customized ways.  
 * [**Concepts**](text-moderation-api.md) provide in-depth explanations of the service functionality and features.  
-* [**Tutorials**](ecommerce-retail-catalog-moderation.md) are longer guides that show you how to use the service as a component in broader business solutions.  
+* [**Tutorials**](ecommerce-retail-catalog-moderation.md) are longer guides that show you how to use the service as a component in broader business solutions.
+
+For a more structured approach, follow a Learn module for Content Moderator.
+* [Introduction to Content Moderator](/training/modules/intro-to-content-moderator/)
+* [Classify and moderate text with Azure Content Moderator](/training/modules/classify-and-moderate-text-with-azure-content-moderator/)
 
 ## Where it's used
 

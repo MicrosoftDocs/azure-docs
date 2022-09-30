@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/08/2022
+ms.date: 04/21/2022
 ms.author: jeedes
 
 ---
@@ -48,6 +48,8 @@ To configure the integration of Recurly into Azure AD, you need to add Recurly f
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Recurly** in the search box.
 1. Select **Recurly** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
 
 ## Configure and test Azure AD SSO for Recurly
 
@@ -140,7 +142,7 @@ Follow these steps to configure single sign-on for your **Recurly** site.
 
    a. In **PROVIDER NAME**, select **Azure**.
 
-   b. In the **SAML ISSUER ID** textbox, paste the **Identifier URL** value which you have copied from the Azure portal.
+   b. In the **SAML ISSUER ID** textbox, paste the **Application(Client ID)** value from the Azure portal.
 
    c. In the **LOGIN URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
 

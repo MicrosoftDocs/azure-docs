@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 10/12/2021
+ms.date: 06/16/2022
 
 ms.author: mimart
 author: msmimart
@@ -32,13 +32,16 @@ To manage these scenarios previously, you had to manually delete the guest user�
 1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator or User administrator account for the directory.
 1. Search for and select **Azure Active Directory**.
 1. Select **Users**.
-1. In the list, select the user's name to open the user's profile.
+1. In the list, select the user's name to open their user profile.
 1. If the user wants to sign in using a different email:
-   - Select the **Edit** icon at the top of the page.
-   - In the **Contact info** section, under **Email**, type the new email.
-   - Next to **Alternate email**, select **Edit**. Update the alternate email In the list with the new email, and then select **Update**.
-   - Select the **Save** icon at the top of the page.
-1. In the **Identity** section, under **Invitation accepted**, select **(manage)**.
+   - Select the **Properties** tab.
+   - Select the **Edit** icon next to **Contact information**.
+   - Next to **Email**, type the new email.
+   - Update **Other emails** to also include the new email.
+   - Select the **Save** button at the bottom of the page.
+
+1. In the **Overview** tab, under **My Feed**, select **B2B collaboration**. 
+    ![new user profile page displaying the B2B Collaboration tile](./media/reset-redemption-status/user-profile-b2b-collaboration.png)
 1. Under **Redemption status**, next to **Reset invitation status? (Preview)**, select **Yes**.
 1. Select **Yes** to confirm.
 

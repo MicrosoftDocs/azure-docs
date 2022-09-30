@@ -30,7 +30,7 @@ Or use the [Azure Cloud Shell](https://shell.azure.com/), which already includes
 
 ## Log in to Azure
 
-```bash
+```azurecli
 az login
 az account set --subscription "<subscription_id>"
 ```
@@ -48,7 +48,7 @@ Note: This step can be skipped if you already have an AKS cluster.
 
 ## Create a service principal and grant permission to Synapse workspace
 
-```bash
+```azurecli
 az ad sp create-for-rbac --name <service_principal_name> --role Contributor --scopes /subscriptions/<subscription_id>
 ```
 
@@ -139,7 +139,7 @@ helm delete <release_name> -n <namespace>
 
 Delete the AKS cluster.
 
-```bash
+```azurecli
 az aks delete --name <kubernetes_cluster_name> --resource-group <kubernetes_cluster_rg>
 ```
 

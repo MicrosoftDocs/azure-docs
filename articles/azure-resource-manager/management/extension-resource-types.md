@@ -2,7 +2,7 @@
 title: Extension resource types
 description: Lists the Azure resource types are used to extend the capabilities of other resource types.
 ms.topic: conceptual
-ms.date: 04/18/2022
+ms.date: 08/31/2022
 ---
 
 # Resource types that extend capabilities of other resources
@@ -13,6 +13,7 @@ An extension resource is a resource that adds to another resource's capabilities
 
 * advisorScore
 * configurations
+* predict
 * recommendations
 * suppressions
 
@@ -23,7 +24,6 @@ An extension resource is a resource that adds to another resource's capabilities
 ## Microsoft.Authorization
 
 * accessReviewHistoryDefinitions
-* batchResourceCheckAccess
 * denyAssignments
 * eligibleChildResources
 * locks
@@ -62,10 +62,6 @@ An extension resource is a resource that adds to another resource's capabilities
 * blueprintAssignments
 * blueprints
 
-## Microsoft.Capacity
-
-* listSkus
-
 ## Microsoft.ChangeAnalysis
 
 * changes
@@ -76,8 +72,6 @@ An extension resource is a resource that adds to another resource's capabilities
 
 * artifactSetDefinitions
 * artifactSetSnapshots
-* chaosProviderConfigurations
-* chaosTargets
 * targets
 
 ## Microsoft.Consumption
@@ -104,21 +98,23 @@ An extension resource is a resource that adds to another resource's capabilities
 
 * serviceAssociationLinks
 
+## Microsoft.ContainerService
+
+* fleetMemberships
+
 ## Microsoft.CostManagement
 
 * Alerts
 * BenefitRecommendations
 * BenefitUtilizationSummaries
 * Budgets
-* CheckNameAvailability
 * Dimensions
 * Exports
 * ExternalSubscriptions
 * Forecast
+* GenerateCostDetailsReport
 * GenerateDetailedCostReport
 * Insights
-* OperationResults
-* OperationStatus
 * Pricesheets
 * Publish
 * Query
@@ -138,12 +134,6 @@ An extension resource is a resource that adds to another resource's capabilities
 ## Microsoft.DataProtection
 
 * backupInstances
-
-## Microsoft.Diagnostics
-
-* apollo
-* insights
-* solutions
 
 ## Microsoft.EventGrid
 
@@ -184,6 +174,7 @@ An extension resource is a resource that adds to another resource's capabilities
 ## Microsoft.KubernetesConfiguration
 
 * extensions
+* extensionTypes
 * fluxConfigurations
 * namespaces
 * sourceControlConfigurations
@@ -203,17 +194,18 @@ An extension resource is a resource that adds to another resource's capabilities
 * registrationAssignments
 * registrationDefinitions
 
+## Microsoft.Management
+
+* managementGroups
+
 ## Microsoft.Network
 
+* cloudServiceSlots
 * networkManagerConnections
 
 ## Microsoft.OperationalInsights
 
 * storageInsightConfigs
-
-## Microsoft.OperationsManagement
-
-* managementassociations
 
 ## Microsoft.PolicyInsights
 
@@ -226,7 +218,6 @@ An extension resource is a resource that adds to another resource's capabilities
 
 ## Microsoft.Quota
 
-* operationsStatus
 * quotaRequests
 * quotas
 * usages
@@ -234,7 +225,6 @@ An extension resource is a resource that adds to another resource's capabilities
 ## Microsoft.RecoveryServices
 
 * backupProtectedItems
-* replicationEligibilityResults
 
 ## Microsoft.ResourceHealth
 
@@ -252,11 +242,14 @@ An extension resource is a resource that adds to another resource's capabilities
 * adaptiveNetworkHardenings
 * advancedThreatProtectionSettings
 * antiMalwareSettings
+* applications
 * assessmentMetadata
 * assessments
 * Compliances
 * dataCollectionAgents
+* dataSensitivitySettings
 * deviceSecurityGroups
+* governanceRules
 * InformationProtectionPolicies
 * insights
 * jitPolicies
@@ -273,22 +266,23 @@ An extension resource is a resource that adds to another resource's capabilities
 * automationRules
 * bookmarks
 * cases
+* dataConnectorDefinitions
 * dataConnectors
-* dataConnectorsCheckRequirements
 * enrichment
 * entities
 * entityQueryTemplates
 * fileImports
+* huntsessions
 * incidents
-* listrepositories
 * metadata
 * MitreCoverageRecords
 * onboardingStates
+* overview
+* recommendations
 * securityMLAnalyticsSettings
 * settings
 * sourceControls
 * threatIntelligence
-* watchlists
 
 ## Microsoft.SerialConsole
 
@@ -305,6 +299,7 @@ An extension resource is a resource that adds to another resource's capabilities
 
 ## Microsoft.Subscription
 
+* aliases
 * policies
 
 ## microsoft.support

@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Azure Digital Twins query language reference - MATCH clause (preview)
+title: Azure Digital Twins query language reference - MATCH clause
 titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language MATCH clause
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/25/2022
+ms.date: 05/11/2022
 ms.topic: article
 ms.service: digital-twins
 
@@ -15,9 +15,9 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Azure Digital Twins query language reference: MATCH clause (preview)
+# Azure Digital Twins query language reference: MATCH clause
 
-This document contains reference information on the *MATCH clause* for the [Azure Digital Twins query language](concepts-query-language.md). This clause is currently in preview.
+This document contains reference information on the *MATCH clause* for the [Azure Digital Twins query language](concepts-query-language.md).
 
 The `MATCH` clause is used in the Azure Digital Twins query language as part of the [FROM clause](reference-query-clause-from.md). `MATCH` allows you to specify which pattern should be followed while traversing relationships in the Azure Digital Twins graph (this is also known as a "variable hop" query pattern).
 
@@ -273,7 +273,7 @@ You can chain multiple relationship conditions together, like this. The placehol
 
 ### Examples
 
-Here's an example that combines relationship direction, relationship name, and number of hops The following query finds twins Floor and Room where the relationship between Floor and Room meets these conditions:
+Here's an example that combines relationship direction, relationship name, and number of hops. The following query finds twins Floor and Room where the relationship between Floor and Room meets these conditions:
 * the relationship is left-to-right, with Floor as the source and Room as the target
 * the relationship has a name of either 'contains' or 'isAssociatedWith'
 * the relationship has either 4 or 5 hops

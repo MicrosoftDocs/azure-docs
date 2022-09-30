@@ -3,6 +3,7 @@ title: Release Notes for Azure web app extension - Application Insights
 description: Releases notes for Azure Web Apps Extension for runtime instrumentation with Application Insights.
 ms.topic: conceptual
 ms.date: 06/26/2020
+ms.reviewer: rajrang
 ---
 
 # Release notes for Azure Web App extension for Application Insights
@@ -20,6 +21,14 @@ Learn more about [Azure Web App Extension for Application Insights](azure-web-ap
     - Uninstall private site extensions since it's no longer supported.
 
 ## Release notes
+
+### 2.8.44
+
+- .NET/.NET Core: Upgraded to [ApplicationInsights .NET SDK to 2.20.1-redfield](https://github.com/microsoft/ApplicationInsights-dotnet/tree/autoinstrumentation/2.20.1).
+
+### 2.8.43
+
+- Separate .NET/.NET Core, Java and Node.js package into different App Service Windows Site Extension. 
 
 ### 2.8.42
 

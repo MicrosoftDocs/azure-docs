@@ -7,7 +7,7 @@ author: stevenmatthew
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 04/04/2022
+ms.date: 05/05/2022
 ms.author: shaas
 ms.custom: mode-ui
 ---

@@ -12,6 +12,10 @@
     href: connection.md
   - name: Connection telemetry
     href: connection-telemetry.md
+  - name: Security
+    items:
+      - name: Security baseline
+        href: /security/benchmark/azure/baselines/microsoft-azure-peering-service-security-baseline?toc=/azure/peering-service/TOC.json
 - name: How-to-guides
   items:
   - name: Create Peering Service

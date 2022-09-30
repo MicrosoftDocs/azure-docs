@@ -5,7 +5,7 @@ services: iot-hub
 author: kgremban
 ms.author: kgremban
 ms.date: 07/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-hub
 ms.custom: [amqp, mqtt, devx-track-csharp]
 ---

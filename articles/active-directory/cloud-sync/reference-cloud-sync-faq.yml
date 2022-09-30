@@ -4,7 +4,7 @@ metadata:
   description: This document describes frequently asked questions for cloud sync.
   services: active-directory
   author: billmath
-  manager: karenhoran
+  manager: amycolannino
   ms.service: active-directory
   ms.workload: identity
   ms.topic: faq
@@ -27,7 +27,7 @@ sections:
       - question: |
           Seeing password hash sync failures on the first run. Why?
         answer: |
-          This is expected. The failures are due to the user object not present in Azure AD. Once the user is provisioned to Azure AD, password hashes should provisioning in the subsequent run. Wait for a couple of runs and confirm that password hash sync no longer has the errors.
+          This behavior is expected. The failures are due to the user object not present in Azure AD. Once the user is provisioned, wait for a couple of runs and confirm that password hash sync no longer has the errors.
 
       - question: |
           What happens if the Active Directory instance has attributes that are not supported by cloud sync (for instance, directory extensions)?
@@ -95,9 +95,9 @@ sections:
           No, staging servers are not supported.
 
       - question: |
-          Can I synchronize Guest user accounts?
+          Can I synchronize a Guest user account?
         answer: |
-          No, synchronizing guest user accounts is not supported.
+          No, synchronizing a guest user account is not supported.
 
       - question: |
           If I move a user from an OU that is scoped for cloud sync to an OU that is scoped for Azure AD Connect, what happens?
@@ -113,6 +113,10 @@ sections:
           Does Azure AD Connect cloud sync support large groups?
         answer: |
           Yes. Today we support up to 50K group members synchronized using the OU scope filtering. 
+      - question: |
+          Does Azure AD Connect cloud sync support nested groups with group scoping?
+        answer: |
+          No. Nested objects beyond the first level will not be included when scoping using security groups. Only use group scope filtering for pilot scenarios, there are limitations to syncing large groups. 
       - question: |
           Does the cloud provisioning agent load balance if I have multiple agents installed?
         answer: |

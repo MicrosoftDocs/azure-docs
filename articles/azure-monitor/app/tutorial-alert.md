@@ -4,6 +4,7 @@ description: Tutorial to send alerts in response to errors in your application u
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.custom: mvc
+ms.reviewer: vitalyg
 ---
 
 # Monitor and alert on application health with Azure Application Insights

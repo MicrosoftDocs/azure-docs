@@ -168,3 +168,5 @@ sections:
                   <td>Password22</td>
               </tr>
           </table>
+          
+          For additional information and restrictions for password creation reference this [password guidance documentation](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).

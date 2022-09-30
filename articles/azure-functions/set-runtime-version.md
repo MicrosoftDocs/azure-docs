@@ -53,8 +53,6 @@ You can change the runtime version used by your function app. Because of the pot
 
 [!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
-> [!NOTE]
-> Using the Azure portal, you can't change the runtime version for a function app that already contains functions.
 
 # [Azure CLI](#tab/azurecli)
 

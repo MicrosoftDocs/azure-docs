@@ -37,22 +37,20 @@ Before you select a service mesh, ensure that you understand your requirements a
 
 ## Next steps
 
-As a next step, explore Open Service Mesh (OSM) on Azure Kubernetes Service (AKS):
+Open Service Mesh (OSM) is a supported service mesh that runs Azure Kubernetes Service (AKS):
 
 > [!div class="nextstepaction"]
 > [Learn more about OSM ...][osm-about]
 
-You can also explore the following service meshes on Azure Kubernetes Service (AKS) via the comprehensive project documentation available for each of them:
+There are also service meshes provided by open-source projects and third parties that are commonly used with AKS. These open-source and third-party service meshes are not covered by the [AKS support policy][aks-support-policy].
 
 - [Istio][istio]
 - [Linkerd][linkerd]
 - [Consul Connect][consul]
 
-If you'd like to understand more about the service mesh landscape, the broader set of available service meshes, tooling, and compliance, then explore:
+For more details on the service mesh landscape, see [Layer 5's Service Mesh Landscape][service-mesh-landscape].
 
-- [Layer 5's Service Mesh Landscape][service-mesh-landscape]
-
-You may also want to explore the various service mesh standardization efforts:
+For more details service mesh standardization efforts:
 
 - [Service Mesh Interface (SMI)][smi]
 - [Service Mesh Federation][smf]
@@ -70,3 +68,4 @@ You may also want to explore the various service mesh standardization efforts:
 
 <!-- LINKS - internal -->
 [osm-about]: ./open-service-mesh-about.md
+[aks-support-policy]: support-policies.md

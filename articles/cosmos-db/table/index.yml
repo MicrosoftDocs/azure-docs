@@ -1,0 +1,31 @@
+### YamlMime:Landing
+
+title: Azure Cosmos DB Table API documentation
+summary: Azure Cosmos DB provides the Table API for applications that are written for Azure Table storage and require premium capabilities.
+
+metadata:
+  title: Azure Cosmos DB Table API documentation
+  description: Azure Cosmos DB provides the Table API for applications that are written for Azure Table storage and require premium capabilities.
+  services: service
+  ms.service: cosmos-db
+  ms.subservice: cosmosdb-table
+  ms.topic: landing-page
+  ms.collection: collection
+  author: seesharprun
+  ms.author: sidandrews
+  ms.reviewer: markjbrown
+  ms.date: 05/24/2022
+
+landingContent:
+  - title: Use Azure Cosmos DB Table API
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Manage your data using a .NET app
+            url: create-table-dotnet.md            
+          - text: Manage your data using a Java app
+            url: create-table-java.md                     
+      - linkListType: concept
+        links:
+          - text: Differences between Table API and Azure Table storage
+            url: table-support.md

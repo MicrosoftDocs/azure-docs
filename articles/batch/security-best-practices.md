@@ -13,7 +13,7 @@ By default, Azure Batch accounts have a public endpoint and are publicly accessi
 
 :::image type="content" source="media/security-best-practices/typical-environment.png" alt-text="Diagram showing a typical Batch environment.":::
 
-Many features are available to help you create a more secure Azure Batch deployment. You can restrict access to nodes and reduce the discoverability of the nodes from the internet by [provisioning the pool without public IP addresses](batch-pool-no-public-ip-address.md). The compute nodes can securely communicate with other virtual machines or with an on-premises network by [provisioning the pool in a subnet of an Azure virtual network](batch-virtual-network.md). And you can enable [private access from virtual networks](private-connectivity.md) from a service powered by Azure Private Link.
+Many features are available to help you create a more secure Azure Batch deployment. You can restrict access to nodes and reduce the discoverability of the nodes from the internet by [provisioning the pool without public IP addresses](simplified-node-communication-pool-no-public-ip.md). The compute nodes can securely communicate with other virtual machines or with an on-premises network by [provisioning the pool in a subnet of an Azure virtual network](batch-virtual-network.md). And you can enable [private access from virtual networks](private-connectivity.md) from a service powered by Azure Private Link.
 
 :::image type="content" source="media/security-best-practices/secure-environment.png" alt-text="Diagram showing a more secure Batch environment.":::
 
@@ -58,9 +58,9 @@ Batch management operations via Azure Resource Manager are encrypted using HTTPS
 
 The Batch service communicates with a Batch node agent that runs on each node in the pool. For example, the service instructs the node agent to run a task, stop a task, or get the files for a task. Communication with the node agent is enabled by one or more load balancers, the number of which depends on the number of nodes in a pool. The load balancer forwards the communication to the desired node, with each node being addressed by a unique port number. By default, load balancers have public IP addresses associated with them. You can also remotely access pool nodes via RDP or SSH (this access is enabled by default, with communication via load balancers).
 
-### Restricting access to Batch endpoints 
+### Restricting access to Batch endpoints
 
-Several capabilities are available to limit access to the various Batch endpoints, especially when the solution uses a virtual network. 
+Several capabilities are available to limit access to the various Batch endpoints, especially when the solution uses a virtual network.
 
 #### Use private endpoints
 
@@ -99,7 +99,7 @@ By default, all the compute nodes in an Azure Batch virtual machine configuratio
 
 To restrict access to these nodes and reduce the discoverability of these nodes from the internet, you can provision the pool without public IP addresses.
 
-For more information, see [Create a pool without public IP addresses](batch-pool-no-public-ip-address.md).
+For more information, see [Create a pool without public IP addresses](simplified-node-communication-pool-no-public-ip.md).
 
 #### Limit remote access to pool nodes
 
@@ -108,7 +108,7 @@ By default, Batch allows a node user with network connectivity to connect extern
 To limit remote access to nodes, use one of the following methods:
 
 - Configure the [PoolEndpointConfiguration](/rest/api/batchservice/pool/add#poolendpointconfiguration) to deny access. The appropriate network security group (NSG) will be associated with the pool.
-- Create your pool [without public IP addresses](batch-pool-no-public-ip-address.md). By default, these pools can't be accessed outside of the VNet.
+- Create your pool [without public IP addresses](simplified-node-communication-pool-no-public-ip.md). By default, these pools can't be accessed outside of the VNet.
 - Associate an NSG with the VNet to deny access to the RDP or SSH ports.
 - Don't create any users on the node. Without any node users, remote access won't be possible.
 

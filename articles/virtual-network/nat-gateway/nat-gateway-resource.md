@@ -37,17 +37,19 @@ User-defined routes aren't necessary.
 
 ## Design guidance
 
-Review this section to familiarize yourself with considerations for designing virtual networks with NAT.
+Review this section to familiarize yourself with considerations for designing virtual networks with NAT gateway.
 
 ### Connect to Azure services with Private Link
 
-When you connect your private network to Azure services such as Storage, SQL, Cosmos DB, or any other [Azure service listed here](/azure/private-link/availability), the recommended approach is to use [Private Link](../../private-link/private-link-overview.md). 
+Connecting from your Azure virtual network to Azure PaaS services can be done directly over the Azure backbone and bypass the internet. When you bypass the internet to connect to other Azure PaaS services, you free up SNAT ports and reduce the risk of SNAT port exhaustion. [Private Link](../../private-link/private-link-overview.md) should be used when possible to connect to Azure PaaS services in order to free up SNAT port inventory.
 
-Private Link uses the private IP addresses of your virtual machines or other compute resources from your Azure network to connect privately and securely to Azure PaaS services over the Azure backbone network instead of over the internet. Private Link should be used when possible to connect to Azure services since it frees up SNAT ports for making outbound connections to the internet. To learn more about how NAT gateway uses SNAT ports, see [Source Network Address Translation](#source-network-address-translation).
+Private Link uses the private IP addresses of your virtual machines or other compute resources from your Azure network to directly connect privately and securely to Azure PaaS services over the Azure backbone. See a list of all [Azure service listed here](../../private-link/availability.md) that are supported by Private Link. 
 
 ### Connect to the internet with NAT gateway
 
 NAT gateway is recommended for outbound scenarios for all production workloads where you need to connect to a public endpoint. When NAT gateway is configured to subnets, all previous outbound configurations, such as Load balancer or instance-level public IPs (IL PIPs) are superseded and NAT gateway directs all outbound traffic to the internet. Return traffic in response to an outbound initiated flow will also go through NAT gateway. Inbound initiated traffic is not affected by the addition of NAT gateway. Inbound traffic through Load balancer or IL PIPs are translated separately from outbound traffic through NAT gateway. This separation allows inbound and outbound services to coexist seamlessly.  
+
+### Coexistence of outbound and inbound connectivity 
 
 The following scenarios are examples of how to ensure coexistence of Load balancer or instance level public IPs for inbound with NAT gateway for outbound.
 
@@ -90,22 +92,7 @@ Any outbound configuration from a load-balancing rule or outbound rules is super
 
 Any outbound configuration from a load-balancing rule or outbound rules is superseded by NAT gateway. The VM will also use NAT gateway for outbound. Inbound originated isn't affected.
 
-### Scale NAT gateway
-
-Scaling NAT gateway is primarily a function of managing the shared, available SNAT port inventory. NAT needs sufficient SNAT port inventory for expected peak outbound flows for all subnets that are attached to a NAT gateway. You can use public IP addresses, public IP prefixes, or both to create SNAT port inventory. 
-
-> [!NOTE]
-> If you assign a public IP prefix, the entire public IP prefix is used. You can't assign a public IP prefix and then break out individual IP addresses to assign to other resources. If you want to assign individual IP addresses from a public IP prefix to multiple resources, you need to create individual public IP addresses and assign them as needed instead of using the public IP prefix itself.
-
-SNAT maps private addresses to one or more public IP addresses, rewriting the source address and source port in the process. A single NAT gateway can scale up to 16 IP addresses. If a public IP prefix is provided, each IP address within the prefix provides SNAT port inventory. Adding more public IP addresses increases the available inventory of SNAT ports. TCP and UDP are separate SNAT port inventories and are unrelated to NAT gateway.
-
-When you scale your workload, assume that each flow requires a new SNAT port, and then scale the total number of available IP addresses for outbound traffic. Carefully consider the scale you're designing for, and then allocate IP addresses quantities accordingly.
-
-SNAT ports sent to different destinations will most likely be reused when possible. As SNAT port exhaustion approaches, flows may not succeed.
-
-For a SNAT example, see [SNAT fundamentals](#source-network-address-translation).
-
-### Monitor outbound network traffic
+### Monitor outbound network traffic with NSG flow logs
 
 A network security group allows you to filter inbound and outbound traffic to and from a virtual machine. To monitor outbound traffic flowing from NAT, you can enable NSG flow logs.
 
@@ -115,9 +102,26 @@ For guides on how to enable NSG flow logs, see [Enabling NSG Flow Logs](../../ne
 
 ## Performance
 
-Each NAT gateway can provide up to 50 Gbps of throughput. You can split your deployments into multiple subnets and assign each subnet or group of subnets a NAT gateway to scale out.
+Each NAT gateway can provide up to 50 Gbps of throughput. This data throughput includes data processed both outbound and inbound through a NAT gateway resource. You can split your deployments into multiple subnets and assign each subnet or group of subnets a NAT gateway to scale out.
 
-Each NAT gateway public IP address provides 64,512 SNAT ports to make outbound connections. NAT gateway can support up to 50,000 concurrent connections per public IP address to the same destination endpoint over the internet for TCP and UDP. Review the following section for details and the [troubleshooting article](./troubleshoot-nat.md) for specific problem resolution guidance.
+NAT gateway can support up to 50,000 concurrent connections per public IP address to the same destination endpoint over the internet for TCP and UDP. NAT gateway can process 1M packets per second and scale up to 5M packets per second.
+
+Review the following section for details and the [troubleshooting article](./troubleshoot-nat.md) for specific problem resolution guidance.
+
+## Scalability
+
+Scaling NAT gateway is primarily a function of managing the shared, available SNAT port inventory. NAT needs sufficient SNAT port inventory for expected peak outbound flows for all subnets that are attached to a NAT gateway. You can use public IP addresses, public IP prefixes, or both to create SNAT port inventory. 
+
+A single NAT gateway can scale up to 16 IP addresses. Each NAT gateway public IP address provides 64,512 SNAT ports to make outbound connections. NAT gateway can scale up to over 1 million SNAT ports. TCP and UDP are separate SNAT port inventories and are unrelated to NAT gateway.
+
+> [!NOTE]
+> If you assign a public IP prefix, the entire public IP prefix is used. You can't assign a public IP prefix and then break out individual IP addresses to assign to other resources. If you want to assign individual IP addresses from a public IP prefix to multiple resources, you need to create individual public IP addresses and assign them as needed instead of using the public IP prefix itself.
+
+When you scale your workload, assume that each flow requires a new SNAT port, and then scale the total number of available IP addresses for outbound traffic. Carefully consider the scale you're designing for, and then allocate IP addresses quantities accordingly.
+
+SNAT maps private addresses in your subnet to one or more public IP addresses attached to NAT gateway, rewriting the source address and source port in the process. SNAT ports sent to different destinations will most likely be reused when possible. As SNAT port exhaustion approaches, flows may not succeed.
+
+For a SNAT example, see [SNAT fundamentals](#source-network-address-translation).
 
 ## Protocols
 
@@ -179,7 +183,7 @@ The following illustrates this concept as an additional flow to the preceding se
 |:---:|:---:|:---:|
 | 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
 
-A NAT gateway will  translate flow 4 to a source port that may already be in use for other destinations as well. See [Scale NAT gateway](#scale-nat-gateway) for more discussion on correctly sizing your IP address provisioning.
+A NAT gateway will  translate flow 4 to a source port that may already be in use for other destinations as well (see flow 1 from table above). See [Scale NAT gateway](#scalability) for more discussion on correctly sizing your IP address provisioning.
 
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple |
 |:---:|:---:|:---:|:---:|
@@ -208,6 +212,7 @@ For UDP traffic, after a connection has closed, the port will be in hold down fo
 | Timer | Description | Value |
 |---|---|---|
 | TCP idle timeout | TCP connections can go idle when no data is transmitted between either endpoint for a prolonged period of time. A timer can be configured from 4 minutes (default) to 120 minutes (2 hours) to time out a connection that has gone idle. Traffic on the flow will reset the idle timeout timer. | Configurable; 4 minutes (default) - 120 minutes |
+| UDP idle timeout | UDP connections can go idle when no data is transmitted between either endpoint for a prolonged period of time. UDP idle timeout timers are 4 minutes and are **not configurable**. Traffic on the flow will reset the idle timeout timer. | **Not configurable**; 4 minutes |
 
 > [!NOTE]
 > These timer settings are subject to change. The values are provided to help with troubleshooting and you should not take a dependency on specific timers at this time.
@@ -216,9 +221,11 @@ For UDP traffic, after a connection has closed, the port will be in hold down fo
 
 Design recommendations for configuring timers:
 
-- In an idle connection scenario, NAT gateway holds onto SNAT ports until the connection idle times out. Because long idle timeout timers can unnecessarily increase the likelihood of SNAT port exhaustion, it isn't recommended to increase the idle timeout duration to longer than the default time of 4 minutes. If a flow never goes idle, then it will not be impacted by the idle timer.
+- In an idle connection scenario, NAT gateway holds onto SNAT ports until the connection idle times out. Because long idle timeout timers can unnecessarily increase the likelihood of SNAT port exhaustion, it isn't recommended to increase the TCP idle timeout duration to longer than the default time of 4 minutes. If a flow never goes idle, then it will not be impacted by the idle timer.
 
 - TCP keepalives can be used to provide a pattern of refreshing long idle connections and endpoint liveness detection. TCP keepalives appear as duplicate ACKs to the endpoints, are low overhead, and invisible to the application layer.
+
+- Because UDP idle timeout timers are not configurable, UDP keepalives should be used to ensure that the idle timeout value isn't reached and that the connection is maintained. Unlike TCP connections, a UDP keepalive enabled on one side of the connection only applies to traffic flow in one direction. UDP keepalives must be enabled on both sides of the traffic flow in order to keep the traffic flow alive.
 
 ## Limitations
 
@@ -226,7 +233,7 @@ Design recommendations for configuring timers:
   
   - To upgrade a basic load balancer to standard, see [Upgrade Azure Public Load Balancer](../../load-balancer/upgrade-basic-standard.md)
   
-  - To upgrade a basic public IP address too standard, see [Upgrade a public IP address](../ip-services/public-ip-upgrade-portal.md)
+  - To upgrade a basic public IP address to standard, see [Upgrade a public IP address](../ip-services/public-ip-upgrade-portal.md)
 
 - NAT gateway does not support ICMP 
 

@@ -91,7 +91,7 @@ sections:
         answer: |
           The information provided by Resource Health is more specific than what is provided by Azure status or the Service Health dashboard.
           
-          Whereas [Azure status](https://status.azure.com) and the Service Health dashboard inform you about service issues that affect a broad set of customers (for example an Azure region), Resource Health exposes more granular events that are relevant only to the specific resource. For example, if a host unexpectedly reboots, Resource Health alerts only those customers whose virtual machines were running on that host.
+          Whereas [Azure status](https://azure.status.microsoft) and the Service Health dashboard inform you about service issues that affect a broad set of customers (for example an Azure region), Resource Health exposes more granular events that are relevant only to the specific resource. For example, if a host unexpectedly reboots, Resource Health alerts only those customers whose virtual machines were running on that host.
           
       - question: |
           Do I need to activate Resource Health for each resource?

@@ -18,6 +18,8 @@
       href: howto-develop-create-instance.md
     - name: The Azure CLI
       href: quickstart-cli-create.md
+    - name: By using a Bicep template
+      href: quickstart-bicep-template.md
   - name: Connect to the instance
     expanded: true
     items:
@@ -33,10 +35,14 @@
     - name: Serverless development
       expanded: true
       items:
-      - name: Build a notification app with Azure Functions
+      - name: Build a notification app by using Azure Functions
         href: tutorial-serverless-notification.md
       - name: Build a real-time chat app with client authentication
         href: quickstart-serverless.md
+      - name: Build a real-time chat app by using an Azure Static Web App
+        href: tutorial-serverless-static-web-app.md
+      - name: Visualize IoT data by using an Azure Function
+        href: tutorial-serverless-iot.md
     - name: Publish and subscribe messages
       href: tutorial-pub-sub-messages.md
     - name: Build a chat app
@@ -90,6 +96,8 @@
           href: howto-authorize-from-application.md
         - name: Authorize from managed identities
           href: howto-authorize-from-managed-identity.md
+    - name: Custom domain
+      href: howto-custom-domain.md
   - name: Troubleshooting
     items:
     - name: Debug event handlers locally
@@ -100,6 +108,10 @@
       href: howto-troubleshoot-resource-logs.md
   - name: Move across regions
     href: howto-move-across-regions.md
+  - name: Scale
+    items:
+    - name: Autoscale
+      href: howto-scale-autoscale.md
 
 - name: Concepts
   expanded: true
@@ -112,6 +124,8 @@
     items:
     - name: Resiliency and disaster recovery
       href: concept-disaster-recovery.md
+    - name: Availability zones
+      href: concept-availability-zones.md
   - name: Performance considerations
     href: concept-performance.md
   - name: Billing model
@@ -138,8 +152,10 @@
     href: reference-cloud-events.md
   - name: Functions trigger and bindings
     href: reference-functions-bindings.md
-  - name: Server SDKs
+  - name: Data plane REST API and SDKs
     items:
+    - name: REST API
+      href: reference-rest-api-data-plane.md
     - name: Server SDK - C#
       href: reference-server-sdk-csharp.md
     - name: Server SDK - Java
@@ -148,9 +164,12 @@
       href: reference-server-sdk-js.md
     - name: Server SDK - Python
       href: reference-server-sdk-python.md
-  - name: REST API
+  - name: Control plane
     href: /rest/api/webpubsub/
-
+  - name: Azure CLI
+    href: /cli/azure/webpubsub
+  - name: Web PubSub client specification
+    href: reference-client-specification.md
 - name: Resources
   items:
   - name: Samples

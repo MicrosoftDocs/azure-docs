@@ -8,15 +8,13 @@ ms.custom: subject-rbac-steps
 
 # Organize subscriptions into management groups and assign roles to users
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This page explains how to manage your organization’s security posture at scale by applying security policies to all Azure subscriptions linked to your Azure Active Directory tenant.
 
 For visibility into the security posture of all subscriptions linked to an Azure AD tenant, you'll need an Azure role with sufficient read permissions assigned on the root management group.
 
 ## Organize your subscriptions into management groups
 
-### Introduction to management groups
+### Overview of management groups
 
 Use management groups to efficiently manage access, policies, and reporting on **groups of subscriptions**, as well as effectively manage the entire Azure estate by performing actions on the root management group. You can organize subscriptions into management groups and apply your governance policies to the management groups. All subscriptions within a management group automatically inherit the policies applied to the management group. 
 

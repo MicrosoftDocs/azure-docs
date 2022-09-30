@@ -1,16 +1,14 @@
 ---
-title: Redirect URI (reply URL) restrictions | Azure AD
-titleSuffix: Microsoft identity platform
+title: Redirect URI (reply URL) restrictions
 description: A description of the restrictions and limitations on redirect URI (reply URL) format enforced by the Microsoft identity platform.
 author: madansr7
-ms.author: saumadan
 manager: CelesteDG
-ms.date: 09/03/2021
-ms.topic: conceptual
-ms.subservice: develop
-ms.custom: contperf-fy21q4-portal, aaddev
+ms.author: saumadan
+ms.date: 08/25/2022
+ms.reviewer: marsma
 ms.service: active-directory
-ms.reviewer: marsma, lenalepa, manrath
+ms.subservice: develop
+ms.topic: reference
 ---
 
 # Redirect URI (reply URL) restrictions and limitations
@@ -46,6 +44,8 @@ This table shows the maximum number of redirect URIs you can add to an app regis
 | Microsoft work or school accounts in any organization's Azure Active Directory (Azure AD) tenant | 256 | `signInAudience` field in the application manifest is set to either *AzureADMyOrg* or *AzureADMultipleOrgs* |
 | Personal Microsoft accounts and work and school accounts | 100 | `signInAudience` field in the application manifest is set to *AzureADandPersonalMicrosoftAccount* |
 
+The maximum number of redirect URIS can't be raised for [security reasons](#restrictions-on-wildcards-in-redirect-uris). If your scenario requires more redirect URIs than the maximum limit allowed, consider the following [state parameter approach](#use-a-state-parameter) as the solution.
+
 ## Maximum URI length
 
 You can use a maximum of 256 characters for each redirect URI you add to an app registration.
@@ -54,6 +54,19 @@ You can use a maximum of 256 characters for each redirect URI you add to an app 
 
 * Always add redirect URIs to the application object only.
 * Do not add redirect URI values to a service principal because these values could be removed when the service principal object syncs with the application object. This could happen due to any update operation which triggers a sync between the two objects.
+
+## Query parameter support in redirect URIs
+
+Query parameters are **allowed** in redirect URIs for applications that *only* sign in users with work or school accounts.
+
+Query parameters are **not allowed** in redirect URIs for any app registration configured to sign in users with personal Microsoft accounts like Outlook.com (Hotmail), Messenger, OneDrive, MSN, Xbox Live, or Microsoft 365.
+
+| App registration sign-in audience                                                                                                  | Supports query parameters in redirect URI                            |
+|------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
+| Accounts in this organizational directory only (Contoso only - Single tenant)                                                      | :::image type="icon" source="media/common/yes.png" border="false"::: |
+| Accounts in any organizational directory (Any Azure AD directory - Multitenant)                                                    | :::image type="icon" source="media/common/yes.png" border="false"::: |
+| Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox) | :::image type="icon" source="media/common/no.png" border="false":::  |
+| Personal Microsoft accounts only                                                                                                   | :::image type="icon" source="media/common/no.png" border="false":::  |
 
 ## Supported schemes
 

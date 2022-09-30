@@ -28,7 +28,7 @@ Before you start, make sure that you have the following.
 
 The Hybrid Runbook Worker role depends on an Azure Monitor Log Analytics workspace to install and configure the role. You can create it through [Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace), through [PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../azure-monitor/logs/quick-create-workspace.md).
 
-If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/logs/design-logs-deployment.md) before you create the workspace.
+If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/logs/workspace-design.md) before you create the workspace.
 
 ### Log Analytics agent
 
@@ -246,6 +246,13 @@ Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/delete | Delet
 Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers/read | Reads a Hybrid Runbook Worker.
 Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers/delete| Deletes a Hybrid Runbook Worker.
 
+
+## Check version of Hybrid Worker
+To check the version of agent-based Linux Hybrid Runbook Worker, go to the following path:
+
+`vi/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/VERSION`
+
+The file *VERSION* has the version number of Hybrid Runbook Worker. 
 
 ## Next steps
 

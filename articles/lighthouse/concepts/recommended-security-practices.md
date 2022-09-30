@@ -1,7 +1,7 @@
 ---
 title: Recommended security practices
 description: When using Azure Lighthouse, it's important to consider security and access control.
-ms.date: 09/08/2021
+ms.date: 06/09/2022
 ms.topic: conceptual
 ---
 

@@ -1,12 +1,12 @@
 ---
 title: Enable replication of encrypted Azure VMs in Azure Site Recovery
 description: This article describes how to configure replication for VMs with customer-managed key (CMK) enabled disks from one Azure region to another by using Site Recovery.
-author: mayurigupta13
+author: v-pgaddala
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/25/2021
-ms.author: mayg
+ms.author: v-pgaddala
 
 ---
 
