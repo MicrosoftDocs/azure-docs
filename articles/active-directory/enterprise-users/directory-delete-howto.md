@@ -102,12 +102,50 @@ Once you have all the Azure and Office/Microsoft 365 Subscriptions cancelled and
 
 ## Enterprise apps with no way to delete
 
-If you find that there are still enterprise applications that you can't delete in the portal, you can use the following PowerShell commands to remove them. For more information on this PowerShell command, see [Remove-AzureADServicePrincipal](/powershell/module/azuread/remove-azureadserviceprincipal?view=azureadps-2.0&preserve-view=true).
+Currently, there are few enterprise applications that cannot be deleted in the Azure portal. If you find that you are unable to successfully delete an Azure AD tenant from the portal, you can use the following PowerShell commands to remove any blocking enterprise applications.
 
-1. Open PowerShell as an administrator.
-1. Run `Connect-AzAccount -tenant <TENANT_ID>`.
-1. Sign in to Azure AD in the Global Administrator role.
-1. Run `Get-AzADServicePrincipal | ForEach-Object {​​​​​ Remove-AzADServicePrincipal -ObjectId $_.Id }​`.​​​​
+Please follow below instructions to remove blocking enterprise apps/service principals before you attempt to delete the tenant:
+1.	Install Msonline module for PowerShell by running the following command
+
+    'Install-Module -Name Msonline'
+
+2.	Install Az module for PowerShell by running the following command 
+
+    'Install-Module -Name Az'
+
+3.	Create or use a managed admin account from the tenant you would like to delete, e.g. newAdmin@tenanttodelete.onmicrosoft.com 
+
+4.	Open PowerShell and connect to MSODS using the admin credentials, with command
+
+    'connect-msolservice'
+ 
+[! Note]: using credential of the admin from the tenant that you want to delete is very important, since PowerShell does not support external guest user admins, live-id and multi directories, only homed-in admins have the access to manage the directory via PowerShell.
+
+[!Warning]: Before you proceed, to verify you are connected to the tenant you intend to delete with MSOnline module, it is recommended you run the command Get-MsolDomain to ensure you are connected to the correct tenantID and onmicrosoft.com domain.
+
+5.	Run below command to set the tenant context 
+
+   'Connect-AzAccount -Tenant <ObjectID of the tenant you are attempting to delete>'
+
+[!Warning]: Before proceeding, to verify you are connected to the tenant you intend to delete with Az module, it is recommended you run the command Get-AzContext to check the connected tenant ID and onmicrosoft.com domain.
+ 
+6.	Run below command to remove any enterprise apps with no way to delete:
+
+    'Get-AzADServicePrincipal | ForEach-Object { Remove-AzADServicePrincipal -ObjectId $_.Id }'
+ 
+7.	Run below command to remove application/service principals
+
+   'Get-MsolServicePrincipal | Remove-MsolServicePrincipal'
+
+8.	Lastly, run the command to disable any blocking service principals:
+
+    'Get-MsolServicePrincipal | Set-MsolServicePrincipal -AccountEnabled $false'
+
+9.	Sign back into the Azure portal and remove any new admin account created in step 3.
+
+10.	Retry tenant deletion from the Azure portal again.
+
+If you are still unable to delete the Azure AD tenant successfully, please contact Microsoft Support.
 
 ## Trial subscription that blocks deletion
 
