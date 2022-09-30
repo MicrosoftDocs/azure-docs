@@ -361,7 +361,17 @@ The sample application repository already contains a sample workflow file *.gith
 
 ## View load test results
 
-To view the results of the load test in the pipeline log:
+Azure Load Testing enables you to view the results of the load test run directly in the CI/CD workflow output. The CI/CD log contains the following client-side metrics:
+
+- Response time metrics: average, minimum, median, maximum, and 90-95-99 percentiles.
+- Number of requests per second.
+- Total number of requests.
+- Total number of errors.
+- Error rate.
+
+In addition, the [load test results file](./how-to-export-test-results.md) is available as a workflow run artifact, which you can download for additional reporting.
+
+# [Azure Pipelines](#tab/pipelines)
 
 1. In your Azure DevOps project, select **Pipelines**, and then select your pipeline definition from the list.
 
@@ -378,6 +388,24 @@ To view the results of the load test in the pipeline log:
 1. In the pipeline log view, select **Load Test**, and then select **1 artifact produced** to download the result files for the load test.
 
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/create-pipeline-download-results.png" alt-text="Screenshot that shows how to download the load test results.":::
+
+# [GitHub Actions](#tab/github)
+
+1. Select the **Actions** tab in your GitHub repository to view the list of workflow runs.
+    
+    :::image type="content" source="./media/tutorial-cicd-github-actions/workflow-run-list.png" alt-text="Screenshot that shows the list of GitHub Actions workflow runs.":::
+    
+1. Select the workflow run from the list to open the run details and logging information.
+
+    :::image type="content" source="./media/tutorial-cicd-github-actions/github-actions-workflow-completed.png" alt-text="Screenshot that shows the workflow logging information.":::
+
+    After the load test finishes, you can view the test summary information and the client-side metrics in the workflow log. The log also shows the steps to go to the Azure Load Testing dashboard for this load test.
+
+1. On the screen that shows the workflow run's details, select the **loadTestResults** artifact to download the result files for the load test.
+
+    :::image type="content" source="./media/tutorial-cicd-github-actions/github-actions-artifacts.png" alt-text="Screenshot that shows artifacts of the workflow run.":::
+
+---
 
 ## Define test pass/fail criteria
 
