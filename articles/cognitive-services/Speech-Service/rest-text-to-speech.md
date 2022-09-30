@@ -264,7 +264,7 @@ If the HTTP status is `200 OK`, the body of the response contains an audio file 
 
 ## Audio outputs
 
-The supported streaming and non-streaming audio formats are sent in each request as the `X-Microsoft-OutputFormat` header. Each format incorporates a bit rate and encoding type. The Speech service supports 48-kHz, 24-kHz, 16-kHz, and 8-kHz audio outputs. Prebuilt neural voices are created from samples that use a 24-khz sample rate. All voices can upsample or downsample to other sample rates when synthesizing.
+The supported streaming and non-streaming audio formats are sent in each request as the `X-Microsoft-OutputFormat` header. Each format incorporates a bit rate and encoding type. The Speech service supports 48-kHz, 24-kHz, 16-kHz, and 8-kHz audio outputs. Each prebuilt neural voice model is available at 24kHz and high-fidelity 48kHz. 
 
 #### [Streaming](#tab/streaming)
 
@@ -314,9 +314,8 @@ riff-48khz-16bit-mono-pcm
 ***
 
 > [!NOTE]
-> en-US-AriaNeural, en-US-JennyNeural and zh-CN-XiaoxiaoNeural are available in public preview in 48Khz output. Other voices support 24khz upsampled to 48khz output.
-
-> [!NOTE]
+> If you select 48kHz output format, the high-fidelity voice model with 48kHz will be invoked accordingly. The sample rates other than 24kHz and 48kHz can be obtained through upsampling or downsampling when synthesizing, for example, 44.1kHz is downsampled from 48kHz.
+>
 > If your selected voice and output format have different bit rates, the audio is resampled as necessary. You can decode the `ogg-24khz-16bit-mono-opus` format by using the [Opus codec](https://opus-codec.org/downloads/).
 
 ## Authentication

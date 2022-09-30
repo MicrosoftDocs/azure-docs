@@ -14,6 +14,8 @@ ms.date: 09/12/2022
 
 [!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 [Regulatory Compliance in Azure Policy](../../governance/policy/concepts/regulatory-compliance.md) provides Microsoft created and managed initiative definitions, known as _built-ins_, for the **compliance domains** and **security controls** related to different compliance standards. This
 page lists the **compliance domains** and **security controls** for Azure Database for MySQL. You can assign the built-ins for a **security control** individually to help make your Azure resources compliant with the specific standard.
 
