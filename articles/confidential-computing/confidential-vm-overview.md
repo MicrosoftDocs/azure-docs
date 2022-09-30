@@ -42,11 +42,17 @@ Confidential OS disk encryption is optional, because this process can lengthen t
 For further integrity and protection, confidential VMs offer [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot) by default when confidential OS disk encryption is selected. 
 With Secure Boot, trusted publishers must sign OS boot components (including the boot loader, kernel, and kernel drivers). All compatible confidential VM images support Secure Boot. 
 
+
 ### Encryption pricing differences
 
 Azure confidential VMs use both the OS disk and a small encrypted virtual machine guest state (VMGS) disk of several megabytes. The VMGS disk contains the security state of the VM's components. Some components include the vTPM and UEFI bootloader. The small VMGS disk might incur a monthly storage cost.
 
 From July 2022, encrypted OS disks will incur higher costs. This change is because encrypted OS disks use more space, and compression isn't possible. For more information, see [the pricing guide for managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
+
+## Attached data disk encryption
+If you are using an Azure confidential VM and attaching extra disks, in order to maximize its security benefits follow the below recommendation:
+
+Encrypt your data disks (any disks containing data base files, log files, or backup files) with [BitLocker](https://learn.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-overview) and enable automatic unlocking – see [manage-bde autounlock](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/manage-bde-autounlock) or, [Enable-BitLockerAutoUnlock](https://learn.microsoft.com/en-us/powershell/module/bitlocker/enable-bitlockerautounlock?view=windowsserver2022-ps). Automatic unlocking ensures the encryption keys are stored on the OS disk. In conjunction with confidential OS disk encryption, this will protect the data at rest on the VM disks from unauthorized host access. It is recommended to store BitLocker recovery keys in a secure location (for example, in a [managed HSM in Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/managed-hsm/overview)), to make it easier to migrate the disk to another VM in the future.
 
 ## Attestation and TPM
 
