@@ -301,7 +301,7 @@ Vertical Pod autoscaling uses the `VerticalPodAutoscaler` object to automaticall
     NAME                                   READY   STATUS    RESTARTS   AGE
     vpa-auto-deployment-54465fb978-qbhc4   1/1     Running   0          2m49s
     vpa-auto-deployment-54465fb978-vbj68   1/1     Running   0          109s
-    ```:
+    ```
 
 8. Get detailed information about one of your running Pods by using the [Kubectl get][kubectl-get] command. Replace `podName` with the name of one of your Pods that you retrieved in the previous step.
 
