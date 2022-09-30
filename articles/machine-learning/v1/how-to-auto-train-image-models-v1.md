@@ -187,6 +187,9 @@ automl_image_config = AutoMLImageConfig(training_data=training_dataset)
 
 Provide a [compute target](../v1/concept-azure-machine-learning-architecture.md#compute-targets) for automated ML to conduct model training. Automated ML models for computer vision tasks require GPU SKUs and support NC and ND families. We recommend the NCsv3-series (with v100 GPUs) for faster training. A compute target with a multi-GPU VM SKU leverages multiple GPUs to also speed up training. Additionally, when you set up a compute target with multiple nodes you can conduct faster model training through parallelism when tuning hyperparameters for your model.
 
+> [!NOTE]
+> If you are using a [compute instance](../concept-compute-instance.md) as your compute target, please make sure that multiple AutoML jobs are not run at the same time. Also, please make sure that `max_concurrent_iterations` is set to 1 in your [experiment resources](#resources-for-the-sweep).
+
 The compute target is a required parameter and is passed in using the `compute_target` parameter of the `AutoMLImageConfig`. For example:
 
 ```python
@@ -280,7 +283,7 @@ When sweeping hyperparameters, you need to specify the sampling method to use fo
 * [Bayesian sampling](../how-to-tune-hyperparameters.md#bayesian-sampling) 
     
 > [!NOTE]
-> Currently only random sampling supports conditional hyperparameter spaces.
+> Currently only random and grid sampling support conditional hyperparameter spaces.
 
 ### Early termination policies
 

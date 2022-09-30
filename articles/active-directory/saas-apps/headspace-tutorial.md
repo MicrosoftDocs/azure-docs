@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/09/2022
+ms.date: 09/30/2022
 ms.author: jeedes
 
 ---
@@ -80,13 +80,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `urn:auth0:<Auth0TenantName>:<CustomerConnectionName>`
 
     b. In the **Reply URL** textbox, type a value using the following pattern:
-    `https://auth.<Enviornment>.headspace.com/login/callback?connection=<CustomerConnectionName>`
+    `https://auth.<Environment>.headspace.com/login/callback?connection=<CustomerConnectionName>`
 
-    c. In the **Sign on URL** textbox, type a value using the following pattern:
-    `https://<Environment>.headspace.com/sso-login`
+    c. In the **Sign on URL** textbox, type the URL:
+    `https://headspace.com/sso-login`
 
     > [!Note]
-    > These values are not real. Update these values with the actual Identifier, Reply URL and Sign on URL. Contact [Headspace Client support team](mailto:ecosystem-integration-squad@headspace.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Headspace Client support team](mailto:ecosystem-integration-squad@headspace.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Headspace application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -96,9 +96,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     | Name | Source Attribute|
     | ------------ | --------- |
-    | email | user.mail |
+    | email | user.userprincipalname |
     | family_name | user.surname |
-    | userName | user.userprincipalname |
+    | given_name | user.givenname |
 
 1. In order to fill Headspace's requirements, please follow the steps below to correctly configure the necessary Attributes & Claims:
 

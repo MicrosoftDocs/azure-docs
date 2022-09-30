@@ -62,7 +62,7 @@ To create the key vault, see [Create a key vault](../key-vault/general/quick-cre
 > For more information, see the following articles:
 > * [Provide access to key vault keys, certificates, and secrets](../key-vault/general/rbac-guide.md)
 > * [Assign a key vault access policy](../key-vault/general/assign-access-policy.md)
-> * [Use managed identities with Azure Machine Learning](how-to-use-managed-identities.md)
+> * [Use managed identities with Azure Machine Learning](how-to-identity-based-service-authentication.md)
 
 1. From the [Azure portal](https://portal.azure.com), select the key vault instance. Then select __Keys__ from the left.
 1. Select __+ Generate/import__ from the top of the page. Use the following values to create a key:
@@ -145,7 +145,7 @@ For more information on creating and using a deployment configuration, see the f
 * [Where and how to deploy](how-to-deploy-managed-online-endpoints.md)
 * [Deploy a model to Azure Container Instances](v1/how-to-deploy-azure-container-instance.md)
 
-For more information on using a customer-managed key with ACI, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#encrypt-data-with-a-customer-managed-key).
+For more information on using a customer-managed key with ACI, see [Encrypt deployment data](../container-instances/container-instances-encrypt-data.md).
 
 ### Azure Kubernetes Service
 
