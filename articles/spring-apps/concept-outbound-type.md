@@ -1,5 +1,5 @@
 ---
-title:  Customize Azure Spring Cloud egress with a User-Defined Route
+title:  Customize Azure Spring Cloud egress with a user-defined route
 description: Learn how to customize Azure Spring Cloud egress with a User-Defined Route.
 author: karlerickson
 ms.author: yinglzh
@@ -48,3 +48,7 @@ If `outboundType` is set to `userDefinedRouting`, Azure Spring Apps won't automa
 
 > [!IMPORTANT]
 > An `outboundType` of `userDefinedRouting` requires a route for `0.0.0.0/0` and the next hop destination of a network virtual appliance in the route table. For more information, see [Customer responsibilities for running Azure Spring Apps in VNET](vnet-customer-responsibilities.md).
+
+## Next steps
+
+- [Control egress traffic for an Azure Spring Apps instance](how-to-configure-ingress.md)
