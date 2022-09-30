@@ -67,7 +67,7 @@ items:
     - name: Custom DNS name
       href: tutorial-custom-domain.md
     - name: Managed identity to connect MySQL
-      href: /azure/developer/java/spring-framework/deploy-passwordless-spring-database-app
+      href: /azure/developer/java/spring-framework/deploy-passwordless-spring-database-app?toc=/azure/spring-apps/toc.json&bc=/azure/spring-apps/breadcrumb/toc.json
     - name: Managed identity to connect Key Vault
       href: tutorial-managed-identities-key-vault.md
     - name: Managed identity to invoke Azure Functions
