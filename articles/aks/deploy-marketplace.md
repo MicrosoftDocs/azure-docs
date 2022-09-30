@@ -5,7 +5,7 @@ author: nickomang
 ms.author: nickoman
 ms.service: container-service
 ms.topic: how-to
-ms.date: 09/19/2022
+ms.date: 09/30/2022
 ms.custom: devx-track-azurecli, ignite-fall-2022
 ---
 

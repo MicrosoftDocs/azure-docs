@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: aarathin
 ms.author: aarathin
-ms.date: 06/29/2022
+ms.date: 09/30/2022
 ---
 
 # Plan an Azure container offer
@@ -16,7 +16,12 @@ Azure container offers help you publish your container image to Azure Marketplac
 
 Azure container offers are transaction offers that are deployed and billed through Azure Marketplace. The listing option a user sees is **Get It Now**.
 
-Use the Azure Container offer type when your solution is a Docker container image that's set up as a Kubernetes-based Azure Container instance or a Kubernetes application meant to be deployed on a managed Azure Kubernetes Service (AKS) cluster.
+Use the Azure Container offer type when your solution is either:
+- A Docker container image that's set up as a Kubernetes-based Azure Container instance
+- A Kubernetes application meant to be deployed on a managed Azure Kubernetes Service (AKS) cluster. 
+
+> [!IMPORTANT]
+> The Kubernetes application-based offer experience is in preview. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. Previews are partially covered by customer support on a best-effort basis. As such, these features aren't meant for production use.
 
 > [!NOTE]
 > An Azure Container instance is a run-time docker instance that provides the fastest and simplest way to run a container in Azure, without having to manage any virtual machines or adopt a higher-level service. Container instances can be deployed directly to Azure or orchestrated by Azure Kubernetes Services or Azure Kubernetes Service Engine.  
