@@ -4,7 +4,7 @@ description: Learn how to use a .NET isolated process to run your C# functions i
 
 ms.service: azure-functions
 ms.topic: conceptual 
-ms.date: 07/06/2022
+ms.date: 09/29/2022
 ms.custom: template-concept 
 recommendations: false
 #Customer intent: As a developer, I need to know how to create functions that run in an isolated process so that I can run my function code on current (not LTS) releases of .NET.
@@ -136,6 +136,59 @@ The following is an example of a middleware implementation which reads the `Http
  
 For a more complete example of using custom middleware in your function app, see the [custom middleware reference sample](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/CustomMiddleware).
 
+## Cancellation tokens
+
+A function can accept a [CancellationToken](/dotnet/api/system.threading.cancellationtoken) parameter, which enables the operating system to notify your code when the function is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
+
+Cancellation tokens are supported in .NET isolated functions. The following example shows how to use a cancellation token in a function:
+
+
+```csharp
+ [Function("Function1")]
+        public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestData req, FunctionContext executionContext, CancellationToken cancellationToken)
+        {
+            _logger.LogInformation("HttpTriggerWithCancellation function triggered");
+            _logger.LogInformation("C# HTTP trigger function processed a request.");
+
+            try
+            {
+                var response = req.CreateResponse(HttpStatusCode.OK);
+                response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
+
+                response.WriteString("Welcome to Azure Functions!");
+
+                await Task.Delay(5000, cancellationToken);
+
+                return response;
+            }
+            catch (OperationCanceledException) {
+
+                _logger.LogInformation("Function invocation cancelled");
+                var response = req.CreateResponse(HttpStatusCode.ServiceUnavailable);
+                response.WriteString("Invocation cancelled");
+
+                return response;
+            }
+           
+        }
+```
+
+## ReadyToRun
+
+You can compile your function app as [ReadyToRun binaries](/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images). ReadyToRun is a form of ahead-of-time compilation that can improve startup performance to help reduce the impact of [cold-start](event-driven-scaling.md#cold-start) when running in a [Consumption plan](consumption-plan.md).
+
+ReadyToRun is available in .NET 3.0 and .NET 6 (in-proc and isolated) and .NET 7 and requires [version 3.0 of the Azure Functions runtime](functions-versions.md).
+
+To compile your project as ReadyToRun, update your project file by adding the `<PublishReadyToRun>` and `<RuntimeIdentifier>` elements. The following is the configuration for publishing to a Windows 32-bit function app.
+
+```xml
+<PropertyGroup>
+  <TargetFramework>net7.0</TargetFramework>
+  <AzureFunctionsVersion>v4</AzureFunctionsVersion>
+  <PublishReadyToRun>true</PublishReadyToRun>
+</PropertyGroup>
+```
+
 ## Execution context
 
 .NET isolated passes a [FunctionContext] object to your function methods. This object lets you get an [ILogger] instance to write to the logs by calling the [GetLogger] method and supplying a `categoryName` string. To learn more, see [Logging](#logging). 
@@ -263,9 +316,9 @@ This section describes the current state of the functional and behavioral differ
 | Middleware | Not supported | [Supported](#middleware) |
 | Logging | [ILogger] passed to the function<br/>[ILogger&lt;T&gt;] via dependency injection | [ILogger]/[ILogger&lt;T&gt;] obtained from [FunctionContext] or via [dependency injection](#dependency-injection)|
 | Application Insights dependencies | [Supported](functions-monitoring.md#dependencies) | [Supported (public preview)](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ApplicationInsights) |
-| Cancellation tokens | [Supported](functions-dotnet-class-library.md#cancellation-tokens) | Not supported |
+| Cancellation tokens | [Supported](functions-dotnet-class-library.md#cancellation-tokens) | [Supported](#cancellation-token) |
 | Cold start times<sup>2</sup> | (Baseline) | Additionally includes process launch |
-| ReadyToRun | [Supported](functions-dotnet-class-library.md#readytorun) | _TBD_ | 
+| ReadyToRun | [Supported](functions-dotnet-class-library.md#readytorun) | [Supported](#readytorun) | 
 
 <sup>1</sup> When you need to interact with a service using parameters determined at runtime, using the corresponding service SDKs directly is recommended over using imperative bindings. The SDKs are less verbose, cover more scenarios, and have advantages for error handling and debugging purposes. This recommendation applies to both models.
 
