@@ -45,6 +45,9 @@ In addition to your solution domain, your engineering team should have knowledge
 - Single containers are not supported.
 - Linked Azure Resource Manager templates are not supported.
 
+> [!IMPORTANT]
+> The Kubernetes application-based offer experience is in preview. Preview features are available on a self-service, opt-in basis. Previews are provided "as is" and "as available," and they're excluded from the service-level agreements and limited warranty. Previews are partially covered by customer support on a best-effort basis. As such, these features aren't meant for production use.
+
 ## Publishing overview
 
 The first step to publish your Kubernetes app-based Container offer on the Azure Marketplace is to package your application as a [Cloud Native Application Bundle (CNAB)][cnab]. This CNAB, comprised of your application’s artifacts, will be first published to your private Azure Container Registry (ACR) and later pushed to an Azure Marketplace-specific public ACR and will be used as the single artifact you reference in Partner Center.
@@ -171,11 +174,9 @@ To ensure the Helm chart is valid, test that it's installable on a local cluster
 
 ### Create and test the createUiDefinition
 
-A createUiDefinition is a JSON file that defines the user interface elements for the Azure portal when deploying the application. For more information, see [CreateUiDefinition.json for Azure][createuidefinition] or see an [example of a UI definition] that asks for input data for a new or existing cluster choice and passes parameters into your application.
+A createUiDefinition is a JSON file that defines the user interface elements for the Azure portal when deploying the application. For more information, see [CreateUiDefinition.json for Azure][createuidefinition] or see an [example of a UI definition][ui-sample] that asks for input data for a new or existing cluster choice and passes parameters into your application.
 
 After creating the createUiDefinition.json file for your application, you need to test the user experience. To simplify testing, use a [sandbox environment][sandbox-environment] that loads your file in the portal. The sandbox presents your user interface in the current, full-screen portal experience. The sandbox is the recommended way to preview the user interface.
-
-For an example, see the follwing [createUiDefinition sample][ui-sample].
 
 ### Create the Azure Resource Manager (ARM) template (optional)
 
@@ -301,6 +302,3 @@ For an example of how to integrate `container-package-app` into an Azure Pipelin
 [pipeline-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/blob/main/samples/azure-pipelines.yml
 [arm-template-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/blob/main/samples/mainTemplate.json
 [manifest-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/blob/main/samples/manifest.yaml
-
-<!-- TBD Links -->
-[arm-template-sample]: https://docs.microsoft.com
