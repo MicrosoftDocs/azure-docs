@@ -12,7 +12,7 @@ ms.custom: template-concept
 # Determine your update strategy for Azure Percept DK
 
 >[!CAUTION]
->**Over-the-air (OTA) update is no longer supported. To keep your Azure Percept DK software update-to-date, please refer to [Update the Azure Percept DK over a USB-C cable connection](./how-to-update-via-usb.md).**
+>**The OTA update on Azure Percept DK is no longer supported. For information on how to proceed, please visit [Update the Azure Percept DK over a USB-C cable connection](./how-to-update-via-usb.md).**
 
 To keep your Azure Percept DK software update-to-date, Microsoft offers two update methods for the dev kit. **Update over USB cable** or **Over-the-air (OTA) update**.
 
