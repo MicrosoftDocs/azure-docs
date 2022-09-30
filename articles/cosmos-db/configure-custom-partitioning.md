@@ -4,13 +4,14 @@ description: Learn how to trigger custom partitioning from Azure Synapse Spark n
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 09/29/2022
 ms.author: rosouz
 ms.custom: ignite-fall-2021
 ---
 
 # Configure custom partitioning to partition analytical store data (Preview)
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-mongodb-gremlin-api](includes/appliesto-sql-mongodb-gremlin-api.md)]
+
 
 Custom partitioning enables you to partition analytical store data, on fields that are commonly used as filters in analytical queries, resulting in improved query performance.
 To learn more about custom partitioning, see [what is custom partitioning](custom-partitioning-analytical-store.md) article.
@@ -22,6 +23,11 @@ To use custom partitioning, you must enable Azure Synapse Link on your Azure Cos
 
 > [!NOTE]
 > Azure Cosmos DB accounts should have Azure Synapse Link enabled to take advantage of custom partitioning. Custom partitioning is currently supported for Azure Synapse Spark 2.0 only.
+
+
+> [!NOTE]
+> Synapse Link for Gremlin API is now in preview. You can enable Synapse Link in your new or existing graphs using Azure CLI. For more information on how to configure it, click [here](configure-synapse-link.md).
+
 
 ## Trigger a custom partitioning job
 
