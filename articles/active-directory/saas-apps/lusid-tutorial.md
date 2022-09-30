@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/21/2022
+ms.date: 09/29/2022
 ms.author: jeedes
 
 ---
@@ -82,16 +82,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Reply URL** textbox, type a URL using the following pattern:
     `https://<CustomerDomain>.identity.lusid.com/sso/saml2/<ID>`
 
-1. Click **Set additional URLs** and perform the following steps, if you wish to configure the application in **SP** initiated mode: 
-
-    a. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<CustomerDomain>.lusid.com/ `
-
-    b. In the **Relay State** text box, type a URL using the following pattern:
-    `https://<CustomerDomain>.lusid.com/app/home`
+1. If you wish to configure the application in **SP** initiated mode, click **Set additional URLs** and type a URL in the **Relay State** text box using the following pattern: `https://<CustomerDomain>.lusid.com/app/home`
 
     > [!Note]
-    > These values are not real. Update these values with the actual Identifier, Reply URL, Sign on URL and Relay State URL. Contact [LUSID support team](mailto:support@finbourne.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > These values are not real. Update these values with the actual Identifier, Reply URL, and Relay State URL. Contact [LUSID support team](mailto:support@finbourne.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. LUSID application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
