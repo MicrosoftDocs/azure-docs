@@ -61,7 +61,7 @@ You've now created a commercial marketplace account in Partner Center. Continue 
 Follow the instructions in this section to create a commercial marketplace account if you already have an enrollment in Microsoft Partner Center. There are two types of existing enrollments that you can use to set up your commercial marketplace account. Choose the scenario that applies to you:
 
 *What if I'm already enrolled in the Microsoft Partner Network?*
-- [Use an existing Microsoft Cloud Partner Program account](#use-an-existing-microsoft-partner-network-account) to create your account.
+- [Use an existing Microsoft Cloud Partner Program account](#use-an-existing-microsoft-cloud-partner-program-account) to create your account.
 
 *What if I'm already enrolled in a developer program?*
 - [Use an existing developer program enrollment](#use-a-developer-program-enrollment) to create your account.
