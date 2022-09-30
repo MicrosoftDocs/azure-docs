@@ -196,7 +196,7 @@ You can use your own CORS utilities instead of App Service CORS for more flexibi
 >
 
 ## Allowed CORS methods and headers
-The built-in App Service CORS feature does not have options to allow only specific HTTP methods or verbs for each origin that you specify. It will automatically allow all methods and headers for each origin defined. This behavior is similar to [ASP.NET CORS](https://learn.microsoft.com/en-us/aspnet/core/security/cors?view=aspnetcore-6.0#enable-cors-with-attributes) policies when you use the options `.AllowAnyHeader()` and `.AllowAnyMethod()` in the code.
+The built-in App Service CORS feature does not have options to allow only specific HTTP methods or verbs for each origin that you specify. It will automatically allow all methods and headers for each origin defined. This behavior is similar to [ASP.NET Core CORS](/aspnet/core/security/cors) policies when you use the options `.AllowAnyHeader()` and `.AllowAnyMethod()` in the code.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
