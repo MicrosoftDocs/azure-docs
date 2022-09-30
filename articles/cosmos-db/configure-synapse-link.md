@@ -10,7 +10,7 @@ ms.custom: references_regions, synapse-cosmos-db, devx-track-azurepowershell
 ---
 
 # Configure and use Azure Synapse Link for Azure Cosmos DB
-[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+[!INCLUDE[appliesto-sql-mongodb-gremlin-api](includes/appliesto-sql-mongodb-gremlin-api.md)]
 
 [Azure Synapse Link for Azure Cosmos DB](synapse-link.md) is a cloud-native hybrid transactional and analytical processing (HTAP) capability that enables you to run near real-time analytics over operational data in Azure Cosmos DB. Synapse Link creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
 
