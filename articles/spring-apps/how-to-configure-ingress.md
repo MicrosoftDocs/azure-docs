@@ -97,6 +97,8 @@ This command updates the app with the following settings:
 - Session cookie max age: 0
 - Backend protocol: GRPC
 
+---
+
 ## FAQ
 
 - How do you enable gRPC?
@@ -119,7 +121,7 @@ This command updates the app with the following settings:
 
 - Do you need extra config in App Gateway/APIM if you need to have end-to-end support for gRPC or WebSocket?
 
-  You do not need extra config as long as the App Gateway supports gRPC.
+  You don't need extra config as long as the App Gateway supports gRPC.
 
 - Is configurable port supported?
 
