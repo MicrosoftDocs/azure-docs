@@ -6,21 +6,21 @@ author: b-branco
 ms.author: biancabranco
 ms.service: private-5g-core
 ms.topic: how-to 
-ms.date: 09/29/2022
+ms.date: 09/30/2022
 ms.custom: template-how-to
 ---
 
 # Manage network slices - Azure portal
 
-*Network slices* allow you to multiplex independent logical networks on the same Azure Private 5G Core deployment. Slices are associated with SIM policies and static IP addresses. You can configure a slice/service type (SST) and slice differentiator (SD) for slices associated with SIMs that will be provisioned on a 5G site. If a SIM is provisioned on a 4G site, the slice associated with its SIM policy must contain an empty SD and a value of 1 for the SST.
+*Network slices* allow you to multiplex independent logical networks on the same Azure Private 5G Core deployment. Slices are assigned to SIM policies and static IP addresses, providing isolated end-to-end networks that can be customized for different bandwidth and latency requirements.
 
-In this how-to guide, you'll learn how to view, create, modify, and delete network slices using the Azure portal.
+In this how-to guide, you'll learn how to view, create, modify, and delete network slices using the Azure portal. You can configure a slice/service type (SST) and slice differentiator (SD) for slices associated with SIMs that will be provisioned on a 5G site. If a SIM is provisioned on a 4G site, the slice associated with its SIM policy must contain an empty SD and a value of 1 for the SST.
 
 ## Prerequisites
 
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor role at the subscription scope.
 - Identify the name of the Mobile Network resource corresponding to your private mobile network.
-- If you're creating a new slice, collect the information listed in [Collect the required information for a network slice](collect-required-information-for-private-mobile-network.md#collect-the-required-information-for-a-network-slice).
+- If you're creating a new slice, collect the information listed in [Collect the required information for a network slice](collect-required-information-for-private-mobile-network.md#collect-the-required-information-for-a-network-slice). If the slice will be used by 4G UEs, you don't need to collect SST and SD values.
 - If you're making changes to a slice, refer to [Collect the required information for a network slice](collect-required-information-for-private-mobile-network.md#collect-the-required-information-for-a-network-slice) to collect the required values and make sure they're in the correct format.
 
 ## View existing network slices
@@ -80,6 +80,4 @@ To delete a network slice:
 
 ## Next steps
 
-Learn more about designing the policy control configuration for your private mobile network.
-
-- [Policy control](policy-control.md)
+See [Policy control](policy-control.md) to learn more about designing the policy control configuration for your private mobile network.
