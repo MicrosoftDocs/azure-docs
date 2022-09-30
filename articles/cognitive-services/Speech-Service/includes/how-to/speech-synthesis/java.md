@@ -220,6 +220,9 @@ public class SpeechSynthesis {
     public static void main(String[] args) throws InterruptedException, ExecutionException {
 
         SpeechConfig speechConfig = SpeechConfig.fromSubscription(speechKey, speechRegion);
+        
+        // Required for WordBoundary event sentences.
+        speechConfig.setProperty(PropertyId.SpeechServiceResponse_RequestSentenceBoundary, "true");
 
         String speechSynthesisVoiceName = "en-US-JennyNeural"; 
         
