@@ -335,10 +335,28 @@ ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Az
 
 1. To enroll in the preview, send an e-mail to ExpressRouteDirect@microsoft.com with the ExpressRoute Direct and target ExpressRoute circuit Azure subscription IDs. You'll receive an e-mail once the feature get enabled for your subscriptions.
 
+
+1. Sign in to Azure and select the ExpressRoute Direct subscription. 
+
+   ```powershell
+   Connect-AzAccount 
+
+   Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+   ```
+
+
+1. . Get ExpressRoute Direct details 
+
+   ```powershell
+   Get-AzExpressRoutePort 
+
+   $ERPort = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
+   ```
+
 1. Create the ExpressRoute Direct authorization by running the following commands in PowerShell:
 
     ```powershell
-    Add-AzExpressRoutePortAuthorization -Name $Name -ExpressRoutePort $ERPort
+    Add-AzExpressRoutePortAuthorization -Name $AuthName -ExpressRoutePort $ERPort
     ```
    
    Sample output:
@@ -355,7 +373,7 @@ ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Az
 1. Verify the authorization was created successfully and store ExpressRoute Direct authorization into a variable:
 
     ```powershell
-    $ERDirectAuthorization = Get-AzExpressRoutePortAuthorization -ExpressRoutePortObject $ERPort -Name $Name
+    $ERDirectAuthorization = Get-AzExpressRoutePortAuthorization -ExpressRoutePortObject $ERPort -Name $AuthName
     $ERDirectAuthorization  
     ```
     
@@ -373,7 +391,9 @@ ExpressRoute Direct and ExpressRoute circuit(s) in different subscriptions or Az
 1. Redeem the authorization to create the ExpressRoute Direct circuit in different subscription or Azure Active Directory tenant with the following command:
 
     ```powershell
-    New-AzExpressRouteCircuit -Name $Name -ResourceGroupName $RGName -Location $Location -SkuTier $SkuTier -SkuFamily $SkuFamily -BandwidthInGbps $BandwidthInGbps -AuthorizationKey $$ERDirectAuthorization.AuthorizationKey
+    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
+    
+    New-AzExpressRouteCircuit -Name $Name -ResourceGroupName $RGName -Location $Location -SkuTier $SkuTier -SkuFamily $SkuFamily -BandwidthInGbps $BandwidthInGbps -AuthorizationKey $ERDirectAuthorization.AuthorizationKey
     ```
 ## Next steps
 

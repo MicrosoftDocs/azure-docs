@@ -89,27 +89,13 @@ CallingServerClient callingServerClient = new CallingServerClient("<Resource_Con
 
 ## Start recording session using 'StartRecordingAsync' server API
 
-Use the server call ID received during initiation of a call.
+Use the server call ID received during initiation of a call. The default recording format will be mixed audio+video.
 
 ```csharp
 var startRecordingResponse = await callingServerClient.InitializeServerCall("<servercallid>").StartRecordingAsync("<callbackuri>").ConfigureAwait(false);
 ```
 The `StartRecordingAsync` API response contains the recording ID of the recording session.
 
-### Specify a user on a channel 0 for unmixed audio-only
-
-```csharp
-var channelAffinity = new []
-{
-    new ChannelAffinity
-    {
-        Channel = 0,
-        Participant = user,
-    },
-};
-
-var startRecordingResponse = await callingServerClient.InitializeServerCall("<servercallid>").StartRecordingAsync("<callbackuri>","<RecordingContent>","<RecordingChannel>","<RecordingFormat>", channelAffinity).ConfigureAwait(false);
-```
 
 ## Start recording session with options using 'StartRecordingAsync' server API
 

@@ -41,7 +41,7 @@ To create a GPU-optimized virtual machine (VM), choosing the right size is impor
 
 Let's create an IoT Edge VM with the [Azure Resource Manager (ARM)](/azure/azure-resource-manager/management/overview) template in GitHub, then configure it to be GPU-optimized.
 
-1. Go to the IoT Edge VM deployment template in GitHub: [Azure/iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.3).
+1. Go to the IoT Edge VM deployment template in GitHub: [Azure/iotedge-vm-deploy](https://github.com/Azure/iotedge-vm-deploy/tree/1.4).
 
 1. Select the **Deploy to Azure** button, which initiates the creation of a custom VM for you in the Azure portal. 
 
@@ -233,4 +233,4 @@ az group list
 
 ## Next steps
 
-This article helped you set up your virtual machine and IoT Edge device to be GPU-accelerated. To run an application with a similar setup, try the learning path for [NVIDIA DeepStream development with Microsoft Azure](/learn/paths/nvidia-deepstream-development-with-microsoft-azure/?WT.mc_id=iot-47680-cxa). The Learn tutorial shows you how to develop optimized Intelligent Video Applications that can consume multiple video, image, and audio sources.
+This article helped you set up your virtual machine and IoT Edge device to be GPU-accelerated. To run an application with a similar setup, try the learning path for [NVIDIA DeepStream development with Microsoft Azure](/training/paths/nvidia-deepstream-development-with-microsoft-azure/?WT.mc_id=iot-47680-cxa). The Learn tutorial shows you how to develop optimized Intelligent Video Applications that can consume multiple video, image, and audio sources.

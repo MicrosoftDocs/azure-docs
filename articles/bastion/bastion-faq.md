@@ -46,6 +46,10 @@ You may use a private DNS zone ending with one of the names listed above (ex: pr
 
 Azure Bastion isn't supported with Azure Private DNS Zones in national clouds.
 
+### <a name="dns"></a>Does Azure Bastion support Private Link?"
+
+No, Azure Bastion does not currently support private link.
+
 ### <a name="subnet"></a>Can I have an Azure Bastion subnet of size /27 or smaller (/28, /29, etc.)?
 
 For Azure Bastion resources deployed on or after November 2, 2021, the minimum AzureBastionSubnet size is /26 or larger (/25, /24, etc.). All Azure Bastion resources deployed in subnets of size /27 prior to this date are unaffected by this change and will continue to work. However, we highly recommend increasing the size of any existing AzureBastionSubnet to /26 in case you choose to take advantage of [host scaling](./configure-host-scaling.md) in the future.

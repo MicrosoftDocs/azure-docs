@@ -143,6 +143,9 @@ When you push commits to your App Service repository, App Service deploys the fi
     git push azure main
     ```
 
+    You can also change the `DEPLOYMENT_BRANCH` app setting in the Azure Portal, by selecting **Configuration** under **Settings** and adding a new Application Setting with a name of `DEPLOYMENT_BRANCH` and value of `main`.
+
+
 ## Troubleshoot deployment
 
 You may see the following common error messages when you use Git to publish to an App Service app in Azure:

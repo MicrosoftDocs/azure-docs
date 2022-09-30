@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a search index in Javas'
+title: 'Quickstart: Create a search index in Java'
 titleSuffix: Azure Cognitive Search
 description: In this Java quickstart, learn how to create an index, load data, and run queries using the Azure Cognitive Search client library for Java.
 manager: nitinme

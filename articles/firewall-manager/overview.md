@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 08/03/2021
+ms.date: 09/01/2022
 ms.author: victorh
 ---
 
@@ -61,7 +61,15 @@ Easily route traffic to your secured hub for filtering and logging without the n
 
 This feature is available only with secured virtual hub deployments.
 
-You can use third-party providers for Branch to Internet (B2I) traffic filtering, side by side with Azure Firewall for Branch to VNet (B2V), VNet to VNet (V2V) and VNet to Internet (V2I). 
+You can use third-party providers for Branch to Internet (B2I) traffic filtering, side by side with Azure Firewall for Branch to VNet (B2V), VNet to VNet (V2V) and VNet to Internet (V2I).
+
+### DDoS protection plan
+
+You can associate your virtual networks with a DDoS protection plan within Azure Firewall Manager. For more information, see [Configure an Azure DDoS Protection Plan using Azure Firewall Manager](configure-ddos.md).
+
+### Manage Web Application Firewall policies
+
+You can centrally create and associate Web Application Firewall (WAF) policies for your application delivery platforms, including Azure Front Door and Azure Application Gateway. For more information, see [Manage Web Application Firewall policies](manage-web-application-firewall-policies.md).
 
 ## Region availability
 
@@ -86,6 +94,6 @@ Azure Firewall Manager has the following known issues:
 
 ## Next steps
 
-- [Learn module: Introduction to Azure Firewall Manager](/learn/modules/intro-to-azure-firewall-manager/).
+- [Learn module: Introduction to Azure Firewall Manager](/training/modules/intro-to-azure-firewall-manager/).
 - Review [Azure Firewall Manager deployment overview](deployment-overview.md)
 - Learn about [secured Virtual Hubs](secured-virtual-hub.md).

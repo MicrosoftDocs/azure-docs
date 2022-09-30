@@ -49,6 +49,8 @@ This is the general process to secure a web service:
 
 There are slight differences when you secure across [deployment targets](how-to-deploy-and-where.md).
 
+[!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+
 ## Get a domain name
 
 If you don't already own a domain name, purchase one from a *domain name registrar*. The process and price differ among registrars. The registrar provides tools to manage the domain name. You use these tools to map a fully qualified domain name (FQDN) (such as www\.contoso.com) to the IP address that hosts your web service.
@@ -110,7 +112,7 @@ You can enable TLS either with Microsoft certificate or a custom certificate pur
     > [!IMPORTANT]
     > When you use a certificate from Microsoft, you don't need to purchase your own certificate or domain name.
 
-* **When you use a custom certificate that you purchased**, you use the *ssl_cert_pem_file*, *ssl_key_pem_file*, and *ssl_cname* parameters. The following example demonstrates how to use .pem files to create a configuration that uses a TLS/SSL certificate that you purchased:
+* **When you use a custom certificate that you purchased**, you use the *ssl_cert_pem_file*, *ssl_key_pem_file*, and *ssl_cname* parameters. The PEM file with pass phrase protection is not supported. The following example demonstrates how to use .pem files to create a configuration that uses a TLS/SSL certificate that you purchased:
  
     ```python
     from azureml.core.compute import AksCompute

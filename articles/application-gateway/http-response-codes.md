@@ -99,7 +99,7 @@ For information about scenarios where 502 errors occur, and how to troubleshoot 
 
 #### 504 – Request timeout
 
-HTTP 504 errors are presented if a request is sent to application gateways using v2 sku, and the backend response exceeds the time-out value associated to the listener's rule. This value is defined in the HTTP setting.
+HTTP 504 errors are presented if a request is sent to application gateways using v2 sku, and the backend response time exceeds the time-out value associated to the listener's rule. This value is defined in the HTTP setting.
 
 ## Next steps
 

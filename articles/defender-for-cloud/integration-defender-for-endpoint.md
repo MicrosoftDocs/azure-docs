@@ -231,7 +231,7 @@ You can also enable the MDE unified solution at scale through the supplied REST 
 
 This is an example request body for the PUT request to enable the MDE unified solution:
 
-URI: `https://management.microsoft.com/subscriptions/<subscriptionId>/providers/Microsoft.Security/settings&api-version=2022-05-01-preview`
+URI: `https://management.azure.com/subscriptions/<subscriptionId>/providers/Microsoft.Security/settings&api-version=2022-05-01-preview`
 
 ```json
 {
