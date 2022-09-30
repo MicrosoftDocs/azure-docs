@@ -45,10 +45,10 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
    > [!div class="mx-imgBorder"]
    > ![Configure logging in the Azure portal.](./media/manage-storage-analytics-logs/enable-diagnostics.png)
 
-4. Ensure that the **Delete data** check box is selected.  Then, set the number of days that you would like log data to be retained by moving the slider control beneath the check box, or by directly modifying the value that appears in the text box next to the slider control. The default for new storage accounts is seven days. If you do not want to set a retention policy, enter zero. If there is no retention policy, it is up to you to delete the log data.
+4. To retain logs, ensure that the **Delete data** check box is selected.  Then, set the number of days that you would like log data to be retained by moving the slider control beneath the check box, or by directly modifying the value that appears in the text box next to the slider control. The default for new storage accounts is seven days.  If you do not want to set a retention policy, leave the **Delete data** checkbox unchecked. If there is no retention policy, it is up to you to delete the log data.
 
    > [!WARNING]
-   > Logs are stored as data in your account. log data can accumulate in your account over time which can increase the cost of storage. If you need log data for only a small period of time, you can reduce your costs by modifying the data retention policy. Stale log data (data older than your retention policy) is deleted by the system. We recommend setting a retention policy based on how long you want to retain the log data for your account. See [Billing on storage metrics](storage-analytics-metrics.md#billing-on-storage-metrics) for more information.
+   > Logs are stored as data in your account. Log data can accumulate in your account over time which can increase the cost of storage. If you need log data for only a small period of time, you can reduce your costs by modifying the data retention policy. Stale log data (data older than your retention policy) is deleted by the system. We recommend setting a retention policy based on how long you want to retain the log data for your account. See [Billing on storage metrics](storage-analytics-metrics.md#billing-on-storage-metrics) for more information.
 
 4. Click **Save**.
 
