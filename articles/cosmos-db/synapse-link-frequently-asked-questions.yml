@@ -139,12 +139,12 @@ sections:
       - question: |
           Can I access analytical store with Azure Cosmos DB SDKs?
         answer: |
-          No, you can't access analytical store with the Azure Cosmos DB SDKs. You need to use Azure Synapse analitics, Spark or SQL serverless pools.
+          No, you can't access analytical store with the Azure Cosmos DB SDKs. You need to use Azure Synapse Analytics, Spark or SQL serverless pools.
       
       - question: |
           Can I access analytical store with Azure Cosmos DB REST APIs?
         answer: |
-          No, you can't access analytical store with the Azure Cosmos DB REST APIs. You need to use Azure Synapse analitics, Spark or SQL serverless pools.       
+          No, you can't access analytical store with the Azure Cosmos DB REST APIs. You need to use Azure Synapse Analytics, Spark or SQL serverless pools.       
           
       - question: |
           Is analytical store supported by Terraform?
@@ -196,7 +196,7 @@ sections:
           Yes, Azure Synapse Link supports configuring customer-managed keys using your Azure Cosmos DB account's managed identity. You can seamlessly encrypt the data across transactional and analytical stores using the same customer-managed keys in an automatic and transparent manner. To learn more, see  [configuring customer-managed keys using Azure Cosmos DB accounts' managed identities](how-to-setup-cmk.md#using-managed-identity) article.
       
       - question: |
-           Does Azure Synapse link provide network isolation with Azure Synapse managed virtual networks?
+           Does Azure Synapse Link provide network isolation with Azure Synapse managed virtual networks?
         answer: |
            Yes, You can control network access to the data in the transactional and analytical stores independently. Network isolation is done using separate managed private endpoints for each store, within managed virtual networks in Azure Synapse workspaces. To learn more, see how to [Configure private endpoints for analytical store](analytical-store-private-endpoints.md) article.
        
