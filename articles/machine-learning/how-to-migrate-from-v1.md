@@ -117,7 +117,7 @@ You can continue using your existing v1 model deployments. For new model deploym
 |Azure Kubernetes Service (AKS)|ACI, AKS|Manage your own AKS cluster(s) for model deployment, giving flexibility and granular control at the cost of IT overhead.|
 |Azure Arc Kubernetes|N/A|Manage your own Kubernetes cluster(s) in other clouds or on-premises, giving flexibility and granular control at the cost of IT overhead.|
 
-For a comparison of SDK v1 and v2 code, see [Migrate deployment endpoints from SDK v1 to SDK v2](migrate-to-v2-deploy-endpoints.md).
+For a comparison of SDK v1 and v2 code, see [Upgrade deployment endpoints to SDK v2](migrate-to-v2-deploy-endpoints.md).
 For upgrade steps from your existing ACI web services to managed online endpoints, see our [upgrade guide article](migrate-to-v2-managed-online-endpoints.md) and [blog](https://aka.ms/acimoemigration).
 
 ### Jobs (experiments, runs, pipelines in v1)
