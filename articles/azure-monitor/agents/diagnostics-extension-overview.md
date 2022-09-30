@@ -124,4 +124,4 @@ See the following articles for more information.
 ## Next steps
 
 * Learn to [use performance counters in Azure Diagnostics](../../cloud-services/diagnostics-performance-counters.md).
-* If you have trouble with diagnostics starting or finding your data in Azure Storage tables, see [Troubleshooting Azure Diagnostics](diagnostics-extension-troubleshooting.md)
+* If you have trouble with diagnostics starting or finding your data in Azure Storage tables, see [Troubleshooting Azure Diagnostics](diagnostics-extension-troubleshooting.md).
