@@ -190,15 +190,13 @@
         href: concept-certificate-based-authentication.md
       - name: How Azure AD CBA works
         href: concept-certificate-based-authentication-technical-deep-dive.md
-      - name: Limitations
-        href: concept-certificate-based-authentication-limitations.md
       - name: Configure Azure AD CBA
         href: how-to-certificate-based-authentication.md
       - name: Windows SmartCard logon
         href: concept-certificate-based-authentication-smartcard.md
-      - name: Mobile devices
+      - name: iOS devices
         href: concept-certificate-based-authentication-mobile-ios.md
-      - name: Mobile devices
+      - name: Android devices
         href: concept-certificate-based-authentication-mobile-android.md
       - name: Certificate user IDs
         href: concept-certificate-based-authentication-certificateuserids.md

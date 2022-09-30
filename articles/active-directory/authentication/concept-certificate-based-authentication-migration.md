@@ -84,9 +84,10 @@ Azure AD Connect uses the AWS service to access Azure AD. It requires a special 
 
 - [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
 - [Technical deep dive for Azure AD CBA](concept-certificate-based-authentication-technical-deep-dive.md)
-- [Limitations with Azure AD CBA](concept-certificate-based-authentication-limitations.md)
 - [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
+- [Azure AD CBA on iOS devices](concept-certificate-based-authentication-mobile-ios.md)
+- [Azure AD CBA on Android devices](concept-certificate-based-authentication-mobile-android.md)
 - [Windows SmartCard logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
-- [Azure AD CBA on mobile devices (Android and iOS)](concept-certificate-based-authentication-mobile.md)
 - [Certificate user IDs](concept-certificate-based-authentication-certificateuserids.md)
+- [Advanced features](concept-certificate-based-authentication-advanced-features.md)
 - [FAQ](certificate-based-authentication-faq.yml)

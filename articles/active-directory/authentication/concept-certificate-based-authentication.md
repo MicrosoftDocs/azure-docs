@@ -86,10 +86,11 @@ The following scenarios aren't supported:
 ## Next steps
 
 - [Technical deep dive for Azure AD CBA](concept-certificate-based-authentication-technical-deep-dive.md)
-- [Limitations with CBA](concept-certificate-based-authentication-limitations.md)
-- [How to configure CBA](how-to-certificate-based-authentication.md)
-- [Windows SmartCard logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
-- [Azure AD CBA on mobile devices (Android and iOS)](concept-certificate-based-authentication-mobile.md)
-- [Sync rules for certificateUserIds](concept-certificate-based-authentication-certificateuserids.md)
+- [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
+- [Azure AD CBA on iOS devices](concept-certificate-based-authentication-mobile-ios.md)
+- [Azure AD CBA on Android devices](concept-certificate-based-authentication-mobile-android.md)
+- [Windows smart card logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
+- [Certificate user IDs](concept-certificate-based-authentication-certificateuserids.md)
 - [How to migrate federated users](concept-certificate-based-authentication-migration.md)
+- [Advanced features](concept-certificate-based-authentication-advanced-features.md)
 - [FAQ](certificate-based-authentication-faq.yml)

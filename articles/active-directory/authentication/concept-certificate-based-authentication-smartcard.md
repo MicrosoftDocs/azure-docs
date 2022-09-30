@@ -32,23 +32,23 @@ Follow these steps to set up Windows smart card sign-in:
 
    :::image type="content" border="false" source="./media/concept-certificate-based-authentication/smartcard.png" alt-text="Screenshot of smart card sign in.":::
 
-Users will get a primary refresh token (PRT) from Azure AD after the successful sign-in, and depending on the certificate-based authentication configuration, the PRT will contain the multifactor claim. 
+Users will get a primary refresh token (PRT) from Azure AD after the successful sign-in. Depending on the CBA configuration, the PRT will contain the multifactor claim. 
 
 ## Expected behavior of Windows sending user UPN to Azure AD CBA
 
-| | Azure AD Join | Hybrid Azure AD join |
+| | Azure AD Join | Hybrid join |
 |-|---------------|----------------------|
 |First sign-in | Pull from certificate | Pull from certificate |
 |Subsequent sign-in | Pull from certificate | Cached Azure AD UPN |
 
-More information of "Pull from certificate" logic is explained at [Certificate Requirements and Enumeration (Windows)](https://learn.microsoft.com/en-us/windows/security/identity-protection/smart-cards/smart-card-certificate-requirements-and-enumeration)
+More information of "Pull from certificate" logic is explained at [Certificate Requirements and Enumeration (Windows)](/windows/security/identity-protection/smart-cards/smart-card-certificate-requirements-and-enumeration)
 
 > [!NOTE]
-> In all cases, a user supplied User Name Hint (x509Hint) will be sent if provided. For a cloud-only user on a device joined to Azure AD with a certificate that contain a non-routable value, the user must pass the User Name Hint (x509Hint).
+> In all cases, a user supplied User Name Hint (x509Hint) will be sent if provided. For a cloud-only user on a device joined to Azure AD with a certificate that contains a non-routable value, the user must pass the User Name Hint (x509Hint).
 
 ## Supported platforms
 
-The Windows smart card sign-in works with the latest preview build of Windows 11 and the functionality is available for these earlier Windows versions after you apply update [KB5017383](https://support.microsoft.com/topic/september-20-2022-kb5017383-os-build-22000-1042-preview-62753265-68e9-45d2-adcb-f996bf3ad393):
+The Windows smart card sign-in works with the latest preview build of Windows 11. The functionality is also available for these earlier Windows versions after you apply update [KB5017383](https://support.microsoft.com/topic/september-20-2022-kb5017383-os-build-22000-1042-preview-62753265-68e9-45d2-adcb-f996bf3ad393):
 
 - Windows 11 22H2 (preview)
 - Windows 11 21H2 and later
@@ -64,9 +64,10 @@ The Windows smart card sign-in works with the latest preview build of Windows 11
 
 - [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
 - [Technical deep dive for Azure AD CBA](concept-certificate-based-authentication-technical-deep-dive.md)
-- [Limitations with Azure AD CBA](concept-certificate-based-authentication-limitations.md)
-- [Azure AD CBA on mobile devices (Android and iOS)](concept-certificate-based-authentication-mobile.md)
 - [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
+- [Azure AD CBA on iOS devices](concept-certificate-based-authentication-mobile-ios.md)
+- [Azure AD CBA on Android devices](concept-certificate-based-authentication-mobile-android.md)
 - [Certificate user IDs](concept-certificate-based-authentication-certificateuserids.md)
 - [How to migrate federated users](concept-certificate-based-authentication-migration.md)
+- [Advanced features](concept-certificate-based-authentication-advanced-features.md)
 - [FAQ](certificate-based-authentication-faq.yml)
