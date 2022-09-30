@@ -24,7 +24,7 @@ Whenever possible, refactor large functions into smaller function sets that work
 
 Azure Functions does not track background threads. If your functions initiate any tasks, callbacks, threads, processes, tasks, etc., they must be complete before you return from your functions. Site shutdown may still occur regardless of background thread status, leading to unintended behavior.
 
-For example, if a function kicks off a background task and returns a successful response before the task finishes, the function will be considered successful and complete despite the result of the background task.
+For example, if a function kicks off a background task and returns a successful response before the task finishes, the function will be considered successful and complete despite the result of the background task. If this background task is performing essential work, it may be pre-empted by site shutdown, leaving that work in an unknown state.
 
 ## Cross function communication
 
