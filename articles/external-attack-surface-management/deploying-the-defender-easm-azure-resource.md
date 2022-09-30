@@ -1,16 +1,17 @@
 ---
 title: Creating a Defender EASM Azure resource
-description: This article explains how to create an Microsoft Defender External Attack Surface Management (Defender EASM) Azure resource using the Azure Portal.
+description: This article explains how to create an Microsoft Defender External Attack Surface Management (Defender EASM) Azure resource using the Azure portal.
 author: danielledennis
 ms.author: dandennis
 ms.service: security
 ms.date: 07/14/2022
 ms.topic: quickstart
+ms.custom: references_regions 
 ---
 
 # Creating a Defender EASM Azure resource
 
-This article explains how to create a Microsoft Defender External Attack Surface Management (Defender EASM) Azure resource using the Azure Portal.
+This article explains how to create a Microsoft Defender External Attack Surface Management (Defender EASM) Azure resource using the Azure portal.
 
 Creating the EASM Azure resource involves two steps:
 
@@ -19,9 +20,9 @@ Creating the EASM Azure resource involves two steps:
 
 ## Prerequisites
 
-Before you create a Defender EASM resource group, we recommend that you are familiar with how to access and use the [Microsoft Azure Portal](https://ms.portal.azure.com/) and read the [Defender EASM Overview article](index.md) for key context on the product. You will need:
+Before you create a Defender EASM resource group, we recommend that you are familiar with how to access and use the [Microsoft Azure portal](https://ms.portal.azure.com/) and read the [Defender EASM Overview article](index.md) for key context on the product. You will need:
 
-- A valid Azure subscription or free Defender EASM trial account. If you don’t have an [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create an free Azure account before you begin.
+- A valid Azure subscription or free Defender EASM trial account. If you don’t have an [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create a free Azure account before you begin.
 
 - Your Azure account must have a contributor role assigned for you to create a resource. To get this role assigned to your account, follow the steps in the [Assign roles](/azure/role-based-access-control/role-assignments-steps) documentation, or contact your administrator.
 
