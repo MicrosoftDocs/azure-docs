@@ -39,7 +39,7 @@ landingContent:
           - text: Identify performance bottlenecks
             url: tutorial-identify-bottlenecks-azure-portal.md
           - text: Set up automated regression testing with CI/CD
-            url: tutorial-cicd-azure-pipelines.md
+            url: tutorial-identify-performance-regression-with-cicd.md
 
   # Card
   - title: Configure load tests

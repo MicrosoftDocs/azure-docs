@@ -17,7 +17,7 @@ items:
     - name: Identify performance bottlenecks
       href: tutorial-identify-bottlenecks-azure-portal.md
     - name: Automate regression tests with CI/CD
-      href: tutorial-cicd-azure-pipelines.md
+      href: tutorial-identify-performance-regression-with-cicd.md
 - name: Concepts
   items: 
     - name: Key concepts
