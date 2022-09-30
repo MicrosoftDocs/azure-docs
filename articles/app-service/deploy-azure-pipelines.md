@@ -37,7 +37,7 @@ The code examples in this section assume you are deploying an ASP.NET web app. Y
 
 Learn more about [Azure Pipelines ecosystem support](/azure/devops/pipelines/ecosystems/ecosystems).  
 
-# [Classic](#tab/yaml/)
+# [YAML](#tab/yaml/)
 
 1. Sign in to your Azure DevOps organization and navigate to your project.
 

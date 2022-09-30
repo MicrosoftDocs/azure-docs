@@ -15,7 +15,6 @@ ms.custom: devx-track-azurecli, cliv2, event-tier1-build-2022
 
 # Manage Azure Machine Learning workspaces using Azure CLI
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
@@ -128,7 +127,7 @@ When you deploy an Azure Machine Learning workspace, various other services are 
 To create a new workspace where the __services are automatically created__, use the following command:
 
 ```azurecli-interactive
-az ml workspace create -w <workspace-name> -g <resource-group-name>
+az ml workspace create -n <workspace-name> -g <resource-group-name>
 ```
 
 # [Bring existing resources](#tab/bringexistingresources)

@@ -71,7 +71,7 @@ Metric category|Metric name|Metric description|
 
    > [!TIP]
    >
-   > To learn more about advanced metrics display and sharing options, see [Getting started with Azure Metrics Explorer](/azure/azure/azure/azure-monitor/essentials/metrics-getting-started)
+   > To learn more about advanced metrics display and sharing options, see [Getting started with Azure Metrics Explorer](/azure/azure-monitor/essentials/metrics-getting-started)
 
    > [!IMPORTANT]
    >

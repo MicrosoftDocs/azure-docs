@@ -209,6 +209,8 @@
           href: azure-container-plan-availability.md
         - name: Plan technical configuration
           href: azure-container-plan-technical-configuration.md
+        - name: Container certification troubleshooting
+          href: azure-container-certification-faq.yml
   - name: Azure virtual machine offer
     items:
     - name: Plan the offer
