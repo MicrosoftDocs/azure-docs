@@ -13,7 +13,7 @@ ms.author: malev
 ---
 # Quickstart: Create an ASP.NET Core app with Azure App Configuration
 
-In this quickstart, you'll use Azure App Configuration to centralize storage and management of your app settings for an ASP.NET Core app. ASP.NET Core builds a single, key-value-based configuration object using settings from one or more [configuration providers](/aspnet/core/fundamentals/configuration#configuration-providers). App Configuration offers a configuration provider library for .NET. You can, therefore, use App Configuration as an additional configuration source for your app. With this approach, most of your application code doesn't need to change except for some app startup code.
+In this quickstart, you'll use Azure App Configuration to centralize storage and management of your app settings for an ASP.NET Core app. ASP.NET Core builds a single, key-value-based configuration object using settings from one or more [configuration providers](/aspnet/core/fundamentals/configuration#configuration-providers). App Configuration offers a configuration provider library for .NET. You can, therefore, use App Configuration as an extra configuration source for your app. With this approach, most of your application code doesn't need to change except for some app startup code.
 
 ## Prerequisites
 
@@ -73,9 +73,9 @@ dotnet new webapp --output TestAppConfig --framework netcoreapp3.1
     > [!IMPORTANT]
     > Some shells will truncate the connection string unless it's enclosed in quotes. Ensure that the output of the `dotnet user-secrets list` command shows the entire connection string. If it doesn't, rerun the command, enclosing the connection string in quotes.
 
-    Secret Manager stores the secret outside of your project tree, which helps prevent the accidental sharing of secrets within source code. It is used only to test the web app locally. When the app is deployed to Azure like [App Service](/azure/app-service/overview), use the *Connection strings*, *Application settings* or environment variables to store the connection string. Alternatively, you can [connect to App Configuration using managed identities](./howto-integrate-azure-managed-service-identity.md) or your other [Azure AD identities](./concept-enable-rbac.md).
+    Secret Manager stores the secret outside of your project tree, which helps prevent the accidental sharing of secrets within source code. It's used only to test the web app locally. When the app is deployed to Azure like [App Service](/azure/app-service/overview), use the *Connection strings*, *Application settings* or environment variables to store the connection string. Alternatively, you can [connect to App Configuration using managed identities](./howto-integrate-azure-managed-service-identity.md) or your other [Azure AD identities](./concept-enable-rbac.md).
 
-1. Open *Program.cs*, and add Azure App Configuration as an additional configuration source by calling the `AddAzureAppConfiguration` method.
+1. Open *Program.cs*, and add Azure App Configuration as an extra configuration source by calling the `AddAzureAppConfiguration` method.
 
     #### [.NET 6.x](#tab/core6x)
     ```csharp
@@ -118,9 +118,9 @@ dotnet new webapp --output TestAppConfig --framework netcoreapp3.1
 
 ## Read from the App Configuration store
 
-In this example, you will update a web page to display its content as you configured in Azure App Configuration.
+In this example, you'll update a web page to display its content as you configured in Azure App Configuration.
 
-1. Add a *Settings.cs* file at the root of your project directory. It defines a strongly typed  `Settings` class for the configuration you are going to use. Replace the namespace with the name of your project. 
+1. Add a *Settings.cs* file at the root of your project directory. It defines a strongly-typed  `Settings` class for the configuration you're going to use. Replace the namespace with the name of your project. 
 
     ```csharp
     namespace TestAppConfig
@@ -135,7 +135,7 @@ In this example, you will update a web page to display its content as you config
     }
     ```
 
-1. Bind "TestApp:Settings" section in configuration to the `Settings` object.
+1. Bind `TestApp:Settings` section in configuration to the `Settings` object.
 
     #### [.NET 6.x](#tab/core6x)
     Update *Program.cs* with the following code.
