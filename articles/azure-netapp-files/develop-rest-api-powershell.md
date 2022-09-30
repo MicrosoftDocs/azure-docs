@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 09/30/2023
+ms.date: 09/30/2022
 ms.author: anfdocs
 ---
 # Develop for Azure NetApp Files with REST API using PowerShell
