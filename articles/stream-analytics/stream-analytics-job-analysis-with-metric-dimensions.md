@@ -1,7 +1,7 @@
 ---
 title: Analyze Stream Analytics job performance by using metrics and dimensions
 description: This article describes how to use Azure Stream Analytics metrics and dimensions to analyze a job's performance.
-author: xujiang1
+author: xujxu
 ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: troubleshooting

@@ -1,7 +1,7 @@
 ---
 title: Enrich data and ingest to event hub using the Stream Analytics no code editor
 description: Learn how to use the no code editor to easily create a Stream Analytics job to enrich the data and ingest to event hub.
-author: xujiang1
+author: xujxu
 ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: how-to

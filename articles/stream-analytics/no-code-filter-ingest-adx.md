@@ -1,7 +1,7 @@
 ---
 title: Filter and ingest to Azure Data Explorer using the Stream Analytics no code editor
 description: Learn how to use the no code editor to easily create a Stream Analytics job. It continuously reads from Event Hubs, filters the incoming data, and then writes the results continuously to Azure Data Explorer.
-author: xujiang1
+author: xujxu
 ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: how-to
