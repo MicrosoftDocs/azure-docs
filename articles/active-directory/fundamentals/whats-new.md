@@ -99,7 +99,7 @@ For more information, see: [Enable accidental deletions prevention in the Azure 
 
 
 
-Identity protection expands its Anonymous and Malicious IP detection to protect ADFS sign-ins. This will automatically apply to all customers who have AD Connect Health deployed and enabled, and will show up as the existing "Anonymous IP" or "Malicious IP" detection with a token issuer type of "AD Federation Services".
+Identity protection expands its Anonymous and Malicious IP detections to protect ADFS sign-ins. This will automatically apply to all customers who have AD Connect Health deployed and enabled, and will show up as the existing "Anonymous IP" or "Malicious IP" detections with a token issuer type of "AD Federation Services".
 
 For more information, see: [What is risk?](../identity-protection/concept-identity-protection-risks.md)
 
