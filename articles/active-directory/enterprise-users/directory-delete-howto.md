@@ -145,7 +145,7 @@ Please follow below instructions to remove blocking enterprise apps/service prin
 
 10.	Retry tenant deletion from the Azure portal again.
 
-If you are still unable to delete the Azure AD tenant successfully, please contact Microsoft Support.
+If you're still unable to delete the Azure AD tenant successfully, contact Microsoft Support.
 
 ## Trial subscription that blocks deletion
 
