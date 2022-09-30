@@ -178,5 +178,5 @@ For more information, see:
 
 * [Create datastores](how-to-datastore.md?tabs=cli-identity-based-access%2Csdk-adls-sp%2Csdk-azfiles-sas%2Csdk-adlsgen1-sp)
 * [Read and write data in a job](how-to-read-write-data-v2.md)
-* [V2 datastore operations](/python/api/azure-ai-ml/azure.ai.ml.operations.datastoreoperations?view=azure-python-preview)
+* [V2 datastore operations](/python/api/azure-ai-ml/azure.ai.ml.operations.datastoreoperations)
 
