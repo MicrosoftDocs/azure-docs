@@ -396,6 +396,10 @@ In the connection information box, complete the following steps:
 
 1. Now, continue with the steps that you haven't completed yet in either [Add a SQL trigger](#add-sql-trigger) or [Add a SQL action](#add-sql-action).
 
+## Built-in connector app settings
+
+In a Standard logic app resource, the SQL Server built-in connector includes app settings that control various thresholds for performance, throughput, capacity, and so on. For example, you can change the query timeout value from 30 seconds. For more information, review [Reference for app settings - local.settings.json](/azure/logic-apps/edit-app-settings-host-settings#reference-local-settings-json).
+
 <a name="handle-bulk-data"></a>
 
 ## Handle bulk data
