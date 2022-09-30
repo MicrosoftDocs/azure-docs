@@ -19,19 +19,22 @@
           href: quickstart-portal.md
         - name: Azure CLI
           href: get-started.md
-      - name: With a custom container image
+      - name: With existing container image
         expanded: true
         items:
         - name: Azure portal
           href: get-started-existing-container-image-portal.md
         - name: Azure CLI
           href: get-started-existing-container-image.md
+      - name: With code on your local machine
+        expanded: true
+        items:
+        - name: Azure CLI
+          href: quickstart-code-to-cloud.md
         - name: Visual Studio
           href: deploy-visual-studio.md
         - name: Visual Studio Code
           href: deploy-visual-studio-code.md
-      - name: With code on your local machine
-        href: quickstart-code-to-cloud.md
 - name: Concepts
   items:
     - name: Environment
