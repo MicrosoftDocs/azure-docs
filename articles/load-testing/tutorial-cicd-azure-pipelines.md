@@ -271,7 +271,7 @@ To create and run the load test, the Azure Pipelines definition uses the [Azure 
 
 1. Select **Pipelines** in the left navigation, and then select new pipeline run from the list to monitor the status.
 
-    You can view the detailed run log by by selecting the pipeline job.
+    You can view the detailed run log by selecting the pipeline job.
 
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/create-pipeline-status.png" alt-text="Screenshot that shows how to view pipeline job details.":::
 
