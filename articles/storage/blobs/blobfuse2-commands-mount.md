@@ -6,7 +6,7 @@ author: jimmart-dev
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 08/02/2022
+ms.date: 09/30/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
@@ -49,7 +49,7 @@ The supported subcommands for `blobfuse2 mount` are:
 
 | Command | Description |
 |--|--|
-| [all](blobfuse2-commands-mount-all.md)   | Mounts all Azure blob containers in a specified storage account |
+| [all](blobfuse2-commands-mount-all.md)   | Mounts all blob containers in a specified storage account |
 | [list](blobfuse2-commands-mount-list.md) | Lists all BlobFuse2 mount points |
 
 Select one of the command links in the table above to view the documentation for the individual subcommands, including the arguments and flags they support.
