@@ -432,6 +432,8 @@
         desplayName: export, image version, disk, SIG, gallery
       - name: Purchase plan information
         href: marketplace-images.md
+      - name: Deprecated images FAQ
+        href: deprecated-images.yml
     - name: VM Applications
       items:
       - name: Overview

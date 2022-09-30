@@ -299,8 +299,6 @@
           href: how-to-manage-rest.md
         - name: How to move a workspace
           href: how-to-move-workspace.md
-        - name: Link to Azure Synapse Analytics workspace
-          href: how-to-link-synapse-ml-workspaces.md
         - name: Securely integrate Azure Synapse & Azure Machine Learning
           href: how-to-private-endpoint-integration-synapse.md
         - name: Workspace Diagnostics
@@ -333,7 +331,7 @@
           displayName: compute target, instance types, AKS, Arc Kubernetes
           href: how-to-manage-kubernetes-instance-types.md
         - name: Manage AzureML inference router
-          displayNmae: AKS, Arc Kubernetes, inference, compute target
+          displayName: AKS, Arc Kubernetes, inference, compute target
           href: how-to-kubernetes-inference-routing-azureml-fe.md
         - name: Secure inferencing environment
           displayName: AKS, Arc Kubernetes, HTTPS, private IP, no-public IP, private link, private endpoint, inference
@@ -378,9 +376,7 @@
         - name: Set up software environments
           displayName: pip, Conda, anaconda
           href: how-to-use-environments.md
-        - name: Set input & output directories
-          displayName: large data, write, experiment files, size limit
-          href: how-to-save-write-experiment-files.md
+
         - name: Set up VS Code extension
           displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
           href: how-to-setup-vs-code.md
@@ -488,9 +484,6 @@
             - name: Use automated ML with Databricks
               displayName: automl
               href: how-to-configure-databricks-automl-environment.md
-            - name: Auto-train a forecast model
-              displayName: time series
-              href: how-to-auto-train-forecast.md
             - name: Prep image data for computer vision models (Python)
               displayName: SDK, automl, image, datasets, conversion scripts, schema, image model
               href: how-to-prepare-datasets-for-automl-images.md
@@ -503,12 +496,6 @@
             - name: Auto-train a natural language processing model
               displayName: nlp, auto ML, automl, SDK
               href: how-to-auto-train-nlp-models.md
-            - name: Data splits & cross-validation (Python)
-              displayName: automl, feature engineering, feature importance
-              href: how-to-configure-cross-validation-data-splits.md
-            - name: Featurization in automated ML (Python)
-              displayName: automl, feature engineering, feature importance, BERT
-              href: how-to-configure-auto-features.md
             - name: Understand charts and metrics
               href: how-to-understand-automated-ml.md
             - name: Generate AutoML training code
@@ -518,8 +505,6 @@
             - name: Inference image models with ONNX model
               displayName: automl, image, image model, computer vision
               href: how-to-inference-onnx-automl-image-models.md
-            - name: Troubleshoot automated ML
-              href: how-to-troubleshoot-auto-ml.md
     - name: Deploy models
       items: 
         - name: Online endpoints (real-time)
@@ -675,9 +660,6 @@
   items: 
     - name: Troubleshoot secure workspace connectivity
       href: how-to-troubleshoot-secure-connection-workspace.md
-    - name: VS Code interactive debugging
-      displayName: vscode,remote,debug,pipelines,deployments,ssh
-      href: how-to-debug-visual-studio-code.md
     - name: Troubleshoot SerializationError
       href: how-to-troubleshoot-serialization-error.md
     - name: Troubleshoot descriptor error
