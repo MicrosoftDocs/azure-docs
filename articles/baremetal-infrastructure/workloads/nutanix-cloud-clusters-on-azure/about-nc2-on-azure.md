@@ -6,7 +6,7 @@ ms.subservice: baremetal-nutanix
 ms.date: 03/31/2021
 ---
 
-# About Nutanix Cloud Clusters on Azure Public Preview
+# About Nutanix Cloud Clusters on Azure
 
 The articles in this section are intended for the professionals participating in BareMetal Infrastructure for Nutanix Cloud Clusters on Azure of NC2 on Azure.
 
