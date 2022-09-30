@@ -31,18 +31,18 @@
     href: tutorial-create-tenant.md
   - name: 2 - Register a web application
     href: tutorial-register-applications.md
-  - name: 3 - Create user flows #and custom policies
-    href: tutorial-create-user-flows.md
+  - name: 3 - Create user flows and custom policies
+    href: tutorial-create-user-flows.md?pivots=b2c-user-flow
     # Break creation of custom policy from user flow
     # Make a search throughout the doc set to identify articles linking to custom policies and update it accordingly.
-  - name: 4 - Create custom policies
+  # - name: 4 - Create custom policies
     # Create this file (tutorial-create-custom-policies.md), and content into it. You also need to update the index.yml's card, Customize, to reflect the new file name
     # What keywords users are searching in TOC: https://review.docs.microsoft.com/en-us/help/contribute/kusto/samples/discoverability-toc-filter?branch=main 
-    href: tutorial-create-user-flows.md
-  - name: 5 - Manage your tenant
+    # href: tutorial-create-user-flows.md
+  - name: 4 - Manage your tenant
     href: tenant-management.md
     displayName: break glass account, emergence account
-  - name: 6 - Clean up and delete tenant
+  - name: 5 - Clean up and delete tenant
     href: tutorial-delete-tenant.md
 # Node Samples
 - name: Samples
