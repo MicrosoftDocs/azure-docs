@@ -25,7 +25,11 @@ You can then configure an external software workload to exchange a token from th
 
 In this article, you learn how to create, list, and delete federated identity credentials on an application in Azure AD.
 
-[!INCLUDE [Important considerations and restrictions](./includes/workload-identity-federation-apps-considerations.md)]
+## Important considerations and restrictions
+
+[!INCLUDE [federated credential configuration](./includes/federated-credential-configuration-considerations.md)]
+
+To learn more about supported regions, time to propagate federated credential updates, supported issuers and more, read [Important considerations and restrictions for federated identity credentials](workload-identity-federation-considerations.md).
 
 ::: zone pivot="identity-wif-apps-methods-azp"
 
