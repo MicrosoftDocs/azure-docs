@@ -39,7 +39,7 @@ You can customize an Azure Spring Apps instance with a unique `outboundType` of 
 
 The default `outboundType` value is `loadBalancer`. If `outboundType` is set to `loadBalancer`, Azure Spring Apps automatically configures egress paths and expects egress from the load balancers created by the Azure Spring Apps resource provider. Two load balancers are recreated: one for the service runtime and another for the user app. A public IP address is provisioned for each load balancer. The load balancer is used for egress traffic for the generated public IP.
 
-### userDefinedRouting outbound type
+### Outbound type userDefinedRouting
 
 > [!NOTE]
 > Using an outbound type is an advanced networking scenario and requires proper network configuration.
