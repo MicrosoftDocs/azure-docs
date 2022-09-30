@@ -27,6 +27,10 @@ If you're a partner who wants to create your own solution, see the [Microsoft Se
 >
 > Microsoft Sentinel solutions and the Microsoft Sentinel Content Hub are currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+## Prerequisites
+
+In order to install, update or manage all solutions, you need the **Template Spec Contributor** role at the resource group level.  
+
 ## Discover solutions
 
 1. From the Microsoft Sentinel navigation menu, under **Content management**, select **Content hub (Preview)**.
@@ -41,16 +45,16 @@ If you're a partner who wants to create your own solution, see the [Microsoft Se
     > If a solution that you've deployed has updates since you deployed it, the list view will have a blue up arrow in the status column, and will be included in the **Updates** blue up arrow count at the top of the page.
     >
 
-Each solution shows the categories that apply to it, and the types of content included.
+Each solution shows categories that apply to it, and the types of content included.
 
 For example, in the following image, the **Cisco Umbrella** solution shows a category of **Security - Cloud Security**, and indicates it includes a data connector, analytics rules, hunting queries, playbooks, and more.
 
 :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of the Microsoft Sentinel content hub." lightbox="./media/sentinel-solutions-deploy/solutions-list.png":::
 
 
-## Install or update solutions
+## Install or update a solution
 
-Solutions can be installed and updated individually or in bulk. 
+Solutions can be installed and updated individually or in bulk. Here's the process for an individual solution.
 
 1. In the content hub, select a solution to view more information on the right. Then select **Install**, or **Update**, if you need updates. For example:
 
@@ -68,7 +72,15 @@ Solutions can be installed and updated individually or in bulk.
 
 1. Finally, in the **Review + create** tab, wait for the `Validation Passed` message, then select **Create** or **Update** to deploy the solution. You can also select the **Download a template for automation** link to deploy the solution as code.
 
-For more information, see [Microsoft Sentinel content hub catalog](sentinel-solutions-catalog.md) and [Find your Microsoft Sentinel data connector](data-connectors-reference.md).
+## Install and update solutions 
+
+1. To install or update items in bulk, change to the list view.
+
+1. Select the checkboxes to install and update multiple solutions.
+
+1. The content hub interface will indicate the install and update progress.
+
+    :::image type="content" source="media/sentinel-solutions-deploy/bulk-install-update.png" alt-text="Screenshot of solutions list view with multiple solutions selected and in progress for installation." lightbox="media/sentinel-solutions-deploy/bulk-install-update.png":::
 
 ## Enable content items in a solution
 
