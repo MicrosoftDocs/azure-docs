@@ -13,7 +13,7 @@ ms.date: 09/30/2022
 The following release notes identify the new features, critical open issues, and resolved issues for the 2209 release for the Azure Private 5G Core. The release notes are continuously updated, and critical issues requiring a workaround are added here as they're discovered. Before deploying this new version, carefully review the information contained in these release notes.
 
 This article applies to the Azure Private 5G Core 2209 release (PMN-4-17). This release is compatible with the Azure Stack Edge Pro GPU running the 2207 and 2209 releases and is supported by the 2022-04-01-preview [Microsoft.MobileNetwork API version](/rest/api/mobilenetwork).
-<!-- TODO: check for unexplained acronyms -->
+
 ## Issues fixed in the 2209 release
 
 The following table provides a summary of issues fixed in this release.
@@ -54,5 +54,5 @@ The following table provides a summary of known issues carried over from the pre
   | 5 | 4G/5G Signaling  | In rare scenarios, Azure Private 5G Core may corrupt the internal state of a packet data session, resulting in subsequent changes to that packet data session failing.  | Reinstall the packet core.  |
   | 6 | 4G/5G Signaling  | In scenarios when the establishment of a PDU session has failed, Azure Private 5G Core may not automatically release the session, and the UE may need to re-register.  | The UE should re-register.  |
   | 7 | 4G/5G Signaling  | In rare scenarios, due to a race condition triggered during a RAN disconnect/re-connect sequence, Azure Private 5G Core may fail to process incoming requests from the eNodeB or gNodeB.   | Reinstall the packet core.  |
-  | 8 | Local dashboards  | On the packet core dashboards, the 4G interface panel doesn’t display the data.  | Click on each panel’s edit button and select Data source again as Prometheus and click on refresh to see the data.  <!-- This sentence needs polishing. Is 'Data source again as Prometheus' a button in the UI? Also, we should use 'select' instead of 'click on' -->  |
+  | 8 | Local dashboards  | On the packet core dashboards, the 4G interface panel doesn’t display the data.  | Select each panel’s edit button and select Data source again as Prometheus and select refresh to see the data.  <!-- This sentence needs polishing. Is 'Data source again as Prometheus' a button in the UI? -->  |
   
