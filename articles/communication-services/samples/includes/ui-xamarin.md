@@ -2,7 +2,7 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: jorgegarc
+author: garchiro7
 manager: anujbh
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
