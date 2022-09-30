@@ -51,7 +51,7 @@ Selecting this checkbox requires users to perform Azure Active Directory (Azure 
 
 [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview) satisfies the requirement for multifactor authentication in Conditional Access policies.
 
-### Require authentication strength (Preview)
+### Require authentication strength (preview)
 
 Administrators can choose to require [specific authentication strengths](../authentication/concept-authentication-strengths.md) in their Conditional Access policies. These authentication strengths are defined in the **Azure portal** > **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication strengths (Preview)**. Administrators can choose to create their own or use the built-in versions.
 
