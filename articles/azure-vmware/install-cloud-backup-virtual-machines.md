@@ -57,7 +57,7 @@ Upon successful execution, the Cloud Backup for Virtual Machines will automatica
 
 ## Upgrade Cloud Backup for Virtual Machines 
 
-You can execute this run command to upgrade the Cloud Backup for Virtual Machines to the next available version. 
+Use the following steps to execute a run command to upgrade the Cloud Backup for Virtual Machines to the next available version: 
 
 >[!IMPORTANT]
 > Before you initiate the upgrade, you must:
@@ -87,7 +87,7 @@ You can execute the run command to uninstall Cloud Backup for Virtual Machines.
 
 ## Change vCenter account password 
 
-You can execute this command to reset the vCenter account password:
+Use the following steps to execute the command to reset the vCenter account password:
 
 1. Select **Run command** > **Packages** > **NetApp.CBS.AVS** > **Invoke-ResetNetAppCBSApplianceVCenterPasswordA**.
 
