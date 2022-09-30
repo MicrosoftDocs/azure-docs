@@ -7,7 +7,6 @@
   - name: Architecture & terms 
     displayName: architecture, concepts, definitions, glossary
     href: concept-azure-machine-learning-architecture.md
-
 - name: Upgrade to SDK v2
   items:
     - name: Upgrade overview
@@ -53,33 +52,6 @@
     - name: "Migrate endpoints"
       displayName: migration, v1, v2
       href: ../migrate-to-v2-deploy-endpoints.md  
-- name: Concepts (v1)
-  items:
-  - name: Model training
-    displayName: run config, machine learning pipeline, ml pipeline, train model
-    href: concept-train-machine-learning-model-v1.md
-  - name: Work with data
-    items:
-    - name: Data access
-      href: concept-data.md
-    - name: Studio network data access
-      href: concept-network-data-access.md
-  - name: Automated ML overview
-    displayName: automl, auto ml
-    href: concept-automated-ml-v1.md
-  - name: Manage the ML lifecycle (MLOps)
-    items:
-    - name: MLOps capabilities
-      displayName: deploy, deployment, publish, production, operationalize, operationalization
-      href: concept-model-management-and-deployment.md
-    - name: MLflow
-      href: concept-mlflow-v1.md
-    - name: Manage resources VS Code
-      displayName: vscode,resources
-      href: ../how-to-manage-resources-vscode.md
-    - name: Git integration
-      displayName: github gitlab
-      href: ../concept-train-model-git-integration.md
 - name: Tutorials (v1)
   expanded: true
   items:
@@ -110,6 +82,33 @@
     - name: Examples repository
       displayName: example, examples, jupyter, python, notebook, github
       href: https://github.com/azure/machinelearningnotebooks
+- name: Concepts (v1)
+  items:
+  - name: Model training
+    displayName: run config, machine learning pipeline, ml pipeline, train model
+    href: concept-train-machine-learning-model-v1.md
+  - name: Work with data
+    items:
+    - name: Data access
+      href: concept-data.md
+    - name: Studio network data access
+      href: concept-network-data-access.md
+  - name: Automated ML overview
+    displayName: automl, auto ml
+    href: concept-automated-ml-v1.md
+  - name: Manage the ML lifecycle (MLOps)
+    items:
+    - name: MLOps capabilities
+      displayName: deploy, deployment, publish, production, operationalize, operationalization
+      href: concept-model-management-and-deployment.md
+    - name: MLflow
+      href: concept-mlflow-v1.md
+    - name: Manage resources VS Code
+      displayName: vscode,resources
+      href: ../how-to-manage-resources-vscode.md
+    - name: Git integration
+      displayName: github gitlab
+      href: ../concept-train-model-git-integration.md
 - name: Infrastructure & security (v1)
   items:
 
