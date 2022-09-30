@@ -69,13 +69,18 @@ The main example in this doc uses managed online endpoints for deployment. To us
 
 ## Prepare your system
 
+# [Azure CLI](#tab/azure-cli)
+
 To follow along with this article, first clone the samples repository (azureml-examples). Then, run the following code to go to the samples directory:
 
 ```azurecli
-git clone https://github.com/Azure/azureml-examples
+git clone --depth 1 https://github.com/Azure/azureml-examples
 cd azureml-examples
 cd cli
 ```
+
+> [!TIP]
+> Use `--depth 1` to clone only the latest commit to the repository, which reduces time to complete the operation.
 
 To set your endpoint name, choose one of the following commands, depending on your operating system (replace `YOUR_ENDPOINT_NAME` with a unique name).
 
@@ -85,6 +90,20 @@ For Unix, run this command:
 
 > [!NOTE]
 > Endpoint names must be unique within an Azure region. For example, in the Azure `westus2` region, there can be only one endpoint with the name `my-endpoint`. 
+
+# [Python](#tab/python)
+
+To run the training examples, first clone the examples repository and change into the `sdk` directory:
+
+```bash
+git clone --depth 1 https://github.com/Azure/azureml-examples
+cd azureml-examples/sdk
+```
+
+> [!TIP]
+> Use `--depth 1` to clone only the latest commit to the repository, which reduces time to complete the operation.
+
+---
 
 ## Review the endpoint and deployment configurations
 
