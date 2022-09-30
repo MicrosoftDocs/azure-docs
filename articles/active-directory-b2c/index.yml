@@ -330,7 +330,7 @@ conceptualContent:
 
 ## BAND 4 - TOOLS ###########################################################################################################################################
 tools:
-  title: Easy app with Microsoft authentication libraries (MSAL)
+  title: Easy app integration with Microsoft authentication libraries (MSAL)
   summary: >
     GitHub hosts the open-source Microsoft Authentication Library (MSAL). Microsoft builds and supports MSAL. Access and use our MSAL samples for the most popular programming languages and frameworks. 
   items:
