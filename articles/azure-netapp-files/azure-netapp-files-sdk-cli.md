@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/21/2020
+ms.date: 09/30/2022
 ms.author: anfdocs
 ---
 # Azure NetApp Files SDKs, CLI tools, and ARM templates
