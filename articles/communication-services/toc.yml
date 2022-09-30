@@ -120,7 +120,7 @@ items:
     href: tutorials/events-playbook.md
   - name: Use Postman to send SMS messages
     href: tutorials/postman-tutorial.md
-  - name: Sign an HTTP request with HMAC using C#
+  - name: Sign an HTTP request with HMAC
     href: tutorials/hmac-header-tutorial.md  
   - name: Build an authentication service using Azure Functions
     href: tutorials/trusted-service-tutorial.md
@@ -185,6 +185,8 @@ items:
         href: concepts/telephony/certified-session-border-controllers.md
       - name: Inbound telephony calling capabilities
         href: concepts/telephony/inbound-calling-capabilities.md
+      - name: Known limitations
+        href: concepts/telephony/known-limitations-acs-telephony.md
   - name: SMS
     items:
       - name: SMS SDK overview
@@ -280,6 +282,8 @@ items:
             href: concepts/interop/guest/teams-administration.md
           - name: User privacy
             href: concepts/interop/guest/privacy.md
+          - name: Government clouds
+            href: concepts/interop/guest/government-cloud.md
           - name: Known issues
             href: concepts/interop/guest/limitations.md            
       - name: Communication as Teams user
@@ -304,6 +308,8 @@ items:
             href: concepts/interop/teams-user/azure-ad-api-permissions.md
           - name: Firewall configuration
             href: concepts/interop/custom-teams-endpoint-firewall-configuration.md
+          - name: Government clouds
+            href: concepts/interop/teams-user/government-cloud.md
   - name: Network Traversal (TURN)
     href: concepts/network-traversal.md    
   - name: Data residency and user privacy

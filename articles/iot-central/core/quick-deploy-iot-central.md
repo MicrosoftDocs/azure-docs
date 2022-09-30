@@ -1,29 +1,37 @@
 ---
 title: Quickstart - Connect a device to an Azure IoT Central application | Microsoft Docs
-description: Quickstart - Connect your first device to a new IoT Central application. This quickstart uses a smartphone app from either the Google Play or Apple app store as an IoT device.
+description: In this quickstart, you learn how to connect your first device to a new IoT Central application. This quickstart uses a smartphone app from either the Google Play or Apple app store as an IoT device.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/22/2022
+ms.date: 09/26/2022
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: [mode-other, iot-central-frontdoor, contperf-fy22q4]
+
+# Customer intent: As a new user of IoT Central, I want to learn how to get started with an IoT Central application and an IoT device.
 ---
 
 # Quickstart - Use your smartphone as a device to send telemetry to an IoT Central application
 
-This quickstart shows you how to create an Azure IoT Central application and connect your first device. To get you started quickly, you install an app on your smartphone to act as the device. The app sends telemetry, reports properties, and responds to commands:
+Get started with an Azure IoT Central application and connect your first device. To get you started quickly, you install an app on your smartphone to act as the device. The app sends telemetry, reports properties, and responds to commands:
 
 :::image type="content" source="media/quick-deploy-iot-central/overview.png" alt-text="Overview of quickstart scenario connecting a smartphone app to IoT Central." border="false":::
 
+In this quickstart, you:
+
+- Create an IoT Central application.
+- Register a new device in the application.
+- Connect a device to the application and view the telemetry it sends.
+- Control the device from your application.
+
 ## Prerequisites
 
-An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 
-> [!TIP]
-> You should have at least **Contributor** access in your Azure subscription. If you created the subscription yourself, you're automatically an administrator with sufficient access. To learn more, see [What is Azure role-based access control?](../../role-based-access-control/overview.md)
+    You should have at least **Contributor** access in your Azure subscription. If you created the subscription yourself, you're automatically an administrator with sufficient access. To learn more, see [What is Azure role-based access control?](../../role-based-access-control/overview.md)
 
-An Android or iOS smartphone on which you're able to install a free app from one of the official app stores.
+- An Android or iOS smartphone on which you're able to install a free app from one of the official app stores.
 
 ## Create an application
 
@@ -34,6 +42,8 @@ IoT Central provides various industry-focused application templates to help you 
 1. Navigate to the **Build** page and select **Create app** in the **Custom app** tile:
 
     :::image type="content" source="media/quick-deploy-iot-central/iot-central-create-new-application.png" alt-text="Build your IoT application page":::
+
+    If you're prompted to sign in, use the Microsoft account associated with your Azure subscription.
 
 1. On the **New application** page, make sure that **Custom application** is selected under the **Application template**.
 
@@ -65,7 +75,7 @@ To register your device:
 
 1. On the **Create a new device** page, accept the defaults, and then select **Create**.
 
-1. In the list of devices, click the device name:
+1. In the list of devices, click on the device name:
 
     :::image type="content" source="media/quick-deploy-iot-central/device-name.png" alt-text="A screenshot that shows the highlighted device name that you can select.":::
 
@@ -96,7 +106,7 @@ To view the telemetry from the smartphone app in IoT Central:
 
 1. In IoT Central, navigate to the **Devices** page.
 
-1. In the list of devices, click on your device name, then select **Overview**:
+1. In the list of devices, click on the device name, then select **Overview**:
 
     :::image type="content" source="media/quick-deploy-iot-central/iot-central-telemetry.png" alt-text="Screenshot of the overview page with telemetry plots.":::
 
@@ -119,7 +129,7 @@ To see the acknowledgment from the smartphone app, select **command history**.
 
 ## Next steps
 
-In this quickstart, you created an IoT Central application and connected device that sends telemetry. In this quickstart, you used a smartphone app as the IoT device that connects to IoT Central. Here's the suggested next step to continue learning about IoT Central:
+In this quickstart, you created an IoT Central application and connected device that sends telemetry. Then you used a smartphone app as the IoT device that connects to IoT Central. Here's the suggested next step to continue learning about IoT Central:
 
 > [!div class="nextstepaction"]
 > [Add a rule to your IoT Central application](./quick-configure-rules.md)

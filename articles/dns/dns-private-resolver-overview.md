@@ -6,7 +6,7 @@ ms.custom: references_regions
 author: greg-lindsay
 ms.service: dns
 ms.topic: overview
-ms.date: 08/17/2022
+ms.date: 09/27/2022
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
 ---
@@ -66,11 +66,13 @@ Azure DNS Private Resolver is available in the following regions:
 - West US 3
 - East US
 - North Central US
-- Central US EUAP
-- East US 2 EUAP
 - West Central US
 - East US 2
 - West Europe
+
+## Data residency
+
+Azure DNS Private Resolver doesn't move or store customer data out of the region where the resolver is deployed.
 
 ## DNS resolver endpoints
 
@@ -125,7 +127,6 @@ Outbound endpoints have the following limitations:
 ### Ruleset restrictions
 
 - Rulesets can have no more than 25 rules in Public Preview.
-- Rulesets can't be linked across different subscriptions in Public Preview.
 
 ### Other restrictions
 

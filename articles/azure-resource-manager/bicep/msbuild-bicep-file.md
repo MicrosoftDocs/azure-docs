@@ -1,7 +1,7 @@
 ---
 title: Use MSBuild to convert Bicep to JSON
 description: Use MSBuild to convert a Bicep file to Azure Resource Manager template (ARM template) JSON.
-ms.date: 07/14/2022
+ms.date: 09/26/2022
 ms.topic: quickstart
 author: davidsmatlak
 ms.author: davidsmatlak
@@ -148,7 +148,7 @@ For [Microsoft.Build.NoTargets](/dotnet/core/project-sdk/overview#project-files)
 
 The following example converts Bicep to JSON inside a classic project file that's not SDK-based. Only use the classic example if the previous examples don't work for you. Replace `__LATEST_VERSION__` with the latest version of the Bicep NuGet packages.
 
-In this example, the `ProjectGuid`, `RootNamespace` and `AssemblyName` properties contain placeholder values. When you create a project file, a unique GUID is created and the name values match your project's name.
+In this example, the `ProjectGuid`, `RootNamespace` and `AssemblyName` properties contain placeholder values. When you create a project file, a unique GUID is created, and the name values match your project's name.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -316,7 +316,7 @@ param location string = resourceGroup().location
 
 var storageAccountName = 'storage${uniqueString(resourceGroup().id)}'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2021-09-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2022-05-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -394,7 +394,7 @@ Run MSBuild to convert the Bicep file to JSON.
       "resources": [
         {
           "type": "Microsoft.Storage/storageAccounts",
-          "apiVersion": "2021-09-01",
+          "apiVersion": "2022-05-01",
           "name": "[variables('storageAccountName')]",
           "location": "[parameters('location')]",
           "sku": {

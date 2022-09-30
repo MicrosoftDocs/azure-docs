@@ -127,4 +127,5 @@ For information on the SLA, see [SLA for Virtual Network NAT](https://azure.micr
 
 * Learn about the [NAT gateway resource](./nat-gateway-resource.md).
 
-* [Learn module: Introduction to Azure Virtual Network NAT](/learn/modules/intro-to-azure-virtual-network-nat).
+* [Learn module: Introduction to Azure Virtual Network NAT](/training/modules/intro-to-azure-virtual-network-nat).
+

@@ -17,7 +17,7 @@ To call the Speech service by using the Speech SDK, you need to create a [`Speec
 Create a `SpeechConfig` instance by using your speech key and location/region. Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
 
 ```Python
-speech_config = speechsdk.SpeechConfig(subscription="<paste-your-speech-key-here>", region="<paste-your-speech-location/region-here>")
+speech_config = speechsdk.SpeechConfig(subscription="YourSpeechKey", region="YourSpeechRegion")
 ```
 
 You can initialize [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig) in a few other ways:
@@ -37,7 +37,7 @@ To recognize speech by using your device microphone, create a `SpeechRecognizer`
 import azure.cognitiveservices.speech as speechsdk
 
 def from_mic():
-    speech_config = speechsdk.SpeechConfig(subscription="<paste-your-speech-key-here>", region="<paste-your-speech-location/region-here>")
+    speech_config = speechsdk.SpeechConfig(subscription="YourSpeechKey", region="YourSpeechRegion")
     speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config)
 
     print("Speak into your microphone.")
@@ -57,7 +57,7 @@ If you want to recognize speech from an audio file instead of using a microphone
 import azure.cognitiveservices.speech as speechsdk
 
 def from_file():
-    speech_config = speechsdk.SpeechConfig(subscription="<paste-your-speech-key-here>", region="<paste-your-speech-location/region-here>")
+    speech_config = speechsdk.SpeechConfig(subscription="YourSpeechKey", region="YourSpeechRegion")
     audio_input = speechsdk.AudioConfig(filename="your_file_name.wav")
     speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
 
@@ -146,16 +146,6 @@ With everything set up, you can call [start_continuous_recognition()](/python/ap
 speech_recognizer.start_continuous_recognition()
 while not done:
     time.sleep(.5)
-```
-
-### Dictation mode
-
-When you're using continuous recognition, you can enable dictation processing by using the corresponding function. This mode will cause the speech configuration instance to interpret word descriptions of sentence structures such as punctuation. For example, the utterance "Do you live in town question mark" would be interpreted as the text "Do you live in town?".
-
-To enable dictation mode, use the [`enable_dictation()`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#enable-dictation--) method on [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig):
-
-```Python 
-SpeechConfig.enable_dictation()
 ```
 
 ## Change the source language
