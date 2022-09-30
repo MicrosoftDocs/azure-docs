@@ -11,6 +11,9 @@ ms.custom: template-how-to, ignite-fall-2021, subject-rbac-steps
 
 # Set up Azure IoT Hub to deploy over-the-air updates
 
+>[!CAUTION]
+>**The OTA update on Azure Percept DK is no longer supported. For information on how to proceed, please visit [Update the Azure Percept DK over a USB-C cable connection](./how-to-update-via-usb.md).**
+
 Keep your Azure Percept DK secure and up to date using over-the-air updates. In a few simple steps, you will be able to set up your Azure environment with Device Update for IoT Hub and deploy the latest updates to your Azure Percept DK.
 
 ## Prerequisites
