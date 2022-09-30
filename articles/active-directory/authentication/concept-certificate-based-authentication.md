@@ -54,6 +54,35 @@ The following images show how Azure AD CBA simplifies the customer environment b
 - It's a free feature, and you don't need any paid editions of Azure AD to use it.
 - Eliminates the need for federated AD FS and reduces the cost and on-premises footprint.
 
+
+## Supported scenarios
+
+The following scenarios are supported:
+
+- User sign-ins to web browser-based applications on all platforms.
+- User sign-ins to Office mobile apps, including Outlook, OneDrive, and so on.
+- User sign-ins on mobile native browsers.
+- Support for granular authentication rules for multifactor authentication by using the certificate issuer **Subject** and **policy OIDs**.
+- Configuring certificate-to-user account bindings by using any of the certificate fields:
+  - Subject Alternate Name (SAN) PrincipalName and SAN RFC822Name
+  - Subject Key Identifier (SKI) and SHA1PublicKey
+- Configuring certificate-to-user account bindings by using any of the user object attributes:
+  - User Principal Name
+  - onPremisesUserPrincipalName
+  - CertificateUserIds
+
+## Unsupported scenarios
+
+The following scenarios aren't supported:
+
+- Public Key Infrastructure for creating client certificates. Customers need to configure their own Public Key Infrastructure (PKI) and provision certificates to their users and devices. 
+- Certificate Authority hints aren't supported, so the list of certificates that appears for users in the UI isn't scoped.
+- Only one CRL Distribution Point (CDP) for a trusted CA is supported.
+- The CDP can be only HTTP URLs. We don't support Online Certificate Status Protocol (OCSP), or Lightweight Directory Access Protocol (LDAP) URLs.
+- Configuring other certificate-to-user account bindings, such as using the **subject + issuer** or **Issuer + Serial Number**, aren’t available in this release.
+- Currently, password can't be disabled when CBA is enabled and the option to sign in using a password is displayed.
+
+
 ## Next steps
 
 - [Technical deep dive for Azure AD CBA](concept-certificate-based-authentication-technical-deep-dive.md)
