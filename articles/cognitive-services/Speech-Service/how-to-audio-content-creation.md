@@ -1,30 +1,35 @@
 ---
 title: Audio Content Creation - Speech service
 titleSuffix: Azure Cognitive Services
-description: Audio Content Creation is an online tool that allows you to customize and fine-tune Microsoft's text-to-speech output for your apps and products.
+description: Audio Content Creation is an online tool that allows you to run text-to-speech synthesis without writing any code.
 services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 01/23/2022
+ms.date: 09/25/2022
 ms.author: eur
 ---
 
-# Improve synthesis with the Audio Content Creation tool
+# Speech synthesis with the Audio Content Creation tool
 
-[Audio Content Creation](https://aka.ms/audiocontentcreation) is an easy-to-use and powerful tool that lets you build highly natural audio content for a variety of scenarios, such as audiobooks, news broadcasts, video narrations, and chat bots. With Audio Content Creation, you can fine-tune text-to-speech voices and design customized audio experiences in an efficient and low-cost way.
+You can use the [Audio Content Creation](https://aka.ms/audiocontentcreation) tool in Speech Studio for text-to-speech synthesis without writing any code. You can use the output audio as-is, or as a starting point for further customization. 
+
+Build highly natural audio content for a variety of scenarios, such as audiobooks, news broadcasts, video narrations, and chat bots. With Audio Content Creation, you can efficiently fine-tune text-to-speech voices and design customized audio experiences. 
 
 The tool is based on [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). It allows you to adjust text-to-speech output attributes in real time or batch synthesis, such as voice characters, voice styles, speaking speed, pronunciation, and prosody.
 
+- No-code approach: You can use the Audio Content Creation tool for text-to-speech synthesis without writing any code. The output audio might be the final deliverable that you want. For example, you can use the output audio for a podcast or a video narration. 
+- Developer-friendly: You can listen to the output audio and adjust the SSML to improve speech synthesis. Then you can use the [Speech SDK](speech-sdk.md) or [Speech CLI](spx-basics.md) to integrate the SSML into your applications. For example, you can use the SSML for building a chat bot.
+
 You have easy access to a broad portfolio of [languages and voices](language-support.md?tabs=stt-tts). These voices include state-of-the-art prebuilt neural voices and your custom neural voice, if you've built one.
 
-To learn more, view the [Audio Content Creation tutorial video](https://youtu.be/ygApYuOOG6w).
+To learn more, view the Audio Content Creation tutorial video [on YouTube](https://youtu.be/ygApYuOOG6w).
 
 ## Get started
 
-Audio Content Creation is a free tool, but you'll pay for the Speech service that you consume. To work with the tool, you need to sign in with an Azure account and create a Speech resource. For each Azure account, you have free monthly speech quotas, which include 0.5 million characters for prebuilt neural voices (referred to as *Neural* on the [pricing page](https://aka.ms/speech-pricing)). The monthly allotted amount is usually enough for a small content team of around 3-5 people. 
+The Audio Content Creation tool in Speech Studio is free to access, but you'll pay for Speech service usage. To work with the tool, you need to sign in with an Azure account and create a Speech resource. For each Azure account, you have free monthly speech quotas, which include 0.5 million characters for prebuilt neural voices (referred to as *Neural* on the [pricing page](https://aka.ms/speech-pricing)). The monthly allotted amount is usually enough for a small content team of around 3-5 people. 
 
 The next sections cover how to create an Azure account and get a Speech resource.
 
