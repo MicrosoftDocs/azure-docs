@@ -1,8 +1,8 @@
 ---
 title: Dimensions for Azure Stream Analytics metrics
 description: This article describes dimensions for Azure Stream Analytics metrics.
-author: xujiang1
-ms.author: xujiang1
+author: xujxu
+ms.author: xujxu
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: 

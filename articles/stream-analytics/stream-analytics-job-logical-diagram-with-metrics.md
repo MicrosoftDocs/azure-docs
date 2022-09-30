@@ -2,8 +2,8 @@
 title: Debugging with the job diagram (preview) in Azure portal
 description: This article describes how to troubleshoot your Azure Stream Analytics job with job diagram and metrics in the Azure portal.
 titleSuffix: Azure Stream Analytics
-author: xujiang1
-ms.author: xujiang1
+author: xujxu
+ms.author: xujxu
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 07/01/2022
