@@ -344,6 +344,12 @@ Use the following steps to sign into the device, fetch the status of the webProx
    Set-Login "https://<IP address>" "Password"
    ```
 
+1. Load the device configuration cmdlet.
+ 
+   ```azurepowershell
+   $p = Get-DeviceConfiguration
+   ```
+
 1. Fetch the status of the webProxy property.
 
    ```azurepowershell
