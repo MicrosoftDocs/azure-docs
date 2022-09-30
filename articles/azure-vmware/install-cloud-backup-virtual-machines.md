@@ -48,7 +48,7 @@ You'll need to install Cloud Backup for Virtual Machines through the Azure porta
     | AppliancePassword | Password of the user hosting API services in the appliance. |
     | MaintenanceUserPassword | Password of the appliance maintenance user. |
 
-    >[!IMPORTANT]
+    >[!TIP]
     >You can also install Cloud Backup for Virtual Machines using DHCP by running the package `NetAppCBSApplianceUsingDHCP`. If you install Cloud Backup for Virtual Machines using DHCP, you don't need to provide the values for the PrimaryDNS, Gateway, Netmask, and ApplianceIPAddress fields. These values will be automatically generated. 
 
 1. Check **Notifications** or the **Run Execution Status** tab to see the progress. For more information about the status of the execution, see [Run command in Azure VMware Solution](concepts-run-command.md).  
