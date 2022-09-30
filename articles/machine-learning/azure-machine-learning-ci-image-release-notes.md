@@ -19,27 +19,7 @@ Updates incorporate the latest OS-related patches from the original Linux OS pub
 
 Main updates provided with each image version are described in the below sections.
 
-## September 20, 2022
-**Announcement:**
-Ubuntu 18 DSVM will **not be** available on the marketplace starting Oct 1, 2022. We recommend users switch to Ubuntu 20 DSVM as we continue to ship updates/patches on our latest [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
-
-Users that are using Azure Resource Manager (ARM) template/virtual machine scale set to deploy the Ubuntu DSVM machines, should configure:
-
-| Offer | SKU |
-| --------- | ------------|
-| ubuntu-2004  | 2004 for Gen1 or 2004-gen2 for Gen2 VM sizes  |
-
-Instead of:
-
-| Offer | SKU |
-| --------- | ------------|
-| ubuntu-1804  | 1804 for Gen1 or 1804-gen2 for Gen2 VM sizes  |
-
-**Note**: There is no impact to existing customers who are still on Ubuntu-18 DSVM as of our October 2022 update. Howeverm the deprecation plan is scheduled for December 2022. We recommend that you switch to Ubuntu-20 DSVM at your earliest convenience.
-
-## September 19, 2022
-[Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
-
+## September 19, 2022 
 Version `22.09.19`
 
 Main changes:
@@ -62,9 +42,7 @@ Environment Specific Updates:
 - `keras` to version `2.10.0`
 - `tensorflow-gpu` to version `2.10.0`
 
-## September 12, 2022
-[Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)
-
+## September 12, 2022 
 Version `22.09.06`
 
 Main changes:
@@ -73,8 +51,6 @@ Main changes:
 
 
 ## August 16, 2022
-[Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
-
 Version `22.08.11`
 
 Main changes:
