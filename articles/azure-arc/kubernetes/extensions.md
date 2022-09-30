@@ -135,7 +135,10 @@ az k8s-extension create --name azuremonitor-containers  --extension-type Microso
 | `--scope` | Scope of installation for the extension - `cluster` or `namespace` |
 | `--cluster-name` | Name of the Azure Arc-enabled Kubernetes resource on which the extension instance has to be created |
 | `--resource-group` | The resource group containing the Azure Arc-enabled Kubernetes resource |
-| `--cluster-type` | The cluster type on which the extension instance has to be created. Current only `connectedClusters`, which corresponds to Azure Arc-enabled Kubernetes, is an accepted value |
+| `--cluster-type` | The cluster type on which the extension instance has to be created. For most scenarios, use `connectedClusters`, which corresponds to Azure Arc-enabled Kubernetes. |
+
+> [!NOTE]
+> When working with [connected AKS clusters on Azure Stack HCI](#connected-aks-clusters-on-azure-stack-hci) you must set `--cluster-type` to use `provisionedClusters` and also add `--cluster-resource-provider microsoft.hybridcontainerservice` to the command.
 
 **Optional parameters**
 
@@ -270,16 +273,16 @@ az k8s-extension delete --name azuremonitor-containers --cluster-name <clusterNa
 >[!NOTE]
 > The Azure resource representing this extension gets deleted immediately. The Helm release on the cluster associated with this extension is only deleted when the agents running on the Kubernetes cluster have network connectivity and can reach out to Azure services again to fetch the desired state.
 
-## Extensions on connected AKS clusters on Azure Stack HCI
+## Connected AKS clusters on Azure Stack HCI
 
 You can deploy extensions to [connected AKS clusters on Azure Stack HCI](/azure-stack/aks-hci/connect-to-arc). However, there are a few key differences to keep in mind in order to deploy successfully:
 
 * The value for the `--cluster-type` parameter must be `provisionedClusters`.
-* The value for the `--cluster-resource-provider` must be `microsoft.hybridcontainerservice`.
-* When deleting an extension instance, you must add --yes to the command:
+* You must add `--cluster-resource-provider microsoft.hybridcontainerservice` to your commands.
+* When deleting an extension instance, you must add `--yes` to the command:
 
    ```azurecli
-   az k8s-extension delete --name azuremonitor-containers --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type provisionedClusters --yes
+   az k8s-extension delete --name azuremonitor-containers --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type provisionedClusters --cluster-resource-provider microsoft.hybridcontainerservice--yes
    ```
 
 In addition, you must be using the latest version of the Azure CLI `k8s-extension` module (version >= 1.3.3). Use the following commands to add or update to the latest version:
