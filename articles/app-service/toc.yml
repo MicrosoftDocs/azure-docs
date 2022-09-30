@@ -502,11 +502,11 @@
       items:
         - name: Create or delete web apps FAQ 
           href: /troubleshoot/azure/app-service/create-delete-resources-faq?toc=/azure/app-service/toc.json
-        - name: Availability, performance, and application FAQs
+        - name: App performance FAQs
           href: /troubleshoot/azure/app-service/web-apps-performance-faqs?toc=/azure/app-service/toc.json
-        - name: App Service Compliance with PCI Standards 3.0 and 3.1
+        - name: App Service Compliance with PCI Standards
           href: /troubleshoot/azure/app-service/app-service-compliance-wit?toc=/azure/app-service/toc.json
-        - name: Backing up, restoring, and cloning
+        - name: Backup and restore app services
           href: /troubleshoot/azure/app-service/backing-up-restoring-and-cloning-microsoft-azure-app-services?toc=/azure/app-service/toc.json
         - name: Built-in Linux containers FAQs
           href: /troubleshoot/azure/app-service/faqs-app-service-linux?toc=/azure/app-service/toc.json
