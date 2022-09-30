@@ -12,9 +12,9 @@ The articles in this section are intended for the professionals participating in
 
  To provide input, email [NC2-on-Azure Docs](mailto:AzNutanixPM@microsoft.com).
 
-:::image type="content" source="media/nc2-on-azure-preview.png#lightbox" alt-text="Illustration of NC2 on Azure Public Preview features." border="false" lightbox="media/nc2-on-azure-preview-large.png":::
+:::image type="content" source="media/nc2-on-azure-preview.png#lightbox" alt-text="Illustration of NC2 on Azure features." border="false" lightbox="media/nc2-on-azure-preview-large.png":::
 
-In particular, this article highlights Public Preview features. 
+In particular, this article highlights NC2 features. 
 
 ## Unlock the benefits of Azure
 
