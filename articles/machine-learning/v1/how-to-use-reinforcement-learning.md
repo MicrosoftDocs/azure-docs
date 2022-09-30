@@ -46,7 +46,7 @@ Run this code in either of these environments. We recommend you try Azure Machin
 
     - Install the [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
     - Install the [Azure Machine Learning RL SDK](/python/api/azureml-contrib-reinforcementlearning/): `pip install --upgrade azureml-contrib-reinforcementlearning`
-    - Create a [workspace configuration file](../how-to-configure-environment.md#workspace).
+    - Create a [workspace configuration file](how-to-configure-environment-v1.md).
     - Run the virtual network to open network ports used for distributed reinforcement learning.
 
 
