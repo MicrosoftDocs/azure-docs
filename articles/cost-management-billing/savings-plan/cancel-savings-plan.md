@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 09/23/2022
 ---
 
-# Azure saving plan cancellation polices
+# Azure saving plan cancellation policies
 
-All savings plan purchases are final. Before you buy a saving plan, review the following polices.
+All savings plan purchases are final. Before you buy a saving plan, review the following policies.
 
-## Savings plans can't be cancelled
+## Savings plans can't be canceled
 
 After you buy a savings plan, you can't cancel it.
 
 ## Saving plans can't be refunded
 
-After you buy a savings plans, you can't refund it.
+After you buy a savings plan, you can't refund it.
 
 ## Saving plans can't be exchanged for a reservation
 
