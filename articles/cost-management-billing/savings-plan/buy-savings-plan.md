@@ -23,7 +23,7 @@ Savings plan discounts only apply to resources associated with subscriptions pur
 
 ### Enterprise Agreement customers
 
--	EA admins with write permissions can directly purchase savings plans from **Cost Management + Billing** > **Savings plan**. No specific permissions on a subscription is needed.
+-	EA admins with write permissions can directly purchase savings plans from **Cost Management + Billing** > **Savings plan**. No specific permission for a subscription is needed.
 -	Subscription owners for one of the subscriptions in the EA enrollment can purchase savings plans from **Home** > **Savings plan**.
 -	Enterprise Agreement (EA) customers can limit purchases to EA admins only by disabling the **Add Savings Plan** option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Navigate to the **Policies** menu to change settings. 
 
@@ -35,7 +35,7 @@ Savings plan discounts only apply to resources associated with subscriptions pur
 
 ### Microsoft Partner Agreement partners
 
--	Partners can use **Home** > **Savings plan** in the Azure Portal to purchase savings plans for thier customers.
+-	Partners can use **Home** > **Savings plan** in the Azure portal to purchase savings plans for their customers.
 
 ## Scope savings plans
 

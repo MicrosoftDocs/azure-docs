@@ -17,7 +17,7 @@ Azure savings plans save you money when you have consistent usage of Azure compu
 
 Each hour with savings plan, your compute usage is discounted until you reach your commitment amount – subsequent usage afterward is priced at pay-as-you-go rates. Savings plan commitments are priced in USD for Microsoft Customer Agreement and Microsoft Partner Agreement customers, and in local currency for Enterprise Agreement customers. Usage from compute services such as VMs, dedicated hosts, container instances, Azure premium functions, and Azure app services are eligible for savings plan discounts.
 
-You can acquire a savings plan by making a new commitment, or you can trade in one or more active reservations for a savings plan. When you acquire a savings plan with a reservation trade in, the reservation is canceled. The prorated residual value of the unused reservation benefits are converted to the equivalent hourly commitment for the savings plan. The commitment may not be sufficient for your needs, and while you may not reduce it, you can increase it to cover your needs.
+You can acquire a savings plan by making a new commitment, or you can trade in one or more active reservations for a savings plan. When you acquire a savings plan with a reservation trade in, the reservation is canceled. The prorated residual value of the unused reservation benefit is converted to the equivalent hourly commitment for the savings plan. The commitment may not be sufficient for your needs, and while you may not reduce it, you can increase it to cover your needs.
 
 After you purchase a savings plan, the discount automatically applies to matching resources. Savings plans provide a billing discount and don't affect the runtime state of your resources.
 

@@ -1,5 +1,5 @@
 ---
-title: How saving plan discount is applied
+title: How an Azure saving plan discount is applied
 titleSuffix: Microsoft Cost Management
 description: Learn about how the discounts you receive are applied.
 author: bandersmsft

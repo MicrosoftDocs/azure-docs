@@ -31,7 +31,7 @@ Note the following points:
 
 ## Recommendations in the Azure portal
 
-Savings plan purchases are calculated by the recommendations engine for the selected term and scope, based on last 30-days of usage. Recommendations are shown in the savings plan purchase experience in the Azure Portal.
+Savings plan purchases are calculated by the recommendations engine for the selected term and scope, based on last 30-days of usage. Recommendations are shown in the savings plan purchase experience in the Azure portal.
 
 ## Need help? Contact us.
 

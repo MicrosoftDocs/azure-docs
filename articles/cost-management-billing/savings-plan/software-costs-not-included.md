@@ -1,5 +1,5 @@
 ---
-title: Software costs not included in saving plan
+title: Software costs not included in Azure saving plans
 titleSuffix: Microsoft Cost Management
 description: Learn how savings plan discounts apply only to Azure compute infrastructure costs and not to the software costs.
 author: bandersmsft
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 09/23/2022
 ---
 
-# Software costs not included in saving plan
+# Software costs not included in saving plans
 
 Savings plan discounts apply only to the infrastructure costs and not to the software costs. If you use Windows VMs, and you have a savings plan, and you don't have an Azure Hybrid Benefit for your VMs, then you're charged for the software meters listed in the following sections.
 
