@@ -20,7 +20,7 @@ Upgrade to the latest release of the Log Analytics agent for Windows and Linux m
 
 | Environment | Installation method | Upgrade method |
 |--------|----------|-------------|
-| Azure VM | Log Analytics agent VM extension for Windows/Linux | The agent is automatically upgraded [after the VM model changes](../../virtual-machines/extensions/features-linux.md#how-agents-and-extensions-are-updated), unless you configured your Azure Resource Manager template to opt out by setting the property `autoUpgradeMinorVersion` to **false**. Once deployed, however, the extension won't upgrade minor versions unless redeployed, even with this property set to **true**. Only the Linux agent supports automatic update post deployment with `enableAutomaticUpgrade` property. (See [Enable Auto-update for the Linux agent](#enable-auto-update-for-the-linux-agent)). Major version upgrade is always manual. (See [VirtualMachineExtensionInner.AutoUpgradeMinorVersion Property](https://docs.azure.cn/dotnet/api/microsoft.azure.management.compute.fluent.models.virtualmachineextensioninner.autoupgrademinorversion?view=azure-dotnet)). |
+| Azure VM | Log Analytics agent VM extension for Windows/Linux | The agent is automatically upgraded [after the VM model changes](../../virtual-machines/extensions/features-linux.md#how-agents-and-extensions-are-updated), unless you configured your Azure Resource Manager template to opt out by setting the property `autoUpgradeMinorVersion` to **false**. Once deployed, however, the extension won't upgrade minor versions unless redeployed, even with this property set to **true**. Only the Linux agent supports automatic update post deployment with `enableAutomaticUpgrade` property (see [Enable Auto-update for the Linux agent](#enable-auto-update-for-the-linux-agent)). Major version upgrade is always manual (see [VirtualMachineExtensionInner.AutoUpgradeMinorVersion Property](https://docs.azure.cn/dotnet/api/microsoft.azure.management.compute.fluent.models.virtualmachineextensioninner.autoupgrademinorversion?view=azure-dotnet)). |
 | Custom Azure VM images | Manual installation of Log Analytics agent for Windows/Linux | Updating VMs to the newest version of the agent must be performed from the command line running the Windows installer package or Linux self-extracting and installable shell script bundle.|
 | Non-Azure VMs | Manual installation of Log Analytics agent for Windows/Linux | Updating VMs to the newest version of the agent must be performed from the command line running the Windows installer package or Linux self-extracting and installable shell script bundle. |
 
@@ -62,7 +62,7 @@ To download the latest version of the Windows agent from your Log Analytics work
 
 1. Sign on to the computer with an account that has administrative rights.
 
-1. To extract the agent installation files, from an elevated command prompt run `MMASetup-<platform>.exe /c` and it will prompt you for the path to extract files to. Alternatively, you can specify the path by passing the arguments `MMASetup-<platform>.exe /c /t:<Full Path>`.
+1. To extract the agent installation files, run `MMASetup-<platform>.exe /c` from an elevated command prompt, and it will prompt you for the path to extract files to. Alternatively, you can specify the path by passing the arguments `MMASetup-<platform>.exe /c /t:<Full Path>`.
 
 1. Run the following command, where D:\ is the location for the upgrade log file:
 
@@ -118,7 +118,7 @@ Add or remove a workspace using the Windows agent or the Linux agent.
 
 ### Windows agent
 
-The steps in this section are necessary when you want to not only reconfigure the Windows agent to report to a different workspace or to remove a workspace from its configuration, but also when you want to configure the agent to report to more than one workspace. (This practice is commonly referred to as multihoming.) Configuring the Windows agent to report to multiple workspaces can only be performed after initial setup of the agent and by using the methods described in this section.
+The steps in this section are necessary not only when you want to reconfigure the Windows agent to report to a different workspace or remove a workspace from its configuration, but also when you want to configure the agent to report to more than one workspace. (This practice is commonly referred to as multihoming.) Configuring the Windows agent to report to multiple workspaces can only be performed after initial setup of the agent and by using the methods described in this section.
 
 #### Update settings from Control Panel
 
@@ -130,7 +130,7 @@ The steps in this section are necessary when you want to not only reconfigure th
 
 1. If you're removing a workspace, select it and then select **Remove**. Repeat this step for any other workspace you want the agent to stop reporting to.
 
-1. If you're adding a workspace, select **Add**. In the **Add a Log Analytics Workspace** dialog, paste the Workspace ID and Workspace Key (Primary Key). If the computer should report to a Log Analytics workspace in Azure Government cloud, select **Azure US Government** from the **Azure Cloud** dropdown list.
+1. If you're adding a workspace, select **Add**. In the **Add a Log Analytics Workspace** dialog, paste the workspace ID and workspace key (primary key). If the computer should report to a Log Analytics workspace in Azure Government cloud, select **Azure US Government** from the **Azure Cloud** dropdown list.
 
 1. Select **OK** to save your changes.
 
@@ -179,7 +179,7 @@ The following steps demonstrate how to reconfigure the Linux agent if you decide
 
     `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
 
-    It's important that the status also shows the agent is running. Otherwise, the following steps to reconfigure the agent won't complete successfully.
+    It's important that the status also shows the agent is running. Otherwise, the following steps to reconfigure the agent won't finish successfully.
 
 1. If the agent is already registered with a workspace, remove the registered workspace by running the following command. Otherwise, if it isn't registered, proceed to the next step.
 
