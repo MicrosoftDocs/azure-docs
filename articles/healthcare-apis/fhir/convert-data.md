@@ -111,12 +111,12 @@ You can use the [FHIR Converter Visual Studio Code extension](https://marketplac
 
 We recommend that you host your own copy of templates in an Azure Container Registry instance. Hosting your own templates and using them for `$convert-data` operations involves the following six steps:
 
-1. [Create an Azure Container Registry instance](#step-1-create-an-acr-instance)
-2. [Push the templates to your Azure Container Registry instance](#step-2-push-the-templates-to-your-acr-instance)
+1. [Create an Azure Container Registry instance](#step-1-create-an-azure-container-registry-instance)
+2. [Push the templates to your Azure Container Registry instance](#step-2-push-the-templates-to-your-azure-container-registry-instance)
 3. [Enable Azure Managed Identity in your FHIR service instance](#step-3-enable-azure-managed-identity-in-your-fhir-service-instance)
-4. [Provide Azure Container Registry access to the FHIR service managed identity](#step-4-provide-acr-access-to-the-fhir-service-managed-identity)
-5. [Register the Azure Container Registry server in the FHIR service](#step-5-register-the-acr-server-in-the-fhir-service)
-6. [(Optional) Configure the Azure Container Registry firewall for secure access](#step-6-optional-configure-the-acr-firewall-for-secure-access)
+4. [Provide Azure Container Registry access to the FHIR service managed identity](#step-4-provide-azure-container-registry-access-to-the-fhir-service-managed-identity)
+5. [Register the Azure Container Registry server in the FHIR service](#step-5-register-the-azure-container-registry-server-in-the-fhir-service)
+6. [(Optional) Configure the Azure Container Registry firewall for secure access](#step-6-optional-configure-the-azure-container-registry-firewall-for-secure-access)
 
 ### Step 1: Create an Azure Container Registry instance
 
