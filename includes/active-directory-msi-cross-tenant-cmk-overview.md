@@ -54,7 +54,9 @@ Operations in Phase 1 would be a one-time setup for most service provider applic
 #### Considerations for service providers
 
 - Azure Resource Manager (ARM) templates are not recommended for creating Azure AD applications.
-- The same multi-tenant application can be used to access keys in any number of tenants, like *Tenant2*, *Tenant3*, *Tenant4* and so on. In each tenant, an independent instance of the application is created that has the same application ID but a different object ID. Each instance of this application is thus authorized independently. Consider how the application object used for this feature is used to partition your application across all customers.
+- The same multi-tenant application can be used to access keys in any number of tenants, like *Tenant2*, *Tenant3*, *Tenant4*, and so on. In each tenant, an independent instance of the application is created that has the same application ID but a different object ID. Each instance of this application is thus authorized independently. Consider how the application object used for this feature is used to partition your application across all customers. 
+  - Application can have a maximum of 20 federated identity credentials, which requires a service provider to share federated identities among its customers. For more information about federated identities design considerations and restrictions, see [Configure an app to trust an external identity provider](/azure/active-directory/develop/workload-identity-federation-create-trust?pivots=identity-wif-apps-methods-azp#important-considerations-and-restrictions)
+- In rare scenarios, a service provider may use a single Application object per its customer, but that will require significant maintenance costs to manage applications at scale across all customers. 
 - In the service provider tenant, it is not possible to automate the [Publisher Verification](../articles/active-directory/develop/publisher-verification-overview.md).
 
 ### Phase 2 - The customer authorizes access to the key vault

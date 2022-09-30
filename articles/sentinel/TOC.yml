@@ -261,9 +261,7 @@
     - name: Configure ingestion-time transformation
       href: configure-data-transformation.md
     - name: Deploy a log forwarder
-      href: connect-log-forwarder.md
-    - name: Troubleshoot CEF/Syslog data collection
-      href: troubleshooting-cef-syslog.md
+      href: connect-log-forwarder.md    
     - name: Create a custom connector
       href: create-custom-connector.md
     - name: Create a codeless connector
@@ -353,9 +351,7 @@
     - name: Hunt with Jupyter notebooks
       items:
       - name: Launch Jupyter notebook
-        href: notebooks-hunt.md
-      - name: Troubleshoot Jupyter notebook
-        href: notebooks-troubleshoot.md
+        href: notebooks-hunt.md      
       - name: Advanced MSTICPy settings for Jupyter notebooks
         href: notebooks-msticpy-advanced.md
       - name: Configure big data analytics settings
@@ -443,13 +439,19 @@
       - name: Collect SAP HANA audit logs
         href: sap/collect-sap-hana-audit-logs.md
       - name: Deploy SAP connector manually
-        href: sap/sap-solution-deploy-alternate.md
-    - name: Troubleshooting
-      items:
-      - name: Troubleshooting SAP solution deployment
-        href: sap/sap-deploy-troubleshoot.md
-      - name: Configure Transport Management System
-        href: sap/configure-transport.md
+        href: sap/sap-solution-deploy-alternate.md      
+- name: Troubleshoot
+  items:
+  - name: Troubleshoot CEF/Syslog data collection
+    href: troubleshooting-cef-syslog.md
+  - name: Troubleshoot AWS S3 connector issues
+    href: aws-s3-troubleshoot.md
+  - name: Troubleshoot Jupyter notebooks
+    href: notebooks-troubleshoot.md
+  - name: Troubleshoot SAP solution deployment
+    href: sap/sap-deploy-troubleshoot.md
+  - name: Configure SAP Transport Management System
+    href: sap/configure-transport.md  
 - name: Reference
   items:
   - name: SAP solution

@@ -58,6 +58,10 @@
           href: automation-secure-asset-encryption.md
         - name: Management of Azure Automation data
           href: automation-managing-data.md
+    - name: High availability
+      items:
+        - name: Availability zones
+          href: automation-availability-zones.md        
 - name: How-to guides
   items:
     - name: Automation Account
