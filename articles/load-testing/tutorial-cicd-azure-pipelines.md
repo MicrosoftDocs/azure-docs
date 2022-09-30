@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Identify performance regressions with Azure Load Testing and Azure Pipelines'
+title: 'Tutorial: Automate regression tests with CI/CD'
 titleSuffix: Azure Load Testing
-description: 'In this tutorial, you learn how to automate performance regression testing by using Azure Load Testing and Azure Pipelines CI/CD workflows.'
+description: 'In this tutorial, you learn how to automate regression testing by using Azure Load Testing and CI/CD workflows. Quickly identify performance degradation for applications under high load.'
 services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
@@ -12,34 +12,33 @@ ms.custom: engagement-fy23
 #Customer intent: As an Azure user, I want to learn how to automatically test builds for performance regressions on every merge request and/or deployment by using Azure Pipelines.
 ---
 
-# Tutorial: Identify performance regressions with Azure Load Testing Preview and Azure Pipelines
+# Tutorial: Identify performance regressions by automating load tests with CI/CD
 
-This tutorial describes how to automate performance regression testing by using Azure Load Testing Preview and Azure Pipelines. You'll set up an Azure Pipelines CI/CD workflow to deploy a sample Node.js application on Azure and trigger a load test using the [Azure Load Testing task](/azure/devops/pipelines/tasks/test/azure-load-testing). Once the load test finishes, you'll use the Azure Load Testing dashboard to identify performance issues.
+This tutorial describes how to quickly identify performance regressions by using Azure Load Testing Preview and CI/CD tools. Quickly identify when your application experiences degraded performance under load by running load tests in Azure Pipelines or GitHub Actions.
 
-You'll deploy a sample Node.js web app on Azure App Service. The web app uses Azure Cosmos DB for storing the data. The sample application also contains an Apache JMeter script to load test three APIs.
+In  this tutorial, you'll set up a CI/CD pipeline that runs a load test for a sample application on Azure. You'll verify the application behavior under load directly from the CI/CD dashboard. You'll then use load test fail criteria to get alerted when the application doesn't meet your quality requirements.
 
-If you're using GitHub Actions for your CI/CD workflows, see the corresponding [GitHub Actions tutorial](./tutorial-cicd-github-actions.md).
-
-Learn more about the [key concepts for Azure Load Testing](./concept-load-testing-concepts.md).
+In this tutorial, you'll use a sample Node.js application and JMeter script. The tutorial doesn't require any coding or Apache JMeter skills.
 
 You'll learn how to:
 
 > [!div class="checklist"]
-> * Set up your repository with files required for load testing.
-> * Set up Azure Pipelines to integrate with Azure Load Testing.
-> * Run the load test and view results in the pipeline logs.
-> * Define pass/fail criteria for the load test.
-
-> [!IMPORTANT]
-> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> * Set up the sample application GitHub repository.
+> * Configure service authentication for your CI/CD workflow.
+> * Configure the CI/CD workflow to run a load test.
+> * View the load test results in the CI/CD dashboard.
+> * Define load test fail criteria to identify performance regressions.
 
 > [!NOTE]
 > Azure Pipelines has a 60-minute timeout on jobs that are running on Microsoft-hosted agents for private projects. If your load test is running for more than 60 minutes, you'll need to pay for [additional capacity](/azure/devops/pipelines/agents/hosted?tabs=yaml#capabilities-and-limitations). If not, the pipeline will time out without waiting for the test results. You can view the status of the load test in the Azure portal.
 
+> [!IMPORTANT]
+> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
-* An Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops&preserve-view=true). If you need help with getting started with Azure Pipelines, see [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
+* An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* If you're using Azure Pipelines, an Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops&preserve-view=true). If you need help with getting started with Azure Pipelines, see [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
 * A GitHub account, where you can create a repository. If you don't have one, you can [create one for free](https://github.com/).
 
 ## Set up the sample application repository
