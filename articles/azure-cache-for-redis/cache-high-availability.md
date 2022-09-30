@@ -29,7 +29,7 @@ Various high availability options are available in the Standard, Premium, and En
 
 Applicable tiers: **Standard**, **Premium**, **Enterprise**, **Enterprise Flash**
 
-Azure Cache for Redis, in the Standard or Premium tier, has a high availability architecture that ensures your managed instance is functioning, even when outages affect the underlying virtual machines (VMs). Whether the outage is planned or unplanned outages, Azure Cache for Redis delivers much greater percentage availability rates than what's attainable by hosting Redis on a single VM.
+Azure Cache for Redis has a high availability architecture that ensures your managed instance is functioning, even when outages affect the underlying virtual machines (VMs). Whether the outage is planned or unplanned outages, Azure Cache for Redis delivers much greater percentage availability rates than what's attainable by hosting Redis on a single VM.
 
 An Azure Cache for Redis in the Standard or Premium tier runs on a pair of Redis servers by default. The two servers are hosted on dedicated VMs. Open-source Redis allows only one server to handle data write requests.
 
@@ -42,7 +42,16 @@ With Azure Cache for Redis, one server is the _primary_ node, while the other is
 >
 >
 
-If the _primary_ node in a cache is unavailable, the _replica_ promotes itself to become the new primary automatically. This process is called a _failover_. The replica waits for a sufficiently long time before taking over in case that the primary node recovers quickly. The replica does a full data synchronization with the primary so that it has another copy of the cache data.
+If the _primary_ node in a cache is unavailable, the _replica_ automatically promotes itself to become the new primary. This process is called a _failover_. A failover is just two nodes, primary/replica, trading roles, replica/primary, with one of the nodes possibly going offline for a few minutes. The original replica waits a sufficiently long time before taking over in case that the original primary node recovers quickly.
+
+The former primary becomes the replica, and does a full data synchronization with the new primary so that it has another copy of the cache data. The key is that when a node is unavailable, it's a temporary condition and it comes back online.
+
+A typical failover sequence looks like this, when a primary needs to go down for maintenance:
+
+1. Primary and replica nodes negotiate a coordinated failover and trade roles.
+1. Replica (formerly primary) goes offline for a reboot.
+1. A few seconds or minutes later, the replica comes back online.
+1. Replica syncs the data from the primary.
 
 A primary node can go out of service as part of a planned maintenance activity, such as an update to Redis software or the operating system. It also can stop working because of unplanned events such as failures in underlying hardware, software, or network. [Failover and patching for Azure Cache for Redis](cache-failover.md) provides a detailed explanation on types of failovers. An Azure Cache for Redis goes through many failovers during its lifetime. The design of the high availability architecture makes these changes inside a cache as transparent to its clients as possible.
 
@@ -78,7 +87,7 @@ A cache in either Enterprise tier runs on a Redis Enterprise _cluster_. It alway
 
 The Enterprise cluster divides Azure Cache for Redis data into partitions internally. Each partition has a _primary_ and at least one _replica_. Each data node holds one or more partitions. The Enterprise cluster ensures that the primary and replica(s) of any partition are never collocated on the same data node. Partitions replicate data asynchronously from primaries to their corresponding replicas.
 
-When a data node becomes unavailable or a network split happens, a failover similar to the one described in [Standard replication](#standard-replication-for-high-availability) takes place. The Enterprise cluster uses a quorum-based model to determine which surviving nodes participates in a new quorum. It also promotes replica partitions within these nodes to primaries as needed.
+When a data node becomes unavailable or a network split happens, a failover similar to the one described in [Standard replication](#standard-replication-for-high-availability) takes place. The Enterprise cluster uses a quorum-based model to determine which surviving nodes participate in a new quorum. It also promotes replica partitions within these nodes to primaries as needed.
 
 ## Persistence
 
@@ -127,9 +136,9 @@ For more information on force-unlinking, see [Force-Unlink if there's region out
 
 Applicable tiers: **Standard**, **Premium**, **Enterprise**, **Enterprise Flash**
 
-If you experience a regional outage, consider recreating your cache in a different region and updating your application to connect to the new cache instead. It's important to understand that data will be lost during a regional outage. Your application code should be resilient to data loss.
+If you experience a regional outage, consider recreating your cache in a different region, and updating your application to connect to the new cache instead. It's important to understand that data will be lost during a regional outage. Your application code should be resilient to data loss.
 
-Once the affected region is restored, your unavailable Azure Cache for Redis is automatically restored and available for use again. For more strategies for moving your cache to a different region, see [Move Azure Cache for Redis instances to different regions](./cache-moving-resources.md).
+Once the affected region is restored, your unavailable Azure Cache for Redis is automatically restored, and available for use again. For more strategies for moving your cache to a different region, see [Move Azure Cache for Redis instances to different regions](./cache-moving-resources.md).
 
 ## Next steps
 
