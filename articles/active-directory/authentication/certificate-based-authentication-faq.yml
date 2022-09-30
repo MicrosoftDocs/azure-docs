@@ -31,7 +31,7 @@ sections:
           Where can I get more diagnostic information after a user sign-in failed? 
         answer: |
           The error page has a **More Details** link which gives log information that help your tenant admin look into sign in logs for detailed information. For example, if a user certificate is revoked and is part of a Certificate Revocation List, then authentication fails correctly.
-          To get more diagnostic information, look in **Sign-in logs**.
+          To get more diagnostic information, look in  the **Sign-ins** log.
 
       - question: |
           How can an administrator enable Azure AD CBA?
@@ -113,7 +113,7 @@ additionalContent: |
     * [Technical deep dive for Azure AD CBA](concept-certificate-based-authentication-technical-deep-dive.md)
     * [Limitations with Azure AD CBA](concept-certificate-based-authentication-limitations.md)
     * [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
-    * [Windows SmartCard logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
+    * [Windows smart card logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
     * [Azure AD CBA on mobile devices (Android and iOS)](concept-certificate-based-authentication-mobile.md)
     * [How to migrate federated users](concept-certificate-based-authentication-migration.md)
-    * [Sync rules for certificateUserIds](concept-certificate-based-authentication-certificateuserids.md)
+    * [Certificate user IDs](concept-certificate-based-authentication-certificateuserids.md)
