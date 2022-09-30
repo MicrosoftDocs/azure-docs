@@ -26,7 +26,7 @@ Here's what changed in September 2022:
 
 ### Single sign-on and passwordless authentication now in public preview
 
-The ability to enable an Azure AD-based single sign-on experience and support for passwordless authentication, using Windows Hello and security devices (like FIDO2 keys) is now in public preview. This feature is available for Windows 10, Windows, 11 and Windows Server 2022 session hosts with the September Cumulative Update Preview installed. The single sign-on experience is currently compatible with the Windows Desktop and web clients. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-public-preview-of-sso-and-passwordless-authentication/ba-p/3638244). 
+The ability to enable an Azure Active Directory (AD)-based single sign-on experience and support for passwordless authentication, using Windows Hello and security devices (like FIDO2 keys) is now in public preview. This feature is available for Windows 10, Windows, 11 and Windows Server 2022 session hosts with the September Cumulative Update Preview installed. The single sign-on experience is currently compatible with the Windows Desktop and web clients. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-public-preview-of-sso-and-passwordless-authentication/ba-p/3638244). 
 
 ### Connection graphics data logs for Azure Virtual Desktop now in public preview
 
@@ -46,11 +46,11 @@ Here's what changed in August 2022:
 
 ### Updates to the preview version of FSLogix profiles for Azure AD-joined VMs
 
-We've updated the public preview version of the Azure Files integration with Azure Active Directory (Azure AD) Kerberos for hybrid identities so that it's now simpler to deploy and manage. The update should give users using FSLogix user profiles on Azure AD-joined session host an overall better experience. For more information, see [the Azure Files blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-leverage-azure-active-directory-kerberos-with/ba-p/3612111).  
+We've updated the public preview version of the Azure Files integration with Azure AD Kerberos for hybrid identities so that it's now simpler to deploy and manage. The update should give users using FSLogix user profiles on Azure AD-joined session host an overall better experience. For more information, see [the Azure Files blog post](https://techcommunity.microsoft.com/t5/azure-storage-blog/public-preview-leverage-azure-active-directory-kerberos-with/ba-p/3612111).  
 
 ### Single sign-on and passwordless authentication now in Windows Insider preview
 
-In the Windows Insider build of Windows 11 22H2, you can now enable a preview version of the Azure Active Directory (AD)-based single sign-on experience. This Windows Insider build also supports passwordless authentication with Windows Hello and security devices like FIDO2 keys. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/insider-preview-single-sign-on-and-passwordless-authentication/m-p/3608842). 
+In the Windows Insider build of Windows 11 22H2, you can now enable a preview version of the Azure AD-based single sign-on experience. This Windows Insider build also supports passwordless authentication with Windows Hello and security devices like FIDO2 keys. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/insider-preview-single-sign-on-and-passwordless-authentication/m-p/3608842). 
 
 ### Universal Print for Azure Virtual Desktop now in Windows Insider preview
 
