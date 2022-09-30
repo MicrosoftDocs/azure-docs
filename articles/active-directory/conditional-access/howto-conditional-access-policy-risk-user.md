@@ -15,7 +15,7 @@ ms.reviewer: calebb, davidspo
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional Access: User risk-based Conditional Access
+# Common Conditional Access policy: User risk-based password change
 
 Microsoft works with researchers, law enforcement, various security teams at Microsoft, and other trusted sources to find leaked username and password pairs. Organizations with Azure AD Premium P2 licenses can create Conditional Access policies incorporating [Azure AD Identity Protection user risk detections](../identity-protection/concept-identity-protection-risks.md). 
 
@@ -27,7 +27,7 @@ Organizations can choose to deploy this policy using the steps outlined below or
 
 ## Enable with Conditional Access policy
 
-1. Sign in to the **Azure portal** as a Global Administrator, Security Administrator, or Conditional Access Administrator.
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
