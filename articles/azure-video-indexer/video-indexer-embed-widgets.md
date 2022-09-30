@@ -306,9 +306,10 @@ See the [code samples](https://github.com/Azure-Samples/media-services-video-ind
 
 ## Supported browsers
 
-For more information, see [supported browsers](video-indexer-overview.md#supported-browsers).
+For more information, see [supported browsers](video-indexer-get-started.md#supported-browsers).
 
 ## Embed and customize Azure Video Indexer widgets in your app using npm package
+
 Using our [@azure/video-analyzer-for-media-widgets](https://www.npmjs.com/package/@azure/video-analyzer-for-media-widgets) NPM package, you can add the insights widgets to your app and customize it according to your needs.
 
 Instead of adding an iframe element to embed the insights widget, with this new package you can easily embed & communicate between our widgets. Customizing your widget is only supported in this package - all in one place.   
