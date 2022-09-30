@@ -71,7 +71,7 @@ In this article you learn how to enable the following workspaces resources in a 
 
 ## Limitations
 
-### Azure Storage Account
+### Azure storage account
 
 * If you plan to use Azure Machine Learning studio and the storage account is also in the VNet, there are extra validation requirements:
 
