@@ -58,6 +58,10 @@ Provide a new catalog item to your development team as follows:
           type: ARM
           templatePath: azuredeploy.json
      ```     
+    
+    >[!NOTE]
+    > `version` is an optional field, and will later be used to support multiple versions of catalog items.
+
 1. On the **Catalogs** page of the dev center, select the specific repo, and then select **Sync**.
 
     :::image type="content" source="../deployment-environments/media/configure-catalog-item/sync-catalog-items.png" alt-text="Screenshot showing how to sync the catalog." :::
