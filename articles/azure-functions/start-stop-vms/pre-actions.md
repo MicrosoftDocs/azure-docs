@@ -38,13 +38,13 @@ The steps in this section require the `ststv2_vms_Scheduled_start` logic app tha
 
  1. In the Logic Apps Designer page, select **Function-Try** and then select **Add an action**.
 
-    :::image type="content" source="./media/pre-actions/add-action-button.png" alt-text="Logic app designer page showing add action button location":::
+    :::image type="content" source="./media/pre-actions/add-action-button.png" alt-text="Screenshot of the Logic Apps designer showing Add an Action button location":::
 
  5. Choose **HTTP**, select the HTTP **Method**, and add the **URL**. This HTTP request will be the pre-action for the scheduled start action, after you change the action order in **Function-Try**. You can also configure the HTTP action at a later time.
 
  6. Drag the **Scheduled** action below the new **HTTP** action in the **Function-Try** step. The pre-action must come before the scheduled action in the step. Your app should now look like the following example:
 
-    :::image type="content" source="./media/pre-actions/pre-action-configured.png" alt-text="Logic app designer page showing the actions in the correct order":::
+    :::image type="content" source="./media/pre-actions/pre-action-configured.png" alt-text="Screenshot of the Logic Apps designer showing the actions in the correct order.":::
 
 At this point, you've defined a pre-action that's run before the start action scheduled by `ststv2_vms_Scheduled_start`. 
 
