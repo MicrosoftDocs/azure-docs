@@ -150,9 +150,9 @@ The Health check requests are sent to your site internally, so the request won't
 
 On Windows App Service, the Health check requests will be sent via HTTPS when [HTTPS Only](configure-ssl-bindings.md#enforce-https) is enabled on the site. Otherwise, they're sent over HTTP. On Linux App Service, the health check requests are only sent over HTTP and can't be sent over HTTP**S** at this time.
 
-### Is HealthCheck following the application code configured redirects between the default domain and the custom domain?
+### Is Health check following the application code configured redirects between the default domain and the custom domain?
 
-No, Health Check feature is pinging the path of the default domain of the web application. If there is a redirect from the default domain to a custom domain, then the status code that health check is returning is not going to be a 200 but a redirect (301), which is going to mark the worker unhealthy.
+No, the Health check feature is pinging the path of the default domain of the web application. If there is a redirect from the default domain to a custom domain, then the status code that Health check is returning is not going to be a 200 but a redirect (301), which is going to mark the worker unhealthy.
 
 
 ### What if I have multiple apps on the same App Service Plan?
