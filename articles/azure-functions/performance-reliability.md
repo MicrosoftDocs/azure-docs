@@ -20,6 +20,12 @@ A function can become large because of many Node.js dependencies. Importing depe
 
 Whenever possible, refactor large functions into smaller function sets that work together and return responses fast. For example, a webhook or HTTP trigger function might require an acknowledgment response within a certain time limit; it's common for webhooks to require an immediate response. You can pass the HTTP trigger payload into a queue to be processed by a queue trigger function. This approach lets you defer the actual work and return an immediate response.
 
+## Background tasks must complete returning from functions
+
+Azure Functions does not track background threads. If your functions initiate any tasks, callbacks, threads, processes, tasks, etc., they must be complete before you return from your functions. If not, you risk site shutdown or other unintended behavior. 
+
+For example, if a function kicks off a background task and returns a successful response before the task finishes, the function will be considered successful and complete despite the result of the background task.
+
 ## Cross function communication
 
 [Durable Functions](durable/durable-functions-overview.md) and [Azure Logic Apps](../logic-apps/logic-apps-overview.md) are built to manage state transitions and communication between multiple functions.
