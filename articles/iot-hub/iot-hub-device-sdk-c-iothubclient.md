@@ -260,7 +260,7 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 There are a couple of options that are commonly used:
 
-* **SetBatching** (bool) – If **true**, then data sent to IoT Hub is sent in batches. If **false**, then messages are sent individually. The default is **false**. Batching over AMQP / AMQP-WS, as well as adding system properties on D2C messages, is supported.
+* **SetBatching** (bool) – If **true**, then data sent to IoT Hub is sent in batches. If **false**, then messages are sent individually. The default is **false**. You can use the batching option with AMQP / AMQP-WS, as well as adding system properties on D2C messages, is supported.
 
 * **Timeout** (unsigned int) – This value is represented in milliseconds. If sending an HTTPS request or receiving a response takes longer than this time, then the connection times out.
 

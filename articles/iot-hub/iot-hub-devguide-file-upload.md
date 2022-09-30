@@ -17,7 +17,7 @@ There are many scenarios where you can't easily map your device data into the re
 
 When you need to upload large files from a device, you can still use the security and reliability of IoT Hub. Instead of brokering messages through itself, however, IoT Hub acts as a dispatcher to an associated Azure storage account. IoT Hub can also provide notification to backend services when a device completes a file upload.
 
-If you need help deciding when to use reported properties, device-to-cloud messages, or file uploads, see [Device-to-cloud communication guidance](iot-hub-devguide-d2c-guidance.md).
+If you need help with deciding when to use reported properties, device-to-cloud messages, or file uploads, see [Device-to-cloud communication guidance](iot-hub-devguide-d2c-guidance.md).
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
@@ -200,7 +200,7 @@ When it receives a file upload complete notification from the device, IoT Hub:
 
 * Triggers a file upload notification to backend services if file upload notifications are configured.
 
-* Releases resources associated with the file upload. Without receiving a notification, IoT Hub will maintain the resources until the SAS URI time-to-live (TTL) associated with the upload expires.
+* Releases resources associated with the file upload. If IoT Hub doesn't receive a notification, it will maintain the resources until the SAS URI time-to-live (TTL) associated with the upload expires.
 
 ## Service: File upload notifications
 

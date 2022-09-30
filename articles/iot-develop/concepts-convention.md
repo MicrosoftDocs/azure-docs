@@ -277,7 +277,7 @@ The device responds with an acknowledgment that looks like the following:
 
 ### Sample no component writable property
 
-When a device receives multiple desired properties in a single payload, it can send the reported property responses across multiple payloads or or combine the responses into a single payload.
+When a device receives multiple desired properties in a single payload, it can send the reported property responses across multiple payloads or combine the responses into a single payload.
 
 A device or module can send any valid JSON that follows the DTDL v2 rules:
 

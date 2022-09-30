@@ -51,7 +51,7 @@ highlightedContent:
 # conceptualContent section
 conceptualContent:
   title: Get started building your IoT solution
-  summary: Azure IoT offers you cloud and edge IoT platforms as well as fully-managed IoT solutions
+  summary: Azure IoT offers you cloud and edge IoT platforms as well as fully managed IoT solutions
   items:
     # Card
     - title: Start with a solution development environment (aPaaS)

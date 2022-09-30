@@ -281,7 +281,7 @@ client.connect(iot_hub_name+".azure-devices.net", port=8883)
 
 ## Sending device-to-cloud messages
 
-After successfully connecting, a device can send messages to IoT Hub using `devices/{device-id}/messages/events/` or `devices/{device-id}/messages/events/{property-bag}` as a **Topic Name**. The `{property-bag}` element enables the device to send messages with additional properties in a url-encoded format. For example:
+After a device connects, it can send messages to IoT Hub using `devices/{device-id}/messages/events/` or `devices/{device-id}/messages/events/{property-bag}` as a **Topic Name**. The `{property-bag}` element enables the device to send messages with additional properties in a url-encoded format. For example:
 
 ```text
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -368,7 +368,7 @@ For more information, see the [Device twins developer's guide](iot-hub-devguide-
 
 ## Update device twin's reported properties
 
-To update reported properties, the device issues a request to IoT Hub via a publication over a designated MQTT topic. After processing the request, IoT Hub responds the success or failure status of the update operation via a publication to another topic. This topic can be subscribed by the device in order to notify it about the result of its twin update request. To implement this type of request/response interaction in MQTT, we use the notion of request ID (`$rid`) provided initially by the device in its update request. This request ID is also included in the response from IoT Hub to allow the device to correlate the response to its particular earlier request.
+To update reported properties, the device issues a request to IoT Hub via a publication over a designated MQTT topic. After IoT Hub processes the request, it responds the success or failure status of the update operation via a publication to another topic. This topic can be subscribed by the device in order to notify it about the result of its twin update request. To implement this type of request/response interaction in MQTT, we use the notion of request ID (`$rid`) provided initially by the device in its update request. This request ID is also included in the response from IoT Hub to allow the device to correlate the response to its particular earlier request.
 
 The following sequence describes how a device updates the reported properties in the device twin in IoT Hub:
 
