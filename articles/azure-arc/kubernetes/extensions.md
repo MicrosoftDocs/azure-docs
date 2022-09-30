@@ -270,7 +270,7 @@ az k8s-extension delete --name azuremonitor-containers --cluster-name <clusterNa
 >[!NOTE]
 > The Azure resource representing this extension gets deleted immediately. The Helm release on the cluster associated with this extension is only deleted when the agents running on the Kubernetes cluster have network connectivity and can reach out to Azure services again to fetch the desired state.
 
-## Considerations for hybrid deployment options
+## Extensions on connected AKS clusters on Azure Stack HCI
 
 You can deploy extensions to [connected AKS clusters on Azure Stack HCI](/azure-stack/aks-hci/connect-to-arc). However, there are a few key differences to keep in mind in order to deploy successfully:
 
@@ -296,19 +296,10 @@ az extension update --name k8s-extension
 
 Learn more about the cluster extensions currently available for Azure Arc-enabled Kubernetes:
 
-> [!div class="nextstepaction"]
-> [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json)
-> [Microsoft Defender for Cloud](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
-> [Azure Arc-enabled Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md)
-> 
-> [!div class="nextstepaction"]
-> [Microsoft Defender for Cloud](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
-> 
-> [!div class="nextstepaction"]
-> [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md)
-> 
-> [!div class="nextstepaction"]
-> [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md)
-> 
-> [!div class="nextstepaction"]
-> [Azure API Management on Azure Arc](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md)
+* [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json)
+* [Microsoft Defender for Cloud](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
+* [Azure Arc-enabled Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md)
+* [Microsoft Defender for Cloud](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
+* [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md)
+* [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md)
+* [Azure API Management on Azure Arc](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md)
