@@ -13,14 +13,20 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 # Private Links in Microsoft Energy Data Services
 [Azure Private Link](https://azure.microsoft.com/services/private-link/) provides private connectivity from a virtual network to Azure platform as a service (PaaS). It simplifies the network architecture and secures the connection between endpoints in Azure by eliminating data exposure to the public internet.
 By using Azure Private Link, you can connect to a Microsoft Energy Data Services Preview instance from your virtual network via a private endpoint, which is a set of private IP addresses in a subnet within the virtual network.
+
+
 You can then limit access to your Microsoft Energy Data Services Preview instance over these private IP addresses. 
 You can connect to a Microsoft Energy Data Services configured with Private Link by using the automatic or manual approval method. To [learn more](https://learn.microsoft.com/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow), see the Approval workflow section of the Private Link documentation.
+
+
 This article describes how to set up private endpoints for Microsoft Energy Data Services preview. 
 
 ## Pre-requisites
+
 1.	Create a virtual network in the same subscription as the Microsoft Energy Data Services instance. [Learn more](https://learn.microsoft.com/azure/virtual-network/quick-create-portal). This will allow auto-approval of the private link end point.
 
 ## Create a private endpoint by using the Azure portal
+
 Use the following steps to create a private endpoint for an existing Microsoft Energy Data Services instance by using the Azure portal:
 1.	From the **All resources** pane, choose a Microsoft Energy Data Services Preview instance.
 2.	Select **Networking** from the list of settings.
