@@ -10,7 +10,7 @@ ms.date: 09/19/2022
 #customer-intent: As an cloud engineer with Basic public IP services, I need guidance and direction on migrating my workloads off basic to Standard SKUs
 ---
 
-# Upgrading a basic public IP address to standard SKU - Guidance
+# Upgrading a basic public IP address to Standard SKU - Guidance
 
 In this article, we'll discuss guidance for upgrading your Basic SKU public IPs to Standard SKU. Standard public IPs are recommended for all production instances and provide many [key differences](#basic-sku-vs-standard-sku) to your infrastructure.
 ## Steps to complete the upgrade 
@@ -27,13 +27,13 @@ We recommend the following approach to upgrade to Standard SKU public IP address
 
     | Resource using Basic SKU public IP addresses | Decision path |
     | ------ | ------ |
-    | Virtual Machine or Virtual Machine Scale Sets | use the [following upgrade options](#upgrade-using-portal-powershell-and-azure-cli). |
-    | Load Balancer (Basic) | use the [following upgrade options](#upgrade-using-portal-powershell-and-azure-cli).   |
+    | Virtual Machine or Virtual Machine Scale Sets | Use the [following upgrade options](#upgrade-using-portal-powershell-and-azure-cli). |
+    | Load Balancer (Basic) | Use the [following upgrade options](#upgrade-using-portal-powershell-and-azure-cli).   |
     | VPN Gateway (Basic) | Cannot dissociate and upgrade. Create a [new VPN gateway with a SKU type other than Basic](../../vpn-gateway/tutorial-create-gateway-portal.md). |
     | Application Gateway (v1) | Cannot dissociate and upgrade. Use this [migration script to migrate from v1 to v2](../../application-gateway/migrate-v1-v2.md).  |
 1. Verify your application and workloads are receiving traffic through the Standard SKU public IP address. Then delete your Basic SKU public IP address resource. 
 
-## Basic SKU vs. standard SKU 
+## Basic SKU vs. Standard SKU 
 
 This section lists out some key differences between these two SKUs.
 

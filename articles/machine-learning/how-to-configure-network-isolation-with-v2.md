@@ -19,7 +19,7 @@ In this article, you'll learn about network isolation changes with our new v2 AP
 
 ## Prerequisites
 
-* The [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install) or [Azure CLI extension for machine learning v1](reference-azure-machine-learning-cli.md).
+* The [Azure Machine Learning Python SDK v1](/python/api/overview/azure/ml/install) or [Azure CLI extension for machine learning v1](reference-azure-machine-learning-cli.md).
 
     > [!IMPORTANT]
     > The v1 extension (`azure-cli-ml`) version must be 1.41.0 or greater. Use the `az version` command to view version information.

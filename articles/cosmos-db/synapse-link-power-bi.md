@@ -10,7 +10,7 @@ ms.custom: synapse-cosmos-db
 ---
 
 # Use Power BI and serverless Synapse SQL pool to analyze Azure Cosmos DB data with Synapse Link 
-[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+[!INCLUDE[appliesto-sql-mongodb-gremlin-api](includes/appliesto-sql-mongodb-gremlin-api.md)]
 
 In this article, you learn how to build a serverless SQL pool database and views over Synapse Link for Azure Cosmos DB. You will query the Azure Cosmos DB containers and then build a model with Power BI over those views to reflect that query.
 
@@ -29,7 +29,7 @@ Make sure to create the following resources before you start:
 
 * Enable Azure Synapse Link for your [Azure Cosmos account](configure-synapse-link.md#enable-synapse-link)
 
-* Create a database within the Azure Cosmos account and two containers that have [analytical store enabled.](configure-synapse-link.md#create-analytical-ttl)
+* Create a database within the Azure Cosmos account and two containers that have [analytical store enabled.](configure-synapse-link.md)
 
 * Load products data into the Azure Cosmos containers as described in this [batch data ingestion](https://github.com/Azure-Samples/Synapse/blob/main/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/spark-notebooks/pyspark/1CosmoDBSynapseSparkBatchIngestion.ipynb) notebook.
 

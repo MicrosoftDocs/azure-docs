@@ -129,6 +129,9 @@ The following table describes names and descriptions of properties that are spec
 > [!NOTE]
 > If you are passing linked services as referenceObjects in Custom Activity, it is a good security practice to pass an Azure Key Vault enabled linked service (since it does not contain any secure strings) and fetch the credentials using secret name directly from Key Vault from the code. You can find an example [here](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) that references AKV enabled linked service, retrieves the credentials from Key Vault, and then accesses the storage in the code.
 
+> [!NOTE]
+> Currently only Azure Blob storage is supported for resourceLinkedService in custom activity, and it is the only linked service that gets created by default and no option to choose other connectors like ADLS Gen2.
+
 ## Custom activity permissions
 
 The custom activity sets the Azure Batch auto-user account to *Non-admin access with task scope* (the default auto-user specification). You can't change the permission level of the auto-user account. For more info, see [Run tasks under user accounts in Batch | Auto-user accounts](../batch/batch-user-accounts.md#auto-user-accounts).

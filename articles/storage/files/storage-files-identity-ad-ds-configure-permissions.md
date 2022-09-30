@@ -1,6 +1,6 @@
 ---
-title: Control what a user can do at the file level - Azure file shares
-description: Learn how to configure Windows ACLs permissions for on-premises AD DS authentication to Azure file shares, allowing you to take advantage of granular access control.
+title: Control what a user can do at the directory and file level - Azure Files
+description: Learn how to configure Windows ACLs for directory and file level permissions for AD DS authentication to Azure file shares, allowing you to take advantage of granular access control.
 author: khdownie
 ms.service: storage
 ms.subservice: files
@@ -11,10 +11,11 @@ ms.author: kendownie
 
 # Part three: configure directory and file level permissions over SMB
 
-Before you begin this article, make sure you've completed the previous article, [Assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md), to ensure that your share-level permissions are in place.
+Before you begin this article, make sure you've completed the previous article, [Assign share-level permissions to an identity](storage-files-identity-ad-ds-assign-permissions.md), to ensure that your share-level permissions are in place with Azure role-based access control (RBAC).
 
-After you assign share-level permissions with Azure role-based access control (RBAC), you must configure proper Windows ACLs at the root, directory, or file level, to take advantage of granular access control. The Azure RBAC share-level permissions act as a high-level gatekeeper that determines whether a user can access the share, while the Windows access control lists (ACLs) operate at a more granular level to control what operations the user can do at the directory or file level. Both share-level and file/directory level permissions are enforced when a user attempts to access a file/directory, so if there's a difference between either of them, only the most restrictive one will be applied. For example, if a user has read/write access at the file level, but only read at a share level, then they can only read that file. The same would be true if it was reversed: if a user had read/write access at the share-level, but only read at the file-level, they can still only read the file.
+After you assign share-level permissions, you must first connect to the Azure file share using the storage account key and then configure Windows access control lists (ACLs), also known as NTFS permissions, at the root, directory, or file level. While share-level permissions act as a high-level gatekeeper that determines whether a user can access the share, Windows ACLs operate at a more granular level to control what operations the user can do at the directory or file level.
 
+Both share-level and file/directory level permissions are enforced when a user attempts to access a file/directory, so if there's a difference between either of them, only the most restrictive one will be applied. For example, if a user has read/write access at the file level, but only read at a share level, then they can only read that file. The same would be true if it was reversed: if a user had read/write access at the share-level, but only read at the file-level, they can still only read the file.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -44,7 +45,7 @@ The following table contains the Azure RBAC permissions related to this configur
 
 ## Supported permissions
 
-Azure Files supports the full set of basic and advanced Windows ACLs. You can view and configure Windows ACLs on directories and files in an Azure file share by mounting the share and then using Windows File Explorer, running the Windows [icacls](/windows-server/administration/windows-commands/icacls) command, or the [Set-ACL](/powershell/module/microsoft.powershell.security/set-acl) command. 
+Azure Files supports the full set of basic and advanced Windows ACLs. You can view and configure Windows ACLs on directories and files in an Azure file share by connecting to the share and then using Windows File Explorer, running the Windows [icacls](/windows-server/administration/windows-commands/icacls) command, or the [Set-ACL](/powershell/module/microsoft.powershell.security/set-acl) command.
 
 To configure ACLs with superuser permissions, you must mount the share by using your storage account key from your domain-joined VM. Follow the instructions in the next section to mount an Azure file share from the command prompt and to configure Windows ACLs.
 
@@ -66,12 +67,12 @@ The following permissions are included on the root directory of a file share:
 |`NT AUTHORITY\Authenticated Users`|All users in AD that can get a valid Kerberos token.|
 |`CREATOR OWNER`|Each object either directory or file has an owner for that object. If there are ACLs assigned to `CREATOR OWNER` on that object, then the user that is the owner of this object has the permissions to the object defined by the ACL.|
 
-## Mount the file share using PowerShell
+## Connect to the Azure file share
 
-Use the PowerShell script below to mount the Azure file share as drive Z: using the storage account key. The script will check to see if this storage account is accessible via TCP port 445, which is the port SMB uses. If port 445 is available, your file share will be mounted. Remember to replace the placeholder values with your own values. For more information about mounting Azure file shares, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md). This script will only work on Windows Server 2012 and above.
+Run the script below from a normal (not elevated) PowerShell terminal to connect to the Azure file share using the storage account key and map the share to drive Z: on Windows. If Z: is already in use, replace it with an available drive letter. The script will check to see if this storage account is accessible via TCP port 445, which is the port SMB uses. Remember to replace the placeholder values with your own values. For more information, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
 
 > [!NOTE]
-> You may see the **Full Control** ACL applied to a role already. This typically already offers the ability to assign permissions. However, because there are access checks at two levels (the share level and the file level), this is restricted. Only users who have the **SMB Elevated Contributor** role and create a new file or folder can assign permissions on those specific new files or folders without the use of the storage account key. All other permission assignment requires mounting the share with the storage account key first.
+> You might see the **Full Control** ACL applied to a role already. This typically already offers the ability to assign permissions. However, because there are access checks at two levels (the share level and the file/directory level), this is restricted. Only users who have the **SMB Elevated Contributor** role and create a new file or directory can assign permissions on those new files or directories without using the storage account key. All other file/directory permission assignment requires connecting to the share using the storage account key first.
 
 ```powershell
 $connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445
@@ -83,11 +84,11 @@ if ($connectTestResult.TcpTestSucceeded) {
 }
 ```
 
-If you experience issues in connecting to Azure Files, refer to [the troubleshooting tool we published for Azure Files mounting errors on Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/).
+If you experience issues connecting to Azure Files on Windows, refer to [this troubleshooting tool](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/).
 
 ## Configure Windows ACLs
 
-Once your file share has been mounted with the storage account key, you must configure the Windows ACLs (also known as NTFS permissions). You can configure the Windows ACLs using either Windows File Explorer or icacls.
+After you've connected to your Azure file share, you must configure the Windows ACLs. You can do this using either Windows File Explorer or [icacls](/windows-server/administration/windows-commands/icacls).
 
 If you have directories or files in on-premises file servers with Windows DACLs configured against the AD DS identities, you can copy it over to Azure Files persisting the ACLs with traditional file copy tools like Robocopy or [Azure AzCopy v 10.4+](https://github.com/Azure/azure-storage-azcopy/releases). If your directories and files are tiered to Azure Files through Azure File Sync, your ACLs are carried over and persisted in their native format.
 
@@ -96,14 +97,14 @@ If you have directories or files in on-premises file servers with Windows DACLs 
 Use the following Windows command to grant full permissions to all directories and files under the file share, including the root directory. Remember to replace the placeholder values in the example with your own values.
 
 ```
-icacls <mounted-drive-letter>: /grant <user-upn>:(f)
+icacls <mapped-drive-letter>: /grant <user-upn>:(f)
 ```
 
 For more information on how to use icacls to set Windows ACLs and on the different types of supported permissions, see [the command-line reference for icacls](/windows-server/administration/windows-commands/icacls).
 
 ### Configure Windows ACLs with Windows File Explorer
 
-Use Windows File Explorer to grant full permission to all directories and files under the file share, including the root directory. If you're not able to load the AD domain information correctly in Windows File Explorer, this is likely due to trust configuration in your on-premises AD environment. The client machine was not able to reach the AD domain controller registered for Azure Files authentication. In this case, use icacls for configuring Windows ACLs.
+Use Windows File Explorer to grant full permission to all directories and files under the file share, including the root directory. If you're not able to load the AD domain information correctly in Windows File Explorer, this is likely due to trust configuration in your on-premises AD environment. The client machine wasn't able to reach the AD domain controller registered for Azure Files authentication. In this case, [use icacls](#configure-windows-acls-with-icacls) for configuring Windows ACLs.
 
 1. Open Windows File Explorer and right click on the file/directory and select **Properties**.
 1. Select the **Security** tab.

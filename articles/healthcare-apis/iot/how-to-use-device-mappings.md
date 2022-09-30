@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 09/12/2022
+ms.date: 09/27/2022
 ms.author: jasteppe
 ---
 
@@ -25,7 +25,7 @@ The two types of mappings are composed into a JSON document based on their type.
 > [!TIP]
 > Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting the MedTech service device and FHIR destination mappings; and export mappings for uploading to the MedTech service in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of the MedTech service.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Links to OSS projects on the GitHub website are for informational purposes only and do not constitute an endorsement or guarantee of any kind.  You should review the information and licensing terms on the OSS projects on GitHub before using it.   
 
 ## Device mappings overview

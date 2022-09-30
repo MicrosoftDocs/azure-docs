@@ -1,13 +1,13 @@
 ---
 title: SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage (preview) | Microsoft Docs
 description: Optimize the performance of your SSH File Transfer Protocol (SFTP) requests by using the recommendations in this article.
-author: mikewill4
+author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
 ms.date: 09/13/2022
 ms.custom: references_regions
-ms.author: michawil
+ms.author: normesta
 ms.reviewer: ylunagaria
 
 ---

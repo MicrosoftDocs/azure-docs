@@ -11,7 +11,7 @@ ms.reviewer: mjbrown
 ---
 
 # What is Azure Cosmos DB analytical store?
-[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+[!INCLUDE[appliesto-sql-mongodb-gremlin-api](includes/appliesto-sql-mongodb-gremlin-api.md)]
 
 Azure Cosmos DB analytical store is a fully isolated column store for enabling large-scale analytics against operational data in your Azure Cosmos DB, without any impact to your transactional workloads. 
 
@@ -408,7 +408,7 @@ How to enable analytical store on a container:
  
 * From the Azure Management SDK, Azure Cosmos DB SDKs, PowerShell, or Azure CLI, the ATTL option can be enabled by setting it to either -1 or 'n' seconds. 
 
-To learn more, see [how to configure analytical TTL on a container](configure-synapse-link.md#create-analytical-ttl).
+To learn more, see [how to configure analytical TTL on a container](configure-synapse-link.md).
 
 ## Cost-effective analytics on historical data
 

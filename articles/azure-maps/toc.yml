@@ -235,6 +235,8 @@ items:
         href: how-to-use-indoor-module.md
       - name: Dynamic styling for indoor maps
         href: indoor-map-dynamic-styling.md
+      - name: Custom styling for indoor maps
+        href: how-to-create-custom-styles.md        
       - name: Drawing error visualizer
         href: drawing-error-visualizer.md
     - name: Spatial IO module 
