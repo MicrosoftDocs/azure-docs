@@ -35,6 +35,7 @@ In addition to TLS, when you interact with Microsoft Energy Data Services, all t
 2.	Using customer-managed keys with Microsoft Energy Data Services requires that both soft delete and purge protection be enabled for the key vault. Soft delete is enabled by default when you create a new key vault and cannot be disabled. You can enable purge protection either when you create the key vault or after it is created.
 3.	To learn how to create a key vault with the Azure portal, see [Quickstart: Create a key vault using the Azure portal](https://learn.microsoft.com/azure/key-vault/general/quick-create-portal). When you create the key vault, select Enable purge protection.
 
+ [![Screenshot of enabling purge protection and soft delete while creating key vault](media/data-security-and-encryption/cmek_1_create_key_vault.png)](media/data-security-and-encryption/cmek_1_create_key_vault.png#lightbox)
  
 4.	To enable purge protection on an existing key vault, follow these steps:
 *	Navigate to your key vault in the Azure portal.
@@ -53,6 +54,8 @@ In addition to TLS, when you interact with Microsoft Energy Data Services, all t
 ### Configure customer-managed keys for an existing account
 1.	Create a **Microsoft Energy Data Services** instance.
 2.	Select the **Encryption** tab.
+
+[![Screenshot of Encyption tab while creating Microsoft Energy Data Services](media/data-security-and-encryption/cmek_2_encryption_tab.png)](media/data-security-and-encryption/cmek_2_encryption_tab.png#lightbox)
  
 3.	In the encryption tab, select **Customer-managed keys (CMK)**. 
 4.	For using CMK, you need to select the key vault where the key is stored. 
@@ -62,17 +65,27 @@ In addition to TLS, when you interact with Microsoft Energy Data Services, all t
 8.	Next, select the user-assigned managed identity that will be used to authorize access to the key vault that contains the key. 
 9.	Select “**Select a user identity**.” Select the user-assigned managed identity that you created in the pre-requisites. 
  
+[![Screenshot of key vault, key, user assigned identity, and CMK on encryption tab](media/data-security-and-encryption/cmek_3_enable_cmk.png)](media/data-security-and-encryption/cmek_3_enable_cmk.png#lightbox)
+
+
 10.	This user assigned identity must have _get key_, _list key_, _wrap key_, and _unwrap key_ permissions on the key vault. For more information on assigning Azure Key Vault access policies, see [Assign a Key Vault Access Policy](https://learn.microsoft.com/azure/key-vault/general/assign-access-policy?tabs=azure-portal). 
  
+[![Screenshot of get, list, wrap, and upwrap key access policy](media/data-security-and-encryption/cmek_4_access_policy.png)](media/data-security-and-encryption/cmek_4_access_policy.png#lightbox)
+
 11.	You can also select Encryption Key as “**Enter key from Uri**.” It is mandatory for the Key to have soft delete and purge protection to be enabled. You will have to confirm that by checking the box shown below.
- 
+
+[![Screenshot of key vault uri for encryption](media/data-security-and-encryption/cmek_5_key_vault_url.png)](media/data-security-and-encryption/cmek_5_key_vault_url.png#lightbox)
+
 12.	Next, select “**Review+Create**” after completing other tabs. 
 13.	Select the "**Create**" button. 
 14.	A Microsoft Energy Data Services instance is created with customer-managed keys.
 15.	Once CMK is enabled you will see its status on the **Overview** screen.
+
+[![Screenshot of CMK enabled on MEDS overview page](media/data-security-and-encryption/cmek_6_cmk_enabled_meds_overview.png)](media/data-security-and-encryption/cmek_6_cmk_enabled_meds_overview.png#lightbox)
+
+16.	You can navigate to **Encryption** and see that CMK enabled with user managed identity.
  
-16.	You can navigate to **Encryption **and see that CMK enabled with user managed identity.
- 
+[![Screenshot of CMK settings disabled once MEDS instance is installed](media/data-security-and-encryption/cmek_7_cmk_disabled_meds_instance_created.png)](media/data-security-and-encryption/cmek_7_cmk_disabled_meds_instance_created.png#lightbox)
 
 > NOTE: You cannot edit CMK settings once the Microsoft Energy Data Services instance is created.
 
