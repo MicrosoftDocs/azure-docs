@@ -9,15 +9,15 @@ ms.topic: how-to
 ms.date: 10/12/2022
 ---
 
-# Debugging with the job logical diagram (preview) in Azure portal
+# Debugging with the logical job diagram (preview) in Azure portal
 
 The job diagram (physical diagram and logical diagram) in the Azure portal can help you visualize your job's query steps with its input source, output destination, and metrics. You can use the job diagram to examine the metrics for each step and quickly identify the source of a problem when you troubleshoot issues.
 
-This article describes how to use the job logical diagram to analyze and troubleshoot your job in Azure portal. 
+This article describes how to use the logical job diagram to analyze and troubleshoot your job in Azure portal. 
 
-The job logical diagram is also available in Stream Analytics extension for VS Code. It provides the similar functions with more metrics when you debug your job that runs locally on your device. To learn more, see [Debug Azure Stream Analytics queries locally using job diagram](./debug-locally-using-job-diagram-vs-code.md).
+The logical job diagram is also available in Stream Analytics extension for VS Code. It provides the similar functions with more metrics when you debug your job that runs locally on your device. To learn more, see [Debug Azure Stream Analytics queries locally using job diagram](./debug-locally-using-job-diagram-vs-code.md).
 
-## Using the job logical diagram
+## Using the logical job diagram
 
 In the Azure portal, locate and select a Stream Analytics job. Then select **Job diagram (preview)** under **Developer tools**: 
 
@@ -26,23 +26,23 @@ In the Azure portal, locate and select a Stream Analytics job. Then select **Job
 
 The job level default metrics such as Watermark delay, Input events, Output Events, and Backlogged Input Events are shown in the chart section for the latest 30 minutes. You can visualize other metrics in a chart by selecting them in the left pane. 
 
-:::image type="content" source="./media/stream-analytics-job-diagram-with-metrics-new/2-job-logical-diagram-overview.png" alt-text="Screenshot that shows job logical diagram overview." lightbox="./media/stream-analytics-job-diagram-with-metrics-new/2-job-logical-diagram-overview.png":::
+:::image type="content" source="./media/stream-analytics-job-diagram-with-metrics-new/2-job-logical-diagram-overview.png" alt-text="Screenshot that shows logical job diagram overview." lightbox="./media/stream-analytics-job-diagram-with-metrics-new/2-job-logical-diagram-overview.png":::
 
 If you select one of the nodes in diagram section, the metrics data and the metrics options in the chart section will be filtered according to the selected node's properties. For example, if you select the input node, only the input node related metrics and its options are shown:
 
-:::image type="content" source="./media/stream-analytics-job-diagram-with-metrics-new/3-job-logical-diagram-node-selection.png" alt-text="Screenshot that shows job logical diagram node selection." lightbox="./media/stream-analytics-job-diagram-with-metrics-new/3-job-logical-diagram-node-selection.png":::
+:::image type="content" source="./media/stream-analytics-job-diagram-with-metrics-new/3-job-logical-diagram-node-selection.png" alt-text="Screenshot that shows logical job diagram node selection." lightbox="./media/stream-analytics-job-diagram-with-metrics-new/3-job-logical-diagram-node-selection.png":::
 
 To see the query script snippet that is mapping the corresponding query step, select the **'{}'** in the query step node as below:
 
-:::image type="content" source="./media/stream-analytics-job-diagram-with-metrics-new/4-job-logical-diagram-query-step-mapping-to-script.png" alt-text="Screenshot that shows job logical diagram query step mapping to script.":::
+:::image type="content" source="./media/stream-analytics-job-diagram-with-metrics-new/4-job-logical-diagram-query-step-mapping-to-script.png" alt-text="Screenshot that shows logical job diagram query step mapping to script.":::
 
 To see the job overview information summary, select the **Job Summary** button in right side.
 
-:::image type="content" source="./media/stream-analytics-job-diagram-with-metrics-new/5-job-logical-diagram-job-summary.png" alt-text="Screenshot that shows job logical diagram job summary." lightbox="./media/stream-analytics-job-diagram-with-metrics-new/5-job-logical-diagram-job-summary.png":::
+:::image type="content" source="./media/stream-analytics-job-diagram-with-metrics-new/5-job-logical-diagram-job-summary.png" alt-text="Screenshot that shows logical job diagram job summary." lightbox="./media/stream-analytics-job-diagram-with-metrics-new/5-job-logical-diagram-job-summary.png":::
 
 It also provides the job operation actions in the menu section. You can use them to stop the job (**Stop** button), refresh the metrics data (**Refresh** button), and change the metrics time range (**Time range**).
 
-:::image type="content" source="./media/stream-analytics-job-diagram-with-metrics-new/6-job-logical-diagram-control-menu.png" alt-text="Screenshot that shows job logical diagram control menu." lightbox="./media/stream-analytics-job-diagram-with-metrics-new/6-job-logical-diagram-control-menu.png":::
+:::image type="content" source="./media/stream-analytics-job-diagram-with-metrics-new/6-job-logical-diagram-control-menu.png" alt-text="Screenshot that shows logical job diagram control menu." lightbox="./media/stream-analytics-job-diagram-with-metrics-new/6-job-logical-diagram-control-menu.png":::
 
 ## Troubleshoot with metrics
 
