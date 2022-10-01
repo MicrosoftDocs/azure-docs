@@ -12,7 +12,7 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 # Data Security and Encryption in Microsoft Energy Data Services
 
-This article provides an overview of security features in Microsoft Energy Data Services. It covers the major areas of [encryption at rest](https://learn.microsoft.com/azure/security/fundamentals/encryption-atrest), encryption in transit, TLS, https, microsoft-managed keys, and customer managed key. 
+This article provides an overview of security features in Microsoft Energy Data Services. It covers the major areas of [encryption at rest](../security/fundamentals/encryption-atrest.md), encryption in transit, TLS, https, microsoft-managed keys, and customer managed key. 
 
 ## Encrypt data at rest
 
@@ -31,9 +31,9 @@ In addition to TLS, when you interact with Microsoft Energy Data Services, all t
 
 **Step 1- Configure the key vault**
 
-1.	You can use a new or existing key vault to store customer-managed keys. To learn more about Azure Key Vault, see [Azure Key Vault Overview](https://learn.microsoft.com/azure/key-vault/general/overview) and [What is Azure Key Vault](https://learn.microsoft.com/azure/key-vault/general/basic-concepts)?.
+1.	You can use a new or existing key vault to store customer-managed keys. To learn more about Azure Key Vault, see [Azure Key Vault Overview](../key-vault/general/overview.md) and [What is Azure Key Vault](../key-vault/general/basic-concepts.md)?.
 2.	Using customer-managed keys with Microsoft Energy Data Services requires that both soft delete and purge protection be enabled for the key vault. Soft delete is enabled by default when you create a new key vault and cannot be disabled. You can enable purge protection either when you create the key vault or after it is created.
-3.	To learn how to create a key vault with the Azure portal, see [Quickstart: Create a key vault using the Azure portal](https://learn.microsoft.com/azure/key-vault/general/quick-create-portal). When you create the key vault, select Enable purge protection.
+3.	To learn how to create a key vault with the Azure portal, see [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md). When you create the key vault, select Enable purge protection.
 
  [![Screenshot of enabling purge protection and soft delete while creating key vault](media/data-security-and-encryption/cmek_1_create_key_vault.png)](media/data-security-and-encryption/cmek_1_create_key_vault.png#lightbox)
  
@@ -44,12 +44,12 @@ In addition to TLS, when you interact with Microsoft Energy Data Services, all t
 
 **Step 2 - Add a key**
 1.	Next, add a key to the key vault.
-2.	To learn how to add a key with the Azure portal, see [Quickstart: Set and retrieve a key from Azure Key Vault using the Azure portal](https://learn.microsoft.com/azure/key-vault/keys/quick-create-portal).
-3.	It is recommended that the RSA key size is 3072, see [Configure customer-managed keys for your Azure Cosmos DB account | Microsoft Learn](https://learn.microsoft.com/azure/cosmos-db/how-to-setup-customer-managed-keys#generate-a-key-in-azure-key-vault).
+2.	To learn how to add a key with the Azure portal, see [Quickstart: Set and retrieve a key from Azure Key Vault using the Azure portal](../key-vault/keys/quick-create-portal.md).
+3.	It is recommended that the RSA key size is 3072, see [Configure customer-managed keys for your Azure Cosmos DB account | Microsoft Learn](../cosmos-db/how-to-setup-customer-managed-keys.md#generate-a-key-in-azure-key-vault.md).
 
 **Step 3 - Choose a managed identity to authorize access to the key vault**
 1.	When you enable customer-managed keys for an existing Microsoft Energy Data Services Preview instance you must specify a managed identity that will be used to authorize access to the key vault that contains the key. The managed identity must have permissions to access the key in the key vault.
-2.	You can create a [user-assigned managed identity](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).
+2.	You can create a [user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity).
 
 ### Configure customer-managed keys for an existing account
 1.	Create a **Microsoft Energy Data Services** instance.
@@ -68,7 +68,7 @@ In addition to TLS, when you interact with Microsoft Energy Data Services, all t
 [![Screenshot of key vault, key, user assigned identity, and CMK on encryption tab](media/data-security-and-encryption/cmek_3_enable_cmk.png)](media/data-security-and-encryption/cmek_3_enable_cmk.png#lightbox)
 
 
-10.	This user assigned identity must have _get key_, _list key_, _wrap key_, and _unwrap key_ permissions on the key vault. For more information on assigning Azure Key Vault access policies, see [Assign a Key Vault Access Policy](https://learn.microsoft.com/azure/key-vault/general/assign-access-policy?tabs=azure-portal). 
+10.	This user assigned identity must have _get key_, _list key_, _wrap key_, and _unwrap key_ permissions on the key vault. For more information on assigning Azure Key Vault access policies, see [Assign a Key Vault Access Policy](../key-vault/general/assign-access-policy.md). 
  
 [![Screenshot of get, list, wrap, and upwrap key access policy](media/data-security-and-encryption/cmek_4_access_policy.png)](media/data-security-and-encryption/cmek_4_access_policy.png#lightbox)
 
