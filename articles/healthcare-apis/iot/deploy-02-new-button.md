@@ -11,23 +11,23 @@ ms.author: v-smcevoy
 
 # Deploy the MedTech service with a Azure ARM QuickStart template
 
-In this article, you'll learn how to deploy the MedTech service in the Azure portal using an Azure ARM Quickstart template. This template will make it easy to provide the information you need to automatically set up the infrastructure and configuration of your deployment, when you use a **Deploy to Azure** button. For more information about Azure ARM templates, see [What are ARM templates?](../../azure-resource-manager/templates/overview).
+In this article, you'll learn how to deploy the MedTech service in the Azure portal using an Azure ARM Quickstart template. This template will used with the **Deploy to Azure** button make it easy to provide the information you need to automatically set up the infrastructure and configuration of your deployment. For more information about Azure ARM templates, see [What are ARM templates?](../../azure-resource-manager/templates/overview).
 
-There are four simple tasks you need to complete in order to deploy MedTech service with the ARM template **Deploy to Azure** button.
+There are four simple tasks you need to complete in order to deploy MedTech service with the ARM template **Deploy to Azure** button. They are:
 
 ## Prerequisites
 
-In order to begin deployment, you need to have the following:
+In order to begin deployment, you need to have the following prerequisites:
 
 - An active Azure subscription account. If you don't have an Azure subscription, see [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
 
 - Two resource providers registered with your Azure subscription: **Microsoft.HealthcareApis** and **Microsoft.EventHub**. To learn more about registering resource providers, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
-When you have fulfilled these two prerequisites, you are ready to go on to the next task.
+When you have fulfilled these two prerequisites, you are ready to begin the second task.
 
 ## Deploy to Azure button
 
-The first thing you need to do is select the ARM template **Deploy to Azure** button here:
+Next, you need to select the ARM template **Deploy to Azure** button here:
 
  [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.healthcareapis%2Fworkspaces%2Fiotconnectors%2Fazuredeploy.json).
 
@@ -51,7 +51,7 @@ After these resources and roles have completed their implementation, the Azure p
 
 ## Provide configuration details
 
-When the Azure portal screen appears, you will need to fill out five fields to provide specific details of your deployment configuration.
+When the Azure portal screen appears, your next task is to fill out five fields that provide specific details of your deployment configuration.
 
 :::image type="content" source="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-options.png" alt-text="Screenshot of Azure portal page displaying deployment options for the Azure Health Data Service MedTech service." lightbox="media\iot-deploy-quickstart-in-portal\iot-deploy-quickstart-options.png":::
 
