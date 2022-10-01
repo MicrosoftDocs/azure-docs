@@ -1,6 +1,6 @@
 ---
-title: Debugging with the job physical diagram (preview) in Azure portal
-description: This article describes how to troubleshoot your Azure Stream Analytics job with job physical diagram and metrics in the Azure portal.
+title: Debug using the physical job diagram (preview) in Azure portal
+description: This article describes how to troubleshoot your Azure Stream Analytics job with physical job diagram and metrics in the Azure portal.
 titleSuffix: Azure Stream Analytics
 author: xujxu
 ms.author: xujiang1
@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 10/12/2022
 ---
 
-# Debugging with the job physical diagram (preview) in Azure portal
+# Debug using the physical job diagram (preview) in Azure portal
 
-The job physical diagram in the Azure portal can help you visualize your job's key metrics with streaming node in diagram or table format, for example: CPU utilization, memory utilization, Input Events, Partition IDs and Watermark delay, etc. It helps you to identify the cause of a problem when you troubleshoot issues.
+The physical job diagram in the Azure portal can help you visualize your job's key metrics with streaming node in diagram or table format, for example: CPU utilization, memory utilization, Input Events, Partition IDs, and Watermark delay. It helps you to identify the cause of a problem when you troubleshoot issues.
 
-This article demonstrates how to use job physical diagram to analyze a job's performance and quickly identify its bottleneck in Azure portal. 
+This article demonstrates how to use physical job diagram to analyze a job's performance and quickly identify its bottleneck in Azure portal. 
 
 > [!IMPORTANT]
 > This feature is currently in PREVIEW.
@@ -21,7 +21,7 @@ This article demonstrates how to use job physical diagram to analyze a job's per
 
 ## Identify the parallelism of a job
 
-Job with parallelization is the scalable scenario in Stream Analytics that can provide the better performance. If a job isn't in parallel mode, it most likely has certain bottleneck to its performance. It's important to identify if a job is in parallel mode or not. Job physical diagram provides a visual graph to illustrate the job parallelism. In job physical diagram, if there's data interaction among different streaming nodes, this job is a non-parallel job that needs more attention. For example, the non-parallel job diagram below:
+Job with parallelization is the scalable scenario in Stream Analytics that can provide the better performance. If a job isn't in parallel mode, it most likely has certain bottleneck to its performance. It's important to identify if a job is in parallel mode or not. Physical job diagram provides a visual graph to illustrate the job parallelism. In physical job diagram, if there's data interaction among different streaming nodes, this job is a non-parallel job that needs more attention. For example, the non-parallel job diagram below:
 
 :::image type="content" source="./media/job-physical-diagram-debug/1-non-parallel-job-diagram.png" alt-text="Screenshot that shows the non-parallel job in physical diagram." lightbox="./media/job-physical-diagram-debug/1-non-parallel-job-diagram.png":::
 
@@ -33,7 +33,7 @@ You may consider to optimize it to parallel job (as example below) by rewriting 
 
 Watermark delay and backlogged input events are the key metrics to determine the performance of your Stream Analytics job. If your job's watermark delay is continuously increasing and input events are backlogged, your job can't keep up with the rate of input events and produce outputs in a timely manner. From the computation resource point of view, the CPU and memory resources are utilized in high level when this case happens. 
 
-Job physical diagram visualizes these key metrics in the diagram together to provide you a full picture of them for identifying the bottleneck easily.
+The physical job diagram visualizes these key metrics in the diagram together to provide you a full picture of them for identifying the bottleneck easily.
 
 :::image type="content" source="./media/job-physical-diagram-debug/1-key-metrics-on-node.png" alt-text="Screenshot that shows the key metrics on a node in physical diagram." lightbox="./media/job-physical-diagram-debug/1-key-metrics-on-node.png":::
 
@@ -42,9 +42,9 @@ For more information about the metrics definition, see [Azure Stream Analytics n
 
 ## Identify the uneven distributed input events (data-skew)
 
-When you have a job running with parallel mode already, but it still has high watermark delay observed. Then, what's the reason behind?
+When you have a job already running in parallel mode, but you observe a high watermark delay, use this method to determine why.
 
-To root cause this issue, you can open the job physical diagram in Azure portal under **Monitoring**, select **Job diagram (preview)**, and switch to **Physical diagram**.
+To find the root cause, you open the physical job diagram in the Azure portal. Select **Job diagram (preview)**  under **Monitoring**, and switch to **Physical diagram**.
 
 :::image type="content" source="./media/job-physical-diagram-debug/1-dataskew-overview.png" alt-text="Screenshot that shows data skew view with physical diagram." lightbox="./media/job-physical-diagram-debug/1-dataskew-overview.png":::
 
@@ -70,14 +70,14 @@ You'll see the chart below with the input events metric filtered by the partitio
 
 ### What further action can you take?
 
-As shown in the example, the partitions (0 and 1) are having more input data than other partitions are. We call this **data skew**. The streaming nodes that are processing the partitions with data skew need to consume more CPU and memory resources than others do which affect the job's performance and increase watermark delay. You can check the CPU and memory usage in the two streaming nodes as well in the physical diagram. To mitigate it, you need to repartition your input data more evenly. 
+As shown in the example, the partitions (0 and 1) have more input data than other partitions are. We call this **data skew**. The streaming nodes that are processing the partitions with data skew need to consume more CPU and memory resources than others do. This imbalance leads to slower performance and increases the watermark delay. You can check the CPU and memory usage in the two streaming nodes as well in the physical diagram. To mitigate the problem, you need to repartition your input data more evenly. 
 
 
 ## Identify the cause of overloaded CPU or memory
 
-When a parallel job continues having watermark delay increasing without data skew situation, it may be caused by all streaming nodes having significant amount of data. How do you identify your job is falling into this case with physical diagram?
+When a parallel job has an increasing watermark delay without the previously mentioned data skew situation, it may be caused by a significant amount of data across all streaming nodes that inhibits performance. You can identify that the job has this characteristic using the physical diagram. 
 
-1. Open the job physical diagram, go to your job Azure portal under **Monitoring**, select **Job diagram (preview)**, and switch to **Physical diagram**. You'll see the physical diagram loaded as below.
+1. Open the physical job diagram, go to your job Azure portal under **Monitoring**, select **Job diagram (preview)**, and switch to **Physical diagram**. You'll see the physical diagram loaded as below.
 
     :::image type="content" source="./media/job-physical-diagram-debug/5-overloaded-cpu-memory-physical-diagram.png" alt-text="Screenshot that shows the overview of the overloaded cpu and memory job." lightbox="./media/job-physical-diagram-debug/5-overloaded-cpu-memory-physical-diagram.png":::
 
@@ -93,7 +93,7 @@ When a parallel job continues having watermark delay increasing without data ske
 
 ### What further action can you take?
 
-You may consider to reduce the partition count for each streaming node to reduce the input data by doubling the SUs to have each streaming node handle two partitions (increase streaming node count from 8 to 16). Or you can quadruple the SUs to have each streaming node handle data from one partition.
+Consider reducing the partition count for each streaming node to reduce the input data. You could double the SUs allocated to each streaming node to two partitions per node by increasing streaming node count from 8 to 16. Or you can quadruple the SUs to have each streaming node handle data from one partition.
 
 To learn more about the relationship between streaming node and streaming unit, see [Understand streaming unit and streaming node](stream-analytics-streaming-unit-consumption.md#understand-streaming-unit-and-streaming-node).
 

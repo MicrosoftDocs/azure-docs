@@ -218,7 +218,7 @@
         - name: Transform and ingest to SQL database
           href: ../stream-analytics/no-code-transform-filter-ingest-sql.md?toc=/azure/event-hubs/toc.json
         - name: Filter and ingest to Azure Data Explorer
-          href: ../stream-analytics/no-code-filter-ingest-adx.md?toc=/azure/event-hubs/toc.json
+          href: ../stream-analytics/no-code-filter-ingest-data-explorer.md?toc=/azure/event-hubs/toc.json
         - name: Process data using Azure Stream Analytics
           href: process-data-azure-stream-analytics.md
     - name: Integrate with Spring framework

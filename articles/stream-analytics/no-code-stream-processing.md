@@ -379,5 +379,5 @@ Learn how to use the no-code editor to address common scenarios by using predefi
 - [Filter and ingest to Azure Data Lake Storage Gen2](filter-ingest-data-lake-storage-gen2.md)
 - [Materialize data to Azure Cosmos DB](no-code-materialize-cosmos-db.md)
 - [Transform and store data to SQL database](no-code-transform-filter-ingest-sql.md)
-- [Filter and store data to Azure Data Explorer](no-code-filter-ingest-adx.md)
+- [Filter and store data to Azure Data Explorer](no-code-filter-ingest-data-explorer.md)
 - [Enrich data and ingest to Event Hub](no-code-enrich-event-hub-data.md)
