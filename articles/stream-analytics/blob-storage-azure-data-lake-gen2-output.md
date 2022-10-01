@@ -68,7 +68,7 @@ To receive exactly once delivery for your Blob storage or ADLS Gen2 account, you
 
 When you're using Blob storage as output, a new file is created in the blob in the following cases:
 
-* File exceeds the maximum number of allowed blocks (currently 50,000). You might reach the maximum allowed number of blocks without reaching the maximum allowed blob size. For example, if the output rate is high, you can see more bytes per block, and the file size is larger. If the output rate is low, each block has less data, and the file size is smaller.
+* The file exceeds the maximum number of allowed blocks (currently 50,000). You might reach the maximum allowed number of blocks without reaching the maximum allowed blob size. For example, if the output rate is high, you can see more bytes per block, and the file size is larger. If the output rate is low, each block has less data, and the file size is smaller.
 * There's a schema change in the output, and the output format requires fixed schema (CSV, Avro, Parquet).
 * A job is restarted, either externally by a user stopping it and starting it, or internally for system maintenance or error recovery.
 * Query is fully partitioned, and a new file is created for each output partition. This comes from using PARTITION BY, or the native parallelization introduced in [compatibility level 1.2](stream-analytics-compatibility-level.md#parallel-query-execution-for-input-sources-with-multiple-partitions)
@@ -87,7 +87,7 @@ For the maximum message size, see [Azure Storage limits](../azure-resource-manag
 
 ## Limitations
 
-* If "/" is used in the path pattern (e.g /folder2/folder3), then empty folders will be created and they won't be visible in Storage Explorer
+* If a forward slash symbol `/` is used in the path pattern (e.g /folder2/folder3), then empty folders will be created and they won't be visible in Storage Explorer
 * Azure Stream Analytics appends to the same file in cases where a new blob file isn't needed. Note that this could cause additional triggers to be generated if Azure services like Event Grid are configured to be triggered on blob file update
 * Azure Stream Analytics appends to blob by default. When the output format is a Json array, it completes the file on shutdown or when the output moves to the next time partition for time partitioned outputs. In some cases such as an unclean restart, it's possible that the closing "]" for json array may be missing. 
 

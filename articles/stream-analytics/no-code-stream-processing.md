@@ -6,7 +6,7 @@ ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
 ms.custom: mvc, event-tier1-build-2022
-ms.date: 08/26/2022
+ms.date: 10/12/2022
 ---
 
 # No-code stream processing through Azure Stream Analytics (preview)
