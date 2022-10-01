@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/28/2022
+ms.date: 10/12/2022
 ---
 
 # Blob storage and Azure Data Lake Gen2 output from Azure Stream Analytics
@@ -60,8 +60,8 @@ To receive exactly once delivery for your Blob storage or ADLS Gen2 account, you
 
 ### Limitation
 
-* [Substream](https://learn.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) isn't supported.
-* Path Pattern becomes a required property, and must contain both{date} and {time}. No dynamic custom {field} name is allowed. Learn more about [custom path pattern](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-custom-path-patterns-blob-storage-output).
+* [Substream](/stream-analytics-query/timestamp-by-azure-stream-analytics) isn't supported.
+* Path Pattern becomes a required property, and must contain both{date} and {time}. No dynamic custom {field} name is allowed. Learn more about [custom path pattern](stream-analytics-custom-path-patterns-blob-storage-output.md).
 * If the job is started at a **custom time** before or after the last output time, there's risk of file being overwritten. For example, when the **time format** is HH, the file is generated every hour. If you stop the job at 8:15am, and restart the job at 8:30am, the file generated between 8am to 9am will only cover data from 8:30am to 9am. The data from 8am to 8:15am will be lost as it's overwritten.
 
 ## Blob output files

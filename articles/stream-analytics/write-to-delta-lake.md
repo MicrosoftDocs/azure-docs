@@ -76,7 +76,7 @@ Schema enforcement means that all new writes to a table are enforced to be compa
 
 All records of output data are projected to the schema of the existing table. If the output is being written to a new delta table, the table schema will be created with the first record.
 
-At the failure of schema conversion, the job behavior will follow the [output data error handing policy](https://learn.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) configured at the job level.
+At the failure of schema conversion, the job behavior will follow the [output data error handing policy](stream-analytics-output-error-policy.md) configured at the job level.
 
 ## Limitations
 

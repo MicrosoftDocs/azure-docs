@@ -5,7 +5,7 @@ author: xujxu
 ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 09/25/2022
+ms.date: 10/12/2022
 ---
 
 # Enrich data and ingest to event hub using the Stream Analytics no code editor
