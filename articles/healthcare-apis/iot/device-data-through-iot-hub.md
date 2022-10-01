@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 09/30/2022
+ms.date: 10/01/2022
 ms.author: jasteppe
 ---
 
@@ -21,9 +21,6 @@ This tutorial provides the steps to connect and route device data from IoT Hub t
 - An active Azure subscription - [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - FHIR service resource with at least one MedTech service - [Deploy MedTech service using Azure portal](deploy-iot-connector-in-azure.md)
 - Azure IoT Hub resource connected with real or simulated device(s) - [Create an IoT Hub using the Azure portal](../../iot-hub/iot-hub-create-through-portal.md)
-
-> [!TIP]
-> [VS Code with the IoT Hub extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) is a recommended method for sending IoT device messages to your IoT Hub for testing and troubleshooting.
 
 Below is a diagram of the IoT device message flow from IoT Hub into MedTech service:
 
