@@ -61,7 +61,7 @@ In contrast, non-service provider built-in connectors have the following attribu
 
 * Isn't based on the Azure Functions extensibility model.
 
-* Is directly implemented as a job within the Azure Logic Apps runtime, such as Schedule, HTTP, Request, and XML operations.
+* Is directly implemented as a job within the Azure Logic Apps runtime, such as Schedule, HTTP Request, and XML operations.
 
 No capability is currently available to create a non-service provider built-in connector or a new job type that runs directly in the Azure Logic Apps runtime. However, you can create your own built-in connectors using the service provider infrastructure.
 
