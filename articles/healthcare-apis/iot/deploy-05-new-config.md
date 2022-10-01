@@ -5,30 +5,29 @@ author: mcevoy-building7
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 09/29/2022
+ms.date: 09/30/2022
 ms.author: v-smcevoy
 ---
 
 # Configure the MedTech service for manual deployment using the Azure portal
 
-Before you can manually deploy the MedTech service, you must configure the following:
-
-- MedTech service
-- Basics tab
-- Device mapping tab
-- Destination tab
-- Tags tab (optional)
-- Review + create tab
+Before you can manually deploy the MedTech service, you must complete the following configuration tasks:
 
 ## Set up the MedTech service configuration
 
-Follow these three steps to configure the MedTech service so it will be ready to accept tabbed configuration input:
+Start with these three steps to begin configuring the MedTech service so it will be ready to accept your tabbed configuration input:
 
-1. Start by going to the Health Data Services workspace you created from the manual deployment [Prerequisites](deploy-04-new-prereq.md) article. Select the Create MedTech service box.
+1. Start by going to the Health Data Services workspace you created in the manual deployment [Prerequisites](deploy-03-new-manual.md#prerequisites) section. Select the Create MedTech service box.
 
 2. This will take you to the Add MedTech service button. Select the button.
 
-3. This will take you to the Create MedTech service page. This page has five tabs. After you fill out all the tabbed configurations, you will be ready to deploy the MedTech service.
+3. This will take you to the Create MedTech service page. This page has five tabs you need to fill out:
+
+- Basics
+- Device mapping
+- Destination mapping
+- Tags (optional)
+- Review + create
 
 ## Configure the Basics tab
 
@@ -196,6 +195,6 @@ If your deployment request was successful, you are ready to go on the next step,
 In this article, you were shown how to configure MedTech service in preparation for deployment and ensure that everything has been validated. To learn about deploying a validated MedTech service instance, see
 
 >[!div class="nextstepaction"]
->[Deploy y7our the validated MedTech service instance](deploy-06-new-deploy.md)
+>[Manual deployment and post-deployment of MedTech service](deploy-06-new-deploy.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
