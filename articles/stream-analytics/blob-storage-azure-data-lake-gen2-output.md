@@ -58,7 +58,7 @@ To receive exactly once delivery for your Blob storage or ADLS Gen2 account, you
 * Provide **Path Pattern** with both {date} and {time} specified.
 * Specify **date format** and **time format**.
 
-### Limitation
+### Limitations
 
 * [Substream](/stream-analytics-query/timestamp-by-azure-stream-analytics) isn't supported.
 * Path Pattern becomes a required property, and must contain both{date} and {time}. No dynamic custom {field} name is allowed. Learn more about [custom path pattern](stream-analytics-custom-path-patterns-blob-storage-output.md).

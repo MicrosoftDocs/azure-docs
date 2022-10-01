@@ -6,7 +6,7 @@ ms.author: xujiang1
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: 
-ms.date: 06/30/2022
+ms.date: 10/12/2022
 ---
 # Dimensions for Azure Stream Analytics metrics
 
