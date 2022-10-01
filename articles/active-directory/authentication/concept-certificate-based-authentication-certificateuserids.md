@@ -91,13 +91,13 @@ To update certificate user IDs for federated users, configure Azure AD Connect t
 
 1. Click **Transformations** > **Add transformation**. You may need to scroll down the list of transformations before you can create a new one. 
 
-### Synchronize X509:\<PN>PrincipalNameValue
+**Synchronize X509:\<PN>PrincipalNameValue**
  
 To synchronize X509:\<PN>PrincipalNameValue, create an outbound synchronization rule, and choose **Expression** in the flow type. Choose the target attribute as \<certificateUserIds>, and in the source field, add the expression <"X509:\<PN>"&[userPrincipalName]>. If your source attribute isn't userPrincipalName, you can change the expression accordingly.
  
 :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/pnexpression.png" alt-text="Screenshot of how to sync x509.":::
  
-### Synchronize X509:\<RFC822>RFC822Name
+**Synchronize X509:\<RFC822>RFC822Name**
 
 To synchronize X509:\<RFC822>RFC822Name, create an outbound synchronization rule, choose **Expression** in the flow type. Choose the target attribute as \<certificateUserIds>, and in the source field, add the expression <"X509:\<RFC822>"&[userPrincipalName]>. If your source attribute isn't userPrincipalName, you can change the expression accordingly.  
 
