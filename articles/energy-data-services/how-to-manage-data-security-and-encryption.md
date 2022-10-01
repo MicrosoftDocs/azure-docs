@@ -89,3 +89,7 @@ In addition to TLS, when you interact with Microsoft Energy Data Services, all t
 
 > NOTE: You cannot edit CMK settings once the Microsoft Energy Data Services instance is created.
 
+## Next steps
+<!-- Add a context sentence for the following links -->
+> [!div class="nextstepaction"]
+> [How to set up private links](how-to-set-up-private-links.md)
