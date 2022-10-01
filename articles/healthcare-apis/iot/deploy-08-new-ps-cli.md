@@ -1,31 +1,23 @@
 ---
-title: Using Azure PowerShell and Azure CLI to deploy the MedTech service using Azure Resource Manager templates - Azure Health Data Services
+title: Using Azure PowerShell and Azure CLI to deploy the MedTech service with Azure Resource Manager templates - Azure Health Data Services
 description: In this article, you'll learn how to use Azure PowerShell and Azure CLI to deploy the MedTech service using an Azure Resource Manager template.
 author: mcevoy-building7
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 09/19/2022
+ms.date: 09/30/2022
 ms.author: v-smcevoy
 ---
 
-# Using Azure PowerShell and Azure CLI to deploy the MedTech service using Azure Resource Manager templates
+# Using Azure PowerShell and Azure CLI to deploy the MedTech service with Azure Resource Manager templates
 
-In this quickstart, you'll learn how to use Azure PowerShell and Azure CLI to deploy the MedTech service using an Azure Resource Manager (ARM) template. For more information about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md).
+In this quickstart article, you'll learn how to use Azure PowerShell and Azure CLI to deploy the MedTech service using an Azure Resource Manager (ARM) template. For more information about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md). Calling the template from PowerShell or CLI enables you to distribute your deployment to large number of developers. PowerShell and CLI provide modifiable automation capabilities that will speed up your deployment configuration more efficiently in enterprise environments.
 
-## Location of MedTech service ARM template
+The ARM template used in this article is available from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/iotconnectors/) site using the **azuredeploy.json** file located on [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/azuredeploy.json).
 
-The ARM template used in this MedTech service quickstart is from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/iotconnectors/) site using the **azuredeploy.json** file located on [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/azuredeploy.json).
+## Resources provided by the ARM template
 
-## Regions where the MedTech service is available
-
-See the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=health-data-services) site for the current Azure regions where the Azure Health Data Services is supported.
-
-You can also review the **location** section of the **azuredeploy.json** file on [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/azuredeploy.json) for Azure regions where the Azure Health Data Services is publicly available.
-
-## Resources created by the ARM template
-
-The ARM template used in this quickstart configures and deploys the following resources for Azure and Azure Health Data Services:
+The ARM template will help you automatically configure and deploy the following resources. Each one can be modified to meet your deployment requirements.
 
 - Azure Event Hubs namespace and device message event hub (the device message event hub is named: **devicedata**).
 - Azure event hub consumer group (the consumer group is named: **$Default**).
@@ -33,23 +25,23 @@ The ARM template used in this quickstart configures and deploys the following re
 - Azure Health Data Services workspace.
 - Azure Health Data Services Fast Healthcare Interoperability Resources (FHIR&#174;) service.
 - Azure Health Data Services MedTech service. This includes setup for:
-  - the necessary [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) access roles needed to read from the device message event hub (the device message event hub is named: **Azure Events Hubs Receiver**)
-  - and necessary system-assigned managed identity access roles needed to read and write to the FHIR service (the FHIR service is named: **FHIR Data Writer**).
-- An output file with the ARM template deployment results (this file is named **medtech_service_ARM_template_deployment_results.txt** and is located in the directory from which you ran the scripts).
+  - [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) access roles needed to read from the device message event hub (named **Azure Events Hubs Receiver**)
+  - system-assigned managed identity access roles needed to read and write to the FHIR service (named **FHIR Data Writer**)
+- An output file containing the ARM template deployment results (named **medtech_service_ARM_template_deployment_results.txt**). The file is located in the directory from which you ran the script.
 
 ## Azure PowerShell prerequisites
 
-Fulfill these prerequisites for Azure PowerShell:
+You need to have the following prerequisites if you are using Azure PowerShell:
 
-- Have an Azure account with an active subscription. [If you don't have an Azure subscription, see [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
+- An Azure account with an active subscription. If you don't have an Azure subscription, see [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
 
 - If you want to run the code locally, use [Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## Azure CLI prerequisites
 
-Fulfill these prerequisites for Azure CLI:
+You need to have the following prerequisites if you are using Azure CLI:
 
-- Have an Azure account with an active subscription. If you don't have an Azure subscription, see [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
+- An Azure account with an active subscription. If you don't have an Azure subscription, see [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
 
 - If you want to run the code locally:
 
@@ -63,25 +55,29 @@ Complete the following five steps to deploy the MedTech service using Azure Powe
 
 1. First you need to confirm the region you want to deploy in:
 
-    If you need a list of the Azure regions location names, you can use this code to display a list.
+   See the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=health-data-services) site for the current Azure regions where the Azure Health Data Services is supported.
+
+   You can also review the **location** section of the **azuredeploy.json** file on [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/azuredeploy.json) for Azure regions where the Azure Health Data Services is publicly available.
+
+   If you need a list of the Azure regions location names, you can use this code to display a list:
 
    ```azurepowershell
    Get-AzLocation | Format-Table -Property DisplayName,Location
    ```
 
-2. If the `Microsoft.EventHub` resource provider isn't already registered with your subscription, you can use this code to register it.
+2. If the `Microsoft.EventHub` resource provider isn't already registered with your subscription, you can use this code to register it:
 
    ```azurepowershell
    Register-AzResourceProvider -ProviderNamespace Microsoft.EventHub
    ```
 
-3. If the `Microsoft.HealthcareApis` resource provider isn't already registered with you subscription, you can use this code to register it.
+3. If the `Microsoft.HealthcareApis` resource provider isn't already registered with you subscription, you can use this code to register it:
 
    ```azurepowershell
    Register-AzResourceProvider -ProviderNamespace Microsoft.HealthcareApis
    ```
 
-4. If you don't already have a resource group created for this quickstart, you can use this code to create one.
+4. If you don't already have a resource group created for this quickstart, you can use this code to create one:
 
    ```azurepowershell
    New-AzResourceGroup -name <ResourceGroupName> -location <AzureRegion>
@@ -93,7 +89,7 @@ Complete the following five steps to deploy the MedTech service using Azure Powe
    >
    > For a successful deployment of the MedTech service, you'll need to use numbers and lowercase letters for the basename of your resources. The minimum basename requirement is three characters with a maximum of 16 characters.
 
-5. Use the following code to deploy the MedTech service using the ARM template.
+5. Use the following code to deploy the MedTech service using the ARM template:
 
    ```azurepowershell
    New-AzResourceGroupDeployment -ResourceGroupName <ResourceGroupName> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/azuredeploy.json -basename <BaseName> -location <AzureRegion> | Out-File medtech_service_ARM_template_deployment_results.txt
@@ -110,25 +106,29 @@ Complete the following five steps to deploy the MedTech service using Azure CLI:
 
 1. First you need to confirm the region you want to deploy in:
 
-    If you need a list of the Azure regions location names, you can use this code to display a list.
+   See the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=health-data-services) site for the current Azure regions where the Azure Health Data Services is supported.
+
+   You can also review the **location** section of the **azuredeploy.json** file on [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/azuredeploy.json) for Azure regions where the Azure Health Data Services is publicly available.
+
+   If you need a list of the Azure regions location names, you can use this code to display a list:
 
    ```azurecli
    az account list-locations -o table
    ```
 
-2. If the `Microsoft.EventHub` resource provider isn't already registered with your subscription, you can use this code to register it.
+2. If the `Microsoft.EventHub` resource provider isn't already registered with your subscription, you can use this code to register it:
 
    ```azurecli
    az provider register --name Microsoft.EventHub
    ```
 
-3. If the `Microsoft.HealthcareApis` resource provider isn't already registered with your subscription, you can use this code to register it.
+3. If the `Microsoft.HealthcareApis` resource provider isn't already registered with your subscription, you can use this code to register it:
 
    ```azurecli
    az provider register --name Microsoft.HealthcareApis
    ```
 
-4. If you don't already have a resource group created for this quickstart, you can use this code to create one.
+4. If you don't already have a resource group created for this quickstart, you can use this code to create one:
 
    ```azurecli
    az group create --resource-group <ResourceGroupName> --location <AzureRegion>
@@ -140,7 +140,7 @@ Complete the following five steps to deploy the MedTech service using Azure CLI:
    >
    > For a successful deployment of the MedTech service, you'll need to use numbers and lowercase letters for the basename of your resources.
 
-5. Use the following code to deploy the MedTech service using the ARM template.
+5. Use the following code to deploy the MedTech service using the ARM template:
 
    ```azurecli
    az deployment group create --resource-group <ResourceGroupName> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/azuredeploy.json --parameters basename=<YourBaseName> location=<AzureRegion | Out-File medtech_service_ARM_template_deployment_results.txt
@@ -153,22 +153,19 @@ Complete the following five steps to deploy the MedTech service using Azure CLI:
 
 ## Deployment completion
 
-The deployment takes a few minutes to complete.
-
-When completed, you can view the **medtech_service_ARM_template_deployment_results.txt** file for the results of the ARM template
-deployment.
+The deployment takes a few minutes to complete. You can check the status of your deployment by reading the **medtech_service_ARM_template_deployment_results.txt** file to find out the results of the ARM template deployment.
 
 ## Post-deployment mapping
 
-After a successful deployment of the MedTech service, you'll still have to provide a valid device and FHIR destination mapping.
+After a successful deployment of the MedTech service, you still need to provide valid device mapping and FHIR destination mapping. The device mapping will connect the device message event hub to MedTech service and the FHIR destination mapping will connect FHIR service to MedTech service.Because of this need, you must perform these two post-deployment steps or the MedTech service can't read device data from the device message event hub, and it also can't read or write to the FHIR service. 
 
-To learn more about the device mapping, see [How to use device mappings](how-to-use-device-mappings.md).
+To learn more about providing device mapping, see [How to use device mappings](how-to-use-device-mappings.md).
 
-To learn more about the FHIR destination mapping, see [How to use the FHIR destination mappings](how-to-use-fhir-mappings.md).
+To learn more about providing FHIR destination mapping, see [How to use the FHIR destination mappings](how-to-use-fhir-mappings.md).
 
 ## Clean up Azure PowerShell resources
 
-When your resource group and deployed ARM template resources are no longer needed, delete the resource group, which deletes the resources in the resource group.
+When your resource group and deployed ARM template resources are no longer needed, delete the resource group, which deletes the resources in the resource group. Delete them with this code:
 
 ```azurepowershell
 Remove-AzResourceGroup -Name <ResourceGroupName>
@@ -178,7 +175,7 @@ For example: `Remove-AzResourceGroup -Name ArmTestDeployment`
 
 ## Clean up Azure CLI resources
 
-When your resource group and deployed ARM template resources are no longer needed, delete the resource group, which deletes the resources in the resource group.
+When your resource group and deployed ARM template resources are no longer needed, delete the resource group, which deletes the resources in the resource group. Delete them with this code:
 
 ```azurecli
 az group delete --name <ResourceGroupName>
@@ -188,7 +185,7 @@ For example: `az group delete --resource-group ArmTestDeployment`
 
 > [!TIP]
 >
-> For a step-by-step tutorial that guides you through the process of creating an ARM template, see [Tutorial: Create and deploy your first ARM template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> For a step-by-step tutorial that guides you through the process of creating an ARM template, see [Tutorial: Create and deploy your first ARM template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md).
 
 ## Next steps
 
