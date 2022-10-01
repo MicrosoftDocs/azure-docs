@@ -185,7 +185,7 @@
       href: stream-analytics-time-handling.md
   - name: Checkpoint and replay
     href: stream-analytics-concepts-checkpoint-replay.md
-  - name: Job diagram (preview)
+  - name: Job diagram 
     href: job-diagram-with-metrics.md
   - name: Error policy
     href: stream-analytics-output-error-policy.md
@@ -412,13 +412,13 @@
       href: app-insights-export-stream-analytics.md
     - name: Export to SQL using Stream Analytics
       href: app-insights-export-sql-stream-analytics.md
-  - name: Debug and optimize using job diagram (preview)
+  - name: Debug and optimize using job diagram
     items:
-    - name: Optimize query using job diagram simulator (preview)
+    - name: Optimize query using job diagram simulator
       href: optimize-query-using-job-diagram-simulator.md
-    - name: Physical job diagram (preview)
+    - name: Physical job diagram
       href: stream-analytics-job-physical-diagram-with-metrics.md
-    - name: Logical job diagram (preview)
+    - name: Logical job diagram
       href: stream-analytics-job-logical-diagram-with-metrics.md
   - name: Scale with ML functions
     href: stream-analytics-scale-with-machine-learning-functions.md
