@@ -70,6 +70,12 @@ The Windows smart card sign-in works with the latest preview build of Windows 11
 - Windows 10 20H1 and later
 - Windows Server 2019 and later
 
+[Windows 11 - kb5017383](https://support.microsoft.com/en-us/topic/september-20-2022-kb5017383-os-build-22000-1042-preview-62753265-68e9-45d2-adcb-f996bf3ad393)
+[Windows 10 - kb5017379](https://support.microsoft.com/da-dk/topic/20-september-2022-kb5017379-os-build-17763-3469-preview-50a9b9e2-745d-49df-aaae-19190e10d307)
+[Windows Server 20H2- kb5017380](https://support.microsoft.com/da-dk/topic/20-september-2022-kb5017380-os-builds-19042-2075-19043-2075-og-19044-2075-preview-59ab550c-105e-4481-b440-c37f07bf7897)
+[Windows Server 2022 - kb5017381](https://support.microsoft.com/da-dk/topic/20-september-2022-kb5017381-os-build-20348-1070-preview-dc843fea-bccd-4550-9891-a021ae5088f0)
+[Windows Server 2019 - kb5017379](https://support.microsoft.com/da-dk/topic/20-september-2022-kb5017379-os-build-17763-3469-preview-50a9b9e2-745d-49df-aaae-19190e10d307)
+
 ## Supported browsers
 
 |Edge | chrome | safari | firefox |
