@@ -15,6 +15,10 @@ The job physical diagram in the Azure portal can help you visualize your job's k
 
 This article demonstrates how to use job physical diagram to analyze a job's performance and quickly identify its bottleneck in Azure portal. 
 
+> [!IMPORTANT]
+> This feature is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Identify the parallelism of a job
 
 Job with parallelization is the scalable scenario in Stream Analytics that can provide the better performance. If a job isn't in parallel mode, it most likely has certain bottleneck to its performance. It's important to identify if a job is in parallel mode or not. Job physical diagram provides a visual graph to illustrate the job parallelism. In job physical diagram, if there's data interaction among different streaming nodes, this job is a non-parallel job that needs more attention. For example, the non-parallel job diagram below:
