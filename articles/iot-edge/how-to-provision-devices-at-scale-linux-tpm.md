@@ -54,8 +54,6 @@ A physical Linux device to be the IoT Edge device.
 
 If you are a device manufacturer then refer to guidance on [integrating a TPM into the manufacturing process](../iot-dps/concepts-device-oem-security-practices.md#integrating-a-tpm-into-the-manufacturing-process).
 
-This article assumes ownership of the TPM has been taken already and the endorsement key (EK) and storage root key (SRK) have been persisted. Follow the instructions relevant to your system to take ownership.
-
 # [Virtual machine](#tab/virtual-machine)
 
 A Windows development machine with [Hyper-V enabled](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). This article uses Windows 10 running an Ubuntu Server VM.
@@ -143,6 +141,31 @@ After the installation is finished and you've signed back in to your VM, you're 
 
 ---
 
+<!-- iotedge-1.4 -->
+:::moniker range=">=iotedge-1.4"
+
+### Install the TPM2 Tools
+   1. Sign in to your device, and install the `tpm2-tools` package.
+
+# [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
+
+
+      ```bash
+      sudo apt-get install tpm2-tools
+      ```
+
+# [Red Hat Enterprise Linux](#tab/rhel)
+
+
+      ```bash
+      sudo yum install tpm2-tools
+      ```
+
+---
+
+:::moniker-end
+<!-- end 1.4 -->
+
 ## Retrieve provisioning information for your TPM
 
 <!-- 1.1 -->
@@ -174,41 +197,56 @@ In this section, you use the TPM2 software tools to retrieve the endorsement key
 > [!NOTE]
 > This article previously used the `tpm_device_provision` tool from the IoT C SDK to generate provisioning info. If you relied on that tool previously, then be aware the steps below generate a different registration ID for the same public endorsement key. If you need to recreate the registration ID as before then refer to how the C SDK's [tpm_device_provision tool](https://github.com/Azure/azure-iot-sdk-c/tree/main/provisioning_client/tools/tpm_device_provision) generates it. Be sure the registration ID for the individual enrollment in DPS matches the regisration ID the IoT Edge device is configured to use.
 
-# [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
-
-   1. Sign in to your device, and install the `tpm2-tools` package.
+   1. Run the script below to read the endorsement key, creating one if it does not already exist.
 
       ```bash
-      sudo apt-get install tpm2-tools
-      ```
+      #!/bin/sh
+      if [ "$USER" != "root" ]; then
+        SUDO="sudo "
+      fi
 
-   1. Run the following commands to read the endorsement key in your TPM and generate a unique registration ID. This assumes the endorsement key is at the default location of 0x81010001.
+      $SUDO tpm2_readpublic -Q -c 0x81010001 -o ek.pub 2> /dev/null
+      if [ $? -gt 0 ]; then
+        # Create the endorsement key (EK)
+        $SUDO tpm2_createek -c ek.ctx > /dev/null
+        $SUDO tpm2_evictcontrol -c ek.ctx 0x81010001 > /dev/null
+        $SUDO tpm2_readpublic -c 0x81010001 -o ek.pub > /dev/null
+        $SUDO tpm2_flushcontext -t > /dev/null
 
-      ```bash
-      tpm2_readpublic -Q -c 0x81010001 -o ek.pub
+        $SUDO tpm2_getcap handles-persistent >/dev/null | grep 0x81000001 > /dev/null
+        if [ $? -gt 0 ]; then
+          # Create a storage root key (SRK)
+          $SUDO tpm2_startauthsession --policy-session -S session.ctx > /dev/null
+          $SUDO tpm2_policysecret -S session.ctx -c 0x4000000B > /dev/null
+          $SUDO tpm2_create -C 0x81010001 \
+            -G rsa2048 \
+            -a 'restricted|decrypt|fixedtpm|fixedparent|sensitivedataorigin|userwithauth' \
+            -u srk.pub -r srk.priv \
+            -P session:session.ctx > /dev/null
+          $SUDO tpm2_flushcontext --transient-object > /dev/null
+
+          # store the key
+          $SUDO tpm2_startauthsession -S session.ctx --policy-session > /dev/null
+          $SUDO tpm2_policysecret -S session.ctx -c 0x4000000B > /dev/null
+          $SUDO tpm2_load -C 0x81010001 \
+            -u srk.pub -r srk.priv \
+            -P session:session.ctx \
+            -c srk.ctx > /dev/null
+
+          # make the SRK persistent
+          $SUDO tpm2_evictcontrol -c srk.ctx 0x81000001 > /dev/null
+
+          # clean up
+          $SUDO rm session.ctx srk.pub srk.priv srk.ctx ek.ctx 2> /dev/null
+        fi
+      fi
+
       printf "Gathering the registration information...\n\nRegistration Id:\n%s\n\nEndorsement Key:\n%s\n" $(sha256sum -b ek.pub | cut -d' ' -f1 | sed -e 's/[^[:alnum:]]//g') $(base64 -w0 ek.pub)
+
+      $SUDO rm ek.pub 2> /dev/null
       ```
 
    1. The output window displays the device's **Endorsement key** and a unique **Registration ID**. Copy these values for use later when you create an individual enrollment for your device in the device provisioning service.
-
-# [Red Hat Enterprise Linux](#tab/rhel)
-
-   1. Sign in to your device, and install the `tpm2-tools` package.
-
-      ```bash
-      sudo yum install tpm2-tools
-      ```
-
-   1. Run the following commands to read the endorsement key in your TPM and generate a unique registration ID. This assumes the endorsement key is at the default location of 0x81010001.
-
-      ```bash
-      tpm2_readpublic -Q -c 0x81010001 -o ek.pub
-      printf "Gathering the registration information...\n\nRegistration Id:\n%s\n\nEndorsement Key:\n%s\n" $(sha256sum -b ek.pub | cut -d' ' -f1 | sed -e 's/[^[:alnum:]]//g') $(base64 -w0 ek.pub)
-      ```
-
-   1. The output window displays the device's **Endorsement key** and a unique **Registration ID**. Copy these values for use later when you create an individual enrollment for your device in the device provisioning service.
-
----
 
 :::moniker-end
 <!-- end iotedge-1.4 -->
