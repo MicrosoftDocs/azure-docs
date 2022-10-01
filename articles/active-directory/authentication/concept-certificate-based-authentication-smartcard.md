@@ -41,7 +41,7 @@ Users will get a primary refresh token (PRT) from Azure AD after the successful 
 |First sign-in | Pull from certificate | Pull from certificate |
 |Subsequent sign-in | Pull from certificate | Cached Azure AD UPN |
 
-** Windows rules for sending UPN for Azure AD join machines**
+**Windows rules for sending UPN for Azure AD join machines**
 
 Windows will follow the order below to find the UPN value from the certificate
 1. SAN Principal Name 
@@ -50,7 +50,7 @@ Windows will follow the order below to find the UPN value from the certificate
 
 If there is no UPN in the certificate or if subject has E=xx or CN=xx, the entire value is sent which will not work so the user must enter the X509UserNameHint i.e  username login hint.
 
-** Windows rules for sending UPN for Hybrid Azure AD join machines**
+**Windows rules for sending UPN for Hybrid Azure AD join machines**
 
 Once AD login is successful, the AD UPN will be sent as the UPN to Azure AD. 
 If the mapping uses a non-routable UPN (user@woodgrove.local) then Azure AD is able to locate the user's tenant via the domain hint supplied and the user in the tenant is found by matching against the user's **onPremisesUserPrincipalName** attribute.
