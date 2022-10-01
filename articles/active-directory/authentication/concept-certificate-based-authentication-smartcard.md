@@ -36,9 +36,9 @@ Users will get a primary refresh token (PRT) from Azure AD after the successful 
 
 ## Expected behavior of Windows sending user UPN to Azure AD CBA
 
-|Sign-in | Azure AD Join | Hybrid join |
+|Sign-in | Azure AD Join | Hybrid Azure AD join |
 |--------|---------------|----------------------|
-|First sign-in | Pull from certificate | Pull from certificate |
+|First sign-in | Pull from certificate | AD UPN or x509Hint |
 |Subsequent sign-in | Pull from certificate | Cached Azure AD UPN |
 
 **Windows rules for sending UPN for Azure AD join machines**
