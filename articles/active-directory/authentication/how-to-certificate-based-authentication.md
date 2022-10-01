@@ -193,20 +193,9 @@ To enable Azure AD CBA and configure user bindings in the Azure portal, complete
 
 ## Step 4: Configure username binding policy
 
-The username binding policy helps determine the user in the tenant. By default, we map Principal Name in the certificate to UserPrincipalName in the user object to determine the user. An admin can override the default and create a custom mapping. 
+The username binding policy helps validate the certificate of the user. By default, we map Principal Name in the certificate to UserPrincipalName in the user object to determine the user. An admin can override the default and create a custom mapping. 
 
-Supported certificate fields in username binding:
- 
-- SAN (Subject Alternate Name) Principal Name
-- SAN RFC822Name
-- Subject Key Identifier (SKI)
-- SHA1PU (SHA 1public key)  
- 
-Supported user object attribute fields:
-
-- userPrincipalName
-- onPremisesUserPrincipalName
-- certificateUserIds
+To determine how to configure username binding please look at the deep dive documentation at [How username binding works](https://learn.microsoft.com/en-us/azure/active-directory/authentication/concept-certificate-based-authentication-technical-deep-dive#understanding-the-username-binding-policy)
 
 >[!IMPORTANT]
 >If a username binding policy uses synced attributes, such as onPremisesUserPrincipalName attribute of the user object, be aware that any user with administrative access to the Azure AD Connect server can change the sync attribute mapping, and in turn change the value of the synced attribute to their needs. The user does not need to be a cloud admin. 
