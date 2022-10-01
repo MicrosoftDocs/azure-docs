@@ -3,7 +3,7 @@ title: Microsoft Energy Data Services - how to set up private links #Required; p
 description: Guide to set up private links on Microsoft Energy Data Services #Required; article description that is displayed in search results. 
 author: sandeepchads #Required; your GitHub user alias, with correct capitalization.
 ms.author: sancha #Required; microsoft alias of author; optional team alias.
-ms.service: azure #Required; service per approved list. slug assigned by ACOM.
+ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 09/29/2022
 ms.custom: template-concept #Required; leave this attribute/value as-is.
