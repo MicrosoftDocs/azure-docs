@@ -39,11 +39,11 @@ To configure Staged Rollout, follow these steps:
 
 For more information, see [Staged Rollout](../hybrid/how-to-connect-staged-rollout.md).
 
-## Use Azure AD connect to sync federated users 
+## Use Azure AD connect to update certificateUserIds attribute
 
 An AD FS admin can use **Synchronization Rules Editor** to create rules to sync the values of attributes from AD FS to Azure AD user objects. For more information, see [Sync rules for certificateUserIds](concept-certificate-based-authentication-certificateuserids.md#update-certificate-user-ids-using-azure-ad-connect-for-federated-users).
 
-Azure AD Connect uses the AWS service to access Azure AD. It requires a special role named **Hybrid Identity Administrator**, which grants the necessary permissions. You need this role for permission to write to the new cloud attribute.
+Azure AD Connect requires a special role named **Hybrid Identity Administrator**, which grants the necessary permissions. You need this role for permission to write to the new cloud attribute.
 
 >[!NOTE] 
 >If a user is using synchronized attributes, such as the onPremisesUserPrincipalName attribute in the user object for username binding, be aware that any user that has administrative access to the Azure AD Connect server can change the synchronized attribute mapping, and change the value of the synchronized attribute. The user does not need to be a cloud admin. The AD FS admin should make sure the administrative access to the Azure AD Connect server should be limited, and privileged accounts should be cloud-only accounts.
@@ -52,7 +52,7 @@ Azure AD Connect uses the AWS service to access Azure AD. It requires a special 
 
 ### Can we have privileged accounts with a federated AD FS server?
         
-While this is possible, Microsoft recommends privileged accounts be cloud-only accounts. This will limit the exposure in Azure AD from a compromised on-premises environment.
+While this is possible, Microsoft recommends privileged accounts be cloud-only accounts. This will limit the exposure in Azure AD from a compromised on-premises environment. Please look at http://aka.ms/protectM365 for more information.
 
 ### If an organization is a hybrid running both AD FS and Azure CBA, are they still vulnerable to the AD FS compromise?
 
