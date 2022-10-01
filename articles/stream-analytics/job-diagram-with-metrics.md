@@ -38,15 +38,15 @@ In the top left corner, you can switch the two types of job diagram by clicking 
 
 The following screenshot shows a physical job diagram with a default time period (last 30 minutes).
 
-:::image type="content" source="./media/job-diagram-with-metrics/3-physical-diagram-sections.png" alt-text="Screenshot that shows job physical diagram sections." lightbox="./media/job-diagram-with-metrics/3-physical-diagram-sections.png":::
+:::image type="content" source="./media/job-diagram-with-metrics/3-physical-diagram-sections.png" alt-text="Screenshot that shows physical job diagram sections." lightbox="./media/job-diagram-with-metrics/3-physical-diagram-sections.png":::
 
 1. **Command bar section**: it's the command area where you can configure the time range of the job metrics, switch/configure heatmap visualization, search a streaming node, and switch view between **Diagram** and **Table**. 
     * **Heatmap settings**: the heatmap setting enables you to sort the nodes in diagram based on your wanted metrics and sorting type. The metrics can be CPU/memory utilization, watermark delay, input event, and backlogged input events.
     * **Time range**: you can choose different time range and job run to view the diagram and metrics.
-    * **Job run**: Job run is inside **Time range**. When a job is started, restarted or scaled-up/down (SU changes), a new job run will be generated. One job run maps on job physical diagram.
+    * **Job run**: Job run is inside **Time range**. When a job is started, restarted or scaled-up/down (SU changes), a new job run will be generated. One job run maps on physical job diagram.
     * **Diagram/Table view switcher**: you can switch the view between diagram and table. The table view is shown as below:
 
-        :::image type="content" source="./media/job-diagram-with-metrics/4-physical-diagram-table-view.png" alt-text="Screenshot that shows job physical diagram with table overview."  lightbox="./media/job-diagram-with-metrics/4-physical-diagram-table-view.png":::
+        :::image type="content" source="./media/job-diagram-with-metrics/4-physical-diagram-table-view.png" alt-text="Screenshot that shows physical job diagram with table overview."  lightbox="./media/job-diagram-with-metrics/4-physical-diagram-table-view.png":::
 
 1. **Diagram/Table section**: it's the place where you can view the metrics (aggregated within the selected time range) in streaming node level with diagram view or table view. Each box in this section represents a streaming node that is used to process the input data. The metrics on each node are:
     * **Input Events** (Aggregation type: SUM)
@@ -61,10 +61,10 @@ The following screenshot shows a physical job diagram with a default time period
 
 The **Diagram/Table section** and **Chart section** can be interactive with each other. You can select multiple nodes in **Diagram/Table section** to get the metrics in **Chart section** filtered by the selected nodes and vice versa.
 
-:::image type="content" source="./media/job-diagram-with-metrics/5-job-physical-diagram-node-chart-interaction.png" alt-text="Screenshot that shows job physical diagram node chart interaction."  lightbox="./media/job-diagram-with-metrics/5-job-physical-diagram-node-chart-interaction.png":::
+:::image type="content" source="./media/job-diagram-with-metrics/5-job-physical-diagram-node-chart-interaction.png" alt-text="Screenshot that shows physical job diagram node chart interaction."  lightbox="./media/job-diagram-with-metrics/5-job-physical-diagram-node-chart-interaction.png":::
 
 
-To learn more about how to debug with physical diagram, see [Debugging with the job physical diagram (preview) in Azure portal](./stream-analytics-job-physical-diagram-with-metrics.md).
+To learn more about how to debug with physical diagram, see [Debugging with the physical job diagram (preview) in Azure portal](./stream-analytics-job-physical-diagram-with-metrics.md).
 
 
 ## Logical job diagram
@@ -83,7 +83,7 @@ The logical job diagram has a similar layout to the physical diagram, with three
 
 The interaction between **Diagram section** and **Chart section** is also available in logical diagram as well. The metrics data will be filtered by the node's properties.
 
-:::image type="content" source="./media/job-diagram-with-metrics/5-job-logical-diagram-node-selection.png" alt-text="Screenshot that shows job physical diagram overview."  lightbox="./media/job-diagram-with-metrics/5-job-logical-diagram-node-selection.png":::
+:::image type="content" source="./media/job-diagram-with-metrics/5-job-logical-diagram-node-selection.png" alt-text="Screenshot that shows physical job diagram overview."  lightbox="./media/job-diagram-with-metrics/5-job-logical-diagram-node-selection.png":::
 
 To learn more about how to debug with logical diagrams, see [Debugging with the logical job diagram (preview) in Azure portal](./stream-analytics-job-logical-diagram-with-metrics.md).
 

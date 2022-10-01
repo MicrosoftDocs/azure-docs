@@ -244,7 +244,7 @@
     - name: Transform and ingest to SQL database
       href: no-code-transform-filter-ingest-sql.md
     - name: Filter and ingest to Azure Data Explorer
-      href: no-code-filter-ingest-adx.md
+      href: no-code-filter-ingest-data-explorer.md
   - name: Authenticate with managed identity
     items:
     - name: Managed Identities Overview
@@ -416,9 +416,9 @@
     items:
     - name: Optimize query using job diagram simulator (preview)
       href: optimize-query-using-job-diagram-simulator.md
-    - name: Job physical diagram (preview)
+    - name: Physical job diagram (preview)
       href: stream-analytics-job-physical-diagram-with-metrics.md
-    - name: Job logical diagram (preview)
+    - name: Logical job diagram (preview)
       href: stream-analytics-job-logical-diagram-with-metrics.md
   - name: Scale with ML functions
     href: stream-analytics-scale-with-machine-learning-functions.md

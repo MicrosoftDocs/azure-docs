@@ -17,7 +17,7 @@ This article describes how to use the logical job diagram to analyze and trouble
 
 The logical job diagram is also available in Stream Analytics extension for VS Code. It provides the similar functions with more metrics when you debug your job that runs locally on your device. To learn more, see [Debug Azure Stream Analytics queries locally using job diagram](./debug-locally-using-job-diagram-vs-code.md).
 
-## Using the logical job diagram
+## Use the logical job diagram
 
 In the Azure portal, locate and select a Stream Analytics job. Then select **Job diagram (preview)** under **Developer tools**: 
 
@@ -32,11 +32,11 @@ If you select one of the nodes in diagram section, the metrics data and the metr
 
 :::image type="content" source="./media/stream-analytics-job-diagram-with-metrics-new/3-job-logical-diagram-node-selection.png" alt-text="Screenshot that shows logical job diagram node selection." lightbox="./media/stream-analytics-job-diagram-with-metrics-new/3-job-logical-diagram-node-selection.png":::
 
-To see the query script snippet that is mapping the corresponding query step, select the **'{}'** in the query step node as below:
+To see the query script snippet that is mapping the corresponding query step, select the **`{}`'** icon in the query step node as shown below:
 
 :::image type="content" source="./media/stream-analytics-job-diagram-with-metrics-new/4-job-logical-diagram-query-step-mapping-to-script.png" alt-text="Screenshot that shows logical job diagram query step mapping to script.":::
 
-To see the job overview information summary, select the **Job Summary** button in right side.
+To see the job overview information summary, select the **Job Summary** button on the right side.
 
 :::image type="content" source="./media/stream-analytics-job-diagram-with-metrics-new/5-job-logical-diagram-job-summary.png" alt-text="Screenshot that shows logical job diagram job summary." lightbox="./media/stream-analytics-job-diagram-with-metrics-new/5-job-logical-diagram-job-summary.png":::
 

@@ -90,7 +90,7 @@ The **Partition ID** dimension is available for filtering and splitting the foll
 
 * [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md)
 * [Analyze Stream Analytics job performance by using metrics and dimensions](./stream-analytics-job-analysis-with-metric-dimensions.md)
-* [Debugging with the job physical diagram (preview) in Azure portal](./stream-analytics-job-physical-diagram-with-metrics.md)
+* [Debugging with the physical job diagram (preview) in Azure portal](./stream-analytics-job-physical-diagram-with-metrics.md)
 * [Debugging with the logical job diagram (preview) in Azure portal](./stream-analytics-job-logical-diagram-with-metrics.md)
 * [Monitor a Stream Analytics job with the Azure portal](./stream-analytics-monitoring.md)
 * [Understand and adjust streaming units](./stream-analytics-streaming-unit-consumption.md)
