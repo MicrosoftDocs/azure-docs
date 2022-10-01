@@ -36,7 +36,7 @@ A *sentinel key* is a key that you update after you complete the change of all o
 
 ## Reload data from App Configuration
 
-1. Open *Program.cs*, and update the `AddAzureAppConfiguration` method you added previouly during the quickstart.
+1. Open *Program.cs*, and update the `AddAzureAppConfiguration` method you added previously during the quickstart.
 
     #### [.NET 6.x](#tab/core6x)
     ```csharp
@@ -189,11 +189,11 @@ You've set up your app to use the [options pattern in ASP.NET Core](/aspnet/core
     
 ## Activity-driven configuration refresh
 
-The configuration refresh is driven by the incoming requests to your web app. No refresh will occur if your app is idle. When your app is active, the App Configuration middleware monitors the sentinel key or any other keys you registered for refreshing in the `ConfigureRefresh` call. The middleware is triggered upon every incoming request to your app. However, the middleware will only send requests to check the value in App Configuration when the cache expiration time you set has passed. When a change is detected, it will update all the selected configurations if a sentinel key is used or update the registered keys' values only.
+The configuration refresh is driven by the incoming requests to your web app. No refresh will occur if your app is idle. When your app is active, the App Configuration middleware monitors the sentinel key, or any other keys you registered for refreshing in the `ConfigureRefresh` call. The middleware is triggered upon every incoming request to your app. However, the middleware will only send requests to check the value in App Configuration when the cache expiration time you set has passed. When a change is detected, it will update all the selected configurations if a sentinel key is used or update the registered keys' values only.
 
 - If a request to App Configuration for change detection fails, your app will continue to use the cached configuration. Another check will be made when the configured cache expiration time has passed again and there are new incoming requests to your app.
 - The configuration refresh happens asynchronously to the processing of your app's incoming requests. It will not block or slow down the incoming request that triggered the refresh. The request that triggered the refresh may not get the updated configuration values, but subsequent requests will do.
-- To ensure the middleware is triggered, call `app.UseAzureAppConfiguration()` as early as appropriate in your request pipeline so another middleware will not short-circuit it in your app.
+- To ensure the middleware is triggered, call `app.UseAzureAppConfiguration()` as early as appropriate in your request pipeline so another middleware won't short-circuit it in your app.
 
 ## Build and run the app locally
 
