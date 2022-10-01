@@ -10,11 +10,11 @@ ms.date: 10/12/2022
 
 # Optimize query using job diagram simulator
 
-One way to improve the performance of an Azure Stream Analytics (ASA) job is to apply parallelism in query. This article demonstrates how to use the Job Diagram Simulator in Visual Studio Code (VSCode) and evaluate the query parallelism for an ASA job. You learn to visualize a query execution with different number of streaming units and improve query parallelism based on the edit suggestions. 
+One way to improve the performance of an Azure Stream Analytics job is to apply parallelism in query. This article demonstrates how to use the Job Diagram Simulator in Visual Studio Code (VSCode) and evaluate the query parallelism for an Stream Analytics job. You learn to visualize a query execution with different number of streaming units and improve query parallelism based on the edit suggestions. 
 
 ## What is parallel query?
 
-Query parallelism divides the workload of a query by creating multiple processes (or streaming nodes in ASA) and executes it in parallel. It greatly reduces overall execution time of the query and hence less streaming hours are needed.  
+Query parallelism divides the workload of a query by creating multiple processes (or streaming nodes) and executes it in parallel. It greatly reduces overall execution time of the query and hence less streaming hours are needed.  
 
 For a job to be parallel, all inputs, outputs and query steps must be aligned and use the same partition keys. The query logic partitioning is determined by the keys used for aggregations (GROUP BY). 
 
@@ -22,16 +22,16 @@ If you want to learn more about query parallelization, see [Leverage query paral
 
 ## How to use job diagram simulator?
 
-You can find the job diagram simulator in the ASA tools extension for VSCode. If you haven't installed it yet, follow [this guide](quick-create-visual-studio-code.md) to install. 
+You can find the job diagram simulator in the Azure Stream Analytics tools extension for VSCode. If you haven't installed it yet, follow [this guide](quick-create-visual-studio-code.md) to install. 
 
 In this tutorial, you learn to improve query performance based on edit suggestions and make it executed in parallel. As an example, we're using a non-parallel job that takes the input data from an event hub and sends the results to another event hub.
 
 
-1. Open the ASA project in VSCode after you finish your query authoring, go to the query file **\*.asaql** and select **Simulate job** to start the job diagram simulation.
+1. Open the Azure Stream Analytics project in VSCode after you finish your query authoring, go to the query file **\*.asaql** and select **Simulate job** to start the job diagram simulation.
 
     :::image type="content" source="./media/job-diagram-simulator/query-file-simulate-job.png" alt-text="Screenshot of the VSCode opening job diagram simulator in query file." lightbox= "./media/job-diagram-simulator/query-file-simulate-job.png" :::
 
-1. Under the **Diagram** tab, you can see the topology of the ASA job. It shows the number of streaming nodes allocated to the job and the number of partitions in each streaming node. The below job diagram shows this job isn't in parallel since there's data interaction between the two nodes.
+1. Under the **Diagram** tab, you can see the topology of the Azure Stream Analytics job. It shows the number of streaming nodes allocated to the job and the number of partitions in each streaming node. The below job diagram shows this job isn't in parallel since there's data interaction between the two nodes.
 
     :::image type="content" source="./media/job-diagram-simulator/diagram-tab.png" alt-text="Screenshot of the VSCode using job diagram simulator and showing job topology." lightbox= "./media/job-diagram-simulator/diagram-tab.png" :::
 
