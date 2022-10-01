@@ -11,19 +11,19 @@ ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---
 
 # Private Links in Microsoft Energy Data Services
-[Azure Private Link](articles/private-link/private-link-overview.md] provides private connectivity from a virtual network to Azure platform as a service (PaaS). It simplifies the network architecture and secures the connection between endpoints in Azure by eliminating data exposure to the public internet.
+[Azure Private Link](../private-link/private-link-overview.md) provides private connectivity from a virtual network to Azure platform as a service (PaaS). It simplifies the network architecture and secures the connection between endpoints in Azure by eliminating data exposure to the public internet.
 By using Azure Private Link, you can connect to a Microsoft Energy Data Services Preview instance from your virtual network via a private endpoint, which is a set of private IP addresses in a subnet within the virtual network.
 
 
 You can then limit access to your Microsoft Energy Data Services Preview instance over these private IP addresses. 
-You can connect to a Microsoft Energy Data Services configured with Private Link by using the automatic or manual approval method. To [learn more](https://learn.microsoft.com/azure/private-link/private-endpoint-overview#access-to-a-private-link-resource-using-approval-workflow), see the Approval workflow section of the Private Link documentation.
+You can connect to a Microsoft Energy Data Services configured with Private Link by using the automatic or manual approval method. To [learn more](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow), see the Approval workflow section of the Private Link documentation.
 
 
 This article describes how to set up private endpoints for Microsoft Energy Data Services preview. 
 
 ## Pre-requisites
 
-1.	Create a virtual network in the same subscription as the Microsoft Energy Data Services instance. [Learn more](https://learn.microsoft.com/azure/virtual-network/quick-create-portal). This will allow auto-approval of the private link end point.
+1.	Create a virtual network in the same subscription as the Microsoft Energy Data Services instance. [Learn more](../virtual-network/quick-create-portal.md). This will allow auto-approval of the private link end point.
 
 ## Create a private endpoint by using the Azure portal
 
@@ -72,14 +72,14 @@ Use the following steps to create a private endpoint for an existing Microsoft E
 9.	Select **Next: Virtual Network.**
 10.	In Virtual Network screen, you can:
 
-* Configure Networking and Private IP Configuration settings. [Learn more](https://learn.microsoft.com/azure/private-link/create-private-endpoint-portal?tabs=dynamic-ip#create-a-private-endpoint)
+* Configure Networking and Private IP Configuration settings. [Learn more](../private-link/create-private-endpoint-portal.md#create-a-private-endpoint)
 
-* Configure private endpoint with ASG. [Learn more](https://learn.microsoft.com/azure/private-link/configure-asg-private-endpoint?tabs=portal#create-private-endpoint-with-an-asg)
+* Configure private endpoint with ASG. [Learn more](../private-link/configure-asg-private-endpoint.md#create-private-endpoint-with-an-asg)
 
 [![Screenshot of virtual network tab for private link during a MEDS instance creation](media/how-to-manage-private-links/pvtlink-4virtualnetwork.png)](media/how-to-manage-private-links/pvtlink-4virtualnetwork.png#lightbox)
 
 
-11.	Select **Next: DNS**. You can leave the default settings or learn more about DNS configuration. [Learn more](https://learn.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+11.	Select **Next: DNS**. You can leave the default settings or learn more about DNS configuration. [Learn more](../private-link/private-endpoint-overview.md#dns-configuration)
 
 
 [![Screenshot of DNS tab for private link during a MEDS instance creation](media/how-to-manage-private-links/pvtlink-5dns.png)](media/how-to-manage-private-links/pvtlink-5dns.png#lightbox)
