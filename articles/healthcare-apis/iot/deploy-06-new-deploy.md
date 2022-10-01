@@ -5,7 +5,7 @@ author: mcevoy-building7
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 08/29/2022
+ms.date: 08/30/2022
 ms.author: v-smcevoy
 ---
 
@@ -85,7 +85,7 @@ For more information about assigning roles to the FHIR service, see [Configure A
 
 For more information about application roles, see [Authentication & Authorization for Azure Health Data Services](.././authentication-authorization.md).
 
-Now that you have granted access to the device message event hub and the FHIR service, your manual deployment is complete and ready to receive data from a medical device and process it into a FHIR Observation resource.
+Now that you have granted access to the device message event hub and the FHIR service, your manual deployment is complete and MedTech service is ready to receive data from a medical device and process it into a FHIR Observation resource.
 
 ## Next steps
 
