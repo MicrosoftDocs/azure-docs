@@ -11,7 +11,7 @@ ms.author: v-smcevoy
 
 # Deploy the MedTech service with a Azure ARM QuickStart template
 
-In this article, you'll learn how to deploy the MedTech service in the Azure portal using an Azure ARM Quickstart template. This template will used with the **Deploy to Azure** button make it easy to provide the information you need to automatically set up the infrastructure and configuration of your deployment. For more information about Azure ARM templates, see [What are ARM templates?](../../azure-resource-manager/templates/overview).
+In this article, you'll learn how to deploy the MedTech service in the Azure portal using an Azure ARM Quickstart template. This template will used with the **Deploy to Azure** button make it easy to provide the information you need to automatically set up the infrastructure and configuration of your deployment. For more information about Azure ARM templates, see [What are ARM templates?](../../azure-resource-manager/templates/overview.md).
 
 There are four simple tasks you need to complete in order to deploy MedTech service with the ARM template **Deploy to Azure** button. They are:
 

@@ -121,7 +121,9 @@ Under the **Destination** tab, use these values to enter the destination propert
 
 - Next, enter the **Destination Name**.
 
-      The **Destination Name** is a friendly name for the destination. Enter a unique name for your destination. In this example, the **Destination Name** is `fs-azuredocsdemo`.
+  The **Destination Name** is a friendly name for the destination. Enter a unique name for your destination. In this example, the **Destination Name** is
+
+  `fs-azuredocsdemo`.
 
 - Then, select the **Resolution Type**.
 
