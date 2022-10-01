@@ -61,7 +61,7 @@ The user's Azure AD UPN is cached and sent in subsequent sign-ins.
 
 More information on the flow can be found at [Certificate Requirements and Enumeration (Windows)](/windows/security/identity-protection/smart-cards/smart-card-certificate-requirements-and-enumeration)
 
-## Supported platforms
+## Supported windows platforms
 
 The Windows smart card sign-in works with the latest preview build of Windows 11. The functionality is also available for these earlier Windows versions after you apply update [KB5017383](https://support.microsoft.com/topic/september-20-2022-kb5017383-os-build-22000-1042-preview-62753265-68e9-45d2-adcb-f996bf3ad393):
 
@@ -69,6 +69,14 @@ The Windows smart card sign-in works with the latest preview build of Windows 11
 - Windows 11 21H2 and later
 - Windows 10 20H1 and later
 - Windows Server 2019 and later
+
+## Supported browsers
+
+|Edge | chrome | safari | firefox |
+|--------|---------|------|-------|
+|&#x2705; | &#x2705; | &#x2705; |&#x2705; |
+
+>[!NOTE] Azure AD CBA supports both certificates on-device as well as external storage like security keys on windows.
 
 ## Restrictions and caveats  
 
