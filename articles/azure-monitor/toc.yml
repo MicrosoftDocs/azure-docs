@@ -7,6 +7,8 @@ items:
     href: overview.md
   - name: What can you monitor?
     href: monitor-reference.md
+  - name: Observability COMBINE WITH ABOVE
+    href: observability-data.md    
   - name: What's new?
     href: whats-new.md
   - name: Partner integrations
@@ -20,10 +22,6 @@ items:
       href: .//security-controls-policy.md
     - name: FAQ
       href: faq.yml
-- name: Concepts
-  items:
-  - name: Observability
-    href: observability-data.md
 - name: Tutorials
   items:
   - name: Monitor an Azure resource
@@ -317,6 +315,13 @@ items:
     href: data-platform.md
   - name: Metrics
     href: essentials/data-platform-metrics.md
+    items:
+    - name: Overview of Azure Monitor Metrics
+      href: essentials/data-platform-metrics.md
+    - name: Custom metrics
+      href: essentials/metrics-custom-overview.md
+    - name: Metrics REST API
+      href: essentials/metrics-store-custom-rest-api.md
   - name: Logs
     items:
      - name: Overview
@@ -1112,8 +1117,6 @@ items:
   items:
   - name: Metrics explorer
     items:
-      - name: Overview of Azure Monitor Metrics
-        href: essentials/data-platform-metrics.md
       - name: Getting started with Metrics Explorer
         href: essentials/metrics-getting-started.md
       - name: Advanced features of Metrics Explorer
@@ -1126,10 +1129,6 @@ items:
         href: essentials/metric-chart-samples.md
       - name: Troubleshooting metric charts
         href: essentials/metrics-troubleshoot.md
-      - name: Custom metrics
-        href: essentials/metrics-custom-overview.md
-      - name: Metrics REST API
-        href: essentials/metrics-store-custom-rest-api.md
   - name: Log Analytics
     items:
     - name: Overview
