@@ -6,7 +6,7 @@ author: an-emma
 ms.author: raan
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/19/2022
+ms.date: 10/12/2022
 ms.custom: seodec18
 ---
 
@@ -36,7 +36,7 @@ To see the full list of ADLS Gen2 configuration, see [ALDS Gen2 Overview](blob-s
 
 The Delta Path Name is used to specify the location and name of your Delta Lake table stored in Azure Data Lake Storage Gen2.
 
-You can choose to use one or more path segments to define the path to the delta table and the delta table name. A path segment is the string between consecutive delimiter characters (for example, the forward slash '/') that corresponds to the name of a virtual directory.
+You can choose to use one or more path segments to define the path to the delta table and the delta table name. A path segment is the string between consecutive delimiter characters (for example, the forward slash `/`) that corresponds to the name of a virtual directory.
 
 The segment name is alphanumeric and can include spaces, hyphens, and underscores. The last path segment will be used as the table name.
 
@@ -46,7 +46,7 @@ Restrictions on Delta Path name include the following ones:
 - No dynamic {field} name is allowed. For example, {ID} will be treated as text {ID}.
 - The number of path segments comprising the name can't exceed 254.
 
-### Example
+### Examples
 
 Examples for Delta path name:
 
