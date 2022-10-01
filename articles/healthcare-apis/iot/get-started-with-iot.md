@@ -98,22 +98,22 @@ You must configure MedTech to map it to the device you want to receive data from
 
 - Azure Health Data Services provides an open source tool you can use called [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/main/tools/data-mapper) that will help you map your device's data structure to a form that MedTech can use. For more information on device content mapping, see [Device Content Mapping](https://github.com/microsoft/iomt-fhir/blob/main/docs/Configuration.md#device-content-mapping). 
 
-- When you are deploying MedTech service, you must set specific device mapping properties. For more information on device mapping properties, see [Configure the Device mapping properties](deploy-05-new-config.md#configure-the-device-mapping-properties).
+- When you are deploying MedTech service, you must set specific device mapping properties. For more information on device mapping properties, see [Configure the Device mapping properties](deploy-05-new-config.md).
 
 ### Configuring destination mappings
 
 Once your device's data is properly mapped to your device's data format, you must then map it to an Observation in the FHIR service. For an overview of FHIR destination mappings, see [How to use the FHIR destination mappings](how-to-use-fhir-mappings.md).
 
-For step-by-step destination property mapping, see [Configure destination properties](deploy-05-new-config.md#configure-destination-properties
+For step-by-step destination property mapping, see [Configure destination properties](deploy-05-new-config.md).
 ).
 
 ### Create and deploy the MedTech service
 
-If you have completed the prerequisites, provisioning, and configuration, you are now ready to deploy the MedTech service. Create and deploy your MedTech service by following deployment the procedure at [Create your MedTech service](deploy-06-new-deploy.md#create-your-medtech-service).
+If you have completed the prerequisites, provisioning, and configuration, you are now ready to deploy the MedTech service. Create and deploy your MedTech service by following the procedures at [Create your MedTech service](deploy-06-new-deploy.md).
 
 ## Step 4: Connect to required services (post deployment)
 
-When you complete the final [deployment procedure](deploy-06-new-deploy.md#create-your-medtech-service) and don't get any errors, you must link MedTech service to an Event Hubs and the FHIR service. This will enable a connection from MedTech service to an Event Hubs instance and the FHIR service, so that data can flow smoothly from device to FHIR Observation. In order to do this, the Event Hubs instance for device message flow must be granted access via role assignment, so MedTech service can receive Event Hubs data. You must also grant access to The FHIR service via role assignments in order for MedTech to receive the data. There are two parts of the process to connect to required services.
+When you complete the final [deployment procedure](deploy-06-new-deploy.md) and don't get any errors, you must link MedTech service to an Event Hubs and the FHIR service. This will enable a connection from MedTech service to an Event Hubs instance and the FHIR service, so that data can flow smoothly from device to FHIR Observation. In order to do this, the Event Hubs instance for device message flow must be granted access via role assignment, so MedTech service can receive Event Hubs data. You must also grant access to The FHIR service via role assignments in order for MedTech to receive the data. There are two parts of the process to connect to required services.
 
 For more information about granting access via role assignments, see [Granting the MedTech service access to the device message event hub and FHIR service](deploy-07-new-post-deploy.md#granting-the-medtech-service-access-to-the-device-message-event-hub-and-fhir-service).
 
