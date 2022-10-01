@@ -116,9 +116,9 @@ import java.util.List;
 import java.util.UUID;
 import java.util.logging.Logger;
 import java.time.Duration;
-import com.azure.communication.callingserver.*;
-import com.azure.communication.callingserver.models.*;
-import com.azure.communication.callingserver.models.events.*;
+import com.azure.communication.callautomation.*;
+import com.azure.communication.callautomation.models.*;
+import com.azure.communication.callautomation.models.events.*;
 import com.azure.communication.common.CommunicationIdentifier;
 import com.azure.communication.common.CommunicationUserIdentifier;
 import com.azure.communication.common.PhoneNumberIdentifier;
@@ -130,7 +130,7 @@ public class App
     public static void main( String[] args ) throws URISyntaxException
     {
         // args[0] - the Ngrok base URI
-        // callbackUri - location where CallingServer platform's events will be delivered
+        // callbackUri - location where Call Automation platform's events will be delivered
         // The endpoint must be reachable from the internet, therefore, the base address is Ngrok URI
         URI callbackUri = new URI(args[0] + "/api/callback");
         String connectionString = "[connectionString]";

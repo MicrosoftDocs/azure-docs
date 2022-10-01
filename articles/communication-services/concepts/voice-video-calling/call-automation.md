@@ -60,14 +60,7 @@ The following list presents the set of features that are currently available in 
 
 Call Automation uses a REST API interface to receive requests and provide responses to all actions performed within the service. Due to the asynchronous nature of calling, most actions will have corresponding events that are triggered when the action completes successfully or fails.
 
-Event Grid – Azure Communication Services uses Event Grid to deliver the IncomingCall event. This event can be triggered:
-- by an inbound PSTN call to a number you've acquired in the portal,
-- by connecting your telephony infrastructure using an SBC,
-- for one-on-one calls between Communication Service users,
-- when a Communication Services user is added to an existing call (group call),
-- an existing 1:1 call is transferred to a Communication Service user.
-
-Web hooks – Calling Automation SDKs use standard web hook HTTP/S callbacks for call state change events and responses to mid-call actions.
+Azure Communication Services uses Event Grid to deliver the [IncomingCall event](../../concepts/voice-video-calling/incoming-call-notification.md) and HTTPS Webhooks for all mid-call action callbacks.
 
 ![Screenshot of flow for incoming call and actions.](./media/action-architecture.png)
 
