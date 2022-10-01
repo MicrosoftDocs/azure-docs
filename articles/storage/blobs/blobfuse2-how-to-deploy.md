@@ -134,7 +134,7 @@ BlobFuse2 provides native-like performance by using local file-caching technique
 
 #### Configure caching for streaming large files
 
-BlobFuse2 supports read- and write-streaming as an alternative to disk caching for files. In streaming mode, BlobFuse2 caches blocks of large files in memory for both reading and writing. The configuration settings related to caching for streaming are under the `stream:` settings in your configuration file as follows:
+BlobFuse2 supports streaming for both read and write operations as an alternative to disk caching for files. In streaming mode, BlobFuse2 caches blocks of large files in memory for both reading and writing. The configuration settings related to caching for streaming are under the `stream:` settings in your configuration file as follows:
 
 ```yml
 stream:
