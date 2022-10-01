@@ -27,13 +27,11 @@ First, we need to define which scenarios can trigger an `IncomingCall` event. Th
 
 Given the above examples, the following scenarios will trigger an `IncomingCall` event sent to Event Grid:
 
-| Source | Destination | 
-| ------ | ----------- |
-| Client calling SDK | Azure Communication Services identity |
-| Client calling SDK | PSTN number owned by your Azure Communication Services resource  |
-| Call Automation SDK | Azure Communication Services identity |
-| Call Automation SDK | PSTN number owned by your Azure Communication Services resource  |
-| Public PSTN | PSTN number owned by your Azure Communication Services resource  |
+| Source | Destination | Scenario(s) |
+| ------ | ----------- | -------- |
+| Azure Communication Services identity | Azure Communication Services identity | Call, Redirect, Add Participant, Transfer |
+| Azure Communication Services identity | PSTN number owned by your Azure Communication Services resource  | Call, Redirect, Add Participant
+| Public PSTN | PSTN number owned by your Azure Communication Services resource  | Call, Redirect, Add Participant, Transfer
 
 > [!NOTE]
 > An important concept to remember is that an Azure Communication Services identity can be a user or application. Although there is no ability to explicitly assign an identity to a user or application in the platform, this can be done by your own application or supporting infrastructure. Please review the [identity concepts guide](../identity-model.md) for more information on this topic.
@@ -50,10 +48,10 @@ This architecture has the following benefits:
 
 To subscribe to the `IncomingCall` notification from Event Grid, [follow this how-to guide](../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md).
 
-## Call routing
+## Call routing in Call Automation or Event Grid
 
-You can use advanced filters in your Event Grid subscription to route an `IncomingCall` notification to a specific endpoint such as a Webhook subscription. That endpoint application can then make a decision to **redirect** the call using the Call Automation SDK to another Azure Communication Services identity or to the PSTN.
+You can use [advanced filters](../../../event-grid/event-filtering.md) in your Event Grid subscription to subscribe to an `IncomingCall` notification for a specific source/destination phone number or Azure Communication Services identity and sent it to an endpoint such as a Webhook subscription. That endpoint application can then make a decision to **redirect** the call using the Call Automation SDK to another Azure Communication Services identity or to the PSTN.
 
 ## Number assignment
 
-Since the `IncomingCall` notification doesn't have a specific destination other than the Event Grid subscription you've created, you are free to associate any particular number to any endpoint in Azure Communication Services. For example, if you acquired a PSTN phone number of `+14255551212` and want to assign it to a user with an identity of `375f0e2f-e8db-4449-9bf7-2054b02e42b4` in your application, you will maintain a mapping of that number to the identity. When an `IncomingCall` notification is sent matching the phone number in the **to** field, you will invoke the `Redirect` API and supply the identity of the user. In other words, you maintain the number assignment within your application and route or answer calls at runtime.
+Since the `IncomingCall` notification doesn't have a specific destination other than the Event Grid subscription you've created, you're free to associate any particular number to any endpoint in Azure Communication Services. For example, if you acquired a PSTN phone number of `+14255551212` and want to assign it to a user with an identity of `375f0e2f-e8db-4449-9bf7-2054b02e42b4` in your application, you'll maintain a mapping of that number to the identity. When an `IncomingCall` notification is sent matching the phone number in the **to** field, you'll invoke the `Redirect` API and supply the identity of the user. In other words, you maintain the number assignment within your application and route or answer calls at runtime.

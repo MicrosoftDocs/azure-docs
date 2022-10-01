@@ -14,11 +14,12 @@ ms.author: askaur
 ## Prerequisites
 
 - An Azure account with an active subscription.
-- A deployed Communication Service resource.
+- A deployed [Communication Service resource](../../../quickstarts/create-communication-resource.md) and valid Connection String
 - [Acquire a PSTN phone number from the Communication Service resource](../../../quickstarts/telephony/get-phone-number.md).
 - Optional: [NGROK application](https://ngrok.com/) to proxy HTTP/S requests to a local development machine.
 - [Java Development Kit (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
+- [An Event Grid subscription for Incoming Call](../../../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md)
 
 ## Create a new Java application
 
@@ -50,7 +51,7 @@ Add the [azure-sdk-for-java feed](https://dev.azure.com/azure-sdk/public/_artifa
 
 In your POM file, add the following dependencies for the project.
 
-**azure-communication-callingserver**
+**azure-communication-callautomation**
 
 Azure Communication Services Call Automation SDK package is retrieved from the Azure SDK Dev Feed configured above.
 ```xml

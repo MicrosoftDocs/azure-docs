@@ -19,6 +19,7 @@ ms.author: askaur
 - [Acquire a PSTN phone number from Azure Communication Services.](../../../telephony/get-phone-number.md?pivots=programming-language-java&tabs=windows)
 - [Java Development Kit (JDK)](/java/azure/jdk/?preserve-view=true&view=azure-java-stable) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi)
+- [An Event Grid subscription for Incoming Call](../../../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md)
 
 ## Create a new Java application
 
@@ -44,24 +45,24 @@ Update your application's POM file to use Java 8 or higher:
 
 Since the Call Automation SDK version used in this QuickStart isn't yet available in Maven Central Repository, we need to add an Azure Artifacts development feed, which contains the latest version of the Call Automation SDK.  
 
-Add the [azure-sdk-for-java](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java) feed to your `pom.xml` and follow the instructions after clicking the “Connect to Feed” button.
+Add the [azure-sdk-for-java feed](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java) to your `pom.xml`. Follow the instructions after clicking the “Connect to Feed” button.
 
 ## Add package references
 
 In your POM file, add the following dependencies for the project.
 
-**azure-communication-callingserver**
+**azure-communication-callautomation**
 
 Azure Communication Services Call Automation SDK package is retrieved from the Azure SDK Dev Feed configured above.
 
-Look for the recently published version from [here](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java/maven/com.azure%2Fazure-communication-callingserver/overview/1.0.0-alpha.20220829.1)
+Look for the recently published version from [here](https://dev.azure.com/azure-sdk/public/_artifacts/feed/azure-sdk-for-java/maven/com.azure%2Fazure-communication-callautomation/overview/1.0.0-alpha.20220929.1)
 
-And then add it to your POM file like this (using version 1.0.0-alpha.20220928.2 as example)
+And then add it to your POM file like this (using version 1.0.0-alpha.20220929.1 as example)
 ```xml
 <dependency>
 <groupId>com.azure</groupId>
 <artifactId>azure-communication-callautomation</artifactId>
-<version>1.0.0-alpha.20220928.2</version>
+<version>1.0.0-alpha.20220929.1</version>
 </dependency>
 ```
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Communication Services Call Automation API quickstart
+title: Build a customer interaction workflow using Call Automation
 titleSuffix: An Azure Communication Services quickstart document
 description: Quickstart on how to use Call Automation to answer a call, recognize DTMF input, and add a participant to a call.
 author: ashwinder
@@ -13,7 +13,7 @@ services: azure-communication-services
 zone_pivot_groups: acs-csharp-java
 ---
 
-# Answer a call, recognize DTMF input, then add a participant with the Call Automation SDK
+# Build a customer interaction workflow using Call Automation
 
 > [!IMPORTANT]
 > Functionality described on this document is currently in private preview. Private preview includes access to SDKs and documentation for testing purposes that are not yet available publicly. Apply to become an early adopter by filling out the form for [preview access to Azure Communication Services](https://aka.ms/ACS-EarlyAdopter).
@@ -23,10 +23,6 @@ In this quickstart, you'll learn how to build an application that uses the Azure
 - answering a call
 - playing an audio file
 - adding a communication user to the call such as a customer service agent who uses a web application built using Calling SDKs to connect to Azure Communication Services
-
-## Create Event Grid subscription for Incoming Call
-
-Follow [this how-to guide](../../../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md) to create your Event Grid subscription for the `IncomingCall` event.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Call flows for customer interactions with .NET](./includes/call-automation/Callflow-for-customer-interactions-csharp.md)]

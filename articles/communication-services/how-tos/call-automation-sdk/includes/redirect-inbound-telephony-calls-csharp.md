@@ -14,13 +14,14 @@ ms.author: askaur
 ## Prerequisites
 
 - An Azure account with an active subscription.
-- A deployed Communication Service resource.
+- A deployed [Communication Service resource](../../../quickstarts/create-communication-resource.md) and valid Connection String
 - [Acquire a PSTN phone number from the Communication Service resource](../../../quickstarts/telephony/get-phone-number.md).
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - A [web service application](/aspnet/core/web-api) to handle web hook callback events.
 - Optional: [NGROK application](https://ngrok.com/) to proxy HTTP/S requests to a local development machine.
 - The [ARMClient application](https://github.com/projectkudu/ARMClient), used to configure the Event Grid subscription.
 - Obtain the NuGet package from the [Azure SDK Dev Feed](https://github.com/Azure/azure-sdk-for-net/blob/main/CONTRIBUTING.md#nuget-package-dev-feed)
+- [An Event Grid subscription for Incoming Call](../../../../how-tos/call-automation-sdk/subscribe-to-incoming-call.md)
 
 ## Create a new C# application
 

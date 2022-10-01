@@ -28,7 +28,7 @@ Event Grid offers several choices for receiving events including Azure Functions
 ## Prerequisites
 
 - An Azure account with an active subscription.
-- A deployed Communication Service resource.
+- A deployed [Communication Service resource](../../quickstarts/create-communication-resource.md) and valid Connection String
 - The [ARMClient application](https://github.com/projectkudu/ARMClient), used to configure the Event Grid subscription.
 
 ## Configure an Event Grid subscription
@@ -69,3 +69,4 @@ Event Grid offers several choices for receiving events including Azure Functions
 ## Next steps
 > [!div class="nextstepaction"]
 > [Build a Call Automation application](../../quickstarts/voice-video-calling/callflows-for-customer-interactions.md)
+> [Redirect an inbound PSTN call](../../how-tos/call-automation-sdk/redirect-inbound-telephony-calls.md)
