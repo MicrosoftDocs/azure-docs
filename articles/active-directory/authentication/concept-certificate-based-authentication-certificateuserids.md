@@ -91,23 +91,6 @@ To update certificate user IDs for federated users, configure Azure AD Connect t
 
 1. Click **Transformations** > **Add transformation**. You may need to scroll down the list of transformations before you can create a new one. 
 
-   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/add-transformation.png" alt-text="Screenshot of how to add a transformation.":::
-
-1. Click **Target Attribute**, select **CertificateUserIds**, click **Source**, select **UserPrincipalName**, and then click **Save**. 
-
-   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/edit-rule.png" alt-text="Screenshot of how to save a rule.":::
-
-1. Click **OK** to confirm. 
-
-> [!NOTE]
-> Make sure you use the latest version of [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594). 
-
-## Complex transformation using sync rule expressions
-
-You can use declarative provisioning expressions in the Azure AD Connect Sync rule editor to manipulate values that are synchronized to Azure AD, or construct more complex values from multiple sources.  
-
-For more information about declarative provisioning expressions, see [Azure AD Connect: Declarative Provisioning Expressions](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions.md).
-
 ### Synchronize X509:\<PN>PrincipalNameValue
  
 To synchronize X509:\<PN>PrincipalNameValue, create an outbound synchronization rule, and choose **Expression** in the flow type. Choose the target attribute as \<certificateUserIds>, and in the source field, add the expression <"X509:\<PN>"&[userPrincipalName]>. If your source attribute isn't userPrincipalName, you can change the expression accordingly.
@@ -119,6 +102,19 @@ To synchronize X509:\<PN>PrincipalNameValue, create an outbound synchronization 
 To synchronize X509:\<RFC822>RFC822Name, create an outbound synchronization rule, choose **Expression** in the flow type. Choose the target attribute as \<certificateUserIds>, and in the source field, add the expression <"X509:\<RFC822>"&[userPrincipalName]>. If your source attribute isn't userPrincipalName, you can change the expression accordingly.  
 
 :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/rfc822expression.png" alt-text="Screenshot of how to sync RFC822Name.":::
+
+1. Click **Target Attribute**, select **CertificateUserIds**, click **Source**, select **UserPrincipalName**, and then click **Save**. 
+
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/edit-rule.png" alt-text="Screenshot of how to save a rule.":::
+
+1. Click **OK** to confirm. 
+
+> [!NOTE]
+> Make sure you use the latest version of [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594). 
+
+For more information about declarative provisioning expressions, see [Azure AD Connect: Declarative Provisioning Expressions](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions.md).
+
+
 
 ## Next steps
 
