@@ -198,7 +198,7 @@ The username binding policy helps validate the certificate of the user. By defau
 To determine how to configure username binding please look at the deep dive documentation at [How username binding works](concept-certificate-based-authentication-technical-deep-dive.md#understanding-the-username-binding-policy)
 
 >[!IMPORTANT]
->If a username binding policy uses synced attributes, such as onPremisesUserPrincipalName attribute of the user object, be aware that any user with administrative access to the Azure AD Connect server can change the sync attribute mapping, and in turn change the value of the synced attribute to their needs. The user does not need to be a cloud admin. 
+>If a username binding policy uses synced attributes, such as onPremisesUserPrincipalName attribute of the user object, be aware that any user with Active Directory Administrators privileges (inlcuding accounts with delegated administrative privilege over sync'd user accounts as well as administrative rights over the Azure AD Connect Servers) can make changes that impact the onPremisesUserPrincipalName value in Azure AD for any sync'd accounts). 
 
 1. Create the username binding by selecting one of the X.509 certificate fields to bind with one of the user attributes. The username binding order represents the priority level of the binding. The first one has the highest priority and so on.
 
