@@ -16,7 +16,7 @@ The job diagram in the Azure portal can help you visualize your job's query step
 There are two types of job diagrams: 
 
 * **Physical diagram**: it visualizes the key metrics of Stream Analytics job with the physical computation concept: streaming node dimension. A streaming node represents a set of compute resources that's used to process job's input data. To learn more details about the streaming node dimension, see [Azure Stream Analytics node name dimension](./stream-analytics-job-metrics-dimensions.md#node-name-dimension).
-* **Logical diagram**: it visualizes the key metrics of Stream Analytics job with the logical concept: query step based on job's queries. To learn more, see [Debugging with the job logical diagram (preview) in Azure portal](./stream-analytics-job-logical-diagram-with-metrics.md).
+* **Logical diagram**: it visualizes the key metrics of Stream Analytics job with the logical concept: query step based on job's queries. To learn more, see [Debugging with the logical job diagram (preview) in Azure portal](./stream-analytics-job-logical-diagram-with-metrics.md).
 
 This article describes the two types of job diagrams to guide you. 
 
@@ -67,7 +67,7 @@ To learn more about how to debug with physical diagram, see [Debugging with the 
 
 The logical job diagram has a similar layout to the physical diagram, with three sections, but it has different metrics and configuration settings.
 
-:::image type="content" source="./media/job-diagram-with-metrics/3-logical-diagram-overview.png" alt-text="Screenshot that shows job logical diagram sections."  lightbox="./media/job-diagram-with-metrics/3-logical-diagram-overview.png":::
+:::image type="content" source="./media/job-diagram-with-metrics/3-logical-diagram-overview.png" alt-text="Screenshot that shows logical job diagram sections."  lightbox="./media/job-diagram-with-metrics/3-logical-diagram-overview.png":::
 
 1. **Command bar section**: in logical diagram, you can operate the cloud job (Stop, Delete), and configure the time range of the job metrics. The diagram view is only available for logical diagrams.
 2. **Diagram section**: the node box in this selection represents the job's input, output, and query steps. You can view the metrics in the node directly or in the chart section interactively by clicking certain node in this section. For more information about the metrics definition, see [Azure Stream Analytics node name dimension](./stream-analytics-job-metrics-dimensions.md#node-name-dimension).
@@ -75,13 +75,13 @@ The logical job diagram has a similar layout to the physical diagram, with three
     * **Metrics**: job's metrics data is shown here when the corresponding metrics are selected in the right panel. 
     * **Activity Logs**: job's operations performed on jobs is shown here. When the job's diagnostic log is enabled, it's also shown here. To learn more about the job logs, see [Azure Stream Analytics job logs](./stream-analytics-job-diagnostic-logs.md).
 
-   When a job logical diagram is loaded, this job's metrics: Watermark delay, Input events, Output Events, and Backlogged Input Events are shown in the chart section for the latest 30 minutes.
+   When a logical job diagram is loaded, this job's metrics: Watermark delay, Input events, Output Events, and Backlogged Input Events are shown in the chart section for the latest 30 minutes.
 
 The interaction between **Diagram section** and **Chart section** is also available in logical diagram as well. The metrics data will be filtered by the node's properties.
 
 :::image type="content" source="./media/job-diagram-with-metrics/5-job-logical-diagram-node-selection.png" alt-text="Screenshot that shows job physical diagram overview."  lightbox="./media/job-diagram-with-metrics/5-job-logical-diagram-node-selection.png":::
 
-To learn more about how to debug with logical diagrams, see [Debugging with the job logical diagram (preview) in Azure portal](./stream-analytics-job-logical-diagram-with-metrics.md).
+To learn more about how to debug with logical diagrams, see [Debugging with the logical job diagram (preview) in Azure portal](./stream-analytics-job-logical-diagram-with-metrics.md).
 
 
 ## Next steps

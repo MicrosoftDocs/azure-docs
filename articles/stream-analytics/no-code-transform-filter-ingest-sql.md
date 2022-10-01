@@ -19,7 +19,7 @@ This article describes how you can use the no code editor to easily create a Str
 
 ## Develop a Stream Analytics job to transform event hub data and store to SQL database
 
-1. In the Azure portal, locate and select the Azure Event Hubs instance.
+1. In the [Azure portal](https://portal.azure.com), locate and select the Azure Event Hubs instance.
 1. Select **Features** > **Process Data** and then select **Start** on the **Transform and store data to SQL database** card.
   
     :::image type="content" source="./media/no-code-transform-filter-ingest-sql/event-hub-process-data-templates.png" alt-text="Screenshot showing the Filter and ingest to ADLS Gen2 card where you select Start." lightbox="./media/no-code-transform-filter-ingest-sql/event-hub-process-data-templates.png" :::
