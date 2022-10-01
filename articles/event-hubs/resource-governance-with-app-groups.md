@@ -2,7 +2,7 @@
 title: Govern resources for client applications with application groups
 description: Learn how to use application groups to govern resources for client applications that connect with Event Hubs. 
 ms.topic: how-to
-ms.date: 09/26/2022
+ms.date: 09/30/2022
 ms.custom: ignite-2022
 ---
 
@@ -47,7 +47,7 @@ You can create an application group using the Azure portal by following these st
 
     
               :::image type="content" source="./media/resource-governance-with-app-groups/add-app-group.png" alt-text="Screenshot of the Add application group page with Shared access policy option selected.":::
-        1. If you selected **AAD application**:
+      1. If you selected **AAD application**:
         1. For **AAD Application (client) ID**, specify the Azure Active Directory (Azure AD) application or client ID. 
         1.  Review the auto-generated **Client group ID**, which is the unique ID associated with the application group. You can update it if you like. The scope of application governance (namespace or entity level) would depend on the access level for the used Azure AD application ID.  
 
@@ -315,14 +315,14 @@ The following ARM template shows how to update an existing namespace (`contosona
 ```
 ---
 
-### Deciding threshold value for throttling policies 
+### Decide threshold value for throttling policies 
 
-Azure Event Hubs supports [runtime audit logs](monitor-event-hubs-reference.md#runtime-audit-logs) functionality to help you decide on a threshold value for your usual throughput and let application group throttle, in case the threshold value is crossed. You can follow these steps to find out threshold value: 
+Azure Event Hubs supports [runtime audit logs](monitor-event-hubs-reference.md#runtime-audit-logs) functionality to help you decide on a threshold value for your usual throughput to throttle the application group. You can follow these steps to find out threshold value to explore a good threshold value: 
 
-1. Turn on [diagnostic settings](monitor-event-hubs.md#collection-and-routing) in Event Hubs with runtime audit logs as selected category and choose Log Analytics as destination.  
+1. Turn on [diagnostic settings](monitor-event-hubs.md#collection-and-routing) in Event Hubs with **runtime audit logs** as selected category and choose **Log Analytics** as destination.  
 2. Create an empty application group without any throttling policy.  
 3. Continue sending messages/events to event hub at usual throughput. 
-4. Go to Log Analytics workspace and query for the right activity name (based on the metric ID) under AzureDIagnostics table. Below sample query is set to track threshold value for incoming messages:  
+4. Go to **Log Analytics workspace** and query for the right activity name (based on the metric ID) in **AzureDiagnostics** table. The following sample query is set to track threshold value for incoming messages:  
 
     ```kusto
     AzureDiagnostics 
@@ -333,8 +333,8 @@ Azure Event Hubs supports [runtime audit logs](monitor-event-hubs-reference.md#r
 
     :::image type="content" source="./media/resource-governance-with-app-groups/azure-monitor-logs.png" lightbox="./media/resource-governance-with-app-groups/azure-monitor-logs.png" alt-text="Screenshot of the Azure Monitor logs page in the Azure portal.":::
     
-    In this example, you can see that the usual throughput never crossed more than 550 messages (expected current throughput) and it could help with defining the actual threshold value.   
-6. Finalize a threshold value and finally add it as a throttling policy inside the application group. 
+    In this example, you can see that the usual throughput never crossed more than 550 messages (expected current throughput). This observation helps you define the actual threshold value.   
+6. Once you decide the best threshold value, add a new throttling policy inside the application group. 
 
 ## Publish or consume events 
 Once you successfully add throttling policies to the application group, you can test the throttling behavior by either publishing or consuming events using client applications that are part of the `contosoAppGroup` application group. To test, you can use either an [AMQP client](event-hubs-dotnet-standard-getstarted-send.md) or a [Kafka client](event-hubs-quickstart-kafka-enabled-event-hubs.md) application and same SAS policy name or Azure AD application ID that's used to create the application group. 
