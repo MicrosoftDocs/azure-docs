@@ -75,7 +75,7 @@ As shown in the example, the partitions (0 and 1) have more input data than othe
 
 ## Identify the cause of overloaded CPU or memory
 
-When a parallel job an increasing watermark delay without the previously mentioned data skew situation, it may be caused by a significant amount of data on all streaming nodes having. You can identify that the job has this characteristic using the physical diagram. 
+When a parallel job has an increasing watermark delay without the previously mentioned data skew situation, it may be caused by a significant amount of data across all streaming nodes that inhibits performance. You can identify that the job has this characteristic using the physical diagram. 
 
 1. Open the physical job diagram, go to your job Azure portal under **Monitoring**, select **Job diagram (preview)**, and switch to **Physical diagram**. You'll see the physical diagram loaded as below.
 
