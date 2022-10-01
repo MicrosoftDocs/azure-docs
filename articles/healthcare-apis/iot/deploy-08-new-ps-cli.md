@@ -11,7 +11,7 @@ ms.author: v-smcevoy
 
 # Using Azure PowerShell and Azure CLI to deploy the MedTech service with Azure Resource Manager templates
 
-In this quickstart article, you'll learn how to use Azure PowerShell and Azure CLI to deploy the MedTech service using an Azure Resource Manager (ARM) template. For more information about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md). Calling the template from PowerShell or CLI enables you to distribute your deployment to large number of developers. PowerShell and CLI provide modifiable automation capabilities that will speed up your deployment configuration more efficiently in enterprise environments.
+In this quickstart article, you'll learn how to use Azure PowerShell and Azure CLI to deploy the MedTech service using an Azure Resource Manager (ARM) template. For more information about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md). Calling the template from PowerShell or CLI provides automation that enables you to distribute your deployment to large numbers of developers. Using PowerShell and CLI allows for modifiable automation capabilities that will speed up your deployment configuration more efficiently in enterprise environments.
 
 The ARM template used in this article is available from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/iotconnectors/) site using the **azuredeploy.json** file located on [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/azuredeploy.json).
 
@@ -20,8 +20,8 @@ The ARM template used in this article is available from the [Azure Quickstart Te
 The ARM template will help you automatically configure and deploy the following resources. Each one can be modified to meet your deployment requirements.
 
 - Azure Event Hubs namespace and device message event hub (the device message event hub is named: **devicedata**).
-- Azure event hub consumer group (the consumer group is named: **$Default**).
-- Azure event hub sender role (the sender role is named: **devicedatasender**).
+- Azure event hub consumer group  (named **$Default**).
+- Azure event hub sender role (named **devicedatasender**).
 - Azure Health Data Services workspace.
 - Azure Health Data Services Fast Healthcare Interoperability Resources (FHIR&#174;) service.
 - Azure Health Data Services MedTech service. This includes setup for:
@@ -53,13 +53,9 @@ You need to have the following prerequisites if you are using Azure CLI:
 
 Complete the following five steps to deploy the MedTech service using Azure PowerShell:
 
-1. First you need to confirm the region you want to deploy in:
+1. First you need to confirm the region you want to deploy in. See the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=health-data-services) site for the current Azure regions where the Azure Health Data Services is supported.
 
-   See the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=health-data-services) site for the current Azure regions where the Azure Health Data Services is supported.
-
-   You can also review the **location** section of the **azuredeploy.json** file on [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/azuredeploy.json) for Azure regions where the Azure Health Data Services is publicly available.
-
-   If you need a list of the Azure regions location names, you can use this code to display a list:
+   You can also review the **location** section of the **azuredeploy.json** file on [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/azuredeploy.json) for Azure regions where the Azure Health Data Services is publicly available. If you need a list of the Azure regions location names, you can use this code to display a list:
 
    ```azurepowershell
    Get-AzLocation | Format-Table -Property DisplayName,Location
@@ -104,13 +100,9 @@ Complete the following five steps to deploy the MedTech service using Azure Powe
 
 Complete the following five steps to deploy the MedTech service using Azure CLI:
 
-1. First you need to confirm the region you want to deploy in:
+1. First you need to confirm the region you want to deploy in. See the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=health-data-services) site for the current Azure regions where the Azure Health Data Services is supported.
 
-   See the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=health-data-services) site for the current Azure regions where the Azure Health Data Services is supported.
-
-   You can also review the **location** section of the **azuredeploy.json** file on [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/azuredeploy.json) for Azure regions where the Azure Health Data Services is publicly available.
-
-   If you need a list of the Azure regions location names, you can use this code to display a list:
+   You can also review the **location** section of the **azuredeploy.json** file on [GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.healthcareapis/workspaces/iotconnectors/azuredeploy.json) for Azure regions where the Azure Health Data Services is publicly available. If you need a list of the Azure regions location names, you can use this code to display a list:
 
    ```azurecli
    az account list-locations -o table
@@ -157,7 +149,7 @@ The deployment takes a few minutes to complete. You can check the status of your
 
 ## Post-deployment mapping
 
-After a successful deployment of the MedTech service, you still need to provide valid device mapping and FHIR destination mapping. The device mapping will connect the device message event hub to MedTech service and the FHIR destination mapping will connect FHIR service to MedTech service.Because of this need, you must perform these two post-deployment steps or the MedTech service can't read device data from the device message event hub, and it also can't read or write to the FHIR service. 
+After you successfully deploy the MedTech service, you still need to provide valid device mapping and FHIR destination mapping. The device mapping will connect the device message event hub to MedTech service and the FHIR destination mapping will connect FHIR service to MedTech service. Because of this need, you must perform these two post-deployment steps or the MedTech service can't read device data from the device message event hub, and it also can't read or write to the FHIR service. 
 
 To learn more about providing device mapping, see [How to use device mappings](how-to-use-device-mappings.md).
 
@@ -193,5 +185,11 @@ In this article, you learned how to use Azure PowerShell and Azure CLI to deploy
 
 >[!div class="nextstepaction"]
 >[Choosing a method of deployment for MedTech service in Azure](deploy-iot-connector-in-azure.md)
+
+>[!div class="nextstepaction"]
+>[How to deploy the MedTech service with a Azure ARM QuickStart template](deploy-03-new-manual.md)
+
+>[!div class="nextstepaction"]
+>[How to manually deploy MedTech service with Azure portal](deploy-03-new-manual.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
