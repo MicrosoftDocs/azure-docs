@@ -108,3 +108,9 @@ Use the following steps to create a private endpoint for an existing Microsoft E
 18.	When the Microsoft Energy Data Services and vnet are in different tenants or subscriptions, you will be required to **Approve** or **Reject** the **Private Endpoint** creation request. 
 
 [![Screenshot of private link showing approve or reject option](media/how-to-manage-private-links/pvtlink-10awaitingapproval.png)](media/how-to-manage-private-links/pvtlink-10awaitingapproval.png#lightbox)
+
+
+## Next steps
+<!-- Add a context sentence for the following links -->
+> [!div class="nextstepaction"]
+> [How to set up private links](how-to-manage-data-security-and-encryption.md)
