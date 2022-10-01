@@ -149,7 +149,7 @@ code: src
 inputs:
   sampledata:
     type: <type> # uri_file, uri_folder, mltable
-    path: azureml:<data_name>@latest
+    path: azureml:<data_name>:latest
 environment: azureml:<environment_name>@latest
 compute: azureml:<compute_name>
 ```
