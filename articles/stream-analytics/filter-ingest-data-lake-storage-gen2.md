@@ -6,7 +6,7 @@ ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
 ms.custom: mvc, event-tier1-build-2022
-ms.date: 05/24/2022
+ms.date: 10/12/2022
 ---
 
 # Filter and ingest to Azure Data Lake Storage Gen2 using the Stream Analytics no code editor
