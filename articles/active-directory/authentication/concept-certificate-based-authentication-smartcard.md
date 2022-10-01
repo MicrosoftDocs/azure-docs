@@ -41,10 +41,25 @@ Users will get a primary refresh token (PRT) from Azure AD after the successful 
 |First sign-in | Pull from certificate | Pull from certificate |
 |Subsequent sign-in | Pull from certificate | Cached Azure AD UPN |
 
-More information of "Pull from certificate" logic is explained at [Certificate Requirements and Enumeration (Windows)](/windows/security/identity-protection/smart-cards/smart-card-certificate-requirements-and-enumeration)
+** Windows rules for sending UPN for Azure AD join machines**
+
+Windows will follow the order below to find the UPN value from the certificate
+1. SAN Principal Name 
+1. SAN RFC822 Name 
+1. user must enter the username login hint
+
+If there is no UPN in the certificate or if subject has E=xx or CN=xx, the entire value is sent which will not work so the user must enter the X509UserNameHint i.e  username login hint.
+
+** Windows rules for sending UPN for Hybrid Azure AD join machines**
+
+Once AD login is successful, the AD UPN will be sent as the UPN to Azure AD. 
+If the mapping uses a non-routable UPN (user@woodgrove.local) then Azure AD is able to locate the user's tenant via the domain hint supplied and the user in the tenant is found by matching against the user's **onPremisesUserPrincipalName** attribute.
+The user's Azure AD UPN is cached and sent in subsequent sign-ins.
 
 > [!NOTE]
 > In all cases, a user supplied User Name Hint (x509Hint) will be sent if provided. For a cloud-only user on a device joined to Azure AD with a certificate that contains a non-routable value, the user must pass the User Name Hint (x509Hint).
+
+More information on the flow can be found at [Certificate Requirements and Enumeration (Windows)](/windows/security/identity-protection/smart-cards/smart-card-certificate-requirements-and-enumeration)
 
 ## Supported platforms
 
@@ -57,8 +72,8 @@ The Windows smart card sign-in works with the latest preview build of Windows 11
 
 ## Restrictions and caveats  
 
-- Only Windows machines that are joined to either Azure AD or a hybrid environment can test smart card logon.  
-- As in the other Azure AD CBA scenarios, the user must be in a managed domain or using Staged Rollout and can't use a federated authentication model.
+- Azure AD CBA is supported on Windows Hybrid or Azure AD Joined.  
+- User must be in a managed domain or using Staged Rollout and can't use a federated authentication model.
 
 ## Next steps
 
