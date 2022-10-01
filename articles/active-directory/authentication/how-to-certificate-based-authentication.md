@@ -204,23 +204,10 @@ To determine how to configure username binding please look at the deep dive docu
 
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/username-binding-policy.png" alt-text="Screenshot of a username binding policy.":::
 
-   If the specified X.509 certificate field is found on the certificate, but Azure AD doesn’t find a user object using that value, the authentication fails. Azure AD doesn’t try the next binding in the list.
+   If the specified X.509 certificate field is found on the certificate, but Azure AD doesn’t find a user object using that value, the authentication fails. Azure AD will fallback and try the next binding in the list.
 
-   The next priority is attempted only if the X.509 certificate field is not in the certificate.
 
 1. Click **Save** to save the changes. 
-
-Currently supported set of username bindings:
-
-- SAN Principal Name > userPrincipalName
-- SAN Principal Name > onPremisesUserPrincipalName
-- SAN RFC822Name > userPrincipalName
-- SAN RFC822Name > onPremisesUserPrincipalName
-- SubjectKeyIdentifier > certificateUserIds
-- SHA1PublicKey > certificateUserIds
-
->[!NOTE]
->If the RFC822Name binding is evaluated and if no RFC822Name is specified in the certificate Subject Alternative Name, we will fall back on legacy Subject Name "E=user@woodgrove.com" if no RFC822Name is specified in the certificate we will fall back on legacy Subject Name E=user@woodgrove.com.
 
 The final configuration will look like this image:
 
