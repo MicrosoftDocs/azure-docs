@@ -48,8 +48,8 @@ You can create an application group using the Azure portal by following these st
     
               :::image type="content" source="./media/resource-governance-with-app-groups/add-app-group.png" alt-text="Screenshot of the Add application group page with Shared access policy option selected.":::
       1. If you selected **AAD application**:
-        1. For **AAD Application (client) ID**, specify the Azure Active Directory (Azure AD) application or client ID. 
-        1.  Review the auto-generated **Client group ID**, which is the unique ID associated with the application group. You can update it if you like. The scope of application governance (namespace or entity level) would depend on the access level for the used Azure AD application ID.  
+          1. For **AAD Application (client) ID**, specify the Azure Active Directory (Azure AD) application or client ID. 
+          1. Review the auto-generated **Client group ID**, which is the unique ID associated with the application group. You can update it if you like. The scope of application governance (namespace or entity level) would depend on the access level for the used Azure AD application ID.  
 
             :::image type="content" source="./media/resource-governance-with-app-groups/add-app-group-active-directory.png" alt-text="Screenshot of the Add application group page with Azure AD option.":::
     1. To add a policy, follow these steps:
