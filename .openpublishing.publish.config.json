@@ -955,6 +955,12 @@
       "url": "https://github.com/Azure-Samples/cosmos-db-mongodb-api-dotnet-samples",
       "branch": "main",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "reusable-content",
+      "url": "https://github.com/MicrosoftDocs/reusable-content",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {

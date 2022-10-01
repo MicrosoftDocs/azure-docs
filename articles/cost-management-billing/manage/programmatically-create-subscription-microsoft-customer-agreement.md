@@ -5,7 +5,7 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/01/2021
+ms.date: 08/22/2022
 ms.reviewer: andalmia
 ms.author: banders 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -16,6 +16,8 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 This article helps you programmatically create Azure subscriptions for a Microsoft Customer Agreement using the most recent API versions. If you are still using the older preview version, see [Programmatically create Azure subscriptions with legacy APIs](programmatically-create-subscription-preview.md). 
 
 In this article, you learn how to create subscriptions programmatically using Azure Resource Manager.
+
+If you need to create an Azure MCA subscription across Azure Active Directory tenants, see [Programmatically create MCA subscriptions across Azure Active Directory tenants](programmatically-create-subscription-microsoft-customer-agreement-across-tenants.md).
 
 When you create an Azure subscription programmatically, that subscription is governed by the agreement under which you obtained Azure services from Microsoft or an authorized reseller. For more information, see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
 

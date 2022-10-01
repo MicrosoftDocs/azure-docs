@@ -53,6 +53,8 @@
       href: tutorial-query-sql-api.md
     - name: Spring Boot app on Azure Kubernetes Service
       href: tutorial-springboot-azure-kubernetes-service.md
+    - name: Create Jupyter notebooks
+      href: ../sql/tutorial-create-notebook.md
 - name: Samples
   items:
     - name: .NET
@@ -374,6 +376,12 @@
           href: ../cosmos-db-reserved-capacity.md
         - name: Optimize using rate limiting
           href: ../rate-limiting-requests.md
+    - name: Jupyter notebooks
+      items:
+        - name: Overview
+          href: ../notebooks-overview.md
+        - name: FAQ
+          href: ../notebooks-faq.yml
 - name: How to
   items:
     - name: Access preview features
