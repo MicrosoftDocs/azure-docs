@@ -48,7 +48,7 @@ This section contains an example of what that data would look like for each even
 ```
 
 > [!NOTE]
-> Possible values for `DeliveryStatus` are `Delivered` and `Failed`.  
+> Possible values for `Status` are `Delivered`, `Expanded` and `Failed`.
 
 ### Microsoft.Communication.EmailEngagementTrackingReportReceived event
 
@@ -71,3 +71,6 @@ This section contains an example of what that data would look like for each even
   "eventTime": "2022-09-06T22:34:52.1303612Z"
 }]
 ```
+
+> [!NOTE]
+> Possible values for `engagementType` are `View`, and `Click`. When the `engagementType` is  `Click`, `engagementContext` is the link in the Email sent which was clicked.
