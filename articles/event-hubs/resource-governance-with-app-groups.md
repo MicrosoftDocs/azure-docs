@@ -2,7 +2,7 @@
 title: Govern resources for client applications with application groups
 description: Learn how to use application groups to govern resources for client applications that connect with Event Hubs. 
 ms.topic: how-to
-ms.date: 09/30/2022
+ms.date: 10/12/2022
 ms.custom: ignite-2022
 ---
 
