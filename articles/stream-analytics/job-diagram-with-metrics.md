@@ -20,6 +20,10 @@ There are two types of job diagrams:
 
 This article describes the two types of job diagrams to guide you. 
 
+> [!IMPORTANT]
+> This feature is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Use the job diagram
 
 In the Azure portal, locate and select a Stream Analytics job. Then select **Job diagram (preview)** under **Developer tools**: 

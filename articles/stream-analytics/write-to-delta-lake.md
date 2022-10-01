@@ -56,9 +56,9 @@ Examples for Delta path name:
 
 Example output files:
 
-1. Under the chosen container, directory path would be WestEurope/CA/factory1, delta table folder name would be device-table.
-2. Under the chosen container, directory path would be Test, delta table folder name would be demo.
-3. Under the chosen container, delta table folder name would be mytable.
+1. Under the chosen container, directory path would be `WestEurope/CA/factory1`, delta table folder name would be **device-table**.
+2. Under the chosen container, directory path would be `Test`, delta table folder name would be **demo**.
+3. Under the chosen container, delta table folder name would be **mytable**.
 
 ## Writing to the table
 
