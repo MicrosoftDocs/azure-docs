@@ -265,7 +265,7 @@ The version of the Functions runtime that hosts your function app. A tilde (`~`)
 
 |Key|Sample value|
 |---|------------|
-|FUNCTIONS\_EXTENSION\_VERSION|`~3`|
+|FUNCTIONS\_EXTENSION\_VERSION|`~4`|
 
 The following major runtime version values are supported:
 
@@ -283,7 +283,7 @@ This setting enables your function app to run in a version 2.x compatible mode o
 >[!IMPORTANT]
 > This setting is intended only as a short-term workaround while you update your app to run correctly on version 3.x. This setting is supported as long as the [2.x runtime is supported](functions-versions.md). If you encounter issues that prevent your app from running on version 3.x without using this setting, please [report your issue](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md).
 
-Requires that [FUNCTIONS\_EXTENSION\_VERSION](functions-app-settings.md#functions_extension_version) be set to `~3`.
+Requires that [FUNCTIONS\_EXTENSION\_VERSION](#functions_extension_version) be set to `~3`.
 
 |Key|Sample value|
 |---|------------|
@@ -568,13 +568,47 @@ Indicates whether all outbound traffic from the app is routed through the virtua
 
 ## App Service site settings
 
-Some configurations must be set at the App Service level as site settings, such as language versions. These settings are usually set in the portal, by using REST APIs, or by using Azure CLI or Azure PowerShell. The following are site settings that could be required, depending on your runtime language, OS, and versions: 
+Some configurations must be maintained at the App Service level as site settings, such as language versions. These settings are usually set in the portal, by using REST APIs, or by using Azure CLI or Azure PowerShell. The following are site settings that could be required, depending on your runtime language, OS, and versions: 
 
-| Site setting | Description |
-| --- | --- |
-| linuxFxVersion | Sets the specific base container image (language and version) used when running on Linux. Use the following Azure CLI command to see a table of currently supported `linuxFxVersion` values:<br><pre>`az functionapp list-runtimes --os linux --query "[].{stack:join(' ', [runtime, version]), LinuxFxVersion:linux_fx_version, SupportedFunctionsVersions:to_string(supported_functions_versions[])}" --output table`</pre></br>This command requires you to upgrade to version 2.40 of the Azure CLI.  |
-| netFrameworkVersion | Sets the specific version of .NET for C# functions. For more information, see [Migrating from 3.x to 4.x](functions-versions.md#migrating-from-3x-to-4x). |
-| powerShellVersion | Sets the specific version of PowerShell on which your functions run. For more information, see [Changing the PowerShell version](functions-reference-powershell.md#changing-the-powershell-version). When running locally, you instead use the [`FUNCTIONS_WORKER_RUNTIME_VERSION`](functions-reference-powershell.md#running-local-on-a-specific-version) setting in the local.settings.json file. |
+### linuxFxVersion 
+
+For function apps running on Linux, indicates the language and version for the language-specific worker process. This information is used, along with [`FUNCTIONS_EXTENSION_VERSION`](#functions_extension_version), to determine which specific Linux container image is installed to run your function app. 
+
+This value is set for you when you create your Linux function app. You can use the following Azure CLI command to see a table of current `linuxFxVersion` values, by supported Functions runtime version:
+
+```azurecli-interactive
+az functionapp list-runtimes --os linux --query "[].{stack:join(' ', [runtime, version]), LinuxFxVersion:linux_fx_version, SupportedFunctionsVersions:to_string(supported_functions_versions[])}" --output table
+```
+
+The previous command requires you to upgrade to version 2.40 of the Azure CLI.  
+
+For a custom container deployment, the `linuxFxVersion` setting contains the URI of the function app container image you are deploying in the format `DOCKER|<BASE_IMAGE_URI>`, as shown in the following example:
+
+```
+linuxFxVersion = "DOCKER|mcr.microsoft.com/azure-functions/node:4-node18-appservice"
+```
+
+This example targets the base image for Functions 4.x with Node.js 18 installed, which is equivalent to using the values `Node|18` for `linuxFxVersion` and `~4` for `FUNCTIONS_EXTENSION_VERSION`. 
+
+When you create and maintain your own custom linux container for your function app, the `linuxFxVersion` value is also in the format `DOCKER|<IMAGE_URI>`, as in the following example:
+
+```
+linuxFxVersion = "DOCKER|contoso.com/azurefunctionsimage:v1.0.0"
+```
+
+For more information, see [Create a function on Linux using a custom container](functions-create-function-linux-custom-image.md). 
+
+When using custom images, you are required to keep the base image of your container updated to the latest supported base image. Supported base images for Azure Functions are found in the [Azure Functions base images repo](https://hub.docker.com/_/microsoft-azure-functions-base).
+
+### netFrameworkVersion
+
+Sets the specific version of .NET for C# functions. For more information, see [Migrating from 3.x to 4.x](functions-versions.md#migrating-from-3x-to-4x). 
+
+### powerShellVersion 
+
+Sets the specific version of PowerShell on which your functions run. For more information, see [Changing the PowerShell version](functions-reference-powershell.md#changing-the-powershell-version). 
+
+When running locally, you instead use the [`FUNCTIONS_WORKER_RUNTIME_VERSION`](functions-reference-powershell.md#running-local-on-a-specific-version) setting in the local.settings.json file. |
 
 ## Next steps
 
