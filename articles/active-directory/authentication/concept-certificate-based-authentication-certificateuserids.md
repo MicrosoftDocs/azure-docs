@@ -32,6 +32,14 @@ The values stored in **certificateUserIds** should be in the format described in
 |RFC822Name	| “X509:\<RFC822>user@woodgrove.com” |
 |X509SKI | “X509:\<SKI>123456789abcdef”|
 |X509SHA1PublicKey |“X509:\<SHA1-PUKEY>123456789abcdef” |
+
+## Roles to update certificateUserIds
+
+For cloud only users, only users with roles **Global Administrators**, **Privileged Authentication Administrator** can write into certificateUserIds.
+For sync'd users, AD users with role **Hybrid Identity Administrator** can write into the attribute.
+
+>[!NOTE]
+>Active Directory Administrators (including accounts with delegated administrative privilege over sync'd user accounts as well as administrative rights over the Azure >AD Connect Servers) can make changes that impact the certificateUserIds value in Azure AD for any sync'd accounts.
  
 ## Update certificate user IDs in the Azure portal
  
