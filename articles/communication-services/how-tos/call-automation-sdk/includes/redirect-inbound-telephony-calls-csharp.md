@@ -1,6 +1,6 @@
 ---
 title: include file
-description: C# call automation how-to for PSTN calls
+description: C# call automation how-to for redirecting inbound PSTN calls
 services: azure-communication-services
 author: ashwinder
 ms.service: azure-communication-services

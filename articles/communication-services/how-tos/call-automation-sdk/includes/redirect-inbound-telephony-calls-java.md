@@ -1,6 +1,6 @@
 ---
 title: include file
-description: Java Call Automation how-to for PSTN calls
+description: Java Call Automation how-to for redirecting inbound PSTN calls
 services: azure-communication-services
 author: ashwinder
 ms.service: azure-communication-services

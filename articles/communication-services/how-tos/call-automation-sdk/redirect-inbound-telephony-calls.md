@@ -1,5 +1,5 @@
 ---
-title: Azure Communication Services Call Automation how-to for PSTN calls
+title: Azure Communication Services Call Automation how-to for redirecting inbound PSTN calls
 titleSuffix: An Azure Communication Services how-to document
 description: Provides a how-to for redirecting inbound telephony calls with Call Automation.
 author: ashwinder
