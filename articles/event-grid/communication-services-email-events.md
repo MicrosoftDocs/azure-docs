@@ -73,4 +73,4 @@ This section contains an example of what that data would look like for each even
 ```
 
 > [!NOTE]
-> Possible values for `engagementType` are `View`, and `Click`. When the `engagementType` is  `Click`, `engagementContext` is the link in the Email sent which was clicked.
+> Possible values for `engagementType` are `View`, and `Click`. When the `engagementType` is `Click`, `engagementContext` is the link in the Email sent which was clicked.
