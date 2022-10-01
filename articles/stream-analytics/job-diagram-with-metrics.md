@@ -13,13 +13,14 @@ ms.date: 10/12/2022
 
 The job diagram in the Azure portal can help you visualize your job's query steps (logical concept) or streaming node (physical concept) with its input source, output destination, and metrics. You can use the job diagram to examine the metrics for each step or streaming node and quickly identify the source of a problem when you troubleshoot issues.
 
-Job diagram has two types: 
+There are two types of job diagrams: 
+
 * **Physical diagram**: it visualizes the key metrics of Stream Analytics job with the physical computation concept: streaming node dimension. A streaming node represents a set of compute resources that's used to process job's input data. To learn more details about the streaming node dimension, see [Azure Stream Analytics node name dimension](./stream-analytics-job-metrics-dimensions.md#node-name-dimension).
 * **Logical diagram**: it visualizes the key metrics of Stream Analytics job with the logical concept: query step based on job's queries. To learn more, see [Debugging with the job logical diagram (preview) in Azure portal](./stream-analytics-job-logical-diagram-with-metrics.md).
 
-This article describes the two types of job diagram that can be used for your guide.
+This article describes the two types of job diagrams to guide you. 
 
-## Using the job diagram
+## Use the job diagram
 
 In the Azure portal, locate and select a Stream Analytics job. Then select **Job diagram (preview)** under **Developer tools**: 
 
@@ -29,9 +30,9 @@ In the top left corner, you can switch the two types of job diagram by clicking 
 
 :::image type="content" source="./media/job-diagram-with-metrics/2-diagram-switcher.png" alt-text="Screenshot that shows job diagram switcher."  lightbox="./media/job-diagram-with-metrics/2-diagram-switcher.png":::
 
-## Job physical diagram
+## Physical job diagram
 
-The following screenshot shows a job physical diagram with a default time period (last 30 minutes).
+The following screenshot shows a physical job diagram with a default time period (last 30 minutes).
 
 :::image type="content" source="./media/job-diagram-with-metrics/3-physical-diagram-sections.png" alt-text="Screenshot that shows job physical diagram sections." lightbox="./media/job-diagram-with-metrics/3-physical-diagram-sections.png":::
 
@@ -62,9 +63,9 @@ The **Diagram/Table section** and **Chart section** can be interactive with each
 To learn more about how to debug with physical diagram, see [Debugging with the job physical diagram (preview) in Azure portal](./stream-analytics-job-physical-diagram-with-metrics.md).
 
 
-## Job logical diagram
+## Logical job diagram
 
-The job logical diagram has the similar layout to the physical diagram that also has the three sections as well, but with different metrics and configuration settings.
+The logical job diagram has a similar layout to the physical diagram, with three sections, but it has different metrics and configuration settings.
 
 :::image type="content" source="./media/job-diagram-with-metrics/3-logical-diagram-overview.png" alt-text="Screenshot that shows job logical diagram sections."  lightbox="./media/job-diagram-with-metrics/3-logical-diagram-overview.png":::
 

@@ -5,7 +5,7 @@ author: alexlzx
 ms.author: zhenxilin
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 09/22/2022
+ms.date: 10/12/2022
 ---
 
 # Optimize query using job diagram simulator
