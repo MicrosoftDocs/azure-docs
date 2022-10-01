@@ -231,9 +231,9 @@
       href: enable-message-sessions.md
     - name: Enable duplicate detection for a queue or topic
       href: enable-duplicate-detection.md
-    - name: Enable partitions for entities in basic or standard tier
+    - name: Enable partitions (basic / standard)
       href: enable-partitions-basic-standard.md
-    - name: Enable partitions for entities in premium tier
+    - name: Enable partitions (premium tier)
       href: enable-partitions-premium.md
     - name: Enable auto forwarding for a queue or subscription
       href: enable-auto-forward.md
