@@ -1,5 +1,5 @@
 ---
-title: Debugging with the physical job diagram (preview) in Azure portal
+title: Debug using the physical job diagram (preview) in Azure portal
 description: This article describes how to troubleshoot your Azure Stream Analytics job with physical job diagram and metrics in the Azure portal.
 titleSuffix: Azure Stream Analytics
 author: xujxu
@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 10/12/2022
 ---
 
-# Debugging with the physical job diagram (preview) in Azure portal
+# Debug using the physical job diagram (preview) in Azure portal
 
 The physical job diagram in the Azure portal can help you visualize your job's key metrics with streaming node in diagram or table format, for example: CPU utilization, memory utilization, Input Events, Partition IDs, and Watermark delay. It helps you to identify the cause of a problem when you troubleshoot issues.
 
