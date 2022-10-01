@@ -205,7 +205,7 @@ Specialized or made up words might have unique pronunciations. These words can b
 You can provide a custom pronunciation file to improve recognition. Don't use custom pronunciation files to alter the pronunciation of common words. For a list of languages that support custom pronunciation, see [language support](language-support.md?tabs=stt-tts).
 
 > [!NOTE]
-> You can either use a pronunciation data file on its own, or you can add pronunciation within a structured text data file. The Speech service doesn't support training a model where you select both of those datasets as input. 
+> You can either use a pronunciation data file together with audio+ Transcript or plain text datasets while training. However, the Speech service doesn't support training a model where you select pronunciation data file along with structured test file but you can add pronunciation within the structured text data file. 
 
 The spoken form is the phonetic sequence spelled out. It can be composed of letters, words, syllables, or a combination of all three. This table includes some examples:
 
