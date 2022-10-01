@@ -6,7 +6,7 @@ author: jammart
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 09/29/2022
+ms.date: 10/01/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
@@ -52,7 +52,7 @@ lsb_release -a
 
 If there are no binaries available for your distribution, you can [build the binaries from source code](https://github.com/MicrosoftDocs/azure-docs-pr/pull/203174#option-2-build-from-source).
 
-#### Install the BlobFuse2 binaries
+#### Install the BlobFuse2 binariesFstream
 
 To install BlobFuse2:
 
@@ -134,15 +134,15 @@ BlobFuse2 provides native-like performance by using local file-caching technique
 
 #### Configure caching for streaming large files
 
-BlobFuse2 supports read- and write-streaming as an alternative to disk caching for large files. In streaming mode, BlobFuse2 caches blocks of large files in memory for both reading and writing. The configuration settings related to caching for streaming are under the `stream:` settings in your configuration file as follows:
+BlobFuse2 supports read- and write-streaming as an alternative to disk caching for files. In streaming mode, BlobFuse2 caches blocks of large files in memory for both reading and writing. The configuration settings related to caching for streaming are under the `stream:` settings in your configuration file as follows:
 
 ```yml
 stream:
-    Block-size-mb:
+    block-size-mb:
         For read only mode, the size of each block to be cached in memory while streaming (in MB)
         For read/write mode: the size of newly created blocks
-    Max-buffers: The total number of buffers to store blocks in
-    Buffer-size-mb: The size for each buffer
+    max-buffers: The total number of buffers to store blocks in
+    buffer-size-mb: The size for each buffer
 ```
 
 See [the sample streaming configuration file](https://github.com/Azure/azure-storage-fuse/blob/main/sampleStreamingConfig.yaml) to get started quickly with some settings for a basic streaming scenario.
