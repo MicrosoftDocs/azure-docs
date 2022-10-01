@@ -76,6 +76,22 @@ Now we'll walk through each step:
 
 The authentication binding policy helps determine the strength of authentication as either single-factor or multi-factor. An administrator can change the default value from single factor to multifactor or set up custom policy configurations either by issuer subject or policy OID fields in the certificate.
 
+** Certificate strengths **
+
+An admin can determine whether the certificates are single-factor or multi-factor strength. More information can be found at the documentation that maps [NIST Authentication Assurance Levels to Azure AD Auth Methods](https://aka.ms/AzureADNISTAAL) which builds off NIST 800-63B SP 800-63B, Digital Identity Guidelines: Authentication and Lifecycle Mgmt | CSRC (nist.gov)
+
+** Single-factor certificatre authentication **
+
+When a user has a single factor certificate, they will not be able to do Multifactor authentication. There is no support for a second factor when the first factor is single factor certificates. We are working on adding support for second factors soon.
+
+      :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/mfa-notallowed.png" alt-text="Screenshot of the revoked user certificate in the CRL." :::  
+
+** Multifactor certificate authentication **
+
+When a user has a multi-factor certificate, they will be able to do Multifactor authentication just with certificates. However, the tenant admin should make sure the certificates are protected with a PIN or hardware module to be considered multi factor.
+
+** How does Azure AD resolve multiple authentication policy binding rules? **
+
 Since multiple authentication binding policy rules can be created with different certificate fields, there are some rules that determine the authentication protection level. They are as follows:
 
 1. Exact match is used for strong authentication via policy OID. If you have a certificate A with policy OID **1.2.3.4.5** and a derived credential B based on that certificate has a policy OID **1.2.3.4.5.6** and the custom rule is defined as **Policy OID** with value **1.2.3.4.5** with MFA, only certificate A will satisfy MFA and credential B will satisfy only single-factor authentication. If the user used derived credential during sign-in and was configured to have MFA, the user will be asked for a second factor for successful authentication.
@@ -91,7 +107,18 @@ The username binding policy helps validate the certificate of the user. By defau
 
 An administrator can override the default and create a custom mapping. Currently, we support two certificate fields SAN Principal Name and SAN RFC822Name to map against the user object attribute userPrincipalName and onPremisesUserPrincipalName.
 
-**Rules applied for user bindings:**
+**Certificate bindings**
+
+There are four supported values for this attribute, with two mappings considered low-affinity (insecure) and the other two considered high-affinity binding. In general, mapping types are considered high-affinity if they are based on identifiers that you cannot reuse. Therefore, all mapping types based on usernames and email addresses are considered low-affinity.
+
+|Certificate mapping Field | Examples of values in CertificateUserIds | User object attributes | Type | 
+|--------------------------|--------------------------------------|------------------------|----------|
+|PrincipalName | “X509:\<PN>bob@woodgrove.com” | userPrincipalName <br> onPremisesUserPrincipalName <br> certificateUserIds | low-affinity |
+|RFC822Name	| “X509:\<RFC822>user@woodgrove.com” | userPrincipalName <br> onPremisesUserPrincipalName <br> certificateUserIds | low-affinity |
+|X509SKI | “X509:\<SKI>123456789abcdef”| certificateUserIds | high-affinity |
+|X509SHA1PublicKey |“X509:\<SHA1-PUKEY>123456789abcdef” | certificateUserIds | high-affinity |
+
+**How does Azure AD resolve multiple username policy binding rules?**
 
 Use the highest priority (lowest number) binding.
 
