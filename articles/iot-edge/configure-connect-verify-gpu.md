@@ -233,4 +233,4 @@ az group list
 
 ## Next steps
 
-This article helped you set up your virtual machine and IoT Edge device to be GPU-accelerated. To run an application with a similar setup, try the learning path for [NVIDIA DeepStream development with Microsoft Azure](/learn/paths/nvidia-deepstream-development-with-microsoft-azure/?WT.mc_id=iot-47680-cxa). The Learn tutorial shows you how to develop optimized Intelligent Video Applications that can consume multiple video, image, and audio sources.
+This article helped you set up your virtual machine and IoT Edge device to be GPU-accelerated. To run an application with a similar setup, try the learning path for [NVIDIA DeepStream development with Microsoft Azure](/training/paths/nvidia-deepstream-development-with-microsoft-azure/?WT.mc_id=iot-47680-cxa). The Learn tutorial shows you how to develop optimized Intelligent Video Applications that can consume multiple video, image, and audio sources.

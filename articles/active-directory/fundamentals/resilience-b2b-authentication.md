@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 08/19/2022
+ms.date: 09/13/2022
 ms.author: jricketts
 ms.reviewer: ajburnle
 ms.custom: "it-pro, seodec18"

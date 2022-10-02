@@ -25,8 +25,8 @@ The following reference document provides an overview of a workflow created usin
 
 |Parameter  |Display String  |Description  |Admin Consent Required  |
 |---------|---------|---------|---------|
-|LifecycleWorkflows.Read.All     | Read all Lifecycle workflows, tasks, user states| Allows the app to list and read all workflows, tasks, user states related to lifecycle workflows on behalf of the signed-in user.| Yes
-|LifecycleWorkflows.ReadWrite.All     | Read and write all lifecycle workflows, tasks, user states.| Allows the app to create, update, list, read and delete all workflows, tasks, user states related to lifecycle workflows on behalf of the signed-in user.| Yes
+|LifecycleWorkflows.Read.All     | Read all lifecycle workflows and tasks.| Allows the app to list and read all workflows and tasks related to lifecycle workflows on behalf of the signed-in user.| Yes
+|LifecycleWorkflows.ReadWrite.All     | Read and write all lifecycle workflows and tasks.| Allows the app to create, update, list, read and delete all workflows and tasks related to lifecycle workflows on behalf of the signed-in user.| Yes
 
 ## Parts of a workflow 
 A workflow can be broken down in to the following three main parts.
