@@ -48,7 +48,7 @@
     - name: Connect GCP projects
       displayName: hybrid, multicloud, multicloud, google
       href: quickstart-onboard-gcp.md
-    - name: Connect GitHub reositories
+    - name: Connect GitHub repositories
       displayName: GitHub, DevOps
       href: quickstart-onboard-github.md
     - name: Connect Azure DevOps repositories
