@@ -33,9 +33,8 @@ To send events from Azure Event Hubs to Azure Monitor Logs, you need to have the
 
 - [Log Analytics workspace](../logs/quick-create-workspace.md) where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - Your Log Analytics workspace needs to be [linked to a dedicated cluster](../logs/logs-dedicated-clusters.md#link-a-workspace-to-a-cluster).
-- [Event hub](/azure/event-hubs/event-hubs-create) with a public IP. Private Link and Network Security Perimeters (NSP) are currently not supported.
-    
-    The event hub must contain events. You can send events to your event hub by following the steps in [Send and receive events in Azure Event Hubs tutorials](../../event-hubs/event-hubs-create.md#next-steps) or by [configuring the diagnostic settings of Azure resources](../essentials/diagnostic-settings.md#create-diagnostic-settings).
+- [Event hub namespace](/azure/event-hubs/event-hubs-features#namespace) that permits access by the public network. Private Link and Network Security Perimeters (NSP) are currently not supported.
+- [Event hub](/azure/event-hubs/event-hubs-create) with events. You can send events to your event hub by following the steps in [Send and receive events in Azure Event Hubs tutorials](../../event-hubs/event-hubs-create.md#next-steps) or by [configuring the diagnostic settings of Azure resources](../essentials/diagnostic-settings.md#create-diagnostic-settings).
 
 ## Collect required information
 
@@ -99,8 +98,21 @@ To create a custom table into which to ingest events, in the Azure portal:
 
 ## Create a data collection endpoint
 
-To collect data with a data collection rule, you need to [create a data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md#create-data-collection-endpoint). The DCE must be located in the same region as the Log Analytics Workspace where the data will be sent.
+To collect data with a data collection rule, you need a data collection endpoint (DCE): 
 
+1. [Create a data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md#create-data-collection-endpoint). 
+
+    > [!IMPORTANT]
+    > Create the data collection endpoint in the same region as your Log Analytics workspace.
+
+1. From the data collection endpoint's Overview screen, select **JSON View**.
+
+    :::image type="content" source="media/ingest-logs-event-hub/data-collection-endpoint-details.png" lightbox="media/ingest-logs-event-hub/data-collection-rule-details.png" alt-text="Screenshot that shows the data collection endpoint Overview screen.":::
+
+1. Copy the **Resource ID** for the data collection rule. You'll use this information in the next step.
+
+    :::image type="content" source="media/ingest-logs-event-hub/data-collection-rule-json-view.png" lightbox="media/ingest-logs-event-hub/data-collection-endpoint-json-view.png" alt-text="Screenshot that shows the data collection endpoint JSON view.":::
+    
 ## Create a data collection rule
 
 Azure Monitor uses [data collection rules](../essentials/data-collection-rule-overview.md) to define which data to collect, how to transform that data, and where to send the data.
@@ -143,19 +155,7 @@ To create a data collection rule in the Azure portal:
             "dataCollectionRuleName": {
                 "type": "string",
                 "metadata": {
-                    "description": "Specifies the name of the Data Collection Rule to create."
-                }
-            },
-            "location": {
-                "type": "string",
-                "metadata": {
-                    "description": "Specifies the location in which to create the Data Collection Rule."
-                }
-            },
-            "workspaceName": {
-                "type": "string",
-                "metadata": {
-                    "description": "Name of the Log Analytics workspace to use."
+                    "description": "Specifies the name of the data collection rule to create."
                 }
             },
             "workspaceResourceId": {
@@ -167,7 +167,7 @@ To create a data collection rule in the Azure portal:
             "endpointResourceId": {
                 "type": "string",
                 "metadata": {
-                    "description": "Specifies the Azure resource ID of the Data Collection Endpoint to use."
+                    "description": "Specifies the Azure resource ID of the data collection endpoint to use."
                 }
             },
             "tableName": {
@@ -179,7 +179,7 @@ To create a data collection rule in the Azure portal:
             "consumerGroup": {
                 "type": "string",
                 "metadata": {
-                    "description": "Specifies consumer group of event hub. If not filled, default consumer group will be used"
+                    "description": "Specifies the consumer group of event hub."
                 },
                 "defaultValue": "$Default"
             }
@@ -188,7 +188,7 @@ To create a data collection rule in the Azure portal:
             {
                 "type": "Microsoft.Insights/dataCollectionRules",
                 "name": "[parameters('dataCollectionRuleName')]",
-                "location": "[parameters('location')]",
+                "location": "[resourceGroup().location]", 
                 "apiVersion": "2022-06-01",
                 "identity": {
                                  "type": "systemAssigned"
@@ -221,15 +221,12 @@ To create a data collection rule in the Azure portal:
                                         "name": "myEventHubDataSource1"
                                                               }
                                                }
-    
-    
-    
                    },
                     "destinations": {
                         "logAnalytics": [
                             {
                                 "workspaceResourceId": "[parameters('workspaceResourceId')]",
-                                "name": "[parameters('workspaceName')]"
+                                "name": "MyDestination"
                             }
                         ]
                     },
@@ -239,7 +236,7 @@ To create a data collection rule in the Azure portal:
                                 "Custom-MyEventHubStream"
                             ],
                             "destinations": [
-                                "[parameters('workspaceName')]"
+                                "MyDestination"
                             ],
                             "transformKql": "source",
                             "outputStream": "[concat('Custom-', parameters('tableName'))]"
