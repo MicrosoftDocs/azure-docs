@@ -56,8 +56,8 @@ Once AD login is successful, the AD UPN will be sent as the UPN to Azure AD.
 If the mapping uses a non-routable UPN (user@woodgrove.local) then Azure AD is able to locate the user's tenant via the domain hint supplied and the user in the tenant is found by matching against the user's **onPremisesUserPrincipalName** attribute.
 The user's Azure AD UPN is cached and sent in subsequent sign-ins.
 
-> [!NOTE]
-> In all cases, a user supplied User Name Hint (x509Hint) will be sent if provided. For a cloud-only user on a device joined to Azure AD with a certificate that contains a non-routable value, the user must pass the User Name Hint (x509Hint).
+ >[!NOTE]
+ >In all cases, a user supplied User Name Hint (x509Hint) will be sent if provided. For a cloud-only user on a device joined to Azure AD with a certificate that contains a non-routable value, the user must pass the User Name Hint (x509Hint).
 
 More information on the flow can be found at [Certificate Requirements and Enumeration (Windows)](/windows/security/identity-protection/smart-cards/smart-card-certificate-requirements-and-enumeration)
 
