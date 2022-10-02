@@ -38,11 +38,11 @@ The following table describes the access available to each privileged user:
 
 To access the Defender for IoT CLI, sign in to your OT or Enterprise IoT sensor or your on-premises management console using a terminal emulator and SSH.
 
-For OT monitoring, sign in as the [privileged users](#prerequisites-privileged-on-premises-users-access).
-
 - **On a Windows system**, use PuTTY or another similar application.
 - **On a Mac system**, use Terminal.
 - **On a virtual appliance**, access the CLI via SSH, the vSphere client, or Hyper-V Manager. Connect to the virtual appliance's management interface IP address via port 22.
+
+Each CLI command on an OT network sensor or on-premises management console is supported a different set of privileged users, as noted in the relevant CLI descriptions. Make sure you sign in as the user required for the command you want to run. For more information, see [Privileged user access for OT monitoring](#privileged-user-access-for-ot-monitoring).
 
 ## CLI Reference
 
@@ -62,7 +62,7 @@ The following list gives a high-level overview of the functions available from t
 ### Enterprise IoT sensor
 
 - [Installation](cli-enterprise-install.md)
-- [Troubleshooting](cli-enterprise-troubleshooting.md)
+- [Troubleshooting](cli-enterprise-troubleshoot.md)
 
 ## Sign out of the CLI
 
