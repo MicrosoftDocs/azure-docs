@@ -115,10 +115,9 @@ To create a sample JMeter test script:
 
 ## Create a load test
 
-To create a load test in Azure Load Testing, you have to specify a JMeter script. This script defines the [test plan](./how-to-create-manage-test.md#test-plan) for the load test. You can create multiple load tests in an Azure Load Testing resource.
+When you create a load test in Azure Load Testing, you specify a JMeter script to define the [load test plan](./how-to-create-manage-test.md#test-plan). An Azure Load Testing resource can contain multiple load tests.
 
-> [!NOTE]
-> When you [create a quick test by using a URL](./quickstart-create-and-run-load-test.md), Azure Load Testing automatically generates the JMeter script.
+When you [create a quick test by using a URL](./quickstart-create-and-run-load-test.md), Azure Load Testing automatically generates the corresponding JMeter script.
 
 To create a load test using an existing JMeter script in the Azure portal:
 
@@ -141,10 +140,7 @@ To create a load test using an existing JMeter script in the Azure portal:
 
 1. Select **Review + create**. Review all settings, and then select **Create** to create the load test.
 
-    :::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/create-new-test-review.png" alt-text="Screenshot that shows the tab for reviewing and creating a test." :::
-
-> [!NOTE]
-> You can update the test configuration at any time, for example to upload a different JMX file. Choose your test in the list of tests, and then select **Edit**.
+You can update the test configuration at any time, for example to upload a different JMX file. Choose your test in the list of tests, and then select **Edit**.
 
 ## Run the load test
 
@@ -163,14 +159,16 @@ If you selected **Run test after creation**, your load test will start automatic
     > [!TIP]
     > You can stop a load test at any time from the Azure portal.
 
-While the test runs and after it finishes, you can view the test run details, statistics, and metrics in the test run dashboard.
+1. Notice the test run details, statistics, and client metrics in the Azure portal.
 
-:::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/test-run-aggregated-by-percentile.png" alt-text="Screenshot that shows the test run dashboard." :::
+    :::image type="content" source="./media/how-to-create-and-run-load-test-with-jmeter-script/test-run-aggregated-by-percentile.png" alt-text="Screenshot that shows the test run dashboard." :::
+
+    Use the run statistics and error information to identify performance and stability issues for your application under load.
 
 ## Next steps
 
-- To learn more about [creating and managing tests](./how-to-create-manage-test.md).
+You've created a cloud-based load test based on an existing JMeter test script. For Azure-hosted applications, you can also [monitor server-side metrics](./how-to-monitor-server-side-metrics.md) for further application insights.
 
-- To learn how to export test results, see [Export test results](./how-to-export-test-results.md).
-
-- To learn how to monitor server side metrics, see [Monitor server side metrics](./how-to-monitor-server-side-metrics.md).
+- Learn how to [export test results](./how-to-export-test-results.md).
+- Learn how to [parameterize a load test with environment variables](./how-to-parameterize-load-tests.md).
+- Learn how to [configure your test for high-scale load](./how-to-high-scale-load.md).
