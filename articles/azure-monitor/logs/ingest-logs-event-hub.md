@@ -125,7 +125,7 @@ To create a data collection rule in the Azure portal:
 
 1. Select **Build your own template in the editor**.
 
-    :::image type="content" source="media/tutorial-workspace-transformations-api/build-custom-template.png" lightbox="media/tutorial-workspace-transformations-api/build-custom-template.png" alt-text="Screenshot to build template in the editor.":::
+    :::image type="content" source="media/ingest-logs-event-hub/build-custom-template-data-collection-rule.png" lightbox="media/ingest-logs-event-hub/build-custom-template-data-collection-rule.png" alt-text="Screenshot to build template in the editor.":::
 
 1. Paste the Resource Manager template below into the editor and then select **Save**.
 
