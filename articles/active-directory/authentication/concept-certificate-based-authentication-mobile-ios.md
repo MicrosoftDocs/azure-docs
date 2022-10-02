@@ -38,18 +38,18 @@ On-device certificates are provisioned on the device. Customers can use Mobile D
 
 Customers can use external security keys to store their certificates. Security keys with certificate 
 
-1. enable the usage on any device and does not require the provision on every device the user has.
-1. is hardware secured with a PIN which makes them phishing resistant
-1. provides MFA (multi factor authentication) with a PIN as second factor to access the private key of the certificate in the key
-1. satisfies the industry requirement to have MFA on seperate device
-1. future proofing where multiple credentials can be stored including FIDO2 keys.
+- enable the usage on any device and does not require the provision on every device the user has.
+- is hardware secured with a PIN which makes them phishing resistant
+- provides MFA (multi factor authentication) with a PIN as second factor to access the private key of the certificate in the key
+- satisfies the industry requirement to have MFA on seperate device
+- future proofing where multiple credentials can be stored including FIDO2 keys.
 
 ## Supported platforms**
 
-1. Only native browsers are support. 
-1. applications using latest MSAL libraries or Microsoft Authenticator can do CBA
-1. Edge with profile, when users add account and logged in a profile will support CBA
-1. Microsoft first party apps with latest MSAL libraries or Microsoft Authenticator can do CBA
+- Only native browsers are support. 
+- applications using latest MSAL libraries or Microsoft Authenticator can do CBA
+- Edge with profile, when users add account and logged in a profile will support CBA
+- Microsoft first party apps with latest MSAL libraries or Microsoft Authenticator can do CBA
 
 **Browsers**
 
