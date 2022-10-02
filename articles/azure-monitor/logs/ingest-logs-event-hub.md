@@ -394,3 +394,5 @@ To create a data collection rule association in the Azure portal:
     :::image type="content" source="media/ingest-logs-event-hub/data-collection-rule-association-custom-template-deployment.png" lightbox="media/ingest-logs-event-hub/data-collection-rule-association-custom-template-deployment.png" alt-text="Screenshot showing the Custom Template Deployment screen with the deployment values for the data collection rule association set up in this tutorial.":::
 
 1. Select **Review + create** and then **Create** when you review the details.
+
+    Now that you've associated the data collection rule with your event hub, you should begin to see events being ingested into the target table you created in your Log Analytics workspace.
