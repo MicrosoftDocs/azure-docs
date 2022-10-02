@@ -45,7 +45,7 @@ setx FR_ENDPOINT {yourEndpoint}
 
 * Restart any running programs that will read the environment variable. For example, if you're using Visual Studio or Visual Studio Code as your editor, restart before running the sample code.
 
- Here are a few helpful commands to use with environment variables:
+ Here are a few more helpful commands to use with environment variables:
 
   | Command | Action | Example |
   |---------|--------|---------|
