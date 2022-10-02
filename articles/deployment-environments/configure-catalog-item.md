@@ -36,7 +36,7 @@ Provide a new catalog item to your development team as follows:
     :::image type="content" source="../deployment-environments/media/configure-catalog-item/create-subfolder-in-path.png" alt-text="Screenshot of subfolder in folder path containing ARM template and manifest file.":::
 
     1. **Add ARM template**
-    
+        
         To implement infrastructure as code for your Azure solutions, use Azure Resource Manager templates (ARM templates). 
         
         [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/overview.md) help you define the infrastructure and configuration of your Azure solution and repeatedly deploy it in a consistent state.

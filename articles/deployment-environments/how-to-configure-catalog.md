@@ -16,7 +16,7 @@ Learn how to configure a dev center [catalog](./concept-environments-key-concept
 The catalog could be a repository hosted in [GitHub](https://github.com) or in [Azure DevOps Services](https://dev.azure.com/).
 
 * To learn how to host a repository in GitHub, see [Get started with GitHub](https://docs.github.com/get-started).
-* To learn how to host a Git repository in an Azure DevOps Services project, see [Azure repos](https://azure.microsoft.com/services/devops/repos/).
+* To learn how to host a Git repository in an Azure DevOps Services project, see [Azure Repos](https://azure.microsoft.com/services/devops/repos/).
 
 In this article, you'll learn how to:
 
@@ -87,7 +87,7 @@ To store the personal access token(PAT) that you generated as a [Key Vault secre
     | **Name** | Enter a name for the catalog. |
     | **Git clone URI**  | Enter the [Git HTTPS clone URL](#get-the-clone-url-for-your-repository) for GitHub or Azure DevOps Services repo, that you copied earlier.|
     | **Branch**  | Enter the repository branch you'd like to connect to.|
-    | **Folder Path**  | Enter the folder path relative to the clone URI that contains sub-folders with your catalog items.This folder path should be the path to the folder containing the sub-folders with the catalog item manifests, and not the path to the folder with the catalog item manifest itself.|
+    | **Folder Path**  | Enter the folder path relative to the clone URI that contains sub-folders with your catalog items. This folder path should be the path to the folder containing the sub-folders with the catalog item manifests, and not the path to the folder with the catalog item manifest itself.|
     | **Secret Identifier**| Enter the [secret identifier](#create-a-personal-access-token-and-store-it-as-a-key-vault-secret) which contains your Personal Access Token(PAT) for the repository.|
 
 1. Verify that your catalog is listed on the **Catalogs** page. If the connection is successful, the **Status** will show as **Connected**.
