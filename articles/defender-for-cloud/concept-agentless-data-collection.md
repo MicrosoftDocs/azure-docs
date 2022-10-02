@@ -39,10 +39,10 @@ The scanning environment where disks are analyzed is regional, volatile, isolate
 
 ## FAQ
 
-### How scanning affects the instances?
+### How does scanning affect the instances?
 Since the scanning process is an out-of-band analysis of snapshots, it doesn't impact the actual workloads and isn't visible by the guest operating system.
 
-### How scanning affects the account/subscription?
+### How does scanning affect the account/subscription?
 
 The scanning process has minimal footprint on your accounts and subscriptions.
 
