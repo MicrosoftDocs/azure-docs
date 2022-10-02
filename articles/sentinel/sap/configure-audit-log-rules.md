@@ -1,5 +1,5 @@
 ---
-title: Configure SAP audit log monitoring rules
+title: Configure SAP audit log monitoring rules with Microsoft Sentinel
 description: Monitor the SAP audit logs using Microsoft Sentinel built-in analytics rules, to easily manage your SAP logs, reducing noise with no compromise to security value. 
 author: limwainstein
 ms.author: lwainstein
