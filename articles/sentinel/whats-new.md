@@ -25,11 +25,25 @@ If you're looking for items older than six months, you'll find them in the [Arch
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 
+## October 2022
+
+### Out of the box anomaly detection on the SAP audit log (Preview)
+
+The SAP audit log records audit and security events on SAP systems, like failed sign-in attempts or other over 200 security related actions. Customers monitor the SAP audit log and generate alerts and incidents out of the box using Microsoft Sentinel built-in analytics rules.
+
+The Microsoft Sentinel for SAP solution now includes the [**SAP - Dynamic Anomaly Detection analytics** rule](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/anomaly-detection-on-the-sap-audit-log-using-the-microsoft/ba-p/3418709), adding an out of the box capability to identify suspicious anomalies across the SAP audit log events. 
+
+Now, together with the existing ability to identify threats deterministically based on predefined patterns and thresholds, customers can easily identify suspicious anomalies in the SAP security log, out of the box, with no coding required.
+
+You can fine-tune the new capability by editing the [SAP_Dynamic_Audit_Log_Monitor_Configuration and SAP_User_Config watchlists](sap-solution-security-content.md#available-watchlists).
+
+Learn more:
+- [Learn about the new feature (blog)](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/anomaly-detection-on-the-sap-audit-log-using-the-microsoft/ba-p/3418709)
+- [Use the new rule for anomaly detection](sap/configure-audit-log-rules.md#anomaly-detection)
+
 ## September 2022
 
 - [Create automation rule conditions based on custom details (Preview)](#create-automation-rule-conditions-based-on-custom-details-preview)
-- [Out of the box anomaly detection on the SAP audit log (Preview)](#out-of-the-box-anomaly-detection-on-the-sap-audit-log-preview)
-
 - [Add advanced "Or" conditions to automation rules (Preview)](#add-advanced-or-conditions-to-automation-rules-preview)
 - [Heads up: Name fields being removed from UEBA UserPeerAnalytics table](#heads-up-name-fields-being-removed-from-ueba-userpeeranalytics-table)
 - [Windows DNS Events via AMA connector (Preview)](#windows-dns-events-via-ama-connector-preview)
@@ -41,16 +55,6 @@ If you're looking for items older than six months, you'll find them in the [Arch
 You can set the value of a [custom detail surfaced in an incident](surface-custom-details-in-alerts.md) as a condition of an automation rule. Recall that custom details are data points in raw event log records that can be surfaced and displayed in alerts and the incidents generated from them. Through custom details you can get to the actual relevant content in your alerts without having to dig through query results.
 
 Learn how to [add a condition based on a custom detail](create-manage-use-automation-rules.md#conditions-based-on-custom-details-preview).
-
-### Out of the box anomaly detection on the SAP audit log (Preview)
-
-The SAP audit log records audit and security events on SAP systems, like failed sign-in attempts or other over 200 security related actions. Customers monitor the SAP audit log and generate alerts and incidents out of the box using Microsoft Sentinel built-in analytics rules.
-
-The Microsoft Sentinel for SAP solution now includes the [**SAP - Dynamic Anomaly Detection analytics**](configure-audit-log-rules.md#anomaly-detection) rule, adding an out of the box capability to identify suspicious anomalies across the SAP audit log events.
-
-Now, together with the existing ability to identify threats deterministically based on predefined patterns and thresholds, customers can easily identify suspicious anomalies in the SAP security log, out of the box, with no coding required.
-
-The new capability can be fine-tuned by editing the [SAP_Dynamic_Audit_Log_Monitor_Configuration and SAP_User_Config watchlists](sap-solution-security-content.md#available-watchlists).
 
 ### Add advanced "Or" conditions to automation rules (Preview)
 

@@ -48,7 +48,7 @@ Both SAP audit log monitoring analytics rules share the same data sources and th
 A dynamic analytics rule that is intended for covering the entire set of SAP audit log event types which have a deterministic definition in terms of user population, event thresholds.
 
 - [Configure the rule with the SAP_Dynamic_Audit_Log_Monitor_Configuration watchlist](#available-watchlists) 
-- Learn more about how to [configure the rule](configure-audit-log-rules.md#set-up-the-sap---dynamic-deterministic-audit-log-monitor-for-anomaly-detection) (full procedure)
+- Learn more about how to [configure the rule](configure-audit-log-rules.md#set-up-the-sap---dynamic-anomaly-based-audit-log-monitor-alerts-preview-rule-for-anomaly-detection) (full procedure)
 
 #### SAP - Dynamic Anomaly based Audit Log Monitor Alerts (PREVIEW)
 
