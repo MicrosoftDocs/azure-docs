@@ -46,9 +46,11 @@ You'll need your subscription ID, resource group name, workspace name, workspace
 
 1. Select **JSON** to open the **Resource JSON** screen and copy the workspace's **Resource ID**. You'll need the workspace resource ID to create a data collection rule. 
 
-    :::image type="content" source="media/ingest-logs-event-hub/log-analytics-workspace-id.png" lightbox="media/ingest-logs-event-hub/log-analytics-workspace-id.png" alt-text="Screenshot showing Resource JSON screen with the workspace resource ID highlighted.":::
+    :::image type="content" source="media/ingest-logs-event-hub/log-analytics-workspace-id.png" lightbox="media/ingest-logs-event-hub/log-analytics-workspace-id.png" alt-text="Screenshot showing the Resource JSON screen with the workspace resource ID highlighted.":::
 
 1. Navigate to your event hub instance, select **JSON** to open the **Resource JSON** screen, and copy the event hub's **Resource ID**. You'll need the event hub's resource ID to associate the data collection rule with the event hub.
+
+    :::image type="content" source="media/ingest-logs-event-hub/event-hub-resource-id.png" lightbox="media/ingest-logs-event-hub/event-hub-resource-id.png" alt-text="Screenshot showing the Resource JSON screen with the event hub resource ID highlighted.":::
 ## Create a destination table for event hub data in your Log Analytics workspace
 
 Before you can ingest data, you need to set up a destination table. 
@@ -395,7 +397,23 @@ To create a data collection rule association in the Azure portal:
 
 1. Select **Review + create** and then **Create** when you review the details.
 
-    Now that you've associated the data collection rule with your event hub, you should begin to see events being ingested into the target table you created in your Log Analytics workspace.
+
+## Check your destination table for ingested events
+
+Now that you've associated the data collection rule with your event hub, Azure Monitor Logs will ingest all existing events whose [retention period](azure/event-hubs/event-hubs-features#event-retention) hasn't expired and all new events.
+
+To check your destination table for ingested events:
+
+1. Navigate to your workspace and select **Logs**.
+1. Write a simple query in the query editor and select **Run**: 
+
+    ```kusto
+    <table_name>
+    ``` 
+    
+    You should see events from your event hub.
+
+    :::image type="content" source="media/ingest-logs-event-hub/log-analytics-query-results-with-events.png" lightbox="media/ingest-logs-event-hub/log-analytics-query-results-with-events.png" alt-text="Screenshot showing the results of a simple query on a custom table. The results consist of events ingested from an event hub.":::
 
 ## Clean up resources
 
