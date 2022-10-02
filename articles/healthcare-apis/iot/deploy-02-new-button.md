@@ -13,6 +13,8 @@ ms.author: v-smcevoy
 
 In this article, you'll learn how to deploy the MedTech service in the Azure portal using an Azure Resource Manager (ARM) Quickstart template. This template will be used with the **Deploy to Azure** button to make it easy to provide the information you need to automatically set up the infrastructure and configuration of your deployment. For more information about Azure ARM templates, see [What are ARM templates?](../../azure-resource-manager/templates/overview.md).
 
+If you need to see a diagram with information on the MedTech service deployment, there is an architecture overview at [Choose a deployment method](deploy-iot-connector-in-azure.md#deployment-architecture-overview). This diagram shows the data flow steps of deployment and how MedTech service processes data into a Fast Healthcare Interoperability Resource (FHIR) Observation.
+
 There are four simple tasks you need to complete in order to deploy MedTech service with the ARM template **Deploy to Azure** button. They are:
 
 ## Prerequisites
