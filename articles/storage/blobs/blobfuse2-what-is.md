@@ -90,7 +90,7 @@ In many ways, BlobFuse2-mounted storage can be used just like the native Linux f
 
 However, there are some key differences in the way BlobFuse2 behaves:
 
-- **Readdir count of hardlinks**:
+- **Readdir count of hard links**:
 
   For performance reasons, BlobFuse2 does not correctly report the hard links inside a directory. The number of hard links for empty directories is returned as 2. The number for non-empty directories is always returned as 3, regardless of the actual number of hard links.
 
