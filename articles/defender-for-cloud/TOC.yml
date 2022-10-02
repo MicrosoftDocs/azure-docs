@@ -180,10 +180,10 @@
     - name: Maintain network security best practices
       displayName: map, network map
       href: protect-network-resources.md
-    - name: Lockdown logins with multi-factor authentication
+    - name: Lock down logins with multi-factor authentication
       displayName: identity, access, AAD, active directory, multi-factor, authentication, multifactor, users, passwords
       href: multi-factor-authentication-enforcement.md
-    - name: Additional threat protections
+    - name: Other threat protections
       href: other-threat-protections.md
   - name: Manage security by subscriptions, users, and permissions
     items:
