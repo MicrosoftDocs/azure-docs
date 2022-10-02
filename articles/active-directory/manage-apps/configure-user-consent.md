@@ -49,22 +49,22 @@ To configure user consent settings through the Azure portal:
 
 # [PowerShell](#tab/azure-powershell)
 
-To choose which app consent policy governs user consent for applications, you can use the latest [Azure AD PowerShell](/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) module.
+To choose which app consent policy governs user consent for applications, you can use the [Microsoft Graph PowerShell](/powershell/microsoftgraph/get-started?view=graph-powershell-1.0&preserve-view=true) module. The cmdlets used here are included in the [Microsoft.Graph.Identity.SignIns](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.SignIns) module.
 
-> [!NOTE]
-> The instructions below use the generally available Azure AD PowerShell module ([AzureAD](https://www.powershellgallery.com/packages/AzureAD)). The parameter names are different in the preview version of this module ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)). If you have both modules installed, ensure you're using the cmdlet from the correct module by first running:
-> 
-> ```powershell
-> Remove-Module AzureADPreview -ErrorAction SilentlyContinue
-> Import-Module AzureAD
-> ```
+#### Connect to Microsoft Graph PowerShell
+
+Connect to Microsoft Graph PowerShell using the least-privilege permission needed. For reading the current user consent settings, use *Policy.Read.All*. For reading and changing the user consent settings, use *Policy.ReadWrite.Authorization*.
+
+```powershell
+Connect-MgGraph -Scopes "Policy.ReadWrite.Authorization"
+```
 
 #### Disable user consent
 
 To disable user consent, set the consent policies that govern user consent to empty:
 
 ```powershell
-Set-AzureADMSAuthorizationPolicy -DefaultUserRolePermissions @{
+Update-MgPolicyAuthorizationPolicy -DefaultUserRolePermissions @{
     "PermissionGrantPoliciesAssigned" = @() }
 ```
 
@@ -73,7 +73,7 @@ Set-AzureADMSAuthorizationPolicy -DefaultUserRolePermissions @{
 To allow user consent, choose which app consent policy should govern users' authorization to grant consent to apps:
 
 ```powershell
-Set-AzureADMSAuthorizationPolicy -DefaultUserRolePermissions @{
+Update-MgPolicyAuthorizationPolicy -DefaultUserRolePermissions @{
     "PermissionGrantPoliciesAssigned" = @("managePermissionGrantsForSelf.{consent-policy-id}") }
 ```
 
@@ -87,7 +87,7 @@ Replace `{consent-policy-id}` with the ID of the policy you want to apply. You c
 For example, to enable user consent subject to the built-in policy `microsoft-user-default-low`, run the following commands:
 
 ```powershell
-Set-AzureADMSAuthorizationPolicy -DefaultUserRolePermissions @{
+Update-MgPolicyAuthorizationPolicy -DefaultUserRolePermissions @{
     "PermissionGrantPoliciesAssigned" = @("managePermissionGrantsForSelf.microsoft-user-default-low") }
 ```
 

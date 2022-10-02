@@ -16,7 +16,7 @@
   - name: Create notification hub - Bicep
     displayName: ARM, Resource Manager, Template
     href: create-notification-hub-bicep.md
-  - name: Create notification hub - ARM template
+  - name: Create notification hub - Template
     displayName: Resource Manager
     href: create-notification-hub-template.md
   - name: Configure a notification hub

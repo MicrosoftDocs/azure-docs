@@ -1,17 +1,17 @@
 ---
-title: Use additional context in Microsoft Authenticator notifications - Azure Active Directory
+title: Use additional context in Microsoft Authenticator notifications (Preview) - Azure Active Directory
 description: Learn how to use additional context in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/15/2022
+ms.date: 09/22/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
 ---
-# How to use additional context in Microsoft Authenticator notifications - Authentication methods policy
+# How to use additional context in Microsoft Authenticator notifications (Preview) - Authentication methods policy
 
 This topic covers how to improve the security of user sign-in by adding the application name and geographic location of the sign-in to Microsoft Authenticator passwordless and push notifications.  
 

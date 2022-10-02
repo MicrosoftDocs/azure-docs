@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a free account before you begin.
 
 * An Azure Machine Learning workspace. [Create workspace resources](../quickstart-create-resources.md).
 
-* [Configure your development environment](../how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](../concept-compute-instance.md) with the SDK already installed.
+* [Configure your development environment](how-to-configure-environment-v1.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](../concept-compute-instance.md) with the SDK already installed.
 
 Start by attaching your workspace:
 
@@ -365,7 +365,7 @@ See the list of all your pipelines and their run details in the studio:
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
-1. [View your workspace](../how-to-manage-workspace.md#view).
+1. [View your workspace](../how-to-manage-workspace.md#find-a-workspace).
 
 1. On the left, select **Pipelines** to see all your pipeline runs.
  ![list of machine learning pipelines](../media/how-to-create-your-first-pipeline/pipelines.png)
