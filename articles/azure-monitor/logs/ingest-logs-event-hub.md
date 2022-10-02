@@ -51,7 +51,7 @@ You'll need your subscription ID, resource group name, workspace name, workspace
 1. Navigate to your event hub instance, select **JSON** to open the **Resource JSON** screen, and copy the event hub's **Resource ID**. You'll need the event hub's resource ID to associate the data collection rule with the event hub.
 
     :::image type="content" source="media/ingest-logs-event-hub/event-hub-resource-id.png" lightbox="media/ingest-logs-event-hub/event-hub-resource-id.png" alt-text="Screenshot showing the Resource JSON screen with the event hub resource ID highlighted.":::
-## Create a destination table for event hub data in your Log Analytics workspace
+## Create a destination table in your Log Analytics workspace
 
 Before you can ingest data, you need to set up a destination table. 
 
