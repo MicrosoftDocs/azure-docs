@@ -439,7 +439,9 @@
       - name: Collect SAP HANA audit logs
         href: sap/collect-sap-hana-audit-logs.md
       - name: Deploy SAP connector manually
-        href: sap/sap-solution-deploy-alternate.md      
+        href: sap/sap-solution-deploy-alternate.md
+      - name: Configure SAP audit log monitoring rules
+        href: sap/configure-audit-log-rules.md 
 - name: Troubleshoot
   items:
   - name: Troubleshoot CEF/Syslog data collection
