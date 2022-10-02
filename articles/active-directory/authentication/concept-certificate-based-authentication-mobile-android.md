@@ -29,6 +29,34 @@ Azure AD CBA is supported for certificates on-device on native browsers as well 
 
 - Android version must be Android 5.0 (Lollipop) or later.
 
+## Support for on-device certificates and external storage
+
+On-device certificates are provisioned on the device. Customers can use Mobile Device Management (MDM) to provision the certificates on the device. On-device certificates does not always support hardware protected keys out of the box, customers can use external storage devices for certificates.
+
+**Advantages of external storage for certificates**
+
+Customers can use external security keys to store their certificates. Security keys with certificate 
+
+- enable the usage on any device and does not require the provision on every device the user has.
+- is hardware secured with a PIN which makes them phishing resistant
+- provides MFA (multi factor authentication) with a PIN as second factor to access the private key of the certificate in the key
+- satisfies the industry requirement to have MFA on seperate device
+- future proofing where multiple credentials can be stored including FIDO2 keys.
+
+## Supported platforms**
+
+- applications using latest MSAL libraries or Microsoft Authenticator can do CBA
+- Edge with profile, when users add account and logged in a profile will support CBA
+- Microsoft first party apps with latest MSAL libraries or Microsoft Authenticator can do CBA
+
+**Vendors for External storage**
+
+> [!IMPORTANT]
+> The preview features are provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Azure AD CBA will support certificates on YubiKeys as part of private preview. Any application that uses latest MSAL libraries can do Azure AD CBA. For applications not on latest MSAL libraries need to also install Microsoft authenticator.
+
 ## Microsoft mobile applications support
 
 | Applications | Support | 
