@@ -7,7 +7,7 @@ ms.service: load-testing
 ms.topic: how-to
 author: ntrogh
 ms.author: nicktrog
-ms.date: 06/10/2022
+ms.date: 10/02/2022
 adobe-target: true
 ---
 
@@ -34,9 +34,11 @@ Use cases for creating a load test with an existing JMeter script include:
 
 ## Create an Apache JMeter script
 
-If you don't have an existing Apache JMeter script, you'll create a sample script to load test a single web application endpoint. For more information about creating an Apache JMeter script, see [Getting started with Apache JMeter](https://jmeter.apache.org/usermanual/get-started.html).
+If you already have a script, you can skip to [Create a load test](#create-a-load-test). In this section, you'll create a sample JMeter test script to load test a single web endpoint.
 
-If you already have a script, you can skip to [Create a load test](#create-a-load-test).
+You can also use the [Apache JMeter test script recorder](https://jmeter.apache.org/usermanual/jmeter_proxy_step_by_step.html) to record the requests while navigating the application in a browser. Alternatively, [import cURL commands](https://jmeter.apache.org/usermanual/curl.html) to generate the requests in the JMeter test script.
+
+To create a sample JMeter test script: 
 
 1. Create a *SampleTest.jmx* file on your local machine:
 
@@ -78,7 +80,7 @@ If you already have a script, you can skip to [Create a load test](#create-a-loa
           </ThreadGroup>
           <hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP request" enabled="true">
-              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="Sample web test" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
               <stringProp name="HTTPSampler.domain"></stringProp>
