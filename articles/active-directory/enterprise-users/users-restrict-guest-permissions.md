@@ -145,6 +145,7 @@ Service without current support might have compatibility issues with the new gue
 - Forms
 - Project
 - Yammer
+- Planner in SharePoint
 
 ## Frequently asked questions (FAQ)
 
