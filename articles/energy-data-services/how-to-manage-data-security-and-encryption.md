@@ -1,5 +1,5 @@
 ---
-title: Microsoft Energy Data Services - Data Security and Encryption in Microsoft Energy Data Services #Required; page title is displayed in search results. Include the brand.
+title: Data Security and Encryption in Microsoft Energy Data Services #Required; page title is displayed in search results. Include the brand.
 description: Guide on security in Microsoft Energy Data Services and how to set up customer managed keys on Microsoft Energy Data Services #Required; article description that is displayed in search results. 
 author: sandeepchads #Required; your GitHub user alias, with correct capitalization.
 ms.author: sancha #Required; microsoft alias of author; optional team alias.
@@ -87,7 +87,8 @@ In addition to TLS, when you interact with Microsoft Energy Data Services, all t
  
 [![Screenshot of CMK settings disabled once MEDS instance is installed](media/data-security-and-encryption/cmek_7_cmk_disabled_meds_instance_created.png)](media/data-security-and-encryption/cmek_7_cmk_disabled_meds_instance_created.png#lightbox)
 
-> NOTE: You cannot edit CMK settings once the Microsoft Energy Data Services instance is created.
+[!NOTE]
+You cannot edit CMK settings once the Microsoft Energy Data Services instance is created.
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
