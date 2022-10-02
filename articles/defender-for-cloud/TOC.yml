@@ -48,7 +48,7 @@
     - name: Connect GCP projects
       displayName: hybrid, multicloud, multicloud, google
       href: quickstart-onboard-gcp.md
-    - name: Connect GitHub reositories
+    - name: Connect GitHub repositories
       displayName: GitHub, DevOps
       href: quickstart-onboard-github.md
     - name: Connect Azure DevOps repositories
@@ -180,10 +180,10 @@
     - name: Maintain network security best practices
       displayName: map, network map
       href: protect-network-resources.md
-    - name: Lockdown logins with multi-factor authentication
+    - name: Lock down logins with multi-factor authentication
       displayName: identity, access, AAD, active directory, multi-factor, authentication, multifactor, users, passwords
       href: multi-factor-authentication-enforcement.md
-    - name: Additional threat protections
+    - name: Other threat protections
       href: other-threat-protections.md
   - name: Manage security by subscriptions, users, and permissions
     items:
