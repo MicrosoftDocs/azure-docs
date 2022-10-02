@@ -348,7 +348,7 @@ To create a data collection rule association in the Azure portal:
       "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
-        "eventHubResourceId": {
+        "eventHubResourceID": {
           "type": "string",
           "metadata": {
             "description": "Specifies the Azure resource ID of the event hub to use."
@@ -360,7 +360,7 @@ To create a data collection rule association in the Azure portal:
             "description": "The name of the association."
           }
         },
-        "dataCollectionRuleId": {
+        "dataCollectionRuleID": {
           "type": "string",
           "metadata": {
             "description": "The resource ID of the data collection rule."
