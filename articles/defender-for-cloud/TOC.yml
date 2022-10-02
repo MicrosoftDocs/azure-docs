@@ -98,6 +98,9 @@
       href: security-policy-concept.md
     - name: Security posture
       href: secure-score-security-controls.md
+    - name: Cloud Security Posture Management (CSPM)
+      displayName: CSPM, cloud security, posture, management
+      href: concept-cloud-security-posture-management.md
     - name: Microsoft Cloud Security Benchmark (MCSB)
       href: concept-regulatory-compliance.md
     - name: What is the Cloud Security Graph
