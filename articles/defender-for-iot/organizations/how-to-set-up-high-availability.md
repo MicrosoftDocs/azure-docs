@@ -47,7 +47,7 @@ The installation and configuration procedures are performed in four main stages:
 
 1. Install an on-premises management console secondary appliance. For more information, see [About the Defender for IoT Installation](how-to-install-software.md).
 
-1. Pair the primary and secondary on-premises management console appliances as described [here](https://infrascale.secure.force.com/pkb/articles/Support_Article/How-to-access-your-Appliance-Management-Console). The primary on-premises management console must manage at least two sensors in order to carry out the setup.
+1. Pair the primary and secondary on-premises management console appliances as described [here](https://learn.microsoft.com/en-us/azure/defender-for-iot/organizations/how-to-set-up-high-availability#create-the-primary-and-secondary-pair). The primary on-premises management console must manage at least two sensors in order to carry out the setup.
 
 ## High availability requirements
 
