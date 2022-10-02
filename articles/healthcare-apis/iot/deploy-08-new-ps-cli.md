@@ -24,14 +24,14 @@ The ARM template will help you automatically configure and deploy the following 
 - Azure event hub sender role (named **devicedatasender**).
 - Azure Health Data Services workspace.
 - Azure Health Data Services Fast Healthcare Interoperability Resources (FHIR&#174;) service.
-- Azure Health Data Services MedTech service. This includes setup for:
+- Azure Health Data Services MedTech service. This resource includes setup for:
   - [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) access roles needed to read from the device message event hub (named **Azure Events Hubs Receiver**)
   - system-assigned managed identity access roles needed to read and write to the FHIR service (named **FHIR Data Writer**)
 - An output file containing the ARM template deployment results (named **medtech_service_ARM_template_deployment_results.txt**). The file is located in the directory from which you ran the script.
 
 ## Azure PowerShell prerequisites
 
-You need to have the following prerequisites if you are using Azure PowerShell:
+You need to have the following prerequisites if you're using Azure PowerShell:
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, see [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
 
@@ -39,7 +39,7 @@ You need to have the following prerequisites if you are using Azure PowerShell:
 
 ## Azure CLI prerequisites
 
-You need to have the following prerequisites if you are using Azure CLI:
+You need to have the following prerequisites if you're using Azure CLI:
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, see [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
 
@@ -67,7 +67,7 @@ Complete the following five steps to deploy the MedTech service using Azure Powe
    Register-AzResourceProvider -ProviderNamespace Microsoft.EventHub
    ```
 
-3. If the `Microsoft.HealthcareApis` resource provider isn't already registered with you subscription, you can use this code to register it:
+3. If the `Microsoft.HealthcareApis` resource provider isn't already registered with your subscription, you can use this code to register it:
 
    ```azurepowershell
    Register-AzResourceProvider -ProviderNamespace Microsoft.HealthcareApis
@@ -149,7 +149,7 @@ The deployment takes a few minutes to complete. You can check the status of your
 
 ## Post-deployment mapping
 
-After you successfully deploy the MedTech service, you still need to provide valid device mapping and FHIR destination mapping. The device mapping will connect the device message event hub to MedTech service and the FHIR destination mapping will connect FHIR service to MedTech service. Because of this need, you must perform these two post-deployment steps or the MedTech service can't read device data from the device message event hub, and it also can't read or write to the FHIR service. 
+After you successfully deploy the MedTech service, you still need to provide valid device mapping and FHIR destination mapping. The device mapping will connect the device message event hub to MedTech service and the FHIR destination mapping will connect FHIR service to MedTech service. You must provide device mapping or the MedTech service can't read device data from the device message event hub. You also must provide FHIR destination mapping or MedTech can't read or write to the FHIR service.
 
 To learn more about providing device mapping, see [How to use device mappings](how-to-use-device-mappings.md).
 

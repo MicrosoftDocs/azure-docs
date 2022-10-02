@@ -9,9 +9,9 @@ ms.date: 09/30/2022
 ms.author: v-smcevoy
 ---
 
-# Deploy the MedTech service with a Azure ARM QuickStart template
+# Deploy the MedTech service with an Azure Resource Manager QuickStart template
 
-In this article, you'll learn how to deploy the MedTech service in the Azure portal using an Azure ARM Quickstart template. This template will used with the **Deploy to Azure** button make it easy to provide the information you need to automatically set up the infrastructure and configuration of your deployment. For more information about Azure ARM templates, see [What are ARM templates?](../../azure-resource-manager/templates/overview.md).
+In this article, you'll learn how to deploy the MedTech service in the Azure portal using an Azure Resource Manager (ARM) Quickstart template. This template will be used with the **Deploy to Azure** button to make it easy to provide the information you need to automatically set up the infrastructure and configuration of your deployment. For more information about Azure ARM templates, see [What are ARM templates?](../../azure-resource-manager/templates/overview.md).
 
 There are four simple tasks you need to complete in order to deploy MedTech service with the ARM template **Deploy to Azure** button. They are:
 
@@ -23,7 +23,7 @@ In order to begin deployment, you need to have the following prerequisites:
 
 - Two resource providers registered with your Azure subscription: **Microsoft.HealthcareApis** and **Microsoft.EventHub**. To learn more about registering resource providers, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
-When you have fulfilled these two prerequisites, you are ready to begin the second task.
+When you've fulfilled these two prerequisites, you are ready to begin the second task.
 
 ## Deploy to Azure button
 
@@ -69,7 +69,7 @@ When the Azure portal screen appears, your next task is to fill out five fields 
 
 ### When completed, do the following
 
-Do not change the **Device Mapping** and **Destination Mapping** default values at this time.
+Don't change the **Device Mapping** and **Destination Mapping** default values at this time.
 
 Select the **Review + create** button after all the fields are filled out. This will review your input and check to see if all your values are valid.
 
