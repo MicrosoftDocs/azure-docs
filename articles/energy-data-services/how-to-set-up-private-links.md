@@ -19,11 +19,11 @@ You can then limit access to your Microsoft Energy Data Services Preview instanc
 You can connect to a Microsoft Energy Data Services configured with Private Link by using the automatic or manual approval method. To [learn more](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow), see the Approval workflow section of the Private Link documentation.
 
 
-This article describes how to set up private endpoints for Microsoft Energy Data Services preview. 
+This article describes how to set up private endpoints for Microsoft Energy Data Services Preview. 
 
 ## Pre-requisites
 
-1.	Create a virtual network in the same subscription as the Microsoft Energy Data Services instance. [Learn more](../virtual-network/quick-create-portal.md). This will allow auto-approval of the private link end point.
+1.	Create a virtual network in the same subscription as the Microsoft Energy Data Services instance. [Learn more](../virtual-network/quick-create-portal.md). This will allow auto-approval of the private link endpoint.
 
 ## Create a private endpoint by using the Azure portal
 
@@ -52,12 +52,13 @@ Use the following steps to create a private endpoint for an existing Microsoft E
 |Name|	Enter any name for your private endpoint. If this name is taken, create a unique one.|
 |Region|	Select the region where you want to deploy Private Link. |
 	
-> NOTE: Auto-approval only happens when the Microsoft Energy Data Services Preview instance and the vnet for the private link are in the same subscription.
+[!NOTE]
+Auto-approval only happens when the Microsoft Energy Data Services Preview instance and the vnet for the private link are in the same subscription.
 
 [![Screenshot of creating a MEDS instance with private link](media/how-to-manage-private-links/pvtlink-3basics.png)](media/how-to-manage-private-links/pvtlink-3basics.png#lightbox)
 
 7.	Select **Next: Resource.**
-8.	In **Create a private endpoint - Resource**, following information should be selected or available:
+8.	In **Create a private endpoint - Resource**, the following information should be selected or available:
 
 |Setting |	Value |
 |--------|--------|
@@ -70,7 +71,7 @@ Use the following steps to create a private endpoint for an existing Microsoft E
 
  
 9.	Select **Next: Virtual Network.**
-10.	In Virtual Network screen, you can:
+10.	In the Virtual Network screen, you can:
 
 * Configure Networking and Private IP Configuration settings. [Learn more](../private-link/create-private-endpoint-portal.md#create-a-private-endpoint)
 
@@ -113,4 +114,4 @@ Use the following steps to create a private endpoint for an existing Microsoft E
 ## Next steps
 <!-- Add a context sentence for the following links -->
 > [!div class="nextstepaction"]
-> [How to set up private links](how-to-manage-data-security-and-encryption.md)
+> [How to manage data security and encryption](how-to-manage-data-security-and-encryption.md)
