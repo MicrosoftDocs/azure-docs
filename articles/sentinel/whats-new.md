@@ -31,14 +31,14 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 The SAP audit log records audit and security events on SAP systems, like failed sign-in attempts or other over 200 security related actions. Customers monitor the SAP audit log and generate alerts and incidents out of the box using Microsoft Sentinel built-in analytics rules.
 
-The Microsoft Sentinel for SAP solution now includes the [**SAP - Dynamic Anomaly Detection analytics** rule](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/anomaly-detection-on-the-sap-audit-log-using-the-microsoft/ba-p/3418709), adding an out of the box capability to identify suspicious anomalies across the SAP audit log events. 
+The Microsoft Sentinel for SAP solution now includes the [**SAP - Dynamic Anomaly Detection analytics** rule](https://aka.ms/Sentinel4sapDynamicAnomalyAuditRuleBlog), adding an out of the box capability to identify suspicious anomalies across the SAP audit log events. 
 
 Now, together with the existing ability to identify threats deterministically based on predefined patterns and thresholds, customers can easily identify suspicious anomalies in the SAP security log, out of the box, with no coding required.
 
 You can fine-tune the new capability by editing the [SAP_Dynamic_Audit_Log_Monitor_Configuration and SAP_User_Config watchlists](sap-solution-security-content.md#available-watchlists).
 
 Learn more:
-- [Learn about the new feature (blog)](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/anomaly-detection-on-the-sap-audit-log-using-the-microsoft/ba-p/3418709)
+- [Learn about the new feature (blog)](https://aka.ms/Sentinel4sapDynamicAnomalyAuditRuleBlog)
 - [Use the new rule for anomaly detection](sap/configure-audit-log-rules.md#anomaly-detection)
 
 ## September 2022
