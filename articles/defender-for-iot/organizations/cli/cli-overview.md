@@ -84,6 +84,4 @@ You can also control and monitor your cloud connected sensors from the Defender 
 
 See also:
 
-- [Appliance management commands](cli-appliance.md)
-- [Configuration commands](cli-configuration.md)
-- [On-premises management console commands](cli-management.md)
+For more information, see [Getting started with the Defender for IoT CLI](cli-overview.md).

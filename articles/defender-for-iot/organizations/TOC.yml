@@ -279,12 +279,20 @@
     items:
     - name: Overview
       href: cli/cli-overview.md
-    - name: Appliance management commands
-      href: cli/cli-appliance.md
-    - name: Configuration commands
-      href: cli/cli-configuration.md
-    - name: On-premises management console commands
+    - name: Manage individual OT network sensors
+      href: cli-ot-sensor.md
+    - name: Configure individual OT network sensors
+      href: ot-sensor-configuration.md
+    - name: Manage an on-premises management console
       href: cli/cli-management.md
+    - name: Configure an on-premises management console
+      href: cli/cli-management-configuration.md
+    - name: Manage multiple OT network sensors
+      href: cli/cli-manage-ot-sensors.md
+    - name: Install an Enterprise IoT network sensor
+      href: cli/cli-enterprise-install.md
+    - name: Troubleshoot an Enterprise IoT network sensor
+      href: cli/cli-enterprise-troubleshoot.md
   - name: Frequently asked questions
     items:
     - name: General FAQ

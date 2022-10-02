@@ -113,8 +113,4 @@ For more information, see <!--xref to section w attributes listed if we have any
 
 ## Next steps
 
-For more information, see:
-
-- [Appliance management commands](cli-appliance.md)
-- [Configuration commands](cli-configuration.md)
-- [On-premises management console commands](cli-management.md)
+For more information, see [Getting started with the Defender for IoT CLI](cli-overview.md).

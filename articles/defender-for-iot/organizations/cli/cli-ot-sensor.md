@@ -57,7 +57,7 @@ System is UP! (medium)
 
 Use the following commands to list the Defender for IoT software version installed on your OT sensor.
 
-|User  |Command  |Full command syntax <!--remove this column if no attributes-->  |
+|User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**support**     |   `system version`      |   No attributes      |
 |**cyberx**     |   `cyberx-xsense-version`      |   No attributes      |
@@ -74,7 +74,7 @@ Version: 22.2.5.9-r-2121448
 
 Use the following commands to reboot the OT sensor appliance.
 
-|User  |Command  |Full command syntax <!--remove this column if no attributes-->  |
+|User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**support**     |   `system reboot`      |   No attributes     |
 |**cyberx**     |   `sudo reboot`      |   No attributes      |
@@ -91,7 +91,7 @@ root@xsense: system reboot
 
 Use the following commands to shut down the OT sensor appliance.
 
-|User  |Command  |Full command syntax <!--remove this column if no attributes-->  |
+|User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**support**     |   `system shutdown`      |   No attributes      |
 |**cyberx**     |   `sudo shutdown -r now`      |   No attributes      |
@@ -112,7 +112,7 @@ The following sections describe the CLI commands supported for backing up and re
 
 Use the following commands to start an immediate, unscheduled backup of the data on your OT sensor. For more information, see [Set up backup and restore files](../how-to-manage-individual-sensors.md#set-up-backup-and-restore-files).
 
-|User  |Command  |Full command syntax <!--remove this column if no attributes-->  |
+|User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**support**     |   `system backup`      |   No attributes      |
 |**cyberx**     |   ` cyberx-xsense-system-backup`      |   No attributes      |
@@ -134,7 +134,7 @@ root@xsense:
 
 Use the following commands to list the backup files currently stored on your OT network sensor.
 
-|User  |Command  |Full command syntax <!--remove this column if no attributes-->  |
+|User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**support**     |   `system backup-list`      |   No attributes      |
 |**cyberx**     |   ` cyberx-xsense-system-backup-list`      |   No attributes      |
@@ -157,7 +157,7 @@ Use the following commands to restore data on your OT network sensor using the m
 
 Make sure not to stop or power off the appliance while restoring data. When prompted, confirm that you want to proceed.
 
-|User  |Command  |Full command syntax <!--remove this column if no attributes-->  |
+|User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**support**     |   `system restore`      |   No attributes      |
 |**cyberx**     |   ` cyberx-xsense-system-restore`      |   No attributes      |
@@ -182,7 +182,7 @@ root@xsense:
 
 Use the following commands to show the current system date and time on your OT network sensor, in GMT format.
 
-|User  |Command  |Full command syntax <!--remove this column if no attributes-->  |
+|User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**support**     |   `date`      |   No attributes      |
 |**cyberx**     |   `date`      |   No attributes      |
@@ -201,14 +201,13 @@ root@xsense:
 
 Use the following command to reset the password for the *cyberx* or *support* user.
 
-This command requires attributes to define the user who's password you're resetting and the password you want to use.
+This command requires attributes to define the user whose password you're resetting and the password you want to use.
 
  <!--how do you reset password for the cyberx_host password?-->
 
-Reset password for **cyberx** or **support** built-in users
-|User  |Command  |Full command syntax <!--remove this column if no attributes-->  |
+|User  |Command  |Full command syntax   |
 |---------|---------|---------|
-|**cyberx**     |   `cyberx-users-password-reset`      |   `cyberx-users-password-reset -u <user> -p <password>`      |
+|**cyberx**     |   `cyberx-users-password-reset`      | `cyberx-users-password-reset -u <user> -p <password>`      |
 
 <!--can we use a better password example in this code sample? like something as below?-->
 
@@ -228,7 +227,7 @@ root@xsense:/#
 
 Use the following command to run the software installation wizard from scratch and redefine the OT sensor's monitoring and management interfaces.
 
-|User  |Command  |Full command syntax <!--remove this column if no attributes-->  |
+|User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**cyberx**     |   `sudo dpkg-reconfigure iot-sensor`      |   No attributes     |
 
@@ -243,8 +242,4 @@ The installation wizard starts. For more information, see [Install OT monitoring
 ## Next steps
 
 
-For more information, see:
-
-- [Appliance management commands](cli-appliance.md)
-- [Configuration commands](cli-configuration.md)
-- [On-premises management console commands](cli-management.md)
+For more information, see [Getting started with the Defender for IoT CLI](cli-overview.md).
