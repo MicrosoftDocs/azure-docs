@@ -282,7 +282,7 @@
     - name: Manage individual OT network sensors
       href: cli/cli-ot-sensor.md
     - name: Configure individual OT network sensors
-      href: cli/ot-sensor-configuration.md
+      href: cli/cli-ot-sensor-configuration.md
     - name: Manage an on-premises management console
       href: cli/cli-management.md
     - name: Configure an on-premises management console
