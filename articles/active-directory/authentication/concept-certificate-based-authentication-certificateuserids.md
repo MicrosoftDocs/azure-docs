@@ -69,7 +69,7 @@ Tenant admins can use the following steps Azure portal to update certificate use
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/save.png" alt-text="Screenshot of a value to enter for CertificateUserId.":::
  
-## Update certificate user IDs using Azure AD Connect for federated users
+## Update certificate user IDs using Azure AD Connect
 
 To update certificate user IDs for federated users, configure Azure AD Connect to sync userPrincipalName to certificateUserIds. 
 
