@@ -252,7 +252,7 @@ To create a data collection rule in the Azure portal:
     - **Region** - Region for the data collection rule. Populated automatically based on the resource group you select. 
     - **Data Collection Rule Name** - Give the rule a name.
     - **Workspace Resource ID** - See [Collect required information](#collect-required-information). 
-    - **Endpoint Resource ID** - As set when you [create the data collection endpoint](#create-a-data-collection-endpoint).
+    - **Endpoint Resource ID** - Generated when you [create the data collection endpoint](#create-a-data-collection-endpoint).
     - **Table Name** - The name of the destination table. In our example, and whenever you use a custom table, the table name ends with the suffix *_CL*. 
     - **Consumer Group** - By default, this is set to `$Default`. If needed, change the value to set a different [event hub consumer group](../../event-hubs/event-hubs-features.md#consumer-groups). 
 
@@ -382,3 +382,13 @@ To create a data collection rule association in the Azure portal:
     }
     ```
 
+1. On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule association and then provide values for the parameters defined in the template, including: 
+
+    - **Region** - Populated automatically based on the resource group you select.
+    - **Event Hub Resource ID** - See [Collect required information](#collect-required-information).  
+    - **Association Name** - Give the association a name.
+    - **Data Collection Rule ID** - Generated when you [create the data collection rule](#create-a-data-collection-rule).
+  
+    :::image type="content" source="media/ingest-logs-event-hub/data-collection-rule-association-custom-template-deployment.png" lightbox="media/ingest-logs-event-hub/data-collection-rule-association-custom-template-deployment.png" alt-text="Screenshot showing the Custom Template Deployment screen with the deployment values for the data collection rule association set up in this tutorial.":::
+
+1. Select **Review + create** and then **Create** when you review the details.
