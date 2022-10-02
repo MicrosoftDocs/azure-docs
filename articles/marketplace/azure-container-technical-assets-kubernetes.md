@@ -23,24 +23,30 @@ In addition to your solution domain, your engineering team should have knowledge
 
 - Basic understanding of [Azure Services](https://azure.microsoft.com/services/)
 - How to [design and architect Azure applications](https://azure.microsoft.com/solutions/architecture/)
-- Working knowledge of [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage), and [Azure Networking](https://azure.microsoft.com/services/?filter=networking)
 - Working knowledge of [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)
-- Working Knowledge of [JSON](https://www.json.org/).
-- Working Knowledge of [Helm](https://www.helm.sh)
+- Working knowledge of [JSON](https://www.json.org/)
+- Working knowledge of [Helm](https://www.helm.sh)
+- Working knowledge of [createUiDefinition][createuidefinition]
 
 ## Prerequisites
 
 - Your application must be Helm chart-based.
 
+- All the image references and digest details must be included in the chart. No additional charts or images can be downloaded at runtime.
+
 - You must have an active publishing tenant or access to a publishing tenant and Partner Center account.
 
-- You must have created an Azure Container Registry (ACR) to which you'll upload the CNAB, and give permission to Microsoft’s first party app ID to access your ACR. For more information, see [create an Azure Container Registry][create-acr].
+- You must have created an Azure Container Registry (ACR) to which you'll upload the Cloud Native Application Bundle (CNAB), and give permission to Microsoft’s first party app ID to access your ACR. For more information, see [create an Azure Container Registry][create-acr].
 
 - Install the latest version of the Azure CLI.
 
+- The application must be deployable to Linux environment.
+
+- If running the CNAB packaging tool manually, you will need docker installed on your local machine.
+
 ## Limitations
 
-- Container Marketplace supports only AMD64 images.
+- Container Marketplace supports only Linux platform-based AMD64 images.
 - Managed AKS only.
 - Single containers are not supported.
 - Linked Azure Resource Manager templates are not supported.
@@ -63,16 +69,28 @@ Microsoft has created a first-party application responsible for handling this pr
 # [Linux](#tab/linux)
 
 ```azurecli-interactive
+az login
 az ad sp create --id 32597670-3e15-4def-8851-614ff48c1efa
 ```
 
-Make note of the service principal's ID. Next, obtain your registry's full ID:
+Make note of the service principal's ID to use in the following steps.
+
+Next, obtain your registry's full ID:
 
 ```azurecli-interactive
 az acr show --name <registry-name> --query "id" --output tsv
 ```
 
-Finally, create a role assignment to grant the service principal the ability to pull from your registry:
+Your output should look similar to the following:
+
+```bash
+...
+},
+"id": "/subscriptions/ffffffff-ff6d-ff22-77ff-ffffffffffff/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myregistry",
+...
+```
+
+Finally, create a role assignment to grant the service principal the ability to pull from your registry using the values you obtained earlier:
 
 ```azurecli-interactive
 az role assignment create --assignee <sp-id> --scope <registry-id> --role acrpull
@@ -81,8 +99,7 @@ az role assignment create --assignee <sp-id> --scope <registry-id> --role acrpul
 Finally, register the `Microsoft.PartnerCenterIngestion` resource provider on the same subscription used to create the Azure Container Registry:
 
 ```azurecli
-az login
-az provider register --namespace Microsoft.PartnerCenterIngestion --subscription <subscription-id>
+az provider register --namespace Microsoft.PartnerCenterIngestion --subscription <subscription-id> --wait
 ```
 
 Monitor the registration and confirm it has completed before proceeding:
@@ -94,19 +111,31 @@ az provider show -n Microsoft.PartnerCenterIngestion --subscription <subscriptio
 # [Windows](#tab/windows)
 
 ```powershell-interactive
+Connect-AzAccount
 New-AzADServicePrincipal -ApplicationId 32597670-3e15-4def-8851-614ff48c1efa
 ```
 
 Obtain the service principal's ID:
 
 ```powershell-interactive
-Get-AzADServicePrincipal -SearchString Container
+Get-AzADServicePrincipal -SearchString "Container Marketplace Package App"
 ```
 
-Make note of the service principal's ID. Next, obtain your registry's full ID:
+Make note of the service principal's ID to use in the following steps. 
+
+Next, obtain your registry's full ID:
 
 ```powershell-interactive
 Get-AzContainerRegistry -ResourceGroupName <resource-group> -Name <registry-name>
+```
+
+Your output should look similar to the following:
+
+```bash
+...
+},
+"id": "/subscriptions/ffffffff-ff6d-ff22-77ff-ffffffffffff/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myregistry",
+...
 ```
 
 Next, create a role assignment to grant the service principal the ability to pull from your registry:
@@ -139,7 +168,7 @@ Each CNAB will be composed of the following artifacts:
 
 - CreateUiDefinition
 
-- ARM Template (optional)
+- ARM Template
 
 - Manifest file
 
@@ -178,23 +207,17 @@ A createUiDefinition is a JSON file that defines the user interface elements for
 
 After creating the createUiDefinition.json file for your application, you need to test the user experience. To simplify testing, use a [sandbox environment][sandbox-environment] that loads your file in the portal. The sandbox presents your user interface in the current, full-screen portal experience. The sandbox is the recommended way to preview the user interface.
 
-### Create the Azure Resource Manager (ARM) template (optional)
+### Create the Azure Resource Manager (ARM) template
 
 An [ARM template][arm-template-overview] defines the Azure resources to deploy. You will be deploying a cluster extension resource for the Azure Marketplace application. Optionally, you can choose to deploy an AKS cluster.
 
-If the ARM template does not exist in the CNAB bundle, a default ARM template will be created that deploys the cluster extension on an existing AKS cluster with the following expected parameters:
-
-- `clusterResourceName`
-
-- `extensionResourceName`
-
-If you do include an ARM template, we currently only allow the following resource types:
+We currently only allow the following resource types:
 
 - `Microsoft.ContainerService/managedClusters`
 
 - `Microsoft.KubernetesConfiguration/extensions`
 
-For example, see this [sample ARM template][arm-template-sample] designed to take results from the sample UI definition linked above and pass parameters into your application.
+For example, see this [sample ARM template][arm-template-sample] designed to take results from the sample UI definition linked above and pass parameters into your application.
 
 ### Create the manifest file
 
@@ -213,14 +236,16 @@ The fields used in the manifest are as follows:
 |uiDefinition|String|Local path where a JSON file that describes an Azure portal Create experience can be found|
 |registryServer|String|The ACR where the final CNAB bundle should be pushed|
 |extensionRegistrationParameters|Collection|Specification for the extension registration parameters. Include at least `defaultScope` and `billingIdentifier` as parameters.|
-|defaultScope|String|The default scope for your extension installation. Accepted values are `cluster` or `namespace`.|
+|defaultScope|String|The default scope for your extension installation. Accepted values are `cluster` or `namespace`. If `cluster` scope is set, then only one extension instance is allowed per cluster. If `namespace` scope is selected, then only one instance is allowed per namespace. As a Kubernetes cluster can have multiple namespaces, multiple instances of extension can exist.|
 |namespace|String|(Optional) Specify the namespace the extension will install into. This property is required when `defaultScope` is set to `cluster`. For namespace naming restrictions, see [Namespaces and DNS][namespaces-and-dns].|
 
-For an sample configured for the voting app, see the following [manifest file example][manifest-sample].
+For a sample configured for the voting app, see the following [manifest file example][manifest-sample].
 
 ### Structure your application
 
 Place the createUiDefinition, ARM template, and manifest file beside your application's Helm chart.
+
+For an example of a properly structured directory, see [the sample repository][kubernetes-offer-sample-structure].
 
 ## Use the container packaging tool
 
@@ -296,6 +321,7 @@ For an example of how to integrate `container-package-app` into an Azure Pipelin
 [namespaces-and-dns]: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/#namespaces-and-dns
 [create-acr]: ../container-registry/container-registry-get-started-azure-cli.md
 [kubernetes-offer-samples]: https://github.com/Azure-Samples/kubernetes-offer-samples
+[kubernetes-offer-sample-structure]: https://github.com/Azure-Samples/kubernetes-offer-samples/tree/main/samples
 [values-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/blob/main/samples/azure-vote/values.yaml
 [deployment-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/blob/main/samples/azure-vote/templates/deployments.yaml
 [ui-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/blob/main/samples/createUIDefinition.json

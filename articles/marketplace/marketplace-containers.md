@@ -42,7 +42,7 @@ If you're publishing Kubernetes apps, these are the available licensing options 
 | Free | List your offer to customers for free. |
 | BYOL | The Bring Your Own Licensing option lets your customers bring existing software licenses to Azure.\* |
 | Per core | List your Azure Container offer with pricing based on the critical CPU cores used. You provide the price for one CPU core and we’ll increment the pricing based on the size of the hardware used by your application for the critical cores you’ve tagged in your application as the ones that should generate usage. |
-| Per every core in cluster | List your Azure Container offer with pricing based on the CPU cores used. You provide the price for one CPU core and we’ll increment the pricing based on the size of the hardware used by your application. |
+| Per every core in cluster | List your Azure Container offer with pricing based on the total number of CPU cores in the cluster. You provide the price for one CPU core and we’ll increment the pricing based on the size of the hardware in the cluster.|
 
 \* As the publisher, you support all aspects of the software license transaction, including (but not limited to) order, fulfillment, metering, billing, invoicing, payment, and collection.
 
@@ -126,7 +126,7 @@ For a Kubernetes application-based offer, the following requirements apply:
 | Requirement | Details |  
 |:--- |:--- |  
 | Billing and metering | Support one of the PerCore, PerEveryCoreInCluster, or BYOL billing models. |
-| Artifacts packaged as a Cloud Native Application Bundle (CNAB) | The Helm chart, manifest, createUiDefinition.json, and optional Azure Resource Manager template must be packaged as a CNAB. For more information, see [prepare technical assets][azure-kubernetes-technical-assets]. |
+| Artifacts packaged as a Cloud Native Application Bundle (CNAB) | The Helm chart, manifest, createUiDefinition.json, and Azure Resource Manager template must be packaged as a CNAB. For more information, see [prepare technical assets][azure-kubernetes-technical-assets]. |
 | Hosting in an Azure Container Registry repository | The CNAB must be hosted in an Azure Container Registry repository. For more information about working with Azure Container Registry, see [Quickstart: Create a private container registry by using the Azure portal](../container-registry/container-registry-get-started-portal.md).<br><br> |
 
 ## Next steps

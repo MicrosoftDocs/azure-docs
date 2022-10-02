@@ -25,6 +25,8 @@ Cluster extensions enable an Azure Resource Manager driven experience for your a
 
 - You cannot modify this value once the plan is published to *Preview*.
 
+- The maximum allowed length is 50 characters.
+
 ## Selecting CNAB bundle
 
 Your payload must be hosted in a private Azure Container Registry (ACR). Use this page to provide reference information for your Cloud Native Application Bundle (CNAB) bundle inside your Azure Container Registry. After you submit the offer for publishing, your bundle is copied to Azure Marketplace in a specific public container registry. All requests from Azure users to use your offer are served from the Azure Marketplace public container registry, not your private container registry. 

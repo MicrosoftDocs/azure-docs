@@ -46,8 +46,7 @@ For a custom priced plan, Microsoft will charge the customer for their hourly us
 
 - Free: Set the hourly price at 0 and your container offer is sold as equivalent to a free offer.
 - Per core: Your Azure Container offer is listed with pricing based on the critical CPU cores used. You provide the price for one CPU core and we’ll increment the pricing based on the size of the hardware used by your application for the critical cores you’ve tagged in your application as the ones that should generate usage.
-- Per every core in cluster: Your Azure Container offer is listed with pricing based on the CPU cores used. You provide the price for one CPU core and we’ll increment the pricing based on the size of the hardware used by your application.
-
+- Per every core in cluster: Your Azure Container offer is listed with pricing based on the total number of CPU cores in the cluster. You provide the price for one CPU core and we’ll increment the pricing based on the size of the hardware in the cluster.
 
 ## Plan visibility
 

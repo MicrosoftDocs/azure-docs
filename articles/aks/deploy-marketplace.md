@@ -6,7 +6,7 @@ ms.author: nickoman
 ms.service: container-service
 ms.topic: how-to
 ms.date: 09/30/2022
-ms.custom: devx-track-azurecli, ignite-fall-2022
+ms.custom: devx-track-azurecli, ignite-fall-2022, references_regions
 ---
 
 # How to deploy a Container offer from Azure Marketplace (preview)
@@ -22,9 +22,23 @@ Included among these solutions are Kubernetes application-based Container offers
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
+> [!NOTE]
+> This feature is currently only supported in the following regions:
+>
+> - West Central US
+> - West Europe
+> - East US.
+
 ## Register feature flags
 
-You must have registered the `Microsoft.KubernetesConfiguration/extensions` and `Microsoft.ContainerService/managedClusters` feature flags on your subscription. The following command will register both:
+You must have registered the `Microsoft.KubernetesConfiguration/extensions` and `Microsoft.ContainerService/managedClusters` feature flags on your subscription. To begin, register the relevant providers using the `az provider register` command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.KubernetesConfiguration --wait
+az provider register --namespace Microsoft.ContainerService --wait
+```
+
+The following command will register both feature flags:
 
 ```azurecli-interactive
 az feature register --name extensions --namespace Microsoft.KubernetesConfiguration
@@ -38,13 +52,12 @@ az feature list -o table --query "[?contains(name, 'Microsoft.KubernetesConfigur
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/managedClusters')].{Name:name,State:properties.state}"
 ```
 
-Once ready, refresh the registration of the `Microsoft.KubernetesConfiguration` and `Microsoft.ContainerService`   resource providers by using the `az provider register` command:
+Once ready, refresh the registration of the `Microsoft.KubernetesConfiguration` and `Microsoft.ContainerService`   resource providers:
 
 ```azurecli-interactive
-az provider register --namespace Microsoft.KubernetesConfiguration
-az provider register --namespace Microsoft.ContainerService
+az provider register --namespace Microsoft.KubernetesConfiguration --wait
+az provider register --namespace Microsoft.ContainerService --wait
 ```
-
 
 ## Browse offers
 
@@ -54,7 +67,6 @@ az provider register --namespace Microsoft.ContainerService
 
 - > [!IMPORTANT]
   > The *Azure Containers* category includes both Kubernetes applications and standalone container images. This walkthrough is Kubernetes application-specific. If you find the steps to deploy an offer differ in some way, you are most likely trying to deploy a container image-based offer instead of a Kubernetes-application based offer.
-
 
 - Once you've decided on an application, click on the offer.
 
@@ -94,14 +106,6 @@ Purchasing an offer from the Azure Marketplace creates a new instance of the ext
 az k8s-extension show --name <extension-name> --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
 ```
 
-### Updating an offer
-
-An offer can be updated by using the REST API or Azure CLI. For example:
-c
-```azurecli-interactive
-az k8s-extension update --name <extension-name> --extension-type <extension-type> --scope <scope> --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
-```
-
 ### Removing an offer
 
 A purchased Azure Container offer plan can be deleted by deleting the extension instance on the cluster. For example:
@@ -112,7 +116,7 @@ az k8s-extension delete --name <extension-name> --cluster-name <clusterName> --r
 
 ## Monitor billing and usage information
 
-To monitor billing and usage information for the offer you've deployed, visit Cost Management > Cost Analysis in your cluster resource's page in the Azure portal. You can see a breakdown of cost for the plan you've selected under "Product".
+To monitor billing and usage information for the offer you've deployed, visit Cost Management > Cost Analysis in your cluster's resource group's page in the Azure portal. You can see a breakdown of cost for the plan you've selected under "Product".
 
 :::image type="content" source="./media/deploy-marketplace/billing-inline.png" alt-text="Screenshot of the Azure portal page for the resource group. Billing information is shown broken down by offer plan." lightbox="./media/deploy-marketplace/billing-full.png":::
 
