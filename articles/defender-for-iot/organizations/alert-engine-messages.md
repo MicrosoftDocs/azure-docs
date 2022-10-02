@@ -32,25 +32,25 @@ See  [What's new in Microsoft Defender for IoT?](release-notes.md#whats-new-in-m
 
 Policy engine alerts describe detected deviations from learned baseline behavior.
 
-| Title  | Description | Severity | Category | MITRE |
-|--|--|--|--|--|
-| Beckhoff Software Changed | Firmware was updated on a source device.  This may be authorized activity, for example a planned maintenance procedure. | Major | Firmware change |
+| Title  | Description | Severity | Category |
+|--|--|--|--|
+| Beckhoff Software Changed | Firmware was updated on a source device.  This may be authorized activity, for example a planned maintenance procedure. | Major | Firmware Change |
 | Database Login Failed | A failed sign-in attempt was detected from a source device to a destination server. This might be the result of human error, but could also indicate a malicious attempt to compromise the server or data on it. | Major | Authentication |
-| Emerson ROC Firmware Version Changed | Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Major | Firmware change |
+| Emerson ROC Firmware Version Changed | Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Major | Firmware Change |
 | External address within the network communicated with Internet | A source device defined as part of your network is communicating with Internet addresses. The source isn't authorized to communicate with Internet addresses. | Critical | Internet Access |
 | Field Device Discovered Unexpectedly | A new source device was detected on the network but hasn't been authorized. | Major | Discovery |
-| Firmware Change Detected | Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Major | Firmware change |
-| Firmware Version Changed | Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Major | Firmware change |
+| Firmware Change Detected | Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Major | Firmware Change |
+| Firmware Version Changed | Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Major | Firmware Change |
 | Foxboro I/A Unauthorized Operation | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Unauthorized Communication Behavior |
 | FTP Login Failed | A failed sign-in attempt was detected from a source device to a destination server.  This alert might be the result of human error, but could also indicate a malicious attempt to compromise the server or data on it. | Major | Authentication |
 | Function Code Raised Unauthorized Exception | A source device (secondary) returned an exception to a destination device (primary). | Major | Command Failures |
 | GOOSE Message Type Settings | Message (identified by protocol ID) settings were changed on a source device. | Warning | Unauthorized Communication Behavior |
-| Honeywell Firmware Version Changed | Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Major | Firmware change |
+| Honeywell Firmware Version Changed | Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Major | Firmware Change |
 | * Illegal HTTP Communication | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Abnormal HTTP Communication Behavior |
 | Internet Access Detected | A source device defined as part of your network is communicating with Internet addresses. The source isn't authorized to communicate with Internet addresses. | Major | Internet Access |
-| Mitsubishi Firmware Version Changed | Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Major | Firmware change |
+| Mitsubishi Firmware Version Changed | Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Major | Firmware Change |
 | Modbus Address Range Violation | A primary device requested access to a new secondary memory address. | Major | Unauthorized Communication Behavior |
-| Modbus Firmware Version Changed | Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Major | Firmware change |
+| Modbus Firmware Version Changed | Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Major | Firmware Change |
 | New Activity Detected - CIP Class | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Unauthorized Communication Behavior |
 | New Activity Detected - CIP Class Service | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Unauthorized Communication Behavior |
 | New Activity Detected - CIP PCCC Command | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Unauthorized Communication Behavior |
@@ -58,12 +58,12 @@ Policy engine alerts describe detected deviations from learned baseline behavior
 | New Activity Detected - EtherNet/IP I/O Connection | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Unauthorized Communication Behavior |
 | New Activity Detected - EtherNet/IP Protocol Command | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Unauthorized Communication Behavior |
 | New Activity Detected - GSM Message Code | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Unauthorized Communication Behavior |
-| New Activity Detected - LonTalk Command Codes | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major |
+| New Activity Detected - LonTalk Command Codes | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Unauthorized Communication Behavior |
 | New Port Discovery | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Warning | Discovery |
-| New Activity Detected - LonTalk Network Variable | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major |
+| New Activity Detected - LonTalk Network Variable | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Unauthorized Communication Behavior |
 | New Activity Detected - Ovation Data Request | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Unauthorized Communication Behavior |
-| New Activity Detected - Read/Write Command (AMS Index Group) | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Configuration changes |
-| New Activity Detected - Read/Write Command (AMS Index Offset) | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Configuration changes |
+| New Activity Detected - Read/Write Command (AMS Index Group) | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Configuration Changes |
+| New Activity Detected - Read/Write Command (AMS Index Offset) | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Configuration Changes |
 | New Activity Detected - Unauthorized DeltaV Message Type | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Unauthorized Communication Behavior |
 | New Activity Detected - Unauthorized DeltaV ROC Operation | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Unauthorized Communication Behavior |
 | New Activity Detected - Unauthorized RPC Message Type | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Unauthorized Communication Behavior |
@@ -73,9 +73,9 @@ Policy engine alerts describe detected deviations from learned baseline behavior
 | New Activity Detected - Using Suitelink Protocol sessions | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Unauthorized Communication Behavior |
 | New Activity Detected - Using Yokogawa VNetIP Command | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Unauthorized Communication Behavior |
 | New Asset Detected | A new source device was detected on the network but hasn't been authorized. <br><br>This alert applies to devices discovered in OT subnets. New devices discovered in IT subnets don't trigger an alert.| Major | Discovery |
-| New LLDP Device Configuration | A new source device was detected on the network but hasn't been authorized. | Major | Configuration changes |
+| New LLDP Device Configuration | A new source device was detected on the network but hasn't been authorized. | Major | Configuration Changes |
 | Omron FINS Unauthorized Command | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Unauthorized Communication Behavior |
-| S7 Plus PLC Firmware Changed | Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Major | Firmware change |
+| S7 Plus PLC Firmware Changed | Firmware was updated on a source device. This may be authorized activity, for example a planned maintenance procedure. | Major | Firmware Change |
 | Sampled Values Message Type Settings | Message (identified by protocol ID) settings were changed on a source device. | Warning | Unauthorized Communication Behavior |
 | Suspicion of Illegal Integrity Scan | A scan was detected on a DNP3 source device (outstation). This scan wasn't authorized as learned traffic on your network. | Major | Scan |
 | Toshiba Computer Link Unauthorized Command | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Minor | Unauthorized Communication Behavior |
@@ -97,15 +97,15 @@ Policy engine alerts describe detected deviations from learned baseline behavior
 | * Unauthorized HTTP User Agent | An unauthorized application was detected on a source device. The application hasn't been authorized as a learned application on your network. | Major | Abnormal HTTP Communication Behavior |
 | Unauthorized Internet Connectivity Detected | A source device defined as part of your network is communicating with Internet addresses. The source isn't authorized to communicate with Internet addresses. | Critical | Internet Access |
 | Unauthorized Mitsubishi MELSEC Command | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Unauthorized Communication Behavior |
-| Unauthorized MMS Program Access | A source device attempted to access a resource on another device. An access attempt to this resource between these two devices hasn't been authorized as learned traffic on your network. | Major |
+| Unauthorized MMS Program Access | A source device attempted to access a resource on another device. An access attempt to this resource between these two devices hasn't been authorized as learned traffic on your network. | Major | Programming |
 | Unauthorized MMS Service | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Unauthorized Communication Behavior |
 | Unauthorized Multicast/Broadcast Connection | A Multicast/Broadcast connection was detected between a source device and other devices. Multicast/Broadcast communication isn't authorized. | Critical | Abnormal Communication Behavior |
 | Unauthorized Name Query | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Abnormal Communication Behavior |
 | Unauthorized OPC UA Activity | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Unauthorized Communication Behavior |
 | Unauthorized OPC UA Request/Response | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Unauthorized Communication Behavior |
 | Unauthorized Operation was detected by a User Defined Rule | Traffic was detected between two devices. This activity is unauthorized based on a Custom Alert Rule defined by a user. | Major | Custom Alerts |
-| Unauthorized PLC Configuration Read | The source device isn't defined as a programming device but performed a read/write operation on a destination controller. Programming changes should only be performed by programming devices. A programming application may have been installed on this device. | Warning | Configuration changes |
-| Unauthorized PLC Configuration Write | The source device sent a command to read/write the program of a destination controller. This activity wasn't previously seen. | Major | Configuration changes |
+| Unauthorized PLC Configuration Read | The source device isn't defined as a programming device but performed a read/write operation on a destination controller. Programming changes should only be performed by programming devices. A programming application may have been installed on this device. | Warning | Configuration Changes |
+| Unauthorized PLC Configuration Write | The source device sent a command to read/write the program of a destination controller. This activity wasn't previously seen. | Major | Configuration Changes |
 | Unauthorized PLC Program Upload | The source device sent a command to read/write the program of a destination controller. This activity wasn't previously seen. | Major | Programming |
 | Unauthorized PLC Programming | The source device isn't defined as a programming device but performed a read/write operation on a destination controller. Programming changes should only be performed by programming devices. A programming application may have been installed on this device. | Critical | Programming |
 | Unauthorized Profinet Frame Type | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Unauthorized Communication Behavior |
@@ -116,22 +116,22 @@ Policy engine alerts describe detected deviations from learned baseline behavior
 | Unauthorized Siemens S7 Plus Operation | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Unauthorized Communication Behavior |
 | Unauthorized SMB Login | A sign-in attempt between a source client and destination server was detected. Communication between these devices hasn't been authorized as learned traffic on your network. | Major | Authentication |
 | Unauthorized SNMP Operation | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Abnormal Communication Behavior |
-| Unauthorized SSH Access | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Remote access |
+| Unauthorized SSH Access | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Remote Access |
 | Unauthorized Windows Process | An unauthorized application was detected on a source device. The application hasn't been authorized as a learned application on your network. | Major | Abnormal Communication Behavior |
 | Unauthorized Windows Service | An unauthorized application was detected on a source device. The application hasn't been authorized as a learned application on your network. | Major | Abnormal Communication Behavior |
 | Unauthorized Operation was detected by a User Defined Rule | New traffic parameters were detected. This parameter combination violates a user defined rule | Major |
 | Unpermitted Modbus Schneider Electric Extension | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Unauthorized Communication Behavior |
 | Unpermitted Usage of ASDU Types | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Unauthorized Communication Behavior |
 | Unpermitted Usage of DNP3 Function Code | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Unauthorized Communication Behavior |
-| Unpermitted Usage of Internal Indication (IIN) | A DNP3 source device (outstation) reported an internal indication (IIN) that hasn't authorized as learned traffic on your network. | Major | Illegal commands |
+| Unpermitted Usage of Internal Indication (IIN) | A DNP3 source device (outstation) reported an internal indication (IIN) that hasn't authorized as learned traffic on your network. | Major | Illegal Commands |
 | Unpermitted Usage of Modbus Function Code | New traffic parameters were detected. This parameter combination hasn't been authorized as learned traffic on your network. The following combination is unauthorized. | Major | Unauthorized Communication Behavior |
 
 ## Anomaly engine alerts
 
 Anomaly engine alerts describe detected anomalies in network activity.
 
-| Title | Description | Severity | Category | MITRE |
-|--|--|--|--|--|
+| Title | Description | Severity | Category |
+|--|--|--|--|
 | Abnormal Exception Pattern in Slave | An excessive number of errors were detected on a source device.  This alert may be the result of an operational issue. | Minor | Abnormal Communication Behavior |
 | * Abnormal HTTP Header Length | The source device sent an abnormal message.  This alert may indicate an attempt to attack the destination device. | Critical | Abnormal HTTP Communication Behavior |
 | * Abnormal Number of Parameters in HTTP Header | The source device sent an abnormal message.  This alert may indicate an attempt to attack the destination device. | Critical | Abnormal HTTP Communication Behavior |
@@ -160,47 +160,47 @@ Anomaly engine alerts describe detected anomalies in network activity.
 
 Protocol engine alerts describe detected deviations in the packet structure, or field values compared to protocol specifications.
 
-| Title | Description | Severity | Category | MITRE |
-|--|--|--|--|--|
-| Excessive Malformed Packets In a Single Session | An abnormal number of malformed packets sent from the source device to the destination device. This alert might indicate erroneous communications, or an attempt to manipulate the targeted device. | Major | Illegal commands |
-| Firmware Update | A source device sent a command to update firmware on a destination device. Verify that recent programming, configuration and  firmware upgrades made to the destination device are valid. | Warning | Firmware change |
-| Function Code Not Supported by Outstation | The destination device received an invalid request. | Major | Illegal commands |
-| Illegal BACNet message | The source device initiated an invalid request. | Major | Illegal commands |
-| Illegal Connection Attempt on Port 0 | A source device attempted to connect to destination device on port number zero (0). For TCP, port 0 is reserved and can’t be used. For UDP, the port is optional and a value of 0 means no port. There's usually no service on a system that listens on port 0. This event may indicate an attempt to attack the destination device, or indicate that an application was programmed incorrectly. | Minor | Illegal commands |
-| Illegal DNP3 Operation | The source device initiated an invalid request. | Major | Illegal commands |
-| Illegal MODBUS Operation (Exception Raised by Master) | The source device initiated an invalid request. | Major | Illegal commands |
-| Illegal MODBUS Operation (Function Code Zero) | The source device initiated an invalid request. | Major | Illegal commands |
-| Illegal Protocol Version | The source device initiated an invalid request. | Major | Illegal commands |
-| Incorrect Parameter Sent to Outstation | The destination device received an invalid request. | Major | Illegal commands |
-| Initiation of an Obsolete Function Code (Initialize Data) | The source device initiated an invalid request. | Minor | Illegal commands |
-| Initiation of an Obsolete Function Code (Save Config) | The source device initiated an invalid request. | Minor | Illegal commands |
-| Master Requested an Application Layer Confirmation | The source device initiated an invalid request. | Warning | Illegal commands |
-| Modbus Exception | A source device (secondary) returned an exception to a destination device (primary). | Major | Illegal commands |
-| Slave Device Received Illegal ASDU Type | The destination device received an invalid request. | Major | Illegal commands |
-| Slave Device Received Illegal Command Cause of Transmission | The destination device received an invalid request. | Major | Illegal commands |
-| Slave Device Received Illegal Common Address | The destination device received an invalid request. | Major | Illegal commands |
-| Slave Device Received Illegal Data Address Parameter | The destination device received an invalid request. | Major | Illegal commands |
-| Slave Device Received Illegal Data Value Parameter | The destination device received an invalid request. | Major | Illegal commands |
-| Slave Device Received Illegal Function Code | The destination device received an invalid request. | Major | Illegal commands |
-| Slave Device Received Illegal Information Object Address | The destination device received an invalid request. | Major | Illegal commands |
-| Unknown Object Sent to Outstation | The destination device received an invalid request. | Major | Illegal commands |
-| Usage of a Reserved Function Code | The source device initiated an invalid request. | Major | Illegal commands |
-| Usage of Improper Formatting by Outstation | The source device initiated an invalid request. | Warning | Illegal commands |
-| Usage of Reserved Status Flags (IIN) | A DNP3 source device (outstation) used the reserved Internal Indicator 2.6. It's recommended to check the device's configuration. | Warning | Illegal commands |
+| Title | Description | Severity | Category |
+|--|--|--|--|
+| Excessive Malformed Packets In a Single Session | An abnormal number of malformed packets sent from the source device to the destination device. This alert might indicate erroneous communications, or an attempt to manipulate the targeted device. | Major | Illegal Commands |
+| Firmware Update | A source device sent a command to update firmware on a destination device. Verify that recent programming, configuration and  firmware upgrades made to the destination device are valid. | Warning | Firmware Change |
+| Function Code Not Supported by Outstation | The destination device received an invalid request. | Major | Illegal Commands |
+| Illegal BACNet message | The source device initiated an invalid request. | Major | Illegal Commands |
+| Illegal Connection Attempt on Port 0 | A source device attempted to connect to destination device on port number zero (0). For TCP, port 0 is reserved and can’t be used. For UDP, the port is optional and a value of 0 means no port. There's usually no service on a system that listens on port 0. This event may indicate an attempt to attack the destination device, or indicate that an application was programmed incorrectly. | Minor | Illegal Commands |
+| Illegal DNP3 Operation | The source device initiated an invalid request. | Major | Illegal Commands |
+| Illegal MODBUS Operation (Exception Raised by Master) | The source device initiated an invalid request. | Major | Illegal Commands |
+| Illegal MODBUS Operation (Function Code Zero) | The source device initiated an invalid request. | Major | Illegal Commands |
+| Illegal Protocol Version | The source device initiated an invalid request. | Major | Illegal Commands |
+| Incorrect Parameter Sent to Outstation | The destination device received an invalid request. | Major | Illegal Commands |
+| Initiation of an Obsolete Function Code (Initialize Data) | The source device initiated an invalid request. | Minor | Illegal Commands |
+| Initiation of an Obsolete Function Code (Save Config) | The source device initiated an invalid request. | Minor | Illegal Commands |
+| Master Requested an Application Layer Confirmation | The source device initiated an invalid request. | Warning | Illegal Commands |
+| Modbus Exception | A source device (secondary) returned an exception to a destination device (primary). | Major | Illegal Commands |
+| Slave Device Received Illegal ASDU Type | The destination device received an invalid request. | Major | Illegal Commands |
+| Slave Device Received Illegal Command Cause of Transmission | The destination device received an invalid request. | Major | Illegal Commands |
+| Slave Device Received Illegal Common Address | The destination device received an invalid request. | Major | Illegal Commands |
+| Slave Device Received Illegal Data Address Parameter | The destination device received an invalid request. | Major | Illegal Commands |
+| Slave Device Received Illegal Data Value Parameter | The destination device received an invalid request. | Major | Illegal Commands |
+| Slave Device Received Illegal Function Code | The destination device received an invalid request. | Major | Illegal Commands |
+| Slave Device Received Illegal Information Object Address | The destination device received an invalid request. | Major | Illegal Commands |
+| Unknown Object Sent to Outstation | The destination device received an invalid request. | Major | Illegal Commands |
+| Usage of a Reserved Function Code | The source device initiated an invalid request. | Major | Illegal Commands |
+| Usage of Improper Formatting by Outstation | The source device initiated an invalid request. | Warning | Illegal Commands |
+| Usage of Reserved Status Flags (IIN) | A DNP3 source device (outstation) used the reserved Internal Indicator 2.6. It's recommended to check the device's configuration. | Warning | Illegal Commands |
 
 ## Malware engine alerts
 
 Malware engine alerts describe detected malicious network activity.
 
-| Title | Description| Severity | Category | MITRE |
-|--|--|--|--|--|
-| Connection Attempt to Known Malicious IP | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major | Suspicion of malicious activity |
+| Title | Description| Severity | Category |
+|--|--|--|--|
+| Connection Attempt to Known Malicious IP | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major | Suspicion of Malicious Activity |
 | Invalid SMB Message (DoublePulsar Backdoor Implant) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical | Suspicion of Malware |
-| Malicious Domain Name Request | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major | Suspicion of malicious activity |
-| Malware Test File Detected - EICAR AV Success | An EICAR AV test file was detected in traffic between two devices (over any transport - TCP or UDP). The file isn't malware. It's used to confirm that the antivirus software is installed correctly. Demonstrate what happens when a virus is found, and check internal procedures and reactions when a virus is found. Antivirus software should detect EICAR as if it were a real virus. | Major | Suspicion of malicious activity |
+| Malicious Domain Name Request | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major | Suspicion of Malicious Activity |
+| Malware Test File Detected - EICAR AV Success | An EICAR AV test file was detected in traffic between two devices (over any transport - TCP or UDP). The file isn't malware. It's used to confirm that the antivirus software is installed correctly. Demonstrate what happens when a virus is found, and check internal procedures and reactions when a virus is found. Antivirus software should detect EICAR as if it were a real virus. | Major | Suspicion of Malicious Activity |
 | Suspicion of Conficker Malware | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major | Suspicion of Malware |
-| Suspicion of Denial Of Service Attack | A source device attempted to initiate an excessive number of new connections to a destination device. This may indicate a Denial Of Service (DOS) attack against the destination device, and might interrupt device functionality, affect performance and service availability, or cause unrecoverable errors. | Critical | Suspicion of malicious activity |
-| Suspicion of Malicious Activity | Suspicious network activity was detected. This activity may be associated with an attack that triggered known 'Indicators of Compromise' (IOCs). Alert metadata should be reviewed by the security team. | Major | Suspicion of malicious activity |
+| Suspicion of Denial Of Service Attack | A source device attempted to initiate an excessive number of new connections to a destination device. This may indicate a Denial Of Service (DOS) attack against the destination device, and might interrupt device functionality, affect performance and service availability, or cause unrecoverable errors. | Critical | Suspicion of Malicious Activity |
+| Suspicion of Malicious Activity | Suspicious network activity was detected. This activity may be associated with an attack that triggered known 'Indicators of Compromise' (IOCs). Alert metadata should be reviewed by the security team. | Major | Suspicion of Malicious Activity |
 | Suspicion of Malicious Activity (BlackEnergy) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical | Suspicion of Malware |
 | Suspicion of Malicious Activity (DarkComet) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical | Suspicion of Malware |
 | Suspicion of Malicious Activity (Duqu) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical | Suspicion of Malware |
@@ -208,62 +208,62 @@ Malware engine alerts describe detected malicious network activity.
 | Suspicion of Malicious Activity (Havex) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical | Suspicion of Malware |
 | Suspicion of Malicious Activity (Karagany) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical | Suspicion of Malware |
 | Suspicion of Malicious Activity (LightsOut) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical | Suspicion of Malware |
-| Suspicion of Malicious Activity (Name Queries) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major | Suspicion of malicious activity |
+| Suspicion of Malicious Activity (Name Queries) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major | Suspicion of Malicious Activity |
 | Suspicion of Malicious Activity (Poison Ivy) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical | Suspicion of Malware |
 | Suspicion of Malicious Activity (Regin) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical | Suspicion of Malware |
 | Suspicion of Malicious Activity (Stuxnet) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical | Suspicion of Malware |
 | Suspicion of Malicious Activity (WannaCry) | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major | Suspicion of Malware |
 | Suspicion of NotPetya Malware - Illegal SMB Parameters Detected | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical | Suspicion of Malware |
 | Suspicion of NotPetya Malware - Illegal SMB Transaction Detected | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Critical | Suspicion of Malware |
-| Suspicion of Remote Code Execution with PsExec | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major | Suspicion of malicious activity |
-| Suspicion of Remote Windows Service Management | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major | Suspicion of malicious activity |
-| Suspicious Executable File Detected on Endpoint | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major | Suspicion of malicious activity |
-| Suspicious Traffic Detected | Suspicious network activity was detected. This activity may be associated with an attack that triggered known 'Indicators of Compromise' (IOCs). Alert metadata should be reviewed by the security team | Critical | Suspicion of malicious activity |
-| Backup Activity with Antivirus Signatures  | Traffic detected between the source device and the destination backup server triggered this alert. The traffic includes backup of antivirus software that might contain malware signatures. This is most likely legitimate backup activity. | Warning |
+| Suspicion of Remote Code Execution with PsExec | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major | Suspicion of Malicious Activity |
+| Suspicion of Remote Windows Service Management | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major | Suspicion of Malicious Activity |
+| Suspicious Executable File Detected on Endpoint | Suspicious network activity was detected. This activity may be associated with an attack exploiting a method used by known malware. | Major | Suspicion of Malicious Activity |
+| Suspicious Traffic Detected | Suspicious network activity was detected. This activity may be associated with an attack that triggered known 'Indicators of Compromise' (IOCs). Alert metadata should be reviewed by the security team | Critical | Suspicion of Malicious Activity |
+| Backup Activity with Antivirus Signatures  | Traffic detected between the source device and the destination backup server triggered this alert. The traffic includes backup of antivirus software that might contain malware signatures. This is most likely legitimate backup activity. | Warning | Backup
 
 ## Operational engine alerts
 
 Operational engine alerts describe detected operational incidents, or malfunctioning entities.
 
-| Title | Description | Severity | Category | MITRE |
-|--|--|--|--|--|
+| Title | Description | Severity | Category |
+|--|--|--|--|
 | An S7 Stop PLC Command was Sent | The source device sent a stop command to a destination controller. The controller will stop operating until a start command is sent. | Warning | Restart/ Stop Commands |
 | BACNet Operation Failed | A server returned an error code.  This alert indicates a server error or an invalid request by a client. | Major | Command Failures |
-| Bad MMS Device State | An MMS Virtual Manufacturing Device (VMD) sent a status message. The message indicates that the server may not be configured correctly, partially operational, or not operational at all. | Major | Operational issues |
-| Change of Device Configuration | A configuration change was detected on a source device. | Minor | Configuration changes |
-| Continuous Event Buffer Overflow at Outstation | A buffer overflow event was detected on a source device. The event may cause data corruption, program crashes, or execution of malicious code. | Major | Buffer overflow |
+| Bad MMS Device State | An MMS Virtual Manufacturing Device (VMD) sent a status message. The message indicates that the server may not be configured correctly, partially operational, or not operational at all. | Major | Operational Issues |
+| Change of Device Configuration | A configuration change was detected on a source device. | Minor | Configuration Changes |
+| Continuous Event Buffer Overflow at Outstation | A buffer overflow event was detected on a source device. The event may cause data corruption, program crashes, or execution of malicious code. | Major | Buffer Overflow |
 | Controller Reset | A source device sent a reset command to a destination controller. The controller stopped operating temporarily and started again automatically. | Warning | Restart/ Stop Commands |
 | Controller Stop | The source device sent a stop command to a destination controller. The controller will stop operating until a start command is sent. | Warning | Restart/ Stop Commands |
 | Device Failed to Receive a Dynamic IP Address | The source device is configured to receive a dynamic IP address from a DHCP server but didn't receive an address. This indicates a configuration error on the device, or an operational error in the DHCP server. It's recommended to notify the network administrator of the incident | Major | Command Failures |
 | Device is Suspected to be Disconnected (Unresponsive) | A source device didn't respond to a command sent to it. It may have been disconnected when the command was sent. | Major | Unresponsive |
 | EtherNet/IP CIP Service Request Failed | A server returned an error code. This indicates a server error or an invalid request by a client. | Major | Command Failures |
 | EtherNet/IP Encapsulation Protocol Command Failed | A server returned an error code. This indicates a server error or an invalid request by a client. | Major | Command Failures |
-| Event Buffer Overflow in Outstation | A buffer overflow event was detected on a source device. The event may cause data corruption, program crashes, or execution of malicious code. | Major | Buffer overflow |
+| Event Buffer Overflow in Outstation | A buffer overflow event was detected on a source device. The event may cause data corruption, program crashes, or execution of malicious code. | Major | Buffer Overflow |
 | Expected Backup Operation Did Not Occur | Expected backup/file transfer activity didn't occur between two devices. This alert may indicate errors in the backup / file transfer process. | Major | Backup |
 | GE SRTP Command Failure | A server returned an error code.  This alert indicates a server error or an invalid request by a client. | Major | Command Failures |
 | GE SRTP Stop PLC Command was Sent | The source device sent a stop command to a destination controller. The controller will stop operating until a start command is sent. | Warning | Restart/ Stop Commands |
-| GOOSE Control Block Requires Further Configuration | A source device sent a GOOSE message indicating that the device needs commissioning. This means that the GOOSE control block requires further configuration and GOOSE messages are partially or completely non-operational. | Major | Configuration changes |
-| GOOSE Dataset Configuration was Changed | A message (identified by protocol ID) dataset was changed on a source device. This means the device will report a different dataset for this message. | Warning | Configuration changes |
-| Honeywell Controller Unexpected Status | A Honeywell Controller sent an unexpected diagnostic message indicating a status change. | Warning | Operational issues |
+| GOOSE Control Block Requires Further Configuration | A source device sent a GOOSE message indicating that the device needs commissioning. This means that the GOOSE control block requires further configuration and GOOSE messages are partially or completely non-operational. | Major | Configuration Changes |
+| GOOSE Dataset Configuration was Changed | A message (identified by protocol ID) dataset was changed on a source device. This means the device will report a different dataset for this message. | Warning | Configuration Changes |
+| Honeywell Controller Unexpected Status | A Honeywell Controller sent an unexpected diagnostic message indicating a status change. | Warning | Operational Issues |
 |*  HTTP Client Error | The source device initiated an invalid request. | Warning | Abnormal HTTP Communication Behavior |
 | Illegal IP Address | System detected traffic between a source device and an IP address that is an invalid address. This may indicate wrong configuration or an attempt to generate illegal traffic. | Minor | Abnormal Communication Behavior |
 | Master-Slave Authentication Error | The authentication process between a DNP3 source device (primary) and a destination device (outstation) failed. | Minor | Authentication |
 | MMS Service Request Failed | A server returned an error code. This indicates a server error or an invalid request by a client. | Major | Command Failures |
-| No Traffic Detected on Sensor Interface | A sensor stopped detecting network traffic on a network interface. | Critical | Sensor traffic |
-| OPC UA Server Raised an Event That Requires User's Attention | An OPC UA server sent an event notification to a client. This type of event requires user attention | Major | Operational issues |
+| No Traffic Detected on Sensor Interface | A sensor stopped detecting network traffic on a network interface. | Critical | Sensor Traffic |
+| OPC UA Server Raised an Event That Requires User's Attention | An OPC UA server sent an event notification to a client. This type of event requires user attention | Major | Operational Issues |
 | OPC UA Service Request Failed | A server returned an error code. This indicates a server error or an invalid request by a client. | Major | Command Failures |
 | Outstation Restarted | A cold restart was detected on a source device. This means the device was physically turned off and back on again. | Warning | Restart/ Stop Commands |
 | Outstation Restarts Frequently | An excessive number of cold restarts were detected on a source device. This means the device was physically turned off and back on again an excessive number of times. | Minor | Restart/ Stop Commands |
-| Outstation's Configuration Changed | A configuration change was detected on a source device. | Major | Configuration changes |
-| Outstation's Corrupted Configuration Detected | This DNP3 source device (outstation) reported a corrupted configuration. | Major | Configuration changes |
+| Outstation's Configuration Changed | A configuration change was detected on a source device. | Major | Configuration Changes |
+| Outstation's Corrupted Configuration Detected | This DNP3 source device (outstation) reported a corrupted configuration. | Major | Configuration Changes |
 | Profinet DCP Command Failed | A server returned an error code. This indicates a server error or an invalid request by a client. | Major | Command Failures |
 | Profinet Device Factory Reset | A source device sent a factory reset command to a Profinet destination device. The reset command clears Profinet device configurations and stops its operation. | Warning | Restart/ Stop Commands |
 | * RPC Operation Failed | A server returned an error code.  This alert indicates a server error or an invalid request by a client. | Major | Command Failures |
-| Sampled Values Message Dataset Configuration was Changed | A message (identified by protocol ID) dataset was changed on a source device. This means the device will report a different dataset for this message. | Warning | Configuration changes |
+| Sampled Values Message Dataset Configuration was Changed | A message (identified by protocol ID) dataset was changed on a source device. This means the device will report a different dataset for this message. | Warning | Configuration Changes |
 | Slave Device Unrecoverable Failure | An unrecoverable condition error was detected on a source device. This kind of error usually indicates a hardware failure or failure to perform a specific command. | Major | Command Failures |
-| Suspicion of Hardware Problems in Outstation | An unrecoverable condition error was detected on a source device. This kind of error usually indicates a hardware failure or failure to perform a specific command. | Major | Operational issues |
+| Suspicion of Hardware Problems in Outstation | An unrecoverable condition error was detected on a source device. This kind of error usually indicates a hardware failure or failure to perform a specific command. | Major | Operational Issues |
 | Suspicion of Unresponsive MODBUS Device | A source device didn't respond to a command sent to it. It may have been disconnected when the command was sent. | Minor | Unresponsive |
-| Traffic Detected on Sensor Interface | A sensor resumed detecting network traffic on a network interface. | Warning | Sensor traffic |
+| Traffic Detected on Sensor Interface | A sensor resumed detecting network traffic on a network interface. | Warning | Sensor Traffic |
 
 \* The alert is disabled by default, but can be enabled again. To enable the alert, navigate to the Support page, find the alert and select **Enable**. You need administrative level permissions to access the Support page.
 
