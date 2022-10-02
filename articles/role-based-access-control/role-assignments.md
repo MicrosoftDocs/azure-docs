@@ -7,7 +7,7 @@ author: johndowns
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/30/2022
+ms.date: 10/03/2022
 ms.author: jodowns
 ---
 # Understand Azure role assignments
@@ -146,6 +146,8 @@ You typically build conditions using a visual condition editor, but here's what 
 ```
 ((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'} AND NOT SubOperationMatches{'Blob.List'})) OR (@resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] StringEqualsIgnoreCase 'Cascade'))
 ```
+
+The preceding condition allows users to read blobs with a blob index tag key of *Project* and a value of *Cascade*.
 
 For more information about conditions, see [What is Azure attribute-based access control (Azure ABAC)?](conditions-overview.md)
 
