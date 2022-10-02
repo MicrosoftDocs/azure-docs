@@ -391,7 +391,7 @@ To learn more about how Azure Monitor metric alerts work and how to configure th
     ```
 ## VM Tags
 
-Users can now exclude the VM from start and stop action through VM tags. Navigate to the VM and add the new tag **ssv2excludevm** and set the value as **true** to include this VM in action. To exclude the VM from the action, you can set this tag value as **false**. Now you have an option to exclude the VMs either through VM tags or in the payload configuration using ExcludedVMLists.
+You can also include or exclude specific VMs from start and stop actions by settings tags on the VMs themselves. To add a tag, navigate to the specific VM, select **Tags** from the left menu, and add a tag named `ssv2excludevm`. To include this VM in the start or stop action, set the value of this new tag to `true`. To exclude the VM from the action, set the value to `false`. This gives you a way to exclude specific VMs without having to update `ExcludedVMLists` in the payload configuration.
 
 ## Next steps
 
