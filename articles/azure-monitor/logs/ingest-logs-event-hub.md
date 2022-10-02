@@ -256,13 +256,13 @@ To create a data collection rule in the Azure portal:
     - **Workspace Resource ID** - See [Collect required information](#collect-required-information). 
     - **Endpoint Resource ID** - Generated when you [create the data collection endpoint](#create-a-data-collection-endpoint).
     - **Table Name** - The name of the destination table. In our example, and whenever you use a custom table, the table name ends with the suffix *_CL*. 
-    - **Consumer Group** - By default, this is set to `$Default`. If needed, change the value to set a different [event hub consumer group](../../event-hubs/event-hubs-features.md#consumer-groups). 
+    - **Consumer Group** - By default, the consumer group is set to `$Default`. If needed, change the value to set a different [event hub consumer group](../../event-hubs/event-hubs-features.md#consumer-groups). 
 
     :::image type="content" source="media/ingest-logs-event-hub/data-collection-rule-custom-template-deployment.png" lightbox="media/ingest-logs-event-hub/data-collection-rule-custom-template-deployment.png" alt-text="Screenshot showing the Custom Template Deployment screen with the deployment values for the data collection rule set up in this tutorial.":::
 
 1. Select **Review + create** and then **Create** when you review the details.
 
-1. When the deployment is complete, expand the **Deployment details** box and select your data collection rule to view its details. Select **JSON View**.
+1. When the deployment is complete, expand the **Deployment details** box, and select your data collection rule to view its details. Select **JSON View**.
 
     :::image type="content" source="media/ingest-logs-event-hub/data-collection-rule-details.png" lightbox="media/ingest-logs-event-hub/data-collection-rule-details.png" alt-text="Screenshot that shows the Data Collection Rule Overview screen.":::
 
@@ -308,7 +308,7 @@ To find the `<identity_resource_Id>`, `<principal_id>,` and `<client_id>` values
     :::image type="content" source="media/ingest-logs-event-hub/managed-identity-resource-id.png" lightbox="media/ingest-logs-event-hub/managed-identity-resource-id.png" alt-text="Screenshot showing Resource JSON screen with the managed identity resource ID highlighted.":::
 ## Grant the event hub permission to the data collection rule
 
-With [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), you can give any event hub or event hub namespace permission to send events to the data collection rule and data collection endpoint you created. When you grant the permissions to the event hub namespace, all event hubs within the namespace inherit the permissions. 
+With [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), you can give any event hub, or event hub namespace, permission to send events to the data collection rule and data collection endpoint you created. When you grant the permissions to the event hub namespace, all event hubs within the namespace inherit the permissions. 
 
 1. From the event hub or event hub namespace in the Azure portal, select **Access Control (IAM)** > **Add role assignment**. 
 
@@ -332,7 +332,7 @@ With [managed identity](../../active-directory/managed-identities-azure-resource
 
 The final step is to associate the data collection rule to the event hub from which you want to collect events. 
 
-You can associate a single data collection rule with multiple event hubs that share the same [consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) and ingest data to the same stream, or you can associate a unique data collection rule to each event hub.
+You can associate a single data collection rule with multiple event hubs that share the same [consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) and ingest data to the same stream. Alternatively, you can associate a unique data collection rule to each event hub.
 
 > [!IMPORTANT]
 > You must associate at least one data collection rule to the event hub to ingest data from an event hub. When you delete all data collection rules associations related to the event hub, you'll stop ingesting data from the event hub.
@@ -396,3 +396,16 @@ To create a data collection rule association in the Azure portal:
 1. Select **Review + create** and then **Create** when you review the details.
 
     Now that you've associated the data collection rule with your event hub, you should begin to see events being ingested into the target table you created in your Log Analytics workspace.
+
+## Clean up resources
+
+In this tutorial, you created the following resources:
+
+- Custom log table 
+- Data collection endpoint
+- Data collection rule
+- Data collection rule association
+
+Evaluate whether you still need these resources. Delete the resources you don't need individually, or delete the resource group to delete all of these resources. Resources you leave running can cost you money.
+
+To stop ingesting data from the event hub, delete all data collection rule associations related to the event hub, or delete the data collection rules themselves, or remove permissions you granted to the data collection rules. These actions reset event hub [checkpointing](azure/event-hubs/event-hubs-features#checkpointing). 
