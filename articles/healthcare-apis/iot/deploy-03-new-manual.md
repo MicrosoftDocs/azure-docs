@@ -11,17 +11,15 @@ ms.author: v-smcevoy
 
 # How to manually deploy MedTech service using the Azure portal
 
-You may prefer to manually deploy MedTech service if you need to understand every step of the process. This may be important if you want to customize or troubleshoot your deployment because it will provide all the details for implementing each deployment task.
+You may prefer to manually deploy MedTech service if you need to track every step of the developmental process. This may be necessary if you have to customize or troubleshoot your deployment, because manual deployment will provide all the details for implementing each task.
 
-If you want more information on how the parts of MedTech service deployment fit together, there is an architecture overview diagram at [Choose a deployment method](deploy-iot-connector-in-azure.md#deployment-architecture-overview). This diagram shows the data flow steps of deployment and how MedTech service processes data into a Fast Healthcare Interoperability Resource (FHIR).
+The explanation of MedTech service manual deployment using the Azure portal is divided into three parts that cover each of key tasks required:
 
-## Articles on the manual deploy process
+- Prerequisites (see Prerequisites below)
+- Configuration (see [Configure for manual deployment](./deploy-05-new-config.md))
+- Deployment and Post Deployment (see [Manual deployment and post-deployment](./deploy-06-new-deploy.md))
 
-The MedTech service manual deployment process using the Azure portal is divided into three sections that cover each of key tasks required:
-
-- Prerequisites
-- Configuration
-- Deployment/Post Deployment
+If you need to see a diagram with information on the MedTech service deployment, there is an architecture overview at [Choose a deployment method](deploy-iot-connector-in-azure.md#deployment-architecture-overview). This diagram shows the data flow steps of deployment and how MedTech service processes data into a Fast Healthcare Interoperability Resource (FHIR) Observation.
 
 ## Prerequisites
 
