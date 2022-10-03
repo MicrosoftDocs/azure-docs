@@ -138,7 +138,7 @@ az k8s-extension create --name azuremonitor-containers  --extension-type Microso
 | `--cluster-type` | The cluster type on which the extension instance has to be created. For most scenarios, use `connectedClusters`, which corresponds to Azure Arc-enabled Kubernetes. |
 
 > [!NOTE]
-> When working with [connected AKS clusters on Azure Stack HCI](#connected-aks-clusters-on-azure-stack-hci) you must set `--cluster-type` to use `provisionedClusters` and also add `--cluster-resource-provider microsoft.hybridcontainerservice` to the command.
+> When working with AKS hybrid clusters provisioned from Azure you must set `--cluster-type` to use `provisionedClusters` and also add `--cluster-resource-provider microsoft.hybridcontainerservice` to the command. Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.
 
 **Optional parameters**
 
@@ -273,9 +273,9 @@ az k8s-extension delete --name azuremonitor-containers --cluster-name <clusterNa
 >[!NOTE]
 > The Azure resource representing this extension gets deleted immediately. The Helm release on the cluster associated with this extension is only deleted when the agents running on the Kubernetes cluster have network connectivity and can reach out to Azure services again to fetch the desired state.
 
-## Connected AKS clusters on Azure Stack HCI
+## AKS hybrid clusters provisioned from Azure [PREVIEW]
 
-You can deploy extensions to [connected AKS clusters on Azure Stack HCI](/azure-stack/aks-hci/connect-to-arc). However, there are a few key differences to keep in mind in order to deploy successfully:
+You can deploy extensions to AKS hybrid clusters provisioned from Azure. However, there are a few key differences to keep in mind in order to deploy successfully:
 
 * The value for the `--cluster-type` parameter must be `provisionedClusters`.
 * You must add `--cluster-resource-provider microsoft.hybridcontainerservice` to your commands.
