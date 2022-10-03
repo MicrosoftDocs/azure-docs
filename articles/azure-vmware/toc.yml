@@ -164,6 +164,8 @@
       href: azure-vmware-solution-horizon.md
     - name: Deploy Citrix on Azure VMware Solution
       href: azure-vmware-solution-citrix.md
+  - name: Deploy vSAN stretched clusters
+    href: deploy-vsan-stretched-clusters.md
   - name: Move resources
     items:
     - name: Move Azure VMware Solution subscriptions
