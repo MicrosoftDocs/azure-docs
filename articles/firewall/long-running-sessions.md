@@ -23,7 +23,7 @@ The following scenarios can potentially drop long running TCP sessions:
 
 ### Scale in
 
-Azure Firewall scales in\out based on throughput and CPU usage. Scale in is performed by putting the VM instance in drain mode for 90 seconds before recycling the VM instance. Any long running connections remaining on the VM instance after 90 seconds will be disconnected.
+Azure Firewall scales in/out based on throughput and CPU usage. Scale in is performed by putting the VM instance in drain mode for 90 seconds before recycling the VM instance. Any long running connections remaining on the VM instance after 90 seconds will be disconnected.
 
 ### Firewall maintenance
 
