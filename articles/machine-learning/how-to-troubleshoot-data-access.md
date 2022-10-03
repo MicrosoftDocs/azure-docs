@@ -93,6 +93,6 @@ Errors also include:
 
 - See more information on [data concepts in Azure Machine Learning](concept-data.md)
 
-- [Identity-based data access to storage services on Azure](how-to-identity-based-data-access.md).
-
+- [AzureML authentication to other services](how-to-identity-based-service-authentication.md).
+- [Create datastores](how-to-datastore.md)
 - [Read and write data in a job](how-to-read-write-data-v2.md)

@@ -4,7 +4,7 @@ description: Overview of the Azure Monitor Agent, which collects monitoring data
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 9/16/2022
+ms.date: 9/15/2022
 ms.custom: references_regions
 ms.reviewer: shseth
 
@@ -17,17 +17,17 @@ Azure Monitor Agent (AMA) collects monitoring data from the guest operating syst
 
 Here's a short **introduction to Azure Monitor video**, which includes a quick demo of how to set up the agent from the Azure portal:  [ITOps Talk: Azure Monitor Agent](https://www.youtube.com/watch?v=f8bIrFU8tCs)
 
-## Can I deploy Azure Monitor Agent?
+## Consolidating legacy agents
 
-Deploy Azure Monitor Agent on all new virtual machines to collect data for [supported services and features](#supported-services-and-features).
+Deploy Azure Monitor Agent on all new virtual machines, scale sets and on premise servers to collect data for [supported services and features](#supported-services-and-features).
 
-If you have virtual machines already deployed with legacy agents, we recommend you [check whether Azure Monitor Agent supports your monitoring needs](#compare-to-legacy-agents) and [migrate to Azure Monitor Agent](./azure-monitor-agent-migration.md) as soon as possible.
+If you have machines already deployed with legacy Log Analytics agents, we recommend you [migrate to Azure Monitor Agent](./azure-monitor-agent-migration.md) as soon as possible. The legacy Log Analytics agent will not be supported after August 2024.
 
 Azure Monitor Agent replaces the Azure Monitor legacy monitoring agents:
 
-- [Log Analytics Agent](./log-analytics-agent.md): Sends data to a Log Analytics workspace and supports monitoring solutions.  
-- [Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md): Sends data to Azure Monitor Metrics (Linux only).
-- [Diagnostics extension](./diagnostics-extension-overview.md): Sends data to Azure Monitor Metrics (Windows only), Azure Event Hubs, and Azure Storage.
+- [Log Analytics Agent](./log-analytics-agent.md): Sends data to a Log Analytics workspace and supports monitoring solutions. This is fully consolidated into Azure Monitor agent. 
+- [Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md): Sends data to Azure Monitor Metrics (Linux only). Only basic Telegraf plugins are supported today in Azure Monitor agent.
+- [Diagnostics extension](./diagnostics-extension-overview.md): Sends data to Azure Monitor Metrics (Windows only), Azure Event Hubs, and Azure Storage. This is not consolidated yet.
 
 ## Install the agent and configure data collection  
 
@@ -56,7 +56,10 @@ Azure Monitor Agent uses [data collection rules](../essentials/data-collection-r
     | Text logs | Log Analytics workspace - custom table | Events sent to log file on agent machine |
     
     <sup>1</sup> On Linux, using Azure Monitor Metrics as the only destination is supported in v1.10.9.0 or higher.<br>
-    <sup>2</sup> Azure Monitor Linux Agent v1.15.2 or higher supports syslog RFC formats including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos XG, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee, and Common Event Format (CEF). 
+    <sup>2</sup> Azure Monitor Linux Agent versions 1.15.2 and higher support syslog RFC formats including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos XG, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee, and Common Event Format (CEF).
+
+    >[!NOTE]
+    >On rsyslog-based systems, Azure Monitor Linux Agent adds forwarding rules to the default ruleset defined in the rsyslog configuration. If multiple rulesets are used, inputs bound to non-default ruleset(s) are **not** forwarded to Azure Monitor Agent. For more information about multiple rulesets in rsyslog, see the [official documentation](https://www.rsyslog.com/doc/master/concepts/multi_ruleset.html).
 
 ## Supported services and features
 
@@ -193,6 +196,7 @@ The following tables list the operating systems that Azure Monitor Agent and the
 | Debian 9                                                    | X | X | X |
 | Debian 8                                                    |   | X |   |
 | Debian 7                                                    |   |   | X |
+| OpenSUSE 15                                                 | X |   |   |
 | OpenSUSE 13.1+                                              |   |   | X |
 | Oracle Linux 8                                              | X | X |   |
 | Oracle Linux 7                                              | X | X | X |
@@ -205,6 +209,7 @@ The following tables list the operating systems that Azure Monitor Agent and the
 | Red Hat Enterprise Linux Server 6.7+                        |   | X | X |
 | Rocky Linux 8                                               | X | X |   |
 | SUSE Linux Enterprise Server 15 SP4                         | X<sup>3</sup> |   |   |
+| SUSE Linux Enterprise Server 15 SP3                         | X |   |   |
 | SUSE Linux Enterprise Server 15 SP2                         | X |   |   |
 | SUSE Linux Enterprise Server 15 SP1                         | X | X |   |
 | SUSE Linux Enterprise Server 15                             | X | X |   |
@@ -218,6 +223,10 @@ The following tables list the operating systems that Azure Monitor Agent and the
 <sup>1</sup> Requires Python (2 or 3) to be installed on the machine.<br>
 <sup>2</sup> Requires Python 2 to be installed on the machine and aliased to the `python` command.<br>
 <sup>3</sup> Also supported on Arm64-based machines.
+
+>[!NOTE]
+>Machines and appliances that run heavily customized or stripped-down versions of the above distributions and hosted solutions that disallow customization by the user are not supported. Azure Monitor and legacy agents rely on various packages and other baseline functionality that is often removed from such systems, and their installation may require some environmental modifications considered to be disallowed by the appliance vendor. For instance, [GitHub Enterprise Server](https://docs.github.com/en/enterprise-server/admin/overview/about-github-enterprise-server) is not supported due to heavy customization as well as [documented, license-level disallowance](https://docs.github.com/en/enterprise-server/admin/overview/system-overview#operating-system-software-and-patches) of operating system modification.
+
 ## Next steps
 
 - [Install the Azure Monitor Agent](azure-monitor-agent-manage.md) on Windows and Linux virtual machines.

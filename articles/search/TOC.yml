@@ -641,7 +641,7 @@
   - name: Training
     items:
     - name: Introduction (Learn module)
-      href: /learn/modules/intro-to-azure-search/
+      href: /training/modules/intro-to-azure-search/
     - name: Add search to apps (Pluralsight)
       href: https://www.pluralsight.com/courses/azure-adding-search-abilities-apps
     - name: Developer course (Pluralsight)

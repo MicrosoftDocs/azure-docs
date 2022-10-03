@@ -14,7 +14,7 @@ ms.custom: github-actions-azure
 
 In this quickstart, you use the [GitHub Actions for Azure Resource Manager deployment](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) to automate deploying a Bicep file to Azure.
 
-It provides a short introduction to GitHub actions and Bicep files. If you want more detailed steps on setting up the GitHub actions and project, see [Learning path: Deploy Azure resources by using Bicep and GitHub Actions](/learn/paths/bicep-github-actions).
+It provides a short introduction to GitHub actions and Bicep files. If you want more detailed steps on setting up the GitHub actions and project, see [Deploy Azure resources by using Bicep and GitHub Actions](/training/paths/bicep-github-actions).
 
 ## Prerequisites
 

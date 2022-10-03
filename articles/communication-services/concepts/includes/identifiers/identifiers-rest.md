@@ -15,7 +15,7 @@ ms.author: domessin
 
 In REST APIs, the identifier is a polymorphic type: you construct a JSON object and a property that maps to a concrete identifier subtype. For convenience and backwards-compatibility reasons, the `kind` and `rawId` properties are optional in requests but get populated in service responses.
 
-### Communication User identifier
+### Communication user
 
 The `CommunicationUserIdentifierModel` represents a user identity that was created using the [Identity SDK or REST API](../../../quickstarts/access-tokens.md). It's the only identifier used if your application doesn't use Microsoft Teams interoperability or Telephony features.
 
@@ -48,7 +48,7 @@ You can find an example for a request that includes an identifier in Chat's REST
 
 [CommunicationUserIdentifierModel](https://github.com/Azure/azure-rest-api-specs/blob/c1883ee5b87c41dfcb699420409bc0e31cff0786/specification/communication/data-plane/Common/stable/2022-07-13/common.json#L113)
 
-### Microsoft Teams User identifier
+### Microsoft Teams user
 
 The `MicrosoftTeamsUserIdentifierModel` represents a Teams user with its Azure AD user object ID. You can retrieve the Azure AD user object ID via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint from the `id` property in the response. For more information on how to work with Microsoft Graph, try the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview). Alternatively, you can find the ID as the `oid` claim in an [Azure AD ID token](/azure/active-directory/develop/id-tokens#payload-claims) or [Azure AD access token](/azure/active-directory/develop/access-tokens#payload-claims) after your user has signed in and acquired a token.
 
@@ -96,7 +96,7 @@ The `MicrosoftTeamsUserIdentifierModel` represents a Teams user with its Azure A
 
 [MicrosoftTeamsUserIdentifierModel](https://github.com/Azure/azure-rest-api-specs/blob/c1883ee5b87c41dfcb699420409bc0e31cff0786/specification/communication/data-plane/Common/stable/2022-07-13/common.json#L139)
 
-### Phone Number identifier
+### Phone number
 
 The `PhoneNumberIdentifierModel` represents a phone number. The service assumes that phone numbers are formatted in E.164 format.
 
@@ -124,7 +124,7 @@ The `PhoneNumberIdentifierModel` represents a phone number. The service assumes 
 
 [PhoneNumberIdentifierModel](https://github.com/Azure/azure-rest-api-specs/blob/c1883ee5b87c41dfcb699420409bc0e31cff0786/specification/communication/data-plane/Common/stable/2022-07-13/common.json#L126)
 
-### Unknown identifier
+### Unknown
 
 If a new identifier gets introduced in a service, it will get downgraded to the `CommunicationIdentifierModel` if you are on an old API version.
 
@@ -273,7 +273,7 @@ The raw ID is the Teams visitor ID prefixed with `8:teamsvisitor:`. The Teams vi
 
 The raw ID is the E.164 formatted phone number without the leading `+` and prefixed with `4:`.
 
-### Unknown identifier
+### Unknown
 
 *Identifier:*
 ```json

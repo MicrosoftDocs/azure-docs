@@ -93,7 +93,7 @@ When you configure encryption with customer-managed keys for an existing storage
 >
 > Azure Storage checks the key vault for a new key version only once daily. When you rotate a key in Azure Key Vault, be sure to wait 24 hours before disabling the older version.
 
-### [Azure portal](#tab/portal)
+### [Azure portal](#tab/azure-portal)
 
 To configure cross-tenant customer-managed keys for a new storage account in the Azure portal, follow these steps:
 
@@ -109,7 +109,7 @@ To configure cross-tenant customer-managed keys for a new storage account in the
 
 1. Select the **Review** button to validate and create the account.
 
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/azure-powershell)
 
 N/A
 
