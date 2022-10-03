@@ -89,34 +89,56 @@
 
 - name: Concepts
   items:
-  - name: The Defender for Cloud multicloud solution
-    href: multicloud.yml
-
-  - name: Cloud Security Posture Management
+  - name: Protect multicloud resources
     items:
-    - name: Policies, initiatives, and recommendations
-      href: security-policy-concept.md
-    - name: Security posture
-      href: secure-score-security-controls.md
-    - name: Cloud Security Posture Management (CSPM)
-      displayName: CSPM, cloud security, posture, management
-      href: concept-cloud-security-posture-management.md
-    - name: Microsoft Cloud Security Benchmark (MCSB)
-      href: concept-regulatory-compliance.md
-    - name: What is the Cloud Security Graph
-      displayName: What are the Cloud Security Graph, Attack Path Analysis, and the Cloud Security Explorer?
-      href: concept-attack-path.md
-    - name: External attack surface management (EASM)
-      displayName: EASM, attack surface management
-      href: concept-easm.md
-    - name: Reference list of Azure recommendations
-      href: recommendations-reference.md
-    - name: Reference list of AWS recommendations
-      href: recommendations-reference-aws.md
-    - name: Reference list of attack paths
-      href: attack-path-reference.md
-
-  - name: Cloud Workload Protection
+    - name: The Defender for Cloud multicloud solution
+      href: multicloud.yml
+    - name: Planning multicloud security
+      items:
+      - name: Get started
+        href: plan-multicloud-security-get-started.md
+      - name: Determine business needs
+        href: plan-multicloud-security-determine-business-needs.md
+      - name: Define an adoption strategy
+        href: plan-multicloud-security-define-adoption-strategy.md
+      - name: Determine data residency requirements
+        href: plan-multicloud-security-determine-data-residency-requirements.md
+      - name: Determine compliance requirements
+        href: plan-multicloud-security-determine-compliance-requirements.md
+      - name: Determine ownership requirements
+        href: plan-multicloud-security-determine-ownership-requirements.md
+      - name: Determine access control requirements
+        href: plan-multicloud-security-determine-access-control-requirements.md
+      - name: Determine multicloud dependencies
+        href: plan-multicloud-security-determine-multicloud-dependencies.md
+      - name: Automate connector deployment
+        href: plan-multicloud-security-automate-connector-deployment.md
+      - name: Other resources
+        href: plan-multicloud-security-other-resources.md
+  - name: Improve your cloud security posture
+    items:
+      - name: Policies, initiatives, and recommendations
+        href: security-policy-concept.md
+      - name: Security posture
+        href: secure-score-security-controls.md
+      - name: Cloud Security Posture Management (CSPM)
+        displayName: CSPM, cloud security, posture, management
+        href: concept-cloud-security-posture-management.md
+      - name: Microsoft Cloud Security Benchmark (MCSB)
+        href: concept-regulatory-compliance.md
+      - name: What is the Cloud Security Graph
+        displayName: What are the Cloud Security Graph, Attack Path Analysis, and the Cloud Security Explorer?
+        href: concept-attack-path.md
+      - name: External attack surface management (EASM)
+        displayName: EASM, attack surface management
+        href: concept-easm.md
+      - name: Reference list of Azure recommendations
+        href: recommendations-reference.md
+      - name: Reference list of AWS recommendations
+        href: recommendations-reference-aws.md
+      - name: Reference list of attack paths
+        href: attack-path-reference.md
+  - name: Protect cloud workloads
     items:
     - name: Agentless scanning
       href: concept-agentless-data-collection.md
