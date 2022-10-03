@@ -39,7 +39,7 @@ The following example will assign the `Azure Service Bus Data Owner` role to you
 
 ### [Azure CLI](#tab/roles-azure-cli)
 
-To assign a role at the resource level using the Azure CLI, you first must retrieve the resource id using the `az storage account show` command. You can filter the output properties using the `--query` parameter. 
+To assign a role at the resource level using the Azure CLI, you first must retrieve the resource id using the `az servicebus namespace show ` command. You can filter the output properties using the `--query` parameter. 
 
 ```azurecli
 az servicebus namespace show -g '<your-service-bus-resource-group>' -n '<your-service-bus-name> --query id

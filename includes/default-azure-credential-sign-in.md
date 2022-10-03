@@ -10,6 +10,8 @@ ms.author: alexwolf
 ms.custom: include file
 ---
 
+Make sure you're authenticated with the same Azure AD account you assigned the role to. You can authenticate via the Azure CLI, Visual Studio, or Azure PowerShell.
+
 ### [Azure CLI](#tab/sign-in-azure-cli)
 
 Sign-in to Azure through the Azure CLI using the following command:
