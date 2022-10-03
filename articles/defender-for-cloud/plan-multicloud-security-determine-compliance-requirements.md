@@ -1,12 +1,12 @@
 ---
-title: Defender for Cloud Planning multicloud security determine compliance requirements guidance AWS standards GCP standards
+title: Defender for Cloud Planning multicloud security compliance requirements guidance AWS standards GCP standards
 description: Learn about determining compliance requirements in multicloud environment with Microsoft Defender for Cloud.
 ms.topic: how-to
 ms.date: 10/03/2022
 ---
 # Determine compliance requirements
 
-This article is one of a series providing guidance as you design a cloud security posture management (CSPM) and cloud workload protection (CWP) solution across multicloud resources with Microsoft Defender for Cloud.
+This article is part of a series to provide guidance as you design a cloud security posture management (CSPM) and cloud workload protection (CWP) solution across multicloud resources with Microsoft Defender for Cloud.
 
 ## Goal
 
@@ -22,7 +22,7 @@ Defender for Cloud continually assesses the configuration of your resources agai
 - GCP standards include GCP Default, GCP CIS 1.1.0/1.2.0, GCP ISO 27001, GCP NIST 800 53, and PCI DSS 3.2.1.
 - By default, every subscription that contains the AWS connector has the AWS Foundational Security Best Practices assigned.
 - Every subscription with the GCP connector has the GCP Default benchmark assigned.
-- For AWS and GCP, the compliance monitoring freshness interval is 4hrs.
+- For AWS and GCP, the compliance monitoring freshness interval is 4 hours.
 
 After you enable enhanced security features, you can add other compliance standards to the dashboard. Regulatory compliance is available when you enable at least one Defender plan on the subscription in which the multicloud connector is located, or on the connector.
 
@@ -30,4 +30,4 @@ Additionally, you can also create your own custom standards and assessments for 
 
 ## Next steps
 
-In this article, you have learned how to determine your compliance requirements when designing a multicloud security solution. Continue with the next step to [determine ownership requirements](plan-multicloud-security-determine-ownership-requirements.md).
+In this article, you've learned how to determine your compliance requirements when designing a multicloud security solution. Continue with the next step to [determine ownership requirements](plan-multicloud-security-determine-ownership-requirements.md).

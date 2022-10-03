@@ -1,12 +1,12 @@
 ---
-title: Defender for Cloud Planning multicloud security define adoption strategy lifecycle strategy guidance
+title: Defender for Cloud Planning multicloud security defining adoption strategy lifecycle strategy guidance
 description: Learn about defining broad requirements for business needs and ownership in multicloud environment with Microsoft Defender for Cloud.
 ms.topic: how-to
 ms.date: 10/03/2022
 ---
 # Define an adoption strategy
 
-This article is one of a series providing guidance as you design a cloud security posture management (CSPM) and cloud workload protection platform (CWPP) solution across multicloud resources with Microsoft Defender for Cloud.
+This article is part of a series to provide guidance as you design a cloud security posture management (CSPM) and cloud workload protection platform (CWPP) solution across multicloud resources with Microsoft Defender for Cloud.
 
 ## Goal
 
@@ -29,4 +29,4 @@ Think about your broad requirements:
 
 ## Next steps
 
-In this article, you have learned how to determine your adoption strategy when designing a multicloud security solution. Continue with the next step to [determine data residency requirements](plan-multicloud-security-determine-data-residency-requirements.md).
+In this article, you've learned how to determine your adoption strategy when designing a multicloud security solution. Continue with the next step to [determine data residency requirements](plan-multicloud-security-determine-data-residency-requirements.md).

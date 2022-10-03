@@ -1,12 +1,12 @@
 ---
-title: Defender for Cloud planning multicloud security automate connector deployment guidance
+title: Defender for Cloud planning multicloud security automating connector deployment
 description: Learn about automating connector deployment when planning multicloud deployment with Microsoft Defender for Cloud.
 ms.topic: how-to
 ms.date: 10/03/2022
 ---
 # Automate connector deployment
 
-This article is part of a series providing guidance as you design a cloud security posture management (CSPM) and cloud workload protection (CWP) solution across multicloud resources with Microsoft Defender for Cloud.
+This article is part of a series to guide you in designing a solution for cloud security posture management (CSPM) and cloud workload protection (CWP) across multicloud resources with Microsoft Defender for Cloud.
 
 ## Goal
 
@@ -20,7 +20,7 @@ Review the [Security Connectors - REST API](/rest/api/defenderforcloud/security-
 
 - When you use REST API to create the connector, you also need the CloudFormation template, or Cloud Shell script, depending on the environment that you’re onboarding to Defender for Cloud.
 - The easiest way to get this script is to download it from the Defender for Cloud portal.
-- Note that the template/script changes depending on the plans you’re enabling.
+- The template/script changes depending on the plans you’re enabling.
 
 ## Next steps
 
