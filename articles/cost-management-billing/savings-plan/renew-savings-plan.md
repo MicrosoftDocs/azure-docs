@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 09/23/2022
+ms.date: 10/12/2022
 ms.author: banders
 ---
 
@@ -38,7 +38,7 @@ For Microsoft Partner Agreements (MPA):
 
 ## Set up renewal
 
-In the Azure portal, navigate to **Savings plan**.
+In the Azure portal, search for **Savings plan** and select it.
 
 1. Select the savings plan.
 1. Select **Renewal**.
