@@ -72,13 +72,14 @@ The following shows default prompt values that MSAL.js uses:
 | `acquireTokenRedirect` | N/A            | Any             |
 | `acquireTokenSilent`   | `none`         | N/A (ignored)   |
 
-It's important to note that **prompt** is a protocol-level parameter and signals the desired authentication behavior to the identity provider. It does not affect MSAL.js behavior and MSAL.js does not have control over how the service will ultimately handle the request. In most circumstances, Azure AD will try to honor the request. If this is not possible, it may return an error response, or completely ignore the given prompt value.
+> [!NOTE]
+> Note that **prompt** is a protocol-level parameter and signals the desired authentication behavior to the identity provider. It does not affect MSAL.js behavior and MSAL.js does not have control over how the service will ultimately handle the request. In most circumstances, Azure AD will try to honor the request. If this is not possible, it may return an error response, or completely ignore the given prompt value.
 
 ## Interactive requests with prompt=none
 
 Generally, when you need to make a silent request, use a silent MSAL.js method (`ssoSilent`, `acquireTokenSilent`), and handle any *login_required* or *interaction_required* errors with an interactive method (`loginPopup`, `loginRedirect`, `acquireTokenPopup`, `acquireTokenRedirect`). 
 
-In some cases however, the prompt value `none` can be used together with an interactive MSAL.js method to achieve silent authentication. For instance, due to the third-party cookie restrictions in some browsers, `ssoSilent` requests will fail despite an active user session with Azure AD. As a remedy, you can pass the prompt value `none` to an interactive request such as `loginPopup`. MSAL.js will then open a popup window to Azure AD and Azure AD will honor the prompt value by utilizing the existing session cookie.
+In some cases however, the prompt value `none` can be used together with an interactive MSAL.js method to achieve silent authentication. For instance, due to the third-party cookie restrictions in some browsers, `ssoSilent` requests will fail despite an active user session with Azure AD. As a remedy, you can pass the prompt value `none` to an interactive request such as `loginPopup`. MSAL.js will then open a popup window to Azure AD and Azure AD will honor the prompt value by utilizing the existing session cookie. In this case the user will see a brief popup window but will not be prompted for a credential entry.
 
 ## Next steps
 
