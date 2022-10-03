@@ -27,7 +27,7 @@ NC2 on Azure supports the following region using AN36:
 * East US
 * West US 2
 
-NC2 on Azure supports the North Central US Azure regions using AN36P.
+NC2 on Azure supports the North Central US Azure region using AN36P.
 
 
 ## Next steps
