@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/13/2022
+ms.date: 09/30/2022
 ms.custom: engagement-fy23
 tags: connectors
 ---
@@ -63,7 +63,7 @@ The Service Bus connector has different versions, based on [logic app workflow t
 
 ### Peek-lock
 
-Peek-lock operations are available only with the Azure Service Bus managed connector, not the built-in connector.
+In Standard logic app workflows, peek-lock operations are available only for *stateless* workflows, not stateful workflows.
 
 ### Limit on saved sessions in connector cache
 
