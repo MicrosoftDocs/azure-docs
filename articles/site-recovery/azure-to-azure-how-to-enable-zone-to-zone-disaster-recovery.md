@@ -5,7 +5,7 @@ author: v-pgaddala
 manager: aravindang
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/23/2022
+ms.date: 09/29/2022
 ms.author: v-pgaddala
 ms.custom: references_regions
 ---
