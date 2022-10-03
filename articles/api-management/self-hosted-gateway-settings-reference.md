@@ -23,6 +23,9 @@ This article provides a reference for required and optional settings that are us
 |----|------|----------|-------------------|
 | config.service.endpoint | Configuration endpoint in Azure API Management for the self-hosted gateway. Find this value in the Azure portal under **Gateways** > **Deployment**.  | Yes       | N/A             |
 | config.service.auth | Access token (authentication key) of the self-hosted gateway. Find this value in the Azure portal under **Gateways** > **Deployment**. | Yes | N/A |
+| neighborhood.host | DNS name used to resolve all instances of a self-hosted gateway deployment for cross-instance synchronization. In Kubernetes, this can be achieved by using a headless Service. | No | N/A |
+| neighborhood.heartbeat.port | UDP port used for instances of a self-hosted gateway deployment to send heartbeats to other instances. | No | 4291 |
+| policy.rate-limit.sync.port | UDP port used for self-hosted gateway instances to synchronize rate limiting across multiple instances. | No | 4290 |
 
 
 ##  Metrics
