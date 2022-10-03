@@ -7,7 +7,7 @@ ms.date: 09/11/2022
 ms.topic: how-to
 ---
 
-# Use Defender for Containers to scan your Amazon AWS Elastic Container Registry images for vulnerabilities
+# Use Defender for Containers to scan your Amazon AWS Elastic Container Registry images for vulnerabilities (Preview)
 
 Defender for Containers lets you scan the container images stored in your Amazon AWS Elastic Container Registry (ECR) as part of the protections provided within Microsoft Defender for Cloud.
 
