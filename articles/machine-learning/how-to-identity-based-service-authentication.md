@@ -346,5 +346,5 @@ In this scenario, Azure Machine Learning service builds the training or inferenc
 ## Next steps
 
 * Learn more about [enterprise security in Azure Machine Learning](concept-enterprise-security.md)
-* Learn about [identity-based data access](how-to-identity-based-data-access.md)
+* Learn about [data administration](how-to-administrate-data-authentication.md)
 * Learn about [managed identities on compute cluster](how-to-create-attach-compute-cluster.md).
