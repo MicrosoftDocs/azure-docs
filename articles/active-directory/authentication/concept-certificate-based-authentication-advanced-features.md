@@ -28,6 +28,19 @@ The certificateUserIds attribute is a unique constraint multivalued attribute. A
 
 The Azure AD user object lookup happens with the Azure AD UPN the user enters (or, in case of Windows sign-in, the Azure AD UPN that Windows sends) and the username bindings is used to validate the certificate to successfully authenticate the user. Also, if the admin has configured multiple bindings, Azure AD will evaluate all the bindings until a successful authentication, or all the bindings are evaluated. This helps the admin use specific configurations to achieve one certificate to multiple accounts.
 
+**Scoping 1:M to specific users**
+
+Since 1:M is not a feature that all users should be allowed to use, tenant admins should scope to just the users that would need 1:M support. This is an important security configuration that admins should follow. By default, the tenant admin would configure all the user accounts to hold values for all bindings so users other than 1:M scope cannot use one certificate to multiple accounts.
+ 
+Say, if the tenant admin wishes for that certificate to ONLY be used for Bob productivity account and block the use of the certificate on other accounts, they would configure Bob's productivity account to hold all of the values available in the username mapping policy. 
+
+In this example, to lock Bob's certificate to only Bob's productivity account as certificateUserIds attribute has unique constraint and no other user account can have the same values.
+ 
+**Bobs Productivity Account**
+ 
+AAD User Principal Name = Bob.Smith@Contoso.com <br>
+certificateUserIDs = [ x509:\<PN\>Bob.Smith@Contoso.com , x509:\<SKI\>89b0f468c1abea65ec22f0a882b8fda6fdd6750p]
+
 By default, Azure AD CBA has a single user binding configured. The Principal Name attribute in the Subject Alternative Name of a certificate presented to Azure AD. Some administrators require the ability for Azure AD to be able to map a single certificate to multiple Azure AD accounts. We refer to this as 1:M mapping. Azure AD CBA supports this implementation via administrators adding additional mapping methods to the policy. 
 
 An example of this would be a developer use case. For example, Bob has a regular productivity account that is used to accomplish his everyday tasks and a developer account to use when he is doing task related to his developer job roles. The organization issues a single high assurance certificate to Bob and wishes for him to be able to use this same certificate for both his productivity and developer accounts. 
@@ -43,16 +56,6 @@ This 1:M implementation could be implemented in Azure AD CBA by configuring the 
 
 The above configuration would allow the same certificate to be used by Bob for both his productivity and developer account. Since we have fallback support for bindings, Bob's productivity account will be authenticated by UPN binding policy and Bob's developer account will be authenticated by SKI binding policy 
 
-**How can I scope 1:M for only specific group of users?**
- 
-If the tenant Admin wishes for that certificate to ONLY be used for Bob productivity account and block the use of the certificate on other accounts, they would configure Bob's productivity account to hold all of the values available in the username mapping policy. 
-
-In this example, to lock Bob's certificate to only Bob's productivity account as certificateUserIds attribute has unique constraint and no other user account can have the same values.
- 
-**Bobs Productivity Account**
- 
-AAD User Principal Name = Bob.Smith@Contoso.com <br>
-certificateUserIDs = [ x509:\<PN\>Bob.Smith@Contoso.com , x509:\<SKI\>89b0f468c1abea65ec22f0a882b8fda6fdd6750p]
 
 ## External identity support
 
