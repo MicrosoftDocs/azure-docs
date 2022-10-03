@@ -50,7 +50,7 @@ Windows will follow this order to find the UPN value from the certificate:
 
 If no UPN is in the certificate, or if the subject has E=xx or CN=xx, the entire value is sent, which will not work. The user must enter the username login hint (X509UserNameHint).
 
-### Windows rules for sending UPN for hybrid-joined devices
+### Windows rules for sending UPN for hybrid Azure AD-joined devices
 
 Once AD login is successful, the AD UPN will be sent to Azure AD. 
 If the mapping uses a non-routable UPN such as user@woodgrove.local, then Azure AD can locate the user's tenant by using the domain hint supplied. The user in the tenant is found by matching against the user's **onPremisesUserPrincipalName** attribute.
