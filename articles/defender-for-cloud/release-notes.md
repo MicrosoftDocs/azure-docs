@@ -407,9 +407,7 @@ Learn how to protect and connect your [AWS environment](quickstart-onboard-aws.m
 
 Today's increasing threats to organizations stretch the limits of security personnel to protect their expanding workloads. Security teams are challenged to implement the protections defined in their security policies.
 
-Now with the governance experience, security teams can assign remediation of security recommendations to the resource owners and require a remediation schedule. They can have full transparency into the progress of the remediation and get notified when tasks are overdue.
-
-This feature is free while it is in the preview phase.
+Now with the governance experience in preview, security teams can assign remediation of security recommendations to the resource owners and require a remediation schedule. They can have full transparency into the progress of the remediation and get notified when tasks are overdue.
 
 Learn more about the governance experience in [Driving your organization to remediate security issues with recommendation governance](governance-rules.md).
 
