@@ -292,22 +292,14 @@ with:
             "type": "userAssigned",
             "userAssignedIdentities": {
                 "<identity_resource_Id>": {
-                    "principalId": "<principal_id>",
-                    "clientId": "<client_id>"
                 }
             }
         },
 ```
 
-To find the `<identity_resource_Id>`, `<principal_id>,` and `<client_id>` values, in the Azure portal:
+To find the `<identity_resource_Id>` value, navigate to your user-assigned managed identity resource in the Azure portal, select **JSON** to open the **Resource JSON** screen and copy the managed identity's **Resource ID**. 
 
-1. Navigate to your user-assigned managed identity resource and select **Overview** to find the `<principal_id>` and `<client_id>` values.
-
-    :::image type="content" source="media/ingest-logs-event-hub/user-assigned-managed-id.png" lightbox="media/ingest-logs-event-hub/user-assigned-managed-id.png" alt-text="Screenshot the user-assigned managed identity resource Overview screen with the Principal ID and Client ID fields highlighted.":::
-
-1. Select **JSON** to open the **Resource JSON** screen and copy the managed identity `<resource_Id>`. 
-
-    :::image type="content" source="media/ingest-logs-event-hub/managed-identity-resource-id.png" lightbox="media/ingest-logs-event-hub/managed-identity-resource-id.png" alt-text="Screenshot showing Resource JSON screen with the managed identity resource ID highlighted.":::
+:::image type="content" source="media/ingest-logs-event-hub/managed-identity-resource-id.png" lightbox="media/ingest-logs-event-hub/managed-identity-resource-id.png" alt-text="Screenshot showing Resource JSON screen with the managed identity resource ID highlighted.":::
 ## Grant the event hub permission to the data collection rule
 
 With [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), you can give any event hub, or Event Hubs namespace, permission to send events to the data collection rule and data collection endpoint you created. When you grant the permissions to the Event Hubs namespace, all event hubs within the namespace inherit the permissions. 
@@ -412,7 +404,7 @@ To check your destination table for ingested events:
     ``` 
     
     You should see events from your event hub.
-
+`
     :::image type="content" source="media/ingest-logs-event-hub/log-analytics-query-results-with-events.png" lightbox="media/ingest-logs-event-hub/log-analytics-query-results-with-events.png" alt-text="Screenshot showing the results of a simple query on a custom table. The results consist of events ingested from an event hub.":::
 
 ## Clean up resources
