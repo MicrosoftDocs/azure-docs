@@ -10,9 +10,9 @@
 
 - If you set the `--delete-destination` flag to `true`, AzCopy deletes files without providing a prompt. If you want a prompt to appear before AzCopy deletes a file, set the `--delete-destination` flag to `prompt`.
 
-- If you plan to set the `--delete-destination` flag to `prompt` or `false`, consider using the [copy](storage-ref-azcopy-copy.md) command instead of the 
+- If you plan to set the `--delete-destination` flag to `prompt` or `false`, consider using the [copy](../articles/storage/common/storage-ref-azcopy-copy.md) command instead of the 
 [sync](../articles/storage/common/storage-ref-azcopy-sync.md) command and set the `--overwrite` parameter to `ifSourceNewer`. The [copy](../articles/storage/common/storage-ref-azcopy-copy.md) command consumes less memory and incurs less billing costs because a copy operation doesn't have to index the source or destination prior to moving files.
 
 - The machine on which you run the sync command should have an accurate system clock because the last modified times are critical in determining whether a file should be transferred. If your system has significant clock skew, avoid modifying files at the destination too close to the time that you plan to run a sync command.
 
-- AzCopy uses server-to-server APIs to sync between storage accounts. While AzCopy sets up the transfers, data is copied directly between storage servers. However, to set up and monitor transfers for larger storage accounts (For example, accounts that contain millions of blobs), AzCopy might require a substantial amount of compute resources. If you are running AzCopy from Virtual Machine (VM), make sure that the VM has enough cores/memory to handle the load.
+- AzCopy uses server-to-server APIs to synchronize data between storage accounts. That means that data is copied directly between storage servers. However, AzCopy does set up and monitor each transfer, and for larger storage accounts (For example, accounts that contain millions of blobs), AzCopy might require a substantial amount of compute resources to accomplish these tasks. Therefore, if you are running AzCopy from Virtual Machine (VM), make sure that the VM has enough cores/memory to handle the load.
