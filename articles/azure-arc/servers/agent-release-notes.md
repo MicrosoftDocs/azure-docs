@@ -2,7 +2,7 @@
 title: What's new with Azure Arc-enabled servers agent
 description: This article has release notes for Azure Arc-enabled servers agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 09/14/2022
+ms.date: 09/27/2022
 ms.custom: references_regions
 ---
 
@@ -22,6 +22,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 - The default login flow for Windows computers now loads the local web browser to authenticate with Azure Active Directory instead of providing a device code. You can use the `--use-device-code` flag to return to the old behavior or [provide service principal credentials](onboard-service-principal.md) for a non-interactive authentication experience.
 - If the resource group provided to `azcmagent connect` does not exist, the agent will try to create it and continue connecting the server to Azure.
+- Added support for Ubuntu 22.04
 - Added `--no-color` flag for all azcmagent commands to suppress the use of colors in terminals that do not support ANSI codes.
 
 ### Fixed

@@ -389,7 +389,6 @@ The following tables display the current Microsoft Sentinel feature availability
 | - Zeek Network (Corelight) | Public Preview | Not Available |
 | - Zimperium Mobile Threat Defense                | Public Preview | Not Available      |
 | - Zscaler                    | GA             | GA             |
-| | | |
 
 <sup><a name="footnote1"></a>1</sup> SSH and RDP detections are not supported for sovereign clouds because the Databricks ML platform is not available.
 

@@ -472,7 +472,7 @@ This section applies only if you want to use a fencing device with an Azure fenc
 This section applies only if you're using a fencing device that's based on an Azure fence agent. The fencing device uses either a managed identity or a service principal to authorize against Microsoft Azure. 
 
 #### Using managed identity
-To create a managed identity (MSI), [create a system-assigned](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) managed identity for each VM in the cluster. Should a system-assigned managed identity already exist, it will be used. User assigned managed identities should not be used with Pacemaker at this time. Fence device, based on managed identity is supported on SLES 15 SP1 and above.  
+To create a managed identity (MSI), [create a system-assigned](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) managed identity for each VM in the cluster. Should a system-assigned managed identity already exist, it will be used. User assigned managed identities should not be used with Pacemaker at this time. Azure fence agent, based on managed identity is supported for SLES 12 SP5 and SLES 15 SP1 and above.  
 
 #### Using service principal
 
@@ -639,9 +639,11 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    > The installed version of the *fence-agents* package must be 4.4.0 or later to benefit from the faster failover times with the Azure fence agent, when a cluster node is fenced. If you're running an earlier version, we recommend that you update the package.  
 
    >[!IMPORTANT]
-   > If using managed identity, the installed version of the *fence-agents* package must be fence-agents 4.5.2+git.1592573838.1eee0863 or later. Earlier versions will not work correctly with a managed identity configuration.  
-   > Currently only SLES 15 SP1 and newer are supported for managed identity configuration.
-
+   > If using managed identity, the installed version of the *fence-agents* package must be 
+   > SLES 12 SP5: fence-agents 4.9.0+git.1624456340.8d746be9-3.35.2 or later  
+   > SLES 15 SP1 and higher: fence-agents 4.5.2+git.1592573838.1eee0863 or later.  
+   > Earlier versions will not work correctly with a managed identity configuration.  
+   
 1. **[A]** Install the Azure Python SDK and Azure Identity Python module.  
 
     Install the Azure Python SDK on SLES 12 SP4 or SLES 12 SP5:
@@ -799,7 +801,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    > The 'pcmk_host_map' option is required in the command only if the hostnames and the Azure VM names are *not* identical. Specify the mapping in the format *hostname:vm-name*.
    > Refer to the bold section in the following command.
   
-   If using **managed identity** for your fence agent, run the following command (SLES 15 SP1 and newer, only)
+   If using **managed identity** for your fence agent, run the following command
    <pre><code>
    # replace the bold strings with your subscription ID and resource group of the VM
    
