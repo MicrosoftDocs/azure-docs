@@ -107,7 +107,7 @@ sections:
       - question: |
           Are unmanaged disks still supported?
         answer: |
-          Yes, but they'll be [retired by September 30, 2025](unmanaged-disks-deprecation.md), and as of November 1, 2022, new customer subscriptions won't be eligible to create unmanaged disks. We recommend that you use managed disks for new workloads and migrate your current workloads to managed disks.
+          Yes, but they'll be [retired by September 30, 2025](unmanaged-disks-deprecation.md), and as of November 18, 2022, new customer subscriptions won't be eligible to create unmanaged disks. We recommend that you use managed disks for new workloads and migrate your current workloads to managed disks.
 
       - question: |
           Can I colocate unmanaged and managed disks on the same VM?
