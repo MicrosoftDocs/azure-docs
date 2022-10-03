@@ -159,7 +159,7 @@ once you have created jsonl file following the above steps, you can register it 
 ![Animation showing how to register a data asset from the jsonl files](media\how-to-prepare-datasets-for-automl-images\ui-dataset-jsnol.gif)
 
 ### Using pre-labeled training data from Azure Blob storage
-If you have your labelled training data present in a container in Azure Blob storage, then you can access it directly from there by [creating a datastore referring to that container](how-to-datastore.md#create-an-azure-blob-datastore). 
+If you have your labeled training data present in a container in Azure Blob storage, then you can access it directly from there by [creating a datastore referring to that container](how-to-datastore.md#create-an-azure-blob-datastore). 
 
 ## Create MLTable
 
