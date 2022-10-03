@@ -16,7 +16,6 @@ ms.date: 09/19/2022
 
 In this article, we'll discuss guidance for upgrading your Basic Load Balancer instances to Standard Load Balancer. Standard Load Balancer is recommended for all production instances and provides many [key differences](#basic-load-balancer-sku-vs-standard-load-balancer-sku) to your infrastructure.
 
-
 ## Steps to complete the upgrade
 
 We recommend the following approach for upgrading to Standard Load Balancer:
