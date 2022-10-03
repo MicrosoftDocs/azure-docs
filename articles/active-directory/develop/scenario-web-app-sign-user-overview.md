@@ -45,7 +45,7 @@ If you're a Node.js developer, you have two quickstart options.
 
 For using the Microsoft Authentication Library (MSAL Node), try the following [Quickstart: Add sign-in with Microsoft to a Node.js web app - MSAL](quickstart-v2-nodejs-webapp-msal.md).
 
-For a web app built using Node.js with Express, try the following [Quickstart: Add sign-in with Microsoft to a Node.js web app - Passport](quickstart-nodejs.md).
+For a web app built using Node.js with Express, try the following [Quickstart: Add sign-in with Microsoft to a Node.js web app - Passport](includes/webapp/quickstart-nodejs.md).
 
 # [Python](#tab/python)
 
