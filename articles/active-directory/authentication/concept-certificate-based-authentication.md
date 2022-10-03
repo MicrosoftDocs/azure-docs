@@ -75,13 +75,17 @@ The following scenarios are supported:
 
 The following scenarios aren't supported:
 
-- Public Key Infrastructure for creating client certificates. Customers need to configure their own Public Key Infrastructure (PKI) and provision certificates to their users and devices. 
 - Certificate Authority hints aren't supported, so the list of certificates that appears for users in the UI isn't scoped.
 - Only one CRL Distribution Point (CDP) for a trusted CA is supported.
 - The CDP can be only HTTP URLs. We don't support Online Certificate Status Protocol (OCSP), or Lightweight Directory Access Protocol (LDAP) URLs.
-- Configuring other certificate-to-user account bindings, such as using the **subject + issuer** or **Issuer + Serial Number**, aren’t available in this release.
+- Configuring other certificate-to-user account bindings, such as using the **subject**, **subject + issuer** or **Issuer + Serial Number**, aren’t available in this release.
 - Currently, password can't be disabled when CBA is enabled and the option to sign in using a password is displayed.
 
+## Out of Scope
+
+The following scenarios are out of scope for Azure AD CBA:
+
+- Public Key Infrastructure for creating client certificates. Customers need to configure their own Public Key Infrastructure (PKI) and provision certificates to their users and devices. 
 
 ## Next steps
 

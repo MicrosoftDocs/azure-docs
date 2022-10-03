@@ -71,7 +71,7 @@ sections:
           
           ```powershell
           $c=Get-AzureADTrustedCertificateAuthority
-          $c[0]. crlDistributionPoint =""
+          $c[0]. crlDistributionPoint=""
           Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0]
           ```
 
