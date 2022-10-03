@@ -139,7 +139,7 @@ Use this API to request a list of all the connections per device.
 
 ### GET
 
-# [Request](#tab/connections-request)
+# [Request](#tab/connections-device-request)
 
 #### Path parameter
 
@@ -155,7 +155,7 @@ Use this API to request a list of all the connections per device.
 |**discoveredAfter**     | Numeric. Filter results that were detected after a given time, where the given time is defined in milliseconds from [Epoch time](../references-work-with-defender-for-iot-apis.md#epoch-time), and in UTC timezone.          | `/api/v1/devices/2/connections?discoveredAfter=<epoch>`        | Optional |
 |**lastActiveInMinutes**     | Numeric. Filter results by a given time frame during which connections were active. Defined backwards, in minutes, from the current time.        |   `/api/v1/devices/2/connections?lastActiveInMinutes=20`      | Optional |
 
-# [Response](#tab/connections-response)
+# [Response](#tab/connections-device-response)
 
 **Response type**: JSON
 
@@ -236,7 +236,7 @@ Array of JSON objects that represent device connections, or the following failur
 ]
 ```
 
-# [cURL command](#tab/connections-curl)
+# [cURL command](#tab/connections-device-curl)
 
 **Type**: GET
 
@@ -356,7 +356,7 @@ Use this API to request a list of all known CVEs discovered on devices in the ne
 
 ### GET
 
-# [Request](#tab/cves-request)
+# [Request](#tab/cves-ip-request)
 
 **Example**: `/api/v1/devices/cves`
 
@@ -372,7 +372,7 @@ Define the following query parameter to filter the results returned.
 |---------|---------|---------|---------|
 |**top**     |   Numeric.  Determine how many top-scored CVEs to get for each device IP address.     |     `/api/v1/devices/cves?top=50` <br><br>  `/api/v1/devices/<ipAddress>/cves?top=50`      | Optional. Default = `100` |
 
-# [Response](#tab/cves-response)
+# [Response](#tab/cves-ip-response)
 
 **Type**: JSON
 
@@ -427,7 +427,7 @@ JSON array of device CVE objects, or the following failure message:
 ]
 ```
 
-# [cURL command](#tab/cves-curl)
+# [cURL command](#tab/cves-ip-curl)
 
 **Type**: GET
 
@@ -746,6 +746,13 @@ This section lists the supported fields for the [firware](#operatingsystem) obje
 |**rack**  |String. Defines the firmware rack. | Nullable  | - |
 |**slot**  |String. Defines the firmware slot. | Nullable  | - |
 
+# [cURL command](#tab/devices-curl)
+
+**Type**: GET
+
+```curl
+curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/devices/'
+```
 ---
 ## Next steps
 
