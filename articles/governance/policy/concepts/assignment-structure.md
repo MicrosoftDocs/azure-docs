@@ -133,7 +133,7 @@ _common_ properties used by Azure Policy. Each `metadata` property has a limit o
 ## Resource selectors (preview)
 
 The optional **resourceSelectors** property facilitates safe deployment practices (SDP) by enabling you to gradually roll
-out policy assignments based on factors like resource location, resource type, or whether a resource has a location. When resource selectors are used, Azure Policy will only evalute resources that are applicable to the specifications made in the resource selectors. See also how resource selectors can be leveraged to narrow down the scope of exemptions<insert here>.
+out policy assignments based on factors like resource location, resource type, or whether a resource has a location. When resource selectors are used, Azure Policy will only evaluate resources that are applicable to the specifications made in the resource selectors. See also how resource selectors can be leveraged to narrow down the scope of exemptions.
 
 In the following example scenario, the new policy assignment will be evaluated only if the resource's location is
 either **East US** or **West US**.
@@ -236,23 +236,23 @@ Note that one override can be used to replace the effect value of many policies 
 > Although the preceding example shows an override in the context of a resource selector, this is optional. That is,
 > you can use overrides independent of resource selectors.
 
-    ```json
-    {
-      "properties": {
-        "displayName": "A contingency plan should be in place to ensure operational continuity for each Azure subscription."
-        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/{definitionId}",
-        "metadata": {
-          "evidenceStorages": [
-            {
-              "displayName": "Default evidence storage",
-              "evidenceStorageAccountId": "/subscriptions/{subscriptionId}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storage-account-name}",
-              "evidenceBlobContainer": "evidence-container"
-            }
-          ]
+```json
+{
+  "properties": {
+    "displayName": "A contingency plan should be in place to ensure operational continuity for each Azure subscription."
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/{definitionId}",
+    "metadata": {
+      "evidenceStorages": [
+        {
+          "displayName": "Default evidence storage",
+          "evidenceStorageAccountId": "/subscriptions/{subscriptionId}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storage-account-name}",
+          "evidenceBlobContainer": "evidence-container"
         }
-      }
+      ]
     }
-    ```
+  }
+}
+```
 
 ## Enforcement mode
 
