@@ -32,12 +32,12 @@ Updates in October include:
 
 ### Announcing the Microsoft Cloud Security Benchmark
 
-The [Microsoft Cloud Security Benchmark](https://learn.microsoft.com/security/benchmark/azure/introduction) (MCSB) is a new framework defining fundamental cloud security principles based on common industry standards and compliance frameworks, together with detailed technical guidance for implementing these best practices across cloud platforms. Replacing the Azure Security Benchmark, the MCSB provides prescriptive details for how to implement its cloud-agnostic security recommendations on multiple cloud service platforms, initially covering Azure and AWS.
+The [Microsoft Cloud Security Benchmark](/security/benchmark/azure/introduction) (MCSB) is a new framework defining fundamental cloud security principles based on common industry standards and compliance frameworks, together with detailed technical guidance for implementing these best practices across cloud platforms. Replacing the Azure Security Benchmark, the MCSB provides prescriptive details for how to implement its cloud-agnostic security recommendations on multiple cloud service platforms, initially covering Azure and AWS.
 
 You can now monitor your cloud security compliance posture per cloud in a single, integrated dashboard. You can see MCSB as the default compliance standard when you navigate to Defender for Cloud's regulatory compliance dashboard.
 Microsoft Cloud Security Benchmark is automatically assigned to your Azure subscriptions and AWS accounts when you onboard Defender for Cloud. 
 
-Learn more about the [Microsoft Cloud Security Benchmark](https://learn.microsoft.com/security/benchmark/azure/introduction). 
+Learn more about the [Microsoft Cloud Security Benchmark](/security/benchmark/azure/introduction).
 
 ### Attack path analysis and contextual security capabilities in Defender for Cloud
 
