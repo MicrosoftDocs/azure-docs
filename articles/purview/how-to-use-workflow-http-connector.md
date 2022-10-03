@@ -32,7 +32,7 @@ HTTP connector is available in all workflow templates.
     1. Headers - Optionally, you can enter HTTP headers. HTTP headers let the client and the server pass additional information with an HTTP request or response
     1. Queries - Optionally, you can pass queries. 
     1. Body - Optionally, you can pass HTTP body while invoking the URL
-    1. Authentication - HTTP connector is integrated with Purview credentials. Depending on the URL you may invoke the endpoint with None i.e., no authentication or you can use credentials to create a basic authentication. To learn more about credentials see here [Purview Credentials](manage-credentials.md)
+    1. Authentication - HTTP connector is integrated with Purview credentials. Depending on the URL you may invoke the endpoint with None (no authentication) or you can use credentials to create a basic authentication. To learn more about credentials see the [Microsoft Purview credentials article](manage-credentials.md).
 
     :::image type="content" source="./media/how-to-use-workflow-http-connector/add-http-properties.png" alt-text="Screenshot to add HTTP connector properties.":::
 
