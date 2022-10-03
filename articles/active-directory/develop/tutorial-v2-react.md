@@ -128,7 +128,7 @@ In the [Redirect URI: MSAL.js 2.0 with auth code flow](scenario-spa-app-registra
 
     ```javascript
     import "bootstrap/dist/css/bootstrap.min.css";
-    import { PublicClientApplication } from "@azure/msal-browser";
+    import { PublicClientApplication, EventType } from "@azure/msal-browser";
     import { MsalProvider } from "@azure/msal-react";
     import { msalConfig } from "./authConfig";
     ```
@@ -138,20 +138,41 @@ In the [Redirect URI: MSAL.js 2.0 with auth code flow](scenario-spa-app-registra
     ```javascript
     const msalInstance = new PublicClientApplication(msalConfig);
     ``` 
+1. Set the current active account by simply calling the `setActiveAccount()` method and assign the current active account by using `getAllAccounts()` function:
+   
+    ```javascript
+    if (!msalInstance.getActiveAccount() && msalInstance.getAllAccounts().length > 0) {
+        msalInstance.setActiveAccount(msalInstance.getAllAccounts()[0]);
+    }
+    ```
+1. To set an active account after the user signs in, register an event and listen to `LOGIN_SUCCESS` & `LOGOUT_SUCCES`.
+
+    ```javascript
+    msalInstance.addEventCallback((event) => {
+        if (event.eventType === EventType.LOGIN_SUCCESS && event.payload.account) {
+            const account = event.payload.account;
+            msalInstance.setActiveAccount(account);
+        }
+
+        if (event.eventType === EventType.LOGOUT_SUCCESS) {
+            if (msalInstance.getAllAccounts().length > 0) {
+             msalInstance.setActiveAccount(msalInstance.getAllAccounts()[0]);
+            }
+        }
+    });
+    ```
 
 1. Find the `<App />` component in *src/index.js* and wrap it in the `MsalProvider` component. Your render function should look like this:
 
     ```jsx
-    ReactDOM.render(
+    root.render(
         <React.StrictMode>
             <MsalProvider instance={msalInstance}>
                 <App />
             </MsalProvider>
-        </React.StrictMode>,
-        document.getElementById("root")
+        </React.StrictMode>
     );
     ``` 
-
 
 ## Sign in users
 
@@ -167,11 +188,6 @@ import { useMsal } from "@azure/msal-react";
 import { loginRequest } from "../authConfig";
 import Button from "react-bootstrap/Button";
 
-function handleLogin(instance) {
-    instance.loginPopup(loginRequest).catch(e => {
-        console.error(e);
-    });
-}
 
 /**
  * Renders a button which, when selected, will open a popup for login
@@ -179,11 +195,35 @@ function handleLogin(instance) {
 export const SignInButton = () => {
     const { instance } = useMsal();
 
+    const handleLogin = (loginType) => {
+        if (loginType === "popup") {
+            instance.loginPopup({
+                 ...loginRequest,
+                redirectUri: "/redirect.html"
+            }).catch(e => {
+                console.log(e);
+            });
+        }
+    }
     return (
-        <Button variant="secondary" className="ml-auto" onClick={() => handleLogin(instance)}>Sign in using Popup</Button>
+        <Button variant="secondary" className="ml-auto" onClick={() => handleLogin("popup")}>Sign in using Popup</Button>
     );
 }
 ```
+
+When using popup and silent Methods, we recommend setting the redirectUri to a blank page or a page that does not implement MSAL. We will add a `./public/redirect.html` page:
+
+```html
+<!-- 
+    Blank page for redirect purposes. When using popup and silent APIs,
+    we recommend setting the redirectUri to a blank page or a page that does not implement MSAL.
+    For more information, please follow this link: 
+    https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/login-user.md#redirecturi-considerations 
+-->
+<h1>MSAL Redirect</h1>
+```
+
+> :information_source: If you're using the popup methods, please don't forget to add `http://localhost:3000/redirect.html` as one of the **Redirect URIs** in your application registration.
 
 ### Sign in using redirects
 
@@ -195,11 +235,6 @@ import { useMsal } from "@azure/msal-react";
 import { loginRequest } from "../authConfig";
 import Button from "react-bootstrap/Button";
 
-function handleLogin(instance) {
-    instance.loginRedirect(loginRequest).catch(e => {
-        console.error(e);
-    });
-}
 
 /**
  * Renders a button which, when selected, will redirect the page to the login prompt
@@ -207,6 +242,13 @@ function handleLogin(instance) {
 export const SignInButton = () => {
     const { instance } = useMsal();
 
+    const handleLogin = (loginType) => {
+        if (loginType === "redirect") {
+            instance.loginRedirect(loginRequest).catch(e => {
+                console.log(e);
+            });
+        }
+    }
     return (
         <Button variant="secondary" className="ml-auto" onClick={() => handleLogin(instance)}>Sign in using Redirect</Button>
     );
@@ -280,20 +322,23 @@ import React from "react";
 import { useMsal } from "@azure/msal-react";
 import Button from "react-bootstrap/Button";
 
-function handleLogout(instance) {
-    instance.logoutPopup().catch(e => {
-        console.error(e);
-    });
-}
-
 /**
  * Renders a button which, when selected, will open a popup for logout
  */
 export const SignOutButton = () => {
     const { instance } = useMsal();
 
+    const handleLogout = (logoutType) => {
+        if (logoutType === "popup") {
+            instance.logoutPopup({
+                postLogoutRedirectUri: "/",
+                mainWindowRedirectUri: "/" // redirects the top level app after logout
+            });
+        }
+    }
+
     return (
-        <Button variant="secondary" className="ml-auto" onClick={() => handleLogout(instance)}>Sign out using Popup</Button>
+        <Button variant="secondary" className="ml-auto" onClick={() => handleLogout("popup")}>Sign out using Popup</Button>
     );
 }
 ```
@@ -307,20 +352,22 @@ import React from "react";
 import { useMsal } from "@azure/msal-react";
 import Button from "react-bootstrap/Button";
 
-function handleLogout(instance) {
-    instance.logoutRedirect().catch(e => {
-        console.error(e);
-    });
-}
-
 /**
  * Renders a button which, when selected, will redirect the page to the logout prompt
  */
 export const SignOutButton = () => {
     const { instance } = useMsal();
+    
+    const handleLogout = (logoutType) => {
+        if (logoutType === "redirect") {
+           instance.logoutRedirect({
+                postLogoutRedirectUri: "/",
+            });
+        }
+    }
 
     return (
-        <Button variant="secondary" className="ml-auto" onClick={() => handleLogout(instance)}>Sign out using Redirect</Button>
+        <Button variant="secondary" className="ml-auto" onClick={() => handleLogout("redirect")}>Sign out using Redirect</Button>
     );
 }
 ```
@@ -404,25 +451,29 @@ In order to render certain components only for authenticated or unauthenticated 
 
     ```jsx
     function ProfileContent() {
-        const { instance, accounts, inProgress } = useMsal();
+        const { instance, inProgress } = useMsal();
         const [accessToken, setAccessToken] = useState(null);
     
-        const name = accounts[0] && accounts[0].name;
+        const name = instance.getActiveAccount()?.name;
     
-        function RequestAccessToken() {
-            const request = {
-                ...loginRequest,
-                account: accounts[0]
-            };
-    
-            // Silently acquires an access token which is then attached to a request for Microsoft Graph data
-            instance.acquireTokenSilent(request).then((response) => {
-                setAccessToken(response.accessToken);
-            }).catch((e) => {
-                instance.acquireTokenPopup(request).then((response) => {
-                    setAccessToken(response.accessToken);
-                });
-            });
+        function RequestProfileData() {
+            if (inProgress === InteractionStatus.None){
+                const request = {
+                    ...loginRequest,
+                    account: instance.getActiveAccount(),
+                };
+                
+                instance
+                    .acquireTokenSilent(request)
+                    .then((response) => {
+                        callMsGraph(response.accessToken).then((response) => setGraphData(response));
+                    })
+                    .catch((e) => {
+                        if (e instanceof InteractionRequiredAuthError) {
+                            instance.acquireTokenRedirect(request);
+                        }
+                    });
+            }
         }
     
         return (
@@ -444,13 +495,14 @@ In order to render certain components only for authenticated or unauthenticated 
     import React, { useState } from "react";
     import { PageLayout } from "./components/PageLayout";
     import { AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from "@azure/msal-react";
+    import { InteractionStatus, InteractionRequiredAuthError } from '@azure/msal-browser';
     import { loginRequest } from "./authConfig";
     import Button from "react-bootstrap/Button";
     ```
 
 1. Finally, add your new `ProfileContent` component as a child of the `AuthenticatedTemplate` in your `App` component in *src/App.js*. Your `App` component should look like this:
 
-    ```javascript
+    ```jsx
     function App() {
       return (
           <PageLayout>
@@ -536,25 +588,29 @@ If you're using Internet Explorer, we recommend that you use the `loginRedirect`
 
     ```javascript
     function ProfileContent() {
-        const { instance, accounts } = useMsal();
+        const { instance, inProgress } = useMsal();
         const [graphData, setGraphData] = useState(null);
     
-        const name = accounts[0] && accounts[0].name;
+        const name = instance.getActiveAccount()?.name;
     
         function RequestProfileData() {
-            const request = {
-                ...loginRequest,
-                account: accounts[0]
-            };
-    
-            // Silently acquires an access token which is then attached to a request for Microsoft Graph data
-            instance.acquireTokenSilent(request).then((response) => {
-                callMsGraph(response.accessToken).then(response => setGraphData(response));
-            }).catch((e) => {
-                instance.acquireTokenPopup(request).then((response) => {
-                    callMsGraph(response.accessToken).then(response => setGraphData(response));
-                });
-            });
+            if (inProgress === InteractionStatus.None){
+                const request = {
+                    ...loginRequest,
+                    account: instance.getActiveAccount(),
+                };
+                
+                instance
+                    .acquireTokenSilent(request)
+                    .then((response) => {
+                        callMsGraph(response.accessToken).then((response) => setGraphData(response));
+                    })
+                    .catch((e) => {
+                        if (e instanceof InteractionRequiredAuthError) {
+                            instance.acquireTokenRedirect(request);
+                        }
+                    });
+            }
         }
     
         return (
