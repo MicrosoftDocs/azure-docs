@@ -322,43 +322,6 @@ ml_client.environments.archive(name="docker-image-example", version="1")
 
 ---
 
-You can restore an archived environment to no longer hide it from list queries.
-
-If you archived all versions of an environment, you can't restore only a specific version - you'll need to restore all versions.
-
-Restore all environment versions:
-
-# [Azure CLI](#tab/cli)
-
-```cli
-az ml environment restore --name docker-image-example
-``` 
-
-# [Python SDK](#tab/python)
-
-```python
-ml_client.environments.restore(name="docker-image-example")
-```
-
----
-
-If only individual environment version(s) are archived, you can restore those individual version(s).
-
-Restore a specific environment version:
-
-# [Azure CLI](#tab/cli)
-
-```cli
-az ml environment restore --name docker-image-example --version 1
-``` 
-
-# [Python SDK](#tab/python)
-
-```python
-ml_client.environments.restore(name="docker-image-example", version="1")
-```
-
----
 
 ## Use environments for training
 
