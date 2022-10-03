@@ -54,7 +54,7 @@ This message will get routed to MedTech service, where the message will be trans
 >
 > To learn about IoT Hub device message enrichment and IotJsonPathContentTemplate mappings usage with the MedTech service device mapping, see [How to use IotJsonPathContentTemplate mappings](how-to-use-iot-jsonpath-content-mappings.md).
 
-**IoT device message to send to IoT Hub**
+**Sample IoT device message to send to IoT Hub**
 
 ```json
 

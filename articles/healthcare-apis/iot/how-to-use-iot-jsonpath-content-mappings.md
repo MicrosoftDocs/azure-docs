@@ -58,7 +58,7 @@ With each of these examples, you're provided with:
 > [!NOTE]
 > The IoT Hub enriches the device message before sending it to the MedTech service device event hub with all properties starting with `iothub`. For example: `iothub-creation-time-utc`.
 >
-> `patientIdExpression` is only required for MedTech services in the **Create** mode, however, if **Lookup** is being used, a Device resource with a matching Device Identifier must exist in the FHIR service. These examples assume your MedTech service is in a **Create** mode. For more information on the **Create** and **Lookup** **Destination properties**, see [Configure Destination properties](deploy-iot-connector-in-azure.md#configure-destination-properties). 
+> `patientIdExpression` is only required for MedTech services in the **Create** mode, however, if **Lookup** is being used, a Device resource with a matching Device Identifier must exist in the FHIR service. These examples assume your MedTech service is in a **Create** mode. For more information on the **Create** and **Lookup** **Destination properties**, see [Configure Destination properties](deploy-05-new-config.md#destination-properties). 
 
 ```json
 
@@ -139,7 +139,7 @@ With each of these examples, you're provided with:
 > [!NOTE]
 > The IoT Hub enriches the device message before sending it to the MedTech service device event hub with all properties starting with `iothub`. For example: `iothub-creation-time-utc`.
 >
-> `patientIdExpression` is only required for MedTech services in the **Create** mode, however, if **Lookup** is being used, a Device resource with a matching Device Identifier must exist in the FHIR service. These examples assume your MedTech service is in a **Create** mode. For more information on the **Create** and **Lookup** **Destination properties**, see [Configure Destination properties](deploy-iot-connector-in-azure.md#configure-destination-properties).
+> `patientIdExpression` is only required for MedTech services in the **Create** mode, however, if **Lookup** is being used, a Device resource with a matching Device Identifier must exist in the FHIR service. These examples assume your MedTech service is in a **Create** mode. For more information on the **Create** and **Lookup** **Destination properties**, see [Configure Destination properties](deploy-05-new-config.md#destination-properties).
 
 ```json
 
