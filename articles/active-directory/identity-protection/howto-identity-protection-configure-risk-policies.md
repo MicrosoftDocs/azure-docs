@@ -86,7 +86,7 @@ Before organizations enable remediation policies, they may want to [investigate]
 1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.
 
-After confirming your settings using [report-only mode](howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
+After confirming your settings using [report-only mode](../conditional-access/howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
 ### Sign-in risk policy in Conditional Access
 
@@ -112,7 +112,7 @@ After confirming your settings using [report-only mode](howto-conditional-access
 1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.
 
-After confirming your settings using [report-only mode](howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
+After confirming your settings using [report-only mode](../conditional-access/howto-conditional-access-insights-reporting.md), an administrator can move the **Enable policy** toggle from **Report-only** to **On**.
 
 ## Migrate risk policies from Identity Protection to Conditional Access
 
@@ -128,14 +128,14 @@ If you already have risk policies enabled in Identity Protection, we highly reco
 ![Screenshots showing the migration of a user risk policy to Conditional Access](./media/howto-identity-protection-configure-risk-policies/user-risk-policy-migration-to-CA.png)
 
 1.	Create an equivalent risk policy in [Conditional Access in report-only mode](#enable-policies).
-   1.	Ensure that the new Conditional Access risk policy works as expected by testing it in [report-only mode](howto-conditional-access-insights-reporting.md).
+    1.	Ensure that the new Conditional Access risk policy works as expected by testing it in [report-only mode](../conditional-access/howto-conditional-access-insights-reporting.md).
 1.	Enable the new Conditional Access risk policy. You can choose to have both policies running side-by-side to confirm the new policies are working as expected before turning off the Identity Protection risk policies.
-   1. Browse back to **Azure Active Directory** > **Security** > **Conditional Access**. 
-   1. Select this new policy to edit it.
-   1. Set **Enable policy** to **On** to enable the policy
+    1. Browse back to **Azure Active Directory** > **Security** > **Conditional Access**. 
+    1. Select this new policy to edit it.
+    1. Set **Enable policy** to **On** to enable the policy
 1.	Disable the old risk policies in Identity Protection.
-   1. Browse to **Azure Active Directory** > **Identity Protection** > Select the **User risk** or **Sign-in risk** policy.
-   1. Set **Enforce policy** to **Off**
+    1. Browse to **Azure Active Directory** > **Identity Protection** > Select the **User risk** or **Sign-in risk** policy.
+    1. Set **Enforce policy** to **Off**
 1.	Create other risk policies if needed in Conditional Access.
 
 ## Next steps
