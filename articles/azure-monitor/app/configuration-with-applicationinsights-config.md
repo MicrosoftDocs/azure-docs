@@ -115,13 +115,13 @@ You can [write your own initializers](./api-filtering-sampling.md#add-properties
 
 The standard initializers are all set either by the web or WindowsServer NuGet packages:
 
-* `AccountIdTelemetryInitializer` sets the AccountId property.
+* `AccountIdTelemetryInitializer` sets the `AccountId` property.
 * `AuthenticatedUserIdTelemetryInitializer` sets the `AuthenticatedUserId` property as set by the JavaScript SDK.
 * `AzureRoleEnvironmentTelemetryInitializer` updates the `RoleName` and `RoleInstance` properties of the `Device` context for all telemetry items with information extracted from the Azure runtime environment.
 * `BuildInfoConfigComponentVersionTelemetryInitializer` updates the `Version` property of the `Component` context for all telemetry items with the value extracted from the `BuildInfo.config` file produced by MS Build.
 * `ClientIpHeaderTelemetryInitializer` updates the `Ip` property of the `Location` context of all telemetry items based on the `X-Forwarded-For` HTTP header of the request.
 * `DeviceTelemetryInitializer` updates the following properties of the `Device` context for all telemetry items.
-  * `Type` is set to "PC."
+  * `Type` is set to `PC`.
   * `Id` is set to the domain name of the computer where the web application is running.
   * `OemName` is set to the value extracted from the `Win32_ComputerSystem.Manufacturer` field by using WMI.
   * `Model` is set to the value extracted from the `Win32_ComputerSystem.Model` field by using WMI.
@@ -268,7 +268,7 @@ TelemetryConfiguration.Active.ApplicationIdProvider = new ApplicationInsightsApp
 
 This static provider relies on your configured instrumentation key/application ID pairs.
 
-This class has the `Defined` property, which is a Dictionary<string,string> of instrumentation key to application ID pairs.
+This class has the `Defined` property, which is a `Dictionary<string,string>` of instrumentation key/application ID pairs.
 
 This class has the optional property `Next`, which can be used to configure another provider to use when an instrumentation key is requested that doesn't exist in your configuration.
 
