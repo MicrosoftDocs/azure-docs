@@ -12,7 +12,7 @@ ms.devlang: csharp
 
 # Upload large amounts of random data in parallel to Azure storage
 
-This tutorial is part two of a series. This tutorial shows you deploy an application that uploads large amount of random data to an Azure storage account.
+This tutorial is part two of a series. This tutorial shows you how to deploy an application that uploads large amount of random data to an Azure storage account.
 
 In part two of the series, you learn how to:
 

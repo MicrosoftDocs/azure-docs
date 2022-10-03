@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 06/30/2022
+ms.date: 09/29/2022
 ms.topic: include
 ms.author: eur
 ---
@@ -13,4 +13,6 @@ ms.author: eur
 > * Get the resource key and region. After your Cognitive Services resource is deployed, select **Go to resource** to view and manage keys. For more information about Cognitive Services resources, see [Get the keys for your resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource). 
 
 > [!IMPORTANT]
-> This quickstart requires access to [conversation summarization](/azure/cognitive-services/language-service/summarization/how-to/conversation-summarization). To get access, you must submit an [online request](https://aka.ms/applyforconversationsummarization/) and have it approved.
+> This quickstart requires access to [conversation summarization](/azure/cognitive-services/language-service/summarization/how-to/conversation-summarization). To get access, you must submit an [online request](https://aka.ms/applyforconversationsummarization/) and have it approved. 
+> 
+> The `--languageKey` and `--languageEndpoint` values in this quickstart must correspond to a resource that's in one of the regions supported by the [conversation summarization API](https://aka.ms/convsumregions): `eastus`, `northeurope`, and `uksouth`. 
