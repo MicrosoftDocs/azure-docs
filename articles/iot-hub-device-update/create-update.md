@@ -43,18 +43,18 @@ Once you have your update files, create an import manifest to describe the updat
 2. Run the following commands after replacing the following sample parameter values with your own: **Provider, Name, Version, Compatibility Properties, Update Handler and associated properties, and file(s)**. See [Import schema and API information](import-schema.md) for details on what values you can use for each item. _In particular, be aware that the same exact set of compatibility properties cannot be used with more than one Provider and Name combination._
 
     ```azurecli
-    az iot device-update update init v5 `
+    az iot device-update update init v5
     `--update-provider <replace with your Provider> --update-name <replace with your update Name> --update-version <replace with your update Version> `
     `--compat manufacturer=<replace with the value your device will report> model=<replace with the value your device will report> `
     `--step handler=<replace with your chosen handler, such as microsoft/script:1, microsoft/swupdate:1, or microsoft/apt:1> properties=<replace with any desired handler properties (JSON-formatted), such as '{"installedCriteria": "1.0"}'> `
-    `--file path=<replace with path(s) to your update file(s, including the full file name> `
+    `--file path=<replace with path(s) to your update file(s), including the full file name> `
     ```
 
-Once you've created your import manifest, if you're ready to import your update, you can scroll to the Next steps link at the bottom of this page.
+Once you've created your import manifest and saved it as a JSON file, if you're ready to import your update, you can scroll to the Next steps link at the bottom of this page.
 
 ## Create an advanced Device Update import manifest for a proxy update
 
-If your update is more complex, such as a [proxy update](device-update-proxy-updates.md), you may need to create multiple import manifests. You can use the same PowerShell script from the previous section to create parent and child import manifests for complex updates. Run the following commands after replacing the sample parameter values with your own. See [Import schema and API information](import-schema.md) for details on what values you can use.
+If your update is more complex, such as a [proxy update](device-update-proxy-updates.md), you may need to create multiple import manifests. You can use the same Azure CLI approach from the previous section to create both a _parent_ import manifest and some number of _child_ import manifests for complex updates. Run the following Azure CLI commands after replacing the sample parameter values with your own. See [Import schema and API information](import-schema.md) for details on what values you can use. In this example, there are three updates to be deployed to the device.
 
   ```powershell
     Import-Module $PSScriptRoot/AduUpdate.psm1 -ErrorAction Stop
