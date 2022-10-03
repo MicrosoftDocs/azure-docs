@@ -323,10 +323,10 @@ For an example of how to integrate `container-package-app` into an Azure Pipelin
 [namespaces-and-dns]: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/#namespaces-and-dns
 [create-acr]: ../container-registry/container-registry-get-started-azure-cli.md
 [kubernetes-offer-samples]: https://github.com/Azure-Samples/kubernetes-offer-samples
-[kubernetes-offer-sample-structure]: https://github.com/Azure-Samples/kubernetes-offer-samples/tree/main/samples
-[values-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/blob/main/samples/azure-vote/values.yaml
-[deployment-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/blob/main/samples/azure-vote/templates/deployments.yaml
-[ui-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/blob/main/samples/createUIDefinition.json
-[pipeline-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/blob/main/samples/azure-pipelines.yml
-[arm-template-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/blob/main/samples/mainTemplate.json
-[manifest-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/blob/main/samples/manifest.yaml
+[kubernetes-offer-sample-structure]: https://github.com/Azure-Samples/kubernetes-offer-samples/tree/main/samples/k8s-offer-azure-vote
+[values-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/blob/main/samples/k8s-offer-azure-vote/azure-vote/values.yaml
+[deployment-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/blob/main/samples/k8s-offer-azure-vote/azure-vote/templates/deployments.yaml
+[ui-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/blob/main/samples/k8s-offer-azure-vote/createUIDefinition.json
+[pipeline-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/tree/main/samples/.pipelines/AzurePipelines/azure-pipelines.yml
+[arm-template-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/blob/main/samples/k8s-offer-azure-vote/mainTemplate.json
+[manifest-sample]: https://github.com/Azure-Samples/kubernetes-offer-samples/blob/main/samples/k8s-offer-azure-vote/manifest.yaml
