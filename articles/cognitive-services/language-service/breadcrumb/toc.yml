@@ -7,5 +7,5 @@
     topicHref: /azure/cognitive-services/index
     items:
     - name: Azure Cognitive Service for Language
-      tocHref: /azure/cognitive-services/
+      tocHref: /azure/cognitive-services/language-service/
       topicHref: /azure/cognitive-services/language-service/index
