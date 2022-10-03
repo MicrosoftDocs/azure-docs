@@ -378,10 +378,6 @@
             - name: Use a terminal
               displayName: git, github, clone, kernel, package
               href: how-to-access-terminal.md
-        - name: Set up software environments
-          displayName: pip, Conda, anaconda
-          href: how-to-use-environments.md
-
         - name: Set up VS Code extension
           displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
           href: how-to-setup-vs-code.md
@@ -439,8 +435,6 @@
             href: how-to-train-scikit-learn.md
           - name: TensorFlow
             href: how-to-train-tensorflow.md
-          - name: Train with custom Docker image
-            href: how-to-train-with-custom-image.md
           - name: Use Key Vault when training
             displayName: secrets keyvault job
             href: how-to-use-secrets-in-runs.md
@@ -499,8 +493,7 @@
               href: how-to-auto-train-nlp-models.md
             - name: Understand charts and metrics
               href: how-to-understand-automated-ml.md
-            - name: Generate AutoML training code
-              href: how-to-generate-automl-training-code.md
+
             - name: Use ONNX model in .NET application
               href: how-to-use-automl-onnx-model-dotnet.md
             - name: Inference image models with ONNX model
@@ -614,9 +607,7 @@
               href: how-to-use-parallel-job-in-pipeline.md  
             - name: Designer (drag-n-drop)
               items: 
-                - name: Log metrics
-                  displayName: designer, logging
-                  href: how-to-track-designer-experiments.md
+
                 - name: Transform data
                   displayName: pipeline
                   href: how-to-designer-transform-data.md
@@ -798,9 +789,6 @@
       href: https://stackoverflow.com/questions/tagged/azure-machine-learning-service
     - name: Compare our ML products
       href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/context/ml-context
-    - name: What happened to Workbench
-      displayName: desktop, ui, Workbench, upgrade, update, transfer
-      href: overview-what-happened-to-workbench.md
     - name: Designer accessibility features
       displayName: accessibility, designer, visual interface, screen reader, keyboard shortcuts
       href: designer-accessibility.md
