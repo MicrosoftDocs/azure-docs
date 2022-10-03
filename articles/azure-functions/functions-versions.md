@@ -157,22 +157,43 @@ Update-AzFunctionAppSetting -AppSetting @{FUNCTIONS_EXTENSION_VERSION = "~4"} -N
 
 ---
 
-When running on Windows, you also need to enable .NET 6.0, which is required by version 4.x of the runtime.
+::: zone pivot="programming-language-csharp"  
 
-# [Azure CLI](#tab/azure-cli)
+# [Windows](#tab/windows/azure-cli)
+
+When running on Windows, you also need to enable .NET 6.0, which is required by version 4.x of the runtime.
 
 ```azurecli
 az functionapp config set --net-framework-version v6.0 -g <RESOURCE_GROUP_NAME> -n <APP_NAME>
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [Windows](#tab/windows/azure-powershell)
+
+When running on Windows, you also need to enable .NET 6.0, which is required by version 4.x of the runtime.
 
 ```azurepowershell
 Set-AzWebApp -NetFrameworkVersion v6.0 -Name <APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME>
 ```
+
+# [Linux](#tab/linux/azure-cli)
+
+When running on Linux, you also need to update the `linuxFxVersion` site setting for .NET 6.0.
+
+```azurecli
+az functionapp config set --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --linux-fx-version "DOTNET|6.0"
+```
+
+Replace `<LINUX_FX_VERSION>` with either `
+
+# [Linux](#tab/linux/azure-powershell)
+
+When running on Linux, you also need to update the `linuxFxVersion` site setting. Unfortunately, Azure PowerShell can't be used to set the `linuxFxVersion` at this time. Use the Azure CLI instead.
+
 ---
 
 In these examples, replace `<APP_NAME>` with the name of your function app and `<RESOURCE_GROUP_NAME>` with the name of the resource group.
+
+::: zone-end
 
 ### Migrate using slots
 
