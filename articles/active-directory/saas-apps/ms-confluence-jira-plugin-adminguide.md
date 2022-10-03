@@ -88,7 +88,7 @@ Before you start using the plug-in, you must configure it. Select the plug-in, s
 
 The following image shows the configuration screen in both Jira and Confluence:
 
-![Plug-in configuration screen](./media/ms-confluence-jira-plugin-adminguide/jira.png)
+![Plug-in configuration screen](./media/jiramicrosoft-tutorial/jira-configure-addon.png)
 
 * **Metadata URL**: The URL to get federation metadata from Azure AD.
 
@@ -117,6 +117,12 @@ The following image shows the configuration screen in both Jira and Confluence:
 * **Domain Name**: The domain name if sign-in is AD FS based.
 
 * **Enable Single Signout**: The selection to make if you want to sign out from Azure AD when a user signs out from Jira or Confluence.
+
+* Enable **Force Azure Login** checkbox, if you wish to sign in through Azure AD credentials only.
+
+* **Enable Use of Application Proxy** checkbox, if you have configured your on-premise atlassian application in an App Proxy setup.
+
+   * For App proxy setup , follow the steps on the [Azure AD App Proxy Documentation](https://learn.microsoft.com/en-us/azure/active-directory/app-proxy/what-is-application-proxy).
 
 ## Troubleshooting
 
