@@ -2621,6 +2621,36 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/sql/manage-with-terraform.md",
+      "redirect_url": "/azure/cosmos-db/nosql/manage-with-terraform",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/sql/quick-create-terraform.md",
+      "redirect_url": "/azure/cosmos-db/nosql/quick-create-terraform",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/quick-create-terraform.md",
+      "redirect_url": "/azure/cosmos-db/nosql/quickstart-terraform",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/sql/terraform-samples.md",
+      "redirect_url": "/azure/cosmos-db/nosql/terraform-samples",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/nosql/terraform-samples.md",
+      "redirect_url": "/azure/cosmos-db/nosql/samples-terraform",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/sql/tutorial-create-notebook.md",
+      "redirect_url": "/azure/cosmos-db/nosql/tutorial-create-notebook",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/connect-mongodb-account-experimental.md",
       "redirect_url": "/azure/cosmos-db/mongodb/connect-mongodb-account",
       "redirect_document_id": false
