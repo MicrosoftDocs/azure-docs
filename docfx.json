@@ -814,7 +814,7 @@
         "articles/migrate/*.md": "azure-migrate",
         "articles/notebooks/*.md": "azure-notebooks",
         "acticles/object-anchors/**/*.md": "azure-object-anchors",
-        "articles/openshift/**/*.md": "azure-red-hat-openshift",
+        "articles/openshift/**/*.md": "azure-redhat-openshift",
         "articles/quotas/**/*.md": "azure-quotas",
         "articles/remote-rendering/**/*.md": "azure-remote-rendering",
         "articles/sentinel/**/*.md": "microsoft-sentinel",
