@@ -19,7 +19,7 @@ For more, see [Prepare Azure Kubernetes technical assets](azure-container-techni
 
 Cluster extensions enable an Azure Resource Manager driven experience for your application. The following limitations apply when setting the cluster extension type name value:
 
-- You must provide provide the cluster extension type name in the format of 'PublisherName.ApplicationName'.
+- You must provide the cluster extension type name in the format of 'PublisherName.ApplicationName'.
 
 - The name should be unique across all your offers and plans.
 
