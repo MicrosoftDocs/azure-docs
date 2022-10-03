@@ -1,7 +1,7 @@
 ---
 title: Changed and deleted blobs
 titleSuffix: Azure Cognitive Search
-description: Indexers that index from Azure Storage can pick up new and changed content automatically. To automate deletion detection, follow the strategies described in this article.
+description: Indexers that index from Azure Storage can pick up new and changed content automatically. This article describes the strategies.
 
 author: gmndrg
 ms.author: gimondra
@@ -60,12 +60,11 @@ For this deletion detection approach, Cognitive Search depends on the [native bl
 
    The following screenshot shows where you can find this feature in the portal. 
 
-   :::image type="content" source="media/search-indexing-changed-deleted-blobs/new-data-source.png" alt-text="Screenshot of portal data source." border="true":::
+   :::image type="content" source="media/search-indexing-changed-deleted-blobs/new-data-source.png" alt-text="Screenshot of data source configuration in Import Data wizard." border="true":::
 
 1. On the **New Data Source** form, fill out the required fields, select the **Track deletions** checkbox and choose **Native blob soft delete**. Then hit **Save** to enable the feature on Data Source creation.
 
    :::image type="content" source="media/search-indexing-changed-deleted-blobs/native-soft-delete.png" alt-text="Screenshot of portal data source native soft delete." border="true":::
-
 
 ### [**REST**](#tab/rest-api)
 
@@ -87,6 +86,8 @@ api-key: [admin key]
 ```
 
 1. [Run the indexer](/rest/api/searchservice/run-indexer) or set the indexer to run [on a schedule](search-howto-schedule-indexers.md). When the indexer runs and processes a blob having a soft delete state, the corresponding search document will be removed from the index.
+
+---
 
 ### Re-index un-deleted blobs using native soft delete policies
 
