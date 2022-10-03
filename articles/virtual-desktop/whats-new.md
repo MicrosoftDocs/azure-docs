@@ -57,12 +57,7 @@ We've made the following updates to the Azure portal:
   - User session.
 - Removed the "Advanced" tab for the process to add a VM to the host pool.
 - Removed the storage blob image option from the host pool creation and adding VM processes.
-- Bug fixes:
-  - Accessibility bug fixes.
-  - Added validation to the "RDP properties advanced" tab.
-  - Changed user session sign-out dialog control.
-  - Fixed resource and workspace drop-down menus.
-  - Removed "Display name for users" tab in the host pool tab.
+- Bug fixes.
 - Made the following improvements to the "getting started" setup process:
   - Unchecked link Azure template.
   - Removed validation on existing domain admins.
