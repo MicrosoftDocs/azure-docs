@@ -82,19 +82,19 @@ An admin can determine whether the certificates are single-factor or multifactor
 
 ### Single-factor certificate authentication
 
-When a user has a single-factor certificate, they will not be able to do multifactor authentication. There is no support for a second factor when the first factor is single factor certificates. We are working on adding support for second factors soon.
+When a user has a single-factor certificate, they can't perform multifactor authentication. There is no support for a second factor when the first factor is a single-factor certificate. We are working to add support for second factors.
 
 :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/mfa-not-allowed.png" alt-text="Screenshot of when multifactor authentication not allowed." :::  
 
 ### Multifactor certificate authentication 
 
-When a user has a multi-factor certificate, they will be able to do Multifactor authentication just with certificates. However, the tenant admin should make sure the certificates are protected with a PIN or hardware module to be considered multi factor.
+When a user has a multifactor certificate, they can perform multifactor authentication only with certificates. However, the tenant admin should make sure the certificates are protected with a PIN or hardware module to be considered multifactor.
 
 ### How Azure AD resolves multiple authentication policy binding rules
 
-Since multiple authentication binding policy rules can be created with different certificate fields, there are some rules that determine the authentication protection level. They are as follows:
+Because multiple authentication binding policy rules can be created with different certificate fields, there are some rules that determine the authentication protection level. They are as follows:
 
-1. Exact match is used for strong authentication via policy OID. If you have a certificate A with policy OID **1.2.3.4.5** and a derived credential B based on that certificate has a policy OID **1.2.3.4.5.6** and the custom rule is defined as **Policy OID** with value **1.2.3.4.5** with MFA, only certificate A will satisfy MFA and credential B will satisfy only single-factor authentication. If the user used derived credential during sign-in and was configured to have MFA, the user will be asked for a second factor for successful authentication.
+1. Exact match is used for strong authentication by using policy OID. If you have a certificate A with policy OID **1.2.3.4.5** and a derived credential B based on that certificate has a policy OID **1.2.3.4.5.6** and the custom rule is defined as **Policy OID** with value **1.2.3.4.5** with MFA, only certificate A will satisfy MFA and credential B will satisfy only single-factor authentication. If the user used derived credential during sign-in and was configured to have MFA, the user will be asked for a second factor for successful authentication.
 1. Policy OID rules will take precedence over certificate issuer rules. If a certificate has both policy OID and Issuer, the policy OID is always checked first and if no policy rule is found then the issuer subject bindings are checked. Policy OID has a higher strong authentication binding priority than the issuer.
 1. If one CA binds to MFA, all user certificates that the CA issues qualify as MFA. The same logic applies for single-factor authentication.
 1. If one policy OID binds to MFA, all user certificates that include this policy OID as one of the OIDs (A user certificate could have multiple policy OIDs) qualify as MFA.
