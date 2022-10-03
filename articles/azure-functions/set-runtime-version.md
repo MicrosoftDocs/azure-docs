@@ -126,7 +126,7 @@ As before, replace `<FUNCTION_APP>` with the name of your function app and `<RES
 
 The function app restarts after the change is made to the application setting.
 
-## Pin to a specific version on Linux
+## <a name="manual-version-updates-on-linux"></a>Pin to a specific version on Linux
 
 > [!IMPORTANT]
 > We don't generally recommend pinning your Linux function app to a specific version. Pinned function apps don't receive security and regular updates. Unless recommended by a support professional, you should instead use the [`FUNCTIONS_EXTENSION_VERSION`]() setting and a valid  
