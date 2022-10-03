@@ -1,7 +1,7 @@
 {
     "redirections": [ 
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-train-cli.md",
+        "source_path_from_root": "/articles/machine-learning/how-to-use-environments.md",
         "redirect_url": "/azure/machine-learning/how-to-manage-environments-v2",
         "redirect_document_id": true
     },
@@ -11,7 +11,7 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/machine-learning/ how-to-use-environments.md",
+        "source_path_from_root": "/articles/machine-learning/how-to-train-cli.md",
         "redirect_url": "/azure/machine-learning/how-to-train-model",
         "redirect_document_id": false
     },
