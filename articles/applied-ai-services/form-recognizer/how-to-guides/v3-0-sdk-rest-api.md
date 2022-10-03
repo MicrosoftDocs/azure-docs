@@ -70,8 +70,7 @@ In this project, you'll learn how-to use the following Form Recognizer models to
 
 ## Next steps
 
-Congratulations! You've learned to use Form Recognizer models to analyze various documents in different ways. Next, visit the explore the Form Recognizer Studio and reference documentation. 
-
+Congratulations! You've learned to use Form Recognizer models to analyze various documents in different ways. Next, explore the Form Recognizer Studio and reference documentation.
 >[!div class="nextstepaction"]
 > [**Try the Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio)
 
