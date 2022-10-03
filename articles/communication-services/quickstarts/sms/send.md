@@ -19,11 +19,10 @@ zone_pivot_groups: acs-azcli-js-csharp-java-python
 ---
 # Quickstart: Send an SMS message
 
-[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
-
 > [!IMPORTANT]
-> SMS messages can be sent to and received from United States phone numbers. Phone numbers that are located in other geographies are not yet supported by Azure Communication Services SMS.
-> For more information, see [Phone number types](../../concepts/telephony/plan-solution.md).
+> SMS capabilities depend on the phone number you use and the country that you're operating within as determined by your Azure billing address. For more information, visit the [Subscription eligibility](../../concepts/numbers/sub-eligibility-number-capability.md) documentation.
+> 
+> Currently, SMS messages can only be sent to received from United States phone numbers. For more information, see [Phone number types](../../concepts/telephony/plan-solution.md).
 <br/>
 <br/>
 >[!VIDEO https://www.youtube.com/embed/YEyxSZqzF4o]
