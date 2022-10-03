@@ -353,7 +353,7 @@ Edge CA has two different modes:
 
 To help with getting started, IoT Edge automatically generates an **Edge CA certificate** when started up for the first time by default. This self-signed certificate is only meant for development and testing scenarios, not production. This certificate expires after 90 days, but can be configured. This is referred to as *quickstart Edge CA*.
 
-It's called "quickstart" because it's enables `edgeHub` (and other IoT Edge modules) to have valid server certificate when IoT Edge is first installed with no configuration. It's important that `edgeHub` has this certificate because modules or downstream devices [need to establish secure communication channels](iot-edge-certs.md#part-3-am-i-really-talking-to-edgegateway). Without the quickstart Edge CA, getting started would be significantly harder because you'd need to provide a valid server certificate from a PKI provider or with tools like `openssl`. 
+It's called "quickstart" because it's enables `edgeHub` (and other IoT Edge modules) to have valid server certificate when IoT Edge is first installed with no configuration. It's important that `edgeHub` has this certificate because modules or downstream devices [need to establish secure communication channels](iot-edge-certs.md#device-verifies-gateway-identity). Without the quickstart Edge CA, getting started would be significantly harder because you'd need to provide a valid server certificate from a PKI provider or with tools like `openssl`. 
 
 > [!IMPORTANT]
 > Never use the quickstart Edge CA for production because the locally generated certificate in it isn't connected to a PKI. 
