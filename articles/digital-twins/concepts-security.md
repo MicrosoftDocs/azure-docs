@@ -115,7 +115,7 @@ For instructions on how to set up Private Link for Azure Digital Twins, see [Ena
 
 When working with Private Link for Azure Digital Twins, here are some factors you may want to consider:
 * Pricing: For pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link). 
-* Regional availability: For Azure Digital Twins, this feature is available in all the Azure regions where Azure Digital Twins is available. 
+* Regional availability: Private Link for Azure Digital Twins is available in all the Azure regions where Azure Digital Twins is available. 
 * Maximum number of private endpoints per Azure Digital Twins instance: 10
 
 For information on the limits of Private Link, see [Azure Private Link documentation: Limitations](../private-link/private-link-service-overview.md#limitations).
