@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 10/01/2022
+ms.date: 10/03/2022
 ms.author: jasteppe
 ---
 
@@ -43,7 +43,7 @@ Follow these directions to grant access to the IoT Hub system-assigned managed i
 ## Send device message to IoT Hub
 
 > [!TIP]
-> [VS Code with the IoT Hub extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) is a recommended method for sending IoT device messages to your IoT Hub for testing and troubleshooting.
+> [Visual Studio Code with the Azure IoT Hub extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) is a recommended method for sending IoT device messages to your IoT Hub for testing and troubleshooting.
 
 Use your device (real or simulated) to send the sample heart rate message shown below to the IoT Hub. 
 
@@ -53,6 +53,8 @@ This message will get routed to MedTech service, where the message will be trans
 > To avoid device spoofing in device-to-cloud messages, Azure IoT Hub enriches all messages with additional properties. To learn more about these properties, see [Anti-spoofing properties](/azure/iot-hub/iot-hub-devguide-messages-construct#anti-spoofing-properties).
 >
 > To learn about IoT Hub device message enrichment and IotJsonPathContentTemplate mappings usage with the MedTech service device mapping, see [How to use IotJsonPathContentTemplate mappings](how-to-use-iot-jsonpath-content-mappings.md).
+
+**IoT device message to send to IoT Hub**
 
 ```json
 

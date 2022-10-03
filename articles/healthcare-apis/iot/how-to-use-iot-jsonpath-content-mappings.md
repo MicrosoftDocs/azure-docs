@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 09/30/2022
+ms.date: 10/03/2022
 ms.author: jasteppe
 ---
 
@@ -39,15 +39,13 @@ With each of these examples, you're provided with:
 
 > [!IMPORTANT]
 > To avoid device spoofing in device-to-cloud messages, Azure IoT Hub enriches all messages with additional properties. To learn more about these properties, see [Anti-spoofing properties](/azure/iot-hub/iot-hub-devguide-messages-construct#anti-spoofing-properties).
->
-> To learn about IoT Hub device message enrichment and IotJsonPathContentTemplate mappings usage with the MedTech service device mapping, see [How to use IotJsonPathContentTemplate mappings](how-to-use-iot-jsonpath-content-mappings.md).
 
 > [!TIP]
-> [VS Code with the IoT Hub extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) is a recommended method for sending IoT device messages to your IoT Hub for testing and troubleshooting.
+> [Visual Studio Code with the Azure IoT Hub extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) is a recommended method for sending IoT device messages to your IoT Hub for testing and troubleshooting.
 
 **Heart rate**
 
-**A valid IoT device message.**
+**A valid IoT device message to send to your IoT Hub.**
 
 ```json
 
@@ -125,7 +123,7 @@ With each of these examples, you're provided with:
 
 **Blood pressure**
 
-**A valid IoT device message.**
+**A valid IoT device message to send to your IoT Hub.**
 
 ```json
 
