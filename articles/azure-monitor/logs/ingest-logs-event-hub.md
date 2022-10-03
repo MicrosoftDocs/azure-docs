@@ -257,7 +257,7 @@ To create a data collection rule in the Azure portal:
     - **Data Collection Rule Name** - Give the rule a name.
     - **Workspace Resource ID** - See [Collect required information](#collect-required-information). 
     - **Endpoint Resource ID** - Generated when you [create the data collection endpoint](#create-a-data-collection-endpoint).
-    - **Table Name** - The name of the destination table. In our example, and whenever you use a custom table, the table name ends with the suffix *_CL*. 
+    - **Table Name** - The name of the destination table. In our example, and whenever you use a custom table, the table name must end with the suffix *_CL*. 
     - **Consumer Group** - By default, the consumer group is set to `$Default`. If needed, change the value to set a different [event hub consumer group](../../event-hubs/event-hubs-features.md#consumer-groups). 
 
     :::image type="content" source="media/ingest-logs-event-hub/data-collection-rule-custom-template-deployment.png" lightbox="media/ingest-logs-event-hub/data-collection-rule-custom-template-deployment.png" alt-text="Screenshot showing the Custom Template Deployment screen with the deployment values for the data collection rule set up in this tutorial.":::
@@ -280,23 +280,23 @@ To create a data collection rule in the Azure portal:
 To configure your data collection rule to support [user-assigned identity](../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md), in the example above, replace:
 
 ```json
-                "identity": {
-                                 "type": "systemAssigned"
-                  },
+    "identity": {
+                        "type": "systemAssigned"
+        },
 ``` 
 
 with:
 
 ```json
-                "identity": {
-                        "type": "userAssigned",
-                        "userAssignedIdentities": {
-                            "<identity_resource_Id>": {
-                                "principalId": "<principal_id>",
-                                "clientId": "<client_id>"
-                            }
-                        }
-                  },
+    "identity": {
+            "type": "userAssigned",
+            "userAssignedIdentities": {
+                "<identity_resource_Id>": {
+                    "principalId": "<principal_id>",
+                    "clientId": "<client_id>"
+                }
+            }
+        },
 ```
 
 To find the `<identity_resource_Id>`, `<principal_id>,` and `<client_id>` values, in the Azure portal:
@@ -424,6 +424,6 @@ In this tutorial, you created the following resources:
 - Data collection rule
 - Data collection rule association
 
-Evaluate whether you still need these resources. Delete the resources you don't need individually, or delete the resource group to delete all of these resources. Resources you leave running can cost you money.
+Evaluate whether you still need these resources. Delete the resources you don't need individually, or delete all of these resources at once by deleting the resource group. Resources you leave running can cost you money.
 
-To stop ingesting data from the event hub, delete all data collection rule associations related to the event hub, or delete the data collection rules themselves, or remove the permissions you granted to the data collection rules. These actions also reset event hub [checkpointing](/azure/event-hubs/event-hubs-features#checkpointing). 
+To stop ingesting data from the event hub, delete all data collection rule associations related to the event hub, or delete the data collection rules themselves. These actions also reset event hub [checkpointing](/azure/event-hubs/event-hubs-features#checkpointing). 
