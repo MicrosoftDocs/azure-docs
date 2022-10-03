@@ -13,6 +13,8 @@ tags: connectors
 
 # Connect to SAP systems from Azure Logic Apps
 
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
 This article explains how you can access your SAP resources from Azure Logic Apps using the [SAP connector](/connectors/sap/).
 
 ## Prerequisites
