@@ -798,7 +798,7 @@ Explanations are **feature attributions** or weights given to each pixel in the 
 Using Explainable AI in AutoML for Images on the deployed endpoint, users can get **visualizations** of explanations (attributions overlaid on an input image) and/or **attributions** (multi-dimensional array of size `[3, valid_crop_size, valid_crop_size]`) for each image. Apart from visualizations, users can also get attribution matrices to gain more control over the explanations (like generating custom visualizations using attributions or scrutinizing segments of attributions). All the explanation algorithms will use cropped square images with size `valid_crop_size` for generating attributions.
 
 
-Explanations can be generated either from online endpoint or batch endpoint. Once the deployment is done, this endpoint can be utilized to generate the explanations for predictions. In case of online deployment, make sure to pass `request_settings = OnlineRequestSettings(request_timeout_ms=90000)` parameter to `ManagedOnlineDeployment` and set `request_timeout_ms` to its maximum value to avoid timeout issues while generating explanations (refer to [register and deploy model section](#register-and-deploy-model)). Some of the explainability (XAI) methods like `xrai` consume more time (specially for multi-label classification as we need to generate attributions and/or visualizations against each predicted label). So, we recommend any GPU instance for faster explanations. For more information on input and output schema for generating explanations, see the [schema docs](reference-automl-images-schema.md).
+Explanations can be generated either from **online endpoint** or **batch endpoint**. Once the deployment is done, this endpoint can be utilized to generate the explanations for predictions. In case of online deployment, make sure to pass `request_settings = OnlineRequestSettings(request_timeout_ms=90000)` parameter to `ManagedOnlineDeployment` and set `request_timeout_ms` to its maximum value to avoid **timeout issues** while generating explanations (refer to [register and deploy model section](#register-and-deploy-model)). Some of the explainability (XAI) methods like `xrai` consume more time (specially for multi-label classification as we need to generate attributions and/or visualizations against each predicted label). So, we recommend any GPU instance for faster explanations. For more information on input and output schema for generating explanations, see the [schema docs](reference-automl-images-schema.md#data-format-for-online-scoring-and-explainability-xai).
 
 
 We support following state-of-the-art explainability algorithms in AutoML for images:
@@ -807,7 +807,7 @@ We support following state-of-the-art explainability algorithms in AutoML for im
    - [Guided GradCAM](https://arxiv.org/abs/1610.02391v4) (guided_gradcam)
    - [Guided BackPropagation](https://arxiv.org/abs/1412.6806) (guided_backprop)
 
-Following table describes the explainability algorithm specific tuning parameters for XRAI and Integrated Gradients. Guided backpropagation and guided gradcam doesn't require any tuning parameters.
+Following table describes the explainability algorithm specific tuning parameters for XRAI and Integrated Gradients. Guided backpropagation and guided gradcam don't require any tuning parameters.
 
 | XAI algorithm | Algorithm specific parameters  | Default Values |
 |--------- |------------- | --------- |
@@ -823,6 +823,10 @@ A sample request to the online endpoint looks like the following. This request g
 import base64
 import json
 
+def read_image(image_path):
+    with open(image_path, "rb") as f:
+        return f.read()
+
 sample_image = "./test_image.jpg"
 
 # Define explainability (XAI) parameters
@@ -833,20 +837,13 @@ xai_parameters = {"xai_algorithm": "xrai",
                   "visualizations": True,
                   "attributions": True}
 
-def read_image(image_path):
-    with open(image_path, "rb") as f:
-        return f.read()
-
 # Create request json
-request_json = {
-
-    "input_data": {
-        "columns": ["image"],
-        "data": [json.dumps({"image_base64": base64.encodebytes(read_image(sample_image)).decode("utf-8"),
-                             "model_explainability": model_explainability,
-                             "xai_parameters": xai_parameters})],
-    }
-}
+request_json = {"input_data": {"columns":  ["image"],
+                               "data": [json.dumps({"image_base64": base64.encodebytes(read_image(sample_image)).decode("utf-8"),
+                                                    "model_explainability": model_explainability,
+                                                    "xai_parameters": xai_parameters})],
+                               }
+                }
 
 request_file_name = "sample_request_data.json"
 
@@ -861,22 +858,10 @@ resp = ml_client.online_endpoints.invoke(
 predictions = json.loads(resp)
 ```
 
-For more information on generating explanations, see [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/main/sdk/jobs/automl-standalone-jobs).
+For more information on generating explanations, see [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/azureml-examples/tree/rvadthyavath/xai_vision_notebooks/sdk/python/jobs/automl-standalone-jobs).
 
 ### Interpreting Visualizations
-Deployed endpoint returns base64 encoded image string if both `model_explainability` and `visualizations` are set to `True`. Decode the base64 string as described in [notebooks](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs).
-
-Following picture describes the Visualization of explanations for a sample input image.
-![visualizations generated by XAI for AutoML for images.](./media/how-to-auto-train-image-models/XAI_visualization.jpg)
-
-Decoded base64 figure will have four image sections within a 2 x 2 grid.
-
-- Image at Top-left corner (0, 0) is the cropped input image
-- Image at top-right corner (0, 1) is the heatmap of attributions on a color scale bgyw (blue green yello white) where the contribution of white pixels on the predicted class is the highest and blue pixels is the lowest.
-- Image at bottom left corner (1, 0) is blended heatmap of attributions on cropped input image
-- Image at bottom right corner (1, 1) is the cropped input image with top 30 percent of the pixels based on attribution scores.
-
-Following code can be used to decode and visualize the base64 image strings in the prediction.
+Deployed endpoint returns base64 encoded image string if both `model_explainability` and `visualizations` are set to `True`. Decode the base64 string as described in [notebooks](https://github.com/Azure/azureml-examples/tree/rvadthyavath/xai_vision_notebooks/sdk/python/jobs/automl-standalone-jobs) or use the following code to decode and visualize the base64 image strings in the prediction.
 
 ```python
 import base64
@@ -889,20 +874,31 @@ def base64_to_img(base64_img_str):
     return BytesIO(decoded_img).getvalue()
 
 # For Multi-class classification:
-# Selecting base64 string for first input image
+# Decode and visualize base64 image string for explanations for first input image
 # img_bytes = base64_to_img(predictions[0]["visualizations"])
 
 # For  Multi-label classification:
-# visualize explanations of the first image against one of the classes
+# Decode and visualize base64 image string for explanations for first input image against one of the classes
 img_bytes = base64_to_img(predictions[0]["visualizations"][0])
 image = Image.open(BytesIO(img_bytes))
 ```
 
-### Interpreting Attributions
-Deployed endpoint returns attributions if both `model_explainability` and `attributions` are set to `True`. Fore more details, refer to [multi-class classification and multi-label classification notebooks](https://github.com/Azure/azureml-examples/tree/main/sdk/python/jobs/automl-standalone-jobs).
+Following picture describes the Visualization of explanations for a sample input image.
+![visualizations generated by XAI for AutoML for images.](./media/how-to-auto-train-image-models/XAI_visualization.jpg)
 
-These attributions give more control to the user to generate custom visualizations or to scrutinize pixel level attribution scores.
-Following code snippet describes a way to generate custom visualizations using attribution matrix. For more information on the schema of attributions for multi-class classification and multi-label classification, see the [schema docs](reference-automl-images-schema.md).
+Decoded base64 figure will have four image sections within a 2 x 2 grid.
+
+- Image at Top-left corner (0, 0) is the cropped input image
+- Image at top-right corner (0, 1) is the heatmap of attributions on a color scale bgyw (blue green yello white) where the contribution of white pixels on the predicted class is the highest and blue pixels is the lowest.
+- Image at bottom left corner (1, 0) is blended heatmap of attributions on cropped input image
+- Image at bottom right corner (1, 1) is the cropped input image with top 30 percent of the pixels based on attribution scores.
+
+
+### Interpreting Attributions
+Deployed endpoint returns attributions if both `model_explainability` and `attributions` are set to `True`. Fore more details, refer to [multi-class classification and multi-label classification notebooks](https://github.com/Azure/azureml-examples/tree/rvadthyavath/xai_vision_notebooks/sdk/python/jobs/automl-standalone-jobs).
+
+These attributions give more control to the users to generate custom visualizations or to scrutinize pixel level attribution scores.
+Following code snippet describes a way to generate custom visualizations using attribution matrix. For more information on the schema of attributions for multi-class classification and multi-label classification, see the [schema docs](reference-automl-images-schema.md#data-format-for-online-scoring-and-explainability-xai).
 
 Use the exact `valid_resize_size` and `valid_crop_size` values of the model used to generate the explanations (default values are 256 and 224 respectively). Following code uses [Captum](https://captum.ai/) visualization functionality to generate custom visualizations. Users can utilize any other library to generate visualizations. For more details, please refer to the [captum visualization utilities](https://captum.ai/api/utilities.html#visualization).
 
