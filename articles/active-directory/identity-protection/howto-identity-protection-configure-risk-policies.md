@@ -32,11 +32,16 @@ Choosing to apply access control on a **High** risk level reduces the number of 
 
 Configured trusted [network locations](../conditional-access/location-condition.md) are used by Identity Protection in some risk detections to reduce false positives.
 
-## Risk remediation
+### Risk remediation
 
 Organizations can choose to block access when risk is detected. Blocking sometimes stops legitimate users from doing what they need to. A better solution is to allow self-remediation using Azure AD Multi-Factor Authentication (MFA) and secure self-service password reset (SSPR).
 
-## Microsoft's recommendation
+> [!WARNING]
+> Users must register for Azure AD MFA and SSPR before they face a situation requiring remediation. Users not registered are blocked and require administrator intervention.
+> 
+> Password change (I know my password and want to change it to something new) outside of the risky user policy remediation flow does not meet the requirement for secure password reset.
+
+### Microsoft's recommendation
 
 Microsoft recommends the below risk policy configurations to protect your organization:
 
@@ -46,11 +51,6 @@ Microsoft recommends the below risk policy configurations to protect your organi
    - Require Azure AD MF when sign-in risk level is **Medium** or **High**, allowing users to prove it's them by using one of their registered authentication methods, remediating the sign-in risk. 
 
 Requiring access control when risk level is low will introduce more user interrupts. Choosing to block access rather than allowing self-remediation options, like secure password reset and multi-factor authentication, will impact your users and administrators. Weigh these choices when configuring your policies.
-
-> [!WARNING]
-> Users must register for Azure AD MFA and SSPR before they face a situation requiring remediation. Users not registered are blocked and require administrator intervention.
-> 
-> Password change (I know my password and want to change it to something new) outside of the risky user policy remediation flow does not meet the requirement for secure password reset.
 
 ## Exclusions
 
