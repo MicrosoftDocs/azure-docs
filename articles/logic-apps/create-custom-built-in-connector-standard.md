@@ -11,6 +11,8 @@ ms.date: 08/20/2022
 
 # Create custom built-in connectors for Standard logic apps in single-tenant Azure Logic Apps
 
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
+
 If you need connectors that aren't available in Standard logic app workflows, you can create your own built-in connectors using the same extensibility model that's used by the [*service provider-based built-in connectors*](custom-connector-overview.md#service-provider-interface-implementation) available for Standard workflows in single-tenant Azure Logic Apps. This extensibility model is based on the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md).
 
 This article shows how to create an example custom built-in Cosmos DB connector, which has a single Azure Functions-based trigger and no actions. The trigger fires when a new document is added to the lease collection or container in Cosmos DB and then runs a workflow that uses the input payload as the Cosmos document.
