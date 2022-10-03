@@ -142,36 +142,7 @@ A function can accept a [CancellationToken](/dotnet/api/system.threading.cancell
 
 Cancellation tokens are supported in .NET isolated functions. The following example shows how to use a cancellation token in a function:
 
-
-```csharp
- [Function("Function1")]
-        public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestData req, FunctionContext executionContext, CancellationToken cancellationToken)
-        {
-            _logger.LogInformation("HttpTriggerWithCancellation function triggered");
-            _logger.LogInformation("C# HTTP trigger function processed a request.");
-
-            try
-            {
-                var response = req.CreateResponse(HttpStatusCode.OK);
-                response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
-
-                response.WriteString("Welcome to Azure Functions!");
-
-                await Task.Delay(5000, cancellationToken);
-
-                return response;
-            }
-            catch (OperationCanceledException) {
-
-                _logger.LogInformation("Function invocation cancelled");
-                var response = req.CreateResponse(HttpStatusCode.ServiceUnavailable);
-                response.WriteString("Invocation cancelled");
-
-                return response;
-            }
-           
-        }
-```
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Net7Worker/HttpFunction.cs" range="23-51":::
 
 ## ReadyToRun
 
