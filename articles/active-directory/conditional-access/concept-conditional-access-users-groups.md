@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/09/2022
+ms.date: 10/03/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -45,7 +45,7 @@ The following options are available to include when creating a Conditional Acces
          - Other external users, or users not represented by the other user type selections
       - One or more tenants can be specified for the selected user type(s), or you can specify all tenants. 
    - Directory roles
-      - Allows administrators to select specific [built-in Azure AD directory roles](../roles/permissions-reference.md) used to determine policy assignment. For example, organizations may create a more restrictive policy on users assigned the global administrator role. Other role types aren't supported, including administrative unit-scoped roles and custom roles.
+      - Allows administrators to select specific [built-in Azure AD directory roles](../roles/permissions-reference.md) used to determine policy assignment. For example, organizations may create a more restrictive policy on users assigned the Global Administrator role. Other role types aren't supported, including administrative unit-scoped roles and custom roles.
    - Users and groups
       - Allows targeting of specific sets of users. For example, organizations can select a group that contains all members of the HR department when an HR app is selected as the cloud app. A group can be any type of user group in Azure AD, including dynamic or assigned security and distribution groups. Policy will be applied to nested users and groups.
 
@@ -77,7 +77,7 @@ The following options are available to exclude when creating a Conditional Acces
        - Other external users, or users not represented by the other user type selections
     - One or more tenants can be specified for the selected user type(s), or you can specify all tenants.
 - Directory roles
-   - Allows administrators to select specific Azure AD directory roles used to determine assignment. For example, organizations may create a more restrictive policy on users assigned the global administrator role.
+   - Allows administrators to select specific Azure AD directory roles used to determine assignment. For example, organizations may create a more restrictive policy on users assigned the Global Administrator role.
 - Users and groups
    - Allows targeting of specific sets of users. For example, organizations can select a group that contains all members of the HR department when an HR app is selected as the cloud app. A group can be any type of group in Azure AD, including dynamic or assigned security and distribution groups. Policy will be applied to nested users and groups.
 
