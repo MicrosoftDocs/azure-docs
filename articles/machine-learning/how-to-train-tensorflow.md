@@ -84,9 +84,8 @@ Next, get a handle to the workspace by providing your Subscription ID, Resource 
 
 The result of running this script is a workspace handle that you'll use to manage other resources and jobs.
 
-Note:
-
-- Creating `MLClient` will not connect the client to the workspace. The client initialization is lazy and will wait for the first time it needs to make a call. In this article, this will happen during compute creation.
+> [!NOTE]
+> - Creating `MLClient` will not connect the client to the workspace. The client initialization is lazy and will wait for the first time it needs to make a call. In this article, this will happen during compute creation.
 
 ### Create a compute resource to run the job
 
@@ -121,13 +120,11 @@ For more information about the MNIST dataset, please visit [Yan LeCun's website]
 
 In this article, we've provided the training script *tf_mnist.py*. In practice, you should be able to take any custom training script as is and run it with AzureML without having to modify your code.
 
-Notes:
-
-The provided training script does the following:
-
-- handles the data preprocessing, splitting the data into test and train data;
-- trains a model, using the data; and
-- returns the output model.
+> [!NOTE]
+> The provided training script does the following:
+> - handles the data preprocessing, splitting the data into test and train data;
+> - trains a model, using the data; and
+> - returns the output model.
 
 During the pipeline run, you'll use MLFlow to log the parameters and metrics. To learn how to enable MLFlow tracking, see [Track ML experiments and models with MLflow](how-to-use-mlflow-cli-runs.md).
 
@@ -264,7 +261,8 @@ You can then print the returned predictions and plot them along with the input i
 
 [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=test_invoke)]
 
-Note that because the model accuracy is high, you might have to run the cell a few times before seeing a misclassified sample.
+> [!NOTE]
+> Because the model accuracy is high, you might have to run the cell a few times before seeing a misclassified sample.
 
 ### Clean up resources
 
