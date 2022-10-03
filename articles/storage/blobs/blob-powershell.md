@@ -118,7 +118,10 @@ Get-AzStorageContainer -MaxCount 5 -Context $ctx | Get-AzStorageBlob -Blob "*lou
 Do
 {
      #Retrieve blobs using the MaxCount parameter
-     $blobs = Get-AzStorageBlob -Container $demoContainer -MaxCount $maxCount -ContinuationToken $token -Context $ctx
+     $blobs = Get-AzStorageBlob -Container $demoContainer `
+         -MaxCount $maxCount `
+         -ContinuationToken $token `
+         -Context $ctx
      $blobCount = 1
      
      #Loop through the batch
@@ -199,7 +202,9 @@ Get-AzStorageBlobContent -Container $containerName -Blob $blobName -Destination 
 Get-AzStorageBlob -Container $containerName -Blob $fileList -Context $ctx | Get-AzStorageBlobContent
 
 #Use wildcard to download blobs from all containers
-Get-AzStorageContainer -MaxCount $maxCount -Context $ctx | Get-AzStorageBlob -Blob "louis*" | Get-AzStorageBlobContent
+Get-AzStorageContainer -MaxCount $maxCount `
+     -Context $ctx | Get-AzStorageBlob `
+     -Blob "louis*" | Get-AzStorageBlobContent
 ```
 
 The result displays the storage account and container names and provides a list of the files downloaded.
@@ -207,30 +212,30 @@ The result displays the storage account and container names and provides a list 
 ```Result
    AccountName: demostorageaccount, ContainerName: demo-container
 
-Name                 BlobType   Length  ContentType                LastModified          AccessTier  IsDeleted
-----                 --------   ------  -----------                ------------          ----------  ---------
-demo-file.txt        BlockBlob  222     application/octet-stream   2021-12-14 01:38:03Z  Unknown     False
-hello-world.png      BlockBlob  14709   application/octet-stream   2021-12-14 01:38:03Z  Unknown     False
-hello-world2.png     BlockBlob  12472   application/octet-stream   2021-12-14 01:38:03Z  Unknown     False
-hello-world3.png     BlockBlob  13537   application/octet-stream   2021-12-14 01:38:03Z  Unknown     False
+Name                 BlobType   Length  ContentType              LastModified          AccessTier  IsDeleted
+----                 --------   ------  -----------              ------------          ----------  ---------
+demo-file.txt        BlockBlob  222     application/octet-stream 2021-12-14 01:38:03Z  Unknown     False
+hello-world.png      BlockBlob  14709   application/octet-stream 2021-12-14 01:38:03Z  Unknown     False
+hello-world2.png     BlockBlob  12472   application/octet-stream 2021-12-14 01:38:03Z  Unknown     False
+hello-world3.png     BlockBlob  13537   application/octet-stream 2021-12-14 01:38:03Z  Unknown     False
 
    AccountName: demostorageaccount, ContainerName: public-container
 
-Name                 BlobType   Length  ContentType                LastModified          AccessTier  IsDeleted
-----                 --------   ------  -----------                ------------          ----------  ---------
-louis-armstrong.jpg  BlockBlob  211482  image/jpeg                 2021-12-14 18:56:03Z  Unknown     False
+Name                 BlobType   Length  ContentType              LastModified          AccessTier  IsDeleted
+----                 --------   ------  -----------              ------------          ----------  ---------
+louis-armstrong.jpg  BlockBlob  211482  image/jpeg               2021-12-14 18:56:03Z  Unknown     False
 
    AccountName: demostorageaccount, ContainerName: read-only-container
 
-Name                 BlobType   Length  ContentType                LastModified          AccessTier  IsDeleted
-----                 --------   ------  -----------                ------------          ----------  ---------
-louis-jordan.jpg     BlockBlob  55766   image/jpeg                 2021-12-14 18:56:21Z  Unknown     False
+Name                 BlobType   Length  ContentType              LastModified          AccessTier  IsDeleted
+----                 --------   ------  -----------              ------------          ----------  ---------
+louis-jordan.jpg     BlockBlob  55766   image/jpeg               2021-12-14 18:56:21Z  Unknown     False
 
    AccountName: demostorageaccount, ContainerName: hidden-container
 
-Name                 BlobType   Length  ContentType                LastModified          AccessTier  IsDeleted
-----                 --------   ------  -----------                ------------          ----------  ---------
-louis-prima.jpg      BlockBlob  290651  image/jpeg                 2021-12-14 18:56:45Z  Unknown     False
+Name                 BlobType   Length  ContentType              LastModified          AccessTier  IsDeleted
+----                 --------   ------  -----------              ------------          ----------  ---------
+louis-prima.jpg      BlockBlob  290651  image/jpeg               2021-12-14 18:56:45Z  Unknown     False
 ```
 
 ## Manage blob properties and metadata
@@ -333,13 +338,15 @@ The example below copies the **bannerphoto.png** blob from the **photos** contai
 
 ```azurepowershell
 $blobname = "bannerphoto.png"
-Copy-AzStorageBlob -SrcContainer "photos" -SrcBlob $blobname -DestContainer "archive" -DestBlob $("photos/$blobname") -Context $ctx
+Copy-AzStorageBlob -SrcContainer "photos" `
+     -SrcBlob $blobname -DestContainer "archive" `
+     -DestBlob $("photos/$blobname") -Context $ctx
 
 AccountName: demostorageaccount, ContainerName: archive
 
-Name                BlobType   Length  ContentType  LastModified          AccessTier  SnapshotTime  IsDeleted  VersionId
-----                --------   ------  -----------  ------------          ----------  ------------  ---------  ---------
-photos/bannerphoto  BlockBlob  12472   image/png    2021-11-27 23:11:43Z  Cool                      False
+Name                BlobType   Length  ContentType  LastModified          AccessTier  IsDeleted  VersionId
+----                --------   ------  -----------  ------------          ----------  ---------  ---------
+photos/bannerphoto  BlockBlob  12472   image/png    2021-11-27 23:11:43Z  Cool        False
 ```
 
 You can use the `-Force` parameter to overwrite an existing blob with the same name at the destination. This operation effectively replaces the destination blob. It also removes any uncommitted blocks and overwrites the destination blob's metadata.
@@ -348,7 +355,7 @@ You can use the `-Force` parameter to overwrite an existing blob with the same n
 
 The resulting destination blob is a writeable blob and not a snapshot.
 
-The source blob for a copy operation may be a block blob, an append blob, a page blob, or a snapshot. If the destination blob already exists, it must be of the same blob type as the source blob. An existing destination blob will be overwritten. 
+The source blob for a copy operation may be a block blob, an append blob, a page blob, or a snapshot. If the destination blob already exists, it must be of the same blob type as the source blob. An existing destination blob will be overwritten.
 
 The destination blob can't be modified while a copy operation is in progress. A destination blob can only have one outstanding copy operation. In other words, a blob can't be the destination for multiple pending copy operations.
 
@@ -463,7 +470,7 @@ Get-AzStorageBlob -Prefix $prefixName -IncludeDeleted -Context $ctx
 
 AccountName: demostorageaccount, ContainerName: demo-container
 
-Name       BlobType   Length  ContentType                LastModified          AccessTier    IsDeleted                     
+Name       BlobType   Length  ContentType                LastModified          AccessTier    IsDeleted
 ----       --------   ------  -----------                ------------          ----------    ---------
 file.txt   BlockBlob  22      application/octet-stream   2021-12-16 20:59:41Z  Cool          True
 file2.txt  BlockBlob  22      application/octet-stream   2021-12-17 00:14:24Z  Cool          True
