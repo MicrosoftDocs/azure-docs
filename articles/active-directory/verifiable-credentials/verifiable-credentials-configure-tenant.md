@@ -35,7 +35,8 @@ The following diagram illustrates the Verified ID architecture and the component
 ## Prerequisites
 
 - You need an Azure tenant with an active subscription. If you don't have Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Ensure that you have the [global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) permission for the directory you want to configure.
+- Ensure that you have the [global administrator](../../active-directory/roles/permissions-reference.md#global-administrator) or the [authentication policy administrator](../../active-directory/roles/permissions-reference.md#authentication-policy-administrator) permission for the directory you want to configure. If you're not the global administrator, you will need permission [application administrator](../../active-directory/roles/permissions-reference.md#application-administrator) to complete the app registration including granting admin consent.
+- Ensure that you have the [contributor](../../role-based-access-control/built-in-roles.md#contributor) role for the Azure subscription or the resource group that you will deploy Azure Key Vault in.
 
 ## Create a key vault
 
@@ -138,7 +139,7 @@ To add the required permissions, follow these steps:
 
 1. Select **APIs my organization uses**.
 
-1. Search for the **Verifiable Credentials Service Request** service principal, and select it.
+1. Search for the **Verifiable Credentials Service Request** and **Verifiable Credentials Service** service principals, and select them.
     
     ![Screenshot that shows how to select the service principal.](media/verifiable-credentials-configure-tenant/add-app-api-permissions-select-service-principal.png)
 
@@ -158,7 +159,7 @@ To add the required permissions, follow these steps:
     1. Website ID registration
     1. Domain verification.
 1. Select on each section and download the JSON file under each.
-1. Crete a website that you can use to distribute the files. If you specified **https://contoso.com** as your domain, the URLs for each of the files would look as shown below:
+1. Create a website that you can use to distribute the files. If you specified **https://contoso.com** as your domain, the URLs for each of the files would look as shown below:
     - `https://contoso.com/.well-known/did.json`
     - `https://contoso.com/.well-known/did-configuration.json`
 

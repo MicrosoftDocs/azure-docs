@@ -3,7 +3,7 @@ title: Use Azure Dedicated Hosts in Azure Kubernetes Service (AKS)
 description: Learn how to create an Azure Dedicated Hosts Group and associate it with Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 08/01/2022
+ms.date: 09/13/2022
 ---
 
 # Add Azure Dedicated Host to an Azure Kubernetes Service (AKS) cluster
@@ -64,7 +64,7 @@ az vm host group create \
 --name myHostGroup \
 -g myDHResourceGroup \
 -z 1\
---platform-fault-domain-count 5
+--platform-fault-domain-count 1
 --automatic-placement true
 ```
 
@@ -79,7 +79,7 @@ az vm host create \
 --host-group myHostGroup \
 --name myHost \
 --sku DSv3-Type1 \
---platform-fault-domain 0 \
+--platform-fault-domain 1 \
 -g myDHResourceGroup
 ```
 

@@ -163,7 +163,7 @@ PUT
                                 "FilterName": "SampleFilter",
                                 "Rules": [
                                     {
-                                        "Field": "EventId",
+                                        "Field": "EventOriginalType",
                                         "FieldValues": [
                                             "260"
                                         ]

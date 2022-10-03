@@ -26,7 +26,7 @@ Instead of manually configuring your Spring Boot applications, you can automatic
 * An Azure Cache for Redis service instance
 * The Azure Spring Apps extension for the Azure CLI
 
-If you don't have a deployed Azure Spring Apps instance, follow the steps in the [quickstart on deploying an Azure Spring Apps app](./quickstart.md).
+If you don't have a deployed Azure Spring Apps instance, follow the steps in the [Quickstart: Deploy your first application to Azure Spring Apps](./quickstart.md).
 
 ## Prepare your Java project
 
@@ -46,6 +46,7 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
 ## Bind your app to the Azure Cache for Redis
 
 #### [Service Binding](#tab/Service-Binding)
+
 1. Go to your Azure Spring Apps service page in the Azure portal. Go to **Application Dashboard** and select the application to bind to Azure Cache for Redis. This application is the same one you updated or deployed in the previous step.
 
 1. Select **Service binding** and select **Create service binding**. Fill out the form, being sure to select the **Binding type** value **Azure Cache for Redis**, your Azure Cache for Redis server, and the **Primary** key option.
@@ -109,8 +110,10 @@ resource "azurerm_spring_cloud_app" "example" {
 resource "azurerm_spring_cloud_java_deployment" "example" {
   name                = "default"
   spring_cloud_app_id = azurerm_spring_cloud_app.example.id
-  cpu                 = 2
-  memory_in_gb        = 4
+  quota {
+    cpu    = "2"
+    memory = "4Gi"
+  }
   instance_count      = 2
   jvm_options         = "-XX:+PrintGC"
   runtime_version     = "Java_11"

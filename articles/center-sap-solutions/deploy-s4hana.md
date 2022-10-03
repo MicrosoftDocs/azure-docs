@@ -83,6 +83,18 @@ There are three deployment options that you can select for your infrastructure, 
     1. For **SSH public key source**, select a source for the public key. You can choose to generate a new key pair, use an existing key stored in Azure, or use an existing public key stored on your local computer. If you don't have keys already saved, it's recommended to generate a new key pair.
 
     1. For **Key pair name**, enter a name for the key pair.
+    
+    1. If you choose to use an **Existing public key stored in azure**, select the key in **Stored Keys** input
+    
+    1. Provide the corresponding SSH private key from **local file** stored on your computer or **copy paste** the private key.
+    
+    1. If you choose to use an **Existing public key**, you can either Provide the SSH public key from **local file** stored on your computer or **copy paste** the public key.
+    
+    1. Provide the corresponding SSH private key from **local file** stored on your computer or **copy paste** the private key.
+   
+1. Under **Configuration Details**, enter the FQDN for you SAP System .
+
+    1. For **SAP FQDN**, provide FQDN for you system such "sap.contoso.com"
 
 1. Select **Next: Virtual machines**.
 
