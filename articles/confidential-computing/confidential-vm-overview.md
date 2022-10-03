@@ -54,6 +54,8 @@ If you are using an Azure confidential VM and attaching extra disks, in order to
 
 Encrypt your data disks (any disks containing data base files, log files, or backup files) with [BitLocker](https://learn.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) and enable automatic unlocking – see [manage-bde autounlock](https://learn.microsoft.com/windows-server/administration/windows-commands/manage-bde-autounlock) or, [Enable-BitLockerAutoUnlock](https://learn.microsoft.com/powershell/module/bitlocker/enable-bitlockerautounlock?view=windowsserver2022-ps). Automatic unlocking ensures the encryption keys are stored on the OS disk. In conjunction with confidential OS disk encryption, this will protect the data at rest on the VM disks from unauthorized host access. It is recommended to store BitLocker recovery keys in a secure location (for example, in a [managed HSM in Azure Key Vault](/articles/key-vault/managed-hsm/overview.md)), to make it easier to migrate the disk to another VM in the future.
 
+Note: The above option only applies to Windows based Confidential virtual machines. The team is still working on similar options using dm-crypt for Linux based virtual machines
+
 ## Attestation and TPM
 
 Azure confidential VMs boot only after successful attestation of the platform's critical components and security settings. The attestation report includes:
