@@ -22,7 +22,7 @@ This tutorial describes how to use GitOps in a Kubernetes cluster. Before you di
 > The `microsoft.flux` extension released major version 1.0.0. This includes the [multi-tenancy feature](#multi-tenancy). If you have existing GitOps Flux v2 configurations that use a previous version of the `microsoft.flux` extension you can upgrade to the latest extension manually using the Azure CLI: "az k8s-extension create -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -n flux --extension-type microsoft.flux -t <CLUSTER_TYPE>" (use "-t connectedClusters" for Arc clusters and "-t managedClusters" for AKS clusters).
 
 > [!TIP]
-> When using this extension with AKS hybrid clusters provisioned from Azure, please review the [requirements for successful deployment](extensions.md#aks-hybrid-clusters-provisioned-from-azure-preview). Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.
+> When using this extension with [AKS hybrid clusters provisioned from Azure](extensions.md#aks-hybrid-clusters-provisioned-from-azure-preview) you must set `--cluster-type` to use `provisionedClusters` and also add `--cluster-resource-provider microsoft.hybridcontainerservice` to the command. Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.
 
 ## Prerequisites
 
