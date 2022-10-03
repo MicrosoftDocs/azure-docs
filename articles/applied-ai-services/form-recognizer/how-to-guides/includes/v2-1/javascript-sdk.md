@@ -1,30 +1,36 @@
 ---
-title: "Reference: Form Recognizer client library 3.1.1 for JavaScript"
-description: Use the Form Recognizer client library for JavaScript to create a forms processing app that extracts key/value pairs and table data from your custom documents.
+title: "Use Form Recognizer SDK for JavaScript (REST API v2.1)"
+description: Use the Form Recognizer SDK for JavaScript (REST API v2.1) to create a forms processing app that extracts key data from documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 05/25/2021
+ms.date: 09/16/2022
 ms.author: lajanuar
-ms.custom: devx-track-js, devx-track-csharp, ignite-fall-2021
+ms.custom: devx-track-js
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD034 -->
 
-[Reference documentation](../../index.yml) | [Library source code](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
+> [!IMPORTANT]
+>
+> This project targets Form Recognizer REST API version **2.1**.
+
+[Reference documentation](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-latest&preserve-view=true) | [Library source code](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/) | [Package (npm)](https://www.npmjs.com/package/@azure/ai-form-recognizer) | [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples)
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The current version of [Node.js](https://nodejs.org/)
-* An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md). For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
+* An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../../build-training-data-set.md) for tips and options for putting together your training data set. For this project, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
-  * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. Paste your key and endpoint into the code below later in the quickstart.
+  * You'll need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the project
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+> [!TIP]
+> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../../active-directory/authentication/overview-authentication.md).
 
 ## Setting up
 
@@ -42,12 +48,9 @@ Run the `npm init` command to create a node application with a `package.json` fi
 npm init
 ```
 
-> [!NOTE]
-> The Form Recognizer 3.0.0 SDK targets API v2.0
-
 ### Install the client library
 
-Install the `ai-form-recognizer` NPM package:
+Install the `ai-form-recognizer` npm package:
 
 ```console
 npm install @azure/ai-form-recognizer
@@ -66,42 +69,31 @@ Create variables for your resource's Azure endpoint and key.
 > [!IMPORTANT]
 > Go to the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**.
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, _see_ our Cognitive Services [security](../../../../../cognitive-services/cognitive-services-security.md) article.
 
 ## Object model
 
-With Form Recognizer, you can create two different client types. The first, `FormRecognizerClient` is used to query the service to recognized form fields and content. The second, `FormTrainingClient` is used to create and manage custom models that you can use to improve recognition.
+With Form Recognizer, you can create two different client types. The first, `FormRecognizerClient` is used to query the service to recognized form fields and content. The second, `FormTrainingClient` is used to create and manage custom models to improve recognition.
 
 ### FormRecognizerClient
 
-`FormRecognizerClient` provides operations for:
+`FormRecognizerClient` provides the following operations:
 
-* Recognizing form fields and content using custom models trained to analyze your custom forms. These values are returned in a collection of `RecognizedForm` objects.
-* Recognizing form content, including tables, lines and words, without the need to train a model. Form content is returned in a collection of `FormPage` objects.
-* Recognizing common fields from US receipts, business cards, invoices, and ID documents using a pre-trained model on the Form Recognizer service.
+* Recognize form fields and content using custom models trained to analyze your custom forms. These values are returned in a collection of `RecognizedForm` objects.
+* Recognize form content, including tables, lines and words, without the need to train a model. Form content is returned in a collection of `FormPage` objects.
+* Recognize common fields from US receipts, business cards, invoices, and ID documents using a pre-trained model on the Form Recognizer service.
 
 ### FormTrainingClient
 
 `FormTrainingClient` provides operations for:
 
-* Training custom models to analyze all fields and values found in your custom forms. A `CustomFormModel` is returned indicating the form types the model will analyze, and the fields it will extract for each form type. _See_ the [service's documentation on unlabeled model training](#train-a-model-without-labels).
-* Training custom models to analyze specific fields and values you specify by labeling your custom forms. A `CustomFormModel` is returned indicating the fields the model will extract and the estimated accuracy for each field. See the [service's documentation on labeled model training](#train-a-model-with-labels).
+* Training custom models to analyze all fields and values found in your custom forms. A `CustomFormModel` is returned indicating the form types the model will analyze, and the fields it will extract for each form type. For more information, _see_ the [service's documentation on unlabeled model training](#train-a-model-without-labels).
+* Training custom models to analyze specific fields and values you specify by labeling your custom forms. A `CustomFormModel` is returned indicating the fields the model will extract, and the estimated accuracy for each field. See the [service's documentation on labeled model training](#train-a-model-with-labels) for a more detailed explanation of applying labels to a training data set.
 * Managing models created in your account.
 * Copying a custom model from one Form Recognizer resource to another.
 
 > [!NOTE]
-> Models can also be trained using a graphical user interface such as the [Form Recognizer Labeling Tool](../../label-tool.md).
-
-## Code examples
-
-These code snippets show you how to do the following tasks with the Form Recognizer client library for JavaScript:
-
-* [Authenticate the client](#authenticate-the-client)
-* [Analyze layout](#analyze-layout)
-* [Analyze receipts](#analyze-receipts)
-* [Train a custom model](#train-a-custom-model)
-* [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
-* [Manage your custom models](#manage-your-custom-models)
+> Models can also be trained using a graphical user interface such as the [Form Recognizer Labeling Tool](../../../label-tool.md).
 
 ## Authenticate the client
 
@@ -113,19 +105,20 @@ Authenticate a client object using the subscription variables you defined. You'l
 
 You'll also need to add references to the URLs for your training and testing data.
 
-* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+* To retrieve the SAS URL for your custom model training data, go to your storage resource in the Azure portal and select the **Storage Explorer** tab. Navigate to your container, right-click, and select **Get shared access signature**. It's important to get the SAS for your container, not for the storage account itself. Make sure the **Read**, **Write**, **Delete** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section to a temporary location. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
-   :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
-* Use the sample from and receipt images included in the samples below (also available on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/assets)) or you can use the above steps to get the SAS URL of an individual document in blob storage.
+   :::image type="content" source="../../../media/quickstarts/get-sas-url.png" alt-text="Screenshot of SAS URL retrieval.":::
+
+* Use the sample from and receipt images included in the samples below (also available on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/assets)). You can use the above steps to get the SAS URL of an individual document in blob storage.
 
 ## Analyze layout
 
-You can use Form Recognizer to analyze tables, lines, and words in documents, without needing to train a model. For more information about layout extraction, see the [Layout conceptual guide](../../concept-layout.md). To analyze the content of a file at a given URI, use the `beginRecognizeContentFromUrl` method.
+You can use Form Recognizer to analyze tables, lines, and words in documents, without needing to train a model. For more information about layout extraction, see the [Layout conceptual guide](../../../concept-layout.md). To analyze the content of a file at a given URI, use the `beginRecognizeContentFromUrl` method.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_getcontent)]
 
 > [!TIP]
-> You can also get content from a local file. See the [FormRecognizerClient](/javascript/api/@azure/cognitiveservices-formrecognizer/formrecognizerclient) methods, such as **beginRecognizeContent**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) for scenarios involving local images.
+> You can also get content from a local file with [FormRecognizerClient](/javascript/api/@azure/cognitiveservices-formrecognizer/formrecognizerclient) methods, such as **beginRecognizeContent**. 
 
 ### Output
 
@@ -145,14 +138,14 @@ cell [1,5] has text PT
 
 ## Analyze receipts
 
-This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. For more information about receipt analysis, see the [Receipts conceptual guide](../../concept-receipt.md).
+This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. For more information about receipt analysis, see the [Receipts conceptual guide](../../../concept-receipt.md).
 
 To analyze receipts from a URI, use the `beginRecognizeReceiptsFromUrl` method. The following code processes a receipt at the given URI and prints the major fields and values to the console.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
 
 > [!TIP]
-> You can also analyze local receipt images. See the [FormRecognizerClient](/javascript/api/@azure/cognitiveservices-formrecognizer/formrecognizerclient) methods, such as **beginRecognizeReceipts**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) for scenarios involving local images.
+> You can also analyze local receipt images with [FormRecognizerClient](/javascript/api/@azure/cognitiveservices-formrecognizer/formrecognizerclient) methods, such as **beginRecognizeReceipts**. 
 
 ### Output
 
@@ -169,12 +162,42 @@ First receipt:
   Total: '1203.39', with confidence of 0.774
 ```
 
+## Analyze business cards
+
+This section demonstrates how to analyze and extract common fields from English-language business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../../concept-business-card.md).
+
+To analyze business cards from a URL, use the `beginRecognizeBusinessCardsFromURL` method.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_bc)]
+
+> [!TIP]
+ > You can also analyze local business card images with [FormRecognizerClient](/javascript/api/@azure/cognitiveservices-formrecognizer/formrecognizerclient) methods, such as **beginRecognizeBusinessCards**. 
+
+## Analyze invoices
+
+This section demonstrates how to analyze and extract common fields from sales invoices, using a pre-trained model. For more information about invoice analysis, see the [Invoice conceptual guide](../../../concept-invoice.md).
+
+To analyze invoices from a URL, use the `beginRecognizeInvoicesFromUrl` method.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_invoice)]
+
+> [!TIP]
+> You can also analyze local receipt images with [FormRecognizerClient](/javascript/api/@azure/cognitiveservices-formrecognizer/formrecognizerclient) methods, such as **beginRecognizeInvoices**. 
+
+## Analyze ID documents
+
+This section demonstrates how to analyze and extract key information from government-issued identification documents—worldwide passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about ID document analysis, see our [prebuilt identification model conceptual guide](../../../concept-id-document.md).
+
+To analyze ID documents from a URL, use the `beginRecognizeIdDocumentsFromUrl` method.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_id)]
+
 ## Train a custom model
 
-This section demonstrates how to train a model with your own data. A trained model can output structured data that includes the key-value relationships in the original form document. After you train the model, test and retrain it, if necessary. Eventually use it to reliably extract data from more forms according to your needs.
+This section demonstrates how to train a model with your own data. A trained model can output structured data that includes the key/value relationships in the original form document. After you train the model, you can test, retrain, and eventually use it to reliably extract data from more forms according to your needs.
 
 > [!NOTE]
-> You can also train models with a graphical user interface such as the [Form Recognizer Sample Labeling tool](../../label-tool.md).
+> You can also train models with a graphical user interface (GUI) such as the [Form Recognizer Sample Labeling tool](../../../label-tool.md).
 
 ### Train a model without labels
 
@@ -186,7 +209,7 @@ The following function trains a model on a given set of documents and prints the
 
 ### Output
 
-Here is the output for a model trained with the training data. The code is available from the [JavaScript SDK](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer). This sample output has been truncated for readability.
+Below is the output for a model trained with the training data available from the [JavaScript SDK](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer). This sample output has been truncated for readability.
 
 ```console
 training status: creating
@@ -222,13 +245,13 @@ Document errors:
 
 ### Train a model with labels
 
-You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Form Recognizer Sample Labeling tool](../../label-tool.md) provides a UI to help you create these label files. Once you have them, you can call the `beginTraining` method with the `uselabels` parameter set to `true`.
+You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Form Recognizer Sample Labeling tool](../../../label-tool.md) provides a UI to help you create these label files. Once you've them, you can call the `beginTraining` method with the `uselabels` parameter set to `true`.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_trainlabels)]
 
 ### Output
 
-Here is the output for a model trained with the training data available from the [JavaScript SDK](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples). This sample output has been truncated for readability.
+Below is the output for a model trained with the training data available from the [JavaScript SDK](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples). This sample output has been truncated for readability.
 
 ```console
 training status: creating
@@ -270,7 +293,7 @@ You'll use the `beginRecognizeCustomFormsFromUrl` method. The returned value is 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_analyze)]
 
 > [!TIP]
-> You can also analyze local files. See the [FormRecognizerClient](/javascript/api/@azure/cognitiveservices-formrecognizer/formrecognizerclient) methods, such as **beginRecognizeCustomForms**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) for scenarios involving local images.
+> You can also analyze local files with [FormRecognizerClient](/javascript/api/@azure/cognitiveservices-formrecognizer/formrecognizerclient) methods, such as **beginRecognizeCustomForms**. 
 
 ### Output
 
@@ -310,7 +333,7 @@ Field Tax has value 'undefined' with a confidence score of undefined
 Field Total has value 'undefined' with a confidence score of undefined
 ```
 
-## Manage your custom models
+## Manage custom models
 
 This section demonstrates how to manage the custom models stored in your account. The following code does all of the model management tasks in a single function, as an example.
 
@@ -322,7 +345,7 @@ The following code block gets the number of models currently in your account.
 
 ### Get list of models in account
 
-The following code block provides a full list of available models in your account. It includes information about when the model was created and its current status.
+The following code block provides a full list of available models in your account including information about when the model was created and its current status.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_manage_list)]
 
@@ -393,7 +416,7 @@ Model with id 789b1b37-4cc3-4e36-8665-9dde68618072 has been deleted
 
 ## Run the application
 
-Run the application with the `node` command on your quickstart file.
+Run the application with the `node` command on your project file.
 
 ```console
 node index.js
@@ -403,8 +426,8 @@ node index.js
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../../../cognitive-services/cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../../../cognitive-services/cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portal](../../../../../cognitive-services/cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../../../cognitive-services/cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Troubleshooting
 
@@ -420,12 +443,15 @@ For more detailed instructions on how to enable logs, see the [@azure/logger pac
 
 ## Next steps
 
-In this quickstart, you used the Form Recognizer JavaScript SDK to train models and analyze forms in different ways. Next, learn tips to create a better training data set and produce more accurate models.
+For this project, you used the Form Recognizer JavaScript client library to train models and analyze forms in different ways. Next, learn tips to create a better training data set and produce more accurate models.
 
 > [!div class="nextstepaction"]
-> [Build a training data set](../../build-training-data-set.md)
+> [Build a training data set](../../../build-training-data-set.md)
 
 ## See also
 
-* [What is Form Recognizer?](../../overview.md)
+* [What is Form Recognizer?](../../../overview.md)
+
+* The sample code from this project can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/FormRecognizerQuickstart.js).
+
 * The sample code from this guide can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/FormRecognizerQuickstart.js).

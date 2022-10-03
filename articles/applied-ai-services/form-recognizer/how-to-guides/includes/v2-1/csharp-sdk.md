@@ -1,14 +1,14 @@
 ---
-title: "Use Form Recognizer client library for C# / .NET"
-description: 'Use the Form Recognizer client library for C# / .NET to create a forms processing app that extracts key/value pairs and table data from your custom documents.'
+title: "Use Form Recognizer SDK for C# / .NET (REST API v2.1)"
+description: 'Use the Form Recognizer SDK for C# / .NET (REST API v2.1) to create a forms processing app that extracts key data from documents.'
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 07/11/2022
+ms.date: 09/16/2022
 ms.author: lajanuar
-ms.custom: devx-track-csharp, ignite-fall-2021
+ms.custom: devx-track-csharp
 ---
 
 <!-- markdownlint-disable MD024 -->
@@ -18,7 +18,7 @@ ms.custom: devx-track-csharp, ignite-fall-2021
 >
  > * This project targets Form Recognizer REST API  **v2.1**.
 >
->* The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons.
+>* The code in this article uses synchronous methods and un-secured credentials storage.
 
 [Reference documentation](/dotnet/api/overview/azure/ai.formrecognizer-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
@@ -26,12 +26,12 @@ ms.custom: devx-track-csharp, ignite-fall-2021
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) or current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-* An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data set. For this project, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
+* An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../../build-training-data-set.md) for tips and options for putting together your training data set. For this project, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
   * You'll need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. Paste your key and endpoint into the code below later in the project.
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 > [!TIP]
-> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
+> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../../active-directory/authentication/overview-authentication.md).
 
 ## Setting up
 
@@ -74,7 +74,7 @@ In the application's **Program** class, create variables for your resource's key
 > [!IMPORTANT]
 > Go to the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**.
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. Form more information, _see_ our Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md) article.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. Form more information, _see_ our Cognitive Services [security](../../../../../cognitive-services/cognitive-services-security.md) article.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_creds)]
 
@@ -106,7 +106,7 @@ With Form Recognizer, you can create two different client types. The first, `For
 See examples for [Train a Model](#train-a-custom-model) and [Manage Custom Models](#manage-custom-models).
 
 > [!NOTE]
-> Models can also be trained using a graphical user interface such as the [Form Recognizer Labeling Tool](../../label-tool.md).
+> Models can also be trained using a graphical user interface such as the [Form Recognizer Labeling Tool](../../../label-tool.md).
 
 ## Authenticate the client
 
@@ -115,7 +115,7 @@ Below **Main**, create a new method named `AuthenticateClient`. You'll use this 
 > [!IMPORTANT]
 > Get your key and endpoint from the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**.
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md).
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For example, [Azure key vault](../../../../../key-vault/general/overview.md).
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_auth)]
 
@@ -127,9 +127,10 @@ Repeat the steps above for a new method that authenticates a training client.
 
 You'll also need to add references to the URLs for your training and testing data. Add these references to the root of your **Program** class.
 
-* [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+* To retrieve the SAS URL for your custom model training data, go to your storage resource in the Azure portal and select the **Storage Explorer** tab. Navigate to your container, right-click, and select **Get shared access signature**. It's important to get the SAS for your container, not for the storage account itself. Make sure the **Read**, **Write**, **Delete** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section to a temporary location. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
-   :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
+   :::image type="content" source="../../../media/quickstarts/get-sas-url.png" alt-text="Screenshot of SAS URL retrieval.":::
+
 * Then, repeat the above steps to get the SAS URL of an individual document in blob storage container. Save it to a temporary location as well.
 * Finally, save the URL of the sample image(s) included below (also available on [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms)).
 
@@ -137,7 +138,7 @@ You'll also need to add references to the URLs for your training and testing dat
 
 ## Analyze layout
 
-You can use Form Recognizer to analyze tables, lines, and words in documents, without needing to train a model. The returned value is a collection of **FormPage** objects: one for each page in the submitted document. For more information about layout extraction, see the [Layout conceptual guide](../../concept-layout.md).
+You can use Form Recognizer to analyze tables, lines, and words in documents, without needing to train a model. The returned value is a collection of **FormPage** objects: one for each page in the submitted document. For more information about layout extraction, see the [Layout conceptual guide](../../../concept-layout.md).
 
 To analyze the content of a file at a given URL, use the `StartRecognizeContentFromUri` method.
 
@@ -187,7 +188,7 @@ Table 0 has 2 rows and 6 columns.
 
 ## Analyze receipts
 
-This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. For more information about receipt analysis, see the [Receipts conceptual guide](../../concept-receipt.md).
+This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. For more information about receipt analysis, see the [Receipts conceptual guide](../../../concept-receipt.md).
 
 To analyze receipts from a URL, use the `StartRecognizeReceiptsFromUri` method.
 
@@ -246,7 +247,7 @@ Total: '1203.39', with confidence '0.774'
 
 ## Analyze business cards
 
-This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../concept-business-card.md).
+This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../../concept-business-card.md).
 
 To analyze business cards from a URL, use the `StartRecognizeBusinessCardsFromUriAsync` method.
 
@@ -261,7 +262,7 @@ The following code processes the business card at the given URI and prints the m
 
 ## Analyze invoices
 
-This section demonstrates how to analyze and extract common fields from sales invoices, using a pre-trained model. For more information about invoice analysis, see the [Invoice conceptual guide](../../concept-invoice.md).
+This section demonstrates how to analyze and extract common fields from sales invoices, using a pre-trained model. For more information about invoice analysis, see the [Invoice conceptual guide](../../../concept-invoice.md).
 
 To analyze invoices from a URL, use the `StartRecognizeInvoicesFromUriAsync` method.
 
@@ -276,7 +277,7 @@ The following code processes the invoice at the given URI and prints the major f
 
 ## Analyze ID documents
 
-This section demonstrates how to analyze and extract key information from government-issued identification documents—worldwide passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about ID document analysis, see our [prebuilt identification model conceptual guide](../../concept-id-document.md).
+This section demonstrates how to analyze and extract key information from government-issued identification documents—worldwide passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about ID document analysis, see our [prebuilt identification model conceptual guide](../../../concept-id-document.md).
 
 To analyze ID documents from a URI, use the `StartRecognizeIdentityDocumentsFromUriAsync` method.
 
@@ -294,7 +295,7 @@ The following code processes the ID document at the given URI and prints the maj
 This section demonstrates how to train a model with your own data. A trained model can output structured data that includes the key/value relationships in the original form document. After you train the model, you can test, retrain, and eventually use it to reliably extract data from more forms according to your needs.
 
 > [!NOTE]
-> You can also train models with a graphical user interface such as the [Form Recognizer Sample Labeling tool](../../label-tool.md).
+> You can also train models with a graphical user interface such as the [Form Recognizer Sample Labeling tool](../../../label-tool.md).
 
 ### Train a model without labels
 
@@ -368,7 +369,7 @@ Submodel Form Type: form-0
 
 ### Train a model with labels
 
-You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Form Recognizer Sample Labeling tool](../../label-tool.md) provides a UI to help you create these label files. Once you've them, you can call the `StartTrainingAsync` method with the `uselabels` parameter set to `true`.
+You can also train custom models by manually labeling the training documents. Training with labels leads to better performance in some scenarios. To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Form Recognizer Sample Labeling tool](../../../label-tool.md) provides a UI to help you create these label files. Once you've them, you can call the `StartTrainingAsync` method with the `uselabels` parameter set to `true`.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_trainlabels)]
 
@@ -597,8 +598,8 @@ dotnet run
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../../../cognitive-services/cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../../../cognitive-services/cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portal](../../../../../cognitive-services/cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../../../cognitive-services/cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Troubleshooting
 
@@ -645,8 +646,8 @@ Headers:
 For this project, you used the Form Recognizer .NET client library to train models and analyze forms in different ways. Next, learn tips to create a better training data set and produce more accurate models.
 
 > [!div class="nextstepaction"]
-> [Build a training data set](../../build-training-data-set.md)
+> [Build a training data set](../../../build-training-data-set.md)
 
-* [What is Form Recognizer?](../../overview.md)
+* [What is Form Recognizer?](../../../overview.md)
 
 * The sample code for this project is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/csharp-sdk-quickstart.cs).

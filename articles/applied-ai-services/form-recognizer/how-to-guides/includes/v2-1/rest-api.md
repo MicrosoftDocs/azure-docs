@@ -1,14 +1,13 @@
 ---
-title: "Use Azure Form Recognizer REST API"
-description: Use the Form Recognizer REST API to create a forms processing app that extracts key-value pairs and table data from your custom documents.
+title: "Use Azure Form Recognizer REST API v2.1"
+description: Use the Form Recognizer REST API v2.1 to create a forms processing app that extracts key data from documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 07/11/2022
+ms.date: 09/16/2022
 ms.author: lajanuar
-ms.custom: ignite-fall-2021
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -26,7 +25,7 @@ ms.custom: ignite-fall-2021
 * [cURL](https://curl.haxx.se/windows/) installed.
 * [PowerShell version 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows), or a similar command-line application.
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data set. You can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
+* An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../../build-training-data-set.md) for tips and options for putting together your training data set. You can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
   * You'll need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the project
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
@@ -35,11 +34,11 @@ ms.custom: ignite-fall-2021
 * A URL for an **image of an invoice**. You can use a [sample document](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/forms/Invoice_1.pdf) for this quickstart.
 * A URL for an **image of an ID document**. You can use a [sample image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/DriverLicense.png)
 > [!TIP]
-> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
+> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../../active-directory/authentication/overview-authentication.md).
 
 ## Analyze layout
 
-You can use Form Recognizer to analyze and extract tables, selection marks, text, and structure in documents, without needing to train a model. For more information about layout extraction, see the [Layout conceptual guide](../../concept-layout.md). Before you run the command, make these changes:
+You can use Form Recognizer to analyze and extract tables, selection marks, text, and structure in documents, without needing to train a model. For more information about layout extraction, see the [Layout conceptual guide](../../../concept-layout.md). Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{key}` with the key you copied from the previous step.
@@ -88,7 +87,7 @@ See the following invoice image and its corresponding JSON output.
 * The `selectionMarks` node shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected".
 * The `"pageResults"` section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
 
-:::image type="content" source="../../media/contoso-invoice.png" alt-text="Contoso project statement document with a table.":::
+:::image type="content" source="../../../media/contoso-invoice.png" alt-text="Screenshot of Contoso project statement document with a table.":::
 
 #### Response body
 
@@ -215,7 +214,7 @@ This output has been shortened for simplicity. See the [full sample output on Gi
 
 ## Analyze receipts
 
-This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. For more information about receipt analysis, see the [Receipts conceptual guide](../../concept-receipt.md). To start analyzing a receipt, call the **[Analyze Receipt](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync)** API using the cURL command below. Before you run the command, make these changes:
+This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. For more information about receipt analysis, see the [Receipts conceptual guide](../../../concept-receipt.md). To start analyzing a receipt, call the **[Analyze Receipt](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync)** API using the cURL command below. Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{your receipt URL}` with the URL address of a receipt image.
@@ -261,7 +260,7 @@ The `"readResults"` node contains all of the recognized text (if you set the opt
 
 See the following receipt image and its corresponding JSON output.
 
-![A receipt from Contoso store](../../media/contoso-allinone.jpg)
+![A receipt from Contoso store](../../../media/contoso-allinone.jpg)
 
 #### Response body
 
@@ -594,7 +593,7 @@ This output has been shortened for readability. See the [full sample output on G
 
 ## Analyze business cards
 
-This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../concept-business-card.md). To start analyzing a business card, you call the **[Analyze Business Card](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)** API using the cURL command below. Before you run the command, make these changes:
+This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../../concept-business-card.md). To start analyzing a business card, you call the **[Analyze Business Card](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync)** API using the cURL command below. Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{your business card URL}` with the URL address of a receipt image.
@@ -637,7 +636,7 @@ You'll receive a `200 (Success)` response with JSON output.
 
 The `"readResults"` node contains all of the recognized text. Text is organized by page, then by line, then by individual words. The `"documentResults"` node contains the business-card-specific values that the model discovered. The `"documentResults"` node is where you'll find useful contact information like the company name, first name, last name, phone number, and so on.
 
-![A business card from Contoso company](../../media/business-card-english.jpg)
+![A business card from Contoso company](../../../media/business-card-english.jpg)
 
 This sample JSON output has been shortened for readability. See the [full sample output on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-result.json).
 
@@ -757,7 +756,7 @@ The script will print responses to the console until the **Analyze Business Card
 
 ## Analyze invoices
 
-You can use Form Recognizer to extract field text and semantic values from a given invoice document.  To start analyzing an invoice, use the cURL command below. For more information about invoice analysis, see the [Invoice conceptual guide](../../concept-invoice.md). To start analyzing an invoice, call the **[Analyze Invoice](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291)** API using the cURL command below. Before you run the command, make these changes:
+You can use Form Recognizer to extract field text and semantic values from a given invoice document.  To start analyzing an invoice, use the cURL command below. For more information about invoice analysis, see the [Invoice conceptual guide](../../../concept-invoice.md). To start analyzing an invoice, call the **[Analyze Invoice](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291)** API using the cURL command below. Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{your invoice URL}` with the URL address of an invoice document.
@@ -967,7 +966,7 @@ This JSON content has been shortened for readability. See the [full sample outpu
 
 ## Analyze identity (ID) documents
 
-To start analyzing an identification document, use the cURL command below. For more information about ID document analysis, see the [ID documents conceptual guide](../../concept-id-document.md). To start analyzing an ID document, you call the **[Analyze ID Document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707)** API using the cURL command below. Before you run the command, make these changes:
+To start analyzing an identification document, use the cURL command below. For more information about ID document analysis, see the [ID documents conceptual guide](../../../concept-id-document.md). To start analyzing an ID document, you call the **[Analyze ID Document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707)** API using the cURL command below. Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{your ID document URL}` with the URL address of a receipt image.
@@ -1181,12 +1180,12 @@ Below is a sample ID document and  its corresponding JSON output
 
 ## Train a custom model
 
-To train a custom model, you'll need a set of training data in an Azure Storage blob. You need a minimum of five filled-in forms (PDF documents and/or images) of the same type/structure. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data.
+To train a custom model, you'll need a set of training data in an Azure Storage blob. You need a minimum of five filled-in forms (PDF documents and/or images) of the same type/structure. See [Build a training data set for a custom model](../../../build-training-data-set.md) for tips and options for putting together your training data.
 
 Training without labeled data is the default operation and is simpler. Alternatively, you can manually label some or all of your training data beforehand. Manual labeling is a more complex process but results in a better trained model.
 
 > [!NOTE]
-> You can also train models with a graphical user interface such as the [Form Recognizer Sample Labeling tool](../../label-tool.md).
+> You can also train models with a graphical user interface such as the [Form Recognizer Sample Labeling tool](../../../label-tool.md).
 
 ### Train a model without labels
 
@@ -1194,9 +1193,11 @@ To train a Form Recognizer model with the documents in your Azure blob container
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{key}` with the key you copied from the previous step.
-1. Replace `{SAS URL}` with the Azure Blob storage container's shared access signature (SAS) URL. [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+1. Replace `{SAS URL}` with the Azure Blob storage container's shared access signature (SAS) URL.
 
-   :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
+    * To retrieve the SAS URL for your custom model training data, go to your storage resource in the Azure portal and select the **Storage Explorer** tab. Navigate to your container, right-click, and select **Get shared access signature**. It's important to get the SAS for your container, not for the storage account itself. Make sure the **Read**, **Write**, **Delete** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section to a temporary location. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+
+    :::image type="content" source="../../../media/quickstarts/get-sas-url.png" alt-text="Screenshot of SAS URL retrieval.":::
 
 #### Request
 
@@ -1218,15 +1219,17 @@ https://westus.api.cognitive.microsoft.com/formrecognizer/v2.1/custom/models/77d
 
 ### Train a model with labels
 
-To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Form Recognizer Sample Labeling tool](../../label-tool.md) provides a UI to help you create these label files. Once you've them, you can call the **[Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync)** API, with the `"useLabelFile"` parameter set to `true` in the JSON body.
+To train with labels, you need to have special label information files (`\<filename\>.pdf.labels.json`) in your blob storage container alongside the training documents. The [Form Recognizer Sample Labeling tool](../../../label-tool.md) provides a UI to help you create these label files. Once you've them, you can call the **[Train Custom Model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync)** API, with the `"useLabelFile"` parameter set to `true` in the JSON body.
 
 Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{key}` with the key you copied from the previous step.
-1. Replace `{SAS URL}` with the Azure Blob storage container's shared access signature (SAS) URL. [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
+1. Replace `{SAS URL}` with the Azure Blob storage container's shared access signature (SAS) URL. 
 
-   :::image type="content" source="../../media/quickstarts/get-sas-url.png" alt-text="SAS URL retrieval":::
+   * To retrieve the SAS URL for your custom model training data, go to your storage resource in the Azure portal and select the **Storage Explorer** tab. Navigate to your container, right-click, and select **Get shared access signature**. It's important to get the SAS for your container, not for the storage account itself. Make sure the **Read**, **Write**, **Delete** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section to a temporary location. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+
+   :::image type="content" source="../../../media/quickstarts/get-sas-url.png" alt-text="Screenshot of SAS URL retrieval.":::
 
 #### Request
 
@@ -1454,7 +1457,7 @@ This sample JSON output has been shortened for simplicity. See the [full sample 
 
 ### Improve results
 
-[!INCLUDE [improve results](../../includes/improve-results-unlabeled.md)]
+[!INCLUDE [improve results](../../../includes/improve-results-unlabeled.md)]
 
 ## Manage custom models
 
