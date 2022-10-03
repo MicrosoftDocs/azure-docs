@@ -7,8 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.custom: event-tier1-build-2022
 ms.topic: reference
-ms.author: larryfr
-author: blackmist
+ms.author: hancwang
+author: luigiw
+ms.reviewer: larryfr
 ms.date: 04/12/2022
 ---
 
