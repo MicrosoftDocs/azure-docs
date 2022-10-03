@@ -25,19 +25,19 @@ Learn all you need to build a web app that uses the Microsoft identity platform 
 
 If you want to create your first portable (ASP.NET Core) web app that signs in users, follow this quickstart:
 
-ASP.NET Core > > [Quickstart: ASP.NET Core web app with user sign-in](web-app-quickstart.md?pivots=devlang-aspnet-core).
+[Quickstart: ASP.NET Core web app with user sign-in](web-app-quickstart.md?pivots=devlang-aspnet-core)
 
 # [ASP.NET](#tab/aspnet)
 
 If you want to understand how to add sign-in to an existing ASP.NET web application, try the following quickstart:
 
-[Quickstart: ASP.NET web app that signs in users](web-app-quickstart.md?pivots=devlang-aspnet).
+[Quickstart: ASP.NET web app that signs in users](web-app-quickstart.md?pivots=devlang-aspnet)
 
 # [Java](#tab/java)
 
 If you're a Java developer, try the following quickstart:
 
-[Quickstart: Java web app with user sign-in](web-app-quickstart.md?pivots=devlang-java).
+[Quickstart: Java web app with user sign-in](web-app-quickstart.md?pivots=devlang-java)
 
 # [Node.js](#tab/nodejs)
 
@@ -45,7 +45,7 @@ If you're a Node.js developer, you have two quickstart options.
 
 For using the Microsoft Authentication Library (MSAL Node), try the following [Quickstart: Add sign-in with Microsoft to a Node.js web app - MSAL](quickstart-v2-nodejs-webapp-msal.md).
 
-For a web app built using Node.js with Express, try the following [Quickstart: Add sign-in with Microsoft to a Node.js web app - Passport](quickstart-v2-nodejs-webapp-pssport.md).
+For a web app built using Node.js with Express, try the following [Quickstart: Add sign-in with Microsoft to a Node.js web app - Passport](quickstart-nodejs.md).
 
 # [Python](#tab/python)
 
@@ -66,7 +66,7 @@ Web apps authenticate a user in a web browser. In this scenario, the web app dir
 As a second phase, you can enable your application to call web APIs on behalf of the signed-in user. This next phase is a different scenario, which you'll find in [Web app that calls web APIs](scenario-web-app-call-api-overview.md).
 
 > [!NOTE]
-> Adding sign-in to a web app is about protecting the web app and validating a user token, which is what  **middleware** libraries do. In the case of .NET, this scenario does not yet require the Microsoft Authentication Library (MSAL), which is about acquiring a token to call protected APIs. Authentication libraries for .NET will be introduced in the follow-up scenario, when the web app needs to call web APIs.
+> Adding sign-in to a web app is about protecting the web app and validating a user token, which is what **middleware** libraries do. In the case of .NET, this scenario does not yet require the Microsoft Authentication Library (MSAL), which is about acquiring a token to call protected APIs. Authentication libraries for .NET will be introduced in the follow-up scenario, when the web app needs to call web APIs.
 
 ## Specifics
 
