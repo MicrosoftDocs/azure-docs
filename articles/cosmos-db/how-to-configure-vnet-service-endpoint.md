@@ -324,7 +324,7 @@ Here are some frequently asked questions about configuring access from virtual n
 
 ### Are Notebooks and Mongo/Cassandra Shell currently compatible with Virtual Network enabled accounts?
 
-At the moment the [Mongo shell](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) and [Cassandra shell](https://devblogs.microsoft.com/cosmosdb/announcing-native-cassandra-shell-preview/) integrations in the Cosmos DB Data Explorer, and the [Jupyter Notebooks service](./cosmosdb-jupyter-notebooks.md), aren't supported with VNET access. This integration is currently in active development.
+At the moment the [Mongo shell](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) and [Cassandra shell](https://devblogs.microsoft.com/cosmosdb/announcing-native-cassandra-shell-preview/) integrations in the Cosmos DB Data Explorer, and the [Jupyter Notebooks service](./notebooks-overview.md), aren't supported with VNET access. This integration is currently in active development.
 
 ### Can I specify both virtual network service endpoint and IP access control policy on an Azure Cosmos account?
 
