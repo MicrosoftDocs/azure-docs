@@ -12,7 +12,7 @@ ms.author: vsantana
 # Upgrade a basic load balancer used with Virtual Machine Scale Sets
 
 >[!Important]
-On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement(https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/)]. If you use Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to that date. This article will help guide you with the upgrade. 
+>On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement(https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/)]. If you use Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to that date. This article will help guide you with the upgrade. 
 
 [Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](./skus.md#skus).
 
