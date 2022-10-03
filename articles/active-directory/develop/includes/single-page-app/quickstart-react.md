@@ -53,11 +53,11 @@ Under **Manage**, select **App registrations** > **New registration**.
 1. Under **Platform configurations**, select **Add a platform**. In the pane that opens select **Single-page application**.
 1. Set the **Redirect URIs** value to 
    1. `http://localhost:3000/`. This is the default port NodeJS will listen on your local machine.
-   2. `http://localhost:3000/redirect.html`. When using popup and silent methods,
+   1. `http://localhost:3000/redirect.html`. When using popup and silent methods,
     we recommend setting the redirectUri to a blank page or a page that does not implement MSAL.
-2. Select **Configure** to apply the changes.
-3. Under **Platform Configurations** expand **Single-page application**.
-4. Confirm that under **Grant types** ![Already configured](../../media/quickstart-v2-javascript/green-check.png) Your Redirect URI is eligible for the Authorization Code Flow with PKCE.
+1. Select **Configure** to apply the changes.
+1. Under **Platform Configurations** expand **Single-page application**.
+1. Confirm that under **Grant types** ![Already configured](../../media/quickstart-v2-javascript/green-check.png) Your Redirect URI is eligible for the Authorization Code Flow with PKCE.
 
 #### Step 2: Download the project
 
