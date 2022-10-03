@@ -183,15 +183,13 @@ When running on Linux, you also need to update the `linuxFxVersion` site setting
 az functionapp config set --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --linux-fx-version "DOTNET|6.0"
 ```
 
-Replace `<LINUX_FX_VERSION>` with either `
-
 # [Linux](#tab/linux/azure-powershell)
 
 When running on Linux, you also need to update the `linuxFxVersion` site setting. Unfortunately, Azure PowerShell can't be used to set the `linuxFxVersion` at this time. Use the Azure CLI instead.
 
 ---
 
-In these examples, replace `<APP_NAME>` with the name of your function app and `<RESOURCE_GROUP_NAME>` with the name of the resource group.
+In this example, replace `<APP_NAME>` with the name of your function app and `<RESOURCE_GROUP_NAME>` with the name of the resource group.
 
 ::: zone-end
 
@@ -226,13 +224,29 @@ The [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfun
     az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
     ```
 
-1. (Windows only) For function apps running on Windows, use the following command so that the runtime can run on .NET 6:
+::: zone pivot="programming-language-csharp"  
+1. Version 4.x of the Functions runtime requires .NET 6. Use the following command so that the runtime can run on .NET 6:
    
+    # [Windows](#tab/windows)
+
+    When running on Windows, you also need to enable .NET 6.0, which is required by version 4.x of the runtime.
+
     ```azurecli
-    az functionapp config set --net-framework-version v6.0 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
+    az functionapp config set --net-framework-version v6.0 -g <RESOURCE_GROUP_NAME> -n <APP_NAME>
     ```
 
-    Version 4.x of the Functions runtime requires .NET 6 when running on Windows. 
+    # [Linux](#tab/linux/azure-cli)
+
+    When running on Linux, you also need to update the `linuxFxVersion` site setting for .NET 6.0.
+
+    ```azurecli
+    az functionapp config set --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --linux-fx-version "DOTNET|6.0"
+    ```
+
+    ---
+
+    In this example, replace `<APP_NAME>` with the name of your function app and `<RESOURCE_GROUP_NAME>` with the name of the resource group. 
+::: zone-end
 
 1. If your code project required any updates to run on version 4.x, deploy those updates to the staging slot now.
 
@@ -276,13 +290,29 @@ To minimize the downtime in your production app, you can swap the `WEBSITE_OVERR
     az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
     ```
 
-1. (Windows only) For function apps running on Windows, use the following command so that the runtime can run on .NET 6:
+::: zone pivot="programming-language-csharp"  
+1. Version 4.x of the Functions runtime requires .NET 6. Use the following command so that the runtime can run on .NET 6:
    
+    # [Windows](#tab/windows)
+
+    When running on Windows, you also need to enable .NET 6.0, which is required by version 4.x of the runtime.
+
     ```azurecli
-    az functionapp config set --net-framework-version v6.0 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
+    az functionapp config set --net-framework-version v6.0 -g <RESOURCE_GROUP_NAME> -n <APP_NAME>
     ```
 
-    Version 4.x of the Functions runtime requires .NET 6 when running on Windows. 
+    # [Linux](#tab/linux/azure-cli)
+
+    When running on Linux, you also need to update the `linuxFxVersion` site setting for .NET 6.0.
+
+    ```azurecli
+    az functionapp config set --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --linux-fx-version "DOTNET|6.0"
+    ```
+
+    ---
+
+    In this example, replace `<APP_NAME>` with the name of your function app and `<RESOURCE_GROUP_NAME>` with the name of the resource group. 
+::: zone-end
 
 1. If your code project required any updates to run on version 4.x, deploy those updates to the staging slot now.
 
