@@ -46,35 +46,14 @@ Newly installed OT network sensors have ERSPAN and GRE header stripping turned o
 
 **To turn on support for ERSPAN on your OT sensor**:
 
-1. Sign in to your sensor via SSH. <!--which user?-->
-
-1. Run the following command to open the `network.properties` for editing:
+1.   This screen will appear during the first installation of the appliance, or you can access it afterward by logging in (using SSH, cyberx_host user) and typing the following command:
 
     ```cli
-    sudo nano /var/cyberx/properties/network.properties
+    sudo dpkg-reconfigure iot-sensor
     ```
 
-1. Modify the `monitor_erspan_interfaces` value with the interfaces that you want to monitor using ERSPAN. You do *not* need to run the `interfaces-apply` command as the update is automatically applied.
-
-**To restart monitoring processes on your sensor**:
-
-On your sensor, run:
-
-```
-sudo cyberx-xsense-components-enable -n "rcdcap"
-```
-
-**To verify your updates**:
-
-On your sensor, run:
-
-```cli
-ifconfig
-```
-
-The system displays a list of all monitored interfaces. If you've configured ERSPAN correctly, you'll see a new interface with ERSPAN.
-
-The ERSPAN interface renames and clones the original interface. The other interface is shown as empty. <!--unclear-->
+1. Choose the interfaces that will receive ERSPAN traffic
+1. As soon as you complete the rest of the setup process, the new setup will be applied.
 
 ## Sample configuration on a Cisco switch
 
