@@ -19,6 +19,7 @@ items:
       href: tutorial-identify-issues-with-end-to-end-tests.md
     - name: Set up continuous testing with GitHub Actions
       href: tutorial-automate-end-to-end-testing-with-github-actions.md
+      displayName: CI/CD, GitHub
 - name: How-to guides
   expanded: true
   items:
@@ -28,6 +29,9 @@ items:
       href: how-to-run-with-playwright-testing.md
     - name: Run tests across multiple operating systems
       href: how-to-cross-platform-tests.md
+    - name: Set up continuous testing with Azure Pipelines
+      href: how-to-setup-continuous-testing-with-azure-pipelines.md
+      displayName: CI/CD, Azure Pipelines, automate, continuous
     - name: Test private endpoints
       href: how-to-test-private-endpoints.md
     - name: Authenticate requests

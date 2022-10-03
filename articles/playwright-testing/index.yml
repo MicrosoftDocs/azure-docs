@@ -47,6 +47,8 @@ landingContent:
             url: how-to-cross-platform-tests.md
           - text: Run existing Playwright tests in the cloud
             url: how-to-run-with-playwright-testing.md
+          - text: Set up continuous testing with Azure Pipelines
+            url: how-to-setup-continuous-testing-with-azure-pipelines.md
           - text: Test private endpoints
             url: how-to-test-private-endpoints.md
 
