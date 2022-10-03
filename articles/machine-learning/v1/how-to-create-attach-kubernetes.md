@@ -13,13 +13,16 @@ ms.reviewer: larryfr
 ms.date: 04/21/2022
 ---
 
-# Create and attach an Azure Kubernetes Service cluster
+# Create and attach an Azure Kubernetes Service cluster with v1
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
 > * [v1](how-to-create-attach-kubernetes.md)
 > * [v2 (current version)](../how-to-attach-kubernetes-anywhere.md)
+
+> [!IMPORTANT]
+> This article shows how to use the CLI and SDK v1 to create or attach an Azure Kubernetes Service cluster, which is considered as **legacy** feature now.  To attach Azure Kubernetes Service cluster using  the recommended approach for v2, see [Introduction to Kubernetes compute target in v2](../articles/machine-learning/how-to-attach-kubernetes-anywhere.md).
 
 Azure Machine Learning can deploy trained machine learning models to Azure Kubernetes Service. However, you must first either __create__ an Azure Kubernetes Service (AKS) cluster from your Azure ML workspace, or __attach__ an existing AKS cluster. This article provides information on both creating and attaching a cluster.
 
