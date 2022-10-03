@@ -47,6 +47,8 @@ In this tutorial, you learn how to:
 
 You can follow this tutorial on any computer running Windows, macOS, or Linux.
 
+[!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-customer-container-note.md)]
+
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
 
 <!---Requirements specific to Docker --->
