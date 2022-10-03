@@ -6,7 +6,6 @@ ms.author: meghaanand
 ms.topic: quickstart
 ms.service: deployment-environments
 ms.date: 10/12/2022
-ms.custom: devdivchpfy22
 ---
 
 # Quickstart: Configure the Azure Deployment Environments Preview service
