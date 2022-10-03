@@ -415,7 +415,7 @@ This API returns a list of active CVEs for all devices that were updated since t
 
 | Name | Type | Nullable / Not nullable | List of values |
 |--|--|--|--|
-|**u_ip_address** |String | Not nullable | IP address of the specific interface, with the specific firmware where the CVE was detected. |
+|**u_address** |String | Not nullable | Address of the specific interface, with the specific firmware where the CVE was detected. |
 | **u_cve_id**| String| Not nullable | Defines the CVE ID |
 |**u_score** | String| Not nullable | Defines the CVE risk score |
 | **u_attack_vector**|String | Not nullable | Defines the attack vector as one of the following: **ADJACENT_NETWORK**, **LOCAL**, **NETWORK** |

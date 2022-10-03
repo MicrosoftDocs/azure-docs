@@ -226,7 +226,7 @@ Array of JSON objects that represent devices.
 **APIs**:
 
 ```rest
-curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<>IP_ADDRESS>/external/v1/devices?siteId=&zoneId=&sensorId=&authorized='
+curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v1/devices?siteId=&zoneId=&sensorId=&uthorized='
 ```
 
 **Example**:
