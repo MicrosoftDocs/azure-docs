@@ -119,7 +119,7 @@
       displayName: example, examples, studio, pipelines, data sets, modules, components
       href: samples-designer.md
     - name: End-to-end MLOps examples
-      href: https://github.com/microsoft/MLOps
+      href: https://github.com/Azure/mlops-v2
 - name: Concepts
   items: 
     - name: What is v2?
