@@ -1,12 +1,12 @@
 ---
-title: Query data from Basic Logs in Azure Monitor (Preview)
+title: Query data from Basic Logs in Azure Monitor 
 description: Create a log query using tables configured for Basic logs in Azure Monitor.
 ms.topic: conceptual
-ms.date: 01/27/2022
+ms.date: 10/01/2022
 
 ---
 
-# Query Basic Logs in Azure Monitor (Preview)
+# Query Basic Logs in Azure Monitor
 Basic Logs tables reduce the cost of ingesting high-volume verbose logs and let you query the data they store using a limited set of log queries. This article explains how to query data from Basic Logs tables. 
 
 For more information, see [Azure log data plans](log-analytics-workspace-overview.md#log-data-plans-preview) and [Configure a table for Basic Logs](basic-logs-configure.md). 
@@ -92,7 +92,7 @@ The charge for a query on Basic Logs is based on the amount of data the query sc
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 > [!NOTE]
-> During the preview period, there is no cost for log queries on Basic Logs.
+> Billing of queries on Basic Logs is not yet enabled. Queries on Basic Logs can be used for free until February 1, 2023.
 
 ## Next steps
 

@@ -1,12 +1,12 @@
 ---
-title: Search jobs in Azure Monitor (Preview)
+title: Search jobs in Azure Monitor
 description: Search jobs are asynchronous log queries in Azure Monitor that make results available as a table for further analytics.
 ms.topic: conceptual
-ms.date: 01/27/2022
+ms.date: 10/01/2022
 
 ---
 
-# Search jobs in Azure Monitor (preview)
+# Search jobs in Azure Monitor
 
 Search jobs are asynchronous queries that fetch records into a new search table within your workspace for further analytics. The search job uses parallel processing and can run for hours across extremely large datasets. This article describes how to create a search job and how to query its resulting data.
 
@@ -40,6 +40,30 @@ The search results table schema is based on the source table schema and the spec
 Queries on the results table appear in [log query auditing](query-audit.md) but not the initial search job.
 
 ## Create a search job
+
+> [!NOTE] 
+> Since search jobs incus cost, it is recommended to compose and optimize your query before submitting a search job. 
+
+# [Portal](#tab/portal-1)
+To run a search job, in Azure portal:
+1. From the **Log Analytics workspace** menu, select **Logs** 
+1. Go to the ellipsis menu on the right hand side of the screen and toggle **Search job mode** on. 
+![Screenshot of switch to search job mode.](./media/search-job/switch-to-mode.png)
+This will switch from interactive query mode to search job mode and will optimize your experience for ruining search jobs:
+    1. Run button will change it's appearance to indicate Azure Monitor Logs is in Search Job mode.
+    1. Azure Monitor Logs intellisense will adjust to support reduced KQL and assist when composing a search job query. See ![KQL query limitations](./search-jobs.md#kql-query-limitations)
+1. Specify the search job date range, that can be up to one year, using the time picker.
+1. Type the search job query and when your query is ready click the 'Search Job' button to execute the search job.
+1. You will be asked to provide a name for the result set table, and acknowledge that the search job is subject to billing.
+![Screenshot of search job run.](./media/search-job/RunSearchJob.png)
+1. Once you initiate the search job, a new table will be created in your workspace for your search job results. Once the table is created you can switch to the results:
+![Screenshot of search job run, search job results table will be available shortly.](./media/search-job/SearchJobExecution_1.png)
+![Screenshot of search job run, search job results table ia available.](./media/search-job/SearchJobExecution_2.png)
+1. Results will start flowing to the newly created results table and you can see the results as they become available:
+![Screenshot of search job run, search job results table with data.](./media/search-job/SearchJobExecution_3.png)
+1. As the search job is done, the new results table is ready with all the records that match the search query. 
+![Screenshot of search job run done, search job results table is ready.](./media/search-job/SearchJobDone.png)
+
 
 # [API](#tab/api-1)
 To run a search job, call the **Tables - Create or Update** API. The call includes the name of the results table to be created. The name of the results table must end with *_SRCH*.
@@ -102,6 +126,11 @@ az monitor log-analytics workspace table search-job create --subscription Contos
 ---
 
 ## Get search job status and details
+# [Portal](#tab/portal-1)
+1. From the **Log Analytics workspace** menu, select **Logs** 
+1. All the search results tables can be found in the Tables tab, under **Search results** 
+1. While a search job is running, the results table will have an update indication. When the search job that initiated the results table is completed the table icon become like any other Analytics table in Azure workspace. 
+![Screenshot of search results tables.](./media/search-job/SearchResultsTables.png)
 
 # [API](#tab/api-2)
 
@@ -180,6 +209,12 @@ az monitor log-analytics workspace table show --subscription ContosoSID --resour
 
 ## Delete search job table
 We recommend deleting the search job table when you're done querying the table. This reduces workspace clutter and extra charges for data retention. 
+# [Portal](#tab/portal-3)
+1. From the Log Analytics workspace menu, select **Tables.**
+1. Serch for the table you want to delete by its name, or by the type: Search results
+![Screenshot of search results in Tables blase.](./media/search-job/SearchResultsInTablesBlade.png)
+1. Select the table(s) you want to delete, click the delete icon and confirm the deletion by typing 'yes'
+![Screenshot of delete of search results table.](./media/search-job/DeleteTable.png)
 
 # [API](#tab/api-3)
 
@@ -215,7 +250,7 @@ Search jobs are subject to the following limitations:
 When you reach the record limit, Azure aborts the job with a status of *partial success*, and the table will contain only records ingested up to that point. 
 
 ### KQL query limitations
-Log queries in a search job are intended to scan very large sets of data. To support distribution and segmentation, the queries use a subset of KQL, including the operators: 
+Log queries in a search job are intended to scan very large sets of data of a specific table, hence only tables-based query that starts with a table name is supported. To allow a-synchronous execution of the query, using distribution and segmentation, the query should use a subset of KQL, including the operators: 
 
 - [where](/azure/data-explorer/kusto/query/whereoperator)
 - [extend](/azure/data-explorer/kusto/query/extendoperator)
@@ -232,13 +267,13 @@ You can use all functions and binary operators within these operators.
 ## Pricing model
 The charge for a search job is based on: 
 
-- The amount of data the search job needs to scan.
-- The amount of data ingested in the results table.
+- Search job executions: the amount of data the search job needs to scan.
+- Search job results: the amount of data ingested in the results table (per the normal Log Data Ingestion prices).
 
 For example, if your table holds 500 GB per day, for a query on three days, you'll be charged for 1500 GB of scanned data. If the job returns 1000 records, you'll be charged for ingesting these 1000 records into the results table. 
 
 > [!NOTE]
-> There is no charge for search jobs during the public preview. You'll be charged only for the ingestion of the results set.
+> Billing of search job execution is not yet enabled. Search jobs can be used for free until February 1, 2023, suxh that the billing will be just for the cost of ingesting the search results. 
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
