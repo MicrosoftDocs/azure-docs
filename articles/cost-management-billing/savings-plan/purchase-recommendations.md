@@ -8,7 +8,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 09/23/2022
+ms.date: 10/12/2022
 ---
 
 # Azure savings plan recommendations
