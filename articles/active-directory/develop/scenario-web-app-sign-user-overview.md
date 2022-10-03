@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/17/2019
+ms.date: 10/03/2022
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 #Customer intent: As an application developer, I want to know how to write a web app that signs in users by using the Microsoft identity platform.
@@ -25,31 +25,33 @@ Learn all you need to build a web app that uses the Microsoft identity platform 
 
 If you want to create your first portable (ASP.NET Core) web app that signs in users, follow this quickstart:
 
-[Quickstart: ASP.NET Core web app that signs in users](quickstart-v2-aspnet-core-webapp.md)
+ASP.NET Core > > [Quickstart: ASP.NET Core web app with user sign-in](web-app-quickstart.md?pivots=devlang-aspnet-core).
 
 # [ASP.NET](#tab/aspnet)
 
 If you want to understand how to add sign-in to an existing ASP.NET web application, try the following quickstart:
 
-[Quickstart: ASP.NET web app that signs in users](quickstart-v2-aspnet-webapp.md)
+[Quickstart: ASP.NET web app that signs in users](web-app-quickstart.md?pivots=devlang-aspnet).
 
 # [Java](#tab/java)
 
 If you're a Java developer, try the following quickstart:
 
-[Quickstart: Add sign-in with Microsoft to a Java web app](quickstart-v2-java-webapp.md)
+[Quickstart: Java web app with user sign-in](web-app-quickstart.md?pivots=devlang-java).
 
 # [Node.js](#tab/nodejs)
 
-If you're a Node.js developer, try the following quickstart:
+If you're a Node.js developer, you have two quickstart options.
 
-[Quickstart: Add sign-in with Microsoft to a Node.js web app](quickstart-v2-nodejs-webapp-msal.md)
+For using the Microsoft Authentication Library (MSAL Node), try the following [Quickstart: Add sign-in with Microsoft to a Node.js web app - MSAL](quickstart-v2-nodejs-webapp-msal.md).
+
+For a web app built using Node.js with Express, try the following [Quickstart: Add sign-in with Microsoft to a Node.js web app - Passport](quickstart-v2-nodejs-webapp-pssport.md).
 
 # [Python](#tab/python)
 
 If you develop with Python, try the following quickstart:
 
-[Quickstart: Add sign-in with Microsoft to a Python web app](quickstart-v2-python-webapp.md)
+[Quickstart: Python web app with user sign-in](web-app-quickstart.md?pivots=devlang-python)
 
 ---
 
@@ -68,8 +70,8 @@ As a second phase, you can enable your application to call web APIs on behalf of
 
 ## Specifics
 
-- During the application registration, you'll need to provide one or several (if you deploy your app to several locations) reply URIs. In some cases (ASP.NET and ASP.NET Core), you'll need to enable the ID token. Finally, you'll want to set up a sign-out URI so that your application reacts to users signing out.
-- In the code for your application, you'll need to provide the authority to which your web app delegates sign-in. You might want to customize token validation (in particular, in partner scenarios).
+- During the application registration, provide one or several (if you deploy your app to several locations) reply URIs. In some cases (ASP.NET and ASP.NET Core), the ID token will need to be enabled. Finally, set up a sign-out URI so that the application reacts to users signing out.
+- In application's code, provide the authority to which the web app delegates sign-in. Consider customizing token validation when dealing with in particular, in partner scenarios.
 - Web applications support any account types. For more information, see [Supported account types](v2-supported-account-types.md).
 
 ## Recommended reading
