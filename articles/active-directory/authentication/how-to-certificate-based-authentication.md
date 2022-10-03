@@ -20,7 +20,7 @@ ms.custom: has-adal-ref
 Azure Active Directory (Azure AD) certificate-based authentication (CBA) enables organizations to configure their Azure AD tenants to allow or require users to authenticate with X.509 certificates created by their Enterprise Public Key Infrastructure (PKI) for app and browser sign-in. This feature enables organizations to adopt phishing-resistant modern passwordless authentication by using an x.509 certificate.
  
 During sign-in, users will see also an option to authenticate with a certificate instead of entering a password. 
-If multiple matching certificates are present on the device, the user can pick which one to use. The certificate is validated against the user account and if successful, they are signed in.
+If multiple matching certificates are present on the device, the user can pick which one to use. The certificate is validated against the user account and if successful, they sign in.
 
 <!---Clarify plans that are covered --->
 Follow these instructions to configure and use Azure AD CBA for tenants in Office 365 Enterprise and US Government plans. You should already have a [public key infrastructure (PKI)](https://aka.ms/securingpki) configured.
@@ -60,7 +60,7 @@ To enable the certificate-based authentication and configure user bindings in th
 1. To upload a CA, click **Upload**: 
    1. Select the CA file.
    1. Select **Yes** if the CA is a root certificate, otherwise select **No**.
-   1. Set the http internet-facing URL for the CA base CRL that contains all revoked certificates. This should be set or authentication with revoked certificates won't fail.
+   1. Set the http internet-facing URL for the CA base CRL that contains all revoked certificates. If the URL isn't set, authentication with revoked certificates won't fail.
    1. Set **Delta CRL URL** - the http internet-facing URL for the CRL that contains all revoked certificates since the last base CRL was published.
    1. Click **Add**.
 
@@ -71,7 +71,7 @@ To enable the certificate-based authentication and configure user bindings in th
 
 ### Configure certification authorities using PowerShell
 
-Only one CRL Distribution Point (CDP) for a trusted CA is supported. The CDP can only be HTTP URLs. Online Certificate Status Protocol (OCSP) or Lightweight Directory Access Protocol (LDAP) URLs are not supported.
+Only one CRL Distribution Point (CDP) for a trusted CA is supported. The CDP can only be HTTP URLs. Online Certificate Status Protocol (OCSP) or Lightweight Directory Access Protocol (LDAP) URLs aren't supported.
 
 [!INCLUDE [Configure certification authorities](../../../includes/active-directory-authentication-configure-certificate-authorities.md)]
 
@@ -87,8 +87,8 @@ Only one CRL Distribution Point (CDP) for a trusted CA is supported. The CDP can
 [!INCLUDE [New-AzureAD](../../../includes/active-directory-authentication-new-trusted-azuread.md)]
 
 **AuthorityType**
-- Use 0 to indicate that this is a Root certification authority
-- Use 1 to indicate that this is an Intermediate or Issuing certification authority
+- Use 0 to indicate a Root certification authority
+- Use 1 to indicate an Intermediate or Issuing certification authority
 
 **crlDistributionPoint**
 
@@ -114,7 +114,7 @@ The following table and graphic show how to map information from the CA certific
  of the CA in the certification authority Microsoft Management Console (MMC).
 >- On the CA by running `certutil -cainfo cdp`. For more information, see [certutil](/windows-server/administration/windows-commands/certutil#-cainfo).
 
-For additional details, see [Understanding the certificate revocation process](./concept-certificate-based-authentication-technical-deep-dive.md#understanding-the-certificate-revocation-process).
+For more information, see [Understanding the certificate revocation process](./concept-certificate-based-authentication-technical-deep-dive.md#understanding-the-certificate-revocation-process).
 
 ### Remove
 
@@ -126,7 +126,7 @@ For additional details, see [Understanding the certificate revocation process](.
 
 ## Step 2: Enable CBA on the tenant
 
-To enable the certificate-based authentication in the Azure Portal, complete the following steps:
+To enable the certificate-based authentication in the Azure portal, complete the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as an Authentication Policy Administrator.
 1. Select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
@@ -195,16 +195,16 @@ To enable Azure AD CBA and configure user bindings in the Azure portal, complete
 
 The username binding policy helps validate the certificate of the user. By default, we map Principal Name in the certificate to UserPrincipalName in the user object to determine the user. An admin can override the default and create a custom mapping. 
 
-To determine how to configure username binding please look at the deep dive documentation at [How username binding works](concept-certificate-based-authentication-technical-deep-dive.md#understanding-the-username-binding-policy)
+To determine how to configure username binding, see [How username binding works](concept-certificate-based-authentication-technical-deep-dive.md#understanding-the-username-binding-policy).
 
 >[!IMPORTANT]
->If a username binding policy uses synced attributes, such as onPremisesUserPrincipalName attribute of the user object, be aware that any user with Active Directory Administrators privileges (inlcuding accounts with delegated administrative privilege over sync'd user accounts as well as administrative rights over the Azure AD Connect Servers) can make changes that impact the onPremisesUserPrincipalName value in Azure AD for any sync'd accounts). 
+>If a username binding policy uses synchronized attributes, such as onPremisesUserPrincipalName attribute of the user object, be aware that any user with Active Directory Administrators privileges can make changes that impact the onPremisesUserPrincipalName value in Azure AD for any synchronized accounts, including users with delegated administrative privilege over synchronized user accounts or administrative rights over the Azure AD Connect Servers.
 
-1. Create the username binding by selecting one of the X.509 certificate fields to bind with one of the user attributes. The username binding order represents the priority level of the binding. The first one has the highest priority and so on.
+1. Create the username binding by selecting one of the X.509 certificate fields to bind with one of the user attributes. The username binding order represents the priority level of the binding. The first one has the highest priority, and so on.
 
    :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/username-binding-policy.png" alt-text="Screenshot of a username binding policy.":::
 
-   If the specified X.509 certificate field is found on the certificate, but Azure AD doesn’t find a user object using that value, the authentication fails. Azure AD will fallback and try the next binding in the list.
+   If the specified X.509 certificate field is found on the certificate, but Azure AD doesn’t find a user object using that value, the authentication fails. Azure AD will fall back and try the next binding in the list.
 
 
 1. Click **Save** to save the changes. 
@@ -227,11 +227,11 @@ As a first configuration test, you should try to sign in to the [MyApps portal](
 
 1. Click **Next**.
 
-   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/certificate.png" alt-text="Screenshot of sign in with certificate.":::
+   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/certificate.png" alt-text="Screenshot of sign-in with certificate.":::
 
    If you enabled other authentication methods like Phone sign-in or FIDO2, users may see a different sign-in screen.
 
-   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/alternative.png" alt-text="Screenshot of the alternative sign in.":::
+   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/alternative.png" alt-text="Screenshot of the alternative sign-in.":::
 
 1. Select **Sign in with a certificate**.
 
@@ -249,7 +249,7 @@ If your sign-in is successful, then you know that:
 
 ### Testing custom authentication binding rules
 
-Let's walk through a scenario where we will validate strong authentication by creating two authentication policy rules, one by using issuer subject to satisfy single-factor authentication and another by using policy OID to satisfy multifactor authentication. 
+Let's walk through a scenario where we validate strong authentication. We'll create two authentication policy rules, one by using issuer subject to satisfy single-factor authentication, and another by using policy OID to satisfy multifactor authentication. 
 
 1. Create an issuer Subject rule with protection level as single-factor authentication and value set to your CAs Subject value. For example: 
 
@@ -266,11 +266,11 @@ Let's walk through a scenario where we will validate strong authentication by cr
 
 1. Select **Sign in with a certificate**.
 
-   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/certificate.png" alt-text="Screenshot of sign in with certificate.":::
+   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/certificate.png" alt-text="Screenshot of sign-in with certificate.":::
 
    If you enabled other authentication methods like Phone sign-in or FIDO2, users may see a different sign-in screen.
 
-   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/alternative.png" alt-text="Screenshot of the alternative sign in.":::
+   :::image type="content" border="true" source="./media/how-to-certificate-based-authentication/alternative.png" alt-text="Screenshot of the alternative sign-in.":::
 
 1. Select the client certificate and click **Certificate Information**.
 
@@ -365,7 +365,7 @@ To enable CBA and configure username bindings using Graph API, complete the foll
         ]
     }
 
-1. You will get a `204 No content` response code. Re-run the GET request to make sure the policies are updated correctly.
+1. You'll get a `204 No content` response code. Re-run the GET request to make sure the policies are updated correctly.
 1. Test the configuration by signing in with a certificate that satisfies the policy.
  
 ## Next steps 
