@@ -65,6 +65,9 @@ The following extensions are currently available.
 | [Flux (GitOps)](./conceptual-gitops-flux2.md) | Use GitOps with Flux to manage cluster configuration and application deployment. |
 | [Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes](../../aks/dapr.md)| Eliminates the overhead of downloading Dapr tooling and manually installing and managing the runtime on your clusters. |
 
+> [!NOTE]
+> Installing Azure Arc extensions on [AKS hybrid clusters provisioned from Azure](#aks-hybrid-clusters-provisioned-from-azure-preview) is currently in preview, with support for the Azure Arc-enabled Open Service Mesh, Azure Key Vault Secrets Provider, Flux (GitOps) and Microsoft Defender for Cloud extensions.
+
 ### Extension scope
 
 Extension installations on the Arc-enabled Kubernetes cluster are either *cluster-scoped* or *namespace-scoped*. 
@@ -138,7 +141,7 @@ az k8s-extension create --name azuremonitor-containers  --extension-type Microso
 | `--cluster-type` | The cluster type on which the extension instance has to be created. For most scenarios, use `connectedClusters`, which corresponds to Azure Arc-enabled Kubernetes. |
 
 > [!NOTE]
-> When working with AKS hybrid clusters provisioned from Azure you must set `--cluster-type` to use `provisionedClusters` and also add `--cluster-resource-provider microsoft.hybridcontainerservice` to the command. Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.
+> When working with [AKS hybrid clusters provisioned from Azure](#aks-hybrid-clusters-provisioned-from-azure-preview) you must set `--cluster-type` to use `provisionedClusters` and also add `--cluster-resource-provider microsoft.hybridcontainerservice` to the command. Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.
 
 **Optional parameters**
 
@@ -273,7 +276,10 @@ az k8s-extension delete --name azuremonitor-containers --cluster-name <clusterNa
 >[!NOTE]
 > The Azure resource representing this extension gets deleted immediately. The Helm release on the cluster associated with this extension is only deleted when the agents running on the Kubernetes cluster have network connectivity and can reach out to Azure services again to fetch the desired state.
 
-## AKS hybrid clusters provisioned from Azure [PREVIEW]
+> [!NOTE]
+> When working with [AKS hybrid clusters provisioned from Azure](#aks-hybrid-clusters-provisioned-from-azure-preview), you must add `--yes` to the delete command. Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.
+
+## AKS hybrid clusters provisioned from Azure (preview)
 
 You can deploy extensions to AKS hybrid clusters provisioned from Azure. However, there are a few key differences to keep in mind in order to deploy successfully:
 
@@ -294,6 +300,9 @@ az extension add --name k8s-extension
 # update if you do have the module installed
 az extension update --name k8s-extension
 ```
+
+> [!IMPORTANT]
+> Installing Azure Arc extensions on AKS hybrid clusters provisioned from Azure is currently in preview.
 
 ## Next steps
 
