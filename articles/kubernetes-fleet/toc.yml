@@ -10,7 +10,7 @@
     href: quickstart-create-fleet-and-members.md
 - name: How-to guides
   items:
-  - name: Kubernetes configuration propagation
+  - name: Kubernetes resource objects propagation
     href: configuration-propagation.md
   - name: Multi-cluster Layer 4 Load Balancing
     href: l4-load-balancing.md
