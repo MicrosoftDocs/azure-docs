@@ -237,7 +237,7 @@ The fields used in the manifest are as follows:
 |clusterARMTemplate|String|Local path where an ARM template that describes an AKS cluster that meets the requirements in restrictions field can be found|
 |uiDefinition|String|Local path where a JSON file that describes an Azure portal Create experience can be found|
 |registryServer|String|The ACR where the final CNAB bundle should be pushed|
-|extensionRegistrationParameters|Collection|Specification for the extension registration parameters. Include at least `defaultScope` and `billingIdentifier` as parameters.|
+|extensionRegistrationParameters|Collection|Specification for the extension registration parameters. Include at least `defaultScope` and as a parameter.|
 |defaultScope|String|The default scope for your extension installation. Accepted values are `cluster` or `namespace`. If `cluster` scope is set, then only one extension instance is allowed per cluster. If `namespace` scope is selected, then only one instance is allowed per namespace. As a Kubernetes cluster can have multiple namespaces, multiple instances of extension can exist.|
 |namespace|String|(Optional) Specify the namespace the extension will install into. This property is required when `defaultScope` is set to `cluster`. For namespace naming restrictions, see [Namespaces and DNS][namespaces-and-dns].|
 
