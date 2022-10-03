@@ -11,7 +11,7 @@ ms.author: v-smcevoy
 
 # Using Azure PowerShell and Azure CLI to deploy the MedTech service with Azure Resource Manager templates
 
-In this quickstart article, you'll learn how to use Azure PowerShell and Azure CLI to deploy the MedTech service using an Azure Resource Manager (ARM) template. For more information about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md). Calling the template from PowerShell or CLI provides automation that enables you to distribute your deployment to large numbers of developers. Using PowerShell and CLI allows for modifiable automation capabilities that will speed up your deployment configuration more efficiently in enterprise environments.
+In this quickstart article, you'll learn how to use Azure PowerShell and Azure CLI to deploy the MedTech service using an Azure Resource Manager (ARM) template. When you call the template from PowerShell or CLI, it provides automation that enables you to distribute your deployment to large numbers of developers. Using PowerShell or CLI allows for modifiable automation capabilities that will speed up your deployment configuration in enterprise environments. For more information about ARM templates, see [What are ARM templates?](./../../azure-resource-manager/templates/overview.md).
 
 ## Resources provided by the ARM template
 
@@ -33,7 +33,7 @@ If you need to see a diagram with information on the MedTech service deployment,
 
 ## Azure PowerShell prerequisites
 
-When you begin, you need to have the following prerequisites if you're using Azure PowerShell:
+Before you can begin, you need to have the following prerequisites if you're using Azure PowerShell:
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, see [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
 
@@ -41,7 +41,7 @@ When you begin, you need to have the following prerequisites if you're using Azu
 
 ## Azure CLI prerequisites
 
-When you begin, you need to have the following prerequisites if you're using Azure CLI:
+Before you can begin, you need to have the following prerequisites if you're using Azure CLI:
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, see [Subscription decision guide](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
 
