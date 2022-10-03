@@ -75,9 +75,8 @@ Next, get a handle to the workspace by providing your Subscription ID, Resource 
 
 The result of running this script is a workspace handle that you'll use to manage other resources and jobs.
 
-Note:
-
-- Creating `MLClient` will not connect the client to the workspace. The client initialization is lazy and will wait for the first time it needs to make a call. In this article, this will happen during compute creation.
+> [!NOTE]
+> Creating `MLClient` will not connect the client to the workspace. The client initialization is lazy and will wait for the first time it needs to make a call. In this article, this will happen during compute creation.
 
 ### Create a compute resource to run the job
 
@@ -120,12 +119,11 @@ In this section, we'll cover how to run a training job, using a training script 
 
 In this article, we've provided the training script *train_iris.py*. In practice, you should be able to take any custom training script as is and run it with AzureML without having to modify your code.
 
-Notes:
-
-The provided training script does the following:
-- shows how to log some metrics to your AzureML run;
-- downloads and extracts the training data using `iris = datasets.load_iris()`; and
-- trains a model, then saves and registers it.
+> [!NOTE]
+> The provided training script does the following:
+> - shows how to log some metrics to your AzureML run;
+> - downloads and extracts the training data using `iris = datasets.load_iris()`; and
+> - trains a model, then saves and registers it.
 
 To use and access your own data, see [how to train with datasets](v1/how-to-train-with-datasets.md) to make data available during training.
 
