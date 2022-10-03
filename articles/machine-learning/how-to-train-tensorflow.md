@@ -25,14 +25,10 @@ In this article, learn how to run your [TensorFlow](https://www.tensorflow.org/o
 
 This example code in this article train a TensorFlow model to classify handwritten digits using a deep neural network (DNN), register the model, and deploy it to an online endpoint.
 
-<!-- M.A: removed link to existing model (v1 article): [existing model](./v1/how-to-deploy-and-where.md) -->
 Whether you're developing a TensorFlow model from the ground-up or you're bringing an existing model into the cloud, you can use Azure Machine Learning to scale out open-source training jobs using elastic cloud compute resources. You can build, deploy, version, and monitor production-grade models with Azure Machine Learning.
 
 ## Prerequisites
-<!-- M.A: the path to the tensorflow folder looks wrong in the notebook. In the Article, "python" is missing in the path (between sdk and jobs) Confirm with balapv -->
-<!-- M.A: confirm the path to download files from balapv. Links have some funny branch number -->
-<!-- M.A: Remove create workspace from notebook -->
-<!-- M.A: Add GPU cluster note to the notebook -->
+
 To benefit from this article, you'll need to:
 
 - Access an Azure subscription. If you don't have one already, [create a free account](https://azure.microsoft.com/free/).
@@ -44,11 +40,11 @@ To benefit from this article, you'll need to:
 - Your Jupyter notebook server
     - [Install the Azure Machine Learning SDK (v2)](https://aka.ms/sdk-v2-install).
     - Download the following files:
-        - training script [tf_mnist.py](https://github.com/Azure/azureml-examples/blob/3079666e3d0dade16fe85dd2c128b0ebaab65101/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/src/tf_mnist.py) 
-        - scoring script [score.py](https://github.com/Azure/azureml-examples/blob/3079666e3d0dade16fe85dd2c128b0ebaab65101/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/src/score.py)
-        - sample request file [sample-request.json](https://github.com/Azure/azureml-examples/blob/3079666e3d0dade16fe85dd2c128b0ebaab65101/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/request/sample-request.json)
+        - training script [tf_mnist.py](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/src/tf_mnist.py) 
+        - scoring script [score.py](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/src/score.py)
+        - sample request file [sample-request.json](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/request/sample-request.json)
 
-    You can also find a completed [Jupyter Notebook version](https://github.com/Azure/azureml-examples/blob/3079666e3d0dade16fe85dd2c128b0ebaab65101/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) of this guide on the GitHub samples page.
+    You can also find a completed [Jupyter Notebook version](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) of this guide on the GitHub samples page.
 
 
 [!INCLUDE [gpu quota](../../includes/machine-learning-gpu-quota-prereq.md)]
