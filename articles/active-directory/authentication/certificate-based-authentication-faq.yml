@@ -122,7 +122,7 @@ sections:
       - question: |
           Why can't single-factor certificates be used to complete MFA?
         answer: |
-          There's no support for a second factor when the first factor is a single-factor certificates. We're working to add support for second factors.
+          There's no support for a second factor when the first factor is a single-factor certificate. We're working to add support for second factors.
           
       - question: |
           Will the changes to the Authentication methods policy take effect immediately?
