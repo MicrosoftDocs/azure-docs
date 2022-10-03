@@ -11,7 +11,7 @@ ms.date: 05/09/2022
 ---
 
 # Hierarchical partition keys in Azure Cosmos DB (preview)
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB distributes your data across logical and physical partitions based on your partition key to enable horizontal scaling. With hierarchical partition keys, or subpartitoning, you can now configure up to a three level hierarchy for your partition keys to further optimize data distribution and enable higher scale.
 
@@ -25,7 +25,7 @@ In a real world scenario, some tenants can grow large with thousands of users, w
 
 Using a synthetic partition key that combines **TenantId** and **UserId** adds complexity to the application. Additionally, the synthetic partition key queries for a tenant will still be cross-partition, unless all users are known and specified in advance.
 
-With hierarchical partition keys, we can partition first on **TenantId**, and then **UserId**. We can even partition further down to another level, such as **SessionId**, as long as the overall depth doesn't exceed three levels. When a physical partition exceeds 50 GB of storage, Cosmos DB will automatically split the physical partition so that roughly half of the data on the will be on one physical partition, and half on the other. Effectively, subpartitioning means that a single TenantId can exceed 20 GB of data, and it's possible for a TenantId's data to span multiple physical partitions.
+With hierarchical partition keys, we can partition first on **TenantId**, and then **UserId**. We can even partition further down to another level, such as **SessionId**, as long as the overall depth doesn't exceed three levels. When a physical partition exceeds 50 GB of storage, Cosmos DB will automatically split the physical partition so that roughly half of the data will be on one physical partition, and half on the other. Effectively, subpartitioning means that a single TenantId can exceed 20 GB of data, and it's possible for a TenantId's data to span multiple physical partitions.
 
 Queries that specify either the **TenantId**, or both **TenantId** and **UserId** will be efficiently routed to only the subset of physical partitions that contain the relevant data. Specifying the full or prefix subpartitioned partition key path effectively avoids a full fan-out query. For example, if the container had 1000 physical partitions, but a particular **TenantId** was only on five of them, the query would only be routed to the much smaller number of relevant physical partitions. 
 
@@ -189,7 +189,7 @@ Mono<CosmosItemResponse<UserSession>> createResponse = container.createItem(item
 
 ### Perform a key/value lookup (point read) of an item
 
-Key/value lookups (point reads) are performed in a manner similar to a non-subpartitioned container. For example, assume we have a hierarchical partition key composed of **TenantId -> UserId -> SessionId**. The unique identifier for the item is a Guid, represented as a string, that serves as a unique document transaction identifier. To perform a point read on a single item, pass in the ``id`` property of the item and the full value for the partition key including all three components of the path.
+Key/value lookups (point reads) are performed in a manner similar to a non-subpartitioned container. For example, assume we have a hierarchical partition key composed of **TenantId -> UserId -> SessionId**. The unique identifier for the item is a Guid, represented as a string that serves as a unique document transaction identifier. To perform a point read on a single item, pass in the ``id`` property of the item and the full value for the partition key including all three components of the path.
 
 #### [.NET SDK v3](#tab/net-v3)
 

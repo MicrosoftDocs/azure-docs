@@ -25,7 +25,11 @@ This article guides you through how to create an Azure [dedicated host](dedicate
 ## Limitations
 
 - The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
-- Not all Azure VM SKUs, regions and availability zones support ultra disks, for more information about this topic, see [Azure ultra disks](disks-enable-ultra-ssd.md) . Ultra disk support for dedicated hosts is currently in preview.
+
+- Not all Azure VM SKUs, regions and availability zones support ultra disks, for more information about this topic, see [Azure ultra disks](disks-enable-ultra-ssd.md).
+
+- Currently ADH does not support ultra disks on following VM series LSv2, M, Mv2, Msv2, Mdsv2, NVv3, NVv4 (though these VMs support ultra disks on multi tenant VMs).
+
 - The fault domain count of the virtual machine scale set can't exceed the fault domain count of the host group.
 
 ## Create a host group
@@ -38,9 +42,8 @@ In either case, you need to provide the fault domain count for your host group. 
 
 You can also decide to use both availability zones and fault domains.
 
-Enabling ultra disks (Preview) is a host group level setting and can't be changed after a host group is created.
+Enabling ultra disks is a host group level setting and can't be changed after a host group is created.
 
-If you intend to use LSv2 or M series VMs, with ultra disks (Preview) on dedicated hosts, set host group's **Fault domain count** to **1**.
 
 ### [Portal](#tab/portal)
 
@@ -55,7 +58,7 @@ In this example, we'll create a host group using one availability zone and two f
 1. For **Host group name**, type *myHostGroup*.
 1. For **Location**, select **East US**.
 1. For **Availability Zone**, select **1**.
-1. Select **Enable Ultra SSD** (Preview) to use ultra disks with supported Virtual Machines.
+1. Select **Enable Ultra SSD** to use ultra disks with supported Virtual Machines.
 1. For **Fault domain count**, select **2**.
 1. Select **Automatic placement** to automatically assign VMs and scale set instances to an available host in this group.
 1. Select **Review + create** and then wait for validation.
@@ -71,7 +74,7 @@ Not all host SKUs are available in all regions, and availability zones. You can 
 ```azurecli-interactive
 az vm list-skus -l eastus2  -r hostGroups/hosts  -o table
 ```
-You can also verify if a VM series supports ultra disks (Preview).
+You can also verify if a VM series supports ultra disks.
 
 ```azurecli-interactive
 subscription="<mySubID>"
@@ -95,7 +98,7 @@ az vm host group create \
 
 Add the `--automatic-placement true` parameter to have your VMs and scale set instances automatically placed on hosts, within a host group. For more information, see [Manual vs. automatic placement](dedicated-hosts.md#manual-vs-automatic-placement).
 
-Add the `--ultra-ssd-enabled true` (Preview) parameter to enable creation of VMs that can support ultra disks.
+Add the `--ultra-ssd-enabled true` parameter to enable creation of VMs that can support ultra disks.
 
 
 **Other examples**
@@ -119,7 +122,7 @@ az vm host group create \
    --platform-fault-domain-count 2
 ```
 
-The following code snippet uses [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group that supports ultra disks (Preview) and auto placement of VMs enabled.
+The following code snippet uses [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group that supports ultra disks and auto placement of VMs enabled.
 
 ```azurecli-interactive
 az vm host group create \
@@ -153,7 +156,7 @@ $hostGroup = New-AzHostGroup `
 Add the `-SupportAutomaticPlacement true` parameter to have your VMs and scale set instances automatically placed on hosts, within a host group. For more information about this topic, see [Manual vs. automatic placement ](dedicated-hosts.md#manual-vs-automatic-placement).
 
 
-Add the `-EnableUltraSSD` (Preview) parameter to enable creation of VMs that can support ultra disks.
+Add the `-EnableUltraSSD` parameter to enable creation of VMs that can support ultra disks.
 
 
 ---
@@ -213,7 +216,7 @@ $dHost = New-AzHost `
 
 Now create a VM on the host.
 
-If you would like to create a VM with ultra disks support, make sure the host group in which the VM will be placed is ultra SSD enabled (Preview). Once you've confirmed, create the VM in the same host group. See [Deploy an ultra disk](disks-enable-ultra-ssd.md#deploy-an-ultra-disk) for the steps to attach an ultra disk to a VM.
+If you would like to create a VM with ultra disks support, make sure the host group in which the VM will be placed is ultra SSD enabled. Once you've confirmed, create the VM in the same host group. See [Deploy an ultra disk](disks-enable-ultra-ssd.md#deploy-an-ultra-disk) for the steps to attach an ultra disk to a VM.
 
 ### [Portal](#tab/portal)
 
@@ -610,6 +613,50 @@ sourceGroups/myDHResourceGroup/providers/Microsoft.Compute/hostGroups/myHostGrou
 Name                   : myHost
 Location               : eastus
 Tags                   : {}
+```
+
+---
+
+## Restart a host (Preview)
+
+You can restart the entire host, meaning that the host's not **completely** powered off. Because the host will be restarted, the underlying VMs will also be restarted. The host will remain on the same underlying physical hardware as it restarts and both the host ID and asset ID will remain the same after the restart. The host SKU will also remain the same after the restart.
+
+Note: Host restart is in preview.
+
+### [Portal](#tab/portal)
+1. Search for and select the host.
+1. In the top menu bar, select the **Restart** button. Note, this feature is in Preview.
+1. In the **Essentials** section of the Host Resource Pane, Host Status will switch to **Host undergoing restart** during the restart.
+1. Once the restart has completed, the Host Status will return to **Host available**.
+
+### [CLI](#tab/cli)
+
+Restart the host using [az vm host restart](/cli/azure/vm#az-vm-host-restart) (Preview).
+
+```azurecli-interactive
+az vm host restart --resource-group myResourceGroup --host-group myHostGroup --name myDedicatedHost
+```
+
+To view the status of the restart, you can use the [az vm host get-instance-view](/cli/azure/vm#az-vm-host-get-instance-view) command. The **displayStatus** will be set to **Host undergoing restart** during the restart. Once the restart has completed, the displayStatus will return to **Host available**.
+
+```azurecli-interactive
+az vm host get-instance-view --resource-group myResourceGroup --host-group myHostGroup --name myDedicatedHost
+```
+
+### [PowerShell](#tab/powershell)
+
+Restart the host using the [Restart-AzHost](/powershell/module/az.compute/restart-azhost) (Preview) command.
+
+```azurepowershell-interactive
+Restart-AzHost -ResourceGroupName myResourceGroup -HostGroupName myHostGroup -Name myDedicatedHost
+```
+
+To view the status of the restart, you can use the [Get-AzHost](/powershell/module/az.compute/get-azhost) commandlet using the **InstanceView** parameter. The **displayStatus** will be set to **Host undergoing restart** during the restart. Once the restart has completed, the displayStatus will return to **Host available**.
+
+
+```azurepowershell-interactive
+$hostRestartStatus = Get-AzHost -ResourceGroupName myResourceGroup -HostGroupName myHostGroup -Name myDedicatedHost -InstanceView;
+$hostRestartStatus.InstanceView.Statuses[1].DisplayStatus;
 ```
 
 ---

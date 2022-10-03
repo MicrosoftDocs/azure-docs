@@ -1,5 +1,5 @@
 ---
-author: elkrieger
+author: ElazarK
 ms.service: defender-for-cloud
 ms.topic: include
 ms.date: 07/14/2022

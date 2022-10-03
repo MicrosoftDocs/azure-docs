@@ -33,12 +33,18 @@ items:
       href: start-stop-sap-systems.md
     - name: Get quality checks and insights
       href: get-quality-checks-insights.md
+    - name: View cost analysis for SAP system
+      href: view-cost-analysis.md
 
   - name: Monitoring
     items:
     - name: Monitor SAP system in Azure portal
       href: monitor-portal.md
 
+- name: Reference
+  items:
+  - name: REST API
+    href: /rest/api/workloads/
 
 - name: Resources
   items:

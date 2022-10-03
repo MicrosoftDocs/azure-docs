@@ -123,8 +123,8 @@ To use Azure CDN security token authentication, you must have an **Azure CDN Pre
    ```
    $1&sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-   ![CDN URL Rewrite rule - left](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![CDN URL Rewrite rule - right](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
+    :::image type="content" source="./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png" alt-text="Screenshot of CDN URL Rewrite rule - left.":::
+    :::image type="content" source="./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-3.png" alt-text="Screenshot of CDN URL Rewrite rule - right.":::
 
 3. If you renew the SAS, ensure that you update the Url Rewrite rule with the new SAS token. 
 

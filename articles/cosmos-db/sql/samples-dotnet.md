@@ -24,7 +24,7 @@ The [cosmos-db-sql-api-dotnet-samples](https://github.com/Azure-Samples/cosmos-d
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+* An Azure account with an active subscription. Without a credit card or an Azure subscription, you can set up a free [Try Azure Cosmos DB account](https://aka.ms/trycosmosdb).
 * Azure Cosmos DB SQL API account. [Create a SQL API account](how-to-create-account.md).
 * [.NET 6.0 or later](https://dotnet.microsoft.com/download)
 * [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)

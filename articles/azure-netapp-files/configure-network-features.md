@@ -12,15 +12,17 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 12/09/2021
+ms.date: 09/29/2022
 ms.custom: references_regions
 ms.author: anfdocs
 ---
 # Configure network features for an Azure NetApp Files volume
 
-The **Network Features** functionality is available for public preview.  This functionality enables you to indicate whether you want to use VNet features for an Azure NetApp Files volume. With this functionality, you can set the option to ***Standard*** or ***Basic***. You can specify the setting when you create a new NFS, SMB, or dual-protocol volume. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details about network features.
+The **Network Features** functionality enables you to indicate whether you want to use VNet features for an Azure NetApp Files volume. With this functionality, you can set the option to ***Standard*** or ***Basic***. You can specify the setting when you create a new NFS, SMB, or dual-protocol volume. See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details about network features.
 
 This article helps you understand the options and shows you how to configure network features.
+
+The **Network Features** functionality is not available in Azure Government regions. See [supported regions](azure-netapp-files-network-topologies.md#supported-regions) for a full list. 
 
 ## Options for network features 
 
@@ -47,10 +49,14 @@ Two settings are available for network features:
     * If the Standard volume capability is not available for the region, the Network Features field of the Create a Volume page defaults to *Basic*, and you cannot modify the setting.
 
 * The ability to locate storage compatible with the desired type of network features depends on the VNet specified.  If you cannot create a volume because of insufficient resources, you can try a different VNet for which compatible storage is available.
+
+* You can create Basic volumes from Basic volume snapshots and Standard volumes from Standard volume snapshots. Creating a Basic volume from a Standard volume snapshot is not supported. Creating a Standard volume from a Basic volume snapshot is not supported.
+
+* Conversion between Basic and Standard networking features in either direction is not currently supported.
   
 ## Register the feature 
 
-The network features capability is currently in public preview. If you are using this feature for the first time, you need to register the feature first.
+Follow the registration steps if you're using the feature for the first time.
 
 1.  Register the feature by running the following commands:
 
@@ -87,11 +93,11 @@ This section shows you how to set the Network Features option.
 
     ![Screenshot that shows volume creation for Basic network features.](../media/azure-netapp-files/network-features-create-basic.png)
 
-2. Before completing the volume creation process, you can display the specified network features setting in the **Review + Create** tab of the Create a Volume screen. Click **Create** to complete the volume creation.
+2. Before completing the volume creation process, you can display the specified network features setting in the **Review + Create** tab of the Create a Volume screen. Select **Create** to complete the volume creation.
 
     ![Screenshot that shows the Review and Create tab of volume creation.](../media/azure-netapp-files/network-features-review-create-tab.png)
 
-3. You can click **Volumes** to display the network features setting for each volume:
+3. You can select **Volumes** to display the network features setting for each volume:
 
     [ ![Screenshot that shows the Volumes page displaying the network features setting.](../media/azure-netapp-files/network-features-volume-list.png)](../media/azure-netapp-files/network-features-volume-list.png#lightbox)
 

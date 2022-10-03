@@ -10,6 +10,8 @@ ms.author: juliako
 
 # Customize a Person model with the Azure Video Indexer website
 
+[!INCLUDE [Gate notice](./includes/face-limited-access.md)]
+
 Azure Video Indexer supports celebrity recognition for video content. The celebrity recognition feature covers approximately one million faces based on commonly requested data source such as IMDB, Wikipedia, and top LinkedIn influencers. For a detailed overview, see [Customize a Person model in Azure Video Indexer](customize-person-model-overview.md).
 
 You can use the Azure Video Indexer website to edit faces that were detected in a video, as described in this article. You can also use the API, as described in [Customize a Person model using APIs](customize-person-model-with-api.md).
@@ -91,6 +93,10 @@ To look at the contents of any of your Person models, select the arrow next to t
 1. To delete a person from your Person model, select the list menu button and choose **Delete** from the list menu.
 1. A pop-up tells you that this action will delete the person and that this action can't be undone.
 1. Select **Delete** again and this will remove the person from the Person model.
+
+### Check if a person already exists 
+
+You can use the search to check if a person already exists in the model.
 
 ### Manage a person
 

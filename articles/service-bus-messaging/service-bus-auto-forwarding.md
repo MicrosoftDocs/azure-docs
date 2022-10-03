@@ -2,7 +2,7 @@
 title: Auto-forwarding Azure Service Bus messaging entities
 description: This article describes how to chain an Azure Service Bus queue or subscription to another queue or topic.
 ms.topic: article
-ms.date: 05/31/2022
+ms.date: 07/27/2022
 ms.custom: devx-track-csharp
 ---
 
@@ -30,10 +30,10 @@ You can also use autoforwarding to decouple message senders from receivers. For 
 If Alice goes on vacation, her personal queue, rather than the ERP topic, fills up. In this scenario, because a sales representative hasn't received any messages, none of the ERP topics ever reach quota.
 
 > [!NOTE]
-> When autoforwarding is setup, the value for AutoDeleteOnIdle on **both the Source and the Destination** is automatically set to the maximum value of the data type.
+> When autoforwarding is setup, the value for `AutoDeleteOnIdle` on the source entity is automatically set to the maximum value of the data type.
 > 
->   - On the Source side, autoforwarding acts as a receive operation. So the source which has autoforwarding setup is never really "idle".
->   - On the destination side, this is done to ensure that there is always a destination to forward the message to.
+>  - On the source side, autoforwarding acts as a receive operation, so the source that has autoforwarding enabled is never really "idle" and hence it won't be automatically deleted. 
+>  - Autoforwarding doesn't make any changes to the destination entity. If `AutoDeleteOnIdle` is enabled on destination entity, the entity is automatically deleted if it's inactive for the specified idle interval. We recommend that you don't enable `AutoDeleteOnIdle` on the destination entity because if the destination entity is deleted, the souce entity will continually see exceptions when trying to forward messages that destination. 
 
 ## Autoforwarding considerations
 

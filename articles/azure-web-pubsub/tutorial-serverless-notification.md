@@ -61,21 +61,24 @@ In this tutorial, you learn how to:
     ```bash
     func init --worker-runtime dotnet
     ```
-
-2. *Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub` function extension package.
-
-    > [!NOTE]
-    > The step will be optional when [Extension bundles](../azure-functions/functions-bindings-register.md#extension-bundles) are supported.
-
-   a. Remove `extensionBundle` section in `host.json` to enable install specific extension package in next step. Or simply make host json as simple a below.
+    
+2. Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub`.
+   
+    # [JavaScript](#tab/javascript)
+    Update `host.json`'s extensionBundle to version _3.3.0_ or later to get Web PubSub support.
     ```json
     {
-        "version": "2.0"
+        "version": "2.0",
+        "extensionBundle": {
+            "id": "Microsoft.Azure.Functions.ExtensionBundle",
+            "version": "[3.3.*, 4.0.0)"
+        }
     }
     ```
-   b. Run command to install specific function extension package.
+    
+    # [C#](#tab/csharp)
     ```bash
-    func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.1.0
+    dotnet add package Microsoft.Azure.WebJobs.Extensions.WebPubSub
     ```
 
 3. Create an `index` function to read and host a static web page for clients.

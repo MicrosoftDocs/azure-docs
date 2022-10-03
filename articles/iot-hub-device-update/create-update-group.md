@@ -55,7 +55,7 @@ Tags can also be added or updated in Device twin or Module Twin directly.
 
 1. Log into [Azure portal](https://portal.azure.com) and navigate to your IoT Hub.
 
-2. From 'IoT Devices' or 'IoT Edge' on the left navigation pane find your IoT device and navigate to the Device Twin, or the Device Update Module and then its Module Twin (this will be available if Device Update agent is set up as a Module Identity).
+2. From **Devices** or **IoT Edge** on the left navigation pane find your IoT device and navigate to the Device Twin, or the Device Update Module and then its Module Twin (this will be available if Device Update agent is set up as a Module Identity).
 
 3. In the Device Twin or Module Twin, delete any existing Device Update tag value by setting them to null.
 
@@ -82,18 +82,22 @@ Tags can also be added or updated in Device twin or Module Twin directly.
 
 2. Select the IoT Hub you previously connected to your Device Update instance.
 
-3. Select the Updates option under Device Management from the left-hand navigation bar.
+3. Select the **Updates** option under **Device Management** from the left-hand navigation bar.
 
-4. Select the Groups and Deployments tab at the top of the page. 
+4. Select the **Groups and Deployments** tab at the top of the page.
+
    :::image type="content" source="media/create-update-group/ungrouped-devices.png" alt-text="Screenshot of ungrouped devices." lightbox="media/create-update-group/ungrouped-devices.png":::
 
-5. Select the "Add group" button to create a new group.
+5. Select **Add group** to create a new group.
+
    :::image type="content" source="media/create-update-group/add-group.png" alt-text="Screenshot of device group addition." lightbox="media/create-update-group/add-group.png":::
 
-6. Select an IoT Hub tag and Device Class from the list and then select Create group.
+6. Select an IoT Hub tag and Device Class from the list and then select **Create group**.
+
    :::image type="content" source="media/create-update-group/select-tag.png" alt-text="Screenshot of tag selection." lightbox="media/create-update-group/select-tag.png":::
 
 7. Once the group is created, you will see that the update compliance chart and groups list are updated.  Update compliance chart shows the count of devices in various states of compliance: On latest update, New updates available, and Updates in Progress. [Learn  about update compliance.](device-update-compliance.md)
+
    :::image type="content" source="media/create-update-group/updated-view.png" alt-text="Screenshot of update compliance view." lightbox="media/create-update-group/updated-view.png":::
 
 8. You should see your newly created group and any available updates for the devices in the new group. If there are devices that don't meet the device class requirements of the group, they will show up in a corresponding invalid group. You can deploy the best available update to the new user-defined group from this view by clicking on the "Deploy" button next to the group. See Next Step: Deploy Update for more details.
@@ -103,9 +107,11 @@ Tags can also be added or updated in Device twin or Module Twin directly.
 1. Navigate to your newly created group and click on the group name.
 
 2. A list of devices that are part of the group will be shown along with their device update properties. In this view, you can also see the update compliance information for all devices that are members of the group. Update compliance chart shows the count of devices in various states of compliance: On latest update, New updates available and Updates in Progress.
+
    :::image type="content" source="media/create-update-group/group-details.png" alt-text="Screenshot of device group details view." lightbox="media/create-update-group/group-details.png":::
 
 3. You can also click on each individual device within a group to be redirected to the device details page in IoT Hub.
+
    :::image type="content" source="media/create-update-group/device-details.png" alt-text="Screenshot of device details view." lightbox="media/create-update-group/device-details.png":::
 
 ## Next Steps 

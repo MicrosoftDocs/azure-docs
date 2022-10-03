@@ -14,8 +14,8 @@ The extension-based onboarding is only for **User** Hybrid Runbook Workers. This
 
 For **System** Hybrid Runbook Worker onboarding, see [Deploy an agent-based Windows Hybrid Runbook Worker in Automation](./automation-windows-hrw-install.md) or [Deploy an agent-based Linux Hybrid Runbook Worker in Automation](./automation-linux-hrw-install.md). 
 
-You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on an Azure or non-Azure machine, including servers registered with [Azure Arc-enabled servers](../azure-arc/servers/overview.md). From the machine or server that's hosting the role, you can run runbooks directly against it and against resources in the environment to manage those local resources.
 
+You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on an Azure or non-Azure machine, including [Azure Arc-enabled servers](../azure-arc/servers/overview.md) and [Arc-enabled VMware vSphere](../azure-arc/vmware-vsphere/overview.md). From the machine or server that's hosting the role, you can run runbooks directly against it and against resources in the environment to manage those local resources.
 Azure Automation stores and manages runbooks and then delivers them to one or more chosen machines. After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
 
@@ -28,8 +28,8 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 
 - Two cores
 - 4 GB of RAM
-- The system-assigned managed identity must be enabled on the Azure virtual machine or Arc-enabled server.  If the system-assigned managed identity isn't enabled, it will be enabled as part of the adding process.
-- Non-Azure machines must have the Azure Arc-enabled servers agent (the connected machine agent) installed. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](../azure-arc/servers/onboard-portal.md).
+- The system-assigned managed identity must be enabled on the Azure virtual machine, Arc-enabled server or Arc-enabled VMware vSphere VM.  If the system-assigned managed identity isn't enabled, it will be enabled as part of the adding process.
+- Non-Azure machines must have the [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) installed. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](../azure-arc/servers/onboard-portal.md) for Arc-enabled servers or see [Manage VMware virtual machines Azure Arc](../azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md#enable-guest-management) for Arc-enabled VMware vSphere VMs.
 
 ### Supported operating systems
 
@@ -65,7 +65,7 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 If you use a proxy server for communication between Azure Automation and machines running the extension-base Hybrid Runbook Worker, ensure that the appropriate resources are accessible. The timeout for requests from the Hybrid Runbook Worker and Automation services is 30 seconds. After three attempts, a request fails.
 
 > [!NOTE]
-> You can set up the proxy settings by PowerShell cmdlets or API.
+> For Azure VMs and Arc-enabled Servers, you can set up the proxy settings using PowerShell cmdlets or API. This is currently not supported for Arc-enabled VMware vSphere VMs. 
 
  To install the extension using cmdlets:
  
@@ -169,7 +169,7 @@ To create a hybrid worker group in the Azure portal, follow these steps:
    - If you select **Default**, the hybrid extension will be installed using the local system account.
    - If you select **Custom**, then from the drop-down list, select the credential asset.
 
-1. Select **Next** to advance to the **Hybrid workers** tab. You can select Azure virtual machines or Azure Arc-enabled servers to be added to this Hybrid worker group. If you don't select any machines, an empty Hybrid worker group will be created. You can still add machines later.
+1. Select **Next** to advance to the **Hybrid workers** tab. You can select Azure virtual machines, Azure Arc-enabled servers or Azure Arc enabled VMware vSphere to be added to this Hybrid worker group. If you don't select any machines, an empty Hybrid worker group will be created. You can still add machines later.
 
    :::image type="content" source="./media/extension-based-hybrid-runbook-worker-install/basics-tab-portal.png" alt-text="Screenshot showing to enter name and credentials in basics tab.":::
 
@@ -206,9 +206,9 @@ You can also add machines to an existing hybrid worker group.
 
 1. Select **Add** to add the machine to the group.
 
-   Once added, you can see the machine type as Azure virtual machine or Arc-enabled server. The **Platform** field shows the worker as **Agent based (V1)** or **Extension based (V2)**.
+   After adding, you can see the machine type as Azure virtual machine, Server-Azure Arc or VMware virtual machine-Azure Arc. The **Platform** field shows the worker as **Agent based (V1)** or **Extension based (V2)**.
 
-   :::image type="content" source="./media/extension-based-hybrid-runbook-worker-install/hybrid-worker-group-platform.png" alt-text="Platform field showing agent or extension based.":::
+   :::image type="content" source="./media/extension-based-hybrid-runbook-worker-install/hybrid-worker-group-platform-inline.png" alt-text="Screenshot of platform field showing agent or extension based." lightbox="./media/extension-based-hybrid-runbook-worker-install/hybrid-worker-group-platform-expanded.png":::
 
 ## Install Extension-based (V2) on existing Agent-based (V1) Hybrid Worker
 
@@ -257,11 +257,13 @@ You can delete an empty Hybrid Runbook Worker group from the portal.
 
    The hybrid worker group will be deleted.
 
-## Use Azure Resource Manager template
+## Manage Hybrid Worker extension using ARM template, REST API, and Azure CLI
+
+#### [ARM template](#tab/arm-template)
 
 You can use an Azure Resource Manager (ARM) template to create a new Azure Windows VM and connect it to an existing Automation account and Hybrid Worker Group. To learn more about ARM templates, see [What are ARM templates?](../azure-resource-manager/templates/overview.md)
 
-### Review the template
+**Review the template**
 
 ```json
 {
@@ -546,7 +548,7 @@ The following Azure resources are defined in the template:
 - [hybridRunbookWorkerGroups/hybridRunbookWorkers](/azure/templates/microsoft.automation/automationaccounts/hybridrunbookworkergroups/hybridrunbookworkers)
 - [Microsoft.Compute/virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions)
 
-### Review parameters
+**Review parameters**
 
 Review the parameters used in this template.
 
@@ -563,14 +565,14 @@ Review the parameters used in this template.
 | osVersion | The OS for the new Windows VM. The default value is `2019-Datacenter`. |
 | dnsNameForPublicIP | The DNS name for the public IP. |
 
+ 
+#### [REST API](#tab/rest-api)
 
-## Install Hybrid worker extension using REST API
-
-### Prerequisites
+**Prerequisites**
 
 You would require an Azure VM or Arc-enabled server. You can follow the steps [here](../azure-arc/servers/onboard-portal.md) to create an Arc connected machine.
 
-### Install and use Hybrid Worker extension using REST API
+**Install and use Hybrid Worker extension**
 
 To install and use Hybrid Worker extension using REST API, follow these steps. The West Central US region is considered in this example.
 
@@ -617,7 +619,7 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
 
    ```
     
-1. Follow the steps [here]( /azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#enable-system-assigned-managed-identity-on-an-existing-vm) to enable the System-assigned managed identity on the VM.
+1. Follow the steps [here](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm) to enable the System-assigned managed identity on the VM.
 
 1. Get the automation account details using this API call.
 
@@ -676,6 +678,14 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
     ```
    Response of the *PUT* call will confirm if the extension is successfully installed or not on the targeted VM. You can also go to the VM in the Azure portal, and check status of extensions installed on the target VM under **Extensions** tab.
 
+#### [Azure CLI](#tab/cli)
+
+**Manage Hybrid Worker Extension**
+
+- To create, delete, and manage extension-based Hybrid Runbook Worker groups, see [az automation hrwg | Microsoft Docs](/cli/azure/automation/hrwg?view=azure-cli-latest)
+- To create, delete, and manage extension-based Hybrid Runbook Worker, see [az automation hrwg hrw | Microsoft Docs](/cli/azure/automation/hrwg/hrw?view=azure-cli-latest)
+
+---
 
 ## Manage Role permissions for Hybrid Worker Groups and Hybrid Workers
 
@@ -692,6 +702,21 @@ Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookW
 Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers/delete | Deletes a Hybrid Runbook Worker.
 
 
+## Check version of Hybrid Worker
+To check the version of the extension-based Hybrid Runbook Worker:
+
+|OS types | Paths | Description|
+|--- |--- |--- |
+|**Windows** |`C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\`| The path has *version* folder that has the version information. |
+|**Linux** | `/var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux-<version>` | The folder name ends with *version* information. |
+
+
+## Monitor performance of Hybrid Workers using VM insights
+
+Using [VM insights](../azure-monitor/vm/vminsights-overview.md), you can monitor the performance of Azure VMs and Arc-enabled Servers deployed as Hybrid Runbook workers. Among multiple elements that are considered during performances, the VM insights monitors the key operating system performance indicators related to processor, memory, network adapter, and disk utilization.
+- For Azure VMs, see [How to chart performance with VM insights](../azure-monitor/vm/vminsights-performance.md).
+- For Arc-enabled servers, see [Tutorial: Monitor a hybrid machine with VM insights](../azure-arc/servers/learn/tutorial-enable-vm-insights.md).
+
 ## Next steps
 
 - To learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environments, see [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
@@ -701,3 +726,5 @@ Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookW
 - To learn about Azure VM extensions, see [Azure VM extensions and features for Windows](../virtual-machines/extensions/features-windows.md) and [Azure VM extensions and features for Linux](../virtual-machines/extensions/features-linux.md).
 
 - To learn about VM extensions for Arc-enabled servers, see [VM extension management with Azure Arc-enabled servers](../azure-arc/servers/manage-vm-extensions.md).
+- To learn about VM extensions for Arc-enabled VMware vSphere VMs, see [Manage VMware VMs in Azure through Arc-enabled VMware vSphere](../azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md).
+

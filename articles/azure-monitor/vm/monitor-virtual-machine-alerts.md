@@ -69,10 +69,7 @@ alertsmanagementresources
 ## Common alert rules
 The following section lists common alert rules for virtual machines in Azure Monitor. Details for metric alerts and log metric measurement alerts are provided for each. For guidance on which type of alert to use, see [Choose the alert type](#choose-the-alert-type).
 
-If you're unfamiliar with the process for creating alert rules in Azure Monitor, see the following articles for guidance:
-
-- [Create, view, and manage metric alerts using Azure Monitor](../alerts/alerts-metric.md)
-- [Create, view, and manage log alerts using Azure Monitor](../alerts/alerts-log.md)
+If you're unfamiliar with the process for creating alert rules in Azure Monitor, see the [instructions to create a new alert rule](../alerts/alerts-create-new-alert-rule.md).
 
 ### Machine unavailable
 The most basic requirement is to send an alert when a machine is unavailable. It could be stopped, the guest operating system could be unresponsive, or the agent could be unresponsive. There are various ways to configure this alerting, but the most common is to use the heartbeat sent from the Log Analytics agent. 
@@ -177,7 +174,7 @@ InsightsMetrics
 | where Origin == "vm.azm.ms" 
 | where Namespace == "LogicalDisk" and Name == "TransfersPerSecond"
 | extend Disk=tostring(todynamic(Tags)["vm.azm.ms/mountId"])
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m) ), Computer, _ResourceId, Disk 
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, Disk 
 ```
 **Logical disk data rate**
 
@@ -186,7 +183,7 @@ InsightsMetrics
 | where Origin == "vm.azm.ms" 
 | where Namespace == "LogicalDisk" and Name == "BytesPerSecond"
 | extend Disk=tostring(todynamic(Tags)["vm.azm.ms/mountId"])
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m) , Computer, _ResourceId, Disk 
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, Disk 
 ```
 
 ## Network alerts
@@ -281,28 +278,28 @@ Here's a walk-through of creating a log alert for when the CPU of a virtual mach
     |Operator |The operator to compare the metric value against the threshold|Greater than|
     |Threshold value| The value that the result is measured against.|80|
     |Frequency of evaluation|How often the alert rule should run. A frequency smaller than the aggregation granularity results in a sliding window evaluation.|15 minutes|
-  1. (Optional) In the **Advanced options** section, set the [Number of violations to trigger alert](../alerts/alerts-unified-log.md#number-of-violations-to-trigger-alert).
-     :::image type="content" source="../alerts/media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of alerts rule preview advanced options.":::
+  1. (Optional) In the **Advanced options** section, set the **Number of violations to trigger alert**.
+     :::image type="content" source="../alerts/media/alerts-create-new-alert-rule/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of alerts rule preview advanced options.":::
 
   1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from unique alert splitting by dimensions.
-     :::image type="content" source="../alerts/media/alerts-log/alerts-create-alert-rule-preview.png" alt-text="Screenshot of alerts rule preview.":::
+     :::image type="content" source="../alerts/media/alerts-create-new-alert-rule/alerts-create-alert-rule-preview.png" alt-text="Screenshot of alerts rule preview.":::
 
   1. From this point on, you can select the **Review + create** button at any time. 
   1. In the **Actions** tab, select or create the required [action groups](../alerts/action-groups.md).
-     :::image type="content" source="../alerts/media/alerts-log/alerts-rule-actions-tab.png" alt-text="Screenshot of alerts rule preview actions tab.":::
+     :::image type="content" source="../alerts/media/alerts-create-new-alert-rule/alerts-rule-actions-tab.png" alt-text="Screenshot of alerts rule preview actions tab.":::
 
   1. In the **Details** tab, define the **Project details** and the **Alert rule details**.
-  1. (Optional) In the **Advanced options** section, you can set several options, including whether to **Enable upon creation**, or to [**mute actions**](../alerts/alerts-unified-log.md#state-and-resolving-alerts) for a period after the alert rule fires.
-     :::image type="content" source="../alerts/media/alerts-log/alerts-rule-details-tab.png" alt-text="Screenshot of alerts rule preview details tab.":::
+  1. (Optional) In the **Advanced options** section, you can set several options, including whether to **Enable upon creation**, or to **mute actions** for a period after the alert rule fires.
+     :::image type="content" source="../alerts/media/alerts-create-new-alert-rule/alerts-log-rule-details-tab.png" alt-text="Screenshot of alerts rule preview details tab.":::
     > [!NOTE]
     > If you or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage** option in **Advanced options**, or the rule creation will fail as it will not meet the policy requirements.
 
 1. In the **Tags** tab, set any required tags on the alert rule resource.
-   :::image type="content" source="../alerts/media/alerts-log/alerts-rule-tags-tab.png" alt-text="Screenshot of alerts rule preview tags tab.":::
+   :::image type="content" source="../alerts/media/alerts-create-new-alert-rule/alerts-rule-tags-tab.png" alt-text="Screenshot of alerts rule preview tags tab.":::
 
 1. In the **Review + create** tab, a validation will run and inform you of any issues.
 1. When validation passes and you have reviewed the settings, click the **Create** button.    
-   :::image type="content" source="../alerts/media/alerts-log/alerts-rule-review-create.png" alt-text="Screenshot of alerts rule preview review and create tab.":::
+   :::image type="content" source="../alerts/media/alerts-create-new-alert-rule/alerts-rule-review-create.png" alt-text="Screenshot of alerts rule preview review and create tab.":::
 ## Next steps
 
 * [Monitor workloads running on virtual machines.](monitor-virtual-machine-workloads.md)

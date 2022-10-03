@@ -7,11 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/24/2022
+ms.date: 08/22/2022
 ms.custom: devx-track-dotnet
 ---
 
 # Quickstart: Azure Cosmos DB Table API for .NET
+
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
 This quickstart shows how to get started with the Azure Cosmos DB Table API from a .NET application. The Cosmos DB Table API is a schemaless data store allowing applications to store structured NoSQL data in the cloud. You'll learn how to create tables, rows, and perform basic tasks within your Cosmos DB resource using the [Azure.Data.Tables Package (NuGet)](https://www.nuget.org/packages/Azure.Data.Tables/).
@@ -24,7 +25,7 @@ This quickstart shows how to get started with the Azure Cosmos DB Table API from
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-* [.NET 6.0](https://dotnet.microsoft.com/en-us/download)
+* [.NET 6.0](https://dotnet.microsoft.com/download)
 * [Azure Command-Line Interface (CLI)](/cli/azure/) or [Azure PowerShell](/powershell/azure/)
 
 ### Prerequisite check
@@ -34,7 +35,7 @@ This quickstart shows how to get started with the Azure Cosmos DB Table API from
 
 ## Setting up
 
-This section walks you through how to create an Azure Cosmos account and set up a project that uses the Table API NuGet packages. 
+This section walks you through how to create an Azure Cosmos account and set up a project that uses the Table API NuGet packages.
 
 ### Create an Azure Cosmos DB account
 
@@ -72,10 +73,10 @@ This quickstart will create a single Azure Cosmos DB account using the Table API
 
 ### Create a new .NET app
 
-Create a new .NET application in an empty folder using your preferred terminal. Use the [``dotnet new console``](/dotnet/core/tools/dotnet-newt) to create a new console app. 
+Create a new .NET application in an empty folder using your preferred terminal. Use the [``dotnet new console``](/dotnet/core/tools/dotnet-new) to create a new console app.
 
 ```console
-dotnet new console -output <app-name>
+dotnet new console --output <app-name>
 ```
 
 ### Install the NuGet package
@@ -102,9 +103,9 @@ The sample code described in this article creates a table named ``adventureworks
 
 You'll use the following Table API classes to interact with these resources:
 
-- [``TableServiceClient``](/dotnet/api/azure.data.tables.tableserviceclient) - This class provides methods to perform service level operations with Azure Cosmos DB Table API.
-- [``TableClient``](/dotnet/api/azure.data.tables.tableclient) - This class allows you to interact with tables hosted in the Azure Cosmos DB table API.
-- [``TableEntity``](/dotnet/api/azure.data.tables.tableentity) - This class is a reference to a row in a table that allows you to manage properties and column data.
+* [``TableServiceClient``](/dotnet/api/azure.data.tables.tableserviceclient) - This class provides methods to perform service level operations with Azure Cosmos DB Table API.
+* [``TableClient``](/dotnet/api/azure.data.tables.tableclient) - This class allows you to interact with tables hosted in the Azure Cosmos DB table API.
+* [``TableEntity``](/dotnet/api/azure.data.tables.tableentity) - This class is a reference to a row in a table that allows you to manage properties and column data.
 
 ### Authenticate the client
 
@@ -128,7 +129,7 @@ The easiest way to create a new item in a table is to create a class that implem
 
 :::code language="csharp" source="~/azure-cosmos-tableapi-dotnet/001-quickstart/Product.cs" id="type" :::
 
-Create an item in the collection using the `Product` class by calling [``TableClient.AddEntityAsync<T>``](/dotnet/api/azure.data.tables.tableclient.addentityasync). 
+Create an item in the collection using the `Product` class by calling [``TableClient.AddEntityAsync<T>``](/dotnet/api/azure.data.tables.tableclient.addentityasync).
 
 :::code language="csharp" source="~/azure-cosmos-tableapi-dotnet/001-quickstart/Program.cs" id="create_object_add" :::
 
@@ -140,7 +141,7 @@ You can retrieve a specific item from a table using the [``TableEntity.GetEntity
 
 ### Query items
 
-After you insert an item, you can also run a query to get all items that match a specific filter by using the `TableClient.Query<T>` method. This example filters products by category using [Linq](/dotnet/standard/linq) syntax, which is a benefit of using strongly typed `ITableEntity` models like the `Product` class.
+After you insert an item, you can also run a query to get all items that match a specific filter by using the `TableClient.Query<T>` method. This example filters products by category using [Linq](/dotnet/standard/linq) syntax, which is a benefit of using typed `ITableEntity` models like the `Product` class.
 
 > [!NOTE]
 > You can also query items using [OData](/rest/api/storageservices/querying-tables-and-entities) syntax. You can see an example of this approach in the [Query Data](./tutorial-query-table.md) tutorial.

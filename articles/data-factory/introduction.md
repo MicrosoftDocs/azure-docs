@@ -6,7 +6,7 @@ ms.author: weetok
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: overview
-ms.date: 06/08/2021
+ms.date: 08/11/2022
 ---
 
 # What is Azure Data Factory?

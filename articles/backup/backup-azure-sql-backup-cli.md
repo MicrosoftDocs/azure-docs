@@ -2,7 +2,7 @@
 title: Back up SQL server databases in Azure VMs using Azure Backup via CLI
 description: Learn how to use CLI to back up SQL server databases in Azure VMs in the Recovery Services vault.
 ms.topic: how-to
-ms.date: 07/07/2022
+ms.date: 08/11/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -168,7 +168,12 @@ az backup protection auto-enable-for-azurewl --resource-group SQLResourceGroup \
 To trigger an on-demand backup, use the [az backup protection backup-now](/cli/azure/backup/protection#az-backup-protection-backup-now) command.
 
 >[!NOTE]
->The retention policy of an on-demand backup is determined by the underlying retention policy for the database.
+>The retention period of this backup is determined by the type of on-demand backup you have run.
+>
+>- *On-demand full* retains backups for a minimum of *45 days* and a maximum of *99 years*.
+>- *On-demand copy only full* accepts any v0alue for retaintion.
+>- *On-demand differential* retains backup as per the retention of scheduled differentials set in policy.
+>- *On-demand log* retains backups as per the retention of scheduled logs set in policy.
 
 ```azurecli-interactive
 az backup protection backup-now --resource-group SQLResourceGroup \

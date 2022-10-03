@@ -4,7 +4,7 @@ description: Learn how to use Kafka on HDInsight from container images hosted in
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/04/2019
+ms.date: 08/23/2022
 ---
 
 # Use Azure Kubernetes Service with Apache Kafka on HDInsight

@@ -103,7 +103,8 @@ Azure Firewall Standard has the following known issues:
 |Unable to see Network Rule Name in Azure Firewall Logs|Azure Firewall network rule log data does not show the Rule name for network traffic.|Network rule name logging is in preview. For for information, see [Azure Firewall preview features](firewall-preview.md#network-rule-name-logging-preview).|
 |XFF header in HTTP/S|XFF headers are overwritten with the original source IP address as seen by the firewall. This is applicable for the following use cases:<br>- HTTP requests<br>- HTTPS requests with TLS termination|A fix is being investigated.|
 |Can't upgrade to Premium with Availability Zones in the Southeast Asia region|You can't currently upgrade to Azure Firewall Premium with Availability Zones in the Southeast Asia region.|Deploy a new Premium firewall in Southeast Asia without Availability Zones, or deploy in a region that supports Availability Zones.|
-|Can’t deploy Firewall with Availability Zones with a newly created Public IP address|When you deploy a Firewall with Availability Zones, you can’t use a newly created Public IP address.|First create a new zone redundant Public IP address, then assign this previously created IP address during the Firewall deployment.
+|Can’t deploy Firewall with Availability Zones with a newly created Public IP address|When you deploy a Firewall with Availability Zones, you can’t use a newly created Public IP address.|First create a new zone redundant Public IP address, then assign this previously created IP address during the Firewall deployment.|
+|Azure private DNS zone isn't supported with Azure Firewall|Azure private DNS zone won't work with Azure Firewall regardless of Azure Firewall DNS settings.|To achieve the desire state of using a private DNS server, use Azure Firewall DNS proxy instead of an Azure private DNS zone.|
 
 ### Azure Firewall Premium
 
@@ -130,4 +131,4 @@ Untrusted customer signed certificates|Customer signed certificates are not trus
 - [Quickstart: Create an Azure Firewall and a firewall policy - ARM template](../firewall-manager/quick-firewall-policy.md)
 - [Quickstart: Deploy Azure Firewall with Availability Zones - ARM template](deploy-template.md)
 - [Tutorial: Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md)
-- [Learn module: Introduction to Azure Firewall](/learn/modules/introduction-azure-firewall/)
+- [Learn module: Introduction to Azure Firewall](/training/modules/introduction-azure-firewall/)

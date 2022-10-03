@@ -6,7 +6,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 05/24/2022
+ms.date: 08/08/2022
 ms.author: aahi
 #Customer intent: As a user of the Language service, I want to learn how encryption at rest works.
 ---
@@ -31,7 +31,7 @@ You must use Azure Key Vault to store your customer-managed keys. You can either
 
 ### Customer-managed keys for Language services
 
-To request the ability to use customer-managed keys, fill out and submit the [Language Service Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk). It will take approximately 3-5 business days to hear back on the status of your request. Depending on demand, you may be placed in a queue and approved as space becomes available. Once approved for using CMK with Language services, you'll need to create a new Language resource from the Azure portal.
+To request the ability to use customer-managed keys, fill out and submit the [Language service Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk). It will take approximately 3-5 business days to hear back on the status of your request. Depending on demand, you may be placed in a queue and approved as space becomes available. Once approved for using CMK with Language services, you'll need to create a new Language resource from the Azure portal.
 
 
 ### Enable customer-managed keys
@@ -68,5 +68,5 @@ To revoke access to customer-managed keys, use PowerShell or Azure CLI. For more
 
 ## Next steps
 
-* [Language Service Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
+* [Language service Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk)
 * [Learn more about Azure Key Vault](../../../key-vault/general/overview.md)

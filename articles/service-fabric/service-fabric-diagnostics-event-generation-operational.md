@@ -143,6 +143,26 @@ More details on application upgrades can be found [here](service-fabric-applicat
 | 23075 | ContainerDeactivated | A container has stopped | Hosting | Informational | 1 |
 | 23082 | ContainerExited | A container has exited - Check the UnexpectedTermination flag | Hosting | Informational | 1 |
 
+## BackupRestoreService Events
+
+When BackupRestoreService (BRS) is enabled on an SF Cluster, it exposes events for user triggered and periodic operations to let user understand the status of operations. User triggered operations cover actions like creating a backup policy on cluster, triggering backup on a partition or any other valid action in BRS context. BRS periodically emits status of current active policies at cluster level, information about last backup and upcoming scheduled backup and status of periodic backup at different stages at partition level.
+
+**BackupRestoreService partition events**
+
+| EventId | Name | Description |Source (Task) | Level |
+| --- | --- | ---| --- | --- |
+| 65305 | BRSInfo | Periodic backup triggered | BackupRestoreService | Informational |
+| 65307 | BRSWarning | Incremental backup failed, triggering a full backup | BackupRestoreService | Warning |
+| 65309 | BRSError | Periodic backup failed | BackupRestoreService | Error |
+
+**BackupRestoreService cluster events**
+
+| EventId | Name | Description |Source (Task) | Level |
+| --- | --- | ---| --- | --- |
+| 65306 | BRSInfo | Backup policy created | BackupRestoreService | Informational |
+| 65308 | BRSWarning | Backup policy deleted | BackupRestoreService | Warning |
+| 65310 | BRSError | AddBackupPolicy failed | BackupRestoreService | Error |
+
 ## Health reports
 
 The [Service Fabric Health Model](service-fabric-health-introduction.md) provides a rich, flexible, and extensible health evaluation and reporting. Starting Service Fabric version 6.2, health data is written as Platform events to provide historical records of health. To keep the volume of health events low, we only write the following as Service Fabric events:

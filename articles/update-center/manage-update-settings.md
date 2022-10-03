@@ -1,8 +1,7 @@
 ---
 title: Manage update configuration settings in Update management center (preview)
 description: The article describes how to manage the update settings for your Windows and Linux machines managed by Update management center (preview).
-ms.service: automation
-ms.subservice: update-management
+ms.service: update-management-center
 author: snehasudhirG
 ms.author: sudhirsneha
 ms.date: 04/21/2022
@@ -37,14 +36,21 @@ To configure update settings on your machines on a single VM, follow these steps
 
    - **Periodic assessment** - enable periodic **Assessment** to run every 24 hours.
      >[!NOTE]
-     > You must [register for the periodic assessement](/azure/update-center/enable-machines?branch=release-updatecenterv2-publicpreview&tabs=portal-periodic%2Cps-periodic-assessment%2Ccli-periodic-assessment%2Crest-periodic-assessment) in your Azure subscription to enable this feature.
+     > You must [register for the periodic assessement](./enable-machines.md?branch=release-updatecenterv2-publicpreview&tabs=portal-periodic%2cps-periodic-assessment%2ccli-periodic-assessment%2crest-periodic-assessment) in your Azure subscription to enable this feature.
 
-    - **Hot patching** - for Azure VMs, you can enable [hot patching](/azure/automanage/automanage-hotpatch) on supported Windows Server Azure Edition Virtual Machines (VMs) don't require a reboot after installation. You can use update management center (preview) to install patches with other patch classifications or to schedule patch installation when you require immediate critical patch deployment.
+    - **Hot patching** - for Azure VMs, you can enable [hot patching](../automanage/automanage-hotpatch.md) on supported Windows Server Azure Edition Virtual Machines (VMs) don't require a reboot after installation. You can use update management center (preview) to install patches with other patch classifications or to schedule patch installation when you require immediate critical patch deployment.
 
     - **Patch orchestration** option provides the following:
 
       - **Automatic by operating system** - When the workload running on the VM doesn't have to meet availability targets, operating system updates are automatically downloaded and installed. Machines are rebooted as needed.
-      - **Azure-orchestrated (preview)** - Available *Critical* and *Security* patches are downloaded and applied automatically on the Azure VM using [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching). This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as required.
+      - **Azure-orchestrated** - Patch orchestration set to Azure-orchestrated for an Azure VM (not applicable for Arc-enabled server) has two different implications depending on whether customer [schedule](../update-center/scheduled-patching.md#) is attached to it or not.
+      
+        | Patch orchestration type | Description
+        |----------|-------------|
+        |Azure-orchestrated with no schedule attached | Machine is enabled for [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md). It implies that the available Critical and Security patches are downloaded and applied automatically on the Azure VM. This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as required.|
+        |Azure-orchestrated with schedule attached | Patching will happen according to the schedule and [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md) will not take effect on the machine. Patch orchestration set to Azure-orchestrated is a necessary pre-condition for enabling schedules. You cannot enable a machine for custom schedule unless you set Patch orchestration to Azure-orchestrated. | 
+
+      - Available *Critical* and *Security* patches are downloaded and applied automatically on the Azure VM using [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md). This process kicks off automatically every month when new patches are released. Patch assessment and installation are automatic, and the process includes rebooting the VM as required.
       - **Manual updates** - Configures the Windows Update agent by setting [configure automatic updates](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#configure-automatic-updates).
       - **Image Default** - Only supported for Linux Virtual Machines, this mode honors the default patching configuration in the image used to create the VM.
 

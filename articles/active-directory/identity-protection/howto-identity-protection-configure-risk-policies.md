@@ -6,16 +6,16 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 03/18/2022
+ms.date: 08/23/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
 ---
-# How To: Configure and enable risk policies
+# Configure and enable risk policies
 
 As we learned in the previous article, [Identity Protection policies](concept-identity-protection-policies.md) we have two risk policies that we can enable in our directory. 
 
@@ -59,7 +59,7 @@ There are two locations where these policies may be configured, Conditional Acce
    - Enhanced diagnostic data
    - Report-only mode integration
    - Graph API support
-   - Use more Conditional Access attributes in policy
+   - Use more Conditional Access attributes like sign-in frequency in the policy
 
 Organizations can choose to deploy policies using the steps outlined below or using the [Conditional Access templates (Preview)](../conditional-access/concept-conditional-access-policy-common.md#conditional-access-templates-preview).
 
@@ -69,11 +69,11 @@ Before organizations enable remediation policies, they may want to [investigate]
 
 ### User risk with Conditional Access
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Global Administrator, Security Administrator, or Conditional Access Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users and groups**.
+1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
    1. Select **Done**.
@@ -84,16 +84,20 @@ Before organizations enable remediation policies, they may want to [investigate]
 1. Under **Access controls** > **Grant**.
    1. Select **Grant access**, **Require password change**.
    1. Select **Select**.
+1. Under **Session**.
+   1. Select **Sign-in frequency**.
+   1. Ensure **Every time** is selected.
+   1. Select **Select**.
 1. Confirm your settings, and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.
 
 ### Sign in risk with Conditional Access
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Global Administrator, Security Administrator, or Conditional Access Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
-1. Under **Assignments**, select **Users and groups**.
+1. Under **Assignments**, select **Users or workload identities**.
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
    1. Select **Done**.
@@ -104,15 +108,17 @@ Before organizations enable remediation policies, they may want to [investigate]
 1. Under **Access controls** > **Grant**.
    1. Select **Grant access**, **Require multi-factor authentication**.
    1. Select **Select**.
+1. Under **Session**.
+   1. Select **Sign-in frequency**.
+   1. Ensure **Every time** is selected.
+   1. Select **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.
 
 ## Next steps
 
 - [Enable Azure AD Multi-Factor Authentication registration policy](howto-identity-protection-configure-mfa-policy.md)
-
 - [What is risk](concept-identity-protection-risks.md)
-
 - [Investigate risk detections](howto-identity-protection-investigate-risk.md)
-
 - [Simulate risk detections](howto-identity-protection-simulate-risk.md)
+- [Require reauthentication every time](../conditional-access/howto-conditional-access-session-lifetime.md#require-reauthentication-every-time)

@@ -6,14 +6,13 @@ ms.author: msangapu
 ms.date: 03/11/2022
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mode-other, devdivchpfy22
-zone_pivot_groups: app-service-containers-windows-linux-portal
+zone_pivot_groups: app-service-containers-windows-linux-portal-ps-cli
 ---
 
 # Run a custom container in Azure
 
 ::: zone pivot="container-windows-vs"
 [!INCLUDE [quickstart-custom-container-windows-visual-studio-pivot.md](includes/quickstart-custom-container/quickstart-custom-container-windows-visual-studio-pivot.md)]
-
 ::: zone-end  
 
 ::: zone pivot="container-linux-vscode"
@@ -26,4 +25,12 @@ zone_pivot_groups: app-service-containers-windows-linux-portal
 
 :::zone pivot="container-windows-azure-portal"
 [!INCLUDE [quickstart-custom-container-windows-azure-portal-pivot.md](includes/quickstart-custom-container/quickstart-custom-container-windows-azure-portal-pivot.md)]
+::: zone-end
+
+:::zone pivot="container-windows-powershell"
+[!INCLUDE [quickstart-custom-container-windows-powershell-pivot.md](includes/quickstart-custom-container/quickstart-custom-container-windows-powershell-pivot.md)]
+::: zone-end
+
+:::zone pivot="container-windows-cli"
+[!INCLUDE [quickstart-custom-container-windows-cli-pivot.md](includes/quickstart-custom-container/quickstart-custom-container-windows-cli-pivot.md)]
 ::: zone-end

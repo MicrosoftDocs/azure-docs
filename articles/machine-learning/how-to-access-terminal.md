@@ -61,15 +61,13 @@ Access all Git operations from the terminal. All Git files and folders will be s
 > [!NOTE]
 > Add your files and folders anywhere under the **~/cloudfiles/code/Users** folder so they will be visible in all your Jupyter environments.
 
-Learn more about [cloning Git repositories into your workspace file system](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system).
-
 ## Install packages
 
  Install packages from a terminal window. Install Python packages into the **Python 3.8 - AzureML** environment.  Install R packages into the **R** environment.
 
 Or you can install packages directly in Jupyter Notebook or RStudio:
 
-* RStudio [Add RStudio]([Create and manage an Azure Machine Learning compute instance]: Use the **Packages** tab on the bottom right, or the **Console** tab on the top left.  
+* RStudio ([Add RStudio](how-to-create-manage-compute-instance.md#add-custom-applications-such-as-rstudio-preview)): Use the **Packages** tab on the bottom right, or the **Console** tab on the top left.  
 * Python: Add install code and execute in a Jupyter Notebook cell.
 
 > [!NOTE]

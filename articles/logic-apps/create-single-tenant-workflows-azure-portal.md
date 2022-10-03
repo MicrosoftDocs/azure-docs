@@ -5,13 +5,15 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 04/15/2022
+ms.date: 08/15/2022
 ms.custom: ignite-fall-2021
 
 #Customer intent: As a developer, I want to create an automated integration workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
 ---
 
 # Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal
+
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 This article shows how to create an example automated integration workflow that runs in the *single-tenant* Azure Logic Apps environment by using the **Logic App (Standard)** resource type and the Azure portal. This resource type can host multiple [stateful and stateless workflows](single-tenant-overview-compare.md#stateful-stateless). Also, workflows in the same logic app and tenant run in the same process as the redesigned Azure Logic Apps runtime, so they share the same resources and provide better performance. For more information about the single-tenant Azure Logic Apps offering, review [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md).
 
@@ -59,6 +61,16 @@ As you progress, you'll complete these high-level tasks:
 * If you create your logic app resources with settings that support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you create your logic app or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment.
 
 * To deploy your **Logic App (Standard)** resource to an [App Service Environment v3 (ASEv3)](../app-service/environment/overview.md), you have to create this environment resource first. You can then select this environment as the deployment location when you create your logic app resource. For more information, review [Resources types and environments](single-tenant-overview-compare.md#resource-environment-differences) and [Create an App Service Environment](../app-service/environment/creation.md).
+
+## Best practices and recommendations
+
+For optimal designer responsiveness and performance, review and follow these guidelines:
+
+- Use no more than 50 actions per workflow. Exceeding this number of actions raises the possibility for slower designer performance. 
+
+- Consider splitting business logic into multiple workflows where necessary.
+
+- Have no more than 10-15 workflows per logic app resource.
 
 <a name="create-logic-app-resource"></a>
 

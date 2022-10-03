@@ -1,9 +1,8 @@
 ---
 title: Plan a consulting service offer for the commercial marketplace 
 description: Plan a consulting service offer for Microsoft AppSource or Azure Marketplace in Partner Center.
-author: Microsoft-BradleyWright
-ms.author: brwrigh
-ms.reviewer: emuench
+author: TeoLupu
+ms.author: telupu
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

@@ -3,7 +3,7 @@ title: Azure AD Connect cloud sync supported topologies and scenarios
 description: Learn about various on-premises and Azure Active Directory (Azure AD) topologies that use Azure AD Connect cloud sync.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual

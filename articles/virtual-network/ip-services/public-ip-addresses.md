@@ -136,7 +136,7 @@ The limits for IP addressing are listed in the full set of [limits for networkin
 
 ## Pricing
 
-Public IP addresses have a nominal charge. To learn more about IP address pricing in Azure, review the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page.
+Public IPv4 addresses have a nominal charge; Public IPv6 addresses have no charge.  To learn more about IP address pricing in Azure, review the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page.
 
 ## Limitations for IPv6
 

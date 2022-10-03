@@ -4,7 +4,7 @@ description: Learn how to configure your API for MongoDB account capabilities
 author: gahl-levy
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/01/2022
+ms.date: 09/06/2022
 ms.author: gahllevy
 ---
 
@@ -32,6 +32,10 @@ Copy each of these capabilities. In this example, we have EnableMongo and Disabl
 ```powershell
 az cosmosdb update -n <account_name> -g <azure_resource_group> --capabilities EnableMongo, DisableRateLimitingResponses
 ```
+If you are using PowerShell and receive an error using the command above, try using a PowerShell array instead to list the capabilities: 
+```powershell
+az cosmosdb update -n <account_name> -g <azure_resource_group> --capabilities @("EnableMongo","DisableRateLimitingResponses")
+```
 
 ## Disable a capability
 1. Retrieve your existing account capabilities:
@@ -54,6 +58,10 @@ Copy each of these capabilities. In this example, we have EnableMongo and Disabl
 2. Remove the capability from your database account. The list of capabilities should include the list of previously enabled capabilities you want to keep, since only the explicitly named capabilities will be set on your account. For example, if you want to remove the capability "DisableRateLimitingResponses", you would run the following command: 
 ```powershell
 az cosmosdb update -n <account_name> -g <azure_resource_group> --capabilities EnableMongo
+```
+If you are using PowerShell and receive an error using the command above, try using a PowerShell array instead to list the capabilities: 
+```powershell
+az cosmosdb update -n <account_name> -g <azure_resource_group> --capabilities @("EnableMongo")
 ```
 
 ## Next steps

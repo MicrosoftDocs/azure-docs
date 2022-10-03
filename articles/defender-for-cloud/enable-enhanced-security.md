@@ -9,9 +9,9 @@ ms.custom: mode-other
 
 # Quickstart: Enable enhanced security features
 
-Get started with Defender for Cloud by using it's enhanced security features to protect you hybrid and multicloud environments.
+Get started with Defender for Cloud by using its enhanced security features to protect your hybrid and multicloud environments.
 
-In this quickstart you will learn how to enable the enhanced security features by enabling the different Defender for Cloud plans through the Azure portal.
+In this quickstart, you'll learn how to enable the enhanced security features by enabling the different Defender for Cloud plans through the Azure portal.
 
 To learn more about the benefits of enhanced security features, see [Microsoft Defender for Cloud's enhanced security features](enhanced-security-features-overview.md).
 
@@ -25,7 +25,7 @@ To learn more about the benefits of enhanced security features, see [Microsoft D
 
 To enable all Defender for Cloud features including threat protection capabilities, you must enable enhanced security features on the subscription containing the applicable workloads. 
 
-If you only enable Defender for Cloud at the workspace level, Defender for Cloud will not enable just-in-time VM access, adaptive application controls, and network detections for Azure resources. In addition, the only Microsoft Defender plans available at the workspace level are Microsoft Defender for Servers and Microsoft Defender for SQL servers on machines.
+If you only enable Defender for Cloud at the workspace level, Defender for Cloud won't enable just-in-time VM access, adaptive application controls, and network detections for Azure resources. In addition, the only Microsoft Defender plans available at the workspace level are Microsoft Defender for Servers and Microsoft Defender for SQL servers on machines.
 
 > [!NOTE]
 > - You can enable **Microsoft Defender for Storage accounts** at either the subscription level or resource level.
@@ -36,7 +36,7 @@ You can protect an entire Azure subscription with Defender for Cloud's enhanced 
 
 **To enable enhanced security features on one subscription**:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for and select **Microsoft Defender for Cloud**.
 
@@ -52,7 +52,7 @@ You can protect an entire Azure subscription with Defender for Cloud's enhanced 
 
 **To enable enhanced security on multiple subscriptions or workspaces**:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for and select **Microsoft Defender for Cloud**.
 
@@ -76,7 +76,7 @@ You can protect an entire Azure subscription with Defender for Cloud's enhanced 
 
 Certain plans allow you to customize your protection.
 
-You can learn about the differences between the [Defender for Servers plans](defender-for-servers-introduction.md#available-defender-for-server-plans) to help you choose which one you would like to apply to your subscription.
+You can learn about the differences between the [Defender for Servers plans](defender-for-servers-introduction.md#defender-for-servers-plans) to help you choose which one you would like to apply to your subscription.
 
 Defender for Databases allows you to [select which type of resources you want to protect](quickstart-enable-database-protections.md). You can learn about the different types of protections offered.
 
@@ -84,11 +84,11 @@ Defender for Containers is available on hybrid and multicloud environments. You 
 
 ## Disable enhanced security features
 
-If you choose to disable the enhanced security features for a subscription, you will just need to change the plan to **Off**.
+If you choose to disable the enhanced security features for a subscription, you'll just need to change the plan to **Off**.
  
 **To disable enhanced security features**:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for and select **Microsoft Defender for Cloud**.
 

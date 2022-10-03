@@ -11,7 +11,7 @@ ms.author: nikuklic
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A phone number acquired in Communication Services resource. [how to get a phone number](../get-phone-number.md).
+- A [phone number acquired](../get-phone-number.md) in your Communication Services resource, or Azure Communication Services [direct routing configured](../../../concepts/telephony/direct-routing-provisioning.md)
 - A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../access-tokens.md)
 - Complete the quickstart for [getting started with adding calling to your application](../../voice-video-calling/getting-started-with-calling.md)
 

@@ -38,7 +38,7 @@ Monitoring solutions can contain multiple types of Azure resources. You can view
 
 To list the monitoring solutions installed in your subscription:
 
-1. Go to the [Azure portal](https://portal.azure.com). Search for and select **Solutions**.
+1.Select the **Solutions** menu in the Azure portal.
 
    Solutions installed in all your workspaces are listed. The name of the solution is followed by the name of the workspace where it's installed.
 1. Use the dropdown boxes at the top of the screen to filter by subscription or resource group.
@@ -243,7 +243,7 @@ You can remove any installed monitoring solution, except **LogManagment**, which
 
 ### [Portal](#tab/portal)
 
-To remove an installed solution by using the portal, find it in the [list of installed solutions](#list-installed-monitoring-solutions). Select the name of the solution to open its summary page, and then select **Delete**.
+To remove an installed solution by using the portal, find it in the [list of installed solutions](#list-installed-monitoring-solutions). Select the name of the solution for the workspace you want to remove it from to open its summary page, and then select **Delete**.
 
 ### [Azure CLI](#tab/azure-cli)
 

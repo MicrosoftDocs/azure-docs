@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/defender-for-iot/organizations/resources-frequently-asked-questions.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/faqs-general",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/organizations/appliance-catalog/appliance-catalog-overview.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/appliance-catalog/index",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/defender-for-iot/organizations/plan-network-monitoring.md",
             "redirect_url": "/azure/defender-for-iot/organizations/best-practices/plan-network-monitoring",
             "redirect_document_id": false

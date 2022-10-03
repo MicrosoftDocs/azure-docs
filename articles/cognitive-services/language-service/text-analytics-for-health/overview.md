@@ -31,7 +31,7 @@ Text Analytics for health extracts and labels relevant medical information from 
 
 [!INCLUDE [Text Analytics for health](includes/features.md)]
 
-> [!VIDEO https://docs.microsoft.com/Shows/AI-Show/Introducing-Text-Analytics-for-Health/player]
+> [!VIDEO https://learn.microsoft.com/Shows/AI-Show/Introducing-Text-Analytics-for-Health/player]
 
 ## Get started with Text analytics for health
 

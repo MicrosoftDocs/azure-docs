@@ -57,7 +57,7 @@ CSPs must use [Microsoft Partner Center](https://partner.microsoft.com) to enabl
 Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from Partner Center.
 
 >[!IMPORTANT] 
->Azure VMware Solution service does not provide a multi-tenancy required. Hosting partners requiring it are not supported. 
+>Azure VMware Solution service does not provide multi-tenancy support. Hosting partners requiring it are not supported. 
 
 1. Configure the CSP Azure plan:
 

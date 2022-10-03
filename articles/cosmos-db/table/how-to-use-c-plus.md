@@ -6,8 +6,8 @@ ms.subservice: cosmosdb-table
 ms.devlang: cpp
 ms.topic: sample
 ms.date: 10/07/2019
-author: sakash279
-ms.author: akshanka
+author: rothja
+ms.author: jroth
 ---
 # How to use Azure Table storage and Azure Cosmos DB Table API with C++
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
@@ -509,4 +509,4 @@ Follow these links to learn more about Azure Storage and the Table API in Azure 
 * [Introduction to the Table API](introduction.md)
 * [List Azure Storage resources in C++](../../storage/common/storage-c-plus-plus-enumeration.md)
 * [Storage Client Library for C++ reference](https://azure.github.io/azure-storage-cpp)
-* [Azure Storage documentation](https://azure.microsoft.com/documentation/services/storage/)
+* [Azure Storage documentation](/azure/storage/)

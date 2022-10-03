@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/21/2022
+ms.date: 07/05/2022
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect to Azure Stack Edge Pro GPU so I can use it to transfer data to Azure. 
@@ -52,12 +52,9 @@ Before you configure and set up your Azure Stack Edge Pro GPU device, make sure 
 
 1. Configure the Ethernet adapter on your computer to connect to the Azure Stack Edge Pro device with a static IP address of 192.168.100.5 and subnet 255.255.255.0.
 
-2. Connect the computer to PORT 1 on your device. If connecting the computer to the device directly (without a switch), use an Ethernet crossover cable or a USB Ethernet adapter. Use the following illustration to identify PORT 1 on your device.
+2. Connect the computer to PORT 1 on your device. If connecting the computer to the device directly (without a switch), use an Ethernet crossover cable or a USB Ethernet adapter. 
 
-    ![Backplane of a cabled device](./media/azure-stack-edge-gpu-deploy-install/two-pci-slots.png)
-
-    The backplane of the device may look slightly different depending on the exact model you have received. For more information, see [Cable your device](azure-stack-edge-gpu-deploy-install.md#cable-the-device).
-
+    The backplane of the device may look slightly different depending on the exact model you have received. Use the illustrations in [Cable your device](azure-stack-edge-gpu-deploy-install.md#cable-the-device) to identify Port 1 on your device.
 
 3. Open a browser window and access the local web UI of the device at `https://192.168.100.10`.  
     This action may take a few minutes after you've turned on the device.
@@ -85,6 +82,8 @@ You're now at the **Overview** page of your device. The next step is to configur
 1. Configure the Ethernet adapter on your computer to connect to the first node of your Azure Stack Edge device with a static IP address of 192.168.100.5 and subnet 255.255.255.0.
 
 1. Connect the computer to PORT 1 on the first node of your 2-node device. If connecting the computer to the device directly (without a switch), use an Ethernet crossover cable or a USB Ethernet adapter. 
+
+    The backplane of the device may look slightly different depending on the exact model you have received. Use the illustrations in [Cable your device](azure-stack-edge-gpu-deploy-install.md#cable-the-device) to identify Port 1 on your device.
 
 1. Open a browser window and access the local web UI of the device at `https://192.168.100.10`.  
     This action may take a few minutes after you've turned on the device.

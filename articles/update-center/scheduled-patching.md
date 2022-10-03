@@ -1,8 +1,7 @@
 ---
 title: Scheduling recurring updates in Update management center (preview)
 description: The article details how to use update management center (preview) in Azure to set update schedules that install recurring updates on your machines.
-ms.service: automation
-ms.subservice: update-management
+ms.service: update-management-center
 ms.date: 04/21/2022
 ms.topic: conceptual
 author: SnehaSudhirG
@@ -24,8 +23,6 @@ Update management center (preview) uses maintenance control schedule instead of 
 
 	> [!Note]
 	> If you set the patch orchestration mode to Azure orchestrated (Automatic By Platform) but don't attach a maintenance configuration to an Azure machine, it is treated as [Automatic Guest patching](../virtual-machines/automatic-vm-guest-patching.md) enabled machine and Azure platform will automatically install updates as per its own schedule.
-
-1. The maintenance configuration's subscription and the subscriptions of all VMs assigned to the maintenance configuration must be allowlisted with feature flag **Microsoft.Compute/InGuestScheduledPatchVMPreview**.
 
 
 ## Schedule recurring updates on single VM
