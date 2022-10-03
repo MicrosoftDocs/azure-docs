@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 09/21/2022
+ms.date: 10/03/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -21,7 +21,7 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 Updates in October include:
 
 - [Announcing the Microsoft Cloud Security Benchmark](#announcing-the-microsoft-cloud-security-benchmark)
-- [Attack path analysis and contextual security capabilities in Defender for Cloud](#attack-path-analysis-and-contextual-security-capabilities-in-defender-for-cloud)
+- [Attack path analysis and contextual security capabilities in Defender for Cloud (Preview)](#attack-path-analysis-and-contextual-security-capabilities-in-defender-for-cloud-preview)
 - [Agentless scanning for Azure and AWS machines (Preview)](#agentless-scanning-for-azure-and-aws-machines-preview)
 - [Defender for DevOps (Preview)](#defender-for-devops-preview)
 - [Regulatory Compliance Dashboard now supports manual control management and detailed information on Microsoft's compliance status](#regulatory-compliance-dashboard-now-supports-manual-control-management-and-detailed-information-on-microsofts-compliance-status)
@@ -39,9 +39,9 @@ Microsoft Cloud Security Benchmark is automatically assigned to your Azure subsc
 
 Learn more about the [Microsoft Cloud Security Benchmark](/security/benchmark/azure/introduction).
 
-### Attack path analysis and contextual security capabilities in Defender for Cloud
+### Attack path analysis and contextual security capabilities in Defender for Cloud (Preview)
 
-The new Cloud Security Graph, Attack Path Analysis and contextual cloud security capabilities are now available in Defender for Cloud.
+The new Cloud Security Graph, Attack Path Analysis and contextual cloud security capabilities are now available in Defender for Cloud in preview.
 
 One of the biggest challenges that security teams face today is the number of security issues they face on a daily basis. There are numerous security issues that need to be resolved and never enough resources to address them all.
 
@@ -62,7 +62,9 @@ Agentless vulnerability scanning is available in both Defender Defender Cloud Se
 
 ### Defender for DevOps (Preview)
 
-You can configure pull request annotations for secret scan findings in Azure DevOps 
+Defender for Cloud now includes Defender for DevOps in preview.
+
+You can now configure pull request annotations for secret scan findings in Azure DevOps.
 
 The Azure DevOps extension and GitHub action leverage the Microsoft Security DevOps tools to scan the following: 
 
