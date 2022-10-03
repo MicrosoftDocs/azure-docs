@@ -336,4 +336,4 @@ An Azure Kubernetes Fleet Manager resource is itself a Kubernetes cluster that y
 
 ## Next steps
 
-* Learn how to use [Kubernetes configuration propagation](./configuration-propagation.md)
+* Learn how to use [Kubernetes resource objects propagation](./configuration-propagation.md)

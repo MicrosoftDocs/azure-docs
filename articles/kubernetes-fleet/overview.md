@@ -18,7 +18,7 @@ Fleet supports the following scenarios:
 
 * Create a Fleet resource and group AKS clusters as member clusters.
 
-* Create Kubernetes objects on the Fleet resource's cluster and control their propagation to all or a subset of all member clusters.
+* Create Kubernetes resource objects on the Fleet resource's cluster and control their propagation to all or a subset of all member clusters.
 
 * Export a service from one member cluster to the Fleet resource. Once successfully exported, the service and its endpoints are synced to the hub, which other member clusters (or any Fleet resource-scoped load balancer) can consume.
 
