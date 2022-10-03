@@ -36,7 +36,7 @@ HTTP connector is available in all workflow templates.
 
     :::image type="content" source="./media/how-to-use-workflow-http-connector/add-http-properties.png" alt-text="Screenshot to add HTTP connector properties.":::
 
-1. By default, secure settings are turned on for HTTP connectors. To turn OFF secure inputs and outputs click on '...' to go to setting 
+1. By default, secure settings are turned on for HTTP connectors. To turn OFF secure inputs and outputs select the ellipsis icon (**...**) to go to settings.
 
     :::image type="content" source="./media/how-to-use-workflow-http-connector/add-http-settings.png" alt-text="Screenshot to add HTTP connector settings."::: 
 
