@@ -59,7 +59,7 @@ items:
     href: v3-migration-guide.md
   - name: Use the prebuilt-read model (v3.0)
     displayName: documentAnalysisClient, document analysis client, AnalyzeResult, analyze, output
-    href: how-to-guides/use-prebuilt-read.md
+    href: how-to-guides/v3-0-sdk-rest-api.md
   - name: Create SAS tokens for storage containers
     displayName: blob, delegation, shared, explorer
     href:  create-sas-tokens.md
