@@ -9,7 +9,7 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 09/21/2022
 ms.topic: how-to
-ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022
+ms.custom: fasttrack-edit, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv2, event-tier1-build-2022
 ---
 
 # Manage Azure Machine Learning workspaces in the portal or with the Python SDK (v2)
@@ -226,7 +226,7 @@ Place the file into  the directory structure with your Python scripts or Jupyter
 
 When running machine learning tasks using the SDK, you require a MLClient object that specifies the connection to your workspace. You can create an `MLClient` object from parameters, or with a configuration file.
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 * **With a configuration file:** This code will read the contents of the configuration file to find your workspace.  You'll get a prompt to sign in if you aren't already authenticated.
 
