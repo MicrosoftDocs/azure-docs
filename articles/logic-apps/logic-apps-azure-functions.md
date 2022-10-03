@@ -11,6 +11,8 @@ ms.custom: devx-track-js
 
 # Create and run code from workflows in Azure Logic Apps using Azure Functions
 
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+
 When you want to run code that performs a specific job in your logic app workflow, you can create a function by using [Azure Functions](../azure-functions/functions-overview.md). This service helps you create Node.js, C#, and F# functions so you don't have to build a complete app or infrastructure to run code. Azure Functions provides serverless computing in the cloud and is useful for performing certain tasks, for example:
 
 * Extend your logic app's behavior with functions in Node.js or C#.
