@@ -22,8 +22,8 @@ This how-to guide shows how to provision access via Microsoft Purview to Arc-ena
 - Provide the subscription ID and name of the Microsoft Purview account to the Microsoft program manager driving this private preview so that it can be enabled for you to test
 - Create a new, or use an existing resource group, and place new data sources under it. [Follow this guide to create a new resource group](../azure-resource-manager/management/manage-resource-groups-portal.md)
 - Get SQL server version 2022 RC 1 or later running on Windows and install it. [Follow this link](https://www.microsoft.com/sql-server/sql-server-2022).
-- Complete process to onboard that SQL server with Azure Arc [Follow this link](/sql/sql-server/azure-arc/connect.md).
-- Enable Azure AD Authentication in that SQL server. [Follow this guide to learn how](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-setup-tutorial.md). For a simpler setup [follow this link](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-automation-setup-tutorial.md#setting-up-azure-ad-admin-using-the-azure-portal).
+- Complete process to onboard that SQL server with Azure Arc [Follow this link](https://learn.microsoft.com/sql/sql-server/azure-arc/connect).
+- Enable Azure AD Authentication in that SQL server. [Follow this guide to learn how](https://learn.microsoft.com/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-setup-tutorial). For a simpler setup [follow this link](https://learn.microsoft.com/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-automation-setup-tutorial#setting-up-azure-ad-admin-using-the-azure-portal).
 
 **Enforcement of policies for this data source is currently available in the following regions for Microsoft Purview**
 - East US
