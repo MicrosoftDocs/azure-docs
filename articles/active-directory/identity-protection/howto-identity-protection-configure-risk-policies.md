@@ -74,7 +74,7 @@ Before organizations enable remediation policies, they may want to [investigate]
    1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
 1. Under **Conditions** > **User risk**, set **Configure** to **Yes**. 
-   1. Under **Configure user risk levels needed for policy to be enforced**, select **High**.
+   1. Under **Configure user risk levels needed for policy to be enforced**, select **High**. ([This is based on Microsoft recommendations and may be different for each organization](#choosing-acceptable-risk-levels))
    1. Select **Done**.
 1. Under **Access controls** > **Grant**.
    1. Select **Grant access**, **Require password change**.
@@ -99,7 +99,7 @@ After confirming your settings using [report-only mode](../conditional-access/ho
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
    1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
-1. Under **Conditions** > **Sign-in risk**, set **Configure** to **Yes**. Under **Select the sign-in risk level this policy will apply to**. 
+1. Under **Conditions** > **Sign-in risk**, set **Configure** to **Yes**. Under **Select the sign-in risk level this policy will apply to**. ([This is based on Microsoft recommendations and may be different for each organization](#choosing-acceptable-risk-levels))
    1. Select **High** and **Medium**.
    1. Select **Done**.
 1. Under **Access controls** > **Grant**.
