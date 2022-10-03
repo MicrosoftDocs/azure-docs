@@ -72,9 +72,12 @@ Solutions can be installed and updated individually or in bulk. Here's the proce
 
 1. Finally, in the **Review + create** tab, wait for the `Validation Passed` message, then select **Create** or **Update** to deploy the solution. You can also select the **Download a template for automation** link to deploy the solution as code.
 
-## Install and update solutions 
+## Bulk install and update solutions
 
-1. To install or update items in bulk, change to the list view.
+Content hub supports a list view in addition to the default card view. Multiple solutions can be selected with this view to install and update them all at once. 
+
+1. To install and/or update items in bulk, change to the list view.
+   :::image type="content" source="media/sentinel-solutions-deploy/content-hub-list-view.png" alt-text="Screenshot of the list view icon button highlighted.":::
 
 1. Select the checkboxes to install and update multiple solutions.
 
