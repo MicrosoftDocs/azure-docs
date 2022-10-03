@@ -57,7 +57,7 @@ If the mapping uses a non-routable UPN such as user@woodgrove.local, then Azure 
 The user's Azure AD UPN is cached and sent in subsequent sign-ins.
 
 >[!NOTE]
->In all cases, a user supplied User Name Hint (x509Hint) will be sent if provided. For a cloud-only user on a device joined to Azure AD with a certificate that contains a non-routable value, the user must pass the User Name Hint (x509Hint).
+>In all cases, a user supplied username login hint (X509UserNameHint) will be sent if provided. For a cloud-only user on a device joined to Azure AD with a certificate that contains a non-routable value, the user must pass the username login hint.
 
 For more information about the flow, see [Certificate Requirements and Enumeration (Windows)](/windows/security/identity-protection/smart-cards/smart-card-certificate-requirements-and-enumeration).
 
