@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 03/05/2022
+ms.date: 08/03/2022
 ---
 
 # SAP ABAP function module deployment guide
@@ -60,7 +60,7 @@ This step is optional, and an existing package can be used.
 
 1. Select and hold (or right-click) the function group name in the repository browser. Select **Create** and then select **Function Module**.
 
-1. In the **Function module** box, enter **Z_MITI_DOWNLOAD**. Enter a description in the **Short Text** box.
+1. In the **Function module** box, enter **Z_MITI_DOWNLOAD** in case of SAP ECC or S/4HANA and **Z_MITI_BW_DOWNLOAD** in case of SAP BW. Enter a description in the **Short Text** box.
 
 After the module is created, specify the following information:
 
@@ -109,7 +109,7 @@ After the module is created, specify the following information:
 
 After you finish the previous steps, test the function:
 
-1. Open the **Z\_MITI\_DOWNLOAD** function module.
+1. Open the **Z_MITI_DOWNLOAD** or **Z_MITI_BW_DOWNLOAD** function module you created.
 
 1. On the main menu, select **Function Module** > **Test** > **Test Function Module**. You can also select **F8**.
 

@@ -1,11 +1,11 @@
 ---
 title: What is Azure Communication Services?
 description: Learn how Azure Communication Services helps you develop rich user experiences with real-time communications.
-author: probableprime
+author: tophpalmer
 manager: chpalm
 services: azure-communication-services
 
-ms.author: rifox
+ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
@@ -22,8 +22,9 @@ Azure Communication Services supports various communication formats:
 - [Voice and Video Calling](concepts/voice-video-calling/calling-sdk-features.md)
 - [Rich Text Chat](concepts/chat/concepts.md)
 - [SMS](concepts/sms/concepts.md)
+- [Email](concepts/email/email-overview.md)
 
-You can connect custom client apps, custom services, and the publicly switched telephony network (PSTN) to your communications experience. You can acquire [phone numbers](./concepts/telephony/plan-solution.md) directly through Azure Communication Services REST APIs, SDKs, or the Azure portal; and use these numbers for SMS or calling applications. Azure Communication Services [direct routing](./concepts/telephony/plan-solution.md) allows you to use SIP and session border controllers to connect your own PSTN carriers and bring your own phone numbers.
+You can connect custom client apps, custom services, and the publicly switched telephony network (PSTN) to your communications experience. You can acquire [phone numbers](./concepts/telephony/plan-solution.md) directly through Azure Communication Services REST APIs, SDKs, or the Azure portal; and use these numbers for SMS or calling applications or you can simply integrate email capabilities to your applications using production-ready email SDKs. Azure Communication Services [direct routing](./concepts/telephony/plan-solution.md) allows you to use SIP and session border controllers to connect your own PSTN carriers and bring your own phone numbers.
 
 In addition to REST APIs, [Azure Communication Services client libraries](./concepts/sdk-options.md) are available for various platforms and languages, including Web browsers (JavaScript), iOS (Swift), Android (Java), Windows (.NET). A [UI library](https://aka.ms/acsstorybook) can accelerate development for Web, iOS, and Android apps. Azure Communication Services is identity agnostic and you control how end users are identified and authenticated.
 
@@ -43,6 +44,7 @@ To learn more, check out our [Microsoft Mechanics video](https://www.youtube.com
 |**[Create a Communication Services resource](./quickstarts/create-communication-resource.md)**|Begin using Azure Communication Services by using the Azure portal or Communication Services SDK to provision your first Communication Services resource. Once you have your Communication Services resource connection string, you can provision your first user access tokens.|
 |**[Get a phone number](./quickstarts/telephony/get-phone-number.md)**|Use Azure Communication Services to provision and release telephone numbers. These telephone numbers can be used to initiate or receive phone calls and build SMS solutions.|
 |**[Send an SMS from your app](./quickstarts/sms/send.md)**| Azure Communication Services SMS REST APIs and SDKs is used send and receive SMS messages from service applications.|
+|**[Send an Email from your app](./quickstarts/email/send-email.md)**| Azure Communication Services Email REST APIs and SDKs is used send an email messages from service applications.|
 
 After creating a Communication Services resource you can start building client scenarios, such as voice and video calling or text chat:
 
@@ -78,6 +80,7 @@ Learn more about the Azure Communication Services SDKs with the resources below.
 |**[Calling SDK overview](./concepts/voice-video-calling/calling-sdk-features.md)**|Review the Communication Services Calling SDK overview.|
 |**[Chat SDK overview](./concepts/chat/sdk-features.md)**|Review the Communication Services Chat SDK overview.|
 |**[SMS SDK overview](./concepts/sms/sdk-features.md)**|Review the Communication Services SMS SDK overview.|
+|**[Email SDK overview](./concepts/email/sdk-features.md)**|Review the Communication Services SMS SDK overview.|
 |**[UI Library overview](https://aka.ms/acsstorybook)**| Review the UI Library for the Communication Services |
 
 ## Design resources

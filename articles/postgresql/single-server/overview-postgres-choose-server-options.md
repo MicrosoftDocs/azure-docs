@@ -27,7 +27,7 @@ The main differences between these options are listed in the following table:
 
 | **Attribute** | **Postgres on Azure VMs** | **PostgreSQL as PaaS** |
 | ----- | ----- | ----- |
-| **Availability SLA** |- [Virtual Machine SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/) | - [Single Server, Flexible Server, and Hyperscale (Citus) SLA](https://azure.microsoft.com/support/legal/sla/postgresql/v1_2/)|
+| **Availability SLA** |- [Virtual Machine SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines) | - [Single Server, Flexible Server, and Hyperscale (Citus) SLA](https://azure.microsoft.com/support/legal/sla/postgresql)|
 | **OS and PostgreSQL patching** | - Customer managed | - Single Server – Automatic <br> - Flexible Server – Automatic with optional customer managed window <br> - Hyperscale (Citus) – Automatic |
 | **High availability** | - Customers architect, implement, test, and maintain high availability. Capabilities might include clustering, replication etc. | - Single Server:  built-in <br> - Flexible Server: built-in <br> - Hyperscale (Citus): built with standby |
 | **Zone Redundancy** | - Azure VMs can be set up to run in different availability zones. For an on-premises solution, customers must create, manage, and maintain their own secondary data center.	| - Single Server: No <br> - Flexible Server: Yes <br> - Hyperscale (Citus): No |

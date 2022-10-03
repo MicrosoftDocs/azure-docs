@@ -25,19 +25,25 @@ In this article, learn how to enable [MLflow Tracking](https://mlflow.org/docs/l
 
 See [MLflow and Azure Machine Learning](../concept-mlflow.md) for all supported MLflow and Azure Machine Learning functionality including MLflow Project support (preview) and model deployment.
  
-> [!TIP]
-> The information in this document is primarily for data scientists and developers who want to monitor the model training process. If you are an administrator interested in monitoring resource usage and events from Azure Machine Learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](../monitor-azure-machine-learning.md).
+> [!Tip] 
+> If you want to track experiments running on Azure Databricks or Azure Synapse Analytics, see the dedicated articles [Track Azure Databricks ML experiments with MLflow and Azure Machine Learning](../how-to-use-mlflow-azure-databricks.md) or [Track Azure Synapse Analytics ML experiments with MLflow and Azure Machine Learning](../how-to-use-mlflow-azure-synapse.md).
 
-> [!NOTE] 
-> You can use the [MLflow Skinny client](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst) which is a lightweight MLflow package without SQL storage, server, UI, or data science dependencies. This is recommended for users who primarily need the tracking and logging capabilities without importing the full suite of MLflow features including deployments.
+> [!NOTE]
+> The information in this document is primarily for data scientists and developers who want to monitor the model training process. If you are an administrator interested in monitoring resource usage and events from Azure Machine Learning, such as quotas, completed training jobs, or completed model deployments, see [Monitoring Azure Machine Learning](../monitor-azure-machine-learning.md).
 
 ## Prerequisites
+
+* Install the `mlflow` package. 
+    * You can use the [MLflow Skinny](https://github.com/mlflow/mlflow/blob/master/README_SKINNY.rst) which is a lightweight MLflow package without SQL storage, server, UI, or data science dependencies. This is recommended for users who primarily need the tracking and logging capabilities without importing the full suite of MLflow features including deployments.
 
 * Install the `azureml-mlflow` package. 
 * [Create an Azure Machine Learning Workspace](../quickstart-create-resources.md).
     * See which [access permissions you need to perform your MLflow operations with your workspace](../how-to-assign-roles.md#mlflow-operations).
 
-* Install and [set up Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) and make sure you install the ml extension.
+* Install and [set up Azure Machine Learning CLI (v1)](reference-azure-machine-learning-cli.md) and make sure you install the ml extension.
+
+    [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+
 * Install and set up [Azure Machine Learning SDK for Python](introduction.md#sdk-v1).
 
 ## Track runs from your local machine or remote compute
@@ -161,7 +167,7 @@ For details about how to log metrics, parameters and artifacts in a run using ML
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 
-Remote runs (jobs) let you train your models in a more robust and repetitive way. They can also leverage more powerful computes, such as Machine Learning Compute clusters. See [Use compute targets for model training](../how-to-set-up-training-targets.md) to learn about different compute options.
+Remote runs (jobs) let you train your models in a more robust and repetitive way. They can also leverage more powerful computes, such as Machine Learning Compute clusters. See [Use compute targets for model training](how-to-set-up-training-targets.md) to learn about different compute options.
 
 When submitting runs, Azure Machine Learning automatically configures MLflow to work with the workspace the run is running in. This means that there is no need to configure the MLflow tracking URI. On top of that, experiments are automatically named based on the details of the experiment submission.
 
@@ -354,6 +360,6 @@ The [MLflow with Azure ML notebooks](https://github.com/Azure/MachineLearningNot
 ## Next steps
 
 * [Deploy models with MLflow](how-to-deploy-mlflow-models.md).
-* Monitor your production models for [data drift](../how-to-enable-data-collection.md).
+* Monitor your production models for [data drift](how-to-enable-data-collection.md).
 * [Track Azure Databricks runs with MLflow](../how-to-use-mlflow-azure-databricks.md).
 * [Manage your models](concept-model-management-and-deployment.md).

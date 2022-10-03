@@ -3,7 +3,7 @@ title: Tutorial - Pilot Azure AD Connect cloud sync for an existing synced AD fo
 description: Learn how to pilot cloud sync for a test Active Directory forest that is already synced using Azure Active Directory (Azure AD) Connect sync.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial

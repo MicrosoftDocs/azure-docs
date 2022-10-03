@@ -53,7 +53,7 @@ Use this resource to learn how to export Event Grid system topics diagnostic log
 
 ## Contacting support
 
-If you have a technical question about Events or if you have a support related issue, see [Create a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) and complete the required fields under the **Problem description** tab. For more information about Azure support options, see [Azure support plans](https://azure.microsoft.com/support/options/#support-plans). 
+If you have a technical question about Events or if you have a support related issue, see [Create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) and complete the required fields under the **Problem description** tab. For more information about Azure support options, see [Azure support plans](https://azure.microsoft.com/support/options/#support-plans). 
 
 ## Next steps
 To learn about frequently asked questions (FAQs) about Events, see

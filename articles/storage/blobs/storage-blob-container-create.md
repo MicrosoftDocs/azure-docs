@@ -2,12 +2,12 @@
 title: Create a blob container with .NET - Azure Storage 
 description: Learn how to create a blob container in your Azure Storage account using the .NET client library.
 services: storage
-author: normesta
+author: pauljewellmsft
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/28/2022
-ms.author: normesta
+ms.date: 07/25/2022
+ms.author: pauljewell
 ms.subservice: blobs
 ms.devlang: csharp
 ms.custom: devx-track-csharp

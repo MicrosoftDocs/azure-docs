@@ -1,8 +1,8 @@
 ---
 title: Apache Cassandra features supported by Azure Cosmos DB Cassandra API
 description: Learn about the Apache Cassandra feature support in Azure Cosmos DB Cassandra API
-author: TheovanKraay
-ms.author: thvankra
+author: IriaOsara
+ms.author: iriaosara
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
@@ -236,7 +236,7 @@ Azure Cosmos DB Cassandra API is a managed service platform. The platform does n
 
 ## CQL shell
 
-<!-- You can open a hosted native Cassandra shell (CQLSH v5.0.1) directly from the Data Explorer in the [Azure portal](../data-explorer.md) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/). Before enabling the CQL shell, you must [enable the Notebooks](../enable-notebooks.md) feature in your account (if not already enabled, you will be prompted when clicking on `Open Cassandra Shell`). See the article [Enable notebooks for Azure Cosmos DB accounts](../enable-notebooks.md#supported-regions) for supported Azure Regions.
+<!-- You can open a hosted native Cassandra shell (CQLSH v5.0.1) directly from the Data Explorer in the [Azure portal](../data-explorer.md) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/). Before enabling the CQL shell, you must [enable the Notebooks](../notebooks-overview.md) feature in your account (if not already enabled, you will be prompted when clicking on `Open Cassandra Shell`).
 
 :::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Open CQLSH"::: -->
 
@@ -249,8 +249,7 @@ You can connect to the Cassandra API in Azure Cosmos DB by using the CQLSH insta
 
 <!-- If using windows, we recommend you enable the [Windows filesystem for Linux](/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). You can then follow the linux commands below. -->
 
-1. Install [Python 2.7](https://www.python.org/downloads/release/python-2718/)    
-    1. Select the Windows x86-64 MSI installer version 
+1. Install [Python 3](https://www.python.org/downloads/windows/)    
 1. Install PIP
     1. Before install PIP, download the get-pip.py file.
     1. Launch a command prompt if it isn't already open. To do so, open the Windows search bar, type cmd and select the icon.
@@ -267,10 +266,11 @@ python get-pip.py
 ```bash
 pip3 install cqlsh==5.0.3
 ```
-1. Run the [CQLSH using the authentication mechanism](manage-data-cqlsh.md#update-your-connection-string).
+4. Install [Python 2](https://www.python.org/downloads/windows/)
+5. Run the [CQLSH using the authentication mechanism](manage-data-cqlsh.md#update-your-connection-string).
 
 > [!NOTE]
->  You would need to set the environment variables to point to  the Python27 folder.
+>  You would need to set the environment variables to point to  the Python 2 folder.
 
 **Install on Unix/Linux/Mac:**
 
@@ -298,7 +298,7 @@ export SSL_VERSION=TLSv1_2
 export SSL_VALIDATE=false
 
 # Connect to Azure Cosmos DB API for Cassandra:
-cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl
+cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl --protocol-version=4
 ```
 **Connect with Docker:**
 ```bash

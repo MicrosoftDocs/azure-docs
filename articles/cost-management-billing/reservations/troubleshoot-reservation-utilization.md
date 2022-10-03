@@ -36,6 +36,7 @@ As usage data arrives, the value changes toward the correct percentage. When all
 If you find that your utilization values don't match your expectations, review the graph to get the most view of your actual utilization. Any point value older than two days should be accurate. Longer term averages from seven to 30 days should be accurate.
 
 ## Other common scenarios
+- If the reservation status is "No Benefit", it will give you a warning message and to solve this, follow recommendations presented on the reservation's page.
 - You may have stopped running resource A and started running resource B which is not applicable for the reservation you purchased for. To solve this, you may need to exchange the reservation to match it to the right resource. 
 - You may have moved a resource from one subscription or resource group to another, whereas the scope of the reservation is different from where the resource is being moved to. To resolve this case, you may need to change the scope of the reservation.
 - You may have purchased another reservation that also applied a benefit to the same scope, and as a result, less of an existing reserved instance applied a benefit. To solve this, you may need to exchange/refund one of the reservations.

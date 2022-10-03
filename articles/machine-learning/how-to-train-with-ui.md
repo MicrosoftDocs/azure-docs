@@ -15,15 +15,15 @@ ms.reviewer: laobri
 
 # Create a training job with the job creation UI (preview)
 
-There are many ways to create a training job with Azure Machine Learning. You can use the CLI (see [Train models (create jobs) with the CLI (v2)](how-to-train-cli.md)), the REST API (see [Train models with REST (preview)](how-to-train-with-rest.md)), or you can use the UI to directly create a training job. In this article, you'll learn how to use your own data and code to train a machine learning model with the job creation UI in Azure Machine Learning studio.
+There are many ways to create a training job with Azure Machine Learning. You can use the CLI (see [Train models (create jobs)](how-to-train-model.md)), the REST API (see [Train models with REST (preview)](how-to-train-with-rest.md)), or you can use the UI to directly create a training job. In this article, you'll learn how to use your own data and code to train a machine learning model with the job creation UI in Azure Machine Learning studio.
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+* An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/machine-learning/search/) today.
 
 * An Azure Machine Learning workspace. See [Create workspace resources](quickstart-create-resources.md). 
 
-* Understanding of what a job is in Azure Machine Learning. See [how to train models with the CLI (v2)](how-to-train-cli.md).
+* Understanding of what a job is in Azure Machine Learning. See [how to train models]how-to-train-model.md).
 
 ## Get started
 
@@ -36,6 +36,7 @@ There are many ways to create a training job with Azure Machine Learning. You ca
 
 * Or, you may enter the job creation from the left pane. Click **+New** and select **Job**. 
 [![Azure Machine Learning studio left navigation](media/how-to-train-with-ui/left-nav-entry.png)](media/how-to-train-with-ui/left-nav-entry.png)
+
 
 These options will all take you to the job creation panel, which has a wizard for configuring and creating a training job. 
 
@@ -77,7 +78,7 @@ After selecting a compute target, you need to specify the runtime environment fo
 
 ### Curated environments
 
-Curated environments are Azure-defined collections of Python packages used in common ML workloads. Curated environments are available in your workspace by default. These environments are backed by cached Docker images, which reduce the run preparation overhead. The cards displayed in the "Curated environments" page show details of each environment. To learn more, see [curated environments in Azure Machine Learning](resource-curated-environments.md).
+Curated environments are Azure-defined collections of Python packages used in common ML workloads. Curated environments are available in your workspace by default. These environments are backed by cached Docker images, which reduce the job preparation overhead. The cards displayed in the "Curated environments" page show details of each environment. To learn more, see [curated environments in Azure Machine Learning](resource-curated-environments.md).
 
  [![Curated environments](media/how-to-train-with-ui/curated-env.png)](media/how-to-train-with-ui/curated-env.png)
 
@@ -139,7 +140,7 @@ You may choose **view the YAML spec** to review and download the yaml file gener
 [![view yaml spec](media/how-to-train-with-ui/view-yaml.png)](media/how-to-train-with-ui/view-yaml.png)
 [![Yaml spec](media/how-to-train-with-ui/yaml-spec.png)](media/how-to-train-with-ui/yaml-spec.png)
 
-To launch the job, choose **Create**. Once the job is created, Azure will show you the run details page, where you can monitor and manage your training job. 
+To launch the job, choose **Create**. Once the job is created, Azure will show you the job details page, where you can monitor and manage your training job. 
 
   [!INCLUDE [Email Notification Include](../../includes/machine-learning-email-notifications.md)]
 
@@ -147,4 +148,4 @@ To launch the job, choose **Create**. Once the job is created, Azure will show y
 
 * [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md).
 
-* [Train models (create jobs) with the CLI (v2)](how-to-train-cli.md)
+* [Train models (create jobs) with the CLI, SDK, and REST API](how-to-train-model.md)

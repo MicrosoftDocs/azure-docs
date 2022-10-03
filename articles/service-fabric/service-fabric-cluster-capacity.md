@@ -117,6 +117,7 @@ Follow these recommendations for managing node types with Silver or Gold durabil
 Within certain constraints, node type durability level can be adjusted:
 
 * Node types with durability levels of Silver or Gold can't be downgraded to Bronze.
+* Downgrading node types with durability level of Gold to Silver is not supported.
 * Upgrading from Bronze to Silver or Gold can take a few hours.
 * When changing durability level, be sure to update it in both the Service Fabric extension configuration in your virtual machine scale set resource and in the node type definition in your Service Fabric cluster resource. These values must match.
 

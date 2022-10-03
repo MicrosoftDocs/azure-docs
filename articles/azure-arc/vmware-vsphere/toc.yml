@@ -12,6 +12,8 @@
     href: quick-start-create-a-vm.md 
 - name: How-to guides
   items:
+  - name: Support Matrix for Arc-enabled VMware vSphere
+    href: support-matrix-for-arc-enabled-vmware-vsphere.md
   - name: Enable VMware vCenter resources in Azure
     href: browse-and-enable-vcenter-resources-in-azure.md
   - name: Manage access to VMware resources through Azure RBAC
@@ -22,6 +24,9 @@
     href: day2-operations-resource-bridge.md
   - name: Remove vCenter from Azure Arc
     href: remove-vcenter-from-arc-vmware.md
+  - name: Perform recovery operations
+    displayName: disaster
+    href: disaster-recovery.md
 - name: Reference
   items:
   - name: Azure CLI

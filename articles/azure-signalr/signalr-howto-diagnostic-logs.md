@@ -66,7 +66,7 @@ Messaging logs provide tracing information for the SignalR hub messages received
 
 #### Http request logs
 
-Http request logs provide detailed information for the http requests received by Azure Web PubSub. For example, status code and URL of the request. Http request log is helpful to troubleshoot request-related issues.
+Http request logs provide detailed information for the http requests received by Azure SignalR. For example, status code and URL of the request. Http request log is helpful to troubleshoot request-related issues.
 
 ### Archive to a storage account
 
@@ -254,7 +254,7 @@ By checking the sign-in server and service side, you can easily find out whether
 
 For the direction **from client to server via SignalR service**, SignalR service will **only** consider the invocation that is originated from diagnostic client, that is, the message generated directly in diagnostic client, or service message generated due to the invocation of diagnostic client indirectly.
 
-The tracing ID will be generated in SignalR service once the message arrives at SignalR service in **Path 1**. SignalR service will generate a log `Received a message <MessageTracingId> from client connection <ConnectionId>.` for each message in diagnostic client. Once the message leaves from the SignalR to server, SignalR service will generate a log message `Sent a message <MessageTracingId> to server connection <ConnectionId> successfully.` If you see these two logs, you can be sure that the message passes through SignalR service successfully.
+The tracing ID will be generated in SignalR service once the message arrives at SignalR service in **Path 1**. SignalR service will generate a log `Received a message <MessageTracingId> from client connection <ConnectionId>.` for each message in diagnostic client. Once the message leaves from the SignalR to server, SignalR service will generate a log message `Sent a message <MessageTracingId> to server connection <ConnectionId> successfully.`. If you see these two logs, you can be sure that the message passes through SignalR service successfully.
 
 > [!NOTE]
 > Due to the limitation of ASP.NET Core SignalR, the message comes from client doesn't contains any message level ID. But ASP.NET SignalR generate *invocation ID* for each message, you can use it to map with the tracing ID.
@@ -262,7 +262,7 @@ The tracing ID will be generated in SignalR service once the message arrives at 
 Then the message carries the tracing ID Server in **Path 2**. Server will generate a log `Received message <messagetracingId> from client connection <connectionId>` once the message arrives.
 
 <span id="message-flow-detail-for-path3"></span>
-Once the message invokes the hub method in server, a new service message will be generated with a *new tracing ID*. Once the service message is generated, server will generate a sign in template `Start to broadcast/send message <MessageTracingId> ...`, the actual log will be based on your scenario. Then the message will be delivered to SignalR service in **Path 3**, once the service message leaves from server, a log called `Succeeded to send message <MessageTracingId>` will be generated.
+Once the message invokes the hub method in server, a new service message will be generated with a *new tracing ID*. Once the service message is generated, server will generate a sign-in template `Start to broadcast/send message <MessageTracingId> ...`, the actual log will be based on your scenario. Then the message will be delivered to SignalR service in **Path 3**, once the service message leaves from server, a log called `Succeeded to send message <MessageTracingId>` will be generated.
 
 > [!NOTE]
 > The tracing ID of the message from client cannot map to the tracing ID of the service message to be sent to SignalR service.

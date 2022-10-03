@@ -28,7 +28,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure Front Door
-            url: /learn/modules/intro-to-azure-front-door/       
+            url: /training/modules/intro-to-azure-front-door/       
        
   # Card
   - title: Create a Front Door
@@ -37,6 +37,20 @@ landingContent:
         links:
           - text: Create a Front Door
             url: create-front-door-portal.md
+
+  # Card
+  - title: Learn about Front Door and CDN architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Expose Azure Spring Apps through a reverse proxy
+            url: /azure/architecture/reference-architectures/microservices/spring-cloud-reverse-proxy
+          - text: CDN guidance
+            url: /azure/architecture/best-practices/cdn
+          - text: Scalable and secure WordPress on Azure
+            url: /azure/architecture/example-scenario/infrastructure/wordpress
+          - text: Content Delivery Network analytics
+            url: /azure/architecture/solution-ideas/articles/content-delivery-network-azure-data-explorer
 
   # Card
   - title: Configure Endpoint Manager

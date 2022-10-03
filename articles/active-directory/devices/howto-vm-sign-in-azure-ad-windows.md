@@ -10,7 +10,7 @@ ms.date: 06/16/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: sandeo
 
 ms.custom: references_regions, devx-track-azurecli, subject-rbac-steps
@@ -200,7 +200,7 @@ To configure role assignments for your Azure AD-enabled Windows Server 2019 Data
 
 The following example uses [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign the Virtual Machine Administrator Login role to the VM for your current Azure user. You obtain the username of your current Azure account by using [az account show](/cli/azure/account#az-account-show), and you set the scope to the VM created in a previous step by using [az vm show](/cli/azure/vm#az-vm-show). 
 
-You can also assign the scope at a resource group or subscription level. Normal Azure RBAC inheritance permissions apply. For more information, see [Log in to a Linux virtual machine in Azure by using Azure Active Directory authentication](../../virtual-machines/linux/login-using-aad.md).
+You can also assign the scope at a resource group or subscription level. Normal Azure RBAC inheritance permissions apply. For more information, see [Log in to a Linux virtual machine in Azure by using Azure Active Directory authentication](/azure-docs-archive-pr/virtual-machines/linux/login-using-aad).
 
 ```AzureCLI
 $username=$(az account show --query user.name --output tsv)
@@ -361,10 +361,10 @@ You might get the following error message when you initiate a remote desktop con
 
 ![Screenshot of the message that says your account is configured to prevent you from using this device.](./media/howto-vm-sign-in-azure-ad-windows/rbac-role-not-assigned.png)
 
-Verify that you've [configured Azure RBAC policies](../../virtual-machines/linux/login-using-aad.md) for the VM that grant the user the Virtual Machine Administrator Login or Virtual Machine User Login role.
+Verify that you've [configured Azure RBAC policies](#configure-role-assignments-for-the-vm) for the VM that grant the user the Virtual Machine Administrator Login or Virtual Machine User Login role.
 
 > [!NOTE]
-> If you're having problems with Azure role assignments, see [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md#azure-role-assignments-limit).
+> If you're having problems with Azure role assignments, see [Troubleshoot Azure RBAC](../../role-based-access-control/troubleshooting.md#limits).
  
 ### Unauthorized client or password change required
 
@@ -398,6 +398,20 @@ If you've configured a Conditional Access policy that requires MFA or legacy per
 Another MFA-related error message is the one described previously: "Your credentials did not work."
 
 ![Screenshot of the message that says your credentials didn't work.](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
+
+If you've configured a legacy per-user **Enabled/Enforced Azure AD Multi-Factor Authentication** setting and you see the error above, you can resolve the problem by removing the per-user MFA setting through these commands:
+
+```
+# Get StrongAuthenticationRequirements configure on a user
+(Get-MsolUser -UserPrincipalName username@contoso.com).StrongAuthenticationRequirements
+ 
+# Clear StrongAuthenticationRequirements from a user
+$mfa = @()
+Set-MsolUser -UserPrincipalName username@contoso.com -StrongAuthenticationRequirements $mfa
+ 
+# Verify StrongAuthenticationRequirements are cleared from the user
+(Get-MsolUser -UserPrincipalName username@contoso.com).StrongAuthenticationRequirements
+```
 
 If you haven't deployed Windows Hello for Business and if that isn't an option for now, you can configure a Conditional Access policy that excludes the Azure Windows VM Sign-In app from the list of cloud apps that require MFA. To learn more about Windows Hello for Business, see [Windows Hello for Business overview](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 

@@ -4,12 +4,12 @@ description: This article provides information on  exclusion lists configuration
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 02/10/2022
+ms.date: 08/03/2022
 ms.author: victorh
 ms.topic: conceptual
 ---
 
-# Web Application Firewall (WAF) with Front Door Service exclusion lists 
+# Web Application Firewall (WAF) with Front Door exclusion lists
 
 Sometimes Web Application Firewall (WAF) might block a request that you want to allow for your application. WAF exclusion lists allow you to omit certain request attributes from a WAF evaluation. The rest of the request is evaluated as normal.
 
@@ -35,6 +35,10 @@ The following attributes can be added to exclusion lists by name. The values of 
 * Request cookie name
 * Query string args name
 * Request body post args name
+* RequestBodyJSONArgNames
+
+>[!NOTE]
+>RequestBodyJSONArgNames is only available on Default Rule Set (DRS) 2.0 or later.
 
 You can specify an exact request header, body, cookie, or query string attribute match.  Or, you can optionally specify partial matches. The following operators are the supported match criteria:
 

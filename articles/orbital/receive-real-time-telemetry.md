@@ -202,4 +202,4 @@ The ground station provides telemetry using Avro as a schema. The schema is belo
 ## Next steps
 
 - [Event Hubs using Python Getting Started](../event-hubs/event-hubs-python-get-started-send.md)
-- [Azure Event Hubs client library for Python code samples](/azure-sdk-for-python/tree/main/sdk/eventhub/azure-eventhub/samples/async_samples)
+- [Azure Event Hubs client library for Python code samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventhub/azure-eventhub/samples/async_samples)

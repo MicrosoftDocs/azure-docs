@@ -243,7 +243,7 @@ To sign in the user, do the following:
                 /**
                  * For the purpose of setting an active account for UI update, we want to consider only the auth response resulting
                  * from SUSI flow. "tfp" claim in the id token tells us the policy (NOTE: legacy policies may use "acr" instead of "tfp").
-                 * To learn more about B2C tokens, visit https://docs.microsoft.com/en-us/azure/active-directory-b2c/tokens-overview
+                 * To learn more about B2C tokens, visit https://learn.microsoft.com/azure/active-directory-b2c/tokens-overview
                  */
                 if (response.idTokenClaims['tfp'].toUpperCase() === b2cPolicies.names.signUpSignIn.toUpperCase()) {
                     handleResponse(response);

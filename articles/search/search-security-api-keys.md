@@ -8,15 +8,15 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/26/2022
+ms.date: 08/15/2022
 ---
 
 # Use API keys for Azure Cognitive Search authentication
 
-Cognitive Search uses key-based authentication as its primary authentication methodology. For inbound requests to a search service endpoint, such as requests that create or query an index, API keys are the only generally available authentication option you have. A few outbound request scenarios, particularly those involving indexers, can use Azure Active Directory identities and roles.
+Cognitive Search offers key-based authentication as its primary authentication methodology. For inbound requests to a search service endpoint, such as requests that create or query an index, API keys are the only generally available authentication option you have. A few outbound request scenarios, particularly those involving indexers, can use Azure Active Directory identities and roles.
 
 > [!NOTE]
-> [Authorization for data plane operations](search-security-rbac.md) using Azure role-based access control (RBAC) is now in preview. You can use this preview capability to supplement or replace API keys on search index requests.
+> [Azure role-based access control (RBAC)](search-security-rbac.md) for inbound requests to a search endpoint is now in preview. You can use this preview capability to supplement or replace API keys on search index requests.
 
 ## Using API keys in search
 

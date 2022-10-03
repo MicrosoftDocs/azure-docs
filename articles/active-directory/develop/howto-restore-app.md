@@ -9,21 +9,19 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 3/22/2021
+ms.date: 07/28/2022
 ms.author: arcrowe
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to restore or permanently delete my recently deleted application from the Microsoft identity platform.
 ---
 
 # Restore or remove a recently deleted application with the Microsoft identity platform
-After you delete an app registration, the app remains in a suspended state for 30 days. During that 30-day window, the app registration can be restored, along with all its properties. After that 30-day window passes, app registrations cannot be restored and the permanent deletion process may be automatically started.  This functionality only applies to applications associated to a directory.  It is not available for applications from a personal Microsoft account, which cannot be restored.
 
-You can view your deleted applications, restore a deleted application, or permanently delete an application using the App registrations experience under Azure Active Directory (Azure AD) in the Azure portal.
+After you delete an app registration, the app remains in a suspended state for 30 days. During that 30-day window, the app registration can be restored, along with all its properties. After that 30-day window passes, app registrations can't be restored, and the permanent deletion process may be automatically started. This functionality only applies to applications associated to a directory. It isn't available for applications from a personal Microsoft account, which can't be restored.
 
-Note that neither you nor Microsoft customer support can restore a permanently deleted application or an application deleted more than 30 days ago.
+You can view your deleted applications, restore a deleted application, or permanently delete an application using the **App registrations** experience under Azure Active Directory (Azure AD) in the Azure portal.
 
-> [!IMPORTANT]
-> The deleted applications portal UI feature [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
+Neither you nor Microsoft customer support can restore a permanently deleted application or an application deleted more than 30 days ago.
 
 ## Required permissions
 You must have one of the following roles to permanently delete applications.
@@ -50,9 +48,9 @@ Review the list of applications. Only applications that have been deleted in the
 
 ## Restore a recently deleted application
 
-When an app registration is deleted from the organization, the app is in a suspended state and its configurations are preserved. When you restore an app registration, its configurations are also restored.  However, if there were any organization-specific settings in **Enterprise applications** for the application's home tenant, those will not be restored.  
+When an app registration is deleted from the organization, the app is in a suspended state, and its configurations are preserved. When you restore an app registration, its configurations are also restored. However, if there were any organization-specific settings in **Enterprise applications** for the application's home tenant, those won't be restored.  
 
-This is because organization-specific settings are stored on a separate object, called the service principal.  Settings held on the service principal include permission consents and user and group assignments for a certain organization; these configurations will not be restored when the app is restored. For more information, see [Application and service principal objects](app-objects-and-service-principals.md). 
+This is because organization-specific settings are stored on a separate object, called the service principal.  Settings held on the service principal include permission consents and user and group assignments for a certain organization; these configurations won't be restored when the app is restored. To learn how to restore the service principal with its previous configurations, see [Restore a recently deleted enterprise application](../manage-apps/restore-application.md).
 
 
 ### To restore an application

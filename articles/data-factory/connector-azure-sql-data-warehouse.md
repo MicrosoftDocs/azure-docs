@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/04/2022
+ms.date: 09/15/2022
 ---
 
 # Copy and transform data in Azure Synapse Analytics by using Azure Data Factory or Synapse pipelines
@@ -81,20 +81,16 @@ The following sections provide details about properties that define Data Factory
 
 ## Linked service properties
 
-The following properties are supported for an Azure Synapse Analytics linked service:
+These generic properties are supported for an Azure Synapse Analytics linked service:
 
 | Property            | Description                                                  | Required                                                     |
 | :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | type                | The type property must be set to **AzureSqlDW**.             | Yes                                                          |
 | connectionString    | Specify the information needed to connect to the Azure Synapse Analytics instance for the **connectionString** property. <br/>Mark this field as a SecureString to store it securely. You can also put password/service principal key in Azure Key Vault，and if it's SQL authentication pull the `password` configuration out of the connection string. See the JSON example below the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes                                                          |
-| servicePrincipalId  | Specify the application's client ID.                         | Yes, when you use Azure AD authentication with a service principal. |
-| servicePrincipalKey | Specify the application's key. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes, when you use Azure AD authentication with a service principal. |
-| tenant              | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes, when you use Azure AD authentication with a service principal. |
 | azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your Azure AD application is registered. <br/> Allowed values are `AzurePublic`, `AzureChina`, `AzureUsGovernment`, and `AzureGermany`. By default, the data factory or Synapse pipeline's cloud environment is used. | No |
-| credentials | Specify the user-assigned managed identity as the credential object. | Yes, when you use user-assigned managed identity authentication. |
 | connectVia          | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure Integration Runtime. | No                                                           |
 
-For different authentication types, refer to the following sections on prerequisites and JSON samples, respectively:
+For different authentication types, refer to the following sections on specific properties, prerequisites and JSON samples, respectively:
 
 - [SQL authentication](#sql-authentication)
 - [Service principal authentication](#service-principal-authentication)
@@ -102,12 +98,17 @@ For different authentication types, refer to the following sections on prerequis
 - [User-assigned managed identity authentication](#user-assigned-managed-identity-authentication)
 
 >[!TIP]
->When creating linked service for Azure Synapse **serverless** SQL pool from UI, choose "enter manually" instead of browsing from subscription.
+>When creating linked service for a **serverless** SQL pool in Azure Synapse from the Azure portal:
+> 1. For **Account Selection Method**, choose **Enter manually**.
+> 1. Paste the **fully qualified domain name** of the serverless endpoint. You can find this in the Azure portal Overview page for your Synapse workspace, in the properties under **Serverless SQL endpoint**. For example, `myserver-ondemand.sql-azuresynapse.net`.
+> 1. For **Database name**, provide the database name in the serverless SQL pool.
 
 >[!TIP]
 >If you hit error with error code as "UserErrorFailedToConnectToSqlServer" and message like "The session limit for the database is XXX and has been reached.", add `Pooling=false` to your connection string and try again.
 
 ### SQL authentication
+
+To use SQL authentication authentication type, specify the generic properties that are described in the preceding section.
 
 #### Linked service example that uses SQL authentication
 
@@ -155,7 +156,15 @@ For different authentication types, refer to the following sections on prerequis
 
 ### Service principal authentication
 
-To use service principal-based Azure AD application token authentication, follow these steps:
+To use service principal authentication, in addition to the generic properties that are described in the preceding section, specify the following properties:
+
+| Property            | Description                                                  | Required                                                     |
+| :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| servicePrincipalId  | Specify the application's client ID.                         | Yes |
+| servicePrincipalKey | Specify the application's key. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| tenant              | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes |
+
+You also need to follow the steps below:
 
 1. **[Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal)** from the Azure portal. Make note of the application name and the following values that define the linked service:
 
@@ -207,7 +216,7 @@ To use service principal-based Azure AD application token authentication, follow
 
 A data factory or Synapse workspace can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity) that represents the resource. You can use this managed identity for Azure Synapse Analytics authentication. The designated resource can access and copy data from or to your data warehouse by using this identity.
 
-To use system-assigned managed identity authentication, follow these steps:
+To use system-assigned managed identity authentication, specify the generic properties that are described in the preceding section, and follow these steps.
 
 1. **[Provision an Azure Active Directory administrator](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database)** for your server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with system-assigned managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
 
@@ -246,7 +255,13 @@ To use system-assigned managed identity authentication, follow these steps:
 
 A data factory or Synapse workspace can be associated with a [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity) that represents the resource. You can use this managed identity for Azure Synapse Analytics authentication. The designated resource can access and copy data from or to your data warehouse by using this identity.
 
-To use user-assigned managed identity authentication, follow these steps:
+To use user-assigned managed identity authentication, in addition to the generic properties that are described in the preceding section, specify the following properties:
+
+| Property            | Description                                                  | Required         |
+| :------------------ | :----------------------------------------------------------- | :--------------- |
+| credentials | Specify the user-assigned managed identity as the credential object. | Yes              |
+
+You also need to follow the steps below:
 
 1. **[Provision an Azure Active Directory administrator](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database)** for your server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with user-assigned managed identity an admin role, skip steps 3. The administrator will have full access to the database.
 
@@ -1000,7 +1015,7 @@ By default, a data flow run will fail on the first error it gets. You can choose
 
 **Report success on error:** If enabled, the data flow will be marked as a success even if error rows are found. 
 
-:::image type="content" source="media/data-flow/sql-error-row-handling.png" alt-text="Screenshot that shows the error row handling" border="false":::
+:::image type="content" source="media/data-flow/sql-error-row-handling.png" alt-text="Diagram that shows the error row handling in mapping data flow sink transformation.":::
 
 ## Lookup activity properties
 

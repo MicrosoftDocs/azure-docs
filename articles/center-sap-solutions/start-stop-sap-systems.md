@@ -21,8 +21,8 @@ Through the Azure portal, you can start and stop:
     - Single-Server
     - High Availability (HA)
     - Distributed Non-HA
-- SAP systems that run on Linux operating systems (OS).
-- SAP HA systems that use Pacemaker clustering software. Other certified cluster software isn't currently supported.
+- SAP systems that run on Windows and Linux operating systems (OS).
+- SAP HA systems that use Linux Pacemaker clustering software and Windows Server Failover Clustering (WSFC). Other certified cluster software isn't currently supported.
 
 ## Prerequisites
 

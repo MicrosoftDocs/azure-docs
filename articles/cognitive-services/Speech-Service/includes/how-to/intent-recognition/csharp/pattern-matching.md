@@ -66,7 +66,7 @@ You need to associate some patterns with a `PatternMatchingModel` and apply it t
 We will start by creating a `PatternMatchingModel` and adding a few intents to it.
 
 > [!Note]
-> We can add multiple patterns to an `Intent`.
+> We can add multiple patterns to a `PatternMatchingIntent`.
 
 Insert this code inside the `using` block:
 

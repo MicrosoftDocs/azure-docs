@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 06/06/2022
+ms.date: 08/17/2022
 ---
 
 # Orders dashboard in commercial marketplace analytics
@@ -282,10 +282,11 @@ This table displays a numbered list of the 500 top orders sorted by date of acqu
 | Trial End Date | Trial End Date | The date the trial period for this order will end or has ended. | TrialEndDate |
 | Customer ID | Customer ID | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace subscriptions. | CustomerID |
 | Billing Account ID | Billing Account ID | The identifier of the account on which billing is generated. Map **Billing Account ID** to **customerID** to connect your Payout Transaction Report with the Customer, Order, and Usage Reports. | BillingAccountId |
-| Reference Id | ReferenceId | A key to link orders having usage details in usage report. Map this field value with the value for UsageReference key in usage report. This is applicable for SaaS with custom meters and VM software reservation offer types | ReferenceId |
+| Reference ID | ReferenceId | A key to link orders having usage details in usage report. Map this field value with the value for Reference ID key in usage report. This is applicable for SaaS with custom meters and VM software reservation offer types | ReferenceId |
 | PlanId | PlanId | The display name of the plan entered when the offer was created in Partner Center. Note that PlanId was originally a numeric number. | PlanId |
 | Auto Renew | Auto Renew | Indicates whether a subscription is due for an automatic renewal. Possible values are:<br><ul><li>TRUE: Indicates that on the TermEnd the subscription will renew automatically.</li><li>FALSE: Indicates that on the TermEnd the subscription will expire.</li><li>NULL: The product does not support renewals. Indicates that on the TermEnd the subscription will expire. This is displayed "-" on the UI</li></ul> | AutoRenew |
 | Not available | Event Timestamp | Indicates the timestamp of an order management event, such as an order purchase, cancelation, renewal, and so on | EventTimestamp |
+| Not available | OrderVersion | A key to indicate updated versions of an order purchase. The highest value indicates latest key | OrderVersion |
 
 ### Orders page filters
 

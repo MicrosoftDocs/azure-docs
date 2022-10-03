@@ -141,7 +141,7 @@ If you experience issues loading the workload protection dashboard, make sure th
 
 You can also find troubleshooting information for Defender for Cloud at the [Defender for Cloud Q&A page](/answers/topics/azure-security-center.html). If you need further troubleshooting, you can open a new support request using **Azure portal** as shown below:
 
-![Microsoft Support.](./media/troubleshooting-guide/troubleshooting-guide-fig2.png)
+:::image type="content" source="media/troubleshooting-guide/troubleshooting-guide-fig2.png" alt-text="Screenshot of creating a support request in the Help + support area.":::
 
 ## See also
 

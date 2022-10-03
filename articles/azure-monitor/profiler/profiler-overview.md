@@ -50,7 +50,9 @@ If you've enabled Profiler but aren't seeing traces, check our [Troubleshooting 
 ## Limitations
 
 - **Data retention**: The default data retention period is five days. 
-- **Profiling web apps**: While you can use the Profiler at no extra cost, your web app must be hosted in the basic tier of the Web Apps feature of Azure App Service, at minimum.
+- **Profiling web apps**: 
+   - While you can use the Profiler at no extra cost, your web app must be hosted in the basic tier of the Web Apps feature of Azure App Service, at minimum.
+   - You can only attach 1 profiler to each web app. 
 
 ## Next steps
 Learn how to enable Profiler on your Azure service:

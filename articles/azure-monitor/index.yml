@@ -74,8 +74,8 @@ landingContent:
     linkLists: 
       - linkListType: learn
         links:
-          - text: Microsoft Learn learning path
-            url: /learn/paths/monitor-usage-performance-availability-resources-azure-monitor/
+          - text: Learning path
+            url: /training/paths/monitor-usage-performance-availability-resources-azure-monitor/
 
   # Card
   - title: Reference - CLI
@@ -113,3 +113,5 @@ landingContent:
             url: /rest/api/application-insights/  
           - text: Application Insights REST API sandbox
             url: https://dev.applicationinsights.io
+          - text: Azure Alerts Management SDK for Python
+            url: /python/api/azure-mgmt-monitor/azure.mgmt.monitor.monitormanagementclient

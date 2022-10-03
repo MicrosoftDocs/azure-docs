@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 10/25/2020
+ms.date: 08/20/2022
 ---
 
 # Manage your integration service environment (ISE) in Azure Logic Apps

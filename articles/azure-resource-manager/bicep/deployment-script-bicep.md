@@ -36,9 +36,9 @@ The deployment script resource is only available in the regions where Azure Cont
 > [!NOTE]
 > Retry logic for Azure sign in is now built in to the wrapper script. If you grant permissions in the same Bicep file as your deployment scripts, the deployment script service retries sign in for 10 minutes with 10-second interval until the managed identity role assignment is replicated.
 
-### Microsoft Learn
+### Training resources
 
-If you would rather learn about the ARM template test toolkit through step-by-step guidance, see [Extend ARM templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts) on **Microsoft Learn**.
+If you would rather learn about the ARM template test toolkit through step-by-step guidance, see [Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts).
 
 ## Configure the minimum permissions
 
@@ -148,7 +148,7 @@ Property value details:
 
 - `arguments`: Specify the parameter values. The values are separated by spaces.
 
-  Deployment Scripts splits the arguments into an array of strings by invoking the [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) system call. This step is necessary because the arguments are passed as a [command property](/rest/api/container-instances/containergroups/createorupdate#containerexec)
+  Deployment Scripts splits the arguments into an array of strings by invoking the [CommandLineToArgvW](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) system call. This step is necessary because the arguments are passed as a [command property](/rest/api/container-instances/containergroups/createorupdate#containerexec)
     to Azure Container Instance, and the command property is an array of string.
 
   If the arguments contain escaped characters, double escaped the characters. For example, in the previous sample Bicep, The argument is `-name \"John Dole\"`. The escaped string is `-name \\"John Dole\\"`.
@@ -616,7 +616,7 @@ After the script is tested successfully, you can use it as a deployment script i
 
 ## Next steps
 
-In this article, you learned how to use deployment scripts. To walk through a Microsoft Learn module:
+In this article, you learned how to use deployment scripts. To walk through a Learn module:
 
 > [!div class="nextstepaction"]
-> [Extend ARM templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts)
+> [Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts)

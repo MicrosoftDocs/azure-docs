@@ -51,6 +51,7 @@ You'll complete the following tasks:
     * USB 2.0 A male to Micro USB male cable
     * Wired Ethernet access
     * Ethernet cable
+* An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prepare the development environment
 
