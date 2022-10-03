@@ -35,6 +35,8 @@
   items:
   - name: Role definitions
     href: role-definitions.md
+  - name: Role assignments
+    href: role-assignments.md
   - name: Scope
     href: scope-overview.md
   - name: Best practices
