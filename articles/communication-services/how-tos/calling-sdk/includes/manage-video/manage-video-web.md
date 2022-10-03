@@ -144,6 +144,55 @@ If the specified video device is being used by another process, or if it is disa
 - A call to the `localVideoStream.switchSource()` method will cause `cameraStartFailed` to be set to true.
 Our Call Diagnostics guide provides additional information on how to diagnose call related issues.
 
+To check or verify if the local video is on or off, you can use isLocalVideoStarted API which returns true or false:
+```js
+// Check if local video is on or off
+call.isLocalVideoStarted;
+```
+
+To listen for changes to the local video, you can subscribe and unsubscribe to the isLocalVideoStartedChanged event
+```js
+// Subscribe to local video event
+call.on('isLocalVideoStartedChanged', () => {
+    // Callback();
+});
+// Unsubscribe from local video event
+call.off('isLocalVideoStartedChanged', () => {
+    // Callback();
+});
+```
+
+
+
+## Start and stop screen sharing while on a call
+To start and stop screen sharing while on a call, you can use asynchronous APIs startScreenSharing and stopScreenSharing respectively:
+
+```js
+// Start screen sharing
+await call.startScreenSharing();
+
+// Stop screen sharing
+await call.stopScreenSharing();
+```
+
+To check or verify if screen sharing is on or off, you can use isScreenSharingOn API which returns true or false:
+```js
+// Check if screen sharing is on or off
+call.isScreenSharingOn;
+```
+
+To listen for changes to the screen share, you can subscribe and unsubscribe to the isScreenSharingOnChanged event
+```js
+// Subscribe to screen share event
+call.on('isScreenSharingOnChanged', () => {
+    // Callback();
+});
+// Unsubscribe from screen share event
+call.off('isScreenSharingOnChanged', () => {
+    // Callback();
+});
+```
+
 ## Render remote participant video streams
 
 To list the video streams and screen sharing streams of remote participants, inspect the `videoStreams` collections:
