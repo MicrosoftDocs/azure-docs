@@ -6,7 +6,7 @@ author: v-pgaddala
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/29/2022
+ms.date: 10/03/2022
 ms.author: v-pgaddala
 ---
 
