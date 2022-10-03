@@ -54,7 +54,7 @@ The following table summarizes Site Recovery limits:
 
 ### From Recovery Service Vault 
 
-1. Select source VMs on which you want to enable replication. To enable replication, follow the steps [here](https://learn.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication).
+1. Select source VMs on which you want to enable replication. To enable replication, follow the steps [here](/azure/site-recovery/azure-to-azure-how-to-enable-replication).
 
 2. Under **Replication Settings** > **Storage**, select **View/edit storage configuration**. The **Customize target settings** page opens.
   
