@@ -1671,6 +1671,41 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/cosmosdb-jupyter-notebooks.md",
+      "redirect_url": "/azure/cosmos-db/notebooks-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/sql/create-notebook-visualize-data.md",
+      "redirect_url": "/azure/cosmos-db/sql/tutorial-create-notebook",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/sql/enable-notebooks.md",
+      "redirect_url": "/azure/cosmos-db/sql/tutorial-create-notebook",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/sql/import-github-notebooks.md",
+      "redirect_url": "/azure/cosmos-db/sql/tutorial-create-notebook",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/sql/publish-notebook-gallery.md",
+      "redirect_url": "/azure/cosmos-db/sql/tutorial-create-notebook",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/sql/use-csharp-notebook-features-and-commands.md",
+      "redirect_url": "/azure/cosmos-db/sql/tutorial-create-notebook",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/sql/use-python-notebook-features-and-commands.md",
+      "redirect_url": "/azure/cosmos-db/sql/tutorial-create-notebook",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/continuous-backup-restore-portal.md",
       "redirect_url": "/azure/cosmos-db/provision-account-continuous-backup",
       "redirect_document_id": true
@@ -3408,6 +3443,11 @@
     {
       "source_path_from_root": "/articles/cosmos-db/sql-api-sdk-java-spring-v2.md",
       "redirect_url": "/azure/cosmos-db/sql/sql-api-sdk-java-spring-v2",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/how-to-setup-cmk.md",
+      "redirect_url": "/azure/cosmos-db/how-to-setup-customer-managed-keys",
       "redirect_document_id": true
     },
     {

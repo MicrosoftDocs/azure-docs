@@ -51,6 +51,10 @@ For more information about Production Support tiers and SLAs, see Product Suppor
 
 Technically, yes. Raise a support ticket from Azure portal to get this functionality enabled.
 
+## Does Microsoft BareMetal service store customer data outside the Azure region that a customer has chosen?
+
+No.
+
 ## Next steps
 
 Learn more:
