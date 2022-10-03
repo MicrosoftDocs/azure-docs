@@ -132,7 +132,7 @@ You can get a full example of the config file by installing the latest version o
     configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
     ```
 
-* You might also want to install and initialize the Performance Counter collector module as described at [this website](https://apmtips.com/posts/2017-02-13-enable-application-insights-live-metrics-from-code/)
+* You might also want to install and initialize the Performance Counter collector module as described at [this website](https://apmtips.com/posts/2017-02-13-enable-application-insights-live-metrics-from-code/).
 
 #### Full example
 
