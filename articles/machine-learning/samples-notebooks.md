@@ -58,7 +58,7 @@ The Data Science Virtual Machine (DSVM) is a customized VM image built specifica
 
 ## Next steps
 
-Explore the [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) and [AzureML-Examples](https://github.com/Azure/azureml-examples) repositories to discover what Azure Machine Learning can do.
+Explore the [AzureML-Examples](https://github.com/Azure/azureml-examples) repository to discover what Azure Machine Learning can do.
 
 For more examples of MLOps, see [https://github.com/Azure/mlops-v2](https://github.com/Azure/mlops-v2).
 
