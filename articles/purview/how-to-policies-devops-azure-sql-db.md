@@ -1,15 +1,15 @@
 ---
-title: Provision access to Azure SQL DB for DevOps actions (preview)
-description: Step-by-step guide on provisioning access to Azure SQL DB through Microsoft Purview DevOps policies
+title: Provision access to Azure SQL Database for DevOps actions (preview)
+description: Step-by-step guide on provisioning access to Azure SQL Database through Microsoft Purview DevOps policies
 author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 09/28/2022
+ms.date: 10/03/2022
 ms.custom: references_regions
 ---
-# Provision access to Azure SQL DB for DevOps actions (preview)
+# Provision access to Azure SQL Database for DevOps actions (preview)
 
 > [!IMPORTANT]
 > This feature is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
