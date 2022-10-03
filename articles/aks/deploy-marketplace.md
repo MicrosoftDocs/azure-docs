@@ -29,30 +29,9 @@ Included among these solutions are Kubernetes application-based Container offers
 > - West Europe
 > - East US.
 
-## Register feature flags
+## Register resource providers
 
-You must have registered the `Microsoft.KubernetesConfiguration/extensions` and `Microsoft.ContainerService/managedClusters` feature flags on your subscription. To begin, register the relevant providers using the `az provider register` command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.KubernetesConfiguration --wait
-az provider register --namespace Microsoft.ContainerService --wait
-```
-
-The following command will register both feature flags:
-
-```azurecli-interactive
-az feature register --name extensions --namespace Microsoft.KubernetesConfiguration
-az feature register --name managedClusters --namespace Microsoft.ContainerService
-```
-
-You can check on the registration status by using the az feature list command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.KubernetesConfiguration/extensions')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/managedClusters')].{Name:name,State:properties.state}"
-```
-
-Once ready, refresh the registration of the `Microsoft.KubernetesConfiguration` and `Microsoft.ContainerService`   resource providers:
+You must have registered the `Microsoft.KubernetesConfiguration` and `Microsoft.ContainerService` providers on your subscription using the `az provider register` command:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.KubernetesConfiguration --wait

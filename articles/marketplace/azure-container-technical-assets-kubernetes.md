@@ -178,6 +178,8 @@ Ensure the Helm chart adheres to the following rules:
 
 - All image names and references are parameterized and represented in `values.yaml` as global.azure.images references. Update `deployment.yaml` to point these images. This ensure the image block can be updated and referenced by Azure Marketplace's ACR.
 
+    :::image type="content" source="./media/azure-container/billing-identifier.png" alt-text="A screenshot of a properly formatted values.yaml file is shown. It resembles the sample values.yaml file linked from this article.":::
+
 - If you have any subcharts, extract the content under charts and update each of your dependent image references to point to the images included in the main chart's `values.yaml`.
 
 - Images must use digests instead of tags. This ensures CNAB building is deterministic.
