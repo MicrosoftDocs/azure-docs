@@ -41,11 +41,11 @@ Here are the values for UPN and certificateUserIDs for Bob's productivity accoun
 Azure AD User Principal Name = Bob.Smith@Contoso.com <br>
 certificateUserIDs = [ x509:\<PN>Bob.Smith@Contoso.com , x509:\<SKI>89b0f468c1abea65ec22f0a882b8fda6fdd6750p]
 
-By default, Azure AD CBA has a single user binding configured. The UPN attribute is the Subject Alternative Name of a certificate presented to Azure AD. Some administrators require the ability for Azure AD to be able to map a single certificate to multiple Azure AD accounts. We refer to this as 1:M mapping. Azure AD CBA supports this implementation via administrators adding additional mapping methods to the policy. 
+By default, Azure AD CBA has a single user binding configured. The UPN attribute is the Subject Alternative Name of a certificate presented to Azure AD. Some administrators require the ability for Azure AD to be able to map a single certificate to multiple Azure AD accounts. We refer to this as 1:M mapping. Azure AD CBA supports 1:M mapping. Administrators can add mapping methods to the policy. 
 
-An example of this would be a developer use case. For example, Bob has a regular productivity account that is used to accomplish his everyday tasks and a developer account to use when he is doing task related to his developer job roles. The organization issues a single high assurance certificate to Bob and wishes for him to be able to use this same certificate for both his productivity and developer accounts. 
+An example of this would be a software developer. For example, Bob has a regular productivity account that he uses for his everyday tasks. He also uses a developer account for assignments. The organization issues a single, high-assurance certificate to Bob and wants him to use this same certificate for both his productivity and developer accounts. 
 
-This 1:M implementation could be implemented in Azure AD CBA by configuring the policy as follows. 
+To set up this 1:M mapping in Azure AD CBA, configuring the policy values in the following table. 
 
 |Description| Values |
 |--------------------------|--------------------------------------|
