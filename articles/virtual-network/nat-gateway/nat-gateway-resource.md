@@ -47,9 +47,11 @@ Private Link uses the private IP addresses of your virtual machines or other com
 
 ### Connect to the internet with NAT gateway
 
-NAT gateway is recommended for outbound scenarios for all production workloads where you need to connect to a public endpoint. When NAT gateway is configured to subnets, all previous outbound configurations, such as Load balancer or instance-level public IPs (IL PIPs) are superseded and NAT gateway directs all outbound traffic to the internet. Return traffic in response to an outbound initiated flow will also go through NAT gateway. Inbound initiated traffic is not affected by the addition of NAT gateway. Inbound traffic through Load balancer or IL PIPs are translated separately from outbound traffic through NAT gateway. This separation allows inbound and outbound services to coexist seamlessly.  
+NAT gateway is recommended for all production workloads where you need to connect to a public endpoint over the internet. When NAT gateway is configured to subnets, all previous outbound configurations, such as Load balancer or instance-level public IPs (IL PIPs) are superseded by NAT gateway. Outbound initiated and return traffic go through NAT gateway. There is no down time on outbound connectivity after adding NAT gateway to a subnet with existing outbound configurations. Inbound traffic directly from the internet doesn't pass through NAT gateway.
 
 ### Coexistence of outbound and inbound connectivity 
+
+NAT gateway, Load balancer and instance-level public IPs are flow direction aware. This means NAT gateway can coexist in the same virtual network as Load balancer and IL PIPs to provide outbound and inbound connectivity seamlessly. Inbound traffic through Load balancer or IL PIPs are translated separately from outbound traffic through NAT gateway. 
 
 The following scenarios are examples of how to ensure coexistence of Load balancer or instance level public IPs for inbound with NAT gateway for outbound.
 
