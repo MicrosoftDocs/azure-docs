@@ -323,4 +323,4 @@ The values of the parameters aren't stored when they're passed from the CI/CD wo
 
 - For information about high-scale load tests, see [Set up a high-scale load test](./how-to-high-scale-load.md).
 
-- To learn about performance test automation, see [Configure automated performance testing](./tutorial-cicd-azure-pipelines.md).
+- To learn about performance test automation, see [Configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).
