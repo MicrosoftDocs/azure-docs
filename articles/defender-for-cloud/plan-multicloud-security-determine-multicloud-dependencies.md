@@ -13,7 +13,7 @@ This article is one of a series providing guidance as you design a cloud securit
 
 Figure out dependencies that might influence your multicloud design.
 
-## Get Started
+## Get started
 
 As you design  your multicloud solution, it’s important to have a clear picture of the components needed to enjoy all multicloud features in Defender for Cloud.
 

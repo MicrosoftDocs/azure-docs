@@ -26,6 +26,7 @@ Use this guide as an aid as you design Cloud Security Posture Management (CSPM) 
 As organizations span multiple cloud providers, it becomes increasingly complex to centralize security, and for security teams to work across multiple environments and vendors.
 
 Defender for Cloud helps you to protect your multicloud environment by strengthening your security posture and protecting your workloads. Defender for Cloud provides a single dashboard to manage protection across all environments.
+
 :::image type="content" source="media/planning-multicloud-security/get-started.png" alt-text="Diagram that shows Defender for Multicloud across environments." lightbox="media/planning-multicloud-security/get-started.png":::
 
 ## Before you begin
