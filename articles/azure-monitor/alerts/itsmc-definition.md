@@ -85,7 +85,6 @@ To create an action group:
 
 1. On the **Action groups** screen, select **+Create**.
    The **Create action group** screen appears.
-
 1. Select the **Subscription** and **Resource group** where you want to create your action group. Enter values in **Action group name** and **Display name** for your action group. Then select **Next: Notifications**.
 
     ![Screenshot that shows the Create an action group screen.](media/itsmc-overview/action-groups-details.png)
@@ -96,20 +95,28 @@ To create an action group:
     ![Screenshot that shows selections for creating an action group.](media/itsmc-definition/action-group-pen.png)
 
 1. In the **Subscription** list, select the subscription that contains your Log Analytics workspace. In the **Connection** list, select your ITSM Connector name. It will be followed by your workspace name. An example is *MyITSMConnector(MyWorkspace)*.
+1. In the **Work Item** type field, select the type of work item.
 
-1. In the **Work Item** type field, select `Incident`.
     > [!NOTE]
     > As of September 2022, we are starting the 3-year process of deprecating support of using ITSM actions to send alerts and events to ServiceNow.
 
 1. In the last section of the interface for creating an ITSM action group, if the alert is a log alert, you can define how many work items will be created for each alert. For all other alert types, create one work item per alert.
 
-    ![Screenshot that shows the I T S M Ticket area with Incident selected as a work item.](media/itsmc-overview/itsm-action-configuration.png)
+    - If the work item type is **Incident** or **Alert**:
     
-    If you select **Create individual work items for each Configuration Item** checkbox, every configuration item in every alert will create a new work item. Because several alerts will occur for the same affected configuration items, there will be more than one work item for each configuration item.
+       If you select the **Create individual work items for each Configuration Item** checkbox, every configuration item in every alert creates a new work item. Because several alerts will occur for the same affected configuration items, there will be more than one work item for each configuration item. For example, an alert that has three configuration items creates three work items. An alert that has one configuration item creates one work item.
+    
+       If you do not select the **Create individual work items for each Configuration Item** checkbox, ITSMC will create a single work item for each alert rule and append to it all affected configuration items. A new work item will be created if the previous one is closed. Some of the fired alerts won't generate new work items in the ITSM tool. For example, an alert that has three configuration items will create one work item. If an alert for the same alert rule as the previous example has one configuration item, that configuration item will be attached to the list of affected configuration items in the created work item. An alert for a different alert rule that has one configuration item will create one work item.
+    
+       ![Screenshot that shows the I T S M Ticket area with Incident selected as a work item.](media/itsmc-overview/itsm-action-configuration.png)
 
-    For example, an alert that has three configuration items will create three work items. An alert that has one configuration item will create one work item.
+    - If the work item type is **Event**:
 
-    If you clear the **Create individual work items for each Configuration Item** checkbox, ITSMC will create a single work item for each alert rule and append to it all affected configuration items. A new work item will be created if the previous one is closed. Some of the fired alerts won't generate new work items in the ITSM tool. For example, an alert that has three configuration items will create one work item. If an alert for the same alert rule as the previous example has one configuration item, that configuration item will be attached to the list of affected configuration items in the created work item. An alert for a different alert rule that has one configuration item will create one work item.
+        If you select the **Create individual work items for each Log Entry** button, a work item is created for each row in the search results of the log search alert query. The description property in the payload of the work item contains the row from the search results.
+
+        If you select the **Create individual work items for each Configuration Item** button, every configuration item in every alert creates a new work item. Each configuration item can have more than one work item in the ITSM system. This option is the same as selecting the checkbox that appears after you select `Incident` as the work item type.
+
+        ![Screenshot that shows the I T S M Ticket area with Event selected as a work item.](media/itsmc-overview/itsm-action-configuration-event.png)
 
 1. As a part of the action definition, you can define predefined fields that will contain constant values as a part of the payload. According to the work item type, three options can be used as a part of the payload:
     * **None**: Use a regular payload to ServiceNow without any extra predefined fields and values.
