@@ -572,7 +572,9 @@ Some configurations must be maintained at the App Service level as site settings
 
 ### linuxFxVersion 
 
-For function apps running on Linux, indicates the language and version for the language-specific worker process. This information is used, along with [`FUNCTIONS_EXTENSION_VERSION`](#functions_extension_version), to determine which specific Linux container image is installed to run your function app. 
+For function apps running on Linux, indicates the language and version for the language-specific worker process. This information is used, along with [`FUNCTIONS_EXTENSION_VERSION`](#functions_extension_version), to determine which specific Linux container image is installed to run your function app. This setting can be set to a pre-defined value, a specific supported Docker image URI, or a custom image URI.
+
+#### Pre-defined values
 
 This value is set for you when you create your Linux function app. You can use the following Azure CLI command to see a table of current `linuxFxVersion` values, by supported Functions runtime version:
 
@@ -582,6 +584,8 @@ az functionapp list-runtimes --os linux --query "[].{stack:join(' ', [runtime, v
 
 The previous command requires you to upgrade to version 2.40 of the Azure CLI.  
 
+#### Supported images
+
 For a custom container deployment, the `linuxFxVersion` setting contains the URI of the function app container image you are deploying in the format `DOCKER|<BASE_IMAGE_URI>`, as shown in the following example:
 
 ```
@@ -589,6 +593,9 @@ linuxFxVersion = "DOCKER|mcr.microsoft.com/azure-functions/node:4-node18-appserv
 ```
 
 This example targets the base image for Functions 4.x with Node.js 18 installed, which is equivalent to using the values `Node|18` for `linuxFxVersion` and `~4` for `FUNCTIONS_EXTENSION_VERSION`. 
+
+
+#### Custom images
 
 When you create and maintain your own custom linux container for your function app, the `linuxFxVersion` value is also in the format `DOCKER|<IMAGE_URI>`, as in the following example:
 
