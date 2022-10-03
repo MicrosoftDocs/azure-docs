@@ -44,26 +44,10 @@ Follow these steps to create a new GO module and install the Speech SDK.
     > [!IMPORTANT]
     > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/cognitive-services/use-key-vault). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
 
-    The output file with complete captions is written to `caption.output.txt`. Intermediate results are shown in the console:
-    ```console
-    00:00:00,180 --> 00:00:01,600
-    Welcome to
-    
-    00:00:00,180 --> 00:00:01,820
-    Welcome to applied
-    
-    00:00:00,180 --> 00:00:02,420
-    Welcome to applied mathematics
-    
-    00:00:00,180 --> 00:00:02,930
-    Welcome to applied mathematics course
-    
-    00:00:00,180 --> 00:00:03,100
-    Welcome to applied Mathematics course 2
-    
-    00:00:00,180 --> 00:00:03,230
-    Welcome to applied Mathematics course 201.
-    ```
+
+## Check results
+
+[!INCLUDE [Example output](example-output.md)]
 
 ## Usage and arguments
 

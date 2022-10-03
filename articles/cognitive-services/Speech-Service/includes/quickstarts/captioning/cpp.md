@@ -36,39 +36,24 @@ Follow these steps to create a new console application and install the Speech SD
     - On a 32-bit Windows installation, set **Active solution platform** to `x86`.
 1. Open **Project** > **Properties** > **Debugging**. Enter your preferred command line arguments at **Command Arguments**. See [usage and arguments](#usage-and-arguments) for the available options. Here is an example:
     ```
-    --key YourSubscriptionKey --region YourServiceRegion --input caption.this.mp4 --format any --output caption.output.txt - --srt --recognizing --threshold 5 --profanity mask --phrases "Contoso;Jessie;Rehaan"
+    --key YourSubscriptionKey --region YourServiceRegion --input caption.this.mp4 --format any --output caption.output.txt - --srt --offline --profanity mask --phrases "Contoso;Jessie;Rehaan"
     ```
     Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource [region](~/articles/cognitive-services/speech-service/regions.md), such as `westus` or `northeurope`. Make sure that the paths specified by `--input` and `--output` are valid. Otherwise you must change the paths.
 
     > [!IMPORTANT]
     > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/cognitive-services/use-key-vault). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
 
-1. [Build and run](/cpp/build/vscpp-step-2-build) the console application. The output file with complete captions is written to `caption.output.txt`. Intermediate results are shown in the console:
-    ```console
-    00:00:00,180 --> 00:00:01,600
-    Welcome to
-    
-    00:00:00,180 --> 00:00:01,820
-    Welcome to applied
-    
-    00:00:00,180 --> 00:00:02,420
-    Welcome to applied mathematics
-    
-    00:00:00,180 --> 00:00:02,930
-    Welcome to applied mathematics course
-    
-    00:00:00,180 --> 00:00:03,100
-    Welcome to applied Mathematics course 2
-    
-    00:00:00,180 --> 00:00:03,230
-    Welcome to applied Mathematics course 201.
-    ```
+1. [Build and run](/cpp/build/vscpp-step-2-build) the console application. 
+
+## Check results
+
+[!INCLUDE [Example output](example-output-v2.md)]
 
 ## Usage and arguments
 
 Usage: `captioning --key <key> --region <region> --input <input file>`
 
-[!INCLUDE [Usage arguments](usage-arguments.md)]
+[!INCLUDE [Usage arguments](usage-arguments-v2.md)]
 
 ## Clean up resources
 

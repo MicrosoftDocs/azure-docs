@@ -18,11 +18,14 @@ Input options include:
 
 Language options include:
 
-- `--languages LANG1,LANG2`: Enable language identification for specified languages. For example: `en-US,ja-JP`. This option is only available with the C++, C#, and Python captioning samples. For more information, see [Language identification](~/articles/cognitive-services/speech-service/language-identification.md).
+- `--language LANG`: Specify a language using one of the corresponding [supported locales](~/articles/cognitive-services/speech-service/language-support.md?tabs=stt-tts). This is used when breaking captions into lines. Default value is `en-US`.
 
 Recognition options include:
 
-- `--recognizing`: Output `Recognizing` event results. The default output is `Recognized` event results only. These are always written to the console, never to an output file. The `--quiet` option overrides this. For more information, see [Get speech recognition results](~/articles/cognitive-services/speech-service/get-speech-recognition-results.md).
+- `--offline`: Output offline results. Overrides `--realTime`. Default output mode is offline.
+- `--realTime`: Output real-time results. 
+
+Real-time output includes `Recognizing` event results. The default offline output is `Recognized` event results only. These are always written to the console, never to an output file. The `--quiet` option overrides this. For more information, see [Get speech recognition results](~/articles/cognitive-services/speech-service/get-speech-recognition-results.md).
 
 Accuracy options include:
 
@@ -33,6 +36,10 @@ Output options include:
 - `--help`: Show this help and stop
 - `--output FILE`: Output captions to the specified `file`. This flag is required.
 - `--srt`: Output captions in SRT (SubRip Text) format. The default format is WebVTT (Web Video Text Tracks). For more information about SRT and WebVTT caption file formats, see [Caption output format](~/articles/cognitive-services/speech-service/captioning-concepts.md#caption-output-format).
+- `--maxLineLength LENGTH`: Set the maximum number of characters per line for a caption to LENGTH. Minimum is 20. Default is 37 (30 for Chinese).
+- `--lines LINES`: Set the number of lines for a caption to LINES. Minimum is 1. Default is 2.
+- `--delay SECONDS`: How many SECONDS to delay the appearance of each caption. Minimum is 0.0. Default is 1.0.
+- `--remainTime SECONDS`: How many SECONDS a caption should remain on screen if it is not replaced by another. Minimum is 0.0. Default is 1.0.
 - `--quiet`: Suppress console output, except errors.
 - `--profanity OPTION`: Valid values: raw, remove, mask. For more information, see [Profanity filter](~/articles/cognitive-services/speech-service/display-text-format.md#profanity-filter) concepts.
-- `--threshold NUMBER`: Set stable partial result threshold. The default value is `3`. For more information, see [Get partial results](~/articles/cognitive-services/speech-service/captioning-concepts.md#get-partial-results) concepts.
+- `--threshold NUMBER`: Set stable partial result threshold. The default value is `3`. This option is only applicable when you use the `realTime` flag. For more information, see [Get partial results](~/articles/cognitive-services/speech-service/captioning-concepts.md#get-partial-results) concepts.
