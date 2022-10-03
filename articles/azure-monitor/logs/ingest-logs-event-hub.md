@@ -419,7 +419,7 @@ To check your destination table for ingested events:
 
 In this tutorial, you created the following resources:
 
-- Custom log table 
+- Custom table 
 - Data collection endpoint
 - Data collection rule
 - Data collection rule association
@@ -427,3 +427,12 @@ In this tutorial, you created the following resources:
 Evaluate whether you still need these resources. Delete the resources you don't need individually, or delete all of these resources at once by deleting the resource group. Resources you leave running can cost you money.
 
 To stop ingesting data from the event hub, delete all data collection rule associations related to the event hub, or delete the data collection rules themselves. These actions also reset event hub [checkpointing](/azure/event-hubs/event-hubs-features#checkpointing). 
+
+## Next steps
+
+Learn more about using the API to create the resources in this tutorial:
+
+- [Custom table](/rest/api/loganalytics/tables/create-or-update).
+- [Data collection endpoint](/rest/api/monitor/data-collection-endpoints).
+- [Data collection rule](/rest/api/monitor/data-collection-rules).
+- [Data collection rule association](/rest/api/monitor/data-collection-rule-associations).
