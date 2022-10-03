@@ -8,7 +8,7 @@ author: bevloh
 ms.author: beloh
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/16/2021
+ms.date: 10/03/2022
 ---
 
 # Upgrade to the latest REST API in Azure Cognitive Search
