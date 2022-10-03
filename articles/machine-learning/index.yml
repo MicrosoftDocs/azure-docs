@@ -38,10 +38,8 @@ landingContent:
         links:   
         - text: Set up resources
           url: quickstart-create-resources.md
-        - text: "Train with the v2 CLI"
-          url: how-to-train-cli.md   
-        - text: "Train with the v2 SDK (preview)"
-          url: how-to-train-sdk.md   
+        - text: "Train with the v2 CLI and SDK"
+          url: how-to-train-model.md
         - text: "Day 1: Get started with Python"
           url: tutorial-1st-experiment-hello-world.md
         - text: "Migrate from ML Studio (classic)"
@@ -51,8 +49,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:            
-          - text: Run training code in the cloud (v2 CLI)
-            url: how-to-train-cli.md
+          - text: Run training code in the cloud
+            url: how-to-train-model.md
           - text: Train and deploy a model in Jupyter notebook
             url:  tutorial-train-deploy-notebook.md
           - text: Tune hyperparameters for model training
@@ -115,7 +113,7 @@ landingContent:
       - linkListType: reference
         links:
         - text: Python SDK code examples
-          url: https://github.com/Azure/azureml-examples/blob/main/python-sdk/README.md
+          url: https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/README.md
         - text: v2 CLI code examples (preview)
           url: https://github.com/Azure/azureml-examples/blob/main/cli/README.md
         - text: ML Studio (classic) documentation

@@ -191,7 +191,7 @@ Monitor changes to application configuration. Specifically, configuration change
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 |-|-|-|-|-|
-| Dangling URI| High| Azure AD Logs and Application Registration| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>Success – Property Name AppAddress| For example, look for dangling URIs that point to a domain name that no longer exists or one that you don’t explicitly own.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/URLAddedtoApplicationfromUnknownDomain.yaml)<br><br>[Link to Sigma repo](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
+| Dangling URI| High| Azure AD Logs and Application Registration| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>Success – Property Name AppAddress| For example, look for dangling URIs that point to a domain name that no longer exists or one that you don’t explicitly own.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/URLAddedtoApplicationfromUnknownDomain.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 | Redirect URI configuration changes| High| Azure AD logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>Success – Property Name AppAddress| Look for URIs not using HTTPS*, URIs with wildcards at the end or the domain of the URL, URIs that are NOT unique to the application, URIs that point to a domain you don't control.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ApplicationRedirectURLUpdate.yaml)<br><br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure) |
 
 Alert when these changes are detected.
@@ -214,7 +214,7 @@ Alert when these changes are detected outside approved change management procedu
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 |-|-|-|-|-|
-| Changes to log-out URL| Low| Azure AD logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>-and-<br>Activity: Update service principle| Look for any modifications to a sign-out URL. Blank entries or entries to non-existent locations would stop a user from terminating a session.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ChangestoApplicationLogoutURL.yaml) |
+| Changes to log-out URL| Low| Azure AD logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>-and-<br>Activity: Update service principle| Look for any modifications to a sign-out URL. Blank entries or entries to non-existent locations would stop a user from terminating a session.<br>[Microsoft Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/ChangestoApplicationLogoutURL.yaml) <br>[Sigma rules](https://github.com/SigmaHQ/sigma/tree/master/rules/cloud/azure)|
 
 ## Resources
 

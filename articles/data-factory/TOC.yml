@@ -8,8 +8,10 @@ items:
   - name: Introduction to Data Factory
     href: introduction.md
     displayName: orchestration
-  - name: What's new in Azure Data Factory
+  - name: What's new (recent months)
     href: whats-new.md
+  - name: What's new (archived months)
+    href: whats-new-archive.md
   - name: Compare current version to version 1
     href: compare-versions.md
     displayName: timeout
@@ -537,6 +539,8 @@ items:
         href: load-sap-bw-data.md
     - name: SAP Business Warehouse MDX
       href: connector-sap-business-warehouse.md
+    - name: SAP CDC
+      href: connector-sap-change-data-capture.md
     - name: SAP Cloud for Customer
       href: connector-sap-cloud-for-customer.md
       displayName: timeout
@@ -1097,8 +1101,26 @@ items:
       href: plan-manage-costs.md 
       displayName: diu
     - name: Pricing examples     
-      href: pricing-concepts.md
-      displayName: diu  
+      items:
+      - name: Overview
+        href: pricing-concepts.md
+        displayName: diu 
+      - name: Copy data from AWS S3 to Azure Blob storage
+        href: pricing-examples-s3-to-blob.md
+      - name: Copy data and transform with Azure Databricks
+        href: pricing-examples-copy-transform-azure-databricks.md
+      - name: Copy/transform data with dynamic parameters
+        href: pricing-examples-copy-transform-dynamic-parameters.md
+      - name: Run SSIS packages on Azure-SSIS integration runtime
+        href: pricing-examples-ssis-on-azure-ssis-integration-runtime.md
+      - name: Using mapping data flow debug for a workday
+        href: pricing-examples-mapping-data-flow-debug-workday.md
+      - name: Transform blob data with mapping data flows
+        href: pricing-examples-transform-mapping-data-flows.md
+      - name: Data integration with Managed VNET
+        href: pricing-examples-data-integration-managed-vnet.md
+      - name: Get delta data from SAP ECC via SAP CDC in mapping data flows
+        href: pricing-examples-get-delta-data-from-sap-ecc.md
   - name: Troubleshooting guides
     items:
     - name: Azure Data Factory Studio
@@ -1259,23 +1281,19 @@ items:
     href: industry-sap-connectors.md
   - name: SAP templates
     href: industry-sap-templates.md
-  - name: SAP change data capture (CDC)
+  - name: SAP change data capture (CDC) capabilities (preview)
     items:
-    - name: 1 - Introduction and architecture
+    - name: Overview and architecture
       href: sap-change-data-capture-introduction-architecture.md
       displayName: SAP, change data capture, CDC
-    - name: 2 - Prerequisites and configuration
+    - name: Prerequisites and setup
       href: sap-change-data-capture-prerequisites-configuration.md
-    - name: 3 - Self-hosted integration runtime preparation
+    - name: Set up a self-hosted integration runtime
       href: sap-change-data-capture-shir-preparation.md
-    - name: 4 - Linked service and source dataset creation
+    - name: Set up a linked service and source dataset
       href: sap-change-data-capture-prepare-linked-service-source-dataset.md
-    - name: 5 - Debug copy activity issues
+    - name: Debug the Data Factory copy activity
       href: sap-change-data-capture-debug-shir-logs.md
-    - name: 6 - Data partitioning template
-      href: sap-change-data-capture-data-partitioning-template.md
-    - name: 7 - Data Replication template
-      href: sap-change-data-capture-data-replication-template.md
-    - name: 8 - Managing the solution
+    - name: Manage your solution
       href: sap-change-data-capture-management.md
     displayName: SAP, change data capture, CDC
