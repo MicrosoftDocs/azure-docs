@@ -186,6 +186,8 @@
           href: custom-node-configuration.md
         - name: Integrate ACR with an AKS cluster
           href: cluster-container-registry-integration.md
+        - name: Use Vertical Pod Autoscaler (preview)
+          href: vertical-pod-autoscaler.md
         - name: Scale an AKS cluster
           href: scale-cluster.md
         - name: Stop/Deallocate nodes with Scale-down Mode
