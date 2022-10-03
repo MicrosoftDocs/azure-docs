@@ -126,7 +126,7 @@ Follow below instructions to remove blocking enterprise apps/service principals 
 
 5. Run below command to set the tenant context 
 
-   'Connect-AzAccount -Tenant <Object ID of the tenant you are attempting to delete>'
+   'Connect-AzAccount -Tenant \<object id of the tenant you are attempting to delete\>'
 
     >[!WARNING]
     > Before proceeding, to verify you are connected to the tenant you intend to delete with Az module, it is recommended you run the command Get-AzContext to check the connected tenant ID and onmicrosoft.com domain.
