@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 10/01/2022
+ms.date: 10/03/2022
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -43,6 +43,29 @@ Microsoft Cost Management has a new feature in public preview that lets you grou
 ## August 2022
 
 Here's what changed in August 2022:
+
+### Azure portal updates
+
+We've made the following updates to the Azure portal:
+
+- Improved search, filtering, and performance.
+- Added Windows Server 2022 images to the image selection list.
+- Added "Preferred group type" to the "Basics" tab in the host pool creation process.
+- Enabled custom images for trusted launch VMs.
+- New selectable cards, including the following:
+  - Unavailable machines.
+  - User session.
+- Removed the "Advanced" tab for the process to add a VM to the host pool.
+- Removed the storage blob image option from the host pool creation and adding VM processes.
+- Bug fixes:
+  - Accessibility bug fixes.
+  - Added validation to the "RDP properties advanced" tab.
+  - Changed user session sign-out dialog control.
+  - Fixed resource and workspace drop-down menus.
+  - Removed "Display name for users" tab in the host pool tab.
+- Made the following improvements to the "getting started" setup process:
+  - Unchecked link Azure template.
+  - Removed validation on existing domain admins.
 
 ### Updates to the preview version of FSLogix profiles for Azure AD-joined VMs
 
