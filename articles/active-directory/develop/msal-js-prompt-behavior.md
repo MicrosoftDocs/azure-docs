@@ -57,7 +57,9 @@ The following prompt values can be used when authenticating with the Microsoft i
 
 MSAL.js will throw an `invalid_prompt` error for any unsupported prompt values:
 
-> invalid_prompt_value: Supported prompt values are 'login', 'select_account', 'consent', 'create' and 'none'.  Please see here for valid configuration options: https://azuread.github.io/microsoft-authentication-library-for-js/ref/modules/_azure_msal_common.html#commonauthorizationurlrequest Given value: my_custom_prompt
+```console
+invalid_prompt_value: Supported prompt values are 'login', 'select_account', 'consent', 'create' and 'none'. Please see here for valid configuration options: https://azuread.github.io/microsoft-authentication-library-for-js/ref/modules/_azure_msal_common.html#commonauthorizationurlrequest Given value: my_custom_prompt
+```
 
 ## Default prompt values
 
