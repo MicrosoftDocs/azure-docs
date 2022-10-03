@@ -95,6 +95,21 @@
             "source_path_from_root": "/articles/applied-ai-services/form-recognizer/compose-custom-models.md",
             "redirect_url": "/azure/applied-ai-services/form-recognizer/compose-custom-models-v2-1",
             "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/api-v2-0/reference-sdk-api-v2-0.md",
+            "redirect_url": "/azure/applied-ai-services/form-recognizer/v2-1-sdk-rest-api",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/how-to-guides/try-v2-1-sdk-rest-api.md",
+            "redirect_url": "/azure/applied-ai-services/form-recognizer/how-to-guides/v2-1-sdk-rest-api.md",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/applied-ai-services/form-recognizer/how-to-guides/use-prebuilt-read.md",
+            "redirect_url": "/azure/applied-ai-services/form-recognizer/how-to-guides/v3-0-sdk-rest-api.md",
+            "redirect_document_id": false
           }
     ]
 }
