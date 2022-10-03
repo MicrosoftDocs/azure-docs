@@ -40,69 +40,71 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
 1. Obtain `kubeconfig` for the fleet cluster:
 
-    ```bash
+    ```console
     export GROUP=<your_resource_group_name>
     export FLEET=<your_fleet_name>
-    az fleet get-credentials -n $FLEET -g $GROUP
+    az fleet get-credentials --name ${FLEET}  --resource-group ${GROUP}
     ```
 
 1. Create a namespace on the fleet cluster:
 
-    ```bash
-    kubectl create ns kuard-demo
+    ```console
+    kubectl create namespace kuard-demo
     ```
 
     Output will look similar to the following example:
 
-    ```bash
+    ```console
     namespace/kuard-demo created
-    ```
-
-1. Apply a `ClusterResourcePlacement` to propagate this namespace from the fleet cluster to all member clusters:
-
-    ```bash
-    kubectl apply -f https://raw.githubusercontent.com/Azure/AKS/master/examples/fleet/kuard/kuard-crp.yaml
-    ```
-
-    Output will look similar to the following example:
-
-    ```bash
-    clusterresourceplacement.fleet.azure.com/kuard created
     ```
 
 1. Apply the Deployment, Service, ServiceExport objects:
 
-    ```bash
+    ```console
     kubectl apply -f https://raw.githubusercontent.com/Azure/AKS/master/examples/fleet/kuard/kuard-export-service.yaml
     ```
 
-    The `ServiceExport` specification in the above file allows you to export a service from member clusters to the Fleet resource. Once successfully exported, the service and all its endpoints will be synced to the hub, which other member clusters and Fleet resource-scoped load balancers can then consume. The output will look similar to the following example:
+    The `ServiceExport` specification in the above file allows you to export a service from member clusters to the Fleet resource. Once successfully exported, the service and all its endpoints will be synced to the fleet cluster and can then be used to set-up multi-cluster load balancing across these endpoints. The output will look similar to the following example:
 
-    ```bash
+    ```console
     deployment.apps/kuard created
     service/kuard created
     serviceexport.networking.fleet.azure.com/kuard created
     ```
 
+1. Apply a `ClusterResourcePlacement` to propagate this namespace from the fleet cluster to all member clusters:
+
+    ```console
+    kubectl apply -f https://raw.githubusercontent.com/Azure/AKS/master/examples/fleet/kuard/kuard-crp.yaml
+    ```
+
+    Output will look similar to the following example:
+
+    ```console
+    clusterresourceplacement.fleet.azure.com/kuard created
+    ```
+
+
+
 ## Create MultiClusterService to load balance across the service endpoints in multiple member clusters
 
 1. Change kubeconfig context to one of the member clusters:
 
-    ```bash
+    ```console
     export GROUP=<your_resource_group_name>
-    export MEMBER_AKS=<your_member_aks_cluster_name>
-    az aks get-credentials -n $MEMBER_AKS -g $GROUP
+    export MEMBER_CLUSTER=<your_member_aks_cluster_name>
+    az aks get-credentials --resource-group ${GROUP} --name ${MEMBER_CLUSTER}
     ```
 
 1. Verify that the service is successfully exported by running the following command:
 
-    ```bash
+    ```console
     kubectl get serviceexport kuard --namespace kuard-demo
     ```
 
     Output will look similar to the following example:
 
-    ```bash
+    ```console
     NAME    IS-VALID   IS-CONFLICTED   AGE
     kuard   True       False           81s
     ```
@@ -114,25 +116,25 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
 1. Apply the MultiClusterService to load balance across the service endpoints in multiple member clusters:
 
-    ```bash
+    ```console
     kubectl apply -f https://raw.githubusercontent.com/Azure/AKS/master/examples/fleet/kuard/kuard-mcs.yaml
     ```
 
     Output will look similar to the following example:
 
-    ```bash
+    ```console
     multiclusterservice.networking.fleet.azure.com/kuard created
     ```
 
 1. Verify the MultiClusterService is valid by running the following command:
 
-    ```bash
-    kubectl get mcs kuard --namespace kuard-demo
+    ```console
+    kubectl get multiclusterservice  kuard --namespace kuard-demo
     ```
 
     The output should look similar to the following example:
 
-    ```bash
+    ```console
     NAME    SERVICE-IMPORT   EXTERNAL-IP     IS-VALID   AGE
     kuard   kuard            <a.b.c.d>         True       40s
     ```
@@ -141,8 +143,8 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
 1. Run the following command multiple times using the External IP address from above:
 
-    ```bash
-    curl <a.b.c.d>:8080 | grep hostname 
+    ```console
+    curl <a.b.c.d>:8080 | grep addrs 
     ```
 
-    Notice that the hostname, which corresponds to the pod serving the request, is changing across these requests and that these pods are from different member clusters of the Fleet resource.
+    Notice that the IPs of the pods serving the request is changing across and that these pods are from different member clusters of the Fleet resource.
