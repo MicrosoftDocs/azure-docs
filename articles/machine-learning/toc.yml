@@ -57,9 +57,14 @@
       - name: "Pipelines"
         displayName: migration, v1, v2
         href: migrate-to-v2-execution-pipeline.md  
-    - name: "Upgrade endpoints"
-      displayName: migration, v1, v2
-      href: migrate-to-v2-deploy-endpoints.md  
+    - name: Upgrade endpoints
+      items:
+      - name: "Online endpoints"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-deploy-endpoints.md
+      - name: "Upgrade from ACI web services to managed online endpoints"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-managed-online-endpoints.md 
 - name: Quickstart
   expanded: true
   items: 
@@ -114,7 +119,7 @@
       displayName: example, examples, studio, pipelines, data sets, modules, components
       href: samples-designer.md
     - name: End-to-end MLOps examples
-      href: https://github.com/microsoft/MLOps
+      href: https://github.com/Azure/mlops-v2
 - name: Concepts
   items: 
     - name: What is v2?
@@ -434,10 +439,6 @@
             href: how-to-train-scikit-learn.md
           - name: TensorFlow
             href: how-to-train-tensorflow.md
-          - name: Keras
-            href: how-to-train-keras.md
-          - name: PyTorch
-            href: how-to-train-pytorch.md
           - name: Train with custom Docker image
             href: how-to-train-with-custom-image.md
           - name: Use Key Vault when training
