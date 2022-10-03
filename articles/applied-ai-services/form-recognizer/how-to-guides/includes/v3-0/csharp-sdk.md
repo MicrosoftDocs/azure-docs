@@ -54,8 +54,6 @@ ms.custom: devx-track-csharp
     | **ID document model**  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
     | **Business card model**  | prebuilt-businessCard | [Sample business card](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg) |
 
-## Set your environment variables
-
 [!INCLUDE [environment-variables](set-environment-variables.md)]
 
 ## Set up your programming environment
@@ -104,25 +102,25 @@ ms.custom: devx-track-csharp
 
 1. Delete the pre-existing code, including the line `Console.Writeline("Hello World!")`, and select one of the following code samples to copy and paste into your application's Program.cs file:
 
-  > * [prebuilt-read](#read-model)
-  >
-  > * [prebuilt-layout](#layout-model)
-  >
-  > * [prebuilt-document](#general-document-model)
-  >
-  > * [prebuilt-tax.us.w2](#w-2-tax-model)
-  >
-  > * [prebuilt-invoice](#invoice-model)
-  >
-  > * [prebuilt-receipt](#receipt-model)
-  >
-  > * [prebuilt-idDocument](#id-document-model)
-  >
-  > * [prebuilt-businessCard](#business-card-model)
+    > * [prebuilt-read](#read-model)
+    >
+    > * [prebuilt-layout](#layout-model)
+    >
+    > * [prebuilt-document](#general-document-model)
+    >
+    > * [prebuilt-tax.us.w2](#w-2-tax-model)
+    >
+    > * [prebuilt-invoice](#invoice-model)
+    >
+    > * [prebuilt-receipt](#receipt-model)
+    >
+    > * [prebuilt-idDocument](#id-document-model)
+    >
+    > * [prebuilt-businessCard](#business-card-model)
 
 1. Once you've added a code sample to your application, choose the green **Start** button next to formRecognizer_quickstart to build and run your program, or press **F5**.
 
-  :::image type="content" source="../../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
+    :::image type="content" source="../../../media/quickstarts/run-visual-studio.png" alt-text="Screenshot: run your Visual Studio program.":::
 
 ## Read model
 

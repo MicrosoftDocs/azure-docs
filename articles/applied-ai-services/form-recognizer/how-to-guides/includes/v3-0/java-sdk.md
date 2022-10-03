@@ -63,8 +63,6 @@ ms.custom: devx-track-csharp
     | **ID document model**  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
     | **Business card model**  | prebuilt-businessCard | [Sample business card](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg) |
 
-## Set your environment variables
-
 [!INCLUDE [environment-variables](set-environment-variables.md)]
 
 ## Set up your programming environment

@@ -13,7 +13,7 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 
-## Set environment variables
+## Set your environment variables
 
 To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll instantiate the client with your `key` and `endpoint` from the Azure portal. For this project, we'll use environment variables to store and access credentials.
 
@@ -90,7 +90,7 @@ export endpoint={yourEndpoint}
       source ~/.bash-profile
       ```
 
-Here are a few helpful commands to use with environment variables:
+Here are a few more helpful commands to use with environment variables:
 
   | Command | Action | Example |
   |---------|--------|---------|
@@ -135,7 +135,7 @@ export FR_ENDPOINT={yourEndpoint}
       source ~/.bashrc
       ```
 
-Here are a few helpful commands to use with environment variables:
+Here are a few more helpful commands to use with environment variables:
 
   | Command | Action | Example |
   |---------|--------|---------|

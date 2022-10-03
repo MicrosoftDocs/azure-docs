@@ -44,8 +44,6 @@ ms.author: lajanuar
 
   :::image type="content" source="../../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-## Set your environment variables
-
 [!INCLUDE [environment-variables](set-environment-variables.md)]
 
 ## Analyze documents and get results
@@ -67,15 +65,15 @@ Using the table below as a reference, replace `{modelID}` and `{document-url}` w
 | **ID document model**  | prebuilt-idDocument | [Sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/rest-api/identity_documents.png) |
 | **Business card model**  | prebuilt-businessCard | [Sample business card](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/de5e0d8982ab754823c54de47a47e8e499351523/curl/form-recognizer/rest-api/business_card.jpg) |
 
-### POST request
+## POST request
 
- At a command prompt, run the following cURL command. We've added the endpoint and key environment variables created in the set environment variables section above. Replace those variables if your variable names differ from the code below. Remember to replace the `{modelID}` and `{document-url}` parameters.
+Open a command prompt and run the following cURL command. We've added the endpoint and key environment variables created in the set environment variables section above. Replace those variables if your variable names differ. Remember to replace the `{modelID}` and `{document-url}` parameters.
 
 ```bash
 curl -i -X POST "%FR_ENDPOINT%formrecognizer/documentModels/{modelID}:analyze?api-version=2022-08-31" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: %FR_KEY%" --data-ascii "{'urlSource': '{document-url}'}"
 ```
 
-#### POST response
+### POST response
 
 You'll receive a `202 (Success)` response that includes an **Operation-location** header. You'll use the value of this header to retrieve the response results.
 
@@ -83,11 +81,7 @@ You'll receive a `202 (Success)` response that includes an **Operation-location*
 
 ### Get analyze results (GET Request)
 
-After you've called the [**Analyze document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) API, call the [**Get analyze result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetAnalyzeDocumentResult) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
-
-1. Replace `{POST response}` with the Operation-location header from the [POST response](#post-response).
-
-1. Replace `FR_KEY` with the variable for your environment variable if differs from the name in the code below. 
+After you've called the [**Analyze document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) API, you'll call the [**Get analyze result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/GetAnalyzeDocumentResult) API to get the status of the operation and the extracted data.
 
 <!-- markdownlint-disable MD024 -->
 
@@ -96,8 +90,6 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
  The curl command line tool doesn't format API responses containing JSON document, which can make the content difficult to read. You can format the JSON response by including the pipe character followed by JSON formatting tool with your GET request.
 
 #### [Windows](#tab/windows)
-
-### Use NodeJS
 
 * Use the NodeJS **json tool** as a JSON formatter for curl.
 
@@ -143,7 +135,13 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
 
 ---
 
-#### GET request
+## GET request
+
+Before you run the command below, make these changes:
+
+1. Replace `{POST response}` with the Operation-location header from the [POST response](#post-response).
+
+1. Replace `FR_KEY` with the variable name for your environment variable if it differs.
 
 * Replace `{POST response}` with the Operation-location header from the [POST response](#post-response).
 
@@ -155,7 +153,7 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
 curl -i -X GET "{POST response}" -H "Ocp-Apim-Subscription-Key: %FR_KEY%" | `{json-tool}`
 ```
 
-#### Examine the response
+### Examine the response
 
 You'll receive a `200 (Success)` response with JSON output. The first field, `"status"`, indicates the status of the operation. If the operation isn't complete, the value of `"status"` will be `"running"` or `"notStarted"`, and you should call the API again, either manually or through a script. We recommend an interval of one second or more between calls.
 
