@@ -331,7 +331,7 @@ The following example creates a subscription named *Dev Team subscription* for t
 ### [REST](#tab/rest)
 
 ```json
-PUT  https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2020-09-01
+PUT  https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2021-10-01
 ```
 
 ### Request body
@@ -366,7 +366,7 @@ You can do a GET on the same URL to get the status of the request.
 ### Request
 
 ```json
-GET https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2020-09-01
+GET https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2021-10-01
 ```
 
 ### Response
@@ -464,7 +464,7 @@ The following template creates a subscription. For `billingScope`, provide the i
             "scope": "/", 
             "name": "[parameters('subscriptionAliasName')]",
             "type": "Microsoft.Subscription/aliases",
-            "apiVersion": "2020-09-01",
+            "apiVersion": "2021-10-01",
             "properties": {
                 "workLoad": "Production",
                 "displayName": "[parameters('subscriptionAliasName')]",
@@ -487,7 +487,7 @@ param subscriptionAliasName string
 @description('Provide the full resource ID of billing scope to use for subscription creation.')
 param billingScope string
 
-resource subscriptionAlias 'Microsoft.Subscription/aliases@2020-09-01' = {
+resource subscriptionAlias 'Microsoft.Subscription/aliases@2021-10-01' = {
   scope: tenant()
   name: subscriptionAliasName
   properties: {
