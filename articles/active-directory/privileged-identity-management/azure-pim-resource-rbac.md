@@ -4,7 +4,7 @@ description: View activity and audit history for Azure resource roles in Azure A
 services: active-directory
 documentationcenter: ''
 author: amsliu
-manager: karenhoran
+manager: amycolannino
 editor: ''
 
 ms.service: active-directory

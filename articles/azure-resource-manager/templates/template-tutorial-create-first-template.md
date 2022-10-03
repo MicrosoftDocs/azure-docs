@@ -13,11 +13,11 @@ ms.custom: devx-track-azurepowershell
 
 # Tutorial: Create and deploy your first ARM template
 
-This tutorial introduces you to Azure Resource Manager templates (ARM templates). It shows you how to create a starter template and deploy it to Azure. It teaches you about the template structure and the tools you need to work with templates. It takes about **12 minutes** to complete this tutorial, but the actual time varies based on how many tools you need to install.
+This tutorial introduces you to Azure Resource Manager templates (ARM templates). It shows you how to create a starter template and deploy it to Azure. It teaches you about the template structure and the tools you need to work with templates. This instruction takes **12 minutes** to complete, but the actual finish time varies based on how many tools you need to install.
 
 This tutorial is the first of a series. As you progress through the series, you modify the starting template, step by step, until you explore all of the core parts of an ARM template. These elements are the building blocks for more complex templates. We hope by the end of the series you're confident in creating your own templates and ready to automate your deployments with templates.
 
-If you want to learn about the benefits of using templates and why you should automate deployments with templates, see [ARM template overview](overview.md). To learn about ARM templates through a guided set of [Learn modules](/learn), see [Deploy and manage resources in Azure by using JSON ARM templates](/learn/paths/deploy-manage-resource-manager-templates).
+If you want to learn about the benefits of using templates and why you should automate deployments with templates, see [ARM template overview](overview.md). To learn about ARM templates through a guided set of [Learn modules](/training), see [Deploy and manage resources in Azure by using JSON ARM templates](/training/paths/deploy-manage-resource-manager-templates).
 
 If you don't have a Microsoft Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 

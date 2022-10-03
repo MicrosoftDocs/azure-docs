@@ -4,11 +4,11 @@ description: This topic describes how to run scripts within an Azure Linux virtu
 services: automation
 ms.service: virtual-machines
 ms.collection: linux
-author: cynthn
-ms.author: cynthn
-ms.date: 10/27/2021
+author: nikhilpatel909
+ms.author: erd
+ms.date: 09/08/2022
 ms.topic: how-to  
-ms.reviewer: jushiman
+ms.reviewer: erd
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -89,7 +89,7 @@ Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' 
 
 ## Limiting access to Run Command
 
-Listing the run commands or showing the details of a command requires the `Microsoft.Compute/locations/runCommands/read` permission. The built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) role and higher levels have this permission.
+Listing the run commands or showing the details of a command requires the `Microsoft.Compute/locations/runCommands/read` permission on Subscription level. The built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) role and higher levels have this permission.
 
 Running a command requires the `Microsoft.Compute/virtualMachines/runCommand/action` permission. The [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role and higher levels have this permission.
 

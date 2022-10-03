@@ -3,7 +3,7 @@
 title: Migrate Azure Cognitive Search to availability zone support 
 description: Learn how to migrate Azure Cognitive Search to availability zone support.
 author: mattmsft
-ms.service: azure
+ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/01/2022
 ms.author: magottei

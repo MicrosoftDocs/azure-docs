@@ -103,7 +103,7 @@ The monitor will compare the baseline and target datasets.
 
 The target dataset needs the `timeseries` trait set on it by specifying the timestamp column either from a column in the data or a virtual column derived from the path pattern of the files. Create the dataset with a timestamp through the [Python SDK](#sdk-dataset) or [Azure Machine Learning studio](#studio-dataset). A column representing a "timestamp" must be specified to add `timeseries` trait to the dataset. If your data is partitioned into folder structure with time info, such as '{yyyy/MM/dd}', create a virtual column through the path pattern setting and set it as the "partition timestamp" to enable time series API functionality.
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 <a name="sdk-dataset"></a>
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
@@ -162,7 +162,7 @@ If your data is already partitioned by date or time, as is the case here, you ca
 
 Create a dataset monitor to detect and alert to data drift on a new dataset.  Use either the [Python SDK](#sdk-monitor) or [Azure Machine Learning studio](#studio-monitor).
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 <a name="sdk-monitor"></a>
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]

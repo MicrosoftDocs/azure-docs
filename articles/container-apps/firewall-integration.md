@@ -16,7 +16,7 @@ Network Security Groups (NSGs) needed to configure virtual networks closely rese
 
 You can lock down a network via NSGs with more restrictive rules than the default NSG rules to control all inbound and outbound traffic for the Container App Environment.
 
-Using custom user-defined routes (UDRs) or ExpressRoutes, other than with UDRs of selected destinations that you own, are not yet supported for Container App Environments with VNETs. Therefore, securing a Container App Environment with a firewall is not yet supported.
+Using custom user-defined routes (UDRs) or ExpressRoutes, other than with UDRs of selected destinations that you own, are not yet supported for Container App Environments with VNETs. Therefore, securing outbound traffic with a firewall is not yet supported.
 
 ## NSG allow rules
 

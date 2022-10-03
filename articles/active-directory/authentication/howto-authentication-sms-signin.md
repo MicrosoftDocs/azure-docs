@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 08/08/2022
 ms.author: justinha
 author: justinha
-manager: karenhoran
+manager: amycolannino
 ms.reviewer: anjusingh
 
 ms.collection: M365-identity-device-management

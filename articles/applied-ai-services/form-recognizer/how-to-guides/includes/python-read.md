@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 04/13/2022
+ms.date: 09/09/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -17,7 +17,7 @@ recommendations: false
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 
-* [Python 3.x](https://www.python.org/)
+* [Python 3.7 or later](https://www.python.org/)
 
   * Your Python installation should include [pip](https://pip.pypa.io/en/stable/). You can check if you have pip installed by running `pip --version` on the command line. Get pip by installing the latest version of Python.
 
@@ -37,7 +37,7 @@ recommendations: false
 Open a terminal window in your local environment and install the Azure Form Recognizer client library for Python with pip:
 
 ```console
-pip install azure-ai-formrecognizer==3.2.0b3
+pip install azure-ai-formrecognizer==3.2.0
 ```
 
 ## Read Model
