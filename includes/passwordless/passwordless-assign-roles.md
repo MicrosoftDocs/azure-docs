@@ -1,1 +1,0 @@
-[!INCLUDE [assign-roles](assign-roles.md)]

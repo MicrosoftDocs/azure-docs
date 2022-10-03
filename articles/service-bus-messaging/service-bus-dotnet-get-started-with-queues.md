@@ -65,46 +65,7 @@ This section shows you how to create a .NET Core console application to send mes
 
 ### Authenticate to Azure
 
-Application requests to Azure Service Bus must be authorized. Using the `DefaultAzureCredential` class provided by the Azure.Identity client library is the recommended approach for implementing passwordless connections to Azure services in your code, including Blob Storage.
-
-You can also authorize requests to Azure Service Bus by using connection strings. However, this approach should be used with caution. Developers must be diligent to never expose the connection string in an unsecure location. Anyone who gains access to the connection string is able to authenticate. `DefaultAzureCredential` offers improved management and security benefits over the account key to allow passwordless authentication. Both options are demonstrated in the following example.
-
-### [Passwordless (Recommended)](#tab/passwordless)
-
-[!INCLUDE [passwordless-overview](../../includes/passwordless/passwordless-overview.md)]
-
-### Assign roles to your Azure AD user
-
-[!INCLUDE [assign-roles](../../includes/assign-roles.md)]
-
-### Sign-in and connect your app code to Azure using DefaultAzureCredential
-
-You can authorize access to data in your storage account using the following steps:
-
-1. Make sure you're authenticated with the same Azure AD account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio, or Azure PowerShell. Your code will use this account to authenticate.
-
-    [!INCLUDE [default-azure-credential-sign-in](../../includes/default-azure-credential-sign-in.md)]
-
-1. To use `DefaultAzureCredential`, add the **Azure.Identity** package to your application.
-
-    [!INCLUDE [visual-studio-add-identity](../../includes/visual-studio-add-identity.md)]
-
-### [Connection string](#tab/connection-string)
-
-## Get the connection string 
-Creating a new namespace automatically generates an initial Shared Access Signature (SAS) policy with primary and secondary keys, and primary and secondary connection strings that each grant full control over all aspects of the namespace. See [Service Bus authentication and authorization](../service-bus-authentication-and-authorization.md) for information about how to create rules with more constrained rights for regular senders and receivers. 
-
-To copy the primary connection string for your namespace, follow these steps: 
-
-1. On the **Service Bus Namespace** page, select **Shared access policies** on the left menu.
-3. On the **Shared access policies** page, select **RootManageSharedAccessKey**.
-4. In the **Policy: RootManageSharedAccessKey** window, select the copy button next to **Primary Connection String**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
-   
-    :::image type="content" source="includes/media/service-bus-create-namespace-portal/connection-string.png" alt-text="Screen shows a SAS policy called RootManageSharedAccessKey, which includes keys and connection strings.":::
-
-    You can use this page to copy primary key, secondary key, primary connection string, and secondary connection string.
-
----
+[!INCLUDE [service-bus-passwordless-template-tabbed](../../includes/passwordless/service-bus/service-bus-passwordless-template-tabbed.md)]
 
 ## Add code to send messages to the queue
 
@@ -144,7 +105,7 @@ To copy the primary connection string for your namespace, follow these steps:
         // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
         // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
         var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
-        client = new ServiceBusClient("<NAMESPACE-NAME>", new DefaultAzureCredential());
+        client = new ServiceBusClient("<NAMESPACE NAME>.servicebus.windows.net", new DefaultAzureCredential());
         sender = client.CreateSender(queueName);
         
         // create a batch 
@@ -388,7 +349,7 @@ In this section, you'll add code to retrieve messages from the queue.
         // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
         // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
         var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
-        client = new ServiceBusClient("<NAMESPACE-NAME>", new DefaultAzureCredential());
+        client = new ServiceBusClient("<NAMESPACE NAME>.servicebus.windows.net", new DefaultAzureCredential());
 
         // create a processor that we can use to process the messages
         processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
@@ -493,7 +454,7 @@ In this section, you'll add code to retrieve messages from the queue.
         // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
         // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
         var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
-        client = new ServiceBusClient("<NAMESPACE-NAME>", new DefaultAzureCredential());
+        client = new ServiceBusClient("<NAMESPACE NAME>.servicebus.windows.net", new DefaultAzureCredential());
         
         // create a processor that we can use to process the messages
         processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
