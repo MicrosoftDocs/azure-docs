@@ -146,13 +146,13 @@ You can configure Application Configuration Service for Tanzu using the portal b
 1. Select **Application Configuration Service**.
 1. Select **Overview** to view the running state and resources allocated to Application Configuration Service for Tanzu.
 
-   ![Application Configuration Service Overview screen](./media/enterprise/getting-started-enterprise/config-service-overview.png)
+   ![Application Configuration Service Overview screen](./media/enterprise/how-to-enterprise-application-configuration-service/config-service-overview.png)
 
 1. Select **Settings** and add a new entry in the **Repositories** section with the Git backend information.
 
 1. Select **Validate** to validate access to the target URI. After validation completes successfully, select **Apply** to update the configuration settings.
 
-   ![Application Configuration Service Settings overview](./media/enterprise/getting-started-enterprise/config-service-settings.png)
+   ![Application Configuration Service Settings overview](./media/enterprise/how-to-enterprise-application-configuration-service/config-service-settings.png)
 
 ## Configure Application Configuration Service for Tanzu settings using the CLI
 
