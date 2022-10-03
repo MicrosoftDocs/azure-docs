@@ -51,7 +51,7 @@ Next, you'll pass the access key securely to the Playwright command-line in the 
 
 1. Go to the [Playwright dashboard](https://17157345.playwright-int.io/), and follow these steps to [create a workspace access key](./how-to-manage-access-keys.md#create-an-access-key).
 
-    After you create the access key, make to copy the generated key value.
+    After you create the access key, copy the generated key value.
 
 1. Go to your Azure DevOps project portal `https://dev.azure.com/<my-project>`.
 
