@@ -177,7 +177,7 @@ Cancellation tokens are supported in .NET isolated functions. The following exam
 
 You can compile your function app as [ReadyToRun binaries](/dotnet/core/deploying/ready-to-run). ReadyToRun is a form of ahead-of-time compilation that can improve startup performance to help reduce the impact of [cold-start](event-driven-scaling.md#cold-start) when running in a [Consumption plan](consumption-plan.md).
 
-ReadyToRun is available in .NET 3.1 and .NET 6 (in-proc and isolated) and .NET 7 and requires [version 3.0 or 4.0of the Azure Functions runtime](functions-versions.md).
+ReadyToRun is available in .NET 3.1, .NET 6 (both in-process and isolated process), and .NET 7, and it requires [version 3.0 or later](functions-versions.md) of the Azure Functions runtime.
 
 To compile your project as ReadyToRun, update your project file by adding the `<PublishReadyToRun>` and `<RuntimeIdentifier>` elements. The following is the configuration for publishing to a Windows 32-bit function app.
 
