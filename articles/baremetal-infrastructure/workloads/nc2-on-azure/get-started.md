@@ -14,7 +14,7 @@ Learn how to sign up for, set up, and use Nutanix Cloud Clusters (NC2) on Azure.
 
 Once you've satisfied the [requirements](requirements.md), go to [Nutanix Cloud Clusters
 on Azure Deployment
-and User Guide](https://download.nutanix.com/documentation/hosted/Nutanix-Cloud-Clusters-Azure.pdf) to sign up for the Preview.
+and User Guide](https://download.nutanix.com/documentation/hosted/Nutanix-Cloud-Clusters-Azure.pdf) to sign up.
 
 ## Set up NC2 on Azure
 
