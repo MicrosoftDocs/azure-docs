@@ -15,6 +15,9 @@ ms.author: mbender
 ---
 # Update or delete a load balancer used by virtual machine scale sets
 
+>[!Important]
+On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement(https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/)]. If you use Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to that date. This article will help guide you with the upgrade. 
+
 When you work with virtual machine scale sets and an instance of Azure Load Balancer, you can:
 
 - Add, update, and delete rules.
