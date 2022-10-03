@@ -27,7 +27,6 @@ This article provides a reference for required and optional settings that are us
 | neighborhood.heartbeat.port | UDP port used for instances of a self-hosted gateway deployment to send heartbeats to other instances. | No | 4291 |
 | policy.rate-limit.sync.port | UDP port used for self-hosted gateway instances to synchronize rate limiting across multiple instances. | No | 4290 |
 
-
 ##  Metrics
 
 | Name                           | Description              | Required | Default           |
@@ -46,6 +45,8 @@ This article provides a reference for required and optional settings that are us
 | Name   | Description | Required | Default |
 | ------------- | ------------- | ------------- | ----|
 | telemetry.logs.std  |[Enable  logging](how-to-configure-local-metrics-logs.md#logs) to a standard stream. Value is one of the following: `none`, `text`, `json`. | No |  `text` | 
+| telemetry.logs.std.level  | Defines the log level of logs sent to standard stream. Value is one of the following: `all`, `debug`, `info`, `warn`, `error` or `fatal`. | No |  `info` | 
+| telemetry.logs.std.color  | Indication whether or not colored logs should bue used in standard stream. | No |  `true` | 
 | telemetry.logs.local  | [Enable local logging](how-to-configure-local-metrics-logs.md#logs). Value is one of the following: `none`, `auto`, `localsyslog`, `rfc5424`, `journal`, `json`  | No  | `auto` |
 | telemetry.logs.local.localsyslog.endpoint  |  localsyslog endpoint.  | Yes if `telemetry.logs.local` is set to `localsyslog`; otherwise no. | N/A |
 | telemetry.logs.local.localsyslog.facility  | Specifies localsyslog [facility code](https://en.wikipedia.org/wiki/Syslog#Facility), for example, `7`. | No | N/A |
