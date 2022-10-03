@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 09/22/2022
+ms.date: 10/03/2022
 ms.author: anfdocs
 ---
 
@@ -25,17 +25,22 @@ Customer-managed keys in Azure NetApp Files enable you to use your own keys rath
 > [!IMPORTANT]
 > The customer-manged keys feature is currently in preview. The program is controlled via Azure Feature Exposure Control (AFEC). To access this preview program, contact your account team.
 
-* Support for Azure NetApp Files customer-managed keys is only for new volumes. There's currently no support for migrating existing volumes to customer-managed key encryption. 
-* To create a volume using customer-managed keys, you must select the *Standard* network features. Customer-managed key volumes are not supported for the basic network features. Follow instructions in [Configure network features for a volume to](configure-network-features.md):  
-    * [Register for the standard network features](configure-network-features.md#register-the-feature)
-    * [Set the Network Features option](configure-network-features.md#set-the-network-features-option) in the volume creation page   
+* Customer-managed keys can only be configured on new volumes. You cannot migrate existing volumes to customer-managed key encryption. 
+* To create a volume using customer-managed keys, you must select the *Standard* network features. Customer-managed key volumes are not supported for the Basic network features. Follow instructions in [Configure network features for a volume to](configure-network-features.md):  
+    * [Register for the standard network features](configure-network-features.md#register-the-feature).
+    * [Set the Network Features option](configure-network-features.md#set-the-network-features-option) in the volume creation page.
 * Rekey operation is currently not supported.
 * Switching from user-assigned identity to the system-assigned identity is currently not supported.
 * MSI Automatic certificate renewal is not currently supported.  
-* If the certificate is more than 46 days old, you can call proxy Azure Resource Manager (ARM) operation via REST API to renew the certificate. For example: 
-    ```rest
-     /{accountResourceId}/renewCredentials?api-version=2022-01 – example /subscriptions/<16 digit subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.NetApp/netAppAccounts/<account name>/renewCredentials?api-version=2022-01  
-    ```  
+* The MSI certificate has a lifetime of 90 days. It will be eligible for renewal after 46 days. **After 90 days, the certificate will no longer be valid and the customer-managed key volumes under the NetApp account will go offline.**
+    * To renew, you need to call the NetApp account operation `renewCredentials` if eligible for renewal. If it is not eligible, you will get an error message stating when the account will be eligible for renewal. 
+   *  You will need to call the operation via ARM REST API. Submit a POST request to `/subscriptions/<16 digit subscription ID>/resourceGroups/<resource_group_name>/providers/Microsoft.NetApp/netAppAccounts/<account name>/renewCredentials?api-version=2022-04`.
+    This operation is available with the Azure CLI, PowerShell, and SDK beginning with the `2022-05` versions.
+    * If the certificate is more than 46 days old, you can call proxy Azure Resource Manager (ARM) operation via REST API to renew the certificate. For example: 
+        ```rest
+         /{accountResourceId}/renewCredentials?api-version=2022-01 – example /subscriptions/<16 digit subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.NetApp/netAppAccounts/<account name>/renewCredentials?api-version=2022-01  
+        ```  
+* Applying Azure network security groups on the private link subnet to Azure Key Vault is not supported for Azure NetApp Files customer-managed keys. Network security groups does not affect connectivity to Private Link unless `Private endpoint network policy` is enabled on the subnet. It is recommended to keep this option disabled. 
 * If Azure NetApp Files fails to create a customer-managed key volume, error messages are displayed. Refer to the [Error messages and troubleshooting](#error-messages-and-troubleshooting) section for more information. 
 
 ## Requirements
@@ -51,6 +56,8 @@ For more information about Azure Key Vault and Azure Private Endpoint, refer to:
 * [Create or import a key into the vault](../key-vault/keys/quick-create-portal.md)
 * [Create a private endpoint](../private-link/create-private-endpoint-portal.md)
 * [More about keys and supported key types](../key-vault/keys/about-keys.md)
+* [Network security groups](../virtual-network/network-security-groups-overview.md)
+* [Manage network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md)
 
 ## Configure a NetApp account to use customer-managed keys
 
