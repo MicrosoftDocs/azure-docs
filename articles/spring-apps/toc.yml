@@ -229,12 +229,19 @@ items:
     - name: Configure Palo Alto
       href: how-to-configure-palo-alto.md
 <<<<<<< HEAD
+<<<<<<< HEAD
     - name: Control egress traffic for an Azure Spring Apps instance
       href: how-to-create-user-defined-route-instance.md
 =======
     - name: Customize the ingress configuration in Azure Spring Apps
       href: how-to-configure-ingress.md
 >>>>>>> 54e36a887ee5d54391032ef17b4ac5c5a62ef3fc
+=======
+    - name: Control egress traffic for an Azure Spring Apps instance
+      href: how-to-create-user-defined-route-instance.md
+    - name: Customize the ingress configuration in Azure Spring Apps
+      href: how-to-configure-ingress.md
+>>>>>>> 3e776eff5a7c836b0d8be96974ef11d83dcfb963
     - name: Customer responsibilities running Azure Spring Apps in VNET
       href: vnet-customer-responsibilities.md
     - name: Troubleshooting Azure Spring Apps in virtual networks
