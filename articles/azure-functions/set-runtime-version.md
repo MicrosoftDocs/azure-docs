@@ -126,15 +126,26 @@ As before, replace `<FUNCTION_APP>` with the name of your function app and `<RES
 
 The function app restarts after the change is made to the application setting.
 
-## Manual version updates on Linux
+## Pin to a specific version on Linux
 
-To pin a Linux function app to a specific host version, you specify the image URL in the 'LinuxFxVersion' field in site config. For example: if we want to pin a node 10 function app to say host version 3.0.13142 -
+> [!IMPORTANT]
+> We don't generally recommend pinning your Linux function app to a specific version. Pinned function apps don't receive security and regular updates. Unless recommended by a support professional, you should instead use the [`FUNCTIONS_EXTENSION_VERSION`]() setting and a valid  
 
-For **linux app service/elastic premium apps** -
-Set `LinuxFxVersion` to `DOCKER|mcr.microsoft.com/azure-functions/node:3.0.13142-node10-appservice`.
+To pin a Linux function app to a specific host version, you specify a base image URL in the [`LinuxFxVersion` site setting](functions-app-settings.md#linuxfxversion) in the format `DOCKER | <PINNED_VERSION_IMAGE_URI>`. The pinned version base image URI varies depending on the hosting plan. The following table provides an example of `LinuxFxVersion` values required to pin a Node.js 10 function app to a specific runtime version of 3.0.13142:
 
-For **linux consumption apps** -
-Set `LinuxFxVersion` to `DOCKER|mcr.microsoft.com/azure-functions/mesh:3.0.13142-node10`.
+| [Hosting plan](functions-scale.md)  | `LinuxFxVersion` value |
+| --- | --- |
+| Consumption  | `DOCKER\|mcr.microsoft.com/azure-functions/mesh:3.0.13142-node10` | 
+| Premium/Dedicated | `DOCKER\|mcr.microsoft.com/azure-functions/node:3.0.13142-node10-appservice` |
+
+Supported base images for Azure Functions are language-specific and are found in Azure Functions base image repos, by language:
+
++ [C# in-process](https://hub.docker.com/_/microsoft-azure-functions-base).
++ [C# isolated process](https://hub.docker.com/_/microsoft-azure-functions-dotnet-isolated)
++ [Java](https://hub.docker.com/_/microsoft-azure-functions-java)
++ [JavaScript/TypeScript](https://hub.docker.com/_/microsoft-azure-functions-node) 
++ [PowerShell](https://hub.docker.com/_/microsoft-azure-functions-powershell)
++ [Python](https://hub.docker.com/_/microsoft-azure-functions-python)
 
 # [Portal](#tab/portal)
 
