@@ -210,7 +210,7 @@ An authentication strength Conditional Access policy works together with [MFA tr
 
 - **Authentication strength is not enforced on “Register security information” user action** – If an Authentication strengths Conditional Access policy is targeting “Register security information” user action, the policy would not apply. 
 
-<!-- Namrata to update about B2B--->
+- **Conditional Access audit log** – when creating or updating a Conditional Access policy with the authentication strengths grant control from the Azure AD portal, the auditing logs includes details about the policy that was updated but does not include the details about which authentication strength is referenced by the Conditional Access policy. This issue does not exist when updating the policy through Microsoft Graph APIs.
 
 ## Limitations
 
