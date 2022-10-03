@@ -20,8 +20,8 @@ This how-to guide describes how a data owner can delegate authoring policies in 
 ## Prerequisites
 [!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
 - Get SQL server version 2022 RC 1 or later running on Windows and install it. [Follow this link](https://www.microsoft.com/sql-server/sql-server-2022).
-- Complete process to onboard that SQL server with Azure Arc [Follow this link](/sql/sql-server/azure-arc/connect.md).
-- Enable Azure AD Authentication in that SQL server. [Follow this guide to learn how](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-setup-tutorial.md). For a simpler setup [follow this link](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-automation-setup-tutorial.md#setting-up-azure-ad-admin-using-the-azure-portal).
+- Complete process to onboard that SQL server with Azure Arc [Follow this link](https://learn.microsoft.com/sql/sql-server/azure-arc/connect).
+- Enable Azure AD Authentication in that SQL server. [Follow this guide to learn how](https://learn.microsoft.com/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-setup-tutorial). For a simpler setup [follow this link](https://learn.microsoft.com/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-automation-setup-tutorial#setting-up-azure-ad-admin-using-the-azure-portal).
 
 **Enforcement of policies for this data source is available only in the following regions for Microsoft Purview**
 - East US
