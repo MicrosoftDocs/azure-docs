@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 09/28/2022
+ms.date: 10/03/2022
 ms.custom: references_regions
 ---
 # Provision access to Arc-enabled SQL Server for DevOps actions (preview)
@@ -21,8 +21,9 @@ This how-to guide shows how to provision access via Microsoft Purview to Arc-ena
 - Create a new, or use an existing Microsoft Purview account. You can [follow our quick-start guide to create one](./create-catalog-portal.md).
 - Provide the subscription ID and name of the Microsoft Purview account to the Microsoft program manager driving this private preview so that it can be enabled for you to test
 - Create a new, or use an existing resource group, and place new data sources under it. [Follow this guide to create a new resource group](../azure-resource-manager/management/manage-resource-groups-portal.md)
-- SQL server version 2022 CTP 2.0 or later running on Windows. [Follow this link](https://www.microsoft.com/sql-server/sql-server-2022)
-- Complete process to onboard that SQL server with Azure Arc and enable Azure AD Authentication. [Follow this guide to learn how](https://aka.ms/sql-on-arc-AADauth).
+- Get SQL server version 2022 RC 1 or later running on Windows and install it. [Follow this link](https://www.microsoft.com/sql-server/sql-server-2022).
+- Complete process to onboard that SQL server with Azure Arc [Follow this link](/sql/sql-server/azure-arc/connect.md).
+- Enable Azure AD Authentication in that SQL server. [Follow this guide to learn how](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-setup-tutorial.md). For a simpler setup [follow this link](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-automation-setup-tutorial.md#setting-up-azure-ad-admin-using-the-azure-portal).
 
 **Enforcement of policies for this data source is currently available in the following regions for Microsoft Purview**
 - East US
