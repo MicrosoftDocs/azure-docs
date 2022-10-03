@@ -595,7 +595,7 @@ linuxFxVersion = "DOCKER|contoso.com/azurefunctionsimage:v1.0.0"
 ```
 For more information, see [Create a function on Linux using a custom container](functions-create-function-linux-custom-image.md).
 
-[!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-customer-container-note.md)]
+[!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-custom-container-note.md)]
 
 ### netFrameworkVersion
 
