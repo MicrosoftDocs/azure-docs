@@ -44,7 +44,7 @@ Available regulatory standards:
 - FedRAMP H
 - FedRAMP M
 
-There are 3 benchmarks available for AWS: AWS CIS, AWS PCI, and AWS Foundational Security Best Practices. When users onboard, every AWS connector subscription has the **AWS Foundational Security Best Practices** assigned. This is the AWS-specific guidelines for security and compliance best practices based on common compliance frameworks.
+**AWS**: There are three benchmarks available for AWS: AWS CIS, AWS PCI, and AWS Foundational Security Best Practices. When users onboard, every AWS connector subscription has the **AWS Foundational Security Best Practices** assigned. This is the AWS-specific guidelines for security and compliance best practices based on common compliance frameworks.
 Users that have one Defender bundle enabled will be able to enable CIS and PCI as well (same as regulatory compliance for Azure).
 
 Available AWS regulatory standards:
@@ -52,7 +52,7 @@ Available AWS regulatory standards:
 - AWS CIS 1.2.0
 - AWS PCI DSS 3.2.1
 
-By default, every GCP connector subscription has the **GCP Default** assigned. This is the GCP-specific guidelines for security and compliance best practices based on common compliance frameworks.
+**GPC**:  By default, every GCP connector subscription has the **GCP Default** assigned. This is the GCP-specific guidelines for security and compliance best practices based on common compliance frameworks.
 
 Available GCP regulatory standards:
 
@@ -114,7 +114,7 @@ To add regulatory compliance standards on AWS accounts:
 1. Select the relevant account.
 1. Select **Standards**.
 1. Select **Add** and choose **Standard**.
-1. Choose a standard from the drop down menu.
+1. Choose a standard from the drop-down menu.
 1. Select **Save**.
 
 :::image type="content" source="media/update-regulatory-compliance-packages/Add-aws-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to AWS account." lightbox="media/update-regulatory-compliance-packages/Add-aws-regulatory-compliance.png":::

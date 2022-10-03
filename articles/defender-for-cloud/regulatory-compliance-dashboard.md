@@ -30,7 +30,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 To step through the features covered in this tutorial:
 
 - [Enable enhanced security features](defender-for-cloud-introduction.md). You can enable these for free for 30 days.
-- You must be signed in with an account that has reader access to the policy compliance data. The **Global reader** for the subscription has access to the policy compliance data, but the **Security Reader** role does not. At a minimum, you'll need to have **Resource Policy Contributor** and **Security Admin** roles assigned.
+- You must be signed in with an account that has reader access to the policy compliance data. The **Global reader** for the subscription has access to the policy compliance data, but the **Security Reader** role doesn't. At a minimum, you'll need to have **Resource Policy Contributor** and **Security Admin** roles assigned.
 
 ## Assess your regulatory compliance
 
@@ -149,7 +149,7 @@ To track your compliance with any other standard, you'll need to explicitly add 
  
 You can add other standards such as Azure CIS 1.3.0, NIST SP 800-53, NIST SP 800-171, SWIFT CSP CSCF-v2020, UK Official and UK NHS, HIPAA, Canada Federal PBMM, ISO 27001, SOC2-TSP, and PCI-DSS 3.2.1.  
 
-**AWS**: There are 3 benchmarks available for AWS: AWS CIS, AWS PCI, and AWS Foundational Security Best Practices. When users onboard, every AWS connector subscription has the **AWS Foundational Security Best Practices** assigned. This is the AWS-specific guideline for security and compliance best practices based on common compliance frameworks.
+**AWS**: There are three benchmarks available for AWS: AWS CIS, AWS PCI, and AWS Foundational Security Best Practices. When users onboard, every AWS connector subscription has the **AWS Foundational Security Best Practices** assigned. This is the AWS-specific guideline for security and compliance best practices based on common compliance frameworks.
 Users that have one Defender bundle enabled cab enable CIS and PCI as well (same as regulatory compliance for Azure).
 
 Available AWS regulatory standards:
@@ -164,7 +164,7 @@ To add regulatory compliance standards on AWS accounts:
 1. Select the relevant account.
 1. Select **Standards**.
 1. Select **Add** and choose **Standard**.
-1. Choose a standard from the drop down menu.
+1. Choose a standard from the drop-down menu.
 1. Select **Save**.
 
 :::image type="content" source="media/update-regulatory-compliance-packages/Add-aws-regulatory-compliance.png" alt-text="Screenshot of adding regulatory compliance standard to AWS account." lightbox="media/update-regulatory-compliance-packages/Add-aws-regulatory-compliance.png":::
