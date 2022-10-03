@@ -41,7 +41,7 @@ Users will get a primary refresh token (PRT) from Azure AD after the successful 
 |First sign-in | Pull from certificate | AD UPN or x509Hint |
 |Subsequent sign-in | Pull from certificate | Cached Azure AD UPN |
 
-### Windows rules for sending UPN for devices joined to Azure AD
+### Windows rules for sending UPN for Azure AD-joined devices
 
 Windows will follow this order to find the UPN value from the certificate:
 1. SAN Principal Name 
