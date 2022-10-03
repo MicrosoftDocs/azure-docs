@@ -1,6 +1,6 @@
 ---
-title: "Propagate Kubernetes configurations from an Azure Kubernetes Fleet Manager resource to member clusters (preview)"
-description: Learn how to control how Kubernetes configurations get propagated to all or a subset of member clusters of an Azure Kubernetes Fleet Manager resource.
+title: "Propagate Kubernetes resource objects from an Azure Kubernetes Fleet Manager resource to member clusters (preview)"
+description: Learn how to control how Kubernetes resource objects get propagated to all or a subset of member clusters of an Azure Kubernetes Fleet Manager resource.
 ms.topic: how-to
 ms.date: 09/09/2022
 author: shashankbarsin
@@ -8,7 +8,7 @@ ms.author: shasb
 ms.service: kubernetes-fleet
 ---
 
-# Propagate Kubernetes configurations from an Azure Kubernetes Fleet Manager resource to member clusters (preview)
+# Propagate Kubernetes resource objects from an Azure Kubernetes Fleet Manager resource to member clusters (preview)
 
 Platform admins and application developers need a way to deploy the same to deploy the same Kubernetes resource objects (like ClusterRoles, ClusterRoleBindings, Namespaces, Deployments) across all member clusters or just a subset of member clusters of the fleet. Kubernetes Fleet Manager (Fleet) provides `ClusterResourcePlacement` as a mechanism to control how cluster-scoped Kubernetes resources are propagated to member clusters.
 
@@ -60,8 +60,8 @@ An example of selecting a resource by label is given below.
                     fleet.azure.com/location: westcentralus
     ```
 
-> [!TIP]
-> The above example propagates `hello-world` namespace to only those member clusters that are from the `westcentralus` region. If your desired target clusters are from a different region, you can substitute `westcentralus` for that region instead.
+    > [!TIP]
+    > The above example propagates `hello-world` namespace to only those member clusters that are from the `westcentralus` region. If your desired target clusters are from a different region, you can substitute `westcentralus` for that region instead.
 
 
 1. Apply the `ClusterResourcePlacement`:
