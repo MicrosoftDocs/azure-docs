@@ -5,7 +5,7 @@ description: Learn how to configure a managed identity that'll be used to deploy
 ms.service: deployment-environments
 ms.author: meghaanand
 author: anandmeg
-ms.date: 09/23/2022
+ms.date: 10/12/2022
 ms.topic: how-to
 ---
 

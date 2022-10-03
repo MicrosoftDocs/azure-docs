@@ -5,7 +5,7 @@ description: Learn how to configure dev center environment types to define the t
 ms.service: deployment-environments
 ms.author: meghaanand
 author: anandmeg
-ms.date: 09/21/2022
+ms.date: 10/12/2022
 ms.topic: how-to
 ---
 
