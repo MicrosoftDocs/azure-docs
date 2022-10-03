@@ -153,6 +153,13 @@
       - name: Configure secure web services (v1)
         displayName: ssl, tls
         href: how-to-secure-web-service.md
+    - name: Data protection
+      items: 
+      - name: Failover & disaster recovery
+        displayName: high availability
+        href: ../how-to-high-availability-machine-learning.md
+      - name: Regenerate storage access keys
+        href: ../how-to-change-storage-access-key.md
 - name: How-to guides (v1)
   items:
   - name: Install and set up the CLI (v1)
@@ -268,6 +275,8 @@
       - name: Data splits & cross-validation (Python)
         displayName: automl, feature engineering, feature importance
         href: ../how-to-configure-cross-validation-data-splits.md
+      - name: Generate AutoML training code
+        href: ../how-to-generate-automl-training-code.md
       - name: Featurization in automated ML (Python)
         displayName: automl, feature engineering, feature importance, BERT
         href: ../how-to-configure-auto-features.md
