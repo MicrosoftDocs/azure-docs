@@ -2,7 +2,7 @@
 title: Move resources to a new subscription or resource group
 description: Use Azure Resource Manager to move resources to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 11/30/2021
+ms.date: 08/15/2022
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -65,6 +65,8 @@ There are some important steps to do before moving a resource. By verifying thes
 
    * [Transfer ownership of an Azure subscription to another account](../../cost-management-billing/manage/billing-subscription-transfer.md)
    * [How to associate or add an Azure subscription to Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+
+1. If you're attempting to move resources to or from a Cloud Solution Provider (CSP) partner, see [Transfer Azure subscriptions between subscribers and CSPs](../../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.md).
 
 1. The destination subscription must be registered for the resource provider of the resource being moved. If not, you receive an error stating that the **subscription is not registered for a resource type**. You might see this error when moving a resource to a new subscription, but that subscription has never been used with that resource type.
 

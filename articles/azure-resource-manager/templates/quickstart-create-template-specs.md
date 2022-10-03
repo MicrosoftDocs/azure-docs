@@ -223,7 +223,7 @@ The template spec is a resource type named `Microsoft.Resources/templateSpecs`. 
 
     ```azurecli
     az deployment group create \
-      --name templateSpecRG \
+      --resource-group templateSpecRG \
       --template-file "c:\Templates\azuredeploy.json"
     ```
 
@@ -375,7 +375,7 @@ To deploy a template spec, use the same deployment commands as you would use to 
 
     ```azurecli
     az deployment group create \
-      --name storageRG \
+      --resource-group storageRG \
       --template-file "c:\Templates\storage.json"
     ```
 
@@ -581,7 +581,7 @@ Rather than creating a new template spec for the revised template, add a new ver
 
     ```azurecli
     az deployment group create \
-      --name templateSpecRG \
+      --resource-group templateSpecRG \
       --template-file "c:\Templates\azuredeploy.json"
     ```
 
@@ -623,7 +623,7 @@ Rather than creating a new template spec for the revised template, add a new ver
 
     ```azurecli
     az deployment group create \
-      --name storageRG \
+      --resource-group storageRG \
       --template-file "c:\Templates\storage.json"
     ```
 

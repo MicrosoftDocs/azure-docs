@@ -1,12 +1,12 @@
 ---
 title: Azure Database for MySQL - Flexible Server service tiers
 description: This article describes the compute and storage options in Azure Database for MySQL - Flexible Server.
-author: Bashar-MSFT
-ms.author: bahusse
 ms.service: mysql
 ms.subservice: flexible-server
-ms.custom: event-tier1-build-2022
 ms.topic: conceptual
+author: Bashar-MSFT
+ms.author: bahusse
+ms.custom: event-tier1-build-2022
 ms.date: 05/24/2022
 ---
 
@@ -18,7 +18,7 @@ You can create an Azure Database for MySQL Flexible Server in one of three diffe
 
 | Resource / Tier | **Burstable** | **General Purpose** | **Business Critical** |
 |:---|:----------|:--------------------|:---------------------|
-| VM series| B-series | Ddsv4-series | Edsv4/v5-series*|
+| VM series| [B-series](/azure/virtual-machines/sizes-b-series-burstable) | [Ddsv4-series](/azure/virtual-machines/ddv4-ddsv4-series#ddsv4-series) | [Edsv4](/azure/virtual-machines/edv4-edsv4-series#edsv4-series)/[Edsv5-series](/azure/virtual-machines/edv5-edsv5-series#edsv5-series)*|
 | vCores | 1, 2, 4, 8, 12, 16, 20 | 2, 4, 8, 16, 32, 48, 64 | 2, 4, 8, 16, 32, 48, 64, 80, 96 |
 | Memory per vCore | Variable | 4 GiB | 8 GiB * |
 | Storage size | 20 GiB to 16 TiB | 20 GiB to 16 TiB | 20 GiB to 16 TiB |
@@ -26,7 +26,7 @@ You can create an Azure Database for MySQL Flexible Server in one of three diffe
 
 \* With the exception of E64ds_v4 (Business Critical) SKU, which has 504 GB of memory
 
-\* Only few regions have Edsv5 compute availability.
+\* Ev5 compute provides best performance among other VM series in terms of QPS and latency. learn more about performance and region availability of Ev5 compute from [here](https://techcommunity.microsoft.com/t5/azure-database-for-mysql-blog/boost-azure-mysql-business-critical-flexible-server-performance/ba-p/3603698).
 
 To choose a compute tier, use the following table as a starting point.
 
@@ -64,7 +64,7 @@ The detailed specifications of the available server types are as follows:
 |Standard_D32ds_v4	|32	|128	|20000	|21845
 |Standard_D48ds_v4	|48	|192	|20000	|32768
 |Standard_D64ds_v4	|64	|256	|20000	|43691
-|**Memory Optimized** |	
+|**Business Critical** |	
 |Standard_E2ds_v4	|	2	|	16	|	5000	|	2731
 |Standard_E4ds_v4	|	4	|	32	|	10000	|	5461
 |Standard_E8ds_v4	|	8	|	64	|	18000	|	10923
@@ -106,15 +106,13 @@ While the service attempts to make the server read-only, all new write transacti
 
 To get the server out of read-only mode, you should increase the provisioned storage on the server. This can be done using the Azure portal or Azure CLI. Once increased, the server will be ready to accept write transactions again.
 
-We recommend that you set up an alert to notify you when your server storage is approaching the threshold so you can avoid getting into the read-only state. Refer to the [monitoring article](./concepts-monitoring.md) to learn about metrics available. 
-
 We recommend that you <!--turn on storage auto-grow or to--> set up an alert to notify you when your server storage is approaching the threshold so you can avoid getting into the read-only state. For more information, see the documentation on alert documentation [how to set up an alert](how-to-alert-on-metric.md).
 
 ### Storage auto-grow
 
 Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto-grow is enabled, the storage automatically grows without impacting the workload. Storage auto-grow is enabled by default for all new server creates. For servers with less than equal to 100 GB provisioned storage, the provisioned storage size is increased by 5 GB when the free storage is below 10% of the provisioned storage. For servers with more than 100 GB of provisioned storage, the provisioned storage size is increased by 5% when the free storage space is below 10 GB of the provisioned storage size. Maximum storage limits as specified above apply. Refresh the server instance to see the updated storage provisioned under **Settings** on the **Compute + Storage** page. 
 
-For example, if you have provisioned 1000 GB of storage, and the actual utilization goes over 990 GB, the server storage size is increased to 1050 GB. Alternatively, if you have provisioned 10 GB of storage, the storage size is increase to 15 GB when less than 1 GB of storage is free.
+For example, if you have provisioned 1000 GB of storage, and the actual utilization goes over 990 GB, the server storage size is increased to 1050 GB. Alternatively, if you have provisioned 20 GB of storage, the storage size is increase to 25 GB when less than 2 GB of storage is free.
 
 Remember that storage once auto-scaled up, cannot be scaled down.
 

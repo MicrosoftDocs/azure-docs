@@ -29,7 +29,7 @@ This document includes the following:
 
 -  Ensure the Resource Guard and the Recovery Services vault are in the same Azure region.
 -  Ensure the Backup admin does **not** have **Contributor** permissions on the Resource Guard. You can choose to have the Resource Guard in another subscription of the same directory or in another directory to ensure maximum isolation.
-- Ensure that your subscriptions containing the Recovery Services vault as well as the Resource Guard (in different subscriptions or tenants) are registered to use the **Microsoft.RecoveryServices** provider. For more details, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider-1).
+- Ensure that your subscriptions containing the Recovery Services vault as well as the Resource Guard (in different subscriptions or tenants) are registered to use the providers - **Microsoft.RecoveryServices** and **Microsoft.DataProtection** . For more details, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider-1).
 
 Learn about various [MUA usage scenarios](multi-user-authorization-concept.md#usage-scenarios).
 

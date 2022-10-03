@@ -14,8 +14,6 @@ ms.date: 05/16/2022
 
 This guide describes how to access, view, and filter Microsoft Purview asset insight reports for your data.
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
-
 In this guide, you'll learn how to:
 
 > [!div class="checklist"]
@@ -36,9 +34,6 @@ For more information to create and complete a scan, see [the manage data sources
 ## Understand your asset inventory in Data Estate Insights 
 
 In Microsoft Purview Data Estate Insights, you can get an overview of the assets that have been scanned into the Data Map and view key gaps that can be closed by governance stakeholders, for better governance of the data estate.
-
-> [!NOTE]
-> After you have scanned your source types, give asset insights 3-8 hours to reflect the new assets. The delay may be due to high traffic in deployment region or size of your workload. For further information, please contact support.
 
 1. Navigate to your Microsoft Purview account in the Azure portal.
 

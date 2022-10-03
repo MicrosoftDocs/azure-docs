@@ -66,7 +66,6 @@ All packet core network functions are compliant with Release 15 of the 3GPP spec
   - TS 29.504: 5G System; Unified Data Repository Services; Stage 3.
   - TS 29.505: 5G System; Usage of the Unified Data Repository services for Subscription Data; Stage 3.
 - AUSF - TS 29.509: 5G System; Authentication Server Services; Stage 3.
-- NRF - TS 29.510: 5G System; Network function repository services; Stage 3.
 - AMF - TS 29.518: 5G System; Access and Mobility Management Services; Stage 3.
 
 ### Security
@@ -85,12 +84,9 @@ The implementation of all of the 3GPP specifications given in [3GPP specificatio
 - IETF RFC 2279: UTF-8, a transformation format of ISO 10646.
 - IETF RFC 2460: Internet Protocol, Version 6 (IPv6) Specification.
 - IETF RFC 2474: Definition of the Differentiated Services Field (DS Field) in the IPv4 and IPv6 Headers.
-- IETF RFC 3748: Extensible Authentication Protocol (EAP).
 - IETF RFC 3986: Uniform Resource Identifier (URI): Generic Syntax.
-- IETF RFC 4187: Extensible Authentication Protocol Method for 3rd Generation Authentication and Key Agreement (EAP-AKA).
 - IETF RFC 4291: IP Version 6 Addressing Architecture.
 - IETF RFC 4960: Stream Control Transmission Protocol.
-- IETF RFC 5448: Improved Extensible Authentication Protocol Method for 3rd Generation Authentication and Key Agreement (EAP-AKA').
 - IETF RFC 5789: PATCH Method for HTTP.
 - IETF RFC 6458: Sockets API Extensions for the Stream Control Transmission Protocol (SCTP).
 - IETF RFC 6733: Diameter Base Protocol.

@@ -65,7 +65,7 @@ If your app already has a certificate for the selected custom domain, go to [Cre
 If your app has no certificate for the selected custom domain, then you have two options:
 
 - **Upload PFX Certificate** - Follow the workflow at [Upload a private certificate](configure-ssl-certificate.md#upload-a-private-certificate), then select this option here.
-- **Import App Service Certificate** - Follow the workflow at [Import an App Service certificate](configure-ssl-certificate.md#import-an-app-service-certificate), then select this option here.
+- **Import App Service Certificate** - Follow the workflow at [Import an App Service certificate](configure-ssl-certificate.md#buy-and-import-app-service-certificate), then select this option here.
 
 > [!NOTE]
 > You can also [Create a free certificate](configure-ssl-certificate.md#create-a-free-managed-certificate) or [Import a Key Vault certificate](configure-ssl-certificate.md#import-a-certificate-from-key-vault), but you must do it separately and then return to the **TLS/SSL Binding** dialog.
@@ -122,9 +122,9 @@ Your inbound IP address can change when you delete a binding, even if that bindi
 
 ## Enforce HTTPS
 
-By default, anyone can still access your app using HTTP. You can redirect all HTTP requests to the HTTPS port.
-
 In your app page, in the left navigation, select **TLS/SSL settings**. Then, in **HTTPS Only**, select **On**.
+
+If selected **HTTPS Only**, **Off** It means anyone can still access your app using HTTP. You can redirect all HTTP requests to the HTTPS port by selecting **On**. 
 
 ![Enforce HTTPS](./media/configure-ssl-bindings/enforce-https.png)
 

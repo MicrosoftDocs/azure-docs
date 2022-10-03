@@ -6,7 +6,7 @@ author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/29/2022
+ms.date: 09/13/2022
 ms.author: abell
 ms.custom: fasttrack-edit
 ---
@@ -16,7 +16,8 @@ ms.custom: fasttrack-edit
 DDoS Protection Standard is designed [for services that are deployed in a virtual network](../virtual-network/virtual-network-for-azure-services.md). The following reference architectures are arranged by scenarios, with architecture patterns grouped together.
 
 > [!NOTE]
-> Protected resources include public IPs attached to an IaaS VM (except for single VM running behind a public IP), Load Balancer (Classic & Standard Load Balancers), Application Gateway (including WAF) cluster, Firewall, Bastion, VPN Gateway, Service Fabric or an IaaS based Network Virtual Appliance (NVA). Protection also covers public IP ranges brought to Azure via Custom IP Prefixes (BYOIPs). PaaS services (multi-tenant), which includes Azure App Service Environment for Power Apps or API management in a virtual network with a public IP, are not supported at present.
+> Protected resources include public IPs attached to an IaaS VM (except for single VM running behind a public IP), Load Balancer (Classic & Standard Load Balancers), Application Gateway (including WAF) cluster, Firewall, Bastion, VPN Gateway, Service Fabric, IaaS based Network Virtual Appliance (NVA) or Azure API Management (Premium tier only), connected to a virtual network (VNet) in the external mode. Protection also covers public IP ranges brought to Azure via Custom IP Prefixes (BYOIPs). PaaS services (multi-tenant), which includes Azure App Service Environment for Power Apps, Azure API Management in deployment modes other than those supported above, or Azure Virtual WAN are not supported at present.
+
 
 ## Virtual machine (Windows/Linux) workloads
 
@@ -45,7 +46,7 @@ In this architecture, DDoS Protection Standard is enabled on the virtual network
 
 ### PaaS web application
 
-This reference architecture shows running an Azure App Service application in a single region. This architecture shows a set of proven practices for a web application that uses [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/) and [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/).
+This reference architecture shows running an Azure App Service application in a single region. This architecture shows a set of proven practices for a web application that uses [Azure App Service](/azure/app-service/) and [Azure SQL Database](/azure/sql-database/).
 A standby region is set up for failover scenarios.
 
 ![Diagram of the reference architecture for a PaaS web application](./media/ddos-best-practices/image-11.png)
@@ -70,12 +71,9 @@ This reference architecture shows configuring DDoS Protection Standard for an [A
 
 In this architecture, traffic destined to the HDInsight cluster from the internet is routed to the public IP associated with the HDInsight gateway load balancer. The gateway load balancer then sends the traffic to the head nodes or the worker nodes directly. Because DDoS Protection Standard is enabled on the HDInsight virtual network, all public IPs in the virtual network get DDoS protection for Layer 3 and 4. This reference architecture can be combined with the N-Tier and multi-region reference architectures.
 
-For more information on this reference architecture, see the [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight/hdinsight-plan-virtual-network-deployment.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+For more information on this reference architecture, see the [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight/hdinsight-plan-virtual-network-deployment.md?toc=/azure/virtual-network/toc.json)
 documentation.
 
-
-> [!NOTE]
-> Azure App Service Environment for Power Apps or API management in a virtual network with a public IP are both not natively supported.
 
 ## Hub-and-spoke network topology with Azure Firewall and Azure Bastion
 
@@ -90,7 +88,7 @@ Azure DDoS Protection Standard is enabled on the hub virtual network. Therefore,
 DDoS Protection Standard is designed for services that are deployed in a virtual network. For more information, see [Deploy dedicated Azure service into virtual networks](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network).
 
 > [!NOTE]
-> DDoS Protection Standard protects the Public IPs of Azure resource. DDoS Protection Basic, which requires no configuration and is enabled by default, only protects the Azure underlying platform infrastructure (e.g. Azure DNS). For more information, see [Azure DDoS Protection Standard overview](ddos-protection-overview.md).
+> DDoS Protection Standard protects the Public IPs of Azure resource. DDoS infrastructure protection, which requires no configuration and is enabled by default, only protects the Azure underlying platform infrastructure (e.g. Azure DNS). For more information, see [Azure DDoS Protection Standard overview](ddos-protection-overview.md).
 For more information about hub-and-spoke topology, see [Hub-spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli).
 
 ## Next steps

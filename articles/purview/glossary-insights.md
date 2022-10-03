@@ -14,8 +14,6 @@ ms.date: 05/16/2022
 
 This guide describes how to access, view, and filter Microsoft Purview glossary insight reports for your data.
 
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
-
 In this how-to guide, you'll learn how to:
 
 > [!div class="checklist"]

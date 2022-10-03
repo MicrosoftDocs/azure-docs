@@ -15,3 +15,5 @@ The following limit applies to threat intelligence in Microsoft Sentinel. The li
 |Description                   | Limit        |Dependency|
 -------------------------|--------------------|--------------------|
 | Indicators per call that use Graph security API | 100 indicators |Microsoft Graph security API|
+| CSV indicator file import size | 50MB | none|
+| JSON indicator file import size | 250MB | none|

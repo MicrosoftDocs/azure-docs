@@ -37,7 +37,7 @@ Use the following JSON in the body of your request. Use the name of the model yo
 
 ```json
 {
-  "trainedModelLabel": "{MODEL-NAME}",
+  "trainedModelLabel": "{MODEL-NAME}"
 }
 ```
 

@@ -2,11 +2,11 @@
 title: Configure Azure Storage firewalls and virtual networks | Microsoft Docs
 description: Configure layered network security for your storage account using Azure Storage firewalls and Azure Virtual Network.
 services: storage
-author: normesta
+author: jimmart-dev
 ms.service: storage
 ms.topic: how-to
 ms.date: 03/31/2022
-ms.author: normesta
+ms.author: jammart
 ms.reviewer: santoshc
 ms.subservice: common 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -150,12 +150,17 @@ When planning for disaster recovery during a regional outage, you should create 
 
 ### Enabling access to virtual networks in other regions (preview)
 
-To enable access from a virtual network that is located in another region, register the `AllowGlobalTagsForStorage` feature in the subscription of the virtual network. All the subnets in the subscription that has the _AllowedGlobalTagsForStorage_ feature enabled will no longer use a public IP address to communicate with any storage account. Instead, all the traffic from these subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
-
+> 
 > [!IMPORTANT]
 > This capability is currently in PREVIEW.
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+To enable access from a virtual network that is located in another region over service endpoints, register the `AllowGlobalTagsForStorage` feature in the subscription of the virtual network. All the subnets in the subscription that has the _AllowedGlobalTagsForStorage_ feature enabled will no longer use a public IP address to communicate with any storage account. Instead, all the traffic from these subnets to storage accounts will use a private IP address as a source IP. As a result, any storage accounts that use IP network rules to permit traffic from those subnets will no longer have an effect.
+
+> [!NOTE]
+> For updating the existing service endpoints to access a storage account in another region, perform an [update subnet](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) operation on the subnet after registering the subscription with the `AllowGlobalTagsForStorage` feature. Similarly, to go back to the old configuration, perform an [update subnet](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update) operation after deregistering the subscription with the `AllowGlobalTagsForStorage` feature. 
+
 
 #### [Portal](#tab/azure-portal)
 

@@ -16,7 +16,7 @@ This article outlines some of the frequently asked questions and OS concepts for
 
 ## Which Windows operating systems are supported?
 
-AKS uses Windows Server 2019 as the host OS version and only supports process isolation. Container images built by using other Windows Server versions are not supported. For more information, see [Windows container version compatibility][windows-container-compat].
+AKS uses Windows Server 2019 and Windows Server 2022 as the host OS version and only supports process isolation. Container images built by using other Windows Server versions are not supported. For more information, see [Windows container version compatibility][windows-container-compat].
 
 ## Is Kubernetes different on Windows and Linux?
 
@@ -80,6 +80,8 @@ Instead of service principals, use managed identities, which are essentially wra
 
 ## How do I change the administrator password for Windows Server nodes on my cluster?
 
+### [Azure CLI](#tab/azure-cli)
+
 When you create your AKS cluster, you specify the `--windows-admin-password` and `--windows-admin-username` parameters to set the administrator credentials for any Windows Server nodes on the cluster. If you didn't specify administrator credentials when you created a cluster by using the Azure portal or when setting `--vm-set-type VirtualMachineScaleSets` and `--network-plugin azure` by using the Azure CLI, the username defaults to *azureuser* and a randomized password.
 
 To change the administrator password, use the `az aks update` command:
@@ -95,6 +97,25 @@ az aks update \
 > Performing the `az aks update` operation upgrades only Windows Server node pools. Linux node pools are not affected.
 > 
 > When you're changing `--windows-admin-password`, the new password must be at least 14 characters and meet [Windows Server password requirements][windows-server-password].
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+When you create your AKS cluster, you specify the `-WindowsProfileAdminUserPassword` and `-WindowsProfileAdminUserName` parameters to set the administrator credentials for any Windows Server nodes on the cluster. If you didn't specify administrator credentials when you created a cluster by using the Azure portal or when setting `-NodeVmSetType VirtualMachineScaleSets` and `-NetworkPlugin azure` by using the Azure PowerShell, the username defaults to *azureuser* and a randomized password.
+
+To change the administrator password, use the `Set-AzAksCluster` command:
+
+```azurepowershell
+$cluster = Get-AzAksCluster -ResourceGroupName $RESOURCE_GROUP -Name $CLUSTER_NAME
+$cluster.WindowsProfile.AdminPassword = $NEW_PW
+$cluster | Set-AzAksCluster
+```
+
+> [!IMPORTANT]
+> Performing the `Set-AzAksCluster` operation upgrades only Windows Server node pools. Linux node pools are not affected.
+> 
+> When you're changing the Windows administrator password, the new password must be at least 14 characters and meet [Windows Server password requirements][windows-server-password].
+
+---
 
 ## How many node pools can I create?
 
@@ -114,7 +135,7 @@ Yes, an ingress controller that supports Windows Server containers can run on Wi
 
 ## Can my Windows Server containers use gMSA?
 
-Group-managed service account (gMSA) support is currently available in preview. See [Enable Group Managed Service Accounts (GMSA) for your Windows Server nodes on your Azure Kubernetes Service (AKS) cluster (Preview)](use-group-managed-service-accounts.md)
+Group-managed service account (gMSA) support is generally available for Windows on AKS. See [Enable Group Managed Service Accounts (GMSA) for your Windows Server nodes on your Azure Kubernetes Service (AKS) cluster](use-group-managed-service-accounts.md)
 
 ## Can I use Azure Monitor for containers with Windows nodes and containers?
 

@@ -77,7 +77,7 @@ imDns(responsecodename='NXDOMAIN')
 
 The two options in the example [above](#sample-normalization-for-analytics-rules) are functionally identical. The normalized, source-agnostic version has the following differences:
 
-- The `_In_Dns` or `imDns`normalized parsers are used instead of the Infoblox Parser.
+- The `_Im_Dns` or `imDns`normalized parsers are used instead of the Infoblox Parser.
 
 - The normalized parsers fetch only DNS query events, so there is no need for checking the event type, as performed by the `where ProcessName =~ "named" and Log_Type =~ "client"` in the Infoblox version.
 

@@ -1,7 +1,7 @@
 ---
 title: Custom Data Model Injection over the UI Library
 titleSuffix: An Azure Communication Services how-to guide
-description: Use Azure Communication Services Mobile UI library to set up Custom Data Model Injection
+description: Use Azure Communication Services UI library for Mobile native to set up Custom Data Model Injection
 author: garchiro7
 ms.author: jorgegarc
 ms.service: azure-communication-services

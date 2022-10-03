@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
 ms.subservice: disks
-ms.date: 10/10/2019
+ms.date: 05/23/2022
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli 
 ms.devlang: azurecli
@@ -15,8 +15,6 @@ ms.devlang: azurecli
 
 # Create and configure a key vault for Azure Disk Encryption
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
-
 Azure Disk Encryption uses Azure Key Vault to control and manage disk encryption keys and secrets.  For more information about key vaults, see [Get started with Azure Key Vault](../key-vault/general/overview.md) and [Secure your key vault](../key-vault/general/secure-your-key-vault.md).
 
 Creating and configuring a key vault for use with Azure Disk Encryption involves three steps:
@@ -24,8 +22,6 @@ Creating and configuring a key vault for use with Azure Disk Encryption involves
 1. Creating a resource group, if needed.
 2. Creating a key vault. 
 3. Setting key vault advanced access policies.
-
-These steps are illustrated in the following quickstarts:
 
 You may also, if you wish, generate or import a key encryption key (KEK).
 

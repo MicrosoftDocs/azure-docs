@@ -2,7 +2,7 @@
 title: Invalid template errors
 description: Describes how to resolve invalid template errors when deploying Bicep files or Azure Resource Manager templates (ARM templates).
 ms.topic: troubleshooting
-ms.date: 12/20/2021
+ms.date: 09/12/2022
 ---
 
 # Resolve errors for invalid template
@@ -26,7 +26,7 @@ This error can result from several different types of errors. They usually invol
 
 <a id="syntax-error"></a>
 
-## Solution 1 - syntax error
+## Solution 1: Syntax error
 
 If you receive an error message that indicates the template failed validation, you may have a syntax problem in your template.
 
@@ -56,13 +56,13 @@ When you receive this type of error, review the expression's syntax. To identify
 
 <a id="incorrect-segment-lengths"></a>
 
-## Solution 2 - incorrect segment lengths
+## Solution 2: Incorrect segment lengths
 
 Another invalid template error occurs when the resource name isn't in the correct format. To resolve that error, see [Resolve errors for name and type mismatch](error-invalid-name-segments.md).
 
 <a id="parameter-not-valid"></a>
 
-## Solution 3 - parameter isn't valid
+## Solution 3: Parameter isn't valid
 
 You can specify a parameter's allowed values in a template. During deployment, if you provide a value that isn't an allowed value, you receive a message similar to the following error:
 
@@ -77,13 +77,13 @@ Check the template for the parameter's allowed values, and use an allowed value 
 
 <a id="too-many-resource-groups"></a>
 
-## Solution 4 - too many target resource groups
+## Solution 4: Too many target resource groups
 
 You may see this error in earlier deployments because you were limited to five target resource groups in a single deployment. In May 2020, that limit was increased to 800 resource groups. For more information, see how to deploy to multiple resource groups for [Bicep](../bicep/deploy-to-resource-group.md#deploy-to-multiple-resource-groups) or [ARM templates](../templates/deploy-to-resource-group.md#deploy-to-multiple-resource-groups).
 
 <a id="circular-dependency"></a>
 
-## Solution 5 - circular dependency detected
+## Solution 5: Circular dependency detected
 
 You receive this error when resources depend on each other in a way that prevents the deployment from starting. A combination of interdependencies makes two or more resource wait for other resources that are also waiting. For example, resource1 depends on resource3, resource2 depends on resource1, and resource3 depends on resource2. You can usually solve this problem by removing unnecessary dependencies.
 

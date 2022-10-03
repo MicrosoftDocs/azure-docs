@@ -18,7 +18,7 @@ ms.author: mbaldwin
 > [!WARNING]
 > Breaking change: you must enable soft-delete on your key vaults immediately. See below for details.
 
-If a secret is deleted and the key vault does not have soft-delete protection, it is deleted permanently. Although users can currently opt out of soft-delete during key vault creation, this ability is depreciated. **In February 2025, Microsoft will enable soft-delete protection on all key vaults, and users will no longer be able to opt out of or turn off soft-delete.** This will protect secrets from accidental or malicious deletion by a user.
+If a secret is deleted and the key vault does not have soft-delete protection, it is deleted permanently. Although users can currently opt out of soft-delete during key vault creation, this ability is deprecated. **In February 2025, Microsoft will enable soft-delete protection on all key vaults, and users will no longer be able to opt out of or turn off soft-delete.** This will protect secrets from accidental or malicious deletion by a user.
 
 :::image type="content" source="../media/softdeletediagram.png" alt-text="Diagram showing how a key vault is deleted with soft-delete protection versus without soft-delete protection.":::
 

@@ -5,10 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 05/16/2021
+ms.date: 08/20/2022
 ---
 
 # Access to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE)
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 Sometimes, your logic app workflows need access to protected resources, such as virtual machines (VMs) and other systems or services, that are inside or connected to an Azure virtual network. To directly access these resources from workflows that usually run in multi-tenant Azure Logic Apps, you can create and run your logic apps in an *integration service environment* (ISE) instead. An ISE is actually an instance of Azure Logic Apps that runs separately on dedicated resources, apart from the global multi-tenant Azure environment, and doesn't [store, process, or replicate data outside the region where you deploy the ISE](https://azure.microsoft.com/global-infrastructure/data-residency#select-geography).
 

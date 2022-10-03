@@ -1,8 +1,8 @@
 ---
 title: Microsoft Defender for Servers
-description: Learn all about Microsoft Defender for Servers from the product manager.
+description: Learn all about Microsoft Defender for Servers.
 ms.topic: reference
-ms.date: 06/01/2022
+ms.date: 06/28/2022
 ---
 
 # Microsoft Defender for Servers

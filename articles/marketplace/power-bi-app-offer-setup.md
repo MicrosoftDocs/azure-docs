@@ -6,16 +6,16 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: keferna
 ms.author: keferna
-ms.date: 03/28/2022
+ms.date: 07/20/2022
 ---
 
 # Create a Power BI app offer
 
 This article describes how to create a Power BI app offer. All offers go through our certification process, which checks your solution for standard requirements, compatibility, and proper practices.
 
-Before you start, create a commercial marketplace account in [Partner Center](./create-account.md) and ensure it is enrolled in the commercial marketplace program.
-
 ## Before you begin
+
+Before you can publish a Power BI app offer, you must have a commercial marketplace account in Partner Center and ensure your account is enrolled in the commercial marketplace program. See [Create a commercial marketplace account in Partner Center](create-account.md) and [Verify your account information when you enroll in a new Partner Center program](/partner-center/verification-responses#checking-your-verification-status).
 
 Review [Plan a Power BI offer](marketplace-power-bi.md). It will explain the technical requirements for this offer and list the information and assets you’ll need when you create it.
 
@@ -66,11 +66,32 @@ This section is blank and not applicable to Power BI apps.
 
 ## Customer leads
 
-[!INCLUDE [Connect lead management](includes/customer-leads.md)]
+When a customer expresses interest or deploys your product, you’ll receive a lead in the [Referrals workspace](https://partner.microsoft.com/dashboard/referrals/v2/leads) in Partner Center.
 
-For more information, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
+You can also connect the product to your customer relationship management (CRM) system to handle leads there.
 
-Select **Save draft** before continuing to the next tab in the left-nav menu, **Properties**.
+> [!NOTE]
+> Connecting to a CRM system is optional.
+
+To configure the lead management in Partner Center:
+
+1. In Partner Center, go to the **Offer setup** tab.
+1. Under **Customer leads**, select the **Connect** link.
+1. In the **Connection details** dialog box, select a lead destination from the list.
+1. Complete the fields that appear. For detailed steps, see the following articles:
+
+    - [Configure your offer to send leads to the Azure table](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md#configure-your-offer-to-send-leads-to-the-azure-table)
+    - [Configure your offer to send leads to Dynamics 365 Customer Engagement](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md#configure-your-offer-to-send-leads-to-dynamics-365-customer-engagement) (formerly Dynamics CRM Online)
+    - [Configure your offer to send leads to HTTPS endpoint](./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md#configure-your-offer-to-send-leads-to-the-https-endpoint)
+    - [Configure your offer to send leads to Marketo](./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md#configure-your-offer-to-send-leads-to-marketo)
+    - [Configure your offer to send leads to Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
+
+1. To validate the configuration you provided, select the **Validate link**.
+1. When you’ve configured the connection details, select **Connect**.
+
+    For more information, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
+
+1. Select **Save draft** before continuing to the next tab in the left-nav menu, **Properties**.
 
 ## Next steps
 

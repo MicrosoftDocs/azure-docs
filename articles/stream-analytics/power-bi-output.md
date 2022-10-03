@@ -26,7 +26,7 @@ The following table lists property names and their descriptions to configure you
 | Table name |Provide a table name under the dataset of the Power BI output. Currently, Power BI output from Stream Analytics jobs can have only one table in a dataset. |
 | Authorize connection | You need to authorize with Power BI to configure your output settings. Once you grant this output access to your Power BI dashboard, you can revoke access by changing the user account password, deleting the job output, or deleting the Stream Analytics job. | 
 
-For a walkthrough of configuring a Power BI output and dashboard, see the [Azure Stream Analytics and Power BI](stream-analytics-power-bi-dashboard.md) tutorial.
+For a walkthrough of configuring a Power BI output and dashboard, see the [Tutorial: Analyze fraudulent call data with Stream Analytics and visualize results in Power BI dashboard](stream-analytics-real-time-fraud-detection.md) tutorial.
 
 > [!NOTE]
 > Don't explicitly create the dataset and table in the Power BI dashboard. The dataset and table are automatically populated when the job is started and the job starts pumping output into Power BI. If the job query doesn't generate any results, the dataset and table aren't created. If Power BI already had a dataset and table with the same name as the one provided in this Stream Analytics job, the existing data is overwritten.
@@ -69,9 +69,44 @@ String | String | String | String | String
 Datetime | String | String |  Datetime | String
 
 ## Limitations and best practices
-Currently, Power BI can be called roughly once per second. Streaming visuals support packets of 15 KB. Beyond that, streaming visuals fail (but push continues to work). Because of these limitations, Power BI lends itself most naturally to cases where Azure Stream Analytics does a significant data load reduction. We recommend using a Tumbling window or Hopping window to ensure that data push is at most one push per second, and that your query lands within the throughput requirements.
+Currently, Power BI can be called roughly once per second. Streaming visuals support packets of 15 KB. Beyond that, streaming visuals fail (but push continues to work). Because of these limitations, Power BI lends itself most naturally to cases where Azure Stream Analytics does a significant data load reduction. We recommend using a Tumbling window or Hopping window to ensure that data push is at most one push per second, and that your query lands within the throughput requirements. For more info on output batch size, see [Power BI REST API limits](/power-bi/developer/automation/api-rest-api-limitations).
 
-For more info on output batch size, see [Power BI REST API limits](/power-bi/developer/automation/api-rest-api-limitations).
+You can use the following equation to compute the value to give your window in seconds:
+
+![Screenshot of equation to compute value to give window in seconds.](./media/stream-analytics-power-bi-dashboard/compute-window-seconds-equation.png)  
+
+For example:
+
+* You have 1,000 devices sending data at one-second intervals.
+* You are using the Power BI Pro SKU that supports 1,000,000 rows per hour.
+* You want to publish the amount of average data per device to Power BI.
+
+As a result, the equation becomes:
+
+![Screenshot of equation based on example criteria.](./media/stream-analytics-power-bi-dashboard/power-bi-example-equation.png)  
+
+Given this configuration, you can change the original query to the following:
+
+```SQL
+    SELECT
+        MAX(hmdt) AS hmdt,
+        MAX(temp) AS temp,
+        System.TimeStamp AS time,
+        dspl
+    INTO "CallStream-PowerBI"
+    FROM
+        Input TIMESTAMP BY time
+    GROUP BY
+        TUMBLINGWINDOW(ss,4),
+        dspl
+```
+
+### Renew authorization
+If the password has changed since your job was created or last authenticated, you need to reauthenticate your Power BI account. If Azure AD Multi-Factor Authentication is configured on your Azure Active Directory (Azure AD) tenant, you also need to renew Power BI authorization every two weeks. If you don't renew, you could see symptoms such as a lack of job output or an `Authenticate user error` in the operation logs.
+
+Similarly, if a job starts after the token has expired, an error occurs and the job fails. To resolve this issue, stop the job that's running and go to your Power BI output. To avoid data loss, select the **Renew authorization** link, and then restart your job from the **Last Stopped Time**.
+
+After the authorization has been refreshed with Power BI, a green alert appears in the authorization area to reflect that the issue has been resolved. To overcome this limitation, it is recommended to [use Managed Identity to authenticate your Azure Stream Analytics job to Power BI](powerbi-output-managed-identity.md)
 
 ## Next steps
 

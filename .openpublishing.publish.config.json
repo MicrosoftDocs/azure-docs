@@ -287,19 +287,19 @@
     {
       "path_to_root": "azure-search-javascript-samples",
       "url": "https://github.com/Azure-Samples/azure-search-javascript-samples",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "azure-search-dotnet-samples",
       "url": "https://github.com/Azure-Samples/azure-search-dotnet-samples",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "azure-search-python-samples",
       "url": "https://github.com/Azure-Samples/azure-search-python-samples",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -371,12 +371,6 @@
     {
       "path_to_root": "samples-cognitive-services-speech-sdk",
       "url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk",
-      "branch": "master",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "media-services-v3-dotnet-quickstarts",
-      "url": "https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts",
       "branch": "master",
       "branch_mapping": {}
     },
@@ -462,6 +456,12 @@
       "path_to_root": "azureml-examples-main",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azureml-examples-v2samplesreorg",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "v2samplesreorg",
       "branch_mapping": {}
     },
     {
@@ -681,6 +681,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "cosmos-db-sql-api-javascript-samples",
+      "url": "https://github.com/Azure-Samples/cosmos-db-sql-api-javascript-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azure-cosmos-db-python-getting-started",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-python-getting-started",
       "branch": "main",
@@ -813,8 +819,8 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azure-spring-cloud-reference-architecture",
-      "url": "https://github.com/Azure/azure-spring-cloud-reference-architecture",
+      "path_to_root": "azure-spring-apps-reference-architecture",
+      "url": "https://github.com/Azure/azure-spring-apps-reference-architecture",
       "branch": "main",
       "branch_mapping": {}
     },
@@ -885,6 +891,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azure-cosmos-tableapi-dotnet",
+      "url": "https://github.com/Azure-Samples/cosmos-db-table-api-dotnet-samples",
+      "branch": "v12",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "msdocs-django-postgresql-sample-app",
       "url": "https://github.com/Azure-Samples/msdocs-django-postgresql-sample-app",
       "branch": "main",
@@ -931,6 +943,24 @@
       "url": "https://github.com/Azure-Samples/cosmos-db-sql-api-dotnet-samples",
       "branch": "v3",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-cosmos-db-table-dotnet-v12",
+      "url": "https://github.com/Azure-Samples/cosmos-db-table-api-dotnet-samples",
+      "branch": "v12",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-cosmos-mongodb-dotnet",
+      "url": "https://github.com/Azure-Samples/cosmos-db-mongodb-api-dotnet-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "reusable-content",
+      "url": "https://github.com/MicrosoftDocs/reusable-content",
+      "branch": "main",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
@@ -950,6 +980,7 @@
     ".openpublishing.redirection.json",
     ".openpublishing.redirection.azure-arc-data.json",
     ".openpublishing.redirection.active-directory.json",
+    ".openpublishing.redirection.azure-attestation.json",
     ".openpublishing.redirection.azure-blob.json",
     "articles/data-factory/.openpublishing.redirection.data-factory.json",
     ".openpublishing.redirection.defender-for-cloud.json",
@@ -959,6 +990,7 @@
     ".openpublishing.redirection.app-service.json",
     ".openpublishing.redirection.key-vault.json",
     ".openpublishing.redirection.sql-database.json",
+    ".openpublishing.redirection.machine-configuration.json",
     ".openpublishing.redirection.security-benchmark.json",
     "articles/synapse-analytics/.openpublishing.redirection.synapse-analytics.json",
     ".openpublishing.redirection.azure-web-pubsub.json",
@@ -970,6 +1002,7 @@
     "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",
     "articles/azure-relay/.openpublishing.redirection.relay.json",
     "articles/communication-services/.openpublishing.redirection.communication-services.json",
+    "articles/confidential-computing/.openpublishing.redirection.json",
     "articles/cosmos-db/.openpublishing.redirection.cosmos-db.json",
     "articles/cost-management-billing/.openpublishing.redirection.cost-management-billing.json",
     "articles/data-catalog/.openpublishing.redirection.data-catalog.json",
@@ -997,9 +1030,14 @@
     "articles/mysql/.openpublishing.redirection.mysql.json",
     "articles/container-apps/.openpublishing.redirection.container-apps.json",
     "articles/spring-cloud/.openpublishing.redirection.spring-cloud.json",
+    "articles/spring-apps/.openpublishing.redirection.spring-apps.json",
     "articles/load-testing/.openpublishing.redirection.azure-load-testing.json",
     "articles/azure-video-indexer/.openpublishing.redirection.azure-video-indexer.json",
     "articles/machine-learning/.openpublishing.redirection.machine-learning.json",
-    "articles/static-web-apps/.openpublishing.redirection.static-web-apps.json"
+    "articles/static-web-apps/.openpublishing.redirection.static-web-apps.json",
+    ".openpublishing.redirection.virtual-desktop.json",
+    "articles/applied-ai-services/.openpublishing.redirection.applied-ai-services.json",
+    "articles/applied-ai-services/.openpublishing.archived.json",
+    "articles/cognitive-services/.openpublishing.redirection.cognitive-services.json"
   ]
 }

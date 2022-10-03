@@ -1,14 +1,12 @@
 ---
 title: Use GitHub Actions to make code updates in Azure Functions
 description: Learn how to use GitHub Actions to define a workflow to build and deploy Azure Functions projects in GitHub.
-author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.author: cshoe
 ms.custom: "devx-track-csharp, devx-track-python, github-actions-azure"
 ---
 
-# Continuous delivery by using GitHub Action
+# Continuous delivery by using GitHub Actions
 
 Use [GitHub Actions](https://github.com/features/actions) to define a workflow to automatically build and deploy code to your function app in Azure Functions. 
 
@@ -212,7 +210,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: 'Checkout GitHub Action'
+    - name: 'Checkout GitHub action'
       uses: actions/checkout@v2
 
     - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
@@ -226,7 +224,7 @@ jobs:
         pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
         dotnet build --configuration Release --output ./output
         popd
-    - name: 'Run Azure Functions Action'
+    - name: 'Run Azure Functions action'
       uses: Azure/functions-action@v1
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
@@ -250,7 +248,7 @@ jobs:
   build-and-deploy:
     runs-on: windows-latest
     steps:
-    - name: 'Checkout GitHub Action'
+    - name: 'Checkout GitHub action'
       uses: actions/checkout@v2
 
     - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
@@ -264,7 +262,7 @@ jobs:
         pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
         dotnet build --configuration Release --output ./output
         popd
-    - name: 'Run Azure Functions Action'
+    - name: 'Run Azure Functions action'
       uses: Azure/functions-action@v1
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
@@ -286,13 +284,13 @@ env:
   AZURE_FUNCTIONAPP_NAME: your-app-name      # set this to your function app name on Azure
   POM_XML_DIRECTORY: '.'                     # set this to the directory which contains pom.xml file
   POM_FUNCTIONAPP_NAME: your-app-name        # set this to the function app name in your local development environment
-  JAVA_VERSION: '1.8.x'                      # set this to the dotnet version to use
+  JAVA_VERSION: '1.8.x'                      # set this to the java version to use
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: 'Checkout GitHub Action'
+    - name: 'Checkout GitHub action'
       uses: actions/checkout@v2
 
     - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
@@ -307,7 +305,7 @@ jobs:
         mvn clean package
         mvn azure-functions:package
         popd
-    - name: 'Run Azure Functions Action'
+    - name: 'Run Azure Functions action'
       uses: Azure/functions-action@v1
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
@@ -333,7 +331,7 @@ jobs:
   build-and-deploy:
     runs-on: windows-latest
     steps:
-    - name: 'Checkout GitHub Action'
+    - name: 'Checkout GitHub action'
       uses: actions/checkout@v2
 
     - name: Setup Java Sdk ${{ env.JAVA_VERSION }}
@@ -348,7 +346,7 @@ jobs:
         mvn clean package
         mvn azure-functions:package
         popd
-    - name: 'Run Azure Functions Action'
+    - name: 'Run Azure Functions action'
       uses: Azure/functions-action@v1
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
@@ -375,7 +373,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: 'Checkout GitHub Action'
+    - name: 'Checkout GitHub action'
       uses: actions/checkout@v2
 
     - name: Setup Node ${{ env.NODE_VERSION }} Environment
@@ -391,7 +389,7 @@ jobs:
         npm run build --if-present
         npm run test --if-present
         popd
-    - name: 'Run Azure Functions Action'
+    - name: 'Run Azure Functions action'
       uses: Azure/functions-action@v1
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
@@ -416,7 +414,7 @@ jobs:
   build-and-deploy:
     runs-on: windows-latest
     steps:
-    - name: 'Checkout GitHub Action'
+    - name: 'Checkout GitHub action'
       uses: actions/checkout@v2
 
     - name: Setup Node ${{ env.NODE_VERSION }} Environment
@@ -432,7 +430,7 @@ jobs:
         npm run build --if-present
         npm run test --if-present
         popd
-    - name: 'Run Azure Functions Action'
+    - name: 'Run Azure Functions action'
       uses: Azure/functions-action@v1
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
@@ -459,7 +457,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: 'Checkout GitHub Action'
+    - name: 'Checkout GitHub action'
       uses: actions/checkout@v2
 
     - name: Setup Python ${{ env.PYTHON_VERSION }} Environment
@@ -474,7 +472,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt --target=".python_packages/lib/site-packages"
         popd
-    - name: 'Run Azure Functions Action'
+    - name: 'Run Azure Functions action'
       uses: Azure/functions-action@v1
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}

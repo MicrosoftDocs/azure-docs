@@ -13,6 +13,8 @@ This article explains how to enable VM insights for Azure virtual machines or hy
 
 If you're not familiar with Azure Policy, get a brief introduction at [Deploy Azure Monitor at scale using Azure Policy](../best-practices.md).
 
+[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-vminsights-agent.md)]
+
 > [!NOTE]
 > To use Azure Policy with Azure virtual machine scale sets, or to work with Azure Policy directly to enable Azure virtual machines, see [Deploy Azure Monitor at scale using Azure Policy](../best-practices.md).
 

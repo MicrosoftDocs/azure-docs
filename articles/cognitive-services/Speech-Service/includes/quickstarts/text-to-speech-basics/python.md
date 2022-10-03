@@ -25,6 +25,10 @@ The Speech SDK for Python is available as a [Python Package Index (PyPI) module]
 
 Install a version of [Python from 3.7 to 3.10](https://www.python.org/downloads/). First check the [SDK installation guide](../../../quickstarts/setup-platform.md?pivots=programming-language-python) for any more requirements 
 
+### Set environment variables
+
+[!INCLUDE [Environment variables](../../common/environment-variables.md)]
+
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Speech&Product=text-to-speech&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
@@ -40,9 +44,10 @@ Follow these steps to create a new console application.
 1. Copy the following code into `speech_synthesis.py`: 
 
     ```Python
+    import os
     import azure.cognitiveservices.speech as speechsdk
 
-    speech_config = speechsdk.SpeechConfig(subscription="YourSubscriptionKey", region="YourServiceRegion")
+    speech_config = speechsdk.SpeechConfig(subscription=os.environ.get('SPEECH_KEY'), region=os.environ.get('SPEECH_REGION'))
     audio_config = speechsdk.audio.AudioOutputConfig(use_default_speaker=True)
 
     # The language of the voice that speaks.
@@ -66,7 +71,7 @@ Follow these steps to create a new console application.
                 print("Error details: {}".format(cancellation_details.error_details))
                 print("Did you set the speech resource key and region values?")
     ```
-1. In `speech_synthesis.py`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+
 1. To change the speech synthesis language, replace `en-US-JennyNeural` with another [supported voice](~/articles/cognitive-services/speech-service/supported-languages.md#prebuilt-neural-voices). All neural voices are multilingual and fluent in their own language and English. For example, if the input text in English is "I'm excited to try text to speech" and you set `es-ES-ElviraNeural`, the text is spoken in English with a Spanish accent. If the voice does not speak the language of the input text, the Speech service won't output synthesized audio.
 
 Run your new console application to start speech synthesis to the default speaker.

@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 07/11/2022
 ms.author: lajanuar
 ms.custom: ignite-fall-2021
 ---
@@ -29,6 +29,8 @@ ms.custom: ignite-fall-2021
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
   * You'll need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. Paste your key and endpoint into the code below.
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+> [!TIP]
+> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'll  need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
 
 ## Setting up
 
@@ -56,11 +58,11 @@ With Form Recognizer, you can create two different client types. The first, `for
 
 ### FormRecognizerClient
 
-`form_recognizer_client` provides operations for:
+`form_recognizer_client` provides the following operations:
 
-* Recognizing form fields and content using custom models trained to analyze your custom forms.
-* Recognizing form content, including tables, lines and words, without the need to train a model.
-* Recognizing common fields from receipts, using a pre-trained receipt model on the Form Recognizer service.
+* Recognize form fields and content using custom models trained to analyze your custom forms.
+* Recognize form content, including tables, lines and words, without the need to train a model.
+* Recognize common fields from receipts, using a pre-trained receipt model on the Form Recognizer service.
 
 ### FormTrainingClient
 
@@ -193,7 +195,7 @@ To analyze ID documents from a URL, use the `begin_recognize_id_documents_from_u
 
 ## Train a custom model
 
-This section demonstrates how to train a model with your own data. A trained model can output structured data that includes the key/value relationships in the original form document. After you train the model, you can test and retrain it and eventually use it to reliably extract data from more forms according to your needs.
+This section demonstrates how to train a model with your own data. A trained model can output structured data that includes the key/value relationships in the original form document. After you train the model, you can test, retrain, and eventually use it to reliably extract data from more forms according to your needs.
 
 > [!NOTE]
 > You can also train models with a graphical user interface such as the [Form Recognizer Sample Labeling tool](../../label-tool.md).
@@ -300,7 +302,7 @@ You'll use the `begin_recognize_custom_forms_from_url` method. The returned valu
 
 ### Output
 
-Using the model from the previous example, the following output is provided.
+The model from the previous example, renders the following output:
 
 ```console
 Form type: form-ae636292-0b14-4e26-81a7-a0bfcbaf7c91
@@ -416,7 +418,7 @@ Similarly, `logging_enable` can enable detailed logging for a single operation, 
 
 * Extract text, selection marks, and table structure from documents
   * [Extract layout data - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-layout.md)
-* Train custom models and extract form data
+* Train custom models and extract custom form data
   * [Train without labels - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-train-extract.md)
   * [Train with labels - Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/rest/python-labeled-data.md)
 * Extract data from invoices

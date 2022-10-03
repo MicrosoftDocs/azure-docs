@@ -1,11 +1,11 @@
 ---
 title: Azure Monitor for existing Operations Manager customers
 description: Guidance for existing users of Operations Manager to transition monitoring of certain workloads to Azure Monitor as part of a transition to the cloud.
-
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/05/2022
+ms.reviewer: bwren
 
 ---
 
@@ -120,7 +120,7 @@ If your monitoring of a business application is limited to functionality provide
 - Collect detailed application usage and performance data such as response time, failure rates, and request rates.
 - Collect browser data such as page views and load performance.
 - Detect exceptions and drill into stack trace and related requests.
-- Perform advanced analysis using features such as [distributed tracing](app/distributed-tracing.md) and [smart detection](app/proactive-diagnostics.md).
+- Perform advanced analysis using features such as [distributed tracing](app/distributed-tracing.md) and [smart detection](alerts/proactive-diagnostics.md).
 - Use [metrics explorer](essentials/metrics-getting-started.md) to interactively analyze performance data.
 - Use [log queries](logs/log-query-overview.md) to interactively analyze collected telemetry together with data collected for Azure services and VM insights.
 

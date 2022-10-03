@@ -32,7 +32,7 @@ In this tutorial, you:
 ## Prerequisites
 
 - An Azure subscription. If you don't already have a subscription, you can use a [free trial](https://azure.microsoft.com/free/). 
-- An Azure Machine Learning workspace. If you don't already have a workspace, see [Create and manage Azure Machine Learning workspaces](./how-to-manage-workspace.md#create-a-workspace).
+- An Azure Machine Learning workspace. If you don't already have a workspace, see [Create workspace resources](quickstart-create-resources.md).
 - Introductory knowledge of the Python language and machine learning workflows.
 
 ## Create a notebook and compute

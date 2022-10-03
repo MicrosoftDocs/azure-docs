@@ -1,5 +1,5 @@
 ---
-title: Just-in-time virtual machine access in Microsoft Defender for Cloud | Microsoft Docs
+title: Just-in-time virtual machine access in Microsoft Defender for Cloud
 description: Learn how just-in-time VM access (JIT) in Microsoft Defender for Cloud helps you control access to your Azure virtual machines.
 ms.topic: how-to
 ms.date: 05/17/2022
@@ -29,7 +29,9 @@ This page teaches you how to include JIT in your security program. You'll learn 
 
 <sup><a name="footnote1"></a>1</sup> For any VM protected by Azure Firewall, JIT will only fully protect the machine if it's in the same VNET as the firewall. VMs using VNET peering will not be fully protected.
 
-## Enable JIT VM access <a name="jit-configure"></a>
+<a name="jit-configure"></a>
+
+## Enable JIT VM access
 
 You can enable JIT VM access with your own custom options for one or more VMs using Defender for Cloud or programmatically. 
 
@@ -39,7 +41,9 @@ Each of these options is explained in a separate tab below.
 
 ### [**Microsoft Defender for Cloud**](#tab/jit-config-asc)
 
-### Enable JIT on your VMs from Microsoft Defender for Cloud <a name="jit-asc"></a>
+<a name="jit-asc"></a>
+
+### Enable JIT on your VMs from Microsoft Defender for Cloud
 
 :::image type="content" source="./media/just-in-time-access-usage/jit-config-security-center.gif" alt-text="Configuring JIT VM access in Microsoft Defender for Cloud.":::
 
@@ -87,7 +91,9 @@ From Defender for Cloud, you can enable and configure the JIT VM access.
 
 1. Select **Save**.
 
-### Edit the JIT configuration on a JIT-enabled VM using Defender for Cloud <a name="jit-modify"></a>
+<a name="jit-modify"></a>
+
+### Edit the JIT configuration on a JIT-enabled VM using Defender for Cloud
 
 You can modify a VM's just-in-time configuration by adding and configuring a new port to protect for that VM, or by changing any other setting related to an already protected port.
 
@@ -199,7 +205,7 @@ The following PowerShell commands create this JIT configuration:
 
 The just-in-time VM access feature can be used via the Microsoft Defender for Cloud API. Use this API to get information about configured VMs, add new ones, request access to a VM, and more. 
 
-Learn more at [JIT network access policies](/rest/api/securitycenter/jitnetworkaccesspolicies).
+Learn more at [JIT network access policies](/rest/api/defenderforcloud/jit-network-access-policies).
 
 ---
 
@@ -297,7 +303,7 @@ Learn more in the [PowerShell cmdlet documentation](/powershell/scripting/develo
 
 The just-in-time VM access feature can be used via the Microsoft Defender for Cloud API. Use this API to get information about configured VMs, add new ones, request access to a VM, and more. 
 
-Learn more at [JIT network access policies](/rest/api/securitycenter/jitnetworkaccesspolicies).
+Learn more at [JIT network access policies](/rest/api/defenderforcloud/jit-network-access-policies).
 
 ---
 

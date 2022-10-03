@@ -1,7 +1,7 @@
 ---
 title: Common questions about Azure VM disaster recovery with Azure Site Recovery
 description: This article answers common questions about Azure VM disaster recovery when you use Azure Site Recovery.
-author: sideeksh
+author: v-pgaddala
 manager: rochakm
 ms.date: 04/28/2022
 ms.topic: conceptual
@@ -47,7 +47,7 @@ Yes. Site Recovery supports disaster recovery of VMs that have Azure Disk Encryp
 - Site Recovery supports ADE for Azure VMs running Windows.
 - Site Recovery supports:
     - ADE version 0.1, which has a schema that requires Azure Active Directory (Azure AD).
-    - ADE version 1.1, which doesn't require Azure AD. For version 1.1, Windows Azure VMs must have managed disks.
+    - ADE version 1.1, which doesn't require Azure AD. For version 1.1, Microsoft Azure VMs must have managed disks.
     - [Learn more](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema) about the extension schemas.
 
 [Learn more](azure-to-azure-how-to-enable-replication-ade-vms.md) about enabling replication for encrypted VMs.
@@ -56,7 +56,7 @@ See the [support matrix](azure-to-azure-support-matrix.md#replicated-machines---
 
 ### Can I select an automation account from a different resource group?
 
-When you allow Site Recovery to manage updates for the Mobility service extension running on replicated Azure VMs, it deploys a global runbook (used by Azure services), via an Azure automation account. You can use the automation account that Site Recovery creates, or select to use an existing automation account.
+When you allow Site Recovery to manage updates for the Mobility service extension running on replicated Azure VMs, it deploys a global runbook (used by Azure services), via an Azure Automation account. You can use the automation account that Site Recovery creates, or select to use an existing automation account.
 
 Currently, in the portal, you can only select an automation account in the same resource group as the vault. You can select an automation account from a different resource group using PowerShell. [Learn more](azure-to-azure-autoupdate.md#enable-automatic-updates) about enabling automatic updates.
 
@@ -126,10 +126,10 @@ No, this is unsupported. If you accidentally move storage accounts to a differen
 
 A replication policy defines the retention history of recovery points, and the frequency of app-consistent snapshots.  Site Recovery creates a default replication policy as follows:
 
-- Retain recovery points for 1 day.
+- Retain recovery points for one day.
 - App-consistent snapshots are disabled and are not created by default.
 
-[Learn more](azure-to-azure-how-to-enable-replication.md#customize-target-resources) about replication settings.
+[Learn more](azure-to-azure-how-to-enable-replication.md) about replication settings.
 
 ### What's a crash-consistent recovery point?
 
@@ -171,7 +171,7 @@ So, for the recent two hours, you can choose from 24 crash-consistent points, an
 
 ### How far back can I recover?
 
-The oldest recovery point that you can use is 15 days with Managed disk and 3 days with Unmanaged disk.
+The oldest recovery point that you can use is 15 days with Managed disk and three days with Unmanaged disk.
 
 ### How does the pruning of recovery points happen?
 
@@ -200,7 +200,7 @@ The first recovery point that's generated has the complete copy. Successive reco
 
 ### Do increases in recovery point retention increase storage costs?
 
-Yes. For example, if you increase retention from 1 day to 3 days, Site Recovery saves recovery points for an additional two days.The added time incurs storage changes. Earlier, it was saving recovery points per hour for 1 day. Now, it is saving recovery points per two hours for 3 days. Refer [pruning of recovery points](#how-does-the-pruning-of-recovery-points-happen). So additional 12 recovery points are saved.  As an example only, if a single recovery point had delta changes of 10 GB, with a per-GB cost of $0.16 per month, then additional charges would be $1.60 × 12 per month.
+Yes. For example, if you increase retention from one day to three days, Site Recovery saves recovery points for an additional two days. The added time incurs storage changes. Earlier, it was saving recovery points per hour for 1 day. Now, it is saving recovery points per two hours for 3 days. Refer [pruning of recovery points](#how-does-the-pruning-of-recovery-points-happen). So additional 12 recovery points are saved.  As an example only, if a single recovery point had delta changes of 10 GB, with a per-GB cost of $0.16 per month, then additional charges would be $1.60 × 12 per month.
 
 ## Multi-VM consistency
 
@@ -272,7 +272,7 @@ Yes. Site Recovery processes all pending data before failing over, so this optio
 
 The *Latest processed* option does the following:
 
-1. It fails over all VMs to the latest recovery point processed by Site Recovery . This option provides a low RTO, because no time is spent processing unprocessed data.
+1. It fails over all VMs to the latest recovery point processed by Site Recovery. This option provides a low RTO, because no time is spent processing unprocessed data.
 
 ### What if there's an unexpected outage in the primary region?
 
@@ -315,7 +315,7 @@ No. When you fail over VMs from one region to another, the VMs start up in the t
 
 ### When I reprotect, is all data replicated from the secondary region to primary?
 
-It depends.If the source region VM exists, then only changes between the source disk and the target disk are synchronized. Site Recovery compares the disks to   what's different, and then it transfers the data. This process usually takes a few hours. [Learn more](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection).
+It depends. If the source region VM exists, then only changes between the source disk and the target disk are synchronized. Site Recovery compares the disks to   what's different, and then it transfers the data. This process usually takes a few hours. [Learn more](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection).
 
 ### How long does it take fail back?
 

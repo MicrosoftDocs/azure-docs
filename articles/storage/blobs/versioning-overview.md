@@ -3,12 +3,12 @@ title: Blob versioning
 titleSuffix: Azure Storage
 description: Blob storage versioning automatically maintains previous versions of an object and identifies them with timestamps. You can restore a previous version of a blob to recover your data if it is erroneously modified or deleted.
 services: storage
-author: tamram
+author: normesta
 
 ms.service: storage
 ms.topic: conceptual
 ms.date: 06/22/2022
-ms.author: tamram
+ms.author: normesta
 ms.subservice: blobs 
 ms.custom: devx-track-azurepowershell
 ---
@@ -289,14 +289,7 @@ When blob soft delete is enabled, all soft-deleted entities are billed at full c
 
 ## Feature support
 
-This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
-
-| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
-|--|--|--|--|--|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-
-<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and Secure File Transfer protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
+[!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
 ## See also
 

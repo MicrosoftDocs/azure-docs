@@ -3,7 +3,7 @@ title: 'What is Azure AD Connect and Connect Health. | Microsoft Docs'
 description: Learn about the tools used to synchronize and monitor your on-premises environment with Azure AD.
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
@@ -17,6 +17,9 @@ ms.collection: M365-identity-device-management
 
 Azure AD Connect is an on-premises Microsoft application that's designed to meet and accomplish your hybrid identity goals. If you're evaluating how to best meet your goals, you should also consider the cloud-managed solution [Azure AD Connect cloud sync](../cloud-sync/what-is-cloud-sync.md).
 
+> [!div class="nextstepaction"]
+> [Install Microsoft Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594)
+> 
 Azure AD Connect provides the following features:
      
 - [Password hash synchronization](whatis-phs.md) - A sign-in method that synchronizes a hash of a users on-premises AD password with Azure AD.
@@ -27,6 +30,10 @@ Azure AD Connect provides the following features:
 
 
 ![What is Azure AD Connect](./media/whatis-hybrid-identity/arch.png)
+
+> [!IMPORTANT]
+> Azure AD Connect Health for Sync requires Azure AD Connect Sync V2. If you are still using AADConnect V1 you must upgrade to the latest version. 
+> AADConnect V1 is retired on August 31, 2022. Azure AD Connect Health for Sync will no longer work with AADConnect V1 in December 2022.
 
 
 

@@ -1,7 +1,7 @@
 ---
 title: Migrate machines as physical server to Azure with Azure Migrate.
 description: This article describes how to migrate physical machines to Azure with Azure Migrate.
-author: rahulg1190
+author: rahug1190
 ms.author: rahugup
 ms.manager: bsiva
 ms.topic: tutorial
@@ -42,7 +42,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Before you begin this tutorial, you should:
 
-[Review](./agent-based-migration-architecture.md) the migration architecture.
+- [Review](./agent-based-migration-architecture.md) the migration architecture.
+- [Review](../site-recovery/migrate-tutorial-windows-server-2008.md#limitations-and-known-issues) the limitations related to migrating Windows Server 2008 servers to Azure.
 
 ## Prepare Azure
 
@@ -72,6 +73,8 @@ Assign the Virtual Machine Contributor role to the Azure account. This provides 
 - Write to an Azure managed disk.
 
 ### Create an Azure network
+> [!IMPORTANT]
+> Virtual Networks (VNets) are a regional service, so make sure you create your VNet in the desired target Azure Region. For example: if you are planning on replicating and migrating Virtual Machines from your on-premises environment to the East US Azure Region, then your target VNet **must be created** in the East US Region. To connect VNets in different regions refer to the [Virtual network peering](../virtual-network/virtual-network-peering-overview.md) guide.
 
 [Set up](../virtual-network/manage-virtual-network.md#create-a-virtual-network) an Azure virtual network (VNet). When you replicate to Azure, Azure VMs are created and joined to the Azure VNet that you specify when you set up migration.
 
@@ -358,7 +361,7 @@ After you've verified that the test migration works as expected, you can migrate
 - For increased security:
     - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just in time administration](../security-center/security-center-just-in-time.md).
     - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/network-security-groups-overview.md).
-    - Deploy [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) to help secure disks, and keep data safe from theft and unauthorized access.
+    - Deploy [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
     - Consider deploying [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.

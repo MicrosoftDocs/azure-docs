@@ -5,7 +5,7 @@ description: In this article, you'll learn about geocoding in Azure Maps Power B
 author: stevemunk
 ms.author: v-munksteve
 ms.date: 03/16/2022
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 ---

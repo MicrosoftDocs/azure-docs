@@ -105,7 +105,7 @@ Azure ML will start building the image from the build context when the environme
 
 You can define an environment using a standard conda YAML configuration file that includes the dependencies for the conda environment. See [Creating an environment manually](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually) for information on this standard format.
 
-You must also specify a base Docker image for this environment. Azure ML will build the conda environment on top of the Docker image provided. If you install some Python dependencies in your Docker image, those packages will not exist in the execution environment thus causing runtime failures. By default, Azure ML will build a Conda environment with dependencies you specified, and will execute the run in that environment instead of using any Python libraries that you installed on the base image.
+You must also specify a base Docker image for this environment. Azure ML will build the conda environment on top of the Docker image provided. If you install some Python dependencies in your Docker image, those packages will not exist in the execution environment thus causing runtime failures. By default, Azure ML will build a Conda environment with dependencies you specified, and will execute the job in that environment instead of using any Python libraries that you installed on the base image.
 
 The following example is a YAML specification file for an environment defined from a conda specification. Here the relative path to the conda file from the Azure ML environment YAML file is specified via the `conda_file` property. You can alternatively define the conda specification inline using the `conda_file` property, rather than defining it in a separate file.
 
@@ -194,7 +194,7 @@ To use an environment for a training job, specify the `environment` field of the
 
 When you submit a training job, the building of a new environment can take several minutes. The duration depends on the size of the required dependencies. The environments are cached by the service. So as long as the environment definition remains unchanged, you incur the full setup time only once.
 
-For more information on how to use environments in jobs, see [Train models with the CLI (v2)](how-to-train-cli.md).
+For more information on how to use environments in jobs, see [Train models](how-to-train-model.md).
 
 ## Use environments for model deployments
 
@@ -204,6 +204,6 @@ For more information on how to use environments in deployments, see [Deploy and 
 
 ## Next steps
 
-- [Train models (create jobs) with the CLI (v2)](how-to-train-cli.md)
+- [Train models (create jobs)](how-to-train-model.md)
 - [Deploy and score a machine learning model by using a managed online endpoint](how-to-deploy-managed-online-endpoints.md)
 - [Environment YAML schema reference](reference-yaml-environment.md)

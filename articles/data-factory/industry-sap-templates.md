@@ -7,7 +7,7 @@ ms.author: joowen
 ms.service: data-factory
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 04/20/2022
+ms.date: 08/11/2022
 ---
 
 # SAP templates overview
@@ -20,7 +20,7 @@ See [pipeline templates](solution-templates-introduction.md) for an overview of 
 
 ## SAP templates summary
 
-The following table
+The following table shows the templates related to SAP connectors that can be found in the Azure Data Factory template gallery: 
 
 | SAP Data Store | Scenario | Description |
 | -- | -- | -- |

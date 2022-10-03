@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 09/28/2022
 ms.author: normesta
 ms.reviewer: ylunagaria
 
@@ -15,16 +15,15 @@ ms.reviewer: ylunagaria
 
 This article contains a list of valid host keys used to connect to Azure Blob Storage from SFTP clients.
 
-Blob storage now supports the SSH File Transfer Protocol (SFTP). This support provides the ability to securely connect to Blob Storage accounts via an SFTP endpoint, allowing you to leverage SFTP for file access, file transfer, as well as file management. For more information, see [SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-support.md).
+Blob storage now supports the SSH File Transfer Protocol (SFTP). This support provides the ability to securely connect to Blob Storage via an SFTP endpoint, allowing you to leverage SFTP for file access, file transfer, as well as file management. For more information, see [SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-support.md).
 
 When you connect to Blob Storage by using an SFTP client, you might be prompted to trust a host key. During the public preview, you can verify the host key by finding that key in the list presented in this article. 
 
 > [!IMPORTANT]
-> SFTP support is currently in PREVIEW and is available on general-purpose v2 and premium block blob accounts. Complete [this form](https://forms.office.com/r/gZguN0j65Y) BEFORE using the feature in preview. Registration via 'preview features' is NOT required and confirmation email will NOT be sent after filling out the form. You can IMMEDIATELY access the feature.
+> SFTP support is currently in PREVIEW. 
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
 >
-> After testing your end-to-end scenarios with SFTP, please share your experience via [this form](https://forms.office.com/r/MgjezFV1NR).
-> 
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> To help us understand your scenario, please complete [this form](https://forms.office.com/r/gZguN0j65Y) before you begin using SFTP support. After you've tested your end-to-end scenarios with SFTP, please share your experience by using [this form](https://forms.office.com/r/MgjezFV1NR). Both of these forms are optional. 
 
 ## Valid host keys
 
@@ -219,6 +218,26 @@ When you connect to Blob Storage by using an SFTP client, you might be prompted 
 > | Norway West | rsa-sha2-512 | `uHGfIB97I8y8nSAEciD7InBKzAx9ui5xQHAXIUo6gdE=` | `AAAAB3NzaC1yc2EAAAADAQABAAABAQDPXLVCb1kqh8gERY43bvyPcfxVOUnZyWsHkEK5+QT6D7ttThO2alZbnAPMhMGpAzJieT1IArRbCjmssWQmJrhTGXSJBsi75zmku4vN+UB712EGXm308/TvClN0wlnFwFI9RWXonDBkUN1WjZnUoQuN+JNZ7ybApHEgyaiHkJfhdrtTkfzGLHqyMnESUvnEJkexLDog88xZVNL7qJTSJlq1m32JEAEDgTuO4Wb7IIr92s6GOFXKukwY8dRldXCaJvjwfBz5MEdPknvipwTHYlxYzpcCtb9qnOliDLD2g4gm9d5nq3QBlLj/4cS1M9trkAxQQfUmuVQooXfO2Zw+fOW1` |
 > | Norway West | ecdsa-sha2-nistp256 | `muljUcRHpId06YvSLxboTHWmq0pUXxH6QRZHspsLZvs=` | `AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBOefohG21zu2JGcUvjk/qlz5sxhJcy5Vpk5Etj3cgmE/BuOTt5GR4HHpbcj/hrLxGRmAWhBV7uVMqO376pwsOBs=` |
 > | Norway West | ecdsa-sha2-nistp384 | `QlzJV54Ggw1AObztQjGt/J2TQ1kTiTtJDcxxIdCtWYE=` | `AAAAE2VjZHNhLXNoYTItbmlzdHAzODQAAAAIbmlzdHAzODQAAABhBNYnNgJKaYCByLPdh21ZYEV/I4FNSZ4RWxK4bMDgNo/53HROhQmezQgoDvJFWsQiFVDXOPLXf26OeVXJ7qXAm6vS+17Z7E1iHkrqo2MqnlMTYzvBOgYNFp9GfW6lkDYfiQ==` |
+> | US Gov Virginia	| ecdsa-sha2-nistp256	| `RQCpx04JVJt2SWSlBdpItBBpxGCPnMxkv6TBrwtwt54`	| `AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBD7FjQs4/JsT0BS3Fk8gnOFGNRmNIKH0/pAFpUnTdh7mci4FvCS2Wl/pOi3Vzjcq+IaMa9kUuZZ94QejGQ7nY/U=` | 
+> | US Gov Virginia	| ecdsa-sha2-nistp384	| `eR/fcgyjTj13I9qAif2SxSfoixS8vuPh++3emjUdZWU`	| `AAAAE2VjZHNhLXNoYTItbmlzdHAzODQAAAAIbmlzdHAzODQAAABhBKtxuygqAi2rrc+mX2GzMqHXHQwhspWFthBveUglUB8mAELFBSwEQwyETZpMuUKgFd//fia6NTfpq2d2CWPUcNjLu041n0f3ZUbDIh8To3zT7K+5nthxWURz3vWEXdPlKQ==` | 
+> | US Gov Virginia	| rsa-sha2-256	| `/ItawLaQuYeKzMjZWbHOrUk1NWnsd63zPsWVFVtTWK0`	| `AAAAB3NzaC1yc2EAAAADAQABAAABAQC87Alyx0GHEYiPTqsLcGI2bjwk/iaSKrJmQOBClBrS23wwyH/7rc/yDlyc3X8jqLvE6E8gx7zc+y3yPcWP1/6XwA8fVPyrY+v8JYlHL/nWiadFCXYc8p3s8aNeGQwqKsaObMGw55T/bPnm7vRpQNlFFLA9dtz42tTyQg+BvNVFJAIb8/YOMTLYG+Q9ZGfPEmdP6RrLvf2vM19R/pIxJVq5Xynt2hJp1dUiHim/D+x9aesARoW/dMFmsFscHQnjPbbCjU5Zk977IMIbER2FMHBcPAKGRnKVS9Z7cOKl/C71s0PeeNWNrqDLnPYd60ndRCrVmXAYLUAeE6XR8fFb2SPd` |
+> | US Gov Virginia	| rsa-sha2-512	| `0SbDc5jI2bioFnP9ljPzMsAEYty0QiLbsq1qvWBHGK4`	| `AAAAB3NzaC1yc2EAAAADAQABAAABAQDNu4Oori191gsGb8rlj1XCrGW/Qtnj6rrSQK2iy7mtdzv9yyND1GLWyNKkKo4F3+MAUX3GCMIYlHEv1ucl7JrJQ58/u7pR59wN18Ehf+tU8i1EirQWRhlgvkbFfV9BPb7m6SOhfmOKSzgc1dEnTawskCXe+5Auk33SwtWEFh560N5YGC5vvTiXEuEovblg/RQRwj+` | 
+> | US Gov Arizona	| ecdsa-sha2-nistp256	| `NVCEDFMJplIVFSg34krIni9TGspma70KOmlYuvCVj7M`	| `AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBKM1pvnkaX5Z9yaJANtlYVZYilpg0I+MB1t2y2pXCRJWy8TSTH/1xDLSsN29QvkZN68cs5774CtazYsLUjpsK04=` | 
+> | US Gov Arizona	| ecdsa-sha2-nistp384	| `CsqmZyqRDf5YKVt52zDgl6MOlfzvhvlJ0W+afH7TS5o`	| `AAAAE2VjZHNhLXNoYTItbmlzdHAzODQAAAAIbmlzdHAzODQAAABhBKwIkowKaWm5o8cyM4r6jW39uHf9oS3A5aVqnpZMWBU48LrONSeQBTj0oW7IGFRujBVASn/ejk25kwaNAzm9HT4ATBFToE3YGqPVoLtJO27wGvlGdefmAvv7q5Y7AEilhw==` | 
+> | US Gov Arizona	| rsa-sha2-256	| `lzreQ6XfJG0sLQVXC9X52O76E0D/7dzETSoreA9cPsI`	| `AAAAB3NzaC1yc2EAAAADAQABAAABAQCt8cRUseER/kSeSzD6i2rxlxHinn2uqVFtoQQGeyW2g8CtfgzjOr4BVB7Z6Bs2iIkzNGgbnKWOj8ROBmAV4YBesEgf7ZXI+YD5vXtgDCV+Mnp1pwlN8mC6ood4dh+6pSOg2dSauYSN59zRUEjnwOwmmETSUWXcjIs2fWXyneYqUZdd5hojj5mbHliqvuvu0D6IX/Id7CRh9VA13VNAp1fJ8TPUyT7d2xiBhUNWgpMB3Y96V/LNXjKHWtd9gCm96apgx215ev+wAz6BzbrGB19K5c5bxd6XGqCvm924o/y2U5TUE8kTniSFPwT/dNFSGxdBtXk23ng1yrfYE/48CcS5` | 
+> | US Gov Arizona	| rsa-sha2-512	| `dezlFAhCxrM3XwuCFW4PEWTzPShALMW/5qIHYSRiTZQ`	| `AAAAB3NzaC1yc2EAAAADAQABAAABAQDIAphA39+aUBaDkAhjJwhZK37mKfH0Xk3W3hepz+NwJ5V/NtrHgAHtnlrWiq/F7mDM0Xa++p7mbJNAhq9iT2vhQLX/hz8ibBRz8Kz6PutYuOtapftWz7trUJXMAI1ASOWjHbOffxeQwhUt2n0HmojFp4CoeYIoLIJiZNl8SkTJir3kUjHunIvvKRcIS0FBjEG9OfdJlo0k3U2nj5QLCORw8LzxfmqjmapRRfGQct/XmkJQM5bjUTcLW7vCkrx+EtHbnHtG+q+msnoP/GIwO3qMEgRvgxRnTctV82T8hmOz+6w1loO6B8qwAFt6tnsq2+zQvNdvOwRz/o+X8YWLGIzN` | 			
+> | US Gov Texas	| ecdsa-sha2-nistp256	| `osmHklvhKEbYW8ViKXaF0uG+bnYlCSp1XEInnzoYaWs`	| `AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNjvs/Cy4EODF21qEafVDBjL4JQ5s4m87htOESPjMAvNoZ3vfRtJy81MB7Fk6IqJcavqwFas8e3FNRcWBVseOqM=` | 
+> | US Gov Texas	| ecdsa-sha2-nistp384	| `MIJbuk4de6NBeStxcfCaU0o8zAemBErm4GSFFwoyivQ`	| `AAAAE2VjZHNhLXNoYTItbmlzdHAzODQAAAAIbmlzdHAzODQAAABhBGxPcJV0UdTiqah2XeXvfGgIU8zQkmb6oeJxRtZnumlbu5DfrhaMibo3VgSK7HUphavc6DORSAKdFHoGnPHBO981FWmd9hqxJztn2KKpdyZALfhjgu0ySN2gso7kUpaxIA==` | 
+> | US Gov Texas	| rsa-sha2-256	| `IL6063PFm771JPM4bDuaKiireq8L7AZP+B9/DaiJ2sI`	| `AAAAB3NzaC1yc2EAAAADAQABAAABAQDUTuQSTyQiJdXfDt9wfn9EpePO0SPMd+AtBNhYx1sTUbWNzBpHygfJlt2n0itodnFQ3d0fGZgxE/wHdG6zOy77pWU8i95YcxjdF+DMMY3j87uqZ8ZFk4t0YwIooAHvaBqw/PwtHYnTBr82T383pAasJTiFEd3GNDYIRgW5TZ4nnA26VoNUlUBaUXPUBfPvvqLrgcv8GBvV/MESSJTQDz1UegCqd6dGGfwdn2CWhkSjGcl17le/suND/fC5ZrvTkRNWfyeJlDkN4F+UpSUfvalBLV+QYv4ZJxsT4VagQ9n6wTBTDAvMu3CTP8XmAYEIGLf9YCbjxcTC+UywaL1Nk++x` | 
+> | US Gov Texas	| rsa-sha2-512	| `NZo9nBE/L1k6QyUcQZ5GV/0yg6rU2RTUFl+zvlvZvB4`	| `AAAAB3NzaC1yc2EAAAADAQABAAABAQCwNs5md1kYKAxFruSF+I4qS1IOuKw6LS9oJpcASnXpPi//PI5aXlLpy5AmeePEHgF+O0pSNs6uGWC+/T2kYsYkTvIieSQEzyXfV+ZDVqCHBZuezoM0tQxc9tMLr8dUExow1QY5yizj35s1hPHjr2EQThCLhl5M0g3s+ktKMb77zNX7DA3eKhRnK/ulOtMmewrGDg9/ooOa7ZWIIPPY0mUDs5Get/EWF1KCOABOacdkXZOPoUaD0fTEOhU+xd66CBRuk9SIFGWmQw2GiBoeF0432sEAfc3ZptyzSmCamjtsfihFeHXUij8MH8UiTZopV3JjUO6xN7MCx9BJFcRxtEQF` | 
+> | US DoD |East | ecdsa-sha2-nistp256	| `dk3jE5LOhsxfdaeeRPmuQ33z/ZO55XRLo8FA3I6YqAk`	| `AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBD7vMN0MTHRlUB8/35XBfYIhk8RZjwHyh6GrIDHgsjQPiZKUO/blq6qZ57WRmWmo7F+Rtw6Rfiub53a6+yZfgB4=` | 
+> | US DoD East	| ecdsa-sha2-nistp384	| `6nTqoKVqqpBl7k9m/6joVb+pIqKvdssxO5JRPkiPYeE`	| `AAAAE2VjZHNhLXNoYTItbmlzdHAzODQAAAAIbmlzdHAzODQAAABhBOwn2WSEmmec+DlJjPe0kjrdEmN/6tIQhN8HxQMq/G81c/FndVVFo97HQBYzo1SxCLCwZJRYQwFef3FWBzKFK7bqtpB055LM58FZv59QNCIXxF+wafqWolrKNGyL8k2Vvw==` | 
+> | US DoD East	| rsa-sha2-256	| `xzDw4ZHUTvtpy/GElnkDg95GRD8Wwj7+AuvCUcpIEVo`	| `AAAAB3NzaC1yc2EAAAADAQABAAABAQDrAT5kTs5GXMoc+fSX1VScJ4uOFAaeA7i1CVZyWCcVNJrz2iHyZAncdxJ86BS8O2DceOpzjiFHr6wvg2OrFmByamDAVQCZQLPm+XfYV7Xk0cxZYk5RzNDQV87hEPYprNgZgPuM3tLyHVg76Zhx5LDhX7QujOIVIxQLkJaMJ/GIT+tOWzPOhxpWOGEXiifi4MNp/0uwyKbueoX7V933Bu2fz0VMJdKkprS5mXnZdcM9Y/ZvPFeKaX55ussBgcdfjaeK3emwdUUy4SaLMaTG6b1TgVaTQehMvC8ufZ3qfpwSGnuHrz1t7gKdB3w7/Q7UFXtBatWroZ10dnyZ/9Nn4V5R` | 
+> | US DoD East	| rsa-sha2-512	| `3rvLtZPtROldWm2TCI//vI8IW0RGSbvlrHSU4e4BQcA`	| `AAAAB3NzaC1yc2EAAAADAQABAAABAQDrAT5kTs5GXMoc+fSX1VScJ4uOFAaeA7i1CVZyWCcVNJrz2iHyZAncdxJ86BS8O2DceOpzjiFHr6wvg2OrFmByamDAVQCZQLPm+XfYV7Xk0cxZYk5RzNDQV87hEPYprNgZgPuM3tLyHVg76Zhx5LDhX7QujOIVIxQLkJaMJ/GIT+tOWzPOhxpWOGEXiifi4MNp/0uwyKbueoX7V933Bu2fz0VMJdKkprS5mXnZdcM9Y/ZvPFeKaX55ussBgcdfjaeK3emwdUUy4SaLMaTG6b1TgVaTQehMvC8ufZ3qfpwSGnuHrz1t7gKdB3w7/Q7UFXtBatWroZ10dnyZ/9Nn4V5R` | 
+> | US DoD Central	| ecdsa-sha2-nistp256	| `03WHYAk6NEf2qYT62cwilvrkQ8rZCwdi+9M6yTZ9zjc`	| `AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBCVsp8VO4aE6PwKD4nKZDU0xNx2CyNvw7xU3/KjXgTPWqNpbOlr6JmHG67ozOj+JUtLRMX15cLbDJgX9G9/EZd8=` | 
+> | US DoD Central	| ecdsa-sha2-nistp384	| `do10RyIoAbeuNClEvjfq5OvNTbcjKO6PPaCm1cGiFDA`	| `AAAAE2VjZHNhLXNoYTItbmlzdHAzODQAAAAIbmlzdHAzODQAAABhBKYiTs82RA54EX24BESc5hFy5Zd+bPo4UTI/QFn+koMnv2QWSc9SYIumaVtl0bIWnEvdlOA4F2IJ1hU5emvDHM2syOPxK7wTPms9uLtOJBNekQaAUw61CJZ4LWlPQorYNQ==` | 
+> | US DoD Central	| rsa-sha2-256	| `htGg4hqLQo4QQ92GBDJBqo7KfMwpKpzs9KyB07jyT9w`	| `AAAAB3NzaC1yc2EAAAADAQABAAABAQDVHNOQQpJY9Etaxa+XKttw4qkhS9ZsZBpNIsEM4UmfAq6yMmtXo1EXZ/LDt4uALIcHdt3tuEkt0kZ/d3CB+0oQggqaBXcr9ueJBofoyCwoW+QcPho5GSE5ecoFEMLG/u4RIXhDTIms/8MDiCvbquUBbR3QBh5I2d6mKJJej0cBeAH/Sh7+U+30hJqnrDm4BMA2F6Hztf19nzAmw7LotlH5SLMEOGVdzl28rMeDZ+O3qwyZJJyeXei1BiYFmOZDg4FjG9sEDwMTRnTQHNj2drNtRqWt46kjQ1MjEscoy8N/MlcZtGj1tKURL909l3tUi3fIth4eAxMaAkq023/mOK1x` | 
+> | US DoD Central	| rsa-sha2-512	| `ho5JpqNw8wV20XjrDWy/zycyUMwUASinQd0gj8AJbkE`	| `AAAAB3NzaC1yc2EAAAADAQABAAABAQCT/6XYwIYUBHLTaHW8q7jE2fdLMWZpf1ohdrUXkfSksL3V8NeZ3j12Jm/MyZo4tURpPPcWJKT+0zcEyon9/AfBi6lpxhKUZQfgWQo7fUBDy1K4hyVt9IcnmNb22kX8y3Y6u/afeqCR8ukPd0uBhRYyzZWvyHzfVjXYSkw2ShxCRRQz4RjaljoSPPZIGFa2faBG8NQgyuCER8mZ72T3aq8YSUmWvpSojzfLr7roAEJdPHyRPFzM/jy1FSEanEuf6kF1Y+i1AbbH0dFDLU7AdxfCB4sHSmy6Xxnk7yYg5PYuxog7MH27wbg4+3+qUhBNcoNU33RNF9TdfVU++xNhOTH1` | 
 
 
 

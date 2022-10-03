@@ -47,11 +47,13 @@ For all deployments, bandwidth results for virtual machines may vary, depending 
 
 |Hardware profile  |Performance / Monitoring  |Physical specifications  |
 |---------|---------|---------|
-|**Corporate**     |   **Max bandwidth**: 2.5 Gb/sec <br>**Max monitored assets**: 12,000      | **vCPU**: 32 <br>**Memory**: 32 GB <br>**Storage**: 5.6 TB (600 IOPS)        |
-|**Enterprise**     |    **Max bandwidth**: 800 Mb/sec <br>**Max monitored assets**: 10,000      | **vCPU**: 8 <br>**Memory**: 32 GB <br>**Storage**: 1.8 TB (300 IOPS)        |
-|**SMB**     |   **Max bandwidth**: 160 Mb/sec <br>**Max monitored assets**: 1,000      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 500 GB (150 IOPS)        |
-|**Office**     |    **Max bandwidth**: 100 Mb/sec <br>**Max monitored assets**: 800      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 100 GB (150 IOPS)        |
-|**Rugged**     |     **Max bandwidth**: 10 Mb/sec <br>**Max monitored assets**: 100      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 60 GB (150 IOPS)        |
+|**C5600**     |   **Max bandwidth**: 2.5 Gb/sec <br>**Max monitored assets**: 12,000      | **vCPU**: 32 <br>**Memory**: 32 GB <br>**Storage**: 5.6 TB (600 IOPS)        |
+|**E1800**     |    **Max bandwidth**: 800 Mb/sec <br>**Max monitored assets**: 10,000      | **vCPU**: 8 <br>**Memory**: 32 GB <br>**Storage**: 1.8 TB (300 IOPS)        |
+|**E1000**     |    **Max bandwidth**: 800 Mb/sec <br>**Max monitored assets**: 10,000      | **vCPU**: 8 <br>**Memory**: 32 GB <br>**Storage**: 1 TB (300 IOPS)        |
+|**E500**     |    **Max bandwidth**: 800 Mb/sec <br>**Max monitored assets**: 10,000      | **vCPU**: 8 <br>**Memory**: 32 GB <br>**Storage**: 500 GB (300 IOPS)        |
+|**L500**     |   **Max bandwidth**: 160 Mb/sec <br>**Max monitored assets**: 1,000      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 500 GB (150 IOPS)        |
+|**L100**     |    **Max bandwidth**: 100 Mb/sec <br>**Max monitored assets**: 800      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 100 GB (150 IOPS)        |
+|**L64**     |     **Max bandwidth**: 10 Mb/sec <br>**Max monitored assets**: 100      | **vCPU**: 4 <br>**Memory**: 8 GB <br>**Storage**: 60 GB (150 IOPS)        |
 
 
 ## On-premises management console VM requirements
@@ -60,6 +62,7 @@ An on-premises management console on a virtual appliance is supported for enterp
 
 | Specification               | Requirements |
 | ------------------ | ---------- |
+| Hardware profile               | E1800          |
 | vCPU               | 8          |
 | Memory             | 32 GB       |
 | Storage            | 1.8 TB      |
@@ -74,7 +77,7 @@ Continue understanding system requirements for physical or virtual appliances. F
 
 Then, use any of the following procedures to continue:
 
-- [Purchase sensors or download software for sensors](how-to-manage-sensors-on-the-cloud.md#purchase-sensors-or-download-software-for-sensors)
+- [Purchase sensors or download software for sensors](onboard-sensors.md#purchase-sensors-or-download-software-for-sensors)
 - [Download software for an on-premises management console](how-to-manage-the-on-premises-management-console.md#download-software-for-the-on-premises-management-console)
 - [Install software](how-to-install-software.md)
 

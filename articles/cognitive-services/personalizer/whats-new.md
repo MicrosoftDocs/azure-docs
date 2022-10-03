@@ -12,9 +12,16 @@ ms.date: 05/28/2021
 ---
 # What's new in Personalizer
 
-Learn what's new in the service. These items may include release notes, videos, blog posts, and other types of information. Bookmark this page to keep up-to-date with the service.
+Learn what's new in Azure Personalizer. These items may include release notes, videos, blog posts, and other types of information. Bookmark this page to keep up-to-date with the service.
 
 ## Release notes
+
+### September 2022
+* Personalizer Inference Explainabiltiy is now available as a Public Preview. Enabling inference explainability returns feature scores on every Rank API call, providing insight into how influential each feature is to the actions chosen by your Personalizer model. [Learn more about Inference Explainability](concepts-features.md#inference-explainability).
+* Personalizer SDK now available in [Java](https://search.maven.org/artifact/com.azure/azure-ai-personalizer/1.0.0-beta.1/jar) and [Javascript](https://www.npmjs.com/package/@azure-rest/ai-personalizer).
+
+### April 2022
+* Local inference SDK (Preview): Personalizer now supports near-realtime (sub-10ms) inference without the need to wait for network API calls. Your Personalizer models can be used locally for lightning fast Rank calls using the [C# SDK (Preview)](https://www.nuget.org/packages/Azure.AI.Personalizer/2.0.0-beta.2), empowering your applications to personalize quickly and efficiently. Your model continues to train in Azure while your local model is seamlessly updated. 
 
 ### May 2021  - //Build conference
 
@@ -68,4 +75,4 @@ The following preview features were released at the Build 2019 Conference:
 ## Next steps
 
 * [Quickstart: Create a feedback loop in C#](./quickstart-personalizer-sdk.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
-* [Use the interactive demo](https://personalizationdemo.azurewebsites.net/)
+* [Use the interactive demo](https://personalizerdevdemo.azurewebsites.net/)

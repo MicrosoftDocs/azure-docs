@@ -21,10 +21,10 @@ keywords: document processing
 
 >[!TIP]
 >
-> * For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio (preview)](https://formrecognizer.appliedai.azure.com/studio).
+> * For an enhanced experience and advanced model quality, try the [Form Recognizer v3.0 Studio ](https://formrecognizer.appliedai.azure.com/studio).
 > * The v3.0 Studio supports any model trained with v2.1 labeled data.
 > * You can refer to the API migration guide for detailed information about migrating from v2.1 to v3.0.
-> * *See* our [**REST API**](try-v3-rest-api.md) or [**C#**](try-v3-csharp-sdk.md), [**Java**](try-v3-java-sdk.md), [**JavaScript**](try-v3-javascript-sdk.md), or [Python](try-v3-python-sdk.md) SDK quickstarts to get started with the V3.0 preview.
+> * *See* our [**REST API**](get-started-v3-sdk-rest-api.md) or [**C#**](get-started-v3-sdk-rest-api.md), [**Java**](get-started-v3-sdk-rest-api.md), [**JavaScript**](get-started-v3-sdk-rest-api.md), or [Python](get-started-v3-sdk-rest-api.md) SDK quickstarts to get started with the v3.0 version.
 
 The Form Recognizer Sample Labeling tool is an open source tool that enables you to test the latest features of Azure Form Recognizer and Optical Character Recognition (OCR) services:
 
@@ -133,7 +133,9 @@ Train a custom model to analyze and extract data from forms and documents specif
 
 ### Prerequisites for training a custom form model
 
-* An Azure Storage blob container that contains a set of training data. Make sure all the training documents are of the same format. If you have forms in multiple formats, organize them into subfolders based on common format. For this project, you can use our [sample data set](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample_data_without_labels.zip). If you don't know how to create an Azure storage account with a container, follow the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md).
+* An Azure Storage blob container that contains a set of training data. Make sure all the training documents are of the same format. If you have forms in multiple formats, organize them into subfolders based on common format. For this project, you can use our [sample data set](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample_data_without_labels.zip). 
+
+* If you don't know how to create an Azure storage account with a container, follow the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md).
 
 * Configure CORS
 
@@ -281,9 +283,9 @@ Choose the Train icon on the left pane to open the Training page. Then select th
 
    :::image type="content" source="../media/analyze.png" alt-text="Training view.":::
 
-That's it! You've learned how to use the Form Recognizer sample tool for Form Recognizer prebuilt, layout and custom models. You've also learned to analyze a custom form with manually labeled data. Now you can try a Form Recognizer client library SDK or REST API.
+That's it! You've learned how to use the Form Recognizer sample tool for Form Recognizer prebuilt, layout and custom models. You've also learned to analyze a custom form with manually labeled data.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Explore Form Recognizer client library SDK and REST API quickstart](../quickstarts/get-started-sdk-rest-api.md)
+>[!div class="nextstepaction"]
+> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio)

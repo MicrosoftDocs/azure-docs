@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 05/11/2022
+ms.date: 08/11/2022
 ---
 
 # Usage dashboard in commercial marketplace analytics
@@ -247,10 +247,8 @@ _**Table 1: Dictionary of data terms**_
 | Action Taken By | Action Taken By | **Applicable for offers with custom meter dimensions**.<br>Specifies the person who acknowledged the overage usage by the customer for the offer’s custom meter dimension as genuine or false.<br>_If the publisher doesn’t have offers with custom meter dimensions, and exports this column through programmatic access, then the value will be null._ | ActionTakenBy |
 | Estimated Financial Impact (USD) | Estimated Financial Impact in USD | **Applicable for offers with custom meter dimensions**.<br>When Partner Center flags an overage usage by the customer for the offer’s custom meter dimension as anomalous, the field specifies the estimated financial impact (in USD) of the anomalous overage usage.<br>_If the publisher doesn’t have offers with custom meter dimensions, and exports this column through programmatic means, then the value will be null._ | EstimatedFinancialImpactUSD |
 | Asset Id | Asset Id | **Applicable for offers with custom meter dimensions**.<br>The unique identifier of the customer's order subscription for your commercial marketplace service. Virtual machine usage-based offers are not associated with an order. | Asset Id |
-| N/A | Resource Id | The fully qualified ID of the resource, including the resource name and resource type. Note that this is a data field available in download reports only.<br>Use the format:<br> /subscriptions/{guid}/resourceGroups/{resource-group-name}/{resource-provider-namespace}/{resource-type}/{resource-name}<br>**Note**: This field will be deprecated on 10/20/2021. | N/A |
 | PlanId | PlanID | The display name of the plan entered when the offer was created in Partner Center. Note that PlanId was originally a number. | PlanID |
-|||||
-
+| Not available | Reference Id | A key to link transactions of usage-based offers with corresponding transactions in the orders report. For SaaS offers with custom meters, this key represents the AssetId. For VM software reservations, this key can be used for linking orders and usage reports. | ReferenceId |
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 04/27/2022
+ms.date: 07/27/2022
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -104,6 +104,10 @@ To learn more about limits on a more granular level, such as document size, quer
 ## Azure Cognitive Services limits
 
 [!INCLUDE [azure-cognitive-services-limits](../../../includes/azure-cognitive-services-limits.md)]
+
+## Azure Container Apps limits
+
+For Azure Container Apps limits, see [Quotas in Azure Container Apps](../../container-apps/quotas.md).
 
 ## Azure Cosmos DB limits
 
@@ -321,38 +325,10 @@ For limits specific to Media Services v2 (legacy), see [Media Services v2 (legac
 
 [!INCLUDE [azure-virtual-network-limits](../../../includes/azure-virtual-network-limits.md)]
 
-### ExpressRoute limits
-
-[!INCLUDE [expressroute-limits](../../../includes/expressroute-limits.md)]
-
-### Virtual Network Gateway limits
-
-[!INCLUDE [virtual-network-gateway-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
-
-### NAT Gateway limits
-
-[!INCLUDE [nat-gateway-limits](../../../includes/azure-nat-gateway-limits.md)]
-
-### Virtual WAN limits
-
-[!INCLUDE [virtual-wan-limits](../../../includes/virtual-wan-limits.md)]
-
 ### Application Gateway limits
 
 The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise stated.
 [!INCLUDE [application-gateway-limits](../../../includes/application-gateway-limits.md)]
-
-### Network Watcher limits
-
-[!INCLUDE [network-watcher-limits](../../../includes/network-watcher-limits.md)]
-
-### Private Link limits
-
-[!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)]
-
-### Traffic Manager limits
-
-[!INCLUDE [traffic-manager-limits](../../../includes/traffic-manager-limits.md)]
 
 ### Azure Bastion limits
 
@@ -369,6 +345,38 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 ### Azure Front Door (classic) limits
 
 [!INCLUDE [azure-front-door-service-limits](../../../includes/front-door-limits.md)]
+
+### Azure Route Server limits
+
+[!INCLUDE [Azure Route Server Limits](../../../includes/route-server-limits.md)]
+
+### ExpressRoute limits
+
+[!INCLUDE [expressroute-limits](../../../includes/expressroute-limits.md)]
+
+### NAT Gateway limits
+
+[!INCLUDE [nat-gateway-limits](../../../includes/azure-nat-gateway-limits.md)]
+
+### Network Watcher limits
+
+[!INCLUDE [network-watcher-limits](../../../includes/network-watcher-limits.md)]
+
+### Private Link limits
+
+[!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)]
+
+### Traffic Manager limits
+
+[!INCLUDE [traffic-manager-limits](../../../includes/traffic-manager-limits.md)]
+
+### Virtual Network Gateway limits
+
+[!INCLUDE [virtual-network-gateway-limits](../../../includes/azure-virtual-network-gateway-limits.md)]
+
+### Virtual WAN limits
+
+[!INCLUDE [virtual-wan-limits](../../../includes/virtual-wan-limits.md)]
 
 ## Notification Hubs limits
 
@@ -398,17 +406,21 @@ This section lists the most common service limits you might encounter as you use
 
 [!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-notebooks.md)]
 
+### Repositories limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-repositories.md)]
+
 ### Threat intelligence limits
 
 [!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-threat-intelligence.md)]
 
-### Watchlist limits
-
-[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-watchlists.md)]
-
 ### User and Entity Behavior Analytics (UEBA) limits
 
 [!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-ueba.md)]
+
+### Watchlist limits
+
+[!INCLUDE [sentinel-service-limits](../../../includes/sentinel-limits-watchlists.md)]
 
 ## Service Bus limits
 

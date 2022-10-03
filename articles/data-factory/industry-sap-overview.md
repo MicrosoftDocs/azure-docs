@@ -7,7 +7,7 @@ ms.author: joowen
 ms.service: data-factory
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 04/20/2022
+ms.date: 08/11/0222
 ---
 
 # SAP knowledge center overview

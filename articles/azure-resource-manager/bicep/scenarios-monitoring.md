@@ -4,7 +4,7 @@ description: Describes how to create monitoring resources by using Bicep.
 author: willvelida
 ms.author: willvelida
 ms.topic: conceptual
-ms.date: 05/16/2022
+ms.date: 07/01/2022
 ---
 # Create monitoring resources by using Bicep
 
@@ -22,9 +22,11 @@ You can create Log Analytics workspaces with the resource type [Microsoft.Operat
 
 ## Diagnostic settings
 
+Diagnostic settings enable you to configure Azure Monitor to export your logs and metrics to a number of destinations, including Log Analytics and Azure Storage.
+
 When creating [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md) in Bicep, remember that this resource is an [extension resource](scope-extension-resources.md), which means it's applied to another resource. You can create diagnostic settings in Bicep by using the resource type [Microsoft.Insights/diagnosticSettings](/azure/templates/microsoft.insights/diagnosticsettings?tabs=bicep).
 
-When creating diagnostic settings in Bicep, you need to apply the scope of the diagnostic setting. The scope can be applied at the management, subscription, or resource group level. [Use the scope property on this resource to set the scope for this resource](../../azure-resource-manager/bicep/scope-extension-resources.md). 
+When creating diagnostic settings in Bicep, you need to apply the scope of the diagnostic setting. The diagnostic setting can be applied at the management, subscription, or resource group level. [Use the scope property on this resource to set the scope for this resource](../../azure-resource-manager/bicep/scope-extension-resources.md). 
 
 Consider the following example:
 
@@ -32,7 +34,15 @@ Consider the following example:
 
 In the preceding example, you create a diagnostic setting for the App Service plan and send those diagnostics to Log Analytics. You can use the `scope` property to define your App Service plan as the scope for your diagnostic setting, and use the `workspaceId` property to define the Log Analytics workspace to send the diagnostic logs to. You can also export diagnostic settings to Event Hubs and Azure Storage Accounts.
 
-Diagnostic settings differ between resources, so ensure that the diagnostic settings you want to create are applicable for the resource you're using.
+Log types differ between resources, so ensure that the logs you want to export are applicable for the resource you're using.
+
+### Activity log diagnostic settings
+
+To use Bicep to configure diagnostic settings to export the Azure activity log, deploy a diagnostic setting resource at the [subscription scope](deploy-to-subscription.md).
+
+The following example shows how to export several activity log types to a Log Analytics workspace:
+
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-monitoring/diagnostic-settings-activity-log.bicep" :::
 
 ## Alerts
 

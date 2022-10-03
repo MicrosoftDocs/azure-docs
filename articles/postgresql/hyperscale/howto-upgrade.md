@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 4/5/2021
+ms.date: 08/29/2022
 ---
 
 # Upgrade Hyperscale (Citus) server group
@@ -20,9 +20,12 @@ on all server group nodes.
 
 Upgrading PostgreSQL causes more changes than you might imagine, because
 Hyperscale (Citus) will also upgrade the [database
-extensions](reference-extensions.md), including the Citus extension.
+extensions](reference-extensions.md), including the Citus extension. Upgrades
+also require downtime in the database cluster.
+
 We strongly recommend you to test your application with the new PostgreSQL and
-Citus version before you upgrade your production environment.
+Citus version before you upgrade your production environment.  Also, see
+our list of [upgrade precautions](concepts-upgrade.md).
 
 A convenient way to test is to make a copy of your server group using
 [point-in-time restore](concepts-backup.md#restore). Upgrade the
@@ -44,3 +47,4 @@ works properly, upgrade the original server group.
 * Learn about [supported PostgreSQL versions](reference-versions.md).
 * See [which extensions](reference-extensions.md) are packaged with
   each PostgreSQL version in a Hyperscale (Citus) server group.
+* Learn more about [upgrades](concepts-upgrade.md)

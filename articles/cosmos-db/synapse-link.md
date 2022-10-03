@@ -5,17 +5,20 @@ author: Rodrigossz
 ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/12/2021
+ms.date: 09/29/2022
 ms.reviewer: mjbrown
 ms.custom: synapse-cosmos-db
 ---
 
 # What is Azure Synapse Link for Azure Cosmos DB?
-[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+[!INCLUDE[appliesto-sql-mongodb-gremlin-api](includes/appliesto-sql-mongodb-gremlin-api.md)]
 
 Azure Synapse Link for Azure Cosmos DB is a cloud-native hybrid transactional and analytical processing (HTAP) capability that enables near real time analytics over operational data in Azure Cosmos DB. Azure Synapse Link creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
 
 Using [Azure Cosmos DB analytical store](analytical-store-introduction.md), a fully isolated column store, Azure Synapse Link enables no Extract-Transform-Load (ETL) analytics in [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) against your operational data at scale. Business analysts, data engineers, and data scientists can now use Synapse Spark or Synapse SQL interchangeably to run near real time business intelligence, analytics, and machine learning pipelines. You can achieve this without impacting the performance of your transactional workloads on Azure Cosmos DB.
+
+> [!NOTE]
+> Synapse Link for Gremlin API is now in preview. You can enable Synapse Link in your new or existing graphs using Azure CLI. For more information on how to configure it, check the [configuration documentation](configure-synapse-link.md).
 
 The following image shows the Azure Synapse Link integration with Azure Cosmos DB and Azure Synapse Analytics: 
 
@@ -37,7 +40,7 @@ You can now get rich insights on your operational data in near real-time, using 
 
 ### No impact on operational workloads
 
-With Azure Synapse Link, you can run analytical queries against an Azure Cosmos DB analytical store, a column store representation of you data, while the transactional operations are processed using provisioned throughput for the transactional workload, over the Cosmos DB row-based transactional store. The analytical workload is independent of the transactional workload traffic, not consuming any of the provisioned throughput of your operational data.
+With Azure Synapse Link, you can run analytical queries against an Azure Cosmos DB analytical store, a column store representation of your data, while the transactional operations are processed using provisioned throughput for the transactional workload, over the Cosmos DB row-based transactional store. The analytical workload is independent of the transactional workload traffic, not consuming any of the provisioned throughput of your operational data.
 
 ### Optimized for large-scale analytics workloads
 
@@ -116,16 +119,13 @@ Synapse Link isn't recommended if you're looking for traditional data warehouse 
 
 * Enabling Synapse Link on existing Cosmos DB containers is only supported for SQL API accounts. Synapse Link can be enabled on new containers for both SQL API and MongoDB API accounts.
 
-*  Backup and restore:
-   *  You can recreate your analytical store data in some scenarios as below. In this mode, your transactional store data will be automatically backed up.  If `transactional TTL` is equal or greater than your `analytical TTL` on your container, you can fully recreate your analytical store data by enabling analytical store on the restored container:
-         - Azure Synapse Link can be enabled on accounts configured with periodic backups. 
-         - If continuous backup (point-in-time restore) is enabled on your account, you can now restore your analytical data. To enable Synapse Link for such accounts, please reach out to cosmosdbsynapselink@microsoft.com. This is applicable only for SQL API. 
-   *  Restoring analytical data is not supported in following scenarios, for SQL API and API for Mongo DB:
-         - If you already enabled Synapse Link on your database account, you cannot enable point-in-time restore on such accounts.
-         - If `analytical TTL` is greater than `transactional TTL`, data that only exists in analytical store cannot be restored. You can continue to access full data from analytical store in the parent region.
-         
-* Granular Role-based Access (RBAC)s isn't supported when querying from Synapse. Users that have access to your Synapse workspace and have access to the Cosmos DB account can access all containers within that account. We currently don't support more granular access to the containers. 
+* Although analytical store data is not backed up, and therefore cannot be restored, you can rebuild your analytical store by reenabling Synapse Link in the restored container. Check the [analytical store documentation](analytical-store-introduction.md) for more information.
 
+* Currently Synapse Link isn't fully compatible with continuous backup mode. Check the [analytical store documentation](analytical-store-introduction.md) for more information.
+         
+* Granular Role-based Access (RBAC)s isn't supported when querying from Synapse. Users that have access to your Synapse workspace and have access to the Cosmos DB account can access all containers within that account. We currently don't support more granular access to the containers.
+
+* Currently Azure Synapse Workspaces don't support linked services using `Managed Identity`. Always use the `MasterKey` option.
 
 ## Security
 
@@ -152,7 +152,7 @@ To learn more, see the following docs:
 
 * [Azure Cosmos DB analytical store overview](analytical-store-introduction.md)
 
-* Check out the learn module on how to [Design hybrid transactional and analytical processing using Azure Synapse Analytics](/learn/modules/design-hybrid-transactional-analytical-processing-using-azure-synapse-analytics/)
+* Check the training module on how to [Design hybrid transactional and analytical processing using Azure Synapse Analytics](/training/modules/design-hybrid-transactional-analytical-processing-using-azure-synapse-analytics/)
 
 * [Get started with Azure Synapse Link for Azure Cosmos DB](configure-synapse-link.md)
  

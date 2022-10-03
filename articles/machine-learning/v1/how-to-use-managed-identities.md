@@ -18,9 +18,9 @@ ms.custom: cliv1, sdkv1, event-tier1-build-2022
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
 > * [v1](how-to-use-managed-identities.md)
-> * [v2 (current version)](../how-to-use-managed-identities.md)
+> * [v2 (current version)](../how-to-identity-based-service-authentication.md)
 
 [Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) allow you to configure your workspace with the *minimum required permissions to access resources*. 
 
@@ -36,8 +36,11 @@ In this article, you'll learn how to use managed identities to:
  
 ## Prerequisites
 
-- An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](../how-to-manage-workspace.md).
+- An Azure Machine Learning workspace. For more information, see [Create workspace resources](../quickstart-create-resources.md).
 - The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md)
+
+    [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+
 - The [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).
 - To assign roles, the login for your Azure subscription must have the [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role, or other role that grants the required actions (such as __Owner__).
 - You must be familiar with creating and working with [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md).
@@ -107,7 +110,7 @@ If you do not bring your own ACR, Azure Machine Learning service will create one
 
 To access the workspace ACR, create machine learning compute cluster with system-assigned managed identity enabled. You can enable the identity from  Azure portal or Studio when creating compute, or from Azure CLI using the below. For more information, see [using managed identity with compute clusters](how-to-create-attach-compute-cluster.md#set-up-managed-identity).
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 When creating a compute cluster with the [AmlComputeProvisioningConfiguration](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcomputeprovisioningconfiguration), use the `identity_type` parameter to set the managed identity type.
 
@@ -119,9 +122,9 @@ When creating a compute cluster with the [AmlComputeProvisioningConfiguration](/
 az ml computetarget create amlcompute --name <cluster name> -w <workspace> -g <resource group> --vm-size <vm sku> --assign-identity '[system]'
 ```
 
-# [Portal](#tab/azure-portal)
+# [Studio](#tab/azure-studio)
 
-For information on configuring managed identity when creating a compute cluster in studio, see [Set up managed identity](../how-to-create-attach-compute-studio.md#managed-identity).
+For information on configuring managed identity when creating a compute cluster in studio, see [Set up managed identity](../how-to-create-attach-compute-cluster.md#set-up-managed-identity).
 
 ---
 

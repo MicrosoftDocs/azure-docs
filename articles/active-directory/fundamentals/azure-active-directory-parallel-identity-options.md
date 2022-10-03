@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/18/2021
+ms.date: 08/17/2022
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management

@@ -121,3 +121,6 @@ Follow the instruction in [Support for the commercial marketplace program in Par
 
 - See [Marketplace metering service APIs](marketplace-metering-service-apis.md) for more information.
 
+**Video tutorial**
+
+- [Metered Billing for Azure Managed Applications Overview](https://go.microsoft.com/fwlink/?linkid=2196310)

@@ -70,7 +70,7 @@ These images are only supported for use in Azure Batch pools and are geared for 
 
 You can also create custom images from VMs running Docker on one of the Linux distributions that is compatible with Batch. If you choose to provide your own custom Linux image, see the instructions in [Use a managed custom image to create a pool of virtual machines](batch-custom-images.md).
 
-For Docker support on a custom image, install [Docker Community Edition (CE)](https://www.docker.com/community-edition) or [Docker Enterprise Edition (EE)](https://www.docker.com/blog/docker-enterprise-edition/).
+For Docker support on a custom image, install [Docker Community Edition (CE)](https://www.docker.com/community-edition) or [Docker Enterprise Edition (EE)](https://docker-docs.netlify.app/ee/).
 
 Additional considerations for using a custom Linux image:
 

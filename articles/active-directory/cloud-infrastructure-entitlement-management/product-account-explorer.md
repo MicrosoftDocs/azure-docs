@@ -2,19 +2,15 @@
 title: View roles and identities that can access account information from an external account
 description: How to view information about identities that can access accounts from an external account in Permissions Management.
 services: active-directory
-manager: rkarlin
+manager: amycolannino
 ms.service: ciem
 ms.topic: how-to
-author: kenwith
+author: jenniferf-skc
 ms.date: 02/23/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # View roles and identities that can access account information from an external account
-
-> [!IMPORTANT]
-> Microsoft Entra Permissions Management is currently in PREVIEW.
-> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 You can view information about users, groups, and resources that can access account information from an external account in Permissions Management.
 

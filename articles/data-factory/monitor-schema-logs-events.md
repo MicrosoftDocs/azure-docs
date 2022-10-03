@@ -469,4 +469,4 @@ Log Analytics inherits the schema from Azure Monitor with the following exceptio
 
 ## Next steps
 
-[Install Azure Data Factory Analytics solution from Azure Marketplace](monitor-install-analytics.md)
+[Monitor programmatically using SDKs](monitor-programmatically.md)

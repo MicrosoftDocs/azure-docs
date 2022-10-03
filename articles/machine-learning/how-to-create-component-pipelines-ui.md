@@ -16,7 +16,7 @@ ms.custom: devplatv2, designer, event-tier1-build-2022
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-In this article, you'll learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the Azure Machine Learning studio and [Components](concept-component.md). You can [create pipelines without using components](how-to-train-cli.md#build-a-training-pipeline), but components offer better amount of flexibility and reuse. Azure ML Pipelines may be defined in YAML and [run from the CLI](how-to-create-component-pipelines-cli.md), [authored in Python](how-to-create-component-pipeline-python.md), or composed in Azure ML Studio Designer with a drag-and-drop UI. This document focuses on the AzureML studio designer UI.
+In this article, you'll learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the Azure Machine Learning studio and [Components](concept-component.md). You can create pipelines without using components, but components offer better amount of flexibility and reuse. Azure ML Pipelines may be defined in YAML and [run from the CLI](how-to-create-component-pipelines-cli.md), [authored in Python](how-to-create-component-pipeline-python.md), or composed in Azure ML Studio Designer with a drag-and-drop UI. This document focuses on the AzureML studio designer UI.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -24,9 +24,9 @@ In this article, you'll learn how to create and run [machine learning pipelines]
 
 * If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-* You'll need an [Azure Machine Learning workspace](how-to-manage-workspace.md) for your pipelines and associated resources
+* An Azure Machine Learning workspace[Create workspace resources](quickstart-create-resources.md).
 
-* [Install and set up the Azure CLI extension for Machine Learning](how-to-configure-cli.md)
+* [Install and set up the Azure CLI extension for Machine Learning](how-to-configure-cli.md).
 
 * Clone the examples repository:
 

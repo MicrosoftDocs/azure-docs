@@ -2,14 +2,14 @@
 title: Does my Azure AD sign-in page accept Microsoft accounts  | Microsoft Docs
 description: How on-screen messaging reflects username lookup during sign-in 
 services: active-directory
-author: curtand
-manager: karenhoran
+author: barclayn
+manager: amycolannino
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
 ms.date: 06/24/2022
-ms.author: curtand
+ms.author: barclayn
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management

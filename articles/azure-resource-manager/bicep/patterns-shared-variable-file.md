@@ -4,7 +4,7 @@ description: Describes the shared variable file pattern.
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
-ms.date: 08/18/2021
+ms.date: 07/01/2022
 ---
 # Shared variable file pattern
 
@@ -18,7 +18,7 @@ Furthermore, when you work with variables defined as arrays, you might have a se
 
 ## Solution
 
-Create a JSON file that includes the variables you need to share. Use the [`json()` function](bicep-functions-object.md#json) and [`loadTextContent()` function](bicep-functions-files.md#loadtextcontent) to load the file and access the variables. For array variables, use the [`concat()` function](bicep-functions-array.md#concat) to combine the shared values with any custom values for the specific resource.
+Create a JSON file that includes the variables you need to share. Use the [`loadJsonContent()` function](bicep-functions-files.md#loadjsoncontent) to load the file and access the variables. For array variables, use the [`concat()` function](bicep-functions-array.md#concat) to combine the shared values with any custom values for the specific resource.
 
 ## Example 1: Naming prefixes
 
