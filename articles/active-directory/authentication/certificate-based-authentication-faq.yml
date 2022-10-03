@@ -64,8 +64,8 @@ sections:
       - question: |
           How do I turn certificate revocation checking on or off for a particular CA?
         answer: |
-          We highly recommend not to disable certificate revocation list (CRL) checking as you won't be able to revoke certificates. 
-          However, to disable CRL checking if there are issues with CRL for a particular CA, you can update a trusted certificate authority and set the crlDistributionPoint attribute to """.
+          We highly recommend against disabling certificate revocation list (CRL) checking as you won't be able to revoke certificates. 
+          However, if you need to investigate issues with CRL checking, you can update a trusted CA and set the crlDistributionPoint attribute to """.
           
           Use the [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority) cmdlet:
           
@@ -78,15 +78,18 @@ sections:
       - question: |
           Is there a limit for CRL size?
         answer: |
-          Today, as part of the GA, we have increased the CRL size limit as follows. 
+          The following CRL size limits apply: 
 
-           - Interactive sign in download limit: 20MB (Azure Global includes GCC), 45 for (Azure US government, includes GCC High, Dept. of Defense)
-           - Service download limit: 45MB (Azure Global includes GCC), 150MB for (Azure US government, includes GCC High, Dept. of Defense)
+           - Interactive sign in download limit: 20 MB (Azure Global includes GCC), 45 MB for (Azure US government, includes GCC High, Dept. of Defense)
+           - Service download limit: 45 MB (Azure Global includes GCC), 150 MB for (Azure US government, includes GCC High, Dept. of Defense)
 
-            When a CRL download fails, customer will see an error "The Certificate Revocation List (CRL) downloaded from {uri} has exceeded the maximum allowed size ({size} bytes) for CRLs in Azure Active Directory. Try again in few minutes. If the issue persists, contact your tenant administrators."
-            Once this happens, we move to background download with higher limits as above and the limit will remain high.
+            When a CRL download fails, the following message appears: 
+            
+            "The Certificate Revocation List (CRL) downloaded from {uri} has exceeded the maximum allowed size ({size} bytes) for CRLs in Azure Active Directory. Try again in few minutes. If the issue persists, contact your tenant administrators."
+            
+            Download remains in the background with higher limits.
 
-            We're reviewing the impact of these limits during GA and have plans to remove the limits.
+            We're reviewing the impact of these limits and have plans to remove them.
 
       - question: |
           I see a valid Certificate Revocation List (CRL) endpoint set, but why don't I see any CRL revocation?
