@@ -141,7 +141,7 @@ Here are a few more helpful commands to use with environment variables:
   |---------|--------|---------|
   | **export** VARIABLE_NAME=value | Set or change the value of a temporary environment variable (only lasts until you close the terminal session).| **export** FR_KEY=`{yourKey}`|
   | **unset** VARIABLE_NAME| Delete an environment variable.|**unset** FR_KEY= |
-  | &bullet; **printenv** VARIABLE_NAME</br> &bullet; **echo** $VARIABLE_NAME| &bullet; Display the value of an environment variable.</br>&bullet; With the **echo** command, precede the variable with $.| &bullet; **printenv** FR_KEY </br>&bullet; **echo** $FR_KEY</br>|
+  | &bullet; **printenv** VARIABLE_NAME</br> &bullet; **echo** $VARIABLE_NAME| &bullet; Display the value of an environment variable (with the **echo** command, precede the variable with $).| &bullet; **printenv** FR_KEY </br>&bullet; **echo** $FR_KEY</br>|
   | **printenv**| Display all environment variables.|**printenv**|
 
 ---

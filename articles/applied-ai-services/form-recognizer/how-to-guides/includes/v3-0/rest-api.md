@@ -20,7 +20,7 @@ ms.author: lajanuar
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 
-* curl command line tool installed.
+* The cURL command line tool installed.
 
     > [!NOTE]
     > Windows 10 and Windows 11 ship with a copy of cURL.
