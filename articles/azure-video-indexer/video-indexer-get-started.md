@@ -19,32 +19,16 @@ You can access Azure Video Indexer capabilities in three ways:
 * API integration: All of Azure Video Indexer's capabilities are available through a REST API, which lets you integrate the solution into your apps and infrastructure. To get started, see [Use Azure Video Indexer REST API](video-indexer-use-apis.md).
 * Embeddable widget: Lets you embed the Azure Video Indexer insights, player, and editor experiences into your app. For more information, see [Embed visual widgets in your application](video-indexer-embed-widgets.md).
 
-If you're using the website, the insights are added as metadata and are visible in the portal. If you're using APIs, the insights are available as a JSON file. This quickstart shows you how to sign in to the Azure Video Indexer [website](https://www.videoindexer.ai/) and how to upload your first video. 
-
-[!INCLUDE [accounts](./includes/create-accounts-intro.md)]
-
-## Sign up for Azure Video Indexer
-
-To start developing with Azure Video Indexer, browse to the [Azure Video Indexer](https://www.videoindexer.ai/) website and sign up.
-
 Once you start using Azure Video Indexer, all your stored data and uploaded content are encrypted at rest with a Microsoft managed key.
-You can access Azure Video Indexer capabilities in three ways:
-
-* Azure Video Indexer portal: An easy-to-use solution that lets you evaluate the product, manage the account, and customize models.
-
-    For more information about the portal, see [Get started with the Azure Video Indexer website](video-indexer-get-started.md).  
-* API integration: All of Azure Video Indexer's capabilities are available through a REST API, which lets you integrate the solution into your apps and infrastructure.
-
-    To get started as a developer, see [Use Azure Video Indexer REST API](video-indexer-use-apis.md).
-* Embeddable widget: Lets you embed the Azure Video Indexer insights, player, and editor experiences into your app.
-
-    For more information, see [Embed visual widgets in your application](video-indexer-embed-widgets.md).
-If you're using the website, the insights are added as metadata and are visible in the portal. If you're using APIs, the insights are available as a JSON file.
 
 > [!NOTE]
 > Review [planned Azure Video Indexer website authenticatication changes](./release-notes.md#planned-azure-video-indexer-website-authenticatication-changes).
 
-## Upload a video using the Azure Video Indexer website
+This quickstart shows you how to sign in to the Azure Video Indexer [website](https://www.videoindexer.ai/) and how to upload your first video. 
+
+[!INCLUDE [accounts](./includes/create-accounts-intro.md)]
+
+## Sign up and upload a video
 
 ### Supported browsers
 
@@ -65,7 +49,7 @@ The following list shows the supported browsers that you can use for the Azure V
 
 See the [input container/file formats](/azure/media-services/latest/encode-media-encoder-standard-formats-reference) article for a list of file formats that you can use with Azure Video Indexer.
 
-### Upload a video
+### Upload 
 
 1. Sign in on the [Azure Video Indexer](https://www.videoindexer.ai/) website.
 1. To upload a video, press the **Upload** button or link.
