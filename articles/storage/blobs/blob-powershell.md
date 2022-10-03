@@ -11,17 +11,17 @@ ms.date: 01/03/2022
 
 # Manage block blobs with PowerShell
 
-Blob storage supports block blobs, append blobs, and page blobs. Block blobs are optimized for uploading large amounts of data efficiently. Block blobs are ideal for storing images, documents, and other types of data that isn't subjected to random read and write operations. This article explains how to work with block blobs.
+Blob storage supports block blobs, append blobs, and page blobs. Block blobs are optimized for uploading large amounts of data efficiently. Block blobs are ideal for storing images, documents, and other types of data not subjected to random read and write operations. This article explains how to work with block blobs.
 
 ## Prerequisites
 
 - An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- Azure PowerShell module Az, which is the recommended PowerShell module for interacting with Azure. To get started with the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
+- Azure PowerShell module `Az`, which is the recommended PowerShell module for interacting with Azure. To get started with the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### Configure a context object to encapsulate credentials
 
-Every request to Azure Storage must be authorized. You can authorize a request made from PS with your Azure AD account or by using the account access keys. The examples in this article use Azure AD authorization in conjunction with context objects. Context objects encapsulate your Azure AD credentials and pass them during subsequent data operations.
+Every request to Azure Storage must be authorized. You can authorize a request made from PowerShell with your Azure AD account or by using the account access keys. The examples in this article use Azure AD authorization in conjunction with context objects. Context objects encapsulate your Azure AD credentials and pass them during subsequent data operations.
 
 To sign in to your Azure account with an Azure AD account, open PowerShell and call the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
@@ -479,6 +479,7 @@ file4.txt  BlockBlob  22      application/octet-stream   2021-12-17 00:14:25Z  C
 ```
 
 ## Restore a deleted blob
+
 As mentioned in the [List blobs](#list-blobs) section, you can configure the soft delete data protection option on your storage account. When enabled, it's possible to restore blobs deleted within the associated retention period. You may also use versioning to maintain previous versions of your blobs for each recovery and restoration.
 
 If blob versioning and blob soft delete are both enabled, then modifying, overwriting, deleting, or restoring a blob automatically creates a new version. The method you'll use to restore a deleted blob will depend upon whether versioning is enabled on your storage account.
