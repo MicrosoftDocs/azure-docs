@@ -52,5 +52,4 @@ There is a need for user consent and for web sign in.
 
 * [Web sign-in with OpenID Connect in Azure Active Directory B2C](../../active-directory-b2c/openid-connect.md) 
 
-* [Secure your application by using OpenID Connect and Azure AD](/learn/modules/secure-app-with-oidc-and-azure-ad/) 
-
+* [Secure your application by using OpenID Connect and Azure AD](/training/modules/secure-app-with-oidc-and-azure-ad/) 

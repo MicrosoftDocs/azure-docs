@@ -160,7 +160,7 @@ Defender for Cloud filters and classifies findings from the scanner. When an ima
 
 ### Can I get the scan results via REST API?
 
-Yes. The results are under [Sub-Assessments REST API](/rest/api/defenderforcloud/subassessments/list/). Also, you can use Azure Resource Graph (ARG), the Kusto-like API for all of your resources: a query can fetch a specific scan.
+Yes. The results are under [Sub-Assessments REST API](/rest/api/defenderforcloud/sub-assessments/list). Also, you can use Azure Resource Graph (ARG), the Kusto-like API for all of your resources: a query can fetch a specific scan.
 
 ### What registry types are scanned? What types are billed?
 

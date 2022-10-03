@@ -7,18 +7,18 @@ ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 08/27/2020
+ms.date: 9/1/2022
 ms.devlang: csharp, javascript, python
 ms.custom: cog-serv-seo-aug-2020, mode-api
 keywords: personalizer, Azure personalizer, machine learning
 zone_pivot_groups: programming-languages-set-six
 ---
 
-# Quickstart: Personalizer client library
+# Quickstart: Getting started with the Personalizer client library
 
+Imagine a scenario where a grocery e-retailer wishes to increase revenue by showing relevant and personalized products to each customer visiting their website. On the main page, there's a "Featured Product" section that displays a prepared meal product to prospective customers. However, the e-retailer would like to determine how to show the right product to the right customer in order to maximize the likelihood of a purchase.
 
-In this quickstart, you will learn how to create, configure, and use the Personalizer service in a toy example to learn food preferences. You will also utilize the Personalizer client library to make calls to the [Rank and Reward APIs](what-is-personalizer.md#rank-and-reward-apis)
-
+In this quick-start, you'll learn how to use the Azure Personalizer service to do solve this problem in an automated, scalable, and adaptable fashion using the power of reinforcement learning. You'll learn how to create actions and their features, context features, and reward scores. You'll use the Personalizer client library to make calls to the [Rank and Reward APIs](what-is-personalizer.md#rank-and-reward-apis). You'll also run a cycle of Rank and Reward calls for three example users.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Get intent with C# SDK](./includes/quickstart-sdk-csharp.md)]
@@ -34,7 +34,7 @@ In this quickstart, you will learn how to create, configure, and use the Persona
 
 ## Clean up resources
 
-To clean up your Cognitive Services subscription, you can delete the resource or the resource group, which also deletes any other associated resources.
+To clean up your Cognitive Services subscription, you can delete the resource or the resource group, which will delete any associated resources.
 
 * [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)

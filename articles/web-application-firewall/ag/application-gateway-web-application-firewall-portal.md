@@ -163,7 +163,7 @@ To do this, you'll:
 6. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**.
 1. For **Public IP**, select **None**.
 1. Accept the other defaults and then select **Next: Management**.
-1. On the **Management** tab, set **Boot diagnostics** to **Disable**. Accept the other defaults and then select **Review + create**.
+1. On the **Monitoring** tab, set **Boot diagnostics** to **Disable**. Accept the other defaults and then select **Review + create**.
 1. On the **Review + create** tab, review the settings, correct any validation errors, and then select **Create**.
 1. Wait for the virtual machine creation to complete before continuing.
 

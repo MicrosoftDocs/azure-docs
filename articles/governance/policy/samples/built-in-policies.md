@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 08/16/2022
+ms.date: 09/12/2022
 ms.topic: sample
 ms.custom: generated
 ---
@@ -66,6 +66,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Azure Edge Hardware Center
 
 [!INCLUDE [azure-policy-reference-policies-azure-edge-hardware-center](../../../../includes/policy/reference/bycat/policies-azure-edge-hardware-center.md)]
+
+## Azure Load Testing
+
+[!INCLUDE [azure-policy-reference-policies-azure-load-testing](../../../../includes/policy/reference/bycat/policies-azure-load-testing.md)]
 
 ## Azure Purview
 

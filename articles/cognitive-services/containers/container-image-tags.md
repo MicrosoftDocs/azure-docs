@@ -134,19 +134,22 @@ The [Custom Speech-to-text][sp-cstt] container image can be found on the `mcr.mi
 
 
 # [Latest version](#tab/current)
+Release note for `3.6.0-amd64`:
 
+**Features**
+* Security upgrade.
+
+| Image Tags                    | Notes | Digest                                                                   |
+|-------------------------------|:------|:-------------------------------------------------------------------------|
+| `latest`                      |       | `sha256:9a1ef0bcb5616ff9d1c70551d4634acae50ff4f7ed04b0ad514a75f2e6fa1241`|
+| `3.6.0-amd64`                 |       | `sha256:9a1ef0bcb5616ff9d1c70551d4634acae50ff4f7ed04b0ad514a75f2e6fa1241`|
+
+# [Previous version](#tab/previous)
 Release note for `3.5.0-amd64`:
 
 **Features**
 * Security upgrade.
 
-
-| Image Tags                    | Notes | Digest                                                                   |
-|-------------------------------|:------|:-------------------------------------------------------------------------|
-| `latest`                      |       | `sha256:4900337eb93408064502dcaf2e5bdb16c0724ec6b4daacf140701f8d7e0e5061`|
-| `3.5.0-amd64`                 |       | `sha256:4900337eb93408064502dcaf2e5bdb16c0724ec6b4daacf140701f8d7e0e5061`|
-
-# [Previous version](#tab/previous)
 Release note for `3.4.0-amd64`:
 
 **Features**
@@ -297,6 +300,161 @@ The [Speech-to-text][sp-stt] container image can be found on the `mcr.microsoft.
 Since Speech-to-text v2.5.0, images are supported in the *US Government Virginia* region. Please use the *US Government Virginia* billing endpoint and API keys when using this region.
 
 # [Latest version](#tab/current)
+
+Release note for `3.6.0-amd64-<locale>`:
+
+**Features**
+* Security upgrade.
+* Support for latest model versions.
+* Support for the following new locales:
+  * az-az
+  * bn-in
+  * bs-ba
+  * cy-gb
+  * eu-es
+  * fa-ir
+  * gl-es
+  * he-il
+  * hy-am
+  * it-ch
+  * ka-ge
+  * kk-kz
+  * mk-mk
+  * mn-mn
+  * ne-np
+  * ps-af
+  * so-so
+  * sq-al
+  * wuu-cn
+  * yue-cn
+  * zh-cn-sichuan
+
+| Image Tags                    | Notes                                                                                                |
+|-------------------------------|:-----------------------------------------------------------------------------------------------------|
+| `latest`                      | Container image with the `en-US` locale.                                                             |
+| `3.6.0-amd64-<locale>`        | Replace `<locale>` with one of the available locales, listed below. For example `3.6.0-amd64-en-us`. |
+
+This container has the following locales available.
+
+| Locale for v3.6.0           | Notes                                    | Digest                                                                    |
+|-----------------------------|:-----------------------------------------|:--------------------------------------------------------------------------|
+| `ar-ae`| Container image with the `ar-AE` locale. | `sha256:0ac3cdd0e8e5f6658e350a8ce3b530b3b6b2159b6fd53fff16a383d086b02597` |
+| `ar-bh`| Container image with the `ar-BH` locale. | `sha256:9f4764e76c5773099c44b0e23269272450c3b63036f65be77d2040cee00e9eee` |
+| `ar-eg`| Container image with the `ar-EG` locale. | `sha256:ade7c6c4ba490b176688deb598460b87abd68075808d63ca32fbdd905fad6ca5` |
+| `ar-iq`| Container image with the `ar-IQ` locale. | `sha256:29cf1e678c634b90dfb835e1162871aa94232769aed209c162f58a81c8af0b1f` |
+| `ar-jo`| Container image with the `ar-JO` locale. | `sha256:0325b8cf7cd211e298b05afd9ed63cd5da09953b8ca248901314c8611d8035c3` |
+| `ar-kw`| Container image with the `ar-KW` locale. | `sha256:76de8d6d422c98320271b8fd0fe09c7bdc10f89cab3af166f7e8016d663ff727` |
+| `ar-lb`| Container image with the `ar-LB` locale. | `sha256:036f653152301c7ea623b71c993fc9bc7dadda91116fbaf143eda408c4c9b144` |
+| `ar-om`| Container image with the `ar-OM` locale. | `sha256:d8e78d68b0ce0164c2858595059a05a0175d4c1f8cdb0029ca11eb441f886ecd` |
+| `ar-qa`| Container image with the `ar-QA` locale. | `sha256:3ff3a0ad3fc3f6eb53c511add3b0cb6bea725c32f7aaca130200c0e9e1150d0e` |
+| `ar-sa`| Container image with the `ar-SA` locale. | `sha256:f2f98cbd28fc109f2e94c7f7b777279b350730a8a5704a3411ae14791806a8c3` |
+| `ar-sy`| Container image with the `ar-SY` locale. | `sha256:0875d6f781e3d68f380325fc42b9d57ea13d4ad28c9cd7b3b65ab25ea86a9a0d` |
+| `az-az`| Container image with the `az-AZ` locale. | `sha256:f6edd0c3c967ebee3abd69f92e5d0999b0ea217add8998afaef4e075e40ff4c1` |
+| `bg-bg`| Container image with the `bg-BG` locale. | `sha256:1e92ebeccc7297beb7396cd20ee61152dc5ab9b3d3d55b54f1a9b56e7b244fe4` |
+| `bn-in`| Container image with the `bn-IN` locale. | `sha256:f38ed3ac2e483ce03a7e0f48ad6b4d0075f1218e4378ec983009a60bd789f266` |
+| `bs-ba`| Container image with the `bs-BA` locale. | `sha256:a7f8fba6eff9116892500edbe8e834e793964b735da5e4681a174c9294301fc7` |
+| `ca-es`| Container image with the `ca-ES` locale. | `sha256:60f70e429126ffe1528dbd50118d7c69b2df8dbc7983e62d1c8619418f21e7bb` |
+| `cs-cz`| Container image with the `cs-CZ` locale. | `sha256:1c6fa33844322229a91422c0156db6e5d47abfff83d156b6f3551a1a9b5f0f6b` |
+| `cy-gb`| Container image with the `cy-GB` locale. | `sha256:928511854d3606296bcb6988a2d2946af33677c85fb1013193f8bd45eb0ecf1c` |
+| `da-dk`| Container image with the `da-DK` locale. | `sha256:b09ce63cfaa06a0421bfa371d6609618b408f7bcc19ac19856bb8e03cbff0c4f` |
+| `de-at`| Container image with the `de-AT` locale. | `sha256:d9c48ec5990b8f34cc567246a1a829e9ea8ec21ad7a5b7568add7fd16a2e40ec` |
+| `de-ch`| Container image with the `de-CH` locale. | `sha256:5a606d180e2a3268f2bf465666c5458b00fdef5ceedc02bffd1093170adfb795` |
+| `de-de`| Container image with the `de-DE` locale. | `sha256:7049be561512dc39d54eeb16403fe21e4db1bd63d6f54b025084faa4695790bd` |
+| `el-gr`| Container image with the `el-GR` locale. | `sha256:adc2e74f77ec91b5aa88a5df3850122da832a89ef0468034f1372bc41da57f9e` |
+| `en-au`| Container image with the `en-AU` locale. | `sha256:5b186c1a72d570c9af4db8bb1469dd0efc32a027ee9e9e1695a2c6c73947bcf7` |
+| `en-ca`| Container image with the `en-CA` locale. | `sha256:200f0fe8f8dc86d245af88d4f353d1d1fbe174ad37249b96fba0da0678bbea59` |
+| `en-gb`| Container image with the `en-GB` locale. | `sha256:f7d0168bb31e03f807aa37d88e5d4d4271386850d0087d602e64323d37c16da9` |
+| `en-gh`| Container image with the `en-GH` locale. | `sha256:5df19e03d2370feed607d621a863989bcdbb09870613b6d52f8e260f1d914025` |
+| `en-hk`| Container image with the `en-HK` locale. | `sha256:ff546494dd3dd77b4848e1fd4e64693f9ad324999e42d4c935991163f639d95b` |
+| `en-ie`| Container image with the `en-IE` locale. | `sha256:3efedf83e8ee94582bd3fc8d627e627f05868c34eb1eab5639da8eb4680a6fab` |
+| `en-in`| Container image with the `en-IN` locale. | `sha256:390e00fcf00a68f92930caed9f4e26ffbe8161e8c9c48e6cc987227ea79d8d14` |
+| `en-ke`| Container image with the `en-KE` locale. | `sha256:d79eb726839572782d4f7cd038bc4f0480dd61a1b1f7bad7770e8994c8a357fe` |
+| `en-nz`| Container image with the `en-NZ` locale. | `sha256:c1ae4664dc6c0d8897d5a3c5eddc873c9df272f07840da7ed2fb6578cce72e8d` |
+| `en-ph`| Container image with the `en-PH` locale. | `sha256:90d51d1eeb6abadebef08ef75b4d3744d0ba168b7d66972ef0a0fdc925628d29` |
+| `en-sg`| Container image with the `en-SG` locale. | `sha256:b9969b7c9b5bf950f349e6d9ef343a3f2733fc9ffb47c624426aa993c2b13dc2` |
+| `en-tz`| Container image with the `en-TZ` locale. | `sha256:a745795f69c510819be586ac99772c513ade3d746f15fa6dd1109da456d1b2c8` |
+| `en-us`| Container image with the `en-US` locale. | `sha256:c738a20eb5316f198a0f6878d811f64ae510bf695d2a2e2290f3bb9c9ae72a14` |
+| `en-za`| Container image with the `en-ZA` locale. | `sha256:a6e6a8dc17d0dea22d15b9b93a96337446fce25c7b736cb836d29c146d17240b` |
+| `es-ar`| Container image with the `es-AR` locale. | `sha256:496959cd040b29ffdde582f7b89528a1bd5fadaf430cf9bbbfb19a8651d2b175` |
+| `es-bo`| Container image with the `es-BO` locale. | `sha256:3a60cacf3b6a992e83fc972ff7a89fb944410a1d58657850f50d0582fb3e7abb` |
+| `es-cl`| Container image with the `es-CL` locale. | `sha256:93be7ea20dafd4e135b494f09bc16fe3dec64b9fa248e89443a713e68c7b0a0e` |
+| `es-co`| Container image with the `es-CO` locale. | `sha256:829df4976d7cbc6eb8bbfc19889adaac822081a9000619711fff1022653672b7` |
+| `es-cr`| Container image with the `es-CR` locale. | `sha256:0996232b7aa110072902a78d078eba790bfb7ff9d5d3a7028a37627bc4521f35` |
+| `es-cu`| Container image with the `es-CU` locale. | `sha256:2b195d500dbaf407ca4b7b2796191cf3de695f24e7433d82b0835a8c25974a34` |
+| `es-do`| Container image with the `es-DO` locale. | `sha256:dd9e879e1b30fdd2a9b19e9764c75453a7a09d24070ab72b2c83ec0dafc98306` |
+| `es-ec`| Container image with the `es-EC` locale. | `sha256:4afed9f72fb52d9ab40302acc0b43ec2b85541a7366d612490f2c40a5d7255fc` |
+| `es-es`| Container image with the `es-ES` locale. | `sha256:035a82d74df784bc3e74284e19fe1fa3cfe78e90af595ff476740dd7020e36a4` |
+| `es-gt`| Container image with the `es-GT` locale. | `sha256:a6d01b7bce9ad5de8ecbbef72ded5bea7cf53d322db31bacea46c4104aeeba98` |
+| `es-hn`| Container image with the `es-HN` locale. | `sha256:ca8488abde8af4a0755b24019df5c65170b4a2a9eb12d4ff079d9244ab910564` |
+| `es-mx`| Container image with the `es-MX` locale. | `sha256:447bb1f2ad0daef9339f1822d70d203a667d4e20c28165e17169110d6e197e20` |
+| `es-ni`| Container image with the `es-NI` locale. | `sha256:388f5597583ce4433041667c2d0c13aec3236c933b9d562ec9fbe5d694a51112` |
+| `es-pa`| Container image with the `es-PA` locale. | `sha256:f52fe174e4b355cd904194dc9052a18d5556d7b1e84d3107ecf3af6c3aeced65` |
+| `es-pe`| Container image with the `es-PE` locale. | `sha256:469c56fe5acbe7e3f86e8cb3ffbcd6cc55af1e9ab6ac947090d84b13067dd79a` |
+| `es-pr`| Container image with the `es-PR` locale. | `sha256:f675406550e1e5fb364c8cb2da8b130aad87f7a631d39f08e85e04daf5990791` |
+| `es-py`| Container image with the `es-PY` locale. | `sha256:b326051aaf0f806b31a6af2214a087dbb019cad4b8c519e32c13217401d53550` |
+| `es-sv`| Container image with the `es-SV` locale. | `sha256:5cca0df8fc9e391e1434c0263a1d72d71baf6d8acb6b5b1402c165dbf7ee4b4a` |
+| `es-us`| Container image with the `es-US` locale. | `sha256:e1310293e2ccb46096c8dbdce0120e47fdacaad26061682323bc5f3950103434` |
+| `es-uy`| Container image with the `es-UY` locale. | `sha256:fc10377355dd5aa853060b17fbad3537c1908ca98467d7c3bbfe5f6c30cf0998` |
+| `es-ve`| Container image with the `es-VE` locale. | `sha256:fae45ff835672a3a8ad8306448421e8d5d07e337ced7e040b35c10a97ae114b7` |
+| `et-ee`| Container image with the `et-EE` locale. | `sha256:8dddc254b4a5869ddd0180043dda858e35cf78e7fe8426c6be7802514970964f` |
+| `eu-es`| Container image with the `eu-ES` locale. | `sha256:8e0eb2e1cd3288e127149cd92d7f64343aef58d1ff030f1676c3f538eb1c7363` |
+| `fa-ir`| Container image with the `fa-IR` locale. | `sha256:3dfc28549f9035ac3ef3a8cad4d7560e0ee774627ff1a3d625f33a26f5f77efe` |
+| `fi-fi`| Container image with the `fi-FI` locale. | `sha256:5ec66af3a5259c55023d62fad82cb7d6267a2ef90fe40a9ce3458bb30f8a1d75` |
+| `fil-ph`| Container image with the `fil-PH` locale. | `sha256:647575b5c131537dd010a8442f35f64707320f2a70c8aaee764db9a4b5da52be` |
+| `fr-ca`| Container image with the `fr-CA` locale. | `sha256:4b8b8078112b869fe16c7bc4da5e4814d5a4c122ff029f472d8abdeb90bcfc7f` |
+| `fr-ch`| Container image with the `fr-CH` locale. | `sha256:cf28529f299505269709a0d515b16420243eaacf388a9832c7676777a4b50780` |
+| `fr-fr`| Container image with the `fr-FR` locale. | `sha256:758546a5287ef6df8261784f7e1c5567b9ceb3b9625692469d4c07685aa5bd4e` |
+| `ga-ie`| Container image with the `ga-IE` locale. | `sha256:04b109c4c9fa97a5177d4340035c63f12e27e5909414e84495a1007b8d7ca58c` |
+| `gl-es`| Container image with the `gl-ES` locale. | `sha256:7e9e414df651824399cdb9344c0b9ea92c290804ebce0f33599dff163a12baef` |
+| `gu-in`| Container image with the `gu-IN` locale. | `sha256:1c1c1aceeaf4647b2fc87615a171790b8a5a90ceb93778a0f286fbaf5ff79f81` |
+| `he-il`| Container image with the `he-IL` locale. | `sha256:ece7d40a5d3afed7565607cfaef0d6023e77b87e3b00fb1d954f705b74c71bd5` |
+| `hi-in`| Container image with the `hi-IN` locale. | `sha256:e5584a4119771fd0a8c6787666f3c83a1d02f0908c2bb42152c60f27cc17a41c` |
+| `hr-hr`| Container image with the `hr-HR` locale. | `sha256:012e138bb4ddc27804ecd5f1388ff98835087945c131f91ad41d50c7891b2a5b` |
+| `hu-hu`| Container image with the `hu-HU` locale. | `sha256:92ef3f57fb20500579a402e95743cd48defb0abd2e65f8267d5e8024fa7da907` |
+| `hy-am`| Container image with the `hy-AM` locale. | `sha256:11b136d61bfb0e26cf589f0ad3e4ffedbb58eeeb29e98779926c4d956150ebe4` |
+| `id-id`| Container image with the `id-ID` locale. | `sha256:b6876e71c9780282184139866c17f7199dcbf224ff8ef27e1bfdf135dd5f4145` |
+| `it-ch`| Container image with the `it-CH` locale. | `sha256:84c194b5d362b16b7cef0fa3fe50ea6d3581bca5d8610231b16d9e15691d8df1` |
+| `it-it`| Container image with the `it-IT` locale. | `sha256:7466c7cc5fe67064bedae3a38d8fb130b46f5d1e59fb1c4f61d8d82f81a0885e` |
+| `ja-jp`| Container image with the `ja-JP` locale. | `sha256:cf0d088b51f75aaaa517758fef083119f9818e83764f1fe465e6fca487cda00f` |
+| `ka-ge`| Container image with the `ka-GE` locale. | `sha256:4d7d73c8478757b9f30196253f3f9d3af4f1d39d4bb6e3dd1672a70e48ea7b80` |
+| `kk-kz`| Container image with the `kk-KZ` locale. | `sha256:1aa1cd8eed78b447d7d70b8dfadbe52e71090652bf89c6bfffbfc3c357df5b4f` |
+| `ko-kr`| Container image with the `ko-KR` locale. | `sha256:02c59457471cd14286f48d659515074d451609c7869099ecb128b06e444c72f4` |
+| `lt-lt`| Container image with the `lt-LT` locale. | `sha256:78fbaa5f52d440b40da1f63f82de27d18ae4d8e7d44bf327945c4e095a769ee0` |
+| `lv-lv`| Container image with the `lv-LV` locale. | `sha256:3e81453e1191ba30b944102de3b1a5d382c90c7031a6dea08fffc5d876e6d6d3` |
+| `mk-mk`| Container image with the `mk-MK` locale. | `sha256:35a45b35660ff3304cc5a8cfc0c4f813238e900f6fd05d7560c5199d4b89acd9` |
+| `mn-mn`| Container image with the `mn-MN` locale. | `sha256:2833f2e6d5de15d25e30f0e60dbff01aae74aba62c4783e9831851cc07dc07c2` |
+| `mr-in`| Container image with the `mr-IN` locale. | `sha256:358506bba4abdaf5fd8d0f02f6088cc196cb8c6c2926f9a2feb4674d177c77cf` |
+| `ms-my`| Container image with the `ms-MY` locale. | `sha256:d51552edd37a9373f6ac97d69a460a84e6b74a8a9d96f6ad8639aba9921bc515` |
+| `mt-mt`| Container image with the `mt-MT` locale. | `sha256:09dc4e22015e63934b2863169cdd6135d4594632b631373a7a88720d46200a51` |
+| `nb-no`| Container image with the `nb-NO` locale. | `sha256:d51d1dcfa4eca08312fd34f108a92508f37f6174b4080980f571567c29cc72da` |
+| `ne-np`| Container image with the `ne-NP` locale. | `sha256:2d43914d6dda8316f528a1592d9d92f7b64cdab9a91155d52e14c0914c21a32f` |
+| `nl-nl`| Container image with the `nl-NL` locale. | `sha256:4777d0bd9ec06e07b1e85cc789de0dafd1875c802258eea5e571b1a6025f394b` |
+| `pl-pl`| Container image with the `pl-PL` locale. | `sha256:5c29ceb4f38ac691047af387e2fb554a150c5d9f0b99d7c8814bc52458c1ce26` |
+| `ps-af`| Container image with the `ps-AF` locale. | `sha256:1b7a114348c1ddda5ab2fa5b8741cc3b13d79e15d89ac35f064bca284f47ab30` |
+| `pt-br`| Container image with the `pt-BR` locale. | `sha256:25374a351401f530c6614044387c37cd7bee8f6760f4205784a426aa2722142a` |
+| `pt-pt`| Container image with the `pt-PT` locale. | `sha256:8535549150e2ae742bd2ba0624953ffd61546b5768c31ac29251093f65430276` |
+| `ro-ro`| Container image with the `ro-RO` locale. | `sha256:197581fa179fd751f037e3fd00c1a9f32e49138f176d8cd97541bb34c6984731` |
+| `ru-ru`| Container image with the `ru-RU` locale. | `sha256:31cab611d45fc9fb634b8cdbf52a8aabd7ec964a7dbc22997da36d51bbc827fb` |
+| `sk-sk`| Container image with the `sk-SK` locale. | `sha256:f2ee4ce886b7d6a18c0077cddbe965f926c05e3d808029d5c1517254272263a5` |
+| `sl-si`| Container image with the `sl-SI` locale. | `sha256:18d36de8592663782c59b5b5a9db93dedcd9b33cc70988dee3e42e50f6ef7d95` |
+| `so-so`| Container image with the `so-SO` locale. | `sha256:0d6f4c458725dc2ffa716179c5682da22780793379ab88f2cde7b609cc1f599d` |
+| `sq-al`| Container image with the `sq-AL` locale. | `sha256:e5c548e65e677a6bb472c6c4defdbdb6db0eac5b9049410d47d0eb59d104a298` |
+| `sv-se`| Container image with the `sv-SE` locale. | `sha256:088368e644a4c8d749b61a40360a7ae20e7f61c259cc39063a9ec8b637994f5d` |
+| `ta-in`| Container image with the `ta-IN` locale. | `sha256:82f2114b53cd98516ec0bef65c6c1dc24d721222535ffe1cb6dd567c851c2680` |
+| `te-in`| Container image with the `te-IN` locale. | `sha256:1e990ec464201ca88fc5204f923f76286b2a1259214cb943184969c7218a470b` |
+| `th-th`| Container image with the `th-TH` locale. | `sha256:8f37ed7f5386f37512e2f9423222f4780d946eb1549b729ffd17a1b26172ed86` |
+| `tr-tr`| Container image with the `tr-TR` locale. | `sha256:81578af72978c035ffea9007be87572af03730e9814e7a61fdab0073103b64ac` |
+| `uk-ua`| Container image with the `uk-UA` locale. | `sha256:380c8b8e3c842a189fa657c65402c72bdf9990badf3a79652ea067efd108c467` |
+| `vi-vn`| Container image with the `vi-VN` locale. | `sha256:8070d738a7dee389fa4d378e4edcd52b29e9902cc49a1f001eed682824c6c59c` |
+| `wuu-cn`| Container image with the `wuu-CN` locale. | `sha256:62ed0704ddd3b62ceab50dcd1f699159bbaa1e559f77b0eaa88bd37c10f8dc5f` |
+| `yue-cn`| Container image with the `yue-CN` locale. | `sha256:1c60aa9cc39b10206e0c56c808a6a95ada9aff8acc7eeb1a97095f3abe39671f` |
+| `zh-cn`| Container image with the `zh-CN` locale. | `sha256:b3258ef54b0bf4be7e178594d14dda7558489f43632898df674a0b2f94dbbad8` |
+| `zh-cn-sichuan`| Container image with the `zh-CN-sichuan` locale. | `sha256:c9537c454b24e8d70e44705498193fddaf262cb988efcdac526740cf8cb2249e` |
+| `zh-hk`| Container image with the `zh-HK` locale. | `sha256:5d21febbb1e8710b01ad1a5727c33080e6853d3a4bfbf5365b059630b76a9901` |
+| `zh-tw`| Container image with the `zh-TW` locale. | `sha256:15dbadcd92e335705e07a8ecefbe621e3c97b723bdf1c5b0c322a5b9965ea47d` |
+
+# [Previous version](#tab/previous)
+
 Release note for `3.5.0-amd64-<locale>`:
 
 **Features**
@@ -416,7 +574,6 @@ This container has the following locales available.
 | `zh-hk`| Container image with the `zh-HK` locale. | `sha256:71104ab83fb6d750eecfc050fa705f7520b673c83d30c57b88f66d88d030f2f4` |
 | `zh-tw`| Container image with the `zh-TW` locale. | `sha256:2f5d720242f64354f769c26b58538bab40f2e860ca21a542b0c1b78a5c7e7419` |
 
-# [Previous version](#tab/previous)
 Release note for `3.4.0-amd64-<locale>`:
 
 **Features**
@@ -1980,6 +2137,116 @@ This container image has the following tags available. You can also find a full 
 
 # [Latest version](#tab/current)
 
+
+Release notes for `v2.5.0`:
+
+**Features**
+* Security upgrade.
+* Added support for 
+   * `az-az-babekneural`
+   * `az-az-banuneural`
+   * `fa-ir-dilaraneural`
+   * `fa-ir-faridneural`
+   * `fil-ph-angeloneural`
+   * `fil-ph-blessicaneural`
+   * `he-il-avrineural`
+   * `he-il-hilaneural`
+   * `id-id-ardineural`
+   * `id-id-gadisneural`
+   * `ka-ge-ekaneural`
+   * `ka-ge-giorgineural`
+   * `th-th-acharaneural`
+   * `th-th-niwatneural`
+   * `th-th-premwadeeneural`
+
+| Image Tags                                  | Notes                                                                      |
+|---------------------------------------------|:---------------------------------------------------------------------------|
+| `latest`                                    | Container image with the `en-US` locale and `en-US-AriaNeural` voice.      |
+| `2.5.0-amd64-<locale-and-voice>`            | Replace `<locale>` with one of the available locales, listed below. For example `2.5.0-amd64-en-us-arianeural`. |
+
+| v2.5.0 Locales and voices           | Notes                                                                      |
+|-------------------------------------|:---------------------------------------------------------------------------|
+| `am-et-amehaneural`| Container image with the `am-ET` locale and `am-ET-amehaneural` voice.|
+| `am-et-mekdesneural`| Container image with the `am-ET` locale and `am-ET-mekdesneural` voice.|
+| `ar-bh-lailaneural`| Container image with the `ar-BH` locale and `ar-BH-lailaneural` voice.|
+| `ar-eg-salmaneural`| Container image with the `ar-EG` locale and `ar-EG-salmaneural` voice.|
+| `ar-eg-shakirneural`| Container image with the `ar-EG` locale and `ar-EG-shakirneural` voice.|
+| `ar-sa-hamedneural`| Container image with the `ar-SA` locale and `ar-SA-hamedneural` voice.|
+| `ar-sa-zariyahneural`| Container image with the `ar-SA` locale and `ar-SA-zariyahneural` voice.|
+| `az-az-babekneural`| Container image with the `az-AZ` locale and `az-AZ-babekneural` voice.|
+| `az-az-banuneural`| Container image with the `az-AZ` locale and `az-AZ-banuneural` voice.|
+| `cs-cz-antoninneural`| Container image with the `cs-CZ` locale and `cs-CZ-antoninneural` voice.|
+| `cs-cz-vlastaneural`| Container image with the `cs-CZ` locale and `cs-CZ-vlastaneural` voice.|
+| `de-ch-janneural`| Container image with the `de-CH` locale and `de-CH-janneural` voice.|
+| `de-ch-lenineural`| Container image with the `de-CH` locale and `de-CH-lenineural` voice.|
+| `de-de-conradneural`| Container image with the `de-DE` locale and `de-DE-conradneural` voice.|
+| `de-de-katjaneural`| Container image with the `de-DE` locale and `de-DE-katjaneural` voice.|
+| `en-au-natashaneural`| Container image with the `en-AU` locale and `en-AU-natashaneural` voice.|
+| `en-au-williamneural`| Container image with the `en-AU` locale and `en-AU-williamneural` voice.|
+| `en-ca-claraneural`| Container image with the `en-CA` locale and `en-CA-claraneural` voice.|
+| `en-ca-liamneural`| Container image with the `en-CA` locale and `en-CA-liamneural` voice.|
+| `en-gb-libbyneural`| Container image with the `en-GB` locale and `en-GB-libbyneural` voice.|
+| `en-gb-ryanneural`| Container image with the `en-GB` locale and `en-GB-ryanneural` voice.|
+| `en-gb-sonianeural`| Container image with the `en-GB` locale and `en-GB-sonianeural` voice.|
+| `en-us-arianeural`| Container image with the `en-US` locale and `en-US-arianeural` voice.|
+| `en-us-guyneural`| Container image with the `en-US` locale and `en-US-guyneural` voice.|
+| `en-us-jennyneural`| Container image with the `en-US` locale and `en-US-jennyneural` voice.|
+| `es-es-alvaroneural`| Container image with the `es-ES` locale and `es-ES-alvaroneural` voice.|
+| `es-es-elviraneural`| Container image with the `es-ES` locale and `es-ES-elviraneural` voice.|
+| `es-mx-dalianeural`| Container image with the `es-MX` locale and `es-MX-dalianeural` voice.|
+| `es-mx-jorgeneural`| Container image with the `es-MX` locale and `es-MX-jorgeneural` voice.|
+| `fa-ir-dilaraneural`| Container image with the `fa-IR` locale and `fa-IR-dilaraneural` voice.|
+| `fa-ir-faridneural`| Container image with the `fa-IR` locale and `fa-IR-faridneural` voice.|
+| `fil-ph-angeloneural`| Container image with the `fil-PH` locale and `fil-PH-angeloneural` voice.|
+| `fil-ph-blessicaneural`| Container image with the `fil-PH` locale and `fil-PH-blessicaneural` voice.|
+| `fr-ca-antoineneural`| Container image with the `fr-CA` locale and `fr-CA-antoineneural` voice.|
+| `fr-ca-jeanneural`| Container image with the `fr-CA` locale and `fr-CA-jeanneural` voice.|
+| `fr-ca-sylvieneural`| Container image with the `fr-CA` locale and `fr-CA-sylvieneural` voice.|
+| `fr-fr-deniseneural`| Container image with the `fr-FR` locale and `fr-FR-deniseneural` voice.|
+| `fr-fr-henrineural`| Container image with the `fr-FR` locale and `fr-FR-henrineural` voice.|
+| `he-il-avrineural`| Container image with the `he-IL` locale and `he-IL-avrineural` voice.|
+| `he-il-hilaneural`| Container image with the `he-IL` locale and `he-IL-hilaneural` voice.|
+| `hi-in-madhurneural`| Container image with the `hi-IN` locale and `hi-IN-madhurneural` voice.|
+| `hi-in-swaraneural`| Container image with the `hi-IN` locale and `hi-IN-swaraneural` voice.|
+| `id-id-ardineural`| Container image with the `id-ID` locale and `id-ID-ardineural` voice.|
+| `id-id-gadisneural`| Container image with the `id-ID` locale and `id-ID-gadisneural` voice.|
+| `it-it-diegoneural`| Container image with the `it-IT` locale and `it-IT-diegoneural` voice.|
+| `it-it-elsaneural`| Container image with the `it-IT` locale and `it-IT-elsaneural` voice.|
+| `it-it-isabellaneural`| Container image with the `it-IT` locale and `it-IT-isabellaneural` voice.|
+| `ja-jp-keitaneural`| Container image with the `ja-JP` locale and `ja-JP-keitaneural` voice.|
+| `ja-jp-nanamineural`| Container image with the `ja-JP` locale and `ja-JP-nanamineural` voice.|
+| `ka-ge-ekaneural`| Container image with the `ka-GE` locale and `ka-GE-ekaneural` voice.|
+| `ka-ge-giorgineural`| Container image with the `ka-GE` locale and `ka-GE-giorgineural` voice.|
+| `ko-kr-injoonneural`| Container image with the `ko-KR` locale and `ko-KR-injoonneural` voice.|
+| `ko-kr-sunhineural`| Container image with the `ko-KR` locale and `ko-KR-sunhineural` voice.|
+| `pt-br-antonioneural`| Container image with the `pt-BR` locale and `pt-BR-antonioneural` voice.|
+| `pt-br-franciscaneural`| Container image with the `pt-BR` locale and `pt-BR-franciscaneural` voice.|
+| `so-so-muuseneural`| Container image with the `so-SO` locale and `so-SO-muuseneural` voice.|
+| `so-so-ubaxneural`| Container image with the `so-SO` locale and `so-SO-ubaxneural` voice.|
+| `sv-se-hillevineural`| Container image with the `sv-SE` locale and `sv-SE-hillevineural` voice.|
+| `sv-se-mattiasneural`| Container image with the `sv-SE` locale and `sv-SE-mattiasneural` voice.|
+| `sv-se-sofieneural`| Container image with the `sv-SE` locale and `sv-SE-sofieneural` voice.|
+| `th-th-acharaneural`| Container image with the `th-TH` locale and `th-TH-acharaneural` voice.|
+| `th-th-niwatneural`| Container image with the `th-TH` locale and `th-TH-niwatneural` voice.|
+| `th-th-premwadeeneural`| Container image with the `th-TH` locale and `th-TH-premwadeeneural` voice.|
+| `tr-tr-ahmetneural`| Container image with the `tr-TR` locale and `tr-TR-ahmetneural` voice.|
+| `tr-tr-emelneural`| Container image with the `tr-TR` locale and `tr-TR-emelneural` voice.|
+| `zh-cn-xiaochenneural-preview`| Container image with the `zh-CN` locale and `zh-CN-xiaochenneural` voice.|
+| `zh-cn-xiaohanneural`| Container image with the `zh-CN` locale and `zh-CN-xiaohanneural` voice.|
+| `zh-cn-xiaomoneural`| Container image with the `zh-CN` locale and `zh-CN-xiaomoneural` voice.|
+| `zh-cn-xiaoqiuneural-preview`| Container image with the `zh-CN` locale and `zh-CN-xiaoqiuneural` voice.|
+| `zh-cn-xiaoruineural`| Container image with the `zh-CN` locale and `zh-CN-xiaoruineural` voice.|
+| `zh-cn-xiaoshuangneural-preview`| Container image with the `zh-CN` locale and `zh-CN-xiaoshuangneural` voice.|
+| `zh-cn-xiaoxiaoneural`| Container image with the `zh-CN` locale and `zh-CN-xiaoxiaoneural` voice.|
+| `zh-cn-xiaoxuanneural`| Container image with the `zh-CN` locale and `zh-CN-xiaoxuanneural` voice.|
+| `zh-cn-xiaoyanneural-preview`| Container image with the `zh-CN` locale and `zh-CN-xiaoyanneural` voice.|
+| `zh-cn-xiaoyouneural`| Container image with the `zh-CN` locale and `zh-CN-xiaoyouneural` voice.|
+| `zh-cn-yunxineural`| Container image with the `zh-CN` locale and `zh-CN-yunxineural` voice.|
+| `zh-cn-yunyangneural`| Container image with the `zh-CN` locale and `zh-CN-yunyangneural` voice.|
+| `zh-cn-yunyeneural`| Container image with the `zh-CN` locale and `zh-CN-yunyeneural` voice.|
+
+# [Previous version](#tab/previous)
+
 Release notes for `v2.4.0`:
 
 **Features**
@@ -2057,8 +2324,6 @@ Release notes for `v2.4.0`:
 | `zh-cn-yunyangneural`| Container image with the `zh-CN` locale and `zh-CN-yunyangneural` voice.|
 | `zh-cn-yunyeneural`| Container image with the `zh-CN` locale and `zh-CN-yunyeneural` voice.|
 
-
-# [Previous version](#tab/previous)
 Release notes for `v2.3.0`:
 
 **Features**

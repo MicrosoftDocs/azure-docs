@@ -37,7 +37,7 @@ To learn how to query devices by using the IoT Central UI, see [How to use data 
 Use the following request to run a query:
 
 ```http
-POST https://{your app subdomain}.azureiotcentral.com/api/query?api-version=1.2-preview
+POST https://{your app subdomain}.azureiotcentral.com/api/query?api-version=2022-06-30-preview
 ```
 
 The query is in the request body and looks like the following example:

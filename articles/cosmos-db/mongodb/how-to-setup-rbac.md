@@ -15,7 +15,7 @@ This article is about role-based access control for data plane operations in Azu
 
 If you are using management plane operations, see [role-based access control](../role-based-access-control.md) applied to your management plane operations article.
 
-The API for MongoDB exposes a built-in role-based access control (RBAC) system that lets you authorize your data requests with a fine-grained, role-based permission model. Users are roles reside within a database and are managed using the Azure CLI, Azure PowerShell, or ARM for this preview feature.
+The API for MongoDB exposes a built-in role-based access control (RBAC) system that lets you authorize your data requests with a fine-grained, role-based permission model. Users and roles reside within a database and are managed using the Azure CLI, Azure PowerShell, or ARM for this preview feature.
 
 ## Concepts
 
@@ -89,26 +89,8 @@ az cloud set -n  AzureCloud
 az login
 az account set --subscription <your subscription ID>
 ```
-7. Enable the RBAC capability on your existing API for MongoDB database account.
-Get your existing capabilities. Capabilities are account features. Some are optional and some can't be changed.
-```powershell
-az cosmosdb show -n <account_name> -g <azure_resource_group>
-```
-You should see a capability section similar to this
-```powershell
-"capabilities": [
-    {
-      "name": "EnableMongo"
-    },
-    {
-      "name": "DisableRateLimitingResponses"
-    }
-```
-Copy the existing capabilities and add the RBAC capability (EnableMongoRoleBasedAccessControl) to the list:
-```powershell
-az cosmosdb update -n <account_name> -g <azure_resource_group> --capabilities EnableMongoRoleBasedAccessControl, EnableMongo, DisableRateLimitingResponses
-```
-If you prefer a new database account instead, create a new database account with the RBAC capability set to true. Your subscription must be allow-listed in order to create an account with the EnableMongoRoleBasedAccessControl capability. 
+7. Enable the RBAC capability on your existing API for MongoDB database account. You'll need to [add the capability](how-to-configure-capabilities.md) "EnableMongoRoleBasedAccessControl" to your database account. 
+If you prefer a new database account instead, create a new database account with the RBAC capability set to true.
 ```powershell
 az cosmosdb create -n <account_name> -g <azure_resource_group> --kind MongoDB --capabilities EnableMongoRoleBasedAccessControl
 ```
