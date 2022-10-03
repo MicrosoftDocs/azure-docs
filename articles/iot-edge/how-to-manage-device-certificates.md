@@ -290,7 +290,7 @@ MIICdTCCAhugAwIBAgIBMDAKBggqhkjOPQQDAjAXMRUwEwYDVQQDDAxlc3RFeGFt
 ```
 
 > [!TIP]
-> To try this without access to certificate files provided by a PKI, see [Create demo certificates to test device features](/azure/iot-edge/how-to-create-test-certificates?view=iotedge-2020-11&tabs=linux) to generate a short-lived non-production device identity certificate and private key.
+> To try this without access to certificate files provided by a PKI, see [Create demo certificates to test device features](/azure/iot-edge/how-to-create-test-certificates?tabs=linux) to generate a short-lived non-production device identity certificate and private key.
 
 Configuration example when provisioning with IoT Hub:
 
@@ -321,7 +321,7 @@ identity_pk = "file:///var/secrets/device-id.key.pem"
 
 ### Automatic device identity certificate management with EST
 
-To use EST and IoT Edge for automatic device identity certificate issuance and renewal, which is recommended for production, IoT Edge must provision as part of a [DPS CA-based enrollment group](/azure/iot-edge/how-to-provision-devices-at-scale-linux-x509?view=iotedge-2020-11&tabs=group-enrollment%2Cubuntu) similar to this example:
+To use EST and IoT Edge for automatic device identity certificate issuance and renewal, which is recommended for production, IoT Edge must provision as part of a [DPS CA-based enrollment group](/azure/iot-edge/how-to-provision-devices-at-scale-linux-x509?tabs=group-enrollment%2Cubuntu) similar to this example:
 
 ```toml
 ## DPS provisioning with X.509 certificate
@@ -497,7 +497,7 @@ threshold = "90%"
 retry = "2%"
 ```
 
-Automatic renewal for Edge CA cannot be disabled when issuance method is set to EST, since Edge CA expiration must be avoided as it breaks many IoT Edge functionalities. If a situation requires total control over Edge CA certificate lifecycle, use the [manual Edge CA management method instead](#edge-ca-certificate-files-from-pki-provider-with-manual-management).
+Automatic renewal for Edge CA cannot be disabled when issuance method is set to EST, since Edge CA expiration must be avoided as it breaks many IoT Edge functionalities. If a situation requires total control over Edge CA certificate lifecycle, use the [manual Edge CA management method instead](#edge-ca-certificate-files-from-pki-provider).
 
 
 ### Planning around the Edge CA renewal

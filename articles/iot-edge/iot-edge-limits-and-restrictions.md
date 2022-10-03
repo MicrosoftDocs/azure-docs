@@ -52,7 +52,7 @@ IoT Edge certificates have the following restrictions:
 * The common name (CN) can't be the same as the "hostname" that will be used in the configuration file on the IoT Edge device.
 * The name used by clients to connect to IoT Edge can't be the same as the common name used in the edge CA certificate.
 
-For more information, see [Certificates for device security](iot-edge-certs.md#production-implications).
+For more information, see [Certificates for device security](iot-edge-certs.md#hostname-complexity).
 
 ### TPM attestation
 When using TPM attestation with the device provisioning service, you need to use TPM 2.0.
