@@ -3,7 +3,7 @@ title: Build queries with Cloud Security Explorer
 titleSuffix: Defender for Cloud
 description: Learn how to build queries in Cloud Security Explorer to find vulnerabilities that exist on your multicloud environment.
 ms.topic: how-to
-ms.date: 09/21/2022
+ms.date: 10/03/2022
 ---
 
 # Cloud Security Explorer
@@ -18,6 +18,7 @@ With the Cloud Security Explorer, you can query all of your security issues and 
 
 | Aspect | Details |
 |--|--|
+| Release state | Preview |
 | Required plans | - Defender Cloud Security Posture Management (CSPM) enabled |
 | Required roles and permissions: | - **Security Reader** <br> - **Security Admin** <br> - **Reader** <br> - **Contributor** <br> - **Owner** |
 | Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds (Azure, AWS) <br>:::image type="icon" source="./media/icons/no-icon.png"::: Commercial clouds (GCP) <br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet) |
