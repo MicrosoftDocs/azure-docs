@@ -103,7 +103,7 @@ _clientApp = PublicClientApplicationBuilder.Create(App.ClientId)
  .WithDefaultRedirectUri()
  .WithAuthority(authority)
  .WithClientCapabilities(new [] {"cp1"})
- .Build();*
+ .Build();
 ```
 
 Those using Microsoft.Identity.Web can add the following code to the configuration file:
@@ -112,22 +112,21 @@ Those using Microsoft.Identity.Web can add the following code to the configurati
 {
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",
-    // the remaining settings
-    // ... 
-    "ClientCapabilities": [ "cp1" ]
+    "ClientId": 'Enter_the_Application_Id_Here' 
+    "ClientCapabilities": [ "cp1" ],
+    // remaining settings...
 },
 ```
 #### [JavaScript](#tab/JavaScript)
 
-Those using MSAL.js can add `clientCapabilities` property to the configuration object.
+Those using MSAL.js or MSAL Node can add `clientCapabilities` property to the configuration object. Note: this option is available to both public and confidential cient applications.
 
 ```javascript
 const msalConfig = {
     auth: {
         clientId: 'Enter_the_Application_Id_Here', 
         clientCapabilities: ["CP1"]
-        // the remaining settings
-        // ... 
+        // remaining settings...
     }
 }
 
@@ -222,14 +221,15 @@ else
 
 ### [JavaScript](#tab/JavaScript)
 
+The following snippet illustrates a custom Express.js middleware:
+
 ```javascript
 const checkIsClientCapableOfClaimsChallenge = (req, res, next) => {
     // req.authInfo contains the decoded access token payload
     if (req.authInfo['xms_cc'] && req.authInfo['xms_cc'].includes('CP1')) {
           // Return formatted claims challenge as this client understands this
-          
     } else {
-            return res.status(403).json({ error: 'Client is not capable' });
+          return res.status(403).json({ error: 'Client is not capable' });
     }
 }
 
