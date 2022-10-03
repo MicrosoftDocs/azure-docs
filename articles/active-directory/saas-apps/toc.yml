@@ -356,6 +356,8 @@
         href: britive-tutorial.md
       - name: Broadcom DX SaaS
         href: broadcom-dx-saas-tutorial.md  
+      - name: Broker groupe Achat Solutions
+        href: broker-groupe-tutorial.md
       - name: BrowserStack Single Sign-on
         href: browserstack-single-sign-on-tutorial.md
       - name: Brushup
@@ -800,6 +802,8 @@
         href: evernote-tutorial.md
       - name: Evidence.com
         href: evidence-tutorial.md
+      - name: Evovia
+        href: evovia-tutorial.md
       - name: ExactCare SSO
         href: exactcare-sso-tutorial.md
       - name: Exceed.ai
@@ -1445,6 +1449,8 @@
         href: manifestly-checklists-tutorial.md  
       - name: Mapbox
         href: mapbox-tutorial.md
+      - name: Mapiq
+        href: mapiq-tutorial.md
       - name: Mapiq Essentials
         href: mapiq-essentials-tutorial.md  
       - name: Maptician
@@ -1485,8 +1491,6 @@
         href: mihcm-tutorial.md  
       - name: Mimecast
         href: mimecast-personal-portal-tutorial.md
-      - name: Mindflash
-        href: mindflash-tutorial.md
       - name: MindTickle
         href: mindtickle-tutorial.md
       - name: Mind Tools Toolkit
@@ -2387,6 +2391,8 @@
         href: trakopolis-tutorial.md
       - name: Trakstar
         href: trakstar-tutorial.md
+      - name: Trakstar Learn
+        href: mindflash-tutorial.md
       - name: TransPerfect GlobalLink Dashboard
         href: transperfect-globallink-dashboard-tutorial.md
       - name: TravelPerk

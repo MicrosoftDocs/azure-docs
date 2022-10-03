@@ -27,6 +27,8 @@ With Azure Spring Apps, you can bind select Azure services to your applications 
 
 ## Prepare your Java project
 
+Use the following steps to prepare your project.
+
 1. In your project's *pom.xml* file, add the following dependency:
 
    ```xml
@@ -47,6 +49,8 @@ With Azure Spring Apps, you can bind select Azure services to your applications 
 ## Bind your app to the Azure Database for PostgreSQL instance
 
 ### [Using admin credentials](#tab/Secrets)
+
+Use the following steps to bind your app.
 
 1. Note the admin username and password of your Azure Database for PostgreSQL account.
 
