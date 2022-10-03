@@ -58,7 +58,7 @@ The following SAP system configurations aren't supported in ACSS:
 
 ## Enable ACSS resource permissions
 
-When you register an existing SAP system as a VIS, ACSS service needs a **User-assigned managed identity** which has **Contributor** role access to the Compute, Network and Storage resource groups of the SAP system. Before you register an SAP system with ACSS, either [update your Azure subscription permissions](#update-subscription-permissions) or [update your resource group permissions](#update-resource-group-permissions).
+When you register an existing SAP system as a VIS, ACSS service needs a **User-assigned managed identity** which has **Contributor** role access to the Compute, Network and Storage resource groups of the SAP system. Before you register an SAP system with ACSS, either [create a new user-assigned managed identity or update role access for an existing managed identity](#setup-user-assigned-managed-identity).
 
 ACSS uses this user-assigned managed identity to install VM extensions on the ASCS, Application Server and DB VMs. This step allows ACSS to discover the SAP system components, and other SAP system metadata. ACSS also needs this user-assigned managed identity to enable SAP system monitoring and management capabilities.
 
