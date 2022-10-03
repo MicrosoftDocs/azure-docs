@@ -23,7 +23,7 @@ Application Insights Workbooks, also known as "Legacy Workbooks", are stored as 
     * Activity Log / Change Tracking
     * Resource locks
 * Converted legacy workbooks can support [ARM templates](workbooks-automate.md). 
-* Converted legacy workbooks can support the [BYOS](workbooks-bring-your-own-storage.md)feature.
+* Converted legacy workbooks can support the [BYOS](workbooks-bring-your-own-storage.md) feature.
 * Converted legacy workbooks can be saved in region of your choice.
 
 The legacy workbook deprecation doesn't change where you find your workbooks in the Azure portal. The legacy workbooks are still visible in the Workbooks section of Application Insights. The deprecation won't affect the content of your workbook. 
