@@ -136,7 +136,6 @@ If you want to run a [distributed training](../how-to-train-distributed-gpu.md) 
 
 For more information and examples on running distributed Horovod, TensorFlow and PyTorch jobs, see:
 
-* [Train TensorFlow models](../how-to-train-tensorflow.md#distributed-training)
 * [Train PyTorch models](../how-to-train-pytorch.md#distributed-training)
 
 ## Submit the experiment
