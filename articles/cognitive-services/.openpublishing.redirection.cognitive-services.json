@@ -11,6 +11,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/cognitive-services/language-service/conversational-language-understanding/concepts/backwards-compatibility.md",
+            "redirect_url": "/azure/cognitive-services/language-service/conversational-language-understanding/how-to/migrate-from-luis",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/cognitive-services/Ink-Recognizer/concepts/send-ink-data.md",
             "redirect_url": "/previous-versions/azure/cognitive-services/Ink-Recognizer/concepts/send-ink-data",
             "redirect_document_id": false
@@ -4959,6 +4964,11 @@
             "source_path_from_root": "/articles/cognitive-services/Speech-Service/call-center-transcription.md ",
             "redirect_url": "/azure/cognitive-services/speech-service/call-center-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Speech-Service/rest-speech-to-text-v3-1.md ",
+            "redirect_url": "/azure/cognitive-services/speech-service/migrate-v3-0-to-v3-1",
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/cognitive-services/text-analytics/concepts/data-limits.md",

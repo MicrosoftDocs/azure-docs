@@ -59,6 +59,7 @@ The following example concatenates the deployment name to the module name. If yo
 module stgModule 'storageAccount.bicep' = {
   name: '${deployment().name}-storageDeploy'
   scope: resourceGroup('demoRG')
+}
 ```
 
 If you need to **specify a scope** that is different than the scope for the main file, add the scope property. For more information, see [Set module scope](#set-module-scope).

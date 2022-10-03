@@ -459,6 +459,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "azureml-examples-v2samplesreorg",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "v2samplesreorg",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "azureml-examples-sdk-preview",
       "url": "https://github.com/azure/azureml-examples",
       "branch": "sdk-preview",
@@ -947,6 +953,12 @@
     {
       "path_to_root": "azure-cosmos-mongodb-dotnet",
       "url": "https://github.com/Azure-Samples/cosmos-db-mongodb-api-dotnet-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "reusable-content",
+      "url": "https://github.com/MicrosoftDocs/reusable-content",
       "branch": "main",
       "branch_mapping": {}
     }

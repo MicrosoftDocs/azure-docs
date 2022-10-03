@@ -58,9 +58,7 @@ We don't recommend that admins revoke the access of the managed identity to the 
 > 
 > If your workspace has attached AKS clusters, _and they were created before May 14th, 2021_, __do not delete this Azure AD account__. In this scenario, you must first delete and recreate the AKS cluster before you can delete the Azure AD account.
 
-You can provision the workspace to use user-assigned managed identity, and grant the managed identity additional roles, for example to access your own Azure Container Registry for base Docker images. For more information, see [Use managed identities for access control](how-to-use-managed-identities.md).
-
-You can also configure managed identities for use with Azure Machine Learning compute cluster. This managed identity is independent of workspace managed identity. With a compute cluster, the managed identity is used to access resources such as secured datastores that the user running the training job may not have access to. For more information, see [Identity-based data access to storage services on Azure](how-to-identity-based-data-access.md).
+You can provision the workspace to use user-assigned managed identity, and grant the managed identity additional roles, for example to access your own Azure Container Registry for base Docker images. You can also configure managed identities for use with Azure Machine Learning compute cluster. This managed identity is independent of workspace managed identity. With a compute cluster, the managed identity is used to access resources such as secured datastores that the user running the training job may not have access to. For more information, see [Use managed identities for access control](how-to-identity-based-service-authentication.md).
 
 > [!TIP]
 > There are some exceptions to the use of Azure AD and Azure RBAC within Azure Machine Learning:
@@ -72,7 +70,7 @@ For more information, see the following articles:
 * [Manage access to Azure Machine Learning](how-to-assign-roles.md)
 * [Connect to storage services](how-to-access-data.md)
 * [Use Azure Key Vault for secrets when training](how-to-use-secrets-in-runs.md)
-* [Use Azure AD managed identity with Azure Machine Learning](how-to-use-managed-identities.md)
+* [Use Azure AD managed identity with Azure Machine Learning](how-to-identity-based-service-authentication.md)
 
 ## Network security and isolation
 
