@@ -19,12 +19,12 @@ ms.custom: has-adal-ref
 
 # Overview of Azure AD certificate-based authentication
 
-Azure AD certificate-based authentication (CBA) enables customers to allow or require users to authenticate with X.509 certificates against their Azure Active Directory (Azure AD) for applications and browser sign-in. 
-This feature enables customers to adopt a phishing resistant authentication and authenticate with an X.509 certificate against their Enterprise Public Key Infrastructure (PKI).
+Azure AD certificate-based authentication (CBA) enables customers to allow or require users to authenticate directly with X.509 certificates against their Azure Active Directory (Azure AD) for applications and browser sign-in. 
+This feature enables customers to adopt a phishing resistant authentication and authenticate with an X.509 certificate against their Public Key Infrastructure (PKI).
 
 ## What is Azure AD CBA?
 
-Before this feature brought cloud-managed support for CBA to Azure AD, customers had to implement federated certificate-based authentication. Federated CBA requires deploying Active Directory Federation Services (AD FS) to be able to authenticate using X.509 certificates against Azure AD. With Azure AD certificate-based authentication, customers can authenticate directly against Azure AD. Azure AD CBA eliminates the need for federated AD FS, which helps simplify customer environments and reduce costs.
+Before this feature brought cloud-managed support for CBA to Azure AD, customers had to implement federated certificate-based authentication which requires deploying Active Directory Federation Services (AD FS) to be able to authenticate using X.509 certificates against Azure AD. With Azure AD certificate-based authentication, customers can authenticate directly against Azure AD and eliminate the need for federated AD FS, with simplified customer environments and cost reduction
 
 The following images show how Azure AD CBA simplifies the customer environment by eliminating federated AD FS. 
 
