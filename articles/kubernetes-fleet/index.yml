@@ -21,8 +21,18 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-         - text: Azure CLI
-           url: /cli/azure/fleet
+          - text: Azure CLI
+            url: /cli/azure/fleet
+          - text: .NET
+            url: /dotnet/api/overview/azure/containerservice
+          - text: Python
+            url: /python/api/overview/azure/container-service
+          - text: Java
+            url: /java/api/overview/azure/containerservice
+          - text: Node.js
+            url: /javascript/api/overview/azure/container-service
+          - text: Resource Manager template
+            url: /azure/templates/microsoft.containerservice/fleets
 
   - title: Get started
     linkLists:
@@ -32,7 +42,7 @@ landingContent:
             url: quickstart-create-fleet-and-members.md
       - linkListType: how-to-guide
         links:
-          - text: Propagate Kubernetes configurations from a Fleet resource to member clusters
+          - text: Propagate Kubernetes resource objects from a Fleet resource to member clusters
             url: configuration-propagation.md
       - linkListType: how-to-guide
         links:
