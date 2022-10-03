@@ -277,8 +277,6 @@
       - name: Data splits & cross-validation (Python)
         displayName: automl, feature engineering, feature importance
         href: ../how-to-configure-cross-validation-data-splits.md
-      - name: Generate AutoML training code
-        href: ../how-to-generate-automl-training-code.md
       - name: Featurization in automated ML (Python)
         displayName: automl, feature engineering, feature importance, BERT
         href: ../how-to-configure-auto-features.md
