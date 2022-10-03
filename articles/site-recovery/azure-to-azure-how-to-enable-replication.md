@@ -4,8 +4,7 @@ description: Learn how to configure replication to another region for Azure VMs,
 author: v-pgaddala
 manager: rochakm
 ms.topic: how-to
-ms.date: 04/29/2018
-
+ms.date: 09/16/2022
 ---
 
 
@@ -118,8 +117,8 @@ If you add disks to an Azure VM for which replication is enabled, the following 
 To enable replication for an added disk, do the following:
 
 1.	In the vault > **Replicated Items**, click the VM to which you added the disk.
-2.	Click **Disks**, and then select the data disk for which you want to enable replication (these disks have a **Not protected** status).
-3.	In **Disk Details**, click **Enable replication**.
+1.	Click **Disks**, and then select the data disk for which you want to enable replication (these disks have a **Not protected** status).
+1.	In **Disk Details**, click **Enable replication**.
 
     ![Screenshot that displays replication enabled for a newly added disk.](./media/azure-to-azure-how-to-enable-replication/enabled-added.png)
 
