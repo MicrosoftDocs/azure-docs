@@ -63,8 +63,6 @@ This section shows you how to create a .NET Core console application to send mes
     Install-Package Azure.Messaging.ServiceBus
     ```
 
-### Authenticate to Azure
-
 [!INCLUDE [service-bus-passwordless-template-tabbed](../../includes/passwordless/service-bus/service-bus-passwordless-template-tabbed.md)]
 
 ## Add code to send messages to the queue

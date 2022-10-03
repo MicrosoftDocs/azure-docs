@@ -22,12 +22,11 @@ ms.custom: include file
 
 [!INCLUDE [service-bus-assign-roles](service-bus-assign-roles.md)]
 
-### Sign-in and add the  DefaultAzureCredential
+### Sign-in and add the Azure.Identity package
 
-You can authorize access to data in your storage account using the following steps:
+You can authorize access to the service bus namespace using the following steps:
 
 1. Make sure you're authenticated with the same Azure AD account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio, or Azure PowerShell.
-
 
     [!INCLUDE [default-azure-credential-sign-in](../../default-azure-credential-sign-in.md)]
 
