@@ -219,19 +219,19 @@ Array of JSON objects that represent devices.
 ]
 ```
 
-# [Curl command](#tab/devices-get-curl)
+# [cURL command](#tab/devices-get-curl)
 
 **Type**: GET
 
 **APIs**:
 
-```rest
+```curl
 curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v1/devices?siteId=&zoneId=&sensorId=&uthorized='
 ```
 
 **Example**:
 
-```rest
+```curl
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/external/v1/devices?siteId=1&zoneId=2&sensorId=5&authorized=true'
 ```
 

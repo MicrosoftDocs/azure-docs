@@ -69,19 +69,19 @@ response:
 }
 ```
 
-# [Curl command](#tab/set-password-curl)
+# [cURL command](#tab/set-password-curl)
 
 **Type**: POST
 
 **API**:
 
-```rest
+```curl
 curl -k -X POST -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password
 ```
 
 **Example**:
 
-```rest
+```curl
 curl -k -X POST -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/api/external/authentication/set_password
 ```
 
@@ -150,20 +150,20 @@ response:
 }
 
 ```
-# [Curl command](#tab/set-password-by-admin-curl)
+# [cURL command](#tab/set-password-by-admin-curl)
 
 
 **Type**: POST
 
 **API**:
 
-```rest
+```curl
 curl -k -X POST -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password_by_admin
 ```
 
 **Example**:
 
-```rest
+```curl
 curl -k -X POST -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/api/external/authentication/set_password_by_admin
 ```
 
@@ -221,19 +221,19 @@ response:
 }
 ```
 
-# [Curl command](#tab/validation-curl)
+# [cURL command](#tab/validation-curl)
 
 **Type**: POST
 
 **API**:
 
-```rest
+```curl
 curl -k -X POST -H "Authorization: <AUTH_TOKEN>" -H "Content-Type: application/json" -d '{"username": <USER NAME>, "password": <PASSWORD>}' https://<IP_ADDRESS>/api/external/authentication/validation
 ```
 
 **Example**:
 
-```rest
+```curl
 curl -k -X POST -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" -H "Content-Type: application/json" -d '{"username": "test", "password": "test"}' https://127.0.0.1/api/external/authentication/validation
 ```
 ---

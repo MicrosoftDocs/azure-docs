@@ -112,20 +112,20 @@ Array of JSON objects that represent device connections, or the following failur
 ]
 ```
 
-# [Curl command](#tab/connections-curl)
+# [cURL command](#tab/connections-curl)
 
 **Type**: GET
 
 **APIs**:
 
-```rest
+```curl
 curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/connections
 ```
 
 
 **Examples**:
 
-```rest
+```curl
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices/connections
 ```
 
@@ -236,14 +236,14 @@ Array of JSON objects that represent device connections, or the following failur
 ]
 ```
 
-# [Curl command](#tab/connections-curl)
+# [cURL command](#tab/connections-curl)
 
 **Type**: GET
 
 **APIs**:
 
 
-```rest
+```curl
 curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/devices/<deviceId>/connections?lastActiveInMinutes=&discoveredBefore=&discoveredAfter=
 ```
 
@@ -251,7 +251,7 @@ curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/devices/<d
 
 With given query parameters:
 
-```rest
+```curl
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/api/v1/devices/2/connections?lastActiveInMinutes=20&discoveredBefore=1594550986000&discoveredAfter=1594550986000
 ```
 
@@ -331,19 +331,19 @@ JSON array of device CVE objects, or the following failure message:
 ]
 ```
 
-# [Curl command](#tab/cves-curl)
+# [cURL command](#tab/cves-curl)
 
 **Type**: GET
 
 **APIs**:
 
-```rest
+```curl
 curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/cves
 ```
 
 **Examples**:
 
-```rest
+```curl
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices/cves
 ```
 ---
@@ -427,13 +427,13 @@ JSON array of device CVE objects, or the following failure message:
 ]
 ```
 
-# [Curl command](#tab/cves-curl)
+# [cURL command](#tab/cves-curl)
 
 **Type**: GET
 
 **APIs**:
 
-```rest
+```curl
 curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/<deviceIpAddress>/cves?top=
 ```
 
@@ -442,7 +442,7 @@ curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/<de
 
 With given query parameters:
 
-```rest
+```curl
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices/10.10.10.15/cves?top=50
 ```
 

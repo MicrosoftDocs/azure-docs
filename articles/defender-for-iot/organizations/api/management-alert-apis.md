@@ -131,19 +131,19 @@ For more information, see [Sensor API version reference](../references-work-with
 ]
 ```
 
-# [Curl command](#tab/alerts-get-curl)
+# [cURL command](#tab/alerts-get-curl)
 
 **Type**: GET
 
 **API**:
 
-```rest
+```curl
 curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<>IP_ADDRESS>/external/v1/alerts?state=&zoneId=&fromTime=&toTime=&siteId=&sensor='
 ```
 
 **Example**:
 
-```rest
+```curl
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/external/v1/alerts?state=unhandled&zoneId=1&fromTime=0&toTime=1594551777000&siteId=1&sensor=1'
 ```
 
@@ -230,19 +230,19 @@ Array of JSON objects that represent devices.
 }
 ```
 
-# [Curl command](#tab/uuid-curl)
+# [cURL command](#tab/uuid-curl)
 
 **Type**: PUT
 
 **APIs**:
 
-```rest
+```curl
 curl -k -X PUT -d '{"action": "<ACTION>"}' -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/external/v1/alerts/<UUID>
 ```
 
 **Example**:
 
-```rest
+```curl
 curl -k -X PUT -d '{"action": "handle"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/alerts/1-1594550943000
 ```
 ---
@@ -290,19 +290,19 @@ Creates a new maintenance window.
 |**409 (Conflict)**     | Ticket ID already has an open window. | The ticket ID is linked to another open maintenance window.        |
 |**500 (Internal Server Error)**     | - | Any other unexpected error.      |
 
-# [Curl command](#tab/maintenanceWindow-post-curl)
+# [cURL command](#tab/maintenanceWindow-post-curl)
 
 **Type**: POST
 
 **API**:
 
-```rest
+```curl
 curl -k -X POST -d '{"ticketId": "<TICKET_ID>",ttl": <TIME_TO_LIVE>,"engines": [<ENGINE1, ENGINE2...ENGINEn>],"sensorIds": [<SENSOR_ID1, SENSOR_ID2...SENSOR_IDn>],"subnets": [<SUBNET1, SUBNET2....SUBNETn>]}' -H "Authorization: <AUTH_TOKEN>" https://<IP address>/external/v1/maintenanceWindow
 ```
 
 **Example**:
 
-```rest
+```curl
 curl -k -X POST -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20","engines": ["ANOMALY"],"sensorIds": ["5","3"],"subnets": ["10.0.0.0/16"]}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow
 ```
 ---
@@ -331,19 +331,19 @@ Closes an existing maintenance window.
 |**500 (Internal Server Error)**  |  - |  Any other unexpected error.       |
 
 
-# [Curl command](#tab/maintenanceWindow-delete-curl)
+# [cURL command](#tab/maintenanceWindow-delete-curl)
 
 **Type**: DELETE
 
 **API**:
 
-```rest
+```curl
 curl -k -X DELETE -d '{"ticketId": "<TICKET_ID>"}' -H "Authorization: <AUTH_TOKEN>" https://<IP address>/external/v1/maintenanceWindow
 ```
 
 **Example**:
 
-```rest
+```curl
 curl -k -X DELETE -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow
 ```
 
@@ -394,19 +394,19 @@ Array of JSON objects that represent maintenance window operations.
 | **ttl** | Numeric | Nullable | The maintenance window's Time to Live (TTL), as supplied during maintenance window creation or update. |
 | **operationType** | String | Not nullable | One of the following values: `OPEN`, `UPDATE`, and `CLOSE` |
 
-# [Curl command](#tab/maintenanceWindow-get-curl)
+# [cURL command](#tab/maintenanceWindow-get-curl)
 
 **Type**: GET
 
 **API**:
 
-```rest
+```curl
 curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v1/maintenanceWindow?fromDate=&toDate=&ticketId=&tokenName='
 ```
 
 **Example**:
 
-```rest
+```curl
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/external/v1/maintenanceWindow?fromDate=2020-01-01&toDate=2020-07-14&ticketId=a5fe99c-d914-4bda-9332-307384fe40bf&tokenName=a'
 ```
 
@@ -440,19 +440,19 @@ This method is useful when you want to set a longer duration than the currently 
 |**500 (Internal Server Error)** | -     |  Any other unexpected error.       |
 
 
-# [Curl command](#tab/maintenanceWindow-put-curl)
+# [cURL command](#tab/maintenanceWindow-put-curl)
 
 **Type**: PUT
 
 **API**:
 
-```rest
+```curl
 curl -k -X PUT -d '{"ticketId": "<TICKET_ID>",ttl": "<TIME_TO_LIVE>"}' -H "Authorization: <AUTH_TOKEN>" https://<IP address>/external/v1/maintenanceWindow
 ```
 
 **Example**:
 
-```rest
+```curl
 curl -k -X PUT -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow
 ```
 ---
@@ -519,19 +519,19 @@ Message string with the operation status details:
 }
 ```
 
-# [Curl command](#tab/pcap-curl)
+# [cURL command](#tab/pcap-curl)
 
 **Type**: GET
 
 **APIs**
 
-```rest
+```curl
 curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v2/alerts/pcap/<ID>'
 ```
 
 ***Example**:
 
-```rest
+```curl
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://10.1.0.1/external/v2/alerts/pcap/1'
 ```
 

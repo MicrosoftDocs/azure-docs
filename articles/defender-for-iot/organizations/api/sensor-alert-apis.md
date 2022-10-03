@@ -25,8 +25,8 @@ Use this API to request a list of all the alerts that the Defender for IoT senso
 |Name  |Description  |Example  | Required / Optional |
 |---------|---------|---------|---------|
 |**state**     | Get only handled or unhandled alerts. Supported values: <br>- `handled`<br>- `unhandled` |  `/api/v1/alerts?state=handled`       |Optional |
-|**fromTime**     |   Get alerts created starting at a given time, in milliseconds from Epoch time and in UTC timezone.      |    `/api/v1/alerts?fromTime=<epoch>`     | Optional |
-|**toTime**     |  Get alerts created only before at a given time, in milliseconds from Epoch time and in UTC timezone.        | `/api/v1/alerts?toTime=<epoch>`        |  Optional |
+|**fromTime**     |   Get alerts created starting at a given time, in milliseconds from [Epoch time](../references-work-with-defender-for-iot-apis.md#epoch-time) and in UTC timezone.      |    `/api/v1/alerts?fromTime=<epoch>`     | Optional |
+|**toTime**     |  Get alerts created only before at a given time, in milliseconds from [Epoch time](../references-work-with-defender-for-iot-apis.md#epoch-time) and in UTC timezone.        | `/api/v1/alerts?toTime=<epoch>`        |  Optional |
 |**type**     |  Get alerts of a specific type only. Supported values: <br>- `unexpected new devices` <br>- `disconnections`  <br>All other values are ignored.     |  `/api/v1/alerts?type=disconnections`       |Optional |
 
 # [Response](#tab/alerts-response)
@@ -101,19 +101,19 @@ For more information, see [Sensor API version reference](../references-work-with
 ]
 ```
 
-# [Curl command](#tab/alerts-curl)
+# [cURL command](#tab/alerts-curl)
 
 **Type**: GET
 
 **API**:
 
-```rest
+```curl
 curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/alerts?state=<STATE>&fromTime=<FROM_TIME>&toTime=<TO_TIME>&type=<TYPE>'
 ```
 
 **Example**:
 
-```rest
+```curl
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/api/v1/alerts?state=unhandled&fromTime=1594550986000&toTime=1594550986001&type=disconnections'
 ```
 
@@ -197,19 +197,19 @@ Event fields include:
 ]
 ```
 
-# [Curl command](#tab/events-curl)
+# [cURL command](#tab/events-curl)
 
 **Type**: GET
 
 **API**:
 
-```rest
+```curl
 curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/events?minutesTimeFrame=<TIME_FRAEM>&type=<TYPE>'
 ```
 
 **Example**:
 
-```rest
+```curl
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/api/v1/events?minutesTimeFrame=20&type=DEVICE_CONNECTION_CREATED'`
 ```
 ---

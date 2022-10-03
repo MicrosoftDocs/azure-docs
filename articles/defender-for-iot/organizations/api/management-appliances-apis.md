@@ -93,7 +93,7 @@ A JSON array of appliance objects that represent sensor appliances.
     "alertCount":9,
     "upgradeFinishTime":null,
     "uid":"a6218f1a-8ebf-4bb3-8613-c859b17eef01",
-    "interfaceAddress":"https://172.20.249.56",
+    "interfaceAddress":"https://173.70.549.76",
     "id":1,
     "unhandledAlertsCount":9
   }
@@ -101,19 +101,19 @@ A JSON array of appliance objects that represent sensor appliances.
 ```
 
 
-# [Curl command](#tab/appliances-get-curl)
+# [cURL command](#tab/appliances-get-curl)
 
 **Type**: GET
 
 **API**:
 
-```rest
+```curl
 curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<>IP_ADDRESS>/external/v1/appliances'
 ```
 
 **Example**:
 
-```rest
+```curl
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/external/v1/appliances'
 ```
 
