@@ -109,19 +109,20 @@ sections:
           The policy is cached. After a policy update, it may take up to an hour for the changes to take effect.
       
       - question: |
-          Why do I see the Certificate based auth method option after it fails?
+          Why do I see the certificate-based authentication option after it fails?
         answer: |
-          The authentication method policy framework always would show all the available methods to the user so they can retry if the initial login failed. Azure AD does not filter out any available auth methods depending on successful auth or failure auth.
+          The Authentication method policy always shows all available authentication methods to the user so they can retry sign-in using any method they prefer. 
+          Azure AD doesn't hide available methods based on success or failure of a sign-in.
 
       - question: |
           Why does certificate-based auth (CBA) loops once it fails?
         answer: |
-          The browser caches the certificate once the certificate picker comes up and if the user retries the cached certificate is used automatically. The user should close the browser and reopen a new session to try CBA again.          
+          The browser caches the certificate after the certificate picker appears. If the user retries, the cached certificate is used automatically. The user should close the browser, and reopen a new session to try CBA again.          
 
       - question: |
-          Why single factor certificates cannot be used to get MFA?
+          Why can't single-factor certificates be used to complete MFA?
         answer: |
-          There is no support for a second factor when the first factor is single factor certificates. We are working on adding support for second factors soon.
+          There's no support for a second factor when the first factor is a single-factor certificates. We're working to add support for second factors.
           
       - question: |
           Will the changes to the Authentication methods policy take effect immediately?

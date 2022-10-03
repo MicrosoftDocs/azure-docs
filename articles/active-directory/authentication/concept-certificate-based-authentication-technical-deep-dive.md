@@ -84,7 +84,7 @@ An admin can determine whether the certificates are single-factor or multifactor
 
 When a user has a single-factor certificate, they can't perform multifactor authentication. There is no support for a second factor when the first factor is a single-factor certificate. We are working to add support for second factors.
 
-:::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/mfa-not-allowed.png" alt-text="Screenshot of when multifactor authentication not allowed." :::  
+:::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/mfa-not-allowed.png" alt-text="Screenshot of MFA not allowed for single factor certificate." :::  
 
 ### Multifactor certificate authentication 
 
