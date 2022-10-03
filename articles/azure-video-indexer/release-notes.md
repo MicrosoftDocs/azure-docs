@@ -59,9 +59,9 @@ Now supporting source languages for STT (speech-to-text), translation, and searc
 
 For more information, see [supported languages](language-support.md).
 
-### Edit the name speakers in the transcription
+### Edit the name speakers in the transcription through the API
 
-You can now use the [Azure Video Indexer website](https://www.videoindexer.ai/) to edit the name of the speakers in the transcription. 
+You can now use the [Azure Video Indexer](https://www.videoindexer.ai/) to edit the name of the speakers in the transcription. 
 
 ### Word level time annotation with confidence score
 
@@ -75,11 +75,9 @@ The new set of logs, described below, enables you to better monitor your indexin
 
 Azure Video Indexer now supports Diagnostics settings for indexing events. You can now export logs monitoring upload, and re-indexing of media files through diagnostics settings to Azure Log Analytics, Storage, Event Hubs, or a third-party solution.
 
-### Expanded the supported languages in LID and MLID through the API
+## Expanded supported languages in LID and MLID through the API
 
-We expanded the list of the languages to be supported in LID (language identification) and MLID (multi language Identification) using APIs. 
-
-For more information, see [supported languages](language-support.md).
+We expanded the languages supported in LID (language identification) and MLID (multi language Identification) using the Video Indexer API.
 
 ### Configure confidence level in a person model with an API
 
