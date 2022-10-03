@@ -1,6 +1,6 @@
 ---
-title: Use ManagedClusterSnapshot to save and apply Azure Kubernetes Service (AKS) cluster configuration (preview)
-description: Learn how to use ManagedClusterSnapshot to save and apply Azure Kubernetes Service (AKS) cluster configuration
+title: Use cluster snapshots to save and apply Azure Kubernetes Service (AKS) cluster configuration (preview)
+description: Learn how to use cluster snapshots to save and apply Azure Kubernetes Service (AKS) cluster configuration
 author: nickomang
 ms.author: nickoman
 ms.service: container-service
@@ -9,9 +9,9 @@ ms.date: 10/03/2022
 ms.custom: template-how-to
 ---
 
-# Use ManagedClusterSnapshot to save and apply Azure Kubernetes Service cluster configuration (preview)
+# Use cluster snapshots to save and apply Azure Kubernetes Service cluster configuration (preview)
 
-ManagedClusterSnapshot allows you to save configuration from an Azure Kubernetes Service (AKS) cluster as a snapshot, which can then be used to easily apply the configuration to other clusters. Currently, we snapshot the following properties: 
+Cluster snapshots allow you to save configuration from an Azure Kubernetes Service (AKS) cluster, which can then be used to easily apply the configuration to other clusters. Currently, we snapshot the following properties: 
 - `ManagedClusterSKU`
 - `EnableRbac`
 - `KubernetesVersion`
