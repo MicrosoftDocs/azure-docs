@@ -40,7 +40,7 @@ The following resources are supported by Form Recognizer v3.0:
 
 | Model | Resources | Model ID |
 |----------|------------|------------|
-|**prebuilt-read**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-rest-api)</li><li>[**C# SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-javascript)</li></ul>|**prebuilt-read**|
+|**prebuilt-read**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](how-to-guides/v3-0-sdk-rest-api.md)</li><li>[**C# SDK**](how-to-guides/v3-0-sdk-rest-api.md?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/v3-0-sdk-rest-api.md?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/v3-0-sdk-rest-api.md?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/v3-0-sdk-rest-api.md?pivots=programming-language-javascript)</li></ul>|**prebuilt-read**|
 
 ## Try Form Recognizer
 
@@ -189,11 +189,11 @@ Complete a Form Recognizer quickstart:
 
 > [!div class="checklist"]
 >
-> * [**REST API**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-rest-api)
-> * [**C# SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-csharp)
-> * [**Python SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-python)
-> * [**Java SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-java)
-> * [**JavaScript**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-javascript)</li></ul>
+> * [**REST API**](how-to-guides/v3-0-sdk-rest-api.md)
+> * [**C# SDK**](how-to-guides/v3-0-sdk-rest-api.md?pivots=programming-language-csharp)
+> * [**Python SDK**](how-to-guides/v3-0-sdk-rest-api.md?pivots=programming-language-python)
+> * [**Java SDK**](how-to-guides/v3-0-sdk-rest-api.md?pivots=programming-language-java)
+> * [**JavaScript**](how-to-guides/v3-0-sdk-rest-api.md?pivots=programming-language-javascript)</li></ul>
 
 Explore our REST API:
 
