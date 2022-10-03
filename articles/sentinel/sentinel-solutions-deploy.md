@@ -9,17 +9,15 @@ ms.author: austinmc
 
 # Discover and deploy Microsoft Sentinel out-of-the-box solutions from Content hub (Public preview)
 
-The Microsoft Sentinel Content hub provides access to out-of-the-box (built-in) solutions, which are packed with Sentinel content for end-to-end product, domain, or industry needs.
-
-This article describes how to install solutions and their components in your Microsoft Sentinel workspace.
+The Microsoft Sentinel Content hub provides access to out-of-the-box (built-in) solutions, which are packed with Sentinel content for end-to-end products by domain or industry.
 
 - Discover solutions in the Content hub based on status, the content type, support, provider and category.
 
 - Install solutions in your workspace all at once or individually when you find ones that fit your organization's needs. 
 
-- View solutions in list view and quickly see which ones have updates.
+- View solutions in list view and quickly see which ones have updates. Update them all at once.
 
-- Manage solutions, including bulk updates to install the latest changes.
+- Manage solutions to install its content types and get the latest changes.
 
 If you're a partner who wants to create your own solution, see the [Microsoft Sentinel Solutions Build Guide](https://aka.ms/sentinelsolutionsbuildguide) for solution authoring and publishing.
 
@@ -32,6 +30,8 @@ If you're a partner who wants to create your own solution, see the [Microsoft Se
 In order to install, update or manage all solutions, you need the **Template Spec Contributor** role at the resource group level.  
 
 ## Discover solutions
+
+The content hub offers the best way to find new solutions or manage the ones you already have installed.
 
 1. From the Microsoft Sentinel navigation menu, under **Content management**, select **Content hub (Preview)**.
 
@@ -72,6 +72,8 @@ Solutions can be installed and updated individually or in bulk. Here's the proce
 
 1. Finally, in the **Review + create** tab, wait for the `Validation Passed` message, then select **Create** or **Update** to deploy the solution. You can also select the **Download a template for automation** link to deploy the solution as code.
 
+1. Each content type within the solution may require additional steps to configure. For more information, see [Enable content items in a solution](#enable-content-items-in-a-solution). 
+
 ## Bulk install and update solutions
 
 Content hub supports a list view in addition to the default card view. Multiple solutions can be selected with this view to install and update them all at once. 
@@ -79,11 +81,13 @@ Content hub supports a list view in addition to the default card view. Multiple 
 1. To install and/or update items in bulk, change to the list view.
    :::image type="content" source="media/sentinel-solutions-deploy/content-hub-list-view.png" alt-text="Screenshot of the list view icon button highlighted.":::
 
-1. Select the checkboxes to install and update multiple solutions.
+1. The list view is paginated, so choose a filter to ensure the solutions you want to bulk install and modify are in view. Select their checkboxes and click the **Install/Update** button.
 
-1. The content hub interface will indicate the install and update progress.
+1. The content hub interface will indicate the install and update progress. Azure notifications will also indicate the action taken.
 
     :::image type="content" source="media/sentinel-solutions-deploy/bulk-install-update.png" alt-text="Screenshot of solutions list view with multiple solutions selected and in progress for installation." lightbox="media/sentinel-solutions-deploy/bulk-install-update.png":::
+
+1. Check each installed solution's **Manage** view. Content types within the solution may require additional steps to configure. For more information, see [Enable content items in a solution](#enable-content-items-in-a-solution). 
 
 ## Enable content items in a solution
 
