@@ -8,15 +8,20 @@ ms.reviewer: riroloff
 ---
 # Autoscale settings
 
-Autoscale settings help you provision just the right mount of resources to support the load on your application. Configure autoscale settings to be triggered based on metrics that indicate load or performance, or triggered at a scheduled date and time. This article takes a detailed look at the anatomy of an autoscale setting. The article begins with the schema and properties of a setting, and then walks through the different profile types that can be configured. Finally, the article discusses how the autoscale feature in Azure evaluates which profile to execute at any given time.
+Autoscale settings help you provision just the right mount of resources to support the load on your application. Configure autoscale settings to be triggered based on metrics that indicate load or performance, or triggered at a scheduled date and time.  
+
+This article gives a detailed description of the autoscale settings. 
 
 ## Autoscale setting schema
 
-To illustrate the autoscale setting schema, the following autoscale setting is used. It's important to note that this autoscale setting has:
-- One profile. 
-- Two metric rules in this profile: one for scale-out, and one for scale-in.
-  - The scale-out rule is triggered when the virtual machine scale set's average percentage CPU metric is greater than 85 percent for the past 10 minutes.
-  - The scale-in rule is triggered when the virtual machine scale set's average is less than 60 percent for the past minute.
+The [Autoscale ARM template resource definition](https://learn.microsoft.com/en-us/azure/templates/microsoft.insights/autoscalesettings?pivots=deployment-language-arm-template#autoscaleprofile-1) contains a description of all template elements.
+
+The example below has the following settings:
+
+- A single, default profile.
+- The profile has two rules. The first rule scales out, the second scales in.
+- The scale-out rule is triggered when the virtual machine scale set's average percentage CPU metric is greater than 85 percent for the past 10 minutes.
+- The scale-in rule is triggered when the virtual machine scale set's average is less than 60 percent for the past minute.
 
 > [!NOTE]
 > A setting can have multiple profiles. To learn more, see the [profiles](#autoscale-profiles) section. A profile can also have multiple scale-out rules and scale-in rules defined. To see how they are evaluated, see the [evaluation](#autoscale-evaluation) section.
@@ -82,6 +87,8 @@ To illustrate the autoscale setting schema, the following autoscale setting is u
 }
 ```
 
+The table below describes the elements in the above autoscale setting's JSON.
+
 | Section | Element name |Portal name| Description |
 | --- | --- | --- |--- |
 | Setting | ID | |The autoscale setting's resource ID. Autoscale settings are an Azure Resource Manager resource. |
@@ -89,11 +96,11 @@ To illustrate the autoscale setting schema, the following autoscale setting is u
 | Setting | location | |The location of the autoscale setting. This location can be different from the location of the resource being scaled. |
 | properties | targetResourceUri | |The resource ID of the resource being scaled. You can only have one autoscale setting per resource. |
 | properties | profiles | Scale condition |An autoscale setting is composed of one or more profiles. Each time the autoscale engine runs, it executes one profile. |
-| profile | name | |The name of the profile. You can choose any name that helps you identify the profile. |
-| profile | Capacity.maximum | Instance limits - Maximum |The maximum capacity allowed. It ensures that autoscale doesn't scale your resource above this number when executing the profile. |
-| profile | Capacity.minimum | Instance limits - Minimum  |The minimum capacity allowed. It ensures that autoscale doesn't scale your resource below this number when executing the profile |
-| profile | Capacity.default | Instance limits - Default  |If there's a problem reading the resource metric (in this case, the CPU of “vmss1”), and the current capacity is below the default, autoscale scales out to the default. This ensures the availability of the resource. If the current capacity is already higher than the default capacity, autoscale does not scale in. |
-| profile | rules | Rules |Autoscale automatically scales between the maximum and minimum capacities, by using the rules in the profile. You can have multiple rules in a profile. Typically there are two rules: one to determine when to scale out, and the other to determine when to scale in. |
+| profiles | name | |The name of the profile. You can choose any name that helps you identify the profile. |
+| profiles | capacity.maximum | Instance limits - Maximum |The maximum capacity allowed. It ensures that autoscale doesn't scale your resource above this number when executing the profile. |
+| profiles | capacity.minimum | Instance limits - Minimum  |The minimum capacity allowed. It ensures that autoscale doesn't scale your resource below this number when executing the profile |
+| profiles | capacity.default | Instance limits - Default  |If there's a problem reading the resource metric, and the current capacity is below the default, autoscale scales out to the default. This ensures the availability of the resource. If the current capacity is already higher than the default capacity, autoscale does not scale in. |
+| profiles | rules | Rules |Autoscale automatically scales between the maximum and minimum capacities, by using the rules in the profile. You can have multiple rules in a profile. Typically there are two rules: one to determine when to scale out, and the other to determine when to scale in. |
 | rule | metricTrigger | Scale rule |Defines the metric condition of the rule. |
 | metricTrigger | metricName | Metric name |The name of the metric. |
 | metricTrigger |  metricResourceUri | |The resource ID of the resource that emits the metric. In most cases, it is the same as the resource being scaled. In some cases, it can be different. For example, you can scale a virtual machine scale set based on the number of messages in a storage queue. |
