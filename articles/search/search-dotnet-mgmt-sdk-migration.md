@@ -31,13 +31,19 @@ Microsoft.Azure.Management.Search is now deprecated. We recommend [Azure.Resourc
 
 ## How to upgrade
 
-1. Update your NuGet reference for `Azure.ResourceManager.Search` using either the NuGet Package Manager Console or by right-clicking on your project references and selecting "Manage NuGet Packages..." in Visual Studio.
+1. Review the [client library changelist](https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Search_1.0.0/sdk/search/Azure.ResourceManager.Search/CHANGELOG.md) for insight into the scope of changes.
 
-1. Once NuGet has downloaded the new packages and their dependencies, rebuild your project. Depending on how your code is structured, it may rebuild successfully, in which case you're done.
+1. In your application code, delete the reference to `Microsoft.Azure.Management.Search` and its dependencies.
 
-1. If your build fails, it could be because you've implemented some of the SDK interfaces (for example, for the purposes of unit testing), which have changed. To resolve this, you'll need to implement newer methods such as `BeginCreateOrUpdateWithHttpMessagesAsync`.
+1. Add a reference for `Azure.ResourceManager.Search` using either the NuGet Package Manager Console or by right-clicking on your project references and selecting "Manage NuGet Packages..." in Visual Studio.
 
-1. After fixing any build errors, you can make changes to your application to take advantage of new functionality. 
+1. Once NuGet has downloaded the new packages and their dependencies, replace the API calls.
+
+<!-- | Old API | New API |
+|---------|---------|
+| [CreateOrUpdateWithHttpMessagesAsync Method](/dotnet/api/microsoft.azure.management.search.iservicesoperations.createorupdatewithhttpmessagesasync) | TBD  |
+| [CheckNameAvailabilityWithHttpMessagesAsync Method](/dotnet/api/microsoft.azure.management.search.iservicesoperations.checknameavailabilitywithhttpmessagesasync)  | TBD |
+| [IAdminKeysOperations.GetWithHttpMessagesAsync Method](/dotnet/api/microsoft.azure.management.search.iadminkeysoperations.getwithhttpmessagesasync) | TBD | -->
 
 ## Upgrade to 3.0
 
