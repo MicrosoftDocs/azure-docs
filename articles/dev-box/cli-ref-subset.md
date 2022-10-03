@@ -40,7 +40,7 @@ az sig image-definition create --resource-group {resourceGroupName} `
 
 ```azurecli
 az devcenter admin gallery create -g demo-rg `
---dev-center-name contoso-devcenter -n SharedGallery `
+--devcenter-name contoso-devcenter -n SharedGallery `
 --gallery-resource-id "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{computeGalleryName}" `
 ```
 
@@ -49,7 +49,7 @@ az devcenter admin gallery create -g demo-rg `
 #### Create a DevCenter in West US 3
 
 ```azurecli
-az devcenter admin dev-center create -g demo-rg `
+az devcenter admin devcenter create -g demo-rg `
 -n contoso-devcenter --identity-type UserAssigned `
 --user-assigned-identity ` "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{managedIdentityName}" `
 --location westus3 `
@@ -63,7 +63,7 @@ az devcenter admin dev-center create -g demo-rg `
 az devcenter admin project create -g demo-rg `
 -n ContosoProject `
 --description "project description" `
---dev-center-id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/devcenters/{devCenterName} `
+--devcenter-id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/devcenters/{devCenterName} `
 ```
 
 #### Delete a Project
@@ -99,7 +99,7 @@ az devcenter admin network-connection create --location "centralus" `
 
 ```azurecli
 az devcenter admin attached-network create --attached-network-connection-name westus3network `
---dev-center-name contoso-devcenter -g demo-rg `
+--devcenter-name contoso-devcenter -g demo-rg `
 --network-connection-id /subscriptions/f141e9f2-4778-45a4-9aa0-8b31e6469454/resourceGroups/demo-rg/providers/Microsoft.DevCenter/networkConnections/netset99 `
 ```
 
@@ -109,14 +109,14 @@ az devcenter admin attached-network create --attached-network-connection-name we
 
 ```azurecli
 az devcenter admin devbox-definition list `
---dev-center-name "Contoso" --resource-group "rg1" `
+--devcenter-name "Contoso" --resource-group "rg1" `
 ```
 
 #### Create a Dev Box Definition with a marketplace image
 
 ```azurecli
 az devcenter admin devbox-definition create -g demo-rg `
---dev-center-name contoso-devcenter -n BaseImageDefinition `
+--devcenter-name contoso-devcenter -n BaseImageDefinition `
 --image-reference id="/subscriptions/{subscriptionId}/resourceGroups/demo-rg/providers/Microsoft.DevCenter/devcenters/contoso-devcenter/galleries/Default/images/MicrosoftWindowsDesktop_windows-ent-cpc_win11-21h2-ent-cpc-m365" `
 --sku name="PrivatePreview" `
 ```
@@ -125,7 +125,7 @@ az devcenter admin devbox-definition create -g demo-rg `
 
 ```azurecli
 az devcenter admin devbox-definition create -g demo-rg `
---dev-center-name contoso-devcenter -n CustomDefinition `
+--devcenter-name contoso-devcenter -n CustomDefinition `
 --image-reference id="/subscriptions/{subscriptionId}/resourceGroups/demo-rg/providers/Microsoft.DevCenter/devcenters/contoso-devcenter/galleries/SharedGallery/images/CustomImageName" `
 --sku name="PrivatePreview" `
 ```
@@ -194,14 +194,14 @@ az devcenter admin pool delete `
 
 ```azurecli
 az devcenter dev project list `
---dev-center {devCenterName}
+--devcenter {devCenterName}
 ```
 
 #### List Pools in a Project
 
 ```azurecli
 az devcenter dev pool list
---dev-center {devCenterName}
+--devcenter {devCenterName}
 --project-name {ProjectName}
 ```
 
@@ -209,7 +209,7 @@ az devcenter dev pool list
 
 ```azurecli
 az devcenter dev dev-box create `
---dev-center {devCenterName} `
+--devcenter {devCenterName} `
 --project-name {projectName} `
 --pool-name {poolName} `
 -n {devBoxName} `
@@ -219,7 +219,7 @@ az devcenter dev dev-box create `
 
 ```azurecli
 az devcenter dev dev-box show-remote-connection `
---dev-center {devCenterName} `
+--devcenter {devCenterName} `
 --project-name {projectName} `
 --user-id "me"
 -n {devBoxName} `
@@ -228,14 +228,14 @@ az devcenter dev dev-box show-remote-connection `
 #### List your Dev Boxes
 
 ```azurecli
-az devcenter dev dev-box list --dev-center {devCenterName} `
+az devcenter dev dev-box list --devcenter {devCenterName} `
 ```
 
 #### View details of a Dev Box
 
 ```azurecli
 az devcenter dev dev-box show `
---dev-center {devCenterName} `
+--devcenter {devCenterName} `
 --project-name {projectName} `
 -n {devBoxName} 
 ```
@@ -244,7 +244,7 @@ az devcenter dev dev-box show `
 
 ```azurecli
 az devcenter dev dev-box stop `
---dev-center {devCenterName} `
+--devcenter {devCenterName} `
 --project-name {projectName} `
 --user-id "me" `
 -n {devBoxName} `
@@ -254,7 +254,7 @@ az devcenter dev dev-box stop `
 
 ```azurecli
 az devcenter dev dev-box start `
---dev-center {devCenterName} `
+--devcenter {devCenterName} `
 --project-name {projectName} `
 --user-id "me" `
 -n {devBoxName} `
