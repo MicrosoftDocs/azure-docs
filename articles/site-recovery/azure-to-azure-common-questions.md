@@ -47,7 +47,7 @@ Yes. Site Recovery supports disaster recovery of VMs that have Azure Disk Encryp
 - Site Recovery supports ADE for Azure VMs running Windows.
 - Site Recovery supports:
     - ADE version 0.1, which has a schema that requires Azure Active Directory (Azure AD).
-    - ADE version 1.1, which doesn't require Azure AD. For version 1.1, Windows Azure VMs must have managed disks.
+    - ADE version 1.1, which doesn't require Azure AD. For version 1.1, Microsoft Azure VMs must have managed disks.
     - [Learn more](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema) about the extension schemas.
 
 [Learn more](azure-to-azure-how-to-enable-replication-ade-vms.md) about enabling replication for encrypted VMs.
@@ -56,7 +56,7 @@ See the [support matrix](azure-to-azure-support-matrix.md#replicated-machines---
 
 ### Can I select an automation account from a different resource group?
 
-When you allow Site Recovery to manage updates for the Mobility service extension running on replicated Azure VMs, it deploys a global runbook (used by Azure services), via an Azure automation account. You can use the automation account that Site Recovery creates, or select to use an existing automation account.
+When you allow Site Recovery to manage updates for the Mobility service extension running on replicated Azure VMs, it deploys a global runbook (used by Azure services), via an Azure Automation account. You can use the automation account that Site Recovery creates, or select to use an existing automation account.
 
 Currently, in the portal, you can only select an automation account in the same resource group as the vault. You can select an automation account from a different resource group using PowerShell. [Learn more](azure-to-azure-autoupdate.md#enable-automatic-updates) about enabling automatic updates.
 
