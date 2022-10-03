@@ -176,7 +176,7 @@ Each CNAB will be composed of the following artifacts:
 
 Ensure the Helm chart adheres to the following rules:
 
-- All image names and references are parameterized and represented in `values.yaml` as global.azure.images references. Update `deployment.yaml` to point these images. This ensure the image block can be updated and referenced by Azure Marketplace's ACR.
+- All image names and references are parameterized and represented in `values.yaml` as global.azure.images references. Update `deployment.yaml` to point these images. This ensures the image block can be updated and referenced by Azure Marketplace's ACR.
 
     :::image type="content" source="./media/azure-container/billing-identifier.png" alt-text="A screenshot of a properly formatted values.yaml file is shown. It resembles the sample values.yaml file linked from this article.":::
 
@@ -304,7 +304,7 @@ cpa buildbundle
 > [!NOTE]
 > Use `cpa buildbundle --force` only if you want to overwrite an existing tag. If you have already attach this CNAB to an Azure Marketplace offer, instead increment the version in the manifest file.
 
-### Integrate into a Azure Pipeline
+### Integrate into an Azure Pipeline
 
 For an example of how to integrate `container-package-app` into an Azure Pipeline, see the [Azure Pipeline example][pipeline-sample].
 
