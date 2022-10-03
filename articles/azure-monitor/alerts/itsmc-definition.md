@@ -14,7 +14,7 @@ ms.reviewer: nolavime
 
 This article provides information about how to configure IT Service Management Connector (ITSMC) in Log Analytics to centrally manage your IT Service Management (ITSM) work items.
 
-##  IT Service Management Connector
+## Install IT Service Management Connector
 
 Before you create a connection, install ITSMC.
 
