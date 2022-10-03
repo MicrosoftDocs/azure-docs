@@ -5,7 +5,7 @@ services: route-server
 author: halkazwini
 ms.service: route-server
 ms.topic: conceptual
-ms.date: 02/03/2022
+ms.date: 10/03/2022
 ms.author: halkazwini
 ---
 
@@ -13,15 +13,15 @@ ms.author: halkazwini
 
 One of the most common architectures in Azure is the hub and spoke design, where workloads deployed in a spoke VNet send traffic through shared network devices that exist in a hub VNet. User Defined Routes (UDR) typically need to be configured in the spoke VNets to steer traffic towards security devices in the hub. However, this requires administrators to manage these routes across many spokes. 
 
-Azure Route Server offers a centralized point where Network Virtual Appliances (NVAs) can inject routes that will be programmed for every virtual machine in the spoke, thus eliminating the need for spoke administrators to create route tables. 
+Azure Route Server offers a centralized point where Network Virtual Appliances (NVAs) can inject routes that will be programmed for every virtual machine in the spoke, thus eliminating the need for spoke administrators to create and update route tables. 
 
 ## Topology
 
-The following diagram depicts a simple hub and spoke design with a hub VNet and two spokes. In the hub, a Network Virtual Appliance and a Route Server have been deployed. Without, Route Server User-Defined Routes (UDRs) would have to be configured in every spoke (usually containing a default route for 0.0.0.0/0), that send all traffic from the spokes through this NVA, for example to get it inspected for security purposes.
+The following diagram depicts a simple hub and spoke design with a hub VNet and two spoke VNets. In the hub, a Network Virtual Appliance and a Route Server have been deployed. Without a Route Server, User-Defined Routes (UDRs) would have to be configured in every spoke (usually containing a default route for 0.0.0.0/0), that send all traffic from the spokes through the NVA, for example to get it inspected for security purposes.
 
 :::image type="content" source="./media/scenarios/route-injection.png" alt-text="This network diagram shows a basic hub and spoke topology.":::
 
-However, if the NVA advertises via BGP to the Route Server network prefixes, these will appear as effective routes in any virtual machine deployed in the hub or in any spoke. For spokes to "learn" the Route Server routes, they need to be peered with the hub VNet with the setting "Use Remote Gateway". 
+However, if the NVA advertises network prefixes to the Route Server, they will appear as effective routes in any virtual machine deployed in the hub VNet or spoke VNets that are peered with the hub VNet with the setting "Use remote virtual network's gateway". 
 
 ## Connectivity to on-premises through the NVA
 
@@ -48,7 +48,7 @@ If a VPN or an ExpressRoute gateway exists in the same VNet as the Route Server 
 
 :::image type="content" source="./media/scenarios/route-injection-vpn-and-expressroute.png" alt-text="This network diagram shows a basic hub and spoke topology with on-premises connectivity via a V P N N V A and ExpressRoute.":::
 
-You can't configure the subnets in the spoke VNets to only learn the routes from the Azure Route Server. Disabling "Virtual network gateway route propagation" in a route table associated to a subnet would prevent both types of routes (routes from the Virtual Network Gateway and routes from the Azure Route Server) to be injected on NICs in that subnet.
+You can't configure the subnets in the spoke VNets to only learn the routes from the Azure Route Server. Disabling "Propagate gateway routes" in a route table associated to a subnet would prevent both types of routes (routes from the Virtual Network Gateway and routes from the Azure Route Server) to be injected on NICs in that subnet.
 
 Note that Azure Route Server per default will advertise all prefixes learned from the NVA to ExpressRoute too. This might not be desired, for example because of the route limits of ExpressRoute or the Route Server itself. In that case, the NVA can announce its routes to the Route Server including the BGP community `no-advertise` (with value 65535:65282). When Azure Route Server receives routes with this BGP community, it will push them to the subnets, but it will not advertise them to any other BGP peer (like ExpressRoute or VPN gateways, or other NVAs).
 
