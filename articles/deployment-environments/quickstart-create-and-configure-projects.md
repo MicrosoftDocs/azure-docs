@@ -84,14 +84,14 @@ Add a [project environment type](how-to-configure-project-environment-types.md) 
 > [!NOTE]
 > At least one identity (system assigned or user assigned) must be enabled for deployment.
 > 
-> If the identity attached to the dev center has not been granted 'Owner' access to the deployment subscription, the deployment identity should be [granted with 'Owner' access to the deployment subscription](how-to-configure-managed-identity.md)
+> If the identity attached to the dev center has not been granted 'Owner' access to the deployment subscription, the deployment identity should be [granted 'Owner' access to the deployment subscription](how-to-configure-managed-identity.md)
 
 ## Provide access to the development team
 
 1. On the **Project** page, select **Access Control (IAM)** from the left pane.
 1. Select **+ Add** > **Add role assignment**.
 
-    :::image type="content" source="media/quickstart-create-configure-projects/project-add-access-control-page.png" alt-text="Screenshot of the Access control page.":::
+    :::image type="content" source="media/quickstart-create-configure-projects/project-access-control-page.png" alt-text="Screenshot of the Access control page.":::
 
 1. On the **Add role assignment** page, provide the following details, and select **Save**:
     1. On the **Role** tab, select either [DevCenter Project Admin](how-to-configure-project-admin.md) or [Deployment Environments user](how-to-configure-deployment-environments-user.md).
