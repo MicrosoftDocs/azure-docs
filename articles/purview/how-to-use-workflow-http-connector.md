@@ -25,7 +25,7 @@ HTTP connector is available in all workflow templates.
 
     :::image type="content" source="./media/how-to-use-workflow-http-connector/add-http-connector.png" alt-text="Screenshot to add HTTP connector.":::
 
-1. Once you select HTTP connector, you will see the following parameters.
+1. Once you select HTTP connector, you will see the following parameters:
     1. Host - Request URL you want to call when this connector is executed.
     1. Method - Select one of the following methods. GET, PUT, PATCH, POST and DELETE. These correspond to create, read, update and delete operations.
     1. Path - Optionally you can enter request URL Path. You can use dynamic content for this parameter.
