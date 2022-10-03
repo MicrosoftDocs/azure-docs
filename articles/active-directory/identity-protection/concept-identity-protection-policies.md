@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 09/19/2022
+ms.date: 10/03/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -25,9 +25,9 @@ Azure AD Conditional Access offers two risk conditions: **Sign-in risk** and **U
 
 For example, as shown in the diagram below, if you have a sign-in risk policy that requires multifactor authentication when the sign-in risk level is medium or high, then the user must pass that access control if their sign-in session is detected to be at high risk.
 
-![Risk-based Conditional Access policy example diagram](./media/concept-identity-protection-policies/risk-based-conditional-access-policy-example.png)
+![Risk-based Conditional Access policy auto-remediation example diagram](./media/concept-identity-protection-policies/risk-based-conditional-access-policy-example.png)
 
-The example above also demonstrates a main benefit of risk-based policy: **automatic risk remediation**. When a user successfully completes the required access control that verified their identity, their risk will be automatically remediated. That sign-in session and their user account will not be at risk, and no action is needed from the administrator. 
+The example above also demonstrates a main benefit of risk-based policy: **automatic risk remediation**. When a user successfully completes the required access control that verified their identity, their risk will be automatically remediated. That sign-in session and their user account won't be at risk, and no action is needed from the administrator. 
 
 Automatic risk remediation will significantly reduce the risk investigation and remediation burden on the administrators while protecting your organizations from security compromises.
 More information about risk as a condition in a Conditional Access policy can be found in the article, [Conditional Access: Conditions](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk)
@@ -47,7 +47,6 @@ If risks are detected on a sign-in, users can perform the required access contro
 > [!NOTE] 
 > Users must have previously registered for Azure AD Multifactor Authentication before triggering the sign-in risk policy.
 
-
 ## User risk-based Conditional Access policy
 
 Identity Protection can calculate what it believes is normal for a user's behavior and use that to base decisions for their risk. User risk level is a calculation of probability that an identity has been compromised. If a user has risky sign-ins or there are risks such as leaked credentials detected on their account, then the user account is at risk with a user risk level calculated by Identity Protection.  Administrators can create a User risk-based Conditional Access policy to specify what access control to apply based when the user is at risk to enforce organizational requirements: block access, allow access, or allow access but require a secure password change using [Azure AD self-service password reset](../authentication/howto-sspr-deployment.md).
@@ -58,13 +57,15 @@ A secure password change will remediate the user risk and close the risky user e
 > Users must have previously registered for self-service password reset before triggering the user risk policy.
 
 ## Identity Protection policies
-While Identity Protection also offers a user interface for creating user risk policy and sign-in risk policy, we highly recommend that you use Azure AD Conditional Access to create risk-based access policies for the following benefits:
--	Rich set of conditions to control access: Conditional Access offers a rich set of conditions such as applications and locations for configuration. The risk conditions can be used in combination with other conditions to create policies that best enforce your organizational requirements.
--	Multiple risk-based policies can be put in place to target different user groups or apply different access control for different risk levels.
--	Conditional Access policies can be created through Microsoft Graph API and can be tested first in report-only mode.
--	Manage all access policies in one place in Conditional Access.
-If you already have Identity Protection risk policies set up, we encourage you to migrate them to Conditional Access.
 
+While Identity Protection also offers a user interface for creating user risk policy and sign-in risk policy, we highly recommend that you use Azure AD Conditional Access to create risk-based access policies for the following benefits:
+
+- Rich set of conditions to control access: Conditional Access offers a rich set of conditions such as applications and locations for configuration. The risk conditions can be used in combination with other conditions to create policies that best enforce your organizational requirements.
+- Multiple risk-based policies can be put in place to target different user groups or apply different access control for different risk levels.
+- Conditional Access policies can be created through Microsoft Graph API and can be tested first in report-only mode.
+- Manage all access policies in one place in Conditional Access.
+
+If you already have Identity Protection risk policies set up, we encourage you to migrate them to Conditional Access.
 
 ## Azure AD MFA registration policy
 
