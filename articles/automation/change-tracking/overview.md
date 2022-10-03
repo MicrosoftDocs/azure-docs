@@ -67,13 +67,25 @@ To understand client requirements for TLS 1.2, see [TLS 1.2 for Azure Automation
 
 ### Python requirement
 
-Change Tracking and Inventory only supports Python2. If your machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.
+Change Tracking and Inventory now support Python 2 and Python 3. If your machine uses a distro that doesn't include either of the versions, you must install them by default. The following sample commands will install Python 2 and Python 3 on different distros.
 
+> [!NOTE]
+> To use the OMS agent compatible with Python 3, ensure that you first uninstall Python 2; otherwise, the OMS agent will continue to run with python 2 by default.
+
+#### [Python 2](#tab/python-2)                                                                                                                                                      
 - Red Hat, CentOS, Oracle: `yum install -y python2`
 - Ubuntu, Debian: `apt-get install -y python2`
 - SUSE: `zypper install -y python2`
+> [!NOTE]
+> The Python 2 executable must be aliased to *python*.
 
-The python2 executable must be aliased to *python*.
+#### [Python 3](#tab/python-3)
+
+- Red Hat, CentOS, Oracle: `yum install -y python3`
+- Ubuntu, Debian: `apt-get install -y python3`
+- SUSE: `zypper install -y python3`
+
+--- 
 
 ## Network requirements
 

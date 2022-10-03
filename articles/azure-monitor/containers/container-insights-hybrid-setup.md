@@ -2,8 +2,8 @@
 title: Configure Hybrid Kubernetes clusters with Container insights | Microsoft Docs
 description: This article describes how you can configure Container insights to monitor Kubernetes clusters hosted on Azure Stack or other environment.
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.reviewer: aul
+ms.date: 08/29/2022
+ms.reviewer: viviandiec
 ---
 
 # Configure hybrid Kubernetes clusters with Container insights
@@ -317,7 +317,7 @@ Supported API definitions for the Azure Stack Hub cluster can be found in this e
 
 ## Configure agent data collection
 
-Staring with chart version 1.0.0, the agent data collection settings are controlled from the ConfigMap. Refer to documentation about agent data collection settings [here](container-insights-agent-config.md).
+Starting with chart version 1.0.0, the agent data collection settings are controlled from the ConfigMap. Refer to documentation about agent data collection settings [here](container-insights-agent-config.md).
 
 After you have successfully deployed the chart, you can review the data for your hybrid Kubernetes cluster in Container insights from the Azure portal.  
 

@@ -387,7 +387,7 @@ public class ThreadPoolStarvationDetector : EventListener
 
     protected override void OnEventWritten(EventWrittenEventArgs eventData)
     {
-        // See: https://docs.microsoft.com/en-us/dotnet/framework/performance/thread-pool-etw-events#threadpoolworkerthreadadjustmentadjustment
+        // See: https://learn.microsoft.com/dotnet/framework/performance/thread-pool-etw-events#threadpoolworkerthreadadjustmentadjustment
         if (eventData.EventId == EventIdForThreadPoolWorkerThreadAdjustmentAdjustment &&
             eventData.Payload[3] as uint? == ReasonForStarvation)
         {

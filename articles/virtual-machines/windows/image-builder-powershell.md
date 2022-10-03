@@ -4,7 +4,7 @@ description: In this article, you create a Windows VM by using the VM Image Buil
 author: kof-f
 ms.author: kofiforson
 ms.reviewer: cynthn
-ms.date: 03/02/2021
+ms.date: 09/12/2022
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: image-builder
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 ---
 # Create a Windows VM with VM Image Builder by using PowerShell
 
-**Applies to:** :heavy_check_mark: Windows VMs 
+**Applies to:** :heavy_check_mark: Windows VMs
 
 This article demonstrates how to create a customized Windows VM image by using the Azure VM Image
 Builder PowerShell module.
@@ -190,7 +190,7 @@ Grant Azure image builder permissions to create images in the specified resource
      Sku = '2019-Datacenter'
      Version = 'latest'
    }
-   $srcPlatform = New-AzImageBuilderSourceObject @SrcObjParams
+   $srcPlatform = New-AzImageBuilderTemplateSourceObject @SrcObjParams
    ```
 
 1. Create a VM Image Builder distributor object.
@@ -204,7 +204,7 @@ Grant Azure image builder permissions to create images in the specified resource
      RunOutputName = $runOutputName
      ExcludeFromLatest = $false
    }
-   $disSharedImg = New-AzImageBuilderDistributorObject @disObjParams
+   $disSharedImg = New-AzImageBuilderTemplateDistributorObject @disObjParams
    ```
 
 1. Create a VM Image Builder customization object.
@@ -216,7 +216,7 @@ Grant Azure image builder permissions to create images in the specified resource
      RunElevated = $false
      Inline = @("mkdir c:\\buildActions", "mkdir c:\\buildArtifacts", "echo Azure-Image-Builder-Was-Here  > c:\\buildActions\\buildActionsOutput.txt")
    }
-   $Customizer01 = New-AzImageBuilderCustomizerObject @ImgCustomParams01
+   $Customizer01 = New-AzImageBuilderTemplateCustomizerObject @ImgCustomParams01
    ```
 
 1. Create a second VM Image Builder customization object.
@@ -228,7 +228,7 @@ Grant Azure image builder permissions to create images in the specified resource
      Destination = 'c:\\buildArtifacts\\index.html'
      SourceUri = 'https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html'
    }
-   $Customizer02 = New-AzImageBuilderCustomizerObject @ImgCustomParams02
+   $Customizer02 = New-AzImageBuilderTemplateCustomizerObject @ImgCustomParams02
    ```
 
 1. Create a VM Image Builder template.
@@ -292,14 +292,14 @@ If you encounter errors, review [Troubleshoot Azure VM Image Builder failures](.
 1. Create the VM by using the image you created.
 
    ```azurepowershell-interactive
-   $ArtifactId = (Get-AzImageBuilderRunOutput -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup).ArtifactId
+   $ArtifactId = (Get-AzImageBuilderTemplateRunOutput -ImageTemplateName $imageTemplateName -ResourceGroupName $imageResourceGroup).ArtifactId
 
    New-AzVM -ResourceGroupName $imageResourceGroup -Image $ArtifactId -Name myWinVM01 -Credential $Cred
    ```
 
 ## Verify the customizations
 
-1. Create a Remote Desktop connection to the VM by using the username and password that you set when you created the VM. 
+1. Create a Remote Desktop connection to the VM by using the username and password that you set when you created the VM.
 
 1. Inside the VM, open PowerShell and run `Get-Content`, as shown in the following example:
 
