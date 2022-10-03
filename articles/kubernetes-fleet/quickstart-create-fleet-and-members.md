@@ -187,7 +187,7 @@ Fleet currently supports joining existing AKS clusters as member clusters.
     export MEMBER_NAME_2=member-2
     ```
 
-1. Join these target clusters to the Fleet resource using the following commands:
+1. Join these clusters to the Fleet resource using the following commands:
 
     ```azurecli-interactive
     az fleet member create \
