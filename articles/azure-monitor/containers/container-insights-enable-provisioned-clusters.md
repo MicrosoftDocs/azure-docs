@@ -34,56 +34,24 @@ CLI examples:
 
 ## Onboarding
 
-For testing provisioned cluster with onboarding extensions:
-
-Sample environment setup:
-
-```azcli 
-export k8sClusterName="akscluster0915"
-
-export resourceGroup="provCluGrpDs01"
-
-export location="eastus"
-
-export targetNamespace="arcextensions"
-
-export clusterRP="microsoft.hybridcontainerservice"
-
-export clusterType="provisionedclusters"
-
-
-$k8sClusterName="sampleClusterName"
-
-$resourceGroup="sampleResourceGroup"
-
-$location="sampleLocation"
-
-$targetNamespace="arcextensions"
-
-$clusterRP="microsoft.hybridcontainerservice"
-
-$clusterType="provisionedclusters"
-```
-
-
 ## Extension Onboarding with ARM Template using Managed Identity Auth
 
 1.1 Download the Azure Resource Manager Template and Parameter files
 
 ```bash
-curl -L [https://github.com/microsoft/Docker-Provider/tree/longw/lcm-private-preview/scripts/onboarding/templates/arc-k8s-extension-provisionedcluster-msi-auth](https://github.com/microsoft/Docker-Provider/tree/longw/lcm-private-preview/scripts/onboarding/templates/arc-k8s-extension-provisionedcluster-msi-auth) -o existingClusterOnboarding.json
+curl -L https://raw.githubusercontent.com/microsoft/Docker-Provider/longw/lcm-private-preview/scripts/onboarding/templates/arc-k8s-extension-provisionedcluster-msi-auth/existingClusterOnboarding.json -o existingClusterOnboarding.json
 ```
 
 ```bash
-curl -L [https://github.com/microsoft/Docker-Provider/tree/longw/lcm-private-preview/scripts/onboarding/templates/arc-k8s-extension-provisionedcluster-msi-auth](https://github.com/microsoft/Docker-Provider/tree/longw/lcm-private-preview/scripts/onboarding/templates/arc-k8s-extension-provisionedcluster-msi-auth) -o existingClusterParam.json
+curl -L https://raw.githubusercontent.com/microsoft/Docker-Provider/longw/lcm-private-preview/scripts/onboarding/templates/arc-k8s-extension-provisionedcluster-msi-auth/existingClusterParam.json -o existingClusterParam.json
 ```
 
 1.2 Edit the values in the parameter file.
 
-  - For clusterResourceIdand clusterRegion, use the values on the Overview page for the LCM cluster
+  - For clusterResourceId and clusterRegion, use the values on the Overview page for the LCM cluster
   - For workspaceResourceId, use the resource ID of your Log Analytics workspace
   - For workspaceRegion, use the Location of your Log Analytics workspace
-  - For workspaceDomain, use the domain of your Log Analytics workspace, this is optional
+  - For workspaceDomain, use the workspace domain value as “opinsights.azure.com” for public cloud and for Azure China cloud as “opinsights.azure.cn”
   - For resourceTagValues, leave as empty if not specific
 
 1.3 Deploy the ARM template
@@ -93,7 +61,7 @@ az login
 
 az account set --subscription "Cluster Subscription Name"
 
-az deployment group create --resource-group $resourceGroup --template-file ./existingClusterOnboarding.json --parameters existingClusterParam.json
+az deployment group create --resource-group "Resource Group Name" --template-file ./existingClusterOnboarding.json --parameters existingClusterParam.json
 ```
 
 ## Extension Onboarding with CLI using Managed Identity Auth
@@ -103,7 +71,7 @@ az login
 
 az account set --subscription "Cluster Subscription Name"
 
-az k8s-extension create --name azuremonitor-containers --cluster-name $k8sClusterName --resource-group $resourceGroup --cluster-type provisionedclusters --cluster-resource-provider microsoft.hybridcontainerservice --extension-type Microsoft.AzureMonitor.Containers --configuration-settings omsagent.useAADAuth=true
+az k8s-extension create --name azuremonitor-containers --cluster-name "Cluster Name" --resource-group "Cluster Resource Group" --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice" --extension-type Microsoft.AzureMonitor.Containers --configuration-settings omsagent.useAADAuth=true
 ```
 
 ## Validation
@@ -113,7 +81,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name $k8sCluste
 Showing the extension details:
 
 ```azcli
-az k8s-extension list --cluster-name $k8sClusterName --resource-group $resourceGroup --cluster-type $clusterType --cluster-resource-provider $clusterRP
+az k8s-extension list --cluster-name "Cluster Name" --resource-group "Resource Group Name" --cluster-type provisionedclusters --cluster-resource-provider "microsoft.hybridcontainerservice"
 ```
 
 ### Extension status
@@ -148,10 +116,10 @@ Table name can be: ContainerInventory, ContainerLog, ContainerNodeInventory, Ins
 The command for deleting the extension:
 
 ```azcli
-az k8s-extension delete --cluster-name $k8sClusterName --resource-group $resourceGroup --cluster-type $clusterType --cluster-resource-provider $clusterRP --name azuremonitor-containers --yes
+az k8s-extension delete --cluster-name "Cluster Name" --resource-group "Resource Group Name" --cluster-type provisionedclusters --cluster-resource-provider “microsoft.hybridcontainerservice" --name azuremonitor-containers --yes
 ```
 
 ## Known Issues/Limitations
 
 - Currently we do not support the onboarding & insights (single and multi-cluster) experience through azure portal, this capability will be available at public preview.
-- The metrics session does not support the provisioned resource type, the hybridaks team is working to onboard the provisioned cluster resource type to metrics
+- Custom metrics, custom metric alerts and recommended alerts are not supported at this time.
