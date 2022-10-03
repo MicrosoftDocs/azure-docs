@@ -119,6 +119,59 @@ To avoid issues while setting up customer-managed data encryption during restore
 * On the restored/replica server, you can change the customer-managed key and\or AAD identity used to access Azure Key Vault in the data encryption settings. Please make sure that the newly created server is given list, wrap and unwrap permissions to the key stored in Key Vault.
 * Please do not revoke original key after restoring, as at this time we don't support key revocation after restoring CMK enabled server to another server
 
+## Inaccessible customer-managed key condition
+
+When you configure data encryption with a customer-managed key in Key Vault, continuous access to this key is required for the server to stay online. If the server loses access to the customer-managed key in Key Vault, the server begins denying all connections within 10 minutes. The server issues a corresponding error message, and changes the server state to *Inaccessible*.
+
+## Setup Customer Managed Key during Server Creation
+
+
+Prerequisites:
+
+* AAD user managed identity in region where Postgres Flex Server will be created. Follow this [tutorial](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm) to create identity.
+* Key Vault with key in region where Postgres Flex Server will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal) to create Key Vault and generate key. Follow [requirements section above](#requirements-for-configuring-data-encryption-in-preview-for-azure-database-for-postgresql-flexible-server) for required Azure Key Vault settings
+
+Follow steps below to enable CMK while creating Postgres Flexible Server.
+
+* Navigate to Azure Database for PostgreSQL - Flexible Server create blade via Azure Portal
+
+* Provide required information on Basics and Networking tabs
+
+* Navigate to Security(preview) tab, provide AAD identity that has access to the Key Vault and Key in Key Vault in the same region where you are creating this server
+
+<img  src="./media/concepts-encryption/create2.png" alt-text="create security screen for PostgreSQL Flex Server" />
+
+
+* On Review Summary tab make sure that you provided correct information in Security section and press Create button
+
+
+<img  src="./media/concepts-encryption/create3.png" alt-text="summary screen for PostgreSQL Flex Server" />
+
+* Once  is created you should be able to navigate to Data Encryption (preview) screen for the server and update identity or key if necessary
+
+<img  src="./media/concepts-encryption/edit1.png" alt-text="encryption preview screen for PostgreSQL Flex Server" />
+
+## Update Customer Managed Key on the CMK enabled Flexible Server
+
+Prerequisites:
+
+* AAD user managed identity in region where Postgres Flex Server will be created. Follow this [tutorial](../../active-directory/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm) to create identity.
+* Key Vault with key in region where Postgres Flex Server will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal) to create Key Vault and generate key. 
+
+Follow steps below to update CMK on CMK enabled Flexible Server:
+* Navigate to Azure Database for PostgreSQL - Flexible Server create blade via Azure Portal.
+* Navigate to Data Encryption (preview) screen under Security tab
+
+<img  src="./media/concepts-encryption/edit1.png" alt-text="encryption preview screen for PostgreSQL Flex Server" />
+
+* Select different identity to connect to Azure Key Vault , remembering that this identity needs to have proper access rights to the Key Vault
+
+<img  src="./media/concepts-encryption/identity1.png" alt-text="identity pick for PostgreSQL Flex Server" />
+
+* Select different key by choosing subscription, Key Vault and key from dropdowns provided.
+
+<img  src="./media/concepts-encryption/key1.png" alt-text="Key pick for PostgreSQL Flex Server" />
+
 ## Limitations
 
 The following are limitations for configuring the customer-managed key in Flexible Server:
