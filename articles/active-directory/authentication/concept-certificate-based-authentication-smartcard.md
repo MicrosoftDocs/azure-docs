@@ -41,27 +41,27 @@ Users will get a primary refresh token (PRT) from Azure AD after the successful 
 |First sign-in | Pull from certificate | AD UPN or x509Hint |
 |Subsequent sign-in | Pull from certificate | Cached Azure AD UPN |
 
-**Windows rules for sending UPN for Azure AD join machines**
+### Windows rules for sending UPN for Azure AD join machines
 
-Windows will follow the order below to find the UPN value from the certificate
+Windows will follow this order to find the UPN value from the certificate:
 1. SAN Principal Name 
 1. SAN RFC822 Name 
-1. user must enter the username login hint
+1. User must enter the username login hint
 
-If there is no UPN in the certificate or if subject has E=xx or CN=xx, the entire value is sent which will not work so the user must enter the X509UserNameHint i.e  username login hint.
+If no UPN is in the certificate, or if the subject has E=xx or CN=xx, the entire value is sent, which will not work. The user must enter the username login hint (X509UserNameHint).
 
-**Windows rules for sending UPN for Hybrid Azure AD join machines**
+### Windows rules for sending UPN for Hybrid Azure AD join machines
 
-Once AD login is successful, the AD UPN will be sent as the UPN to Azure AD. 
-If the mapping uses a non-routable UPN (user@woodgrove.local) then Azure AD is able to locate the user's tenant via the domain hint supplied and the user in the tenant is found by matching against the user's **onPremisesUserPrincipalName** attribute.
+Once AD login is successful, the AD UPN will be sent to Azure AD. 
+If the mapping uses a non-routable UPN such as user@woodgrove.local, then Azure AD can locate the user's tenant by using the domain hint supplied, and the user in the tenant is found by matching against the user's **onPremisesUserPrincipalName** attribute.
 The user's Azure AD UPN is cached and sent in subsequent sign-ins.
 
- >[!NOTE]
- >In all cases, a user supplied User Name Hint (x509Hint) will be sent if provided. For a cloud-only user on a device joined to Azure AD with a certificate that contains a non-routable value, the user must pass the User Name Hint (x509Hint).
+>[!NOTE]
+>In all cases, a user supplied User Name Hint (x509Hint) will be sent if provided. For a cloud-only user on a device joined to Azure AD with a certificate that contains a non-routable value, the user must pass the User Name Hint (x509Hint).
 
-More information on the flow can be found at [Certificate Requirements and Enumeration (Windows)](/windows/security/identity-protection/smart-cards/smart-card-certificate-requirements-and-enumeration)
+For more information about the flow, see [Certificate Requirements and Enumeration (Windows)](/windows/security/identity-protection/smart-cards/smart-card-certificate-requirements-and-enumeration).
 
-## Supported windows platforms
+## Supported Windows platforms
 
 The Windows smart card sign-in works with the latest preview build of Windows 11. The functionality is also available for these earlier Windows versions after you apply update [KB5017383](https://support.microsoft.com/topic/september-20-2022-kb5017383-os-build-22000-1042-preview-62753265-68e9-45d2-adcb-f996bf3ad393):
 
