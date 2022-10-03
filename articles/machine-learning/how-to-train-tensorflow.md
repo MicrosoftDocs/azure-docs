@@ -134,7 +134,7 @@ In the training script `tf_mnist.py`, we create a simple deep neural network (DN
 - Two hidden layers. The first hidden layer has 300 neurons and the second hidden layer has 100 neurons; and
 - An output layer with 10 neurons. Each neuron represents a targeted label from 0 to 9.
 
-:::image type="content" source="media/how-to-train-tensorflow/neural_network.png" alt-text="Diagram showing a deep neural network with 784 neurons at the input layer, two hidden layers, and 10 neurons at the output layer.":::
+:::image type="content" source="media/how-to-train-tensorflow/neural-network.png" alt-text="Diagram showing a deep neural network with 784 neurons at the input layer, two hidden layers, and 10 neurons at the output layer.":::
 
 ### Build the training job
 
