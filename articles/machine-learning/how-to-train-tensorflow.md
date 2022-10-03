@@ -8,7 +8,7 @@ ms.subservice: core
 ms.author: balapv
 author: balapv
 ms.reviewer: mopeakande
-ms.date: 02/23/2022
+ms.date: 10/03/2022
 ms.topic: how-to
 ms.custom: sdkv2, event-tier1-build-2022
 #Customer intent: As a TensorFlow developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale.
@@ -59,7 +59,7 @@ First, you'll need to connect to your AzureML workspace. The [AzureML workspace]
 
 We're using `DefaultAzureCredential` to get access to the workspace. This credential should be capable of handling most Azure SDK authentication scenarios.
 
-If `DefaultAzureCredential` does not work for you, see [`azure-identity reference documentation`](/python/api/azure-identity/azure.identity) or [`Set up authentication`](how-to-setup-authentication.md?tabs=sdk) for more available credentials.
+If `DefaultAzureCredential` doesn't work for you, see [`azure-identity reference documentation`](/python/api/azure-identity/azure.identity) or [`Set up authentication`](how-to-setup-authentication.md?tabs=sdk) for more available credentials.
 
 [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=credential)]
 
@@ -114,7 +114,7 @@ You'll use data from the Modified National Institute of Standards and Technology
 
 [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=data_url)]
 
-For more information about the MNIST dataset, please visit [Yan LeCun's website](http://yann.lecun.com/exdb/mnist/).
+For more information about the MNIST dataset, visit [Yan LeCun's website](http://yann.lecun.com/exdb/mnist/).
 
 ### Prepare the training script
 
@@ -128,17 +128,17 @@ In this article, we've provided the training script *tf_mnist.py*. In practice, 
 
 During the pipeline run, you'll use MLFlow to log the parameters and metrics. To learn how to enable MLFlow tracking, see [Track ML experiments and models with MLflow](how-to-use-mlflow-cli-runs.md).
 
-In the In the training script `tf_mnist.py`, we create a simple deep neural network (DNN). This DNN has:
+In the training script `tf_mnist.py`, we create a simple deep neural network (DNN). This DNN has:
 
-- an input layer with 28 * 28 = 784 neurons — each neuron represents an image pixel;
-- two hidden layers — the first hidden layer has 300 neurons and the second hidden layer has 100 neurons; and
-- an output layer with 10 neurons — each neuron represents a targeted label from 0 to 9.
+- An input layer with 28 * 28 = 784 neurons. Each neuron represents an image pixel;
+- Two hidden layers. The first hidden layer has 300 neurons and the second hidden layer has 100 neurons; and
+- An output layer with 10 neurons. Each neuron represents a targeted label from 0 to 9.
 
 :::image type="content" source="media/how-to-train-tensorflow/neural_network.png" alt-text="Diagram showing a deep neural network with 784 neurons at the input layer, two hidden layers, and 10 neurons at the output layer.":::
 
 ### Build the training job
 
-Now that you have all the assets required to run your job, it's time to build it using the AzureML Python SDK v2. For this, we'll be creating a `command`.
+Now that you have all the assets required to run your job, it's time to build it using the AzureML Python SDK v2. For this example, we'll be creating a `command`.
 
 An AzureML `command` is a resource that specifies all the details needed to execute your training code in the cloud. These details include the inputs and outputs, type of hardware to use, software to install, and how to run your code. The `command` contains information to execute a single command.
 
@@ -150,15 +150,15 @@ You'll use the general purpose `command` to run the training script and perform 
 [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=job)]
 
 - The inputs for this command include the data location, batch size, number of neurons in the first and second layer, and learning rate.
-    - Note that we've passed in the webpath directly as an input.
+    - We've passed in the web path directly as an input.
 
 - For the parameter values:
     - provide the compute cluster `gpu_compute_target = "gpu-cluster"` that you created for running this command;
     - provide the curated environment `curated_env_name` that you declared earlier;
     - configure the command line action itself—in this case, the command is `python tf_mnist.py`. You can access the inputs and outputs in the command via the `${{ ... }}` notation; and
-    - configure metadata such as the display name and experiment name; where an experiment is a container for all the iterations one does on a certain project. Note that all the jobs submitted under the same experiment name would be listed next to each other in AzureML studio.
+    - configure metadata such as the display name and experiment name; where an experiment is a container for all the iterations one does on a certain project. All the jobs submitted under the same experiment name would be listed next to each other in AzureML studio.
  
-- In this example, you'll use the `UserIdentity` to run the command. This means that the command will use your identity to run the job and access the data from the blob.
+- In this example, you'll use the `UserIdentity` to run the command. Using a user identity means that the command will use your identity to run the job and access the data from the blob.
 
 ### Submit the job
 
@@ -182,7 +182,7 @@ As the job is executed, it goes through the following stages:
 
 ## Tune model hyperparameters
 
-Now that you've seen how to do a simple TensorFlow training run using the SDK, let's see if you can further improve the accuracy of your model. You can tune and optimize your model's hyperparameters using Azure Machine Learning's [`sweep`](/python/api/azure-ai-ml/azure.ai.ml.sweep) capabilities.
+Now that you've seen how to do a TensorFlow training run using the SDK, let's see if you can further improve the accuracy of your model. You can tune and optimize your model's hyperparameters using Azure Machine Learning's [`sweep`](/python/api/azure-ai-ml/azure.ai.ml.sweep) capabilities.
 
 To tune the model's hyperparameters, define the parameter space in which to search during training. You'll do this by replacing some of the parameters (`batch_size`, `first_layer_neurons`, `second_layer_neurons`, and `learning_rate`) passed to the training job with special inputs from the `azure.ml.sweep` package.
 
@@ -190,7 +190,7 @@ To tune the model's hyperparameters, define the parameter space in which to sear
 
 Then, you'll configure sweep on the command job, using some sweep-specific parameters, such as the primary metric to watch and the sampling algorithm to use.
 
-In the following code we use random sampling to try different configuration sets of hyperparameters in an attempt to maximize our primary metric, `validation_acc`.
+In the following code, we use random sampling to try different configuration sets of hyperparameters in an attempt to maximize our primary metric, `validation_acc`.
 
 We also define an early termination policy—the `BanditPolicy`. This policy operates by checking the job every two iterations. If the primary metric, `validation_acc`, falls outside the top ten percent range, AzureML will terminate the job. This saves the model from continuing to explore hyperparameters that show no promise of helping to reach the target metric.
 
@@ -219,7 +219,7 @@ After you've registered your model, you can deploy it as an [online endpoint](co
 
 To deploy a machine learning service, you'll typically need:
 - The model assets that you want to deploy. These assets include the model's file and metadata that you already registered in your training job.
-- Some code to run as a service. The code executes the model on a given input request (an entry script). This entry script receives data submitted to a deployed web service and passes it to the model. After the model processes the data, the script returns the model's response to the client. The script is specific to your model and must understand the data that the model expects and returns. When using an MLFlow model, AzureML automatically creates this script for you.
+- Some code to run as a service. The code executes the model on a given input request (an entry script). This entry script receives data submitted to a deployed web service and passes it to the model. After the model processes the data, the script returns the model's response to the client. The script is specific to your model and must understand the data that the model expects and returns. When you use an MLFlow model, AzureML automatically creates this script for you.
 
 For more information about deployment, see [Deploy and score a machine learning model with managed online endpoint using Python SDK v2](how-to-deploy-managed-online-endpoint-sdk-v2.md).
 
@@ -237,14 +237,14 @@ Once you've created the endpoint, you can retrieve it as follows:
 
 ### Deploy the model to the endpoint
 
-After you've created the endpoint, you can deploy the model with the entry script. Note that an endpoint can have multiple deployments. The endpoint can then direct traffic to these deployments, using rules.
+After you've created the endpoint, you can deploy the model with the entry script. An endpoint can have multiple deployments. The endpoint can then direct traffic to these deployments, using rules.
 
-In the following code, you'll create a single deployment that handles 100% of the incoming traffic. We've specified an arbitrary color name (*tff-blue*) for the deployment. You could just as well use any other name such as *tff-green* or *tff-red* for the deployment.
+In the following code, you'll create a single deployment that handles 100% of the incoming traffic. We've specified an arbitrary color name (*tff-blue*) for the deployment. You could also use any other name such as *tff-green* or *tff-red* for the deployment.
 The code to deploy the model to the endpoint does the following:
 
-- deploys the best version of the model that you registered earlier;
-- scores the model, using the `core.py` file; and
-- uses the same curated environment (that you declared earlier) to perform inferencing.
+- Deploys the best version of the model that you registered earlier;
+- Scores the model, using the `core.py` file; and
+- Uses the same curated environment (that you declared earlier) to perform inferencing.
 
 [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb?name=blue_deployment)]
 
