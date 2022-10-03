@@ -1,11 +1,7 @@
 ---
 title: Details of the policy assignment structure
 description: Describes the policy assignment definition used by Azure Policy to relate policy definitions and parameters to resources for evaluation.
-<<<<<<< HEAD
-ms.date: 09/06/2022
-=======
-ms.date: 09/21/2022
->>>>>>> 79b8f81d6cdd14e8ab7dc5866bf8d649e79d7347
+ms.date: 10/03/2022
 ms.topic: conceptual
 ms.author: timwarner
 author: timwarner-msft
@@ -113,7 +109,6 @@ _common_ properties used by Azure Policy. Each `metadata` property has a limit o
   any.
 - `updatedOn` (string): The Universal ISO 8601 DateTime format of the assignment update time, if
   any.
-<<<<<<< HEAD
 - `evidenceStorages` (object): An array of storage containers which can hold attestation evidence for policy assignments with a `manual` effect. The `displayName` is the user-friendly name of the storage account, `evidenceStorageAccountID` is the resource ID of the storage account, and `evidenceBlobcontainer` is the name of blob container for the evidence to be stored at.
 
     ```json
@@ -195,12 +190,12 @@ shows our policy assignment with two additional Azure regions added to the **SDP
 ```
 
 Multiple resource selectors can be specified in a single assignment. Each resource selector has the following properties:
-- `name`: The name of the resource selector. 
+- `name`: The name of the resource selector.
 - `selectors`: The component used to narrow down which subset of resources applicable to the policy assignment should be evaluated for compliance. Each **resource selector** contains one list of selectors.
   - `kind`: The property of a `selector` that describes what will narrow down the set of evaluated resources. Allowed values are `resourceLocation`, `resourceType`, and `resourceWithoutLocation`.
   - `in`: The list of allowed values for the specified `kind`. Cannot be used with `notIn`.
   - `notIn`: The list of not-allowed values for the specified `kind`. Cannot be used with `in`.
-    
+
 ## Overrides (preview)
 
 The optional **overrides** property allows you to change the effect of a policy definition without modifying
@@ -240,9 +235,6 @@ Note that one override can be used to replace the effect value of many policies 
 > [!NOTE]
 > Although the preceding example shows an override in the context of a resource selector, this is optional. That is,
 > you can use overrides independent of resource selectors.
-=======
-- `evidenceStorages` (object): An array of storage containers that holds attestation evidence for policy assignments with a `manual` effect. The `displayName` property is the name of the storage account. The `evidenceStorageAccountID` property is the resource ID of the storage account. The  `evidenceBlobContainer` property is the blob container name in which you plan to store the evidence.
->>>>>>> 79b8f81d6cdd14e8ab7dc5866bf8d649e79d7347
 
     ```json
     {
