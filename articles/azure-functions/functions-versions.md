@@ -141,7 +141,7 @@ Azure Functions provides a pre-upgrade validator to help you identify potential 
 
 ### Migrate without slots
 
-The simplest way to upgrade to v4.x is to set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` on your function app in Azure. When your function app runs on Windows, you also need to update the `netFrameworkVersion` site setting in Azure. You must follow a [different procedure](#migrate-using-slots) on a site with slots. 
+The simplest way to upgrade to v4.x is to set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` on your function app in Azure. You must follow a [different procedure](#migrate-using-slots) on a site with slots. 
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -224,8 +224,7 @@ The [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfun
     az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
     ```
 
-::: zone pivot="programming-language-csharp"  
-1. Version 4.x of the Functions runtime requires .NET 6. Use the following command so that the runtime can run on .NET 6:
+1. (.NET only) Version 4.x of the Functions runtime requires .NET 6. Use the following command so that the runtime can run on .NET 6:
    
     # [Windows](#tab/windows)
 
@@ -246,7 +245,6 @@ The [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfun
     ---
 
     In this example, replace `<APP_NAME>` with the name of your function app and `<RESOURCE_GROUP_NAME>` with the name of the resource group. 
-::: zone-end
 
 1. If your code project required any updates to run on version 4.x, deploy those updates to the staging slot now.
 
@@ -290,8 +288,7 @@ To minimize the downtime in your production app, you can swap the `WEBSITE_OVERR
     az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
     ```
 
-::: zone pivot="programming-language-csharp"  
-1. Version 4.x of the Functions runtime requires .NET 6. Use the following command so that the runtime can run on .NET 6:
+1. (.NET only) Version 4.x of the Functions runtime requires .NET 6. Use the following command so that the runtime can run on .NET 6:
    
     # [Windows](#tab/windows)
 
@@ -312,7 +309,6 @@ To minimize the downtime in your production app, you can swap the `WEBSITE_OVERR
     ---
 
     In this example, replace `<APP_NAME>` with the name of your function app and `<RESOURCE_GROUP_NAME>` with the name of the resource group. 
-::: zone-end
 
 1. If your code project required any updates to run on version 4.x, deploy those updates to the staging slot now.
 
