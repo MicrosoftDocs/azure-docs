@@ -52,7 +52,7 @@ Available AWS regulatory standards:
 - AWS CIS 1.2.0
 - AWS PCI DSS 3.2.1
 
-**GPC**:  By default, every GCP connector subscription has the **GCP Default** assigned. This is the GCP-specific guidelines for security and compliance best practices based on common compliance frameworks.
+**GCP**:  By default, every GCP connector subscription has the **GCP Default** assigned. This is the GCP-specific guidelines for security and compliance best practices based on common compliance frameworks.
 
 Available GCP regulatory standards:
 
