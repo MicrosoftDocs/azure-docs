@@ -56,6 +56,10 @@ To troubleshoot issues related to SMS delivery, you can [enable delivery reporti
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md#clean-up-resources).
 
+## Toll-free verification
+
+If you have a new toll-free number and want to send [high volume of SMS messages](../../concepts/sms/sms-faq.md#what-happens-if-i-dont-verify-my-toll-free-numbers) or send SMS messages to Canadian phone numbers, please visit [here](../../concepts/sms/sms-faq.md#how-do-i-submit-a-toll-free-verification) to learn how to verify your toll-free number. 
+
 ## Next steps
 
 In this quickstart, you learned how to send SMS messages by using Communication Services.
