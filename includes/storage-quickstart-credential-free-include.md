@@ -34,13 +34,9 @@ For example, your app can authenticate using your Visual Studio sign-in credenti
 
 You can authorize access to data in your storage account using the following steps:
 
-1. Make sure you're authenticated with the same Azure AD account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio, or Azure PowerShell.
+1. [!INCLUDE [default-azure-credential-sign-in](passwordless/default-azure-credential-sign-in.md)]
 
-    [!INCLUDE [default-azure-credential-sign-in](default-azure-credential-sign-in.md)]
-
-2. To use `DefaultAzureCredential`, add the **Azure.Identity** package to your application.
-
-    [!INCLUDE [visual-studio-add-identity](visual-studio-add-identity.md)]
+2. [!INCLUDE [visual-studio-add-identity](passwordless/visual-studio-add-identity.md)]
 
 3. Update your *Program.cs* code to match the following example. When the code is run on your local workstation during development, it will use the developer credentials of the prioritized tool you're logged into to authenticate to Azure, such as the Azure CLI or Visual Studio.
 

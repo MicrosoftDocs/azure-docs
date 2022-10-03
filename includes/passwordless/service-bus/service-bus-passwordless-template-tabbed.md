@@ -16,7 +16,7 @@ ms.custom: include file
 
 ## [Passwordless (Recommended)](#tab/managed-identity)
 
-[!INCLUDE [passwordless-default-azure-credential-overview](../passwordless-default-azure-credential-overview.md)]
+[!INCLUDE [passwordless-default-azure-credential-overview](../default-azure-credential-overview.md)]
 
 ### Assign roles to your Azure AD user
 
@@ -26,9 +26,9 @@ ms.custom: include file
 
 You can authorize access to the service bus namespace using the following steps:
 
-[!INCLUDE [default-azure-credential-sign-in](../../default-azure-credential-sign-in.md)]
+[!INCLUDE [default-azure-credential-sign-in](../default-azure-credential-sign-in.md)]
 
-[!INCLUDE [visual-studio-add-identity](../../visual-studio-add-identity.md)]
+[!INCLUDE [visual-studio-add-identity](../visual-studio-add-identity.md)]
 
 ## [Connection String](#tab/connection-string)
 
