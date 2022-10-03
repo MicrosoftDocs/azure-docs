@@ -1,5 +1,5 @@
 ---
-title: Defender for Cloud Planning multicloud security determine business needs guidance
+title: Defender for Cloud Planning multicloud security determining business needs guidance
 description: Learn about determining business needs to meet business goals in multicloud environment with Microsoft Defender for Cloud.
 ms.topic: how-to
 ms.date: 10/03/2022
@@ -7,7 +7,7 @@ ms.date: 10/03/2022
 
 # Determine business needs
 
-This article is one of a series providing guidance as you design a cloud security posture management (CSPM) and cloud workload protection platform (CWPP) solution across multicloud resources with Microsoft Defender for Cloud.
+This article is part of a series to provide guidance as you design a cloud security posture management (CSPM) and cloud workload protection platform (CWPP) solution across multicloud resources with Microsoft Defender for Cloud.
 
 ## Goal
 
@@ -15,7 +15,7 @@ Identify how Defender for Cloud’s multicloud capabilities can help your organi
 
 ## Get started
 
-The first step in designing a multicloud security solution is to determine your business needs. Every company, even those in the same industry, has different requirements. Best practices can provide general guidance, but specific requirements are determined by your unique business needs.
+The first step in designing a multicloud security solution is to determine your business needs. Every company, even if in the same industry, has different requirements. Best practices can provide general guidance, but specific requirements are determined by your unique business needs.
 As you start defining requirements, answer these questions:
 
 - Does your company need to assess and strengthen the security configuration of its cloud resources?
@@ -47,4 +47,4 @@ The diagram below shows the Defender for Cloud architecture. Defender for Cloud 
 
 ## Next steps
 
-In this article, you have learned how to determine your business needs when designing a multicloud security solution. Continue with the next step to [determine an adoption strategy](plan-multicloud-security-define-adoption-strategy.md).
+In this article, you've learned how to determine your business needs when designing a multicloud security solution. Continue with the next step to [determine an adoption strategy](plan-multicloud-security-define-adoption-strategy.md).
