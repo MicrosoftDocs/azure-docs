@@ -5,7 +5,7 @@ author: cwatson-cat
 ms.author: cwatson
 ms.service: microsoft-sentinel
 ms.topic: tutorial 
-ms.date: 09/23/2022
+ms.date: 10/03/2022
 ms.custom: template-tutorial
 #Customer intent: As an Azure account administrator, I want to archive older but less used data to save retention costs.
 ---
@@ -37,7 +37,8 @@ To complete the steps in this tutorial, you must have the following resources an
 - Log Analytics workspace.
 
 ## Set the retention policy for a table
-<!-- Introduction paragraph -->
+
+In your Log Analytics workspace, set the number of days for the interactive retention so . Then, change the total retention policy for a table like **SecurityEvents** to archive 30 days of data.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the Azure portal, search for and open **Log Analytics workspaces**.
@@ -53,6 +54,8 @@ To complete the steps in this tutorial, you must have the following resources an
    |Workplace settings     | Clear the checkbox        |
    |Interactive retention    |  30 days       |
    |Total retention period     |     60 days    |
+
+   :::image type="content" source="media/configure-data-retention/data-retention-settings.png" alt-text="Screenshot of the data retention settings that shows the changes to the fields under the data retention section.":::
 
 1. Select **Save**.
 
