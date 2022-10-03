@@ -66,11 +66,11 @@ The following scenarios are supported:
 
 The following scenarios aren't supported:
 
-- Certificate Authority hints aren't supported, so the list of certificates that appears for users in the UI isn't scoped.
+- Certificate Authority hints aren't supported, so the list of certificates that appears for users in the certificate picket UI isn't scoped.
 - Only one CRL Distribution Point (CDP) for a trusted CA is supported.
 - The CDP can be only HTTP URLs. We don't support Online Certificate Status Protocol (OCSP), or Lightweight Directory Access Protocol (LDAP) URLs.
-- Configuring other certificate-to-user account bindings, such as using the **subject**, **subject + issuer** or **Issuer + Serial Number**, aren’t available in this release.
-- Currently, password can't be disabled when CBA is enabled and the option to sign in using a password is displayed.
+- Configuring other certificate-to-user account bindings, such as using the **Subject**, **Subject + Issuer** or **Issuer + Serial Number**, aren’t available in this release.
+- Password as an authentication method cannot be disabled and the option to sign in using a password is displayed even with Azure AB CBA method available to the user.
 
 ## Out of Scope
 
