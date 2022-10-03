@@ -43,7 +43,7 @@ If you're a Java developer, try the following quickstart:
 
 If you're a Node.js developer, try the following quickstart.
 
-[Quickstart: Add sign-in with Microsoft to a Node.js web app - MSAL](quickstart-v2-nodejs-webapp-msal.md)
+[Quickstart: Node.js web app that signs in users with MSAL Node](web-app-quickstart.md?pivots=devlang-nodejs-msal)
 
 # [Python](#tab/python)
 
