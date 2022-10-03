@@ -187,7 +187,7 @@ To control the percentage of messages containing this property, implement logic 
 
 ## Update sampling options 
 
-To change the percentage of messages to be traced from the cloud, you must update the device twin. You can accomplish this in multiple ways including the JSON editor in the Azure portal and the IoT Hub service SDK. The following subsections provide examples.
+To change the percentage of messages to be traced from the cloud, you must update the device twin. Updates can be made, using the JSON editor in the Azure portal or the IoT Hub service SDK. The following subsections provide examples.
 
 ### Update using the portal
 
@@ -201,7 +201,7 @@ To change the percentage of messages to be traced from the cloud, you must updat
 
 1. Wait a few seconds, and hit **Refresh**, then if successfully acknowledged by device, a sync icon with a checkmark appears.
 
-1. Go back to the console window for the telemetry message app. You will see messages being sent with `tracestate` in the application properties.
+1. Go back to the console window for the telemetry message app. You'll see messages being sent with `tracestate` in the application properties.
 
    :::image type="content" source="media/iot-hub-distributed-tracing/MicrosoftTeams-image.png" alt-text="Screenshot showing trace state messages." lightbox="media/iot-hub-distributed-tracing/MicrosoftTeams-image.png":::
 
@@ -215,11 +215,11 @@ To change the percentage of messages to be traced from the cloud, you must updat
 
    See a demonstration on the [**vscode-azure-iot-toolkit**](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub) GitHub page.
 
-1. Expand your device under **Devices** and look for **Distributed Tracing Setting (Preview)**. Right-click **Enable Distributed Tracing: Disabled** and choose **Edit...**. A popup window will appear at the top where you can select **Enable**. You now see **Enable Distributed Tracing: Enabled** in the Azure IoT Hub section.
+1. Expand your device under **Devices** and look for right-click **Distributed Tracing Setting (Preview)**. Select the option **Update Distributed Tracing Setting (Preview)**. A popup window will appear at the top where you can select **Enable**. You now see **Enable Distributed Tracing: Enabled** under **Desired** of your **Distributed Tracing Setting (Preview)**.
 
    :::image type="content" source="media/iot-hub-distributed-tracing/enable-distributed-tracing-vsc.png" alt-text="Screenshot showing how to enable distributed tracing in the Azure IoT Hub extension.":::
 
-1. Use this same method to update the **Sampling Rate** to 100%. Right-click **Sampling Rate**, then choose **Edit**, and finally change your sampling rate in the popup window to **100**.
+1. Next a popup will appear for **Sampling Rate**. Add **100**, then press ENTER. You now see **Sample rate: 100(%)** under the **Desired** section as well.
 
     ![Update sampling rate](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-3.png)
 
@@ -279,7 +279,7 @@ Many IoT solutions, including our own [reference architecture](/azure/architectu
 
 ### Distributed tracing pattern in microservice architecture
 
-To reconstruct the flow of an IoT message across different services, each service should propagate a *correlation ID* that uniquely identifies the message. Once collected in a centralized system, correlation IDs enable you to see message flow. This method is called the [distributed tracing pattern](/azure/architecture/microservices/logging-monitoring#distributed-tracing).
+To reconstruct the flow of an IoT message across different services, each service should propagate a *correlation ID* that uniquely identifies the message. Once collected by Azure Monitor in a centralized system, correlation IDs enable you to see message flow. This method is called the [distributed tracing pattern](/azure/architecture/microservices/logging-monitoring#distributed-tracing).
 
 To support wider adoption for distributed tracing, Microsoft is contributing to [W3C standard proposal for distributed tracing](https://w3c.github.io/trace-context/).
 
