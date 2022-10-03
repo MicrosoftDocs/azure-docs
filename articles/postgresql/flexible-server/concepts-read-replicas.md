@@ -81,7 +81,7 @@ The replica inherits the admin account from the primary server. All user account
 You can connect to the replica by using its hostname and a valid user account, as you would on a regular Azure Database for PostgreSQL server. For a server named **my replica** with the admin username **myadmin**, you can connect to the replica by using psql:
 
 ```bash
-psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
+psql -h myreplica.postgres.database.azure.com -U myadmin -d postgres
 ```
 
 At the prompt, enter the password for the user account.
