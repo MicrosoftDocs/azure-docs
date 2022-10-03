@@ -130,7 +130,7 @@ When you configure data encryption with a customer-managed key in Key Vault, con
 
 Prerequisites:
 
-* AAD user managed identity in region where Postgres Flex Server will be created. Follow this [tutorial](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm) to create identity.
+* AAD user managed identity in region where Postgres Flex Server will be created. Follow this [tutorial](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) to create identity.
 * Key Vault with key in region where Postgres Flex Server will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal) to create Key Vault and generate key. Follow [requirements section above](#requirements-for-configuring-data-encryption-in-preview-for-azure-database-for-postgresql-flexible-server) for required Azure Key Vault settings
 
 Follow steps below to enable CMK while creating Postgres Flexible Server.
@@ -151,8 +151,8 @@ Follow steps below to enable CMK while creating Postgres Flexible Server.
 
 Prerequisites:
 
-* AAD user managed identity in region where Postgres Flex Server will be created. Follow this [tutorial](../../active-directory/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm) to create identity.
-* Key Vault with key in region where Postgres Flex Server will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal) to create Key Vault and generate key. 
+* AAD user managed identity in region where Postgres Flex Server will be created. Follow this [tutorial](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) to create identity.
+* Key Vault with key in region where Postgres Flex Server will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal.md) to create Key Vault and generate key. 
 
 Follow steps below to update CMK on CMK enabled Flexible Server:
 * Navigate to Azure Database for PostgreSQL - Flexible Server create blade via Azure Portal.
