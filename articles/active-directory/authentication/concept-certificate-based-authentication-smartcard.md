@@ -1,6 +1,6 @@
 ---
-title: Windows smart card logon using Azure Active Directory certificate-based authentication - Azure Active Directory
-description: Learn how to enable Windows smart card logon using Azure Active Directory certificate-based authentication
+title: Windows smart card sign-in using Azure Active Directory certificate-based authentication - Azure Active Directory
+description: Learn how to enable Windows smart card sign-in using Azure Active Directory certificate-based authentication
 
 services: active-directory
 ms.service: active-directory
@@ -18,7 +18,7 @@ ms.custom: has-adal-ref
 ---
 # Windows smart card sign-in using Azure Active Directory certificate-based authentication
 
-Azure Active Directory (Azure AD) users can authenticate using X.509 certificates on their smart cards directly against Azure AD at Windows logon. There's no special configuration needed on the Windows client to accept the smart card authentication. 
+Azure Active Directory (Azure AD) users can authenticate using X.509 certificates on their smart cards directly against Azure AD at Windows sign-in. There's no special configuration needed on the Windows client to accept the smart card authentication. 
  
 ## User experience 
 
@@ -30,18 +30,18 @@ Follow these steps to set up Windows smart card sign-in:
 1. Present the physical or virtual smart card to the test machine.
 1. Select the smart card icon, enter the PIN, and authenticate the user.  
 
-   :::image type="content" border="false" source="./media/concept-certificate-based-authentication/smartcard.png" alt-text="Screenshot of smart card sign in.":::
+   :::image type="content" border="false" source="./media/concept-certificate-based-authentication/smartcard.png" alt-text="Screenshot of smart card sign-in.":::
 
 Users will get a primary refresh token (PRT) from Azure AD after the successful sign-in. Depending on the CBA configuration, the PRT will contain the multifactor claim. 
 
 ## Expected behavior of Windows sending user UPN to Azure AD CBA
 
-|Sign-in | Azure AD Join | Hybrid Azure AD join |
+|Sign-in | Azure AD join | Hybrid join |
 |--------|---------------|----------------------|
 |First sign-in | Pull from certificate | AD UPN or x509Hint |
 |Subsequent sign-in | Pull from certificate | Cached Azure AD UPN |
 
-### Windows rules for sending UPN for Azure AD join machines
+### Windows rules for sending UPN for devices joined to Azure AD
 
 Windows will follow this order to find the UPN value from the certificate:
 1. SAN Principal Name 
@@ -50,10 +50,10 @@ Windows will follow this order to find the UPN value from the certificate:
 
 If no UPN is in the certificate, or if the subject has E=xx or CN=xx, the entire value is sent, which will not work. The user must enter the username login hint (X509UserNameHint).
 
-### Windows rules for sending UPN for Hybrid Azure AD join machines
+### Windows rules for sending UPN for hybrid-joined devices
 
 Once AD login is successful, the AD UPN will be sent to Azure AD. 
-If the mapping uses a non-routable UPN such as user@woodgrove.local, then Azure AD can locate the user's tenant by using the domain hint supplied, and the user in the tenant is found by matching against the user's **onPremisesUserPrincipalName** attribute.
+If the mapping uses a non-routable UPN such as user@woodgrove.local, then Azure AD can locate the user's tenant by using the domain hint supplied. The user in the tenant is found by matching against the user's **onPremisesUserPrincipalName** attribute.
 The user's Azure AD UPN is cached and sent in subsequent sign-ins.
 
 >[!NOTE]
@@ -78,7 +78,7 @@ The Windows smart card sign-in works with the latest preview build of Windows 11
 
 ## Supported browsers
 
-|Edge | chrome | safari | firefox |
+|Edge | Chrome | Safari | Firefox |
 |--------|---------|------|-------|
 |&#x2705; | &#x2705; | &#x2705; |&#x2705; |
 
