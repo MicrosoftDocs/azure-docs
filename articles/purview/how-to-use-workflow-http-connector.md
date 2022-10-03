@@ -14,7 +14,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-You can use [workflows](concept-workflow.md) to automate some business processes through Microsoft Purview. HTTP connector allows Purview workflows to integrate with external applications. HTTP connectors use Representational State Transfer (REST) architecture, which allows Purview workflows to interact directly with third party applications by using web requests. 
+You can use [workflows](concept-workflow.md) to automate some business processes through Microsoft Purview. HTTP connector allows Purview workflows to integrate with external applications. HTTP connectors use Representational State Transfer (REST) architecture, which allows Microsoft Purview workflows to interact directly with third party applications by using web requests. 
 
 HTTP connector is available in all workflow templates.
 
