@@ -21,7 +21,7 @@ HTTP connector is available in all workflow templates.
 >[!NOTE]
 > To create or edit a workflow, you need the [workflow admin role](catalog-permissions.md) in Microsoft Purview. You can also contact the workflow admin in your collection, or reach out to your collection administrator, for permissions.
 
-1. To add a HTTP connector, click on the '+' icon in the template where you want to add and select HTTP connector.
+1. To add a HTTP connector, click on the **+** icon in the template where you want to add and select HTTP connector.
 
     :::image type="content" source="./media/how-to-use-workflow-http-connector/add-http-connector.png" alt-text="Screenshot to add HTTP connector.":::
 
