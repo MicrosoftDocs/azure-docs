@@ -20,11 +20,11 @@ ms.custom: has-adal-ref
 
 # Azure AD certificate-based authentication technical deep dive
 
-This article explains how Azure Active Directory (Azure AD) certificate-based authentication (CBA) works, with background information and testing scenarios.
+This article explains how Azure Active Directory (Azure AD) certificate-based authentication (CBA) works, and dives into technical details on Azure AD CBA configurations.
 
 ## How does Azure AD certificate-based authentication work?
 
-Let's start by looking at what happens when a user tries to sign in to an application in a tenant where Azure AD CBA is enabled.
+The image below describes the steps that happens when a user tries to sign in to an application in a tenant where Azure AD CBA is enabled.
 
 :::image type="content" border="false" source="./media/concept-certificate-based-authentication-technical-deep-dive/how-it-works.png" alt-text="Illustration with steps about how Azure AD certificate-based authentication works." :::
 
@@ -32,11 +32,11 @@ Now we'll walk through each step:
 
 1. The user tries to access an application, such as [MyApps portal](https://myapps.microsoft.com/).
 1. If the user is not already signed in, the user is redirected to the Azure AD **User Sign-in** page at [https://login.microsoftonline.com/](https://login.microsoftonline.com/).
-1. The user enters their username into the Azure AD sign-in page, and then clicks **Next**. Their username is used to look them up in Azure AD.
+1. The user enters their username into the Azure AD sign-in page, and then clicks **Next**. Azure AD does home realm discovery using the tenant name and the username is used to look the user up in Azure AD tenant.
    
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in.png" alt-text="Screenshot of the Sign-in for MyApps portal.":::
   
-1. Azure AD checks whether CBA is enabled for the tenant. If CBA is enabled, the user sees a link to **Sign in with a certificate** on the password page. If the user doesn't see the sign-in link, make sure CBA is enabled on the tenant. For more information, see [How do I enable Azure AD CBA?](certificate-based-authentication-faq.yml#how-can-an-administrator-enable-azure-ad-cba-).
+1. Azure AD checks whether CBA is enabled for the tenant. If CBA is enabled, the user sees a link to **Use a certificate or smartcard** on the password page. If the user doesn't see the sign-in link, make sure CBA is enabled on the tenant. For more information, see [How do I enable Azure AD CBA?](certificate-based-authentication-faq.yml#how-can-an-administrator-enable-azure-ad-cba-).
    
    >[!NOTE]
    > If CBA is enabled on the tenant, all users will see the link to **Use a certificate or smart card** on the password page. However, only the users in scope for CBA will be able to authenticate successfully against an application that uses Azure AD as their Identity provider (IdP).
@@ -47,9 +47,9 @@ Now we'll walk through each step:
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-alt.png" alt-text="Screenshot of the Sign-in if FIDO2 is also enabled.":::
 
-1. After the user clicks the link, the client is redirected to the certauth endpoint, which is [https://certauth.login.microsoftonline.com](https://certauth.login.microsoftonline.com) for Azure Global. For [Azure Government](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers), the certauth endpoint is [https://certauth.login.microsoftonline.us](https://certauth.login.microsoftonline.us).  
+1. Once the user select Certificate-based authentication, the client is redirected to the certauth endpoint, which is [https://certauth.login.microsoftonline.com](https://certauth.login.microsoftonline.com) for Azure Global. For [Azure Government](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers), the certauth endpoint is [https://certauth.login.microsoftonline.us](https://certauth.login.microsoftonline.us).  
 
-   The endpoint performs mutual authentication, and requests the client certificate as part of the TLS handshake. You'll see an entry for this request in the Sign-in logs.
+   The endpoint performs TLS mutual authentication, and requests the client certificate as part of the TLS handshake. You'll see an entry for this request in the Sign-in logs.
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-log.png" alt-text="Screenshot of the Sign-in log in Azure AD." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-log.png":::
    
@@ -129,12 +129,6 @@ Use the highest priority (lowest number) binding.
 1. If the X.509 certificate field is not on the presented certificate, move to the next priority binding.
 1. Validate all the configured username bindings until one of them results in a match and user authentication is successful.
 1. If a match is not found on all the configured username bindings, user authentication fails.
-
-## Certificate-based authentication in MostRecentlyUsed (MRU) methods
- 
-Once a user authenticates successfully using CBA, the user's MostRecentlyUsed (MRU) authentication method will be CBA. Next time, when the user enters their UPN and clicks **Next**, the user will be taken to the CBA method directly, and doesn't need to select **Use the certificate or smart card** to use CBA.
-
-To reset the MRU method, the user needs to cancel the certificate picker, click **Other ways to sign in**, and select another method available to the user and authenticate successfully.
 
 ## Understanding the certificate revocation process
 
@@ -257,14 +251,6 @@ For the next test scenario, configure the authentication policy where the **poli
    | User certificate authentication level type | PolicyId<br>This shows policy OID was used to determine the authentication strength. |
    | User certificate authentication level identifier | 1.2.3.4<br>This shows the value of the identifier policy OID from the certificate. |
 
-## Known issues
-
-- There is a double prompt for iOS because iOS only supports pushing certificates to a device storage. When an organization pushes user certificates to an iOS device through Mobile Device Management (MDM) or when a user accesses first-party or native apps, there is no access to device storage. Only Safari can access device storage.
-
-  When an iOS client sees a client TLS challenge and the user clicks **Sign in with certificate**, iOS client knows it cannot handle it and sends a completely new authorization request using the Safari browser. The user clicks **Sign in with certificate** again, at which point Safari which has access to certificates for authentication in device storage. This requires users to click **Sign in with certificate** twice, once in app’s WKWebView and once in Safari’s System WebView.
-
-  We're aware of the UX experience issue and we're working to fix this on iOS to have a seamless UX experience.
-
 ## Understanding the certificate-based authentication error page
 
 Certificate-based authentication can fail for reasons such as the certificate being invalid, or the user selected the wrong certificate or an expired certificate, or because of a Certificate Revocation List (CRL) issue. When certificate validation fails, the user sees this error:
@@ -283,6 +269,16 @@ Click **Other ways to sign in** to try other methods available to the user to si
 >If you retry CBA in a browser, it'll keep failing due to the browser caching issue. Users need to open a new browser session and sign in again.
 
 :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/new-sign-in.png" alt-text="Screenshot of a new sign-in attempt." :::  
+
+## Certificate-based authentication in MostRecentlyUsed (MRU) methods
+ 
+Once a user authenticates successfully using CBA, the user's MostRecentlyUsed (MRU) authentication method will be set to CBA. Next time, when the user enters their UPN and clicks **Next**, the user will be taken to the CBA method directly, and need not select **Use the certificate or smart card**.
+
+To reset the MRU method, the user needs to cancel the certificate picker, click **Other ways to sign in**, and select another method available to the user and authenticate successfully.
+
+## Known issues
+
+- On iOS clients, there is a double prompt issue as part of the Azure AD CBA flow where the user needs to click **Use the certificate or smart card** twice. We're aware of the UX experience issue and working on fixing this for a seamless UX experience.
 
 ## Next steps
 
