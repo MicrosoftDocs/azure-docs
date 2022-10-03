@@ -1,5 +1,5 @@
 ---
-title: Environment Variables in Windows, macOS, and Linux
+title: Environment variables in Windows, macOS, and Linux
 description: How to set environment variables for keys and endpoint
 author: laujan
 manager: nitinme
