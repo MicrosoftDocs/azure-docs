@@ -33,7 +33,7 @@ To send events from Azure Event Hubs to Azure Monitor Logs, you need these resou
 
 - [Log Analytics workspace](../logs/quick-create-workspace.md) where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
 - Your Log Analytics workspace needs to be [linked to a dedicated cluster](../logs/logs-dedicated-clusters.md#link-a-workspace-to-a-cluster).
-- [Event hub namespace](/azure/event-hubs/event-hubs-features#namespace) that permits public network access. Private Link and Network Security Perimeters (NSP) are currently not supported.
+- [Event Hubs namespace](/azure/event-hubs/event-hubs-features#namespace) that permits public network access. Private Link and Network Security Perimeters (NSP) are currently not supported.
 - [Event hub](/azure/event-hubs/event-hubs-create) with events. You can send events to your event hub by following the steps in [Send and receive events in Azure Event Hubs tutorials](../../event-hubs/event-hubs-create.md#next-steps) or by [configuring the diagnostic settings of Azure resources](../essentials/diagnostic-settings.md#create-diagnostic-settings).
 
 ## Collect required information
@@ -74,17 +74,17 @@ To create a custom table into which to ingest events, in the Azure portal:
                     {
                         "name": "TimeGenerated",
                         "type": "datetime",
-                        "description": "The time at which the data was ingested"
+                        "description": "The time at which the data was ingested."
                     },
                     {
                         "name": "RawData",
                         "type": "string",
-                        "description": "Body of the event"
+                        "description": "Body of the event."
                     },
                     {
                         "name": "Properties",
                         "type": "dynamic",
-                        "description": "Additional message properties"
+                        "description": "Additional message properties."
                     }
                 ]
             }
@@ -310,9 +310,9 @@ To find the `<identity_resource_Id>`, `<principal_id>,` and `<client_id>` values
     :::image type="content" source="media/ingest-logs-event-hub/managed-identity-resource-id.png" lightbox="media/ingest-logs-event-hub/managed-identity-resource-id.png" alt-text="Screenshot showing Resource JSON screen with the managed identity resource ID highlighted.":::
 ## Grant the event hub permission to the data collection rule
 
-With [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), you can give any event hub, or event hub namespace, permission to send events to the data collection rule and data collection endpoint you created. When you grant the permissions to the event hub namespace, all event hubs within the namespace inherit the permissions. 
+With [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), you can give any event hub, or Event Hubs namespace, permission to send events to the data collection rule and data collection endpoint you created. When you grant the permissions to the Event Hubs namespace, all event hubs within the namespace inherit the permissions. 
 
-1. From the event hub or event hub namespace in the Azure portal, select **Access Control (IAM)** > **Add role assignment**. 
+1. From the event hub or Event Hubs namespace in the Azure portal, select **Access Control (IAM)** > **Add role assignment**. 
 
     :::image type="content" source="media/ingest-logs-event-hub/event-hub-add-role-assignment.png" lightbox="media/ingest-logs-event-hub/event-hub-add-role-assignment.png" alt-text="Screenshot that shows the Access control screen for the data collection rule.":::
 
