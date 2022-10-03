@@ -18,12 +18,12 @@ ms.custom: has-adal-ref
 ---
 # Azure Active Directory certificate-based authentication on Android devices
 
-Android devices can use certificate-based authentication (CBA) to authenticate to Azure Active Directory (Azure AD) using a client certificate on their device when connecting to:
+Android devices can use a a client certificate on their device for certificate-based authentication (CBA) to Azure Active Directory (Azure AD). CBA can be used to connect to:
 
 - Office mobile applications such as Microsoft Outlook and Microsoft Word
 - Exchange ActiveSync (EAS) clients
 
-Azure AD CBA is supported for certificates on-device on native browsers as well as on Microsoft first-party applications on Android devices. 
+Azure AD CBA is supported for certificates on-device on native browsers, and on Microsoft first-party applications on Android devices. 
 
 ## Prerequisites
 
@@ -40,22 +40,14 @@ Customers can use external security keys to store their certificates. Security k
 - enable the usage on any device and does not require the provision on every device the user has.
 - is hardware secured with a PIN which makes them phishing resistant
 - provides MFA (multi factor authentication) with a PIN as second factor to access the private key of the certificate in the key
-- satisfies the industry requirement to have MFA on seperate device
+- satisfies the industry requirement to have MFA on separate device
 - future proofing where multiple credentials can be stored including FIDO2 keys.
 
 ## Supported platforms**
 
-- applications using latest MSAL libraries or Microsoft Authenticator can do CBA
-- Edge with profile, when users add account and logged in a profile will support CBA
-- Microsoft first party apps with latest MSAL libraries or Microsoft Authenticator can do CBA
-
-**Vendors for External storage**
-
-> [!IMPORTANT]
-> The preview features are provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Azure AD CBA will support certificates on YubiKeys as part of private preview. Any application that uses latest MSAL libraries can do Azure AD CBA. For applications not on latest MSAL libraries need to also install Microsoft authenticator.
+- Applications using latest MSAL libraries or Microsoft Authenticator can do CBA
+- Edge with profile, when users add account and sign in with a profile, will support CBA
+- Microsoft first-party apps with latest MSAL libraries or Microsoft Authenticator can do CBA
 
 ## Microsoft mobile applications support
 

@@ -43,9 +43,9 @@ certificateUserIDs = [ x509:\<PN>Bob.Smith@Contoso.com , x509:\<SKI>89b0f468c1ab
 
 By default, Azure AD CBA has a single user binding configured. The UPN attribute is the Subject Alternative Name of a certificate presented to Azure AD. Some administrators require the ability for Azure AD to be able to map a single certificate to multiple Azure AD accounts. We refer to this as 1:M mapping. Azure AD CBA supports 1:M mapping. Administrators can add mapping methods to the policy. 
 
-An example of this would be a software developer. For example, Bob has a regular productivity account that he uses for his everyday tasks. He also uses a developer account for assignments. The organization issues a single, high-assurance certificate to Bob and wants him to use this same certificate for both his productivity and developer accounts. 
+For example, Bob has a regular productivity account that he uses for his everyday tasks. Let's say Bob is also a software developer who uses a developer account to access test environments. The organization issues a single, high-assurance certificate to Bob and wants him to use this same certificate for both his productivity and developer accounts. 
 
-To set up this 1:M mapping in Azure AD CBA, configuring the policy values in the following table. 
+To set up this 1:M mapping in Azure AD CBA, configure the policy values in the following table. 
 
 |Description| Values |
 |--------------------------|--------------------------------------|
