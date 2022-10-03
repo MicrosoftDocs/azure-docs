@@ -52,7 +52,7 @@ Azure AD Connect requires a special role named **Hybrid Identity Administrator**
 
 ### Can we have privileged accounts with a federated AD FS server?
         
-While this is possible, Microsoft recommends privileged accounts be cloud-only accounts. This will limit the exposure in Azure AD from a compromised on-premises environment. Please look at http://aka.ms/protectM365 for more information.
+While this is possible, Microsoft recommends privileged accounts be cloud-only accounts. Using cloud-only accounts for privileged access limits exposure in Azure AD from a compromised on-premises environment. For more information, see [Protecting Microsoft 365 from on-premises attacks](../fundamentals/protect-m365-from-on-premises-attacks.md).
 
 ### If an organization is a hybrid running both AD FS and Azure CBA, are they still vulnerable to the AD FS compromise?
 

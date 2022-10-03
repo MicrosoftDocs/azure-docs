@@ -74,23 +74,23 @@ Now we'll walk through each step:
 
 ## Understanding the authentication binding policy
 
-The authentication binding policy helps determine the strength of authentication as either single-factor or multi-factor. An administrator can change the default value from single factor to multifactor or set up custom policy configurations either by issuer subject or policy OID fields in the certificate.
+The authentication binding policy helps determine the strength of authentication as either single-factor or multifactor. An administrator can change the default value from single factor to multifactor, or set up custom policy configurations either by using issuer subject or policy OID fields in the certificate.
 
-** Certificate strengths **
+### Certificate strengths
 
-An admin can determine whether the certificates are single-factor or multi-factor strength. More information can be found at the documentation that maps [NIST Authentication Assurance Levels to Azure AD Auth Methods](https://aka.ms/AzureADNISTAAL) which builds off NIST 800-63B SP 800-63B, Digital Identity Guidelines: Authentication and Lifecycle Mgmt | CSRC (nist.gov)
+An admin can determine whether the certificates are single-factor or multifactor strength. For more information, see the documentation that maps [NIST Authentication Assurance Levels to Azure AD Auth Methods](https://aka.ms/AzureADNISTAAL), which builds upon [NIST 800-63B SP 800-63B, Digital Identity Guidelines: Authentication and Lifecycle Mgmt](https://csrc.nist.gov/publications/detail/sp/800-63b/final).
 
-** Single-factor certificatre authentication **
+### Single-factor certificate authentication
 
 When a user has a single factor certificate, they will not be able to do Multifactor authentication. There is no support for a second factor when the first factor is single factor certificates. We are working on adding support for second factors soon.
 
-      :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/mfa-notallowed.png" alt-text="Screenshot of the revoked user certificate in the CRL." :::  
+:::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/mfa-notallowed.png" alt-text="Screenshot of the revoked user certificate in the CRL." :::  
 
-** Multifactor certificate authentication **
+### Multifactor certificate authentication 
 
 When a user has a multi-factor certificate, they will be able to do Multifactor authentication just with certificates. However, the tenant admin should make sure the certificates are protected with a PIN or hardware module to be considered multi factor.
 
-** How does Azure AD resolve multiple authentication policy binding rules? **
+### How Azure AD resolves multiple authentication policy binding rules
 
 Since multiple authentication binding policy rules can be created with different certificate fields, there are some rules that determine the authentication protection level. They are as follows:
 

@@ -82,12 +82,13 @@ The Windows smart card sign-in works with the latest preview build of Windows 11
 |--------|---------|------|-------|
 |&#x2705; | &#x2705; | &#x2705; |&#x2705; |
 
->[!NOTE] Azure AD CBA supports both certificates on-device as well as external storage like security keys on windows.
+>[!NOTE] 
+>Azure AD CBA supports both certificates on-device as well as external storage like security keys on Windows.
 
 ## Restrictions and caveats  
 
 - Azure AD CBA is supported on Windows Hybrid or Azure AD Joined.  
-- User must be in a managed domain or using Staged Rollout and can't use a federated authentication model.
+- Users must be in a managed domain or using Staged Rollout and can't use a federated authentication model.
 
 ## Next steps
 
