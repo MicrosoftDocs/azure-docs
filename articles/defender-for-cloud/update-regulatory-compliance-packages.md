@@ -44,9 +44,7 @@ Available regulatory standards:
 - FedRAMP H
 - FedRAMP M
 
-There are 3 benchmarks available for AWS: AWS CIS, AWS PCI, and AWS Foundational Security Best Practices. When users onboard, every AWS connector subscription has the **AWS Foundational Security Best Practices** assigned.
-
-This is the AWS-specific guidelines for security and compliance best practices based on common compliance frameworks.
+There are 3 benchmarks available for AWS: AWS CIS, AWS PCI, and AWS Foundational Security Best Practices. When users onboard, every AWS connector subscription has the **AWS Foundational Security Best Practices** assigned. This is the AWS-specific guidelines for security and compliance best practices based on common compliance frameworks.
 Users that have one Defender bundle enabled will be able to enable CIS and PCI as well (same as regulatory compliance for Azure).
 
 Available AWS regulatory standards:
