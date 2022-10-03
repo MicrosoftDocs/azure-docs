@@ -92,7 +92,7 @@ Operators associated with a subquery determine whether the query "must be" or "s
 
 The query parser restructures the subqueries into a *query tree* (an internal structure representing the query) it passes on to the search engine. In the first stage of query parsing, the query tree looks like this.  
 
- ![Example of a boolean query with searchmode set to any.][2]
+ ![Conceptual diagram of a boolean query with searchmode set to any.][2]
 
 ### Supported parsers: Simple and Full Lucene 
 
@@ -124,7 +124,7 @@ Suppose that we now set "searchMode=all". In this case, the space is interpreted
 
 A modified query tree for this query would be as follows, where a matching document is the intersection of all three subqueries: 
 
- ![Example of a boolean query with searchmode set to all.][3]
+ ![Conceptual diagram of a boolean query with searchmode set to all.][3]
 
 > [!NOTE]
 > Choosing "searchMode=any" over "searchMode=all" is a decision best arrived at by running representative queries. Users who are likely to include operators (common when searching document stores) might find results more intuitive if "searchMode=all" informs boolean query constructs. For more about the interplay between "searchMode" and operators, see [Simple query syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search).
@@ -151,7 +151,7 @@ In our example, prior to analysis, the initial query tree has the term "Spacious
 
 When the default analyzer processes the term, it will lowercase "ocean view" and "spacious", and remove the comma character. The modified query tree will look as follows: 
 
- ![Example of a boolean query with analyzed terms.][4]
+ ![Conceptual diagram of a boolean query with analyzed terms.][4]
 
 ### Testing analyzer behaviors 
 
@@ -301,7 +301,7 @@ For the **description** field, the index is as follows:
 
 Given the inverted indices above, let’s return to the sample query and see how matching documents are found for our example query. Recall that the final query tree looks like this: 
 
- ![Example of a boolean query with analyzed terms.][4]
+ ![Conceptual diagram of a boolean query with analyzed terms.][4]
 
 During query execution, individual queries are executed against the searchable fields independently. 
 
