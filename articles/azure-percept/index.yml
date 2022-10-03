@@ -8,9 +8,9 @@ metadata:
   services: azure-percept
   ms.service: azure-percept
   ms.topic: landing-page 
-  author: nkhuyent
-  ms.author: ngt
-  ms.date: 03/25/2021 
+  author: yvonne-deq
+  ms.author: v-mdequadros
+  ms.date: 10/03/2022
 
 landingContent:
   - title: What is Azure Percept?
