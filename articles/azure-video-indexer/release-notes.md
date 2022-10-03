@@ -89,7 +89,7 @@ Use the [Patch person model](https://api-portal.videoindexer.ai/api-details#api=
 
 ### General availability of ARM-based accounts
 
-With an Azure Resource Management (ARM) based [paid (unlimited)](accounts-overview.md) account you are able to use: 
+With an Azure Resource Management (ARM) based [paid (unlimited)](accounts-overview.md) accounts, you are able to use: 
 
 - [Azure role-based access control (RBAC)](../role-based-access-control/overview.md).
 - Managed Identity to better secure the communication between your Azure Media Services and Azure Video Indexer account, Network Service Tags, and native integration with Azure Monitor to monitor your account (audit and indexing logs). 
