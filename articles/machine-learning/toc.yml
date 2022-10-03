@@ -57,9 +57,14 @@
       - name: "Pipelines"
         displayName: migration, v1, v2
         href: migrate-to-v2-execution-pipeline.md  
-    - name: "Upgrade endpoints"
-      displayName: migration, v1, v2
-      href: migrate-to-v2-deploy-endpoints.md  
+    - name: Upgrade endpoints
+      items:
+      - name: "Online endpoints"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-deploy-endpoints.md
+      - name: "Upgrade from ACI web services to managed online endpoints"
+        displayName: migration, v1, v2
+        href: migrate-to-v2-managed-online-endpoints.md 
 - name: Quickstart
   expanded: true
   items: 
