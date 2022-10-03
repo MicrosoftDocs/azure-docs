@@ -45,38 +45,25 @@ To run Playwright tests with Microsoft Playwright Testing, you have to update th
 
 ## Configure service authentication
 
-Microsoft Playwright Testing uses workspace access keys to authorize running tests. You'll first create a workspace access key in the Playwright dashboard. Then, you'll pass the access key securely to the Playwright command-line in the Azure Pipelines definition file.
+Microsoft Playwright Testing uses workspace access keys to authorize running tests. You'll first create a workspace access key in the Playwright dashboard. 
 
-### Create a workspace access key
+Next, you'll pass the access key securely to the Playwright command-line in the Azure Pipelines definition file by using a [secure variable](/azure/devops/pipelines/process/set-secret-variables).
 
-To run tests with Microsoft Playwright Testing, you need a workspace access key. Learn more about [how to manage access keys in Microsoft Playwright Testing](./how-to-manage-access-keys.md).
+1. Go to the [Playwright dashboard](https://17157345.playwright-int.io/), and follow these steps to [create a workspace access key](./how-to-manage-access-keys.md#create-an-access-key).
 
-To create a new workspace access key in the Playwright dashboard:
+    After you create the access key, make to copy the generated key value.
 
-1. In the [Microsoft Playwright Testing dashboard](https://dashboard.playwright-ppe.io/), access the **Menu > Manage Access keys** menu in the top-right of the page.
+1. Go to your Azure DevOps project portal `https://dev.azure.com/<my-project>`.
 
-1. Select **Generate a new key**.
+1. Select **Pipelines**, select your pipeline from the list, and then select **Edit**, to edit the pipeline definition.
 
-1. Enter a **Key name**, select an **Expiration** duration, and then select **Generate key**.
+1. Select **Variables** on the pipeline edit page.
 
-1. In the list of access keys, select **Copy** to copy the generated key value.
-
-    :::image type="content" source="./media/how-to-setup-continuous-testing-with-azure-pipelines/copy-access-key-value.png" alt-text="Screenshot that shows how to copy the access key functionality in the Microsoft Playwright Testing portal.":::
-    
-    > [!IMPORTANT]
-    > You can only access the key value immediately after you've created it. You can't access the key value anymore at a later time.
-
-### Create an Azure Pipelines variable
-
-To securely store and pass the workspace access key to the Playwright command-line in the pipeline definition, you create an Azure Pipelines secure variable.
-
-1. Select the **Variables** tab on your pipeline edit page.
+    :::image type="content" source="./media/how-to-setup-continuous-testing-with-azure-pipelines/azure-pipelines-variables.png" alt-text="Screenshot that shows how to manage pipeline variables in the Azure Pipelines portal.":::
 
 1. Create a new variable, **ACCESS_KEY**, and select the checkbox **Keep this value secret**. Set the value to the access key you generated and copied earlier.
 
 1. Select **Save** to save your variable.
-
-Learn more about using [secret variables in Azure Pipelines](/azure/devops/pipelines/process/set-secret-variables).
 
 ## Build your YAML pipeline
 
