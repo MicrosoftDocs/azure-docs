@@ -71,7 +71,7 @@ To create an alert rule, you need to have:
 
 These built-in Azure roles, supported at all Azure Resource Manager scopes, have permissions to and access alerts information and create alert rules:
  - **Monitoring contributor**: can create alerts and use resources within their scope 
- - **Monitoring reader**: can view alerts and read resources with their scope
+ - **Monitoring reader**: can view alerts and read resources within their scope
 
 If the target action group or rule location is in a different scope than the two built-in roles, you need to create a user with the appropriate permissions. 
 
