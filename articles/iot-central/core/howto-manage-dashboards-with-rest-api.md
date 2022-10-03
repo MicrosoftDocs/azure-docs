@@ -24,9 +24,12 @@ To learn how to manage dashboards by using the IoT Central UI, see [How to manag
 
 ## Dashboards
 
-You can create dashboards that are associated with a specific organization. An organization dashboard is only visible to users who have access to the organization the dashboard is associated with. Only users in a role that has [organization dashboard permissions](howto-manage-users-roles.md#customizing-the-app) can create, edit, and delete organization dashboards..
+You can create dashboards that are associated with a specific organization. An organization dashboard is only visible to users who have access to the organization the dashboard is associated with. Only users in a role that has [organization dashboard permissions](howto-manage-users-roles.md#customizing-the-app) can create, edit, and delete organization dashboards.
 
 All users can create *personal dashboards*, visible only to themselves. Users can switch between organization and personal dashboards.
+
+> [!NOTE]
+> Creating personal dashboards using API is currently not supported.
 
 ## Dashboards REST API
 
@@ -46,6 +49,38 @@ Use the following request to create a dashboard.
 PUT https://{your app subdomain}.azureiotcentral.com/api/dashboards/{dashboardId}?api-version=2022-06-30-preview
 ```
 
+dashboardId - Unique ID for the dashboard which is a DTMI identifier. To learn more, see [Digital Twin Modeling Identifier]
+
+The request body has some required fields:
+
+* `@displayName`: Display name of the dashboard.
+* `@favorite`: Whether the dashboard is favorited or not.
+* `group`: Device group ID.
+* `Tile` : Configuration specifying tile object, including the layout, display name and configuration
+
+Tile has some required fields:
+
+Name|Description
+----|-----------
+displayName|Display name of the tile.
+height|Height of the tile
+width|Width of the tile
+x|Horizontal position of the tile
+y|Vertical position of the tile
+
+### Bar chart tile
+
+The bar chart tile has the below configuration::
+
+Name| Description
+----|------------
+capabilities|Specifies the capability to be displayed in the tile.
+devices|The list of associated devices to display
+format|The format configuration of the chart
+group|The ID of the device group to display
+queryRange|The query range configuration of the chart
+type|The type of widget the tile renders
+
 The following example shows a request body that adds a new dashboard with bar chart tile
 
 ```json
@@ -58,7 +93,7 @@ The following example shows a request body that adds a new dashboard with bar ch
                 "type": "lineChart",
                 "capabilities": [
                     {
-                        "capability": "AvailableMemory",
+                        "capability": "temperature",
                         "aggregateFunction": "avg"
                     }
                 ],
@@ -88,13 +123,6 @@ The following example shows a request body that adds a new dashboard with bar ch
 }
 ```
 
-The request body has some required fields:
-
-* `@displayName`: Display name of the dashboard.
-* `@favorite`: Whether the dashboard is favorited or not.
-* `group`: Device group ID.
-* `tiles` : The tiles displayed by the dashboard.
-
 The response to this request looks like the following example:
 
 ```json
@@ -109,7 +137,7 @@ The response to this request looks like the following example:
                 "type": "lineChart",
                 "capabilities": [
                     {
-                        "capability": "AvailableMemory",
+                        "capability": "temperature",
                         "aggregateFunction": "avg"
                     }
                 ],
@@ -130,6 +158,158 @@ The response to this request looks like the following example:
                 }
             },
             "x": 5,
+            "y": 0,
+            "width": 2,
+            "height": 2
+        }
+    ],
+    "favorite": false
+}
+```
+
+### Markdown tile
+
+The markdown tile has the below configuration:
+
+Name|Description
+----|-----------
+description|Markdown string to render inside the tile
+href|Link to visit when tile is clicked
+image|Base64 encoded
+type|The type of widget the tile renders
+
+The following example shows a request body that adds a new dashboard with markdown tile
+
+```json
+{
+    "displayName": "My Markdown",
+    "tiles": [
+     {
+    "displayName": "Documentation",
+    "configuration": {
+        "type": "markdown",
+        "description": "Comprehensive help articles and links to more support.",
+        "href": "https://aka.ms/iotcentral-pnp-docs",
+        "image": "4d6c6373-0220-4191-be2e-d58ca2a289e1"
+    },
+    "x": 4,
+    "y": 0,
+    "width": 1,
+    "height": 1
+}
+    ],
+    "favorite": false
+}
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+    "id": "dtmi:kkfvwa2xi:p7pyt5x3o",
+    "displayName": "My Dashboard Markdown",
+    "personal": false,
+    "tiles": [
+        {
+            "displayName": "Documentation 2",
+            "configuration": {
+                "type": "markdown",
+                "description": "Comprehensive help articles and links to more support.",
+                "href": "https://aka.ms/iotcentral-pnp-docs",
+                "image": "4d6c6373-0220-4191-be2e-d58ca2a289e1"
+            },
+            "x": 4,
+            "y": 0,
+            "width": 1,
+            "height": 1
+        }
+    ],
+    "favorite": false
+}
+```
+
+### Lkv tile
+
+The last known value tile has the below configuration:
+
+Name|Description
+----|-----------
+capabilities|Specifies the capability to be displayed in the tile.
+devices|The list of associated devices to display
+format|The format configuration of the lkv tile
+group|The ID of the device group to display
+showTrend|Show the trend between the last known value and the value before that
+type|The type of widget the tile renders
+
+The following example shows a request body that adds a new dashboard which displays last known value of the temperature:
+
+```json
+{
+    "displayName": "My Dashboard LKV",
+    "tiles": [
+        {
+            "displayName": "LKV - root",
+            "configuration": {
+                "type": "lkv",
+                "capabilities": [
+                    {
+                        "capability": "temperature",
+                        "aggregateFunction": "avg"
+                    }
+                ],
+                "group": "0fb6cf08-f03c-4987-93f6-72103e9f6100",
+                "devices": [
+                    "3xksbkqm8r",
+                    "1ak6jtz2m5q",
+                    "h4ow04mv3d"
+                ],
+                "format": {
+                    "abbreviateValue": false,
+                    "wordWrap": false,
+                    "textSize": 14
+                }
+            },
+            "x": 0,
+            "y": 0,
+            "width": 2,
+            "height": 2
+        }
+    ],
+    "favorite": false
+}
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+    "id": "dtmi:kkfvwa2xi:p7pyt5x3o",
+    "displayName": "My Dashboard LKV",
+    "personal": false,
+    "tiles": [
+        {
+            "displayName": "LKV - root",
+            "configuration": {
+                "type": "lkv",
+                "capabilities": [
+                    {
+                        "capability": "temperature",
+                        "aggregateFunction": "avg"
+                    }
+                ],
+                "devices": [
+                    "3xksbkqm8r",
+                    "1ak6jtz2m5q",
+                    "h4ow04mv3d"
+                ],
+                "group": "0fb6cf08-f03c-4987-93f6-72103e9f6100",
+                "format": {
+                    "abbreviateValue": false,
+                    "wordWrap": false,
+                    "textSize": 14
+                }
+            },
+            "x": 0,
             "y": 0,
             "width": 2,
             "height": 2
@@ -197,12 +377,46 @@ The response to this request looks like the following example:
 PATCH https://{your app subdomain}.azureiotcentral.com/api/dashboards/{dashboardId}?api-version=2022-06-30-preview
 ```
 
-The following example shows a request body that updates the display name of a dashboard:
+The following example shows a request body that updates the display name of a dashboard and size of the tile:
 
 ```json
 
 {
-  "displayName": "New Dashboard Name"
+    "displayName": "New Dashboard Name",
+    "tiles": [
+        {
+            "displayName": "lineChart",
+            "configuration": {
+                "type": "lineChart",
+                "capabilities": [
+                    {
+                        "capability": "AvailableMemory",
+                        "aggregateFunction": "avg"
+                    }
+                ],
+                "devices": [
+                    "1cfqhp3tue3",
+                    "mcoi4i2qh3"
+                ],
+                "group": "da48c8fe-bac7-42bc-81c0-d8158551f066",
+                "format": {
+                    "xAxisEnabled": true,
+                    "yAxisEnabled": true,
+                    "legendEnabled": true
+                },
+                "queryRange": {
+                    "type": "time",
+                    "duration": "PT30M",
+                    "resolution": "PT1M"
+                }
+            },
+            "x": 5,
+            "y": 0,
+            "width": 5,
+            "height": 5
+        }
+    ],
+    "favorite": false
 }
 
 ```
@@ -243,8 +457,8 @@ The response to this request looks like the following example:
             },
             "x": 5,
             "y": 0,
-            "width": 2,
-            "height": 2
+            "width": 5,
+            "height": 5
         }
     ],
     "favorite": false
@@ -407,4 +621,4 @@ The response to this request looks like the following example:
 
 ## Next steps
 
-Now that you've learned how to manage device templates with the REST API, a suggested next step is to [How to create device templates from IoT Central GUI.](howto-set-up-template.md#create-a-device-template)
+Now that you've learned how to manage dashboards with the REST API, a suggested next step is to [How to create device templates from IoT Central GUI.](howto-set-up-template.md#create-a-device-template)
