@@ -69,7 +69,7 @@ The following are requirements for configuring the customer-managed key in Flexi
 * The key must be in the *Enabled* state.
 * If you're importing an existing key  into the key vault, make sure to provide it in the supported file formats (`.pfx`, `.byok`, `.backup`).
 
- Recommendations
+ ### Recommendations
 
 When you're using data encryption by using a customer-managed key, here are recommendations for configuring Key Vault:
 
