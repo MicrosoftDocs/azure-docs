@@ -1,6 +1,6 @@
 ---
-title: Microsoft Sentinel content hub catalog for domain solutions | Microsoft Docs
-description: This article lists the domain solutions currently available in the content hub for Microsoft Sentinel and where to find the full list of solutions.
+title: Microsoft Sentinel content hub catalog | Microsoft Docs
+description: This article lists the solutions currently available in the content hub for Microsoft Sentinel and where to find the full list of solutions.
 author: cwatson-cat
 ms.topic: reference
 ms.date: 09/29/2022
@@ -8,7 +8,7 @@ ms.author: cwatson
 ms.custom: ignite-fall-2021
 ---
 
-# Microsoft Sentinel content hub catalog for domain solutions
+# Microsoft Sentinel content hub catalog
 
 Solutions in Microsoft Sentinel provide a consolidated way to acquire Microsoft Sentinel content, like data connectors, workbooks, analytics, and automation, in your workspace with a single deployment step.
 
@@ -34,6 +34,8 @@ When you deploy a solution, the security content included with the solution, suc
 |**[NIST SP 800-53](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-nistsp80053?tab=Overview)**|[Workbooks, analytic rules, playbooks](https://techcommunity.microsoft.com/t5/public-sector-blog/microsoft-sentinel-nist-sp-800-53-solution/ba-p/3401307)|Security - Threat Protection|Microsoft|
 |**[Security Threat Essentials](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-securitythreatessentialsol?tab=Overview)**|Analytic rules, Hunting queries|Security - Others|Microsoft|
 |**[Zero Trust (TIC 3.0)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-zerotrust?tab=Overview)**  |[Analytics rules, playbook,  workbooks](/security/zero-trust/integrate/sentinel-solution) |Compliance, Identity, Security - Others |Microsoft  |
+
+## All Microsoft Sentinel solutions
 
 For the full list of solutions in Microsoft Sentinel, see [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=solution-templates&page=1&search=sentinel).
 
