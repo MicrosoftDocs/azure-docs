@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 09/16/2022
+ms.date: 10/03/2022
 ms.author: anfdocs
 ---
 # Storage hierarchy of Azure NetApp Files
@@ -81,7 +81,7 @@ When you use a manual QoS capacity pool with, for example, an SAP HANA system, a
 - Each volume belongs to only one pool, but a pool can contain multiple volumes. 
 - Volumes contain a capacity of between 4 TiB and 100 TiB. You can create a [large volume](#large-volumes) with a size of between 100 TiB and 500 TiB.
 
-## <a name="large-volumes"></a>Large volumes (Preview)
+## <a name="large-volumes"></a>Large volumes (preview)
 
 Azure NetApp Files allows you to create volumes up to 500 TiB in size, exceeding the previous 100-TiB limit. Large volumes begin at a capacity of 102,401 GiB and scale up to 500 TiB, whereas regular Azure NetApp Files volumes, which are offered between 100 GiB and 102,400 GiB. 
 
@@ -127,7 +127,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 | Premium | 100 to 500 | 6,400 | 
 | Ultra | 100 to 500 | 10,240 | 
 
-## Configure large volumes 
+### Configure large volumes 
 
 Before you can use large volumes, you must first request [an increase in regional capacity quota](azure-netapp-files-resource-limits.md#request-limit-increase).
 
