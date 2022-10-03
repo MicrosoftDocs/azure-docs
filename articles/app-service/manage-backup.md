@@ -3,7 +3,7 @@ title: Back up an app
 description: Learn how to restore backups of your apps in Azure App Service or configure custom backups. Customize backups by including the linked database.
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
-ms.date: 09/09/2022 
+ms.date: 09/19/2022 
 ms.custom: seodec18
 
 ---
@@ -27,7 +27,7 @@ There are two types of backups in App Service. Automatic backups made for your a
 
 ||Automatic backups | Custom backups |
 |-|-|-|
-| Pricing tiers | **Standard**, **Premium**. | **Standard**, **Premium**, **Isolated**. |
+| Pricing tiers | **Basic**, **Standard**, **Premium**. | **Basic**, **Standard**, **Premium**, **Isolated**. |
 | Configuration required | No. | Yes. |
 | Backup size | 30 GB. | 10 GB, 4 GB of which can be the linked database. |
 | Linked database | Not backed up. | The following linked databases can be backed up: [SQL Database](/azure/azure-sql/database/), [Azure Database for MySQL](../mysql/index.yml), [Azure Database for PostgreSQL](../postgresql/index.yml), [MySQL in-app](https://azure.microsoft.com/blog/mysql-in-app-preview-app-service/). |

@@ -119,6 +119,8 @@
       href: howto-network-access-control.md
     - name: Secure outbound traffic through Shared Private Endpoints
       href: howto-shared-private-endpoints.md
+    - name: Access Key Vault in private network through Shared Private Endpoints
+      href: howto-shared-private-endpoints-key-vault.md
     - name: Use managed identity
       href: howto-use-managed-identity.md
     - name: Authorize from Azure Application

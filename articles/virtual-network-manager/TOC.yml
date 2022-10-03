@@ -33,7 +33,8 @@
       href: concept-network-groups.md
     - name: Azure Policy integration with network groups
       href: concept-azure-policy-integration.md
-
+    - name: Cross-tenant connection support
+      href: concept-cross-tenant.md
   - name: Configuration types
     items:
     - name: Connectivity
@@ -72,6 +73,10 @@
         href: how-to-create-hub-and-spoke.md
       - name: Azure PowerShell
         href: how-to-create-hub-and-spoke-powershell.md
+  - name: Cross-tenant connection support
+    items:
+    - name: Configure cross-tenant connection - Portal
+      href: how-to-configure-cross-tenant-portal.md
   - name: View applied configurations
     href: how-to-view-applied-configurations.md
   - name: Define dynamic network group membership with Azure Policy

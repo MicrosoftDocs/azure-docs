@@ -8,7 +8,7 @@ manager: junwg
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/17/2022
+ms.date: 09/16/2022
 ms.author: jiajzhan
 ---
 
