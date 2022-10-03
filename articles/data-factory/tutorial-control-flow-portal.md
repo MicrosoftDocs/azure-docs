@@ -58,7 +58,7 @@ To trigger sending an email from the pipeline, you use [Logic Apps](../logic-app
 ### Success email workflow
 Create a Logic App workflow named `CopySuccessEmail`. Define the workflow trigger as `When an HTTP request is received`, and add an action of `Office 365 Outlook – Send an email`.
 
-:::image type="content" source="media/tutorial-control-flow-portal/success-email-workflow.png" alt-text="Success email workflow":::
+:::image type="content" source="media/tutorial-control-flow-portal/success-email-workflow.png" alt-text="Shows a screenshot of the Success email workflow":::
 
 For your request trigger, fill in the `Request Body JSON Schema` with the following JSON:
 
@@ -84,11 +84,11 @@ For your request trigger, fill in the `Request Body JSON Schema` with the follow
 
 The Request in the Logic App Designer should look like the following image:
 
-:::image type="content" source="media/tutorial-control-flow-portal/logic-app-designer-request.png" alt-text="Logic App designer - request":::
+:::image type="content" source="media/tutorial-control-flow-portal/logic-app-designer-request.png" alt-text="Shows a screenshot of the Logic App designer - request":::
 
 For the **Send Email** action, customize how you wish to format the email, utilizing the properties passed in the request Body JSON schema. Here is an example:
 
-:::image type="content" source="media/tutorial-control-flow-portal/send-email-action-2.png" alt-text="Logic App designer - send email action":::
+:::image type="content" source="media/tutorial-control-flow-portal/send-email-action-2.png" alt-text="Shows a screenshot of the Logic App designer - send email action":::
 
 Save the workflow. Make a note of your HTTP Post request URL for your success email workflow:
 
@@ -100,7 +100,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ### Fail email workflow
 Follow the same steps to create another Logic Apps workflow of **CopyFailEmail**. In the request trigger, the `Request Body JSON schema` is the same. Change the format of your email like the `Subject` to tailor toward a failure email. Here is an example:
 
-:::image type="content" source="media/tutorial-control-flow-portal/fail-email-workflow-2.png" alt-text="Logic App designer - fail email workflow":::
+:::image type="content" source="media/tutorial-control-flow-portal/fail-email-workflow-2.png" alt-text="Shows a screenshot of the Logic App designer - fail email workflow":::
 
 Save the workflow. Make a note of your HTTP Post request URL for your failure email workflow:
 
@@ -149,7 +149,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 1. Click **Create**.      
 1. After the creation is complete, you see the **Data Factory** page as shown in the image.
 
-   :::image type="content" source="./media/tutorial-control-flow-portal/data-factory-home-page.png" alt-text="Data factory home page":::
+   :::image type="content" source="./media/tutorial-control-flow-portal/data-factory-home-page.png" alt-text="Shows a screenshot of the data factory home page":::
 1. Click **Open Azure Data Factory Studio** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
 
 
@@ -171,16 +171,16 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
     - **sinkBlobContainer** – parameter in the pipeline consumed by the sink blob dataset
     - **receiver** – this parameter is used by the two Web activities in the pipeline that send success or failure emails to the receiver whose email address is specified by this parameter.
 
-   :::image type="content" source="./media/tutorial-control-flow-portal/pipeline-parameters.png" alt-text="New pipeline menu":::
+   :::image type="content" source="./media/tutorial-control-flow-portal/pipeline-parameters.png" alt-text="Shows a screenshot of the New pipeline menu":::
 1. In the **Activities** toolbox, search for **Copy** and drag-drop the **Copy** activity to the pipeline designer surface.
 
-   :::image type="content" source="./media/tutorial-control-flow-portal/drag-drop-copy-activity.png" alt-text="Drag-drop copy activity":::
+   :::image type="content" source="./media/tutorial-control-flow-portal/drag-drop-copy-activity.png" alt-text="Shows a screenshot demonstrating how to drag and drop the copy activity onto the pipeline designer":::
 1. Select the **Copy** activity you dragged onto the pipeline designer surface. In the **Properties** window for the **Copy** activity at the bottom, switch to the **Source** tab, and click **+ New**. You create a source dataset for the copy activity in this step.
 
    :::image type="content" source="./media/tutorial-control-flow-portal/new-source-dataset-button.png" alt-text="Screenshot that shows how to create a source dataset for teh copy activity.":::
 1. In the **New Dataset** window, select the **Azure** tab at the top, and then choose **Azure Blob Storage**, and select **Continue**.
 
-   :::image type="content" source="./media/tutorial-control-flow-portal/select-azure-blob-storage.png" alt-text="Select Azure Blob Storage":::
+   :::image type="content" source="./media/tutorial-control-flow-portal/select-azure-blob-storage.png" alt-text="Shows a screenshot of the select Azure Blob Storage button":::
 
 1. In the **Select format** window, choose **DelimitedText** and select **Continue**.
 
@@ -192,7 +192,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
 
 1. You will see the **New linked service** window where you can fill out the required properties for the linked service.
 
-   :::image type="content" source="./media/tutorial-control-flow-portal/new-linked-service-window.png" alt-text="Dataset connection - new linked service":::
+   :::image type="content" source="./media/tutorial-control-flow-portal/new-linked-service-window.png" alt-text="Shows a screenshot fo the dataset connection window with the new linked service button highlighted":::
 
 1. In the **New Linked Service** window, complete the following steps:
 
@@ -206,27 +206,27 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
 
 1. Enter `@pipeline().parameters.sourceBlobContainer` for the folder and `emp.txt` for the file name.
 
-    :::image type="content" source="./media/tutorial-control-flow-portal/source-dataset-settings.png" alt-text="Source dataset settings":::
+    :::image type="content" source="./media/tutorial-control-flow-portal/source-dataset-settings.png" alt-text="Shows a screenshot of the source dataset settings":::
 
 1. Switch back to the **pipeline** tab (or click the pipeline in the treeview on the left), and select the **Copy** activity on the designer. Confirm that your new dataset is selected for **Source Dataset**.
       
-   :::image type="content" source="./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png" alt-text="Source dataset":::
+   :::image type="content" source="./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png" alt-text="Shows a screenshot of the source dataset":::
 
 1. In the properties window, switch to the **Sink** tab, and click **+ New** for **Sink Dataset**. You create a sink dataset for the copy activity in this step similar to the way you created the source dataset.
 
-    :::image type="content" source="./media/tutorial-control-flow-portal/new-sink-dataset-button.png" alt-text="New sink dataset button":::
-1. In the **New Dataset** window, select **Azure Blob Storage**, and click **Finish**.
-1. In the **General** settings page for the dataset, enter **SinkBlobDataset** for **Name**.
-1. Switch to the **Connection** tab, and do the following steps:
+    :::image type="content" source="./media/tutorial-control-flow-portal/new-sink-dataset-button.png" alt-text="Shows a screenshot of the new sink dataset button":::
+1. In the **New Dataset** window, select **Azure Blob Storage**, and click **Continue**, and then select **DelimitedText** again on the **Select format** window and click **Continue** again.
 
-    1. Select **AzureStorageLinkedService** for **LinkedService**.
-    1. Enter `@pipeline().parameters.sinkBlobContainer` for the folder.
-    1. Enter `@CONCAT(pipeline().RunId, '.txt')` for the file name. The expression uses the ID of the current pipeline run for the file name. For the supported list of system variables and expressions, see [System variables](control-flow-system-variables.md) and [Expression language](control-flow-expression-language-functions.md).
+1. In the **Set properties** page for the dataset, enter **SinkBlobDataset** for **Name**, and select **AzureStorageLinkedService** for **LinkedService**.
+1. Expand the Advanced section of the properties page and select **Open this dataset**.
+  
+1. On the dataset **Connection** tab, edit the **File path**.  Enter `@pipeline().parameters.sinkBlobContainer` for the folder, and `@concat(pipeline().RunId, '.txt')` for the file name. The expression uses the ID of the current pipeline run for the file name. For the supported list of system variables and expressions, see [System variables](control-flow-system-variables.md) and [Expression language](control-flow-expression-language-functions.md).
 
-        :::image type="content" source="./media/tutorial-control-flow-portal/sink-dataset-settings.png" alt-text="Sink dataset settings":::
-1. Switch to the **pipeline** tab at the top. Expand **General** in the **Activities** toolbox, and drag-drop a **Web** activity to the pipeline designer surface. Set the name of the activity to **SendSuccessEmailActivity**. The Web Activity allows a call to any REST endpoint. For more information about the activity, see [Web Activity](control-flow-web-activity.md). This pipeline uses a Web Activity to call the Logic Apps email workflow.
+   :::image type="content" source="./media/tutorial-control-flow-portal/sink-dataset-settings.png" alt-text="Shows a screenshot of the Sink dataset settings":::
 
-    :::image type="content" source="./media/tutorial-control-flow-portal/success-web-activity-general.png" alt-text="Drag-drop first Web activity":::
+1. Switch back to the **pipeline** tab at the top. Search for **Web** in the search box, and drag-drop a **Web** activity to the pipeline designer surface. Set the name of the activity to **SendSuccessEmailActivity**. The Web Activity allows a call to any REST endpoint. For more information about the activity, see [Web Activity](control-flow-web-activity.md). This pipeline uses a Web Activity to call the Logic Apps email workflow.
+
+    :::image type="content" source="./media/tutorial-control-flow-portal/success-web-activity-general.png" alt-text="Shows a screenshot demonstrating how to drag and drop the first Web activity":::
 1. Switch to the **Settings** tab from the **General** tab, and do the following steps:
     1. For **URL**, specify URL for the logic apps workflow that sends the success email.  
     1. Select **POST** for **Method**.
@@ -249,13 +249,13 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
        - Pipeline Name – Passing value of `@{pipeline().Pipeline}`. This is also a system variable, allowing you to access the corresponding pipeline name.
        - Receiver – Passing value of "\@pipeline().parameters.receiver"). Accessing the pipeline parameters.
 
-         :::image type="content" source="./media/tutorial-control-flow-portal/web-activity1-settings.png" alt-text="Settings for the first Web activity":::         
-1. Connect the **Copy** activity to the **Web** activity by dragging the green button next to the Copy activity and dropping on the Web activity.
+         :::image type="content" source="./media/tutorial-control-flow-portal/web-activity1-settings.png" alt-text="Shows a screenshot of the settings for the first Web activity":::         
+1. Connect the **Copy** activity to the **Web** activity by dragging the green checkbox button next to the Copy activity and dropping on the Web activity.
 
-    :::image type="content" source="./media/tutorial-control-flow-portal/connect-copy-web-activity1.png" alt-text="Connect Copy activity with the first Web activity":::
+    :::image type="content" source="./media/tutorial-control-flow-portal/connect-copy-web-activity1.png" alt-text="Shows a screenshot demonstrating how to connect the Copy activity with the first Web activity":::
 1. Drag-drop another **Web** activity from the Activities toolbox to the pipeline designer surface, and set the **name** to **SendFailureEmailActivity**.
 
-    :::image type="content" source="./media/tutorial-control-flow-portal/web-activity2-name.png" alt-text="Name of the second Web activity":::
+    :::image type="content" source="./media/tutorial-control-flow-portal/web-activity2-name.png" alt-text="Shows a screenshot of the name of the second Web activity":::
 1. Switch to the **Settings** tab, and do the following steps:
 
     1. For **URL**, specify URL for the logic apps workflow that sends the failure email.  
@@ -273,24 +273,22 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
         }
         ```
 
-        :::image type="content" source="./media/tutorial-control-flow-portal/web-activity2-settings.png" alt-text="Settings for the second Web activity":::         
-1. Select **Copy** activity in the pipeline designer, and click **+->** button, and select **Error**.  
+        :::image type="content" source="./media/tutorial-control-flow-portal/web-activity2-settings.png" alt-text="Shows a screenshot of the settings for the second Web activity":::         
+1. Select the red **X** button on the right side of the **Copy** activity in the pipeline designer and drag and drop it onto the **SendFailureEmailActivity** you just created.  
 
     :::image type="content" source="./media/tutorial-control-flow-portal/select-copy-failure-link.png" alt-text="Screenshot that shows how to select Error on the Copy activity in the pipeline designer.":::
-1. Drag the **red** button next to the Copy activity to the second Web activity **SendFailureEmailActivity**. You can move the activities around so that the pipeline looks like in the following image:
 
-    :::image type="content" source="./media/tutorial-control-flow-portal/full-pipeline.png" alt-text="Full pipeline with all activities":::
 1. To validate the pipeline, click **Validate** button on the toolbar. Close the **Pipeline Validation Output** window by clicking the **>>** button.
 
-    :::image type="content" source="./media/tutorial-control-flow-portal/validate-pipeline.png" alt-text="Validate pipeline":::
+    :::image type="content" source="./media/tutorial-control-flow-portal/validate-pipeline.png" alt-text="Shows a screenshot of the Validate pipeline button.":::
 1. To publish the entities (datasets, pipelines, etc.) to Data Factory service, select **Publish All**. Wait until you see the **Successfully published** message.
 
-    :::image type="content" source="./media/tutorial-control-flow-portal/publish-button.png" alt-text="Publish":::
+    :::image type="content" source="./media/tutorial-control-flow-portal/publish-button.png" alt-text="Shows a screenshot of the Publish button in the data factory portal.":::
 
 ## Trigger a pipeline run that succeeds
 1. To **trigger** a pipeline run, click **Trigger** on the toolbar, and click **Trigger Now**.
 
-    :::image type="content" source="./media/tutorial-control-flow-portal/trigger-now-menu.png" alt-text="Trigger a pipeline run":::
+    :::image type="content" source="./media/tutorial-control-flow-portal/trigger-now-menu.png" alt-text="Shows a screenshot of the Trigger Now button":::
 1. In the **Pipeline Run** window, do the following steps:
 
     1. Enter **adftutorial/adfv2branch/input** for the **sourceBlobContainer** parameter.
