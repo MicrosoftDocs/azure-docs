@@ -381,7 +381,7 @@
         - name: Connect to compute instance VS Code
           displayName: Visual Studio Code, VSCode, debug, bugs
           href: how-to-set-up-vs-code-remote.md
-        - name: Manage environments with the CLI (v2)
+        - name: Manage environments with SDK and CLI (v2)
           displayName: environment
           href: how-to-manage-environments-v2.md
         - name: How to troubleshoot environments
