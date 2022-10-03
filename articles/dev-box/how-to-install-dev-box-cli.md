@@ -55,6 +55,12 @@ In addition to the Azure admin portal and the Dev Box user portal, you can use D
 
     #### [Install manually](#tab/Option2/)
   
+   Remove existing extension if one exists:
+    
+    ```azurecli
+    az extension remove --name devcenter
+    ```
+
     Manually run this command in the CLI:
 
     ```azurecli

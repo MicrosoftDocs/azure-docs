@@ -82,7 +82,7 @@ az devcenter admin project delete `
 az devcenter admin network-connection create --location "centralus" `
 --domain-join-type "AzureADJoin" --networking-resource-group-id "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ExampleRG" `
 --subnet-id "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ExampleRG/providers/Microsoft.Network/virtualNetworks/ExampleVNet/subnets/default" `
---name "{networkSettingName}" --resource-group "rg1" `
+--name "{networkConnectionName}" --resource-group "rg1" `
 ```
 
 #### Create a hybrid AADJ Network Connection
@@ -91,9 +91,8 @@ az devcenter admin network-connection create --location "centralus" `
 az devcenter admin network-connection create --location "centralus" `
 --domain-join-type "HybridAzureADJoin" --domain-name "mydomaincontroller.local" `
 --domain-password "Password value for user" --domain-username "testuser@mydomaincontroller.local" `
---networking-resource-group-id "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ExampleRG" `
 --subnet-id "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ExampleRG/providers/Microsoft.Network/virtualNetworks/ExampleVNet/subnets/default" `
---name "{networkSettingName}" --resource-group "rg1" `
+--name "{networkConnectionName}" --resource-group "rg1" `
 ```
 
 #### Attach a Network Connection to the DevCenter
@@ -101,7 +100,7 @@ az devcenter admin network-connection create --location "centralus" `
 ```azurecli
 az devcenter admin attached-network create --attached-network-connection-name westus3network `
 --dev-center-name contoso-devcenter -g demo-rg `
---network-connection-id /subscriptions/f141e9f2-4778-45a4-9aa0-8b31e6469454/resourceGroups/demo-rg/providers/Microsoft.DevCenter/networksettings/netset99 `
+--network-connection-id /subscriptions/f141e9f2-4778-45a4-9aa0-8b31e6469454/resourceGroups/demo-rg/providers/Microsoft.DevCenter/networkConnections/netset99 `
 ```
 
 ### Dev Box Definition
@@ -177,7 +176,7 @@ az devcenter admin pool update `
 --resource-group "{resourceGroupName}" `
 --project-name {projectName} `
 --name "{poolName}" `
---devbox-definition-name {machineDefinitionName} `
+--devbox-definition-name {devBoxDefinitionName} `
 ```
 
 #### Delete Pool
@@ -213,15 +212,17 @@ az devcenter dev dev-box create `
 --dev-center {devCenterName} `
 --project-name {projectName} `
 --pool-name {poolName} `
--n {vmName} `
+-n {devBoxName} `
 ```
 
 #### Get web connection URL for a dev box
 
 ```azurecli
 az devcenter dev dev-box show-remote-connection `
---dev-center {devCenterName} --project-name {projectName} `
--n {vmName} `
+--dev-center {devCenterName} `
+--project-name {projectName} `
+--user-id "me"
+-n {devBoxName} `
 ```
 
 #### List your Dev Boxes
@@ -236,7 +237,7 @@ az devcenter dev dev-box list --dev-center {devCenterName} `
 az devcenter dev dev-box show `
 --dev-center {devCenterName} `
 --project-name {projectName} `
--n {vmName} 
+-n {devBoxName} 
 ```
 
 #### Stop a Dev Box
@@ -245,7 +246,8 @@ az devcenter dev dev-box show `
 az devcenter dev dev-box stop `
 --dev-center {devCenterName} `
 --project-name {projectName} `
--n {VMName} `
+--user-id "me" `
+-n {devBoxName} `
 ```
 
 #### Start a Dev Box
@@ -254,6 +256,6 @@ az devcenter dev dev-box stop `
 az devcenter dev dev-box start `
 --dev-center {devCenterName} `
 --project-name {projectName} `
--n {VMName} `
- --user-id "me" 
+--user-id "me" `
+-n {devBoxName} `
 ```
