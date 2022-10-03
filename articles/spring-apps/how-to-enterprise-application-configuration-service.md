@@ -40,13 +40,13 @@ To manage the service settings, open the **Settings** section and add a new entr
 
 The following table describes properties for each entry.
 
-| Property    | Required? | Description                                                                                                                                                                                                                                                                                                                  |
-|-------------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Name        | Yes       | A unique name to label each Git repository.                                                                                                                                                                                                                                                                                  |
-| Patterns    | Yes       | Patterns to search in Git repositories. For each pattern, use a format such as *{application}* or *{application}/{profile}* rather than *{application}-{profile}.yml*. Separate the patterns with commas. For more information, see the [Pattern](./how-to-enterprise-application-configuration-service.md#pattern) section of this article. |
-| URI         | Yes       | A Git URI (for example, `https://github.com/Azure-Samples/piggymetrics-config` or `git@github.com:Azure-Samples/piggymetrics-config`)                                                                                                                                                                                        |
-| Label       | Yes       | The branch name to search in the Git repository.                                                                                                                                                                                                                                                                             |
-| Search path | No        | Optional search paths, separated by commas, for searching subdirectories of the Git repository.                                                                                                                                                                                                                              |
+| Property      | Required? | Description                                                                                                                                                                                                                                                                                                                                  |
+|---------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Name`        | Yes       | A unique name to label each Git repository.                                                                                                                                                                                                                                                                                                  |
+| `Patterns`    | Yes       | Patterns to search in Git repositories. For each pattern, use a format such as *{application}* or *{application}/{profile}* rather than *{application}-{profile}.yml*. Separate the patterns with commas. For more information, see the [Pattern](./how-to-enterprise-application-configuration-service.md#pattern) section of this article. |
+| `URI`         | Yes       | A Git URI (for example, `https://github.com/Azure-Samples/piggymetrics-config` or `git@github.com:Azure-Samples/piggymetrics-config`)                                                                                                                                                                                                        |
+| `Label`       | Yes       | The branch name to search in the Git repository.                                                                                                                                                                                                                                                                                             |
+| `Search path` | No        | Optional search paths, separated by commas, for searching subdirectories of the Git repository.                                                                                                                                                                                                                                              |
 
 ### Pattern
 
@@ -69,20 +69,20 @@ The following image shows the three types of repository authentication supported
 
    The following table shows the configurable properties you can use to set up a private Git repository with basic authentication.
 
-   | Property | Required? | Description                                 |
-   |----------|-----------|---------------------------------------------|
-   | username | Yes       | The username used to access the repository. |
-   | password | Yes       | The password used to access the repository. |
+   | Property   | Required? | Description                                 |
+   |------------|-----------|---------------------------------------------|
+   | `username` | Yes       | The username used to access the repository. |
+   | `password` | Yes       | The password used to access the repository. |
 
 - Private repository with SSH authentication.
 
    The following table shows the configurable properties you can use to set up a private Git repository with SSH.
 
-   | Property                 | Required? | Description                                                                                                                                                                                                                         |
-   |--------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   | Private key              | Yes       | The private key that identifies the Git user. Passphrase-encrypted private keys aren't supported.                                                                                                                                   |
-   | Host key                 | No        | The host key of the Git server. If you've connected to the server via Git on the command line, the host key is in your *.ssh/known_hosts* file. Don't include the algorithm prefix, because it's specified in `Host key algorithm`. |
-   | Host key algorithm       | No        | The algorithm for `hostKey`: one of `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, and `ecdsa-sha2-nistp521`. (Required if supplying `Host key`).                                                              |
+   | Property                   | Required? | Description                                                                                                                                                                                                                         |
+   |----------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | `Private key`              | Yes       | The private key that identifies the Git user. Passphrase-encrypted private keys aren't supported.                                                                                                                                   |
+   | `Host key`                 | No        | The host key of the Git server. If you've connected to the server via Git on the command line, the host key is in your *.ssh/known_hosts* file. Don't include the algorithm prefix, because it's specified in `Host key algorithm`. |
+   | `Host key algorithm`       | No        | The algorithm for `hostKey`: one of `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, and `ecdsa-sha2-nistp521`. (Required if supplying `Host key`).                                                              |
    | `Strict host key checking` | No        | Optional value that indicates whether the backend should be ignored if it encounters an error when using the provided `Host key`. Valid values are `true` and `false`. The default value is `true`.                                 |
 
 > [!NOTE]
@@ -104,7 +104,7 @@ A Spring application holds the properties as the beans of the Spring Application
 
 - Restart the application. Restarting the application always loads the new configuration.
 
-- Call the */actuator/refresh* endpoint exposed on the config client via the Spring Actuator.
+- Call the `/actuator/refresh` endpoint exposed on the config client via the Spring Actuator.
 
    To use this method, add the following dependency to your configuration client’s *pom.xml* file.
 
@@ -121,7 +121,7 @@ A Spring application holds the properties as the beans of the Spring Application
    management.endpoints.web.exposure.include=refresh, bus-refresh, beans, env
    ```
 
-   After you reload the property sources by calling the */actuator/refresh* endpoint, the attributes bound with `@Value` in the beans having the annotation `@RefreshScope` are refreshed.
+   After you reload the property sources by calling the `/actuator/refresh` endpoint, the attributes bound with `@Value` in the beans having the annotation `@RefreshScope` are refreshed.
 
    ``` java
    @Service
