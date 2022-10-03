@@ -41,7 +41,7 @@ Here's more information about neural text-to-speech features in the Speech servi
 
 * **Asynchronous synthesis of long audio**: Use the [Long Audio API](long-audio-api.md) to asynchronously synthesize text-to-speech files longer than 10 minutes (for example, audio books or lectures). Unlike synthesis performed via the Speech SDK or speech-to-text REST API, responses aren't returned in real time. The expectation is that requests are sent asynchronously, responses are polled for, and synthesized audio is downloaded when the service makes it available.
 
-* **Prebuilt neural voices**: Microsoft neural text-to-speech capability uses deep neural networks to overcome the limits of traditional speech synthesis with regard to stress and intonation in spoken language. Prosody prediction and voice synthesis happen simultaneously, which results in more fluid and natural-sounding outputs. You can use neural voices to:
+* **Prebuilt neural voices**: Microsoft neural text-to-speech capability uses deep neural networks to overcome the limits of traditional speech synthesis with regard to stress and intonation in spoken language. Prosody prediction and voice synthesis happen simultaneously, which results in more fluid and natural-sounding outputs. Each prebuilt neural voice model is available at 24kHz and high-fidelity 48kHz. You can use neural voices to:
 
   - Make interactions with chatbots and voice assistants more natural and engaging.
   - Convert digital texts such as e-books into audiobooks.
