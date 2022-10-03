@@ -15,7 +15,7 @@ ms.author: mbender
 # Azure Load Balancer SKUs
 
 >[!Important]
->On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement(https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/)]. If you use Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to that date. This article will help guide you with the upgrade. 
+>On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement(https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/)]. If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to the retirement date. See [Upgrading from Basic Load Balancer - Guidance](load-balancer-basic-upgrade-guidance.md) for upgrade guidance. 
 
 Azure Load Balancer has three SKUs.
 
