@@ -84,7 +84,7 @@ An admin can determine whether the certificates are single-factor or multifactor
 
 When a user has a single factor certificate, they will not be able to do Multifactor authentication. There is no support for a second factor when the first factor is single factor certificates. We are working on adding support for second factors soon.
 
-:::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/mfa-notallowed.png" alt-text="Screenshot of the revoked user certificate in the CRL." :::  
+:::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/mfa-notallowed.png" alt-text="Screenshot of MFA not allowed for single factor certificate." :::  
 
 ### Multifactor certificate authentication 
 
