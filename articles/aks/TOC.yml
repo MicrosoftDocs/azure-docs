@@ -62,6 +62,10 @@
       href: tutorial-kubernetes-app-update.md
     - name: 7 - Upgrade cluster
       href: tutorial-kubernetes-upgrade-cluster.md
+    - name: Security
+      items:
+        - name: Configure application to use workload identity
+          href: learn/tutorial-kubernetes-workload-identity.md
 - name: Concepts
   items:
     - name: Core concepts
@@ -180,8 +184,12 @@
           href: cluster-configuration.md
         - name: Custom node configuration
           href: custom-node-configuration.md
+        - name: Use cluster snapshots
+          href: managed-cluster-snapshot.md
         - name: Integrate ACR with an AKS cluster
           href: cluster-container-registry-integration.md
+        - name: Use Vertical Pod Autoscaler (preview)
+          href: vertical-pod-autoscaler.md
         - name: Scale an AKS cluster
           href: scale-cluster.md
         - name: Stop/Deallocate nodes with Scale-down Mode
@@ -314,6 +322,14 @@
               href: enable-fips-nodes.md
         - name: Application security
           items:
+            - name: Workload identity (preview)
+              items:
+                - name: Overview
+                  href: workload-identity-overview.md
+                - name: Deploy and configure cluster
+                  href: workload-identity-deploy-cluster.md
+                - name: Modernize your app with workload identity sidecar
+                  href: workload-identity-migration-sidecar.md
             - name: Use Azure AD pod identity (preview)
               href: use-azure-ad-pod-identity.md
             - name: Secure pod traffic with network policies
@@ -476,6 +492,8 @@
         - name: Use GitOps
           href: ../azure-arc/kubernetes/tutorial-use-gitops-flux2.md
           maintainContext: true
+        - name: Deploy Kubernetes applications from Azure Marketplace
+          href: deploy-marketplace.md
     - name: Deploy the Open Service Mesh AKS add-on
       items:
         - name: About Open Service Mesh

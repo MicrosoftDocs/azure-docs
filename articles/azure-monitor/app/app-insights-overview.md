@@ -18,10 +18,10 @@ The [log trace](asp-net-trace-logs.md) is associated with other telemetry to giv
 
 Application Insights provides other features including, but not limited to:
 
-- [Live Metrics](live-stream.md) – observe activity from your deployed application in real time with no effect on the host environment 
-- [Availability](availability-overview.md)  – also known as “Synthetic Transaction Monitoring”, probe your applications external endpoint(s) to test the overall availability and responsiveness over time 
-- [GitHub or Azure DevOps integration](work-item-integration.md) – create GitHub or Azure DevOps work items in context of Application Insights data 
-- [Usage](usage-overview.md) – understand which features are popular with users and how users interact and use your application 
+- [Live Metrics](live-stream.md) – observe activity from your deployed application in real time with no effect on the host environment
+- [Availability](availability-overview.md)  – also known as “Synthetic Transaction Monitoring”, probe your applications external endpoint(s) to test the overall availability and responsiveness over time
+- [GitHub or Azure DevOps integration](work-item-integration.md) – create [GitHub](https://learn.microsoft.com/training/paths/github-administration-products/) or [Azure DevOps](https://learn.microsoft.com/azure/devops/?view=azure-devops) work items in context of Application Insights data
+- [Usage](usage-overview.md) – understand which features are popular with users and how users interact and use your application
 - [Smart Detection](proactive-diagnostics.md) – automatic failure and anomaly detection through proactive telemetry analysis
 
 In addition, Application Insights supports [Distributed Tracing](distributed-tracing.md), also known as “distributed component correlation”. This feature allows [searching for](diagnostic-search.md) and [visualizing](transaction-diagnostics.md) an end-to-end flow of a given execution or transaction. The ability to trace activity end-to-end is increasingly important for applications that have been built as distributed components or [microservices](https://learn.microsoft.com/azure/architecture/guide/architecture-styles/microservices).
@@ -60,7 +60,7 @@ To use the SDK, you install a small instrumentation package in your app and then
 
 ### [.NET](#tab/net)
 
-Integrated Auto-instrumentation is available for [Azure App Service .NET](azure-web-apps-net.md), [Azure App Service .NET Core](azure-web-apps-net-core.md), [Azure Functions](../../azure-functions/functions-monitoring.md#monitor-executions-in-azure-functions), and [Azure Virtual Machines](azure-vm-vmss-apps.md).
+Integrated Auto-instrumentation is available for [Azure App Service .NET](azure-web-apps-net.md), [Azure App Service .NET Core](azure-web-apps-net-core.md), [Azure Functions](../../azure-functions/functions-monitoring.md), and [Azure Virtual Machines](azure-vm-vmss-apps.md).
 
 [Azure Monitor Application Insights Agent](status-monitor-v2-overview.md) is available for workloads running in on-premises virtual machines.
 
@@ -72,9 +72,9 @@ A preview [Open Telemetry](opentelemetry-enable.md?tabs=net) offering is also av
 
 ### [Java](#tab/java)
 
-Auto-instrumentation is available for any environment using [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](java-in-process-agent.md).
+Integrated Auto-Instrumentation is available for Java Apps hosted on [Azure App Service](azure-web-apps-java.md) and [Azure Functions](monitor-functions.md).
 
-Integrated Auto-Instrumentation is available for Java Apps hosted on [Azure App Service](azure-web-apps-java.md) and [Azure Functions](monitor-functions.md#distributed-tracing-for-java-applications-public-preview).
+Auto-instrumentation is available for any environment using [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](java-in-process-agent.md).
 
 ### [Node.js](#tab/nodejs)
 
