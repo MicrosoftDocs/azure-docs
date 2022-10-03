@@ -61,7 +61,7 @@ For more information, see [supported languages](language-support.md).
 
 ### Edit the name speakers in the transcription through the API
 
-You can now use the [Azure Video Indexer](https://www.videoindexer.ai/) to edit the name of the speakers in the transcription. 
+You can now edit the name of the speakers in the transcription using the Azure Video Indexer API. 
 
 ### Word level time annotation with confidence score
 
@@ -77,7 +77,7 @@ Azure Video Indexer now supports Diagnostics settings for indexing events. You c
 
 ## Expanded supported languages in LID and MLID through the API
 
-We expanded the languages supported in LID (language identification) and MLID (multi language Identification) using the Video Indexer API.
+We expanded the languages supported in LID (language identification) and MLID (multi language Identification) using the Azure Video Indexer API.
 
 ### Configure confidence level in a person model with an API
 
