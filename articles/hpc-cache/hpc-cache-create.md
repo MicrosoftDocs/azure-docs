@@ -4,7 +4,7 @@ description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/29/2022
+ms.date: 10/03/2022
 ms.author: v-erinkelly 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -39,7 +39,6 @@ In **Service Details**, set the cache name and these other attributes:
 
 ## Choose cache type and capacity
 <!-- referenced from GUI - update aka.ms/hpc-cache-iops link if you change this header text - also check for cross-reference from add storage article -->
-***[ - will update aka link to this heading at publish time - ]***
 
 On the **Cache** page, specify the type and size of cache to create. These values determine your cache's capabilities, including:
 
