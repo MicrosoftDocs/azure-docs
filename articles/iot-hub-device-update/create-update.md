@@ -38,27 +38,16 @@ Once you have your update files, create an import manifest to describe the updat
 > [!TIP]
 > Try the [image-based](device-update-raspberry-pi.md), [package-based](device-update-ubuntu-agent.md), or [proxy update](device-update-howto-proxy-updates.md) tutorials if you haven't already done so. You can also just view sample import manifest files from those tutorials for reference.
 
-1. [Clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) `Azure/iot-hub-device-update` [Git repository](https://github.com/Azure/iot-hub-device-update).
+1. Install the [Azure Command-Line Interface (CLI)](https://learn.microsoft.com/cli/azure/) if you haven't already done so.
 
-2. Navigate to `Tools/AduCmdlets` in your local clone from PowerShell.
+2. Run the following commands after replacing the following sample parameter values with your own: **Provider, Name, Version, Compatibility Properties, Update Handler and associated properties, and file(s)**. See [Import schema and API information](import-schema.md) for details on what values you can use for each item. _In particular, be aware that the same exact set of compatibility properties cannot be used with more than one Provider and Name combination._
 
-3. Run the following commands after replacing the following sample parameter values with your own: **Provider, Name, Version, Properties, Handler, Installed Criteria, Files**. See [Import schema and API information](import-schema.md) for details on what values you can use. _In particular, be aware that the same exact set of compatibility properties cannot be used with more than one Provider and Name combination._
-
-    ```powershell
-    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
-
-    Import-Module ./AduUpdate.psm1
-
-    $updateId = New-AduUpdateId -Provider Contoso -Name Toaster -Version 1.0
-
-    $compat = New-AduUpdateCompatibility -Properties @{ manufacturer = 'Contoso'; model = 'Toaster' }
-
-    $installStep = New-AduInstallationStep -Handler 'microsoft/swupdate:1'-HandlerProperties @{ installedCriteria = '1.0' } -Files 'path to your update file'
-
-    $update = New-AduImportManifest -UpdateId $updateId -Compatibility $compat -InstallationSteps $installStep
-
-    # Write the import manifest to a file, ideally next to the update file(s).
-    $update | Out-File "./$($updateId.provider).$($updateId.name).$($updateId.version).importmanifest.json" -Encoding utf8
+    ```azurecli
+    az iot device-update update init v5 `
+--update-provider <replace with your Provider> --update-name <replace with your update Name> --update-version <replace with your update Version> `
+--compat manufacturer=<replace with the value your device will report> model=<replace with the value your device will report> `
+--step handler=<replace with your chosen handler, such as microsoft/script:1, microsoft/swupdate:1, or microsoft/apt:1> properties=<replace with any desired handler properties (JSON-formatted), such as '{"installedCriteria": "1.0"}'> `
+--file path=<replace with path(s) to your update file(s, including the full file name>
     ```
 
 Once you've created your import manifest, if you're ready to import your update, you can scroll to the Next steps link at the bottom of this page.
