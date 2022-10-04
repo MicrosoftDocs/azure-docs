@@ -5,7 +5,7 @@ description: In this tutorial, learn how to delete a network function as a manag
 author: sushantjrao
 ms.service: network-function-manager
 ms.topic: tutorial
-ms.date: 07/09/2022
+ms.date: 05/10/2022
 ms.author: sushrao
 ms.custom: 
 ---
