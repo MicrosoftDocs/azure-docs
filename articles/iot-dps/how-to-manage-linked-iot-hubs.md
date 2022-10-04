@@ -30,7 +30,13 @@ There are two settings on linked IoT hubs that control how they participate in a
 
 * **Apply allocation policy** specifies whether the IoT hub participates in allocation policy. If set to **Yes/true**, the IoT hub can have devices assigned to it; if **No/false**, devices won't be assigned to the IoT hub. Regardless of the setting's value, the IoT hub can still be selected on an enrollment, it just won't participate in allocation. You can use this setting to temporarily or permanently remove an IoT hub from participating in allocation; for example, if it is approaching the allowed number of devices.
 
-### Use Azure portal
+## Add a linked IoT hub
+
+You can add a linked IoT hub to your DPS instance.
+
+Note that adding a linked IoT hub from your DPS instance only adds it to allocations in enrollments that default to using all linked IoT hubs. For an enrollment that explicitly specifies IoT hubs in its settings, you will need to manually or programmatically add the new IoT hub to the enrollment settings for it to participate in allocation.
+
+### Use Azure portal to add a linked IoT hub
 
 In Azure portal, you can link an IoT hub either from the left menu of your DPS instance or from the enrollment when creating or updating an enrollment. In both cases, the IoT hub is scoped to the DPS instance (not just the enrollment).
 
@@ -41,6 +47,8 @@ To link an IoT hub to your DPS instance in Azure portal:
 1. At the top of the page, select **+ Add**.
 
 1. On the **Add link to IoT hub** page, select the subscription that contains the IoT hub and then choose the name of the IoT hub from the **IoT hub** list.
+
+1. After you select the IoT hub, choose an access policy that DPS will use to connect to the IoT hub. The **Access Policy** list shows all shared access policies defined on the selected IoT Hub that have both **Registry Write** and **Service Connect** permissions defined. The default is the *iothubowner* policy. Select the policy you want to use.  
 
 1. Select **Save**.
 
@@ -58,7 +66,9 @@ To link an IoT hub to your DPS instance from an enrollment in Azure portal:
 
 1. After you finish specifying any other fields necessary for the enrollment, save your settings.
 
- In Azure portal, you must first add a linked IoT hub before you can update its *Allocation weight* and *Apply allocation policy* settings. To update the settings for a linked IoT hub using Azure portal:
+> [!NOTE]
+>
+> In Azure portal, you can't set the *Allocation weight* and *Apply allocation policy* settings when you add a linked IoT hub. Instead, You can update these settings after the IoT hub is linked. To learn more, see [Update a linked IoT hub](#update-a-linked-iot-hub).
 
 1. On the left menu of your DPS instance, select **Linked IoT hubs**, then select the IoT hub from the list.
 
@@ -72,23 +82,73 @@ To link an IoT hub to your DPS instance from an enrollment in Azure portal:
 
 1. Complete any other required fields and save your settings.
 
-DPS also supports creating and managing linked IoT Hubs using the [az iot dps linked-hub](/cli/azure/iot/dps/linked-hub) Azure CLI command, the [Create or Update DPS resource](/rest/api/iot-dps/iot-dps-resource/create-or-update?tabs=HTTP) REST API, [Resource Manager templates](/azure/templates/microsoft.devices/provisioningservices?pivots=deployment-language-arm-template), and the [DPS Management SDKs](libraries-sdks.md#management-sdks).
+DPS also supports creating linked IoT Hubs using the [az iot dps linked-hub](/cli/azure/iot/dps/linked-hub) Azure CLI command, the [Create or Update DPS resource](/rest/api/iot-dps/iot-dps-resource/create-or-update?tabs=HTTP) REST API, [Resource Manager templates](/azure/templates/microsoft.devices/provisioningservices?pivots=deployment-language-arm-template), and the [DPS Management SDKs](libraries-sdks.md#management-sdks).
+
+## Update a linked IoT hub
+
+To update settings of a linked IoT hub
+
+### Update a linked IoT hub using Azure portal
+
+In Azure portal, you can update the allocation weight and apply allocation policy settings for a linked IoT hub.
+
+To update the settings for a linked IoT hub using Azure portal:
+
+1. On the left menu of your DPS instance, select **Linked IoT hubs**, then select the IoT hub from the list.
+
+1. On the **Linked IoT hub details** page:
+
+    :::image type="content" source="media/how-to-manage-linked-iot-hubs/set-linked-iot-hub-properties.png" alt-text="Screenshot that shows the linked IoT hub details page":::.
+
+    * Use the **Allocation weight** slider or text box to choose a weight between one and 1000. The default is one.
+
+    * Set the **Apply allocation policy** switch to specify whether the linked IoT hub should be included in allocation.
 
 > [!NOTE]
 >
-> Note the following behavior when adding or deleting linked IoT hubs:
->
-> * If an enrollment doesn't have any IoT hubs selected, when an IoT hub is added or deleted from your DPS instance, it is immediately added or removed from participating in allocation.
->
-> * If an enrollment has one or more IoT hubs selected and you want to add or remove a linked IoT hub from allocation, you must do so using the settings on the enrollment. Adding or deleting a linked IoT hub from the DPS instance, will not add it to or remove it from the enrollment.
- 
-## Rotate keys for linked IoT hubs
+> You can't update the connection string that DPS uses to connect to the IoT hub from the Azure portal. Instead, you can use the Azure CLI to update the connection string, or you can delete the linked IoT hub from your DPS instance and relink it.
 
-It may become necessary to either rotate or update the symmetric keys for an IoT hub that's been linked to DPS. In this case, you'll also need to update the connection string setting for the linked IoT hub in DPS.
+### Update a linked IoT hub using Azure CLI
 
-### Update and rotate keys using Azure CLS
+With the Azure CLI, you can update the *Allocation weight*, *Apply allocation policy*, and *Connection string* settings. For more information about updating the connection string setting.
 
-To rotate and update IoT hub symmetric keys with Azure CLS:
+Use the [az iot dps linked-hub update](/cli/azure/iot/dps/linked-hub#az-iot-dps-linked-hub-update) command to update the allocation weight or apply allocation policies settings. For example, the following command sets the allocation weight and apply allocation policy for a linked IoT hub:
+
+```azurecli
+az iot dps linked-hub update --dps-name MyExampleDps --resource-group MyResourceGroup --linked-hub MyExampleHub --allocation-weight 2 --apply-allocation-policy true
+```
+
+Use the [az iot dps update](/cli/azure/iot/dps#az-iot-dps-update) command to update the connection string for the linked IoT hub. You can use the `--set` parameter along with the connection string for the IoT hub shared access policy you want to use. For details, see [Update keys for linked IoT hubs](#update-keys-for-linked-iot-hubs).
+
+## Delete a linked IoT hub
+
+You can delete a linked IoT hub from your DPS instance.
+
+Note that deleting a linked IoT hub from your DPS instance only removes it from allocations in enrollments that default to using all linked IoT hubs. For an enrollment that explicitly specify the IoT hub in its settings, you will need to manually or programmatically remove it from the enrollment settings.
+
+### Use Azure portal to delete a linked IoT hub
+
+To delete a linked IoT hub from your DPS instance in Azure portal:
+
+1. On the left menu of your DPS instance, select **Linked IoT hubs**.
+
+1. From the list of IoT hubs, select the check box next to the IoT hub or IoT hubs you want to delete. Then select **Delete** at the top of the page and confirm your choice when prompted.
+
+### Use Azure CLI to delete a linked IoT hub
+
+Use the [az iot dps linked-hub delete](/cli/azure/iot/dps/linked-hub#az-iot-dps-linked-hub-delete) command to remove a linked IoT hub from the DPS instance. For example, the following command removes the IoT hub named MyExampleHub:
+
+```azurecli
+az iot dps linked-hub update --dps-name MyExampleDps --resource-group MyResourceGroup --linked-hub MyExampleHub
+```
+
+## Update keys for linked IoT hubs
+
+It may become necessary to either rotate or update the symmetric keys for an IoT hub that's been linked to DPS. In this case, you'll also need to update the connection string setting in DPS for the linked IoT hub. Be aware that provisioning to an IoT hub will fail during the interim between updating a key on the IoT hub and updating your DPS instance with the new connections string based on that key.
+
+### Use Azure CLS to update keys
+
+To update symmetric keys for a linked IoT hub with Azure CLS:
 
 1. Use the [az iot hub policy renew-key](/cli/azure/iot/hub/policy#az-iot-hub-policy-renew-key) command to swap or regenerate the symmetric keys for the shared access policy on the IoT hub. For example, the following command renews the primary key for the *iothubowner* shared access policy on an IoT hub:
 
@@ -134,3 +194,33 @@ To rotate and update IoT hub symmetric keys with Azure CLS:
     ```azurecli
     az iot dps update --name MyExampleDps --set properties.iotHubs[0].connectionString="HostName=MyExampleHub-2.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=NewTokenValue"
     ```
+
+### Use Azure portal to update keys
+
+You can't update the connection string setting for a linked IoT Hub when using Azure portal. Instead, you need to delete the linked IoT hub from your DPS instance and the re-add it.
+
+To update symmetric keys for a linked IoT hub with Azure portal:
+
+1. On the left menu of your DPS instance in Azure portal, select the IoT hub that you want to update the key(s) for.
+
+1. From the **Linked IoT hub details** page, select **Manage Resource** to go to the IoT hub.
+
+1. On the left menu of the IoT hub, under **Hub settings**, select **Shared access policies**.
+
+1. On **Shared access policies**, under **Manage shared access policies**, select the policy that your DPS instance uses to connect to the linked IoT hub.
+
+1. At the top of the page, select **Regenerate primary key**, **Regenerate secondary key**, or **Swap keys**.
+
+1. Navigate back to your DPS instance and select **Linked IoT hubs** on the left menu.
+
+1. On the left menu of your DPS instance, select **Linked IoT hubs**.
+
+1. Select the checkbox next to the IoT hub that you're updating the keys for, then select **Delete** at the top of the page, and confirm the changes.
+
+1. Follow the steps in [Add a linked IoT hub](#use-azure-portal-to-add-a-linked-iot-hub) to re-add the IoT hub to your DPS instance.
+
+1. If you need to restore the allocation weight and apply allocation policy settings, follow the steps in [Update a linked IoT hub](#update-a-linked-iot-hub-using-azure-portal).
+
+## Limitations
+
+There are some limitations when working with linked IoT hubs and private endpoints. For more information, see [Private endpoint limitations](virtual-network-support.md#private-endpoint-limitations).

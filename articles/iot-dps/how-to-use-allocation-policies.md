@@ -18,36 +18,22 @@ This article helps you understand how to use and manage DPS allocation policies.
 
 ## Understand allocation policies
 
-Allocation policies determine how DPS assigns devices to IoT hubs. Before an IoT hub can be used in an allocation policy, it must be linked to the DPS instance. DPS supports four allocation policies:
+Allocation policies determine how DPS assigns devices to IoT hubs. Before an IoT hub can be used in an allocation policy, it must be linked to the DPS instance. Once an IoT hub is linked to DPS it can be specified to participate in allocation on the enrollment. 
 
-* **Evenly weighted distribution**: IoT hubs have devices provisioned to them based on their allocation weight setting. The default allocation weight setting for a linked IoT hub is one, which means that IoT hubs are equally likely to have a device provisioned to them. However, an operator can change the allocation weight setting on linked IoT hubs to adjust the probability of device assignment across the hubs. Evenly weighted distribution is the default service-level allocation policy setting. If you're provisioning devices to only one IoT hub, you can keep this setting.
+DPS supports four allocation policies:
+
+* **Evenly weighted distribution**: IoT hubs have devices provisioned to them based on their allocation weight setting. By default all linked IoT hubs have the same allocation weight setting, which means that IoT hubs are equally likely to have a device provisioned to them. However, you can adjust the allocation weight setting on a linked IoT hub to increase or decrease its likelihood of being assigned to provisioning devices. Evenly weighted distribution is the default allocation policy setting for DPS. If you're provisioning devices to only one IoT hub, you can keep this setting.
 
     >[!NOTE]
     > It may be desirable to use only one IoT Hub until a specific number of devices is reached. In that scenario, it's important to note that, once a new IoT Hub is added, a new device has the potential to be provisioned to any one of the IoT Hubs. If you wish to balance all devices, registered and unregistered, then you'll need to re-provision all devices.
 
-* **Lowest latency**: devices are provisioned to an IoT hub with the lowest latency to the device. If multiple linked IoT hubs would provide the same lowest latency, the provisioning service hashes devices across those hubs.
+* **Lowest latency**: devices are provisioned to the IoT hub with the lowest latency to the device. If multiple IoT hubs would provide the lowest latency, then DPS hashes devices across those hubs.
 
 * **Static configuration (via enrollment list only)**: devices are provisioned to a single IoT hub, which must be specified on the enrollment.
 
-* **Custom (Use Azure Function)**: A [custom allocation policy](how-to-use-custom-allocation-policies.md) gives you more control over how devices are assigned to an IoT hub. This is accomplished by using custom code in an Azure Function to assign devices to an IoT hub. The device provisioning service calls your Azure Function code providing all relevant information about the device and the enrollment to your code. Your function code is executed and returns the IoT hub information used to provisioning the device.
+* **Custom (Use Azure Function)**: A [custom allocation policy](how-to-use-custom-allocation-policies.md) gives you more control over how devices are assigned to an IoT hub. This is accomplished by using custom code in an Azure Function to assign devices to an IoT hub. The device provisioning service calls your Azure Function code providing all relevant information about the device and the enrollment to your code. Your function code returns the IoT hub information used to provisioning the device.
 
-The allocation policy can be set at the service-level or at the enrollment-level.
-
-* The service-level setting serves as the default enrollment-level policy. Custom allocation policies can't be specified at the service-level. If *Static configuration* is set on the service-level, a linked IoT hub *must* be specified in the enrollment.
-
-* Enrollment-level settings support all four allocation policies. 
-
-  * For *Evenly weighted distribution*, *Lowest latency*, and *Custom* allocation policies, the enrollment *may* specify which linked IoT hubs should be used. For these policies, if no IoT hubs are selected in the enrollment, then all of the linked IoT hubs in the DPS instance will be used.
-
-  * For *Static configuration*, the enrollment *must* specify a single IoT hub from the list of linked IoT hubs.
-
-For simple IoT solution topologies, for example, those that involve assigning devices among the same set of one or more IoT hubs using the same allocation policy, managing allocation at the service-level may be sufficient. For more complicated topologies, for example, multi-tenant scenarios where each customer is assigned a dedicated set of IoT hubs, managing allocation policy at the enrollment-level is preferred.
-
-## Manage linked IoT hubs
-
-IoT hubs can be linked to your DPS instance at the service-level. You can link IoT hubs that are inside or outside your subscription.
-
-There are two settings on linked IoT hubs that control how they participate in allocation policy:
+There are two settings on a linked IoT hub that determine how it participates in allocation:
 
 * **Allocation weight** sets the weight that the IoT hub will have when participating in allocation policies that involve provisioning among multiple IoT hubs. It can be a value between one and 1000. The default is one.
 
@@ -59,77 +45,69 @@ There are two settings on linked IoT hubs that control how they participate in a
 
 * **Apply allocation policy** specifies whether the IoT hub participates in allocation policy. If set to **Yes/true**, the IoT hub can have devices assigned to it; if **No/false**, devices won't be assigned to the IoT hub. Regardless of the setting's value, the IoT hub can still be selected on an enrollment, it just won't participate in allocation. You can use this setting to temporarily or permanently remove an IoT hub from participating in allocation; for example, if it is approaching the allowed number of devices.
 
-In Azure portal, you can link an IoT hub either from the left menu of your DPS instance or from the enrollment when creating or updating an enrollment. In both cases, the IoT hub is scoped to the DPS instance (not just the enrollment).
+The allocation policy can be set on the DPS instance and, optionally, on an enrollment.
 
-To link an IoT hub to your DPS instance in Azure portal:
+* The DPS instance setting serves as the default allocation policy for enrollments. Only *Evenly weighted distribution*, *Lowest latency*, and *Static configuration* can be specified for the DPS instance. If *Static configuration* is specified, a linked IoT hub *must* be specified any enrollments that default to the DPS instance allocation policy setting.
 
-1. On the left menu of your DPS instance, select **Linked IoT hubs**.
+* The Enrollment allocation policy setting supports all four allocation policies.
 
-1. At the top of the page, select **+ Add**.
+  * For *Evenly weighted distribution*, *Lowest latency*, and *Custom* allocation policies, the enrollment *may* specify which linked IoT hubs should be used. For these policies, if no IoT hubs are selected in the enrollment, then all of the linked IoT hubs in the DPS instance will be used.
 
-1. On the **Add link to IoT hub** page, select the subscription that contains the IoT hub and then choose the name of the IoT hub from the **IoT hub** list.
+  * For *Static configuration*, the enrollment *must* specify a single IoT hub from the list of linked IoT hubs.
 
-1. Select **Save**.
+For simple IoT solution topologies, for example, those that involve assigning devices among the same set of one or more IoT hubs using the same allocation policy, managing allocation at the service-level may be sufficient. For more complicated topologies, for example, multi-tenant scenarios where each customer is assigned a dedicated set of IoT hubs, managing allocation policy at the enrollment-level is preferred.
 
-To link an IoT hub to your DPS instance from an enrollment in Azure portal:
+## Set allocation policy on the DPS instance
 
-1. On the left menu of your DPS instance, select **Manage enrollments**.
+The DPS instance allocation policy is used if no allocation policy is set on an enrollment. By default, DPS instances are created with the *Evenly weighted distribution* (hashed) policy. If desired, you can set a different allocation policy for your DPS instance.
 
-1. On the **Manage enrollments** page:
+### Use Azure CLI to set allocation policy on the DPS instance
 
-    * To create a new enrollment, select either **+ Add enrollment group** or **+ Add individual enrollment** at the top of the page.
+Use the [az iot dps update](/cli/azure/iot/dps#az-iot-dps-update) Azure CLI command to set the allocation policy on the DPS instance. You use `--set properties.allocationPolicy` to specify the policy. For example, the following command sets the allocation policy to *Evenly weighted distribution* (the default):
 
-    * To update an existing enrollment, select it from the list under either the **Enrollment Groups** or **Individual Enrollments** tab.
+```azurecli
+az iot dps update --name MyExampleDps --set properties.allocationPolicy=hashed
+```
 
-1. On the **Add Enrollment** page (on create) or the **Enrollment details** page (on update), you can select the **Link a new IoT hub** button to link a new IoT hub to the DPS instance.
+### Use Azure portal to set allocation policy on the DPS instance
 
-1. After you finish specifying any other fields necessary for the enrollment, save your settings.
-
- In Azure portal, you must first add a linked IoT hub before you can update its *Allocation weight* and *Apply allocation policy* settings. To update the settings for a linked IoT hub using Azure portal:
-
-1. On the left menu of your DPS instance, select **Linked IoT hubs**, then select the IoT hub from the list.
-
-1. On the **Linked IoT hub details** page:
-
-    :::image type="content" source="media/how-to-use-allocation-policies/set-linked-iot-hub-properties.png" alt-text="Screenshot that shows the linked IoT hub details page":::.
-
-    * Use the **Allocation weight** slider or text box to choose a weight between one and 1000. The default is one.
-
-    * Set the **Apply allocation policy** switch to specify whether the linked IoT hub should be included in allocation.
-
-1. Complete any other required fields and save your settings.
-
-DPS also supports creating and managing linked IoT Hubs using the [az iot dps linked-hub](/cli/azure/iot/dps/linked-hub) Azure CLI command, the [Create or Update DPS resource](/rest/api/iot-dps/iot-dps-resource/create-or-update?tabs=HTTP) REST API, [Resource Manager templates](/azure/templates/microsoft.devices/provisioningservices?pivots=deployment-language-arm-template), and the [DPS Management SDKs](libraries-sdks.md#management-sdks).
-
-> [!NOTE]
->
-> Note the following behavior when adding or deleting linked IoT hubs:
->
-> * If an enrollment doesn't have any IoT hubs selected, when an IoT hub is added or deleted from your DPS instance, it is immediately added or removed from participating in allocation.
->
-> * If an enrollment has one or more IoT hubs selected and you want to add or remove a linked IoT hub from allocation, you must do so using the settings on the enrollment. Adding or deleting a linked IoT hub from the DPS instance, will not add it to or remove it from the enrollment.
-
-## Manage service-level allocation policy
-
-The service-level allocation policy sets the default policy for the DPS instance.
-
-To set the service-level allocation policy in Azure portal:
+To set the allocation policy for the DPS instance in Azure portal:
 
 1. On the left menu of your DPS instance, select **Manage allocation policy**.
 
-2. Select the radio button for the allocation policy you want to set: **Lowest latency**, **Evenly weighted distribution**, or **Static configuration**. (Custom allocation isn't supported at the service level.)
+2. Select the button for the allocation policy you want to set: **Lowest latency**, **Evenly weighted distribution**, or **Static configuration**. (Custom allocation isn't supported at the service level.)
 
 3. Select **Save**.
 
 DPS also supports setting the service-level allocation policy using the [az iot dps policy](/cli/azure/iot/dps/policy) Azure CLI command, the [Create or Update DPS resource](/rest/api/iot-dps/iot-dps-resource/create-or-update?tabs=HTTP) REST API, [Resource Manager templates](/azure/templates/microsoft.devices/provisioningservices?pivots=deployment-language-arm-template), and the [DPS Management SDKs](libraries-sdks.md#management-sdks).
 
-## Manage enrollment-level allocation policy
+## Manage allocation policy and linked IoT hubs on enrollments
 
-The enrollment-level allocation policy and selected IoT hub settings provide the most flexible support for IoT solution topologies.
+The allocation policy and selected IoT hub settings on enrollments provide the most flexible support for IoT solution topologies.
 
-By default, individual enrollments and enrollment groups inherit the service-level allocation policy. For *Lowest latency* and *Evenly weighted distribution*, the allocation policy is applied across all of the IoT hubs linked to the DPS instance. For the *Static configuration* policy, you must specify an IoT hub when you create the enrollment.
+By default, individual enrollments and enrollment groups inherit the allocation policy set on the DPS instance. For *Lowest latency* and *Evenly weighted distribution*, the allocation policy is applied across all of the IoT hubs linked to the DPS instance. For the *Static configuration* policy, you must specify an IoT hub when you create the enrollment.
 
-For both individual enrollments and enrollment groups, you can specify an allocation policy and the linked IoT hubs to apply it to when you create or update the enrollment:
+For both individual enrollments and enrollment groups, you can specify an allocation policy and the linked IoT hubs to apply it to when you create or update an enrollment.
+
+## Use Azure CLI to manage allocation policy and IoT hubs on an enrollment
+
+Use the [az iot dps enrollment create](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-create), [az iot dps enrollment update](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-update), [az iot dps enrollment-group create](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-group-create), [az iot dps enrollment-group update](/cli/azure/iot/dps/enrollment#az-iot-dps-enrollment-group-update)  Azure CLI commands to create or update individual enrollments or enrollment groups.
+
+For example, the following command creates a symmetric key enrollment group that defaults to the allocation policy set on the DPS instance and uses all the IoT hubs linked to the DPS instance:
+
+```azurecli
+az iot dps enrollment-group create --dps-name MyExampleDps --enrollment-id MyEnrollmentGroup 
+```
+
+The following command updates the same enrollment group to use the *Lowest latency* allocation policy with IoT hubs named *MyExampleHub* and *MyExampleHub-2*:
+
+```azurecli
+az iot dps enrollment-group update --dps-name MyExampleDps --enrollment-id MyEnrollmentGroup --allocation-policy geolatency --iot-hubs "MyExampleHub.azure-devices.net MyExampleHub-2.azure-devices.net"
+```
+
+For more examples, see the linked commands.
+
+## Use Azure portal to manage allocation policy and IoT hubs on an enrollment
 
 1. On the left menu of your DPS instance, select **Manage enrollments**.
 
@@ -147,11 +125,11 @@ For both individual enrollments and enrollment groups, you can specify an alloca
 
     * Select the IoT hubs that devices can be assigned to. If you've selected the *Static configuration* allocation policy, you'll be limited to selecting a single linked IoT hub. For all other allocation policies, all of the linked IoT hubs will be selected by default, but you can modify this selection using the drop-down. To have the enrollment automatically use linked IoT hubs as they are added to (or deleted from) the DPS instance, unselect all IoT hubs.
 
-    * Optionally, you can select the **Link a new IoT hub** button to link a new IoT hub to the DPS instance and add it to the list of IoT hubs.
+    * Optionally, you can select the **Link a new IoT hub** button to link a new IoT hub to the DPS instance and add it to the list of IoT hubs. For details about managing
 
-1. Save your settings.
+1. Set any other properties needed for the enrollment and then save your settings.
 
-DPS also supports setting the enrollment-level allocation policy and selected IoT hubs using the [az iot dps enrollment](/cli/azure/iot/dps/enrollment) and [az iot dps enrollment-group](/cli/azure/iot/dps/enrollment-group) Azure CLI commands, the [Create or Update individual enrollment](/rest/api/iot-dps/service/individual-enrollment/create-or-update) and [Create or Update enrollment group](/rest/api/iot-dps/service/enrollment-group/create-or-update) REST APIs, and the [DPS service SDKs](libraries-sdks.md#service-sdks).
+DPS also supports setting allocation policy and selected IoT hubs on the enrollment using the [Create or Update individual enrollment](/rest/api/iot-dps/service/individual-enrollment/create-or-update) and [Create or Update enrollment group](/rest/api/iot-dps/service/enrollment-group/create-or-update) REST APIs, and the [DPS service SDKs](libraries-sdks.md#service-sdks).
 
 > [!NOTE]
 >
