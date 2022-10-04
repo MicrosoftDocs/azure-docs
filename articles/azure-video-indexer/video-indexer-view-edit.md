@@ -19,13 +19,14 @@ This topic shows you how to view and edit the Azure Video Indexer insights of a 
 	The page shows the video's insights. 
 
 	![Insights](./media/video-indexer-view-edit/video-indexer-summarized-insights.png)
-4. View the insights of the video. 
+4. Select which insights you want to view. For example, faces, keywords, sentiments.You can see the faces of people and the time ranges each face appears in and the % of the time it is shown.
 
-	Summarized insights show an aggregated view of the data: faces, keywords, sentiments. For example, you can see the faces of people and the time ranges each face appears in and the % of the time it is shown.
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/video-indexer-view-edit/timeline.png" alt-text="The screenshot shows how to select the insights." lightbox="./media/video-indexer-view-edit/timeline.png":::
 
 	[!INCLUDE [insights](./includes/insights.md)]
 
-	Select the **Timeline** tab to see transcripts with timelines and other information that you can choose from the **View** drop-down.
+	The **Timeline** tab shows transcripts with timelines and other information that you can choose from the **View** drop-down.
 
 	The player and the insights are synchronized. For example, if you click a keyword or the transcript line, the player brings you to that moment in the video. You can achieve the player/insights view and synchronization in your application. For more information, see [Embed Azure Indexer widgets into your application](video-indexer-embed-widgets.md). 
 
