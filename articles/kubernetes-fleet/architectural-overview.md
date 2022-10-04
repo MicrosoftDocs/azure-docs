@@ -20,13 +20,13 @@ Azure Kubernetes Fleet Manager is meant to solve at-scale and multi-cluster prob
 
 Fleet supports joining the following types of existing AKS clusters as member clusters:
 
-1. AKS clusters across same or different resource groups within same subscription
-1. AKS clusters across different subscriptions of the same Azure AD tenant
-1. AKS clusters from different regions but within the same tenant
+* AKS clusters across same or different resource groups within same subscription
+* AKS clusters across different subscriptions of the same Azure AD tenant
+* AKS clusters from different regions but within the same tenant
 
 During preview, you can join up to 20 AKS clusters as member clusters to the same fleet resource.
 
-Once a cluster is joined to a fleet, a MemeberCluster custom resource is created on the fleet.
+Once a cluster is joined to a fleet resource, a MemeberCluster custom resource is created on the fleet.
 
 The member clusters can be viewed by running the following command:
 
@@ -34,7 +34,7 @@ The member clusters can be viewed by running the following command:
 kubectl get crd memberclusters.fleet.azure.com -o yaml
 ```
 
-The complete specification of the MemberCluster fleet can be viewed by running the following command:
+The complete specification of the `MemberCluster` custom resource can be viewed by running the following command:
 
 ```bash
 kubectl get crd memberclusters -o yaml
@@ -76,7 +76,7 @@ Fleet can be used to set up layer 4 multi-cluster load balancing across workload
 
 For multi-cluster load balancing, Fleet requires target clusters to be using [Azure CNI networking](../aks/configure-azure-cni.md). Azure CNI networking enables pod IPs to be directly addressable on the Azure virtual network so that they can be routed to from the Azure Load Balancer.
 
-The user needs to create `ServiceExport` object on a member cluster to express the intent that the fleet cluster and other member clusters of the same fleet need to be made aware of this service. The ServiceExport itself can be propagated from the fleet cluster to the member cluster using Kubernetes resource propagation feature described above or it can be directly created on the member cluster too. Once this `ServiceExport` resource is created, it results in ServiceImport being created on the fleet and all other member clusters to build the awareness of this service. 
+The ServiceExport itself can be propagated from the fleet cluster to a member cluster using the Kubernetes resource propagation feature describe above, or it can be created directly on the member cluster. Once this ServiceExport resource is created, it results in a ServiceImport being created on the fleet cluster and all other member clusters to build the awareness of the service
 
 The user can then create a `MultiClusterService` custom resource to indicate that they want to set up Layer 4 multi-cluster load balancing. This `MultiClusterService` results in the member cluster mapped Azure Load Balancer being configured to load balance incoming traffic across endpoints of this service on multiple member clusters.
 
