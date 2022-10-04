@@ -52,17 +52,15 @@ These instructions install the base SDK packages necessary for the quickstart an
 
 ## Option 3: Access on a DSVM
 
-The Data Science Virtual Machine (DSVM) is a customized VM image built specifically for doing data science. If you [create a DSVM](how-to-configure-environment.md#dsvm), the SDK and notebook server are installed and configured for you. However, you'll still need to create a workspace and clone the sample repository.
+The Data Science Virtual Machine (DSVM) is a customized VM image built specifically for doing data science. If you [create a DSVM](how-to-configure-environment.md#local-and-dsvm-only-create-a-workspace-configuration-file), the SDK and notebook server are installed and configured for you. However, you'll still need to create a workspace and clone the sample repository.
 
 [!INCLUDE [aml-dsvm-server](../../includes/aml-dsvm-server-v2.md)]
 
 ## Next steps
 
-Explore the [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) and [AzureML-Examples](https://github.com/Azure/azureml-examples) repositories to discover what Azure Machine Learning can do.
+Explore the [AzureML-Examples](https://github.com/Azure/azureml-examples) repository to discover what Azure Machine Learning can do.
 
-For more GitHub sample projects and examples, see these repos:
-+ [Microsoft/MLOps](https://github.com/Microsoft/MLOps)
-+ [Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
+For more examples of MLOps, see [https://github.com/Azure/mlops-v2](https://github.com/Azure/mlops-v2).
 
 Try these tutorials:
 

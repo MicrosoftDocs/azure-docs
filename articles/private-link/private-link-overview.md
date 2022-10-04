@@ -19,7 +19,7 @@ Traffic between your virtual network and the service travels the Microsoft backb
 > [!IMPORTANT]
 > Azure Private Link is now generally available. Both Private Endpoint and Private Link service (service behind standard load balancer) are generally available. Different Azure PaaS will onboard to Azure Private Link at different schedules. See [Private Link availability](availability.md) for an accurate status of Azure PaaS on Private Link. For known limitations, see [Private Endpoint](private-endpoint-overview.md#limitations) and [Private Link Service](private-link-service-overview.md#limitations). 
 
-:::image type="content" source="./media/private-link-overview/private-link-center.png" alt-text="Azure Private Link center in Azure portal" border="false":::
+:::image type="content" source="./media/private-link-overview/private-link-center.png" alt-text="Screenshot of Azure Private Link center in Azure portal." :::
 
 ## Key benefits
 Azure Private Link provides the following benefits:  
@@ -74,4 +74,4 @@ For SLA, see [SLA for Azure Private Link](https://azure.microsoft.com/support/le
 
 - [Quickstart: Create a Private Endpoint using Azure portal](create-private-endpoint-portal.md)
 - [Quickstart: Create a Private Link service by using the Azure portal](create-private-link-service-portal.md)
-- [Learn module: Introduction to Azure Private Link](/learn/modules/introduction-azure-private-link/)
+- [Learn module: Introduction to Azure Private Link](/training/modules/introduction-azure-private-link/)

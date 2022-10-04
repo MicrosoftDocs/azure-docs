@@ -30,7 +30,9 @@ Learn how to troubleshoot and solve, or work around, common errors you may encou
 * An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
 * The [Azure CLI](/cli/azure/install-azure-cli).
-* The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
+* The [CLI extension v1 for Azure Machine Learning](reference-azure-machine-learning-cli.md).
+
+    [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
 
 ## Steps for Docker deployment of machine learning models
 
@@ -61,7 +63,7 @@ To get the logs from a deployed webservice, do:
 az ml service get-logs --verbose --workspace-name <my workspace name> --name <service name>
 ```
 
-# [Python](#tab/python)
+# [Python SDK](#tab/python)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 

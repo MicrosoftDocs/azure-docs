@@ -51,7 +51,7 @@ You can block external users from accessing specific sets of resources with Cond
 
 To create a policy that blocks access for external users to a set of applications:
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Global Administrator, Security Administrator, or Conditional Access Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies, for example ExternalAccess_Block_FinanceApps.
@@ -71,7 +71,7 @@ After confirming your settings using [report-only mode](../conditional-access/ho
 
 There may be times you want to block external users except a specific group. For example, you may want to block all external users except those working for the finance team from the finance applications. To do this [Create a security group](active-directory-groups-create-azure-portal.md) to contain the external users who should access the finance applications:
 
-1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
+1. Sign in to the **Azure portal** as a Global Administrator, Security Administrator, or Conditional Access Administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies, for example ExternalAccess_Block_AllButFinance.

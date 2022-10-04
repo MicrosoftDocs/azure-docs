@@ -4,14 +4,17 @@ description: Overview of the SAP workload zone configuration process within the 
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 08/13/2022
+ms.date: 09/13/2022
 ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
 
 # Workload zone configuration in SAP automation framework
 
-An [SAP application](automation-deployment-framework.md#sap-concepts) typically has multiple development tiers. For example, you might have development, quality assurance, and production tiers. The [SAP deployment automation framework on Azure](automation-deployment-framework.md) refers to these tiers as [workload zones](automation-deployment-framework.md#deployment-components).
+An [SAP application](automation-deployment-framework.md#sap-concepts) typically has multiple development tiers. For example, you might have development, quality assurance, and production tiers. The [SAP deployment automation framework on Azure](automation-deployment-framework.md) refers to these tiers as [workload zones](automation-deployment-framework.md#deployment-components). See the following diagram for an example of a workload zone with two SAP systems.     
+
+:::image type="content" source="./media/automation-deployment-framework/workload-zone-architecture.png" alt-text="Diagram of SAP workflow zones and systems.":::
+
 
 ## Workload zone deployment configuration
 
@@ -215,6 +218,15 @@ ANF_service_level         = "Ultra"
 
 ```
 
+### DNS Support   
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                             | Description                                                            | Type         | Notes  |
+> | ------------------------------------ | -----------------------------------------------------------------------| -----------  | ------ |
+> | `use_custom_dns_a_registration`      | Should a custom DNS A record be created when using private endpoints.  | Optional     | |
+> | `management_dns_subscription_id`     | Custom DNS subscription ID.                                            | Optional     | |
+> | `management_dns_resourcegroup_name`  | Custom DNS resource group name.                                        | Optional     | |
+> |                                      |                                                                        |              | |
 ## Other Parameters
 
 > [!div class="mx-tdCol2BreakAll "]

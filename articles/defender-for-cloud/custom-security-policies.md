@@ -297,7 +297,7 @@ Below is an example of a custom policy including the metadata/securityCenter pro
 }
   ```
 
-For another example of using the securityCenter property, see [this section of the REST API documentation](/rest/api/defenderforcloud/assessmentsmetadata/createinsubscription#examples).
+For another example of using the securityCenter property, see [this section of the REST API documentation](/rest/api/defenderforcloud/assessments-metadata/create-in-subscription#examples).
 
 
 ## Next steps

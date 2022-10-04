@@ -9,7 +9,7 @@ description: "Use custom locations to deploy Azure PaaS services on Azure Arc-en
 
 # Create and manage custom locations on Azure Arc-enabled Kubernetes
 
- The *custom locations* feature provides a way for tenant or cluster administrators to configure their Azure Arc-enabled Kubernetes clusters as target locations for deploying instances of Azure offerings. Examples of Azure offerings that can be deployed on top of custom locations include databases, such as Azure Arc-enabled SQL Managed Instance and Azure Arc-enabled PostgreSQL Hyperscale, or application instances, such as App Services, Functions, Event Grid, Logic Apps, and API Management.
+ The *custom locations* feature provides a way for tenant or cluster administrators to configure their Azure Arc-enabled Kubernetes clusters as target locations for deploying instances of Azure offerings. Examples of Azure offerings that can be deployed on top of custom locations include databases, such as Azure Arc-enabled SQL Managed Instance and Azure Arc-enabled PostgreSQL server, or application instances, such as App Services, Functions, Event Grid, Logic Apps, and API Management.
 
 A custom location has a one-to-one mapping to a namespace within the Azure Arc-enabled Kubernetes cluster. The custom location Azure resource combined with Azure role-based access control (Azure RBAC) can be used to grant granular permissions to application developers or database admins, enabling them to deploy resources such as databases or application instances on top of Arc-enabled Kubernetes clusters in a multi-tenant manner.
 
@@ -171,7 +171,7 @@ Required parameters:
 To list all custom locations in a resource group, use the following command:
 
 ```azurecli
-az customlocation show -g <resourceGroupName> 
+az customlocation list -g <resourceGroupName> 
 ```
 
 Required parameters:

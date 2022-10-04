@@ -51,7 +51,7 @@ The following diagram illustrates that you can generate the code for automated M
 
     * You can run your code via a Jupyter notebook in an [Azure Machine Learning compute instance](), which contains the latest Azure ML SDK already installed. The compute instance comes with a ready-to-use Conda environment that is compatible with the automated ML code generation (preview) capability.
 
-    * Alternatively, you can create a new local Conda environment on your local machine and then install the latest Azure ML SDK. [How to install AutoML client SDK in Conda environment with the `automl` package](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml#setup-using-a-local-conda-environment).
+    * Alternatively, you can create a new local Conda environment on your local machine and then install the latest Azure ML SDK. [How to install AutoML client SDK in Conda environment with the `automl` package](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/v1/python-sdk/tutorials/automl-with-azureml#setup-using-a-local-conda-environment).
 
 ##  Code generation with the SDK
 
@@ -484,5 +484,5 @@ However, in order to load that model in a notebook in your custom local Conda en
 
 ## Next steps
 
-* Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
+* Learn more about [how and where to deploy a model](/azure/machine-learning/v1/how-to-deploy-and-where).
 * See how to [enable interpretability features](how-to-machine-learning-interpretability-automl.md) specifically within automated ML experiments.

@@ -7,7 +7,7 @@ ms.service: peering-service
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
-ms.date: 07/31/2022
+ms.date: 10/03/2022
 ms.author: halkazwini
 ---
 
@@ -30,20 +30,24 @@ The table in this article provides information on the Peering Service connectivi
 | [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html) |Africa|
 | [Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/)|Europe, Asia|
 | [Converge ICT](https://www.convergeict.com/enterprise/microsoft-azure-peering-service-maps/) |Asia|
+| [Dimension Data](https://www.dimensiondata.com/en-gb/about-us/our-partners/microsoft/)|Africa |
 | [DE-CIX](https://www.de-cix.net/)|Europe, North America |
-| [IIJ](https://www.iij.ad.jp/en/) | Japan |
+| [Equinix IX](https://www.equinix.com/interconnection-services/internet-exchange/) |North America, Asia|
+| [IIJ](https://www.iij.ad.jp/en/) |Japan |
 | [Intercloud](https://intercloud.com/microsoft-saas-applications/)|Europe  |
 | [Kordia](https://www.kordia.co.nz/cloudconnect) |Oceania  |
 | [LINX](https://www.linx.net/services/microsoft-azure-peering/) |Europe|
-| [Liquid Telecom](https://liquidcloud.africa/keep-expanding-365-direct/) | Africa  |
+| [Liquid Telecom](https://liquidcloud.africa/keep-expanding-365-direct/) |Africa  |
 | [Lumen Technologies](https://www.ctl.io/microsoft-azure-peering-services/) |North America, Europe, Asia|
 | [MainOne](https://www.mainone.net/connectivity-services/) |Africa|
 | [NAP Africa](https://www.napafrica.net/technical/microsoft-azure-peering-service/) |Africa|
-| [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) | Japan, Indonesia |
+| [NTT Communications](https://www.ntt.com/en/services/network/software-defined-network.html) |Japan, Indonesia |
 | [PCCW](https://www.pccwglobal.com/en/enterprise/products/network/ep-global-internet-access) |Asia |
 | [Singtel](https://www.singtel.com/business/campaign/singnet-cloud-connect-microsoft-direct) |Asia |
 | [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline/ip-plus.html) |Europe|
 | [Telstra International](https://www.telstra.com.sg/en/products/global-networks/global-internet/global-internet-direct) |Asia, Europe |
+| [Vocusgroup NZ](https://www.vocus.co.nz/microsoftazuredirectpeering/) |Oceania |
+| [Vodacom](https://www.vodacom.com/index.php) |Africa |
 
 > [!NOTE]
 >For more information about enlisting with the Peering Service Partner program, reach out to peeringservice@microsoft.com.
