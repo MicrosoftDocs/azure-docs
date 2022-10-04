@@ -26,7 +26,7 @@ This article will guide you through how to configure Azure Front Door Premium ti
 
 ## Enable Private Link to a Storage Account in Azure Front Door Premium
  
-Run [az afd origin create](/cli/azure/afd/origin#az-afd-origin-create) to create a new Azure Front Door origin. Enter the following settings to configure the Storage Account you want Azure Front Door Premium to connect with privately. Notice the `private-link-sub-resource-type` must be **blob** and the `private-link-location` must be in one of the [available regions](../private-link.md#region-availability).
+Run [az afd origin create](/cli/azure/afd/origin#az-afd-origin-create) to create a new Azure Front Door origin. Enter the following settings to configure the Storage Account you want Azure Front Door Premium to connect with privately. Notice the `private-link-location` must be in one of the [available regions](../private-link.md#region-availability) and the `private-link-sub-resource-type` must be **blob**.
 
 ```azurecli-interactive
 az afd origin create --enabled-state Enabled \
