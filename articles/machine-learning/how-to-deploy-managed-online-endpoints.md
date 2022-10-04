@@ -249,7 +249,7 @@ In this article, we first define names of online endpoint and deployement for de
         code_configuration=CodeConfiguration(
             code="../model-1/onlinescoring", scoring_script="score.py"
         ),
-        instance_type="Standard_F2s_v2",
+        instance_type="Standard_DS2_v2",
         instance_count=1,
     )
     ```
@@ -436,6 +436,7 @@ You can view this output by using the `get_logs` method:
 ml_client.online_deployments.get_logs(
     name="blue", endpoint_name=local_endpoint_name, local=True, lines=50
 )
+```
 
 ---
 
@@ -444,6 +445,8 @@ ml_client.online_deployments.get_logs(
 Next, deploy your online endpoint to Azure.
 
 ### Deploy to Azure
+
+# [Azure CLI](#tab/azure-cli)
 
 To create the endpoint in the cloud, run the following code:
 
@@ -461,7 +464,85 @@ This deployment might take up to 15 minutes, depending on whether the underlying
 
 > [!TIP]
 > * If you prefer not to block your CLI console, you may add the flag `--no-wait` to the command. However, this will stop the interactive display of the deployment status.
->
+
+# [Python](#tab/python)
+
+1. Configure online endpoint:
+
+    > [!TIP]
+    > * `endpoint_name`: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+    > * `auth_mode` : Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. A `key` doesn't expire, but `aml_token` does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
+    > * Optionally, you can add description, tags to your endpoint.
+
+    ```python
+    # Creating a unique endpoint name with current datetime to avoid conflicts
+    import datetime
+
+    online_endpoint_name = "endpoint-" + datetime.datetime.now().strftime("%m%d%H%M%f")
+
+    # create an online endpoint
+    endpoint = ManagedOnlineEndpoint(
+        name=online_endpoint_name,
+        description="this is a sample online endpoint",
+        auth_mode="key",
+        tags={"foo": "bar"},
+    )
+    ```
+
+1. Create the endpoint:
+
+    Using the `MLClient` created earlier, we'll now create the Endpoint in the workspace. This command will start the endpoint creation and return a confirmation response while the endpoint creation continues.
+
+    ```python
+    endpoint = ml_client.online_endpoints.begin_create_or_update(endpoint)
+    #ml_client.begin_create_or_update(endpoint)
+    ```
+    <Todo: need to verify. do we need to redefine endpoint variable?>
+
+1. Configure online deployment:
+
+    A deployment is a set of resources required for hosting the model that does the actual inferencing. We'll create a deployment for our endpoint using the `ManagedOnlineDeployment` class.
+
+    ```python
+    model = Model(path="../model-1/model/sklearn_regression_model.pkl")
+    env = Environment(
+        conda_file="../model-1/environment/conda.yml",
+        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
+    )
+
+    blue_deployment = ManagedOnlineDeployment(
+        name="blue",
+        endpoint_name=online_endpoint_name,
+        model=model,
+        environment=env,
+        code_configuration=CodeConfiguration(
+            code="../model-1/onlinescoring", scoring_script="score.py"
+        ),
+        instance_type="Standard_DS2_v2",
+        instance_count=1,
+    )
+    ```
+
+1. Create the deployment:
+
+    Using the `MLClient` created earlier, we'll now create the deployment in the workspace. This command will start the deployment creation and return a confirmation response while the deployment creation continues.
+
+    ```python
+    ml_client.online_deployments.begin_create_or_update(blue_deployment)
+    ```
+
+    > [!TIP]
+    > * If you prefer not to block your Python console, you may add the flag `no_wait=True` to the parameters. However, this will stop the interactive display of the deployment status.
+
+    ```python
+    # blue deployment takes 100 traffic
+    endpoint.traffic = {"blue": 100}
+    ml_client.online_endpoints.begin_create_or_update(endpoint)
+    ```
+
+---
+
+> [!TIP]
 > * Use [Troubleshooting online endpoints deployment](./how-to-troubleshoot-online-endpoints.md) to debug errors.
 
 ### Check the status of the deployment
