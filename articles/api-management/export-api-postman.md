@@ -16,8 +16,11 @@ To enhance development of your APIs, you can export an API fronted in API Manage
 ## Prerequisites
 
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
-+ Make sure that your instance manages an API that you'd like to export to Postman. The API must have a [supported API definition](#supported-api-definitions).
++ Make sure that your instance manages an API that you'd like to export to Postman. 
 
+    > [!NOTE]
+    > Currently, you can only export HTTP APIs from API Management directly to Postman.
+    
     For testing authorization in Postman as outlined later in this article, the API should require a subscription.
 
 + A [Postman](https://www.postman.com) account, which you can use to access Postman for Web.
@@ -63,10 +66,6 @@ Use the following steps to configure a subscription key as a secret variable for
 1. Test your configuration by selecting an operation in your API such as a `GET` operation, and select **Send**.
     
     If correctly configured, the operation returns a `200 OK` status and some output.
-
-## Supported API definitions
-
-Currently, only an OpenAPI definition can be exported from API Management directly to Postman.
 
 ## Next steps
 
