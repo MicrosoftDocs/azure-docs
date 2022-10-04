@@ -215,7 +215,7 @@ Here's an example of the entire contents of a valid *sentinel-deployment.config*
      1. Is there a workspace parameter file?
      1. Is there a default parameter file?
 
-Adding or modifying a *.parameters-\<workspaceID\>.json* file or *.parameters.json* file triggers a deployment of that corresponding content file along with the newly modified parameters. Other content files won't be deployed if the smart deployments feature is still enabled.
+Modifying the mapped parameter file listed in the sentinel-deployment.config will trigger the deployment of its paired content file. Adding or modifying a *.parameters-\<workspaceID\>.json* file or *.parameters.json* file triggers a deployment of that corresponding content file along with the newly modified parameters, unless a higher precedence parameter mappings is in place. Other content files won't be deployed if the smart deployments feature is still enabled.
 
 
 ## Next steps
