@@ -17,7 +17,7 @@ Before you can manually deploy the MedTech service, you must complete the follow
 
 Start with these three steps to begin configuring the MedTech service so it will be ready to accept your tabbed configuration input:
 
-1. Start by going to the Health Data Services workspace you created in the manual deployment [Prerequisites](deploy-03-new-manual.md#prerequisites) section. Select the Create MedTech service box.
+1. Start by going to the Health Data Services workspace you created in the manual deployment [Prerequisites](deploy-03-new-manual.md#part-1:-prerequisites) section. Select the Create MedTech service box.
 
 2. This will take you to the Add MedTech service button. Select the button.
 
