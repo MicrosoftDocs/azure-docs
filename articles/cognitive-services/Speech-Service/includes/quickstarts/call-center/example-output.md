@@ -40,7 +40,7 @@ The `transcription` property contains a JSON object with the results of sentimen
 }   
 ```
 
-The `conversationAnalyticsResults` property contains a JSON object with the results of the conversation summarization analysis. Here's an example, with redactions for brevity:
+The `conversationAnalyticsResults` property contains a JSON object with the results of the conversation PII and conversation summarization analysis. Here's an example, with redactions for brevity:
 ```json
 {
   "conversationAnalyticsResults": {

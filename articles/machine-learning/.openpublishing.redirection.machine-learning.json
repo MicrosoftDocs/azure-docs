@@ -1,15 +1,21 @@
 {
     "redirections": [ 
     {
-        "source_path_from_root": "/articles/machine-learning/how-to-train-cli.md",
-        "redirect_url": "/azure/machine-learning/how-to-train-model",
-        "redirect_document_id": false
+        "source_path_from_root": "/articles/machine-learning/how-to-use-environments.md",
+        "redirect_url": "/azure/machine-learning/how-to-manage-environments-v2",
+        "redirect_document_id": true
     },
     {
         "source_path_from_root": "/articles/machine-learning/how-to-train-sdk.md",
         "redirect_url": "/azure/machine-learning/how-to-train-model",
         "redirect_document_id": false
     },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-train-cli.md",
+        "redirect_url": "/azure/machine-learning/how-to-train-model",
+        "redirect_document_id": false
+    },
+   
     {
         "source_path_from_root": "/articles/machine-learning/how-to-train-with-rest.md",
         "redirect_url": "/azure/machine-learning/how-to-train-model",
@@ -19,6 +25,10 @@
         "source_path_from_root": "/articles/machine-learning/how-to-use-managed-identities.md",
         "redirect_url": "/azure/machine-learning/how-to-identity-based-service-authentication",
         "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/machine-learning/how-to-identity-based-data-access.md",
+        "redirect_url": "/azure/machine-learning/how-to-datastore"
     },
     {
         "source_path_from_root": "/articles/machine-learning/tutorial-convert-ml-experiment-to-production.md",

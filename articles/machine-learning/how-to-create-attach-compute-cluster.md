@@ -28,7 +28,7 @@ You can use Azure Machine Learning compute cluster to distribute a training or b
 In this article, learn how to:
 
 * Create a compute cluster
-* Lower your compute cluster cost
+* Lower your compute cluster cost with low priority VMs
 * Set up a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for the cluster
 
 ## Prerequisites
@@ -163,15 +163,17 @@ SSH access is disabled by default.  SSH access can't be changed after creation. 
 
 ---
 
- ## Lower your compute cluster cost
+ ## Lower your compute cluster cost with low priority VMs
 
 You may also choose to use [low-priority VMs](how-to-manage-optimize-cost.md#low-pri-vm) to run some or all of your workloads. These VMs don't have guaranteed availability and may be preempted while in use. You'll have to restart a preempted job. 
+
+Using Azure Low Priority Virtual Machines allows you to take advantage of Azure's unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Low Priority Virtual Machines. Therefore, Azure Low Priority Virtual Machines are great for workloads that can handle interruptions. The amount of available capacity can vary based on size, region, time of day, and more. When deploying Azure Low Priority Virtual Machines, Azure will allocate the VMs if there's capacity available, but there's no SLA for these VMs. An Azure Low Priority Virtual Machine offers no high availability guarantees. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Low Priority Virtual Machines 
 
 Use any of these ways to specify a low-priority VM:
     
 # [Python SDK](#tab/python)
 
-[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 
 [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/resources/compute/compute.ipynb?name=cluster_low_pri)]
     

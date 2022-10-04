@@ -202,6 +202,8 @@ Follow the steps below to configure where you want to receive data.
 1. For snapshot-based sharing, if the data provider has created a snapshot schedule to provide regular update to the data, you can also enable snapshot schedule by selecting the **Snapshot Schedule** tab. Check the box next to the snapshot schedule and select **+ Enable**. Note that the first scheduled snapshot will start within one minute of the schedule time and subsequent snapshots will start within seconds of the scheduled time.
 
    ![Enable snapshot schedule](./media/enable-snapshot-schedule.png "Enable snapshot schedule")
+   
+   The metadata of copied files is not persisted after each run. This is by design.
 
 ### [Azure CLI](#tab/azure-cli)
 

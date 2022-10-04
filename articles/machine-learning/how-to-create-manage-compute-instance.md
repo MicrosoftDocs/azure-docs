@@ -23,7 +23,7 @@ ms.date: 09/21/2022
 
 Learn how to create and manage a [compute instance](concept-compute-instance.md) in your Azure Machine Learning workspace.
 
-Use a compute instance as your fully configured and managed development environment in the cloud. For development and testing, you can also use the instance as a [training compute target](concept-compute-target.md#train) or for an [inference target](concept-compute-target.md#deploy).   A compute instance can run multiple jobs in parallel and has a job queue. As a development environment, a compute instance can't be shared with other users in your workspace.
+Use a compute instance as your fully configured and managed development environment in the cloud. For development and testing, you can also use the instance as a [training compute target](concept-compute-target.md#train).   A compute instance can run multiple jobs in parallel and has a job queue. As a development environment, a compute instance can't be shared with other users in your workspace.
 
 In this article, you learn how to:
 
@@ -269,7 +269,7 @@ The data scientist can start, stop, and restart the compute instance. They can u
 
 Define multiple schedules for auto-shutdown and auto-start. For instance, create a schedule to start at 9 AM and stop at 6 PM from Monday-Thursday, and a second schedule to start at 9 AM and stop at 4 PM for Friday.  You can create a total of four schedules per compute instance.
 
-Schedules can also be defined for [create on behalf of](#create-on-behalf-of-preview) compute instances. You can create a schedule that creates the compute instance in a stopped state. Stopped compute instances are particularly useful when you create a compute instance on behalf of another user.
+Schedules can also be defined for [create on behalf of](#create-on-behalf-of-preview) compute instances. You can create a schedule that creates the compute instance in a stopped state. Stopped compute instances are useful when you create a compute instance on behalf of another user.
 
 ### Create a schedule in studio
 
@@ -430,7 +430,7 @@ Following is a sample policy to default a shutdown schedule at 10 PM PST.
 
 ## Assign managed identity (preview)
 
-You can assign a system- or user-assigned [managed identity](https://learn.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) to a compute instance, to autheticate against other Azure resources such as storage. Using managed identities for authentication helps improve workspace security and management. For example you can allow users to access training data only when logged in to compute instance, or use a common user-assigned managed identity to permit access to a specific storage account. 
+You can assign a system- or user-assigned [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) to a compute instance, to authenticate against other Azure resources such as storage. Using managed identities for authentication helps improve workspace security and management. For example, you can allow users to access training data only when logged in to a compute instance. Or use a common user-assigned managed identity to permit access to a specific storage account. 
 
 You can create compute instance with managed identity from Azure ML Studio:
 
@@ -464,9 +464,9 @@ identity:
     - resource_id: identity_resource_id
 ```
 
-Once the managed identity is created, enable [identity-based data access enabled](how-to-identity-based-data-access.md) to your storage accounts for that identity. Then, when you worki on the compute instance, the managed identity is used automatically to authenticate against data stores.
+Once the managed identity is created, enable [identity-based data access enabled](how-to-datastore.md) to your storage accounts for that identity. Then, when you work on the compute instance, the managed identity is used automatically to authenticate against data stores.
 
-You can also use the managed identity manually to authenticate against other Azure resources. For example, to use it to get ARM access token, use following.
+You can also use the managed identity manually to authenticate against other Azure resources. The following example shows how to use it to get an Azure Resource Manager access token:
 
 ```python
 import requests
