@@ -1,6 +1,7 @@
 ---
 
-title: Leave an organization as a guest user - Azure Active Directory
+title: Leave an organization - Azure Active Directory
+titleSuffix: Azure External Identities
 description: Shows how an Azure AD B2B guest user can leave an organization by using the Access Panel.
 
 services: active-directory
@@ -19,7 +20,7 @@ adobe-target: true
 
 # Leave an organization as an external user
 
-As an Azure Active Directory (Azure AD) B2B collaboration or B2B direct connect user, you can decide to leave an organization at any time if you no longer need to use apps from that organization or maintain any association.
+As an Azure Active Directory (Azure AD) B2B collaboration or B2B direct connect user, you can leave an organization at any time if you no longer need to use apps from that organization or maintain any association.
 
 You can usually leave an organization on your own without having to contact an administrator. However, in some cases this option won't be available and you'll need to contact your tenant admin, who can delete your account in the external organization.
 
@@ -38,7 +39,7 @@ You can usually leave an organization on your own without having to contact an a
 
    ![Screenshot showing the list of organizations you belong to.](media/leave-the-organization/organization-list.png)
 
-   - **Home organization**: Your home organization is listed first. This is the organization that owns your work or school account. Because your account is managed by your administrator, you're not allowed to leave your home organization (you'll see there's no option to **Leave**). If you don't have an assigned home organization, you'll just see a single heading that says **Organizations** with the list of your associated organizations.
+   - **Home organization**: Your home organization is listed first. This organization owns your work or school account. Because your account is managed by your administrator, you're not allowed to leave your home organization. You'll see there's no link to **Leave**. If you don't have an assigned home organization, you'll just see a single heading that says **Organizations** with the list of your associated organizations.
 
    - **Other organizations you collaborate with**: You'll also see the other organizations that you've signed in to previously using your work or school account. You can decide to leave any of these organizations at any time.
 
@@ -53,13 +54,13 @@ If your organization allows users to remove themselves from external organizatio
    ![Screenshot showing Leave organization option in the user interface.](media/leave-the-organization/leave-org.png)
 
 1. When asked to confirm, select **Leave**.
-1. If you select **Leave** for an organization but you see the following message, it means you’ll need to contact the organization's admin or privacy contact and ask them to remove you from their organization.
+1. If you select **Leave** for an organization but you see the following message, it means you’ll need to contact the organization's admin, or privacy contact and ask them to remove you from their organization.
 
    ![Screenshot showing the message when you need permission to leave an organization.](media/leave-the-organization/need-permission-leave.png)
 
 ## Why can’t I leave an organization?
 
-In the **Home organization** section, there's no option to **Leave** your organization. Only an administrator can remove your account from your home organization.
+In the **Home organization** section, there's no link to **Leave** your organization. Only an administrator can remove your account from your home organization.
 
 For the external organizations listed under **Other organizations you collaborate with**, you might not be able to leave on your own, for example when:
 
@@ -71,7 +72,7 @@ In these cases, you can select **Leave**, but then you'll see a message saying y
 
 ## More information for administrators
 
-Administrators can use the **External user leave settings** to control whether external users can remove themselves from their organization. If you disallow the ability for external users to remove themselves from your organization, external users will need to contact your admin or privacy contact to be removed.
+Administrators can use the **External user leave settings** to control whether external users can remove themselves from their organization. If you disallow the ability for external users to remove themselves from your organization, external users will need to contact your admin, or privacy contact to be removed.
 
 > [!IMPORTANT]
 > You can configure **External user leave settings** only if you have [added your privacy information](../fundamentals/active-directory-properties-area.md) to your Azure AD tenant. Otherwise, this setting will be unavailable. We recommend adding your privacy information to allow external users to review your policies and email your privacy contact when necessary.
@@ -83,7 +84,7 @@ Administrators can use the **External user leave settings** to control whether e
 1. Under **External user leave** settings, choose whether to allow external users to leave your organization themselves:
 
    - **Yes**: Users can leave the organization themselves without approval from your admin or privacy contact.
-   - **No**: Users can't leave your organization themselves. They'll see a message guiding them to contact your admin or privacy contact to request removal from your organization.
+   - **No**: Users can't leave your organization themselves. They'll see a message guiding them to contact your admin, or privacy contact to request removal from your organization.
 
    ![Screenshot showing External user leave settings in the portal.](media/leave-the-organization/external-user-leave-settings.png)
 
@@ -101,7 +102,7 @@ If desired, a tenant administrator can permanently delete the account at any tim
 
 1. Select the check box next to a deleted user, and then select **Delete permanently**.
 
-Once permanent deletion begins, whether it's initiated by the admin or the end of the soft deletion period, it can take up to an additional 30 days for data removal ([learn more](/compliance/regulatory/gdpr-dsr-azure#step-5-delete)).
+Permanent deletion can be initiated by the admin, or it happens at the end of the soft deletion period. Permanent deletion can take up to an extra 30 days for data removal ([learn more](/compliance/regulatory/gdpr-dsr-azure#step-5-delete)).
 
 > [!NOTE]
 > For B2B direct connect users, data removal begins as soon as the user selects **Leave** in the confirmation message and can take up to 30 days to complete ([learn more](/compliance/regulatory/gdpr-dsr-azure#delete-a-users-data-when-there-is-no-account-in-the-azure-tenant)).
