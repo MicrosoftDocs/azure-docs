@@ -123,7 +123,7 @@ sections:
           
           * **Success**: The policy was successfully satisfied.
           * **Failure**: The policy wasn't satisfied.
-          * **Not applied**: The policy conditions may not have been mee.
+          * **Not applied**: The policy conditions may not have been met.
           * **Not enabled**: The policy may be in a in disabled state. 
               
       - question: |
