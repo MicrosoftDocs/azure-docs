@@ -23,7 +23,7 @@ HTTP connector is available in all workflow templates.
 
 1. To add a HTTP connector, click on the **+** icon in the template where you want to add and select HTTP connector.
 
-    :::image type="content" source="./media/how-to-use-workflow-http-connector/add-http-connector.png" alt-text="Screenshot to add HTTP connector.":::
+    :::image type="content" source="./media/how-to-use-workflow-http-connector/add-http-connector.png" alt-text="Screenshot of how to add HTTP connector.":::
 
 1. Once you select HTTP connector, you will see the following parameters:
     1. Host - Request URL you want to call when this connector is executed.
@@ -34,15 +34,15 @@ HTTP connector is available in all workflow templates.
     1. Body - Optionally, you can pass HTTP body while invoking the URL
     1. Authentication - HTTP connector is integrated with Purview credentials. Depending on the URL you may invoke the endpoint with None (no authentication) or you can use credentials to create a basic authentication. To learn more about credentials see the [Microsoft Purview credentials article](manage-credentials.md).
 
-    :::image type="content" source="./media/how-to-use-workflow-http-connector/add-http-properties.png" alt-text="Screenshot to add HTTP connector properties.":::
+    :::image type="content" source="./media/how-to-use-workflow-http-connector/add-http-properties.png" alt-text="Screenshot of how to add HTTP connector properties.":::
 
 1. By default, secure settings are turned on for HTTP connectors. To turn OFF secure inputs and outputs select the ellipsis icon (**...**) to go to settings.
 
-    :::image type="content" source="./media/how-to-use-workflow-http-connector/add-http-settings.png" alt-text="Screenshot to add HTTP connector settings."::: 
+    :::image type="content" source="./media/how-to-use-workflow-http-connector/add-http-settings.png" alt-text="Screenshot of how to add HTTP connector settings."::: 
 
 1. You will be now presented with the settings for HTTP connector and you can turn secure inputs and outputs OFF.
 
-    :::image type="content" source="./media/how-to-use-workflow-http-connector/add-http-secure.png" alt-text="Screenshot to add HTTP connector secure input and outputs."::: 
+    :::image type="content" source="./media/how-to-use-workflow-http-connector/add-http-secure.png" alt-text="Screenshot of how to add HTTP connector secure input and outputs."::: 
 
 ## Next steps
 
