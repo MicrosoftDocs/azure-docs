@@ -39,7 +39,7 @@ In this tutorial, you'll learn how to:
 ### Postman setup
 
 1. Download and install [Postman](https://www.postman.com/) desktop app
-2. Import the following files into Postman:
+1. Import the following files into Postman:
   1. [Wellbore ddms Postman collection](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/WellboreDDMS.postman_collection.json)
   1. [Wellbore ddms Postman Environment](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/WellboreDDMSEnvironment.postman_environment.json)
   
