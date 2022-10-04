@@ -68,7 +68,7 @@ landingContent:
           - text: Create and connect a device
             url: core/tutorial-connect-device.md
           - text: Connect an IoT Edge device
-            url: /learn/modules/connect-iot-edge-device-to-iot-central/
+            url: /training/modules/connect-iot-edge-device-to-iot-central/
   - title: Manage your devices and analyze your data
     linkLists:
       - linkListType: overview
@@ -93,7 +93,7 @@ landingContent:
           - text: Export data from IoT Central
             url: core/overview-iot-central-solution-builder.md#data-export          
           - text: Administer an application with the REST API
-            url: /learn/modules/manage-iot-central-apps-with-rest-api/
+            url: /training/modules/manage-iot-central-apps-with-rest-api/
 
   - title: Secure and administer your application
     linkLists:

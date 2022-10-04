@@ -50,6 +50,17 @@
   - name: Authorization
     href: ../common/authorize-data-access.md?toc=/azure/storage/queues/toc.json
     items:
+    - name: Authorizing data operations
+      href: ../common/authorize-data-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      items:
+      - name: Authorize with Azure AD
+        items:
+        - name: Authorize with Azure roles
+          href: authorize-access-azure-active-directory.md
+        - name: Authorize with conditions
+          href: queues-auth-abac.md
+        - name: Actions and attributes for conditions
+          href: queues-auth-abac-attributes.md
     - name: Authenticate and authorize with Azure AD
       href: authorize-access-azure-active-directory.md
     - name: Authorize with Shared Key
@@ -261,8 +272,30 @@
       href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=/azure/storage/queues/toc.json
 - name: Reference
   items:
-  - name: Azure Queue storage reference
-    href: ../queues/reference.md
+  - name: APIs for data access
+    items:
+    - name: REST API
+      href: /rest/api/storageservices/queue-service-rest-api
+    - name: .NET SDK
+      href: /dotnet/api/overview/azure/storage
+    - name: Java SDK
+      href: /java/api/overview/azure/storage
+    - name: Python SDK
+      href: /python/api/overview/azure/storage
+    - name: JavaScript SDK
+      href: /javascript/api/overview/azure/storage
+  - name: APIs for resource management
+    items:
+    - name: REST API
+      href: /rest/api/storagerp/
+    - name: .NET SDK
+      href: /dotnet/api/overview/azure/storage/management
+    - name: Java SDK
+      href: /java/api/overview/azure/storage/management
+    - name: Python SDK
+      href: /python/api/overview/azure/storage/management
+    - name: JavaScript SDK
+      href: /javascript/api/overview/azure/storage/management
   - name: Monitoring Azure Queue storage reference
     href: monitor-queue-storage-reference.md
   - name: Spring Integration with Azure Storage Queue

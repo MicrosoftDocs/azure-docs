@@ -19,6 +19,8 @@ items:
         href: use-scim-to-provision-users-and-groups.md
       - name: Develop a sample SCIM endpoint
         href: use-scim-to-build-users-and-groups-endpoints.md
+      - name: Validate a SCIM endpoint
+        href: scim-validator-tutorial.md
     - name: On-prem app provisioning tutorials
       items:
       - name: Provisioning to On-premises SCIM-enabled apps

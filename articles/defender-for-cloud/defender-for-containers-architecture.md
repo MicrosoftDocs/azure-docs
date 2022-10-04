@@ -8,7 +8,7 @@ ms.date: 06/19/2022
 ---
 # Defender for Containers architecture
 
-Defender for Containers is designed differently for each container environment whether they're running in:
+Defender for Containers is designed differently for each Kubernetes environment whether they're running in:
 
 - **Azure Kubernetes Service (AKS)** - Microsoft's managed service for developing, deploying, and managing containerized applications.
 
