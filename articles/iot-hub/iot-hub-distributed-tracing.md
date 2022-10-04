@@ -135,23 +135,23 @@ These instructions are for building the sample on Windows. For other environment
 
 1. Find the declaration of the `connectionString` constant:
 
-   :::code language="c" source="azure-iot-sdk-c/iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c" range="52-56" highlight="53":::
+   :::code language="c" source="~/azure-iot-distributed-tracing-sample/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c" range="56-60" highlight="57":::
 
    Replace the value of the `connectionString` constant with the device connection string you saved in the [register a device](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c#register-a-device) section of the [Send telemetry C Quickstart](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-ansi-c).
 
 1. Change the `MESSAGE_COUNT` define to `5000`:
 
-   :::code language="c" source="azure-iot-sdk-c/iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c" range="52-56" highlight="54":::
+   :::code language="c" source="~/azure-iot-distributed-tracing-sample/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c" range="56-60" highlight="58":::
 
 1. Find the line of code that calls `IoTHubDeviceClient_LL_SetConnectionStatusCallback` to register a connection status callback function before the send message loop. Add code under that line as shown below to call `IoTHubDeviceClient_LL_EnablePolicyConfiguration` enabling distributed tracing for the device:
 
-   :::code language="c" source="azure-iot-sdk-c/iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c" range="142-147" highlight="143":::
+   :::code language="c" source="~/azure-iot-distributed-tracing-sample/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c" range="144-152" highlight="148":::
 
    The `IoTHubDeviceClient_LL_EnablePolicyConfiguration` function enables policies for specific IoTHub features that are configured via [device twins](./iot-hub-devguide-device-twins.md). Once `POLICY_CONFIGURATION_DISTRIBUTED_TRACING` is enabled with the line of code above, the tracing behavior of the device will reflect distributed tracing changes made on the device twin.
 
 1. To keep the sample app running without using up all your quota, add a one-second delay at the end of the send message loop:
 
-   :::code language="c" source="azure-iot-sdk-c/iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c" range="174-183" highlight="181":::
+   :::code language="c" source="~/azure-iot-distributed-tracing-sample/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c" range="177-186" highlight="184":::
 
 ### Compile and run
 
