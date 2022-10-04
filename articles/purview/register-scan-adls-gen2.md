@@ -5,7 +5,7 @@ author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to
-ms.date: 06/17/2022
+ms.date: 10/04/2022
 ms.custom: template-how-to, ignite-fall-2021, references_regions
 ---
 # Connect to Azure Data Lake Storage in Microsoft Purview
@@ -326,7 +326,7 @@ To register your resource, follow the **Prerequisites** and **Register** section
 
 After you've registered the data source, you'll need to enable Data Use Management. This is a pre-requisite before you can create policies on the data source. Data Use Management can impact the security of your data, as it delegates to certain Microsoft Purview roles managing access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md) 
 
-Once your data source has the  **Data Use Management** option set to **Enabled**, it will look like this picture:
+Once your data source has the  **Data Use Management** option set to **Enabled**, it will look like this screenshot:
 ![Screenshot shows how to register a data source for policy with the option Data use management set to enable](./media/how-to-policies-data-owner-storage/register-data-source-for-policy-storage.png)
 
 ### Create a policy
@@ -336,8 +336,8 @@ To create an access policy for Azure Data Lake Storage Gen2, follow these guides
 
 ## Next steps
 
-Now that you've registered your source, follow the below guides to learn more about Microsoft Purview and your data.
-
+Follow the below guides to learn more about Microsoft Purview and your data.
+- [Data owner policies in Microsoft Purview](concept-policies-data-owner.md)
 - [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Data share in Microsoft Purview](concept-data-share.md)
