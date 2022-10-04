@@ -6,7 +6,7 @@ documentationcenter: na
 author: mjha
 editor: ''
 tags: azure-resource-manager
-# Customer intent: I need to monitor communication between a Virtual machine scale set  and another VM. If the communication fails, I need to know why, so that I can resolve the problem. 
+# Customer intent: I need to monitor communication between a virtual machine scale set  and another VM. If the communication fails, I need to know why, so that I can resolve the problem. 
 
 ms.service: network-watcher
 ms.topic: tutorial
@@ -28,8 +28,8 @@ ms.custom: mvc
 Successful communication between a virtual machine scale set (VMSS) and an endpoint such as another VM, can be critical for your organization. Sometimes, configuration changes are introduced which can break communication. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a Virtual machine scale set  and a VM
-> * Monitor communication between Virtual machine scale set  and VM with Connection Monitor
+> * Create a virtual machine scale set  and a VM
+> * Monitor communication between virtual machine scale set  and VM with Connection Monitor
 > * Generate alerts on Connection Monitor metrics
 > * Diagnose a communication problem between two VMs, and learn how you can resolve it
 
@@ -39,9 +39,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## Create a Virtual machine scale set 
+## Create a virtual machine scale set 
 
-Create a Virtual machine scale set 
+Create a virtual machine scale set 
 
 ## Create a load balancer
 
@@ -303,7 +303,7 @@ When no longer needed, delete the resource group and all of the resources it con
 
 ## Next steps
 
-In this tutorial, you learned how to monitor a connection between a Virtual machine scale set  and a VM. You learned that a network security group rule prevented communication to a VM. To learn about all of the different responses connection monitor can return, see [response types](network-watcher-connectivity-overview.md#response). You can also monitor a connection between a VM, a fully qualified domain name, a uniform resource identifier, or an IP address.
+In this tutorial, you learned how to monitor a connection between a virtual machine scale set  and a VM. You learned that a network security group rule prevented communication to a VM. To learn about all of the different responses connection monitor can return, see [response types](network-watcher-connectivity-overview.md#response). You can also monitor a connection between a VM, a fully qualified domain name, a uniform resource identifier, or an IP address.
 
 * Learn [how to analyze monitoring data and set alerts](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts).
 * Learn [how to diagnose problems in your network](./connection-monitor-overview.md#diagnose-issues-in-your-network).
