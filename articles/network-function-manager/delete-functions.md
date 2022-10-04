@@ -32,7 +32,7 @@ In this tutorial, you learn how to delete Azure Network Function Manager - Netwo
    > ![failedtodelete](media/delete-functions/failed-to-delete.png)
    
 1. Navigate to search box within the **Azure portal** and search for the **Managed Application** which was seen as an exception in **Step 3**.
- ![managed-application](media/delete-functions/managed-application.png)
+ ![managedapplication](media/delete-functions/managed-application.png)
 
 1. Select **Delete** Managed Application
  ![deletemanagedapplication](media/delete-functions/delete-managed-application.png)
