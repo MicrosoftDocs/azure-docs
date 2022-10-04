@@ -362,7 +362,7 @@ ml_client.online_endpoints.get(name=local_endpoint_name, local=True)
 
 The output should appear similar to the following JSON. The `provisioning_state` is `Succeeded`.
 
-<Todo: check output style for SDKv2>
+<Todo: confirm output style for SDKv2>
 
 ```json
 {
@@ -545,7 +545,9 @@ This deployment might take up to 15 minutes, depending on whether the underlying
 > [!TIP]
 > * Use [Troubleshooting online endpoints deployment](./how-to-troubleshoot-online-endpoints.md) to debug errors.
 
-### Check the status of the deployment
+### Check the status of the endpoint
+
+# [Azure CLI](#tab/azure-cli)
 
 The `show` command contains information in `provisioning_status` for endpoint and deployment:
 
@@ -556,6 +558,18 @@ You can list all the endpoints in the workspace in a table format by using the `
 ```azurecli
 az ml online-endpoint list --output table
 ```
+
+<Todo: check way for SDKv2>
+
+# [Python](#tab/python)
+
+Check the status to see whether the model was deployed without error:
+
+```python
+ml_client.online_endpoints.get(name=online_endpoint_name)
+```
+
+---
 
 ### Check the status of the cloud deployment
 
