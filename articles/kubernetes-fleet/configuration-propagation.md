@@ -36,19 +36,9 @@ Platform admins and application developers need a way to deploy the same Kuberne
     az aks get-credentials --resource-group ${GROUP} --name ${MEMBER_CLUSTER_3} --file aks-member-3
     ```
 
+* Follow the [conceptual overview of this feature](./conceptual-overview.md#kubernetes-resource-propagation) which provides an explanation of resource selection, target cluster selection, and the allowed inputs.
+
 ## Resource selection
-
-The `ClusterResourcePlacement` custom resource is used to select which cluster-scoped Kubernetes resource objects need to be propagated from the fleet cluster and to select which member clusters to propagate these objects to. It supports the following forms of resource selection:
-
-* Select resources by specifying just the *<group, version, kind>*. This selection propagates all resources with matching *<group, version, kind>*.
-* Select resources by specifying the *<group, version, kind>* and name. This selection propagates only one resource that matches the *<group, version, kind>* and name.
-* Select resources by specifying the *<group, version, kind>* and a set of labels using `ClusterResourcePlacement` -> `LabelSelector`. This selection propagates all resources that match the *<group, version, kind>* and label specified.
-
-> [!NOTE]
-> `ClusterResourcePlacement` can be used to select and propagate namespaces, which are cluster-scoped resources. When a namespace is selected, all the namespace-scoped objects under this namespace are propagated to the selected member clusters along with this namespace. 
-
-
-An example of selecting a resource by label is given below.
 
 1. Create a sample namespace by running the following command on the fleet cluster:
 
@@ -147,14 +137,6 @@ An example of selecting a resource by label is given below.
     > The above steps describe an example using one way of selecting the resources to be propagated using labels and cluster selectors. More methods and their examples can be found in this [sample repository](https://github.com/Azure/AKS/tree/master/examples/fleet/helloworld).
 
 ## Target cluster selection
-
-The `ClusterResourcePlacement` custom resource can also be used to limit propagation of selected resources to a specific subset of member clusters. The following forms of target cluster selection are supported:
-
-* Select all the clusters by specifying empty policy under `ClusterResourcePlacement`
-* Select clusters by listing names of `MemberCluster` custom resources
-* Select clusters using cluster selectors to match labels present on `MemberCluster` custom resources
-
-An example of targeting a specific cluster by name is given below:
 
 1. Create a sample namespace by running the following command:
 

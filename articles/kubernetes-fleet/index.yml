@@ -16,6 +16,12 @@ landingContent:
         links:
           - text: What is Azure Kubernetes Fleet Manager (preview)?
             url: overview.md
+      - linkListType: concept
+        links:
+          - text: Architectural overview
+            url: architectural-overview.md
+          - text: Frequently Asked Questions
+            url: faq.md
 
   - title: API reference
     linkLists:
