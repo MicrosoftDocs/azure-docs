@@ -134,8 +134,8 @@ landingContent:
         links:
           - text: AMD SEV-SNP based confidential containers with Azure Container Instances (ACI) - Private preview 
             url: https://aka.ms/ccaci
-          - text: Confidential VM AMD SEV-SNP node pools on AKS - Public -preview
-            url: https://aka.ms/AKS-AMD-ACC-Preview-Inspire-2022
+          - text: Confidential VM AMD SEV-SNP node pools on AKS
+            url: https://aka.ms/Ignite2022-CVM-Node-Pools-on-AKS-GA
 ## Row 2
 # Card
   - title: Virtual machines with app enclaves
