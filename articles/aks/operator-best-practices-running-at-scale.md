@@ -8,7 +8,7 @@ ms.date: 10/04/2022
  
 ---
 
-# Best practices for creating and running Azure Kubernetes Service (AKS) clusters at scale beyond 500 nodes
+# Best practices for creating and running Azure Kubernetes Service (AKS) clusters at scale(beyond 500 nodes)
 
 You can lift the 1000 node default node limit for an AKS cluster by raising a support ticket here ; with a maximum node limit of up-to 5,000 Nodes per cluster. It may take up to a week to enable your clusters with the larger node limit so please plan accordingly.
 To increase the node limit beyond 1,000 there are two pre-requisites that the customer must ensure:
