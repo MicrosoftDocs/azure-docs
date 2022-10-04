@@ -100,7 +100,7 @@ Add a [project environment type](how-to-configure-project-environment-types.md) 
     :::image type="content" source="media/quickstart-create-configure-projects/add-role-assignment.png" alt-text="Screenshot of the Add role assignment page.":::
 
 >[!NOTE]
-> Only users with a [Deployment Environments user](how-to-configure-deployment-environments-user.md) role or a [DevCenter Project Admin](how-to-configure-project-admin.md) role or a custom role with appropriate permissions will be able to create environments.
+> Only users with a [Deployment Environments user](how-to-configure-deployment-environments-user.md) role or a [DevCenter Project Admin](how-to-configure-project-admin.md) role or a built-in role with appropriate permissions will be able to create environments.
 
 ## Next steps
 

@@ -10,19 +10,19 @@ ms.date: 10/12/2022
 
 # Quickstart: Create and access Environments
 
-This quickstart shows you how to create and access [Environments](concept-environments-key-concepts.md#environments) in an existing Azure Deployment Environments Preview Project. Only users with a Deployment Environments User role or a Dev center Project Admin role, or a custom role with appropriate permissions can create Environments.
+This quickstart shows you how to create and access [environments](concept-environments-key-concepts.md#environments) in an existing Azure Deployment Environments Preview Project. Only users with a [Deployment Environments User](how-to-configure-deployment-environments-user.md) role, a [DevCenter Project Admin](how-to-configure-project-admin.md) role, or a [built-in role](../role-based-access-control/built-in-roles.md) with appropriate permissions can create environments.
 
 In this quickstart, you do the following actions:
 
 * Create an environment
-* Access environments in a Project
+* Access environments in a project
 
 > [!IMPORTANT]
 > Azure Deployment Environments is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
-- [Create and configure a Project](quickstart-create-and-configure-projects.md).
+- [Create and configure a project](quickstart-create-and-configure-projects.md).
 - Install the Deployment Environments Azure CLI Extension
     1. [Download and install the Azure CLI](/cli/azure/install-azure-cli).
     2. Install the Deployment Environments AZ CLI extension:
@@ -51,32 +51,32 @@ Run the following steps in Azure CLI to create an Environment and configure reso
         az login
     ```
 
-1. List all the Deployment Environments Projects you have access to.
+1. List all the Deployment Environments projects you have access to.
     ```azurecli
     az graph query -q "Resources | where type =~ 'microsoft.devcenter/projects'" -o table
     ```
 
-1. Configure the default subscription to the subscription containing the Project.
+1. Configure the default subscription to the subscription containing the project.
     ```azurecli
     az account set --subscription <name>
     ```
 
-1. Configure the default resource group (RG) to the RG containing the Project.
+1. Configure the default resource group (RG) to the RG containing the project.
     ```azurecli
     az config set defaults.group=<name>
     ```  
 
-1. Once you have set the defaults, list the type of environments you can create in a specific Project.
+1. Once you have set the defaults, list the type of environments you can create in a specific project.
     ```azurecli
     az devcenter dev environment-type list --dev-center <name> --project-name <name> -o table
     ```             
 
-1. List the [Catalog Items](concept-environments-key-concepts.md#catalog-items) available to a specific Project.
+1. List the [Catalog Items](concept-environments-key-concepts.md#catalog-items) available to a specific project.
     ```azurecli
     az devcenter dev catalog-item list --dev-center <name> --project-name <name> -o table
     ```   
 
-1. Create an Environment by using a *catalog-item* ('infra-as-code' template) from the list of available Catalog Items.
+1. Create an environment by using a *catalog-item* ('infra-as-code' template) from the list of available catalog items.
     ```azurecli
     az devcenter dev environment create -g <resource-group-name> --dev-center-name <devcenter-name> 
         --project-name <project-name> -n <name> --environment-type <environment-type-name> 
@@ -97,7 +97,7 @@ Run the following steps in Azure CLI to create an Environment and configure reso
 
 ## Access Environments
 
-1. List existing environments in a specific Project.
+1. List existing environments in a specific project.
     ```azurecli
     az devcenter dev environment list --dev-center <devcenter-name> --project-name <project-name>
     ```  

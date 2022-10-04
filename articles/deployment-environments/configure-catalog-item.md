@@ -16,7 +16,7 @@ In Azure Deployment Environments Preview service, you can use a [Catalog](concep
 >[!NOTE]
 > Azure Deployment Environments Preview currently only supports Azure Resource Manager (ARM) templates. 
 
-The ARM template will contain the environment definition and the manifest file will be used to provide metadata about the template. The catalog items that you provide in the catalog will be used by your development teams to deploy environments in Azure.
+The IaC template will contain the environment definition and the manifest file will be used to provide metadata about the template. The catalog items that you provide in the catalog will be used by your development teams to deploy environments in Azure.
 
 We offer an example [Sample Catalog](https://aka.ms/deployment-environments/SampleCatalog) that you can attach as-is, or you can fork and customize the catalog items. You can attach your private repo to use your own catalog items.
 
