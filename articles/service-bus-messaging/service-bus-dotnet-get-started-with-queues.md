@@ -27,7 +27,7 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 - **Azure subscription**. To use Azure services, including Azure Service Bus, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/).
 - **Microsoft Visual Studio 2022**. The sample application makes use of new features that were introduced in C# 10.0.  You can still use the Servicei Bus client library with  previous C# language versions, but the syntax may vary. To make use of the latest syntax, we recommend that you install .NET 6.0 or higher and set the language version to `latest`. If you're using Visual Studio, versions before Visual Studio 2022 aren't compatible with the tools needed to build C# 10.0 projects.
 
-[!INCLUDE [service-bus-create-namespace-portal-passwordless](./includes/service-bus-create-namespace-portal-passwordless.md)]
+[!INCLUDE [service-bus-create-namespace-portal-passwordless](../../includes/passwordless/service-bus/service-bus-create-namespace-portal-passwordless.md)]
 
 [!INCLUDE [service-bus-create-queue-portal](./includes/service-bus-create-queue-portal.md)]
 
