@@ -15,6 +15,8 @@
   items:
   - name: Forward syslog data to workspace
     href: forward-syslog-monitor-agent.md
+  - name: Configure data retention policy
+    href: configure-data-retention.md
   - name: Investigate with UEBA
     href: investigate-with-ueba.md
   - name: Use automation to respond to threats
@@ -439,7 +441,9 @@
       - name: Collect SAP HANA audit logs
         href: sap/collect-sap-hana-audit-logs.md
       - name: Deploy SAP connector manually
-        href: sap/sap-solution-deploy-alternate.md      
+        href: sap/sap-solution-deploy-alternate.md
+      - name: Configure SAP audit log monitoring rules
+        href: sap/configure-audit-log-rules.md 
 - name: Troubleshoot
   items:
   - name: Troubleshoot CEF/Syslog data collection
