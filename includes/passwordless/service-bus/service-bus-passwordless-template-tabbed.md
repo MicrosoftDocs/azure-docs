@@ -22,7 +22,7 @@ ms.custom: include file
 
 [!INCLUDE [service-bus-assign-roles](service-bus-assign-roles.md)]
 
-### Sign-in and add the Azure.Identity package
+### Sign-in and add the Azure Identity package
 
 You can authorize access to the service bus namespace using the following steps:
 

@@ -271,7 +271,7 @@ In this section, you'll create a .NET Core console application that receives mes
     Install-Package Azure.Messaging.ServiceBus
     ```
 
-:::image type="content" source="media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console":::
+    :::image type="content" source="media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console":::
 
 ---
 
