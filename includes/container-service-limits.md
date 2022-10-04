@@ -11,13 +11,15 @@ ms.custom: include file
 
 | Resource                                                                                                           | Limit                                                                                                                                                                                                       |
 | ------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Maximum clusters per subscription                                                                                  | 5000                                                                                                                                                                                                        |
+| Maximum clusters per subscription                                                                                  | 5000 (20 per subscription-region when using Cluster Autoscaler)                                                                                                                                                                                                      |
 | Maximum nodes per cluster with Virtual Machine Availability Sets and Basic Load Balancer SKU                       | 100                                                                                                                                                                                                         |
-| Maximum nodes per cluster with Virtual Machine Scale Sets and [Standard Load Balancer SKU][standard-load-balancer] | 1000 (across all [node pools][node-pool])                                            |
+| Maximum nodes per cluster with Virtual Machine Scale Sets and [Standard Load Balancer SKU][standard-load-balancer] | 5000 across all [node-pools][node-pool] (default limit: 1000)  <br />Note: Running more than a 1000 nodes per cluster requires lifting the default cluster limit. [Contact support][Contact Support] for assistance.|
+|Maximum nodes per node pool (Virtual Machine Availability Sets node pool)                                           | 1000                                 |
 | Maximum node pools per cluster                                                                                     | 100                                                                                  |
 | Maximum pods per node: [Basic networking][basic-networking] with Kubenet                                           | Maximum: 250 <br /> Azure CLI default: 110 <br /> Azure Resource Manager template default: 110 <br /> Azure portal deployment default: 30          |
 | Maximum pods per node: [Advanced networking][advanced-networking] with Azure Container Networking Interface        | Maximum: 250 <br /> Default: 30                                                      |
 | Open Service Mesh (OSM) AKS addon                                                                          | Kubernetes Cluster Version: AKS Supported Versions<br />OSM controllers per cluster: 1<br />Pods per OSM controller: 1600<br />Kubernetes service accounts managed by OSM: 160 |
+|Maximum load-balanced kubernetes services per cluster  with [Standard Load Balancer SKU][standard-load-balancer]      |300                                   |
 
 
 | Kubernetes Control Plane tier | Limit |  
@@ -31,6 +33,7 @@ ms.custom: include file
 [advanced-networking]: ../articles/aks/concepts-network.md#azure-cni-advanced-networking
 [standard-load-balancer]: ../articles/load-balancer/load-balancer-overview.md
 [node-pool]: ../articles/aks/use-multiple-node-pools.md
+[Contact Support]: https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0D%0A%09%22subId%22%3A+%22%22%2C%0D%0A%09%22pesId%22%3A+%225a3a423f-8667-9095-1770-0a554a934512%22%2C%0D%0A%09%22supportTopicId%22%3A+%2280ea0df7-5108-8e37-2b0e-9737517f0b96%22%2C%0D%0A%09%22contextInfo%22%3A+%22AksLabelDeprecationMarch22%22%2C%0D%0A%09%22caller%22%3A+%22Microsoft_Azure_ContainerService+%2B+AksLabelDeprecationMarch22%22%2C%0D%0A%09%22severity%22%3A+%223%22%0D%0A%7D
 
 <!-- LINKS - External -->
 
