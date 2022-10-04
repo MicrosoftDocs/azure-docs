@@ -23,7 +23,7 @@ The following table shows the highest level of .NET Core or .NET Framework that 
 | Functions 1.x | .NET Framework 4.8 | n/a |
 
 
-<sup>1</sup> Build process also requires [.NET 6 SDK](https://dotnet.microsoft.com/download). Support for .NET Framework 4.8 is in preview.
+<sup>1</sup> Build process also requires [.NET 6 SDK](https://dotnet.microsoft.com/download). Support for .NET Framework 4.8 is in GA.
 
 <sup>2</sup> Build process also requires [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download).   
 

@@ -231,8 +231,7 @@ To compile your project as ReadyToRun, update your project file by adding the `<
 ```
 
 > [!IMPORTANT]
-> Starting in .NET 6, support for Composite ReadyToRun compilation has been added. However, In .NET 6, Composite ReadyToRun is only supported for self-contained deployment. 
-Composite ReadyToRun compiles a set of assemblies that must be distributed together. This has the advantage that the compiler is able to perform better optimizations and reduces the set of methods that cannot be compiled via the ReadyToRun process. However, as a tradeoff, compilation speed is significantly decreased, and the overall file size of the application is significantly increased. Check out [ReadyToRun Cross platform and architecture restrictions](/dotnet/core/deploying/ready-to-run).
+> Starting in .NET 6, support for Composite ReadyToRun compilation has been added.  Check out [ReadyToRun Cross platform and architecture restrictions](/dotnet/core/deploying/ready-to-run).
 
 You can also build your app with ReadyToRun from the command line. For more information, see the `-p:PublishReadyToRun=true` option in [`dotnet publish`](/dotnet/core/tools/dotnet-publish).
 

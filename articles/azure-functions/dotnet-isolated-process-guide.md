@@ -154,8 +154,9 @@ To compile your project as ReadyToRun, update your project file by adding the `<
 
 ```xml
 <PropertyGroup>
-  <TargetFramework>net7.0</TargetFramework>
+  <TargetFramework>net6.0</TargetFramework>
   <AzureFunctionsVersion>v4</AzureFunctionsVersion>
+  <RuntimeIdentifier>win-x86</RuntimeIdentifier>
   <PublishReadyToRun>true</PublishReadyToRun>
 </PropertyGroup>
 ```
