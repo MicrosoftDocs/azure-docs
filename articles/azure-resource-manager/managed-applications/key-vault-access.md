@@ -1,7 +1,7 @@
 ---
 title: Use Azure Key Vault when deploying Managed Applications
 description: Shows how to access secrets in Azure Key Vault when deploying Managed Applications.
-ms.custom: subject-rbac-steps, engagement-fy23
+ms.custom: subject-rbac-steps
 ms.topic: conceptual
 ms.date: 10/04/2022
 ---
