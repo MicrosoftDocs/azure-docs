@@ -52,7 +52,7 @@ Each solution shows categories that apply to it, and the types of content includ
 
 For example, in the following image, the **Cisco Umbrella** solution shows a category of **Security - Cloud Security**, and indicates it includes a data connector, analytics rules, hunting queries, playbooks, and more.
 
-:::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of the Microsoft Sentinel content hub." lightbox="./media/sentinel-solutions-deploy/solutions-list.png":::
+:::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of the Microsoft Sentinel content hub.":::
 
 
 ## Install or update a solution
@@ -124,7 +124,7 @@ Below are some tips on how to interact with various content types when managing 
 1. Once created, the number of active rules created from the template is shown in the **Created content** column. 
 1. Click the active rules link, in this example **2 items**, to edit the existing rule.
 
-    :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-analytics-rule.png" alt-text="Screenshot of analytics rule content item in solution for Azure Activity."::: 
+    :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-analytics-rule.png" alt-text="Screenshot of analytics rule content item in solution for Azure Activity." lightbox="media/sentinel-solutions-deploy/manage-solution-analytics-rule.png"::: 
 
 #### Hunting query
 1. To start searching right away, select **Run query** from the details page for quick results. 
@@ -147,7 +147,7 @@ When a solution is installed, any parsers included are added as workspace functi
 1. Select **Load the function code** to open Log Analytics and view or run the function code. 
 1. Select **Use in editor** to open Log Analytics with the parser name ready to add to your custom query.
 
-    :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-parser.png" alt-text="Screenshot of parser content type in a solution.":::
+    :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-parser.png" alt-text="Screenshot of parser content type in a solution." lightbox="media/sentinel-solutions-deploy/manage-solution-parser.png":::
 
 #### Playbook
 1. Select the **Content name** link of the playbook, in this example **BatchImportToSentinel**.
