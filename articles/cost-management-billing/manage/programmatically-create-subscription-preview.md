@@ -525,7 +525,7 @@ POST https://management.azure.com<customerId>/providers/Microsoft.Subscription/c
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | Yes      | String | The display name of the subscription.|
 | `skuId` | Yes      | String | The sku ID of the Azure plan. Use *0001* for subscriptions of type Microsoft Azure Plan |
-| `resellerId`      | No       | String | The MPN ID of the reseller who will be associated with the subscription.  |
+| `resellerId`      | No       | String | The ID of the reseller who will be associated with the subscription.  |
 
 In the response, you get back a `subscriptionCreationResult` object for monitoring. When the subscription creation is finished, the `subscriptionCreationResult` object returns a `subscriptionLink` object. It has the subscription ID.
 

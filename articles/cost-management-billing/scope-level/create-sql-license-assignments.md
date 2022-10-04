@@ -38,7 +38,7 @@ The prerequisite roles differ depending on the agreement type.
 
 
 > [!NOTE]
-> Centrally assigning licenses to scopes isn't available for Sponsored, MSDN Credit subscriptions or MPN subscriptions. SQL software usage is free for Dev/Test subscriptions (MS-AZR-0148P or MS-AZR-0023P offer types).
+> Centrally assigning licenses to scopes isn't available for Sponsored, MSDN Credit subscriptions or Microsoft Cloud Partner Program subscriptions. SQL software usage is free for Dev/Test subscriptions (MS-AZR-0148P or MS-AZR-0023P offer types).
 
 ## Create a SQL license assignment
 
