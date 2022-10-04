@@ -66,7 +66,7 @@ This parameter specifies a resource in Azure Resource Manager to delete from Azu
 > [!NOTE]
 > If you have deployed one or more Azure VM extensions to your Azure Arc-enabled server and you delete its registration in Azure, the extensions remain installed and may continue performing their functions. Any machine intended to be retired or no longer managed by Azure Arc-enabled servers should first have its [extensions removed](#step-1-remove-vm-extensions) before removing its registration from Azure.
 
-To disconnect using a service principal, run the following command:
+To disconnect using a service principal, run the command below. Be sure to specify a service principal that has the required roles for disconnecting servers; this will not be the same service principal that was used to onboard the server:
 
 `azcmagent disconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword>`
 
