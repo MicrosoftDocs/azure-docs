@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 10/03/2022
+ms.date: 10/04/2022
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
