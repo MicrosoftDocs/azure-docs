@@ -88,6 +88,8 @@ Azure Video Indexer now supports Diagnostics settings for indexing events. You c
 
 We expanded the languages supported in LID (language identification) and MLID (multi language Identification) using the Azure Video Indexer API.
 
+For more information, see [supported languages](language-support.md).
+
 > [!NOTE]
 > Currently, only available in trial accounts.
 
