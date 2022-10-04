@@ -46,13 +46,13 @@ It's helpful to understand some key terms relating to identity-based authenticat
 
     Azure AD DS provides managed domain services such as domain join, group policies, LDAP, and Kerberos/NTLM authentication. These services are fully compatible with Active Directory Domain Services. For more information, see [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md).
 
-- **On-premises Active Directory Domain Services (AD DS)**
+-   **On-premises Active Directory Domain Services (AD DS)**
 
     On-premises Active Directory Domain Services (AD DS) integration with Azure Files provides the methods for storing directory data while making it available to network users and administrators. Security is integrated with AD DS through logon authentication and access control to objects in the directory. With a single network logon, administrators can manage directory data and organization throughout their network, and authorized network users can access resources anywhere on the network. AD DS is commonly adopted by enterprises in on-premises environments and AD DS credentials are used as the identity for access control. For more information, see [Active Directory Domain Services Overview](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
 -   **Azure role-based access control (Azure RBAC)**
 
-    Azure RBAC enables fine-grained access management for Azure. Using Azure RBAC, you can manage access to resources by granting users the fewest permissions needed to perform their jobs.
+    Azure RBAC enables fine-grained access management for Azure. Using Azure RBAC, you can manage access to resources by granting users the fewest permissions needed to perform their jobs. For more information, see [What is Azure role-based access control?](../../role-based-access-control/overview.md)
 
 -   **Hybrid identities**
 
@@ -133,7 +133,7 @@ Enabling and configuring Azure AD for authenticating [hybrid user identities](..
 For more information on this preview feature, see [Enable Azure Active Directory Kerberos authentication for hybrid identities on Azure Files](storage-files-identity-auth-azure-active-directory-enable.md).
 
 ## Access control
-Azure Files enforces authorization on user access to both the share and the directory/file levels. Share-level permission assignment can be performed on Azure AD users or groups managed through the [Azure role-based access control (Azure RBAC)](../articles/role-based-access-control/overview.md) model. With RBAC, the credentials you use for file access should be available or synced to Azure AD. You can assign Azure built-in roles like Storage File Data SMB Share Reader to users or groups in Azure AD to grant read access to an Azure file share.
+Azure Files enforces authorization on user access to both the share and the directory/file levels. Share-level permission assignment can be performed on Azure AD users or groups managed through Azure RBAC. With Azure RBAC, the credentials you use for file access should be available or synced to Azure AD. You can assign Azure built-in roles like Storage File Data SMB Share Reader to users or groups in Azure AD to grant read access to an Azure file share.
 
 At the directory/file level, Azure Files supports preserving, inheriting, and enforcing [Windows ACLs](/windows/win32/secauthz/access-control-lists) just like any Windows file servers. You can choose to keep Windows ACLs when copying data over SMB between your existing file share and your Azure file shares. Whether you plan to enforce authorization or not, you can use Azure file shares to back up ACLs along with your data.
 
