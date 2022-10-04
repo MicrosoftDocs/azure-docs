@@ -34,6 +34,8 @@
                   href: quickstart-build-scalable-apps-model-high-throughput.md
         - name: App stacks
           items:
+            - name: Overview
+              href: quickstart-app-stacks-overview.yml
             - name: Python
               href: quickstart-app-stacks-python.md
             - name: Node.js
