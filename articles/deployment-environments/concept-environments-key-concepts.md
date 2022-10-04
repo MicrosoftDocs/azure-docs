@@ -29,13 +29,13 @@ Environment is a collection of Azure resources on which your application is depl
 
 ## Identities
 
-[Managed Identities](../active-directory/managed-identities-azure-resources/overview.md) are used in Azure Deployment Environments to provide elevation-of-privilege capabilities. Identities will help provide self-serve capabilities to your development teams without them needing any access to the target subscriptions in which the Azure resources are created. The managed identity attached to the dev center needs to be granted appropriate access to connect to the Catalogs. Either the managed identity attached to the dev center or the deployment identities configured per environment type per project should be granted access to the target deployment subscriptions. Azure Deployment Environments service will use the specific deployment identity to perform the deployment on behalf of the developer.
+[Managed Identities](../active-directory/managed-identities-azure-resources/overview.md) are used in Azure Deployment Environments to provide elevation-of-privilege capabilities. Identities will help provide self-serve capabilities to your development teams without them needing any access to the target subscriptions in which the Azure resources are created. The managed identity attached to the dev center needs to be granted appropriate access to connect to the Catalogs and should be granted 'Owner' access to the target deployment subscriptions configured at the project level. Azure Deployment Environments service will use the specific deployment identity to perform the deployment on behalf of the developer.
 
-## Dev center Environment Types
+## Dev center environment types
 
 You can use environment types to define the type of environments the development teams can create, for example, dev, test, sandbox, pre-production, or production. Azure Deployment Environments provides the flexibility to name the environment types as per the nomenclature used in your enterprise. When you create an environment type, you'll be able to configure and apply different settings for different environment types based on specific needs of the development teams.
 
-## Project Environment Types 
+## Project environment types 
 
 Project Environment Types are a subset of the environment types configured per dev center and help you pre-configure the different types of environments specific development teams can create. You'll be able to configure the target subscription in which Azure resources are created per project per environment type. Project environment types will allow you to automatically apply the right set of policies on different environments and help abstract the Azure governance related concepts from your development teams. The service also provides the flexibility to pre-configure the [managed identity](concept-environments-key-concepts.md#identities) that will be used to perform the deployment and the access levels the development teams will get after a specific environment is created.
 

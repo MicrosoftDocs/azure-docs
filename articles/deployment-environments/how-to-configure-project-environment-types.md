@@ -11,13 +11,12 @@ ms.topic: how-to
 
 # Configure project environment types
 
-Project environment types are a subset of the [environment types configured per dev center](how-to-configure-devcenter-environment-types.md). In Azure Deployment Environments Preview, [environment types](concept-environments-key-concepts.md#project-environment-types) added to the project will be available to developers when they deploy environments, and they determine the subscription and identity used for those deployments.
+Project environment types are a subset of the [environment types configured per dev center](how-to-configure-devcenter-environment-types.md) and help pre-configure the different types of environments a specific development team can create . In Azure Deployment Environments Preview, [environment types](concept-environments-key-concepts.md#project-environment-types) added to the project will be available to developers when they deploy environments, and they determine the subscription and identity used for those deployments.
 
 Project environment types enable the Dev Infra teams to:
 - Configure the target subscription in which Azure resources will be created per environment type per project. 
-  This will enable applying the right set of policies on different environments and help abstract Azure governance related concepts from your development teams. 
-- [Preconfigure the managed identity](how-to-configure-managed-identity.md) that will be used to perform the deployment. 
-  This sets the access levels that the development teams get after a specific environment is created.
+  You will be able to provide different subscriptions for different Environment Types in a given project and thereby, automatically apply the right set of policies on different environments. This also abstracts Azure governance related concepts from your development teams.
+- Pre-configure the managed identity that will be used to perform the deployment and the acesss levels development teams get after the specific environment is created.
 
 In this article, you'll learn how to:
 
@@ -64,8 +63,7 @@ Add a new project environment type as follows:
 
 > [!NOTE]
 > At least one identity (system assigned or user assigned) must be enabled for deployment.
-> 
-> If the identity attached to the dev center has not been granted 'Owner' access to the deployment subscription, the deployment identity should be [granted with 'Owner' access to the deployment subscription](how-to-configure-managed-identity.md).
+> The identity attached to the dev center should be granted 'Owner' access to the deployment subscription. 
 
 ## Update a project environment type
 
