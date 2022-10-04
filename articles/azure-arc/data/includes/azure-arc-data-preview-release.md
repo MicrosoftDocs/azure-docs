@@ -25,7 +25,7 @@ The current preview release published on October 4, 2022.
 New for this release:
 - Arc data controller
   - Updates to TelemetryRouter implementation to include inbound and outbound TelemetryCollector layers alongside Kafka as a persistent buffer
-  - AD connector will now be upgraded when data conroller is upgeaded
+  - AD connector will now be upgraded when data controller is upgraded
 
 - Arc-enabled SQL managed instance
   - New reprovision replica task lets you rebuild a broken sql instance replica. For more information, see [Reprovision replica](#reprovision-replica).
