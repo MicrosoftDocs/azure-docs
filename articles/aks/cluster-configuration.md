@@ -195,13 +195,12 @@ az aks update -n aks -g myResourceGroup --disable-node-restriction
 This enables an OIDC Issuer URL of the provider which allows the API server to discover public signing keys.
 
 > [!WARNING]
-> Enable/disable OIDC Issuer changes the current service account token issuer to a new value, which causes some down time and make API server restart. If the application pods based on service account token keep in failed status after enable/disable OIDC Issuer, it's recommended to restart the pods manually.
+> Enable or disable OIDC Issuer changes the current service account token issuer to a new value, which can cause down time and restarts the API server. If the application pods using a service token remain in a failed state after you enable or disable the OIDC Issuer, it's recommended to manually restart the pods.
 
 ### Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-* Azure CLI version 2.42.0 or later. Run `az --version` to find your version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
-* AKS version 1.22 or later. If your cluster is 1.21 and enabled with preview OIDC Issuer, it's recommended to upgrade the cluster to the least supported version.
+* The Azure CLI version 2.42.0 or higher. Run `az --version` to find your version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+* AKS version 1.22 and higher. If your cluster is running version 1.21 and the OIDC Issuer preview is enabled, it's recommended to upgrade the cluster to the minimum required version supported.
 
 ### Create an AKS cluster with OIDC Issuer
 
@@ -228,18 +227,19 @@ az aks show -n myAKScluster -g myResourceGroup --query "oidcIssuerProfile.issuer
 ```
 
 ### Rotate the OIDC key
-You could rotate the OIDC key by below command.
+
+To rotate the OIDC key, perform the following command. Replace the default values for the cluster name and the resource group name.
 
 ```azurecli-interactive
 az aks oidc-issuer rotate-signing-keys -n myAKSCluster -g myResourceGroup
 ```
 
 > [!Important]
-> Once you rotate the key, the old key (key1) will expire after 24 hours. That means, both the old key (key1) and the new key (key2) are vaild in the following 24 hours. If you want to make the key1 invaild immediately, you need to rotate the OIDC key twice. Then key2 and key3 are valid and key1 is invaild.
+> Once you rotate the key, the old key (key1) expires after 24 hours. This means that both the old key (key1) and the new key (key2) are valid within the 24-hour period. If you want to invalidate the old key (key1) immediately, you need to rotate the OIDC key twice. Then key2 and key3 are valid, and key1 is invalid.
 
 ## Next steps
 
-- Learn how [upgrade the node images](node-image-upgrade.md) in your cluster.
+- Learn how to [upgrade the node images](node-image-upgrade.md) in your cluster.
 - See [Upgrade an Azure Kubernetes Service (AKS) cluster](upgrade-cluster.md) to learn how to upgrade your cluster to the latest version of Kubernetes.
 - Read more about [`containerd` and Kubernetes](https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/)
 - See the list of [Frequently asked questions about AKS](faq.md) to find answers to some common AKS questions.
