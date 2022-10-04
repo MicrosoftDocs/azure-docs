@@ -1,5 +1,5 @@
 ---
-title: Overview of Azure Active Directory authentication strength (Preview)
+title: Overview of Azure Active Directory authentication strength (preview)
 description: Learn how admins can use Azure AD Conditional Access to distinguish which authentication methods can be used based on relevant security factors.
 
 services: multi-factor-authentication
@@ -15,7 +15,7 @@ ms.reviewer: michmcla, inbarckms
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional Access authentication strength (Preview)
+# Conditional Access authentication strength (preview)
 
 Authentication strength is a Conditional Access control that allows administrators to specify which combination of authentication methods can be used to access a resource. For example, they can make only phishing-resistant authentication methods available to access a sensitive resource. But to access a nonsensitive resource, they can allow less secure multifactor authentication (MFA) combinations, such as password + SMS. 
 
@@ -80,7 +80,7 @@ The following table lists the combinations of authentication methods for each bu
 |Email One-time pass (Guest)| | | |
 -->
 
-<sup>1</sup>Something you have refers to one of the following methods: SMS, voice, push notification, software OATH token. Hardware OATH token is currently not supported. 
+<sup>1</sup> Something you have refers to one of the following methods: SMS, voice, push notification, software OATH token. Hardware OATH token is currently not supported. 
 
 The following API call can be used to list definitions of all the built-in authentication strengths:
 
@@ -111,9 +111,9 @@ Custom authentication strengths allow customers to further restrict the usage of
 
 :::image type="content" border="true" source="./media/concept-authentication-strengths/key.png" alt-text="Screenshot showing Advanced options.":::
 
-Next to **Allowed FIDO2 Keys** click **+**, copy the AADGUID value, and click **Save**.
+Next to **Allowed FIDO2 Keys** click **+**, copy the AAGUID value, and click **Save**.
 
-:::image type="content" border="true" source="./media/concept-authentication-strengths/aadguid.png" alt-text="Screenshot showing how to add an Authenticator Attestation GUID.":::
+:::image type="content" border="true" source="./media/concept-authentication-strengths/guid.png" alt-text="Screenshot showing how to add an Authenticator Attestation GUID.":::
 
 ## Using authentication strength in Conditional Access
 After you determine the authentication strength you need, you'll need to create a Conditional Access policy to require that authentication strength to access a resource. When the Conditional Access policy gets applied, the authentication strength restricts which authentication methods are allowed.
@@ -210,7 +210,7 @@ An authentication strength Conditional Access policy works together with [MFA tr
 
 - **Authentication strength is not enforced on “Register security information” user action** – If an Authentication strengths Conditional Access policy is targeting “Register security information” user action, the policy would not apply. 
 
-- **Conditional Access audit log** – when creating or updating a Conditional Access policy with the authentication strengths grant control from the Azure AD portal, the auditing logs includes details about the policy that was updated but does not include the details about which authentication strength is referenced by the Conditional Access policy. This issue does not exist when updating the policy through Microsoft Graph APIs.
+<!-- Namrata to update about B2B--->
 
 ## Limitations
 
@@ -223,16 +223,14 @@ An authentication strength Conditional Access policy works together with [MFA tr
 
 ## FAQ
 
-### Should I use authentication strengths or Authentication method policy?
-Authentication strength is based on the Authentication methods policy, where administrators can scope authentication methods for specific users and groups to be used across Azure AD, as well as method specific configuration. Authentication strengths allows an additional restriction of the different methods for specific scenarios such as sensitive resource access, user risk, location, and more.
+### Should I use authentication strength or the Authentication methods policy?
+Authentication strength is based on the Authentication methods policy. The Authentication methods policy helps to scope and configure authentication methods to be used across Azure AD by specific users and groups. Authentication strength allows another restriction of methods for specific scenarios, such as sensitive resource access, user risk, location, and more.
 
-For example, the administrator of Contoso would like to allow their users to use the Microsoft Authenticator app in either push notifications or Microsoft Authenticator (phone sign-in) -  passwordless authentication. The administrator goes to the Microsoft Authenticator settings in the Authentication method policy, scopes the policy for the relevant users and set the “Authentication mode” to “Any”. 
+For example, the administrator of Contoso wants to allow their users to use Microsoft Authenticator with either push notifications or passwordless authentication mode. The administrator goes to the Microsoft Authenticator settings in the Authentication method policy, scopes the policy for the relevant users and set the **Authentication mode** to **Any**. 
 
-Then, on Contoso’s most sensitive resource, the administrator would like to restrict the access to only passwordless authentication methods. The administrator creates a new Conditional Access policy, using the built-in authentication strengths “Passwordless MFA”. 
+Then for Contoso’s most sensitive resource, the administrator wants to restrict the access to only passwordless authentication methods. The administrator creates a new Conditional Access policy, using the built-in **Passwordless MFA strength**. 
 
-As a result, users in Contoso could access most of the resources in the tenant using password + push notification from the Microsoft Authenticator OR only using Microsoft Authenticator (phone sign-in). However, when the users in the tenant access the sensitive application, they must use Microsoft Authenticator (phone sign-in).
-
-
+As a result, users in Contoso can access most of the resources in the tenant using password + push notification from the Microsoft Authenticator OR only using Microsoft Authenticator (phone sign-in). However, when the users in the tenant access the sensitive application, they must use Microsoft Authenticator (phone sign-in).
 
 ## Prerequisites
 
