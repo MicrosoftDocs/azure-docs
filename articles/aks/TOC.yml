@@ -184,6 +184,8 @@
           href: cluster-configuration.md
         - name: Custom node configuration
           href: custom-node-configuration.md
+        - name: Use cluster snapshots
+          href: managed-cluster-snapshot.md
         - name: Integrate ACR with an AKS cluster
           href: cluster-container-registry-integration.md
         - name: Use Vertical Pod Autoscaler (preview)
@@ -490,6 +492,8 @@
         - name: Use GitOps
           href: ../azure-arc/kubernetes/tutorial-use-gitops-flux2.md
           maintainContext: true
+        - name: Deploy Kubernetes applications from Azure Marketplace
+          href: deploy-marketplace.md
     - name: Deploy the Open Service Mesh AKS add-on
       items:
         - name: About Open Service Mesh
