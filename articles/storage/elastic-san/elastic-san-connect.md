@@ -104,7 +104,7 @@ Note down the values for **StorageTargetIQN**, **StorageTargetPortalHostName**, 
 
 Replace **yourStorageTargetIQN**, **yourStorageTargetPortalHostName**, and **yourStorageTargetPortalPort** with the values you kept, then run the following commands from your compute client to connect an Elastic SAN volume.
 
-```powershell
+```
 # Add target IQN
 # The *s are essential, as they are default arguments
 iscsicli AddTarget $yourStorageTargetIQN * $yourStorageTargetPortalHostName $yourStorageTargetPortalPort * 0 * * * * * * * * * 0
@@ -119,7 +119,7 @@ iscsicli LoginTarget $yourStorageTargetIQN t $yourStorageTargetPortalHostName $y
 
 Before you can connect to a volume, you'll need to get **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort** from your Azure resources.
 
-Run the following commands to get these values:
+Run the following command to get these values:
 
 ```azurecli
 az elastic-san volume-group list -e $sanName -g $resourceGroupName -v $searchedVolumeGroup -n $searchedVolume
@@ -130,12 +130,11 @@ You should see a list of output that looks like the following:
 :::image type="content" source="media/elastic-san-create/elastic-san-volume.png" alt-text="Screenshot of command output." lightbox="media/elastic-san-create/elastic-san-volume.png":::
 
 
-
 Note down the values for **StorageTargetIQN**, **StorageTargetPortalHostName**, and **StorageTargetPortalPort**, you'll need them for the next commands.
 
 Replace **yourStorageTargetIQN**, **yourStorageTargetPortalHostName**, and **yourStorageTargetPortalPort** with the values you kept, then run the following commands from your compute client to connect an Elastic SAN volume.
 
-```bash
+```
 iscsiadm -m node --targetname **yourStorageTargetIQN** --portal **yourStorageTargetPortalHostName**:**yourStorageTargetPortalPort** -o new
 
 iscsiadm -m node --targetname **yourStorageTargetIQN** -p **yourStorageTargetPortalHostName**:**yourStorageTargetPortalPort** -l
