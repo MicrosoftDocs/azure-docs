@@ -20,7 +20,7 @@ adobe-target: true
 
 # Leave an organization as an external user
 
-As an Azure Active Directory (Azure AD) B2B collaboration or B2B direct connect user, you can leave an organization at any time if you no longer need to use apps from that organization or maintain any association.
+As an Azure Active Directory (Azure AD) [B2B collaboration](/articles/active-directory/external-identities/what-is-b2b.md) or [B2B direct connect](/articles/active-directory/external-identities/b2b-direct-connect-overview.md) user, you can leave an organization at any time if you no longer need to use apps from that organization or maintain any association.
 
 You can usually leave an organization on your own without having to contact an administrator. However, in some cases this option won't be available and you'll need to contact your tenant admin, who can delete your account in the external organization.
 
