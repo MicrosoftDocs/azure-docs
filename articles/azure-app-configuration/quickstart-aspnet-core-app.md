@@ -2,18 +2,18 @@
 title: Quickstart for Azure App Configuration with ASP.NET Core | Microsoft Docs
 description: Create an ASP.NET Core app with Azure App Configuration to centralize storage and management of application settings for an ASP.NET Core application.
 services: azure-app-configuration
-author: maud-lv
+author: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, contperf-fy21q1, mode-other
 ms.topic: quickstart
 ms.date: 9/29/2022
-ms.author: malev
+ms.author: zhenlwa
 #Customer intent: As an ASP.NET Core developer, I want to learn how to manage all my app settings in one place.
 ---
 # Quickstart: Create an ASP.NET Core app with Azure App Configuration
 
-In this quickstart, you'll use Azure App Configuration to centralize storage and management of your app settings for an ASP.NET Core app. ASP.NET Core builds a single, key-value-based configuration object using settings from one or more [configuration providers](/aspnet/core/fundamentals/configuration#configuration-providers). App Configuration offers a configuration provider library for .NET. You can, therefore, use App Configuration as an extra configuration source for your app. With this approach, most of your application code doesn't need to change except for some app startup code.
+In this quickstart, you'll use Azure App Configuration to externalize storage and management of your app settings for an ASP.NET Core app. ASP.NET Core builds a single, key-value-based configuration object using settings from one or more [configuration providers](/aspnet/core/fundamentals/configuration#configuration-providers). App Configuration offers a .NET configuration provider library. Therefore, you can use App Configuration as an extra configuration source for your app. If you have an existing app, to begin using App Configuration, you'll only need a few small changes to your app startup code.
 
 ## Prerequisites
 
@@ -73,7 +73,7 @@ dotnet new webapp --output TestAppConfig --framework netcoreapp3.1
     > [!TIP]
     > Some shells will truncate the connection string unless it's enclosed in quotes. Ensure that the output of the `dotnet user-secrets list` command shows the entire connection string. If it doesn't, rerun the command, enclosing the connection string in quotes.
 
-    Secret Manager stores the secret outside of your project tree, which helps prevent the accidental sharing of secrets within source code. It's used only to test the web app locally. When the app is deployed to Azure like [App Service](/azure/app-service/overview), use the *Connection strings*, *Application settings* or environment variables to store the connection string. Alternatively, you can [connect to App Configuration using managed identities](./howto-integrate-azure-managed-service-identity.md) or your other [Azure AD identities](./concept-enable-rbac.md).
+    Secret Manager stores the secret outside of your project tree, which helps prevent the accidental sharing of secrets within source code. It's used only to test the web app locally. When the app is deployed to Azure like [App Service](/azure/app-service/overview), use the *Connection strings*, *Application settings* or environment variables to store the connection string. Alternatively, to avoid connection strings all together, you can [connect to App Configuration using managed identities](./howto-integrate-azure-managed-service-identity.md) or your other [Azure AD identities](./concept-enable-rbac.md).
 
 1. Open *Program.cs*, and add Azure App Configuration as an extra configuration source by calling the `AddAzureAppConfiguration` method.
 
@@ -118,7 +118,7 @@ dotnet new webapp --output TestAppConfig --framework netcoreapp3.1
 
 ## Read from the App Configuration store
 
-In this example, you'll update a web page to display its content as you configured in Azure App Configuration.
+In this example, you'll update a web page to display its content using the settings you configured in your App Configuration store.
 
 1. Add a *Settings.cs* file at the root of your project directory. It defines a strongly typed `Settings` class for the configuration you're going to use. Replace the namespace with the name of your project. 
 
@@ -243,7 +243,7 @@ In this quickstart, you:
 * Provisioned a new App Configuration store.
 * Connected to your App Configuration store using the App Configuration provider library.
 * Read your App Configuration store's key-values with the configuration provider library.
-* Displayed a web page as how you configured it in your App Configuration store.
+* Displayed a web page using the settings you configured in your App Configuration store.
 
 To learn how to configure your ASP.NET Core web app to dynamically refresh configuration settings, continue to the next tutorial.
 
