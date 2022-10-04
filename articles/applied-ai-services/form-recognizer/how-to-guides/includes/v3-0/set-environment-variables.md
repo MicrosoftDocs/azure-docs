@@ -25,12 +25,12 @@ To set the environment variable for your Form Recognizer resource key, open a co
 
 #### [Windows](#tab/windows)
 
- Environment variables in Windows are ***not*** case-sensitive. They're typically named in uppercase, with words joined by an underscore. Start a CMD window and execute the commands:
+ Environment variables in Windows are ***not*** case-sensitive. They're typically declared in uppercase, with words joined by an underscore. Open a command prompt and execute the following commands:
 
 ##### **Set your key variable**
 
 ```console
-  setx FR_KEY {yourKey}
+setx FR_KEY {yourKey}
 
 ```
 
@@ -49,10 +49,10 @@ setx FR_ENDPOINT {yourEndpoint}
 
   | Command | Action | Example |
   |---------|--------|---------|
-  | **setx** VARIABLE_NAME=value | Set or change the value of an environment variable| **setx** FR_KEY=`{yourKey}`|
-  | **setx** VARIABLE_NAME= | Delete the environment variable by setting the value to an empty string.|**setx** FR_KEY= |
-  | **set** VARIABLE_NAME | Display the value of a specific environment variable| **set** FR_KEY|
-  | **set**| Display all environment variables.|**set**|
+  | **setx** </br>VARIABLE_NAME=value | Set or change the value of an environment variable| `setx FR_KEY={yourKey}`|
+  | **setx** </br>VARIABLE_NAME= | Delete the environment variable by setting the value to an empty string.| `setx FR_KEY=` |
+  | **set** VARIABLE_NAME | Display the value of a specific environment variable| `set  FR_KEY` |
+  | **set**| Display all environment variables.| `set`|
 
 #### [macOS](#tab/macOS)
 
@@ -94,10 +94,10 @@ Here are a few more helpful commands to use with environment variables:
 
   | Command | Action | Example |
   |---------|--------|---------|
-  | **export** VARIABLE_NAME=value | Set or change the value of a temporary environment variable ().| **export** FR_KEY=`{yourKey}`|
-  | **unset** VARIABLE_NAME | Delete an environment variable.|**unset** FR_KEY |
-  | &bullet; **printenv** VARIABLE_NAME</br> &bullet; **echo** $VARIABLE_NAME| &bullet; Display the value of a specific environment variable (with the **echo** command, precede the variable with $).| &bullet; **printenv** FR_KEY </br>&bullet; **echo** $FR_KEY</br>|
-  | **printenv**| Display all environment variables.|**printenv**|
+  | **export** </br>VARIABLE_NAME=value | Set or change the value of a temporary environment variable ().| `export FR_KEY={yourKey}`|
+  | **unset** </br>VARIABLE_NAME | Delete an environment variable.| `unset FR_KEY` |
+  | &bullet; **printenv**</br> VARIABLE_NAME</br> &bullet; **echo** </br> $VARIABLE_NAME| &bullet; Display the value of a specific environment variable (with the **echo** command, precede the variable with $).| &bullet; `printenv FR_KEY` </br>&bullet; `echo $FR_KEY`</br>|
+  | **printenv**| Display all environment variables.| `printenv` |
 
 #### [Linux](#tab/linux)
 
@@ -139,9 +139,9 @@ Here are a few more helpful commands to use with environment variables:
 
   | Command | Action | Example |
   |---------|--------|---------|
-  | **export** VARIABLE_NAME=value | Set or change the value of a temporary environment variable (only lasts until you close the terminal session).| **export** FR_KEY=`{yourKey}`|
-  | **unset** VARIABLE_NAME| Delete an environment variable.|**unset** FR_KEY= |
-  | &bullet; **printenv** VARIABLE_NAME</br> &bullet; **echo** $VARIABLE_NAME| &bullet; Display the value of an environment variable (with the **echo** command, precede the variable with $).| &bullet; **printenv** FR_KEY </br>&bullet; **echo** $FR_KEY</br>|
-  | **printenv**| Display all environment variables.|**printenv**|
+  | **export** </br>VARIABLE_NAME=value | Set or change the value of a temporary environment variable (only lasts until you close the terminal session).| `export FR_KEY={yourKey}`|
+  | **unset** </br>VARIABLE_NAME| Delete an environment variable.|`unset FR_KEY=` |
+  | &bullet; **printenv** </br>VARIABLE_NAME</br> &bullet; **echo** </br>$VARIABLE_NAME| &bullet; Display the value of an environment variable (with the **echo** command, precede the variable with $).| &bullet; `printenv FR_KEY` </br>&bullet; `echo $FR_KEY`</br>|
+  | **printenv**| Display all environment variables.|`printenv`|
 
 ---
