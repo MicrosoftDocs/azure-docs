@@ -94,7 +94,7 @@ cd cli/jobs/pipelines-with-components/nyc_taxi_data_regression
 
 # [Python SDK](#tab/python)
 
-For the Python SDK example, use the `nyc_taxi_data_regression` sample from the [examples repository](https://github.com/Azure/azureml-examples). The sample notebook, [share-models-components-environments.ipynb,]((https://github.com/Azure/azureml-examples/tree/main/sdk/python/assets/assets-in-registry/share-models-components-environments.ipynb) is available in the `sdk/python/assets/assets-in-registry` folder. All the sample YAML for components, model training code, sample data for training and inference is available in `cli/jobs/pipelines-with-components/nyc_taxi_data_regression`. Change to the `sdk/resources/registry` directory and open the `share-models-components-environments.ipynb` notebook if you'd like to step through a notebook to try out the code in this document.
+For the Python SDK example, use the `nyc_taxi_data_regression` sample from the [examples repository](https://github.com/Azure/azureml-examples). The sample notebook, [share-models-components-environments.ipynb,](https://github.com/Azure/azureml-examples/tree/main/sdk/python/assets/assets-in-registry/share-models-components-environments.ipynb) is available in the `sdk/python/assets/assets-in-registry` folder. All the sample YAML for components, model training code, sample data for training and inference is available in `cli/jobs/pipelines-with-components/nyc_taxi_data_regression`. Change to the `sdk/resources/registry` directory and open the `share-models-components-environments.ipynb` notebook if you'd like to step through a notebook to try out the code in this document.
 
 ---
 
