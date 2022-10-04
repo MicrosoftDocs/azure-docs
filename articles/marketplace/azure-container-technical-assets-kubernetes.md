@@ -66,7 +66,11 @@ As part of the publishing process, Microsoft will deep copy your CNAB from your 
 
 Microsoft has created a first-party application responsible for handling this process with an `id` of `32597670-3e15-4def-8851-614ff48c1efa`. To begin, create a service principal based off of the application:
 
+
 # [Linux](#tab/linux)
+
+> [!NOTE]
+> If your account doesn't have permission to create a service principal, `az ad sp create` will return an error message containing "Insufficient privileges to complete the operation". Contact your Azure Active Directory admin to create a service principal.
 
 ```azurecli-interactive
 az login
@@ -109,6 +113,9 @@ az provider show -n Microsoft.PartnerCenterIngestion --subscription <subscriptio
 ```
 
 # [Windows](#tab/windows)
+
+> [!NOTE]
+> If your account doesn't have permission to create a service principal, `New-AzADServicePrincipal` will return an error message containing "Insufficient privileges to complete the operation". Contact your Azure Active Directory admin to create a service principal.
 
 ```powershell-interactive
 Connect-AzAccount
@@ -190,7 +197,13 @@ After reviewing the billing models available, select one appropriate for your us
 
 - Add a billing identifier label and cpu cores request to your `deployment.yaml` file.
 
+    :::image type="content" source="./media/azure-container/billing-identifier-label.png" alt-text="A screenshot of a properly formatted billing identifier label in a deployment.yaml file. The content resembles the sample depoyment.yaml file linked in this article":::
+
+    :::image type="content" source="./media/azure-container/resources.png" alt-text="A screenshot of CPU resource requests in a deployment.yaml file. The content resembles the sample depoyment.yaml file linked in this article.":::
+
 - Add a billing identifier value for `global.azure.billingidentifier` in `values.yaml`.
+
+    :::image type="content" source="./media/azure-container/billing-identifier-value.png" alt-text="A screenshot of a properly formatted values.yaml file, showing the global > azure > billingIdentifier field.":::
 
 Note that at deployment time, the cluster extensions feature will replace the billing identifier value with the extension type name you provide while setting up plan details.
 
