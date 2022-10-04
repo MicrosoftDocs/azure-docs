@@ -100,5 +100,7 @@ You can get access to the environment's unique identifier by querying the enviro
 
 [!INCLUDE [container-apps-get-fully-qualified-domain-name](../../includes/container-apps-get-fully-qualified-domain-name.md)]
 
+## Next steps
+
 > [!div class="nextstepaction"]
 > [Manage scaling](scale-app.md)
