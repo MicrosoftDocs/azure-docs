@@ -33,7 +33,7 @@ This article guides you through the steps to securely expose a web application o
 - A Front Door Service – Standard or Classic tier
 - Apps that exist in a single region.
 - A custom domain to use for the application.
-- For licencing information, Application Proxy is available through an Azure AD Premium subscription. Refer here for a full listing of licencing options and features:[Azure Active Directory Pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) 
+- For licencing information, Application Proxy is available through an Azure AD Premium subscription. Refer here for a full listing of licencing options and features: [Azure Active Directory Pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) 
 
 ### Application Proxy Configuration.
 
