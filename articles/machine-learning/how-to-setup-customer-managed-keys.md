@@ -131,6 +131,9 @@ For more information on customer-managed keys with Cosmos DB, see [Configure cus
 
 ### Azure Container Instance
 
+> [!IMPORTANT]
+> Deploying to Azure Container Instances is not available in SDK or CLI v2. Only through SDK & CL v1.
+
 When __deploying__ a trained model to an Azure Container instance (ACI), you can encrypt the deployed resource using a customer-managed key. For information on generating a key, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#generate-a-new-key).
 
 To use the key when deploying a model to Azure Container Instance, create a new deployment configuration using `AciWebservice.deploy_configuration()`. Provide the key information using the following parameters:
@@ -145,7 +148,7 @@ For more information on creating and using a deployment configuration, see the f
 * [Where and how to deploy](how-to-deploy-managed-online-endpoints.md)
 * [Deploy a model to Azure Container Instances](v1/how-to-deploy-azure-container-instance.md)
 
-For more information on using a customer-managed key with ACI, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#encrypt-data-with-a-customer-managed-key).
+For more information on using a customer-managed key with ACI, see [Encrypt deployment data](../container-instances/container-instances-encrypt-data.md).
 
 ### Azure Kubernetes Service
 
