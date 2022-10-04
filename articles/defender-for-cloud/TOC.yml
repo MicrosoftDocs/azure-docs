@@ -54,14 +54,12 @@
     - name: Connect Azure DevOps repositories
       displayName: DevOps, connect, Azure
       href: quickstart-onboard-devops.md
-  - name: 4. Configure auto provisioning
-    href: enable-data-collection.md
-  - name: 5. Set up email notifications
+  - name: 4. Set up email notifications
     href: configure-email-notifications.md
-  - name: 6. Create auto-responses to alerts using an ARM template or Bicep
+  - name: 5. Create auto-responses to alerts using an ARM template or Bicep
     displayName: Resource Manager, ARM, Template
     href: quickstart-automation-alert.md
-  - name: 7. Choose standards for your compliance dashboard
+  - name: 6. Choose standards for your compliance dashboard
     displayName: regulatory, regulation, CIS, PCI DSS, ISO, SOC, ASB, Benchmark, Azure Security Benchmark, HIPAA
     href: update-regulatory-compliance-packages.md
 
