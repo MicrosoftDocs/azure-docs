@@ -1,8 +1,8 @@
 ---
 title: Integrate Azure Blob Storage with Service Connector
 description: Integrate Azure Blob Storage into your application with Service Connector
-author: shizn
-ms.author: xshi
+author: maud-lv
+ms.author: malev
 ms.service: service-connector
 ms.custom: event-tier1-build-2022
 ms.topic: how-to
@@ -49,8 +49,12 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 
 | Client type        | System-assigned managed identity     | User-assigned managed identity | Secret / connection string           | Service principal                    |
 |--------------------|--------------------------------------|--------------------------------|--------------------------------------|--------------------------------------|
+| .NET               | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Java               | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Java - Spring Boot |                                      |                                | ![yes icon](./media/green-check.png) |                                      |
+| Node.js            | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Python             | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| None               | ![yes icon](./media/green-check.png) |                                | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
 ---
 
@@ -59,7 +63,7 @@ Supported authentication and clients for App Service, Container Apps and Azure S
 Use the connection details below to connect compute services to Blob Storage. For each example below, replace the placeholder texts
 `<account name>`, `<account-key>`, `<client-ID>`,  `<client-secret>`, `<tenant-ID>`, and `<storage-account-name>` with your own account name, account key, client ID, client secret, tenant ID and storage account name.
 
-### .NET, Java, Node.JS, Python
+### Azure App Service and Azure Container Apps
 
 #### Secret / connection string
 
@@ -89,9 +93,9 @@ Use the connection details below to connect compute services to Blob Storage. Fo
 | AZURE_STORAGEBLOB_CLIENTSECRET     | Your client secret    | `<client-secret>`                                       |
 | AZURE_STORAGEBLOB_TENANTID         | Your tenant ID        | `<tenant-ID>`                                           |
 
-### Java - Spring Boot
+### Azure Spring Cloud
 
-#### Java - Spring Boot secret / connection string
+#### secret / connection string
 
 | Application properties      | Description                    | Example value                                           |
 |-----------------------------|--------------------------------|---------------------------------------------------------|

@@ -13,7 +13,7 @@ Azure Remote Rendering uses a Unity package to encapsulate the integration into 
 This package contains the entire C# API and all plugin binaries required to use Azure Remote Rendering with Unity.
 Following Unity's naming scheme for packages, the package is called **com.microsoft.azure.remote-rendering**.
 
-The package is not part of the [ARR samples repository](https://github.com/Azure/azure-remote-rendering), and it is not available from Unity's internal package registry.
+The package isn't part of the [ARR samples repository](https://github.com/Azure/azure-remote-rendering), and it isn't available from Unity's internal package registry.
 You can choose one of the following options to install the Unity package.
 
 ## Install Remote Rendering package using the Mixed Reality Feature Tool
@@ -94,7 +94,7 @@ To update a local package, just repeat the respective download steps you used an
 
 ## Unity render pipelines
 
-Remote Rendering works with both the **:::no-loc text="Universal render pipeline":::** and the **:::no-loc text="Standard render pipeline":::**. For performance reasons, the Universal render pipeline is recommended.
+Remote Rendering works with both the **:::no-loc text="Standard render pipeline":::** ("built-in render pipeline") and the **:::no-loc text="Universal render pipeline":::** ("URP"). For performance reasons, it's recommended to use the built-in render pipeline, unless there are strong reasons that require URP.
 
 To use the **:::no-loc text="Universal render pipeline":::**, its package has to be installed in Unity. The installation can either be done in Unity's **Package Manager** UI (package name **Universal RP**, version 7.3.1 or newer), or through the `Packages/manifest.json` file, as described in the [Unity project setup tutorial](../../tutorials/unity/view-remote-models/view-remote-models.md#include-the-azure-remote-rendering-and-openxr-packages).
 

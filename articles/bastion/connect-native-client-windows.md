@@ -6,29 +6,28 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: how-to
-ms.date: 03/17/2022
+ms.date: 09/09/2022
 ms.author: cherylmc
-ms.custom: ignite-fall-2021
 ---
 
 # Connect to a VM using a native client
 
 This article helps you configure your Bastion deployment, and then connect to a VM in the VNet using the native client (SSH or RDP) on your local computer. The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Azure Active Directory (Azure AD). Additionally with this feature, you can now also upload or download files, depending on the connection type and client.
 
-Your capabilities on the VM when connecting via a native client are dependent on what is enabled on the native client. Controlling access to features such as file transfer via Bastion isn't supported.
+Your capabilities on the VM when connecting via native client are dependent on what is enabled on the native client. Controlling access to features such as file transfer via Bastion isn't supported.
 
 > [!NOTE]
 > This configuration requires the Standard SKU tier for Azure Bastion.
 
-There are two different sets of connection instructions.
+After you deploy this feature, there are two different sets of connection instructions.
 
-* Connect to a VM from the [native client on a Windows local computer](#connect). This lets you do the following:
+* [Connect to a VM from the native client on a Windows local computer](#connect). This lets you do the following:
 
   * Connect using SSH or RDP.
   * [Upload and download files](vm-upload-download-native.md#rdp) over RDP.
   * If you want to connect using SSH and need to upload files to your target VM, use the **az network bastion tunnel** command instead.
 
-* Connect to a VM using the [**az network bastion tunnel** command](#connect-tunnel). This lets you do the following:
+* [Connect to a VM using the **az network bastion tunnel** command](#connect-tunnel). This lets you do the following:
 
   * Use native clients on *non*-Windows local computers (example: a Linux PC).
   * Use the native client of your choice. (This includes the Windows native client.)
@@ -53,35 +52,37 @@ Before you begin, verify that you have the following prerequisites:
   * [Configure your Windows VM to be Azure AD-joined](../active-directory/devices/concept-azure-ad-join.md).
   * [Configure your Windows VM to be hybrid Azure AD-joined](../active-directory/devices/concept-azure-ad-join-hybrid.md).
 
-## <a name="configure"></a>Configure Bastion
+## <a name="configure"></a>Configure the native client support feature
 
-You can either [modify an existing Bastion deployment](#modify-host), or [deploy Bastion](#configure-new) to a virtual network.
+You can configure this feature by either modifying an existing Bastion deployment, or you can deploy Bastion with the feature configuration already specified.
 
-### <a name="modify-host"></a>To modify an existing Bastion deployment
+### To modify an existing Bastion deployment
 
-If you have already deployed Bastion to your VNet, modify the following configuration settings:
+If you've already deployed Bastion to your VNet, modify the following configuration settings:
 
-1. Navigate to the **Configuration** page for your Bastion resource. Verify that the SKU is **Standard**. If it isn't, change it to **Standard** from the dropdown.
-1. Check the box for **Native Client Support** and apply your changes.
+1. Navigate to the **Configuration** page for your Bastion resource. Verify that the SKU Tier is **Standard**. If it isn't, select **Standard**.
+1. Select the box for **Native Client Support**, then apply your changes.
 
-    :::image type="content" source="./media/connect-native-client-windows/update-host.png" alt-text="Settings for updating an existing host with Native Client Support box selected." lightbox="./media/connect-native-client-windows/update-host-expand.png":::
+    :::image type="content" source="./media/connect-native-client-windows/update-host.png" alt-text="Screenshot that shows settings for updating an existing host with Native Client Support box selected." lightbox="./media/connect-native-client-windows/update-host.png":::
 
-### <a name="configure-new"></a>To deploy Bastion to a VNet
+### To deploy Bastion with the native client feature
 
-If you haven't already deployed Bastion to your VNet, [deploy Bastion](tutorial-create-host-portal.md#createhost). When configuring Bastion, specify the following settings:
+If you haven't already deployed Bastion to your VNet, you can deploy with the native client feature specified by deploying Bastion using manual settings. For steps, see [Tutorial - Deploy Bastion with manual settings](tutorial-create-host-portal.md#createhost). When you deploy Bastion, specify the following settings:
 
-1. On the **Basics** tab, for **Instance Details -> Tier** select **Standard** to deploy Bastion using the Standard SKU.
+1. On the **Basics** tab, for **Instance Details -> Tier** select **Standard**. Native client support requires the Standard SKU.
 
    :::image type="content" source="./media/connect-native-client-windows/standard.png" alt-text="Settings for a new bastion host with Standard SKU selected." lightbox="./media/connect-native-client-windows/standard.png":::
-1. On the **Advanced** tab, check the box for **Native Client Support**.
+1. Before you create the bastion host, go to the **Advanced** tab and check the box for **Native Client Support**, along with the checkboxes for any other additional features that you want to deploy.
 
-   :::image type="content" source="./media/connect-native-client-windows/new-host.png" alt-text="Settings for a new bastion host with Native Client Support box selected." lightbox="./media/connect-native-client-windows/new-host-expand.png":::
+   :::image type="content" source="./media/connect-native-client-windows/new-host.png" alt-text="Screenshot that shows settings for a new bastion host with Native Client Support box selected." lightbox="./media/connect-native-client-windows/new-host.png":::
+
+1. Click **Review + create** to validate, then click **Create** to deploy your Bastion host.
 
 ## <a name="verify"></a>Verify roles and ports
 
-Verify that the following roles and ports are configured in order to connect.
+Verify that the following roles and ports are configured in order to connect to the VM.
 
-### <a name="roles"></a>Required roles
+### Required roles
 
 * Reader role on the virtual machine.
 * Reader role on the NIC with private IP of the virtual machine.
@@ -105,7 +106,7 @@ To connect to a Windows VM using native client support, you must have the follow
 
 To learn about how to best configure NSGs with Azure Bastion, see [Working with NSG access and Azure Bastion](bastion-nsg.md).
 
-## <a name="connect"></a>Connect - Windows native client
+## <a name="connect"></a>Connect to VM - Windows native client
 
 This section helps you connect to your virtual machine from the native client on a local Windows computer. If you want to upload and download files after connecting, you must use an RDP connection. For more information about file transfers, see  [Upload or download files](vm-upload-download-native.md).
 
@@ -135,7 +136,7 @@ Use the example that corresponds to the type of target VM to which you want to c
    ```
 
    **SSH:**
- 
+
    The extension can be installed by running, ```az extension add --name ssh```. To sign in using an SSH key pair, use the following example.
 
    ```azurecli
@@ -182,7 +183,7 @@ Use the example that corresponds to the type of target VM to which you want to c
 
 1. Once you sign in to your target VM, the native client on your computer will open up with your VM session; **MSTSC** for RDP sessions, and **SSH CLI extension (az ssh)** for SSH sessions.
 
-## <a name="connect-tunnel"></a>Connect - other native clients
+## <a name="connect-tunnel"></a>Connect to VM - other native clients
 
 This section helps you connect to your virtual machine from native clients on *non*-Windows local computers (example: a Linux PC) using the **az network bastion tunnel** command. You can also connect using this method from a Windows computer. This is helpful when you require an SSH connection and want to upload files to your VM.
 

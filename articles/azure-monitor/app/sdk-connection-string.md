@@ -1,6 +1,6 @@
 ---
-title: Connection strings in Azure Application Insights | Microsoft Docs
-description: How to use connection strings.
+title: Connection strings in Application Insights | Microsoft Docs
+description: This article shows how to use connection strings.
 ms.topic: conceptual
 ms.date: 04/13/2022
 ms.custom: "devx-track-js, devx-track-csharp"
@@ -9,79 +9,79 @@ ms.reviewer: cogoodson
 
 # Connection strings
 
+This article shows how to use connection strings.
+
 ## Overview
 
 Connection strings define where to send telemetry data.
 
-The key value pairs provide an easy way for users to define a prefix suffix combination for each Application Insights (AI) service/ product.
+Key-value pairs provide an easy way for users to define a prefix suffix combination for each Application Insights service or product.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
-> [!IMPORTANT]
-> Do not use a connection string and instrumentation key simultaneously. Whichever was set last will take precedence.
+Don't use a connection string and instrumentation key simultaneously. Whichever was set last will take precedence.
 
-## Scenario overview 
+## Scenario overview
 
 Scenarios most affected by this change:
 
-- Firewall exceptions or proxy redirects 
+- Firewall exceptions or proxy redirects:
 
-    In cases where monitoring for intranet web server is required, our earlier solution asked customers to add individual service endpoints to your configuration. For more information, see [here](../faq.yml#can-i-monitor-an-intranet-web-server-). 
-    Connection strings offer a better alternative by reducing this effort to a single setting. A simple prefix, suffix amendment allows automatic population and redirection of all endpoints to the right services. 
+    In cases where monitoring for intranet web server is required, our earlier solution asked you to add individual service endpoints to your configuration. For more information, see the [Azure Monitor FAQ](../faq.yml#can-i-monitor-an-intranet-web-server-). Connection strings offer a better alternative by reducing this effort to a single setting. A simple prefix, suffix amendment, allows automatic population and redirection of all endpoints to the right services.
 
-- Sovereign or Hybrid cloud environments
+- Sovereign or hybrid cloud environments:
 
-    Users can send data to a defined [Azure Government Region](../../azure-government/compare-azure-government-global-azure.md#application-insights).
-    Connection strings allow you to define endpoint settings for your intranet servers or hybrid cloud settings. 
+    Users can send data to a defined [Azure Government region](../../azure-government/compare-azure-government-global-azure.md#application-insights). By using connection strings, you can define endpoint settings for your intranet servers or hybrid cloud settings.
 
-## Getting started
+## Get started
 
-### Finding my connection string?
+Review the following sections to get started.
 
-Your connection string is displayed on the Overview section of your Application Insights resource.
+### Find your connection string
 
-:::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot displaying Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
+Your connection string appears in the **Overview** section of your Application Insights resource.
+
+:::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot that shows the Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
 
 ### Schema
 
+Schema elements are explained in the following sections.
+
 #### Max length
 
-The connection has a maximum supported length of 4096 characters.
+The connection has a maximum supported length of 4,096 characters.
 
 #### Key-value pairs
 
-Connection string consists of a list of settings represented as key-value pairs separated by semicolon:
+A connection string consists of a list of settings represented as key-value pairs separated by a semicolon:
 `key1=value1;key2=value2;key3=value3`
 
 #### Syntax
 
-- `InstrumentationKey` (ex: 00000000-0000-0000-0000-000000000000)
-   The connection string is a **required** field.
-- `Authorization` (ex: ikey) (This setting is optional because today we only support ikey authorization.)
-- `EndpointSuffix` (ex: applicationinsights.azure.cn)
-   Setting the endpoint suffix will instruct the SDK which Azure cloud to connect to. The SDK will assemble the rest of the endpoint for individual services.
-- Explicit Endpoints.
-  Any service can be explicitly overridden in the connection string.
-   - `IngestionEndpoint` (ex: `https://dc.applicationinsights.azure.com`)
-   - `LiveEndpoint` (ex: `https://live.applicationinsights.azure.com`)
-   - `ProfilerEndpoint` (ex: `https://profiler.monitor.azure.com`)
-   - `SnapshotEndpoint` (ex: `https://snapshot.monitor.azure.com`)
+- `InstrumentationKey` (for example, 00000000-0000-0000-0000-000000000000).
+   The connection string is a *required* field.
+- `Authorization` (for example, ikey). This setting is optional because today we only support ikey authorization.
+- `EndpointSuffix` (for example, applicationinsights.azure.cn).
+   Setting the endpoint suffix will instruct the SDK on which Azure cloud to connect to. The SDK will assemble the rest of the endpoint for individual services.
+- Explicit endpoints.
+  Any service can be explicitly overridden in the connection string:
+   - `IngestionEndpoint` (for example, `https://dc.applicationinsights.azure.com`)
+   - `LiveEndpoint` (for example, `https://live.applicationinsights.azure.com`)
+   - `ProfilerEndpoint` (for example, `https://profiler.monitor.azure.com`)
+   - `SnapshotEndpoint` (for example, `https://snapshot.monitor.azure.com`)
 
 #### Endpoint schema
 
 `<prefix>.<suffix>`
-- Prefix: Defines a service. 
+- Prefix: Defines a service.
 - Suffix: Defines the common domain name.
 
 ##### Valid suffixes
 
-Here's a list of valid suffixes 
 - applicationinsights.azure.cn
 - applicationinsights.us
 
-
-See also: [Regions that require endpoint modification](./custom-endpoints.md#regions-that-require-endpoint-modification)
-
+For more information, see [Regions that require endpoint modification](./custom-endpoints.md#regions-that-require-endpoint-modification).
 
 ##### Valid prefixes
 
@@ -90,85 +90,82 @@ See also: [Regions that require endpoint modification](./custom-endpoints.md#reg
 - [Profiler](./profiler-overview.md): `profiler`
 - [Snapshot](./snapshot-debugger.md): `snapshot`
 
-#### Is Connection string a secret?
+#### Is the connection string a secret?
 
-Connection string contains iKey which is a unique identifier used by the ingestion service to associate telemetry to a specific Application Insights resource.  It is not to be considered a security token or key. The ingestion endpoint provides Azure AD-based authenticated telemetry ingestion options if you want to protect your AI resource from misuse.
+The connection string contains an ikey, which is a unique identifier used by the ingestion service to associate telemetry to a specific Application Insights resource. It's not considered a security token or key. If you want to protect your AI resource from misuse, the ingestion endpoint provides authenticated telemetry ingestion options based on Azure Active Directory (Azure AD).
 
 > [!NOTE]
-> Application Insights JavaScript SDK requires the connection string to be passed in during initialization/configuration.  This is viewable in plain text in client browsers. There is no easy way to use the Azure AD-based authentication for browser telemetry.  It is recommended that customers consider creating a separate Application Insights resource for browser telemetry if they need to secure the service telemetry.
+> The Application Insights JavaScript SDK requires the connection string to be passed in during initialization and configuration. It's viewable in plain text in client browsers. There's no easy way to use the Azure AD-based authentication for browser telemetry. We recommend that you consider creating a separate Application Insights resource for browser telemetry if you need to secure the service telemetry.
 
 ## Connection string examples
 
+Here are some examples of connection strings.
 
-### Connection string with endpoint suffix
+### Connection string with an endpoint suffix
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;EndpointSuffix=ai.contoso.com;`
 
-In this example, the connection string specifies the endpoint suffix and the SDK will construct service endpoints.
+In this example, the connection string specifies the endpoint suffix and the SDK will construct service endpoints:
 
-- Authorization scheme defaults to "ikey" 
-- Instrumentation Key: 00000000-0000-0000-0000-000000000000
-- The regional service URIs are based on provided endpoint suffix: 
+- Authorization scheme defaults to "ikey"
+- Instrumentation key: 00000000-0000-0000-0000-000000000000
+- The regional service URIs are based on the provided endpoint suffix:
    - Ingestion: `https://dc.ai.contoso.com`
    - Live metrics: `https://live.ai.contoso.com`
    - Profiler: `https://profiler.ai.contoso.com`
-   - Debugger: `https://snapshot.ai.contoso.com`  
+   - Debugger: `https://snapshot.ai.contoso.com`
 
-
-
-### Connection string with explicit endpoint overrides 
+### Connection string with explicit endpoint overrides
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://custom.com:111/;LiveEndpoint=https://custom.com:222/;ProfilerEndpoint=https://custom.com:333/;SnapshotEndpoint=https://custom.com:444/;`
 
-In this example, the connection string specifies explicit overrides for every service. The SDK will use the exact endpoints provided without modification.
+In this example, the connection string specifies explicit overrides for every service. The SDK will use the exact endpoints provided without modification:
 
-- Authorization scheme defaults to "ikey" 
-- Instrumentation Key: 00000000-0000-0000-0000-000000000000
-- The regional service URIs are based on the explicit override values: 
+- Authorization scheme defaults to "ikey"
+- Instrumentation key: 00000000-0000-0000-0000-000000000000
+- The regional service URIs are based on the explicit override values:
    - Ingestion: `https://custom.com:111/`
    - Live metrics: `https://custom.com:222/`
    - Profiler: `https://custom.com:333/`
-   - Debugger: `https://custom.com:444/`  
+   - Debugger: `https://custom.com:444/`
 
-### Connection string with explicit region
+### Connection string with an explicit region
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://southcentralus.in.applicationinsights.azure.com/`
 
-In this example, the connection string specifies the South Central US region.
+In this example, the connection string specifies the South Central US region:
 
-- Authorization scheme defaults to "ikey" 
-- Instrumentation Key: 00000000-0000-0000-0000-000000000000
-- The regional service URIs are based on the explicit override values: 
+- Authorization scheme defaults to "ikey"
+- Instrumentation key: 00000000-0000-0000-0000-000000000000
+- The regional service URIs are based on the explicit override values:
    - Ingestion: `https://southcentralus.in.applicationinsights.azure.com/`
 
-Run the following command in the [Azure Command-Line Interface (CLI)](/cli/azure/account?view=azure-cli-latest#az-account-list-locations&preserve-view=true) to list available regions.
+Run the following command in the [Azure CLI](/cli/azure/account?view=azure-cli-latest#az-account-list-locations&preserve-view=true) to list available regions:
 
 `az account list-locations -o table`
 
-## How to set a connection string
+## Set a connection string
 
-Connection Strings are supported in the following SDK versions:
+Connection strings are supported in the following SDK versions:
 - .NET v2.12.0
 - Java v2.5.1 and Java 3.0
 - JavaScript v2.3.0
 - NodeJS v1.5.0
 - Python v1.0.0
 
-A connection string can be set by either in code, environment variable, or configuration file.
-
-
+You can set a connection string in code or by using an environment variable or a configuration file.
 
 ### Environment variable
 
-- Connection String: `APPLICATIONINSIGHTS_CONNECTION_STRING`
+Connection string: `APPLICATIONINSIGHTS_CONNECTION_STRING`
 
 ### Code samples
 
 # [.NET/.NetCore](#tab/net)
 
-Set the property [TelemetryConfiguration.ConnectionString](https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274) or [ApplicationInsightsServiceOptions.ConnectionString](https://github.com/microsoft/ApplicationInsights-dotnet/blob/81288f26921df1e8e713d31e7e9c2187ac9e6590/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs#L66-L69)
+Set the property [TelemetryConfiguration.ConnectionString](https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274) or [ApplicationInsightsServiceOptions.ConnectionString](https://github.com/microsoft/ApplicationInsights-dotnet/blob/81288f26921df1e8e713d31e7e9c2187ac9e6590/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs#L66-L69).
 
-.NET Explicitly Set:
+.NET explicitly set:
 ```csharp
 var configuration = new TelemetryConfiguration
 {
@@ -176,7 +173,7 @@ var configuration = new TelemetryConfiguration
 };
 ```
 
-.NET Config File:
+.NET config file:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -185,7 +182,7 @@ var configuration = new TelemetryConfiguration
 </ApplicationInsights>
 ```
 
-.NET Core Explicitly Set:
+.NET Core explicitly set:
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
@@ -194,7 +191,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-.NET Core config.json: 
+.NET Core config.json:
 
 ```json
 {
@@ -203,7 +200,6 @@ public void ConfigureServices(IServiceCollection services)
     }
   }
 ```
-
 
 # [Java](#tab/java)
 
@@ -215,24 +211,15 @@ You can set the connection string in the `applicationinsights.json` configuratio
 }
 ```
 
-For more information, [connection string configuration](./java-standalone-config.md#connection-string).
-
-For Application Insights Java 2.x, you can set the connection string in the `ApplicationInsights.xml` configuration file:
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
-    <ConnectionString>InstrumentationKey=00000000-0000-0000-0000-000000000000</ConnectionString>
-</ApplicationInsights>
-```
+For more information, see [Connection string configuration](./java-standalone-config.md#connection-string).
 
 # [JavaScript](#tab/js)
 
-Important: JavaScript doesn't support the use of Environment Variables.
+JavaScript doesn't support the use of environment variables.
 
 Using the snippet:
 
-The current Snippet (listed below) is version "5", the version is encoded in the snippet as sv:"#" and the [current version is also available on GitHub](https://go.microsoft.com/fwlink/?linkid=2156318).
+The current snippet is version 5 and is shown here. The version is encoded in the snippet as sv:"#". The [current version is also available on GitHub](https://go.microsoft.com/fwlink/?linkid=2156318).
 
 ```html
 <script type="text/javascript">
@@ -242,7 +229,7 @@ src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js", // The SDK URL Source
 // ld: 0, // Defines the load delay (in ms) before attempting to load the sdk. -1 = block page load and add to head. (default) = 0ms load after timeout,
 // useXhr: 1, // Use XHR instead of fetch to report failures (if available),
 crossOrigin: "anonymous", // When supplied this will add the provided value as the cross origin attribute on the script tag
-// onInit: null, // Once the application insights instance has loaded and initialized this callback function will be called with 1 argument -- the sdk instance (DO NOT ADD anything to the sdk.queue -- As they won't get called)
+// onInit: null, // Once the application insights instance has loaded and initialized this callback function will be called with 1 argument -- the sdk instance (DO NOT ADD anything to the sdk.queue -- as they won't get called)
 cfg: { // Application Insights Configuration
   connectionString:"InstrumentationKey=00000000-0000-0000-0000-000000000000;"
 }});
@@ -250,9 +237,9 @@ cfg: { // Application Insights Configuration
 ```
 
 > [!NOTE]
-> For readability and to reduce possible JavaScript errors, all of the possible configuration options are listed on a new line in snippet code above, if you don't want to change the value of a commented line it can be removed.
+> For readability and to reduce possible JavaScript errors, all the possible configuration options are listed on a new line in the preceding snippet code. If you don't want to change the value of a commented line, it can be removed.
 
-Manual Setup:
+Manual setup:
 ```javascript
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
 
@@ -274,7 +261,7 @@ appInsights.start();
 
 # [Python](#tab/python)
 
-We recommend users set the environment variable.
+We recommend that users set the environment variable.
 
 To explicitly set the connection string:
 
@@ -292,9 +279,9 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 
 Get started at runtime with:
 
-* [Azure VM and Azure virtual machine scale set IIS-hosted apps](./azure-vm-vmss-apps.md)
+* [Azure VM and Azure Virtual Machine Scale Sets IIS-hosted apps](./azure-vm-vmss-apps.md)
 * [IIS server](./status-monitor-v2-overview.md)
-* [Azure Web Apps](./azure-web-apps.md)
+* [Web Apps feature of Azure App Service](./azure-web-apps.md)
 
 Get started at development time with:
 

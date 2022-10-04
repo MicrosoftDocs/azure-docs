@@ -4,7 +4,7 @@ description: You can simplify the task of migrating from Azure Data Lake Storage
 author: normesta
 ms.topic: how-to
 ms.author: normesta
-ms.date: 06/07/2022
+ms.date: 09/12/2022
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
@@ -56,7 +56,7 @@ As you create the account, make sure to configure settings with the following va
 > The migration tool in the Azure portal doesn't move account settings. Therefore, after you've created the account, you'll have to manually configure settings such as encryption, network firewalls, data protection.
 
 > [!IMPORTANT]
-> Ensure that you use a fresh, newly created Gen2 account that has no history of any usage. **Don't** migrate to a previously used Gen2 account or use a Gen2 account in which containers have been deleted to make the Gen2 account empty.
+> Ensure that you use a fresh, newly created storage account that has no history of use. **Don't** migrate to a previously used account or use an account in which containers have been deleted to make the account empty.
 
 ## Verify RBAC role assignments
 
@@ -70,18 +70,22 @@ Azure Data Lake Storage Gen2 doesn't support Azure Data Lake Analytics. Azure Da
 
 For more information, see [Manage Azure Data Lake Analytics using the Azure portal](../../data-lake-analytics/data-lake-analytics-manage-use-portal.md).
 
+## Prepare the Gen1 account
+
+File or directory names with only spaces or tabs, ending with a `.`, containing a `:`, or with multiple consecutive forward slashes (`//`) are not compatible with Gen2. You'll need to rename these files or directories before you migrate. 
+
 ## Perform the migration
 
 Before you begin, review the two migration options below, and decide whether to only copy data from Gen1 to Gen2 (recommended) or perform a complete migration.
 
 > [!NOTE]
-> No matter which option you select, a container named **gen1** will be created on the Gen2 account, and all data from the Gen1 account will be copied to this new 'gen1' container. When the migration is complete, in order to find the data on a path that existed on Gen1, you must add the prefix **gen1/** to the same path to access it on Gen2. For example, a path that was named 'FolderRoot/FolderChild/FileName.csv' on Gen1 will be available at 'gen1/FolderRoot/FolderChild/FileName.csv' on Gen2. Container names can't be renamed on Gen2, so this **gen1** container on Gen2 can't be renamed post migration. However, the data can be copied to a new container in Gen2 if needed.
+> No matter which option you select, a container named **gen1** will be created in the Gen2-enabled account, and all data from the Gen1 account will be copied to this new **gen1** container. When the migration is complete, in order to find the data on a path that existed on Gen1, you must add the prefix **gen1/** to the same path to access it on Gen2. For example, a path that was named 'FolderRoot/FolderChild/FileName.csv' on Gen1 will be available at 'gen1/FolderRoot/FolderChild/FileName.csv' on Gen2. Container names can't be renamed on Gen2, so this **gen1** container on Gen2 can't be renamed post migration. However, the data can be copied to a new container in Gen2 if needed.
 
 ## Choose a migration option
 
 **Option 1: Copy data only (recommended).** In this option, data will be copied from Gen1 to Gen2. As the data is being copied, the Gen1 account will become read-only. After the data is copied, both the Gen1 and Gen2 accounts will be accessible. However, you must update the applications and compute workloads to use the new ADLS Gen2 endpoint.
 
-**Option 2: Perform a complete migration.** In this option, data will be copied from Gen1 to Gen2. After the data is copied, all the traffic from the Gen1 account will be redirected to the Gen2 account. Redirected requests will use the [Gen1 compatibility layer](#gen1-compatibility-layer) to translate Gen1 API calls to Gen2 equivalents. During the migration, the Gen1 account will become read-only. After the migration is complete, the Gen1 account won't be accessible.
+**Option 2: Perform a complete migration.** In this option, data will be copied from Gen1 to Gen2. After the data is copied, all the traffic from the Gen1 account will be redirected to the Gen2-enabled account. Redirected requests will use the [Gen1 compatibility layer](#gen1-compatibility-layer) to translate Gen1 API calls to Gen2 equivalents. During the migration, the Gen1 account will become read-only. After the migration is complete, the Gen1 account won't be accessible.
 
 Whichever option you choose, after you've migrated and verified that all your workloads work as expected, you can delete the Gen1 account.
 
@@ -209,7 +213,7 @@ Make sure all your Azure Data lake Analytics accounts are [migrated to Azure Syn
 
 If you used [Option 1: Copy data from Gen1 to Gen2](#option-1-copy-data-from-gen1-to-gen2) mentioned above, then both the Gen1 and Gen2 accounts are available for reads and writes post migration. However, if you used [Option 2: Perform a complete migration](#option-2-perform-a-complete-migration), then going back to the Gen1 account isn't supported. In Option 2, after the migration completes, the data in your Gen1 account won't be accessible and will be deleted after 30 days. You can continue to view the Gen1 account in the Azure portal, and when you're ready, you can delete the Gen1 account.
 
-#### I would like to enable Geo-redundant storage (GRS) on the Gen2 account, how do I do that?
+#### I would like to enable Geo-redundant storage (GRS) on the Gen2-enabled account, how do I do that?
 
 Once the migration is complete, both in "Copy data" and "Complete migration" options, you can go ahead and change the redundancy option to GRS as long as you don't plan to use the application compatibility layer. The application compatibility will not work on accounts that use GRS redundancy.
 
@@ -220,6 +224,10 @@ When we copy the data over to your Gen2-enabled account, we automatically create
 #### What should I consider in terms of migration performance?
 
 When you copy the data over to your Gen2-enabled account, two factors that can affect performance are the number of files and the amount of metadata you have. For example, many small files can affect the performance of the migration.
+
+#### Will WebHDFS File System API's supported on Gen2 account post migraiton?
+
+WebHDFS File System APIs of Gen1 will be supported on Gen2 but with certain deviations, and only limited functionality is supported via the compatibilty layer. Customers should plan to levarage ADLS Gen2-specific APIs for better performance and features.
 
 ## Next steps
 

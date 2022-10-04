@@ -54,9 +54,7 @@ An active Azure subscription. If you don't have an Azure subscription, create a 
 
 Create the application using following steps:
 
-1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Retail** tab:
-
-    :::image type="content" source="media/tutorial-iot-central-connected-logistics/iotc-retail-homepage.png" alt-text="Connected logistics template":::
+1. Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then sign in with a Microsoft personal, work, or school account. Select **Build** from the left-hand navigation bar and then select the **Retail** tab.
 
 1. Select **Create app** under **Connected Logistics**.
 
@@ -67,10 +65,6 @@ Create the application using following steps:
     * **URL**: you can use suggested default URL or enter your friendly unique memorable URL.
     * **Billing Info**: The directory, Azure subscription, and region details are required to provision the resources.
     * **Create**: Select create at the bottom of the page to deploy your application.
-
-    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png" alt-text="Connected logistics application template":::
-
-    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png" alt-text="Connected logistics billing info":::
 
 ## Walk through the application
 

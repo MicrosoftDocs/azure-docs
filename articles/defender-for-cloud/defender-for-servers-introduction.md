@@ -27,7 +27,7 @@ Defender for Servers provides two plans you can choose from:
     - **Licensing**: Charges Defender for Endpoint licenses per hour instead of per seat, lowering costs by protecting virtual machines only when they are in use.
 - **Plan 2**
     - **Plan 1**: Includes everything in Defender for Servers Plan 1.
-    - **Additional features**: All other enhanced Defender for Servers security capabilities for Windows and Linux machines running in Azure, AWS, GCP, and on-premises.
+    - **Additional features**: All other enhanced Defender for Servers security features.
 
 ## Plan features
 
@@ -43,7 +43,7 @@ The following table summarizes what's included in each plan.
 | **Log Analytics 500 MB free data ingestion** | Defender for Cloud leverages Azure Monitor to collect data from Azure VMs and servers, using the Log Analytics agent. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Threat detection** | Defender for Cloud detects threats at the OS level, network layer, and control plane. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Adaptive application controls (AAC)** | [AACs](adaptive-application-controls.md) in Defender for Cloud define allowlists of known safe applications for machines.  | |:::image type="icon" source="./media/icons/yes-icon.png"::: |
-| **File integrity monitoring (FIM)** | [FIM](file-integrity-monitoring-overview.md) (change monitoring) examines files and registries for changes that might indicate an attack. A comparison method is used to determine whether suspicious modifications have been made to files. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| **File Integrity Monitoring (FIM)** | [FIM](file-integrity-monitoring-overview.md) (change monitoring) examines files and registries for changes that might indicate an attack. A comparison method is used to determine whether suspicious modifications have been made to files. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Just-in-time VM access for management ports** | Defender for Cloud provides [JIT access](just-in-time-access-overview.md), locking down machine ports to reduce the machine's attack surface.| | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Adaptive network hardening** | Filtering traffic to and from resources with network security groups (NSG) improves your network security posture. You can further improve security by [hardening the NSG rules](adaptive-network-hardening.md) based on actual traffic patterns. | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | **Docker host hardening** | Defender for Cloud assesses containers hosted on Linux machines running Docker containers, and compares them with the Center for Internet Security (CIS) Docker Benchmark. [Learn more](harden-docker-hosts.md). | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
