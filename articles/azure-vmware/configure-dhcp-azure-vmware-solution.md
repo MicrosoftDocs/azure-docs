@@ -45,7 +45,7 @@ You can create a DHCP server or relay directly from Azure VMware Solution in the
 
    :::image type="content" source="media/networking/add-dhcp-server-relay.png" alt-text="Screenshot showing how to add a DHCP server or DHCP relay in Azure VMware Solutions.":::
 
-4. Complete the DHCP configuration by [providing DHCP ranges on the logical segments](tutorial-nsx-t-network-segment.md#use-azure-portal-to-add-an-nsx-t-segment) and then select **OK**.
+4. Complete the DHCP configuration by [providing DHCP ranges on the logical segments](tutorial-nsx-t-network-segment.md#use-azure-portal-to-add-an-nsx-t-data-center-segment) and then select **OK**.
 
 
 
