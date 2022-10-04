@@ -244,7 +244,7 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name from 
 
 `--content-type`   (string)    Specifies the content type of the file. Implies no-guess-mime-type. Returned on download.
 
-`--cpk-by-name`    (string)    Client provided key by name that lets clients making requests against Azure Blob storage an option to provide an encryption key on a per-request basis. Provided key name will be fetched from Azure Key Vault and will be used to encrypt the data
+`--cpk-by-name`    (string)    Client provided key by name that gives clients making requests against Azure Blob storage an option to provide an encryption key on a per-request basis. Provided key name will be fetched from Azure Key Vault and will be used to encrypt the data
 
 `--cpk-by-value`    Client provided key by name that let clients making requests against Azure Blob storage an option to provide an encryption key on a per-request basis. Provided key and its hash will be fetched from environment variables
 
