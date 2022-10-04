@@ -91,11 +91,11 @@ The flexible server comes with a [built-in PgBouncer](concepts-pgbouncer.md), a 
 
 One advantage of running your workload in Azure is global reach. The flexible server is currently available in the following Azure regions:
 
-| Region | V3/V4 compute availability | Zone-redundant HA | Geo-Redundant backup |
+| Region | V3/V4 compute availability | Zone-redundant HA | | Same-Zone HA | Geo-Redundant backup |
 | --- | --- | --- | --- |
-| Australia East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Australia Southeast | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| Brazil South | :heavy_check_mark: (v3 only) | :x: | :x: |
+| Australia East | :heavy_check_mark: | :heavy_check_mark: | | :heavy_check_mark: | :heavy_check_mark: |
+| Australia Southeast | :heavy_check_mark: | :x: || :heavy_check_mark: | :heavy_check_mark: |
+| Brazil South | :heavy_check_mark: (v3 only) | :x: || :heavy_check_mark: | :x: |
 | Canada Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 
 | Canada East | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Central India | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
