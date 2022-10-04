@@ -17,7 +17,7 @@ Learn about the key concepts and components of Azure Deployment Environments Pre
 
 ## Dev centers
 
-A dev center is a collection of projects that require similar settings. Dev centers enable dev infrastructure managers to manage the 'infrastructure-as-code' templates made available to the projects using 'Catalogs', and configure the different types of environments, various development teams can create, using 'Environment Types'.
+A dev center is a collection of projects that require similar settings. Dev centers enable dev infrastructure managers to manage the infrastructure-as-code templates made available to the projects using Catalogs, and configure the different types of environments, various development teams can create, using Environment Types.
 
 ## Projects
 
@@ -41,11 +41,11 @@ Project Environment Types are a subset of the environment types configured per d
 
 ## Catalogs
 
-Catalogs help you provide a set of curated 'infra-as-code' templates for your development teams to create Environments. You can attach either a [GitHub repository](https://docs.github.com/repositories/creating-and-managing-repositories/about-repositories) or an [Azure DevOps Services repository](/devops/repos/get-started/what-is-repos) as a Catalog. Deployment Environments will scan through the specified folder of the repository to find [Catalog Items](#catalog-items), and make them available for use by all the Projects associated with the dev center.
+Catalogs help you provide a set of curated infra-as-code templates for your development teams to create Environments. You can attach either a [GitHub repository](https://docs.github.com/repositories/creating-and-managing-repositories/about-repositories) or an [Azure DevOps Services repository](/devops/repos/get-started/what-is-repos) as a Catalog. Deployment Environments will scan through the specified folder of the repository to find [Catalog Items](#catalog-items), and make them available for use by all the Projects associated with the dev center.
 
 ## Catalog Items
 
-A Catalog Item is a combination of an 'infra-as-code' template and a manifest file. The environment definition will be defined in the template and the manifest will be used to provide metadata about the template. The Catalog Items that you provide in the Catalog will be used by your development teams to create environments in Azure.
+A Catalog Item is a combination of an infra-as-code template and a manifest file. The environment definition will be defined in the template and the manifest will be used to provide metadata about the template. The Catalog Items that you provide in the Catalog will be used by your development teams to create environments in Azure.
 
 > [!NOTE]
 > During public preview, Azure Deployments Environments uses Azure Resource Manager (ARM) templates.
