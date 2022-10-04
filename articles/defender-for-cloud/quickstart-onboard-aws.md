@@ -123,7 +123,7 @@ The native cloud connector requires:
  
    (Optional) Select **Management account** to create a connector to a management account. Connectors will be created for each member account discovered under the provided management account. Auto-provisioning will be enabled for all of the newly onboarded accounts.
 
-1. Select **Next: Select plans**.
+1. Select **Next: Select plans**.<a name="cloudtrail-implications-note"></a>
 
     > [!NOTE]
     > Each plan has its own requirements for permissions, and might incur charges.
@@ -377,7 +377,7 @@ The following IAM permissions are needed to discover AWS resources:
 | GuardDute | `guardduty:DescribeOrganizationConfiguration` <br> `guardduty:DescribePublishingDestination` <br> `guardduty:List*` |
 | IAM | `iam:Generate*` <br> `iam:Get*` <br> `iam:List*` <br> `iam:Simulate*` |
 | KMS | `kms:Describe*` <br> `kms:List*` |
-| LAMDBA | `lambda:GetPolicy` <br> `lambda:List*` |
+| LAMBDA | `lambda:GetPolicy` <br> `lambda:List*` |
 | Network firewall | `network-firewall:DescribeFirewall` <br> `network-firewall:DescribeFirewallPolicy` <br> `network-firewall:DescribeLoggingConfiguration` <br> `network-firewall:DescribeResourcePolicy` <br> `network-firewall:DescribeRuleGroup` <br> `network-firewall:DescribeRuleGroupMetadata` <br> `network-firewall:ListFirewallPolicies` <br> `network-firewall:ListFirewalls` <br> `network-firewall:ListRuleGroups` <br> `network-firewall:ListTagsForResource` |
 | RDS | `rds:Describe*` <br> `rds:List*` |
 | RedShift | `redshift:Describe*` |

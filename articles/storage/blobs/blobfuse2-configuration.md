@@ -6,7 +6,7 @@ author: jimmart-dev
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.date: 08/02/2022
+ms.date: 09/29/2022
 ms.author: jammart
 ms.reviewer: tamram
 ---
@@ -33,17 +33,17 @@ BlobFuse2 uses a variety of configuration settings to control its behaviors, inc
 
 For a complete list of settings and their descriptions, see [the base configuration file on GitHub](https://github.com/Azure/azure-storage-fuse/blob/main/setup/baseConfig.yaml).
 
-There are 3 ways of managing configuration settings for BlobFuse2 (in order of precedence):
+There are three ways of managing configuration settings for BlobFuse2 (in order of precedence):
 
-1. [CLI parameters](#cli-parameters)
-1. [Environment variables](#environment-variables)
-1. [A configuration file](#configuration-file)
+- [CLI parameters](#cli-parameters)
+- [Environment variables](#environment-variables)
+- [A configuration file](#configuration-file)
 
 Using a configuration file is the preferred method, but the other methods can be useful in some circumstances.
 
 ## Configuration file
 
-Creating a configuration file is the preferred method of establishing settings for BlobFuse2. Once you have provided the desired settings in the file, reference the configuration file when using the `blobfuse2 mount` or other commands. Example:
+Creating a configuration file is the preferred method of establishing settings for BlobFuse2. Once you have specified the desired settings in the file, reference the configuration file when using the `blobfuse2 mount` or other commands. Example:
 
 ````bash
 blobfuse2 mount ./mount --config-file=./config.yaml
@@ -61,9 +61,9 @@ For more details on using environment variables, see [The environment variables 
 
 See [the BlobFuse2 README](https://github.com/Azure/azure-storage-fuse/tree/main#environment-variables) for a complete list of variables that can be used.
 
-## CLI Parameters
+## CLI parameters
 
-Configuration settings can be set when passed as parameters of the BlobFuse2 command set, such as the `blobfuse2 mount` command. The mount command typically references a configuration file that contains all of the settings, but individual settings in the configuration file can be overridden by CLI parameters. In this example, the config.yaml configuration file is referenced, but the container to be mounted and the logging options are overridden:
+Configuration settings can be set when passed as parameters of the BlobFuse2 command set, such as the `blobfuse2 mount` command. The mount command typically references a configuration file that contains all of the settings, but individual settings in the configuration file can be overridden by CLI parameters. In this example, the *config.yaml* configuration file is referenced, but the container to be mounted and the logging options are overridden:
 
 ```bash
 blobfuse2 mount ./mount_dir --config-file=./config.yaml --container-name=blobfuse2b --log-level=log_debug --log-file-path=./bobfuse2b.log
@@ -73,5 +73,5 @@ For more information about the complete BlobFuse2 command set, including the `bl
 
 ## See also
 
-- [What is BlobFuse2? (preview)](blobfuse2-what-is.md)
+- [What is BlobFuse2 (preview)?](blobfuse2-what-is.md)
 - [How to mount an Azure blob storage container on Linux with BlobFuse2 (preview)](blobfuse2-how-to-deploy.md)

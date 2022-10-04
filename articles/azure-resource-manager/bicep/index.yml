@@ -42,11 +42,11 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Bicep
-            url: /learn/modules/introduction-to-infrastructure-as-code-using-bicep/
+            url: /training/modules/introduction-to-infrastructure-as-code-using-bicep/
           - text: Deploy with Bicep
-            url: /learn/modules/deploy-azure-resources-by-using-bicep-templates/
+            url: /training/modules/deploy-azure-resources-by-using-bicep-templates/
           - text: Deploy child and extension resources
-            url: /learn/modules/child-extension-bicep-templates/
+            url: /training/modules/child-extension-bicep-templates/
   # Card
   - title: Author Bicep files
     linkLists:

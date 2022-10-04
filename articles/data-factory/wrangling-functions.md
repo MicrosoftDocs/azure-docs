@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 10/06/2021
+ms.date: 09/26/2022
 ---
 
 # Transformation functions in Power Query for data wrangling

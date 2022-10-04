@@ -18,9 +18,9 @@ ms.custom: cliv1, sdkv1, event-tier1-build-2022
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 [!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
 
-> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK or CLI extension you are using:"]
 > * [v1](how-to-use-managed-identities.md)
-> * [v2 (current version)](../how-to-use-managed-identities.md)
+> * [v2 (current version)](../how-to-identity-based-service-authentication.md)
 
 [Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) allow you to configure your workspace with the *minimum required permissions to access resources*. 
 
@@ -38,6 +38,9 @@ In this article, you'll learn how to use managed identities to:
 
 - An Azure Machine Learning workspace. For more information, see [Create workspace resources](../quickstart-create-resources.md).
 - The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md)
+
+    [!INCLUDE [cli v1 deprecation](../../../includes/machine-learning-cli-v1-deprecation.md)]
+
 - The [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).
 - To assign roles, the login for your Azure subscription must have the [Managed Identity Operator](../../role-based-access-control/built-in-roles.md#managed-identity-operator) role, or other role that grants the required actions (such as __Owner__).
 - You must be familiar with creating and working with [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md).

@@ -58,7 +58,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Learn data integration at scale with Azure Data Factory
-            url: /learn/paths/data-integration-scale-azure-data-factory/
+            url: /training/paths/data-integration-scale-azure-data-factory/
   - title: Data movement
     linkLists:
       - linkListType: overview

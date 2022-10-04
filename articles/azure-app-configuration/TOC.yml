@@ -135,6 +135,12 @@
       href: concept-soft-delete.md
     - name: Geo-replication 
       href: concept-geo-replication.md
+    - name: Reliability
+      items:
+        - name: Availability zone support
+          href: ../availability-zones/migrate-app-configuration.md
+        - name: Resiliency and disaster recovery
+          href: concept-disaster-recovery.md
     - name: Security
       items:
         - name: Encrypt using customer-managed keys
@@ -151,10 +157,6 @@
           href: ./security-controls-policy.md
         - name: Security baseline
           href: /security/benchmark/azure/baselines/app-config-security-baseline?toc=/azure/azure-app-configuration/TOC.json
-    - name: High availability
-      items:
-        - name: Resiliency and disaster recovery
-          href: concept-disaster-recovery.md
 - name: How-to guides
   items:
     - name: Use labels for per-environment configuration
@@ -265,7 +267,7 @@
                 href: ./rest-api-postman.md
         - name: Azure CLI
           href: /cli/azure/appconfig
-    - name: Bicep & ARM template
+    - name: Deployment
       href: /azure/templates/microsoft.appconfiguration/configurationstores
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions

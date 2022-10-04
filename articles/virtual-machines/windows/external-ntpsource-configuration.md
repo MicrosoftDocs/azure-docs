@@ -25,7 +25,7 @@ Time synchronization in Active Directory should be managed by only allowing the 
 
 To check current time source in your **PDC**, from an elevated command prompt run *w32tm /query /source* and note the output for later comparison.
 
-1. From *Start* run *gpedit.msc*
+1. From *Start* run *gpedit.msc*.
 2. Navigate to the *Global Configuration Settings* policy under *Computer Configuration* -> *Administrative Templates* -> *System* -> *Windows Time Service*.
 3. Set it to *Enabled* and configure the *AnnounceFlags* parameter to **5**.
 4. Navigate to *Computer Settings* -> *Administrative Templates* -> *System* -> *Windows Time Service* -> *Time Providers*.
@@ -55,13 +55,29 @@ To mark the VMIC provider as *Disabled* from *Start* type *regedit.exe* -> In th
 
 From an elevated command prompt rerun *w32tm /query /source* and compare the output to the one you noted at the beginning of the configuration. Now it will be set to the NTP Server you chose.
 
+>[!TIP]
+>Follow the steps below if you want to speed-up the process of changing the NTP source on your PDC. You can create a scheduled task to run at **System Start-up** with the **Delay** task for up to (random delay) set to **2 minutes**.
+
+## Scheduled task to set NTP source on your PDC
+
+1. From *Start* run *Task Scheduler*.
+2. Browse to *Task Scheduler* Library -> *Microsoft* -> *Windows* -> *Time Synchronization* -> Right-click in the right hand side pane and select *Create New Task*.
+3. In the *General* tab, click the *Change User or Group...* button and set it to run as *LOCAL SERVICE*. Then check the box to *Run with highest privileges*.
+4. Under *Configure for:* select your operating system version.
+5. Switch to the *Triggers* tab, click the *New...* button, and set the schedule as per your requirements. Before clicking *OK*, make sure the box next to *Enabled* is checked.
+6. Go to the *Actions* tab. Click the *New...* button and enter the following details: 
+- On *Action:* set *Start a program*. 
+- On *Program/script:* set the path to *%windir%\system32\w32tm.exe*. 
+- On *Add arguments:* type */resync*, and click *OK* to save changes.
+7. Under the *Conditions* tab ensure that *Start the task only if the computer is in idle for* and *Start the task only if the computer is on AC power* is *not selected*. Click *OK*.
+
 ## GPO for Clients
 
 Configure the following Group Policy Object to enable your clients to synchronize time with any Domain Controller in your Domain:
 
 To check current time source in your client, from an elevated command prompt run *w32tm /query /source* and note the output for later comparison.
 
-1. From a Domain Controller go to *Start* run *gpmc.msc*
+1. From a Domain Controller go to *Start* run *gpmc.msc*.
 2. Browse to the Forest and Domain where you want to create the GPO.
 3. Create a new GPO, for example *Clients Time Sync*, in the container *Group Policy Objects*.
 4. Right-click on the newly created GPO and Edit.
