@@ -309,13 +309,37 @@ To save time debugging, we *highly recommend* that you test-run your endpoint lo
 
 First create the endpoint. Optionally, for a local endpoint, you can skip this step and directly create the deployment (next step), which will, in turn, create the required metadata. This is useful for development and testing purposes.
 
+# [Azure CLI](#tab/azure-cli)
+
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="create_endpoint":::
 
+# [Python](#tab/python)
+
+```python
+ml_client.online_endpoints.begin_create_or_update(endpoint, local=True)
+```
+
+---
+
 Now, create a deployment named `blue` under the endpoint.
+
+# [Azure CLI](#tab/azure-cli)
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="create_deployment":::
 
 The `--local` flag directs the CLI to deploy the endpoint in the Docker environment.
+
+# [Python](#tab/python)
+
+```python
+ml_client.online_deployments.begin_create_or_update(
+    deployment=blue_deployment, local=True
+)
+```
+
+The `local=True` flag directs the SDK to deploy the endpoint in the Docker environment.
+
+---
 
 > [!TIP]
 > Use Visual Studio Code to test and debug your endpoints locally. For more information, see [debug online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
