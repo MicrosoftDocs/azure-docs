@@ -4,7 +4,7 @@ titleSuffix: Microsoft Defender for Cloud
 description: Use Microsoft Defender for Cloud to protect your Azure, hybrid, and multicloud resources and workloads.
 ms.topic: overview
 ms.custom: mvc
-ms.date: 09/19/2022
+ms.date: 10/04/2022
 ---
 # What is Microsoft Defender for Cloud?
 
@@ -112,7 +112,7 @@ It's a security basic to know and make sure your workloads are secure, and it st
 
 Defender for Cloud continuously discovers new resources that are being deployed across your workloads and assesses whether they're configured according to security best practices. If not, they're flagged and you get a prioritized list of recommendations for what you need to fix. Recommendations help you reduce the attack surface across each of your resources.
 
-The list of recommendations is enabled and supported by the Microsoft Cloud Security Benchmark. This Microsoft-authored, Azure-specific, benchmark provides a set of guidelines for security and compliance best practices based on common compliance frameworks. Learn more in [Microsoft Cloud Security Benchmark introduction](/security/benchmark/azure/introduction).
+The list of recommendations is enabled and supported by the Microsoft Cloud Security Benchmark. This Microsoft-authored benchmark, based on common compliance frameworks, began with Azure and now provides a set of guidelines for security and compliance best practices for multiple cloud environments. Learn more in [Microsoft Cloud Security Benchmark introduction](/security/benchmark/azure/introduction).
 
 In this way, Defender for Cloud enables you not just to set security policies, but to *apply secure configuration standards across your resources*.
 
