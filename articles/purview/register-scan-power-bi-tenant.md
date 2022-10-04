@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/21/2022
+ms.date: 09/22/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -222,7 +222,7 @@ In Azure Active Directory Tenant, where Power BI tenant is located:
 
        :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-group-member.png" alt-text="Screenshot of how to add the catalog's managed instance to group.":::
 
-   - If you are using **delegated authentication** or **service principal** as authentication method, add your **service princial** to this security group. Select **Members**, then select **+ Add members**.
+   - If you are using **delegated authentication** or **service principal** as authentication method, add your **service principal** to this security group. Select **Members**, then select **+ Add members**.
 
 5. Search for your Microsoft Purview managed identity or service principal and select it.
 
@@ -305,7 +305,7 @@ For more information about Microsoft Purview network settings, see [Use private 
 
 To create and run a new scan, do the following:
 
-1. Create an App Registration in your Azure Active Directory tenant. Provide a web URL in the **Redirect URI**. Take note of Client ID(App ID).
+1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory** and create an App Registration in the tenant. Provide a web URL in the **Redirect URI**. Take note of Client ID(App ID).
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-create-service-principle.png" alt-text="Screenshot how to create a Service principle.":::
   
@@ -319,44 +319,60 @@ To create and run a new scan, do the following:
     
 1. Under **Advanced settings**, enable **Allow Public client flows**.
 
-2. In the Microsoft Purview Studio, navigate to the **Data map** in the left menu.
+2. Under **Certificates & secrets**, create a new secret and save it securely for next steps.
 
-1. Navigate to **Sources**.
+3. In Azure portal, navigate to your Azure key vault.
 
-1. Select the registered Power BI source.
+4. Select **Settings** > **Secrets** and select **+ Generate/Import**.
 
-1. Select **+ New scan**.
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-key-vault.png" alt-text="Screenshot how to navigate to Azure Key Vault.":::
 
-1. Give your scan a name. Then select the option to include or exclude the personal workspaces.
+5. Enter a name for the secret and for **Value**, type the newly created secret for the App registration. Select **Create** to complete.
+
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-key-vault-secret-spn.png" alt-text="Screenshot how to generate an Azure Key Vault secret for SPN.":::
+
+6. If your key vault isn't connected to Microsoft Purview yet, you'll need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account) 
+   
+7. In the Microsoft Purview Studio, navigate to the **Data map** in the left menu.
+
+8. Navigate to **Sources**.
+
+9. Select the registered Power BI source.
+
+10. Select **+ New scan**.
+
+11. Give your scan a name. Then select the option to include or exclude the personal workspaces.
    
     >[!Note]
     > Switching the configuration of a scan to include or exclude a personal workspace will trigger a full scan of Power BI source.
 
-1. Select your self-hosted integration runtime from the drop-down list. 
+12. Select your self-hosted integration runtime from the drop-down list. 
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-shir.png" alt-text="Image showing Power BI scan setup using SHIR for same tenant.":::
 
-1. For the **Credential**, select **service principal** and select **+ New** to create a new credential.
+13. For the **Credential**, select **service principal** and select **+ New** to create a new credential.
 
-1. Create a new credential and provide required parameters:
+14. Create a new credential and provide required parameters:
     
     - **Name**: Provide a unique name for credential
     - **Authentication method**: Service principal
     - **Tenant ID**: Your Power BI tenant ID
     - **Client ID**: Use Service Principal Client ID (App ID) you created earlier   
-    
-1. Select **Test Connection** before continuing to next steps. If **Test Connection** failed, select **View Report** to see the detailed status and troubleshoot the problem
+
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-spn-authentication.png" alt-text="Screenshot of the new credential menu, showing Power BI credential for SPN with all required values supplied.":::
+
+15. Select **Test Connection** before continuing to next steps. If **Test Connection** failed, select **View Report** to see the detailed status and troubleshoot the problem
     1. Access - Failed status means the user authentication failed. Scans using managed identity will always pass because no user authentication required.
     2. Assets (+ lineage) - Failed status means the Microsoft Purview - Power BI authorization has failed. Make sure the Microsoft Purview managed identity is added to the security group associated in Power BI admin portal.
     3. Detailed metadata (Enhanced) - Failed status means the Power BI admin portal is disabled for the following setting - **Enhance admin APIs responses with detailed metadata**
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-test-connection-status-report.png" alt-text="Screenshot of test connection status report page.":::
 
-1. Set up a scan trigger. Your options are **Recurring**, and **Once**.
+16. Set up a scan trigger. Your options are **Recurring**, and **Once**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/scan-trigger.png" alt-text="Screenshot of the Microsoft Purview scan scheduler.":::
 
-1. On **Review new scan**, select **Save and run** to launch your scan.
+17. On **Review new scan**, select **Save and run** to launch your scan.
 
 ### Create scan for same-tenant using self-hosted IR with delegated authentication
 
@@ -424,20 +440,21 @@ To create and run a new scan, do the following:
     - **Client ID**: Use Service Principal Client ID (App ID) you created earlier   
     - **User name**: Provide the username of Power BI Administrator you created earlier
     - **Password**: Select the appropriate Key vault connection and the **Secret name** where the Power BI account password was saved earlier.
+
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-delegated-authentication.png" alt-text="Screenshot of the new credential menu, showing Power B I credential with all required values supplied.":::
 
-1. Select **Test Connection** before continuing to next steps. If **Test Connection** failed, select **View Report** to see the detailed status and troubleshoot the problem
+2. Select **Test Connection** before continuing to next steps. If **Test Connection** failed, select **View Report** to see the detailed status and troubleshoot the problem
     1. Access - Failed status means the user authentication failed. Scans using managed identity will always pass because no user authentication required.
     2. Assets (+ lineage) - Failed status means the Microsoft Purview - Power BI authorization has failed. Make sure the Microsoft Purview managed identity is added to the security group associated in Power BI admin portal.
     3. Detailed metadata (Enhanced) - Failed status means the Power BI admin portal is disabled for the following setting - **Enhance admin APIs responses with detailed metadata**
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-test-connection-status-report.png" alt-text="Screenshot of test connection status report page.":::
 
-1. Set up a scan trigger. Your options are **Recurring**, and **Once**.
+3. Set up a scan trigger. Your options are **Recurring**, and **Once**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/scan-trigger.png" alt-text="Screenshot of the Microsoft Purview scan scheduler.":::
 
-1. On **Review new scan**, select **Save and run** to launch your scan.
+4. On **Review new scan**, select **Save and run** to launch your scan.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Screenshot of Save and run Power BI source.":::
 

@@ -432,6 +432,8 @@
         desplayName: export, image version, disk, SIG, gallery
       - name: Purchase plan information
         href: marketplace-images.md
+      - name: Deprecated images FAQ
+        href: deprecated-images.yml
     - name: VM Applications
       items:
       - name: Overview
@@ -1333,6 +1335,8 @@
         href: ./windows/migrate-to-premium-storage-using-azure-site-recovery.md
     - name: Migrate to Managed Disks
       href: ./windows/migrate-to-managed-disks.md
+    - name: Unmanaged Disks retirement starting November 18, 2022
+      href: ./unmanaged-disks-deprecation.md
     - name: Unmanaged VM to Managed Disks
       items:
       - name: CLI
