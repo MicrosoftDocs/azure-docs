@@ -103,9 +103,7 @@ Because multiple authentication binding policy rules can be created with differe
 
 ## Understanding the username binding policy
 
-The username binding policy helps validate the certificate of the user. By default, Subject Alternate Name (SAN) Principal Name in the certificate is mapped to onPremisesUserPrincipalName attribute of the user object to determine the user.
-
-An administrator can override the default and create a custom mapping. Currently, we support two certificate fields SAN Principal Name and SAN RFC822Name to map against the user object attribute userPrincipalName and onPremisesUserPrincipalName.
+The username binding policy helps validate the certificate of the user. By default, Subject Alternate Name (SAN) Principal Name in the certificate is mapped to UserPrincipalName attribute of the user object to determine the user.
 
 **Certificate bindings**
 
@@ -129,6 +127,24 @@ Use the highest priority (lowest number) binding.
 1. If the X.509 certificate field is not on the presented certificate, move to the next priority binding.
 1. Validate all the configured username bindings until one of them results in a match and user authentication is successful.
 1. If a match is not found on all the configured username bindings, user authentication fails.
+
+## Securing Azure AD configuration with multiple username bindings
+
+CertificateUserIds attribute has unique constraint to make sure we have one certificate against one user account. But with the support of multiple bindings and iterating through all bindings for authentication, it is possible to have one certificate authenticate against multiple accounts.
+
+In order to mitigate a scenario where one certificate to multiple account is possible, the tenant policy should only support one binding at any one time. If the tenant policy supports more than one binding then they allow the potential for one certificate to multiple account.
+
+If a tenant has multiple bindings and want to not allow one certificate to multiple accounts then by default, the tenant admin would configure all the user accounts to hold values for all bindings so users other than 1:M scope can't use one certificate to multiple accounts.
+
+For example, if the tenant admin has two username bindings on SAN PN and SKI and wants a certificate to only be used for Bob's productivity account and block the use of that certificate on other accounts, they would configure Bob's productivity account to hold all of the values available in the username mapping policy.
+
+In this example, to lock Bob's certificate to only Bob's productivity account, use the certificateUserIds attribute because it has a unique constraint, and no other user account can have the same values.
+
+Here are the values for UPN and certificateUserIDs for Bob's productivity account:
+
+Azure AD User Principal Name = Bob.Smith@Contoso.com
+certificateUserIDs = [ x509:\<PN\>Bob.Smith@Contoso.com , x509:\<SKI\>89b0f468c1abea65ec22f0a882b8fda6fdd6750p]
+
 
 ## Understanding the certificate revocation process
 
