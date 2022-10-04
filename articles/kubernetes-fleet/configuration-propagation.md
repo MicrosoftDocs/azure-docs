@@ -36,7 +36,7 @@ Platform admins and application developers need a way to deploy the same Kuberne
     az aks get-credentials --resource-group ${GROUP} --name ${MEMBER_CLUSTER_3} --file aks-member-3
     ```
 
-* Follow the [conceptual overview of this feature](./architectural-overview.md#kubernetes-resource-propagation) which provides an explanation of resource selection, target cluster selection, and the allowed inputs.
+* Follow the [conceptual overview of this feature](./architectural-overview.md#kubernetes-resource-propagation), which provides an explanation of resource selection, target cluster selection, and the allowed inputs.
 
 ## Resource selection
 

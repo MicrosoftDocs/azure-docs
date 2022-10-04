@@ -1,6 +1,6 @@
 ---
 title: "Azure Kubernetes Fleet Manager architectural overview"
-description: This article provides a architectural overview of Azure Kubernetes Fleet Manager
+description: This article provides an architectural overview of Azure Kubernetes Fleet Manager
 ms.date: 10/03/2022
 author: shashankbarsin
 ms.author: shasb
@@ -10,7 +10,7 @@ ms.topic: conceptual
 
 # Architectural overview of Azure Kubernetes Fleet Manager
 
-Azure Kubernetes Fleet Manager is meant to solve at-scale and multi-cluster problems of Azure Kubernetes Service (AKS) clusters. This document provides a architectural overview of topological relationship between a Fleet resource and AKS clusters. This document also provides a conceptual overview of scenarios available on top of Fleet resource like Kubernetes resource propagation and multi-cluster Layer-4 load balancing.
+Azure Kubernetes Fleet Manager is meant to solve at-scale and multi-cluster problems of Azure Kubernetes Service (AKS) clusters. This document provides an architectural overview of topological relationship between a Fleet resource and AKS clusters. This document also provides a conceptual overview of scenarios available on top of Fleet resource like Kubernetes resource propagation and multi-cluster Layer-4 load balancing.
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
@@ -74,11 +74,11 @@ Fleet can be used to set up layer 4 multi-cluster load balancing across workload
 
 [ ![Multi-cluster load balancing](./media/conceptual-load-balancing.png) ](./media/conceptual-load-balancing.png#lightbox)
 
-For the target clusters across whom multi-cluster load balancing, Fleet requires them to be using [Azure CNI networking](../aks/configure-azure-cni.md) so that the pod IPs are all directly address on the Azure virtual network and can be routed to directly from an Azure Load Balancer.
+For multi-cluster load balancing, Fleet requires trget clusters to be using [Azure CNI networking](../aks/configure-azure-cni.md). Azure CNI networking enables pod IPs to be directly addressable on the Azure virtual network so that they can routed to from the Azure Load Balancer.
 
-The user needs to create `ServiceExport` object on a member cluster to express the intent that the fleet cluster and other member clusters of the same fleet need to be made aware of this service. The ServiceExport itself can be propagated from the fleet cluster to the member cluster using Kubernetes resource propagation feature described above or it can directly created on the member cluster too. Once this `ServiceExport` resource is created, it results in ServiceImport being created on the fleet and all other member clusters to build the awareness of this service. 
+The user needs to create `ServiceExport` object on a member cluster to express the intent that the fleet cluster and other member clusters of the same fleet need to be made aware of this service. The ServiceExport itself can be propagated from the fleet cluster to the member cluster using Kubernetes resource propagation feature described above or it can be directly created on the member cluster too. Once this `ServiceExport` resource is created, it results in ServiceImport being created on the fleet and all other member clusters to build the awareness of this service. 
 
-The user can then create a `MultiClusterService` custom resource to indicate that they want to set up Layer 4 multi-cluster load balancing. This results in the Azure Load Balancer from the node resource group of that member cluster being configured to load balance incoming traffic across endpoints of this service on multiple member clusters.
+The user can then create a `MultiClusterService` custom resource to indicate that they want to set up Layer 4 multi-cluster load balancing. This `MultiClusterService` results in the member cluster mapped Azure Load Balancer being configured to load balance incoming traffic across endpoints of this service on multiple member clusters.
 
 ## Next steps
 
