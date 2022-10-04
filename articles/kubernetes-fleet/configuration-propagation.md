@@ -10,7 +10,7 @@ ms.service: kubernetes-fleet
 
 # Propagate Kubernetes resource objects from an Azure Kubernetes Fleet Manager resource to member clusters (preview)
 
-Platform admins and application developers need a way to deploy the same to deploy the same Kubernetes resource objects (like ClusterRoles, ClusterRoleBindings, Namespaces, Deployments) across all member clusters or just a subset of member clusters of the fleet. Kubernetes Fleet Manager (Fleet) provides `ClusterResourcePlacement` as a mechanism to control how cluster-scoped Kubernetes resources are propagated to member clusters.
+Platform admins and application developers need a way to deploy the same Kubernetes resource objects across all member clusters or just a subset of member clusters of the fleet. Kubernetes Fleet Manager (Fleet) provides `ClusterResourcePlacement` as a mechanism to control how cluster-scoped Kubernetes resources are propagated to member clusters.
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
@@ -18,27 +18,45 @@ Platform admins and application developers need a way to deploy the same to depl
 
 * You have a Fleet resource with one or more member clusters. If not, follow the [quickstart](quickstart-create-fleet-and-members.md) to create a Fleet resource and join Azure Kubernetes Service (AKS) clusters as members.
 
+* Set the following environment variables and obtain the kubeconfigs for the fleet and all member clusters:
+
+    ```bash
+    export GROUP=<resource-group>
+    export FLEET=<fleet-name>
+    export MEMBER_CLUSTER_1=aks-member-1
+    export MEMBER_CLUSTER_2=aks-member-2
+    export MEMBER_CLUSTER_3=aks-member-3
+
+    az fleet get-credentials --resource-group ${GROUP} --name ${FLEET} --file fleet
+
+    az aks get-credentials --resource-group ${GROUP} --name ${MEMBER_CLUSTER_1} --file aks-member-1
+
+    az aks get-credentials --resource-group ${GROUP} --name ${MEMBER_CLUSTER_2} --file aks-member-2
+
+    az aks get-credentials --resource-group ${GROUP} --name ${MEMBER_CLUSTER_3} --file aks-member-3
+    ```
+
 ## Resource selection
 
 The `ClusterResourcePlacement` custom resource is used to select which cluster-scoped Kubernetes resource objects need to be propagated from the fleet cluster and to select which member clusters to propagate these objects to. It supports the following forms of resource selection:
 
-* Select all the clusters by specifying empty policy under `ClusterResourcePlacement`
-* Select clusters by listing names of `MemberCluster` custom resources
-* Select clusters using cluster selectors to match labels present on `MemberCluster` custom resources
+* Select resources by specifying just the *<group, version, kind>*. This selection propagates all resources with matching *<group, version, kind>*.
+* Select resources by specifying the *<group, version, kind>* and name. This selection propagates only one resource that matches the *<group, version, kind>* and name.
+* Select resources by specifying the *<group, version, kind>* and a set of labels using `ClusterResourcePlacement` -> `LabelSelector`. This selection propagates all resources that match the *<group, version, kind>* and label specified.
 
 > [!NOTE]
-> `ClusterResourcePlacement` can be used to select and propagate namespaces, which are cluster-scoped resources. All namespace-scoped objects created on the fleet cluster within these namespaces are also propagated from the fleet cluster to member clusters where this namespace was propagated by the `ClusterResourcePlacement`. 
+> `ClusterResourcePlacement` can be used to select and propagate namespaces, which are cluster-scoped resources. When a namespace is selected, all the namespace-scoped objects under this namespace are propagated to the selected member clusters along with this namespace. 
 
 
 An example of selecting a resource by label is given below.
 
-1. Create a sample namespace by running the following command:
+1. Create a sample namespace by running the following command on the fleet cluster:
 
     ```bash
-    kubectl create namespace hello-world
+    KUBECONFIG=fleet kubectl create namespace hello-world
     ```
 
-1. Create the following `ClusterResourcePlacement` in a file called `crp.yaml`. Notice we're selecting clusters in the `westcentralus` region:
+1. Create the following `ClusterResourcePlacement` in a file called `crp.yaml`. Notice we're selecting clusters in the `eastus` region:
 
     ```yaml
     apiVersion: fleet.azure.com/v1alpha1
@@ -57,33 +75,73 @@ An example of selecting a resource by label is given below.
             clusterSelectorTerms:
               - labelSelector:
                   matchLabels:
-                    fleet.azure.com/location: westcentralus
+                    fleet.azure.com/location: eastus
     ```
 
     > [!TIP]
-    > The above example propagates `hello-world` namespace to only those member clusters that are from the `westcentralus` region. If your desired target clusters are from a different region, you can substitute `westcentralus` for that region instead.
+    > The above example propagates `hello-world` namespace to only those member clusters that are from the `eastus` region. If your desired target clusters are from a different region, you can substitute `eastus` for that region instead.
 
 
 1. Apply the `ClusterResourcePlacement`:
 
     ```bash
-    kubectl apply -f crp.yaml
+    KUBECONFIG=fleet kubectl apply -f crp.yaml
+    ```
+
+    If successful, the output will look similar to the following example:
+
+    ```console
+    clusterresourceplacement.fleet.azure.com/hello-world created
     ```
 
 1. Check the status of the `ClusterResourcePlacement`:
+
+    ```bash
+    KUBECONFIG=fleet kubectl get clusterresourceplacements
+    ```
 
     If successful, the output will look similar to the following example:
 
     ```console
     NAME          GEN   SCHEDULED   SCHEDULEDGEN   APPLIED   APPLIEDGEN   AGE
-    hello-world   1     True        1              True      1            23m
+    hello-world   1     True        1              True      1            16s
     ```
 
-1. On each member cluster in the `westcetralus` region, you can verify that the namespace has been propagated:
+1. On each member cluster, check if the namespace has been propagated:
+
+    ```bash
+    KUBECONFIG=aks-member-1 kubectl get namespace hello-world
+    ```
+
+    The output will look similar to the following example:
 
     ```console
-    kubectl get namespace hello-world
+    NAME          STATUS   AGE
+    hello-world   Active   96s
     ```
+
+    ```bash
+    KUBECONFIG=aks-member-2 kubectl get namespace hello-world
+    ```
+
+    The output will look similar to the following example:
+
+    ```console
+    NAME          STATUS   AGE
+    hello-world   Active   1m16s
+    ```
+
+    ```bash
+    KUBECONFIG=aks-member-3 kubectl get namespace hello-world
+    ```
+
+    The output will look similar to the following example:
+
+    ```console
+    Error from server (NotFound): namespaces "hello-world" not found
+    ```
+
+    We observe that the `ClusterResourcePlacement` has resulted in the namespace being propagated only to clusters of `eastus` region and not to `aks-member-3` cluster from `westcentralus` region.
 
     > [!TIP]
     > The above steps describe an example using one way of selecting the resources to be propagated using labels and cluster selectors. More methods and their examples can be found in this [sample repository](https://github.com/Azure/AKS/tree/master/examples/fleet/helloworld).
@@ -92,58 +150,91 @@ An example of selecting a resource by label is given below.
 
 The `ClusterResourcePlacement` custom resource can also be used to limit propagation of selected resources to a specific subset of member clusters. The following forms of target cluster selection are supported:
 
-* Specify a list of cluster names, where the cluster names must match `MemberCluster` custom resource names
-* Specify label(s) via `PlacementPolicy` -> `Affinity` -> `ClusterAffinity` -> `ClusterSelectorTerm` -> `LabelSelector` to choose clusters. If multiple labels are present, then the labels are evaluated via the `OR` method to select clusters.
+* Select all the clusters by specifying empty policy under `ClusterResourcePlacement`
+* Select clusters by listing names of `MemberCluster` custom resources
+* Select clusters using cluster selectors to match labels present on `MemberCluster` custom resources
 
 An example of targeting a specific cluster by name is given below:
 
 1. Create a sample namespace by running the following command:
 
     ```bash
-    kubectl create namespace hello-world
+    KUBECONFIG=fleet kubectl create namespace hello-world-1
     ```
 
-1. Create the following `ClusterResourcePlacement` in a file named `crp.yaml`:
+1. Create the following `ClusterResourcePlacement` in a file named `crp-1.yaml`:
 
 
     ```yaml
     apiVersion: fleet.azure.com/v1alpha1
-      kind: ClusterResourcePlacement
-      metadata:
-        name: hello-world
-      spec:
-        resourceSelectors:
-          - group: ""
-            version: v1
-            kind: Namespace
-            name: hello-world
-        policy:
-          clusterNames:
-            - member-1
+    kind: ClusterResourcePlacement
+    metadata:
+      name: hello-world-1
+    spec:
+      resourceSelectors:
+        - group: ""
+          version: v1
+          kind: Namespace
+          name: hello-world-1
+      policy:
+        clusterNames:
+          - aks-member-1
     ```
 
     Apply this `ClusterResourcePlacement` to the cluster:
 
     ```bash
-    kubectl apply -f crp.yaml
+    KUBECONFIG=fleet kubectl apply -f crp-1.yaml
     ```
 
 1. Check the status of the `ClusterResourcePlacement`:
 
+
+    ```bash
+    KUBECONFIG=fleet kubectl get clusterresourceplacements
+    ```
+
     If successful, the output will look similar to the following example:
 
     ```console
-    NAME          GEN   SCHEDULED   SCHEDULEDGEN   APPLIED   APPLIEDGEN   AGE
-    hello-world   1     True        1              True      1            23m
+    NAME            GEN   SCHEDULED   SCHEDULEDGEN   APPLIED   APPLIEDGEN   AGE
+    hello-world-1   1     True        1              True      1            18s
     ```
 
-1. On `member-1` AKS cluster, run the following command to see if the namespace has been propagated:
+1. On each AKS cluster, run the following command to see if the namespace has been propagated:
 
-      ```bash
-      kubectl get namespace hello-world
-      ```
+    ```bash
+    KUBECONFIG=aks-member-1 kubectl get namespace hello-world-1
+    ```
 
-  You'll observe that the namespace has been propagated only to `member-1` cluster, but not the other clusters.
+    The output will look similar to the following example:
+
+    ```console
+    NAME            STATUS   AGE
+    hello-world-1   Active   70s
+    ```
+
+    ```bash
+    KUBECONFIG=aks-member-2 kubectl get namespace hello-world-1
+    ```
+
+    The output will look similar to the following example:
+
+    ```console
+    Error from server (NotFound): namespaces "hello-world-1" not found
+    ```
+
+    ```bash
+    KUBECONFIG=aks-member-3 kubectl get namespace hello-world-1
+    ```
+
+    The output will look similar to the following example:
+
+    ```console
+    Error from server (NotFound): namespaces "hello-world-1" not found
+    ```
+
+  We're able to verify that the namespace has been propagated only to `aks-member-1` cluster, but not the other clusters.
 
 
 > [!TIP]
