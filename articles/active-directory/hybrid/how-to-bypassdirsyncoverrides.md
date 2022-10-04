@@ -1,5 +1,5 @@
 ---
-title: How to use the BypassDirSyncOverrides feature of an Azure AD tenant.
+title: How to use the BypassDirSyncOverrides feature of an Azure AD tenant
 description: Describes how to use bypassdirsyncoverrides tenant feature to restore synchronization of Mobile and OtherMobile attributes from on-premises Active Directory.
 services: active-directory
 author: billmath
@@ -15,7 +15,7 @@ ms.subservice: hybrid
 
 This article describes the _BypassDirsyncOverrides_  feature and how to restore synchronization of Mobile and otherMobile attributes from Azure AD to on-premises Active Directory.
 
-Generally, synchronized users cannot be changed from Azure or M365 admin portals, neither through PowerShell using AzureAD or MSOnline modules. The exception to this is the Azure AD user’s attributes called _MobilePhone_ and _AlternateMobilePhones_. These attributes are synchronized from on-premises Active Directory attributes mobile and otherMobile, respectively, but end users can update their own phone number in _MobilePhone_ attribute in Azure AD through their profile page. Admins can also update synchronized user’s _MobilePhone_ and _AlternateMobilePhones_ values in Azure AD using MSOnline PowerShell module.  
+Generally, synchronized users cannot be changed from Azure or Microsoft 365 admin portals, neither through PowerShell using AzureAD or MSOnline modules. The exception to this is the Azure AD user’s attributes called _MobilePhone_ and _AlternateMobilePhones_. These attributes are synchronized from on-premises Active Directory attributes mobile and otherMobile, respectively, but end users can update their own phone number in _MobilePhone_ attribute in Azure AD through their profile page. Admins can also update synchronized user’s _MobilePhone_ and _AlternateMobilePhones_ values in Azure AD using MSOnline PowerShell module.  
 
 Giving users and admins the ability to update phone numbers directly in Azure AD enables enterprises to reduce the administrative overhead of managing user’s phone numbers in local Active Directory as these can change more frequently.
 
@@ -25,7 +25,7 @@ The caveat however, is that once a synchronized user's _MobilePhone_ or _Alter
 
 You can export a list of users with different Mobile and otherMobile values between Active Directory and Azure Active Directory using _‘Compare-ADSyncToolsDirSyncOverrides’_ from _ADSyncTools_ PowerShell module. This will allow you to determine the users and respective values that are different between on-premises Active Directory and Azure Active Directory. This is important to know because enabling the _BypassDirSyncOverrides_ feature will overwrite all the different values in Azure Active Directory with the value coming from on-premises Active Directory.
 
-### Using _‘Compare-ADSyncToolsDirSyncOverrides’_
+### Using Compare-ADSyncToolsDirSyncOverrides
 
 As a prerequisite you need to be running Azure AD Connect version 2 or later and install the latest ADSyncTools module from PowerShell Gallery with the following command:
 
@@ -94,7 +94,7 @@ If you desire to restore the ability to update mobile phone numbers from the por
 Set-MsolDirSyncFeature -Feature BypassdirSyncOverrides -Enable $false
 ```
 
-When this feature is turned off, any time a user or admin updates the _MobilePhone_ or _AlternateMobilePhones_ directly in Azure AD, a _DirSyncOverrides_ is created which prevents any future updates to these attributes coming from on-premises Active Directory. From this point on, a user or admin can only manage these attributes from Azure AD as any new updates from on-premises _Mobile_ or _OtherMobile_ will be dismissed.
+When this feature is turned off, anytime a user or admin updates the _MobilePhone_ or _AlternateMobilePhones_ directly in Azure AD, a _DirSyncOverrides_ is created which prevents any future updates to these attributes coming from on-premises Active Directory. From this point on, a user or admin can only manage these attributes from Azure AD as any new updates from on-premises _Mobile_ or _OtherMobile_ will be dismissed.
 
 ## Managing mobile phone numbers in Azure AD and on-premises Active Directory
 
