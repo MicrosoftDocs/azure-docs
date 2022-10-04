@@ -21,7 +21,7 @@ The OAuth 2.0 On-Behalf-Of flow (OBO) is most often used when an application inv
 
 For the middle-tier service to make authenticated requests to the downstream service, it needs to secure an access token from the Microsoft identity platform. It only uses delegated *scopes* and not application *roles*. *Roles* remain attached to the principal (the user) and never to the application operating on the user's behalf. This occurs to prevent the user gaining permission to resources they shouldn't have access to.
 
-This article describes how to program directly against the protocol in your application. When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows). Also take a look at the [sample apps that use MSAL](sample-v2-code.md) for examples.
+This article describes how to program directly against the protocol in your application. When possible, we recommend you use the supported Microsoft Authentication Libraries (MSAL) instead to [acquire tokens and call secured web APIs](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows). Also refer to the [sample apps that use MSAL](sample-v2-code.md) for examples.
 
 [!INCLUDE [try-in-postman-link](includes/try-in-postman-link.md)]
 
