@@ -12,7 +12,7 @@ ms.custom: contperf-fy21q2
 
 # Create and provision IoT Edge devices at scale on Linux using X.509 certificates
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article provides end-to-end instructions for autoprovisioning one or more Linux IoT Edge devices using X.509 certificates. You can automatically provision Azure IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml) (DPS). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before continuing.
 
@@ -157,6 +157,9 @@ Have the following information ready:
    source = "dps"
    global_endpoint = "https://global.azure-devices-provisioning.net"
    id_scope = "SCOPE_ID_HERE"
+
+   # Uncomment to send a custom payload during DPS registration
+   # payload = { uri = "PATH_TO_JSON_FILE" }
    
    [provisioning.attestation]
    method = "x509"
@@ -183,6 +186,15 @@ Have the following information ready:
 
 1. Optionally, find the auto reprovisioning mode section of the file. Use the `auto_reprovisioning_mode` parameter to configure your device's reprovisioning behavior. **Dynamic** - Reprovision when the device detects that it may have been moved from one IoT Hub to another. This is the default. **AlwaysOnStartup** - Reprovision when the device is rebooted or a crash causes the daemon(s) to restart. **OnErrorOnly** - Never trigger device reprovisioning automatically. Each mode has an implicit device reprovisioning fallback if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. For more information, see [IoT Hub device reprovisioning concepts](../iot-dps/concepts-device-reprovision.md).
 
+:::moniker-end
+
+<!-- iotedge-1.4 -->
+:::moniker range=">=iotedge-1.4"
+1. Optionally, uncomment the `payload` parameter to specify the path to a local JSON file. The contents of the file will be [sent to DPS as additional data](../iot-dps/how-to-send-additional-data.md#iot-edge-support) when the device registers. This is useful for [custom allocation](../iot-dps/how-to-use-custom-allocation-policies.md). For example, if you want to allocate your devices based on an IoT Plug and Play model ID without human intervention.
+:::moniker-end
+
+<!-- iotedge-2020-11 -->
+:::moniker range=">=iotedge-2020-11"
 1. Save and close the file.
 
 1. Apply the configuration changes that you made to IoT Edge.

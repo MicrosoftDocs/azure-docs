@@ -14,7 +14,7 @@ You can use the what-if operation with Azure PowerShell, Azure CLI, or REST API 
 
 ### Training resources
 
-If you would rather learn about the what-if operation through step-by-step guidance, see [Preview Azure deployment changes by using what-if](/learn/modules/arm-template-whatif/).
+If you would rather learn about the what-if operation through step-by-step guidance, see [Preview Azure deployment changes by using what-if](/training/modules/arm-template-whatif/).
 
 [!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
 
@@ -407,7 +407,7 @@ You can use the what-if operation through the Azure SDKs.
 
 * For Python, use [what-if](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.deploymentsoperations#what-if-resource-group-name--deployment-name--properties--location-none--custom-headers-none--raw-false--polling-true----operation-config-).
 
-* For Java, use [DeploymentWhatIf Class](/java/api/com.microsoft.azure.management.resources.deploymentwhatif).
+* For Java, use [DeploymentWhatIf Class](/java/api/com.azure.resourcemanager.resources.models.deploymentwhatif).
 
 * For .NET, use [DeploymentWhatIf Class](/dotnet/api/microsoft.azure.management.resourcemanager.models.deploymentwhatif).
 
@@ -415,4 +415,4 @@ You can use the what-if operation through the Azure SDKs.
 
 * To use the what-if operation in a pipeline, see [Test ARM templates with What-If in a pipeline](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/).
 * If you notice incorrect results from the what-if operation, please report the issues at [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
-* For a Learn module that demonstrates using what-if, see [Preview changes and validate Azure resources by using what-if and the ARM template test toolkit](/learn/modules/arm-template-test/).
+* For a Learn module that demonstrates using what-if, see [Preview changes and validate Azure resources by using what-if and the ARM template test toolkit](/training/modules/arm-template-test/).

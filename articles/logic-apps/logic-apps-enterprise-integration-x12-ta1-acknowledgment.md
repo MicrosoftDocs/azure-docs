@@ -12,6 +12,8 @@ ms.date: 08/20/2022
 
 # TA1 technical acknowledgments and error codes for X12 messages in Azure Logic Apps
 
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+
 In Azure Logic Apps, you can create workflows that handle X12 messages for Electronic Data Interchange (EDI) communication when you use **X12** operations. In EDI messaging, acknowledgments provide the status from processing an EDI interchange. When receiving an interchange, the [**X12 Decode** action](logic-apps-enterprise-integration-x12-decode.md) can return one or more types of acknowledgments to the sender, based on which acknowledgment types are enabled and the specified level of validation.
 
 For example, the receiver reports the status from validating the Interchange Control Header (ISA) and Interchange Control Trailer (IEA) in the received X12-encoded message by sending a *TA1 technical acknowledgment (ACK)*. If this header and trailer are valid, the receiver sends a positive TA1 ACK, no matter the status of other content. If the header and trailer aren't valid, the receiver sends a **TA1 ACK** with an error code instead.

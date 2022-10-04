@@ -71,7 +71,7 @@ landingContent:
           url: tutorial-configure-networking.md
         - text: 4 - Access a private cloud
           url: tutorial-access-private-cloud.md
-        - text: 5 - Create an NSX-T network segment
+        - text: 5 - Create an NSX-T Data Center network segment
           url: tutorial-nsx-t-network-segment.md
         - text: 6 - Peer on-premises to private cloud
           url: tutorial-expressroute-global-reach-private-cloud.md
@@ -170,8 +170,6 @@ landingContent:
             url: attach-azure-netapp-files-to-azure-vmware-solution-hosts.md
           - text: Attach Azure NetApp Files to Azure VMware Solution VMs
             url: netapp-files-with-azure-vmware-solution.md
-          - text: Configure Cloud Backup for Azure NetApp Files datastores and VMs
-            url: install-cloud-backup-virtual-machines.md
 
 # card 6 == backup and restore
   - title: Backup with Azure Backup Server

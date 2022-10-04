@@ -36,10 +36,10 @@ To make use of workload identity risk, including the new **Risky workload identi
 
 - Azure AD Premium P2 licensing
 - One of the following administrator roles assigned
-   - Global administrator
-   - Security administrator
-   - Security operator
-   - Security reader
+   - Global Administrator
+   - Security Administrator
+   - Security Operator
+   - Security Reader
 
 Users assigned the Conditional Access administrator role can create policies that use risk as a condition.
 
@@ -51,10 +51,10 @@ We detect risk on workload identities across sign-in behavior and offline indica
 | --- | --- | --- |
 | Azure AD threat intelligence | Offline | This risk detection indicates some activity that is consistent with known attack patterns based on Microsoft's internal and external threat intelligence sources. |
 | Suspicious Sign-ins | Offline | This risk detection indicates sign-in properties or patterns that are unusual for this service principal. <br><br> The detection learns the baselines sign-in behavior for workload identities in your tenant in between 2 and 60 days, and fires if one or more of the following unfamiliar properties appear during a later sign-in: IP address / ASN, target resource, user agent, hosting/non-hosting IP change, IP country, credential type. <br><br> Because of the programmatic nature of workload identity sign-ins, we provide a timestamp for the suspicious activity instead of flagging a specific sign-in event. <br><br>  Sign-ins that are initiated after an authorized configuration change may trigger this detection. |
-| Unusual addition of credentials to an OAuth app | Offline | This detection is discovered by [Microsoft Defender for Cloud Apps](/defender-cloud-apps/investigate-anomaly-alerts#unusual-addition-of-credentials-to-an-oauth-app). This detection identifies the suspicious addition of privileged credentials to an OAuth app. This can indicate that an attacker has compromised the app, and is using it for malicious activity. |
 | Admin confirmed account compromised | Offline | This detection indicates an admin has selected 'Confirm compromised' in the Risky Workload Identities UI or using riskyServicePrincipals API. To see which admin has confirmed this account compromised, check the account’s risk history (via UI or API). |
-| Leaked Credentials (public preview) | Offline | This risk detection indicates that the account's valid credentials have been leaked. This leak can occur when someone checks in the credentials in public code artifact on GitHub, or when the credentials are leaked through a data breach. <br><br> When the Microsoft leaked credentials service acquires credentials from GitHub, the dark web, paste sites, or other sources, they're checked against current valid credentials in Azure AD to find valid matches. |
-| Anomalous service principal activity (public preview) | Offline | This risk detection indicates suspicious patterns of activity have been identified for an authenticated service principal. The post-authentication behavior for service principals is assessed for anomalies based on action or sequence of actions occurring for the account, along with any sign-in risk detected. |
+| Leaked Credentials | Offline | This risk detection indicates that the account's valid credentials have been leaked. This leak can occur when someone checks in the credentials in public code artifact on GitHub, or when the credentials are leaked through a data breach. <br><br> When the Microsoft leaked credentials service acquires credentials from GitHub, the dark web, paste sites, or other sources, they're checked against current valid credentials in Azure AD to find valid matches. |
+| Malicious application | Offline | This detection indicates that Microsoft has disabled an application for violating our terms of service. We recommend [conducting an investigation](https://go.microsoft.com/fwlink/?linkid=2208429) of the application.| 
+| Suspicious application | Offline | This detection indicates that Microsoft has identified an application that may be violating our terms of service, but has not disabled it. We recommend [conducting an investigation](https://go.microsoft.com/fwlink/?linkid=2208429) of the application.| 
 
 ## Identify risky workload identities
 
@@ -95,7 +95,7 @@ Some of the key questions to answer during your investigation include:
 
 The [Azure Active Directory security operations guide for Applications](../fundamentals/security-operations-applications.md) provides detailed guidance on the above investigation areas.
 
-Once you determine if the workload identity was compromised, dismiss the account’s risk or confirm the account as compromised in the Risky workload identities (preview) report. You can also select “Disable service principal” if you want to block the account from further sign-ins.
+Once you determine if the workload identity was compromised, dismiss the account’s risk, or confirm the account as compromised in the Risky workload identities (preview) report. You can also select “Disable service principal” if you want to block the account from further sign-ins.
 
 :::image type="content" source="media/concept-workload-identity-risk/confirm-compromise-or-dismiss-risk.png" alt-text="Confirm workload identity compromise or dismiss the risk in the Azure portal." lightbox="media/concept-workload-identity-risk/confirm-compromise-or-dismiss-risk.png":::
 

@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Version release history archive | Microsoft Docs'
 description: This article lists all archived releases of Azure AD Connect and Azure AD Sync
 services: active-directory
 author: billmath
-manager: karenhoran
+manager: amycolannino
 ms.assetid: 
 ms.service: active-directory
 ms.topic: reference

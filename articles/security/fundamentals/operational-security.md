@@ -71,7 +71,7 @@ The core functionality of Azure Monitor logs is provided by a set of services th
 
 ### Azure Monitor logs
 
-[Azure Monitor logs](https://azure.microsoft.com/documentation/services/log-analytics) provides monitoring services by collecting data from managed resources into a central repository. This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.
+[Azure Monitor logs](/azure/log-analytics) provides monitoring services by collecting data from managed resources into a central repository. This data could include events, performance data, or custom data provided through the API. Once collected, the data is available for alerting, analysis, and export.
 
 
 This method allows you to consolidate data from various sources, so you can combine data from your Azure services with your existing on-premises environment. It also clearly separates the collection of the data from the action taken on that data so that all actions are available to all kinds of data.
@@ -89,7 +89,7 @@ The Azure Monitor service manages your cloud-based data securely by using the fo
 
 ### Azure Backup
 
-[Azure Backup](https://azure.microsoft.com/documentation/services/backup) provides data backup and restore services and is part of the Azure Monitor suite of products and services.
+[Azure Backup](/azure/backup) provides data backup and restore services and is part of the Azure Monitor suite of products and services.
  It protects your application data and retains it for years without any capital investment and with minimal operating costs. It can back up data from physical and virtual Windows servers in addition to application workloads such as SQL Server and SharePoint. It can also be used by [System Center Data Protection Manager (DPM)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) to replicate protected data to Azure for redundancy and long-term storage.
 
 

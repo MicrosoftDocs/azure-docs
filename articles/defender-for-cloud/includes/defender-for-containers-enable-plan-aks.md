@@ -74,7 +74,7 @@ A dedicated Defender for Cloud recommendation provides:
 
 1. From the unhealthy resources list, select a cluster and select **Remediate** to open the pane with the remediation confirmation.
 
-1. Select **Fix *[x]* resources**.
+1. Select **Fix X resources**.
 
 ### [**REST API**](#tab/aks-deploy-rest)
 

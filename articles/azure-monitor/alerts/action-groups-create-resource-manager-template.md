@@ -5,8 +5,9 @@ author: dkamstra
 services: azure-monitor
 
 ms.topic: conceptual
-ms.date: 2/23/2022
-ms.author: dukek
+ms.date: 09/07/2022
+ms.author: jagummersall
+ms.reviewer: jagummersall
 ---
 
 # Create an action group with a Resource Manager template

@@ -47,7 +47,7 @@ ms.reviewer: mmcc
 ## Logging frameworks
 * [ILogger](./ilogger.md)
 * [Log4Net, NLog, or System.Diagnostics.Trace](./asp-net-trace-logs.md)
-* [Java, Log4J, or Logback](java-2x-trace-logs.md)
+* [Log4J, Logback, or java.util.logging](./java-in-process-agent.md#autocollected-logs)
 * [LogStash plugin](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
 * [Azure Monitor](/archive/blogs/msoms/application-insights-connector-in-oms)
 

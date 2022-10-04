@@ -5,7 +5,7 @@ services: storage
 author: normesta
 
 ms.author: normesta
-ms.date: 07/26/2022
+ms.date: 08/24/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -28,7 +28,7 @@ To learn how to rehydrate an archived blob to an online tier, see [Rehydrate an 
 
 When you rehydrate a blob, you can set the priority for the rehydration operation via the optional *x-ms-rehydrate-priority* header on a [Set Blob Tier](/rest/api/storageservices/set-blob-tier) or [Copy Blob](/rest/api/storageservices/copy-blob) operation. Rehydration priority options include:
 
-- **Standard priority**: The rehydration request will be processed in the order it was received and may take up to 15 hours.
+- **Standard priority**: The rehydration request will be processed in the order it was received and may take up to 15 hours to complete for objects under 10 GB in size.
 - **High priority**: The rehydration request will be prioritized over standard priority requests and may complete in less than one hour for objects under 10 GB in size.
 
 To check the rehydration priority while the rehydration operation is underway, call [Get Blob Properties](/rest/api/storageservices/get-blob-properties) to return the value of the `x-ms-rehydrate-priority` header. The rehydration priority property returns either *Standard* or *High*.
@@ -52,6 +52,7 @@ You must copy the archived blob to a new blob with a different name or to a diff
 Microsoft recommends performing a copy operation in most scenarios where you need to move a blob from the Archive tier to an online tier, for the following reasons:
 
 - A copy operation avoids the early deletion fee that is assessed if you change the tier of a blob from the Archive tier before the required 180-day period elapses. For more information, see [Archive access tier](access-tiers-overview.md#archive-access-tier).
+
 - If there's a lifecycle management policy in effect for the storage account, then rehydrating a blob with [Set Blob Tier](/rest/api/storageservices/set-blob-tier) can result in a scenario where the lifecycle policy moves the blob back to the Archive tier after rehydration because the last modified time is beyond the threshold set for the policy. A copy operation leaves the source blob in the Archive tier and creates a new blob with a different name and a new last modified time, so there's no risk that the rehydrated blob will be moved back to the Archive tier by the lifecycle policy.
 
 Copying a blob from the Archive tier can take hours to complete depending on the rehydration priority selected. Behind the scenes, a blob copy operation reads your archived source blob to create a new online blob in the selected destination tier. The new blob may be visible when you list the blobs in the parent container before the rehydration operation is complete, but its tier will be set to Archive. The data isn't available until the read operation from the source blob in the Archive tier is complete and the blob's contents have been written to the new destination blob in an online tier. The new blob is an independent copy, so modifying or deleting it doesn't affect the source blob in the Archive tier.
@@ -88,9 +89,9 @@ Once a [Set Blob Tier](/rest/api/storageservices/set-blob-tier) request is initi
 To learn how to rehydrate a blob by changing its tier to an online tier, see [Rehydrate a blob by changing its tier](archive-rehydrate-to-online-tier.md#rehydrate-a-blob-by-changing-its-tier).
 
 > [!CAUTION]
-> Changing a blob's tier doesn't affect its last modified time. If there is a [lifecycle management](./lifecycle-management-overview.md) policy in effect for the storage account, then rehydrating a blob with **Set Blob Tier** can result in a scenario where the lifecycle policy moves the blob back to the Archive tier after rehydration because the last modified time is beyond the threshold set for the policy.
+> Changing a blob's tier doesn't affect its last modified time. If there is a [lifecycle management](./lifecycle-management-overview.md) policy in effect for the storage account, then rehydrating a blob with **Set Blob Tier** can result in a scenario where the lifecycle policy moves the blob back to the Archive tier after rehydration because the last modified time is beyond the threshold set for the policy. 
 >
-> To avoid this scenario, rehydrate the archived blob by copying it instead, as described in the [Copy an archived blob to an online tier](#copy-an-archived-blob-to-an-online-tier) section. Performing a copy operation creates a new instance of the blob with an updated last modified time, so it won't trigger the lifecycle management policy.
+> To avoid this scenario, add the `daysAfterLastTierChangeGreaterThan` condition to the `tierToArchive` action of the policy. Alternatively, you can rehydrate the archived blob by copying it instead, as described in the [Copy an archived blob to an online tier](#copy-an-archived-blob-to-an-online-tier) section. Performing a copy operation creates a new instance of the blob with an updated last modified time, so it won't trigger the lifecycle management policy.
 
 ## Check the status of a blob rehydration operation
 

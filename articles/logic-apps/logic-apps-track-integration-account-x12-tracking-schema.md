@@ -12,6 +12,8 @@ ms.date: 08/20/2022
 
 # Create schemas for tracking X12 messages in Azure Logic Apps
 
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+
 To help you monitor success, errors, and message properties for business-to-business (B2B) transactions, you can use these X12 tracking schemas in your integration account:
 
 * X12 transaction set tracking schema

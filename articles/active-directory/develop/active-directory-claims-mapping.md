@@ -402,7 +402,7 @@ else
 ```
 
 #### Validate token signing key
-Apps that have claims mapping enabled must validate their token signing keys by appending `appid={client_id}` to their [OpenID Connect metadata requests](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Below is the format of the OpenID Connect metadata document you should use:
+Apps that have claims mapping enabled must validate their token signing keys by appending `appid={client_id}` to their [OpenID Connect metadata requests](v2-protocols-oidc.md#fetch-the-openid-configuration-document). Below is the format of the OpenID Connect metadata document you should use:
 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}

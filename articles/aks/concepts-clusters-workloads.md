@@ -120,6 +120,9 @@ Two types of resources are reserved:
       - 6% of the next 112 GB of memory (up to 128 GB)
       - 2% of any memory above 128 GB
 
+>[!NOTE]
+> AKS reserves an additional 2GB for system process in Windows nodes that are not part of the calculated memory.
+
 Memory and CPU allocation rules:
 * Keep agent nodes healthy, including some hosting system pods critical to cluster health. 
 * Cause the node to report less allocatable memory and CPU than it would if it were not part of a Kubernetes cluster. 

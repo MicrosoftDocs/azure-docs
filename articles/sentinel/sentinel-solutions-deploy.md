@@ -100,7 +100,13 @@ Centrally manage content items for an installed solution deployed by the content
 
     :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-parser.png" alt-text="Screenshot of parser content type in a solution.":::
 
-1. **Playbook** - Not yet supported in this view. In Microsoft Sentinel, go to **Playbook** to find and use the solution's playbook.
+1. **Playbook** - Select **Open Playbook** to advance to the Playbook templates (Preview) menu. 
+
+    :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-playbook.png" alt-text="Screenshot of solution content for Log4j Vulnerability Detection with a Playbook selected and the Open Playbook button available.":::
+
+    After the populated search finds the template, select it and the **Create Playbook** button is available to start playbook creation. Alternately, you can select the Active playbooks menu tab where the playbook name is filtered. Selecting the playbook name link will take you to the Automation blade to view or edit the playbook in use.
+
+    :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-playbook-active.png" alt-text="Screenshot of solution content for Log4j Vulnerability Detection with a Playbook selected and the Create Playbook button available. The Active Playbooks menu tab is highlighted.":::
 
 ## Find the support model for your solution
 
@@ -117,7 +123,8 @@ When contacting support, you may need other details about your solution, such as
 In this document, you learned about Microsoft Sentinel solutions and how to find and deploy built-in content.
 
 - Learn more about [Microsoft Sentinel solutions](sentinel-solutions.md).
-- See the full [Microsoft Sentinel solutions catalog](sentinel-solutions-catalog.md).
+- See the full Microsoft Sentinel solutions catalog in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=solution-templates&page=1&search=sentinel).
+- Find domain specific solutions in the [Microsoft Sentinel content hub catalog](sentinel-solutions-catalog.md).
 - [Delete installed Microsoft Sentinel out-of-the-box content and solutions (public preview)](sentinel-solutions-delete.md)
 
 Many solutions include data connectors that you'll need to configure so that you can start ingesting your data into Microsoft Sentinel. Each data connector will have its own set of requirements, detailed on the data connector page in Microsoft Sentinel. 

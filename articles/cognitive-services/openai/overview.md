@@ -21,14 +21,14 @@ The Azure OpenAI service provides REST API access to OpenAI's powerful language 
 ### Features overview
 
 | Feature | Azure OpenAI |
-| ---     |  --- |
-| Models available | GPT-3 base series <br> Codex Series <br> Embeddings Series <br> Learn more in our [Models](./concepts/models.md) page.|
-| Fine-tuning | Ada, <br>Babbage, <br> Curie,<br>Code-cushman-001* <br> Davinci*<br> \* available by request|
+| --- | --- |
+| Models available | GPT-3 base series <br> Codex series <br> Embeddings series <br> Learn more in our [Models](./concepts/models.md) page.|
+| Fine-tuning | Ada <br> Babbage <br> Curie <br> Cushman* <br> Davinci* <br> \* available by request |
 | Billing Model| Coming Soon |
 | Virtual network support | Yes | 
 | Managed Identity| Yes, via Azure Active Directory | 
 | UI experience | **Azure Portal** for account & resource management, <br> **Azure OpenAI Service Studio** for model exploration and fine tuning |
-| Regional availability | South Central US, <br> West Europe |
+| Regional availability | South Central US <br> West Europe |
 | Content filtering | Prompts and completions are evaluated against our content policy with automated systems. High severity content will be filtered. |
 
 ## Responsible AI
@@ -118,9 +118,9 @@ The number of examples typically range from 0 to 100 depending on how many can f
 
 ### Models
 
-The service provides users access to several different models. Each model provides a different capability and price point. The base GPT-3 models are known as Davinci, Curie, Babbage and Ada in decreasing order of intelligence and speed.
+The service provides users access to several different models. Each model provides a different capability and price point. The GPT-3 base models are known as Davinci, Curie, Babbage, and Ada in decreasing order of capability and speed.
 
-The Codex series of models are a descendant of GPT-3 and have been trained on both natural language and code to power natural language to code use cases. Learn more about each model on our [models concept page](./concepts/models.md).
+The Codex series of models is a descendant of GPT-3 and has been trained on both natural language and code to power natural language to code use cases. Learn more about each model on our [models concept page](./concepts/models.md).
 
 ## Next steps
 
