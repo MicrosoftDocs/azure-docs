@@ -51,16 +51,20 @@ private DefaultAzureCredential credential = new DefaultAzureCredential();
 Now we'll add code which uses the created credential, to issue a VoIP Access Token. We'll call this code later on.
 
 ```csharp
-public Response<AccessToken> CreateIdentityAndGetTokenAsync(Uri resourceEndpoint)
+public AccessToken CreateIdentityAndGetTokenAsync(Uri resourceEndpoint)
 {
     var client = new CommunicationIdentityClient(resourceEndpoint, this.credential);
-    var identityResponse = client.CreateUser();
-    var identity = identityResponse.Value;
-
-    var tokenResponse = client.GetToken(identity, scopes: new[] { CommunicationTokenScope.VoIP });
-
-    return tokenResponse;
+    var result = client.CreateUserAndToken(scopes: new[] { CommunicationTokenScope.VoIP });
+    var (user, token) = response.Value;
+    return token;
 }
+```
+
+You can customize the token expiration time between 1 and 24 hours to your specific needs. If the custom expiration time is not specified, then the token expiration time will be set to 24 hours which is a default expiration time. We recommend using short lifetime tokens for one-off Chat messages or time-limited Calling sessions and longer lifetime tokens for agents using the application for longer periods of time. The following code snippet shows how to specify a custom expiration time:
+
+```csharp
+TimeSpan tokenExpiresIn = TimeSpan.FromHours(1);
+var tokenResponse = client.CreateUserAndToken(scopes: new[] { CommunicationTokenScope.VoIP }, tokenExpiresIn);
 ```
 
 ## Send an SMS with service principals
@@ -97,8 +101,8 @@ static void Main(string[] args)
     Program instance = new();
 
     Console.WriteLine("Retrieving new Access Token, using Service Principals");
-    Response<AccessToken> response = instance.CreateIdentityAndGetTokenAsync(endpoint);
-    Console.WriteLine($"Retrieved Access Token: {response.Value.Token}");
+    AccessToken response = instance.CreateIdentityAndGetTokenAsync(endpoint);
+    Console.WriteLine($"Retrieved Access Token: {response.Token}");
 
     Console.WriteLine("Sending SMS using Service Principals");
 
@@ -125,8 +129,8 @@ class Program
                Program instance = new();
 
                Console.WriteLine("Retrieving new Access Token, using Service Principals");
-               Response<AccessToken> response = instance.CreateIdentityAndGetTokenAsync(endpoint);
-               Console.WriteLine($"Retrieved Access Token: {response.Value.Token}");
+               AccessToken response = instance.CreateIdentityAndGetTokenAsync(endpoint);
+               Console.WriteLine($"Retrieved Access Token: {response.Token}");
 
                Console.WriteLine("Sending SMS using Service Principals");
 
@@ -135,15 +139,12 @@ class Program
                Console.WriteLine($"Sms id: {result.MessageId}");
                Console.WriteLine($"Send Result Successful: {result.Successful}");
           }
-          public Response<AccessToken> CreateIdentityAndGetTokenAsync(Uri resourceEndpoint)
+          public AccessToken CreateIdentityAndGetTokenAsync(Uri resourceEndpoint)
           {
                var client = new CommunicationIdentityClient(resourceEndpoint, this.credential);
-               var identityResponse = client.CreateUser();
-               var identity = identityResponse.Value;
-
-               var tokenResponse = client.GetToken(identity, scopes: new[] { CommunicationTokenScope.VoIP });
-
-               return tokenResponse;
+               var result = client.CreateUserAndToken(scopes: new[] { CommunicationTokenScope.VoIP });
+               var (user, token) = response.Value;
+               return token;
           }
           public SmsSendResult SendSms(Uri resourceEndpoint, string from, string to, string message)
           {

@@ -42,7 +42,7 @@ npm init -y
 Use the `npm install` command to install the Azure Communication Services Identity SDK for JavaScript.
 
 ```console
-npm install @azure/communication-identity --save
+npm install @azure/communication-identity@latest --save
 ```
 
 The `--save` option lists the library as a dependency in your *package.json* file.
@@ -120,7 +120,7 @@ Store the received identity with mapping to your application's users (for exampl
 Use the `getToken` method to issue an access token for your Communication Services identity. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Identity model](../../../concepts/identity-model.md#access-tokens). You can also construct a new instance of a `communicationUser` based on a string representation of the Azure Communication Service identity.
 
 ```javascript
-// Issue an access token with the "voip" scope for an identity
+// Issue an access token with validity of 24 hours and the "voip" scope for an identity
 let tokenResponse = await identityClient.getToken(identityResponse, ["voip"]);
 
 // Get the token and its expiration date from the response
@@ -133,12 +133,28 @@ console.log(token);
 
 Access tokens are short-lived credentials that need to be reissued. Not doing so might cause a disruption of your application users' experience. The `expiresOn` property indicates the lifetime of the access token.
 
+Alternatively, you can customize the token expiration time as little as 60 minutes or as long as 1440 minutes by specifying it in the optional parameter `options`. If the custom expiration time is not specified, then the token expiration time will be set to 1440 minutes which is a default expiration time.
+
+```javascript
+// Issue an access token with validity of an hour and the "voip" scope for an identity
+const tokenOptions: GetTokenOptions = { tokenExpiresInMinutes: 60 };
+let tokenResponse = await identityClient.getToken
+(identityResponse, ["voip"], tokenOptions);
+
+// Get the token and its expiration date from the response
+const { token, expiresOn } = tokenResponse;
+
+// Print the expiration date and token to the screen
+console.log(`\nIssued an access token with 'voip' scope and custom expiration time that expires at ${expiresOn}:`);
+console.log(token);
+```
+
 ## Create an identity and issue a token in one method call
 
 You can use the `createUserAndToken` method to create a Communication Services identity and issue an access token for it at the same time. The `scopes` parameter defines a set of access token permissions and roles. Again, you create it with the `voip` scope.
 
 ```javascript
-// Issue an identity and an access token with the "voip" scope for the new identity
+// Issue an identity and an access token with  validity of 24 hours and the "voip" scope for the new identity
 let identityTokenResponse = await identityClient.createUserAndToken(["voip"]);
 
 // Get the token, its expiration date, and the user from the response
@@ -147,6 +163,22 @@ const { token, expiresOn, user } = identityTokenResponse;
 // print these details to the screen
 console.log(`\nCreated an identity with ID: ${user.communicationUserId}`);
 console.log(`\nIssued an access token with 'voip' scope that expires at ${expiresOn}:`);
+console.log(token);
+```
+
+You can also customize of the token expiration time in this API as little as 60 minutes or as long as 1440 minutes to your specific needs by specifying it in the optional parameter `options`. If the custom expiration time is not specified, then the token expiration time will be set to 1440 minutes which is a default expiration time.
+
+```javascript
+// Issue an identity and an access token with  validity of an hour and the "voip" scope for the new identity
+const userAndTokenOptions: CreateUserAndTokenOptions = { tokenExpiresInMinutes: 60 };
+let identityTokenResponse = await identityClient.createUserAndToken(["voip"], userAndTokenOptions);
+
+// Get the token, its expiration date, and the user from the response
+const { token, expiresOn, user } = identityTokenResponse;
+
+// print these details to the screen
+console.log(`\nCreated an identity with ID: ${user.communicationUserId}`);
+console.log(`\nIssued an access token with 'voip' scope and custom expiration time that expires at ${expiresOn}:`);
 console.log(token);
 ```
 
@@ -195,12 +227,18 @@ Azure Communication Services - Access Tokens Quickstart
 
 Created an identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
 
-Issued an access token with 'voip' scope that expires at 30/03/21 08:09 09 AM:
+Issued an access token with 'voip' scope that expires at <token expiration time>:
+<token signature here>
+
+Issued an access token with 'voip' scope and custom expiration time that expires at <token expiration time>:
 <token signature here>
 
 Created an identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-1ce9-31b4-54b7-a43a0d006a52
 
-Issued an access token with 'voip' scope that expires at 30/03/21 08:09 09 AM:
+Issued an access token with 'voip' scope that expires at <token expiration time>:
+<token signature here>
+
+Issued an access token with 'voip' scope and custom expiration time that expires at <token expiration time>:
 <token signature here>
 
 Successfully revoked all access tokens for identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502

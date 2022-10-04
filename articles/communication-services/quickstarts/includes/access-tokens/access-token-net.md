@@ -45,7 +45,7 @@ A simple "Hello World" output should be displayed. If it is, your setup is worki
 While you're still in the application directory, install the Azure Communication Services Identity library for .NET package by using the `dotnet add package` command.
 
 ```console
-dotnet add package Azure.Communication.Identity --version 1.0.0
+dotnet add package Azure.Communication.Identity
 ```
 
 ### Set up the app framework
@@ -123,7 +123,7 @@ Store the received identity with mapping to your application's users (for exampl
 After you have a Communication Services identity, use the `GetToken` method to issue an access token for it. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Identity model](../../../concepts/identity-model.md#access-tokens). You can also construct a new instance of `communicationUser` based on a string representation of an Azure Communication Service identity.
 
 ```csharp
-// Issue an access token with the "voip" scope for an identity
+// Issue an access token with validity of 24 hours and the "voip" scope for an identity
 var tokenResponse = await client.GetTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
 
 // Get the token from the response
@@ -137,12 +137,28 @@ Console.WriteLine(token);
 
 Access tokens are short-lived credentials that need to be reissued. Not doing so might cause a disruption of your application users' experience. The `expiresOn` property indicates the lifetime of the access token.
 
+Alternatively, you can customize the token expiration time as little as an hour or as long as 24 hours by specifying in the optional parameter `tokenExpiresIn`. If the custom expiration time is not specified, then the token expiration time will be set to 24 hours which is a default expiration time.
+
+```csharp
+// Issue an access token with validity of an hour and the "voip" scope for an identity 
+TimeSpan tokenExpiresIn = TimeSpan.FromHours(1);
+var tokenResponse = await client.GetTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP }, tokenExpiresIn);
+
+// Get the token from the response
+var token =  tokenResponse.Value.Token;
+var expiresOn = tokenResponse.Value.ExpiresOn;
+
+// Write the token details to the screen
+Console.WriteLine($"\nIssued an access token with 'voip' scope and custom expiration time that expires at {expiresOn}:");
+Console.WriteLine(token);
+```
+
 ## Create an identity and issue a token in the same request
 
 You can use the `CreateUserAndTokenAsync` method to create a Communication Services identity and issue an access token for it at the same time. The `scopes` parameter defines a set of access token permissions and roles. For more information, see the list of supported actions in [Authenticate to Azure Communication Services](../../../concepts/authentication.md).
 
 ```csharp
-// Issue an identity and an access token with the "voip" scope for the new identity
+// Issue an identity and an access token with validity of 24 hours and the "voip" scope for the new identity
 var identityAndTokenResponse = await client.CreateUserAndTokenAsync(scopes: new[] { CommunicationTokenScope.VoIP });
 
 // Retrieve the identity, token, and expiration date from the response
@@ -153,6 +169,24 @@ var expiresOn = identityAndTokenResponse.Value.AccessToken.ExpiresOn;
 // Print the details to the screen
 Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
 Console.WriteLine($"\nIssued an access token with 'voip' scope that expires at {expiresOn}:");
+Console.WriteLine(token);
+```
+
+You can also customize of the token expiration time in this API as little as an hour or as long as 24 hours to your specific needs by specifying in the optional parameter `tokenExpiresIn`. If the custom expiration time is not specified, then the token expiration time will be set to 24 hours which is a default expiration time.
+
+```csharp
+// Issue an identity and an access token with validity of an hour and the "voip" scope for the new identity
+TimeSpan tokenExpiresIn = TimeSpan.FromHours(1);
+var identityAndTokenResponse = await client.CreateUserAndTokenAsync(scopes: new[] { CommunicationTokenScope.VoIP }, tokenExpiresIn);
+
+// Retrieve the identity, token, and expiration date from the response
+var identity = identityAndTokenResponse.Value.User;
+var token = identityAndTokenResponse.Value.AccessToken.Token;
+var expiresOn = identityAndTokenResponse.Value.AccessToken.ExpiresOn;
+
+// Print the details to the screen
+Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
+Console.WriteLine($"\nIssued an access token with 'voip' scope and custom expiration time that expires at {expiresOn}:");
 Console.WriteLine(token);
 ```
 
@@ -199,12 +233,18 @@ Azure Communication Services - Access Tokens Quickstart
 
 Created an identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
 
-Issued an access token with 'voip' scope that expires at 30/03/21 08:09 09 AM:
+Issued an access token with 'voip' scope that expires at <token expiration time>:
+<token signature here>
+
+Issued an access token with 'voip' scope and custom expiration that expires at <token expiration time>:
 <token signature here>
 
 Created an identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-1ce9-31b4-54b7-a43a0d006a52
 
-Issued an access token with 'voip' scope that expires at 30/03/21 08:09 09 AM:
+Issued an access token with 'voip' scope that expires at <token expiration time>:
+<token signature here>
+
+Issued an access token with 'voip' scope and custom expiration time that expires at <token expiration time>:
 <token signature here>
 
 Successfully revoked all access tokens for identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502

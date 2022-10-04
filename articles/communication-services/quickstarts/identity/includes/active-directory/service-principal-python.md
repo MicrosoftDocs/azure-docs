@@ -47,11 +47,16 @@ Now we'll add code which uses the created credential, to issue a VoIP Access Tok
 ```python
 def create_identity_and_get_token(resource_endpoint):
      client = CommunicationIdentityClient(resource_endpoint, credential)
-
-     user = client.create_user()
-     token_response = client.get_token(user, scopes=["voip"])
+     user, token_response = client.create_user_and_token(scopes=["voip"])
 
      return token_response
+```
+
+You can customize the token expiration time between 1 and 24 hours to your specific needs. If the custom expiration time is not specified, then the token expiration time will be set to 24 hours which is a default expiration time. We recommend using short lifetime tokens for one-off Chat messages or time-limited Calling sessions and longer lifetime tokens for agents using the application for longer periods of time. The following code snippet shows how to specify a custom expiration time:
+
+```python
+token_expires_in = timedelta(hours=1)
+user, token_response = client.create_user_and_token(scopes=["voip"], token_expires_in=token_expires_in)
 ```
 
 ### Send an SMS with service principals
@@ -101,9 +106,7 @@ credential = DefaultAzureCredential()
 
 def create_identity_and_get_token(resource_endpoint):
      client = CommunicationIdentityClient(resource_endpoint, credential)
-
-     user = client.create_user()
-     token_response = client.get_token(user, scopes=["voip"])
+     user, token_response = client.create_user_and_token(scopes=["voip"])
 
      return token_response
 

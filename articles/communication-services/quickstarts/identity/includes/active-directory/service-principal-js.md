@@ -58,6 +58,13 @@ async function createIdentityAndIssueToken(resourceEndpoint) {
 }
 ```
 
+You can customize the token expiration time between 60 and 1440 minutes to your specific needs. If the custom expiration time is not specified, then the token expiration time will be set to 1440 minutes which is a default expiration time. We recommend using short lifetime tokens for one-off Chat messages or time-limited Calling sessions and longer lifetime tokens for agents using the application for longer periods of time. The following code snippet shows how to specify a custom expiration time:
+
+```JavaScript
+const userAndTokenOptions: CreateUserAndTokenOptions = { tokenExpiresInMinutes: 60 };
+let { user, token } = await client.createUserAndToken(["chat"], userAndTokenOptions);
+```
+
 ## Send an SMS with service principals
 
 Now, lets write a function which uses service principals to send an SMS:

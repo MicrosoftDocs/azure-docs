@@ -30,7 +30,16 @@ No matter which method you choose, you can supply the tokens to the Credential v
 For short-lived clients, initialize the Credential with a static token. This approach is suitable for scenarios such as sending one-off Chat messages or time-limited Calling sessions.
 
 ```javascript
-const tokenCredential = new AzureCommunicationTokenCredential("<user_access_token>");
+let communicationIdentityToken = await identityClient.getToken({ communicationUserId: userId }, ["chat", "voip"]);
+const tokenCredential = new AzureCommunicationTokenCredential(communicationIdentityToken.token);
+```
+
+Another feature to worth mentioning here is that you can customize the token expiration time between 1 and 24 hours to your specific needs. If the custom expiration time is not specified, then the token expiration time will be set to 24 hours which is a default expiration time. We recommend using short lifetime tokens for one-off Chat messages or time-limited Calling sessions and longer lifetime tokens for agents using the application for longer periods of time. You can customize the token expiration time as follow:
+
+```javascript
+const tokenOptions: GetTokenOptions = { tokenExpiresInMinutes: 60 };
+let communicationIdentityToken = await identityClient.getToken({ communicationUserId: userId }, ["chat", "voip"], tokenOptions);
+const tokenCredential = new AzureCommunicationTokenCredential(communicationIdentityToken.token);
 ```
 
 ### Callback function
