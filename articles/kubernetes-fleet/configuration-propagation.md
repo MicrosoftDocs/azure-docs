@@ -10,7 +10,7 @@ ms.service: kubernetes-fleet
 
 # Propagate Kubernetes resource objects from an Azure Kubernetes Fleet Manager resource to member clusters (preview)
 
-Platform admins and application developers need a way to deploy the same Kubernetes resource objects (like ClusterRoles, ClusterRoleBindings, Namespaces, Deployments) across all member clusters or just a subset of member clusters of the fleet. Kubernetes Fleet Manager (Fleet) provides `ClusterResourcePlacement` as a mechanism to control how cluster-scoped Kubernetes resources are propagated to member clusters.
+Platform admins and application developers need a way to deploy the same Kubernetes resource objects across all member clusters or just a subset of member clusters of the fleet. Kubernetes Fleet Manager (Fleet) provides `ClusterResourcePlacement` as a mechanism to control how cluster-scoped Kubernetes resources are propagated to member clusters.
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
