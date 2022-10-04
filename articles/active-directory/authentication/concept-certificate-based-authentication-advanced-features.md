@@ -56,13 +56,6 @@ To set up this 1:M mapping in Azure AD CBA, configure the policy values in the f
 
 The preceding configuration would allow the same certificate to be used by Bob for both his productivity and developer account. Because of fallback support for bindings, Bob's productivity account will be authenticated by the UPN binding policy and Bob's developer account will be authenticated by the SKI binding policy.
 
-
-## External identity support
-
-An external identity can't perform multifactor authentication (MFA) to the resource tenant with Azure AD CBA. Instead, have the user perform MFA using CBA in the home tenant, and set up cross tenant settings for the resource tenant to trust MFA from the home tenant.
-
-For more information about how to enable **Trust multi-factor authentication from Azure AD tenants**, see [Configure B2B collaboration cross-tenant access](../external-identities/cross-tenant-access-settings-b2b-collaboration.md#to-change-inbound-trust-settings-for-mfa-and-device-claims).
-
 ## Next steps
 
 - [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
