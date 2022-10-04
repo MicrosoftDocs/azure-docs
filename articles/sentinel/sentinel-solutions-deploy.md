@@ -17,7 +17,7 @@ The Microsoft Sentinel Content hub provides access to out-of-the-box (built-in) 
 
 - View solutions in list view and quickly see which ones have updates. Update them all at once.
 
-- Manage solutions to install its content types and get the latest changes.
+- Manage a solution to install its content types and get the latest changes.
 
 If you're a partner who wants to create your own solution, see the [Microsoft Sentinel Solutions Build Guide](https://aka.ms/sentinelsolutionsbuildguide) for solution authoring and publishing.
 
@@ -82,7 +82,7 @@ Solutions can be installed and updated individually or in bulk. Here's the proce
 Content hub supports a list view in addition to the default card view. Multiple solutions can be selected with this view to install and update them all at once. 
 
 1. To install and/or update items in bulk, change to the list view.
-   :::image type="content" source="media/sentinel-solutions-deploy/content-hub-list-view.png" alt-text="Screenshot of the list view icon button highlighted.":::
+   :::image type="content" source="media/sentinel-solutions-deploy/content-hub-list-view.png" alt-text="Screenshot of the list view icon button highlighted." lightbox="media/sentinel-solutions-deploy/content-hub-list-view.png":::
 
 1. The list view is paginated, so choose a filter to ensure the solutions you want to bulk install and modify are in view. Select their checkboxes and click the **Install/Update** button.
 
@@ -155,7 +155,7 @@ When a solution is installed, any parsers included are added as workspace functi
 1. Once created, the active playbook is shown in the **Created content** column.
 1. Click the active playbook **1 item** link to manage the playbook. 
 
-    :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-playbook.png" alt-text="Screenshot of playbook type content type in a solution.":::
+    :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-playbook.png" alt-text="Screenshot of playbook type content type in a solution." lightbox="media/sentinel-solutions-deploy/manage-solution-playbook.png":::
 
 
 ## Find the support model for your solution
