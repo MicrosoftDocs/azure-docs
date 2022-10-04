@@ -16,7 +16,7 @@ Learn how to use [Apache Spark](https://spark.apache.org/) [Structured Streaming
 Spark structured streaming is a stream processing engine built on Spark SQL. It allows you to express streaming computations the same as batch computation on static data. For more information on Structured Streaming, see the [Structured Streaming Programming Guide](https://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) at Apache.org.
 
 > [!IMPORTANT]  
-> This example used Spark 2.2 on HDInsight 3.6.
+> This example uses Spark 2.4 on HDInsight 4.0.
 >
 > The steps in this document create an Azure resource group that contains both a Spark on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Spark cluster to directly communicate with the Kafka cluster.
 >
@@ -43,16 +43,16 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
 
     This template creates the following resources:
 
-   * A Kafka on HDInsight 3.6 cluster.
+   * A Kafka on HDInsight 4.0 cluster.
 
-   * A Spark on HDInsight 3.6 cluster.
+   * A Spark on HDInsight 4.0 cluster.
 
    * An Azure Virtual Network, which contains the HDInsight clusters. The virtual network created by the template uses the 10.0.0.0/16 address space.
 
    * An Azure Cosmos DB SQL API database.
 
     > [!IMPORTANT]  
-    > The structured streaming notebook used in this example requires Spark on HDInsight 3.6. If you use an earlier version of Spark on HDInsight, you receive errors when using the notebook.
+    > The structured streaming notebook used in this example requires Spark on HDInsight 4.0. If you use an earlier version of Spark on HDInsight, you receive errors when using the notebook.
 
 1. Use the following information to populate the entries on the **Custom deployment** section:
 
@@ -62,7 +62,7 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
     |Resource group|Create a group or select an existing one. This group contains the HDInsight cluster.|
     |Cosmos DB Account Name|This value is used as the name for the Cosmos DB account. The name can only contain lowercase letters, numbers, and the hyphen (-) character. It must be between 3-31 characters in length.|
     |Base Cluster Name|This value is used as the base name for the Spark and Kafka clusters. For example, entering **myhdi** creates a Spark cluster named __spark-myhdi__ and a Kafka cluster named **kafka-myhdi**.|
-    |Cluster Version|The HDInsight cluster version. This example is tested with HDInsight 3.6, and may not work with other cluster types.|
+    |Cluster Version|The HDInsight cluster version. This example is tested with HDInsight 4.0, and may not work with other cluster types.|
     |Cluster Login User Name|The admin user name for the Spark and Kafka clusters.|
     |Cluster Login Password|The admin user password for the Spark and Kafka clusters.|
     |Ssh User Name|The SSH user to create for the Spark and Kafka clusters.|
