@@ -13,45 +13,35 @@ ms.custom:
 
 In this tutorial, you learn how to delete Azure Network Function Manager - Network Function and Azure Network Function Manager - Device using the Azure portal. 
 
-> [!div class="checklist"]
-> * Delete [Network Function Manager - Network Function](#delete-network-function)
-> * Delete [Azure Network Function Manager - Device](#delete-network-function-manager)
+* [Delete Azure Network Function Manager - Network Function](#Delete-network-function)
+* [Delete Azure Network Function Manager - Device](#Delete-network-function-manager---device)
 
-* On the **Overview** tab for the Network Function Manager - Device, verify the following values are present:
-  * Provisioning State = Succeeded
-  * Device Status = Registered
-
-## <a name="delete-network-function"></a> Delete network function
+### Delete network function
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to the **Azure Network Manager - Devices** resource in which you have deployed a network function and select **Network Function**.
-
-   :::image type="content" source="./media/delete-functions/select-network-function.png" alt-text="Screenshot of +select network function." lightbox="./media/delete-functions/select-network-function.png":::
+ ![select-network-function](media/delete-functions/select-network-function.png)
 
 1. Select **Delete** Network Function.
-
-    :::image type="content" source="./media/delete-functions/delete-network-function.png" alt-text="Screenshot of +delete network function." lightbox="./media/delete-functions/delete-network-function.png":::
+ ![delete-network-function](media/delete-functions/delete-network-function.png)
 
    > [!NOTE]
-   > If you encounter failed to delete resource error with *access is denied because of the deny assignment 'System deny assignment created by managed application'* while deleting the network function, then copy the name of the Managed Application from the error and refer **Step 4**.
-   >:::image type="content" source="./media/delete-functions/failed-to-delete.png" alt-text="Screenshot of +Failed To Delete." lightbox="./media/delete-functions/failed-to-delete.png":::
-   > 
+   > Incase you encounter following error while deleting the network function.
+   > *Failed to delete resource. Error: The client 'user@mail.com' with object id 'xxxx-9999-xxxx-9999-xxxx' has permission to perform action 'Microsoft.HybridNetwork/networkFunctions/delete' on scope 'mrg-ResourceGroup/providers/Microsoft.HybridNetwork/networkFunctions/NetworkFunction01'; however, the access is denied because of the deny assignment with name 'System deny assignment created by managed application /subscriptions/xxxx-0000-xxxx-0000-xxxx/resourceGroups/ResourceGroup/providers/Microsoft.Solutions/applications/managedApplication01' and Id 'xxxxxxxxxxxxxxxxxxxxxx' at scope '/subscriptions/xxxx-0000-xxxx-0000-xxxx/resourceGroups/mrg-ResourceGroup and refer **Step 4**.*
+   > ![failed-to-delete](media/delete-functions/failed-to-delete.png)
    
-1. Navigate to search box within the **Azure portal** and search for the **Managed Application** which was thrown as an exception in **Step 3**.
-
-    :::image type="content" source="./media/delete-functions/managed-application.png" alt-text="Screenshot of +Managed Application." lightbox="./media/delete-functions/managed-application.png":::
+1. Navigate to search box within the **Azure portal** and search for the **Managed Application** which was seen as an exception in **Step 3**.
+ ![managed-application](media/delete-functions/managed-application.png)
 
 1. Select **Delete** Managed Application
-    
-    :::image type="content" source="./media/delete-functions/delete-managed-application.png" alt-text="Screenshot of +Delete Managed Application." lightbox="./media/delete-functions/delete-managed-application.png":::
+ ![delete-managed-application](media/delete-functions/delete-managed-application.png)
 
-## <a name="delete-network-function-manager"></a> Delete network function manager - device
+### Delete network function manager - device
 
-   > [!IMPORTANT]
+   > [!IMPORTANT] 
    > Ensure that all the Network Function deployed within the Azure Network Function Manager is deleted before proceeding to the next step.
    >
 
 1. Navigate to the **Azure Network Manager - Devices** resource in which you have deleted a network function and select **Delete** Azure Network Function Manager - Device
-
-   :::image type="content" source="./media/delete-device/delete-network-function-manager.png" alt-text="Screenshot of +delete network function manager - device." lightbox="./media/delete-device/delete-network-function-manager.png":::
+ ![delete-network-function-manager](media/delete-functions/delete-network-function-manager.png)
