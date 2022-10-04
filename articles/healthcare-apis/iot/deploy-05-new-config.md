@@ -9,7 +9,7 @@ ms.date: 09/30/2022
 ms.author: v-smcevoy
 ---
 
-# Configure the MedTech service for manual deployment using the Azure portal
+# Part 2: Configure the MedTech service for manual deployment using the Azure portal
 
 Before you can manually deploy the MedTech service, you must complete the following configuration tasks:
 
@@ -17,7 +17,7 @@ Before you can manually deploy the MedTech service, you must complete the follow
 
 Start with these three steps to begin configuring the MedTech service so it will be ready to accept your tabbed configuration input:
 
-1. Start by going to the Health Data Services workspace you created in the manual deployment [Prerequisites](deploy-03-new-manual.md#prerequisites) section. Select the Create MedTech service box.
+1. Start by going to the Health Data Services workspace you created in the manual deployment [Prerequisites](deploy-03-new-manual.md#part-1-prerequisites) section. Select the Create MedTech service box.
 
 2. This will take you to the Add MedTech service button. Select the button.
 
@@ -188,13 +188,15 @@ Your validation screen should look something like this:
 
    :::image type="content" source="media\iot-deploy-manual-in-portal\validate-and-review-medtech-service.png" alt-text="Screenshot of validation success with details displayed." lightbox="media\iot-deploy-manual-in-portal\validate-and-review-medtech-service.png":::
 
-If your MedTech service didn't validate, review the validation failure message, and troubleshoot the issue. Check all properties under each MedTech service tab that you've configured. Go back and try again. 
+If your MedTech service didn't validate, review the validation failure message, and troubleshoot the issue. Check all properties under each MedTech service tab that you've configured. Go back and try again.
 
-If your deployment request was successful, you are ready to go on the next step, where you will deploy your MedTech service instance.
+## Continue on to Deployment and Post-deployment
+
+After your configuration is successfully completed, you can go on to [Part 3: Deployment and post deployment](deploy-06-new-deploy.md).
 
 ## Next steps
 
-In this article, you were shown how to configure MedTech service in preparation for deployment and ensure that everything has been validated. To learn about deploying a validated MedTech service instance, see
+In this article, you were shown how to configure MedTech service in preparation for deployment and ensure that everything has been validated. When you are ready to begin Part 3 of Manual Deployment, see
 
 >[!div class="nextstepaction"]
 >[Manual deployment and post-deployment of MedTech service](deploy-06-new-deploy.md)
