@@ -10,7 +10,7 @@ metadata:
   author: jenniferf-skc
   manager: amycolannino
   ms.service: active-directory 
-ms.subservice: ciem
+  ms.subservice: ciem
   ms.workload: identity
   ms.topic: landing-page
   ms.date: 03/09/2022
