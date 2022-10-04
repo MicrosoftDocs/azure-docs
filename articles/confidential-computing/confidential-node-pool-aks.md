@@ -1,16 +1,16 @@
 ---
-title: Confidential VM node pools support on AKS with AMD SEV-SNP confidential VMs - Preview
+title: Confidential VM node pools support on AKS with AMD SEV-SNP confidential VMs
 description: Learn about confidential node pool support on AKS with AMD SEV-SNP confidential VMs 
 services: container-service
 author: ananyagarg
 ms.topic: article
-ms.date: 8/1/2022
+ms.date: 10/04/2022
 ms.author: ananyagarg
 ms.service: container-service
 ms.custom: inspire-fall-2022
 ---
 
-# Confidential VM node pool support on AKS with AMD SEV-SNP confidential VMs - Preview
+# Confidential VM node pool support on AKS with AMD SEV-SNP confidential VMs
 
 [Azure Kubernetes Service (AKS)](../aks/index.yml) makes it simple to deploy a managed Kubernetes cluster in Azure. In AKS, nodes of the same configuration are grouped together into node pools. These node pools contain the underlying VMs that run your applications. 
 
