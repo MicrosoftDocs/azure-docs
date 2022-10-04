@@ -27,6 +27,7 @@ In addition to your solution domain, your engineering team should have knowledge
 - Working knowledge of [JSON](https://www.json.org/)
 - Working knowledge of [Helm](https://www.helm.sh)
 - Working knowledge of [createUiDefinition][createuidefinition]
+- Working knowledge of [Azure Resource Manager (ARM) templates][arm-templates]
 
 ## Prerequisites
 
@@ -72,6 +73,7 @@ Microsoft has created a first-party application responsible for handling this pr
 > [!NOTE]
 > If your account doesn't have permission to create a service principal, `az ad sp create` will return an error message containing "Insufficient privileges to complete the operation". Contact your Azure Active Directory admin to create a service principal.
 
+
 ```azurecli-interactive
 az login
 az ad sp create --id 32597670-3e15-4def-8851-614ff48c1efa
@@ -94,7 +96,9 @@ Your output should look similar to the following:
 ...
 ```
 
-Finally, create a role assignment to grant the service principal the ability to pull from your registry using the values you obtained earlier:
+Next, create a role assignment to grant the service principal the ability to pull from your registry using the values you obtained earlier:
+
+[!INCLUDE [Azure role assignment prerequisites](../../includes/role-based-access-control/prerequisites-role-assignments.md)]
 
 ```azurecli-interactive
 az role assignment create --assignee <sp-id> --scope <registry-id> --role acrpull
@@ -146,6 +150,8 @@ Your output should look similar to the following:
 ```
 
 Next, create a role assignment to grant the service principal the ability to pull from your registry:
+
+[!INCLUDE [Azure role assignment prerequisites](../../includes/role-based-access-control/prerequisites-role-assignments.md)]
 
 ```powershell-interactive
 New-AzRoleAssignment -ObjectId <sp-id> -Role acrpull -Scope <registry-id>
@@ -329,7 +335,7 @@ For an example of how to integrate `container-package-app` into an Azure Pipelin
 
 [cnab]: https://cnab.io/
 [cluster-extensions]: ../aks/cluster-extensions.md
-[azure-voting-app]: https://github.com/Azure-Samples/azure-voting-app-redis
+[azure-voting-app]: https://github.com/Azure-Samples/kubernetes-offer-samples/tree/main/samples/k8s-offer-azure-vote/azure-vote
 [createuidefinition]: ../azure-resource-manager/managed-applications/create-uidefinition-overview.md
 [sandbox-environment]: https://ms.portal.azure.com/#view/Microsoft_Azure_CreateUIDef/SandboxBlade
 [arm-template-overview]: ../azure-resource-manager/templates/overview.md
