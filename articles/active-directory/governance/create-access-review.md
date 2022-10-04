@@ -301,7 +301,7 @@ After one or more access reviews have started, you might want to modify or updat
 ## Next steps
 
 - [Complete an access review of groups or applications](complete-access-review.md)
-- [Create an access review of Privileged Access Groups (preview)](create-access-review-pag.md)
+- [Create an access review of Privileged Access Groups (preview)](create-access-review-privileged-access-groups.md)
 - [Review access to groups or applications](perform-access-review.md)
 - [Review access for yourself to groups or applications](review-your-access.md)
 

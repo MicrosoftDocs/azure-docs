@@ -69,7 +69,7 @@ Here's some information about workflow notifications:
 
 ## Next steps
 
-- [Create an access review of Privileged Access Groups (preview)](../governance/create-access-review-pag.md)
+- [Create an access review of Privileged Access Groups (preview)](../governance/create-access-review-privileged-access-groups.md)
 - [Extend or renew group assignments in Privileged Identity Management](pim-resource-roles-renew-extend.md)
 - [Email notifications in Privileged Identity Management](pim-email-notifications.md)
 - [Approve or deny requests for group assignments in Privileged Identity Management](azure-ad-pim-approval-workflow.md)
