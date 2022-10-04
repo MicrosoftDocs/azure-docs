@@ -10,9 +10,9 @@ ms.author: alexwolf
 ms.custom: include file
 ---
 
-When developing locally, make sure that the user account that is accessing service bus data has the correct permissions. You'll need `Azure Service Bus Data Owner` to read and write blob data. To assign yourself this role, you'll need the User Access Administrator role, or another role that includes the Microsoft.Authorization/roleAssignments/write action. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. You can learn more about the available scopes for role assignments on the [scope overview](/azure/role-based-access-control/scope-overview) page.
+When developing locally, make sure that the user account that connects to Azure Service Bus has the correct permissions. You'll need the `Azure Service Bus Data Owner` role in order to send and receive messages. To assign yourself this role, you'll need the User Access Administrator role, or another role that includes the `Microsoft.Authorization/roleAssignments/write` action. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. Learn more about the available scopes for role assignments on the [scope overview](/azure/role-based-access-control/scope-overview) page.
 
-The following example will assign the `Azure Service Bus Data Owner` role to your user account, which provides full access to Azure Service Bus resources. In a real scenario, follow the [Principle of Least Privilege](/azure/active-directory/develop/secure-least-privileged-access). This practice gives users only the minimum permissions needed and creates more secure production environments.
+The following example assigns the `Azure Service Bus Data Owner` role to your user account, which provides full access to Azure Service Bus resources. In a real scenario, follow the [Principle of Least Privilege](/azure/active-directory/develop/secure-least-privileged-access) to gives users only the minimum permissions needed for a more secure production environments.
 
 > [!IMPORTANT]
 > In most cases it will take a minute or two for the role assignment to propagate in Azure, but in rare cases it may take up to eight minutes. If you receive authentication errors when you first run your code, wait a few moments and try again.
@@ -27,7 +27,7 @@ The following example will assign the `Azure Service Bus Data Owner` role to you
 
 4. Select **+ Add** from the top menu and then **Add role assignment** from the resulting drop-down menu.
 
-    :::image type="content" source="../../../articles/storage/common/media/assign-role-system-identity.png" alt-text="A screenshot showing how to assign a role.":::    
+    :::image type="content" source="media/add-role.png" alt-text="A screenshot showing how to assign a role.":::    
 
 5. Use the search box to filter the results to the desired role. For this example, search for `Azure Service Bus Data Owner` and select the matching result and then choose **Next**.
 
