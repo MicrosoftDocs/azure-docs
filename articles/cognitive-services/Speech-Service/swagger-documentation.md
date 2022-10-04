@@ -10,7 +10,6 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 10/03/2022
-ms.author: alexeyo
 ---
 
 # Generate a REST API client library for the Speech-to-text REST API
