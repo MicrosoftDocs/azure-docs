@@ -20,7 +20,7 @@ You can create and manage virtual machines (VMs) on an Azure Stack Edge Pro GPU 
 
 ## About HPN VMs
 
-A non-uniform memory access (NUMA) architecture is used to increase processor speeds. In a NUMA system, CPUs are arranged in smaller systems called nodes. Each node has its own processors and memory. Processors are typically allocated memory that they are close to so the access is quicker. For more information, see [NUMA Support](/windows/win32/procthread/numa-support).  
+A non-uniform memory access (NUMA) architecture is used to increase processor speeds. In a NUMA system, CPUs are arranged in smaller systems called nodes. Each node has its own processors and memory. Processors are typically allocated memory that they're close to so the access is quicker. For more information, see [NUMA Support](/windows/win32/procthread/numa-support).  
 
 On your Azure Stack Edge device, logical processors are distributed on NUMA nodes and high speed network interfaces can be attached to these nodes. An HPN VM has a dedicated set of logical processors. These processors are first picked from the NUMA node that has high speed network interface attached to it, and then picked from other nodes. An HPN VM can only use the memory of the NUMA node that is assigned to its processors.  
 
@@ -97,23 +97,20 @@ In addition to the above prerequisites that are used for VM creation, you'll als
     
     ```Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName <Output of hostname command>```
 
-    Here is an example output:
+    Here's an example output:
     
-        ```powershell    
-        [dbe-1csphq2.microsoftdatabox.com]: PS>hostname
-        1CSPHQ2
-        [dbe-1csphq2.microsoftdatabox.com]: P> Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName 1CSPHQ2
-         { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] }
-         { Numa Node #1 : CPUs [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
+    ```output
+[dbe-1csphq2.microsoftdatabox.com]: PS>hostname 1CSPHQ2
+[dbe-1csphq2.microsoftdatabox.com]: P> Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName 1CSPHQ2
+{ Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] }
+{ Numa Node #1 : CPUs [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
         
-        [dbe-1csphq2.microsoftdatabox.com]: PS>
-        ```
+[dbe-1csphq2.microsoftdatabox.com]:PS>
+```
     
     1. Reserve vCPUs for HPN VMs. The number of vCPUs reserved here determines the available vCPUs that could be assigned to the HPN VMs. For the number of cores that each HPN VM size uses, see the [Supported HPN VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes). On your device, Mellanox ports 5 and 6 are on NUMA node 0.
     
-        ```powershell
-        Set-HcsNumaLpMapping -CpusForHighPerfVmsCommaSeperated <Logical indexes from the Get-HcsNumaLpMapping cmdlet> -AssignAllCpusToRoot $false
-        ```
+     ```Set-HcsNumaLpMapping -CpusForHighPerfVmsCommaSeperated <Logical indexes from the Get-HcsNumaLpMapping cmdlet> -AssignAllCpusToRoot $false```
     
         After this command is run, the device restarts automatically.
 
@@ -186,7 +183,7 @@ Follow these steps to create an HPN VM on your device.
 
     > [!NOTE]
     > If the vCPUs are not reserved for HPN VMs prior to the deployment, the deployment will fail with `FabricVmPlacementErrorInsufficientNumaNodeCapacity` error.
-                                                                                                                                                                         
+                                                                                                                                                                   
 ## Next steps
 
 - [Troubleshoot VM deployment](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md)
