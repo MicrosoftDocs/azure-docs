@@ -1,13 +1,13 @@
 ---
 title: Authorize access to Azure Blob Storage using Azure role assignment conditions (preview)
 titleSuffix: Azure Storage
-description: Authorize access to Azure Blob Storage and Azure Data Lake Storage Gen2 (ADLS G2) using Azure role assignment conditions and Azure attribute-based access control (Azure ABAC). Define conditions on role assignments using Blob Storage attributes.
+description: Authorize access to Azure Blob Storage and Azure Data Lake Storage Gen2 using Azure role assignment conditions and Azure attribute-based access control (Azure ABAC). Define conditions on role assignments using Blob Storage attributes.
 services: storage
 author: jimmart-dev
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/28/2022
+ms.date: 10/04/2022
 ms.author: jammart
 ms.reviewer: nachakra
 ms.subservice: blobs
@@ -16,9 +16,11 @@ ms.subservice: blobs
 # Authorize access to Azure Blob Storage using Azure role assignment conditions (preview)
 
 > [!IMPORTANT]
-> Azure ABAC and Azure role assignment conditions are currently in preview.
+> Currently, Azure ABAC is generally available (GA) for controlling access to Azure blob storage and Data Lake Storage Gen2 only using `request` and `resource` attributes in the standard storage account performance tier. It is still in preview for premium storage accounts and for the security principal attribute in all tiers. Also, the snapshot resource attribute for Data Lake Storage Gen2 is still in preview.
 >
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> See [About the ABAC preview](../common/authorize-data-access.md#about-the-abac-preview) for a complete list of storage account performance tiers, resource types, and attributes for which ABAC is generally available or in preview.
+>
+> Features of ABAC that are still in preview are provided without a service level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Attribute-based access control (ABAC) is an authorization strategy that defines access levels based on attributes associated with security principals, resources, requests, and the environment. With ABAC, you can grant a security principal access to a resource based on a condition expressed as a predicate using these attributes.
