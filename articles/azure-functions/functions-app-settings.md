@@ -377,7 +377,7 @@ To learn more, see [`pip` documentation for `--index-url`](https://pip.pypa.io/e
 
 ## PIP\_EXTRA\_INDEX\_URL
 
-The value for this setting indicates a extra index URL for custom packages for Python apps, to use in addition to the `--index-url`. Use this setting when you need to run a remote build using custom dependencies that are found in an extra package index. Should follow the same rules as --index-url.
+The value for this setting indicates an extra index URL for custom packages for Python apps, to use in addition to the `--index-url`. Use this setting when you need to run a remote build using custom dependencies that are found in an extra package index. Should follow the same rules as --index-url.
 
 |Key|Sample value|
 |---|------------|
@@ -605,7 +605,7 @@ Sets the specific version of .NET for C# functions. For more information, see [M
 
 Sets the specific version of PowerShell on which your functions run. For more information, see [Changing the PowerShell version](functions-reference-powershell.md#changing-the-powershell-version). 
 
-When running locally, you instead use the [`FUNCTIONS_WORKER_RUNTIME_VERSION`](functions-reference-powershell.md#running-local-on-a-specific-version) setting in the local.settings.json file. |
+When running locally, you instead use the [`FUNCTIONS_WORKER_RUNTIME_VERSION`](functions-reference-powershell.md#running-local-on-a-specific-version) setting in the local.settings.json file. 
 
 ## Next steps
 
