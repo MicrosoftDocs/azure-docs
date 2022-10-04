@@ -114,7 +114,28 @@ To synchronize X509:\<RFC822>RFC822Name, create an outbound synchronization rule
 
 For more information about declarative provisioning expressions, see [Azure AD Connect: Declarative Provisioning Expressions](../hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions.md).
 
+## Synchronize alternativeSecurityId attribute from AD to Azure AD CBA CertificateUserIds
 
+AlternativeSecurityId is not part of the default attributes so the admin needs to add the attribute to the person object and then create the appropriate sync rules.
+
+1. Open Metaverse Designer and select alternativeSecurityId to be added into the person object
+
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/alt-security-identity-add.png" alt-text="Screenshot of how to add alternativeSecurityId to the person object":::
+
+1. Create an inbound synchronization rule to transform from altSecurityIdentities to alternateSecurityId attribute
+
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/alt-security-identity-inbound.png" alt-text="Screenshot of how to transform from altSecurityIdentities to alternateSecurityId attribute":::
+
+1. Create an outbound synchronization rule to transform from alternateSecurityId attribute to certificateUserIds
+alt-security-identity-add
+
+   :::image type="content" border="true" source="./media/concept-certificate-based-authentication-certificateuserids/alt-security-identity-outbound.png" alt-text="Screenshot of outbound synchronization rule to transform from alternateSecurityId attribute to certificateUserIds":::
+
+To map the pattern supported by certificateUserIds, admins must use expressions to set the correct value.
+
+Expression for mapping to SKI and SHA1-PUKEY:
+IIF(Contains([alternativeSecurityId],"x509:<SKI>")>0,[alternativeSecurityId],Error("No altSecurityIdentities SKI match found."))
+& IIF(Contains([alternativeSecurityId],"x509:<SHA1-PUKEY>")>0,[alternativeSecurityId],Error("No altSecurityIdentities SHA1-PUKEY match found."))
 
 ## Next steps
 
