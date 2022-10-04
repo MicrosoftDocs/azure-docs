@@ -3,7 +3,7 @@ title: Find unhealthy DNS records in Azure DNS - PowerShell script sample
 description: In this article, learn how to use an Azure PowerShell script to find unhealthy DNS records.
 author: greg-lindsay
 ms.author: greglin
-ms.date: 09/27/2022
+ms.date: 10/04/2022
 ms.topic: sample
 ms.service: dns
 
