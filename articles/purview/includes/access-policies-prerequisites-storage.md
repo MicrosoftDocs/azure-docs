@@ -1,14 +1,14 @@
 ---
-author: ePpnqeqR
+author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
-ms.date: 08/25/2022
+ms.date: 10/04/2022
 ms.custom: 
 ---
 
-### Enable access policy enforcement for the Azure Storage account
+### Configure the Azure Storage account for policies from Microsoft Purview
 To enable Microsoft Purview to manage policies for one or more Azure Storage accounts, execute the following PowerShell commands in the subscription where you'll deploy your Azure Storage account. These PowerShell commands will enable Microsoft Purview to manage policies on all **newly created** Azure Storage accounts in that subscription.
 
 If you’re executing these commands locally, be sure to run PowerShell as an administrator.
