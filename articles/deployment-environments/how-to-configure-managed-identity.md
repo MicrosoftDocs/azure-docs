@@ -13,7 +13,8 @@ ms.topic: how-to
 
  A [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md) is used to provide elevation-of-privilege capabilities and securely authenticate to any service that supports Azure Active Directory (Azure AD) authentication. Azure Deployment Environments Preview service uses identities to provide self-serve capabilities to your development teams without granting them access to the target subscriptions in which the Azure resources are created.
 
-Either the managed identity attached to the dev center or the deployment identity configured for a [project environment type](how-to-configure-project-environment-types.md) needs to be granted 'Owner' access to the deployment subscriptions, and Azure Deployment Environments service will use this identity to perform the deployment on behalf of the developer.
+The managed identity attached to the dev center should be [granted 'Owner' access to the deployment subscriptions](how-to-configure-managed-identity.md) configured per environment type. When an environment deployment is requested, the service grants appropriate permissions to the deployment identities configured per environment type to perform deployments on behalf of the user.
+The managed identity attached to a dev center will also be used to connect to a [catalog](how-to-configure-catalog.md) and access the [catalog items](configure-catalog-item.md) made available through the catalog.
 
 In this article, you'll learn about:
 
@@ -62,7 +63,7 @@ In Azure Deployment Environments, you can use two types of managed identities:
 
 ## Assign a subscription role assignment to the managed identity
 
-An identity attached to a project environment type will be used to deploy environments. The identity attached to the dev center or the identity configured for the project environment type will need 'Owner' access to all the deployment subscriptions, as well as 'Reader' access to all subscriptions that a project lives in.
+The identity attached to the dev center should be granted 'Owner' access to all the deployment subscriptions, as well as 'Reader' access to all subscriptions that a project lives in. When a user creates or deploys an environment, the service grants appropriate access to the deployment identity attached to a project environment type and use it to perform deployment on behalf of the user. This will allow you to empower developers to create environments without granting them access to the subscription and abstract Azure governance related constructs from them.
 
 1. To add a role assignment to the managed identity:
     1. For a system-assigned identity, select **Azure role assignments**.

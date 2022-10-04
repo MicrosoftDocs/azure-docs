@@ -74,7 +74,7 @@ After you've created a dev center, the next step is to attach an [identity](conc
 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/system-assigned-managed-identity.png" alt-text="Screenshot of system assigned managed identity.":::
 
-1. [Optional] After the system-assigned managed identity is created, select **Azure role assignments** to provide **Owner** access on the subscriptions that will be used to configure [Project Environment Types](concept-environments-key-concepts.md#project-environment-types) and ensure the **Identity** has [access to the **Key Vault** secrets](how-to-configure-managed-identity.md#assign-the-managed-identity-access-to-the-key-vault-secret) containing the personal access token (PAT) token to access your repository.
+1. After the system-assigned managed identity is created, select **Azure role assignments** to provide **Owner** access on the subscriptions that will be used to configure [Project Environment Types](concept-environments-key-concepts.md#project-environment-types) and ensure the **Identity** has [access to the **Key Vault** secrets](how-to-configure-managed-identity.md#assign-the-managed-identity-access-to-the-key-vault-secret) containing the personal access token (PAT) token to access your repository.
 
 ### Using the user-assigned existing managed identity
 
@@ -82,10 +82,10 @@ After you've created a dev center, the next step is to attach an [identity](conc
 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/user-assigned-managed-identity.png" alt-text="Screenshot of user assigned managed identity.":::
 
-1. [Optional] After the identity is attached, ensure that the attached identity has **Owner** access on the subscriptions that will be used to configure [Project Environment Types](how-to-configure-project-environment-types.md). Also, provide **Reader** access to all subscriptions that a project lives in. Also ensure the identity has access to the Key Vault secrets containing the personal access token (PAT) token to access the repository.
+1. After the identity is attached, ensure that the attached identity has **Owner** access on the subscriptions that will be used to configure [Project Environment Types](how-to-configure-project-environment-types.md) and provide **Reader** access to all subscriptions that a project lives in. Also ensure the identity has [access to the Key Vault secrets](how-to-configure-managed-identity.md#assign-the-managed-identity-access-to-the-key-vault-secret) containing the personal access token (PAT) token to access the repository.
 
 >[!NOTE]
-> If the [identity](concept-environments-key-concepts.md#identities) attached to a dev center is not granted access to the target subscriptions configured in project environment types, the deployment identities should be granted 'Owner' access to the respective target deployment subscriptions.
+> The [identity](concept-environments-key-concepts.md#identities) attached to the dev center should be granted 'Owner' access to the deployment subscription configured per environment type.
 
 ## Attach a Catalog
 
