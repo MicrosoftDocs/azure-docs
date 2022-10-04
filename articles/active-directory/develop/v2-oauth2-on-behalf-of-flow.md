@@ -143,7 +143,7 @@ A success response is a JSON OAuth 2.0 response with the following parameters.
 
 ### Success response example
 
-The following example shows a success response to a request for an access token for the https://graph.microsoft.com web API. We can see that the response contains an access token and a refresh token and is signed with the private key of the certificate.
+The following example shows a success response to a request for an access token for the https://graph.microsoft.com web API. The response contains an access token and a refresh token and is signed with the private key of the certificate.
 
 ```json
 {
