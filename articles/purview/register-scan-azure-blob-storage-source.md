@@ -351,9 +351,9 @@ To create an access policy for Azure Blob Storage, follow these guides:
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Microsoft Purview and your data.
-
-* [Data Estate Insights in Microsoft Purview](concept-insights.md)
-* [Data Sharing in Microsoft Purview](concept-data-share.md)
-* [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
-* [Search Data Catalog](how-to-search-catalog.md)
+Follow the below guides to learn more about Microsoft Purview and your data.
+- [Data owner policies in Microsoft Purview](concept-policies-data-owner.md)
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
+- [Data Sharing in Microsoft Purview](concept-data-share.md)
+- [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
+- [Search Data Catalog](how-to-search-catalog.md)
