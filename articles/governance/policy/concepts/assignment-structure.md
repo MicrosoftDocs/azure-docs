@@ -28,8 +28,8 @@ You use JavaScript Object Notation (JSON) to create a policy assignment. The pol
 - non-compliance messages
 - parameters
 - identity
-- resource selectors
-- overrides
+- resource selectors (preview)
+- overrides (preview)
 
 For example, the following JSON shows a policy assignment in _DoNotEnforce_ mode with dynamic
 parameters:
@@ -133,7 +133,7 @@ _common_ properties used by Azure Policy. Each `metadata` property has a limit o
 ## Resource selectors (preview)
 
 The optional **resourceSelectors** property facilitates safe deployment practices (SDP) by enabling you to gradually roll
-out policy assignments based on factors like resource location, resource type, or whether a resource has a location. When resource selectors are used, Azure Policy will only evaluate resources that are applicable to the specifications made in the resource selectors. See also how resource selectors can be leveraged to narrow down the scope of exemptions.
+out policy assignments based on factors like resource location, resource type, or whether a resource has a location. When resource selectors are used, Azure Policy will only evaluate resources that are applicable to the specifications made in the resource selectors. Resource selectors can also be leveraged to narrow down the scope of [exemptions](exemption-structure.md) in the same way.
 
 In the following example scenario, the new policy assignment will be evaluated only if the resource's location is
 either **East US** or **West US**.
@@ -163,7 +163,7 @@ either **East US** or **West US**.
 ```
 
 When you're ready to expand the evaluation scope for your policy, you just have to modify the assignment. The following example
-shows our policy assignment with two additional Azure regions added to the **SDPRegions** selector:
+shows our policy assignment with two additional Azure regions added to the **SDPRegions** selector. Note, in this example, _SDP_ means to _Safe Deployment Practice_:
 
 ```json
 {
@@ -189,20 +189,24 @@ shows our policy assignment with two additional Azure regions added to the **SDP
 }
 ```
 
-Multiple resource selectors can be specified in a single assignment. Each resource selector has the following properties:
+Resource selectors have the following properties:
 - `name`: The name of the resource selector.
-- `selectors`: The component used to narrow down which subset of resources applicable to the policy assignment should be evaluated for compliance. Each **resource selector** contains one list of selectors.
-  - `kind`: The property of a `selector` that describes what will narrow down the set of evaluated resources. Allowed values are `resourceLocation`, `resourceType`, and `resourceWithoutLocation`.
-  - `in`: The list of allowed values for the specified `kind`. Cannot be used with `notIn`.
-  - `notIn`: The list of not-allowed values for the specified `kind`. Cannot be used with `in`.
+- `selectors`: The factor used to determine which subset of resources applicable to the policy assignment should be evaluated for compliance.
+  - `kind`: The property of a `selector` that describes what characteristic will narrow down the set of evaluated resources. Each 'kind' can only be used once in a single resource selector. Allowed values are:
+    - `resourceLocation`: This is used to select resources based on their type. Can be used in up to 10 resource selectors. Cannot be used in the same resource selector as `resourceWithoutLocation`.
+    - `resourceType`: This is used to select resources based on their type.
+    - `resourceWithoutLocation`: This is used to select resources at the subscription level which do not have a location. Currently only supports `subscriptionLevelResources`. Cannot be used in the same resource selector as `resourceLocation`.
+  - `in`: The list of allowed values for the specified `kind`. Cannot be used with `notIn`. Can contain up to 50 values.
+  - `notIn`: The list of not-allowed values for the specified `kind`. Cannot be used with `in`. Can contain up to 50 values.
+  
+A **resource selector** can contain multiple **selectors**. To be applicable to a resource selector, a resource must meet requirements specified by all its selectors. Further, multiple **resource selectors** can be specified in a single assignment. In-scope resources are evaluated when they satisfy any one of these resource selectors.
 
 ## Overrides (preview)
 
 The optional **overrides** property allows you to change the effect of a policy definition without modifying
 the underlying policy definition or using a parameterized effect in the policy definition.
 
-The most common use case for overrides is policy initiatives with a large number of associated policy definitions.
-In this situation, managing multiple policy effects can consume significant administrative effort, especially when the effect needs to be updated from time to time.
+The most common use case for overrides is policy initiatives with a large number of associated policy definitions. In this situation, managing multiple policy effects can consume significant administrative effort, especially when the effect needs to be updated from time to time. Overrides can be used to simultaneously update the effects of multiple policy definitions within an initiative.
 
 Let's take a look at an example. Imagine you have a policy initiative named _CostManagement_ that includes a custom policy definition with `policyDefinitionReferenceId` _corpVMSizePolicy_ and a single effect of `audit`. Suppose you want to assign the _CostManagement_ initiative, but do not yet want to see compliance reported for this policy. This policy's 'audit' effect can be replaced by 'disabled' through an override on the initiative assignment, as shown below:
 
@@ -230,29 +234,7 @@ Let's take a look at an example. Imagine you have a policy initiative named _Cos
 }
 ```
 
-Note that one override can be used to replace the effect value of many policies by specifying multiple values in the policyDefinitionReferenceId array.
-
-> [!NOTE]
-> Although the preceding example shows an override in the context of a resource selector, this is optional. That is,
-> you can use overrides independent of resource selectors.
-
-```json
-{
-  "properties": {
-    "displayName": "A contingency plan should be in place to ensure operational continuity for each Azure subscription."
-    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/{definitionId}",
-    "metadata": {
-      "evidenceStorages": [
-        {
-          "displayName": "Default evidence storage",
-          "evidenceStorageAccountId": "/subscriptions/{subscriptionId}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storage-account-name}",
-          "evidenceBlobContainer": "evidence-container"
-        }
-      ]
-    }
-  }
-}
-```
+Note that one override can be used to replace the effect of many policies by specifying multiple values in the policyDefinitionReferenceId array. A single override can be used for up to 50 policyDefinitionReferenceIds, and a single policy assignment can contain up to 10 overrides, evaluated in the order in which thery are specified. Before the assignment is created, the effect chosen in the override is validated against the policy rule and parameter allowed value list, in cases where the effect is [parameterized](definition-structure.md#parameters). 
 
 ## Enforcement mode
 
