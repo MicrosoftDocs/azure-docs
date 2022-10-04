@@ -348,9 +348,21 @@ The `local=True` flag directs the SDK to deploy the endpoint in the Docker envir
 
 Check the status to see whether the model was deployed without error:
 
+# [Azure CLI](#tab/azure-cli)
+
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="get_status":::
 
+# [Python](#tab/python)
+
+```python
+ml_client.online_endpoints.get(name=local_endpoint_name, local=True)
+```
+
+---
+
 The output should appear similar to the following JSON. The `provisioning_state` is `Succeeded`.
+
+<Todo: check output style for SDKv2>
 
 ```json
 {
