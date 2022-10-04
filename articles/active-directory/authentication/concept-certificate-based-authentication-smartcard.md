@@ -43,7 +43,7 @@ Users will get a primary refresh token (PRT) from Azure AD after the successful 
 
 ### Windows rules for sending UPN for Azure AD-joined devices
 
-Windows will first use a principal name and if not present then RFC822Name from the SubjectAlternativeName (SAN) of the certificate being used to sign into Windows. If neither are present the user must additionally supply a User Name Hint. For more information, see [User Name Hint](https://learn.microsoft.com/en-us/windows/security/identity-protection/smart-cards/smart-card-group-policy-and-registry-settings#allow-user-name-hint)
+Windows will first use a principal name and if not present then RFC822Name from the SubjectAlternativeName (SAN) of the certificate being used to sign into Windows. If neither are present the user must additionally supply a User Name Hint. For more information, see [User Name Hint](/windows/security/identity-protection/smart-cards/smart-card-group-policy-and-registry-settings#allow-user-name-hint)
 
 ### Windows rules for sending UPN for hybrid Azure AD-joined devices
 
@@ -52,24 +52,19 @@ Hybrid Join sign-in must first successfully sign-in against the Active Directory
 Some customers may maintain different and sometimes may have non-routable UPN values in Active Directory (such as user@woodgrove.local) In these cases the value sent by Windows may not match the the users Azure Active Directory UPN. To support these scenarios where Azure AD cannot match the value sent by Windows, a subsequent  lookup is performed for a user with a matching value in their **onPremisesUserPrincipalName** attribute. If the sign-in is successful, Windows will cache the users Azure AD UPN and is sent in subsequent subsequent sign-ins.
 
 >[!NOTE]
->In all cases, a user supplied username login hint (X509UserNameHint) will be sent if provided. For more information see [User Name Hint](https://learn.microsoft.com/en-us/windows/security/identity-protection/smart-cards/smart-card-group-policy-and-registry-settings#allow-user-name-hint)
+>In all cases, a user supplied username login hint (X509UserNameHint) will be sent if provided. For more information, see [User Name Hint](/windows/security/identity-protection/smart-cards/smart-card-group-policy-and-registry-settings#allow-user-name-hint)
 
 For more information about the windows flow, see [Certificate Requirements and Enumeration (Windows)](/windows/security/identity-protection/smart-cards/smart-card-certificate-requirements-and-enumeration).
 
 ## Supported Windows platforms
 
-The Windows smart card sign-in works with the latest preview build of Windows 11. The functionality is also available for these earlier Windows versions after you apply update [KB5017383](https://support.microsoft.com/topic/september-20-2022-kb5017383-os-build-22000-1042-preview-62753265-68e9-45d2-adcb-f996bf3ad393):
+The Windows smart card sign-in works with the latest preview build of Windows 11. The functionality is also available for these earlier Windows versions after you apply one of the following updates [KB5017383](https://support.microsoft.com/topic/september-20-2022-kb5017383-os-build-22000-1042-preview-62753265-68e9-45d2-adcb-f996bf3ad393):
 
-- Windows 11 22H2 (preview)
-- Windows 11 21H2 and later
-- Windows 10 20H1 and later
-- Windows Server 2019 and later
-
-[Windows 11 - kb5017383](https://support.microsoft.com/en-us/topic/september-20-2022-kb5017383-os-build-22000-1042-preview-62753265-68e9-45d2-adcb-f996bf3ad393)
-[Windows 10 - kb5017379](https://support.microsoft.com/da-dk/topic/20-september-2022-kb5017379-os-build-17763-3469-preview-50a9b9e2-745d-49df-aaae-19190e10d307)
-[Windows Server 20H2- kb5017380](https://support.microsoft.com/da-dk/topic/20-september-2022-kb5017380-os-builds-19042-2075-19043-2075-og-19044-2075-preview-59ab550c-105e-4481-b440-c37f07bf7897)
-[Windows Server 2022 - kb5017381](https://support.microsoft.com/da-dk/topic/20-september-2022-kb5017381-os-build-20348-1070-preview-dc843fea-bccd-4550-9891-a021ae5088f0)
-[Windows Server 2019 - kb5017379](https://support.microsoft.com/da-dk/topic/20-september-2022-kb5017379-os-build-17763-3469-preview-50a9b9e2-745d-49df-aaae-19190e10d307)
+- [Windows 11 - kb5017383](https://support.microsoft.com/topic/september-20-2022-kb5017383-os-build-22000-1042-preview-62753265-68e9-45d2-adcb-f996bf3ad393)
+- [Windows 10 - kb5017379](https://support.microsoft.com/topic/20-september-2022-kb5017379-os-build-17763-3469-preview-50a9b9e2-745d-49df-aaae-19190e10d307)
+- [Windows Server 20H2- kb5017380](https://support.microsoft.com/topic/20-september-2022-kb5017380-os-builds-19042-2075-19043-2075-og-19044-2075-preview-59ab550c-105e-4481-b440-c37f07bf7897)
+- [Windows Server 2022 - kb5017381](https://support.microsoft.com/topic/20-september-2022-kb5017381-os-build-20348-1070-preview-dc843fea-bccd-4550-9891-a021ae5088f0)
+- [Windows Server 2019 - kb5017379](https://support.microsoft.com/topic/20-september-2022-kb5017379-os-build-17763-3469-preview-50a9b9e2-745d-49df-aaae-19190e10d307)
 
 ## Supported browsers
 
