@@ -1108,6 +1108,8 @@ items:
     href: concepts/migrate.md
   - name: Model lifecycle
     href: concepts/model-lifecycle.md
+  - name: Language support
+    href: concepts/language-support.md
   - name: Send requests asynchronously
     href: concepts/use-asynchronously.md 
   - name: Enterprise readiness
