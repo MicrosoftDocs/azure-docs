@@ -40,12 +40,9 @@ Follow these steps to build and run the captioning quickstart code example with 
     - On a 32-bit Windows installation, set **Active solution platform** to `x86`.
 1. Open **Project** > **Properties** > **Debugging**. Enter your preferred command line arguments at **Command Arguments**. See [usage and arguments](#usage-and-arguments) for the available options. Here is an example:
     ```
-    --key YourSubscriptionKey --region YourServiceRegion --input caption.this.mp4 --format any --output caption.output.txt --srt --realTime --threshold 5 --delay 0 --profanity mask --phrases "Contoso;Jessie;Rehaan"
+    --input caption.this.mp4 --format any --output caption.output.txt --srt --realTime --threshold 5 --delay 0 --profanity mask --phrases "Contoso;Jessie;Rehaan"
     ```
-    Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource [region](~/articles/cognitive-services/speech-service/regions.md), such as `westus` or `northeurope`. Make sure that the paths specified by `--input` and `--output` are valid. Otherwise you must change the paths.
-
-    > [!IMPORTANT]
-    > Remember to remove the key from your code when you're done, and never post it publicly. For production, use a secure way of storing and accessing your credentials like [Azure Key Vault](/azure/cognitive-services/use-key-vault). See the Cognitive Services [security](../../../../cognitive-services-security.md) article for more information.
+    Make sure that the paths specified by `--input` and `--output` are valid. Otherwise you must change the paths.
 
 1. [Build and run](/cpp/build/vscpp-step-2-build) the console application. 
 
@@ -55,7 +52,7 @@ Follow these steps to build and run the captioning quickstart code example with 
 
 ## Usage and arguments
 
-Usage: `captioning --key <key> --region <region> --input <input file>`
+Usage: `captioning --input <input file>`
 
 [!INCLUDE [Usage arguments](usage-arguments-v2.md)]
 

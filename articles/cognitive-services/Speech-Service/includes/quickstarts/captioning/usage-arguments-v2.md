@@ -8,8 +8,8 @@ ms.author: eur
 
 Connection options include:
 
-- `--key`: Your Speech resource key. 
-- `--region REGION`: Your Speech resource region. Examples: `westus`, `northeurope`
+- `--key`: Your Speech resource key. Required unless you have the SPEECH_KEY environment variable set.
+- `--region REGION`: Your Speech resource region. Required unless you have the SPEECH_REGION environment variable set. Examples: `westus`, `northeurope`
 
 Input options include:
 
