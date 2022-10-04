@@ -276,6 +276,12 @@ Once a user authenticates successfully using CBA, the user's MostRecentlyUsed (M
 
 To reset the MRU method, the user needs to cancel the certificate picker, click **Other ways to sign in**, and select another method available to the user and authenticate successfully.
 
+## External identity support
+
+An external identity can't perform multifactor authentication (MFA) to the resource tenant with Azure AD CBA. Instead, have the user perform MFA using CBA in the home tenant, and set up cross tenant settings for the resource tenant to trust MFA from the home tenant.
+
+For more information about how to enable **Trust multi-factor authentication from Azure AD tenants**, see [Configure B2B collaboration cross-tenant access](../external-identities/cross-tenant-access-settings-b2b-collaboration.md#to-change-inbound-trust-settings-for-mfa-and-device-claims).
+
 ## Known issues
 
 - On iOS clients, there is a double prompt issue as part of the Azure AD CBA flow where the user needs to click **Use the certificate or smart card** twice. We're aware of the UX experience issue and working on fixing this for a seamless UX experience.
