@@ -9,7 +9,7 @@ ms.date: 09/22/2022
 ms.custom: subject-rbac-steps
 ---
 
-# Use managed identities to access Cosmos DB from an Azure Stream Analytics job (preview)
+# Use managed identities to access Cosmos DB from an Azure Stream Analytics job
 
 Azure Stream Analytics supports managed identity authentication for Azure Cosmos DB output. Managed identities eliminate the limitations of user-based authentication methods, like the need to reauthenticate because of password changes or user token expirations that occur every 90 days. When you remove the need to manually authenticate, your Stream Analytics deployments can be fully automated.  
 
