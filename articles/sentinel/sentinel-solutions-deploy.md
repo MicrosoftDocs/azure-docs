@@ -27,7 +27,10 @@ If you're a partner who wants to create your own solution, see the [Microsoft Se
 
 ## Prerequisites
 
-In order to install, update or manage all solutions, you need the **Template Spec Contributor** role at the resource group level.  
+In order to install, update or delete solutions in content hub, you need the **Template Spec Contributor** role at the resource group level. See [Azure RBAC built in roles](/../role-based-access-control.md/built-in-roles#template-spec-contributor) for details on this role. 
+
+This is in addition to Sentinel specific roles. For more information about other roles and permissions supported for Microsoft Sentinel, see [Permissions in Microsoft Sentinel](roles.md).
+  
 
 ## Discover solutions
 
@@ -35,7 +38,7 @@ The content hub offers the best way to find new solutions or manage the ones you
 
 1. From the Microsoft Sentinel navigation menu, under **Content management**, select **Content hub (Preview)**.
 
-1. The **Content hub** page displays a searchable and filterable grid or list of solutions.
+1. The **Content hub** page displays a searchable grid or list of solutions.
 
     Filter the list displayed, either by selecting specific values from the filters, or entering any part of a product name or description in the **Search** field.
 
@@ -56,7 +59,7 @@ For example, in the following image, the **Cisco Umbrella** solution shows a cat
 
 Solutions can be installed and updated individually or in bulk. Here's the process for an individual solution.
 
-1. In the content hub, select a solution to view more information on the right. Then select **Install**, or **Update**, if you need updates. For example:
+1. In the content hub, select a solution to view more information on the right. Then select **Install**, or **Update**. For example:
 
 1. On the solution details page, select **Create** or **Update** to start the solution wizard. On the **Basics** tab, enter the subscription, resource group, and workspace to deploy the solution. For example:
 
@@ -104,34 +107,60 @@ Centrally manage content items for installed solutions from the content hub.
 
 1. Select a content item to get started. 
 
-1. The following steps describe how you can interact with the different solution content types in the content hub. 
+### Management options for each content type
+Below are some tips on how to interact with various content types when managing the solution.
 
-1. **Data connector** -  Select **Open connector page**. 
+#### Data connector
+1. Select **Open connector page**. 
+1. Complete the data connector configuration steps. 
 
     :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-data-connector-open-connector.png" alt-text="Screenshot of data connector content item for Azure Activity solution where status is disconnected.":::
 
-    Complete the data connector configuration steps. After you configure the data connector, the content item status shows as **Connected**.
-1. **Analytics rule** - View the template in the analytics template gallery. Select **Create rule** and follow the steps to enable the analytics rule . The number of active rules created from the rule template is shown in the **Created content** column for the content item.
+1. After you configure the data connector and logs are detected, the status will change to **Connected**.
+
+#### Analytics rule 
+1. View the template in the analytics template gallery. 
+1. If the template hasn't been used yet, select **Open** > **Create rule** and follow the steps to enable the analytics rule. 
+1. Once created, the number of active rules created from the template is shown in the **Created content** column. 
+1. Click the active rules link, in this example **2 items**, to edit the existing rule.
 
     :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-analytics-rule.png" alt-text="Screenshot of analytics rule content item in solution for Azure Activity."::: 
 
-1. **Hunting query** - Select **Run query** from the details page. To customize the query, go to the hunting gallery and create a clone of the read-only hunting query template. The number of cloned queries associated with a hunting query is shown in the **Created content** column for the content item.  
+#### Hunting query
+1. To start searching right away, select **Run query** from the details page for quick results. 
 
     :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-hunting-query.png" alt-text="Screenshot of cloned hunting query content item in solution for Azure Activity." lightbox="media/sentinel-solutions-deploy/manage-solution-hunting-query.png":::
 
-1. **Workbook** - Select **View template** to open the workbook and see the visualizations. To create an instance of the workbook template to customize, select **Manage in gallery** > **Save**. View your saved customizable workbook by selecting **1 item** in the  **Created content** column.
+1. To customize your hunting query, select the link, in this case **Common deployed resources**, in the **Content name** column.
+1. This brings you to the hunting gallery where you can create a clone of the read-only hunting query template by accessing the ellipses menu. Hunting queries created in this way will display as items in the content hub **Created content** column.
+
+#### Workbook
+1. Select **View template** to open the workbook and see the visualizations. 
+1. To create an instance of the workbook template select **Save**. 
+1. View your saved customizable workbook by selecting **View saved workbook**.
+1. From the content hub, select the **1 item** link in the **Created content** column to manage the workbook.
 
     :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-workbook.png" alt-text="Screenshot of saved workbook item in solution for Azure Activity." lightbox="media/sentinel-solutions-deploy/manage-solution-workbook.png" :::
 
-1. **Parser** - Select **Load the function code** to open Azure Log Analytics and run the provided function code. Select **Use in editor** to open Azure Log Analytics with the parser.
+#### Parser 
+When a solution is installed, any parsers included are added as workspace functions in Log Analytics.
+1. Select **Load the function code** to open Log Analytics and view or run the function code. 
+1. Select **Use in editor** to open Log Analytics with the parser name ready to add to your custom query.
 
     :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-parser.png" alt-text="Screenshot of parser content type in a solution.":::
 
-1. **Playbook** - Not yet supported in this view. In Microsoft Sentinel, go to **Playbook** to find and use the solution's playbook.
+#### Playbook
+1. Select the **Content name** link of the playbook, in this example **BatchImportToSentinel**.
+1. This playbook template will populate the search field. From the results choose the template and select **Create playbook**.
+1. Once created, the active playbook is shown in the **Created content** column.
+1. Click the active playbook **1 item** link to manage the playbook. 
+
+    :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-playbook.png" alt-text="Screenshot of playbook type content type in a solution.":::
+
 
 ## Find the support model for your solution
 
-Each solution lists details about its support model on the solution's details pane, in the **Support** box, where either **Microsoft** or a partner's name is listed. For example:
+Each solution explains its support model on the solution's details pane, in the **Support** box, where either **Microsoft** or a partner's name is listed. For example:
 
 :::image type="content" source="media/sentinel-solutions-deploy/find-support-details.png" alt-text="Screenshot of where you can find your support model for your solution." lightbox="media/sentinel-solutions-deploy/find-support-details.png":::
 
