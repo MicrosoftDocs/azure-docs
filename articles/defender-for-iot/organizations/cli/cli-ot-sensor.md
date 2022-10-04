@@ -5,7 +5,7 @@ ms.date: 09/07/2022
 ms.topic: reference
 ---
 
-# OT sensor CLI reference: appliance management 
+# OT sensor CLI reference: appliance management
 
 This article lists the CLI commands available for managing the OT network sensor appliance and Defender for IoT software applications.
 
@@ -22,7 +22,7 @@ We recommend that you use the *support* user for CLI access whenever possible.
 For more information, see [Access the CLI](cli-overview.md#access-the-cli) and [Privileged user access for OT monitoring](cli-overview.md#privileged-user-access-for-ot-monitoring).
 
 
-## Check service status
+## Check OT Monitoring services health
 
 Use the following commands to verify that all Defender for IoT application components on the OT sensor are working correctly, including the web console and traffic analysis processes.
 
@@ -53,24 +53,8 @@ root@xsense: system sanity
 System is UP! (medium)
 ```
 
-## Check software version
-
-Use the following commands to list the Defender for IoT software version installed on your OT sensor.
-
-|User  |Command  |Full command syntax   |
-|---------|---------|---------|
-|**support**     |   `system version`      |   No attributes      |
-|**cyberx**     |   `cyberx-xsense-version`      |   No attributes      |
-
-
-For example, for the *support* user:
-
-```cli
-root@xsense: system version
-Version: 22.2.5.9-r-2121448
-```
-
-## Reboot appliance
+## Power Control
+### Reboot (Restart) appliance
 
 Use the following commands to reboot the OT sensor appliance.
 
@@ -87,7 +71,7 @@ For example, for the *support* user:
 root@xsense: system reboot
 ```
 
-## Shut down appliance
+### Shut down appliance
 
 Use the following commands to shut down the OT sensor appliance.
 
@@ -104,9 +88,167 @@ For example, for the *support* user:
 root@xsense: system shutdown
 ```
 
-## Back up and restore appliance data
+## Show installed software version
 
-The following sections describe the CLI commands supported for backing up and restoring data on your OT network sensor.
+Use the following commands to list the Defender for IoT software version installed on your OT sensor.
+
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+|**support**     |   `system version`      |   No attributes      |
+|**cyberx**     |   `cyberx-xsense-version`      |   No attributes      |
+
+
+For example, for the *support* user:
+
+```cli
+root@xsense: system version
+Version: 22.2.5.9-r-2121448
+```
+
+## Setup time/date and NTP
+### Show current system time/date
+
+Use the following commands to show the current system date and time on your OT network sensor, in GMT format.
+
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+|**support**     |   `date`      |   No attributes      |
+|**cyberx**     |   `date`      |   No attributes      |
+|**cyberx_host**     |   `date`      |  No attributes    |
+
+
+For example, for the *support* user:
+
+```cli
+root@xsense: date
+Thu Sep 29 18:38:23 UTC 2022
+root@xsense:
+```
+
+### Enable NTP time sync
+
+The ability to sync time to a specified NTP server can be enabled or disabled. Ensure the server can be reached from the appliance management port, and utilize the same time source to sync all sensors and the on-premise management console.
+
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+|**support**     |   `ntp enable IP`      |   `IP` is a valid IPv4 NTP server using port 123      |
+|**cyberx**     |   `cyberx-xsense-ntp-enable IP`      |  `IP` is a valid IPv4 NTP server using port 123      |
+
+
+For example, for the *support* user:
+
+```cli
+root@xsense: ntp enable 129.6.15.28
+root@xsense:
+```
+
+### Disable NTP time sync
+
+
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+|**support**     |   `ntp disable IP`      |   `IP` is a valid IPv4 NTP server using port 123      |
+|**cyberx**     |   `cyberx-xsense-ntp-disable IP`      |  `IP` is a valid IPv4 NTP server using port 123      |
+
+
+For example, for the *support* user:
+
+```cli
+root@xsense: ntp enable 129.6.15.28
+root@xsense:
+```
+
+## Reset privileged user passwords
+
+Use the following command to reset the password for the *cyberx* or *support* user.
+
+This command requires attributes to define the user whose password you're resetting and the password you want to use.
+
+ <!--how do you reset password for the cyberx_host password?-->
+
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+|**cyberx**     |   `cyberx-users-password-reset`      | `cyberx-users-password-reset -u <user> -p <password>`      |
+
+<!--can we use a better password example in this code sample? like something as below?-->
+
+The following example shows the *cyberx* user resetting the *support* user's password to `jI8iD9kE6hB8qN0h`:
+
+```cli
+root@xsense:/# cyberx-users-password-reset -u support -p jI8iD9kE6hB8qN0h
+resetting the password of OS user "support"
+Sending USER_PASSWORD request to OS manager
+Open UDS connection with /var/cyberx/system/os_manager.sock
+Received data: b'ack'
+resetting the password of UI user "support"
+root@xsense:/#
+```
+
+## Network Configuration
+
+### Network Monitoring and troubleshooting
+The following table describes the commands available to validate your network setup:
+
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+|**support**     |   `ping IP`      |   `IP` is a valid IPv4 network host (from management port)      |
+|**support**     |   `network blink`      |   No attributes<br> Locate a connection by causing the interface lights to blink.|
+|**cyberx**      |   `ping IP`      |   `IP` is a valid IPv4 network host (from management port)      |
+
+
+### Change networking configuration or reassign network interface roles
+
+Use the following command to re-run the software configuration wizard which allows to set the OT sensor:
+- Monitoring interfaces mapping
+- Management Interface mapping and network configuration
+- Assign ERSPAN interfaces
+- Assign the backup directory
+
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+|**cyberx**     |   `sudo dpkg-reconfigure iot-sensor`      |   No attributes     |
+
+
+For example, for the **cyberx** user:
+```cli
+root@xsense:/# sudo dpkg-reconfigure iot-sensor
+```
+
+The configuration wizard starts. For more information, see [Install OT monitoring software](../how-to-install-software.md#install-ot-monitoring-software).
+
+## Manage SSL and TLS certificates
+
+Enter the following command to import SSL and TLS enterprise certificates into the CLI:
+
+```cli
+root@xsense:/# cyberx-xsense-certificate-import
+```
+To use the tool, you need to upload the certificate files to the device. You can do this through tools such as WinSCP or Wget. 
+
+The command supports the following input flags:
+
+| Flag | Description |
+|--|--|
+| -h | Shows the command-line help syntax. |
+| --crt | The path to the certificate file (.crt extension). |
+| --key | The \*.key file. Key length should be a minimum of 2,048 bits. |
+| --chain | Path to the certificate chain file (optional). |
+| --pass | Passphrase used to encrypt the certificate (optional). |
+| --passphrase-set | The default is **False**, **unused**. <br />Set to **True** to use the previous passphrase supplied with the previous certificate (optional). | 
+
+When you're using the tool:
+
+- Verify that the certificate files are readable on the appliance. 
+- Confirm with IT the appliance domain (as it appears in the certificate) with your DNS server and the corresponding IP address. 
+
+
+## Back up and restore appliance snapshot
+
+The following sections describe the CLI commands supported for backing up and restoring a system snapshot of your OT network sensor.
+Backup includes a full snapshot of the sensor state including: configuration, baseline, inventory and logs.
+
+>[!WARNING]
+>Do not interrupt a system backup or restore operation as this may cause the system to become unusable
 
 ### Start an immediate, unscheduled backup
 
@@ -178,66 +320,6 @@ starting components
 root@xsense:
 ```
 
-## Show current system date/time
-
-Use the following commands to show the current system date and time on your OT network sensor, in GMT format.
-
-|User  |Command  |Full command syntax   |
-|---------|---------|---------|
-|**support**     |   `date`      |   No attributes      |
-|**cyberx**     |   `date`      |   No attributes      |
-|**cyberx_host**     |   `date`      |  No attributes    |
-
-
-For example, for the *support* user:
-
-```cli
-root@xsense: date
-Thu Sep 29 18:38:23 UTC 2022
-root@xsense:
-```
-
-## Reset privileged user passwords
-
-Use the following command to reset the password for the *cyberx* or *support* user.
-
-This command requires attributes to define the user whose password you're resetting and the password you want to use.
-
- <!--how do you reset password for the cyberx_host password?-->
-
-|User  |Command  |Full command syntax   |
-|---------|---------|---------|
-|**cyberx**     |   `cyberx-users-password-reset`      | `cyberx-users-password-reset -u <user> -p <password>`      |
-
-<!--can we use a better password example in this code sample? like something as below?-->
-
-The following example shows the *cyberx* user resetting the *support* user's password to `jI8iD9kE6hB8qN0h`:
-
-```cli
-root@xsense:/# cyberx-users-password-reset -u support -p jI8iD9kE6hB8qN0h
-resetting the password of OS user "support"
-Sending USER_PASSWORD request to OS manager
-Open UDS connection with /var/cyberx/system/os_manager.sock
-Received data: b'ack'
-resetting the password of UI user "support"
-root@xsense:/#
-```
-
-## Setup appliance network interfaces
-
-Use the following command to run the software installation wizard from scratch and redefine the OT sensor's monitoring and management interfaces.
-
-|User  |Command  |Full command syntax   |
-|---------|---------|---------|
-|**cyberx**     |   `sudo dpkg-reconfigure iot-sensor`      |   No attributes     |
-
-
-For example, for the **cyberx** user:
-```cli
-root@xsense:/# sudo dpkg-reconfigure iot-sensor
-```
-
-The installation wizard starts. For more information, see [Install OT monitoring software](../how-to-install-software.md#install-ot-monitoring-software).
 
 ## Next steps
 
