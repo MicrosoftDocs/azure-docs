@@ -142,7 +142,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
     > [!NOTE]
     > It may take a minute or two for the ServiceExport to be propagated.
 
-1. Apply the MultiClusterService on one of these member clusters to load balance across the service endpoints in these clusters:
+1. Apply the MultiClusterService on one of these members to load balance across the service endpoints in these clusters:
 
     ```bash
     KUBECONFIG=aks-member-1 kubectl apply -f https://raw.githubusercontent.com/Azure/AKS/master/examples/fleet/kuard/kuard-mcs.yaml
@@ -175,7 +175,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
     curl <a.b.c.d>:8080 | grep addrs 
     ```
 
-    Notice that the IPs of the pods serving the request is changing and that these pods are from member clusters `aks-member-1` and `aks-member-2` from the `eastus` region. This can be verified by running the following commands and comparing the IP addresses:
+    Notice that the IPs of the pods serving the request is changing and that these pods are from member clusters `aks-member-1` and `aks-member-2` from the `eastus` region. You can verify the pod IPs by running the following commands on the clusters from `eastus` region:
 
     ```bash
     KUBECONFIG=aks-member-1 kubectl get pods -n kuard-demo -o wide

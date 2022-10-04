@@ -235,7 +235,7 @@ An example of targeting a specific cluster by name is given below:
     Error from server (NotFound): namespaces "hello-world-1" not found
     ```
 
-  We are able to verify that the namespace has been propagated only to `aks-member-1` cluster, but not the other clusters.
+  We're able to verify that the namespace has been propagated only to `aks-member-1` cluster, but not the other clusters.
 
 
 > [!TIP]
