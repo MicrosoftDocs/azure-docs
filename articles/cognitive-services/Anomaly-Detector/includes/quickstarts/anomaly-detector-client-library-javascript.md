@@ -24,106 +24,202 @@ Use the Anomaly Detector client library for JavaScript to:
 ## Prerequisites
 
 * An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
-* <a href="https://www.python.org/" target="_blank">Python 3.x</a>
-* <a href="https://pandas.pydata.org/" target="_blank">Pandas data analysis library</a>
-* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and select the **Go to resource** button. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* The current version of [Node.js](https://nodejs.org/)
+* The current version of <a href="https://nodejs.org/" target="_blank">Node.js</a>
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
     * You will need the key and endpoint from the resource you create to connect your application to the Anomaly Detector API. You'll paste your key and endpoint into the code below later in the quickstart.
     You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-## Setting up
-
-[!INCLUDE [anomaly-detector-environment-variables](../environment-variables.md)]
+## Set up
 
 ### Create a new Node.js application
 
-In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
+In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it.
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-Run the `npm init` command to create a node application with a `package.json` file. 
+Run the `npm init` command to create a node application with a `package.json` file.
 
 ```console
 npm init
 ```
-
-Create a file named `index.js` and import the following libraries:
-
-[!code-javascript[Import statements](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=imports)]
-
-Create variables your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable. Create another variable for the example data file you will download in a later step, and an empty list for the data points. Then create a `ApiKeyCredentials` object to contain the key.
-
-[!code-javascript[Initial endpoint and key variables](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=vars)]
 
 ### Install the client library
 
 Install the `ms-rest-azure` and `azure-cognitiveservices-anomalydetector` NPM packages. The csv-parse library is also used in this quickstart:
 
 ```console
-npm install @azure/ai-anomaly-detector @azure/ms-rest-js csv-parse
+ npm install csv-parse
+ npm install @azure/core-auth
+ npm install @azure/ai-anomaly-detector
 ```
 
 Your app's `package.json` file will be updated with the dependencies.
 
-## Object model
+## Retrieve key and endpoint
 
-The Anomaly Detector client is an [AnomalyDetectorClient](/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient) object that authenticates to Azure using your key. The client can do anomaly detection on an entire dataset using [entireDetect()](/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient#entiredetect-request--servicecallback-entiredetectresponse--), or on the latest data point using [LastDetect()](/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient#lastdetect-request--msrest-requestoptionsbase-). The [ChangePointDetectAsync](https://go.microsoft.com/fwlink/?linkid=2090788) method detects points that mark changes in a trend. 
+To successfully make a call against the Anomaly Detector service, you'll need the following values:
 
-Time series data is sent as series of [Points](/javascript/api/@azure/cognitiveservices-anomalydetector/point) in a [Request](/javascript/api/@azure/cognitiveservices-anomalydetector/request) object. The `Request` object contains properties to describe the data ([Granularity](/javascript/api/@azure/cognitiveservices-anomalydetector/request#granularity) for example), and parameters for the anomaly detection. 
+|Variable name | Value |
+|--------------------------|-------------|
+| `ANOMALY_DETECTOR_ENDPOINT` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Example endpoint: `https://YOUR_RESOURCE_NAME.cognitiveservices.azure.com/`|
+| `ANOMALY_DETECTOR_API_KEY` | The API key value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either `KEY1` or `KEY2`.|
+|`DATA_PATH` | This quickstart uses the `request-data.csv` file that can be downloaded from our [GitHub sample data](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_data/request-data.csv). Example path: `c:\\test\\request-data.csv`  |
 
-The Anomaly Detector response is a [LastDetectResponse](/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse), [EntireDetectResponse](/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse), or [ChangePointDetectResponse](https://go.microsoft.com/fwlink/?linkid=2090788) object depending on the method used. 
+Go to your resource in the Azure portal. The **Endpoint and Keys** can be found in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. You can use either `KEY1` or `KEY2`. Always having two keys allows you to securely rotate and regenerate keys without causing a service disruption.
 
-## Code examples 
+### Create environment variables
 
-These code snippets show you how to do the following with the Anomaly Detector client library for Node.js:
+Create and assign persistent environment variables for your key and endpoint.
 
-* [Authenticate the client](#authenticate-the-client)
-* [Load a time series data set from a file](#load-time-series-data-from-a-file)
-* [Detect anomalies in the entire data set](#detect-anomalies-in-the-entire-data-set) 
-* [Detect the anomaly status of the latest data point](#detect-the-anomaly-status-of-the-latest-data-point)
-* [Detect the change points in the data set](#detect-change-points-in-the-data-set)
+# [Command Line](#tab/command-line)
 
-## Authenticate the client
+```CMD
+setx ANOMALY_DETECTOR_API_KEY "REPLACE_WITH_YOUR_KEY_VALUE_HERE" 
+```
 
-Instantiate a [AnomalyDetectorClient](/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient) object with your endpoint and credentials.
+```CMD
+setx ANOMALY_DETECTOR_ENDPOINT "REPLACE_WITH_YOUR_ENDPOINT_HERE" 
+```
 
-[!code-javascript[Authentication](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=authentication)]
+# [PowerShell](#tab/powershell)
 
-## Load time series data from a file
+```powershell
+[System.Environment]::SetEnvironmentVariable('ANOMALY_DETECTOR_API_KEY', 'REPLACE_WITH_YOUR_KEY_VALUE_HERE', 'User')
+```
 
-Download the example data for this quickstart from [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/AnomalyDetector/request-data.csv):
-1. In your browser, right-click **Raw**.
-2. Click **Save link as**.
-3. Save the file to your application directory, as a .csv file.
+```powershell
+[System.Environment]::SetEnvironmentVariable('ANOMALY_DETECTOR_ENDPOINT', 'REPLACE_WITH_YOUR_ENDPOINT_HERE', 'User')
+```
 
-This time series data is formatted as a .csv file, and will be sent to the Anomaly Detector API.
+# [Bash](#tab/bash)
 
-Read your data file with the csv-parse library's `readFileSync()` method, and parse the file with `parse()`. For each line, push a [Point](/javascript/api/@azure/cognitiveservices-anomalydetector/point) object containing the timestamp, and the numeric value.
+```Bash
+echo export ANOMALY_DETECTOR_API_KEY="REPLACE_WITH_YOUR_KEY_VALUE_HERE" >> /etc/environment && source /etc/environment
+```
 
-[!code-javascript[Read the data file](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=readFile)]
+```Bash
+echo export ANOMALY_DETECTOR_ENDPOINT="REPLACE_WITH_YOUR_ENDPOINT_HERE" >> /etc/environment && source /etc/environment
+```
 
-## Detect anomalies in the entire data set 
+---
 
-Call the API to detect anomalies through the entire time series as a batch with the client's [entireDetect()](/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient#entiredetect-request--msrest-requestoptionsbase-) method. Store the returned [EntireDetectResponse](/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse) object. Iterate through the response's `isAnomaly` list, and print the index of any `true` values. These values correspond to the index of anomalous data points, if any were found.
+### Download sample data
 
-[!code-javascript[Batch detection function](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=batchCall)]
+This quickstart uses the `request-data.csv` file that can be downloaded from our [GitHub sample data](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_data/request-data.csv)
 
-## Detect the anomaly status of the latest data point
+ You can also download the sample data by running:
 
-Call the Anomaly Detector API to determine if your latest data point is an anomaly using the client's [lastDetect()](/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient#lastdetect-request--msrest-requestoptionsbase-) method, and store the returned [LastDetectResponse](/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse) object. The response's `isAnomaly` value is a boolean that specifies that point's anomaly status.  
+```cmd
+curl "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_data/request-data.csv" --output request-data.csv
+```
 
-[!code-javascript[Last point detection function](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=lastDetection)]
+## Detect anomalies
 
-## Detect change points in the data set
+Create a file named `index.js` and replace with the following code:
 
-Call the API to detect change points in the time series with the client's [detectChangePoint()](https://go.microsoft.com/fwlink/?linkid=2090788) method. Store the returned [ChangePointDetectResponse](https://go.microsoft.com/fwlink/?linkid=2090788) object. Iterate through the response's `isChangePoint` list, and print the index of any `true` values. These values correspond to the indices of trend change points, if any were found.
+```javascript
+// <imports>
+'use strict'
 
-[!code-javascript[detect change points](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=changePointDetection)]
+const fs = require('fs');
+const parse = require("csv-parse/lib/sync");
+const { AnomalyDetectorClient } = require('@azure/ai-anomaly-detector');
+const { AzureKeyCredential } = require('@azure/core-auth');
+
+let CSV_FILE = './request-data.csv'; //this assumes your datafile is in the same directory as your index.js file
+
+// Authentication variables
+let key = process.env.ANOMALY_DETECTOR_API_KEY;
+let endpoint = process.env.ANOMALY_DETECTOR_ENDPOINT;
+
+// Points array for the request body
+let points = [];
+
+
+let anomalyDetectorClient = new AnomalyDetectorClient(endpoint, new AzureKeyCredential(key));
+
+function readFile() {
+    let input = fs.readFileSync(CSV_FILE).toString();
+    let parsed = parse(input, { skip_empty_lines: true });
+    parsed.forEach(function (e) {
+        points.push({ timestamp: new Date(e[0]), value: parseFloat(e[1]) });
+    });
+}
+readFile()
+
+async function batchCall() {
+    // Create request body for API call
+    let body = { series: points, granularity: 'daily' }
+    // Make the call to detect anomalies in whole series of points
+    await anomalyDetectorClient.detectEntireSeries(body)
+        .then((response) => {
+            console.log("Batch (entire) anomaly detection):")
+            for (let item = 0; item < response.isAnomaly.length; item++) {
+                if (response.isAnomaly[item]) {
+                    console.log("An anomaly was detected from the series, at row " + item)
+                }
+            }
+        }).catch((error) => {
+            console.log(error)
+        })
+
+}
+batchCall()
+
+async function lastDetection() {
+
+    let body = { series: points, granularity: 'daily' }
+    // Make the call to detect anomalies in the latest point of a series
+    await anomalyDetectorClient.detectLastPoint(body)
+        .then((response) => {
+            console.log("Latest point anomaly detection:")
+            if (response.isAnomaly) {
+                console.log("The latest point, in row " + points.length + ", is detected as an anomaly.")
+            } else {
+                console.log("The latest point, in row " + points.length + ", is not detected as an anomaly.")
+            }
+        }).catch((error) => {
+            console.log(error)
+        })
+}
+lastDetection()
+
+async function changePointDetection() {
+
+    let body = { series: points, granularity: 'daily' }
+    // get change point detect results
+    await anomalyDetectorClient.detectChangePoint(body)
+        .then((response) => {
+            if (
+                response.isChangePoint.some(function (changePoint) {
+                    return changePoint === true;
+                })
+            ) {
+                console.log("Change points were detected from the series at index:");
+                response.isChangePoint.forEach(function (changePoint, index) {
+                    if (changePoint === true) {
+                        console.log(index);
+                    }
+                });
+            } else {
+                console.log("There is no change point detected from the series.");
+            }
+        }).catch((error) => {
+            console.log(error)
+        })
+}
+changePointDetection();
+```
+
+### Detect anomalies in the entire dataset
+
+In the code above, we call the Anomaly Detector API three times. The first call is to detect anomalies through the entire time series as a batch with the client's [entireDetect()](/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient#entiredetect-request--msrest-requestoptionsbase-) method. We store the returned [EntireDetectResponse](/javascript/api/@azure/cognitiveservices-anomalydetector/entiredetectresponse) object. Then we iterate through the response's `isAnomaly` list, and print the index of any `true` values. These values correspond to the index of anomalous data points, if any were found.
+
+The second call determines if your latest data point is an anomaly using the client's [lastDetect()](/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient#lastdetect-request--msrest-requestoptionsbase-) method, and store the returned [LastDetectResponse](/javascript/api/@azure/cognitiveservices-anomalydetector/lastdetectresponse) object. The response's `isAnomaly` value is a boolean that specifies that point's anomaly status.  
+
+The final call detects change points in the time series with the client's [detectChangePoint()](https://go.microsoft.com/fwlink/?linkid=2090788) method. Store the returned [ChangePointDetectResponse](https://go.microsoft.com/fwlink/?linkid=2090788) object. Iterate through the response's `isChangePoint` list, and print the index of any `true` values. These values correspond to the indices of trend change points, if any were found.
 
 ## Run the application
 
@@ -133,4 +229,9 @@ Run the application with the `node` command on your quickstart file.
 node index.js
 ```
 
-[!INCLUDE [anomaly-detector-next-steps](../quickstart-cleanup-next-steps.md)]
+## Clean up resources
+
+If you want to clean up and remove an Anomaly Detector resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. You also may want to consider [deleting the environment variables](/powershell/module/microsoft.powershell.core/about/about_environment_variables?view=powershell-7.2#using-the-environment-provider-and-item-cmdlets&preserve-view=true) you created if you no longer intend to use them.
+
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
