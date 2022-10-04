@@ -49,7 +49,7 @@ vSAN datastores use data-at-rest encryption by default using keys stored in Azur
 
 ## Datastore capacity expansion options
 
-The vSAN datastore capacity can be expanded by connecting Azure storage resources such as [Azure NetApp Files volumes as datastores](/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts). Virtual machines can be migrated between vSAN and Azure NetApp Files datastores using storage vMotion. Azure NetApp Files datastores can be replicated to other regions using storage based [Cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction) for testing, development and failover purposes.
+The vSAN datastore capacity can be expanded by connecting Azure storage resources such as [Azure NetApp Files volumes as datastores](/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts). Virtual machines can be migrated between vSAN and Azure NetApp Files datastores using storage vMotion.
 Azure NetApp Files is available in [Ultra, Premium and Standard performance tiers](/azure/azure-netapp-files/azure-netapp-files-service-levels) to allow for adjusting performance and cost to the requirements of the workloads. 
 
 ## Azure storage integration
