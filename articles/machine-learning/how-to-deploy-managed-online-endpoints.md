@@ -135,7 +135,7 @@ For supported general-purpose and GPU instance types, see [Managed online endpoi
 
 ### Use more than one model
 
-Currently, you can specify only one model per deployment in the YAML. If you've more than one model, when you register the model, copy all the models as files or subdirectories into a folder that you use for registration. In your scoring script, use the environment variable `AZUREML_MODEL_DIR` to get the path to the model root folder. The underlying directory structure is retained.
+Currently, you can specify only one model per deployment in the YAML. If you've more than one model, when you register the model, copy all the models as files or subdirectories into a folder that you use for registration. In your scoring script, use the environment variable `AZUREML_MODEL_DIR` to get the path to the model root folder. The underlying directory structure is retained. For an example of the scoring script for multi models, see [multimodel-minimal-score.py](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/custom-container/multimodel-minimal-score.py).
 
 ## Understand the scoring script
 
