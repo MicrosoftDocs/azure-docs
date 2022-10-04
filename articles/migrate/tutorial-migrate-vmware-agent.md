@@ -1,23 +1,23 @@
 ---
-title: Migrate VMware VMs with agent-based Azure Migrate Server Migration
-description: Learn how to run an agent-based migration of VMware VMs with Azure Migrate.
+title: Migrate VMware vSphere VMs with agent-based Azure Migrate Server Migration
+description: Learn how to run an agent-based migration of VMware vSphere VMs with Azure Migrate.
 author: rahug1190
 ms.author: rahugup
 ms.manager: bsiva
 ms.topic: tutorial
-ms.date: 06/20/2022
+ms.date: 10/04/2022
 ms.custom: MVC
 ---
 
-# Migrate VMware VMs to Azure (agent-based)
+# Migrate VMware vSphere VMs to Azure (agent-based)
 
-This article shows you how to migrate on-premises VMware VMs to Azure, using the [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool, with agent-based migration.  You can also migrate VMware VMs using agentless migration. [Compare](server-migrate-overview.md#compare-migration-methods) the methods.
+This article shows you how to migrate on-premises VMware vSphere VMs to Azure, using the [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) tool, with agent-based migration.  You can also migrate VMware vSphere VMs using agentless migration. [Compare](server-migrate-overview.md#compare-migration-methods) the methods.
 
 
  In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Prepare Azure to work with Azure Migrate.
-> * Prepare for agent-based migration. Set up a VMware account so that Azure Migrate can discover machines for migration. Set up an account so that the Mobility service agent can install on machines you want to migrate, and prepare a machine to act as the replication appliance.
+> * Prepare for agent-based migration. Set up a VMware vCenter Server account so that Azure Migrate can discover machines for migration. Set up an account so that the Mobility service agent can install on machines you want to migrate, and prepare a machine to act as the replication appliance.
 > * Add the Azure Migrate: Server Migration tool
 > * Set up the replication appliance.
 > * Replicate VMs.
@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-Before you begin this tutorial, [review](./agent-based-migration-architecture.md) the VMware agent-based migration architecture.
+Before you begin this tutorial, [review](./agent-based-migration-architecture.md) the VMware vSphere agent-based migration architecture.
 
 ## Prepare Azure
 
@@ -81,19 +81,19 @@ Verify support requirements  and permissions, and prepare to deploy a replicatio
 
 ### Prepare an account to discover VMs
 
-Azure Migrate: Server Migration needs access to VMware servers to discover VMs you want to migrate. Create the account as follows:
+Azure Migrate: Server Migration needs access to VMware vSphere to discover VMs you want to migrate. Create the account as follows:
 
-1. To use a dedicated account, create a role at the vCenter level. Give the role a name such as
+1. To use a dedicated account, create a role at the vCenter Server level. Give the role a name such as
    **Azure_Migrate**.
 2. Assign the role the permissions summarized in the table below.
-3. Create a user on the vCenter server or vSphere host. Assign the role to the user.
+3. Create a user on the vCenter Server or vSphere host. Assign the role to the user.
 
-#### VMware account permissions
+#### VMware vSphere account permissions
 
 **Task** | **Role/Permissions** | **Details**
 --- | --- | ---
 **VM discovery** | At least a read-only user<br/><br/> Data Center object –> Propagate to Child Object, role=Read-only | User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs, and networks).
-**Replication** |  Create a role (Azure Site Recovery) with the required permissions, and then assign the role to a VMware user or group<br/><br/> Data Center object –> Propagate to Child Object, role=Azure Site Recovery<br/><br/> Datastore -> Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files<br/><br/> Network -> Network assign<br/><br/> Resource -> Assign VM to resource pool, migrate powered off VM, migrate powered on VM<br/><br/> Tasks -> Create task, update task<br/><br/> Virtual machine -> Configuration<br/><br/> Virtual machine -> Interact -> answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install<br/><br/> Virtual machine -> Inventory -> Create, register, unregister<br/><br/> Virtual machine -> Provisioning -> Allow virtual machine download, allow virtual machine files upload<br/><br/> Virtual machine -> Snapshots -> Remove snapshots | User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs, and networks).
+**Replication** |  Create a role (Azure Site Recovery) with the required permissions, and then assign the role to a VMware vSphere user or group<br/><br/> Data Center object –> Propagate to Child Object, role=Azure Site Recovery<br/><br/> Datastore -> Allocate space, browse datastore, low-level file operations, remove file, update virtual machine files<br/><br/> Network -> Network assign<br/><br/> Resource -> Assign VM to resource pool, migrate powered off VM, migrate powered on VM<br/><br/> Tasks -> Create task, update task<br/><br/> Virtual machine -> Configuration<br/><br/> Virtual machine -> Interact -> answer question, device connection, configure CD media, configure floppy media, power off, power on, VMware tools install<br/><br/> Virtual machine -> Inventory -> Create, register, unregister<br/><br/> Virtual machine -> Provisioning -> Allow virtual machine download, allow virtual machine files upload<br/><br/> Virtual machine -> Snapshots -> Remove snapshots | User assigned at datacenter level, and has access to all the objects in the datacenter.<br/><br/> To restrict access, assign the **No access** role with the **Propagate to child** object, to the child objects (vSphere hosts, datastores, VMs, and networks).
 
 ### Prepare an account for Mobility service installation
 
@@ -112,25 +112,25 @@ Prepare the account as follows:
 
 ### Prepare a machine for the replication appliance
 
-The appliance is used to replication machines to Azure. The appliance is single, highly available, on-premises VMware VM that hosts these components:
+The appliance is used to replication machines to Azure. The appliance is single, highly available, on-premises VMware vSphere VM that hosts these components:
 
 - **Configuration server**: The configuration server coordinates communications between on-premises and Azure, and manages data replication.
 - **Process server**: The process server acts as a replication gateway. It receives replication data; optimizes it with caching, compression, and encryption, and sends it to a cache storage account in Azure. The process server also installs the Mobility Service agent on VMs you want to replicate, and performs automatic discovery of on-premises VMware VMs.
 
 Prepare for the appliance as follows:
 
-- [Review appliance requirements](migrate-replication-appliance.md#appliance-requirements). Generally, you set up the replication appliance a VMware VM using a downloaded OVA file. The template creates an appliance that complies with all requirements.
+- [Review appliance requirements](migrate-replication-appliance.md#appliance-requirements). Generally, you set up the replication appliance a VMware vSphere VM using a downloaded OVA file. The template creates an appliance that complies with all requirements.
 - MySQL must be installed on the appliance. [Review](migrate-replication-appliance.md#mysql-installation) installation methods.
 - Review the [public cloud URLs](migrate-replication-appliance.md#url-access), and [Azure Government URLs](migrate-replication-appliance.md#azure-government-url-access) that the appliance machine needs to access.
 - [Review the ports](migrate-replication-appliance.md#port-access) that the replication appliance machine needs to access.
 
 
 
-### Check VMware requirements
+### Check VMware vSphere requirements
 
-Make sure VMware servers and VMs comply with requirements for migration to Azure.
+Make sure VMware vSphere VMs comply with requirements for migration to Azure.
 
-1. [Verify](migrate-support-matrix-vmware-migration.md#vmware-requirements-agent-based) VMware server requirements.
+1. [Verify](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agent-based) VMware vSphere VM requirements.
 2. [Verify](migrate-support-matrix-vmware-migration.md#vm-requirements-agent-based) VM requirements for migration.
 3. Verify Azure settings. On-premises VMs you replicate to Azure must comply with [Azure VM requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 4. There are some changes needed on VMs before you migrate them to Azure.
@@ -171,11 +171,11 @@ Download the template as follows:
 10. Note the name of the resource group and the Recovery Services vault. You need these during appliance deployment.
 
 
-### Import the template in VMware
+### Import the template into VMware vSphere
 
-After downloading the OVF template, you import it into VMware to create the replication application on a VMware VM running Windows Server 2016.
+After downloading the OVF template, you import it into VMware vSphere to create the replication application on a VMware vSphere VM running Windows Server 2016.
 
-1. Sign in to the VMware vCenter server or vSphere ESXi host with the VMware vSphere Client.
+1. Sign in to the VMware vCenter Server or vSphere ESXi host with the VMware vSphere Client.
 2. On the **File** menu, select **Deploy OVF Template** to start the **Deploy OVF Template Wizard**.
 3. In **Select source**, enter the location of the downloaded OVF.
 4. In **Review details**, select **Next**.
