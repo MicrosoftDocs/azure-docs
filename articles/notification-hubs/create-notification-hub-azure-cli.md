@@ -100,7 +100,7 @@ az group create --name spnhubrg --location eastus
    One or more notification hubs can now be created in your new namespace. Run the [az notification-hub create](/cli/azure/notification-hub#az-notification-hub-create) command to create a notification hub.
 
    ```azurecli
-   az notification-hub create --resource-group spnhubrg --namespace-name spnhubns --name spfcmtutorial1nhub --location eastus --sku Free
+   az notification-hub create --resource-group spnhubrg --namespace-name spnhubns --name spfcmtutorial1nhub --location eastus
    ```
 
 2. Create a second notification hub.
@@ -108,7 +108,7 @@ az group create --name spnhubrg --location eastus
    Multiple notification hubs can be created in a single namespace. To create a second notification hub in the same namespace, run the `az notification-hub create` command again using a different hub name.
 
    ```azurecli
-   az notification-hub create --resource-group spnhubrg --namespace-name spnhubns --name mysecondnhub --location eastus --sku Free
+   az notification-hub create --resource-group spnhubrg --namespace-name spnhubns --name mysecondnhub --location eastus 
    ```
 
 3. Get a list of notification hubs.
