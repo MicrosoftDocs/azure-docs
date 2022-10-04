@@ -290,7 +290,7 @@ az login
 
 #### Install the Front Door extension for the Azure CLI
 
-Install the `front-door` extension to work with the Front Door WAF from the Azur eCLI:
+Install the `front-door` extension to work with the Front Door WAF from the Azure CLI:
 
 ```azurecli
 az extension add --name front-door
