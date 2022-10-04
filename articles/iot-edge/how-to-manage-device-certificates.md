@@ -11,23 +11,23 @@ services: iot-edge
 ---
 # Manage certificates on an IoT Edge device
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 All IoT Edge devices use certificates to create secure connections between the runtime and any modules running on the device. IoT Edge devices functioning as gateways use these same certificates to connect to their downstream devices, too. For more information about the function of the different certificates on an IoT Edge device, see [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
 
 > [!NOTE]
-> The term "root CA" used throughout this article refers to the topmost authority public certificate of the certificate chain for your IoT solution. You do not need to use the certificate root of a syndicated certificate authority, or the root of your organization's certificate authority. In many cases, it is actually an intermediate CA public certificate.
+> The term *root CA* used throughout this article refers to the topmost authority public certificate of the certificate chain for your IoT solution. You do not need to use the certificate root of a syndicated certificate authority, or the root of your organization's certificate authority. In many cases, it is actually an intermediate CA public certificate.
 
 ## Prerequisites
 
-* An IoT Edge device. 
-  * If you don't have an IoT Edge device set up, you can create one in an Azure virtual machine. Follow the steps in one of the quickstart articles to [Create a virtual Linux device](quickstart-linux.md) or [Create a virtual Windows device](quickstart.md).
-
 * [Understand how Azure IoT Edge uses certificates](iot-edge-certs.md).
 
+* An IoT Edge device. 
+    If you don't have an IoT Edge device set up, you can create one in an Azure virtual machine. Follow the steps in one of the quickstart articles to [Create a virtual Linux device](quickstart-linux.md) or [Create a virtual Windows device](quickstart.md).
+
 * Ability to edit the IoT Edge configuration file `config.toml` following the [configuration template](https://github.com/Azure/iotedge/blob/main/edgelet/contrib/config/linux/template.toml).
-  * If your `config.toml` isn't based on the template, open [the template](https://github.com/Azure/iotedge/blob/main/edgelet/contrib/config/linux/template.toml) and follow along when the guide asks to find specific sections, and add the configuration following the structure of the template.
-  * If you have a brand new IoT Edge installation, copy the template over to initialize the configuration. Don't use this command if you have any existing configuration, because it overwrites the file.
+  * If your `config.toml` isn't based on the template, open the [template](https://github.com/Azure/iotedge/blob/main/edgelet/contrib/config/linux/template.toml) and use the commented guidance to add configuration sections following the structure of the template.
+  * If you have a new IoT Edge installation that hasn't been configured, copy the template to initialize the configuration. Don't use this command if you have an existing configuration. It overwrites the file.
     ```bash
     sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
     ```
@@ -38,54 +38,54 @@ All IoT Edge devices use certificates to create secure connections between the r
 ## Format requirements
 
 > [!TIP]
-> In public key cryptography, the public component is the "certificate". The private component is the "private key".
-> - The certificate can be encoded in a binary representation called DER, or a textual representation called PEM that is `-----BEGIN CERTIFICATE-----` + base64-encoded DER + `-----END CERTIFICATE-----`.
-> - The private key can be encoded in a binary representation called DER, or a textual representation called PEM that is `-----BEGIN PRIVATE KEY-----` + base64-encoded DER + `-----END PRIVATE KEY-----`.
-> - Because PEM is delineated, it is also possible to construct a PEM that contains both the `CERTIFICATE` and `PRIVATE KEY` one after the other in the same file. 
-> - Lastly, the certificate and private key can be encoded together in another binary representation called PKCS#12, that is encrypted with an optional password.
+> In public key cryptography, the public component is the *certificate*. The private component is the *private key*.
+> - The certificate can be encoded in a binary representation called DER, or a textual representation called PEM. The PEM format is a `-----BEGIN CERTIFICATE-----` header followed by the base64-encoded DER followed by a `-----END CERTIFICATE-----` footer.
+> - Similar to the certificate, the private key can be encoded in binary DER or textual representation PEM.
+> - Because PEM is delineated, it is also possible to construct a PEM that combines both the `CERTIFICATE` and `PRIVATE KEY` sequentually in the same file.
+> - Lastly, the certificate and private key can be encoded together in a binary representation called *PKCS#12*, that is encrypted with an optional password.
 > 
-> File extensions are arbitrary and one needs to run `file` on the file or open it to check, but in general:
-> - `.cer` is probably a certificate in DER or PEM form.
-> - `.pem` is probably a certificate or private key or both in PEM form.
-> - `.pfx` is probably a PKCS#12 file.
+> File extensions are arbitrary and you need to run the `file` command or view the file verify the type. In general, files use the following extension conventions:
+> - `.cer` is a certificate in DER or PEM form.
+> - `.pem` is either a certificate, private key, or both in PEM form.
+> - `.pfx` is a *PKCS#12* file.
 
 IoT Edge requires the certificate and private key to be:
 
 - PEM format
 - Separate files
 
-If you get a `.pfx` file from your PKI provider, it's likely the certificate and private key in encoded together in one file. Double-check with `file` that it's a PKCS#12 file. You can convert your PKCS#12 `.pfx` file to PEM with [`openssl pkcs12` command](https://www.openssl.org/docs/man1.1.1/man1/pkcs12.html). The two `.pem` files are the certificate and private key.
+If you get a `.pfx` file from your PKI provider, it's likely the certificate and private key encoded together in one file. Verify it's a PKCS#12 file type by using the `file` command. You can convert a PKCS#12 `.pfx` file to PEM files using the [openssl pkcs12 command](https://www.openssl.org/docs/man1.1.1/man1/pkcs12.html).
 
-If you get a `.cer` file as well, it may contain the same certificate as the `.pfx`, or it might be the PKI provider's issuing (root) certificate. To see which one it is, inspect it with `openssl x509` command. If it's the latter, then:
-1. If it's currently in DER (binary) format, then convert it to PEM with `openssl x509 -in cert.cer -out cert.pem`, and 
-2. Use the PEM as the [trust bundle](#manage-trusted-root-ca-or-trust-bundle).
+If your PKI provider provides a `.cer` file, it may contain the same certificate as the `.pfx`, or it might be the PKI provider's issuing (root) certificate. To verify, inspect the file with the `openssl x509` command. If it's the issuing certificate:
+1. If it's in DER (binary) format, convert it to PEM with `openssl x509 -in cert.cer -out cert.pem`.
+1. Use the PEM file as the trust bundle. See the next section for more information about the trust bundle.
 
 ## Manage trusted root CA or trust bundle
 
-To use a private certificate authority (CA) certificate with IoT Edge and modules as a root of trust, known as "trust bundle", point IoT Edge to it specifying its file path in the configuration. 
+Using a private certificate authority (CA) certificate as a root of trust with IoT Edge and modules is known as *trust bundle*. To configure the trust bundle, specify its file path in the IoT Edge configuration file.
 
-1. Get the public portion (certificate) of the root CA from a PKI provider.
+1. Get a public root CA certificate from a PKI provider.
 
-2. Ensure that it [meets format requirements](#format-requirements).
+1. Check the certificate [meets format requirements](#format-requirements).
 
-3. Move the PEM file somewhere that IoT Edge can access, like `/var/secrets/`. 
+1. Copy the PEM file to the IoT Edge device where IoT Edge modules have access. For example, `/var/secrets/` directory.
 
-4. In `config.toml` created from template, find **Trust bundle cert** section near the top.
+1. In the IoT Edge configuration file `config.toml`, find **Trust bundle cert** section. If the section is missing, you can copy it from the configuration template file.
 
-5. Edit to point to the file:
+1. Set `trust_bundle_cert` key to the certificate file location.
 
    ```toml
    trust_bundle_cert = "file:///var/secrets/root-ca.pem"
    ```
-6. Apply the configuration
+1. Apply the configuration.
    
    ```bash
    sudo iotege config apply
    ```
 
-Installing only to the trust bundle file makes the certificate available to container modules but not to host modules like Azure Device Update or Defender. If you use host level components or run into other TLS issues, also install the root CA certificate to the operating system certificate store:
+Installing the certificate to the trust bundle file makes it available to container modules but not to host modules like Azure Device Update or Defender. If you use host level components or run into other TLS issues, also install the root CA certificate to the operating system certificate store:
 
-- Linux:
+# [Linux](#tab/linux)
 
   ```bash
   sudo cp /var/secrets/my-root-ca.pem /usr/local/share/ca-certificates/my-root-ca.pem.crt
@@ -93,7 +93,7 @@ Installing only to the trust bundle file makes the certificate available to cont
   sudo update-ca-certificates
   ```
 
-- IoT Edge for Linux on Windows (EFLOW):
+# [IoT Edge for Linux on Windows (EFLOW)](#tab/linuxonwindows)
 
   ```bash
   sudo cp /var/secrets/azure-iot-test-only.root.ca.cert.pem /etc/pki/ca-trust/source/anchors/azure-iot-test-only.root.ca.cert.pem.crt
@@ -101,24 +101,26 @@ Installing only to the trust bundle file makes the certificate available to cont
   sudo update-ca-trust
   ```
 
+---
+
 ## Install existing certificates and private keys
 
-IoT Edge can use existing certificate and private key files to authenticate/attest to Azure, issue new module server certificates, and authenticate to EST servers. To install them:
+IoT Edge can use existing certificate and private key files to authenticate or attest to Azure, issue new module server certificates, and authenticate to EST servers. To install them:
 
-1. Ensure that the files meet [format requirements](#format-requirements).
+1. Check the certificate and private key files meet the [format requirements](#format-requirements).
 
-2. Move the PEM files somewhere that IoT Edge can access, like `/var/secrets/`. 
+1. Copy the PEM file to the IoT Edge device where IoT Edge modules have access. For example, `/var/secrets/` directory.
 
-3. In `config.toml`, find the relevant section for the type of the certificate to configure by looking for the keyword `cert`.
+1. In `config.toml`, find the relevant section for the type of the certificate to configure. For example, you can search for the keyword `cert`.
 
-4. Following example in the template, configure the device identity certificate, Edge CA, or EST identity certificates. The general pattern is:
+1. Using the example from the configuration template, configure the device identity certificate, Edge CA, or EST identity certificates. The example pattern is:
 
     ```toml
     cert = "file:///var/secrets/my-cert.pem"
     pk = "file:///var/secrets/my-private-key.key.pem"
     ```
 
-5. Ensure that IoT Edge's certificate service `aziotcs` and key service `aziotks` has at least read permission on the certificate and private key, respectively.
+1. Check that IoT Edge's certificate service `aziotcs` and key service `aziotks` has at least read permission on the certificate and private key, respectively.
 
    ```bash
    sudo chmod 444 /var/secrets/my-cert.pem 
