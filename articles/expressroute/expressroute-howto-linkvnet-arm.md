@@ -229,8 +229,6 @@ Register-AzProviderFeature -FeatureName ExpressRoutePrivateEndpointGatewayBypass
 
 ## Enroll in ExpressRoute FastPath features (preview)
 
-FastPath support for virtual network peering is now in Public preview, both IPv4 and IPv6 scenarios are supported. IPv4 FastPath and VNet peering can be enabled on connections associated to both ExpressRoute Direct and ExpressRoute Partner circuits. IPv6 FastPath support for VNet peering is limited to connections associated to ExpressRoute Direct.
-
 ### FastPath and Private Link for 10 Gbps ExpressRoute Direct
 
 With FastPath and Private Link, Private Link traffic sent over ExpressRoute bypasses the ExpressRoute virtual network gateway in the data path. This preview supports connections associated to 10 Gbps ExpressRoute Direct circuits. This preview doesn't support ExpressRoute circuits managed by an ExpressRoute partner.
