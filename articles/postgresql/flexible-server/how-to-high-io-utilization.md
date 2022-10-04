@@ -23,11 +23,11 @@ In this article, you will learn:
 
 Consider these tools to identify high IO utilization.
 
-### Azure Metrics
+### Azure metrics
 
 Azure Metrics is a good starting point to check the IO utilization for the definite date and period. Metrics give information about the time duration during which the IO utilization is high. Compare the graphs of Write IOPs, Read IOPs, Read Throughput, and Write Throughput to find out times when the workload caused high IO utilization. For proactive monitoring, you can configure alerts on the metrics. For step-by-step guidance, see [Azure Metrics](./howto-alert-on-metrics.md).
 
-### Query Store
+### Query store
 
 Query Store automatically captures the history of queries and runtime statistics, and it retains them for your review. It slices the data by time so that you can see temporal usage patterns. Data for all users, databases and queries is stored in a database named azure_sys in the Azure Database for PostgreSQL instance. For step-by-step guidance, see [Query Store](./concepts-query-store.md).
 
@@ -59,7 +59,6 @@ When using query store or pg_stat_statements for columns blk_read_time and blk_w
 
 If IO consumption levels are high in general, the following could be possible root causes: 
 
-
 ### Long-running transactions  
 
 Long-running transactions can consume IO that can lead to high IO utilization.
@@ -73,101 +72,39 @@ WHERE pid <> pg_backend_pid() and state IN ('idle in transaction', 'active')
 ORDER BY duration DESC;   
 ```
 
-### Checkpoint Timings
-High IO can also be seen in scenarios where checkpoint is happening too frequently. One way to identify is by checking postgres log file for following log text "LOG: checkpoints are occurring too frequently".
+### Checkpoint timings
 
-You could also investigate using an approach where we save periodic snapshots of `pg_stat_bgwriter` with a timestamp as illustrated below
+High IO can also be seen in scenarios where a checkpoint is happening too frequently. One way to identify this is by checking the Postgres log file for the following log text "LOG: checkpoints are occurring too frequently."
 
-Take first snapshot of pg_stat_bgwriter as shown below.
+You could also investigate using an approach where periodic snapshots of `pg_stat_bgwriter` with a timestamp is saved.Using the snapshots saved the average checkpoint interval, number of checkpoints requested and number of checkpoints timed can be calculated. 
 
-``` postgresql
-create table checkpoint_snapshot as select current_timestamp as snapshottime,* from pg_stat_bgwriter;
-```
-Generally it is recommended to wait for one hour and take a second snapshot as shown below.
-
-``` postgresql
-insert into checkpoint_snapshot (select current_timestamp as snapshottime,* from pg_stat_bgwriter);
-```
-Execute the below query which uses the two entries.
-
-``` postgresql
-SELECT
-cast(date_trunc('minute',start) AS timestamp) AS start,
- date_trunc('second',elapsed) AS elapsed,
-date_trunc('second',elapsed / (checkpoints_timed + checkpoints_req))
-AS avg_checkpoint_interval,
-(100 * checkpoints_req) / (checkpoints_timed + checkpoints_req)
-AS checkpoints_req_pct,
-100 * buffers_checkpoint / (buffers_checkpoint + buffers_clean +
-buffers_backend) AS checkpoint_write_pct,
-100 * buffers_backend / (buffers_checkpoint + buffers_clean +
-buffers_backend) AS backend_write_pct,
-pg_size_pretty(buffers_checkpoint * block_size / (checkpoints_timed +
-checkpoints_req))
-AS avg_checkpoint_write,
-pg_size_pretty(cast(block_size * (buffers_checkpoint + buffers_clean
-+ buffers_backend) / extract(epoch FROM elapsed) AS int8)) AS
-written_per_sec,
- pg_size_pretty(cast(block_size * (buffers_alloc) / extract(epoch FROM
-elapsed) AS int8)) AS alloc_per_sec
-FROM
-(
-SELECT
- one.snapshottime AS start,
- two.snapshottime - one.snapshottime AS elapsed,
-two.checkpoints_timed - one.checkpoints_timed AS checkpoints_timed,
-two.checkpoints_req - one.checkpoints_req AS checkpoints_req,
- two.buffers_checkpoint - one.buffers_checkpoint AS
-buffers_checkpoint,
- two.buffers_clean - one.buffers_clean AS buffers_clean,
- two.maxwritten_clean - one.maxwritten_clean AS maxwritten_clean,
- two.buffers_backend - one.buffers_backend AS buffers_backend,
-two.buffers_alloc - one.buffers_alloc AS buffers_alloc,
- (SELECT cast(current_setting('block_size') AS integer)) AS block_size
-FROM checkpoint_snapshot one
- INNER JOIN checkpoint_snapshot two
-ON two.snapshottime > one.snapshottime
-) bgwriter_diff
-WHERE (checkpoints_timed + checkpoints_req) > 0;
-```
-The query output has following columns
-
-**avg_checkpoint_interval**: Average time between checkpoints.If this value is much lower than the `checkpoint_timeout` set on the server then we can conclude the checkpoints are happening too frequently.   
-**checkpoints_req_pct** : Percentage of number of checkpoints that were required to the total checkpoints completed during the time interval the information was captured.   
-**checkpoint_write_pct** : Percentage of buffers written out handled by checkpoints.   
-**backend_write_pct** : Percentage of buffers written out by backend write.It is always advised to write out using checkpoints.   
-**avg_checkpoint_write** : On an average for every checkpoint how much is written out.   
-**written_per_sec** : Average amount of writes to the disk.   
-**alloc_per_sec** : Amount of buffers allocated for reads.   
-
-### Disruptive Autovacuum Daemon Process
+### Disruptive autovacuum daemon process
 
 The following query helps in monitoring autovacuum:
 
 ``` postgresql
 SELECT schemaname, relname, n_dead_tup, n_live_tup, autovacuum_count, last_vacuum, last_autovacuum, last_autoanalyze, autovacuum_count, autoanalyze_count FROM pg_stat_all_tables WHERE n_live_tup > 0; 
 ```
-The query can be monitored to check how frequently the tables in the database are being vacuumed. 
+The query can be used to check how frequently the tables in the database are being vacuumed. 
 
 **last_autovacuum** provides date and time when the last autovacuum ran on the table.      
 **autovacuum_count** : provides number of times the table was vacuumed.    
 **autoanalyze_count** provides number of times the table was analyzed.   
 
 
-### High Storage Utilization
+### High storage utilization
 
 You can check storage usage using storage percent metric from Azure Metrics. Storage free, storage used along with storage percent gives amount of storage being used.
 
-
 ## Resolve high IO utilization
 
-Use Explain Analyze, terminate long running transactions, tune server parameters to resolve high IO utilization. 
+To resolve high IO utilization, there are three methods you could employ - using Explain Analyze, terminating long-running transactions, or tuning server parameters.
 
-### Using Explain Analyze 
+### Explain Analyze 
 
 Once you know the query that's running for a long time, use **EXPLAIN** to further investigate the query and tune it. For more information about the **EXPLAIN** command, review [Explain Plan](https://www.postgresql.org/docs/current/sql-explain.html). 
 
-### Terminating long running transactions
+### Terminating long running transactions   
 
 You could consider killing a long running transaction as an option.
 
@@ -188,13 +125,13 @@ Once you have the session's PID you can terminate using the following query:
 SELECT pg_terminate_backend(pid);
 ```
 
-### Server Parameter Tuning
+### Server parameter tuning
 
-If it is observed that the checkpoint is happening too frequently increase `max_wal_size` server parameter until most checkpoints are time driven, instead of requested.Eventually, 90% or more should be time based and interval between two checkpoints is close to `checkpoint_timeout` set on the server.
+If it's observed that the checkpoint is happening too frequently, increase `max_wal_size` server parameter until most checkpoints are time driven, instead of requested. Eventually, 90% or more should be time based, and the interval between two checkpoints is close to the `checkpoint_timeout` set on the server.
 
 #### max_wal_size
 
-One way to tune `max_wal_size` is to find a suitable time to find `max_wal_size` on the server.Peak business hours is a good time to arrive at the value. The following can be done to arrive at a value
+One way to tune `max_wal_size` is to find a suitable time to find `max_wal_size` on the server. Peak business hours is a good time to arrive at the value. Follow the below listed steps to arrive at a value.
 
 Take the current WAL LSN using the following command, note down the result:
 
@@ -212,27 +149,19 @@ Use the two results to check the difference in GB, using the following:
 select round (pg_wal_lsn_diff ('LSN value when run second time', 'LSN value when run first time')/1024/1024/1024,2) WAL_CHANGE_GB;
 ```      
 
-If `max_wal_size` is increased you could also consider increasing `shared buffers` to 25% - 40% of total RAM but not more than that.After `max_wal_size` and `shared_buffers` are increased it is expected that percentage of buffers written at checkpoint time increases and buffers written by backend or background writer should decrease.From the checkpoint query [as mentioned above] previously executed  the written_per_sec column should decrease,checkpoint_write_pct should increase and backend_write_pct should decrease.Iterate the process till you arrive at best `shared_buffer` and `max_wal_size` values.
-
-
-
 #### check_point_completion_target
 
-Determines the total time between checkpoints, a good practice would be to set it to 0.9.
-
+check_point_completion_target determins the total time between checkpoints. A good practice would be to set it to 0.9.
 
 #### checkpoint_timeout
 
-Maximum time between automatic WAL checkpoints. The value can be increased from default value set on server, but one should set an appropriate value taking into consideration that increasing the value would also increase the time for crash recovery.
+Maximum time between automatic WAL checkpoints. The value can be increased from default value set on server. Set an appropriate value taking into consideration that increasing the value would also increase the time for crash recovery.
 
-If `max_wal_size` and `shared_buffers` are set optimally on the server but still buffers_checkpoint and the written_per_sec values are high [from checkpoint query above] consider increasing the `checkpoint_timeout` parameter.
-
-### Autovacuum Tuning To make it less disruptive
+### Autovacuum tuning to decrease disruptions
 
 For more details on monitoring and tuning in scenarios where autovacuum is too disruptive please review [Autovacuum Tuning](./how-to-autovacuum-tuning.md).
 
-###  Increase Storage
-
+###  Increase storage
 In scenarios where storage usage percent is high, increasing storage will get more IOPS. For more details on storage and associated IOPS review [Compute and Storage Options](./concepts-compute-storage.md).
 
 
