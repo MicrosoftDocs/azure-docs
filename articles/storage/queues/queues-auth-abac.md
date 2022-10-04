@@ -69,5 +69,5 @@ Azure RBAC currently supports 2,000 role assignments in a subscription. If you n
 - [What is Azure attribute-based access control (Azure ABAC)?](../../role-based-access-control/conditions-overview.md)
 - [FAQ for Azure role assignment conditions](../../role-based-access-control/conditions-faq.md)
 - [Azure role assignment condition format and syntax](../../role-based-access-control/conditions-format.md)
-- [Scale the management of Azure role assignments by using conditions and custom security attributes (preview)](../../role-based-access-control/conditions-custom-security-attributes-example.md)
+- [Scale the management of Azure role assignments by using conditions and custom security attributes](../../role-based-access-control/conditions-custom-security-attributes-example.md)
 - [Security considerations for Azure role assignment conditions in Azure Storage](..\blobs\storage-auth-abac-security.md)

@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Add a role assignment condition to restrict access to blobs using Azure PowerShell (preview) - Azure ABAC"
+title: "Tutorial: Add a role assignment condition to restrict access to blobs using Azure PowerShell - Azure ABAC"
 titleSuffix: Azure Storage
 description: Add a role assignment condition to restrict access to blobs using Azure PowerShell and Azure attribute-based access control (Azure ABAC).
 services: storage
@@ -15,7 +15,7 @@ ms.date: 10/04/2022
 
 ---
 
-# Tutorial: Add a role assignment condition to restrict access to blobs using Azure PowerShell (preview)
+# Tutorial: Add a role assignment condition to restrict access to blobs using Azure PowerShell
 
 > [!IMPORTANT]
 > Currently, Azure ABAC is generally available (GA) for controlling access to Azure blob storage and Data Lake Storage Gen2 only using `request` and `resource` attributes in the standard storage account performance tier. It is still in preview for premium storage accounts and for the security principal attribute in all tiers. Also, the snapshot resource attribute for Data Lake Storage Gen2 is still in preview.
@@ -124,13 +124,13 @@ Here is what the condition looks like in code:
 
 ## Step 4: Set up storage
 
-1. Use [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) to create a storage account that is compatible with the blob index feature. For more information, see [Manage and find Azure Blob data with blob index tags (preview)](../blobs/storage-manage-find-blobs.md#regional-availability-and-storage-account-support).
+1. Use [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) to create a storage account that is compatible with the blob index feature. For more information, see [Manage and find Azure Blob data with blob index tags](../blobs/storage-manage-find-blobs.md#regional-availability-and-storage-account-support).
 
 1. Use [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) to create a new blob container within the storage account and set the Public access level to **Private (no anonymous access)**.
 
 1. Use [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent) to upload a text file to the container.
 
-1. Add the following blob index tag to the text file. For more information, see [Use blob index tags (preview) to manage and find data on Azure Blob Storage](../blobs/storage-blob-index-how-to.md).
+1. Add the following blob index tag to the text file. For more information, see [Use blob index tags to manage and find data on Azure Blob Storage](../blobs/storage-blob-index-how-to.md).
 
     > [!NOTE]
     > Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions.
@@ -356,5 +356,5 @@ Here is what the condition looks like in code:
 ## Next steps
 
 - [Example Azure role assignment conditions](storage-auth-abac-examples.md)
-- [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](storage-auth-abac-attributes.md)
+- [Actions and attributes for Azure role assignment conditions in Azure Storage](storage-auth-abac-attributes.md)
 - [Azure role assignment condition format and syntax](../../role-based-access-control/conditions-format.md)

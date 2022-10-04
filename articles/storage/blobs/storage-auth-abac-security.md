@@ -1,5 +1,5 @@
 ---
-title: Security considerations for Azure role assignment conditions in Azure Blob Storage (preview)
+title: Security considerations for Azure role assignment conditions in Azure Blob Storage
 titleSuffix: Azure Storage
 description: Security considerations for Azure role assignment conditions and Azure attribute-based access control (Azure ABAC).
 services: storage
@@ -13,7 +13,7 @@ ms.reviewer: nachakra
 ms.subservice: blobs
 ---
 
-# Security considerations for Azure role assignment conditions in Azure Blob Storage (preview)
+# Security considerations for Azure role assignment conditions in Azure Blob Storage
 
 > [!IMPORTANT]
 > Currently, Azure ABAC is generally available (GA) for controlling access to Azure blob storage and Data Lake Storage Gen2 only using `request` and `resource` attributes in the standard storage account performance tier. It is still in preview for premium storage accounts and for the security principal attribute in all tiers. Also, the snapshot resource attribute for Data Lake Storage Gen2 is still in preview.
@@ -106,6 +106,6 @@ For conditions on the source blob, `@Resource` conditions on the `Microsoft.Stor
 
 ## See also
 
-- [Authorize access to blobs using Azure role assignment conditions (preview)](storage-auth-abac.md)
-- [Actions and attributes for Azure role assignment conditions for Azure Blob Storage (preview)](storage-auth-abac-attributes.md)
-- [What is Azure attribute-based access control (Azure ABAC)? (preview)](../../role-based-access-control/conditions-overview.md)
+- [Authorize access to blobs using Azure role assignment conditions](storage-auth-abac.md)
+- [Actions and attributes for Azure role assignment conditions for Azure Blob Storage](storage-auth-abac-attributes.md)
+- [What is Azure attribute-based access control (Azure ABAC)?](../../role-based-access-control/conditions-overview.md)
