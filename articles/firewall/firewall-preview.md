@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 09/27/2022
+ms.date: 10/04/2022
 ms.author: victorh
 ---
 
@@ -160,6 +160,9 @@ Policy analytics starts monitoring the flows in the DNAT, Network, and Applicati
 5. Select **Save** after you choose the log analytics workspace.
 6. Go to the Firewall attached to the policy and enter the **Diagnostic settings** page. You'll see the **FirewallPolicySetting** added there as part of the policy analytics feature.
 7. Select **Edit Setting**, and ensure the **Resource specific** toggle is checked, and the highlighted tables are checked. In the previous example, all logs are written to the log analytics workspace.
+
+> [!TIP]
+> Policy Analytics has a dependency on both Log Analytics and Azure Firewall resource specific logging. Verify the Firewall is configured appropriately or follow the previous instructions. Be aware that logs take 60 minutes to appear after enabling them for the first time. This is because logs are aggregated in the backend every hour. You can check logs are configured appropriately by running a log analytics query on the resource specific tables such as **AZFWNetworkRuleAggregation**, **AZFWApplicationRuleAggregation**, and **AZFWNatRuleAggregation**.
 
 #### Firewall with Diagnostics settings already configured
 
