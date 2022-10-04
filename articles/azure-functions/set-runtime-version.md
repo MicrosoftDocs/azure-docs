@@ -127,12 +127,14 @@ The function app restarts after the change is made to the application setting.
 
 ## <a name="manual-version-updates-on-linux"></a>Pin to a specific version on Linux
 
+To pin a Linux function app to a specific host version, you set a version-specific base image URL in the [`linuxFxVersion` site setting][`linuxFxVersion`] in the format `DOCKER|<PINNED_VERSION_IMAGE_URI>`. 
+
 > [!IMPORTANT]
 > Pinned function apps on Linux don't receive regular security and host functionality updates. Unless recommended by a support professional, use the [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) setting and a standard [`linuxFxVersion`] value for your language and version, such as `Python|3.9`. For valid values, see the [`linuxFxVersion` reference article][`linuxFxVersion`].   
 >
 > For apps running in a Consumption plan, setting [`linuxFxVersion`] to a specific image may also increase cold start times. This is because pinning to a specific image prevents Functions from using some cold start optimizations. 
 
-To pin a Linux function app to a specific host version, you specify a base image URL in the [`linuxFxVersion` site setting][`linuxFxVersion`] in the format `DOCKER|<PINNED_VERSION_IMAGE_URI>`. The following table provides an example of [`linuxFxVersion`] values required to pin a Node.js 10 function app to a specific runtime version of 3.0.13142:
+The following table provides an example of [`linuxFxVersion`] values required to pin a Node.js 18 function app to a specific runtime version of 4.11.2:
 
 | [Hosting plan](functions-scale.md)  | [`linuxFxVersion` value][`linuxFxVersion`] |
 | --- | --- |
@@ -141,13 +143,7 @@ To pin a Linux function app to a specific host version, you specify a base image
 
 When needed, a support professional can provide you with a valid base image URI for your application. 
 
-# [Portal](#tab/portal)
-
-Viewing and modifying site config settings for function apps isn't supported in the Azure portal. Use the Azure CLI instead.
-
-# [Azure CLI](#tab/azurecli)
-
-You can view and set the [`linuxFxVersion`] by using the Azure CLI.  
+Use the following Azure CLI commands to view and set the [`linuxFxVersion`]. You can't currently set [`linuxFxVersion`] in the portal or by using Azure PowerShell. 
 
 To view the current runtime version, use with the [az functionapp config show](/cli/azure/functionapp/config) command.
 
@@ -166,15 +162,9 @@ az functionapp config set --name <FUNCTION_APP> \
 --linux-fx-version <LINUX_FX_VERSION>
 ```
 
-Replace `<FUNCTION_APP>` with the name of your function app. Also replace `<RESOURCE_GROUP>` with the name of the resource group for your function app. Also, replace `<LINUX_FX_VERSION>` with the value of a specific image as described above.
+Replace `<FUNCTION_APP>` with the name of your function app. Also replace `<RESOURCE_GROUP>` with the name of the resource group for your function app. Finally, replace `<LINUX_FX_VERSION>` with the value of a specific image provided to you by a support professional.
 
 You can run this command from the [Azure Cloud Shell](../cloud-shell/overview.md) by choosing **Try it** in the preceding code sample. You can also use the [Azure CLI locally](/cli/azure/install-azure-cli) to execute this command after executing [`az login`](/cli/azure/reference-index#az-login) to sign in.
-
-# [PowerShell](#tab/powershell)
-
-Azure PowerShell can't be used to set the [`linuxFxVersion`] at this time. Use the Azure CLI instead.
-
----
 
 The function app restarts after the change is made to the site config.
 
