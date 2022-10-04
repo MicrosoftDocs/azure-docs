@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 07/15/2022
 ---
 
-# cluster
+# Clusters
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

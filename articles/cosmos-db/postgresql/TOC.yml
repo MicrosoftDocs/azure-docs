@@ -65,7 +65,7 @@
           displayName: hyperscale, tutorial, private
 - name: Concepts
   items:
-    - name: Cluster
+    - name: Clusters
       href: concepts-cluster.md
     - name: Distributed data
       items:
