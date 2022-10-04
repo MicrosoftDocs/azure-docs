@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 08/02/2022
 ---
 
-# Server parameters
+# Azure Cosmos DB for PostgreSQL server parameters
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

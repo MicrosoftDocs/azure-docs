@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 02/24/2022
 ---
 
-# Functions in the Azure Cosmos DB for PostgreSQL SQL API
+# Azure Cosmos DB for PostgreSQL functions
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
