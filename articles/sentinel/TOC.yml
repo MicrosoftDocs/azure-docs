@@ -219,6 +219,8 @@
       href: sentinel-solutions-deploy.md
     - name: Deploy custom content from your repository
       href: ci-cd.md
+    - name: Customize repository deployments
+      href: ci-cd-custom-deploy.md
     - name: Delete out-of-the-box content
       href: sentinel-solutions-delete.md
   - name: Collect data
@@ -292,6 +294,10 @@
       href: indicators-bulk-file-import.md
     - name: Work with threat indicators
       href: work-with-threat-indicators.md
+    - name: Use matching analytics to detect threats
+      href: use-matching-analytics-to-detect-threats.md
+    - name: Use threat indicators in analytics rules
+      href: use-threat-indicators-in-analytics-rules.md
     - name: Add entity to threat indicators
       href: add-entity-to-threat-intelligence.md
   - name: Monitor and visualize data
