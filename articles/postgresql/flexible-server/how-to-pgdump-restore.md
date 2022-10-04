@@ -18,11 +18,11 @@ This article reviews options to speed up pg_dump and pg_restore. It also explain
 
 Few of the options that can be used to reduce the overall dump time using pg_dump are listed below.
 
-#### Directory Format(-Fd)
+#### Directory format(-Fd)
 
 This option outputs a directory-format archive which can be input to pg_restore. By default the output is compressed.
 
-#### Parallel Jobs(-j)
+#### Parallel jobs(-j)
 
 Pg_dump can run dump jobs concurrently using the parallel jobs option.This option reduces the total dump time but increases the load on the database server.It is advised to arrive at a parallel job value after closely monitoring the source server metrics like CPU, Memory, and IOPS usage.
 
@@ -34,7 +34,7 @@ There are a few considerations that needs to be taken into account when setting 
 
 Specifies the compression level to use. Zero means no compression. Zero compression during pg_dump process could help with performance gains.
 
-#### Table Bloats And Vacuuming
+#### Table bloats and vacuuming
 
 Before the starting the pg_dump process, consider if table vacuuming is necessary.Bloat on tables significantly increases pg_dump times.Execute the below query to identify table bloats:
 
@@ -51,7 +51,7 @@ As a one of case perform manual vacuum analyze of the tables which are identifie
 vacuum(analyze, verbose) <table_name> 
 ```
 
-#### Use Of PITR [Point In Time Recovery] Server
+#### Use Of PITR [Point In Time Recovery] server
 
 Pg dump can be carried out on an online or live server. It makes consistent backups even if the database is being used. It doesn't block other users from using the database. Consider the database size and other business or customer needs before the pg_dump process is started. Small databases might be a good candidate to carry out a pg dump on the production server. For large databases, you could create PITR (Point In Time Recovery) server from the production server and carry out the pg_dump process on the PITR server. Running pg_dump on a PITR would be a cold run process, but the trade-off for this would be one would not be concerned with additional CPU/IO utilization that comes with the pg_dump process running on the actual production server. You can run pg_dump on a PITR server without any impact on the production server and drop the PITR server once the pg_dump process is completed.
 
@@ -66,11 +66,11 @@ Use the following syntax to perform a pg_dump:
 
 Few of the options that can be used to reduce the overall restore time using pg_restore are listed below.
 
-#### Parallel Restore
+#### Parallel restore
 
 Using multiple concurrent jobs, you can reduce the time to restore a large database on a multi vCore target server.The number of jobs can be equal to or less than the number of vCPU’s allocated for the target server.
 
-#### Server Parameters
+#### Server parameters
 
 If you're restoring data to a new server or non-production server, you can optimize the following server parameters prior to running pg_restore.
 
@@ -86,7 +86,7 @@ Once the restore is completed, make sure all the above mentioned parameters are 
 > [!NOTE]
 > Please follow the above recommendations only if there is enough memory and disk space. In case you have small server with 2,4,8 vCore, please set the parameters accordingly.
 
-#### Other Considerations
+#### Other considerations
 
 - Disable HA or any standby server prior to running pg_restore.
 - Analyze all tables migrated after restore option.
@@ -105,7 +105,7 @@ Here is an example of how this syntax might appear:
 
 `pg_restore -h <hostname>  -U <username> -j <Num of parallel jobs> -Fd -C -d <databasename> sampledb_dir_format`
 
-## Virtual Machine Considerations
+## Virtual machine considerations
 
 Create a virtual machine in the same region,same availability zone (AZ) preferably where you have both your target and source servers or at least have the virtual machine closer to source server or a target server.Use of Azure Virtual Machines with high-performance local SSD is recommended.For more details about the SKUs review
 
