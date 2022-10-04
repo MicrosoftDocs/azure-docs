@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 author: dem108
 ms.author: sehan
-ms.date: 06/06/2022
+ms.date: 10/04/2022
 ms.custom: event-tier1-build-2022
 ---
 
@@ -86,19 +86,21 @@ az ml online-endpoint create -f endpoint.yml --set public_network_access=disable
 # [Python SDK](#tab/python)
 
 ```python
-endpoint = ManagedOnlineEndpoint(name='my-online-endpoint', 
+from azure.ai.ml.entities._common import PublicNetworkAccess
+
+endpoint = ManagedOnlineEndpoint(name='my-online-endpoint',  
                          description='this is a sample online endpoint', 
                          tags={'foo': 'bar'}, 
-                         auth_mode=AuthMode.Key, 
-                         public_network_access=ManagedEndpointAccess.Disabled 
-                         # public_network_access=ManagedEndpointAccess.Enabled 
+                         auth_mode="key", 
+                         public_network_access=PublicNetworkAccess.Disabled 
+                         # public_network_access=PublicNetworkAccess.Enabled 
 ) 
                           
-mlclient.online_endpoints.create_or_update(endpoint) 
+ml_client.begin_create_or_update(endpoint) 
 ```
 
 ---
-When `public_network_access` is `disabled`, inbound scoring requests are received using the [private endpoint of the Azure Machine Learning workspace](./how-to-configure-private-link.md) and the endpoint can't be reached from public networks.
+When `public_network_access` is `Disabled`, inbound scoring requests are received using the [private endpoint of the Azure Machine Learning workspace](./how-to-configure-private-link.md) and the endpoint can't be reached from public networks.
 
 ## Outbound (resource access)
 
@@ -124,17 +126,16 @@ az ml online-deployment create -f deployment.yml --set egress_public_network_acc
 blue_deployment = ManagedOnlineDeployment(name='blue', 
                                           endpoint_name='my-online-endpoint', 
                                           model=model, 
-                                          #code_configuration=CodeConfiguration(code_local_path='./model-1/onlinescoring/', scoring_script='score.py'), 
-                                          code_local_path='./model-1/onlinescoring/', 
-                                          scoring_script='score.py', 
+                                          code_configuration=CodeConfiguration(code_local_path='./model-1/onlinescoring/',
+                                                                               scoring_script='score.py'),
                                           environment=env, 
                                           instance_type='Standard_F2s_v2', 
                                           instance_count=1, 
-                                          egress_public_network_access=MangedDeploymentAccess.Disabled 
-                                          # egress_public_network_access=MangedDeploymentAccess.Enabled 
+                                          egress_public_network_access=PublicNetworkAccess.Disabled 
+                                          # egress_public_network_access=PublicNetworkAccess.Enabled 
 ) 
                               
-mlclient.online_deployments.create_or_update(blue_deployment, all_traffic=True) # set all traffic to this deployment 
+ml_client.begin_create_or_update(blue_deployment) 
 ```
 
 ---
