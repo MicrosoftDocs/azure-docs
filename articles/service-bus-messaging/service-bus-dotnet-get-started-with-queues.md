@@ -56,20 +56,6 @@ This section shows you how to create a .NET Core console application to send mes
 
 ### Add the NuGet packages to the project
 
-### [Passwordless (Recommended)](#tab/passwordless)
-
-1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
-1. Run the following command to install the **Azure.Messaging.ServiceBus** and **Azure.Identity** NuGet packages:
-
-    ```cmd
-    Install-Package Azure.Messaging.ServiceBus
-    Install-Package Azure.Identity
-    ```
-
-[!INCLUDE [service-bus-passwordless-template-tabbed](../../includes/passwordless/service-bus/service-bus-passwordless-template-tabbed.md)]
-
-### [Connection String](#tab/connection-string)
-
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
 1. Run the following command to install the **Azure.Messaging.ServiceBus** NuGet package:
 
@@ -78,8 +64,6 @@ This section shows you how to create a .NET Core console application to send mes
     ```
 
 [!INCLUDE [service-bus-passwordless-template-tabbed](../../includes/passwordless/service-bus/service-bus-passwordless-template-tabbed.md)]
-
----
 
 ## Add code to send messages to the queue
 
@@ -264,17 +248,33 @@ In this section, you'll create a .NET Core console application that receives mes
 1. Enter **QueueReceiver** for the **Project name**, and select **Create**.
 1. In the **Solution Explorer** window, right-click **QueueReceiver**, and select **Set as a Startup Project**.
 
-### Add the Service Bus NuGet package to the Receiver project
+### Add the NuGet packages to the project
+
+### [Passwordless (Recommended)](#tab/passwordless)
 
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
-1. In the **Package Manager Console** window, confirm that **QueueReceiver** is selected for the **Default project**. If not, use the drop-down list to select **QueueReceiver**.
+1. Run the following command to install the **Azure.Messaging.ServiceBus** and **Azure.Identity** NuGet packages:
 
-    :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console":::
+    ```cmd
+    Install-Package Azure.Messaging.ServiceBus
+    Install-Package Azure.Identity
+    ```
+
+:::image type="content" source="media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console":::
+
+### [Connection String](#tab/connection-string)
+
+1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
 1. Run the following command to install the **Azure.Messaging.ServiceBus** NuGet package:
 
     ```cmd
     Install-Package Azure.Messaging.ServiceBus
     ```
+
+:::image type="content" source="media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console":::
+
+---
+
 
 ### Add the code to receive messages from the queue
 

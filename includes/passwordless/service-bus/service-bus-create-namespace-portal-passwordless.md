@@ -18,7 +18,7 @@ To create a namespace:
 1. Sign in to the [Azure portal](https://portal.azure.com)
 2. In the left navigation pane of the portal, select **+ Create a resource**, select **Integration**, and then select **Service Bus**.
 
-    :::image type="content" source="./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png" alt-text="Image showing selection of Create a resource, Integration, and then Service Bus in the menu.":::
+    :::image type="content" source="../../../articles/service-bus-messaging/includes/media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png" alt-text="Image showing selection of Create a resource, Integration, and then Service Bus in the menu.":::
 3. In the **Basics** tag of the **Create namespace** page, follow these steps: 
     1. For **Subscription**, choose an Azure subscription in which to create the namespace.
     1. For **Resource group**, choose an existing resource group in which the namespace will live, or create a new one.      
@@ -37,11 +37,11 @@ To create a namespace:
         If you selected the **Premium** pricing tier, specify the number of **messaging units**. The premium tier provides resource isolation at the CPU and memory level so that each workload runs in isolation. This resource container is called a messaging unit. A premium namespace has at least one messaging unit. You can select 1, 2, 4, 8 or 16 messaging units for each Service Bus Premium namespace. For more information, see [Service Bus Premium Messaging](../service-bus-premium-messaging.md).
     1. Select **Review + create**. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
    
-        :::image type="content" source="./media/service-bus-create-namespace-portal/create-namespace.png" alt-text="Image showing the Create a namespace page":::
+        :::image type="content" source="../../../articles/service-bus-messaging/includes/media/service-bus-create-namespace-portal/create-namespace.png" alt-text="Image showing the Create a namespace page":::
     1. On the **Create** page, review settings, and select **Create**. 
 4. Select **Go to resource** on the deployment page. 
 
-    :::image type="content" source="./media/service-bus-create-namespace-portal/deployment-alert.png" alt-text="Image showing the deployment succeeded page with the Go to resource link.":::
+    :::image type="content" source="../../../articles/service-bus-messaging/includes/media/service-bus-create-namespace-portal/deployment-alert.png" alt-text="Image showing the deployment succeeded page with the Go to resource link.":::
 6. You see the home page for your service bus namespace. 
 
-    :::image type="content" source="./media/service-bus-create-namespace-portal/service-bus-namespace-home-page.png" alt-text="Image showing the home page of the Service Bus namespace created." :::
+    :::image type="content" source="../../../articles/service-bus-messaging/includes/media/service-bus-create-namespace-portal/service-bus-namespace-home-page.png" alt-text="Image showing the home page of the Service Bus namespace created." :::
