@@ -64,8 +64,6 @@ The following table lists the latest versions of the WebSocket Service:
 |1.4.2111.18001 |12/02/2021    |
 |1.1.2110.16001 |10/15/2021    |
 |1.0.2106.14001 |07/29/2021    |
-|1.0.2006.11001 |07/28/2020    |
-|0.11.0         |05/29/2020    |
 
 ### Updates for version 1.17.2205.23001
 
@@ -87,15 +85,6 @@ The following table lists the latest versions of the WebSocket Service:
 - The installer will now make sure that Teams is closed before installing updates.
 - Fixed an issue that prevented users from returning to full screen mode after leaving the call window.
 
-#### Updates for version 1.0.2106.14001
-
-Increased the connection reliability between the WebRTC redirector service and the WebRTC client plugin.
-
-#### Updates for version 1.0.2006.11001
-
-- Fixed an issue where minimizing the Teams app during a call or meeting caused incoming video to drop.
-- Added support for selecting one monitor to share in multi-monitor desktop sessions.
-
 ### Install Microsoft Teams
 
 You can deploy the Teams desktop app using a per-machine or per-user installation. To install Microsoft Teams in your Azure Virtual Desktop environment:
@@ -107,7 +96,7 @@ You can deploy the Teams desktop app using a per-machine or per-user installatio
     - Per-user installation
 
         ```powershell
-        msiexec /i <path_to_msi> /l*v <install_logfile_name>
+        msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSERS=1
         ```
 
         This process is the default installation, which installs Teams to the **%AppData%** user folder. Teams won't work properly with per-user installation on a non-persistent setup.
@@ -115,7 +104,7 @@ You can deploy the Teams desktop app using a per-machine or per-user installatio
     - Per-machine installation
 
         ```powershell
-        msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1
+        msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1 ALLUSERS=1
         ```
 
         This process installs Teams to the `%ProgramFiles(x86)%` folder on a 64-bit operating system and to the `%ProgramFiles%` folder on a 32-bit operating system. At this point, the golden image setup is complete. Installing Teams per-machine is required for non-persistent setups.
@@ -123,6 +112,8 @@ You can deploy the Teams desktop app using a per-machine or per-user installatio
         There are two flags that may be set when installing teams, **ALLUSER=1** and **ALLUSERS=1**. It's important to understand the difference between these parameters. The **ALLUSER=1** parameter is used only in VDI environments to specify a per-machine installation. The **ALLUSERS=1** parameter can be used in non-VDI and VDI environments. When you set this parameter, **Teams Machine-Wide Installer** appears in Program and Features in Control Panel as well as Apps & features in Windows Settings. All users with admin credentials on the machine can uninstall Teams.
 
         > [!NOTE]
+        > We recommend you use per-machine installation for better centralized management for both persistent and non-persistent setups.
+        >
         > Users and admins can't disable automatic launch for Teams during sign-in at this time.
 
 3. To uninstall the MSI from the host VM, run this command:
