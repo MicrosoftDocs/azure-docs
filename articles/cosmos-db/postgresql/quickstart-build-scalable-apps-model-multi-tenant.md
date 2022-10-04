@@ -134,4 +134,4 @@ Now we've finished exploring data modeling for scalable apps. The next step is
 connecting and querying the database with your programming language of choice.
 
 > [!div class="nextstepaction"]
-> [App stacks >](quickstart-app-stacks-overview.md)
+> [App stacks >](quickstart-app-stacks-overview.yml)
