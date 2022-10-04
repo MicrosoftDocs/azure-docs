@@ -29,7 +29,7 @@ New for this release:
 
 - Arc-enabled SQL managed instance
   - New reprovision replica task lets you rebuild a broken sql instance replica. For more information, see [Reprovision replica](#reprovision-replica).
-  - Edit AD settings from the Azure Portal
+  - Edit Active Directory settings from the Azure portal
 
 <!--
 - Arc-enabled PostgreSQL server
