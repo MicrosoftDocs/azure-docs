@@ -1110,6 +1110,10 @@ When **source** value matches a **key**, returns **value** for that **key**. If 
 > Switch function performs a case-sensitive string comparison of the **source** and **key** values. If you'd like to perform a case-insensitive comparison, normalize the **source** string before comparison using a nested ToLower function and ensure that all **key** strings use lowercase. 
 > Example: `Switch(ToLower([statusFlag]), "0", "true", "1", "false", "0")`. In this example, the **source** attribute `statusFlag` may have values ("True" / "true" / "TRUE"). However, the Switch function will always convert it to lowercase string "true" before comparison with **key** parameters. 
 
+> [!CAUTION] 
+> For the **source** parameter, do not use the nested functions IsPresent, IsNull or IsNullOrEmpty. Instead use a literal empty string as one of the key values.   
+> Example: `Switch([statusFlag], "Default Value", "true", "1", "", "0")`. In this example, if the **source** attribute `statusFlag` is empty, the Switch function will return the value 0. 
+
 **Parameters:** 
 
 | Name | Required/ Repeating | Type | Notes |
