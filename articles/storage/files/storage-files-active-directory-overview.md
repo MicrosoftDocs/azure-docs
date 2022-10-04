@@ -52,7 +52,7 @@ It's helpful to understand some key terms relating to identity-based authenticat
 
 -   **Azure role-based access control (Azure RBAC)**
 
-    Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure. Using Azure RBAC, you can manage access to resources by granting users the fewest permissions needed to perform their jobs. For more information on Azure RBAC, see [What is Azure role-based access control?](../../role-based-access-control/overview.md)
+    Azure RBAC enables fine-grained access management for Azure. Using Azure RBAC, you can manage access to resources by granting users the fewest permissions needed to perform their jobs.
 
 -   **Hybrid identities**
 
