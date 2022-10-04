@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/14/2022
+ms.date: 10/03/2022
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common 
@@ -119,7 +119,9 @@ After you've specified the key from the key vault in the customer's tenant, the 
 
 ### [PowerShell](#tab/azure-powershell)
 
-N/A
+```azurepowershell
+
+```
 
 ### [Azure CLI](#tab/azure-cli)
 
