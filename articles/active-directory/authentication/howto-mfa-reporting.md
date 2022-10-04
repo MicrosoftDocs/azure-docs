@@ -24,7 +24,7 @@ This article shows you how to view the Azure AD sign-ins report in the Azure por
 
 ## View the Azure AD sign-ins report
 
-The sign-ins report provides you with information about the usage of managed applications and user sign-in activities, which includes information about multi-factor authentication (MFA) usage. The MFA data gives you insights into how MFA is working in your organization. It lets you answer questions like the following:
+The sign-ins report provides you with information about the usage of managed applications and user sign-in activities, which includes information about multi-factor authentication (MFA) usage. The MFA data gives you insights into how MFA is working in your organization. It answers questions like:
 
 - Was the sign-in challenged with MFA?
 - How did the user complete MFA?
@@ -59,7 +59,7 @@ This information allows admins to troubleshoot each step in a user’s sign-in, 
 - Volume of sign-ins protected by multi-factor authentication 
 - Usage and success rates for each authentication method 
 - Usage of passwordless authentication methods (such as Passwordless Phone Sign-in, FIDO2, and Windows Hello for Business) 
-- How frequently authentication requirements are satisfied by token claims (where users are not interactively prompted to enter a password, enter an SMS OTP, and so on)
+- How frequently authentication requirements are satisfied by token claims (where users aren't interactively prompted to enter a password, enter an SMS OTP, and so on)
 
 While viewing the sign-ins report, select the **Authentication Details** tab: 
 
@@ -71,7 +71,7 @@ While viewing the sign-ins report, select the **Authentication Details** tab:
 >[!IMPORTANT]
 >The **Authentication details** tab can initially show incomplete or inaccurate data, until log information is fully aggregated. Known examples include: 
 >- A **satisfied by claim in the token** message is incorrectly displayed when sign-in events are initially logged. 
->- The **Primary authentication** row is not initially logged. 
+>- The **Primary authentication** row isn't initially logged. 
 
 The following details are shown on the **Authentication Details** window for a sign-in event that show if the MFA request was satisfied or denied:
 
@@ -103,8 +103,8 @@ The following details are shown on the **Authentication Details** window for a s
    * unable to send the mobile app notification to the device
    * unable to send the mobile app notification
    * user declined the authentication
-   * user did not respond to mobile app notification
-   * user does not have any verification methods registered
+   * user didn't respond to mobile app notification
+   * user doesn't have any verification methods registered
    * user entered incorrect code
    * user entered incorrect PIN
    * user hung up the phone call without succeeding the authentication
@@ -117,13 +117,13 @@ The following details are shown on the **Authentication Details** window for a s
 
 First, ensure that you have the [MSOnline V1 PowerShell module](/powershell/azure/active-directory/overview) installed.
 
-Identify users who have registered for MFA using the PowerShell that follows. This set of commands excludes disabled users since these accounts cannot authenticate against Azure AD:
+Identify users who have registered for MFA using the PowerShell that follows. This set of commands excludes disabled users since these accounts can't authenticate against Azure AD:
 
 ```powershell
 Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods -ne $null -and $_.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
 ```
 
-Identify users who have not registered for MFA using the PowerShell that follows. This set of commands excludes disabled users since these accounts cannot authenticate against Azure AD:
+Identify users who aren't registered for MFA by running the following PowerShell commands. This set of commands excludes disabled users since these accounts can't authenticate against Azure AD:
 
 ```powershell
 Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0 -and $_.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
