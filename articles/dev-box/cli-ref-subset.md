@@ -49,13 +49,13 @@ az devcenter admin gallery create -g demo-rg `
 
 ### DevCenter
 
-#### Create a DevCenter in West US 3
+#### Create a DevCenter
 
 ```azurecli
 az devcenter admin devcenter create -g demo-rg `
 -n contoso-devcenter --identity-type UserAssigned `
 --user-assigned-identity ` "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{managedIdentityName}" `
---location westus3 `
+--location {regionName} `
 ```
 
 ### Project
@@ -83,7 +83,7 @@ az devcenter admin project delete `
 
 ```azurecli
 az devcenter admin network-connection create --location "centralus" `
---domain-join-type "AzureADJoin" --networking-resource-group-id "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ExampleRG" `
+--domain-join-type "AzureADJoin" `
 --subnet-id "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ExampleRG/providers/Microsoft.Network/virtualNetworks/ExampleVNet/subnets/default" `
 --name "{networkConnectionName}" --resource-group "rg1" `
 ```
@@ -118,7 +118,7 @@ az devcenter admin devbox-definition list `
 #### List skus available in your subscription
 
 ```azurecli
-az devcenter admin sku list
+az devcenter admin sku list 
 ```
 #### Create a Dev Box Definition with a marketplace image
 
@@ -135,7 +135,7 @@ az devcenter admin devbox-definition create -g demo-rg `
 az devcenter admin devbox-definition create -g demo-rg `
 --devcenter-name contoso-devcenter -n CustomDefinition `
 --image-reference id="/subscriptions/{subscriptionId}/resourceGroups/demo-rg/providers/Microsoft.DevCenter/devcenters/contoso-devcenter/galleries/SharedGallery/images/CustomImageName" `
---sku name="general_a_8c32gb_v1" `
+--os-storage-type "ssd_1024gb" --sku name=general_a_8c32gb_v1
 ```
 
 ### Dev Box Pool
@@ -147,8 +147,7 @@ az devcenter admin pool create -g demo-rg `
 --project-name ContosoProject -n MarketplacePool `
 --devbox-definition-name Definition `
 --network-connection-name westus3network `
---license-type Windows_Client --local-administrator
-       Enabled
+--license-type Windows_Client --local-administrator Enabled `
 ```
 
 #### Get Pool
@@ -208,9 +207,9 @@ az devcenter dev project list `
 #### List Pools in a Project
 
 ```azurecli
-az devcenter dev pool list
---devcenter {devCenterName}
---project-name {ProjectName}
+az devcenter dev pool list `
+--devcenter {devCenterName} `
+--project-name {ProjectName} `
 ```
 
 #### Create a dev box
