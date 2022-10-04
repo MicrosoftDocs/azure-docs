@@ -199,7 +199,7 @@ Currently, you must use either the Azure PowerShell module or Azure CLI to manag
 - Remove a network rule. The following command removes the first network rule, modify it to remove the network rule you'd like.
     
     ```azurecli
-    az elastic-san volume-group update --network-acls virtual-network-rules[1]=null
+    az elastic-san volume-group update -e $sanName -g $resourceGroupName -n $volumeGroupName --network-acls virtual-network-rules[1]=null
     ```
 
 ---
