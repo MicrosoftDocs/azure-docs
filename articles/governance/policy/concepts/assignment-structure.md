@@ -109,7 +109,7 @@ _common_ properties used by Azure Policy. Each `metadata` property has a limit o
   any.
 - `updatedOn` (string): The Universal ISO 8601 DateTime format of the assignment update time, if
   any.
-- `evidenceStorages` (object): An array of storage containers which can hold attestation evidence for policy assignments with a `manual` effect. The `displayName` is the user-friendly name of the storage account, `evidenceStorageAccountID` is the resource ID of the storage account, and `evidenceBlobcontainer` is the name of blob container for the evidence to be stored at.
+- `evidenceStorages` (object): The recommended default storage account that should be used to hold evidence for attestations to policy assignments with a `manual` effect. The `displayName` property is the name of the storage account. The `evidenceStorageAccountID` property is the resource ID of the storage account. The  `evidenceBlobContainer` property is the blob container name in which you plan to store the evidence.
 
     ```json
     {
