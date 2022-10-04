@@ -21,7 +21,7 @@ The following example shows you how to create a Container Apps environment in an
 [!INCLUDE [container-apps-create-portal-steps.md](../../includes/container-apps-create-portal-steps.md)]
 
 > [!NOTE]
-> Network address prefixes requires a CIDR range of `/23`.
+> Network address prefixes requires a CIDR range of `/23` or larger (`/23`, `/22` etc.).
 
 7. Select the **Networking** tab to create a VNET.
 8. Select **Yes** next to *Use your own virtual network*.
@@ -78,7 +78,7 @@ $VnetName = 'my-custom-vnet'
 Now create an Azure virtual network to associate with the Container Apps environment. The virtual network must have a subnet available for the environment deployment.
 
 > [!NOTE]
-> You can use an existing virtual network, but a dedicated subnet with a CDIR range of `/23` is required for use with Container Apps.
+> You can use an existing virtual network, but a dedicated subnet with a CIDR range of `/23` or larger is required for use with Container Apps.
 
 # [Bash](#tab/bash)
 
@@ -335,10 +335,10 @@ You must either provide values for all three of these properties, or none of the
 
 If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the **my-container-apps** resource group.  Deleting this resource group will also delete the resource group automatically created by the Container Apps service containing the custom network components.
 
+::: zone pivot="azure-cli"
+
 >[!CAUTION]
 > The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this guide exist in the specified resource group, they will also be deleted.
-
-::: zone pivot="azure-cli"
 
 # [Bash](#tab/bash)
 
@@ -355,11 +355,6 @@ Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ---
 
 ::: zone-end
-
-## Additional resources
-
-- For more information about configuring your private endpoints, see [What is Azure Private Endpoint](../private-link/private-endpoint-overview.md).
-- To set up DNS name resolution for internal services, you must [set up your own DNS server](../dns/index.yml).
 
 ## Next steps
 
