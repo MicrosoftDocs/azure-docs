@@ -18,7 +18,7 @@ This article will guide you through how to configure Azure Front Door Premium ti
 [!INCLUDE [azure-cli-prepare-your-environment](../../../includes/azure-cli-prepare-your-environment.md)]
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Have a functioning Azure Front Door Premium profile, endpoint and origin group. Refer [Create a Front Door - CLI](../create-front-door-cli.md) to learn how to create these.
+* Have a functioning Azure Front Door Premium profile, an endpoint and an origin group. For more information on how to create an Azure Front Door profile, see [Create a Front Door - CLI](../create-front-door-cli.md).
 * Have a functioning Web App that is also private. Refer this [doc](../../private-link/create-private-link-service-cli.md) to learn how to do the same.
 
 > [!NOTE]
@@ -49,7 +49,7 @@ az afd origin create --enabled-state Enabled \
 
 ## Approve Azure Front Door Premium private endpoint connection from App Service
 
-1. Run [az network private-endpoint-connection list](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-list) to list the private endpoint connections for your web app. Note down the resource id of the private endpoint connection usually available in the first line of the output.
+1. Run [az network private-endpoint-connection list](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-list) to list the private endpoint connections for your web app. Note down the `Resource ID` of the private endpoint connection available in the first line of the output.
 
     ```azurecli-interactive
     az network private-endpoint-connection list --name webapp1 --resource-group myRGFD --type Microsoft.Web/sites
