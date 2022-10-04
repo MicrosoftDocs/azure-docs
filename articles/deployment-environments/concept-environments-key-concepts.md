@@ -21,7 +21,7 @@ A dev center is a collection of projects that require similar settings. Dev cent
 
 ## Projects
 
-A project is the point of access to [Environments](#environments) for the development team members. When you associate a project with a dev center, all the settings at the dev center level will be automatically applied to the project. Each project can be associated with only one dev center. Dev infra admins can configure different types of environments made available for the project by specifying the environment types appropriate for the specific development team.
+A project is the point of access for the development team members. When you associate a project with a dev center, all the settings at the dev center level will be automatically applied to the project. Each project can be associated with only one dev center. Dev infra admins can configure different types of environments made available for the project by specifying the environment types appropriate for the specific development team.
 
 ## Environments
 
