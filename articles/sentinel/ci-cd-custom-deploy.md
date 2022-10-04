@@ -210,19 +210,9 @@ Here's an example of the entire contents of a valid *sentinel-deployment.config*
  
      :::image type="content" source="media/ci-cd-custom-deploy/deploy-parameter-file-precedence.svg" alt-text="A diagram showing the precedence of parameter file mappings.":::
 
-<<<<<<< HEAD
     1. Is there a mapping in the sentinel-deployment.config?
     1. Is there a workspace parameter file?
     1. Is there a default parameter file?
-=======
-    1. Include a parameter file mapping grouped by workspace ID in the `"parameterfilemappings":` section of the *sentinel-deployment.config* file. See the example above for creating the `ContentFilePath:ParameterFilePath` key value pairs. You can specify a different parameter file for the same content file per workspace.
-    
-       Or
-    1. Create a workspace parameter file in the same directory as a content file. If the content file is *azuredeploy.json* then the workspace parameter file naming convention is *azuredeploy.parameters-\<workspaceID\>.json*.
-    
-       Or
-    1. Create a default parameter file in the same directory as a content file. If the content file is *azuredeploy.json* then the default parameter file naming convention is *azuredeploy.parameters.json*.
->>>>>>> a0cb8ecd8349dd3d9630faa417e4466a66a722d1
 
 Adding or modifying a *.parameters-\<workspaceID\>.json* file or *.parameters.json* file triggers a deployment of that corresponding content file along with the newly modified parameters. Other content files won't be deployed if the smart deployments feature is still enabled.
 
