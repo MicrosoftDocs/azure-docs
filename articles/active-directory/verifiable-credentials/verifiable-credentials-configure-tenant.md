@@ -152,7 +152,7 @@ To add the required permissions, follow these steps:
 
 You can choose to grant issuance and presentation permissions separately if you prefer to segregate the scopes to different applications.
 
-:::image type="content" source="media/verifiable-credentials-configure-tenant/add-app-api-permissions-verifiable-credentials.png" alt-text="Screenshot that shows how to select the required permissions.":::
+:::image type="content" source="media/verifiable-credentials-configure-tenant/granular-app-permissions.png" alt-text="Screenshot that shows how to select the required permissions.":::
 
 ## Service endpoint configuration
 
