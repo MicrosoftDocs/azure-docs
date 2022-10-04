@@ -129,13 +129,13 @@ Output from the `az acr build` command shows the upload progress of the source c
     # [Bash](#tab/bash)
 
     ```azurecli
-    docker build --tag $ACR_NAME.azurecr.io/albumapp-ui . 
+    docker build --tag "$ACR_NAME.azurecr.io/albumapp-ui" . 
     ```
 
     # [PowerShell](#tab/powershell)
 
     ```powershell
-    docker build --tag $ACR_NAME.azurecr.io/albumapp-ui . 
+    docker build --tag "$ACR_NAME.azurecr.io/albumapp-ui" . 
     ```
 
     ---
