@@ -492,6 +492,8 @@
         - name: Use GitOps
           href: ../azure-arc/kubernetes/tutorial-use-gitops-flux2.md
           maintainContext: true
+        - name: Deploy Kubernetes applications from Azure Marketplace
+          href: deploy-marketplace.md
     - name: Deploy the Open Service Mesh AKS add-on
       items:
         - name: About Open Service Mesh
