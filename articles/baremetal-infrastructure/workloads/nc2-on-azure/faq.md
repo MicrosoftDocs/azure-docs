@@ -4,6 +4,7 @@ description: Questions frequently asked about NC2 on Azure
 ms.topic: conceptual
 ms.subservice:  baremetal-nutanix
 ms.date: 07/01/2022
+ROBOTS: NOINDEX
 ---
 
 # Frequently asked questions about NC2 on Azure

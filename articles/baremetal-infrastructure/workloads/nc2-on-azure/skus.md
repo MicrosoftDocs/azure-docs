@@ -1,6 +1,6 @@
 ---
 title: SKUs
-description: Learn about SKU options for NC2 on Azure Public Preview, including core, RAM, storage, and network.
+description: Learn about SKU options for NC2 on Azure, including core, RAM, storage, and network.
 ms.topic: conceptual
 ms.subservice: baremetal-nutanix
 ms.date: 07/01/2021
@@ -8,7 +8,7 @@ ms.date: 07/01/2021
 
 # SKUs
 
-This article identifies options associated with SKUs available for NC2 on Azure Public Preview, including core, RAM, storage, and network.
+This article identifies options associated with SKUs available for NC2 on Azure, including core, RAM, storage, and network.
 
 ## Options
 
