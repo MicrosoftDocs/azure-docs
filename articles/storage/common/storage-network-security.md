@@ -121,7 +121,7 @@ By default, storage accounts accept connections from clients on any network. You
 ---
 
 > [!CAUTION]
-> By design, access to a storage account from trusted services takes the highest precedence over other network access restrictions. For this reason, if you set **Public network access** to **Disabled** after previously setting it to **Enabled from selected virtual networks and IP addresses**, any [Resource instances](#grant-access-from-azure-resource-instances) and [Exceptions](#manage-exceptions) you had configured, including [Allow Azure services on the trusted services list to access this storage account](#grant-access-to-trusted-azure-services), will remain in effect. As a result, those resources and services may still have access to the storage account after setting **Public network access** to **Disabled**.
+> By design, access to a storage account from trusted services takes the highest precedence over other network access restrictions. For this reason, if you set **Public network access** to **Disabled** after previously setting it to **Enabled from selected virtual networks and IP addresses**, any [Resource instances](#grant-access-from-azure-resource-instances) and [Exceptions](#manage-exceptions) you had previously configured, including [Allow Azure services on the trusted services list to access this storage account](#grant-access-to-trusted-azure-services), will remain in effect. As a result, those resources and services may still have access to the storage account after setting **Public network access** to **Disabled**.
 
 ## Grant access from a virtual network
 
