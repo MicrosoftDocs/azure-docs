@@ -5,7 +5,7 @@ ms.date: 09/07/2022
 ms.topic: reference
 ---
 
-# OT sensor application management CLI reference
+# OT sensor CLI reference: appliance management 
 
 This article lists the CLI commands available for managing the OT network sensor appliance and Defender for IoT software applications.
 
