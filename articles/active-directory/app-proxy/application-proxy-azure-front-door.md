@@ -24,14 +24,16 @@ Azure Front Door helps deliver low-latency, high-throughput content at scale fro
 
 This article guides you through the steps to securely expose a web application on the Internet, by integrating the Azure AD Application Proxy with Azure Front Door. In this guide we'll be using the Azure portal. The reference architecture for this deployment is represented below.   
 
-![Diagram of deployment described.](./media/application-proxy-azure-front-door/azure-front-door.png)
-
+<p align="center">
+<img src="./media/application-proxy-azure-front-door/azure-front-door.png" alt="Diagram of deployment described" width="650" height="600">
+ </p>
+ 
 ## Prerequisites
 
 - A Front Door Service – Standard or Classic tier
 - Apps that exist in a single region.
 - A custom domain to use for the application.
-- For licencing information, Application Proxy is avaulable through an Azure AD Premium subscription. Refer here for a full listing of licencing options and features:[Azure Active Directry Pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) 
+- For licencing information, Application Proxy is available through an Azure AD Premium subscription. Refer here for a full listing of licencing options and features:[Azure Active Directory Pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing) 
 
 ### Application Proxy Configuration.
 
