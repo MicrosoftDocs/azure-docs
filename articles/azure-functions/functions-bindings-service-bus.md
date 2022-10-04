@@ -165,7 +165,7 @@ This section describes the configuration settings available for this binding, wh
 
 When you set the `isSessionsEnabled` property or attribute on [the trigger](functions-bindings-service-bus-trigger.md) to `true`, the `sessionHandlerOptions` is honored.  When you set the `isSessionsEnabled` property or attribute on [the trigger](functions-bindings-service-bus-trigger.md) to `false`, the `messageHandlerOptions` is honored. 
 
-Note that `clientRetryOptions' refers to interactions with the Service Bus service. It does not refer to retrying the function execution.
+The `clientRetryOptions` settings only apply to interactions with the Service Bus service. They don't affect retries of function executions. For more information, see [Retries](functions-bindings-error-pages.md#retries).
 
 
 |Property  |Default | Description |
