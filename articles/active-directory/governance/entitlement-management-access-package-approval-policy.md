@@ -199,7 +199,9 @@ In order to make sure users are getting access to the right access packages, you
     1. Once you've added all of the localizations needed for each multiple choice option, select **Save**.
     
     ![Access package - Policy- Enter multiple choice options](./media/entitlement-management-access-package-approval-policy/answer-multiple-choice.png)
-  
+
+1. If you would like to include a syntax check for text answers to questions, you can also specify a custom regex pattern.  
+    :::image type="content" source="media/entitlement-management-access-package-approval-policy/add-regex-localization.png" alt-text="add regex localization policy" lightbox="media/entitlement-management-access-package-approval-policy/add-regex-localization.png":::
 1. To require requestors to answer this question when requesting access to an access package, select the check box under **Required**.
 
 1. Fill out the remaining tabs (for example, Lifecycle) based on your needs.
