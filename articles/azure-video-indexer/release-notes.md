@@ -59,7 +59,7 @@ Now supporting source languages for STT (speech-to-text), translation, and searc
 
 For more information, see [supported languages](language-support.md).
 
-### Edit the name speakers in the transcription through the API
+### Edit a speaker's name in the transcription through the API
 
 You can now edit the name of the speakers in the transcription using the Azure Video Indexer API. 
 
