@@ -41,6 +41,139 @@ items:
     href: quickstart-create-data-factory-resource-manager-template.md
   - name: Create data flow
     href: data-flow-create.md
+- name: Concepts
+  items:
+  - name: Pipelines and activities
+    href: concepts-pipelines-activities.md
+    displayName: retry, timeout
+  - name: Pipeline parameters and variables
+    href: concepts-parameters-variables.md 
+  - name: Nested activities
+    href: concepts-nested-activities.md
+    displayName: nested, nesting
+  - name: Linked services
+    href: concepts-linked-services.md
+  - name: Datasets
+    href: concepts-datasets-linked-services.md
+  - name: Pipeline execution and triggers
+    href: concepts-pipeline-execution-triggers.md
+    displayName: retry
+  - name: Integration runtime
+    href: concepts-integration-runtime.md
+  - name: Data flows
+    items:
+    - name: Transform data with mapping data flows
+      items:
+      - name: Mapping data flow overview
+        href: concepts-data-flow-overview.md
+      - name: Debug mode
+        href: concepts-data-flow-debug-mode.md
+      - name: Schema drift
+        href: concepts-data-flow-schema-drift.md
+      - name: Column patterns
+        href: concepts-data-flow-column-pattern.md
+        displayName: regex, regular expressions, key columns
+      - name: Data flow monitoring
+        href: concepts-data-flow-monitoring.md
+      - name: Data flow performance
+        items:
+          - name: Overview
+            href: concepts-data-flow-performance.md
+            displayName: merge, timeout
+          - name: Optimizing sources
+            href: concepts-data-flow-performance-sources.md
+          - name: Optimizing sinks
+            href: concepts-data-flow-performance-sinks.md
+          - name: Optimizing transformations
+            href: concepts-data-flow-performance-transformations.md
+          - name: Using data flows in pipelines
+            href: concepts-data-flow-performance-pipelines.md
+          - name: Memory optimized compute
+            href: memory-optimized-compute.md
+      - name: Integration Runtime performance
+        href: concepts-integration-runtime-performance.md
+      - name: Manage data flow canvas
+        href: concepts-data-flow-manage-graph.md
+      - name: Flowlets
+        href: concepts-data-flow-flowlet.md
+        displayName: flowlet
+      - name: Expression builder
+        href: concepts-data-flow-expression-builder.md
+        displayName: regex, regular expressions
+      - name: Expression language
+        href: data-transformation-functions.md
+        displayName: regex, regular expressions
+        items:
+          - name: Aggregate functions
+            href: data-flow-aggregate-functions.md
+            displayName: approxDistinctCount, avg, avgIf, collect, count, countAll, countDistinct, countAllDistinct, countIf, covariancePopulation, covariancePopulationIf, covarianceSample, covarianceSampleIf, first, isDistinct, kurtosis, kurtosisIf, last, max, maxIf, mean, meanIf, skewness, skewnessIf, stddev, stddevIf, stddevPopulation, stddevPopulationIf, stddevSample, stddevSampleIf, sumDistinctIf, sumIf, variance, varianceIf, variancePopulation, variancePopulationIf, varianceSample, varianceSampleIf
+          - name: Array functions
+            href: data-flow-array-functions.md
+            displayName: array, at, contains, distinct, except, filter, find, flatten, in, intersect, map, mapIf, mapIndex, mapLoop, reduce, size, slice, sort, unfold, union
+          - name: Cached lookup functions
+            href: data-flow-cached-lookup-functions.md
+            displayName: lookup, mlookup, output, outputs
+          - name: Conversion functions
+            href: data-flow-conversion-functions.md
+            displayName: isBitSet, setBitSet, isBoolean, isByte, isDate, isShort, isInteger, isLong, isNan, isFloat, isDouble, isDecimal, isTimestamp, toBase64, toBinary, toBoolean, toByte, toDate, toDecimal, toDouble, toFloat, toInteger, toLong, toShort, toString, toTimestamp, toUTC
+          - name: Date and time functions
+            href: data-flow-date-time-functions.md
+            displayName: add, addDays, addMonths, between, currentDate, currentTimestamp, currentUTC, dayOfMonth, dayOfWeek, dayOfYear, days, fromUTC, hour, hours, isDate, isTimestamp, lastDayOfMonth, millisecond, milliseconds, minus, minute, minutes, month, monthsBetween, second, seconds, subDays, subMonths, toDate, toTimestamp, toUTC, weekOfYear, weeks, year, convert, timezone
+          - name: Expression functions
+            href: data-flow-expression-functions.md
+            displayName: abs, acos, add, and, asin, assertErrorMessages, atan, atan2, between, bitwiseAnd, bitwiseOr, bitwiseXor, blake2b, blake2bBinary, case, cbrt, ceil, coalesce, columnNames, columns, compare, concat, concatWS, cos, cosh, crc32, degrees, divide, dropLeft, dropRight, endsWith, equals, equalsIgnoreCase, escape, expr, factorial, false, floor, fromBase64, greater, greaterOrEqual, greatest, hasColumn, hasError, iif, iifNull, initCap, instr, isDelete, isError, isIgnore, isInsert, isMatch, isNull, isUpdate, isUpsert, jaroWinkler, least, left, length, lesser, lesserOrEqual, levenshtein, like, locate, log, log10, lower, lpad, ltrim, md5, minus, mod, multiply, negate, nextSequence, normalize, not, notEquals, notNull, null, or, pMod, partitionId, power, radians, random, regexExtract, regexMatch, regexReplace, regexSplit, replace, reverse, right, rlike, round, rpad, rtrim, sha1, sha2, sin, sinh, soundex, split, sqrt, startsWith, substring, tan, tanh, translate, trim, true, typeMatch, unescape, upper, uuid, xor   
+          - name: Map functions
+            href: data-flow-map-functions.md
+            displayName: associate, keyValues, mapAssociation, reassociate
+          - name: Metafunctions
+            href: data-flow-metafunctions.md
+            displayName: byItem, byOrigin, byOrigins, byName, byNames, byPath, byPosition, hasPath, originColumns, hex, unhex
+          - name: Window functions
+            href: data-flow-window-functions.md
+            displayName: cumeDist, denseRank, lag, lead, nTile, rank, rowNumber
+          - name: Alphabetical usage details for all functions
+            href: data-flow-expressions-usage.md
+      - name: User defined functions
+        href: concepts-data-flow-udf.md
+        displayName: udf, user defined function,data flow library
+    - name: Prepare data with Power Query data wrangling
+      items:
+      - name: Data wrangling overview
+        href: wrangling-overview.md
+        displayName: power
+      - name: Supported functions
+        href: wrangling-functions.md
+        displayName: power
+  - name: Roles and permissions
+    href: concepts-roles-permissions.md
+  - name: Naming rules
+    href: naming-rules.md
+  - name: Data redundancy
+    href: concepts-data-redundancy.md
+- name: SAP knowledge center
+  items:
+  - name: Overview
+    href: industry-sap-overview.md
+  - name: SAP connectors
+    href: industry-sap-connectors.md
+  - name: SAP templates
+    href: industry-sap-templates.md
+  - name: SAP change data capture (CDC) capabilities
+    items:
+    - name: Overview and architecture
+      href: sap-change-data-capture-introduction-architecture.md
+      displayName: SAP, change data capture, CDC
+    - name: Prerequisites and setup
+      href: sap-change-data-capture-prerequisites-configuration.md
+    - name: Set up a self-hosted integration runtime
+      href: sap-change-data-capture-shir-preparation.md
+    - name: Set up a linked service and source dataset
+      href: sap-change-data-capture-prepare-linked-service-source-dataset.md
+    - name: Debug issues with the SAP CDC connector
+      href: sap-change-data-capture-debug-shir-logs.md
+    - name: Manage the SAP CDC process
+      href: sap-change-data-capture-management.md
+    displayName: SAP, change data capture, CDC
 - name: Tutorials
   items:
   - name: List of tutorials
@@ -197,115 +330,6 @@ items:
     href: https://azure.microsoft.com/resources/samples/?service=data-factory
   - name: Azure PowerShell
     href: samples-powershell.md
-- name: Concepts
-  items:
-  - name: Pipelines and activities
-    href: concepts-pipelines-activities.md
-    displayName: retry, timeout
-  - name: Pipeline parameters and variables
-    href: concepts-parameters-variables.md 
-  - name: Nested activities
-    href: concepts-nested-activities.md
-    displayName: nested, nesting
-  - name: Linked services
-    href: concepts-linked-services.md
-  - name: Datasets
-    href: concepts-datasets-linked-services.md
-  - name: Pipeline execution and triggers
-    href: concepts-pipeline-execution-triggers.md
-    displayName: retry
-  - name: Integration runtime
-    href: concepts-integration-runtime.md
-  - name: Data flows
-    items:
-    - name: Transform data with mapping data flows
-      items:
-      - name: Mapping data flow overview
-        href: concepts-data-flow-overview.md
-      - name: Debug mode
-        href: concepts-data-flow-debug-mode.md
-      - name: Schema drift
-        href: concepts-data-flow-schema-drift.md
-      - name: Column patterns
-        href: concepts-data-flow-column-pattern.md
-        displayName: regex, regular expressions, key columns
-      - name: Data flow monitoring
-        href: concepts-data-flow-monitoring.md
-      - name: Data flow performance
-        items:
-          - name: Overview
-            href: concepts-data-flow-performance.md
-            displayName: merge, timeout
-          - name: Optimizing sources
-            href: concepts-data-flow-performance-sources.md
-          - name: Optimizing sinks
-            href: concepts-data-flow-performance-sinks.md
-          - name: Optimizing transformations
-            href: concepts-data-flow-performance-transformations.md
-          - name: Using data flows in pipelines
-            href: concepts-data-flow-performance-pipelines.md
-          - name: Memory optimized compute
-            href: memory-optimized-compute.md
-      - name: Integration Runtime performance
-        href: concepts-integration-runtime-performance.md
-      - name: Manage data flow canvas
-        href: concepts-data-flow-manage-graph.md
-      - name: Flowlets
-        href: concepts-data-flow-flowlet.md
-        displayName: flowlet
-      - name: Expression builder
-        href: concepts-data-flow-expression-builder.md
-        displayName: regex, regular expressions
-      - name: Expression language
-        href: data-transformation-functions.md
-        displayName: regex, regular expressions
-        items:
-          - name: Aggregate functions
-            href: data-flow-aggregate-functions.md
-            displayName: approxDistinctCount, avg, avgIf, collect, count, countAll, countDistinct, countAllDistinct, countIf, covariancePopulation, covariancePopulationIf, covarianceSample, covarianceSampleIf, first, isDistinct, kurtosis, kurtosisIf, last, max, maxIf, mean, meanIf, skewness, skewnessIf, stddev, stddevIf, stddevPopulation, stddevPopulationIf, stddevSample, stddevSampleIf, sumDistinctIf, sumIf, variance, varianceIf, variancePopulation, variancePopulationIf, varianceSample, varianceSampleIf
-          - name: Array functions
-            href: data-flow-array-functions.md
-            displayName: array, at, contains, distinct, except, filter, find, flatten, in, intersect, map, mapIf, mapIndex, mapLoop, reduce, size, slice, sort, unfold, union
-          - name: Cached lookup functions
-            href: data-flow-cached-lookup-functions.md
-            displayName: lookup, mlookup, output, outputs
-          - name: Conversion functions
-            href: data-flow-conversion-functions.md
-            displayName: isBitSet, setBitSet, isBoolean, isByte, isDate, isShort, isInteger, isLong, isNan, isFloat, isDouble, isDecimal, isTimestamp, toBase64, toBinary, toBoolean, toByte, toDate, toDecimal, toDouble, toFloat, toInteger, toLong, toShort, toString, toTimestamp, toUTC
-          - name: Date and time functions
-            href: data-flow-date-time-functions.md
-            displayName: add, addDays, addMonths, between, currentDate, currentTimestamp, currentUTC, dayOfMonth, dayOfWeek, dayOfYear, days, fromUTC, hour, hours, isDate, isTimestamp, lastDayOfMonth, millisecond, milliseconds, minus, minute, minutes, month, monthsBetween, second, seconds, subDays, subMonths, toDate, toTimestamp, toUTC, weekOfYear, weeks, year, convert, timezone
-          - name: Expression functions
-            href: data-flow-expression-functions.md
-            displayName: abs, acos, add, and, asin, assertErrorMessages, atan, atan2, between, bitwiseAnd, bitwiseOr, bitwiseXor, blake2b, blake2bBinary, case, cbrt, ceil, coalesce, columnNames, columns, compare, concat, concatWS, cos, cosh, crc32, degrees, divide, dropLeft, dropRight, endsWith, equals, equalsIgnoreCase, escape, expr, factorial, false, floor, fromBase64, greater, greaterOrEqual, greatest, hasColumn, hasError, iif, iifNull, initCap, instr, isDelete, isError, isIgnore, isInsert, isMatch, isNull, isUpdate, isUpsert, jaroWinkler, least, left, length, lesser, lesserOrEqual, levenshtein, like, locate, log, log10, lower, lpad, ltrim, md5, minus, mod, multiply, negate, nextSequence, normalize, not, notEquals, notNull, null, or, pMod, partitionId, power, radians, random, regexExtract, regexMatch, regexReplace, regexSplit, replace, reverse, right, rlike, round, rpad, rtrim, sha1, sha2, sin, sinh, soundex, split, sqrt, startsWith, substring, tan, tanh, translate, trim, true, typeMatch, unescape, upper, uuid, xor   
-          - name: Map functions
-            href: data-flow-map-functions.md
-            displayName: associate, keyValues, mapAssociation, reassociate
-          - name: Metafunctions
-            href: data-flow-metafunctions.md
-            displayName: byItem, byOrigin, byOrigins, byName, byNames, byPath, byPosition, hasPath, originColumns, hex, unhex
-          - name: Window functions
-            href: data-flow-window-functions.md
-            displayName: cumeDist, denseRank, lag, lead, nTile, rank, rowNumber
-          - name: Alphabetical usage details for all functions
-            href: data-flow-expressions-usage.md
-      - name: User defined functions
-        href: concepts-data-flow-udf.md
-        displayName: udf, user defined function,data flow library
-    - name: Prepare data with Power Query data wrangling
-      items:
-      - name: Data wrangling overview
-        href: wrangling-overview.md
-        displayName: power
-      - name: Supported functions
-        href: wrangling-functions.md
-        displayName: power
-  - name: Roles and permissions
-    href: concepts-roles-permissions.md
-  - name: Naming rules
-    href: naming-rules.md
-  - name: Data redundancy
-    href: concepts-data-redundancy.md
 - name: How-to guides 
   items:
   - name: Author
@@ -1273,27 +1297,3 @@ items:
     href: quota-increase.md
   - name: Limits
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits
-- name: SAP knowledge center
-  items:
-  - name: Overview
-    href: industry-sap-overview.md
-  - name: SAP connectors
-    href: industry-sap-connectors.md
-  - name: SAP templates
-    href: industry-sap-templates.md
-  - name: SAP change data capture (CDC) capabilities (preview)
-    items:
-    - name: Overview and architecture
-      href: sap-change-data-capture-introduction-architecture.md
-      displayName: SAP, change data capture, CDC
-    - name: Prerequisites and setup
-      href: sap-change-data-capture-prerequisites-configuration.md
-    - name: Set up a self-hosted integration runtime
-      href: sap-change-data-capture-shir-preparation.md
-    - name: Set up a linked service and source dataset
-      href: sap-change-data-capture-prepare-linked-service-source-dataset.md
-    - name: Debug the Data Factory copy activity
-      href: sap-change-data-capture-debug-shir-logs.md
-    - name: Manage your solution
-      href: sap-change-data-capture-management.md
-    displayName: SAP, change data capture, CDC
