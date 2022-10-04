@@ -86,15 +86,15 @@ There are three ways to deploy FHIR service:
 
 After you have deployed FHIR service, it will be ready to receive the data processed by MedTech and persist it as a FHIR service Observation.
 
-## Continue on to Configuration
+## Continue on to Part 2: Configuration
 
-After your prerequisites are successfully completed, you can go on to [Part 2: Configuration](deploy-05-new-config.md).
+After your prerequisites are successfully completed, you can go on to Part 2: Configuration. See **Next steps** below.
 
 ## Next steps
 
-In this article, you learned about the prerequisites needed to deploy the MedTech service manually. When you are ready to begin Part 2 of Manual Deployment, see
+When you are ready to begin Part 2 of Manual Deployment, see
 
 >[!div class="nextstepaction"]
->[Configure the MedTech service for manual deployment using the Azure portal](deploy-05-new-config.md)
+>[Part 2: Configure the MedTech service for manual deployment using the Azure portal](deploy-05-new-config.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

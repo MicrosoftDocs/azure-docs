@@ -9,13 +9,13 @@ ms.date: 09/07/2022
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
 
-# Tutorial: Sample steps to interact with Wellbore ddms
+# Tutorial: Sample steps to interact with Wellbore DDMS
 
-Wellbore ddms provides the capability to operate on well data in the Microsoft Energy Data Services instance.
+Wellbore DDMS provides the capability to operate on well data in the Microsoft Energy Data Services instance.
 
 In this tutorial, you'll learn how to:
 > [!div class="checklist"]
-> * Utilize Wellbore ddms APIs to store and retrieve Wellbore and well log data
+> * Utilize Wellbore DDMS APIs to store and retrieve Wellbore and well log data
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 

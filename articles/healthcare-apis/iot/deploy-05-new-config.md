@@ -190,15 +190,15 @@ Your validation screen should look something like this:
 
 If your MedTech service didn't validate, review the validation failure message, and troubleshoot the issue. Check all properties under each MedTech service tab that you've configured. Go back and try again.
 
-## Continue on to Deployment and Post-deployment
+## Continue on to Part 3: Deployment and Post-deployment
 
-After your configuration is successfully completed, you can go on to [Part 3: Deployment and post deployment](deploy-06-new-deploy.md).
+After your configuration is successfully completed, you can go on to Part 3: Deployment and post deployment. See **Next steps** below.
 
 ## Next steps
 
-In this article, you were shown how to configure MedTech service in preparation for deployment and ensure that everything has been validated. When you are ready to begin Part 3 of Manual Deployment, see
+When you are ready to begin Part 3 of Manual Deployment, see
 
 >[!div class="nextstepaction"]
->[Manual deployment and post-deployment of MedTech service](deploy-06-new-deploy.md)
+>[Part 3: Manual deployment and post-deployment of MedTech service](deploy-06-new-deploy.md)
 
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
