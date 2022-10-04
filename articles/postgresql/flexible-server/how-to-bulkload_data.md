@@ -3,7 +3,7 @@ title: Bulk Data Uploads
 description: Best practices to bulk load data in Azure Database for PostgreSQL - Flexible Server 
 author: sarat0681
 ms.author: sbalijepalli
-ms.reviewer: maghan
+ms.reviewer: maghan 
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/16/2022
