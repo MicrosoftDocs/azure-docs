@@ -43,7 +43,19 @@ Although organizations use different protocols and formats for B2B communication
    > in Visual Studio. To resolve this display problem, either [restart Visual Studio in DPI-unaware mode](/visualstudio/designers/disable-dpi-awareness#restart-visual-studio-as-a-dpi-unaware-process), 
    > or add the [DPIUNAWARE registry value](/visualstudio/designers/disable-dpi-awareness#add-a-registry-entry).
 
-After you create an integration account and add your artifacts, you can start building B2B workflows by creating a logic app resource. If you're new to logic apps, try [creating an example basic logic app workflow](quickstart-create-first-logic-app-workflow.md). You can also create, manage, and deploy logic apps by using [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md), [Visual Studio](quickstart-create-logic-apps-with-visual-studio.md), or [PowerShell](/powershell/module/az.logicapp).
+   To install the extension from inside Visual Studio, follow these steps:
+
+   1. After you open Visual Studio, from the **Extensions** menu, select **Manage Extensions**.
+
+   1. In the search box, enter **enterprise integration**.
+
+   1. Next to **Azure Logic Apps Enterprise Integration Tools**, select **Download**.
+
+      Visual Studio downloads and installs the extension.
+
+* To create, manage, and deploy logic app resources, you can use the Azure portal, [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md), [Visual Studio](quickstart-create-logic-apps-with-visual-studio.md), or [PowerShell](/powershell/module/az.logicapp).
+
+After you create an integration account and add your artifacts, you can start building B2B workflows by creating a logic app resource. If you're new to logic apps, try [creating an example basic logic app workflow](quickstart-create-first-logic-app-workflow.md).
 
 > [!IMPORTANT]
 > If you use the **Logic App (Consumption)** resource type, you have to link your integration account 
