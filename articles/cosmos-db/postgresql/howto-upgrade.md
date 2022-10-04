@@ -47,7 +47,7 @@ works properly, upgrade the original cluster.
 
 ## Next steps
 
-* Learn about [supported PostgreSQL versions](versions.md).
+* Learn about [supported PostgreSQL versions](reference-versions.md).
 * See [which extensions](reference-extensions.md) are packaged with
   each PostgreSQL version in a cluster.
 * Learn more about [upgrades](concepts-upgrade.md)

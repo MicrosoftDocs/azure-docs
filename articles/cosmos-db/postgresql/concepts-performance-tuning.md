@@ -30,7 +30,7 @@ performance with minimal code changes. In our measurements, running single-row
 insert statements goes about **24x faster** on a cluster with pooling enabled.
 
 For language-specific examples of adding pooling in application code, see the
-[app stacks guide](quickstart-app-stacks-nodejs.md).
+[app stacks guide](quickstart-app-stacks-overview.yml).
 
 > [!NOTE]
 >
@@ -367,4 +367,4 @@ observed the following query speedups for the techniques in this article.
 
 * [Advanced query performance tuning](https://docs.citusdata.com/en/stable/performance/performance_tuning.html)
 * [Useful diagnostic queries](howto-useful-diagnostic-queries.md)
-* Build fast [app stacks](quickstart-app-stacks-nodejs.md)
+* Build fast [app stacks](quickstart-app-stacks-overview.yml)

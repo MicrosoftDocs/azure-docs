@@ -41,7 +41,7 @@ reviewed the following articles:
 
 > [!div class="checklist"]
 > - Learn how to [build scalable apps](quickstart-build-scalable-apps-overview.md).
-> - Connect and query with your [app stack](quickstart-app-stacks-nodejs.md).
+> - Connect and query with your [app stack](quickstart-app-stacks-overview.yml).
 > - See how the [Azure Cosmos DB for PostgreSQL API](reference-overview.md) extends
 >   PostgreSQL, and try [useful diagnostic
 >   queries](howto-useful-diagnostic-queries.md).

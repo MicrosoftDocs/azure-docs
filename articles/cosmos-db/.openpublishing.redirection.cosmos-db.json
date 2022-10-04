@@ -3581,16 +3581,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cosmos-db/postgresql/reference-versions.md",
-      "redirect_url": "/azure/cosmos-db/postgresql/versions",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/postgresql/quickstart-app-stacks-overview.md",
-      "redirect_url": "/azure/cosmos-db/postgresql/quickstart-app-stacks-nodejs",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/cosmos-db/troubleshoot-unauthorized.md",
       "redirect_url": "/azure/cosmos-db/sql/troubleshoot-unauthorized",
       "redirect_document_id": true
