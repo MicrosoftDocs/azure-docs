@@ -88,7 +88,7 @@ Once the restore is completed, make sure all the above mentioned parameters are 
 
 #### Other considerations
 
-- Disable HA or any standby server prior to running pg_restore.
+- Disable High Availability [HA] prior to running pg_restore.
 - Analyze all tables migrated after restore option.
 
 ##### Syntax
@@ -109,7 +109,8 @@ Here is an example of how this syntax might appear:
 
 Create a virtual machine in the same region,same availability zone (AZ) preferably where you have both your target and source servers or at least have the virtual machine closer to source server or a target server.Use of Azure Virtual Machines with high-performance local SSD is recommended.For more details about the SKUs review
 
-[Edv4 and Edsv4-series](https://docs.microsoft.com/azure/virtual-machines/edv4-edsv4-series)
+[Edv4 and Edsv4-series](https://docs.microsoft.com/azure/virtual-machines/edv4-edsv4-series)   
+
 [Ddv4 and Ddsv4-series](https://docs.microsoft.com/azure/virtual-machines/ddv4-ddsv4-series)
 
 ## Next steps

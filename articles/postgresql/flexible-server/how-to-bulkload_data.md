@@ -21,37 +21,31 @@ This article discusses various loading techniques along with best practices when
 
 ## Loading methods
 
-Performance-wise, the data loading methods arranged in the order of most time consuming to least time consuming methods are as follows:
+Performance-wise, the data loading methods arranged in the order of most time consuming to least time consuming is as follows:
 - Single record Insert
-- Batch into 100-1000 rows per commit. One can use transaction block to wrap multiple records per commit [Batch Inserts].
-- INSERT with multirow VALUES syntax
+- Batch into 100-1000 rows per commit. One can use transaction block to wrap multiple records per commit [Batch Inserts]
+- INSERT with multi row values
 - COPY command
 
-The preferred method to load the data into the database is by copy command. If the copy command isn't possible, batch INSERTs is the following best method. Multi-threading with a COPY command is the optimal method for bulk data loads.
+The preferred method to load the data into the database is by copy command. If the copy command isn't possible, batch INSERTs is the next best method. Multi-threading with a COPY command is the optimal method for bulk data loads.
 
 ## Best practices for initial data loads
 
 #### Drop indexes
 
-During the initial data loads it is advised to drop all the indexes in the tables. It is always more efficient to create the indexes after the data load.
+Before a initial data load it is advised to drop all the indexes in the tables. It is always more efficient to create the indexes after the data load.
 
 #### Drop constraints
 
 ##### Unique key constraints
 
-To achieve strong performance, it's advised to drop unique key constraints before a bulk data load and recreate it once the data load is completed. However, be aware that dropping unique key constraints cancels the safeguards against duplicated data.
+To achieve strong performance, it's advised to drop unique key constraints before a initial data load and recreate it once the data load is completed. However, be aware that dropping unique key constraints cancels the safeguards against duplicated data.
 
 ##### Foreign key constraints
 
-It is advised to drop foreign key constraints before bulk data load and recreate once data load is completed.
+It's is advised to drop foreign key constraints before initial data load and recreate once data load is completed.
 
-Changing the session_replication_role parameter to replica also disables all foreign key checks.However, be aware making the change can leave data in an inconsistent state if not properly used.
-
-It's advised to drop foreign key constraints before bulk data load and recreate once data load is completed or change the session_replication_role parameter to a replica as follows:
-
-```sql
-SET session_replication_role to 'replica'; 
-```
+Changing the `session_replication_role` parameter to replica also disables all foreign key checks.However, be aware making the change can leave data in an inconsistent state if not properly used.
 
 #### Unlogged tables
 
@@ -60,24 +54,26 @@ Use of unlogged tables will make data load faster. Data written to unlogged tabl
 The disadvantages of using unlogged tables are
 - They are not crash-safe. An unlogged table is automatically truncated after a crash or unclean shutdown.
 - Data from unlogged tables cannot be replicated to standby servers.
-- 
-The pros and cons of using unlogged tables should be considered before using in bulk data loads.
 
-Use the following options to create an unlogged table:
+The pros and cons of using unlogged tables should be considered before using in initial data loads.
 
-- Create a new unlogged table by using the following syntax:  
+Use the following options to create an unlogged table or change an existing table to unlogged table:
+
+Create a new unlogged table by using the following syntax:  
 ``` 
 CREATE UNLOGGED TABLE <tablename>;
 ```
 
-- Convert an existing logged table to an unlogged table by using the following syntax:   
+Convert an existing logged table to an unlogged table by using the following syntax:   
 ```
 ALTER TABLE <tablename> SET UNLOGGED;
 ```
 
 #### Server parameter tuning
 
-`Autovacuum`: During the initial data load, it's best to turn off the autovacuum. Once the bulk load is completed, it's advised to run a manual VACUUM ANALYZE on all tables in the database, and then turn on autovacuum.
+`Autovacuum`
+
+During the initial data load, it's best to turn off the autovacuum. Once the initial load is completed, it's advised to run a manual VACUUM ANALYZE on all tables in the database, and then turn on autovacuum.
 
 > [!NOTE]
 > Please follow the recommendations below only if there is enough memory and disk space.
@@ -88,35 +84,40 @@ The maintenance_work_mem can be set to a maximum of 2 GB on a flexible server. `
 
 `checkpoint_timeout`
 
-On the flexible server, the checkpoint_timeout can be increased to maximum 24h from default 5 minutes. It is advised to increase the value to 1 hour before data loads on Flexible server.
+On the flexible server, the checkpoint_timeout can be increased to maximum 24h from default 5 minutes. It is advised to increase the value to 1 hour before initial data loads on Flexible server.
 
-`checkpoint_completion_target`: A value of 0.9 is always recommended.
+`checkpoint_completion_target`
+
+A value of 0.9 is always recommended.
 
 `max_wal_size`
 
-The max_wal_size can be set to maximum allowed value on the Flexible server, which 64 GB while we do the initial data load.
+The max_wal_size can be set to maximum allowed value on the Flexible server, which is 64 GB while we do the initial data load.
 
 `wal_compression`
 
-wal_compression can be turned on. Enabling the parameter can reduce the WAL volume without increasing the risk of unrecoverable data corruption.
+wal_compression can be turned on. Enabling the parameter can reduce the WAL volume without increasing the risk of unrecoverable data corruption, but at the cost of some extra CPU spent on the compression during WAL logging and on the decompression during WAL replay.
 
 
 #### Flexible server recommendations
 
 Before the start of initial data load on a Flexible server, it is recommended to
 
-- Disable high availability [HA] on the server. We can enable HA once full load is completed on master/primary.
+- Disable high availability [HA] on the server. You can enable HA once initial load is completed on master/primary.
 - Create read replicas after initial data load is completed.
 - Make logging minimal or disable all together during initial data loads. Example: disable pgaudit, pg_stat_statements, query store.
 
 
 #### Recreating indexes and adding constraints
+
 Assuming the indexes and constraints were dropped before the initial load, it's recommended to have high values of maintenance_work_mem (as recommended above) for creating indexes and adding constraints. In addition, starting with Postgres version 11, the following parameters can be modified for faster parallel index creation after initial data load:
 
 - `max_parallel_workers`
+
 Sets the maximum number of workers that the system can support for parallel queries.
 
 - `max_parallel_maintenance_workers`
+
 Controls the maximum number of worker process, which can be used to CREATE INDEX.
 
 One could also create the indexes by making recommended settings at the session level. An example of how it can be done at the session level is shown below:
@@ -135,7 +136,7 @@ CREATE INDEX test_index ON test_table (test_column);
 It is always recommended to partition large tables. Some advantages of partitioning, especially during incremental loads:
 - Creation of new partitions based on the new deltas makes it efficient to add new data to the table.
 - Maintenance of tables becomes easier. One can drop a partition during incremental data loads avoiding time-consuming deletes on large tables.
-- Autovacuum would be triggered only on partitions that were changed or added during incremental loads, which make maintaining statistics on the table easier
+- Autovacuum would be triggered only on partitions that were changed or added during incremental loads, which make maintaining statistics on the table easier.
 
 #### Maintain up-to-date table statistics
 
@@ -144,7 +145,7 @@ Monitoring and maintaining table statistics is important for query performance o
 #### Index creation on foreign key constraints
 
 Creating indexes on foreign keys in the child tables would be beneficial in the following scenarios:
-- Data updates or deletions in the parent table. When data is updated or deleted in the parent table lookups would be performed on the child table.To make lookups faster we could index foreign keys on the child table.
+- Data updates or deletions in the parent table. When data is updated or deleted in the parent table lookups would be performed on the child table.To make lookups faster you could index foreign keys on the child table.
 - Queries, where we see join between parent and child tables on key columns.
 
 #### Unused indexes
@@ -158,7 +159,7 @@ Query Store helps identify indexes, which can be dropped based on query usage pa
 Once Query Store is enabled on the server, the following query can be used to identify indexes that can be dropped by connecting to azure_sys database.
 
 ```sql
-SELECT * FROM IntelligentPerformance.CreateIndexRecommendations;
+SELECT * FROM IntelligentPerformance.DropIndexRecommendations;
 ```
 
 ##### Index usage
@@ -200,7 +201,7 @@ The maintenance_work_mem parameter can be set to a maximum of 2 GB on Flexible S
 
 `checkpoint_timeout`
 
-On the Flexible Server, the checkpoint_timeout parameter can be increased to 10 minutes or 15 minutes from the default 5 minutes. Increasing checkpoint_timeout to a larger value, such as 15 minutes, can reduce the I/O load, but the downside is that it takes longer to recover if there was a crash. Careful consideration is recommended before making the change.
+On the Flexible Server, the checkpoint_timeout parameter can be increased to 10 minutes or 15 minutes from the default 5 minutes. Increasing `checkpoint_timeout` to a larger value, such as 15 minutes, can reduce the I/O load, but the downside is that it takes longer to recover if there was a crash. Careful consideration is recommended before making the change.
 
 `checkpoint_completion_target`
 
