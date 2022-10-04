@@ -389,11 +389,34 @@ The following table contains the possible values for `provisioning_state`:
 
 ### Invoke the local endpoint to score data by using your model
 
+# [Azure CLI](#tab/azure-cli)
+
 Invoke the endpoint to score the model by using the convenience command `invoke` and passing query parameters that are stored in a JSON file:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="test_endpoint":::
 
 If you want to use a REST client (like curl), you must have the scoring URI. To get the scoring URI, run `az ml online-endpoint show --local -n $ENDPOINT_NAME`. In the returned data, find the `scoring_uri` attribute. Sample curl based commands are available later in this doc.
+
+# [Python](#tab/python)
+
+Invoke the endpoint to score the model by using the convenience command invoke and passing query parameters that are stored in a JSON file
+
+```python
+ml_client.online_endpoints.invoke(
+    endpoint_name=local_endpoint_name,
+    request_file="../model-1/sample-request.json",
+    local=True,
+)
+```
+
+If you want to use a REST client (like curl), you must have the scoring URI. To get the scoring URI, run the following code. In the returned data, find the `scoring_uri` attribute. Sample curl based commands are available later in this doc.
+
+```python
+endpoint = ml_client.online_endpoints.get(endpoint_name)
+scoring_uri = endpoint.scoring_uri
+```
+
+---
 
 ### Review the logs for output from the invoke operation
 
