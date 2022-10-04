@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/07/2021
+ms.date: 10/03/2022
 ms.author: shaas
 ms.subservice: blobs
 ms.custom: template-how-to
@@ -315,7 +315,8 @@ To learn more about the soft delete data protection option, refer to the [Soft d
  $ctx = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
 
 # Retrieve all containers, filter deleted containers, restore deleted containers
- Get-AzStorageContainer -Prefix $prefixName -IncludeDeleted -Context $ctx | ? { $_.IsDeleted } | Restore-AzStorageContainer
+ Get-AzStorageContainer -Prefix $prefixName -IncludeDeleted `
+    -Context $ctx | ? { $_.IsDeleted } | Restore-AzStorageContainer
 ```
 
 The results display all containers with the prefix **demo** which have been restored.

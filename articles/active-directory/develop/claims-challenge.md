@@ -103,7 +103,7 @@ _clientApp = PublicClientApplicationBuilder.Create(App.ClientId)
  .WithDefaultRedirectUri()
  .WithAuthority(authority)
  .WithClientCapabilities(new [] {"cp1"})
- .Build();*
+ .Build();
 ```
 
 Those using Microsoft.Identity.Web can add the following code to the configuration file:
@@ -112,22 +112,21 @@ Those using Microsoft.Identity.Web can add the following code to the configurati
 {
   "AzureAd": {
     "Instance": "https://login.microsoftonline.com/",
-    // the remaining settings
-    // ... 
-    "ClientCapabilities": [ "cp1" ]
+    "ClientId": 'Enter_the_Application_Id_Here' 
+    "ClientCapabilities": [ "cp1" ],
+    // remaining settings...
 },
 ```
 #### [JavaScript](#tab/JavaScript)
 
-Those using MSAL.js can add `clientCapabilities` property to the configuration object.
+Those using MSAL.js or MSAL Node can add `clientCapabilities` property to the configuration object. Note: this option is available to both public and confidential cient applications.
 
 ```javascript
 const msalConfig = {
     auth: {
         clientId: 'Enter_the_Application_Id_Here', 
         clientCapabilities: ["CP1"]
-        // the remaining settings
-        // ... 
+        // remaining settings...
     }
 }
 
@@ -222,14 +221,15 @@ else
 
 ### [JavaScript](#tab/JavaScript)
 
+The following snippet illustrates a custom Express.js middleware:
+
 ```javascript
 const checkIsClientCapableOfClaimsChallenge = (req, res, next) => {
     // req.authInfo contains the decoded access token payload
     if (req.authInfo['xms_cc'] && req.authInfo['xms_cc'].includes('CP1')) {
           // Return formatted claims challenge as this client understands this
-          
     } else {
-            return res.status(403).json({ error: 'Client is not capable' });
+          return res.status(403).json({ error: 'Client is not capable' });
     }
 }
 
@@ -237,10 +237,14 @@ const checkIsClientCapableOfClaimsChallenge = (req, res, next) => {
 
 ---
 
+## Code samples
+
+- [Enable your Angular single-page application to sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/2-Authorization-I/1-call-graph)
+- [Enable your React single-page application to sign in users and call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/2-Authorization-I/1-call-graph)
+- [Enable your ASP.NET Core web app to sign in users and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
+
 ## Next steps
 
 - [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md#request-an-authorization-code)
 - [How to use Continuous Access Evaluation enabled APIs in your applications](app-resilience-continuous-access-evaluation.md)
 - [Granular Conditional Access for sensitive data and actions](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/granular-conditional-access-for-sensitive-data-and-actions/ba-p/1751775)
-- [React single-page application using MSAL React to sign-in users against Azure Active Directory](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/2-Authorization-I/1-call-graph)
-- [Enable your ASP.NET Core web app to sign in users and call Microsoft Graph with the Microsoft identity platform](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
