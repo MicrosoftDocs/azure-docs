@@ -70,5 +70,4 @@ To determine if your email application supports Azure AD CBA, contact your appli
 - [Windows SmartCard logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
 - [Certificate user IDs](concept-certificate-based-authentication-certificateuserids.md)
 - [How to migrate federated users](concept-certificate-based-authentication-migration.md)
-- [Advanced features](concept-certificate-based-authentication-advanced-features.md)
 - [FAQ](certificate-based-authentication-faq.yml)

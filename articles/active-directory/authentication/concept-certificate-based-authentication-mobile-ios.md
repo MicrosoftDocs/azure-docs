@@ -96,5 +96,4 @@ On iOS, users will see a "double prompt", where they must click the option to us
 - [Windows smart card logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
 - [Certificate user IDs](concept-certificate-based-authentication-certificateuserids.md)
 - [How to migrate federated users](concept-certificate-based-authentication-migration.md)
-- [Advanced features](concept-certificate-based-authentication-advanced-features.md)
 - [FAQ](certificate-based-authentication-faq.yml)

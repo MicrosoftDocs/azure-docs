@@ -146,5 +146,4 @@ IIF(Contains([alternativeSecurityId],"x509:<SKI>")>0,[alternativeSecurityId],Err
 - [Azure AD CBA on Android devices](concept-certificate-based-authentication-mobile-android.md)
 - [Windows smart card logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
 - [How to migrate federated users](concept-certificate-based-authentication-migration.md)
-- [Advanced features](concept-certificate-based-authentication-advanced-features.md)
 - [FAQ](certificate-based-authentication-faq.yml)

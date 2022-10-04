@@ -202,8 +202,6 @@
         href: concept-certificate-based-authentication-certificateuserids.md
       - name: Migrate federated users
         href: concept-certificate-based-authentication-migration.md
-      - name: Advanced features
-        href: concept-certificate-based-authentication-advanced-features.md
       - name: FAQ
         href: certificate-based-authentication-faq.yml
     - name: Federated CBA with Azure AD

@@ -94,5 +94,4 @@ The Windows smart card sign-in works with the latest preview build of Windows 11
 - [Azure AD CBA on Android devices](concept-certificate-based-authentication-mobile-android.md)
 - [Certificate user IDs](concept-certificate-based-authentication-certificateuserids.md)
 - [How to migrate federated users](concept-certificate-based-authentication-migration.md)
-- [Advanced features](concept-certificate-based-authentication-advanced-features.md)
 - [FAQ](certificate-based-authentication-faq.yml)

@@ -89,5 +89,4 @@ In Windows sign-in, this depends on if the device is Azure/Hybrid Azure AD joine
 - [Azure AD CBA on Android devices](concept-certificate-based-authentication-mobile-android.md)
 - [Windows smart card logon using Azure AD CBA](concept-certificate-based-authentication-smartcard.md)
 - [Certificate user IDs](concept-certificate-based-authentication-certificateuserids.md)
-- [Advanced features](concept-certificate-based-authentication-advanced-features.md)
 - [FAQ](certificate-based-authentication-faq.yml)
