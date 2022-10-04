@@ -35,7 +35,7 @@ You can update a device twin with the appropriate tag using RegistryManager afte
 * [Learn how to add tags using a sample .NET app.](../iot-hub/iot-hub-csharp-csharp-twin-getstarted.md)  
 * [Learn about tag properties](../iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format).
 
-#### Device Update tag gormat
+#### Device Update tag format
 
 ```json
      "tags": {

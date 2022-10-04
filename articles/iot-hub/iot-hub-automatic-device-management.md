@@ -82,7 +82,7 @@ For example, you could set the twin path to `properties.desired.chiller-water` a
 }
 ```
 
-:::image type="content" source="./media/iot-hub-automatic-device-management/module-config-twin-settings.png" alt-text="Set the device or module twin property and json content.":::
+:::image type="content" source="./media/iot-hub-automatic-device-management/module-config-twin-settings.png" alt-text="Screenshot of setting the device or module twin property and json content.":::
 
 You can also set individual settings by specifying the entire twin path and providing the value with no brackets. For example, with the twin path `properties.desired.chiller-water.temperature`, set the content to `66`. Then create a new twin setting for the pressure property. 
 
