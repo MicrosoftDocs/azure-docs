@@ -13,7 +13,7 @@ ms.author: jburchel
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This quickstart describes how to use either the [Azure Data Factory Studio](https://adf.azure.com) or the [Azure Portal UI](https://portal.azure.com) to create a data factory.
+This quickstart describes how to use either the [Azure Data Factory Studio](https://adf.azure.com) or the [Azure portal UI](https://portal.azure.com) to create a data factory.
 
 > [!NOTE]
 > If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md) before trying this quickstart. 

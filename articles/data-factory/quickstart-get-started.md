@@ -1,5 +1,5 @@
 ---
-title: Get started
+title: Get started to try out your first data factory pipeline
 description: Get started with your first data factory demo to copy data from one blob storage to another.
 author: pennyzhou-msft
 ms.service: data-factory
@@ -70,7 +70,7 @@ All of the resources referenced above will be created in the new resource group,
 
    :::image type="content" source="media/quickstart-get-started/view-pipeline.png" alt-text="Screenshot of the Azure Data Factory Studio showing the pipeline created by the template.":::
 
-   In the source dataset that you will see, select **Browse**, and note the moviesDB2.csv file, which has been uploaded into the input folder already.
+1. In the source dataset that you will see, select **Browse**, and note the moviesDB2.csv file, which has been uploaded into the input folder already.
 
    :::image type="content" source="media/quickstart-get-started/source-dataset-browse.png" alt-text="Screenshot of the source dataset highlighting the Browse button where the user can see the input file created for the demo.":::
 
@@ -101,7 +101,7 @@ All of the resources referenced above will be created in the new resource group,
 
 You can clean up all the resources you created in this quickstart in either of two ways. You can [delete the entire Azure resource group](../azure-resource-manager/management/delete-resource-group.md), which includes all the resources created in it.  Or if you want to keep some resources intact, browse to the resource group and delete only the specific resources you want, keeping the others.  For example, if you are using this template to create a data factory for use in another tutorial, you can delete the other resources but keep only the data factory.
 
-## Next Steps
+## Next steps
 
 In this quickstart, you created an Azure Data Factory containing a pipeline with a copy activity. To learn more about Azure Data Factory, continue on to the article and Learn module below.
 

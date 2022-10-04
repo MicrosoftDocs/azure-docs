@@ -21,7 +21,7 @@ items:
   - name: Get started with Azure Data Factory
     href: quickstart-get-started.md
   - name: Create a data factory
-    href: quickstart-create-data-factory-portal.md
+    href: quickstart-create-data-factory.md
   - name: Hello World - How to copy data
     href: quickstart-hello-world-copy-data-tool.md
     displayName: timeout

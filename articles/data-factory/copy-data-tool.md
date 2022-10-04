@@ -28,7 +28,7 @@ The following table provides guidance on when to use the Copy Data tool vs. per-
 | You want to easily build a data loading task without learning about entities (linked services, datasets, pipelines, etc.) | You want to implement complex and flexible logic for loading data into lake. |
 | You want to quickly load a large number of data artifacts into a data lake. | You want to chain Copy activity with subsequent activities for cleansing or processing data. |
 
-To start the Copy Data tool, click the **Ingest** tile on the home page of your the Data Factory or Synapse Studio UI.
+To start the Copy Data tool, click the **Ingest** tile on the home page of the Data Factory or Synapse Studio UI.
 
 # [Azure Data Factory](#tab/data-factory)
 :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows the home page - link to Copy Data tool.":::

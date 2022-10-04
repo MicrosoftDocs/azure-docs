@@ -1,6 +1,6 @@
 ---
-title: Learn modules
-description: Get started learning about Azure Data Factory fast with our introductory learn modules.
+title: A summary of introductory training modules
+description: Get started learning about Azure Data Factory fast with our introductory training modules.
 author: jonburchel
 ms.service: data-factory
 ms.subservice: tutorials
@@ -9,9 +9,9 @@ ms.date: 09/14/2022
 ms.author: jburchel
 ---
 
-# Introductory Learn modules for Azure Data Factory
+# Introductory training modules for Azure Data Factory
 
-Azure Data Factory provides a number of Learn modules to help you master the basics, as well as more in-depth modules to give you mastery over some of the deeper capabilities of the service.  Below we provide links and descriptions of our introductory modules to get you started fast!  You can also [view the entire catalog](/training/browse/?filter-products=factory&products=azure-data-factory) of available data factory training, including more advanced modules.
+Azure Data Factory provides a number of training modules to help you master the basics, as well as more in-depth modules to give you mastery over some of the deeper capabilities of the service.  Below we provide links and descriptions of our introductory modules to get you started fast!  You can also [view the entire catalog](/training/browse/?filter-products=factory&products=azure-data-factory) of available data factory training, including more advanced modules.
 
 ## Introduction to Azure Data Factory
 

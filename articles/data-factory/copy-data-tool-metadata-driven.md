@@ -108,7 +108,7 @@ Each row in control table contains the metadata for one object (for example, one
 
 | Column name | Description | 
 |:--- |:--- |
-| Id | Unique ID of the object to be copied. |
+| ID | Unique ID of the object to be copied. |
 | SourceObjectSettings | Metadata of source dataset. It can be schema name, table name etc. Here is an [example](connector-azure-sql-database.md#dataset-properties). |
 | SourceConnectionSettingsName | The name of the source connection setting in connection control table. It is optional. |
 | CopySourceSettings | Metadata of source property in copy activity. It can be query, partitions etc. Here is an [example](connector-azure-sql-database.md#azure-sql-database-as-the-source). |

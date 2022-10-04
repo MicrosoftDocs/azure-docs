@@ -52,7 +52,7 @@ The steps below will walk you through how to easily copy data with the copy data
 
 1. On the **Properties** page of the Copy Data tool, choose **Built-in copy task** under **Task type**, then select **Next**.
 
-   :::image type="content" source="./media/quickstart-hello-world-copy-data-tool/copy-data-tool-properties-page.png" alt-text="&quot;Properties&quot; page":::
+   :::image type="content" source="./media/quickstart-hello-world-copy-data-tool/copy-data-tool-properties-page.png" alt-text="Shows a screenshot of the &quot;Properties&quot; page.":::
 
 ### Step 2: Complete source configuration
 
@@ -60,11 +60,11 @@ The steps below will walk you through how to easily copy data with the copy data
 
 1. Select the linked service type that you want to create for the source connection. In this tutorial, we use **Azure Blob Storage**. Select it from the gallery, and then select **Continue**.
     
-   :::image type="content" source="./media/quickstart-hello-world-copy-data-tool/select-blob-source.png" alt-text="Select Blob":::
+   :::image type="content" source="./media/quickstart-hello-world-copy-data-tool/select-blob-source.png" alt-text="Shows a screenshot of the Select Blob dialog.":::
 
 1. On the **New connection (Azure Blob Storage)** page, specify a name for your connection. Select your Azure subscription from the **Azure subscription** list and your storage account from the **Storage account name** list, test connection, and then select **Create**. 
 
-   :::image type="content" source="./media/quickstart-hello-world-copy-data-tool/configure-blob-storage.png" alt-text="Configure the Azure Blob storage account":::
+   :::image type="content" source="./media/quickstart-hello-world-copy-data-tool/configure-blob-storage.png" alt-text="Shows a screenshot of where to configure the Azure Blob storage account.":::
 
 1. Select the newly created connection in the **Connection** block.
 1. In the **File or folder** section, select **Browse** to navigate to the **adftutorial/input** folder, select the **emp.txt** file, and then click **OK**.
@@ -91,12 +91,12 @@ The steps below will walk you through how to easily copy data with the copy data
 
 1. On the **Deployment complete** page, select **Monitor** to monitor the pipeline that you created. 
 
-    :::image type="content" source="./media/quickstart-hello-world-copy-data-tool/deployment-page.png" alt-text="&quot;Deployment complete&quot; page":::
+    :::image type="content" source="./media/quickstart-hello-world-copy-data-tool/deployment-page.png" alt-text="Shows a screenshot of the &quot;Deployment complete&quot; page.":::
 
 ### Step 5: Monitor the running results
 1. The application switches to the **Monitor** tab. You see the status of the pipeline on this tab. Select **Refresh** to refresh the list. Click the link under **Pipeline name** to view activity run details or rerun the pipeline. 
    
-   :::image type="content" source="./media/quickstart-hello-world-copy-data-tool/refresh-pipeline.png" alt-text="Refresh pipeline":::
+   :::image type="content" source="./media/quickstart-hello-world-copy-data-tool/refresh-pipeline.png" alt-text="Shows a screenshot of the refresh pipeline button.":::
 
 1. On the Activity runs page, select the **Details** link (eyeglasses icon) under the **Activity name** column for more details about copy operation. For details about the properties, see [Copy Activity overview](copy-activity-overview.md). 
 
