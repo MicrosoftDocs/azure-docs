@@ -316,23 +316,22 @@ Source storage account can support up to 20 targets, and target storage account 
 ### Access policy pre-requisites on Azure Storage accounts
 [!INCLUDE [Access policies Azure Storage specific pre-requisites](./includes/access-policies-prerequisites-storage.md)]
 
-### Configuration of Microsoft Purview account for policies
+### Configure the Microsoft Purview account for policies
 [!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
 ### Register the data source in Microsoft Purview for Data Use Management
 The Azure Storage resource needs to be registered first with Microsoft Purview before you can create access policies.
-To register your resources, follow the **Prerequisites** and **Register** sections of these guides:
--   [Register and scan Azure Storage Blob - Microsoft Purview](register-scan-azure-blob-storage-source.md#prerequisites)
+To register your resource, follow the **Prerequisites** and **Register** sections of this guide:
 -   [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Microsoft Purview](register-scan-adls-gen2.md#prerequisites)
 
-After you've registered the data source, you'll need to enable Data Use Management. This enables access policies on the Storage account. Data Use Management can impact the security of your data, as it delegates to certain Microsoft Purview roles to manage access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md) 
+After you've registered the data source, you'll need to enable Data Use Management. This is a pre-requisite before you can create policies on the data source. Data Use Management can impact the security of your data, as it delegates to certain Microsoft Purview roles managing access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md) 
 
 Once your data source has the  **Data Use Management** option set to **Enabled**, it will look like this picture:
 ![Screenshot shows how to register a data source for policy with the option Data use management set to enable](./media/how-to-policies-data-owner-storage/register-data-source-for-policy-storage.png)
 
 ### Create a policy
-To create an access policy for Azure Data Lake Storage Gen 2, follow these guides:
-* [Data owner policy on a single storage account](./how-to-policies-data-owner-storage.md) - This guide will allow you to provision access on a single Azure Storage account in your subscription.
+To create an access policy for Azure Data Lake Storage Gen2, follow these guides:
+* [Data owner policy on a single storage account](./how-to-policies-data-owner-storage.md#create-and-publish-a-data-owner-policy) - This guide will allow you to provision access on a single Azure Storage account in your subscription.
 * [Data owner policy covering all sources in a subscription or resource group](./how-to-policies-data-owner-resource-group.md) - This guide will allow you to provision access on all enabled data sources in a resource group, or across an Azure subscription. The pre-requisite is that the subscription or resource group is registered with the Data use management option enabled. 
 
 ## Next steps
