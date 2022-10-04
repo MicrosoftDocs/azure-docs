@@ -84,6 +84,6 @@ To start using the APIs, see [use APIs](video-indexer-use-apis.md)
 
 * For the API integration, see [Use Azure Video Indexer REST API](video-indexer-use-apis.md).
 * To embed widgets, see [Embed visual widgets in your application](video-indexer-embed-widgets.md).
-* For detailed introduction, visit our [introduction lab](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/IntroToVideoIndexer.md).
+* Also, check out our [introduction lab](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/IntroToVideoIndexer.md).
 
    At the end of the workshop, you'll have a good understanding of the kind of information that can be extracted from video and audio content, you'll be more    prepared to identify opportunities related to content intelligence, pitch video AI on Azure, and demo several scenarios on Azure Video Indexer.
