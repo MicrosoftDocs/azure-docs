@@ -115,7 +115,7 @@ If you have completed the prerequisites, provisioning, and configuration, you ar
 
 When you complete the final [deployment procedure](deploy-06-new-deploy.md) and don't get any errors, you must link MedTech service to an Event Hubs and the FHIR service. This will enable a connection from MedTech service to an Event Hubs instance and the FHIR service, so that data can flow smoothly from device to FHIR Observation. In order to do this, the Event Hubs instance for device message flow must be granted access via role assignment, so MedTech service can receive Event Hubs data. You must also grant access to The FHIR service via role assignments in order for MedTech to receive the data. There are two parts of the process to connect to required services.
 
-For more information about granting access via role assignments, see [Granting the MedTech service access to the device message event hub and FHIR service](deploy-06-new-deploy.md#granting-the-medtech-service-access-to-the-device-message-event-hub-and-fhir-service).
+For more information about granting access via role assignments, see [Granting the MedTech service access to the device message event hub and FHIR service](deploy-06-new-deploy.md#manual-post-deployment-requirements).
 
 ### Granting access to the device message event hub
 
