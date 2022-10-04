@@ -79,11 +79,11 @@ Each method must add **all** these post-deployment tasks:
 
 ### Granting access to the device message event hub
 
-For information about granting access to the device message event hub, see [Granting access to the device message event hub](deploy-07-new-post-deploy.md#granting-access-to-the-device-message-event-hub).
+For information about granting access to the device message event hub, see [Granting access to the device message event hub](deploy-06-new-deploy.md#grant-access-to-the-device-message-event-hub).
 
 ### Granting access to the FHIR service
 
-For information about granting access to the FHIR service, see [Granting access to the FHIR service](deploy-07-new-post-deploy.md#granting-access-to-the-fhir-service).
+For information about granting access to the FHIR service, see [Granting access to the FHIR service](deploy-06-new-deploy.md#grant-access-to-the-fhir-service).
 
 ## Next steps
 
