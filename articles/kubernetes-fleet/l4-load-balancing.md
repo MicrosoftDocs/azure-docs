@@ -10,7 +10,7 @@ ms.service: kubernetes-fleet
 
 # Set up multi-cluster layer 4 load balancing across Azure Kubernetes Fleet Manager member clusters (preview)
 
-After an application has been deployed across multiple clusters using the [Kubernetes configuration propagation](./configuration-propagation.md) feature of Fleet, admins often want to set up load balancing for incoming traffic across these application endpoints on member clusters.
+After an application has been deployed across multiple clusters, admins often want to set up load balancing for incoming traffic across these application endpoints on member clusters.
 
 In this how-to guide, you'll set up layer 4 load balancing across workloads deployed across a fleet's member clusters.
 
