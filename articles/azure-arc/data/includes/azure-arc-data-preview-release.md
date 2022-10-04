@@ -10,26 +10,26 @@ ms.date: 08/02/2022
 At this time, a test or preview build is not available for the next release.
 -->
 
-The current test release published on September 27, 2022.
+The current preview release published on October 4, 2022.
 
 |Component|Value|
 |-----------|-----------|
-|Container images registry/repository |`mcr.microsoft.com/arcdata/test`|
+|Container images registry/repository |`mcr.microsoft.com/arcdata/preview`|
 |Container images tag |`v1.12.0_2022-10-11`|
-|CRD names and version|`datacontrollers.arcdata.microsoft.com`: v1beta1, v1 through v6<br/>`exporttasks.tasks.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`kafkas.arcdata.microsoft.com`: v1beta1<br/>`monitors.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`sqlmanagedinstances.sql.arcdata.microsoft.com`: v1beta1, v1 through v7<br/>`postgresqls.arcdata.microsoft.com`: v1beta1, v1beta2, v1beta3<br/>`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`: v1beta1, v1<br/>`failovergroups.sql.arcdata.microsoft.com`: v1beta1, v1beta2, v1 through v2<br/>`activedirectoryconnectors.arcdata.microsoft.com`: v1beta1, v1beta2, v1<br/>`sqlmanagedinstancereprovisionreplicatask.tasks.sql.arcdata.microsoft.com`: v1beta1<br/>`otelcollectors.arcdata.microsoft.com`: v1beta1<br/>`telemetryrouters.arcdata.microsoft.com`: v1beta1<br/>|
+|CRD names and version|`datacontrollers.arcdata.microsoft.com`: v1beta1, v1 through v6<br/>`exporttasks.tasks.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`kafkas.arcdata.microsoft.com`: v1beta1, v1beta2<br/>`monitors.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`sqlmanagedinstances.sql.arcdata.microsoft.com`: v1beta1, v1 through v7<br/>`postgresqls.arcdata.microsoft.com`: v1beta1, v1beta2, v1beta3<br/>`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`: v1beta1, v1<br/>`failovergroups.sql.arcdata.microsoft.com`: v1beta1, v1beta2, v1 through v2<br/>`activedirectoryconnectors.arcdata.microsoft.com`: v1beta1, v1beta2, v1<br/>`sqlmanagedinstancereprovisionreplicatask.tasks.sql.arcdata.microsoft.com`: v1beta1<br/>`otelcollectors.arcdata.microsoft.com`: v1beta1, v1beta2<br/>`telemetryrouters.arcdata.microsoft.com`: v1beta1, v1beta2<br/>|
 |Azure Resource Manager (ARM) API version|2022-03-01-preview (No change)|
 |`arcdata` Azure CLI extension version|1.4.7 ([Download](https://aka.ms/az-cli-arcdata-ext))|
 |Arc enabled Kubernetes helm chart extension version|1.12.0|
 |Arc Data extension for Azure Data Studio<br/>`arc`<br/>`azcli`|*No Changes*<br/>1.5.4 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.5.4 ([Download](https://aka.ms/ads-azcli-ext))|
 
 New for this release:
-<!--
 - Arc data controller
-  - 
--->
+  - Updates to TelemetryRouter implementation to include inbound and outbound TelemetryCollector layers alongside Kafka as a persistent buffer
+  - AD connector will now be upgraded when data controller is upgraded
 
 - Arc-enabled SQL managed instance
   - New reprovision replica task lets you rebuild a broken sql instance replica. For more information, see [Reprovision replica](#reprovision-replica).
+  - Edit Active Directory settings from the Azure portal
 
 <!--
 - Arc-enabled PostgreSQL server
@@ -38,6 +38,8 @@ New for this release:
 - `arcdata` Azure CLI extension
   - Columns for release information added to the following commands: `az sql mi-arc list` this makes it easy to see what instance may need to be updated.
   - Alternately you can run `az arcdata dc list-upgrades'
+  - New command to list AD Connectors `az arcdata ad-connector list --k8s-namespace <namespace> --use-k8s`
+  - Az CLI Polling for AD Connector create/update/delete: This feature changes the default behavior of `az arcdata ad-connector create/update/delete` to hang and wait until the operation finishes. To override this behavior, the user has to use the `--no-wait` flag when invoking the command. 
 
 ### Reprovision replica
 
