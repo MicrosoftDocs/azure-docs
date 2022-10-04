@@ -14,6 +14,8 @@ ms.date: 09/28/2022
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
+[!INCLUDE [App stack selector](includes/quickstart-selector.md)]
+
 This quickstart shows you how to use Ruby code to connect to a cluster, and then use SQL statements to create a table and insert, query, update, and delete data in the database. The steps in this article assume that you're familiar with Ruby development, and are new to working with Azure Cosmos DB for PostgreSQL.
 
 > [!TIP]
@@ -69,7 +71,7 @@ end
 
 ## Distribute tables
 
-Azure Cosmos DB for PostgreSQL gives you [the super power of distributing tables](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. The command below enables you to distribute a table. You can learn more about `create_distributed_table` and the distribution column [here](quickstart-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
+Azure Cosmos DB for PostgreSQL gives you [the super power of distributing tables](introduction.md) across multiple nodes for scalability. The command below enables you to distribute a table. You can learn more about `create_distributed_table` and the distribution column [here](quickstart-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
 
 > [!NOTE]
 > Distributing tables lets them grow across any worker nodes added to the cluster.

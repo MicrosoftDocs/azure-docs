@@ -1,6 +1,6 @@
 ---
 title: Reference – Azure Cosmos DB for PostgreSQL
-description: Overview of the Azure Cosmos DB for PostgreSQL SQL API
+description: Overview of the Azure Cosmos DB for PostgreSQL distributed SQL API
 ms.author: jonels
 author: jonels-msft
 ms.service: cosmos-db
@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 08/02/2022
 ---
 
-# The Azure Cosmos DB for PostgreSQL SQL API
+# Azure Cosmos DB for PostgreSQL distributed SQL API
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 

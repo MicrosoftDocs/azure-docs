@@ -1,5 +1,11 @@
+- name: PostgreSQL documentation
+  href: index.yml
 - name: Overview
-  href: overview.md
+  items:
+    - name: What is Azure Cosmos DB for PostgreSQL?
+      href: introduction.md
+    - name: PostgreSQL versions
+      href: versions.md
 - name: Quickstart
   items:
     - name: Create cluster
@@ -30,8 +36,6 @@
                   href: quickstart-build-scalable-apps-model-high-throughput.md
         - name: App stacks
           items:
-            - name: Overview
-              href: quickstart-app-stacks-overview.md
             - name: Python
               href: quickstart-app-stacks-python.md
             - name: Node.js
@@ -61,7 +65,7 @@
           displayName: hyperscale, tutorial, private
 - name: Concepts
   items:
-    - name: Cluster
+    - name: Clusters
       href: concepts-cluster.md
     - name: Distributed data
       items:
@@ -196,8 +200,6 @@
   items:
     - name: Product updates
       href: product-updates.md
-    - name: PostgreSQL versions
-      href: reference-versions.md
     - name: PostgreSQL extensions
       href: reference-extensions.md
     - name: Distributed SQL API

@@ -17,8 +17,6 @@ ms.date: 09/29/2022
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-## The superpower of distributed tables
-
 Azure Cosmos DB for PostgreSQL is a managed service for PostgreSQL extended
 with the [Citus open source](https://github.com/citusdata/citus) superpower of
 *distributed tables*. This superpower enables you to build highly scalable
@@ -43,7 +41,7 @@ reviewed the following articles:
 
 > [!div class="checklist"]
 > - Learn how to [build scalable apps](quickstart-build-scalable-apps-overview.md).
-> - Connect and query with your [app stack](quickstart-app-stacks-overview.md).
+> - Connect and query with your [app stack](quickstart-app-stacks-nodejs.md).
 > - See how the [Azure Cosmos DB for PostgreSQL API](reference-overview.md) extends
 >   PostgreSQL, and try [useful diagnostic
 >   queries](howto-useful-diagnostic-queries.md).

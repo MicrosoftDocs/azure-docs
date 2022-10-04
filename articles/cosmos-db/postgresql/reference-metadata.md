@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 02/18/2022
 ---
 
-# System tables and views
+# Azure Cosmos DB for PostgreSQL system tables and views
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
