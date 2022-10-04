@@ -130,21 +130,19 @@ Use the highest priority (lowest number) binding.
 
 ## Securing Azure AD configuration with multiple username bindings
 
-CertificateUserIds attribute has unique constraint to make sure we have one certificate against one user account. But with the support of multiple bindings and iterating through all bindings for authentication, it is possible to have one certificate authenticate against multiple accounts.
+Each of the Azure AD attributes(userPrincipalName, onPremiseUserPrincipalName, CertificateUserIds) available to bind certificates to Azure AD user accounts has unique constraint to ensure a certificate only matches a single Azure AD user account. However, Azure AD CBA does support configuring multiple binding methods in the username binding policy. This allows an administrator to accommodate multiple certificate configurations.  However the combination of some methods can also potentially permit one certificate to match to multiple Azure AD user Accounts. 
 
-In order to mitigate a scenario where one certificate to multiple account is possible, the tenant policy should only support one binding at any one time. If the tenant policy supports more than one binding then they allow the potential for one certificate to multiple account.
+In order to eliminate a scenario where a single certificate matching multiple Azure AD accounts, the tenant administrator should
+- Configure a single method in the username binding policy.
+- If a tenant has multiple binding methods configured and does not want to not allow one certificate to multiple accounts the tenant admin must ensure all allowable methods configured in the policy map to the same Azure AD Account. 
 
-If a tenant has multiple bindings and does not want to allow one certificate to multiple accounts then by default, the tenant admin would configure all the user accounts to hold values for all bindings so users other than 1:M scope can't use one certificate to multiple accounts.
+For example, if the tenant admin has two username bindings on PrincipalName mapped to Azure AD UPN  and SubjectKeyIdentifier(SKI) to certificateUserIds and wants a certificate to only be used for a single Azure AD Account, the admin must make sure that account has the UPN  that is present in the certificate and implements the SKI mapping in the same accounts certificateUserId attribute.
 
-For example, if the tenant admin has two username bindings on SAN PN and SKI and wants a certificate to only be used for Bob's productivity account and block the use of that certificate on other accounts, they would configure Bob's productivity account to hold all of the values available in the username mapping policy.
-
-In this example, to lock Bob's certificate to only Bob's productivity account, use the certificateUserIds attribute because it has a unique constraint, and no other user account can have the same values.
-
-Here are the values for UPN and certificateUserIDs for Bob's productivity account:
-
+Here is an example of potential values for UPN and certificateUserIDs:
 Azure AD User Principal Name = Bob.Smith@Contoso.com
-certificateUserIDs = [ x509:\<PN\>Bob.Smith@Contoso.com , x509:\<SKI\>89b0f468c1abea65ec22f0a882b8fda6fdd6750p]
+certificateUserIDs = [x509:\<SKI\>89b0f468c1abea65ec22f0a882b8fda6fdd6750p]
 
+Having both PrincipalName and SKI values from the user's certificate mapped to the same account ensures that while the tenant policy permits only PrincipalName->AAD UPN & SKI -> certificateUserIds that certificate can only match a single Azure AD account 
 
 ## Understanding the certificate revocation process
 
