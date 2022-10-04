@@ -74,7 +74,7 @@ Before organizations enable remediation policies, they may want to [investigate]
    1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
 1. Under **Conditions** > **User risk**, set **Configure** to **Yes**. 
-   1. Under **Configure user risk levels needed for policy to be enforced**, select **High**. ([This is based on Microsoft recommendations and may be different for each organization](#choosing-acceptable-risk-levels))
+   1. Under **Configure user risk levels needed for policy to be enforced**, select **High**. ([This guidance is based on Microsoft recommendations and may be different for each organization](#choosing-acceptable-risk-levels))
    1. Select **Done**.
 1. Under **Access controls** > **Grant**.
    1. Select **Grant access**, **Require password change**.
@@ -99,7 +99,7 @@ After confirming your settings using [report-only mode](../conditional-access/ho
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
    1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
-1. Under **Conditions** > **Sign-in risk**, set **Configure** to **Yes**. Under **Select the sign-in risk level this policy will apply to**. ([This is based on Microsoft recommendations and may be different for each organization](#choosing-acceptable-risk-levels))
+1. Under **Conditions** > **Sign-in risk**, set **Configure** to **Yes**. Under **Select the sign-in risk level this policy will apply to**. ([This guidance is based on Microsoft recommendations and may be different for each organization](#choosing-acceptable-risk-levels))
    1. Select **High** and **Medium**.
    1. Select **Done**.
 1. Under **Access controls** > **Grant**.
@@ -129,7 +129,7 @@ If you already have risk policies enabled in Identity Protection, we highly reco
 
 ### Migrating to Conditional Access
 
-1.	**Create an equivalent** [user risk-based](#user-risk-policy-in-conditional-access) and [sign-in risk-based ](#sign-in-risk-policy-in-conditional-access) policy in Conditional Access in report-only mode. You can do this with the steps above or using [Conditional Access templates](../conditional-access/concept-conditional-access-policy-common.md#common-conditional-access-policies) based on Microsoft's recommendations.
+1.	**Create an equivalent** [user risk-based](#user-risk-policy-in-conditional-access) and [sign-in risk-based ](#sign-in-risk-policy-in-conditional-access) policy in Conditional Access in report-only mode. You can create a policy with the steps above or using [Conditional Access templates](../conditional-access/concept-conditional-access-policy-common.md#common-conditional-access-policies) based on Microsoft's recommendations and your organizational requirements.
     1. Ensure that the new Conditional Access risk policy works as expected by testing it in [report-only mode](../conditional-access/howto-conditional-access-insights-reporting.md).
 1.	**Enable** the new Conditional Access risk policy. You can choose to have both policies running side-by-side to confirm the new policies are working as expected before turning off the Identity Protection risk policies.
     1. Browse back to **Azure Active Directory** > **Security** > **Conditional Access**. 
