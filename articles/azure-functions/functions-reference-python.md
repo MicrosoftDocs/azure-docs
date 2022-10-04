@@ -95,6 +95,8 @@ At this time, only specific triggers and bindings are supported by the V2 progra
 | Blob | x | x | x |
 | Event Grid | x |   | x |
 
+To learn about known limitations with the V2 model and their workarounds, see [Troublehshooting Python Functions using the V2 Model](recover-python-functions-v2.md) 
+
 ---
 
 ## Alternate entry point
@@ -875,6 +877,8 @@ Note that when using the new programming model, the following app setting needs 
 ```json
 "AzureWebJobsFeatureFlags": "EnableWorkerIndexing"
 ```
+
+Multiple Python workers are not supported in V2 at this time. This means that setting `FUNCTIONS_WORKER_PROCESS_COUNT` to greater than 1 is not supported for the functions using the V2 model.
 
 ---
 

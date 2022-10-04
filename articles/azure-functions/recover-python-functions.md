@@ -12,68 +12,10 @@ ms.custom: devx-track-python
 
 Following is a list of troubleshooting guides for common issues in Python functions:
 
-* [Could not load file or assembly](#troubleshoot-could-not-load-file-or-assembly)
-* [Unable to resolve the Azure Storage connection named Storage](#troubleshoot-unable-to-resolve-the-Azure-Storage-connection-named-Storage)
 * [ModuleNotFoundError and ImportError](#troubleshoot-modulenotfounderror)
 * [Cannot import 'cygrpc'](#troubleshoot-cannot-import-cygrpc)
 * [Python exited with code 137](#troubleshoot-python-exited-with-code-137)
 * [Python exited with code 139](#troubleshoot-python-exited-with-code-139)
-
-## Troubleshoot "could not load file or assembly"
-
-If you are facing this error, it may be the case that you are using the V2 programming model. This error is due to a known issue that will be resolved in an upcoming release.
-
-This specific error may ready:
-
-> `DurableTask.Netherite.AzureFunctions: Could not load file or assembly 'Microsoft.Azure.WebJobs.Extensions.DurableTask, Version=2.0.0.0, Culture=neutral, PublicKeyToken=014045d636e89289'.`
-> `The system cannot find the file specified.`
-
-The reason this error may be occuring is because of an issue with how the extension bundle was cached. To detect if this is the issue, you can run the command with `--verbose` to see more details. 
-
-> `func host start --verbose`
-
-Upon running the command, if you notice that `Loading startup extension <>` is not followed by `Loaded extension <>` for each extension, it is likely that you are facing a caching issue. 
-
-To resolve this issue, 
-
-1. Find the path of `.azure-functions-core-tools` by running 
-```console 
-func GetExtensionBundlePath
-```
-
-2. Delete the directory `.azure-functions-core-tools`
-
-# [bash](#tab/bash)
-
-```bash
-rm -r <insert path>/.azure-functions-core-tools
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-Remove-Item <insert path>/.azure-functions-core-tools
-```
-
-# [Cmd](#tab/cmd)
-
-```cmd
-rmdir <insert path>/.azure-functions-core-tools
-```
-
----
-
-
-## Troubleshoot "unable to resolve the Azure Storage connection named Storage"
-
-This specific error may ready:
-
-> `Microsoft.Azure.WebJobs.Extensions.DurableTask: Unable to resolve the Azure Storage connection named 'Storage'.`
-> `Value cannot be null. (Parameter 'provider')`
-
-The reason this error may be occuring is due to the way extensions are loaded from the bundle. To resolve this error, you can do one of the following:
-* Use a storage emulator such as [Azurerite](https://learn.microsoft.com/azure/storage/common/storage-use-azurite?tabs=visual-studio). This is a good option if you are not planning to use a storage account in your function application.
-* Create a storage account and add a connection string to the AzureWebJobsStorage environment variable in `localsettings.json`. This is a suitable option if are planning to use a storage account trigger or binding with your application, or if you have an existing storage account. To get started, see [Create a storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal).
 
 ## Troubleshoot ModuleNotFoundError
 
@@ -266,6 +208,33 @@ If your function app is using the Python pickel library to load Python object fr
 ### Pyodbc connection collision
 
 If your function app is using the popular ODBC database driver [pyodbc](https://github.com/mkleehammer/pyodbc), it is possible that multiple connections are opened within a single function app. To avoid this issue, please use the singleton pattern and ensure only one pyodbc connection is used across the function app.
+
+---
+
+## Troubleshoot errors with Protocol Buffers
+
+Version 4.x.x of the Protocol Buffers (protobuf) package introduces breaking changes. Because the Python worker process for Azure Functions relies on v3.x.x of this package, pinning your function app to use v4.x.x can break your app. At this time, you should also avoid using any libraries that themselves require protobuf v4.x.x. 
+
+Example error logs:
+```bash
+ [Information] File "/azure-functions-host/workers/python/3.8/LINUX/X64/azure_functions_worker/protos/shared/NullableTypes_pb2.py", line 38, in <module>
+ [Information] _descriptor.FieldDescriptor(
+ [Information] File "/home/site/wwwroot/.python_packages/lib/site-packages/google/protobuf/descriptor.py", line 560, in __new__
+ [Information] _message.Message._CheckCalledFromGeneratedFile()
+ [Error] TypeError: Descriptors cannot not be created directly.
+ [Information] If this call came from a _pb2.py file, your generated code is out of date and must be regenerated with protoc >= 3.19.0.
+ [Information] If you cannot immediately regenerate your protos, some other possible workarounds are:
+ [Information] 1. Downgrade the protobuf package to 3.20.x or lower.
+ [Information] 2. Set PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python (but this will use pure-Python parsing and will be much slower).
+ [Information] More information: https://developers.google.com/protocol-buffers/docs/news/2022-05-06#python-updates
+```
+There are two ways to mitigate this issue.
+
++ Set the application setting [PYTHON_ISOLATE_WORKER_DEPENDENCIES](functions-app-settings.md#python_isolate_worker_dependencies-preview) to a value of `1`. 
++ Pin protobuf to a non-4.x.x. version, as in the following example:
+    ```
+    protobuf >= 3.19.3, == 3.*
+    ```
 
 ---
 
