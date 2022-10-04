@@ -38,8 +38,8 @@ Output options include:
 - `--srt`: Output captions in SRT (SubRip Text) format. The default format is WebVTT (Web Video Text Tracks). For more information about SRT and WebVTT caption file formats, see [Caption output format](~/articles/cognitive-services/speech-service/captioning-concepts.md#caption-output-format).
 - `--maxLineLength LENGTH`: Set the maximum number of characters per line for a caption to LENGTH. Minimum is 20. Default is 37 (30 for Chinese).
 - `--lines LINES`: Set the number of lines for a caption to LINES. Minimum is 1. Default is 2.
-- `--delay SECONDS`: How many SECONDS to delay the appearance of each caption. Minimum is 0.0. Default is 1.0.
-- `--remainTime SECONDS`: How many SECONDS a caption should remain on screen if it is not replaced by another. Minimum is 0.0. Default is 1.0.
+- `--delay MILLISECONDS`: How many MILLISECONDS to delay the display of each caption, to mimic a real-time experience. This option is only applicable when you use the `realTime` flag. Minimum is 0.0. Default is 1000.
+- `--remainTime MILLISECONDS`: How many MILLISECONDS a caption should remain on screen if it is not replaced by another. Minimum is 0.0. Default is 1000.
 - `--quiet`: Suppress console output, except errors.
 - `--profanity OPTION`: Valid values: raw, remove, mask. For more information, see [Profanity filter](~/articles/cognitive-services/speech-service/display-text-format.md#profanity-filter) concepts.
 - `--threshold NUMBER`: Set stable partial result threshold. The default value is `3`. This option is only applicable when you use the `realTime` flag. For more information, see [Get partial results](~/articles/cognitive-services/speech-service/captioning-concepts.md#get-partial-results) concepts.
