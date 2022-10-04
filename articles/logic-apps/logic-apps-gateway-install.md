@@ -75,8 +75,6 @@ This article shows how to download, install, and set up your on-premises data ga
 
   * The region that you select for your gateway installation is the same location that you must select when you later create the Azure gateway resource for your logic app. By default, this region is the same location as your Azure AD tenant that manages your Azure user account. However, you can change the location during gateway installation or later.
 
-  * The Azure gateway resource, which you create later, and your logic app resource must use the same Azure subscription, although these resources can exist in different resource groups.
-
     > [!IMPORTANT]
     > During gateway setup, the **Change Region** command is unavailable if you signed in with your Azure Government account, which is associated with an 
     > Azure Active Directory (Azure AD) tenant in the [Azure Government cloud](../azure-government/compare-azure-government-global-azure.md). The gateway 
@@ -85,6 +83,8 @@ This article shows how to download, install, and set up your on-premises data ga
     > To continue using your Azure Government account, but set up the gateway to work in the global multi-tenant Azure Commercial cloud instead, first sign 
     > in during gateway installation with the `prod@microsoft.com` username. This solution forces the gateway to use the global multi-tenant Azure cloud, 
     > but still lets you continue using your Azure Government account.
+    >
+    > The Azure gateway resource, which you create later, and your logic app resource must use the same Azure subscription, although these resources can exist in  different resource groups.
 
   * If you're updating your gateway installation, uninstall your current gateway first for a cleaner experience.
 
