@@ -6,10 +6,12 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/22/2020
+ms.date: 10/04/2022
 ms.author: mbullwin
 ms.custom: devx-track-js
 ---
+
+<a href="https://go.microsoft.com/fwlink/?linkid=2090788" target="_blank">Library reference documentation</a> |<a href="https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector" target="_blank">Library source code</a> | <a href="https://www.npmjs.com/package/%40azure/ai-anomaly-detector" target="_blank">Package (npm)</a> |<a href="https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector" target="_blank">Find the sample code on GitHub</a>
 
 Get started with the Anomaly Detector client library for JavaScript. Follow these steps to install the package start using the algorithms provided by the service. The Anomaly Detector service enables you to find abnormalities in your time series data by automatically using the best-fitting models on it, regardless of industry, scenario, or data volume.
 
@@ -19,9 +21,12 @@ Use the Anomaly Detector client library for JavaScript to:
 * Detect the anomaly status of the latest data point in your time series
 * Detect trend change points in your data set.
 
-[Library reference documentation](https://go.microsoft.com/fwlink/?linkid=2090788) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector) | [Package (npm)](https://www.npmjs.com/package/%40azure/ai-anomaly-detector) | [Find the code on GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/AnomalyDetector)
-
 ## Prerequisites
+
+* An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
+* <a href="https://www.python.org/" target="_blank">Python 3.x</a>
+* <a href="https://pandas.pydata.org/" target="_blank">Pandas data analysis library</a>
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and select the **Go to resource** button. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The current version of [Node.js](https://nodejs.org/)
