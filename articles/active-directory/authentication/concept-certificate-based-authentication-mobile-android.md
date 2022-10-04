@@ -33,7 +33,7 @@ Azure AD CBA is supported for certificates on-device on native browsers, and on 
 
 On-device certificates are provisioned on the device. Customers can use Mobile Device Management (MDM) to provision the certificates on the device. 
 
-## Supported platforms**
+## Supported platforms
 
 - Applications using latest MSAL libraries or Microsoft Authenticator can do CBA
 - Edge with profile, when users add account and sign in with a profile, will support CBA
