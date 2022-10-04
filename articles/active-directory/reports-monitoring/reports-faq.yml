@@ -93,7 +93,12 @@ sections:
           I see .XXX in part of the IP address from a user in my sign in logs. Why is that happening?
         answer: |
           Azure AD may redact part of an IP address in the sign in logs to protect user privacy when a user may not belong to the tenant viewing the logs. This happens in two cases: first, during cross tenant sign ins, such as when a CSP technician signs into a tenant that CSP manages. Second, when our service was not able to determine the user's identity with sufficient confidence to be sure the user belongs to the tenant viewing the logs.
-
+      - question: |
+          I see ROPC as the Authentication Protocol in sign-in events, but those events are from users using basic auth to access Exchange. Why is that happening?
+        answer: |
+          This occurs when users access Exchange Online with clients using basic authentication. Exchange Online uses the user credentials provided by the client through basic authentication to get a token from Azure AD through the Resource Owner Password Credentials (ROPC) grant. To eliminate ROPC flows caused by users accessing Exchange Online using basic authentication, follow the guidance in the [Disable Basic authentication in Exchange Online](https://learn.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) doc. [Basic authentication is deprecated](https://learn.microsoft.com/exchange/clients-and-mobile-in-exchange-online/deprecation-of-basic-authentication-exchange-online); Microsoft recommends removing it from your Exchange environment. 
+          
+          
   - name: Conditional Access
     questions:
       - question: |
