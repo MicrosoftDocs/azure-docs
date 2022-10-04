@@ -52,7 +52,7 @@ LIMIT 5;
 ```
 
 > [!NOTE]
-> When using query store or pg_stat_statements for columns blk_read_time and blk_write_time to be populated one must enable server parameter `track_io_timing`.For more information about the **track_io_timing** parameter, review [Server Parameter](https://www.postgresql.org/docs/current/runtime-config-statistics.html). 
+> When using query store or pg_stat_statements for columns blk_read_time and blk_write_time to be populated enable server parameter `track_io_timing`.For more information about the **track_io_timing** parameter, review [Server Parameters](https://www.postgresql.org/docs/current/runtime-config-statistics.html). 
 
 ## Identify root causes 
 
@@ -79,12 +79,12 @@ You could also investigate using an approach where periodic snapshots of `pg_sta
 
 ### Disruptive autovacuum daemon process
 
-The following query helps in monitoring autovacuum:
+Execute the below query to monitor autovacuum:
 
 ```sql
 SELECT schemaname, relname, n_dead_tup, n_live_tup, autovacuum_count, last_vacuum, last_autovacuum, last_autoanalyze, autovacuum_count, autoanalyze_count FROM pg_stat_all_tables WHERE n_live_tup > 0; 
 ```
-The query can be used to check how frequently the tables in the database is being vacuumed. 
+The query is used to check how frequently the tables in the database are being vacuumed. 
 
 **last_autovacuum**  : provides date and time when the last autovacuum ran on the table.      
 **autovacuum_count** : provides number of times the table was vacuumed.    
@@ -100,7 +100,7 @@ To resolve high IO utilization, there are three methods you could employ - using
 
 ### Explain Analyze 
 
-Once you know the query that's running for a long time, use **EXPLAIN** to further investigate the query and tune it. For more information about the **EXPLAIN** command, review [Explain Plan](https://www.postgresql.org/docs/current/sql-explain.html). 
+Once you identify the query that's consuming high IO, use **EXPLAIN ANALYZE** to further investigate the query and tune it. For more information about the **EXPLAIN ANALYZE** command, review [Explain Plan](https://www.postgresql.org/docs/current/sql-explain.html). 
 
 ### Terminating long running transactions   
 
@@ -129,7 +129,7 @@ If it's observed that the checkpoint is happening too frequently, increase `max_
 
 #### max_wal_size
 
-One way to tune `max_wal_size` is to find a suitable time to find `max_wal_size` on the server. Peak business hours is a good time to arrive at the value. Follow the below listed steps to arrive at a value.
+Peak business hours is a good time to arrive at `max_wal_size` value. Follow the below listed steps to arrive at a value.
 
 Execute the below query to get current WAL LSN, note down the result:
 
@@ -137,7 +137,7 @@ Execute the below query to get current WAL LSN, note down the result:
 select pg_current_wal_lsn();
 ```
 
-Wait for checkpoint_timeout number of seconds. Execute the below query to get current WAL LSN, note down the result:
+Wait for `checkpoint_timeout` number of seconds. Execute the below query to get current WAL LSN, note down the result:
 
  ```sql
 select pg_current_wal_lsn();
@@ -151,18 +151,19 @@ select round (pg_wal_lsn_diff ('LSN value when run second time', 'LSN value when
 
 #### check_point_completion_target
 
-check_point_completion_target determines the total time between checkpoints. A good practice would be to set it to 0.9.
+A good practice would be to set it to 0.9.As an example a value of 0.9 for a `checkpoint_timeout` of 5 minutes indicates the target to complete a checkpoint is 270 sec [0.9*300 sec].A value of 0.9 provides fairly consistent I/O load.A aggressive value of `check_point_completion_target` may result in increased IO load on the server.
 
 #### checkpoint_timeout
 
-Maximum time between automatic WAL checkpoints. The value can be increased from default value set on server. Set an appropriate value taking into consideration that increasing the value would also increase the time for crash recovery.
+The `checkpoint_timeout` value can be increased from default value set on the server.Please note while increasing the `checkpoint_timeout` take into consideration that increasing the value would also increase the time for crash recovery.
 
 ### Autovacuum tuning to decrease disruptions
 
 For more details on monitoring and tuning in scenarios where autovacuum is too disruptive please review [Autovacuum Tuning](./how-to-autovacuum-tuning.md).
 
 ###  Increase storage
-In scenarios where storage usage percent is high, increasing storage will get more IOPS. For more details on storage and associated IOPS review [Compute and Storage Options](./concepts-compute-storage.md).
+
+Increasing storage will also help in addition of more IOPS to the server. For more details on storage and associated IOPS review [Compute and Storage Options](./concepts-compute-storage.md).
 
 ## Next steps
 
