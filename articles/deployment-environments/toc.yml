@@ -45,6 +45,8 @@ items:
   items:
     - name: REST API
       href: /rest/api/devcenter/
+    - name: CLI
+      href: how-to-configure-use-cli.md
 - name: Resources
   items: 
     - name: Azure roadmap
