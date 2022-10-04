@@ -136,8 +136,8 @@ To pin a Linux function app to a specific host version, you specify a base image
 
 | [Hosting plan](functions-scale.md)  | [`linuxFxVersion` value][`linuxFxVersion`] |
 | --- | --- |
-| Consumption  | `DOCKER\|mcr.microsoft.com/azure-functions/mesh:3.0.13142-node10` | 
-| Premium/Dedicated | `DOCKER\|mcr.microsoft.com/azure-functions/node:3.0.13142-node10-appservice` |
+| Consumption  | `DOCKER\|mcr.microsoft.com/azure-functions/mesh:4.11.2-node18` | 
+| Premium/Dedicated | `DOCKER\|mcr.microsoft.com/azure-functions/node:4.11.2-node18-appservice` |
 
 When needed, a support professional can provide you with a valid base image URI for your application. 
 
