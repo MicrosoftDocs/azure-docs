@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 Before you start this tutorial, make sure that you have:
 -	Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
 -	[Apache Spark v2.4](https://spark.apache.org/downloads.html)
--	[Apache Kafka v2.0]( https://kafka.apache.org/20/documentation.html)
+-	[Apache Kafka v2.0](https://kafka.apache.org/20/documentation.html)
 -	[Git](https://www.git-scm.com/downloads)
 
 > [!NOTE]
@@ -97,4 +97,3 @@ To learn more about Event Hubs and Event Hubs for Kafka, see the following artic
 - [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
 - [Connect Akka Streams to an event hub](event-hubs-kafka-akka-streams-tutorial.md)
 - [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md)
-

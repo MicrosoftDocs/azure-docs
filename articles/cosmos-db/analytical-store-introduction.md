@@ -11,11 +11,16 @@ ms.reviewer: mjbrown
 ---
 
 # What is Azure Cosmos DB analytical store?
-[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+[!INCLUDE[appliesto-sql-mongodb-gremlin-api](includes/appliesto-sql-mongodb-gremlin-api.md)]
 
 Azure Cosmos DB analytical store is a fully isolated column store for enabling large-scale analytics against operational data in your Azure Cosmos DB, without any impact to your transactional workloads. 
 
 Azure Cosmos DB transactional store is schema-agnostic, and it allows you to iterate on your transactional applications without having to deal with schema or index management. In contrast to this, Azure Cosmos DB analytical store is schematized to optimize for analytical query performance. This article describes in detailed about analytical storage.
+
+> [!NOTE]
+> Synapse Link for Gremlin API is now in preview. You can enable Synapse Link in your new or existing graphs using Azure CLI. For more information on how to configure it, click [here](configure-synapse-link.md).
+
+
 
 ## Challenges with large-scale analytics on operational data
 
@@ -141,7 +146,6 @@ The following constraints are applicable on the operational data in Azure Cosmos
   {"id": 2, "name": "john"}
   ```
 
-
 * The first document of the collection defines the initial analytical store schema.
   * Documents with more properties than the initial schema will generate new columns in analytical store.
   * Columns can't be removed.
@@ -221,8 +225,9 @@ df = spark.read\
 
 There are two types of schema representation in the analytical store. These types define the schema representation method for all containers in the database account and have tradeoffs between the simplicity of query experience versus the convenience of a more inclusive columnar representation for polymorphic schemas.
 
-* Well-defined schema representation, default option for SQL (CORE) API accounts. 
+* Well-defined schema representation, default option for SQL (CORE) and Gremlin API accounts. 
 * Full fidelity schema representation, default option for Azure Cosmos DB API for MongoDB accounts.
+
 
 #### Well-defined schema representation
 
@@ -298,9 +303,9 @@ salary: 1000000
 
 The leaf property `streetNo` within the nested object `address` will be represented in the analytical store schema as a column `address.object.streetNo.int32`. The datatype is added as a suffix to the column. This way, if another document is added to the transactional store where the value of leaf property `streetNo` is "123" (note it's a string), the schema of the analytical store automatically evolves without altering the type of a previously written column. A new column added to the analytical store as `address.object.streetNo.string` where this value of "123" is stored.
 
-##### Data type to suffix map
+##### Data type to suffix map for full fidelity schema
 
-Here's a map of all the property data types and their suffix representations in the analytical store:
+Here's a map of all the property data types and their suffix representations in the analytical store in full fidelity schema representation:
 
 |Original data type  |Suffix  |Example  |
 |---------|---------|---------|
@@ -313,7 +318,6 @@ Here's a map of all the property data types and their suffix representations in 
 |NULL    | ".NULL"    | NULL|
 |String|     ".string" |    "ABC"|
 |Timestamp |    ".timestamp" |    Timestamp(0, 0)|
-|DateTime    |".date"    | ISODate("2020-08-21T07:43:07.375Z")|
 |ObjectId    |".objectId"    | ObjectId("5f3f7b59330ec25c132623a2")|
 |Document    |".object" |    {"a": "a"}|
 
@@ -327,7 +331,7 @@ Here's a map of all the property data types and their suffix representations in 
 
 ##### Working with the MongoDB `_id` field
 
-the MongoDB `_id` field is fundamental to every collection in MongoDB and originally has a hexadecimal representation. As you can see in the table above, `Full Fidelity Schema` will preserve its characteristics, creating a challenge for its vizualiation in Azure Synapse Analytics. For correct visualization, you must convert the `_id` datatype as below:
+the MongoDB `_id` field is fundamental to every collection in MongoDB and originally has a hexadecimal representation. As you can see in the table above, `Full Fidelity Schema` will preserve its characteristics, creating a challenge for its visualization in Azure Synapse Analytics. For correct visualization, you must convert the `_id` datatype as below:
 
 ###### Spark
 
@@ -355,7 +359,7 @@ FROM OPENROWSET('CosmosDB',
                 HTAP) WITH (_id VARCHAR(1000)) as HTAP
 ```
 
-#### Full fidelity schema for SQL API accounts
+#### Full fidelity schema for SQL or Gremlin API accounts
 
 It's possible to use full fidelity Schema for SQL (Core) API accounts, instead of the default option, by setting the schema type when enabling Synapse Link on a Cosmos DB account for the first time. Here are the considerations about changing the default schema representation type:
 
@@ -410,7 +414,7 @@ How to enable analytical store on a container:
  
 * From the Azure Management SDK, Azure Cosmos DB SDKs, PowerShell, or Azure CLI, the ATTL option can be enabled by setting it to either -1 or 'n' seconds. 
 
-To learn more, see [how to configure analytical TTL on a container](configure-synapse-link.md#create-analytical-ttl).
+To learn more, see [how to configure analytical TTL on a container](configure-synapse-link.md).
 
 ## Cost-effective analytics on historical data
 
@@ -437,7 +441,7 @@ Analytical store relies on Azure Storage and offers the following protection aga
 Although analytical store has built-in protection against physical failures, backup can be necessary for accidental deletes or updates in transactional store. In those cases, you can restore a container and use the restored container to backfill the data in the original container, or fully rebuild analytical store if necessary. 
 
 > [!NOTE]
-> Currently analytical store isn't backuped and can't be restored, and your backup policy can't be planned relying on that.
+> Currently analytical store isn't backed up, therefore it can't be restored. Your backup policy can't be planned relying on that.
 
 Synapse Link, and analytical store by consequence, has different compatibility levels with Azure Cosmos DB backup modes:
 
@@ -449,7 +453,7 @@ Synapse Link, and analytical store by consequence, has different compatibility l
 
 ### Backup Polices
 
-There two possible backup polices and to understand how to use them, two details about Cosmos DB backups are very important:
+There are two possible backup polices and to understand how to use them, the following details about Cosmos DB backups are very important:
 
  * The original container is restored without analytical store in both backup modes.
  * Cosmos DB doesn't support containers overwrite from a restore.
@@ -464,7 +468,7 @@ Now let's see how to use backup and restores from the analytical store perspecti
  
  #### Restoring a container with TTTL < ATTL
  
-When `transactional TTL` is smaller than `analytical TTL`, some data only exists in analytical store and won't be in the restored container. Again your have two possible situations:
+When `transactional TTL` is smaller than `analytical TTL`, some data only exists in analytical store and won't be in the restored container. Again, you have two possible situations:
  * To use the restored container as a replacement for the original container. In this case, when you enable Synapse Link at container level, only the data that was in transactional store will be included in the new analytical store. But please note that the analytical store of the original container remains available for queries as long as the original container exists. You may want to change your application to query both.
  * To use the restored container as a data source to backfill or update the data in the original container:
   * Analytical store will automatically reflect the data operations for the data that is in transactional store.
@@ -538,7 +542,7 @@ To learn more, see the following docs:
 
 * [Azure Synapse Link for Azure Cosmos DB](synapse-link.md)
 
-* Check out the learn module on how to [Design hybrid transactional and analytical processing using Azure Synapse Analytics](/learn/modules/design-hybrid-transactional-analytical-processing-using-azure-synapse-analytics/)
+* Check out the training module on how to [Design hybrid transactional and analytical processing using Azure Synapse Analytics](/training/modules/design-hybrid-transactional-analytical-processing-using-azure-synapse-analytics/)
 
 * [Get started with Azure Synapse Link for Azure Cosmos DB](configure-synapse-link.md)
 

@@ -36,15 +36,9 @@ To onboard a RuuviTag sensor into your Azure IoT Central application instance, y
 
 To add a RuuviTag device template:
 
-1. Navigate to the **Device Templates** tab in the left pane, select **+ New**:
+1. Navigate to the **Device Templates** tab in the left pane, select **+ New**. The page gives you an option to **Create a custom template** or **Use a preconfigured device template**.
 
-    ![Create new device template](./media/howto-connect-ruuvi/device-template-new.png)
-
-    The page gives you an option to **Create a custom template** or **Use a preconfigured device template**.
-
-1. Select the RuuviTag Multisensor device template from the list of preconfigured device templates:
-
-    ![Select RuuviTag device template](./media/howto-connect-ruuvi/device-template-pre-configured.png)
+1. Select the RuuviTag Multisensor device template from the list of preconfigured device templates.
 
 1. Select **Next: Customize** to continue to the next step.
 

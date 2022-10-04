@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 06/06/2022
+ms.date: 08/22/2022
 ms.author: bemabonsu
 recommendations: false
 #Customer intent: I want to learn how to use create a Form Recognizer service in the Azure portal.
@@ -61,7 +61,7 @@ Let's get started:
 
 1. Copy the key and endpoint values from your Form Recognizer resource paste them in a convenient location, such as *Microsoft Notepad*. You'll need the key and endpoint values to connect your application to the Form Recognizer API.
 
-1. If your overview page doesn't have the keys and endpoint visible, you can select the **Keys and Endpoint** button on the left navigation bar and retrieve them there.
+1. If your overview page doesn't have the keys and endpoint visible, you can select the **Keys and Endpoint** button, on the left navigation bar, and retrieve them there.
 
     :::image border="true" type="content" source="media/containers/keys-and-endpoint.png" alt-text="Still photo showing how to access resource key and endpoint URL":::
 
@@ -73,7 +73,7 @@ That's it! You're now ready to start automating data extraction using Azure Form
 
 * Complete a Form Recognizer quickstart and get started creating a document processing app in the development language of your choice:
 
-  * [C#](quickstarts/try-v3-csharp-sdk.md)
-  * [Python](quickstarts/try-v3-python-sdk.md)
-  * [Java](quickstarts/try-v3-java-sdk.md)
-  * [JavaScript](quickstarts/try-v3-javascript-sdk.md)
+  * [C#](quickstarts/get-started-v3-sdk-rest-api.md)
+  * [Python](quickstarts/get-started-v3-sdk-rest-api.md)
+  * [Java](quickstarts/get-started-v3-sdk-rest-api.md)
+  * [JavaScript](quickstarts/get-started-v3-sdk-rest-api.md)

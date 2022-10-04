@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 09/09/2022
 ---
 
 # .NET (C#) code samples for Azure Cognitive Search
@@ -58,7 +58,7 @@ Code samples from the Cognitive Search team demonstrate features and workflows. 
 
 ## Other samples
 
-The following samples are also published by the Cognitive Search team, but are not referenced in documentation. Associated readme files provide usage instructions.
+The following samples are also published by the Cognitive Search team, but aren't referenced in documentation. Associated readme files provide usage instructions.
 
 | Samples | Description |
 |---------|-------------|

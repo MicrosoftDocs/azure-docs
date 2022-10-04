@@ -228,11 +228,11 @@ Use the following steps to create and deploys apps on Azure Spring Apps using th
    ```azurecli
    az spring app deploy \
        --name api-gateway \
-       --jar-path spring-petclinic-api-gateway/target/spring-petclinic-api-gateway-2.5.1.jar \
+       --artifact-path spring-petclinic-api-gateway/target/spring-petclinic-api-gateway-2.5.1.jar \
        --jvm-options="-Xms2048m -Xmx2048m"
    az spring app deploy \
        --name customers-service \
-       --jar-path spring-petclinic-customers-service/target/spring-petclinic-customers-service-2.5.1.jar \
+       --artifact-path spring-petclinic-customers-service/target/spring-petclinic-customers-service-2.5.1.jar \
        --jvm-options="-Xms2048m -Xmx2048m"
    ```
 

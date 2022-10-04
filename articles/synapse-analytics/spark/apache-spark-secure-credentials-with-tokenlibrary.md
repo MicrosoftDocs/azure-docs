@@ -6,7 +6,7 @@ author: mlee3gsd
 ms.service:  synapse-analytics 
 ms.topic: overview
 ms.subservice: spark
-ms.date: 11/19/2020 
+ms.date: 09/26/2022
 ms.author: martinle
 ms.reviewer: nirav
 zone_pivot_groups: programming-languages-spark-all-minus-sql
@@ -107,7 +107,7 @@ display(df.limit(10))
 ```python
 %%pyspark
 # Python code
-val source_full_storage_account_name = "teststorage.dfs.core.windows.net"
+source_full_storage_account_name = "teststorage.dfs.core.windows.net"
 spark.conf.set(f"spark.storage.synapse.{source_full_storage_account_name}.linkedServiceName", "<lINKED SERVICE NAME>")
 spark.conf.set(f"fs.azure.account.auth.type.{source_full_storage_account_name}", "SAS")
 spark.conf.set(f"fs.azure.sas.token.provider.type.{source_full_storage_account_name}", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedSASProvider")
@@ -141,7 +141,7 @@ display(df.limit(10))
 ```python
 %%pyspark
 # Python code
-val source_full_storage_account_name = "teststorage.dfs.core.windows.net"
+source_full_storage_account_name = "teststorage.dfs.core.windows.net"
 spark.conf.set(f"spark.storage.synapse.{source_full_storage_account_name}.linkedServiceName", "<LINKED SERVICE NAME>")
 spark.conf.set(f"fs.azure.account.oauth.provider.type.{source_full_storage_account_name}", "com.microsoft.azure.synapse.tokenlibrary.LinkedServiceBasedTokenProvider")
 
@@ -316,20 +316,20 @@ print(accountKey)
 
 ::: zone-end
 
-#### getSecret()
+#### GetSecret()
 
 To retrieve a secret stored from Azure Key Vault, we recommend that you create a linked service to Azure Key Vault within the Synapse workspace. The Synapse workspace managed service identity will need to be granted **GET** Secrets permission to the Azure Key Vault.  The linked service will use the managed service identity to connect to Azure Key Vault service to retrieve the secret.  Otherwise, connecting directly to Azure Key Vault will use the user's Azure Active Directory (AAD) credential.  In this case, the user will need to be granted the Get Secret permissions in Azure Key Vault.
 
-`TokenLibrary.getSecret("<AZURE KEY VAULT NAME>", "<SECRET KEY>" [, <LINKED SERVICE NAME>])`
+`TokenLibrary.GetSecret("<AZURE KEY VAULT NAME>", "<SECRET KEY>" [, <LINKED SERVICE NAME>])`
 
-To retrieve a secret from Azure Key Vault, use the **TokenLibrary.getSecret()** function.
+To retrieve a secret from Azure Key Vault, use the **TokenLibrary.GetSecret()** function.
 
 ::: zone pivot = "programming-language-scala"
 
 ```scala
 import com.microsoft.azure.synapse.tokenlibrary.TokenLibrary
 
-val connectionString: String = TokenLibrary.getSecret("<AZURE KEY VAULT NAME>", "<SECRET KEY>", "<LINKED SERVICE NAME>")
+val connectionString: String = TokenLibrary.GetSecret("<AZURE KEY VAULT NAME>", "<SECRET KEY>", "<LINKED SERVICE NAME>")
 println(connectionString)
 ```
 
@@ -344,7 +344,7 @@ from pyspark.sql import SparkSession
 sc = SparkSession.builder.getOrCreate()
 token_library = sc._jvm.com.microsoft.azure.synapse.tokenlibrary.TokenLibrary
 
-connection_string = token_library.getSecret("<AZURE KEY VAULT NAME>", "<SECRET KEY>", "<LINKED SERVICE NAME>")
+connection_string = token_library.GetSecret("<AZURE KEY VAULT NAME>", "<SECRET KEY>", "<LINKED SERVICE NAME>")
 print(connection_string)
 ```
 

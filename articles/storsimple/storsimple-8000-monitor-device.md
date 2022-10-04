@@ -4,11 +4,13 @@ description: Describes how to use the StorSimple Device Manager service to monit
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 10/17/2017
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Use the StorSimple Device Manager service to monitor your StorSimple device
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
 
 ## Overview
 You can use the StorSimple Device Manager service to monitor specific devices within your StorSimple solution. You can create custom charts based on I/O performance, capacity utilization, network throughput, and device performance metrics and pin those to the dashboard. For more information, go to [customize your portal dashboard](../azure-portal/azure-portal-dashboards.md).

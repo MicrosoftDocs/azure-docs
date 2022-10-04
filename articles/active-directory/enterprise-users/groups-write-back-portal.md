@@ -6,7 +6,7 @@ author: barclayn
 manager: amycolannino
 ms.author: barclayn
 ms.reviewer: jordan.dahl
-ms.date: 07/21/2022
+ms.date: 08/18/2022
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users

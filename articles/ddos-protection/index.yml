@@ -28,7 +28,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Introduction to Azure DDoS Protection
-            url: /learn/modules/introduction-azure-ddos-protection/
+            url: /training/modules/introduction-azure-ddos-protection/
       - linkListType: architecture
         links:
           - text: Azure DDoS Protection Standard features

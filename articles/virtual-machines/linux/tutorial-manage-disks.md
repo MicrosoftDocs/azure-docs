@@ -189,7 +189,7 @@ When you take a disk snapshot, Azure creates a read only, point-in-time copy of 
 
 ### Create snapshot
 
-Before you create a snapshot, you need the ID or name of the disk. Use [az vm show](/cli/azure/vm#az-vm-show) to shot the disk ID. In this example, the disk ID is stored in a variable so that it can be used in a later step.
+Before you create a snapshot, you need the ID or name of the disk. Use [az vm show](/cli/azure/vm#az-vm-show) to show the disk ID. In this example, the disk ID is stored in a variable so that it can be used in a later step.
 
 ```azurecli-interactive
 osdiskid=$(az vm show \

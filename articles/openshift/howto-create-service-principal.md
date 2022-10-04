@@ -1,10 +1,10 @@
 ---
 title: Creating and using a service principal with an Azure Red Hat OpenShift cluster
 description: In this how-to article, learn how to create and use a service principal with an Azure Red Hat OpenShift cluster using Azure CLI or the Azure portal.
-author: rahulm23
+author: johnmarco
 ms.service: azure-redhat-openshift
 ms.topic: how-to
-ms.author: rahulmehta
+ms.author: johnmarc
 ms.date: 03/21/2022
 topic: how-to
 keywords: azure, openshift, aro, red hat, azure CLI, azure portal

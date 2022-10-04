@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Arc resource bridge (preview) issues
 description: This article tells how to troubleshoot and resolve issues with the Azure Arc resource bridge (preview) when trying to deploy or connect to the service.
-ms.date: 07/14/2022
+ms.date: 08/24/2022
 ms.topic: conceptual
 ---
 
@@ -136,6 +136,16 @@ URLS:
 |`https://*.dp.prod.appliances.azure.com`|Resource bridge data plane service|
 |`https://ecpacr.azurecr.io` |Resource bridge container image download |
 |`.blob.core.windows.net`<br> `*.dl.delivery.mp.microsoft.com`<br> `*.do.dsp.mp.microsoft.com` |Resource bridge image download |
+|`https://azurearcfork8sdev.azurecr.io` |Azure Arc for Kubernetes container image download |
+|`adhs.events.data.microsoft.com ` |Required diagnostic data sent to Microsoft from control plane nodes|
+|`v20.events.data.microsoft.com` |Required diagnostic data sent to Microsoft from the Azure Stack HCI or Windows Server host|
+
+URLs used by other Arc agents:
+
+|Agent resource | Description |
+|---------|---------|
+|`https://management.azure.com` |Azure Resource Manager|
+|`https://login.microsoftonline.com` |Azure Active Directory|
 
 ### Azure Arc resource bridge is unreachable
 
@@ -153,6 +163,16 @@ Azure Arc resource bridge must be configured for proxy so that it can connect to
 
 There are only two certificates that should be relevant when deploying the Arc resource bridge behind an SSL proxy: the SSL certificate for your SSL proxy (so that the host and guest trust your proxy FQDN and can establish an SSL connection to it), and the SSL certificate of the Microsoft download servers. This certificate must be trusted by your proxy server itself, as the proxy is the one establishing the final connection and needs to trust the endpoint. Non-Windows machines may not trust this second certificate by default, so you may need to ensure that it's trusted.
 
+### KVA timeout error
+
+Azure Arc resource bridge is a Kubernetes management cluster that is deployed in an appliance VM directly on the on-premises infrastructure. While trying to deploy Azure Arc resource bridge, a "KVA timeout error" may appear if there is a networking problem that doesn't allow communication of the Arc Resource Bridge appliance VM to the host, DNS, network or internet. This error is typically displayed for the following reasons:
+
+- The appliance VM IP address doesn't have DNS resolution.
+- The appliance VM IP address doesn't have internet access to download the required image.
+- The host doesn't have routability to the appliance VM IP address.
+
+To resolve this error, ensure that all IP addresses assigned to the Arc Resource Bridge appliance VM can be resolved by DNS and have access to the internet, and that the host can successfully route to the IP addresses.
+
 ## Azure-Arc enabled VMs on Azure Stack HCI issues
 
 For general help resolving issues related to Azure-Arc enabled VMs on Azure Stack HCI, see [Troubleshoot Azure Arc-enabled virtual machines](/azure-stack/hci/manage/troubleshoot-arc-enabled-vms).
@@ -165,7 +185,7 @@ This is usually caused when trying to run commands from remote PowerShell, which
 
 To install Azure Arc resource bridge on an Azure Stack HCI cluster, `az arcappliance` commands must be run locally on a node in the cluster. Sign in to the node through Remote Desktop Protocol (RDP) or use a console session to run these commands.
 
-## Azure Arc-enabled VMWare VCenter issues
+## Azure Arc-enabled VMware VCenter issues
 
 ### `az arcappliance prepare` failure
 
@@ -209,7 +229,7 @@ When deploying the resource bridge on VMware vCenter, you specify the folder in 
 
 ### Insufficient permissions
 
-When deploying the resource bridge on VMWare Vcenter, you may get an error saying that you have insufficient permission. To resolve this issue, make sure that your user account has all of the following privileges in VMware vCenter and then try again.
+When deploying the resource bridge on VMware Vcenter, you may get an error saying that you have insufficient permission. To resolve this issue, make sure that your user account has all of the following privileges in VMware vCenter and then try again.
 
 ```
 "Datastore.AllocateSpace"
@@ -325,6 +345,8 @@ When deploying the resource bridge on VMWare Vcenter, you may get an error sayin
 ```
 
 ## Next steps
+
+[Understand recovery operations for resource bridge in Azure Arc-enabled VMware vSphere disaster scenarios](../vmware-vsphere/disaster-recovery.md)
 
 If you don't see your problem here or you can't resolve your issue, try one of the following channels for support:
 

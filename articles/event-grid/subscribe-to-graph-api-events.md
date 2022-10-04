@@ -2,7 +2,7 @@
 title: Azure Event Grid - Subscribe to Microsoft Graph API events 
 description: This article explains how to subscribe to events published by Microsoft Graph API.
 ms.topic: how-to
-ms.date: 06/09/2022
+ms.date: 09/01/2022
 ---
 
 # Subscribe to events published by Microsoft Graph API
@@ -45,12 +45,12 @@ The common steps to subscribe to events published by any partner, including Grap
 ### Enable Microsoft Graph API events to flow to your partner topic
 
 > [!IMPORTANT]
-> Microsoft Graph API's (MGA) ability to send events to Event Grid (a generally available service) is in private preview. In the following steps, you will follow instructions from [Node.js](https://github.com/microsoftgraph/nodejs-webhooks-sample), [Java](https://github.com/microsoftgraph/java-spring-webhooks-sample), and[.NET Core](https://github.com/microsoftgraph/aspnetcore-webhooks-sample) Webhook samples to enable flow of events from Microsoft Graph API. At some point in the sample, you will have an application registered with Azure AD. Email your application ID to <a href="mailto:ask.graph.and.grid@service.microsoft.com?subject=Please allow my application ID">mailto:ask.graph.and.grid@service.microsoft.com?subject=Please allow my Azure AD application with ID to send events through Graph API</a> so that the Microsoft Graph API team can add your application ID to allow list to use this new capability.
+> Microsoft Graph API's (MGA) ability to send events to Event Grid (a generally available service) is in private preview. In the following steps, you will follow instructions from [Node.js](https://github.com/microsoftgraph/nodejs-webhooks-sample), [Java](https://github.com/microsoftgraph/java-spring-webhooks-sample), and[.NET Core](https://github.com/microsoftgraph/aspnetcore-webhooks-sample) Webhook samples to enable flow of events from Microsoft Graph API. At some point in the sample, you will have an application registered with Azure AD. Email your application ID to <a href="mailto:ask-graph-and-grid@microsoft.com?subject=Please allow my application ID">mailto:ask-graph-and-grid@service.microsoft.com?subject=Please allow my Azure AD application with ID to send events through Graph API</a> so that the Microsoft Graph API team can add your application ID to allow list to use this new capability.
 
 You request Microsoft Graph API to send events by creating a Graph API subscription. When you create a Graph API subscription, the http request should look like the following sample:
 
 ```json
-POST to https://canary.graph.microsoft.com/testprodbetawebhooks1/subscriptions
+POST to https://graph.microsoft.com/beta/subscriptions
 
 Body:
 {
@@ -71,10 +71,10 @@ Here are some of the key payload properties:
 - client state. A value that is set by you when creating a Graph API subscription. For more information, see [Graph API subscription properties](/graph/api/resources/subscription#properties).
 
 > [!NOTE]
-> Microsoft Graph API's capability to send events to Event Grid is only available in a specific Graph API environment. You will need to update your code so that it uses the following Graph API endpoint `https://canary.graph.microsoft.com/testprodbetawebhooks1`. For example, this is the way you can set the endpoint on your graph client (`com.microsoft.graph.requests.GraphServiceClient`) using the Graph API Java SDK:
+> Microsoft Graph API's capability to send events to Event Grid is only available in a specific Graph API environment. You will need to update your code so that it uses the following Graph API endpoint `https://graph.microsoft.com/beta`. For example, this is the way you can set the endpoint on your graph client (`com.microsoft.graph.requests.GraphServiceClient`) using the Graph API Java SDK:
 >
 >```java
->graphClient.setServiceRoot("https://canary.graph.microsoft.com/testprodbetawebhooks1");
+>graphClient.setServiceRoot("https://graph.microsoft.com/beta");
 >```
 
 **You can create a Microsoft Graph API subscription by following the instructions in the [Microsoft Graph API webhook samples](https://github.com/microsoftgraph?q=webhooks&type=public&language=&sort=)** that include code samples for [NodeJS](https://github.com/microsoftgraph/nodejs-webhooks-sample), [Java (Spring Boot)](https://github.com/microsoftgraph/java-spring-webhooks-sample), and [.NET Core](https://github.com/microsoftgraph/aspnetcore-webhooks-sample). There are no samples available for Python, Go and other languages yet, but the [Graph SDK](/graph/sdks/sdks-overview) supports creating Graph API subscriptions using those programming languages. 

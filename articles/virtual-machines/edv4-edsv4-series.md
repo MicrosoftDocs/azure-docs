@@ -69,13 +69,21 @@ Edsv4-series sizes run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice 
 | Standard_E32ds_v4               | 32 | 256 | 1200 | 32 | 150000/2000 | 51200/768  | 64000/1600 | 8 | 16000 |
 | Standard_E48ds_v4               | 48 | 384 | 1800 | 32 | 225000/3000 | 76800/1152 | 80000/2000 | 8 | 24000 |
 | Standard_E64ds_v4 <sup>2</sup>  | 64 | 504 | 2400 | 32 | 300000/4000 | 80000/1200 | 80000/2000 | 8 | 30000 |
-| Standard_E80ids_v4 <sup>3</sup> | 80 | 504 | 2400 | 64 | 375000/4000 | 80000/1200 | 80000/2000 | 8 | 30000 |
+| Standard_E80ids_v4 <sup>3,5</sup> | 80 | 504 | 2400 | 64 | 375000/4000 | 80000/1200 | 80000/2000 | 8 | 30000 |
 
-<sup>*</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)<br>
-<sup>1</sup>  Edsv4-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
-<sup>2</sup> [Constrained core sizes available)](./constrained-vcpu.md).<br>
-<sup>3</sup> Instance is isolated to hardware dedicated to a single customer.<br>
+<sup>*</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)
+
+<sup>1</sup>  Edsv4-series VMs can [burst](./disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+
+<sup>2</sup> [Constrained core sizes available](./constrained-vcpu.md).
+
+<sup>3</sup> Instance is isolated to hardware dedicated to a single customer.
+
 <sup>4</sup> Accelerated networking can only be applied to a single NIC. 
+
+<sup>5</sup> Attaching Ultra Disk or Premium SSDs V2 to **Standard_E80ids_v4** results in higher IOPs and MBps than standard premium disks:
+- Max uncached Ultra Disk and Premium SSD V2 throughput (IOPS/ MBps): 120000/1800 
+- Max burst uncached Ultra Disk and Premium SSD V2 disk throughput (IOPS/ MBps): 120000/2000
 
 
 

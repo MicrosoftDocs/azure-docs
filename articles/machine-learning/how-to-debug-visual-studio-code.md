@@ -548,5 +548,5 @@ Learn more about troubleshooting:
 
 * [Local model deployment](./v1/how-to-troubleshoot-deployment-local.md)
 * [Remote model deployment](./v1/how-to-troubleshoot-deployment.md)
-* [Machine learning pipelines](how-to-debug-pipelines.md)
-* [ParallelRunStep](how-to-debug-parallel-run-step.md)
+* [Machine learning pipelines](v1/how-to-debug-pipelines.md)
+* [ParallelRunStep](v1/how-to-debug-parallel-run-step.md)

@@ -11,7 +11,7 @@ ms.custom: seodec18, devx-track-azurecli
 
 This article shows you how to get certain version information regarding the OS or software in [App Service](overview.md). 
 
-App Service is a Platform-as-a-Service, which means that the OS and application stack are managed for you by Azure; you only manage your application and its data. More control over the OS and application stack is available you in [Azure Virtual Machines](../virtual-machines/index.yml). With that in mind, it is nevertheless helpful for you as an App Service user to know more information, such as:
+App Service is a Platform-as-a-Service, which means that the OS and application stack are managed for you by Azure; you only manage your application and its data. More control over the OS and application stack is available for you in [Azure Virtual Machines](../virtual-machines/index.yml). With that in mind, it is nevertheless helpful for you as an App Service user to know more information, such as:
 
 -	How and when are OS updates applied?
 -	How is App Service patched against significant vulnerabilities (such as zero-day)?

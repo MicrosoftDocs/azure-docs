@@ -91,26 +91,28 @@ The flexible server comes with a [built-in PgBouncer](concepts-pgbouncer.md), a 
 
 One advantage of running your workload in Azure is global reach. The flexible server is currently available in the following Azure regions:
 
-| Region | V3/V4 compute availability | Zone-redundant HA | Geo-Redundant backup (Preview) |
+| Region | V3/V4 compute availability | Zone-redundant HA | Geo-Redundant backup |
 | --- | --- | --- | --- |
 | Australia East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Australia Southeast | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Brazil South | :heavy_check_mark: (v3 only) | :x: | :x: |
 | Canada Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 
 | Canada East | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| Central India | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: |
+| Central India | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| China East 3 | :heavy_check_mark: | :x: | :x:|
+| China North 3 | :heavy_check_mark: | :x: | :x:|
 | East Asia | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: |
 | East US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | East US 2 | :heavy_check_mark: | :x: $ | :heavy_check_mark: |
 | France Central | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| France South | :heavy_check_mark: | :x: | :x: |
+| France South | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Germany West Central | :x: $$ | :x: $ | :x: |
 | Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Japan West | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | Jio India West | :heavy_check_mark: (v3 only)| :x: | :x: |
-| Korea Central | :heavy_check_mark: | :heavy_check_mark: ** | :x: |
-| Korea South | :heavy_check_mark: | :x: | :x: |
+| Korea Central | :heavy_check_mark: | :heavy_check_mark: ** | :heavy_check_mark: |
+| Korea South | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | North Central US | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | North Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Norway East | :heavy_check_mark: | :x: | :x: |
@@ -120,17 +122,17 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | South India | :x: $$ | :x: | :heavy_check_mark: |
 | Southeast Asia | :heavy_check_mark: | :x: $  | :heavy_check_mark: |
 | Sweden Central | :heavy_check_mark: | :x: | :x: |
-| Switzerland North | :heavy_check_mark: | :x: $ ** | :x: |
-| Switzerland West | :heavy_check_mark: | :x: | :x: |
+| Switzerland North | :heavy_check_mark: | :x: $ ** | :heavy_check_mark: |
+| Switzerland West | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | UAE North | :heavy_check_mark: | :x: | :x: |
 | US Gov Arizona | :heavy_check_mark: | :x: | :x: |
 | US Gov Virginia | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | UK West | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| West Central US | :heavy_check_mark: | :x: | :x: |
+| West Central US | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | West US | :heavy_check_mark: | :x: | :heavy_check_mark: |
-| West US 2 | :x: $$ | :x: $ | :x: |
+| West US 2 | :x: $$ | :x: $ | :heavy_check_mark:|
 | West US 3 | :heavy_check_mark: | :heavy_check_mark: ** | :x: |
 
 $ New Zone-redundant high availability deployments are temporarily blocked in these regions. Already provisioned HA servers are fully supported. 
@@ -156,6 +158,10 @@ The service runs the community version of PostgreSQL. This allows full applicati
 **1. Will Flexible Server replace Single Server? Will Single Server be retired soon?**
 
 We continue to support Single Server and encourage you to adopt Flexible Server which has richer capabilities such as zone resilient HA, predictable performance, maximum control, custom maintenance window, cost optimization controls and simplified developer experience suitable for your enterprise workloads. If we decide to retire any service, feature, API or SKU, you'll receive advance notice including a migration or transition path. Learn more about Microsoft Lifecycle policies [here](/lifecycle/faq/general-lifecycle).
+
+**2. What is Microsoft’s policy to address PostgreSQL engine defects?**
+
+Please refer to  Microsoft’s current policy [here](../../postgresql/flexible-server/concepts-supported-versions.md#managing-postgresql-engine-defects)
 
 
 ## Contacts

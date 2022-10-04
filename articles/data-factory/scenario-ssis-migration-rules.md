@@ -6,7 +6,7 @@ ms.author: chugu
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 07/07/2022
+ms.date: 08/18/2022
 ---
 
 # SSIS migration assessment rules
@@ -27,10 +27,10 @@ Connection that contains host name may fail, typically because the Azure virtual
 
 You can use below options for SSIS Integration runtime to access these resources:
 
-- [Join Azure-SSIS IR to a virtual network that connects to on-premise sources](/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)
+- [Join Azure-SSIS IR to a virtual network that connects to on-premises sources](/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)
 - Migrate your data to Azure and use Azure resource endpoint.
 - Use Managed Identity authentication if moving to Azure resources.
-- [Use self-hosted IR to connect on-premise sources](/azure/data-factory/self-hosted-integration-runtime-proxy-ssis).
+- [Use self-hosted IR to connect on-premises sources](/azure/data-factory/self-hosted-integration-runtime-proxy-ssis).
 
 ### [1002]Connection with absolute or UNC path might not be accessible
 
@@ -44,8 +44,8 @@ You can use below options for SSIS Integration runtime to access these resources
 
 - [Change to %TEMP%](/azure/data-factory/ssis-azure-files-file-shares)
 - [Migrate your files to Azure Files](/azure/data-factory/ssis-azure-files-file-shares)
-- [Join Azure-SSIS IR to a virtual network that connects to on-premise sources](/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
-- [Use self-hosted IR to connect on-premise sources](/azure/data-factory/self-hosted-integration-runtime-proxy-ssis).
+- [Join Azure-SSIS IR to a virtual network that connects to on-premises sources](/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+- [Use self-hosted IR to connect on-premises sources](/azure/data-factory/self-hosted-integration-runtime-proxy-ssis).
 
 ### [1003]Connection with Windows authentication may fail
 
@@ -164,7 +164,7 @@ Recommendation
 You can use below options for SSIS Integration runtime to launch your executable(s):
 
 - [Migrate your executable(s) to Azure Files](/azure/data-factory/ssis-azure-files-file-shares).
-- [Join Azure-SSIS IR to a virtual network](/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network) that connects to on-premise sources.
+- [Join Azure-SSIS IR to a virtual network](/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network) that connects to on-premises sources.
 - If necessary, [customize setup script to install your executable(s)](/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) in advance when starting IR.
 
 ### [4001]Absolute or UNC configuration path is discovered in package configuration
@@ -178,8 +178,8 @@ Recommendation
 You can use below options for SSIS Integration runtime to access these resources:
 
 - [Migrate your files to Azure Files](/azure/data-factory/ssis-azure-files-file-shares)
-- [Join Azure-SSIS IR to a virtual network that connects to on-premise sources](/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
-- [Use self-hosted IR to connect on-premise sources](/azure/data-factory/self-hosted-integration-runtime-proxy-ssis).
+- [Join Azure-SSIS IR to a virtual network that connects to on-premises sources](/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+- [Use self-hosted IR to connect on-premises sources](/azure/data-factory/self-hosted-integration-runtime-proxy-ssis).
 
 ### [4002]Registry entry is discovered in package configuration
 
