@@ -46,12 +46,12 @@ Follow these steps to create a new console application and install the Speech SD
     using namespace Microsoft::CognitiveServices::Speech;
     using namespace Microsoft::CognitiveServices::Speech::Audio;
     
-    std::string getEnvironmentVariable(const char* name);
+    std::string GetEnvironmentVariable(const char* name);
     
     int main()
     {
-        auto speechKey = getEnvironmentVariable("SPEECH_KEY");
-        auto speechRegion = getEnvironmentVariable("SPEECH_REGION");
+        auto speechKey = GetEnvironmentVariable("SPEECH_KEY");
+        auto speechRegion = GetEnvironmentVariable("SPEECH_REGION");
         
         if ((size(speechKey) == 0) || (size(speechRegion) == 0)) {
             std::cout << "Please set both SPEECH_KEY and SPEECH_REGION environment variables." << std::endl;
@@ -90,7 +90,7 @@ Follow these steps to create a new console application and install the Speech SD
         }
     }
     
-    std::string getEnvironmentVariable(const char* name)
+    std::string GetEnvironmentVariable(const char* name)
     {
     #if defined(_MSC_VER)
         size_t requiredSize = 0;
