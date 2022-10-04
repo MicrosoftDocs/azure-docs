@@ -29,7 +29,13 @@ The sync command differs from the copy command in several ways:
   2. When syncing between virtual directories, add a trailing slash to the path (refer to examples) if there's a blob with the same name as one of the virtual directories.
   3. If the 'delete-destination' flag is set to true or prompt, then sync will delete files and blobs at the destination that aren't present at the source.
 
-Advanced:
+## Guidelines
+
+[!INCLUDE [Azcopy sync command general guidelines](../../../includes/azure-storage-azcopy-sync-guidelines.md)]
+
+- For Blob Storage, you can prevent accidental deletions by making sure to enable the [soft delete](../blobs/soft-delete-blob-overview.md) feature before you use the `--delete-destination=prompt|true` flag.
+
+## Advanced
 
 Note that if you don't specify a file extension, AzCopy automatically detects the content type of the files when uploading from the local disk, based on the file extension or content.
 
@@ -47,6 +53,12 @@ the header field Last-Modified is used instead of x-ms-file-change-time, which m
 ```azcopy
 azcopy sync [flags]
 ```
+
+## Related conceptual articles
+
+- [Get started with AzCopy](storage-use-azcopy-v10.md)
+- [Transfer data with AzCopy and Blob storage](./storage-use-azcopy-v10.md#transfer-data)
+- [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
 
 ## Examples
 
