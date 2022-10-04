@@ -1,92 +1,97 @@
 {
 	"redirections": [
         {
-            "source_path": "articles/cognitive-services/conversational-language-understanding/fail-over.md",
+            "source_path_from_root": "/articles/cognitive-services/conversational-language-understanding/fail-over.md",
             "redirect_url": "/azure/cognitive-services/language-service/conversational-language-understanding/how-to/fail-over",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/cognitive-services/conversational-language-understanding/how-to/deploy-query-model.md",
+            "source_path_from_root": "/articles/cognitive-services/conversational-language-understanding/how-to/deploy-query-model.md",
             "redirect_url": "/azure/cognitive-services/language-service/conversational-language-understanding/how-to/deploy-model",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/cognitive-services/Ink-Recognizer/concepts/send-ink-data.md",
+            "source_path_from_root": "/articles/cognitive-services/language-service/conversational-language-understanding/concepts/backwards-compatibility.md",
+            "redirect_url": "/azure/cognitive-services/language-service/conversational-language-understanding/how-to/migrate-from-luis",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Ink-Recognizer/concepts/send-ink-data.md",
             "redirect_url": "/previous-versions/azure/cognitive-services/Ink-Recognizer/concepts/send-ink-data",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/Ink-Recognizer/index.yml",
+            "source_path_from_root": "/articles/cognitive-services/Ink-Recognizer/index.yml",
             "redirect_url": "/previous-versions/azure/cognitive-services/Ink-Recognizer/index",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/Ink-Recognizer/language-support.md",
+            "source_path_from_root": "/articles/cognitive-services/Ink-Recognizer/language-support.md",
             "redirect_url": "/previous-versions/azure/cognitive-services/Ink-Recognizer/language-support",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/Ink-Recognizer/overview.md",
+            "source_path_from_root": "/articles/cognitive-services/Ink-Recognizer/overview.md",
             "redirect_url": "/previous-versions/azure/cognitive-services/Ink-Recognizer/overview",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/Ink-Recognizer/quickstarts/csharp.md",
+            "source_path_from_root": "/articles/cognitive-services/Ink-Recognizer/quickstarts/csharp.md",
             "redirect_url": "/previous-versions/azure/cognitive-services/Ink-Recognizer/quickstarts/csharp",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/Ink-Recognizer/quickstarts/java.md",
+            "source_path_from_root": "/articles/cognitive-services/Ink-Recognizer/quickstarts/java.md",
             "redirect_url": "/previous-versions/azure/cognitive-services/Ink-Recognizer/quickstarts/java",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/Ink-Recognizer/quickstarts/javascript.md",
+            "source_path_from_root": "/articles/cognitive-services/Ink-Recognizer/quickstarts/javascript.md",
             "redirect_url": "/previous-versions/azure/cognitive-services/Ink-Recognizer/quickstarts/javascript",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/language-service/custom-named-entity-recognition/how-to/improve-model.md",
+            "source_path_from_root": "/articles/cognitive-services/language-service/custom-named-entity-recognition/how-to/improve-model.md",
             "redirect_url": "/azure/cognitive-services/language-service/custom-named-entity-recognition/how-to/view-model-evaluation",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/cognitive-services/language-service/custom-text-classification/how-to/improve-model.md",
+            "source_path_from_root": "/articles/cognitive-services/language-service/custom-text-classification/how-to/improve-model.md",
             "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/view-model-evaluation",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/cognitive-services/LUIS/luis-concept-batch-test.md",
+            "source_path_from_root": "/articles/cognitive-services/LUIS/luis-concept-batch-test.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-batch-test",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cognitive-services/LUIS/luis-how-to-devops-with-github.md",
+            "source_path_from_root": "/articles/cognitive-services/LUIS/luis-how-to-devops-with-github.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-devops-automation",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/cognitive-services/LUIS/luis-tutorial-batch-testing.md",
+            "source_path_from_root": "/articles/cognitive-services/LUIS/luis-tutorial-batch-testing.md",
             "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-batch-test",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/cognitive-services/LUIS/reference-entity-composite.md",
+            "source_path_from_root": "/articles/cognitive-services/LUIS/reference-entity-composite.md",
             "redirect_url": "/azure/cognitive-services/LUIS/reference-entity-machine-learned-entity",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/cognitive-services/openai/concepts/engines.md",
+            "source_path_from_root": "/articles/cognitive-services/openai/concepts/engines.md",
             "redirect_url": "/azure/cognitive-services/openai/concepts/models",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/cognitive-services/orchestration-workflow/deploy-query-model.md",
+            "source_path_from_root": "/articles/cognitive-services/orchestration-workflow/deploy-query-model.md",
             "redirect_url": "/azure/cognitive-services/language-service/orchestration-workflow/how-to/call-api",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/cognitive-services/whats-new-docs.md",
+            "source_path_from_root": "/articles/cognitive-services/whats-new-docs.md",
             "redirect_url": "/azure/cognitive-services/what-are-cognitive-services",
             "redirect_document_id": false
         },
@@ -4242,7 +4247,7 @@
         },
         {
             "source_path_from_root": "/articles/cognitive-services/Speech-Service/index-conversation-scenarios.yml",
-            "redirect_url": "/azure/cognitive-services/Speech-Service/call-center-transcription.md",
+            "redirect_url": "/azure/cognitive-services/Speech-Service/call-center-overview",
             "redirect_document_id": false
         },
         {
@@ -4954,6 +4959,16 @@
             "source_path_from_root": "/articles/cognitive-services/Speech/troubleshooting.md",
             "redirect_url": "/azure/cognitive-services/speech-service/overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Speech-Service/call-center-transcription.md ",
+            "redirect_url": "/azure/cognitive-services/speech-service/call-center-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/Speech-Service/rest-speech-to-text-v3-1.md ",
+            "redirect_url": "/azure/cognitive-services/speech-service/migrate-v3-0-to-v3-1",
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/cognitive-services/text-analytics/concepts/data-limits.md",
@@ -5758,6 +5773,11 @@
         {
             "source_path_from_root": "/articles/cognitive-services/Welcome.md",
             "redirect_url": "/azure/cognitive-services/what-are-cognitive-services",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cognitive-services/cognitive-services-security.md",
+            "redirect_url": "/azure/cognitive-services/security-features",
             "redirect_document_id": true
         }
         

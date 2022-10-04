@@ -6,7 +6,7 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/16/2022
+ms.date: 08/19/2022
 tags: connectors
 ---
 
@@ -37,6 +37,7 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
   * Globalscape
   * SFTP for Azure Blob Storage
   * FileMage Gateway
+  * VShell Secure File Transfer Server
 
 * The following SFTP-SSH actions support [chunking](../logic-apps/logic-apps-handle-large-messages.md):
 
@@ -317,7 +318,7 @@ This error can happen when your logic app can't successfully establish a connect
 
 * If this error happens intermittently, change the **Retry policy** setting on the SFTP-SSH action to a retry count higher than the default four retries.
 
-* Check whether SFTP server puts a limit on the number of connections from each IP address. If a limit exists, you might have to limit the number of concurrent logic app instances.
+* Check whether your SFTP server puts a limit on the number of connections from each IP address. Any such limit hinders communication between the connector and the SFTP server. Make sure to remove this limit.
 
 * To reduce connection establishment cost, in the SSH configuration for your SFTP server, increase the [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) property to around one hour.
 

@@ -4,7 +4,7 @@ description: Get information on how to configure group claims for use with Azure
 services: active-directory
 documentationcenter: ''
 ms.reviewer: paulgarn
-manager: karenhoran
+manager: amycolannino
 ms.subservice: hybrid
 ms.service: active-directory
 ms.workload: identity
@@ -163,7 +163,9 @@ For more information about regex replace and capture groups, see [The Regular Ex
 >[!NOTE]
 > As described in the Azure AD documentation, you can't modify a restricted claim by using a policy. The data source can't be changed, and no transformation is applied when you're generating these claims. The group claim is still a restricted claim, so you need to customize the groups by changing the name. If you select a restricted name for the name of your custom group claim, the claim will be ignored at runtime. 
 >
-> You can also use the regex transform feature as a filter, because any groups that don't match the regex pattern will not be emitted in the resulting claim. 
+> You can also use the regex transform feature as a filter, because any groups that don't match the regex pattern will not be emitted in the resulting claim.
+>
+>If the transform applied to the original groups claim results in a new custom claim, then the original groups claim will be omitted from the token. However, if the configured regex doesn't match any value in the original list, then the custom claim will not be present and the original groups claim will be included in the token.
 
 ### Edit the group claim configuration
 
@@ -197,7 +199,7 @@ You can also configure group claims in the [optional claims](../../active-direct
 
    By default, group `ObjectID` attributes will be emitted in the group claim value. To modify the claim value to contain on-premises group attributes, or to change the claim type to a role, use the `optionalClaims` configuration described in the next step.
 
-3. Set optional clams for group name configuration.
+3. Set optional claims for group name configuration.
 
    If you want the groups in the token to contain the on-premises Active Directory group attributes, specify which token-type optional claim should be applied in the `optionalClaims` section. You can list multiple token types:
 

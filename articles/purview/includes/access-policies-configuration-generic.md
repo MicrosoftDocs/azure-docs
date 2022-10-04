@@ -11,9 +11,9 @@ ms.custom:
 ### Register Microsoft Purview as a resource provider in other subscriptions
 Execute this step only if the data sources and the Microsoft Purview account are in different subscriptions. Register Microsoft Purview as a resource provider in each subscription where data sources reside by following this guide: [Register resource provider](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
-The Microsoft Purview resource provider is:
+The Microsoft Purview resource provider is: Microsoft.Purview. To register using Powershell run the below:
 ```
-Microsoft.Purview
+Register-AzResourceProvider -ProviderNamespace Microsoft.Purview
 ```
 
 ### Configure permissions for policy management actions
@@ -33,12 +33,12 @@ To enable the *Data Use Management* (DUM) toggle for a data source, resource gro
 
    Follow this [guide to configure Azure RBAC role permissions](../../role-based-access-control/check-access.md). The following screenshot shows how to access the Access Control section in Azure portal experience for the data resource to add a role assignment:
 
-![Screenshot shows how to access Access Control in Azure Portal to add a role assignment](../media/access-policies-common/assign-IAM-permissions.png)
+![Screenshot shows how to access Access Control in Azure Portal to add a role assignment](../media/how-to-policies-data-owner-authoring-generic/assign-IAM-permissions.png)
 
 
 2) In addition, the same user needs to have Microsoft Purview Data source administrator (DSA) role at the **root collection level**. See the guide on [managing Microsoft Purview role assignments](../catalog-permissions.md#assign-permissions-to-your-users). The following screenshot shows how to assign Data Source Admin at root collection level:
 
-![Screenshot shows how to assign Data Source Admin at root collection level](../media/access-policies-common/assign-purview-permissions.png)
+![Screenshot shows how to assign Data Source Admin at root collection level](../media/how-to-policies-data-owner-authoring-generic/assign-purview-permissions.png)
 
 
 #### Permissions for policy authoring and publishing

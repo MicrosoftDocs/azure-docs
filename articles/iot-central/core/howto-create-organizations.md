@@ -49,7 +49,7 @@ To reassign an organization to a new parent, select **Edit** and choose a new pa
 To delete an organization, you must delete or move to another organization any associated items such as dashboards, devices, users, device groups, and jobs.
 
 > [!TIP]
-> You can also use the REST API to [create and manage organizations](/rest/api/iotcentral/1.2-previewdataplane/organizations).
+> You can also use the REST API to [create and manage organizations](/rest/api/iotcentral/2022-07-31dataplane/organizations).
 
 ## Assign devices
 
@@ -161,4 +161,3 @@ The following limits apply to organizations:
 ## Next steps
 
 Now that you've learned how to manage Azure IoT Central organizations, the suggested next step is to learn how to  [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).
-

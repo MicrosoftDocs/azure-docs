@@ -128,7 +128,7 @@ download.microsoft.com/download | Allow downloads from Microsoft download center
 **URL** | **Details**  
 --- | --- |
 *.portal.azure.us  | Navigate to the Azure portal.
-graph.windows.net | Sign in to your Azure subscription.
+graph.windows.net <br> graph.microsoftazure.us | Sign in to your Azure subscription.
 login.microsoftonline.us  | Used for access control and identity management by Azure Active Directory.
 management.usgovcloudapi.net |  Used for resource deployments and management operations.
 *.services.visualstudio.com | Upload appliance logs used for internal monitoring.

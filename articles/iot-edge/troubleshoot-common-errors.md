@@ -13,7 +13,7 @@ ms.custom:  [amqp, mqtt]
 
 # Common issues and resolutions for Azure IoT Edge
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 Use this article to find steps to resolve common issues that you may experience when deploying IoT Edge solutions. If you need to learn how to find logs and errors from your IoT Edge device, see [Troubleshoot your IoT Edge device](troubleshoot.md).
 
@@ -190,7 +190,7 @@ If you don't need to use the IoT Edge device as a gateway, then you can remove t
 
 In the Azure portal:
 
-1. Navigate to your IoT hub and select **IoT Edge**.
+1. Navigate to your IoT hub and select **Devices** under the **Device management** menu.
 
 2. Select the IoT Edge device that you want to update.
 

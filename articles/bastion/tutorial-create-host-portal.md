@@ -4,7 +4,7 @@ description: Learn how to deploy Bastion using settings that you specify - Azure
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 08/17/2022
+ms.date: 09/21/2022
 ms.author: cherylmc
 
 ---
@@ -162,5 +162,7 @@ your resources using the following steps:
 In this tutorial, you deployed Bastion to a virtual network and connected to a VM. You then removed the public IP address from the VM. Next, learn about and configure additional Bastion features.
 
 > [!div class="nextstepaction"]
-> [Bastion features and configuration settings](configuration-settings.md)<br>
+> [Bastion features and configuration settings](configuration-settings.md)
+
+> [!div class="nextstepaction"]
 > [Bastion - VM connections and features](vm-about.md)

@@ -57,6 +57,8 @@
         href: certificate-signing-options.md
       - name: Tenant restrictions
         href: tenant-restrictions.md
+      - name: Enforce signed SAML authentication requests
+        href: howto-enforce-signed-saml-authentication.md
       - name: Configure SAML token encryption
         href: howto-saml-token-encryption.md
       - name: End-user portals
@@ -168,6 +170,8 @@
           href: datawiza-with-azure-ad.md 
         - name: Configure Oracle JDE with Azure AD 
           href: datawiza-azure-ad-sso-oracle-jde.md
+        - name: Configure Oracle PeopleSoft with Azure AD 
+          href: datawiza-azure-ad-sso-oracle-peoplesoft.md
       - name: F5
         items:
         - name: Deploy F5 BIG-IP in Azure
@@ -208,11 +212,13 @@
         href: silverfort-azure-ad-integration.md
     - name: Single sign-on
       items:
-      - name: Linked
+      - name: Enable Single sign-on with SAML
+        href: add-application-portal-setup-sso.md
+      - name: Enable Linked single sign-on
         href: configure-linked-sign-on.md
-      - name: OpenID Connect
+      - name: Enable OpenID Connect based single sign-on
         href: add-application-portal-setup-oidc-sso.md
-      - name: Password
+      - name: Enable Password based single sign-on
         href: configure-password-single-sign-on-non-gallery-applications.md
     - name: Troubleshoot
       items:

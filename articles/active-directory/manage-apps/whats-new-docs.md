@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application management"
 description: "New and updated documentation for the Azure Active Directory application management."
-ms.date: 08/01/2022
+ms.date: 10/03/2022
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -14,6 +14,24 @@ manager: CelesteDG
 # Azure Active Directory application management: What's new
 
 Welcome to what's new in Azure Active Directory (Azure AD) application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure AD](../fundamentals/whats-new.md).
+
+## September 2022
+
+### New articles
+
+- [Tutorial: Configure Datawiza to enable Azure Active Directory Multi-Factor Authentication and single sign-on to Oracle PeopleSoft](datawiza-azure-ad-sso-oracle-peoplesoft.md)
+- [SAML Request Signature Verification (Preview)](howto-enforce-signed-saml-authentication.md)
+
+### Updated articles
+
+- [Manage app consent policies](manage-app-consent-policies.md)
+- [Unexpected consent prompt when signing in to an application](application-sign-in-unexpected-user-consent-prompt.md)
+
+## August 2022
+
+### Updated articles
+
+- [Hide an enterprise application](hide-application-from-user-portal.md)
 
 ## July 2022
 
@@ -33,23 +51,3 @@ Welcome to what's new in Azure Active Directory (Azure AD) application managemen
 - [Configure Azure Active Directory SAML token encryption](howto-saml-token-encryption.md)
 - [Review permissions granted to applications](manage-application-permissions.md)
 - [Tutorial: Configure Secure Hybrid Access with Azure Active Directory and Datawiza](datawiza-with-azure-ad.md)
-
-## June 2022
-
-### Updated articles
-
-- [Protect against consent phishing](protect-against-consent-phishing.md)
-- [Request to publish your application in the Azure AD application gallery](v2-howto-app-gallery-listing.md)
-
-## May 2022
-
-### New articles
-
-- [My Apps portal overview](myapps-overview.md)
-
-### Updated articles
-
-- [Tutorial: Configure Datawiza with Azure AD for secure hybrid access](datawiza-with-azure-ad.md)
-- [Tutorial: Manage certificates for federated single sign-on](tutorial-manage-certificates-for-federated-single-sign-on.md)
-- [Tutorial: Migrate Okta federation to Azure AD-managed authentication](migrate-okta-federation-to-azure-active-directory.md)
-- [Tutorial: Migrate Okta sync provisioning to Azure AD Connect-based synchronization](migrate-okta-sync-provisioning-to-azure-active-directory.md)

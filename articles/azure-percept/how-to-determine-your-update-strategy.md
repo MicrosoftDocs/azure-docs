@@ -11,6 +11,9 @@ ms.custom: template-concept
 
 # Determine your update strategy for Azure Percept DK
 
+>[!CAUTION]
+>**The OTA update on Azure Percept DK is no longer supported. For information on how to proceed, please visit [Update the Azure Percept DK over a USB-C cable connection](./how-to-update-via-usb.md).**
+
 To keep your Azure Percept DK software update-to-date, Microsoft offers two update methods for the dev kit. **Update over USB cable** or **Over-the-air (OTA) update**.
 
 Update over USB cable does a clean install to the dev kit. Existing configurations and all the user data in each partition will be wiped out after the new image is deployed. To do that, connect the dev kit to a host system with a type-c USB cable. The host system can be a Windows/Linux machine.  You can also use this update method as the factory reset. To do that, redeployed the exact same version to the dev kit. Refer to [Update the Azure Percept DK over a USB-C cable connection](./how-to-update-via-usb.md) for detail about the USB cable update.

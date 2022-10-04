@@ -5,7 +5,7 @@ metadata:
   description: "Azure Database for MySQL - Flexible Server is a relational database service in the Microsoft cloud that is built for developers and powered by the MySQL community edition."
   author: mksuni
   ms.author: sumuth
-  ms.date: 09/10/2021
+  ms.date: 07/26/2022
   ms.service: mysql
   ms.topic: landing-page
 
@@ -75,13 +75,15 @@ landingContent:
       - linkListType: concept
         links:
           - text: Business continuity overview
-            url: concepts-business-continuity.md
+            url: concepts-business-continuity.md 
           - text: High availability
             url: concepts-high-availability.md
           - text: Backup and restore
             url: concepts-backup-restore.md
       - linkListType: how-to-guide
         links:
+          - text: Trigger on-demand backup
+            url: how-to-trigger-on-demand-backup.md
           - text: Restore a server
             url: how-to-restore-server-portal.md
           - text: Restore a deleted server

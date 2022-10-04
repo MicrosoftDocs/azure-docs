@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 08/15/2022
+ms.date: 08/18/2022
 ms.author: aahi
 ms.custom: devx-track-js, ignite-fall-2021
 ---

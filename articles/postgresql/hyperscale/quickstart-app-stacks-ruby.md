@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: quickstart
 recommendations: false
-ms.date: 08/11/2022
+ms.date: 08/24/2022
 ---
 
 # Ruby app to connect and query Hyperscale (Citus)
@@ -228,6 +228,41 @@ rescue PG::Error => e
     puts e.message
 ensure
     connection.close if connection
+end
+```
+## App retry during database request failures
+
+[!INCLUDE[app-stack-next-steps](includes/app-stack-retry-intro.md)]
+
+```ruby
+require 'pg'
+
+def executeretry(sql,retryCount)
+  begin
+    for a in 1..retryCount do
+      begin
+        # NOTE: Replace the host and password arguments in the connection string.
+        # (The connection string can be obtained from the Azure portal)
+        connection = PG::Connection.new("host=<Server Name> port=5432 dbname=citus user=citus password={Your Password} sslmode=require")
+        resultSet = connection.exec(sql)
+        return resultSet.each
+      rescue PG::Error => e
+        puts e.message
+        sleep 60
+      ensure
+        connection.close if connection
+      end
+    end
+  end
+  return nil
+end
+
+var = executeretry('select 1',5)
+
+if var !=nil then
+  var.each do |row|
+    puts 'Data row = (%s)' % [row]
+  end
 end
 ```
 

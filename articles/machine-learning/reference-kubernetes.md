@@ -30,7 +30,7 @@ This article contains reference information that may be useful when [configuring
 ## Prerequisites for ARO or OCP clusters
 ### Disable Security Enhanced Linux (SELinux) 
 
-[AzureML dataset](./how-to-train-with-datasets.md) (used in AzureML training jobs) isn't supported on machines with SELinux enabled. Therefore, you need to disable `selinux`  on all workers in order to use AzureML dataset.
+[AzureML dataset](v1/how-to-train-with-datasets.md) (used in AzureML training jobs) isn't supported on machines with SELinux enabled. Therefore, you need to disable `selinux`  on all workers in order to use AzureML dataset.
 
 ### Privileged setup for ARO and OCP
 

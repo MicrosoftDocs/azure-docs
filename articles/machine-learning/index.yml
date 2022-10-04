@@ -38,10 +38,8 @@ landingContent:
         links:   
         - text: Set up resources
           url: quickstart-create-resources.md
-        - text: "Train with the v2 CLI"
-          url: how-to-train-cli.md   
-        - text: "Train with the v2 SDK (preview)"
-          url: how-to-train-sdk.md   
+        - text: "Train with the v2 CLI and SDK"
+          url: how-to-train-model.md
         - text: "Day 1: Get started with Python"
           url: tutorial-1st-experiment-hello-world.md
         - text: "Migrate from ML Studio (classic)"
@@ -51,14 +49,14 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:            
-          - text: Run training code in the cloud (v2 CLI)
-            url: how-to-train-cli.md
+          - text: Run training code in the cloud
+            url: how-to-train-model.md
           - text: Train and deploy a model in Jupyter notebook
             url:  tutorial-train-deploy-notebook.md
           - text: Tune hyperparameters for model training
             url: how-to-tune-hyperparameters.md
           - text: Build pipelines from reuseable components
-            url: how-to-create-machine-learning-pipelines.md
+            url: v1/how-to-create-machine-learning-pipelines.md
           - text: "AutoML: Train a classification model"
             url: tutorial-first-experiment-automated-ml.md
   # Card
@@ -84,7 +82,7 @@ landingContent:
       - text: Model management, deployment, lineage & monitoring
         url: concept-model-management-and-deployment.md
       - text: DevOps for a data ingestion pipeline
-        url: how-to-cicd-data-ingestion.md
+        url: v1/how-to-cicd-data-ingestion.md
   # Card
   - title: "Security for ML projects"
     linkLists:
@@ -115,7 +113,7 @@ landingContent:
       - linkListType: reference
         links:
         - text: Python SDK code examples
-          url: https://github.com/Azure/azureml-examples/blob/main/python-sdk/README.md
+          url: https://github.com/Azure/azureml-examples/blob/v2samplesreorg/v1/python-sdk/README.md
         - text: v2 CLI code examples (preview)
           url: https://github.com/Azure/azureml-examples/blob/main/cli/README.md
         - text: ML Studio (classic) documentation

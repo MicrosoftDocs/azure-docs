@@ -98,7 +98,7 @@ To integrate Oracle JDE with Azure AD:
    |:-----|:-------|
    | Platform | Web |
    | App Name | Enter a unique application name.|
-   | Public Domain | For example: https:/jde-external.example.com. <br>For testing, you can use localhost DNS. If you aren't deploying DAB behind a load balancer, use the **Public Domain** port. |
+   | Public Domain | For example: `https://jde-external.example.com`. <br>For testing, you can use localhost DNS. If you aren't deploying DAB behind a load balancer, use the **Public Domain** port. |
    | Listen Port | The port that DAB listens on.|
    | Upstream Servers | The Oracle JDE implementation URL and port to be protected.|
 
