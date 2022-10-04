@@ -6,7 +6,7 @@ ms.date: 10/03/2022
 ms.author: eur
 ---
 
-When you use the `--realTime` option, partial results are included in the output:
+By using the `realTime` option in the example above, the partial results from `Recognizing` events are included in the output. In this example, only the final `Recognized` event includes the commas. Commas aren't the only differences between `Recognizing` and `Recognized` events. For more information, see [Get partial results](~/articles/cognitive-services/speech-service/captioning-concepts.md#get-partial-results).
 
 ```srt
 1
@@ -50,9 +50,6 @@ orange, yellow, green, blue,
 indigo and Violet.
 ```
 
-Note that with the real-time example above, the commas aren't included in the partial results from `Recognizing` events. The final `Recognized` event includes the commas. For more information, see [Get partial results](~/articles/cognitive-services/speech-service/captioning-concepts.md#get-partial-results).
-
-
 When you use the `--offline` option, the results are stable from the final `Recognized` event. Partial results aren't included in the output:
 
 ```srt
@@ -66,4 +63,4 @@ orange, yellow, green, blue,
 indigo and Violet.
 ```
 
-The [SRT](https://docs.fileformat.com/video/srt/) (SubRip Text) timespan output format is `hh:mm:ss,fff`. For more information, see [Caption output format](~/articles/cognitive-services/speech-service/captioning-concepts.md#caption-output-format).
+Note that the [SRT](https://docs.fileformat.com/video/srt/) (SubRip Text) timespan output format is `hh:mm:ss,fff`. For more information, see [Caption output format](~/articles/cognitive-services/speech-service/captioning-concepts.md#caption-output-format).
