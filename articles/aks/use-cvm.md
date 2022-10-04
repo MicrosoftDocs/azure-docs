@@ -13,7 +13,6 @@ You can use the generally available [confidential VM sizes (DCav5/ECav5)][cvm-an
 
 Adding a node pool with CVM to your AKS cluster is currently in preview.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Before you begin
 
