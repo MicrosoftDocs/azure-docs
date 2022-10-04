@@ -648,7 +648,7 @@ Returns a substring of the source value. A substring is a string that contains o
 | --- | --- | --- | --- |
 | **source** |Required |String |Usually name of the attribute. |
 | **start** |Required |Integer |Index in the **source** string where substring should start. First character in the string will have index of 1, second character will have index 2, and so on. |
-| **length** |Required |Integer |Length of the substring. If length ends outside the **source** string, function will return substring from **start** index untill end of **source** string. |
+| **length** |Required |Integer |Length of the substring. If length ends outside the **source** string, function will return substring from **start** index until end of **source** string. |
 
 ---
 ### NormalizeDiacritics
@@ -797,7 +797,7 @@ Let's say you are sourcing the attributes *firstName* and *lastName* from SAP Su
 
 ### RandomString
 **Function:** 
-RandomString(Length, MinimumNumbers, MinimumSpecialCharacters , MinimumCapital, MinimumLowerCase, CharactersToAvoid)
+RandomString(Length, MinimumNumbers, MinimumSpecialCharacters, MinimumCapital, MinimumLowerCase, CharactersToAvoid)
 
 **Description:** 
 The RandomString function generates a random string based on the conditions specified. Characters allowed can be identified [here](/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
@@ -921,7 +921,7 @@ Then in this case, you can use the following expression in your attribute mappin
 **Example 2:** Using **oldValue** and **template** to insert the source string into another *templatized* string. 
 
 The parameter **oldValue** is a misnomer in this scenario. It is actually the value that will get replaced.  
-Let's say you want to always generate login id in the format `<username>@contoso.com`. There is a source attribute called **UserID** and you want that value to be used for the `<username>` portion of the login id. 
+Let's say you want to always generate login ID in the format `<username>@contoso.com`. There is a source attribute called **UserID** and you want that value to be used for the `<username>` portion of the login ID. 
 Then in this case, you can use the following expression in your attribute mapping. 
 
 `Replace([UserID],"<username>", , , , , "<username>@contoso.com")`
@@ -966,7 +966,7 @@ Then in this case, you can use the following expression in your attribute mappin
 * **replacementValue:** "888"
 * **Expression output:** 888 Tremont Street
 
-Here is another example where the domain suffix from a UPN is replaced with an empty string to generate login id without domain suffix. 
+Here is another example where the domain suffix from a UPN is replaced with an empty string to generate login ID without domain suffix. 
 
 `Replace([userPrincipalName], , "(?<Suffix>@(.)*)", "Suffix", "", , )`
 
