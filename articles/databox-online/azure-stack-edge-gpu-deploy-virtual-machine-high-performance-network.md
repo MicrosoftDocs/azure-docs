@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/03/2022
+ms.date: 10/04/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on an Azure Stack Edge Pro GPU device so that I can use it to transform data before I send it to Azure.
 ---
@@ -76,27 +76,27 @@ In addition to the above prerequisites that are used for VM creation, you'll als
         ```
     1. Stop all the running VMs.
     
+        ```powershell
+        stop-vm -force
+        ```
+
     > [!NOTE] 
-    > In version 2210, ```Get-HcsNumaSpanning``` will stop/move VMs internally. It will set the minrootConfig without changing the Numa spanning setting. This command will still trigger reboot you will see the VM stopped/moved. ```Set-HcsNumaSpanning``` -Enable $true/$false, will set the numa spanning setting. This is a disruptive command that will trigger reboot for all nodes. You will see the VM migration/VM stopped while this command is taking place. 
-
-    > In builds 2209 and lower, you must stop all VMs before running this command. And this command will set the minrootConfig and NumaSpanning flags. If the minRootConfig is all root, NumaSpanning is enabled. Otherwise, disable NumaSpanning.
+    > - In builds 2210 and higher, `Get-HcsNumaSpanning` will stop/move VMs internally. It will set the minrootConfig without changing the Numa spanning setting. This command will still trigger reboot, and you will see the VM stopped/moved. `Set-HcsNumaSpanning` -Enable $true/$false, will set the numa spanning setting. This is a disruptive command that will trigger reboot for all nodes. You will see the VM migration/VM stopped while this command is taking place.
+    > - In builds 2209 and lower, you must stop all VMs before running this command. This command will set the minrootConfig and NumaSpanning flags. If the minRootConfig is all root, enable NumaSpanning. Otherwise, disable NumaSpanning.
     
-    ```stop-vm -force```
-
     1. Get the `hostname` for your device. This should return a string corresponding to the device hostname.
 
         ```powershell
         hostname
         ```
     1. Get the logical processor indexes to reserve for HPN VMs.
-     
-    > [!NOTE] 
-    > In version 2210 and higher, all new builds include a Numa Lp config of 4+4 minroot, or eight minroot in one numa node system, and NumaSpanning enabled. You don't have to run ```Set-HcsNumaLpMapping``` to deploy HPN VM. Instead, all new devices on build 2210 or higher can deploy HPN VM directly. Devices that are updated to 2210 will keep the minroot configuration from before upgrade.
-    
-    ```powershell
 
+    ```powershell
     Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName <Output of hostname command>
     ```
+    > [!NOTE] 
+    > - All new builds 2210 and higher include a Numa Lp config of 4+4 minroot, or eight minroot in one numa node system, and NumaSpanning is enabled. You don't have to run `Set-HcsNumaLpMapping` to deploy HPN VM. Instead, all new devices on build 2210 or higher can deploy HPN VM directly.
+    > - Devices that are updated to 2210 will keep their minroot configuration from before upgrade.
 
     Here's an example output:
     
