@@ -48,7 +48,7 @@ Microsoft recommends the below risk policy configurations to protect your organi
 - User risk policy
    - Require a secure password reset when user risk level is **High**. Azure AD MFA is required before the user can create a new password with SSPR to remediate their risk. 
 - Sign-in risk policy
-   - Require Azure AD MF when sign-in risk level is **Medium** or **High**, allowing users to prove it's them by using one of their registered authentication methods, remediating the sign-in risk. 
+   - Require Azure AD MFA when sign-in risk level is **Medium** or **High**, allowing users to prove it's them by using one of their registered authentication methods, remediating the sign-in risk. 
 
 Requiring access control when risk level is low will introduce more user interrupts. Choosing to block access rather than allowing self-remediation options, like secure password reset and multi-factor authentication, will impact your users and administrators. Weigh these choices when configuring your policies.
 
@@ -127,16 +127,18 @@ If you already have risk policies enabled in Identity Protection, we highly reco
 
 ![Screenshots showing the migration of a user risk policy to Conditional Access](./media/howto-identity-protection-configure-risk-policies/user-risk-policy-migration-to-CA.png)
 
-1.	Create an equivalent risk policy in [Conditional Access in report-only mode](#enable-policies).
-    1.	Ensure that the new Conditional Access risk policy works as expected by testing it in [report-only mode](../conditional-access/howto-conditional-access-insights-reporting.md).
-1.	Enable the new Conditional Access risk policy. You can choose to have both policies running side-by-side to confirm the new policies are working as expected before turning off the Identity Protection risk policies.
+### Migrating to Conditional Access
+
+1.	**Create** [a risk-based policy](#enable-policies) in Conditional Access in report-only mode. You can do this with the steps above or using [Conditional Access templates](../conditional-access/concept-conditional-access-policy-common.md#common-conditional-access-policies).
+    1. Ensure that the new Conditional Access risk policy works as expected by testing it in [report-only mode](../conditional-access/howto-conditional-access-insights-reporting.md).
+1.	**Enable** the new Conditional Access risk policy. You can choose to have both policies running side-by-side to confirm the new policies are working as expected before turning off the Identity Protection risk policies.
     1. Browse back to **Azure Active Directory** > **Security** > **Conditional Access**. 
     1. Select this new policy to edit it.
     1. Set **Enable policy** to **On** to enable the policy
-1.	Disable the old risk policies in Identity Protection.
+1.	**Disable** the old risk policies in Identity Protection.
     1. Browse to **Azure Active Directory** > **Identity Protection** > Select the **User risk** or **Sign-in risk** policy.
     1. Set **Enforce policy** to **Off**
-1.	Create other risk policies if needed in Conditional Access.
+1.	Create other risk policies if needed in [Conditional Access](../conditional-access/concept-conditional-access-policy-common.md).
 
 ## Next steps
 
