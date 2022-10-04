@@ -35,11 +35,11 @@ Below is an example of how to enable and configure a rule to generate security a
 
 1. Find the rule titled **TI map IP entity to AzureActivity** and ensure you have connected all the required data sources as shown below.
 
-    :::image type="content" source="media/work-with-threat-indicators/threat-intel-required-data-sources.png" alt-text="Required data sources":::
+    :::image type="content" source="media/work-with-threat-indicators/threat-intel-required-data-sources.png" alt-text="Screenshot of required data sources for the TI map IP entity to AzureActivity analytics rule.":::
 
 1. Select the **TI map IP entity to AzureActivity** rule and then select **Create rule** to open a rule configuration wizard. Configure the settings in the wizard and then select **Next: Set rule logic >**.
 
-    :::image type="content" source="media/work-with-threat-indicators/threat-intel-create-analytics-rule.png" alt-text="Create analytics rule":::
+    :::image type="content" source="media/work-with-threat-indicators/threat-intel-create-analytics-rule.png" alt-text="Screenshot of the create analytics rule configuration wizard.":::
 
 1. The rule logic portion of the wizard has been pre-populated with the following items:
 
