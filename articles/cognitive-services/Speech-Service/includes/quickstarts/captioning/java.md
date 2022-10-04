@@ -72,7 +72,8 @@ Follow these steps to build and run the captioning quickstart code example.
 1. Copy the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/java/jre/console/captioning/"  title="Copy the samples"  target="_blank">scenarios/java/jre/captioning/</a> sample files from GitHub into your project directory. The `pom.xml` file that you created in [environment setup](#set-up-the-environment) must also be in this directory.
 1. Open a command prompt and run this command to compile the project files. 
     ```console
-    javac Captioning.java -cp ".;target\dependency\*"
+    javac Captioning.java -cp ".;target\dependency\*" -encoding UTF-8
+    ```
     ```
 1. Run the application with your preferred command line arguments. See [usage and arguments](#usage-and-arguments) for the available options. Here is an example:
     ```console
