@@ -1,6 +1,6 @@
 ---
 title: Solution design
-description: Learn about topologies and constraints for NC2 on Azure Public Preview. 
+description: Learn about topologies and constraints for NC2 on Azure. 
 ms.topic: conceptual
 ms.subservice:  baremetal-nutanix
 ms.date: 07/01/2022
@@ -8,7 +8,7 @@ ms.date: 07/01/2022
 
 # Solution design
 
-This article identifies topologies and constraints for NC2 on Azure Public Preview.
+This article identifies topologies and constraints for NC2 on Azure.
 
 ## Supported topologies
 

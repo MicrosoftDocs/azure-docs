@@ -1,20 +1,20 @@
 ---
-title: About NC2 on Azure Public Preview
-description: Learn about NC2 on Azure Public Preview and the benefits it offers.
+title: About Nutanix Cloud Clusters on Azure
+description: Learn about Nutanix Cloud Clusters on Azure and the benefits it offers.
 ms.topic: overview
 ms.subservice: baremetal-nutanix
 ms.date: 03/31/2021
 ---
 
-# About Nutanix Cloud Clusters on Azure Public Preview
+# About Nutanix Cloud Clusters on Azure
 
-The articles in this section are intended for the professionals participating in the Public Preview of NC2 on Azure.
+The articles in this section are intended for the professionals participating in BareMetal Infrastructure for Nutanix Cloud Clusters on Azure of NC2 on Azure.
 
  To provide input, email [NC2-on-Azure Docs](mailto:AzNutanixPM@microsoft.com).
 
-:::image type="content" source="media/nc2-on-azure-preview.png#lightbox" alt-text="Illustration of NC2 on Azure Public Preview features." border="false" lightbox="media/nc2-on-azure-preview-large.png":::
+:::image type="content" source="media/nc2-on-azure.png#lightbox" alt-text="Illustration of NC2 on Azure features." border="false" lightbox="media/nc2-on-azure-large.png":::
 
-In particular, this article highlights Public Preview features. 
+In particular, this article highlights NC2 features. 
 
 ## Unlock the benefits of Azure
 
@@ -48,7 +48,7 @@ We offer two SKUs: AN36 and AN36P. For specifications, see [SKUs](skus.md).
 * Microsoft Azure Consumption Contract (MACC) credits
 
 > [!NOTE]
-> During the public preview, RI is not supported.
+> During BareMetal Infrastructure for Nutanix Cloud Clusters on Azure, RI is not supported.
 An additional discount may be available.
 
 ## Support

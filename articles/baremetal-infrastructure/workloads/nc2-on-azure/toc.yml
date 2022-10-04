@@ -1,8 +1,8 @@
 - name: What is BareMetal Infrastructure for Nutanix Cloud Clusters on Azure?
   href: nc2-baremetal-overview.md
   items:
-  - name: About the Public Preview
-    href: about-the-public-preview.md
+  - name: About Nutanix Cloud Clusters on Azure
+    href: about-nc2-on-azure.md
   - name: Use cases and supported scenarios
     href: use-cases-and-supported-scenarios.md  
   - name: Solution design
