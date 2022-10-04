@@ -278,7 +278,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | **Windows connectors** |  |  |
 | - [Windows Firewall](../../sentinel/data-connectors-reference.md#windows-firewall) | GA | GA |
 | - [Windows Security Events](/azure/sentinel/connect-windows-security-events) | GA | GA |
-| **[External connectors](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=solution-templates&page=1&search=sentinel)** |  |  |
+| **[External connectors](https://azuremarketplace.microsoft.com/marketplace/apps?filters=solution-templates&page=1&search=sentinel)** |  |  |
 | - Agari Phishing Defense and Brand Protection | Public Preview | Public Preview |
 | - AI Analyst Darktrace | Public Preview | Public Preview |
 | - AI Vectra Detect | Public Preview | Public Preview |
