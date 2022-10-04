@@ -22,9 +22,9 @@ Whenever possible, refactor large functions into smaller function sets that work
 
 ## Make sure background tasks complete 
 
-Azure Functions does not track background threads. If your functions initiate any tasks, callbacks, threads, processes, tasks, etc., they must be complete before you return from your functions. Site shutdown may still occur regardless of background thread status, leading to unintended behavior.
+When your function starts any tasks, callbacks, threads, processes, or tasks, they must complete before your function code returns. Because Functions doesn't track these background threads, site shutdown can occur regardless of background thread status, which can cause unintended behavior in your functions.
 
-For example, if a function kicks off a background task and returns a successful response before the task finishes, the function will be considered successful and complete despite the result of the background task. If this background task is performing essential work, it may be pre-empted by site shutdown, leaving that work in an unknown state.
+For example, if a function starts a background task and returns a successful response before the task completes, the Functions runtime considers the execution as having completed successfully, regardless of the result of the background task. If this background task is performing essential work, it may be preempted by site shutdown, leaving that work in an unknown state.
 
 ## Cross function communication
 
