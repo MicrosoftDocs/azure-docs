@@ -124,7 +124,7 @@ sections:
           * **Success**: The policy was successfully satisfied.
           * **Failure**: The policy wasn't satisfied.
           * **Not applied**: The policy conditions may not have been met.
-          * **Not enabled**: The policy may be in a in disabled state. 
+          * **Not enabled**: The policy may be in a disabled state. 
               
       - question: |
           The policy name in the all sign-in report doesn't match the policy name in Conditional Access. Why?
