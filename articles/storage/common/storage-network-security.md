@@ -5,7 +5,7 @@ services: storage
 author: jimmart-dev
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/03/2022
+ms.date: 10/04/2022
 ms.author: jammart
 ms.reviewer: santoshc
 ms.subservice: common 
