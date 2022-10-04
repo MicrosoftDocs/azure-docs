@@ -83,7 +83,7 @@ Content hub supports a list view in addition to the default card view. Multiple 
 
 1. The list view is paginated, so choose a filter to ensure the solutions you want to bulk install and modify are in view. Select their checkboxes and click the **Install/Update** button.
 
-1. The content hub interface will indicate the install and update progress. Azure notifications will also indicate the action taken.
+1. The content hub interface will indicate *in progress* for installs and updates. Azure notifications will also indicate the action taken.
 
     :::image type="content" source="media/sentinel-solutions-deploy/bulk-install-update.png" alt-text="Screenshot of solutions list view with multiple solutions selected and in progress for installation." lightbox="media/sentinel-solutions-deploy/bulk-install-update.png":::
 
@@ -91,7 +91,7 @@ Content hub supports a list view in addition to the default card view. Multiple 
 
 ## Enable content items in a solution
 
-Centrally manage content items for an installed solution deployed by the content hub.
+Centrally manage content items for installed solutions from the content hub.
 
 1. In the content hub, select an installed solution where the version is 2.0.0 or higher.
 1. On the solutions details page, select **Manage**.
@@ -102,7 +102,9 @@ Centrally manage content items for an installed solution deployed by the content
 
     :::image type="content" source="media/sentinel-solutions-deploy/manage-solution-azure-activity.png" alt-text="Screenshot of solution description and list of content items for Azure Activity solution." lightbox="media/sentinel-solutions-deploy/manage-solution-azure-activity.png":::
 
-1. Select a content item to get started. The following steps describe how you can interact with the different solution content types in the content hub. 
+1. Select a content item to get started. 
+
+1. The following steps describe how you can interact with the different solution content types in the content hub. 
 
 1. **Data connector** -  Select **Open connector page**. 
 
