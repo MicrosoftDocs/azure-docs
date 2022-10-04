@@ -3,7 +3,7 @@ title: Azure Functions runtime versions overview
 description: Azure Functions supports multiple versions of the runtime. Learn the differences between them and how to choose the one that's right for you.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 09/23/2022
+ms.date: 10/04/2022
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -157,8 +157,6 @@ Update-AzFunctionAppSetting -AppSetting @{FUNCTIONS_EXTENSION_VERSION = "~4"} -N
 
 ---
 
-::: zone pivot="programming-language-csharp"  
-
 # [Windows](#tab/windows/azure-cli)
 
 When running on Windows, you also need to enable .NET 6.0, which is required by version 4.x of the runtime.
@@ -194,8 +192,6 @@ When running .NET apps on Linux, you also need to update the `linuxFxVersion` si
 ---
 
 In this example, replace `<APP_NAME>` with the name of your function app and `<RESOURCE_GROUP_NAME>` with the name of the resource group.
-
-::: zone-end
 
 ### Migrate using slots
 

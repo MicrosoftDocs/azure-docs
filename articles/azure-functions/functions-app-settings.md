@@ -2,7 +2,7 @@
 title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables.
 ms.topic: conceptual
-ms.date: 04/27/2022
+ms.date: 10/04/2022
 ---
 
 # App settings reference for Azure Functions
