@@ -39,7 +39,7 @@ If you're migrating VMware vSphere VMs to Azure, [compare](server-migrate-overvi
 
 ## Verify hypervisor requirements
 
-- Verify [VMware agentless](migrate-support-matrix-vmware-migration.md#vmware-requirements-agentless), or [VMware vSphere agent-based](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agent-based) requirements.
+- Verify [VMware agentless](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agentless), or [VMware vSphere agent-based](migrate-support-matrix-vmware-migration.md#vmware-vsphere-requirements-agent-based) requirements.
 - Verify [Hyper-V host](migrate-support-matrix-hyper-v-migration.md#hyper-v-host-requirements) requirements.
 
 
@@ -57,7 +57,7 @@ Review which URLs and ports are accessed during migration.
 
 **Scenario** | **Details** |  **URLs** | **Ports**
 --- | --- | --- | ---
-**VMware vSphere agentless migration** | Uses the [Azure Migrate appliance](migrate-appliance-architecture.md) for migration. Nothing is installed on VMware VMs. | Review the public cloud and government [URLs](migrate-appliance.md#url-access) needed for discovery, assessment, and migration with the appliance. | [Review](migrate-support-matrix-vmware-migration.md#port-requirements-agentless) the port requirements for agentless migration.
+**VMware vSphere agentless migration** | Uses the [Azure Migrate appliance](migrate-appliance-architecture.md) for migration. Nothing is installed on VMware vSphere VMs. | Review the public cloud and government [URLs](migrate-appliance.md#url-access) needed for discovery, assessment, and migration with the appliance. | [Review](migrate-support-matrix-vmware-migration.md#port-requirements-agentless) the port requirements for agentless migration.
 **VMware vSphere agent-based migration** | Uses the [replication appliance](migrate-replication-appliance.md) for migration. The Mobility service agent is installed on VMs. | Review the [public cloud](migrate-replication-appliance.md#url-access) and [Azure Government](migrate-replication-appliance.md#azure-government-url-access) URLs that the replication appliance needs to access. | [Review](migrate-replication-appliance.md#port-access) the ports used during agent-based migration.
 **Hyper-V migration** | Uses a Provider installed on Hyper-V hosts for migration. Nothing is installed on Hyper-V VMs. | Review the [public cloud](migrate-support-matrix-hyper-v-migration.md#url-access-public-cloud) and [Azure Government](migrate-support-matrix-hyper-v-migration.md#url-access-azure-government) URLs that the Replication Provider running on the hosts needs to access. | The Replication Provider on the Hyper-V host uses outbound connections on HTTPS port 443 to send VM replication data.
 **Physical machines** | Uses the [replication appliance](migrate-replication-appliance.md) for migration. The Mobility service agent is installed on the physical machines. | Review the [public cloud](migrate-replication-appliance.md#url-access) and [Azure Government](migrate-replication-appliance.md#azure-government-url-access) URLs that the replication appliance needs to access. | [Review](migrate-replication-appliance.md#port-access) the ports used during physical migration.
@@ -199,7 +199,7 @@ Decide which method you want to use to [migrate VMware vSphere VMs](server-migra
 
 For VMware vSphere VMs, Server Migration supports [agentless or agent-based migration](server-migrate-overview.md).
 
-- **VMware vSphere VMs**: Verify [migration requirements and support](migrate-support-matrix-vmware-vsphere-migration.md) for VMware vSphere VMs.
+- **VMware vSphere VMs**: Verify [migration requirements and support](migrate-support-matrix-vmware-migration.md) for VMware vSphere VMs.
 - **Hyper-V VMs**: Verify [migration requirements and support](migrate-support-matrix-hyper-v-migration.md) for Hyper-V VMs.
 - **Physical machines**: Verify [migration requirements and support](migrate-support-matrix-physical-migration.md) for on-premises physical machines and other virtualized servers.
 
