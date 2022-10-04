@@ -81,10 +81,9 @@ Add a [project environment type](how-to-configure-project-environment-types.md) 
 
    :::image type="content" source="./media/configure-project-environment-types/add-project-environment-type-page.png" alt-text="Screenshot showing adding details on the add project environment type page.":::
 
+
 > [!NOTE]
-> At least one identity (system assigned or user assigned) must be enabled for deployment.
-> 
-> If the identity attached to the dev center has not been granted 'Owner' access to the deployment subscription, the deployment identity should be [granted 'Owner' access to the deployment subscription](how-to-configure-managed-identity.md)
+> At least one identity (system assigned or user assigned) must be enabled for deployment identity and will be used to perform the environment deployment on behalf of the developer. Additionally, the identity attached to the dev center should be [granted 'Owner' access to the deployment subscription](how-to-configure-managed-identity.md) configured per environment type.
 
 ## Provide access to the development team
 
