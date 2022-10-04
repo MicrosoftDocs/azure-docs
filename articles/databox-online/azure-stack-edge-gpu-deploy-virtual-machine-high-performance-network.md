@@ -26,12 +26,11 @@ On your Azure Stack Edge device, logical processors are distributed on NUMA node
 
 To run low latency and high throughput network applications on the HPN VMs deployed on your device, make sure to reserve vCPUs that reside in NUMA node 0. This node has Mellanox high speed network interfaces, Port 5 and Port 6, attached to it.   
 
-== Start 2210 tab ==
-::: zone pivot="2210-and-higher"
-    
 ## HPN VM deployment workflow
 
 The high-level summary of the HPN deployment workflow is as follows:
+
+### [2210 and higher](#tab/2210)
 
 1. Enable a network interface for compute on your Azure Stack Edge device. This step creates a virtual switch on the specified network interface.
 1. Enable cloud management of VMs from the Azure portal.
@@ -191,17 +190,11 @@ Follow these steps to create an HPN VM on your device.
     > [!NOTE]
     > If the vCPUs are not reserved for HPN VMs prior to the deployment, the deployment will fail with `FabricVmPlacementErrorInsufficientNumaNodeCapacity` error.
 
-:::zone-end                                                                        
-
-::: zone pivot="2209-and-lower"
-
-## HPN VM deployment workflow
-
-The high-level summary of the HPN deployment workflow is as follows:
+### [2209 and lower](#tab/2209)
 
  - 2209 and lower...
 
-:::zone-end
+---
 
 ## Next steps
 
