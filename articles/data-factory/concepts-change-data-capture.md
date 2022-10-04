@@ -22,7 +22,7 @@ To learn more read the introductory article for [Azure Data Factory](introductio
 
 ## Overview
 
-When performing data integration and ETL processes in the cloud, your jobs can perform much better and be more effective when you only read the source data that has changed since the last time the pipeline ran, rather than always querying an entire dataset on each run. Executing pipelines that only read the latest changed data is available in many of ADF's source connectors by simply enabling a checkbox property inside the source transformation. Support for full-fidelity CDC, which inlcudes row markers for upserts, deletes, and updates, as well as rules for resetting the ADF-managed checkpoint are available in several ADF connectors. For easily capturing changes and deltas, ADF supports patterns and templates for managing incremental pipelines with user-controlled checkpoints as well, which you will find in the table below.
+When you perform data integration and ETL processes in the cloud, your jobs can perform much better and be more effective when you only read the source data that has changed since the last time the pipeline ran, rather than always querying an entire dataset on each run. Executing pipelines that only read the latest changed data is available in many of ADF's source connectors by simply enabling a checkbox property inside the source transformation. Support for full-fidelity CDC, which includes row markers for upserts, deletes, and updates, as well as rules for resetting the ADF-managed checkpoint are available in several ADF connectors. To easily capture changes and deltas, ADF supports patterns and templates for managing incremental pipelines with user-controlled checkpoints as well, which you'll find in the table below.
 
 ## CDC Connector support
 
@@ -41,7 +41,7 @@ When performing data integration and ETL processes in the cloud, your jobs can p
 | [SAP CDC](connector-sap-change-data-capture.md) | ✓ | ✓ | ✓ |
 
 
-ADF makes is super-simple to enable and use CDC. Many of the connectors listed above will enable a checkbox similar to the one shown below from the data flow source transformation.
+ADF makes it super-simple to enable and use CDC. Many of the connectors listed above will enable a checkbox similar to the one shown below from the data flow source transformation.
 
 :::image type="content" source="media/data-flow/cdc.png" alt-text="Change data capture":::
 
