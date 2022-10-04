@@ -13,6 +13,8 @@ ms.date: 06/20/2022
 
 [!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
+[!INCLUDE[azure-database-for-mysql-single-server-deprecation](../includes/azure-database-for-mysql-single-server-deprecation.md)]
+
 This article explains two common ways to back up and restore databases in your Azure Database for MySQL
 - Dump and restore from the command-line (using mysqldump)
 - Dump and restore using PHPMyAdmin
