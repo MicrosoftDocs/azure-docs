@@ -52,7 +52,7 @@ The following table describes properties for each entry.
 
 Configuration is pulled from Git backends using what you define in a pattern. A pattern is a combination of *{application}/{profile}* as described in the following guidelines.
 
-- *{application}* - The name of an application whose configuration you are retrieving. The value `application` is considered the default application and includes configuration information shared across multiple applications. Any other value refers to a specific application and includes properties for both the specific application and shared properties for the default application.
+- *{application}* - The name of an application whose configuration you're retrieving. The value `application` is considered the default application and includes configuration information shared across multiple applications. Any other value refers to a specific application and includes properties for both the specific application and shared properties for the default application.
 - *{profile}* - Optional. The name of a profile whose properties you may be retrieving. An empty value, or the value `default`, includes properties that are shared across profiles. Non-default values include properties for the specified profile and properties for the default profile.
 
 ### Authentication
@@ -141,7 +141,7 @@ A Spring application holds the properties as the beans of the Spring Application
 
 ## Configure Application Configuration Service for Tanzu settings using the portal
 
-Use the following steops to configure Application Configuration Service for Tanzu using the portal.
+Use the following steps to configure Application Configuration Service for Tanzu using the portal.
 
 1. Select **Application Configuration Service**.
 1. Select **Overview** to view the running state and resources allocated to Application Configuration Service for Tanzu.
@@ -168,9 +168,7 @@ az spring application-configuration-service git repo add \
 
 ## Use Application Configuration Service for Tanzu with applications using the portal
 
-Keep the following in mind when you use Application Configuration Service for Tanzu with a Git back end.
-
-To use the centralized configurations, you must bind the app to Application Configuration Service for Tanzu. After binding the app, use the following steps to configure the pattern to be used by the app.
+When you use Application Configuration Service for Tanzu with a Git back end and use the centralized configurations, you must bind the app to Application Configuration Service for Tanzu. After binding the app, use the following steps to configure the pattern to be used by the app.
 
 1. Open the **App binding** tab.
 
