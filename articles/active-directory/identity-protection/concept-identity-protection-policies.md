@@ -44,7 +44,7 @@ If risks are detected on a sign-in, users can perform the required access contro
 ![Sign-in Risk-based Conditional Access policy](./media/concept-identity-protection-policies/sign-in-risk-policy.png)
 
 > [!NOTE] 
-> Users must have previously registered for Azure AD Multifactor Authentication before triggering the sign-in risk policy.
+> Users must have previously registered for Azure AD multifactor authentication before triggering the sign-in risk policy.
 
 ## User risk-based Conditional Access policy
 
@@ -71,13 +71,13 @@ If you already have Identity Protection risk policies set up, we encourage you t
 
 ## Azure AD MFA registration policy
 
-Identity Protection can help organizations roll out Azure AD Multifactor Authentication (MFA) using a policy requiring registration at sign-in. Enabling this policy is a great way to ensure new users in your organization have registered for MFA on their first day. Multifactor authentication is one of the self-remediation methods for risk events within Identity Protection. Self-remediation allows your users to take action on their own to reduce helpdesk call volume.
+Identity Protection can help organizations roll out Azure AD multifactor authentication (MFA) using a policy requiring registration at sign-in. Enabling this policy is a great way to ensure new users in your organization have registered for MFA on their first day. Multifactor authentication is one of the self-remediation methods for risk events within Identity Protection. Self-remediation allows your users to take action on their own to reduce helpdesk call volume.
 
-More information about Azure AD Multifactor Authentication can be found in the article, [How it works: Azure AD Multifactor Authentication](../authentication/concept-mfa-howitworks.md).
+More information about Azure AD multifactor authentication can be found in the article, [How it works: Azure AD multifactor authentication](../authentication/concept-mfa-howitworks.md).
 
 ## Next steps
 
 - [Enable Azure AD self-service password reset](../authentication/howto-sspr-deployment.md)
-- [Enable Azure AD Multifactor Authentication](../authentication/howto-mfa-getstarted.md)
-- [Enable Azure AD Multifactor Authentication registration policy](howto-identity-protection-configure-mfa-policy.md)
+- [Enable Azure AD multifactor authentication](../authentication/howto-mfa-getstarted.md)
+- [Enable Azure AD multifactor authentication registration policy](howto-identity-protection-configure-mfa-policy.md)
 - [Enable sign-in and user risk policies](howto-identity-protection-configure-risk-policies.md)

@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Configure and enable risk policies
 
-As we learned in the previous article, [Identity Protection policies](concept-identity-protection-policies.md), there are two types of risk policies in Azure Active Directory (Azure AD) Conditional Access you can set up to automate the response to risks and allow users to self-remediate when risk is detected:
+As we learned in the previous article, [Risk-based access policies](concept-identity-protection-policies.md), there are two types of risk policies in Azure Active Directory (Azure AD) Conditional Access you can set up to automate the response to risks and allow users to self-remediate when risk is detected:
 
 - Sign-in risk policy
 - User risk policy
@@ -34,7 +34,7 @@ Configured trusted [network locations](../conditional-access/location-condition.
 
 ### Risk remediation
 
-Organizations can choose to block access when risk is detected. Blocking sometimes stops legitimate users from doing what they need to. A better solution is to allow self-remediation using Azure AD Multi-Factor Authentication (MFA) and secure self-service password reset (SSPR).
+Organizations can choose to block access when risk is detected. Blocking sometimes stops legitimate users from doing what they need to. A better solution is to allow self-remediation using Azure AD multifactor authentication (MFA) and secure self-service password reset (SSPR).
 
 > [!WARNING]
 > Users must register for Azure AD MFA and SSPR before they face a situation requiring remediation. Users not registered are blocked and require administrator intervention.
@@ -50,7 +50,7 @@ Microsoft recommends the below risk policy configurations to protect your organi
 - Sign-in risk policy
    - Require Azure AD MFA when sign-in risk level is **Medium** or **High**, allowing users to prove it's them by using one of their registered authentication methods, remediating the sign-in risk. 
 
-Requiring access control when risk level is low will introduce more user interrupts. Choosing to block access rather than allowing self-remediation options, like secure password reset and multi-factor authentication, will impact your users and administrators. Weigh these choices when configuring your policies.
+Requiring access control when risk level is low will introduce more user interrupts. Choosing to block access rather than allowing self-remediation options, like secure password reset and multifactor authentication, will impact your users and administrators. Weigh these choices when configuring your policies.
 
 ## Exclusions
 
@@ -103,7 +103,7 @@ After confirming your settings using [report-only mode](../conditional-access/ho
    1. Select **High** and **Medium**.
    1. Select **Done**.
 1. Under **Access controls** > **Grant**.
-   1. Select **Grant access**, **Require multi-factor authentication**.
+   1. Select **Grant access**, **Require multifactor authentication**.
    1. Select **Select**.
 1. Under **Session**.
    1. Select **Sign-in frequency**.
@@ -142,7 +142,7 @@ If you already have risk policies enabled in Identity Protection, we highly reco
 
 ## Next steps
 
-- [Enable Azure AD Multi-Factor Authentication registration policy](howto-identity-protection-configure-mfa-policy.md)
+- [Enable Azure AD multifactor authentication registration policy](howto-identity-protection-configure-mfa-policy.md)
 - [What is risk](concept-identity-protection-risks.md)
 - [Investigate risk detections](howto-identity-protection-investigate-risk.md)
 - [Simulate risk detections](howto-identity-protection-simulate-risk.md)
