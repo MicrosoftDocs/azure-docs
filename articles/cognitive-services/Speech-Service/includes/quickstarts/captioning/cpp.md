@@ -20,12 +20,16 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 You must also install [GStreamer](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md) for compressed input audio.
 
+### Set environment variables
+
+[!INCLUDE [Environment variables](../../common/environment-variables.md)]
+
 ## Create captions from speech
 
-Follow these steps to create a new console application and install the Speech SDK.
+Follow these steps to build and run the captioning quickstart code example with Visual Studio Community 2022 on Windows. 
 
 1. Download or copy the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/cpp/windows/captioning"  title="Copy the samples"  target="_blank">scenarios/cpp/windows/captioning/</a> sample files from GitHub into a local directory. 
-1. Open the `captioning.sln` solution file in Visual Studio.  
+1. Open the `captioning.sln` solution file in Visual Studio Community 2022.  
 1. Install the Speech SDK in your project with the NuGet package manager.
     ```powershell
     Install-Package Microsoft.CognitiveServices.Speech

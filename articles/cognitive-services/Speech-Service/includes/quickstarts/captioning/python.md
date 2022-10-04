@@ -25,7 +25,7 @@ The Speech SDK for Python is available as a [Python Package Index (PyPI) module]
 
 ## Create captions from speech
 
-Follow these steps to create a new console application.
+Follow these steps to build and run the captioning quickstart code example.
 
 1. Download or copy the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/python/console/captioning/"  title="Copy the samples"  target="_blank">scenarios/python/console/captioning/</a> sample files from GitHub into a local directory. 
 1. Open a command prompt in the same directory as `captioning.py`.

@@ -21,7 +21,7 @@ You must also install [GStreamer](~/articles/cognitive-services/speech-service/h
 
 ## Create captions from speech
 
-Follow these steps to create a new console application and install the Speech SDK.
+Follow these steps to build and run the captioning quickstart code example.
 
 1. Copy the  <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/csharp/dotnetcore/captioning/"  title="Copy the samples"  target="_blank">scenarios/csharp/dotnetcore/captioning/</a> sample files from GitHub. If you have [Git installed](https://git-scm.com/downloads), open a command prompt and run the `git clone` command to download the Speech SDK samples repository.
     ```dotnetcli

@@ -22,7 +22,7 @@ You must also install [GStreamer](~/articles/cognitive-services/speech-service/h
 
 ## Create captions from speech
 
-Follow these steps to create a new GO module and install the Speech SDK.
+Follow these steps to build and run the captioning quickstart code example.
 
 1. Download or copy the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/go/captioning/"  title="Copy the samples"  target="_blank">scenarios/go/captioning/</a> sample files from GitHub into a local directory. 
 1. Open a command prompt in the same directory as `captioning.go`.
