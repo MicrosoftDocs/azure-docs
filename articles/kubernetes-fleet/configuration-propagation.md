@@ -10,7 +10,7 @@ ms.service: kubernetes-fleet
 
 # Propagate Kubernetes resource objects from an Azure Kubernetes Fleet Manager resource to member clusters (preview)
 
-Platform admins and application developers need a way to deploy the same to deploy the same Kubernetes resource objects (like ClusterRoles, ClusterRoleBindings, Namespaces, Deployments) across all member clusters or just a subset of member clusters of the fleet. Kubernetes Fleet Manager (Fleet) provides `ClusterResourcePlacement` as a mechanism to control how cluster-scoped Kubernetes resources are propagated to member clusters.
+Platform admins and application developers need a way to deploy the same Kubernetes resource objects (like ClusterRoles, ClusterRoleBindings, Namespaces, Deployments) across all member clusters or just a subset of member clusters of the fleet. Kubernetes Fleet Manager (Fleet) provides `ClusterResourcePlacement` as a mechanism to control how cluster-scoped Kubernetes resources are propagated to member clusters.
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
@@ -22,12 +22,12 @@ Platform admins and application developers need a way to deploy the same to depl
 
 The `ClusterResourcePlacement` custom resource is used to select which cluster-scoped Kubernetes resource objects need to be propagated from the fleet cluster and to select which member clusters to propagate these objects to. It supports the following forms of resource selection:
 
-* Select all the clusters by specifying empty policy under `ClusterResourcePlacement`
-* Select clusters by listing names of `MemberCluster` custom resources
-* Select clusters using cluster selectors to match labels present on `MemberCluster` custom resources
+* Select resources by specifying just the *<group, version, kind>*. This selection propagates all resources with matching *<group, version, kind>*.
+* Select resources by specifying the *<group, version, kind>* and name. This selection propagates only one resource that matches the *<group, version, kind>* and name.
+* Select resources by specifying the *<group, version, kind>* and a set of labels using `ClusterResourcePlacement` -> `LabelSelector`. This selection propagates all resources that match the *<group, version, kind>* and label specified.
 
 > [!NOTE]
-> `ClusterResourcePlacement` can be used to select and propagate namespaces, which are cluster-scoped resources. All namespace-scoped objects created on the fleet cluster within these namespaces are also propagated from the fleet cluster to member clusters where this namespace was propagated by the `ClusterResourcePlacement`. 
+> `ClusterResourcePlacement` can be used to select and propagate namespaces, which are cluster-scoped resources. When a namespace is selected, all the namespace-scoped objects under this namespace are propagated to the selected member clusters along with this namespace. 
 
 
 An example of selecting a resource by label is given below.
@@ -81,7 +81,7 @@ An example of selecting a resource by label is given below.
 
 1. On each member cluster in the `westcetralus` region, you can verify that the namespace has been propagated:
 
-    ```console
+    ```bash
     kubectl get namespace hello-world
     ```
 
@@ -92,8 +92,9 @@ An example of selecting a resource by label is given below.
 
 The `ClusterResourcePlacement` custom resource can also be used to limit propagation of selected resources to a specific subset of member clusters. The following forms of target cluster selection are supported:
 
-* Specify a list of cluster names, where the cluster names must match `MemberCluster` custom resource names
-* Specify label(s) via `PlacementPolicy` -> `Affinity` -> `ClusterAffinity` -> `ClusterSelectorTerm` -> `LabelSelector` to choose clusters. If multiple labels are present, then the labels are evaluated via the `OR` method to select clusters.
+* Select all the clusters by specifying empty policy under `ClusterResourcePlacement`
+* Select clusters by listing names of `MemberCluster` custom resources
+* Select clusters using cluster selectors to match labels present on `MemberCluster` custom resources
 
 An example of targeting a specific cluster by name is given below:
 
@@ -119,7 +120,7 @@ An example of targeting a specific cluster by name is given below:
             name: hello-world
         policy:
           clusterNames:
-            - member-1
+            - aks-member-1
     ```
 
     Apply this `ClusterResourcePlacement` to the cluster:
@@ -137,13 +138,13 @@ An example of targeting a specific cluster by name is given below:
     hello-world   1     True        1              True      1            23m
     ```
 
-1. On `member-1` AKS cluster, run the following command to see if the namespace has been propagated:
+1. On `aks-member-1` AKS cluster, run the following command to see if the namespace has been propagated:
 
       ```bash
       kubectl get namespace hello-world
       ```
 
-  You'll observe that the namespace has been propagated only to `member-1` cluster, but not the other clusters.
+  You'll observe that the namespace has been propagated only to `aks-member-1` cluster, but not the other clusters.
 
 
 > [!TIP]
