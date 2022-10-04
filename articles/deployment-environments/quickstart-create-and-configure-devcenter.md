@@ -6,6 +6,7 @@ ms.author: meghaanand
 ms.topic: quickstart
 ms.service: deployment-environments
 ms.date: 10/12/2022
+ms.custom: devdivchpfy22
 ---
 
 # Quickstart: Configure the Azure Deployment Environments Preview service
@@ -32,8 +33,6 @@ In this quickstart, you'll perform the following actions:
 The following steps illustrate how to use the Azure portal to create and configure a Dev center in Azure Deployment Environments.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Access Azure Deployment Environments.
-1. Select **Dev centers** from the left pane.
 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/deployment-environments-add-devcenter.png" alt-text="Screenshot to create and configure an Azure Deployment Environments dev center.":::
 

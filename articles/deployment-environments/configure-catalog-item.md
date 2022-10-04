@@ -11,7 +11,10 @@ ms.author: meghaanand
 ---
 # Configure a Catalog Item in GitHub repo or Azure DevOps repo
 
-In Azure Deployment Environments Preview service, you can use a [Catalog](concept-environments-key-concepts.md#catalogs) to provide your development teams with a curated set of predefined [*infrastructure as code (IaC)*](/devops/deliver/what-is-infrastructure-as-code) templates called [Catalog Items](concept-environments-key-concepts.md#catalog-items). A catalog item is a combination of an *infrastructure as code (IaC)* template ([Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/overview.md)) and a manifest (*manifest.yml*) file. 
+In Azure Deployment Environments Preview service, you can use a [Catalog](concept-environments-key-concepts.md#catalogs) to provide your development teams with a curated set of predefined [*infrastructure as code (IaC)*](/devops/deliver/what-is-infrastructure-as-code) templates called [Catalog Items](concept-environments-key-concepts.md#catalog-items). A catalog item is a combination of an *infrastructure as code (IaC)* template (for example, [Azure Resource Manager (ARM) templates](../azure-resource-manager/templates/overview.md)) and a manifest (*manifest.yml*) file.
+
+>[!NOTE]
+> Azure Deployment Environments Preview currently only supports Azure Resource Manager (ARM) templates. 
 
 The ARM template will contain the environment definition and the manifest file will be used to provide metadata about the template. The catalog items that you provide in the catalog will be used by your development teams to deploy environments in Azure.
 

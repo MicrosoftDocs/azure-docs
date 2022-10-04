@@ -33,13 +33,13 @@ To add a new catalog, you'll need to:
 
 ### Get the clone URL for your repository
 
-To get the clone URL of your GitHub repo:
+**Get the clone URL of your GitHub repo**
 
 1. Go to the home page of the GitHub repository that contains the template definitions.
 1. [Get the clone URL](/azure/devops/repos/git/clone#get-the-clone-url-of-a-github-repo).
 1. Copy and save the URL. You'll use it later.
 
-To get the clone URL of your Azure DevOps Services Git repo:
+**Get the clone URL of your Azure DevOps Services Git repo**
 
 1. Go to the home page of your team collection (for example, `https://contoso-web-team.visualstudio.com`), and then select your project.
 1. [Get the clone URL](/azure/devops/repos/git/clone#get-the-clone-url-of-an-azure-repos-git-repo).
@@ -47,7 +47,7 @@ To get the clone URL of your Azure DevOps Services Git repo:
 
 ### Create a personal access token and store it as a Key Vault secret
 
-### Create a personal access token in GitHub
+#### Create a personal access token in GitHub
 
 1. Go to the home page of the GitHub repository that contains the template definitions.
 1. In the upper-right corner of GitHub, select the profile image, and then select **Settings**.
