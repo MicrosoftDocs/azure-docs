@@ -40,6 +40,7 @@ You'll create a .NET function app in the Premium plan because this tutorial uses
     | **Function App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  |
     |**Publish**| Code | Choose to publish code files or a Docker container. |
     | **Runtime stack** | .NET | This tutorial uses .NET. |
+    | **Version** | 3.1 | This tutorial uses .NET Core 3.1 |
     |**Region**| Preferred region | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. |
 
 1. Select **Next: Hosting**. On the **Hosting** page, enter the following settings.
