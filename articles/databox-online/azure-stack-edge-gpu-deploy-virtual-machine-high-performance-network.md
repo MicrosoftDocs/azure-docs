@@ -81,9 +81,8 @@ In addition to the above prerequisites that are used for VM creation, you'll als
 
     > In builds 2209 and lower, you must stop all VMs before running this command. And this command will set the minrootConfig and NumaSpanning flags. If the minRootConfig is all root, NumaSpanning is enabled. Otherwise, disable NumaSpanning.
     
-        ```powershell
-        stop-vm -force
-        ```
+    ```stop-vm -force```
+
     1. Get the `hostname` for your device. This should return a string corresponding to the device hostname.
 
         ```powershell
@@ -96,10 +95,9 @@ In addition to the above prerequisites that are used for VM creation, you'll als
     
     > Devices that are updated to 2210 will keep the minroot configuration from before upgrade.
     
-        ```powershell
-        Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName <Output of hostname command>
-        ```
-        Here is an example output:
+    ```Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName <Output of hostname command>```
+
+    Here is an example output:
     
         ```powershell    
         [dbe-1csphq2.microsoftdatabox.com]: PS>hostname
