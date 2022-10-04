@@ -64,7 +64,7 @@ Each connection can support multiple types of custom content, including analytic
 
         - Both parsers and hunting queries use the **Saved Searches** API to deploy content to Microsoft Sentinel. If you select one of these content types, and also have content of the other type in your branch, both content types are deployed.
 
-        - For all other content types, selecting a content type in the **Create a new connection** pane deploys only that content to Microsoft Sentinel. Content of other types is not deployed.
+        - For all other content types, selecting a content type in the **Create a new connection** pane deploys only that content to Microsoft Sentinel. Content of other types isn't deployed.
 
     1. Select **Create** to create your connection. For example:
 
@@ -76,13 +76,13 @@ Each connection can support multiple types of custom content, including analytic
     > Due to cross-tenant limitations, if you are creating a connection as a [guest user](../active-directory/external-identities/what-is-b2b.md) on the workspace, your Azure DevOps URL won't appear in the dropdown. Enter it manually instead.
     >
 
-    You are automatically authorized to Azure DevOps using your current Azure credentials. To ensure valid connectivity, [verify that you've authorized to the same Azure DevOps account](https://aex.dev.azure.com/) that you're connecting to from Microsoft Sentinel or use an InPrivate browser window to create your connection.
+    You're automatically authorized to Azure DevOps using your current Azure credentials. To ensure valid connectivity, [verify that you've authorized to the same Azure DevOps organization](https://aex.dev.azure.com/) that you're connecting to from Microsoft Sentinel or use an InPrivate browser window to create your connection.
     
     1.  In Microsoft Sentinel, from the dropdown lists that appear, select your **Organization**, **Project**, **Repository**, **Branch**, and **Content Types**.
 
         - Both parsers and hunting queries use the **Saved Searches** API to deploy content to Microsoft Sentinel. If you select one of these content types, and also have content of the other type in your branch, both content types are deployed.
 
-        - For all other content types, selecting a content type in the **Create a new connection** pane deploys only that content to Microsoft Sentinel. Content of other types is not deployed.
+        - For all other content types, selecting a content type in the **Create a new connection** pane deploys only that content to Microsoft Sentinel. Content of other types isn't deployed.
 
     1. Select **Create** to create your connection. For example:
 
@@ -135,7 +135,7 @@ This procedure describes how to remove the connection to a source control reposi
 1. In the grid, select the connection you want to remove, and then select **Delete**.
 1. Select **Yes** to confirm the deletion.
 
-After you've removed your connection, content that was previously deployed via the connection remains in your Microsoft Sentinel workspace. Content added to the repository after removing the connection is not deployed.
+After you've removed your connection, content that was previously deployed via the connection remains in your Microsoft Sentinel workspace. Content added to the repository after removing the connection isn't deployed.
 
 > [!TIP]
 > If you encounter issues or an error message when deleting your connection, we recommend that you check your source control to confirm that the GitHub workflow or Azure DevOps pipeline associated with the connection was deleted.

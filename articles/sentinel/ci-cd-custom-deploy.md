@@ -13,9 +13,9 @@ ms.author: austinmc
 
 There are two primary ways to customize the deployment of your repository content to Microsoft Sentinel workspaces. Each method uses different files and syntax, so consider these examples to get you started.
 
-1. Modify the GitHub workflow or DevOps pipeline to customize deployment options such as your connection's deployment trigger, deployment path or usage of smart deployments.
+- Modify the GitHub workflow or DevOps pipeline to customize deployment options such as your connection's deployment trigger, deployment path or usage of smart deployments.
 
-2. Utilize the newly introduced configuration file to control the priortized order of your content deployments, choose to *exclude* specific content files from those deployments, or map parameter files to specific content files. 
+- Utilize the newly introduced configuration file to control the prioritized order of your content deployments, choose to *exclude* specific content files from those deployments, or map parameter files to specific content files. 
 
 > [!IMPORTANT]
 >
@@ -159,11 +159,12 @@ For more information, see the [Azure DevOps documentation](/azure/devops/pipelin
 
 ## Customize your connection configuration
 
-Customization options to map parameters, prioritize content and exclude content are defined here. 
+The deployment script for repositories supports the usage of a deployment configuration file for each repository branch as of July 2022. The configuration JSON file helps you map parameter files to relevant content files, prioritize specific content in deployments, and exclude specific content from deployments.
 
-1. Create the file *sentinel-deployment.config* at the root of your repository. Adding, deleting, or modifying this configuration file will cause a full deployment of all the content in the repository according the updated configuration.
 
-     :::image type="content" source="media/ci-cd-custom-deploy/deployment-config.png" alt-text="Screenshot of a repository root directory. The RepositoriesSampleContent is shown with the location of the sentinel-deployment.config file. This screenshot is after the sample was imported from the SentinelCICD repo to a private GitHub repo in the FourthCoffee organization." lightbox="media/ci-cd-custom-deploy/deployment-config.png":::
+1. Create the file *sentinel-deployment.config* at the root of your repository. Adding, deleting, or modifying this configuration file will cause a full deployment of all the content in the repository according to the updated configuration.
+
+     :::image type="content" source="media/ci-cd-custom-deploy/deployment-config.png" alt-text="Screenshot of a repository root directory. The RepositoriesSampleContent is shown with the location of the sentinel-deployment.config file." lightbox="media/ci-cd-custom-deploy/deployment-config.png":::
 
 1. Include JSON structured content in three optional sections, `"prioritizedcontentfiles":`, `"excludecontentfiles":`, and `"parameterfilemappings":`. If no sections are included or the .config file is omitted, the deployment process will still run. Invalid or unrecognized sections will be ignored.
 
