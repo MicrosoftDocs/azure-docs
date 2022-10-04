@@ -115,13 +115,18 @@ az devcenter admin devbox-definition list `
 --devcenter-name "Contoso" --resource-group "rg1" `
 ```
 
+#### List skus available in your subscription
+
+```azurecli
+az devcenter admin sku list
+```
 #### Create a Dev Box Definition with a marketplace image
 
 ```azurecli
 az devcenter admin devbox-definition create -g demo-rg `
 --devcenter-name contoso-devcenter -n BaseImageDefinition `
 --image-reference id="/subscriptions/{subscriptionId}/resourceGroups/demo-rg/providers/Microsoft.DevCenter/devcenters/contoso-devcenter/galleries/Default/images/MicrosoftWindowsDesktop_windows-ent-cpc_win11-21h2-ent-cpc-m365" `
---sku name="PrivatePreview" `
+--sku name="general_a_8c32gb_v1" `
 ```
 
 #### Create a Dev Box Definition with a custom image
@@ -130,7 +135,7 @@ az devcenter admin devbox-definition create -g demo-rg `
 az devcenter admin devbox-definition create -g demo-rg `
 --devcenter-name contoso-devcenter -n CustomDefinition `
 --image-reference id="/subscriptions/{subscriptionId}/resourceGroups/demo-rg/providers/Microsoft.DevCenter/devcenters/contoso-devcenter/galleries/SharedGallery/images/CustomImageName" `
---sku name="PrivatePreview" `
+--sku name="general_a_8c32gb_v1" `
 ```
 
 ### Dev Box Pool
