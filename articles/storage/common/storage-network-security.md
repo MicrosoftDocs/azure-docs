@@ -5,7 +5,7 @@ services: storage
 author: jimmart-dev
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/31/2022
+ms.date: 10/03/2022
 ms.author: jammart
 ms.reviewer: santoshc
 ms.subservice: common 
@@ -51,7 +51,7 @@ By default, storage accounts accept connections from clients on any network. You
 
 > [!WARNING]
 > Changing this setting can impact your application's ability to connect to Azure Storage. Make sure to grant access to any allowed networks or set up access through a [private endpoint](storage-private-endpoints.md) before you change this setting.
-     
+
 ### [Portal](#tab/azure-portal)
 
 1. Go to the storage account you want to secure.
@@ -119,6 +119,9 @@ By default, storage accounts accept connections from clients on any network. You
      ```
 
 ---
+
+> [!CAUTION]
+> If you set **Public network access** to **Disabled** after previously setting it to **Enabled from selected virtual networks and IP addresses**, any [**Resource instances**](#grant-access-from-azure-resource-instances) and **Exceptions** you previously configured, including [**Allow Azure services on the trusted services list to access this storage account.**](#grant-access-to-trusted-azure-services), will remain in effect.
 
 ## Grant access from a virtual network
 
