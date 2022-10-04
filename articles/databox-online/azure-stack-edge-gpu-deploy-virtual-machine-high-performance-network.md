@@ -80,9 +80,9 @@ In addition to the above prerequisites that are used for VM creation, you'll als
         stop-vm -force
         ```
 
-    > [!NOTE] 
-    > - In builds 2210 and higher, `Get-HcsNumaSpanning` will stop/move VMs internally. It will set the minrootConfig without changing the Numa spanning setting. This command will still trigger reboot, and you will see the VM stopped/moved. `Set-HcsNumaSpanning` -Enable $true/$false, will set the numa spanning setting. This is a disruptive command that will trigger reboot for all nodes. You will see the VM migration/VM stopped while this command is taking place.
-    > - In builds 2209 and lower, you must stop all VMs before running this command. This command will set the minrootConfig and NumaSpanning flags. If the minRootConfig is all root, enable NumaSpanning. Otherwise, disable NumaSpanning.
+       > [!NOTE] 
+       > - In builds 2210 and higher, `Get-HcsNumaSpanning` will stop/move VMs internally. It will set the minrootConfig without changing the Numa spanning setting. This command will still trigger reboot, and you will see the VM stopped/moved. `Set-HcsNumaSpanning` -Enable $true/$false, will set the numa spanning setting. This is a disruptive command that will trigger reboot for all nodes. You will see the VM migration/VM stopped while this command is taking place.
+       > - In builds 2209 and lower, you must stop all VMs before running this command. This command will set the minrootConfig and NumaSpanning flags. If the minRootConfig is all root, enable NumaSpanning. Otherwise, disable NumaSpanning.
     
     1. Get the `hostname` for your device. This should return a string corresponding to the device hostname.
 
@@ -91,35 +91,35 @@ In addition to the above prerequisites that are used for VM creation, you'll als
         ```
     1. Get the logical processor indexes to reserve for HPN VMs.
 
-    ```powershell
-    Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName <Output of hostname command>
-    ```
-    > [!NOTE] 
-    > - All new builds 2210 and higher include a Numa Lp config of 4+4 minroot, or eight minroot in one numa node system, and NumaSpanning is enabled. You don't have to run `Set-HcsNumaLpMapping` to deploy HPN VM. Instead, all new devices on build 2210 or higher can deploy HPN VM directly.
-    > - Devices that are updated to 2210 will keep their minroot configuration from before upgrade.
+       ```powershell
+       Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName <Output of hostname command>
+       ```
 
-    Here's an example output:
+       > [!NOTE] 
+       > - All new builds 2210 and higher include a Numa Lp config of 4+4 minroot, or eight minroot in one numa node system, and NumaSpanning is enabled. You don't have to run `Set-HcsNumaLpMapping` to deploy HPN VM. Instead, all new devices on build 2210 or higher can deploy HPN VM directly.
+       > - Devices that are updated to 2210 will keep their minroot configuration from before upgrade.
+
+       Here's an example output:
     
-    ```powershell
-    [dbe-1csphq2.microsoftdatabox.com]: PS>hostname
-    1CSPHQ2
-    [dbe-1csphq2.microsoftdatabox.com]: P> Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName 1CSPHQ2
+       ```powershell
+       [dbe-1csphq2.microsoftdatabox.com]: PS>hostname 1CSPHQ2
+       [dbe-1csphq2.microsoftdatabox.com]: P> Get-HcsNumaLpMapping -MapType HighPerformanceCapable -NodeName 1CSPHQ2
 
-    { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] }
-    { Numa Node #1 : CPUs [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
+       { Numa Node #0 : CPUs [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19] }
+       { Numa Node #1 : CPUs [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39] }
         
-    [dbe-1csphq2.microsoftdatabox.com]:PS>
-    ```
+       [dbe-1csphq2.microsoftdatabox.com]:PS>
+       ```
     
     1. Reserve vCPUs for HPN VMs. The number of vCPUs reserved here determines the available vCPUs that could be assigned to the HPN VMs. For the number of cores that each HPN VM size uses, see the [Supported HPN VM sizes](azure-stack-edge-gpu-virtual-machine-sizes.md#supported-vm-sizes). On your device, Mellanox ports 5 and 6 are on NUMA node 0.
     
      ```powershell
-    Set-HcsNumaLpMapping -CpusForHighPerfVmsCommaSeperated <Logical indexes from the Get-HcsNumaLpMapping cmdlet> -AssignAllCpusToRoot $false
-    ```
+      Set-HcsNumaLpMapping -CpusForHighPerfVmsCommaSeperated <Logical indexes from the Get-HcsNumaLpMapping cmdlet> -AssignAllCpusToRoot $false
+     ```
     
-    After this command is run, the device restarts automatically.
+     After this command is run, the device restarts automatically.
 
-    Here is an example output: 
+     Here is an example output: 
     
     ```powershell
     [dbe-1csphq2.microsoftdatabox.com]: PS>Set-HcsNumaLpMapping -CpusForHighPerfVmsCommaSeperated "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39" -AssignAllCpusToRoot $false
