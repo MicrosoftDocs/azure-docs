@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/28/2022
+ms.date: 10/04/2022
 
 ms.author: justinha
 author: justinha
@@ -202,14 +202,15 @@ An authentication strength Conditional Access policy works together with [MFA tr
 
 - **Users who signed in by using certificate-based authentication aren't prompted to reauthenticate** - If a user first authenticated by using certificate-based authentication and the authentication strength requires another method, such as a FIDO2 security key, the user isn't prompted to use a FIDO2 security key and authentication fails. The user must restart their session to sign-in with a FIDO2 security key.
 
-- **Authentication methods that are currently not supported by authentication strengths** - The following authentication methods are included in the available combinations but currently have limited functionality:
+- **Authentication methods that are currently not supported by authentication strength** - The following authentication methods are included in the available combinations but currently have limited functionality:
   - Email one-time pass (Guest)
   - Hardware-based OATH token
 
-- **Conditional Access What-if tool** – When running the what-if tool, it will return policies that require authentication strengths correctly. However, when clicking on the authentication strengths name a name page is open with additional information on the methods the user can use. This information may be incorrect.
+- **Conditional Access What-if tool** – When running the what-if tool, it will return policies that require authentication strength correctly. However, when clicking on the authentication strength name, a name page is open with additional information about the methods the user can use. This information may be incorrect.
 
-- **Authentication strength is not enforced on “Register security information” user action** – If an Authentication strengths Conditional Access policy is targeting “Register security information” user action, the policy would not apply. 
+- **Authentication strength is not enforced on Register security information user action** – If an Authentication strength Conditional Access policy targets **Register security information** user action, the policy would not apply. 
 
+- **Conditional Access audit log** – When a Conditional Access policy with the authentication strength grant control is created or updated in the Azure AD portal, the auditing log includes details about the policy that was updated, but doesn't include the details about which authentication strength is referenced by the Conditional Access policy. This issue doesn't exist when a policy is created or updated By using Microsoft Graph APIs.
 <!-- Namrata to update about B2B--->
 
 ## Limitations
