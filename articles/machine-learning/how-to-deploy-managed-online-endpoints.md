@@ -571,13 +571,37 @@ ml_client.online_endpoints.get(name=online_endpoint_name)
 
 ---
 
-### Check the status of the cloud deployment
+### Check the status of the online deployment
 
 Check the logs to see whether the model was deployed without error:
+
+# [Azure CLI](#tab/azure-cli)
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
 
 By default, logs are pulled from inference-server. To see the logs from storage-initializer (it mounts assets like model and code to the container), add the `--container storage-initializer` flag.
+
+
+# [Python](#tab/python)
+
+You can view this output by using the `get_logs` method:
+
+```python
+ml_client.online_deployments.get_logs(
+    name="blue", endpoint_name=online_endpoint_name, lines=50
+)
+```
+
+By default, logs are pulled from inference-server. To see the logs from storage-initializer (it mounts assets like model and code to the container), add the `container_type="storage-initializer"` option.
+
+```python
+ml_client.online_deployments.get_logs(
+    name="blue", endpoint_name=online_endpoint_name, lines=50, container_type="storage-initializer"
+)
+```
+---
+
+For more information on deployment logs, see [Get container logs](how-to-troubleshoot-online-endpoints.md#get-container-logs).
 
 ### Invoke the endpoint to score data by using your model
 
