@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 10/03/2022
+ms.date: 10/04/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -22,7 +22,7 @@ As we learned in the previous article, [Identity Protection policies](concept-id
 - Sign-in risk policy
 - User risk policy
 
-![Risk conditions in Conditional Access](./media/howto-identity-protection-configure-risk-policies/CA-risk-conditions.png)
+![Risk conditions in Conditional Access](./media/howto-identity-protection-configure-risk-policies/sign-in-risk-conditions.png)
 
 ## Choosing acceptable risk levels
 
@@ -125,11 +125,11 @@ While Identity Protection also provides two risk policies with limited condition
 
 If you already have risk policies enabled in Identity Protection, we highly recommend that you migrate them to Conditional Access:
 
-![Screenshots showing the migration of a user risk policy to Conditional Access](./media/howto-identity-protection-configure-risk-policies/user-risk-policy-migration-to-CA.png)
+![Screenshots showing the migration of a sign-in risk policy to Conditional Access](./media/howto-identity-protection-configure-risk-policies/sign-in-risk-policy-migration.png)
 
 ### Migrating to Conditional Access
 
-1.	**Create** [a risk-based policy](#enable-policies) in Conditional Access in report-only mode. You can do this with the steps above or using [Conditional Access templates](../conditional-access/concept-conditional-access-policy-common.md#common-conditional-access-policies).
+1.	**Create an equivalent** [user risk-based](#user-risk-policy-in-conditional-access) and [sign-in risk-based ](#sign-in-risk-policy-in-conditional-access) policy in Conditional Access in report-only mode. You can do this with the steps above or using [Conditional Access templates](../conditional-access/concept-conditional-access-policy-common.md#common-conditional-access-policies) based on Microsoft's recommendations.
     1. Ensure that the new Conditional Access risk policy works as expected by testing it in [report-only mode](../conditional-access/howto-conditional-access-insights-reporting.md).
 1.	**Enable** the new Conditional Access risk policy. You can choose to have both policies running side-by-side to confirm the new policies are working as expected before turning off the Identity Protection risk policies.
     1. Browse back to **Azure Active Directory** > **Security** > **Conditional Access**. 
