@@ -10,7 +10,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
 
-# Bulk Data Load Best Practices
+# Bulk data load best practices
 
 There are two types of bulk loads:
 - Initial data load of an empty database
@@ -18,55 +18,56 @@ There are two types of bulk loads:
 
 This article discusses various loading techniques along with best practices when it comes to initial data loads and incremental data loads.
 
-## Loading Methods
+## Loading methods
 
-Performance-wise the data loading methods arranged in ascending order are as follows:
+Performance-wise, the data loading methods arranged in the order of most time consuming to least time consuming methods are as follows:
 - Single record Insert
-- Batch into 100-1000 rows per commit. One can use transaction block to wrap multiple records per commit [Batch Inserts]
+- Batch into 100-1000 rows per commit. One can use transaction block to wrap multiple records per commit [Batch Inserts].
 - INSERT with multirow VALUES syntax
 - COPY command
 
 The preferred method to load the data into the database is by copy command. If the copy command is not possible, then batch INSERTs is the next best method. Using multi-threading with a COPY command is the optimal method for doing bulk data loads.
 
-## Best Practices for Initial Data Loads
+## Best practices for initial data loads
 
-### Drop Indexes
-Index-building during data load slows up the performance. During the initial data loads it is advised to drop all the indexes in the tables. It is always more efficient to build the indexes after data load.
+#### Drop indexes
+During the initial data loads it is advised to drop all the indexes in the tables. It is always more efficient to create the indexes after the data load.
 
-### Drop Constraints
+#### Drop constraints
 
-#### Unique Key Constraints
-If a unique key constraint is defined on the table, (which is implemented in Postgres as a unique B-tree index) then every insert will do an index lookup to determine if a row exists, which slows the performance of data load. It is advised performance-wise to drop unique key constraints before bulk data load and recreate once data load is completed. On the other hand, one should be aware that dropping unique constraints cancels the safeguards against duplicated data.
+##### Unique key constraints
+To achieve strong performance, it's advised to drop unique key constraints before a bulk data load and recreate it once the data load is completed. However, be aware that dropping unique key constraints cancels the safeguards against duplicated data.
 
-#### Foreign Key Constraints
-It is advised to drop foreign key constraints before bulk data load and recreate once data load is completed or change the session_replication_role parameter to replica as follows:
+##### Foreign key constraints
+It is advised to drop foreign key constraints before bulk data load and recreate once data load is completed.
+
+Changing the session_replication_role parameter to replica also disables all foreign key checks.However, be aware making the change can leave data in an inconsistent state if not properly used.
 
 ```
 SET session_replication_role to 'replica'; 
 ```
 
-#### Unlogged Tables
+#### Unlogged tables
 Use of unlogged tables will make data load faster. Data written to unlogged tables is not written to the write-ahead log.
 
-Use the following options to create an unlogged table:
-- Create a new unlogged table by using syntax 
+The disadvantages of using unlogged tables are
+- They are not crash-safe. An unlogged table is automatically truncated after a crash or unclean shutdown.
+- Data from unlogged tables cannot be replicated to standby servers.
+- 
+The pros and cons of using unlogged tables should be considered before using in bulk data loads.
 
+Use the following options to create an unlogged table:
+- Create a new unlogged table by using the following syntax:  
 ``` 
 CREATE UNLOGGED TABLE <tablename>;
 ```
 
-- Convert an existing logged table to an unlogged table by using syntax 
+- Convert an existing logged table to an unlogged table by using the following syntax:   
 ```
 ALTER TABLE <tablename> SET UNLOGGED;
 ```
 
-The disadvantages of using unlogged tables are
-- They are not crash-safe. An unlogged table is automatically truncated after a crash or unclean shutdown
-- Data from unlogged tables cannot be replicated to standby servers
-- 
-The pros and cons of using unlogged tables should be considered before using bulk data loads.
-
-### Server Parameter Tuning
+#### Server parameter tuning
 
 `Autovacuum`
 
@@ -78,38 +79,35 @@ During the initial data load, it is best to turn off the autovacuum. Once bulk l
 `maintenance_work_mem`
 The maintenance_work_mem can be set to a maximum of 2 GB on flexible server. `maintenance_work_mem` helps in speeding up autovacuum, index and foreign key creation.
 
-`wal_buffers`
-The wal_buffers parameter can be increased from default 8 MB to 16 MB.
-
 `checkpoint_timeout`
-On the flexible server, the checkpoint_timeout can be increased to maximum 24h from default 5 minutes. It is advised to increase the value to 1 hour before data loads on flexible server.
+On the flexible server, the checkpoint_timeout can be increased to maximum 24h from default 5 minutes. It is advised to increase the value to 1 hour before data loads on Flexible server.
 
 `checkpoint_completion_target`
 A value of 0.9 is always recommended.
 
 `max_wal_size`
-The max_wal_size can be set to maximum allowed value on the flexible server, which 64 GB while we do the initial data load.
+The max_wal_size can be set to maximum allowed value on the Flexible server, which 64 GB while we do the initial data load.
 
 `wal_compression`
 wal_compression can be turned on. Enabling the parameter can reduce the WAL volume without increasing the risk of unrecoverable data corruption.
 
 
-### Flexible Server Recommendations
+#### Flexible server recommendations
 
-Before the start of initial data load on a flexible server, it is recommended to
+Before the start of initial data load on a Flexible server, it is recommended to
 
-- Disable HA. We can enable HA once full load is completed on master/primary.
+- Disable high availability [HA] on the server. We can enable HA once full load is completed on master/primary.
 - Create read replicas after initial data load is completed.
-- Make logging minimal or disable all together during initial data loads. Example: disable pgaudit, pg_stat_statements, query store
+- Make logging minimal or disable all together during initial data loads. Example: disable pgaudit, pg_stat_statements, query store.
 
 
-### Recreating Indexes and Adding Constraints
-Assuming the indexes and constraints were dropped before initial load it is recommended to have high values of maintenance_work_mem [as recommended above] for index creation and constraint addition. In addition, starting Postgres version 11 the following parameters can be modified for faster parallel index creation after initial data load.
+#### Recreating indexes and adding constraints
+Assuming the indexes and constraints were dropped before the initial load, it's recommended to have high values of maintenance_work_mem (as recommended above) for creating indexes and adding constraints. In addition, starting with Postgres version 11, the following parameters can be modified for faster parallel index creation after initial data load:
 
-`max_parallel_workers`
+- `max_parallel_workers`
 Sets the maximum number of workers that the system can support for parallel queries.
 
-`max_parallel_maintenance_workers`
+- `max_parallel_maintenance_workers`
 Controls the maximum number of worker process, which can be used to CREATE INDEX.
 
 One could also create the indexes by making recommended settings at the session level. An example of how it can be done at session level is shown below:
@@ -120,30 +118,28 @@ SET max_parallel_maintenance_workers = 8;
 CREATE INDEX test_index ON test_table (test_column);
 ```
 
-## Best Practices for Incremental Data Loads
+## Best practices for incremental data loads
 
-### Table Partitioning
+#### Table partitioning
 It is always recommended to partition large tables. Some advantages of partitioning, especially during incremental loads:
 - Creation of new partitions based on the new deltas makes it efficient to add new data to the table.
 - Maintenance of tables becomes easier. One can drop a partition during incremental data loads avoiding time-consuming deletes on large tables.
 - Autovacuum would be triggered only on partitions that were changed or added during incremental loads, which makes maintaining of statistics on table easier
 
-### Maintain Up-To-Date Table Statistics
-Monitoring and maintaining table statistics is important for the performance of the queries on the database. This would also include scenarios where we have incremental loads.Postgres uses the autovacuum daemon process to clean up dead tuples and analyze the tables to keep the statistics updated.For more details on autovacuum monitoring and tuning please review [Autovacuum Tuning](./how-to-autovacuum-tuning.md). 
+#### Maintain up-to-date table statistics
+Monitoring and maintaining table statistics is important for query performance on the database. This also includes scenarios where you have incremental loads. PostgreSQL uses the autovacuum daemon process to clean up dead tuples and analyze the tables to keep the statistics updated. For more details on autovacuum monitoring and tuning, review [Autovacuum Tuning](./how-to-autovacuum-tuning.md).
 
-### Index Creation on Foreign Key Constraints
-For understanding we will assume two tables - the parent table and the table where foreign key is created which references the primary key of the parent table. We call this the child table.
-
-Creating indexes on foreign keys on the child table would be beneficial in the following scenarios:
+#### Index creation on foreign key constraints
+Creating indexes on foreign keys in the child tables would be beneficial in the following scenarios:
 - Data updates or deletions in the parent table. When data is updated or deleted in the parent table lookups would be performed on the child table.To make lookups faster we could index foreign keys on the child table.
-- Queries where we see joins between parent and child tables on key columns is another scenario where index creation on foreign keys is recommended.
+- Queries, where we see join between parent and child tables on key columns.
 
-### Unused Indexes
+#### Unused indexes
 Identify unused indexes in the database and drop them. Indexes are an overhead on data loads. The fewer the indexes on a table the better the performance is during data ingestion.
 
-Unused indexes can be identified in two ways.
+Unused indexes can be identified in two ways - by Query Store and an index usage query.
 
-#### Query Store
+##### Query store
 Query Store helps in identifying indexes, which can be dropped based on query usage patterns on the database. For step-by-step guidance, see [Query Store](./concepts-query-store.md).
 
 Once Query Store is enabled on the server the following query can be used to identify indexes that can be dropped by connecting to azure_sys database.
@@ -151,7 +147,7 @@ Once Query Store is enabled on the server the following query can be used to ide
 select * from IntelligentPerformance.CreateIndexRecommendations;
 ```
 
-#### Index Usage
+##### Index usage
 The below query can also be used to identify unused indexes
 
 ```
@@ -179,7 +175,7 @@ ORDER BY 1, 2;
 number_of_scans, tuples_read, tuples_fetched columns would give an indication of index usage.number_of_scans column value of 0 points to index not being used.
 
 
-### Server Parameter Tuning
+#### Server parameter tuning
 
 > [!NOTE]
 > Please follow the recommendations below only if there is enough memory and disk space.
