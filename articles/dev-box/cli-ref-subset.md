@@ -11,6 +11,9 @@ ms.date: 09/29/2022
 # Dev Box CLI reference
 This article contains descriptions and definitions for a subset of the Dev Box Azure CLI extension. 
 
+> [!NOTE]
+> Microsoft Dev Box is currently in public preview. Features and commands may change. If you need additional assistance, contact the Dev Box team by using [Report a problem](https://aka.ms/devbox/report).
+
 ## Prerequisites
 Install the Azure CLI and the Dev Box CLI extension as described here: [Microsoft Dev Box CLI](how-to-install-dev-box-cli.md)
 ## Commands
