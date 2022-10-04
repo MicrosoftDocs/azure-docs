@@ -263,7 +263,7 @@ export const SignInButton = () => {
     };
     ```
 
-2. Now open *src/App.js* and add replace the existing content with the following code: 
+1. Now open *src/App.js* and add replace the existing content with the following code: 
 
     ```jsx
     import React from "react";
@@ -462,7 +462,7 @@ In order to render certain components only for authenticated or unauthenticated 
     };
     ```
 
-2. Update your imports in *src/App.js* to match the following snippet:
+1. Update your imports in *src/App.js* to match the following snippet:
 
     ```js
     import React, { useState } from "react";
@@ -472,7 +472,7 @@ In order to render certain components only for authenticated or unauthenticated 
     import Button from "react-bootstrap/Button";
     ```
 
-3. Finally, add your new `ProfileContent` component as a child of the `AuthenticatedTemplate` in your `App` component in *src/App.js*. Your `App` component should look like this:
+1. Finally, add your new `ProfileContent` component as a child of the `AuthenticatedTemplate` in your `App` component in *src/App.js*. Your `App` component should look like this:
 
     ```jsx
     function App() {
