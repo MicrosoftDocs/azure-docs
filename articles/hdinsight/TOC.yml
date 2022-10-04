@@ -877,6 +877,8 @@ items:
         href: ./interactive-query/hive-workload-management.md
     - name: Manage
       items:
+      - name: Significant version changes in HDInsight 4.0 and advantages
+        href: ./benefits-of-migrating-to-hdinsight-40.md
       - name: Copy Hive tables across Storage Accounts
         href: ./interactive-query/hive-migration-across-storage-accounts.md
       - name: Migrate default Hive metastore to external metastore on Azure HDInsight

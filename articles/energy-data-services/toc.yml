@@ -59,6 +59,10 @@
           href: how-to-integrate-airflow-logs-with-azure-monitor.md
         - name: Elastic logs integration with Azure Monitor
           href: how-to-integrate-elastic-logs-with-azure-monitor.md
+    - name: Security
+      items:
+        - name: Set up Private Links
+          href: how-to-set-up-private-links.md
     - name: Load datasets
       href: https://github.com/Azure/osdu-data-load-tno
     - name: Convert SEG-Y to ZGY
@@ -77,4 +81,5 @@
   items:
   - name: FAQ
     href: faq-energy-data-services.yml
-
+  - name: Region availability
+    href: https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/?products=energy-data-services&regions=all
