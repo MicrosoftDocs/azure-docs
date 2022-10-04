@@ -307,7 +307,7 @@ items:
   - name: Data redundancy
     href: concepts-data-redundancy.md
   - name: Change Data Capture
-    hred: concepts-change-data-capture.md
+    href: concepts-change-data-capture.md
 - name: SAP knowledge center
   items:
   - name: Overview
