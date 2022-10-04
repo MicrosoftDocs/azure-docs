@@ -67,19 +67,22 @@ Learn about the [error messages and exception codes](designer-error-codes.md) th
 
 All built-in components in the designer will be executed in a fixed environment provided by Microsoft. 
 
-Previously this environment was based on Python 3.6, and now it is upgraded to Python 3.8. This upgrading is transparent - the components will be automatically run in Python 3.8 environment. This may have following impacts.
+Previously this environment was based on Python 3.6, and now has been upgraded to Python 3.8. This upgrade is transparent as in the components will automatically run in the Python 3.8 environment and requires no action from the user. The environment update may impact component outputs and deploying real-time endpoint from a real-time inference, see the following sections to learn more. 
 
 ### Components outputs are different from previous results
 
-After Python version is upgraded from 3.6 to 3.8, the dependencies of built-in components may be also upgraded accordingly. Hence, you may find some components outputs are different from previous results.
+After the Python version is upgraded from 3.6 to 3.8, the dependencies of built-in components may be also upgraded accordingly. Hence, you may find some components outputs are different from previous results.
 
-If you are using Execute Python Script component, previously if you installed packages tied to Python 3.6, you may run into errors like "Could not find a version that satisfies the requirement" or "No matching distribution found", then you need to specify the package version adapted to Python 3.8, and run your pipeline again.
+If you are using the Execute Python Script component and have previously installed packages tied to Python 3.6, you may run into errors like:
+- "Could not find a version that satisfies the requirement." 
+- "No matching distribution found."
+Then you'll need to specify the package version adapted to Python 3.8, and run your pipeline again.
 
 ### Deploy real-time endpoint from real-time inference pipeline issue
 
 If you directly deploy real-time endpoint from a previous completed real-time inference pipeline, it may run into errors. 
 
-**Recommendation**: clone the inference pipeline and submit it again, and then deploy to real-time endpoint.
+**Recommendation**: clone the inference pipeline and submit it again, then deploy to real-time endpoint.
 
 
 ## Next steps
