@@ -133,7 +133,7 @@ alt-security-identity-add
 
 To map the pattern supported by certificateUserIds, admins must use expressions to set the correct value.
 
-**Expression for mapping to SKI and SHA1-PUKEY:**
+**Expression for mapping to SKI and SHA1-PUKEY:** <br>
 IIF(Contains([alternativeSecurityId],"x509:<SKI>")>0,[alternativeSecurityId],Error("No altSecurityIdentities SKI match found."))
 & IIF(Contains([alternativeSecurityId],"x509:<SHA1-PUKEY>")>0,[alternativeSecurityId],Error("No altSecurityIdentities SHA1-PUKEY match found."))
 
