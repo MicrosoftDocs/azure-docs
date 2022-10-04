@@ -21,6 +21,8 @@ You can connect to a Microsoft Energy Data Services configured with Private Link
 
 This article describes how to set up private endpoints for Microsoft Energy Data Services Preview. 
 
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
 ## Pre-requisites
 
 Create a virtual network in the same subscription as the Microsoft Energy Data Services instance. [Learn more](../virtual-network/quick-create-portal.md). This will allow auto-approval of the private link endpoint.
