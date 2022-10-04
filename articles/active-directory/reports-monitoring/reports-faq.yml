@@ -3,18 +3,14 @@ metadata:
   title: Azure Active Directory reports FAQ | Microsoft Docs
   description: Frequently asked questions around Azure Active Directory reports.
   services: active-directory
-  documentationcenter: ''
-  author: cawrites
-  manager: MarkusVi
-  
-  ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
+  author: shlpisey3
+  manager: amycolannino
   ms.service: active-directory
   ms.workload: identity
-  ms.tgt_pltfrm: na
   ms.topic: faq
   ms.subservice: report-monitor
-  ms.date: 11/23/2021
-  ms.author: markvi
+  ms.date: 10/04/2022
+  ms.author: sarahlipsey
   ms.reviewer: besiler
   ms.collection: M365-identity-device-management
 title: Frequently asked questions around Azure Active Directory reports
