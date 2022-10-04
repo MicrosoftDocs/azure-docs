@@ -150,7 +150,8 @@ namespace anomaly_detector_quickstart
             AnomalyDetectorClient client = new AnomalyDetectorClient(endpointUri, credential);
 
             //read data
-            string datapath = "REPLACE_WITH_YOUR_LOCAL_SAMPLE_REQUEST_DATA_PATH"; //example: c:\test\request-data.csv)
+            //example: string datapath = @"c:\test\request-data.csv";
+            string datapath = @"REPLACE_WITH_YOUR_LOCAL_SAMPLE_REQUEST_DATA_PATH"; 
 
             List<TimeSeriesPoint> list = File.ReadAllLines(datapath, Encoding.UTF8)
                 .Where(e => e.Trim().Length != 0)
