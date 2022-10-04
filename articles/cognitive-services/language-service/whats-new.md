@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 09/29/2022
+ms.date: 10/04/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -19,7 +19,6 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
 
 ## October 2022
 
-* [Sentiment analysis and opinion mining for conversations](./sentiment-opinion-mining/overview.md?tabs=conversation) is now available in preview.
 * The summarization feature now has the following capabilities:
     * [Document summarization](./summarization/overview.md):
         * Abstractive summarization, which generates a summary of a document that may not use the same words as those in the document, but captures the main idea.
