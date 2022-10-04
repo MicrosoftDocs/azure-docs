@@ -112,11 +112,11 @@ Before the start of initial data load on a Flexible server, it is recommended to
 
 Assuming the indexes and constraints were dropped before the initial load, it's recommended to have high values of maintenance_work_mem (as recommended above) for creating indexes and adding constraints. In addition, starting with Postgres version 11, the following parameters can be modified for faster parallel index creation after initial data load:
 
-- `max_parallel_workers`
+`max_parallel_workers`
 
 Sets the maximum number of workers that the system can support for parallel queries.
 
-- `max_parallel_maintenance_workers`
+`max_parallel_maintenance_workers`
 
 Controls the maximum number of worker process, which can be used to CREATE INDEX.
 
