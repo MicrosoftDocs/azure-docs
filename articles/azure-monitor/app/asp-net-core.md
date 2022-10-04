@@ -744,6 +744,8 @@ This SDK requires `HttpContext`. Therefore, it doesn't work in any non-HTTP appl
 
 For the latest updates and bug fixes, see the [release notes](./release-notes.md).
 
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+
 ## Next steps
 
 * [Explore user flows](./usage-flows.md) to understand how users navigate through your app.
