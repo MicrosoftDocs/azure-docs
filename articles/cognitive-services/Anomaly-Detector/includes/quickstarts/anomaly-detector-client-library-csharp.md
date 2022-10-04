@@ -28,6 +28,38 @@ Use the Anomaly Detector client library for C# to:
 
 ## Set up
 
+### Create a new .NET Core application
+
+In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `anomaly-detector-quickstart`. This command creates a simple "Hello World" project with a single C# source file: *Program.cs*.
+
+```dotnetcli
+dotnet new console -n anomaly-detector-quickstart
+```
+
+Change your directory to the newly created app folder. You can build the application with:
+
+```dotnetcli
+dotnet build
+```
+
+The build output should contain no warnings or errors.
+
+```output
+...
+Build succeeded.
+ 0 Warning(s)
+ 0 Error(s)
+...
+```
+
+### Install the client library
+
+Within the application directory, install the Anomaly Detector client library for .NET with the following command:
+
+```dotnetcli
+dotnet add package Azure.AI.AnomalyDetector --version 3.0.0-preview.5
+```
+
 ## Retrieve key and endpoint
 
 To successfully make a call against the Anomaly Detector service, you'll need the following values:
@@ -84,38 +116,6 @@ This quickstart uses the `request-data.csv` file that can be downloaded from our
 
 ```cmd
 curl "https://raw.githubusercontent.com/Azure/azure-sdk-for-python/main/sdk/anomalydetector/azure-ai-anomalydetector/samples/sample_data/request-data.csv" --output request-data.csv
-```
-
-### Create a new .NET Core application
-
-In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `anomaly-detector-quickstart`. This command creates a simple "Hello World" project with a single C# source file: *Program.cs*.
-
-```dotnetcli
-dotnet new console -n anomaly-detector-quickstart
-```
-
-Change your directory to the newly created app folder. You can build the application with:
-
-```dotnetcli
-dotnet build
-```
-
-The build output should contain no warnings or errors.
-
-```output
-...
-Build succeeded.
- 0 Warning(s)
- 0 Error(s)
-...
-```
-
-### Install the client library
-
-Within the application directory, install the Anomaly Detector client library for .NET with the following command:
-
-```dotnetcli
-dotnet add package Azure.AI.AnomalyDetector --version 3.0.0-preview.5
 ```
 
 ## Detect an anomaly from an entire time series
