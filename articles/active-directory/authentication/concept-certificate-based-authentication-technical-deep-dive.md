@@ -134,7 +134,7 @@ CertificateUserIds attribute has unique constraint to make sure we have one cert
 
 In order to mitigate a scenario where one certificate to multiple account is possible, the tenant policy should only support one binding at any one time. If the tenant policy supports more than one binding then they allow the potential for one certificate to multiple account.
 
-If a tenant has multiple bindings and want to not allow one certificate to multiple accounts then by default, the tenant admin would configure all the user accounts to hold values for all bindings so users other than 1:M scope can't use one certificate to multiple accounts.
+If a tenant has multiple bindings and does not want to allow one certificate to multiple accounts then by default, the tenant admin would configure all the user accounts to hold values for all bindings so users other than 1:M scope can't use one certificate to multiple accounts.
 
 For example, if the tenant admin has two username bindings on SAN PN and SKI and wants a certificate to only be used for Bob's productivity account and block the use of that certificate on other accounts, they would configure Bob's productivity account to hold all of the values available in the username mapping policy.
 
