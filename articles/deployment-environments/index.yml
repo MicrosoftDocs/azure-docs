@@ -42,7 +42,7 @@ landingContent:
             url: quickstart-create-access-environments.md
   
   # Card
-  - title: Configure environments
+  - title: Configure Deployment Environments service
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -64,11 +64,11 @@ landingContent:
             url: how-to-configure-project-environment-types.md
 
   # Card
-  - title: Configure custom roles
+  - title: Provide access to create and manage environments
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Provide access to dev center project admin
             url: how-to-configure-project-admin.md
-          - text: Provide access to developers
+          - text: Provide access to create environments
             url: how-to-configure-deployment-environments-user.md

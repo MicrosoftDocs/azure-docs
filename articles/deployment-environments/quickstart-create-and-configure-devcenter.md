@@ -1,6 +1,6 @@
 ---
 title: Configure the Azure Deployment Environments service
-description: This quickstart shows you how to configure the Azure Deployment Environments (ADE) service. You'll create a Dev center, attach an Identity, attach a Catalog, and create Environment types.
+description: This quickstart shows you how to configure the Azure Deployment Environments service. You'll create a dev center, attach an identity, attach a catalog, and create environment types.
 author: anandmeg
 ms.author: meghaanand
 ms.topic: quickstart
@@ -32,8 +32,6 @@ In this quickstart, you'll perform the following actions:
 The following steps illustrate how to use the Azure portal to create and configure a Dev center in Azure Deployment Environments.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Access Azure Deployment Environments.
-1. Select **Dev centers** from the left pane.
 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/deployment-environments-add-devcenter.png" alt-text="Screenshot to create and configure an Azure Deployment Environments dev center.":::
 
@@ -84,7 +82,7 @@ After you've created a dev center, the next step is to attach an [identity](conc
 
     :::image type="content" source="media/quickstart-create-and-configure-devcenter/user-assigned-managed-identity.png" alt-text="Screenshot of user assigned managed identity.":::
 
-1. [Optional] After the identity is attached, ensure that the attached identity has **Owner** access on the subscriptions that will be used to configure Project Environment Types. Also, provide **Reader** access to all subscriptions that a project lives in. Also ensure the identity has access to the Key Vault secrets containing the personal access token (PAT) token to access the repository.
+1. [Optional] After the identity is attached, ensure that the attached identity has **Owner** access on the subscriptions that will be used to configure [Project Environment Types](how-to-configure-project-environment-types.md). Also, provide **Reader** access to all subscriptions that a project lives in. Also ensure the identity has access to the Key Vault secrets containing the personal access token (PAT) token to access the repository.
 
 >[!NOTE]
 > If the [identity](concept-environments-key-concepts.md#identities) attached to a dev center is not granted access to the target subscriptions configured in project environment types, the deployment identities should be granted 'Owner' access to the respective target deployment subscriptions.
@@ -134,6 +132,6 @@ Environment types added to the dev center are available within each project it c
 
 ## Next steps
 
-In this quickstart, you created a Dev center and configured it with an identity, a catalog, and environment types. To learn about how to create and configure a project, advance to the next quickstart:
+In this quickstart, you created a dev center and configured it with an identity, a catalog, and environment types. To learn about how to create and configure a project, advance to the next quickstart:
 
-* [Quickstart: Create and Configure Projects](./quickstart-create-and-configure-projects.md)
+* [Quickstart: Create and Configure projects](./quickstart-create-and-configure-projects.md)
