@@ -29,19 +29,9 @@ Azure AD CBA is supported for certificates on-device on native browsers, and on 
 
 - Android version must be Android 5.0 (Lollipop) or later.
 
-## Support for on-device certificates and external storage
+## Support for on-device certificates
 
-On-device certificates are provisioned on the device. Customers can use Mobile Device Management (MDM) to provision the certificates on the device. On-device certificates does not always support hardware protected keys out of the box, customers can use external storage devices for certificates.
-
-**Advantages of external storage for certificates**
-
-Customers can use external security keys to store their certificates. Security keys with certificate 
-
-- enable the usage on any device and does not require the provision on every device the user has.
-- is hardware secured with a PIN which makes them phishing resistant
-- provides MFA (multi factor authentication) with a PIN as second factor to access the private key of the certificate in the key
-- satisfies the industry requirement to have MFA on separate device
-- future proofing where multiple credentials can be stored including FIDO2 keys.
+On-device certificates are provisioned on the device. Customers can use Mobile Device Management (MDM) to provision the certificates on the device. 
 
 ## Supported platforms**
 
