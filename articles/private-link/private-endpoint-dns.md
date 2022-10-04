@@ -45,7 +45,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure SQL Database (Microsoft.Sql/servers) / sqlServer | privatelink.database.windows.net | database.windows.net |
 | Azure SQL Managed Instance (Microsoft.Sql/managedInstances) | privatelink.{dnsPrefix}.database.windows.net | {instanceName}.{dnsPrefix}.database.windows.net |
 | Azure Synapse Analytics (Microsoft.Synapse/workspaces) / Sql  | privatelink.sql.azuresynapse.net | sql.azuresynapse.net |
-| Azure Synapse Analytics (Microsoft.Synapse/workspaces) / SqlOnDemand  | privatelink.sql.azuresynapse.net | sqlondemand.azuresynapse.net |
+| Azure Synapse Analytics (Microsoft.Synapse/workspaces) / SqlOnDemand  | privatelink.sql.azuresynapse.net | {workspaceName}-ondemand.sql.azuresynapse.net |
 | Azure Synapse Analytics (Microsoft.Synapse/workspaces) / Dev  | privatelink.dev.azuresynapse.net | dev.azuresynapse.net |
 | Azure Synapse Studio (Microsoft.Synapse/privateLinkHubs) / Web | privatelink.azuresynapse.net | azuresynapse.net |
 | Storage account (Microsoft.Storage/storageAccounts) / Blob (blob, blob_secondary) | privatelink.blob.core.windows.net | blob.core.windows.net |
