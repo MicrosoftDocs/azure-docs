@@ -32,7 +32,7 @@ To configure FastPath, the virtual network gateway must be either:
 
 ## Scenarios
 
-### VNet Peering
+### Virtual network (Vnet) Peering
 FastPath will send traffic directly to any VM deployed in a virtual network peered to the one connected to ExpressRoute, bypassing the ExpressRoute virtual network gateway. This feature is available for both IPv4 and IPv6 connectivity.
 
 > [!NOTE]
