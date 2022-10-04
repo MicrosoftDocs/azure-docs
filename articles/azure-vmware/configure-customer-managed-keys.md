@@ -8,7 +8,6 @@ ms.date: 6/30/2022
 
 # Configure customer-managed key encryption at rest in Azure VMware Solution
 
-## Overview
 
 This article illustrates how to encrypt VMware vSAN Key Encryption Keys (KEKs) with customer-managed keys (CMKs) managed by customer-owned Azure Key Vault.
 
@@ -70,7 +69,6 @@ Before you begin to enable customer-managed key (CMK) functionality, ensure the 
     ```azurecli-interactive
     az resource update --ids $privateCloudId --set identity.type=SystemAssigned --api-version "2021-12-01"
     ```
----
 
 - Configure the key vault access policy to grant permissions to the managed identity. It will be used to authorize access to the key vault.
     
@@ -103,7 +101,6 @@ Before you begin to enable customer-managed key (CMK) functionality, ensure the 
 
     Learn more about how to [Assign an Azure Key Vault access policy](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy?tabs=azure-portal).
 
----
 
 ## Customer-managed key version lifecycle
 
