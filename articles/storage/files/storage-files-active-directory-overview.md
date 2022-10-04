@@ -5,7 +5,7 @@ author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 10/03/2022
+ms.date: 10/04/2022
 ms.author: kendownie
 ---
 
