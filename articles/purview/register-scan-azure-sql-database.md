@@ -363,7 +363,7 @@ Scans can be managed or run again on completion
 ### Access policy pre-requisites on Azure SQL Database
 [!INCLUDE [Access policies specific Azure SQL DB pre-requisites](./includes/access-policies-prerequisites-azure-sql-db.md)]
 
-### Configuration of Microsoft Purview account for policies
+### Configure the Microsoft Purview account for policies
 [!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
 ### Register the data source and enable Data use management
@@ -371,7 +371,7 @@ The Azure SQL Database resource needs to be registered first with Microsoft Purv
 To register your resources, follow the **Prerequisites** and **Register** sections of this guide:
 [Register Azure SQL Database](./register-scan-azure-sql-database.md#prerequisites)
 
-After you've registered the data source, you'll need to enable Data Use Management. This enables access policies on the given Azure SQL server and all its contained databases. Data Use Management can impact the security of your data, as it delegates to certain Microsoft Purview roles managing access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md)
+After you've registered the data source, you'll need to enable Data Use Management. This is a pre-requisite before you can create policies on the data source. Data Use Management can impact the security of your data, as it delegates to certain Microsoft Purview roles managing access to the data sources. **Go through the secure practices related to Data Use Management in this guide**: [How to enable Data Use Management](./how-to-enable-data-use-management.md)
 
 Once your data source has the **Data Use Management** option *Enabled*, it will look like this screenshot.
 ![Screenshot shows how to register a data source for policy.](./media/how-to-policies-data-owner-sql/register-data-source-for-policy-azure-sql-db.png)
