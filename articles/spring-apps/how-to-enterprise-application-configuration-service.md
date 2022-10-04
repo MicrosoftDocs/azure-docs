@@ -59,7 +59,7 @@ Configuration will be pulled from Git backends using what is defined in a patter
 
 The following image shows the three types of repository authentication supported by Application Configuration Service for Tanzu.
 
-:::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-auth.png" alt-text="Screenshot of where to edit authentication types.":::
+:::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-auth.png" alt-text="Screenshot of where to edit authentication types." lightbox="media/enterprise/how-to-enterprise-application-configuration-service/config-service-auth.png":::
 
 - Public repository.
 
@@ -146,13 +146,13 @@ You can configure Application Configuration Service for Tanzu using the portal b
 1. Select **Application Configuration Service**.
 1. Select **Overview** to view the running state and resources allocated to Application Configuration Service for Tanzu.
 
-   :::image type="content" source="media/enterprise/media/enterprise/how-to-enterprise-application-configuration-service/config-service-overview.png" alt-text="Screenshot of the Application Configuration Service Overview page.":::
+   :::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-overview.png" alt-text="Screenshot of the Application Configuration Service page showing the Overview tab." lightbox="media/enterprise/how-to-enterprise-application-configuration-service/config-service-overview.png":::
 
 1. Select **Settings** and add a new entry in the **Repositories** section with the Git backend information.
 
 1. Select **Validate** to validate access to the target URI. After validation completes successfully, select **Apply** to update the configuration settings.
 
-   ![Application Configuration Service Settings overview](./media/enterprise/how-to-enterprise-application-configuration-service/config-service-settings.png)
+   :::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-settings.png" alt-text="Screenshot of the Application Configuration Service page showing the Settings tab." lightbox="media/enterprise/how-to-enterprise-application-configuration-service/config-service-settings.png":::
 
 ## Configure Application Configuration Service for Tanzu settings using the CLI
 
@@ -176,7 +176,7 @@ To use the centralized configurations, you must bind the app to Application Conf
 
 1. Select **Bind app** and choose one app in the dropdown. Select **Apply** to bind.
 
-   :::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-app-bind-dropdown.png" alt-text="Screenshot of where to select the application to bind.":::
+   :::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-app-bind-dropdown.png" alt-text="Screenshot of the Application Configuration Service page showing the App binding tab." lightbox="media/enterprise/how-to-enterprise-application-configuration-service/config-service-app-bind-dropdown.png":::
 
    > [!NOTE]
    > When you change the bind/unbind status, you must restart or redeploy the app to for the binding to take effect.
@@ -191,7 +191,7 @@ To use the centralized configurations, you must bind the app to Application Conf
 
    1. In the **Config file patterns** dropdown, choose one or more patterns from the list.
 
-      :::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-pattern.png" alt-text="Screenshot of the pattern selection screen.":::
+      :::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-pattern.png" alt-text="Screenshot of the Application Configuration Service page showing the General settings tab." lightbox="media/enterprise/how-to-enterprise-application-configuration-service/config-service-pattern.png":::
 
    1. Select **Save**
 
