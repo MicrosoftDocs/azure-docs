@@ -28,6 +28,8 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 
 * These target clusters have to be [added as member clusters to the Fleet resource](./quickstart-create-fleet-and-members.md#join-member-clusters).
 
+* Follow the [conceptual overview of this feature](./architectural-overview.md#multi-cluster-load-balancing) which provides an explanation of `ServiceExport` and `MultiClusterService` objects referenced in this document.
+
 * Set the following environment variables and obtain the kubeconfigs for the fleet and all member clusters:
 
     ```bash

@@ -68,11 +68,11 @@ A `ClusterResourcePlacement` has two parts to it:
     * Select clusters by listing names of `MemberCluster` custom resources
     * Select clusters using cluster selectors to match labels present on `MemberCluster` custom resources
 
-## Layer-4 multi-cluster load balancing
+## Multi-cluster load balancing
 
-Fleet can be used to set up layer 4 load balancing across workloads deployed across a fleet's member clusters.
+Fleet can be used to set up layer 4 multi-cluster load balancing across workloads deployed across a fleet's member clusters.
 
-[ ![Layer-4 multi-cluster load balancing](./media/conceptual-load-balancing.png) ](./media/conceptual-load-balancing.png#lightbox)
+[ ![Multi-cluster load balancing](./media/conceptual-load-balancing.png) ](./media/conceptual-load-balancing.png#lightbox)
 
 For the target clusters across whom multi-cluster load balancing, Fleet requires them to be using [Azure CNI networking](../aks/configure-azure-cni.md) so that the pod IPs are all directly address on the Azure virtual network and can be routed to directly from an Azure Load Balancer.
 
