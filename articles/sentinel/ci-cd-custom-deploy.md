@@ -9,13 +9,13 @@ ms.author: austinmc
 #Customer intent: As a SOC collaborator or MSSP analyst, I want to know how to optimize my source control repositories for continuous integration and continuous delivery (CI/CD). Specifically as an MSSP content manager, I want to know how to deploy one solution to many customer workspaces and still be able to tailor custom content for their environments.
 ---
 
-# Customize repository deployments (Public Preview))
+# Customize repository deployments (Public Preview)
 
 There are two primary ways to customize the deployment of your repository content to Microsoft Sentinel workspaces. Each method uses different files and syntax, so consider these examples to get you started.
 
-1. To modify a deployment trigger or only deploy content from a specific folder, customize the GitHub workflow or DevOps pipeline.
+1. Modify the GitHub workflow or DevOps pipeline to customize deployment options such as your connection's deployment trigger, deployment path or usage of smart deployments.
 
-1. If you want to prioritize content, *exclude* content, or map parameters, customize the deployment. 
+2. Utilize the newly introduced configuration file to control the priortized order of your content deployments, choose to *exclude* specific content files from those deployments, or map parameter files to specific content files. 
 
 > [!IMPORTANT]
 >
@@ -157,7 +157,7 @@ For more information, see the [Azure DevOps documentation](/azure/devops/pipelin
 >
 
 
-## Customize the deployment
+## Customize your connection configuration
 
 Customization options to map parameters, prioritize content and exclude content are defined here. 
 
@@ -167,7 +167,7 @@ Customization options to map parameters, prioritize content and exclude content 
 
 1. Include JSON structured content in three optional sections, `"prioritizedcontentfiles":`, `"excludecontentfiles":`, and `"parameterfilemappings":`. If no sections are included or the .config file is omitted, the deployment process will still run. Invalid or unrecognized sections will be ignored.
 
-Here's an example of the entire contents of a valid *sentinel-deployment.config* file. This sample can be found at the [Sentinel CICD repositories sample](https://github.com/SentinelCICD/RepositoriesSampleContent). 
+Here's an example of the entire contents of a valid *sentinel-deployment.config* file. This sample can also be found at the [Sentinel CICD repositories sample](https://github.com/SentinelCICD/RepositoriesSampleContent). 
 
 ```json
 {
@@ -198,7 +198,7 @@ Here's an example of the entire contents of a valid *sentinel-deployment.config*
 
 - **To prioritize content files**:
  
-    As the amount of content in your repro grows, deployment times may increase. Add time sensitive content to this section to prioritize its deployment when a trigger occurs. 
+    As the amount of content in your repository grows, deployment times may increase. Add time sensitive content to this section to prioritize its deployment when a trigger occurs. 
     
     Add full path names to the `"prioritizedcontentfiles":` section. Wildcard matching is not supported at this time.
 
@@ -210,11 +210,21 @@ Here's an example of the entire contents of a valid *sentinel-deployment.config*
  
      :::image type="content" source="media/ci-cd-custom-deploy/deploy-parameter-file-precedence.svg" alt-text="A diagram showing the precedence of parameter file mappings.":::
 
+<<<<<<< HEAD
     1. Is there a mapping in the sentinel-deployment.config?
     1. Is there a workspace parameter file?
     1. Is there a default parameter file?
+=======
+    1. Include a parameter file mapping grouped by workspace ID in the `"parameterfilemappings":` section of the *sentinel-deployment.config* file. See the example above for creating the `ContentFilePath:ParameterFilePath` key value pairs. You can specify a different parameter file for the same content file per workspace.
+    
+       Or
+    1. Create a workspace parameter file in the same directory as a content file. If the content file is *azuredeploy.json* then the workspace parameter file naming convention is *azuredeploy.parameters-\<workspaceID\>.json*.
+    
+       Or
+    1. Create a default parameter file in the same directory as a content file. If the content file is *azuredeploy.json* then the default parameter file naming convention is *azuredeploy.parameters.json*.
+>>>>>>> a0cb8ecd8349dd3d9630faa417e4466a66a722d1
 
-Adding or modifying a *.parameters-\<workspaceID\>.json* file or *.parameters.json* file triggers a deployment of that particular content file. Other content files won't be deployed if the smart deploy feature is still enabled.
+Adding or modifying a *.parameters-\<workspaceID\>.json* file or *.parameters.json* file triggers a deployment of that corresponding content file along with the newly modified parameters. Other content files won't be deployed if the smart deployments feature is still enabled.
 
 
 ## Next steps
