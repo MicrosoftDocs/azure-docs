@@ -4,8 +4,6 @@
   items:
     - name: What is Azure Cosmos DB for PostgreSQL?
       href: introduction.md
-    - name: PostgreSQL versions
-      href: versions.md
 - name: Quickstart
   items:
     - name: Create cluster
@@ -200,6 +198,8 @@
   items:
     - name: Product updates
       href: product-updates.md
+    - name: PostgreSQL versions
+      href: reference-versions.md
     - name: PostgreSQL extensions
       href: reference-extensions.md
     - name: Distributed SQL API
