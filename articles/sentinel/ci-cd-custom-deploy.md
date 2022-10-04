@@ -208,11 +208,11 @@ Here's an example of the entire contents of a valid *sentinel-deployment.config*
 
     The deployment script will accept three methods to map parameters. The precedence is determined for each included .json deployment file in your repository as follows: 
  
-     :::image type="content" source="media/ci-cd-custom-deploy/deploy-parameter-file-precedence.svg" alt-text="A diagram showing the precedence of parameter file mappings.":::
+    :::image type="content" source="media/ci-cd-custom-deploy/deploy-parameter-file-precedence.svg" alt-text="A diagram showing the precedence of parameter file mappings.":::
 
-    1. Is there a mapping in the sentinel-deployment.config?
-    1. Is there a workspace parameter file?
-    1. Is there a default parameter file?
+     1. Is there a mapping in the sentinel-deployment.config?
+     1. Is there a workspace parameter file?
+     1. Is there a default parameter file?
 
 Adding or modifying a *.parameters-\<workspaceID\>.json* file or *.parameters.json* file triggers a deployment of that corresponding content file along with the newly modified parameters. Other content files won't be deployed if the smart deployments feature is still enabled.
 
