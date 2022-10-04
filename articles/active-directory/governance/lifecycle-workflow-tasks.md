@@ -263,7 +263,7 @@ For Microsoft Graph the parameters for the **Run a Custom Task Extension** task 
 |---------|---------|
 |category    |  joiner,leaver      |
 |displayName     | Run a Custom Task Extension (Customizable by user)        |
-|description     |  Run a custom Task Extension (Customizable by user)      |
+|description     |  Run a Custom Task Extension to call-out to an external system. (Customizable by user)      |
 |taskDefinitionId     |   "d79d1fcc-16be-490c-a865-f4533b1639ee      |
 |argument     |  Argument contains a name parameter that is the "LogicAppURL", and a value parameter which is the Logic App HTTP trigger.     |
 
