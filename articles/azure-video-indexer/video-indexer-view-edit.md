@@ -24,7 +24,7 @@ This article shows you how to view and edit the Azure Video Indexer insights of 
 	The **Timeline** tab shows transcripts with timelines and other information that you can choose from the **View** drop-down.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-view-edit/timeline.png" alt-text="The screenshot shows how to select the insights." lightbox="./media/video-indexer-view-edit/timeline.png":::
+    > :::image type="content" source="./media/video-indexer-view-edit/timeline.png" alt-text="Screenshot that shows how to select the Insights." lightbox="./media/video-indexer-view-edit/timeline.png":::
 
 	The player and the insights are synchronized. For example, if you click a keyword or the transcript line, the player brings you to that moment in the video. You can achieve the player/insights view and synchronization in your application. For more information, see [Embed Azure Indexer widgets into your application](video-indexer-embed-widgets.md). 
 
