@@ -50,12 +50,12 @@ Use the following steps to create a private endpoint for an existing Microsoft E
     |Instance details|	
     |Name|	Enter any name for your private endpoint. If this name is taken, create a unique one.|
     |Region|	Select the region where you want to deploy Private Link. |
+
+    [![Screenshot of creating a MEDS instance with private link.](media/how-to-manage-private-links/private-links-3-basics.png)](media/how-to-manage-private-links/private-links-3-basics.png#lightbox)
 	
 > [!NOTE]
 > Auto-approval only happens when the Microsoft Energy Data Services Preview instance and the vnet for the private link are in the same subscription.
 
-
-    [![Screenshot of creating a MEDS instance with private link.](media/how-to-manage-private-links/private-links-3-basics.png)](media/how-to-manage-private-links/private-links-3-basics.png#lightbox)
 
 7.	Select **Next: Resource.**
 8.	In **Create a private endpoint - Resource**, the following information should be selected or available:
