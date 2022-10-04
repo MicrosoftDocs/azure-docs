@@ -198,7 +198,6 @@ An example of targeting a specific cluster by name is given below:
 
     ```console
     NAME            GEN   SCHEDULED   SCHEDULEDGEN   APPLIED   APPLIEDGEN   AGE
-    hello-world     1     True        1              True      1            6m21s
     hello-world-1   1     True        1              True      1            18s
     ```
 

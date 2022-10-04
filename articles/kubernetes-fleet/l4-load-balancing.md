@@ -76,7 +76,7 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
     serviceexport.networking.fleet.azure.com/kuard created
     ```
 
-1. Create the following `ClusterResourcePlacement` in a file called `crp.yaml`. Notice we're selecting clusters in the `eastus` region:
+1. Create the following `ClusterResourcePlacement` in a file called `crp-2.yaml`. Notice we're selecting clusters in the `eastus` region:
 
     ```yaml
     apiVersion: fleet.azure.com/v1alpha1
@@ -101,13 +101,27 @@ In this how-to guide, you'll set up layer 4 load balancing across workloads depl
 1. Apply the `ClusterResourcePlacement`:
 
     ```bash
-    KUBECONFIG=fleet kubectl apply -f crp.yaml
+    KUBECONFIG=fleet kubectl apply -f crp-2.yaml
     ```
 
     If successful, the output will look similar to the following example:
 
     ```console
     clusterresourceplacement.fleet.azure.com/kuard-demo created
+    ```
+
+1. Check the status of the `ClusterResourcePlacement`:
+
+
+    ```bash
+    KUBECONFIG=fleet kubectl get clusterresourceplacements
+    ```
+
+    If successful, the output will look similar to the following example:
+
+    ```console
+    NAME            GEN   SCHEDULED   SCHEDULEDGEN   APPLIED   APPLIEDGEN   AGE
+    kuard-demo      1     True        1              True      1            20s
     ```
 
 ## Create MultiClusterService to load balance across the service endpoints in multiple member clusters
