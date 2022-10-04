@@ -10,7 +10,7 @@ ms.author: juliako
 
 # View and edit Azure Video Indexer insights
 
-This topic shows you how to view and edit the Azure Video Indexer insights of a video.
+This article shows you how to view and edit the Azure Video Indexer insights of a video.
 
 1. Browse to the [Azure Video Indexer](https://www.videoindexer.ai/) website and sign in.
 2. Find a video from which you want to create your Azure Video Indexer insights. For more information, see [Find exact moments within videos](video-indexer-search.md).
@@ -19,7 +19,7 @@ This topic shows you how to view and edit the Azure Video Indexer insights of a 
 	The page shows the video's insights. 
 
 	![Insights](./media/video-indexer-view-edit/video-indexer-summarized-insights.png)
-4. Select which insights you want to view. For example, faces, keywords, sentiments.You can see the faces of people and the time ranges each face appears in and the % of the time it is shown.
+4. Select which insights you want to view. For example, faces, keywords, sentiments. You can see the faces of people and the time ranges each face appears in and the % of the time it's shown.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/video-indexer-view-edit/timeline.png" alt-text="The screenshot shows how to select the insights." lightbox="./media/video-indexer-view-edit/timeline.png":::
