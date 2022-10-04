@@ -9,7 +9,7 @@ ms.date: 2/23/2022
 # Upgrade legacy rules management to the current Log Alerts API from legacy Log Analytics Alert API
 
 > [!NOTE]
-> This article is only relevant to Azure public (**not** to Azure Government or Azure China cloud).
+> This article is only relevant to Azure public and government clouds (**not** to Azure China cloud).
 
 > [!NOTE]
 > Once a user chooses to switch rules with legacy management to the current [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules) it is not possible to revert back to the older [legacy Log Analytics Alert API](./api-alerts.md).

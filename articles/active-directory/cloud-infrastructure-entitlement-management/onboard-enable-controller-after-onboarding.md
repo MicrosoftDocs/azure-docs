@@ -2,13 +2,13 @@
 title: Enable or disable the controller in Permissions Management after onboarding is complete
 description: How to enable or disable the controller in Permissions Management after onboarding is complete.
 services: active-directory
-author: kenwith
-manager: rkarlin
+author: jenniferf-skc
+manager: amycolannino
 ms.service: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 # Enable or disable the controller after onboarding is complete

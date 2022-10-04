@@ -1,12 +1,12 @@
 ---
 title:  Overview of DICOM Change Feed - Azure Health Data Services
 description: In this article, you'll learn the concepts of DICOM Change Feed.
-author: stevewohl
+author: mmitrik
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 03/01/2022
-ms.author: aersoy
+ms.author: mmitrik
 ---
 
 # Change Feed Overview

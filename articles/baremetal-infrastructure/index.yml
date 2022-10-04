@@ -150,33 +150,33 @@ landingContent:
             url: ../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md
 
 # card 4
-  - title: BareMetal Infrastructure for NC2 on Azure
+  - title: BareMetal Infrastructure for Nutanix Cloud Clusters on Azure
     linkLists: 
       - linkListType: overview
         links:
-         - text: What is BareMetal Infrastructure for NC2 on Azure?
-           url: workloads/nc2-public-preview/nc2-baremetal-overview.md
-         - text: About the Public Preview
-           url: workloads/nc2-public-preview/about-the-public-preview.md
+         - text: What is BareMetal Infrastructure for Nutanix Cloud Clusters on Azure?
+           url: workloads/nc2-on-azure/nc2-baremetal-overview.md
+         - text: About BareMetal Infrastructure for Nutanix Cloud Clusters on Azure
+           url: workloads/nc2-on-azure/about-nc2-on-azure.md
          - text: FAQ
-           url: workloads/nc2-public-preview/faq.md
+           url: workloads/nc2-on-azure/faq.md
       - linkListType: get-started
         links:
          - text: Getting started
-           url: workloads/nc2-public-preview/get-started.md
+           url: workloads/nc2-on-azure/get-started.md
          - text: Use cases and supported scenarios
-           url: workloads/nc2-public-preview/use-cases-and-supported-scenarios.md  
+           url: workloads/nc2-on-azure/use-cases-and-supported-scenarios.md  
          - text: Requirements
-           url: workloads/nc2-public-preview/requirements.md
+           url: workloads/nc2-on-azure/requirements.md
          - text: Supported instances and regions
-           url: ./workloads/nc2-public-preview/supported-instances-and-regions.md
+           url: ./workloads/nc2-on-azure/supported-instances-and-regions.md
          - text: SKUs
-           url: workloads/nc2-public-preview/skus.md
+           url: workloads/nc2-on-azure/skus.md
       - linkListType: architecture
         links:
          - text: Architecture
-           url: workloads/nc2-public-preview/architecture.md 
+           url: workloads/nc2-on-azure/architecture.md 
       - linkListType: concept
         links:
          - text: Solution design
-           url: workloads/nc2-public-preview/solution-design.md
+           url: workloads/nc2-on-azure/solution-design.md

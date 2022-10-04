@@ -6,7 +6,7 @@ ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/17/2022
+ms.date: 09/26/2022
 ms.custom: cosmos-db-video
 ---
 # Consistency levels in Azure Cosmos DB
@@ -30,8 +30,6 @@ For more information on the default consistency level, see [configuring the defa
 Each level provides availability and performance tradeoffs. The following image shows the different consistency levels as a spectrum.
 
 :::image type="content" source="./media/consistency-levels/five-consistency-levels.png" alt-text="Consistency as a spectrum" border="false" :::
-
-The consistency levels are region-agnostic and are guaranteed for all operations regardless of the region from which the reads and writes are served, the number of regions associated with your Azure Cosmos account, or whether your account is configured with a single or multiple write regions.
 
 ## Consistency levels and Azure Cosmos DB APIs
 
@@ -105,11 +103,11 @@ Clients outside of the session performing writes will see the following guarante
 
 ### Consistent prefix consistency
 
-In consistent prefix option, updates that are returned contain some prefix of all the updates, with no gaps. Consistent prefix consistency level guarantees that reads never see out-of-order writes.
+In consistent prefix, updates made as single document writes see eventual consistency. Updates made as a batch within a transaction, are returned consistent to the transaction in which they were committed. Write operations within a transaction of multiple documents are always visible together.
 
-If writes were performed in the order `A, B, C`, then a client sees either `A`, `A,B`, or `A,B,C`, but never out-of-order permutations like `A,C` or `B,A,C`. Consistent Prefix provides write latencies, availability, and read throughput comparable to that of eventual consistency, but also provides the order guarantees that suit the needs of scenarios where order is important.
+Assume two write operations are performed on documents Doc1 and Doc2, within transactions T1 and T2. When client does a read in any replica, the user will see either “Doc1 v1 and Doc2 v1” or “ Doc1 v2 and Doc2 v2”, but never “Doc1 v1 and Doc2 v2” or “Doc1 v2 and Doc2 v1” for the same read or query operation.
 
-Below are the consistency guarantees for Consistent Prefix:
+Below are the consistency guarantees for Consistent Prefix within a transaction context (single document writes see eventual consistency):
 
 - Consistency for clients in same region for an account with single write region = [Consistent Prefix](#consistent-prefix-consistency)
 - Consistency for clients in different regions for an account with single write region = [Consistent Prefix](#consistent-prefix-consistency)
