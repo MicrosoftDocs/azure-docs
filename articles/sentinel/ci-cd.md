@@ -111,6 +111,8 @@ After the deployment is complete:
 
     :::image type="content" source="media/ci-cd/deployment-logs-status.png" alt-text="Screenshot of a GitHub repository connection's deployment logs.":::
 
+The default workflow only deploys content that has been modified since the last deployment based on commits to the repository. But you may want to turn off smart deployments or perform other customizations. For example, you can configure different deployment triggers, or deploy content exclusively from a specific root folder. To learn more about how this is done visit [customize repository deployments](ci-cd-custom-deploy.md).
+
 ## Edit content
 
 When you successfully create a connection to your source control repository, your content is deployed to Sentinel. We recommend that you edit content stored in a connected repository *only* in the repository, and not in Microsoft Sentinel. For example, to make changes to your analytics rules, do so directly in GitHub or Azure DevOps.

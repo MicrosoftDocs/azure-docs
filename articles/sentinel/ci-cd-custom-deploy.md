@@ -36,9 +36,9 @@ For more information, see [Validate your content](ci-cd-custom-content.md#valida
 
 ## Customize the workflow or pipeline
 
-Smart deployments are enabled here by default. This ensures only content that has been modified since the last deployment, based on commits to the repository, is deployed to Sentinel. Customization for the workflow or pipeline is defined in a .yml file.
+The default workflow only deploys content that has been modified since the last deployment based on commits to the repository. But you may want to turn off smart deployments or perform other customizations. For example, you can configure different deployment triggers, or deploy content exclusively from a specific root folder.
 
-Select one of the following tabs depending on your repository connection type:
+Select one of the following tabs depending on your connection type:
 
 # [GitHub](#tab/github)
 

@@ -93,7 +93,7 @@ Once the workflow or pipeline is triggered, the deployment supports the followin
 - exclude content from deployment
 - specify ARM template parameter files 
 
-These options are available through a feature of the PowerShell deployment script called from the workflow or pipeline. For more details on how to implement these customizations, see [Customize repository deployments](ci-cd-custom-deploy.md#customize-the-deployment).
+These options are available through a feature of the PowerShell deployment script called from the workflow or pipeline. For more details on how to implement these customizations, see [Customize repository deployments](ci-cd-custom-deploy.md#customize-your-connection-configuration).
 
 
 ## Next steps
