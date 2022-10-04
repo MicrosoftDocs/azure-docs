@@ -287,7 +287,7 @@ This section describes the current state of the functional and behavioral differ
 | Middleware | Not supported | [Supported](#middleware) |
 | Logging | [ILogger] passed to the function<br/>[ILogger&lt;T&gt;] via dependency injection | [ILogger]/[ILogger&lt;T&gt;] obtained from [FunctionContext] or via [dependency injection](#dependency-injection)|
 | Application Insights dependencies | [Supported](functions-monitoring.md#dependencies) | [Supported (public preview)](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ApplicationInsights) |
-| Cancellation tokens | [Supported](functions-dotnet-class-library.md#cancellation-tokens) | [Supported](#cancellation-token) |
+| Cancellation tokens | [Supported](functions-dotnet-class-library.md#cancellation-tokens) | [Supported](#cancellation-tokens) |
 | Cold start times<sup>2</sup> | (Baseline) | Additionally includes process launch |
 | ReadyToRun | [Supported](functions-dotnet-class-library.md#readytorun) | [Supported](#readytorun) | 
 
