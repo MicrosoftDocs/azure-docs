@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 10/04/2022
 ---
 
-# Support matrix for VMware migration
+# Support matrix for VMware vSphere migration
 
 This article summarizes support settings and limitations for migrating VMware vSphere VMs with [Azure Migrate: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) . If you're looking for information about assessing VMware vSphere VMs for migration to Azure, review the [assessment support matrix](migrate-support-matrix-vmware.md).
 
