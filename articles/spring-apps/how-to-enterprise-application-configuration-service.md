@@ -21,7 +21,7 @@ This article shows you how to use Application Configuration Service for VMware T
 
 [Application Configuration Service for VMware Tanzu](https://docs.pivotal.io/tcs-k8s/0-1/) is one of the commercial VMware Tanzu components. It enables the management of Kubernetes-native `ConfigMap` resources that are populated from properties defined in one or more Git repositories.
 
-With Application Configuration Service for Tanzu, you have a central place to manage external properties for applications across all environments.
+Application Configuration Service for Tanzu gives you a central place to manage external properties for applications across all environments.
 
 ## Prerequisites
 
@@ -50,10 +50,10 @@ The following table describes properties for each entry.
 
 ### Pattern
 
-Configuration will be pulled from Git backends using what is defined in a pattern. A pattern is a combination of *{application}/{profile}* as described in the following guidelines.
+Configuration is pulled from Git backends using what you define in a pattern. A pattern is a combination of *{application}/{profile}* as described in the following guidelines.
 
-- *{application}* - The name of an application for which the configuration is being retrieved. The value `application` is considered the default application and includes configuration information shared across multiple applications. Any other value refers to a specific application and includes properties for both the specific application and shared properties for the default application.
-- *{profile}* - Optional. The name of a profile for which properties may be retrieved. An empty value, or the value `default`, includes properties that are shared across profiles. Non-default values include properties for the specified profile and properties for the default profile.
+- *{application}* - The name of an application whose configuration you are retrieving. The value `application` is considered the default application and includes configuration information shared across multiple applications. Any other value refers to a specific application and includes properties for both the specific application and shared properties for the default application.
+- *{profile}* - Optional. The name of a profile whose properties you may be retrieving. An empty value, or the value `default`, includes properties that are shared across profiles. Non-default values include properties for the specified profile and properties for the default profile.
 
 ### Authentication
 
@@ -133,7 +133,7 @@ A Spring application holds the properties as the beans of the Spring Application
    }
    ```
 
-   Next, use curl with the application endpoint to refresh the new configuration.
+   Use curl with the application endpoint to refresh the new configuration.
 
    ``` bash
    curl -X POST http://{app-endpoint}/actuator/refresh
@@ -141,7 +141,7 @@ A Spring application holds the properties as the beans of the Spring Application
 
 ## Configure Application Configuration Service for Tanzu settings using the portal
 
-You can configure Application Configuration Service for Tanzu using the portal by following these steps:
+Use the following steops to configure Application Configuration Service for Tanzu using the portal.
 
 1. Select **Application Configuration Service**.
 1. Select **Overview** to view the running state and resources allocated to Application Configuration Service for Tanzu.
@@ -156,7 +156,7 @@ You can configure Application Configuration Service for Tanzu using the portal b
 
 ## Configure Application Configuration Service for Tanzu settings using the CLI
 
-You can configure Application Configuration Service for Tanzu using the CLI, by following these steps:
+Use the following steps to configure Application Configuration Service for Tanzu using the CLI.
 
 ```azurecli
 az spring application-configuration-service git repo add \
@@ -168,9 +168,9 @@ az spring application-configuration-service git repo add \
 
 ## Use Application Configuration Service for Tanzu with applications using the portal
 
-When you use Application Configuration Service for Tanzu with a Git back end, keep the following items in mind.
+Keep the following in mind when you use Application Configuration Service for Tanzu with a Git back end.
 
-To use the centralized configurations, you must bind the app to Application Configuration Service for Tanzu. After binding the app, you'll need to configure which pattern to be used by the app by following these steps:
+To use the centralized configurations, you must bind the app to Application Configuration Service for Tanzu. After binding the app, use the following steps to configure the pattern to be used by the app.
 
 1. Open the **App binding** tab.
 
@@ -181,7 +181,7 @@ To use the centralized configurations, you must bind the app to Application Conf
    > [!NOTE]
    > When you change the bind/unbind status, you must restart or redeploy the app to for the binding to take effect.
 
-1. Select **Apps**, then select the [pattern(s)](./how-to-enterprise-application-configuration-service.md#pattern) to be used by the apps.
+1. Select **Apps**, and then select the [pattern(s)](./how-to-enterprise-application-configuration-service.md#pattern) to be used by the apps.
 
    1. In the left navigation menu, select **Apps** to view the list all the apps.
 
@@ -197,7 +197,7 @@ To use the centralized configurations, you must bind the app to Application Conf
 
 ## Use Application Configuration Service for Tanzu with applications using the CLI
 
-You can use Application Configuration Service for Tanzu with applications, by using this command:
+Use the following command to use Application Configuration Service for Tanzu with applications.
 
 ```azurecli
 az spring application-configuration-service bind --app <app-name>
