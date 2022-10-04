@@ -136,7 +136,8 @@ Currently, you must use either the Azure PowerShell module or Azure CLI to manag
 - List virtual network rules.
 
     ```azurepowershell
-    (Get-AzElasticSanVolumeGroup -ResourceGroupName $rgName -ElasticSanName $sanName -Name $volGroupName -NetworkAclsVirtualNetworkRules
+    $Rules = Get-AzElasticSanVolumeGroup -ResourceGroupName $rgName -ElasticSanName $sanName -Name $volGroupName
+    $Rules.NetworkAclsVirtualNetworkRule
     ```
 
 - Enable service endpoint for Azure Storage on an existing virtual network and subnet.
@@ -156,14 +157,26 @@ Currently, you must use either the Azure PowerShell module or Azure CLI to manag
     > [!TIP]
     > To add a network rule for a subnet in a virtual network belonging to another Azure AD tenant, use a fully qualified **VirtualNetworkResourceId** parameter in the form "/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name".
 
+- Remove a virtual network rule.
+
+    ```azurepowershell
+    ## You can remove a virtual network rule by object, by resource ID, or by removing all the rules in a volume group
+    ### remove by networkRule object
+    Remove-AzElasticSanVolumeGroupNetworkRule -ResourceGroupName myRGName -ElasticSanName mySANName -VolumeGroupName myVolGroupName -NetworkAclsVirtualNetworkRule $virtualNetworkRule1,$virtualNetworkRule2
+    ### remove by networkRuleResourceId
+    Remove-AzElasticSanVolumeGroupNetworkRule -ResourceGroupName myRGName -ElasticSanName mySANName -VolumeGroupName myVolGroupName -NetworkAclsVirtualNetworkResourceId "myResourceID"
+    ### Remove all network rules in a volume group by pipeline
+    ((Get-AzElasticSanVolumeGroup -ResourceGroupName myRGName -ElasticSanName mySANName -VolumeGroupName myVolGroupName).NetworkAclsVirtualNetworkRule) | Remove-AzElasticSanVolumeGroupNetworkRule -ResourceGroupName myRGName -ElasticSanName mySANName -VolumeGroupName myVolGroupName
+    ```
+
 ### [Azure CLI](#tab/azure-cli)
 
 - Install the [Azure CLI](/cli/azure/install-azure-cli) and [sign in](/cli/azure/authenticate-azure-cli).
 
-- List virtual network rules.
+- List information from a particular volume group, including their virtual network rules.
 
     ```azurecli
-    az elastic-san volume-group list -e $sanName -g $resourceGroupName -n $volumeGroupName --network-acls
+    az elastic-san volume-group show -e $sanName -g $resourceGroupName -n $volumeGroupName
     ```
 
 - Enable service endpoint for Azure Storage on an existing virtual network and subnet.
@@ -182,6 +195,13 @@ Currently, you must use either the Azure PowerShell module or Azure CLI to manag
     ```azurecli
     az elastic-san volume-group update -e $sanName -g $resourceGroupName --name $volumeGroupName --network-acls "{virtualNetworkRules:[{id:/subscriptions/subscriptionID/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/vnetName/subnets/default, action:Allow}]}"
     ```
+
+- Remove a network rule. The following command removes the first network rule, modify it to remove the network rule you'd like.
+    
+    ```azurecli
+    az elastic-san volume-group update -e $sanName -g $resourceGroupName -n $volumeGroupName --network-acls virtual-network-rules[1]=null
+    ```
+
 ---
 ---
 
