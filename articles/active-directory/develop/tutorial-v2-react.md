@@ -138,29 +138,6 @@ In the [Redirect URI: MSAL.js 2.0 with auth code flow](scenario-spa-app-registra
     ```javascript
     const msalInstance = new PublicClientApplication(msalConfig);
     ``` 
-1. Set the current active account by simply calling the `setActiveAccount()` method and assign the current active account by using `getAllAccounts()` function:
-   
-    ```javascript
-    if (!msalInstance.getActiveAccount() && msalInstance.getAllAccounts().length > 0) {
-        msalInstance.setActiveAccount(msalInstance.getAllAccounts()[0]);
-    }
-    ```
-1. To set an active account after the user signs in, register an event and listen to `LOGIN_SUCCESS` & `LOGOUT_SUCCES`.
-
-    ```javascript
-    msalInstance.addEventCallback((event) => {
-        if (event.eventType === EventType.LOGIN_SUCCESS && event.payload.account) {
-            const account = event.payload.account;
-            msalInstance.setActiveAccount(account);
-        }
-
-        if (event.eventType === EventType.LOGOUT_SUCCESS) {
-            if (msalInstance.getAllAccounts().length > 0) {
-             msalInstance.setActiveAccount(msalInstance.getAllAccounts()[0]);
-            }
-        }
-    });
-    ```
 
 1. Find the `<App />` component in *src/index.js* and wrap it in the `MsalProvider` component. Your render function should look like this:
 
@@ -451,31 +428,27 @@ In order to render certain components only for authenticated or unauthenticated 
 
     ```jsx
     function ProfileContent() {
-        const { instance, inProgress } = useMsal();
+        const { instance, accounts, inProgress } = useMsal();
         const [accessToken, setAccessToken] = useState(null);
-    
-        const name = instance.getActiveAccount()?.name;
-    
-        function RequestProfileData() {
-            if (inProgress === InteractionStatus.None){
-                const request = {
-                    ...loginRequest,
-                    account: instance.getActiveAccount(),
-                };
-                
-                instance
-                    .acquireTokenSilent(request)
-                    .then((response) => {
-                        callMsGraph(response.accessToken).then((response) => setGraphData(response));
-                    })
-                    .catch((e) => {
-                        if (e instanceof InteractionRequiredAuthError) {
-                            instance.acquireTokenRedirect(request);
-                        }
-                    });
-            }
+
+        const name = accounts[0] && accounts[0].name;
+
+        function RequestAccessToken() {
+            const request = {
+                ...loginRequest,
+                account: accounts[0]
+            };
+
+            // Silently acquires an access token which is then attached to a request for Microsoft Graph data
+            instance.acquireTokenSilent(request).then((response) => {
+                setAccessToken(response.accessToken);
+            }).catch((e) => {
+                instance.acquireTokenPopup(request).then((response) => {
+                    setAccessToken(response.accessToken);
+                });
+            });
         }
-    
+
         return (
             <>
                 <h5 className="card-title">Welcome {name}</h5>
@@ -489,18 +462,17 @@ In order to render certain components only for authenticated or unauthenticated 
     };
     ```
 
-1. Update your imports in *src/App.js* to match the following snippet:
+2. Update your imports in *src/App.js* to match the following snippet:
 
     ```js
     import React, { useState } from "react";
     import { PageLayout } from "./components/PageLayout";
     import { AuthenticatedTemplate, UnauthenticatedTemplate, useMsal } from "@azure/msal-react";
-    import { InteractionStatus, InteractionRequiredAuthError } from '@azure/msal-browser';
     import { loginRequest } from "./authConfig";
     import Button from "react-bootstrap/Button";
     ```
 
-1. Finally, add your new `ProfileContent` component as a child of the `AuthenticatedTemplate` in your `App` component in *src/App.js*. Your `App` component should look like this:
+3. Finally, add your new `ProfileContent` component as a child of the `AuthenticatedTemplate` in your `App` component in *src/App.js*. Your `App` component should look like this:
 
     ```jsx
     function App() {
@@ -588,31 +560,27 @@ If you're using Internet Explorer, we recommend that you use the `loginRedirect`
 
     ```javascript
     function ProfileContent() {
-        const { instance, inProgress } = useMsal();
+        const { instance, accounts } = useMsal();
         const [graphData, setGraphData] = useState(null);
-    
-        const name = instance.getActiveAccount()?.name;
-    
+
+        const name = accounts[0] && accounts[0].name;
+
         function RequestProfileData() {
-            if (inProgress === InteractionStatus.None){
-                const request = {
-                    ...loginRequest,
-                    account: instance.getActiveAccount(),
-                };
-                
-                instance
-                    .acquireTokenSilent(request)
-                    .then((response) => {
-                        callMsGraph(response.accessToken).then((response) => setGraphData(response));
-                    })
-                    .catch((e) => {
-                        if (e instanceof InteractionRequiredAuthError) {
-                            instance.acquireTokenRedirect(request);
-                        }
-                    });
-            }
+            const request = {
+                ...loginRequest,
+                account: accounts[0]
+            };
+
+            // Silently acquires an access token which is then attached to a request for Microsoft Graph data
+            instance.acquireTokenSilent(request).then((response) => {
+                callMsGraph(response.accessToken).then(response => setGraphData(response));
+            }).catch((e) => {
+                instance.acquireTokenPopup(request).then((response) => {
+                    callMsGraph(response.accessToken).then(response => setGraphData(response));
+                });
+            });
         }
-    
+
         return (
             <>
                 <h5 className="card-title">Welcome {name}</h5>
