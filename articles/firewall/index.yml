@@ -70,6 +70,10 @@ landingContent:
             url: tutorial-hybrid-portal-policy.md
           - text: Filter inbound traffic
             url: tutorial-firewall-dnat-policy.md
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy Firewall Basic
+            url: deploy-firewall-basic-portal-policy.md
 
   # Card
   - title: Integrate with Load Balancer
