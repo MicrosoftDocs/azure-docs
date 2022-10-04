@@ -115,7 +115,7 @@ Under the **Destination** tab, use these values to enter the destination propert
 - First, enter the name of your **FHIR server** using the following four steps:
 
   1. The **FHIR Server** name (also known as the **FHIR service**) can be located by using the **Search** bar at the top of the screen. 
-  1. To connect to your FHIR service instance, enter the name of the FHIR service you used in the manual deploy configuration article at [Deploy the FHIR service](deploy-04-new-prereq.md#deploy-the-fhir-service).
+  1. To connect to your FHIR service instance, enter the name of the FHIR service you used in the manual deploy configuration article at [Deploy the FHIR service](deploy-03-new-manualmd#deploy-the-fhir-service).
   1. Then select the **Properties** button. 
   1. Next, Copy and paste the **Name** string into the **FHIR Server** text field. In this example, the **FHIR Server** name is `fs-azuredocsdemo`.
 
