@@ -85,12 +85,19 @@ Follow these steps to configure the Front Door Service (Standard):
 | **Origin hostname** | contoso.msappproxy.net | The URL generated for the app by Application Proxy must be utilized here.|
 | **Connector group** | North America | Select the connector group in the geo closest to where the app instance will be in for optimized performance.|
 
-![Screenshot of Azure Front Door Configuration 1](./media/application-proxy-azure-front-door/azure-front-door-profile-1.png)
-
-![Screenshot of Azure Front Door Configuration 2](./media/application-proxy-azure-front-door/azure-front-door-profile-2.png)
-
-![Screenshot of Azure Front Door Configuration 3](./media/application-proxy-azure-front-door/azure-front-door-profile-3.png)
-
+<p align="center">
+<img src="./media/application-proxy-azure-front-door/azure-front-door-profile-1.png" alt="Screenshot of Azure Front Door Configuration 1" width="800" height="750">
+ </p>
+ 
+ <p align="center">
+<img src="./media/application-proxy-azure-front-door/azure-front-door-profile-2.png" alt="Screenshot of Azure Front Door Configuration 2" width="800" height="600">
+ </p>
+ 
+ <p align="center">
+<img src="./media/application-proxy-azure-front-door/azure-front-door-profile-3.png" alt="Screenshot of Azure Front Door Configuration 3" width="800" height="500">
+ </p>
+ 
+ 
 ## Next steps
 
 To prevent false positives, learn how to [Customize Web Application Firewall rules](../../web-application-firewall/ag/application-gateway-customize-waf-rules-portal.md), configure [Web Application Firewall exclusion lists](../../web-application-firewall/ag/application-gateway-waf-configuration.md?tabs=portal), or [Web Application Firewall custom rules](../../web-application-firewall/ag/create-custom-waf-rules.md).
