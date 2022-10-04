@@ -80,7 +80,7 @@ If you need help sizing your cache correctly, contact Microsoft Service and Supp
 
 ### Choose the cache type for your needs
 
-When you choose your cache capacity, you might notice that some cache types have one fixed cache sizes, and others let you select from multiple cache size options for each throughput value. This is because they use different styles of cache infrastructure.
+When you choose your cache capacity, you might notice that some cache types have one fixed cache size, and others let you select from multiple cache size options for each throughput value. This is because they use different styles of cache infrastructure.
 
 * Standard caches - Cache type **Read-write caching**
 
