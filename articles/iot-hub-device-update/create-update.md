@@ -56,7 +56,7 @@ Once you've created your import manifest and saved it as a JSON file, if you're 
 
 If your update is more complex, such as a [proxy update](device-update-proxy-updates.md), you may need to create multiple import manifests. You can use the same Azure CLI approach from the previous section to create both a _parent_ import manifest and some number of _child_ import manifests for complex updates. Run the following Azure CLI commands after replacing the sample parameter values with your own. See [Import schema and API information](import-schema.md) for details on what values you can use. In the example below, there are three updates to be deployed to the device: 1 parent update and 2 child updates:
 
-    ```azurecli
+```azurecli
     az iot device-update update init v5
     `--update-provider <replace with a child update Provider> --update-name <replace with a child update Name> --update-version <replace with a child update Version>`
     `--compat manufacturer=<replace with the value your device will report> model=<replace with the value your device will report> `
@@ -77,7 +77,7 @@ If your update is more complex, such as a [proxy update](device-update-proxy-upd
 	  `--step provider=<replace with first child update provider> name=<replace with first child update name> version=<replace with first child update version>
 	  `--step provider=<replace with second child update provider> name=<replace with second child update name> version=<replace with second child update version
 	  `--output json >"<replace with the path where you want your import manifest created, including the full file name>"
-    ```
+```
 
 ## Next steps
 
