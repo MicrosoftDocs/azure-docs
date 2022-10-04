@@ -144,7 +144,7 @@ The [workspace](concept-workspace.md) is the top-level resource for Azure Machin
 
 ---
 
-## Review the endpoint and deployment configurations
+## Define the endpoint and deployment
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -199,15 +199,60 @@ For more information about the YAML schema, see the [online endpoint YAML refere
 
 # [Python](#tab/python)
 
+In this article, we first define names of online endpoint and deployement for debug locally.
 
+1. Define endpoint (with name for local endpoint):
+      ```python
+    # Creating a local endpoint
+    import datetime
 
+    local_endpoint_name = "local-" + datetime.datetime.now().strftime("%m%d%H%M%f")
 
+    # create an online endpoint
+    endpoint = ManagedOnlineEndpoint(
+        name=local_endpoint_name, description="this is a sample local endpoint"
+    )
+    ```
 
+1. Define deployment (with name for local deployment)
 
+    The example contains all the files needed to deploy a model on an online endpoint. To deploy a model, you must have:
 
+    * Model files (or the name and version of a model that's already registered in your workspace). In the example, we have a scikit-learn model that does regression.
+    * The code that's required to score the model. In this case, we have a score.py file.
+    * An environment in which your model runs. As you'll see, the environment might be a Docker image with Conda dependencies, or it might be a Dockerfile.
+    * Settings to specify the instance type and scaling capacity.
 
+    **Key aspects of deployment**
+    * `name` - Name of the deployment.
+    * `endpoint_name` - Name of the endpoint to create the deployment under.
+    * `model` - The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification.
+    * `environment` - The environment to use for the deployment. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification.
+    * `code_configuration` - the configuration for the source code and scoring script
+        * `path`- Path to the source code directory for scoring the model
+        * `scoring_script` - Relative path to the scoring file in the source code directory
+    * `instance_type` - The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
+    * `instance_count` - The number of instances to use for the deployment
 
+    ```python
+    model = Model(path="../model-1/model/sklearn_regression_model.pkl")
+    env = Environment(
+        conda_file="../model-1/environment/conda.yml",
+        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
+    )
 
+    blue_deployment = ManagedOnlineDeployment(
+        name="blue",
+        endpoint_name=local_endpoint_name,
+        model=model,
+        environment=env,
+        code_configuration=CodeConfiguration(
+            code="../model-1/onlinescoring", scoring_script="score.py"
+        ),
+        instance_type="Standard_F2s_v2",
+        instance_count=1,
+    )
+    ```
 
 ---
 
@@ -217,9 +262,11 @@ In this example, we specify the `path` (where to upload files from) inline. The 
 
 For registration, you can extract the YAML definitions of `model` and `environment` into separate YAML files and use the commands `az ml model create` and `az ml environment create`. To learn more about these commands, run `az ml model create -h` and `az ml environment create -h`.
 
+<Todo: Add SDKv2 contents>
+
 ### Use different CPU and GPU instance types
 
-The preceding YAML uses a general-purpose type (`Standard_F2s_v2`) and a non-GPU Docker image (in the YAML, see the `image` attribute). For GPU compute, choose a GPU compute type SKU and a GPU Docker image.
+The preceding YAML uses a general-purpose type (`Standard_DS2_v2`) and a non-GPU Docker image (in the YAML, see the `image` attribute). For GPU compute, choose a GPU compute type SKU and a GPU Docker image.
 
 For supported general-purpose and GPU instance types, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). For a list of Azure Machine Learning CPU and GPU base images, see [Azure Machine Learning base images](https://github.com/Azure/AzureML-Containers).
 
