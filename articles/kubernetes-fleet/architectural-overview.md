@@ -30,15 +30,15 @@ Once a cluster is joined to a fleet, a MemeberCluster custom resource is created
 
 The member clusters can be viewed by running the following command:
 
-    ```bash
-    kubectl get crd memberclusters.fleet.azure.com -o yaml
-    ```
+```bash
+kubectl get crd memberclusters.fleet.azure.com -o yaml
+```
 
 The complete specification of the MemberCluster fleet can be viewed by running the following command:
 
-    ```bash
-    kubectl get crd memberclusters -o yaml
-    ```
+```bash
+kubectl get crd memberclusters -o yaml
+```
 
 The following labels are added automatically to all member clusters, which can then be used for target cluster selection in resource propagation.
 
