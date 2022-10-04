@@ -20,13 +20,13 @@ Few of the options that can be used to reduce the overall dump time using pg_dum
 
 #### Directory format(-Fd)
 
-This option outputs a directory-format archive which can be input to pg_restore. By default the output is compressed.
+This option outputs a directory-format archive that can be input to pg_restore. By default the output is compressed.
 
 #### Parallel jobs(-j)
 
-Pg_dump can run dump jobs concurrently using the parallel jobs option.This option reduces the total dump time but increases the load on the database server.It is advised to arrive at a parallel job value after closely monitoring the source server metrics like CPU, Memory, and IOPS usage.
+Pg_dump can run dump jobs concurrently using the parallel jobs option. This option reduces the total dump time but increases the load on the database server. It is advised to arrive at a parallel job value after closely monitoring the source server metrics like CPU, Memory, and IOPS usage.
 
-There are a few considerations that needs to be taken into account when setting this value
+There are a few considerations that need to be taken into account when setting this value
 - Pg_dump requires number of parallel jobs +1 number of connections when parallel jobs option is considered, so make sure max_connections is set accordingly.
 - The number of parallel jobs should be less than or equal to the number of vCPU’s allocated for the database server.
 
@@ -36,7 +36,7 @@ Specifies the compression level to use. Zero means no compression. Zero compress
 
 #### Table bloats and vacuuming
 
-Before the starting the pg_dump process, consider if table vacuuming is necessary.Bloat on tables significantly increases pg_dump times.Execute the below query to identify table bloats:
+Before the starting the pg_dump process, consider if table vacuuming is necessary. Bloat on tables significantly increases pg_dump times. Execute the below query to identify table bloats:
 
 ```
 select schemaname,relname,n_dead_tup,n_live_tup,round(n_dead_tup::float/n_live_tup::float*100) dead_pct,autovacuum_count,last_vacuum,last_autovacuum,last_autoanalyze,last_analyze from pg_stat_all_tables where n_live_tup >0;
@@ -45,7 +45,7 @@ select schemaname,relname,n_dead_tup,n_live_tup,round(n_dead_tup::float/n_live_t
 The **dead_pct** column in the above query gives percentage of dead tuples when compared to live tuples.A high dead_pct value for a table might point to the table not being properly vacuumed.For tuning autovacuum, review the article [Autovacuum Tuning](./how-to-autovacuum-tuning.md).
 
 
-As a one of case perform manual vacuum analyze of the tables which are identified.
+As a one of case perform manual vacuum analyze of the tables that are identified.
 
 ```
 vacuum(analyze, verbose) <table_name> 
@@ -68,7 +68,7 @@ Few of the options that can be used to reduce the overall restore time using pg_
 
 #### Parallel restore
 
-Using multiple concurrent jobs, you can reduce the time to restore a large database on a multi vCore target server.The number of jobs can be equal to or less than the number of vCPU’s allocated for the target server.
+Using multiple concurrent jobs, you can reduce the time to restore a large database on a multi vCore target server. The number of jobs can be equal to or less than the number of vCPU’s allocated for the target server.
 
 #### Server parameters
 
@@ -101,13 +101,13 @@ Use the following syntax for pg_restore:
 -j - Number of jobs   
 -C - Begin the output with a command to create the database itself and reconnect to the created database     
 
-Here is an example of how this syntax might appear:
+Here's an example of how this syntax might appear:
 
 `pg_restore -h <hostname>  -U <username> -j <Num of parallel jobs> -Fd -C -d <databasename> sampledb_dir_format`
 
 ## Virtual machine considerations
 
-Create a virtual machine in the same region,same availability zone (AZ) preferably where you have both your target and source servers or at least have the virtual machine closer to source server or a target server.Use of Azure Virtual Machines with high-performance local SSD is recommended.For more details about the SKUs review
+Create a virtual machine in the same region, same availability zone (AZ) preferably where you have both your target and source servers or at least have the virtual machine closer to source server or a target server. Use of Azure Virtual Machines with high-performance local SSD is recommended. For more details about the SKUs review
 
 [Edv4 and Edsv4-series](https://docs.microsoft.com/azure/virtual-machines/edv4-edsv4-series)   
 
