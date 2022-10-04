@@ -450,7 +450,7 @@ Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
-| **[Teams](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/sentinel4teams.sentinelforteams?tab=Overview)** | | |
+| **[Teams](https://azuremarketplace.microsoft.com/marketplace/apps/sentinel4teams.sentinelforteams?tab=Overview)** | | |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |
 | - Office 365 DoD | - | Not Available |
