@@ -47,6 +47,18 @@ Because the `WEBSITE_RUN_FROM_PACKAGE` app setting is set, this command doesn't 
 
 The command also restarts the app. Because `WEBSITE_RUN_FROM_PACKAGE` is set, App Service mounts the uploaded package as the read-only *wwwroot* directory and runs the app directly from that mounted directory.
 
+### Webjobs with WEBSITE_RUN_FROM_PACKAGE=1
+How does that affect WebJobs?
+There are two scenario for WebJobs,
+- Webjobs deployed with your App service
+- Webjobd deployed separately from your App Servicep
+The first kind is simple, as they will just be part of the zip file, along with the rest of the app. But for those that are deployed separately(e.g. Deploy webjobs after app service creation or create webjobs from portal after deployment) things are different because they can't just be uploaded to d:\home\site\wwwroot\app_data\jobs\..., which is read-only.
+
+To solve this, WebJobs is deployed to d:\home\site\jobs\... 
+Jobs from both locations can exist in the same app.
+
+Note: As this makes site\wwwroot read only this means that file operations will fail including the creation of the *disable.job*
+
 ## Run from external URL instead
 
 You can also run a package from an external URL, such as Azure Blob Storage. You can use the [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload package files to your Blob storage account. You should use a private storage container with a [Shared Access Signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) or [use a managed identity](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity) to enable the App Service runtime to access the package securely. 
