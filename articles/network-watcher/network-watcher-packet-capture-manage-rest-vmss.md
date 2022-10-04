@@ -32,6 +32,8 @@ This article takes you through the different management tasks that are currently
 - [**Stop a packet capture**](#stop-packet-capture)
 - [**Delete a packet capture**](#delete-packet-capture)
 
+> [!Note]
+> Currently, Azure Kubernetes Service (AKS) is not supported for Packet Capture.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
