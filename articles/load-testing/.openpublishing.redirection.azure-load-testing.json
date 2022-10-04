@@ -13,7 +13,7 @@
         {
             "source_path_from_root": "/articles/load-testing/tutorial-cicd-github-actions.md",
             "redirect_url": "/azure/load-testing/tutorial-identify-performance-regression-with-cicd",
-            "redirect_document_id": true
+            "redirect_document_id": false
         }
     ]
 }
