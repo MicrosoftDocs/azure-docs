@@ -41,7 +41,10 @@ Follow these steps to build and run the captioning quickstart code example.
     ```console
     python captioning.py --input caption.this.mp4 --format any --output caption.output.txt --srt --realTime --threshold 5 --delay 0 --profanity mask --phrases "Contoso;Jessie;Rehaan"
     ```
-    Make sure that the paths specified by `--input` and `--output` are valid. Otherwise you must change the paths.
+    > [!IMPORTANT]
+    > Make sure that the paths specified by `--input` and `--output` are valid. Otherwise you must change the paths.
+    > 
+    > Make sure that you set the `SPEECH__KEY` and `SPEECH__REGION` environment variables as described [above](#set-environment-variables). Otherwise use the `--key` and `--region` arguments.
 
 ## Check results
 
