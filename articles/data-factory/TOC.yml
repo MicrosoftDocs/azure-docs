@@ -308,6 +308,30 @@ items:
     href: concepts-data-redundancy.md
   - name: Change Data Capture
     hred: concepts-change-data-capture.md
+- name: SAP knowledge center
+  items:
+  - name: Overview
+    href: industry-sap-overview.md
+  - name: SAP connectors
+    href: industry-sap-connectors.md
+  - name: SAP templates
+    href: industry-sap-templates.md
+  - name: SAP change data capture (CDC) capabilities
+    items:
+    - name: Overview and architecture
+      href: sap-change-data-capture-introduction-architecture.md
+      displayName: SAP, change data capture, CDC
+    - name: Prerequisites and setup
+      href: sap-change-data-capture-prerequisites-configuration.md
+    - name: Set up a self-hosted integration runtime
+      href: sap-change-data-capture-shir-preparation.md
+    - name: Set up a linked service and source dataset
+      href: sap-change-data-capture-prepare-linked-service-source-dataset.md
+    - name: Debug issues with the SAP CDC connector
+      href: sap-change-data-capture-debug-shir-logs.md
+    - name: Manage the SAP CDC process
+      href: sap-change-data-capture-management.md
+      displayName: SAP, change data capture, CDC
 - name: How-to guides 
   items:
   - name: Author
@@ -1275,28 +1299,4 @@ items:
     href: quota-increase.md
   - name: Limits
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits
-- name: SAP knowledge center
-  items:
-  - name: Overview
-    href: industry-sap-overview.md
-  - name: SAP connectors
-    href: industry-sap-connectors.md
-  - name: SAP templates
-    href: industry-sap-templates.md
-  - name: SAP change data capture (CDC) capabilities
-    items:
-    - name: Overview and architecture
-      href: sap-change-data-capture-introduction-architecture.md
-      displayName: SAP, change data capture, CDC
-    - name: Prerequisites and setup
-      href: sap-change-data-capture-prerequisites-configuration.md
-    - name: Set up a self-hosted integration runtime
-      href: sap-change-data-capture-shir-preparation.md
-    - name: Set up a linked service and source dataset
-      href: sap-change-data-capture-prepare-linked-service-source-dataset.md
-    - name: Debug issues with the SAP CDC connector
-      href: sap-change-data-capture-debug-shir-logs.md
-    - name: Manage the SAP CDC process
-      href: sap-change-data-capture-management.md
-      displayName: SAP, change data capture, CDC
     
