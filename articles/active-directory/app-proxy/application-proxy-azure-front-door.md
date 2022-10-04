@@ -81,7 +81,7 @@ Follow these steps to configure the Front Door Service (Standard):
 
 |     | Configuration | Additional Information |
 |---- | ----------------------- | ---------------------- |
-| **Endpoint Name** | •	Endpoint name: contoso-nam •	Front door generated Hostname: contoso-nam.azurefd.net •	Custom Domain Hostname: contoso.org| A custom domain host name must be utilized here.|
+| **Endpoint Name** | •	Endpoint name: contoso-nam <br /> •	Front door generated Hostname: <br /> contoso-nam.azurefd.net <br /> •	Custom Domain Hostname: contoso.org| A custom domain host name must be utilized here.|
 | **Origin hostname** | contoso.msappproxy.net | The URL generated for the app by Application Proxy must be utilized here.|
 | **Connector group** | North America | Select the connector group in the geo closest to where the app instance will be in for optimized performance.|
 
