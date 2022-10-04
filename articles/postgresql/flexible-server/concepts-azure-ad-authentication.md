@@ -41,27 +41,19 @@ The following table provides a list of high-level AAD features and capabilities 
 | Invited User Support | No | Yes |
 | Disable Password Authentication | Not Available | Available|
 | Service Principal can act as group member| No | Yes  |
-| Decoupled AAD metadata | No | Yes |
-| AAD Auditing | No | Yes |
+| Audit AAD Logins  | No | Yes |
 | PG bouncer support | No | Planned for GA |
 
-
-
-To configure and use Azure Active Directory authentication, use the following process:
-
-1. Create and populate Azure Active Directory with user identities as needed. Most of the organizations already have AAD configured.
-2. Optionally associate or change the Active Directory currently associated with your Azure subscription.
-3. Create an Azure AD administrator for the Azure Database for PostgreSQL Flexible Server.
-4. Create database users in your database mapped to Azure AD identities.
-5. Connect to your database by retrieving a token for an Azure AD identity and logging in.
-
- Please use these steps to configure Azure AD with Azure Database for PostgreSQL Flexible Server [Configure and sign in with Azure AD for Azure Database for PostgreSQL Flexible Server](how-to-configure-sign-in-azure-ad-authentication.md).
 
 ## How AAD Works In Flexible Server
 
 The following high-level diagram summarizes how authentication works using Azure AD authentication with Azure Database for PostgreSQL. The arrows indicate communication pathways.
 
 ![authentication flow][1]
+
+
+ Please use these steps to configure Azure AD with Azure Database for PostgreSQL Flexible Server [Configure and sign in with Azure AD for Azure Database for PostgreSQL Flexible Server](how-to-configure-sign-in-azure-ad-authentication.md).
+
 
 ## Managing PostgreSQL Access For AD Principals
 
@@ -70,15 +62,9 @@ When Azure AD authentication is enabled and Azure AD principal is added as an Az
 ![admin structure][2]
 
  >[!NOTE]
- > Service Principal or Managed Identity can now act as fully functional Azure AD Administrator in FLexible Server and this was a limitation in our Single Server 
+ > Service Principal or Managed Identity can now act as fully functional Azure AD Administrator in Flexible Server and this was a limitation in our Single Server.
 
-## Permissions
-
-To create new users that can authenticate with Azure AD, you must have the `azure_ad_admin` role in the database. This role is assigned by configuring the Azure AD Administrator account for a specific Azure Database for PostgreSQL server.
-
-To create a new Azure AD database user, you must connect as the Azure AD administrator. This is demonstrated in [Configure and Login with Azure AD for Azure Database for PostgreSQL](how-to-configure-sign-in-azure-ad-authentication.md).
-
-Any Azure AD authentication is only possible if the Azure AD admin was created for Azure Database for PostgreSQL. If the Azure Active Directory admin was removed from the server, existing Azure Active Directory users created previously can no longer connect to the database using their Azure Active Directory credentials.
+Azure AD administrators created via Portal, API or SQL would have the same permissions as the regular admin user created during server provisioning and database permissions for non-admin AAD enabled roles are managed the same way as regular roles. Additionally, Azure AD authentication is only possible if the Azure AD admin was created for Azure Database for PostgreSQL. If the Azure Active Directory admin was removed from the server, existing Azure Active Directory users created previously can no longer connect to the database using their Azure Active Directory credentials.
 
 ## Connecting using Azure AD identities
 
