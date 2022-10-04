@@ -14,7 +14,7 @@ ms.date: 09/28/2022
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-[!INCLUDE [App stack selector](../includes/quickstart-selector.md)]
+[!INCLUDE [App stack selector](includes/quickstart-selector.md)]
 
 This quickstart shows you how to use Python code on macOS, Ubuntu Linux, or Windows to connect to a cluster, and use SQL statements to create a table and insert, query, update, and delete data. The steps in this article assume that you're familiar with Python development, and are new to working with Azure Cosmos DB for PostgreSQL.
 

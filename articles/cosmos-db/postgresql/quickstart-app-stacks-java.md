@@ -14,7 +14,7 @@ ms.date: 09/28/2022
 
 [!INCLUDE [PostgreSQL](../includes/appliesto-postgresql.md)]
 
-[!INCLUDE [App stack selector](../includes/quickstart-selector.md)]
+[!INCLUDE [App stack selector](includes/quickstart-selector.md)]
 
 This quickstart shows you how to build a Java app that connects to a cluster, and then uses SQL statements to create a table and insert, query, update, and delete data in the database. The steps in this article assume that you're familiar with Java development and [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity), and are new to working with Azure Cosmos DB for PostgreSQL.
 
