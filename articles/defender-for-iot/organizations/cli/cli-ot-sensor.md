@@ -154,7 +154,7 @@ root@xsense:
 For example, for the *support* user:
 
 ```cli
-root@xsense: ntp enable 129.6.15.28
+root@xsense: ntp disable 129.6.15.28
 root@xsense:
 ```
 
@@ -186,7 +186,7 @@ root@xsense:/#
 
 ## Network Configuration
 
-### Network Monitoring and troubleshooting
+### Validate Network interfaces
 The following table describes the commands available to validate your network setup:
 
 |User  |Command  |Full command syntax   |
