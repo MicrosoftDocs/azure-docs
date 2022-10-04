@@ -121,38 +121,25 @@ dotnet add package Azure.AI.AnomalyDetector --version 3.0.0-preview.5
 ## Detect an anomaly from an entire time series
 
 
-You will need to update the code below and provide your own values for the following variables.
-
-|Variable name | Value |
-|--------------------------|-------------|
-| `your-endpoint`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal.An example endpoint is: `https://contoso-new-001.cognitiveservices.azure.com/`|
-| `your-apikey` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either Key1 or Key2. Always having two valid keys allows for secure key rotation with zero downtime.|
-| `request-data.csv` | You need to provide a path to your own sample data stored in csv format to detect an anomaly from. If you would like to use our sample data you can [download sample data here](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector/Azure.AI.AnomalyDetector/tests/samples/data/request-data.csv) |
-
 From the project directory, open the *program.cs* file and replace with the following code:
 
 ```csharp
-
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
+using Azure;
+using Azure.AI.AnomalyDetector;
 using Azure.AI.AnomalyDetector.Models;
-using Azure.Core.TestFramework;
-using NUnit.Framework;
 using static System.Environment;
 
-namespace Azure.AI.AnomalyDetector.Tests.Samples
+namespace anomaly_detector_quickstart
 {
-    public partial class AnomalyDetectorSamples : SamplesBase<AnomalyDetectorTestEnvironment>
+    internal class Program
     {
-        [Test]
-        public async Task DetectEntireSeriesAnomaly()
+        static void Main(string[] args)
         {
-            //read endpoint and apiKey
             string endpoint = GetEnvironmentVariable("ANOMALY_DETECTOR_ENDPOINT");
             string apiKey = GetEnvironmentVariable("ANOMALY_DETECTOR_API_KEY");
 
@@ -169,7 +156,7 @@ namespace Azure.AI.AnomalyDetector.Tests.Samples
                 .Where(e => e.Trim().Length != 0)
                 .Select(e => e.Split(','))
                 .Where(e => e.Length == 2)
-                .Select(e => new TimeSeriesPoint(float.Parse(e[1])){ Timestamp = DateTime.Parse(e[0])}).ToList();
+                .Select(e => new TimeSeriesPoint(float.Parse(e[1])) { Timestamp = DateTime.Parse(e[0]) }).ToList();
 
             //create request
             DetectRequest request = new DetectRequest(list)
@@ -177,40 +164,25 @@ namespace Azure.AI.AnomalyDetector.Tests.Samples
                 Granularity = TimeGranularity.Daily
             };
 
-            //detect
-            Console.WriteLine("Detecting anomalies in the entire time series.");
+            EntireDetectResponse result = client.DetectEntireSeries(request);
 
-            try
+            bool hasAnomaly = false;
+            for (int i = 0; i < request.Series.Count; ++i)
             {
-                EntireDetectResponse result = await client.DetectEntireSeriesAsync(request).ConfigureAwait(false);
-
-                bool hasAnomaly = false;
-                for (int i = 0; i < request.Series.Count; ++i)
+                if (result.IsAnomaly[i])
                 {
-                    if (result.IsAnomaly[i])
-                    {
-                        Console.WriteLine("Anomaly detected at index: {0}.", i);
-                        hasAnomaly = true;
-                    }
-                }
-                if (!hasAnomaly)
-                {
-                    Console.WriteLine("No anomalies detected in the series.");
+                    Console.WriteLine("Anomaly detected at index: {0}.", i);
+                    hasAnomaly = true;
                 }
             }
-            catch (RequestFailedException ex)
+            if (!hasAnomaly)
             {
-                Console.WriteLine(String.Format("Entire detection failed: {0}", ex.Message));
-                throw;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(String.Format("Detection error. {0}", ex.Message));
-                throw;
+                Console.WriteLine("No anomalies detected in the series.");
             }
         }
     }
 }
+
 ```
 
 > [!IMPORTANT]
