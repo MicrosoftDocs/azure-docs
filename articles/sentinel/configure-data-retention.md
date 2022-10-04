@@ -38,7 +38,7 @@ To complete the steps in this tutorial, you must have the following resources an
 
 ## Set the retention policy for a table
 
-In your Log Analytics workspace, set the number of days for the interactive retention so . Then, change the total retention policy for a table like **SecurityEvents** to archive 30 days of data.
+In your Log Analytics workspace, clear the inherit the workspace setting so the interactive retention period is fixed to 30 days. Then, change the total retention policy for a table like **SecurityEvents** to archive 30 days of data.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the Azure portal, search for and open **Log Analytics workspaces**.
