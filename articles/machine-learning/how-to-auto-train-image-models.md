@@ -110,7 +110,7 @@ If your training data is in a different format (like, pascal VOC or COCO), you c
 > The training data needs to have at least 10 images in order to be able to submit an AutoML run. 
 
 > [!Warning]
-> Creation of `MLTable` from data in JSONL format is supported using the SDK and CLI only, for this capability. Creating the `MLTable` via UI is not supported at this time. As of now, the UI doesn't recognize the StreamInfo datatype, which is the datatype used for image URLs in JSONL format.  
+> Creation of `MLTable` from data in JSONL format is supported using the SDK and CLI only, for this capability. Creating the `MLTable` via UI is not supported at this time. 
 
 
 ### JSONL schema samples
@@ -241,6 +241,9 @@ image_object_detection_job = automl.image_object_detection(
 ## Compute to run experiment
 
 Provide a [compute target](concept-azure-machine-learning-architecture.md#compute-targets) for automated ML to conduct model training. Automated ML models for computer vision tasks require GPU SKUs and support NC and ND families. We recommend the NCsv3-series (with v100 GPUs) for faster training. A compute target with a multi-GPU VM SKU leverages multiple GPUs to also speed up training. Additionally, when you set up a compute target with multiple nodes you can conduct faster model training through parallelism when tuning hyperparameters for your model.
+
+> [!NOTE]
+> If you are using a [compute instance](concept-compute-instance.md) as your compute target, please make sure that multiple AutoML jobs are not run at the same time. Also, please make sure that `max_concurrent_trials` is set to 1 in your [job limits](#job-limits).
 
 The compute target is passed in using the `compute` parameter. For example:
 
@@ -423,7 +426,7 @@ When sweeping hyperparameters, you need to specify the sampling method to use fo
 |[Bayesian Sampling](how-to-tune-hyperparameters.md#bayesian-sampling)| `bayesian` |
     
 > [!NOTE]
-> Currently only random sampling supports conditional hyperparameter spaces.
+> Currently only random and grid sampling support conditional hyperparameter spaces.
 
 ### Early termination policies
 
@@ -544,7 +547,7 @@ image_object_detection_job = automl.image_object_detection(
     training_data=my_training_data_input,
     validation_data=my_validation_data_input,
     target_column_name="label",
-    primary_metric="mean_average_precision",
+    primary_metric=ObjectDetectionPrimaryMetrics.MEAN_AVERAGE_PRECISION,
     tags={"my_custom_tag": "My custom value"},
 )
 

@@ -89,7 +89,7 @@ class NotificationHub:
 
         for part in parts:
             if part.startswith('Endpoint'):
-                self.Endpoint = 'https' + part[11:]
+                self.Endpoint = 'https' + part[11:].lower()
             if part.startswith('SharedAccessKeyName'):
                 self.SasKeyName = part[20:]
             if part.startswith('SharedAccessKey'):

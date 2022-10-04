@@ -52,7 +52,7 @@ Script arguments can be referred to in the script as $1, $2, etc.
 
 If your script was doing something specific to azureuser such as installing conda environment or Jupyter kernel, you'll have to put it within `sudo -u azureuser` block like this
 
-:::code language="bash" source="~/azureml-examples-main/setup-ci/install-pip-package.sh":::
+:::code language="bash" source="~/azureml-examples-main/setup/setup-ci/install-pip-package.sh":::
 
 The command `sudo -u azureuser` changes the current working directory to `/home/azureuser`. You also can't access the script arguments in this block.
 
