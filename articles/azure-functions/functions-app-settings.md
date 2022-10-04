@@ -572,7 +572,7 @@ Some configurations must be maintained at the App Service level as site settings
 
 ### linuxFxVersion 
 
-For function apps running on Linux, `linuxFxVersion` indicates the language and version for the language-specific worker process. This information is used, along with [`FUNCTIONS_EXTENSION_VERSION`](#functions_extension_version), to determine which specific Linux container image is installed to run your function app. This setting can be set to a pre-defined value, a specific supported Docker image URI, or a custom image URI.
+For function apps running on Linux, `linuxFxVersion` indicates the language and version for the language-specific worker process. This information is used, along with [`FUNCTIONS_EXTENSION_VERSION`](#functions_extension_version), to determine which specific Linux container image is installed to run your function app. This setting can be set to a pre-defined value or a custom image URI.
 
 This value is set for you when you create your Linux function app. You may need to set it for ARM template and Bicep deployments and in certain upgrade scenarios. 
 
