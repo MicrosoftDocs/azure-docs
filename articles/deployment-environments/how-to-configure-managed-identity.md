@@ -58,7 +58,7 @@ In Azure Deployment Environments, you can use two types of managed identities:
 1. On the **Add user assigned managed identity** page, add the following details:
     1. Select the **Subscription** in which the identity exists.
     1. Select an existing **User assigned managed identities** from the dropdown.
-    3. Select **Add**.
+    1. Select **Add**.
 
 ## Assign a subscription role assignment to the managed identity
 
@@ -71,10 +71,10 @@ An identity attached to a project environment type will be used to deploy enviro
 
     1. For the user-assigned identity, select the specific identity, and then select the **Azure role assignments** from the left pane.
 
-2. On the **Azure role assignments** page, select **Add role assignment** and provide the following details:
-    1. Select **SubScription** from the dropdown for **Scope**. 
-    2. Select the target **Subscription** to use from the dropdown.
-    3. Select **Owner** from the dropdown for **Role**.
+1. On the **Azure role assignments** page, select **Add role assignment (Preview)** and provide the following details:
+    1. For **Scope**, select **SubScription** from the dropdown. 
+    1. For **Subscription**, select the target subscription to use from the dropdown.
+    1. For **Role**, select **Owner** from the dropdown.
     1. Select **Save**.
 
 ## Assign the managed identity access to the Key Vault secret

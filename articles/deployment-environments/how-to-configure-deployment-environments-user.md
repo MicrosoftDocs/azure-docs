@@ -16,14 +16,14 @@ Development team members must have access to a specific project before they can 
 
 Based on the scope that users are granted access to, a Deployment Environments User can:
 
-* View the Project Environment Types 
-* Create an Environment
-* Read, write, delete or perform actions (deploy, reset, etc.) on their own environment
+* View the project environment types 
+* Create an environment
+* Read, write, delete, or perform actions (deploy, reset, etc.) on their own environment
 * Read or perform actions (deploy, reset, etc.) on environments created by other users
 
 When the role is assigned at the project level, the Deployment Environments User will be able to perform the actions listed above on all environment types enabled at the Project level. When the role is assigned to specific environment type(s), the user will be able to perform the actions only on the respective environment type(s).
 
-## Assign permissions to developers to a Project
+## Assign permissions to developers to a project
 
 1. Select the project you want to provide your development team members access to.
 2. Select **Access Control(IAM)** from the left menu.
@@ -61,10 +61,10 @@ The user can now view the project and all the Environment Types enabled within i
 7. In **Select members**, select the Active Directory Users or Groups you want to add, and then select **Select**.
 8. On the Members tab, select **Review + assign**.
 
-The user can now view the project and the specific Environment Type that they have been granted access to. Deployment Environments users can [create environments from the CLI](./quickstart-create-access-environments.md).
+The user can now view the project and the specific environment type that they have been granted access to. Deployment Environments users can [create environments using the CLI](./quickstart-create-access-environments.md).
 
 > [!NOTE]
-> Only users assigned the Deployment Environments User role, the DevCenter Project Admin role, or a custom role with appropriate permissions will be able to create environments.
+> Only users assigned the Deployment Environments User role, the DevCenter Project Admin role, or a built-in role with appropriate permissions will be able to create environments.
 
 ## Next steps
 
