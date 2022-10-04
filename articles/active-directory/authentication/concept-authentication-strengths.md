@@ -131,7 +131,7 @@ There are two policies that determine which authentication methods can be used t
 
 - **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings** controls methods for all the users in the tenant. 
 
-  :::image type="content" border="true" source="./media/concept-authentication-strengths/mfa-service-settings.png" alt-text="Screenshot of MFA service settings.":::
+  :::image type="content" border="true" source="./media/concept-authentication-strengths/service-settings.png" alt-text="Screenshot of MFA service settings.":::
 
 
 In addition, users must register for a method they want use, such as SMS. In other cases, an administrator might need to configure a user's device with a method, such as certificate-based authentication.
@@ -227,6 +227,9 @@ An authentication strength Conditional Access policy works together with [MFA tr
 Authentication strength is based on the Authentication methods policy. The Authentication methods policy helps to scope and configure authentication methods to be used across Azure AD by specific users and groups. Authentication strength allows another restriction of methods for specific scenarios, such as sensitive resource access, user risk, location, and more.
 
 For example, the administrator of Contoso wants to allow their users to use Microsoft Authenticator with either push notifications or passwordless authentication mode. The administrator goes to the Microsoft Authenticator settings in the Authentication method policy, scopes the policy for the relevant users and set the **Authentication mode** to **Any**. 
+
+:::image type="content" border="true" source="./media/concept-authentication-strengths/any.png" alt-text="Screenshot showing Microsoft Authenticator set to Any authentication mode.":::
+
 
 Then for Contoso’s most sensitive resource, the administrator wants to restrict the access to only passwordless authentication methods. The administrator creates a new Conditional Access policy, using the built-in **Passwordless MFA strength**. 
 
