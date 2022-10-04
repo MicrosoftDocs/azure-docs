@@ -420,9 +420,24 @@ scoring_uri = endpoint.scoring_uri
 
 ### Review the logs for output from the invoke operation
 
-In the example *score.py* file, the `run()` method logs some output to the console. You can view this output by using the `get-logs` command again:
+In the example *score.py* file, the `run()` method logs some output to the console. 
+
+# [Azure CLI](#tab/azure-cli)
+
+You can view this output by using the `get-logs` command:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="get_logs":::
+
+# [Python](#tab/python)
+
+You can view this output by using the `get_logs` method:
+
+```python
+ml_client.online_deployments.get_logs(
+    name="blue", endpoint_name=local_endpoint_name, local=True, lines=50
+)
+
+---
 
 ##  Deploy your online endpoint to Azure
 
