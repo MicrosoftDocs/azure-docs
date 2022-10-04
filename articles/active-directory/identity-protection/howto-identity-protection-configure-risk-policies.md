@@ -22,7 +22,7 @@ As we learned in the previous article, [Risk-based access policies](concept-iden
 - Sign-in risk policy
 - User risk policy
 
-![Risk conditions in Conditional Access](./media/howto-identity-protection-configure-risk-policies/sign-in-risk-conditions.png)
+![Screenshot of a Conditional Access policy showing risk as conditions.](./media/howto-identity-protection-configure-risk-policies/sign-in-risk-conditions.png)
 
 ## Choosing acceptable risk levels
 
@@ -125,7 +125,7 @@ While Identity Protection also provides two risk policies with limited condition
 
 If you already have risk policies enabled in Identity Protection, we highly recommend that you migrate them to Conditional Access:
 
-![Screenshots showing the migration of a sign-in risk policy to Conditional Access](./media/howto-identity-protection-configure-risk-policies/sign-in-risk-policy-migration.png)
+![Screenshots showing the migration of a sign-in risk policy to Conditional Access.](./media/howto-identity-protection-configure-risk-policies/sign-in-risk-policy-migration.png)
 
 ### Migrating to Conditional Access
 

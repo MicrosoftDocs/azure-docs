@@ -21,11 +21,11 @@ Access control policies can be applied to protect organizations when a sign-in o
 
 Azure AD Conditional Access offers two risk conditions: **Sign-in risk** and **User risk**. Organizations can create risk-based Conditional Access policies by configuring these two risk conditions and choosing an access control method. During each sign-in, Identity Protection sends the detected risk levels to Conditional Access, and the risk-based policies will apply if the policy conditions are satisfied.
 
-![Risk-based Conditional Access diagram](./media/concept-identity-protection-policies/risk-based-conditional-access-diagram.png)
+![Diagram that shows a conceptual risk-based Conditional Access policy.](./media/concept-identity-protection-policies/risk-based-conditional-access-diagram.png)
 
 For example, as shown in the diagram below, if organizations have a sign-in risk policy that requires multifactor authentication when the sign-in risk level is medium or high, their users must complete multifactor authentication when their sign-in risk is medium or high.
 
-![Risk-based Conditional Access policy self-remediation example diagram](./media/concept-identity-protection-policies/risk-based-conditional-access-policy-example.png)
+![Diagram that shows a conceptual risk-based Conditional Access policy with self-remediation.](./media/concept-identity-protection-policies/risk-based-conditional-access-policy-example.png)
 
 The example above also demonstrates a main benefit of a risk-based policy: **automatic risk remediation**. When a user successfully completes the required access control, like a secure password change, their risk is remediated. That sign-in session and user account won't be at risk, and no action is needed from the administrator. 
 
@@ -41,7 +41,7 @@ During each sign-in, Identity Protection analyzes hundreds of signals in real-ti
 
 If risks are detected on a sign-in, users can perform the required access control such as multifactor authentication to self-remediate and close the risky sign-in event to prevent unnecessary noise for administrators.
 
-![Sign-in Risk-based Conditional Access policy](./media/concept-identity-protection-policies/sign-in-risk-policy.png)
+![Screenshot of a sign-in risk-based Conditional Access policy.](./media/concept-identity-protection-policies/sign-in-risk-policy.png)
 
 > [!NOTE] 
 > Users must have previously registered for Azure AD multifactor authentication before triggering the sign-in risk policy.
