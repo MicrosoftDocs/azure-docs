@@ -51,7 +51,9 @@ items:
   items: 
     - name: Azure roadmap
       href: https://azure.microsoft.com/roadmap/
-    - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
+    - name: Report a problem
+      href: https://aka.ms/deployment-environments/reportproblem
+    - name: Suggest a feature
+      href: https://aka.ms/deployment-environments/suggestfeature
