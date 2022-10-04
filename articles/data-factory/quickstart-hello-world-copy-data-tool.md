@@ -29,6 +29,9 @@ Select the button below to try it out!
 
 You will be redirected to the configuration page shown in the image below to deploy the template.  Here, you only need to create a **new resource group**. (You can leave all the other values with their defaults.) Then click **Review + create** and click **Create** to deploy the resources.
 
+> [!NOTE]
+> The user deploying the template needs to assign a role to a managed identity.  This requires permissions that can be granted through the Owner, User Access Administrator or Managed Identity Operator roles.
+
 A new blob storage account will be created in the new resource group, and the moviesDB2.csv file will be stored in a folder called **input** in the blob storage.
 
 :::image type="content" source="media/quickstart-hello-world-copy-data-tool/deploy-template.png" alt-text="A screenshot of the deployment template creation dialog.":::
