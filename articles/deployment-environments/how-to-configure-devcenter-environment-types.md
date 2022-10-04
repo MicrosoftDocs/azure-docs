@@ -11,12 +11,12 @@ ms.topic: how-to
 
 # Configure environment types for your Dev center
 
-In Azure Deployment Environments Preview, [environment types](./concept-environments-key-concepts.md#dev-center-environment-types) are used to define the types of environments available to development teams to deploy. You have the flexibility to name the environment types as per the nomenclature used in your enterprise, for example, sandbox, dev, test, or production. You can specify deployment settings and the permissions available to developers per environment type per Project. 
+In Azure Deployment Environments Preview, [environment types](./concept-environments-key-concepts.md#dev-center-environment-types) are used to define the types of environments available to development teams to deploy. You have the flexibility to name the environment types as per the nomenclature used in your enterprise, for example, sandbox, dev, test, or production. You can specify deployment settings and the permissions available to developers per environment type per project. 
 
 In this article, you'll learn how to:
 
-* Add a new environment type to your Dev center
-* Delete an environment type from the Dev center
+* Add a new environment type to your dev center
+* Delete an environment type from the dev center
 
 :::image type="content" source="./media/configure-dev-center-environment-types/azure-deployment-environments-environment-types.png" alt-text="Screenshot of example Environment types.":::
 
@@ -27,7 +27,7 @@ In this article, you'll learn how to:
 
 Environment types allow your development teams to choose from different types of environments when creating self-service environments. 
 
-Add a new environment type to the Dev center as follows:
+Add a new environment type to the dev center as follows:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Access Azure Deployment Environments.
@@ -43,7 +43,7 @@ Add a new environment type to the Dev center as follows:
 :::image type="content" source="./media/configure-dev-center-environment-types/add-new-dev-center-environment-type.png" alt-text="Screenshot showing the add environment type page.":::
 
 >[!NOTE]
-> A dev center environment type is available to a specific Project only after an associated project environment type is added.
+> A dev center environment type is available to a specific project only after an associated [project environment type](how-to-configure-project-environment-types.md) is added.
 
 ## Delete a dev center environment type
 
