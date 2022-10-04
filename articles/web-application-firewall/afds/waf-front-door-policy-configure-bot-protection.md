@@ -5,7 +5,7 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 09/15/2022
+ms.date: 10/05/2022
 ms.author: victorh
 zone_pivot_groups: web-application-firewall-configuration
 ---
