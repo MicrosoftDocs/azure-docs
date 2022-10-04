@@ -361,7 +361,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | - Rapid7 | Public Preview | Not Available |
 | - RSA SecurID | Public Preview | Not Available |
 | - Salesforce Service Cloud                         | Public Preview | Not Available      |
-| - [SAP (Continuous Threat Monitoring for SAP)](../../sentinel/sap/deployment-overview.md) | Public Preview | Not Available |
+| - [SAP (Microsoft Sentinel Solution for SAP)](../../sentinel/sap/deployment-overview.md) | GA | GA |
 | - Semperis | Public Preview | Not Available |
 | - Senserva Pro | Public Preview | Not Available |
 | - Slack Audit | Public Preview | Not Available |
