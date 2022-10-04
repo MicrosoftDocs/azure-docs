@@ -45,7 +45,7 @@ Each authorization option is briefly described below:
 > Azure ABAC is currently only generally available (GA) for specific combinations of Azure storage resources, access attribute types, and storage account performance tiers.
 > See the next section [About the ABAC Preview](#about-the-abac-preview) for the current feature status of ABAC.
 >
-> Features of ABAC that are still in preview are provided without a service level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Features of ABAC still in preview are provided without a service level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 - **Azure Active Directory Domain Services (Azure AD DS) authentication** for Azure Files. Azure Files supports identity-based authorization over Server Message Block (SMB) through Azure AD DS. You can use Azure RBAC for fine-grained control over a client's access to Azure Files resources in a storage account. For more information about Azure Files authentication using domain services, see the [overview](../files/storage-files-active-directory-overview.md).
@@ -63,7 +63,7 @@ Each authorization option is briefly described below:
 > [!IMPORTANT]
 > Azure ABAC is currently only generally available (GA) for specific combinations of Azure storage resources, access attribute types, and storage account performance tiers.
 >
-> Features of ABAC that are still in preview are provided without a service level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Features of ABAC still in preview are provided without a service level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 > See the table below for the current status of ABAC for each feature.
