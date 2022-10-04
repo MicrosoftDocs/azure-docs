@@ -27,7 +27,7 @@ In addition to your solution domain, your engineering team should have knowledge
 - Working knowledge of [JSON](https://www.json.org/)
 - Working knowledge of [Helm](https://www.helm.sh)
 - Working knowledge of [createUiDefinition][createuidefinition]
-- Working knowledge of [Azure Resource Manager (ARM) templates][arm-templates]
+- Working knowledge of [Azure Resource Manager (ARM) templates][arm-template-overview]
 
 ## Prerequisites
 
@@ -191,11 +191,13 @@ Ensure the Helm chart adheres to the following rules:
 
 - All image names and references are parameterized and represented in `values.yaml` as global.azure.images references. Update `deployment.yaml` to point these images. This ensures the image block can be updated and referenced by Azure Marketplace's ACR.
 
-    :::image type="content" source="./media/azure-container/billing-identifier.png" alt-text="A screenshot of a properly formatted values.yaml file is shown. It resembles the sample values.yaml file linked from this article.":::
+    :::image type="content" source="./media/azure-container/image-references.png" alt-text="A screenshot of a properly formatted deployment.yaml file is shown. The parameterized image references are shown, resembling the content in the sample deployment.yaml file linked in this article.":::
 
 - If you have any subcharts, extract the content under charts and update each of your dependent image references to point to the images included in the main chart's `values.yaml`.
 
 - Images must use digests instead of tags. This ensures CNAB building is deterministic.
+    
+    :::image type="content" source="./media/azure-container/billing-identifier.png" alt-text="A screenshot of a properly formatted values.yaml file is shown. The images are using digests. The content resembles the sample values.yaml file linked in this article.":::
 
 ### Make updates based on your billing model
 
