@@ -1,18 +1,18 @@
 ---
-title: 'Connect Azure Front Door Premium to an App Service origin with Private Link'
+title: 'Connect Azure Front Door Premium to an App Service origin with Private Link - Azure CLI'
 titleSuffix: Azure Private Link
-description: Learn how to connect your Azure Front Door Premium to a webapp privately.
+description: Learn how to connect your Azure Front Door Premium to a webapp privately using Azure CLI.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: how-to
-ms.date: 06/09/2022
+ms.date: 10/04/2022
 ms.author: duau
 ---
 
-# Connect Azure Front Door Premium to an App Service origin with Private Link
+# Connect Azure Front Door Premium to an App Service origin with Private Link using Azure CLI
 
-This article will guide you through how to configure Azure Front Door Premium tier to connect to your App service privately using the Azure Private Link service.
+This article will guide you through how to configure Azure Front Door Premium tier to connect to your App service privately using the Azure Private Link service with Azure CLI.
 
 
 [!INCLUDE [azure-cli-prepare-your-environment](../../../includes/azure-cli-prepare-your-environment.md)]
@@ -21,26 +21,12 @@ This article will guide you through how to configure Azure Front Door Premium ti
 * Have a functioning Azure Front Door Premium profile, endpoint and origin group. Refer [Create a Front Door - CLI](../create-front-door-cli.md) to learn how to create these.
 * Have a functioning Web App that is also private. Refer this [doc](../../private-link/create-private-link-service-cli.md) to learn how to do the same.
 
-> [!Note]
+> [!NOTE]
 > Private endpoints requires your App Service plan or function hosting plan to meet some requirements. For more information, see [Using Private Endpoints for Azure Web App](../../app-service/networking/private-endpoint.md).
 
 ## Enable Private Link to an App Service in Azure Front Door Premium
  
-Run [az afd origin create](/cli/azure/afd/origin#az-afd-origin-create) to create a new Azure Front Door origin. The table below has information of what values to select in the respective fields while enabling private link with Azure Front Door. Select or enter the following settings to configure the App service you want Azure Front Door Premium to connect with privately.
-
-    | Setting | Value |
-    | ------- | ----- |
-    | Name | Enter a name to identify this origin. |
-    | Origin Type | Enter type of origin |
-    | Host name | Select the host from the dropdown that you want as an origin. |
-    | Origin host header | You can customize the host header of the origin or leave it as default. |
-    | HTTP port | 80 (default) |
-    | HTTPS port | 443 (default) |
-    | Priority | Different origin can have different priorities to provide primary, secondary, and backup origins. |
-    | Weight | 1000 (default). Assign weights to your different origin when you want to distribute traffic.|
-    | Region | Select the region that is the same or closest to your origin. |
-    | Target sub resource | The type of sub-resource for the resource selected above that your private endpoint will be able to access. |
-    | Request message | Customize message or choose the default. |
+Run [az afd origin create](/cli/azure/afd/origin#az-afd-origin-create) to create a new Azure Front Door origin.  Enter the following settings to configure the App service you want Azure Front Door Premium to connect with privately. Notice the `private-link-location` must be in one of the [available regions](../private-link.md#region-availability) and the `private-link-sub-resource-type` must be **sites**.
 
 ```azurecli-interactive
 az afd origin create --enabled-state Enabled \
@@ -56,7 +42,7 @@ az afd origin create --enabled-state Enabled \
                      --weight 500 \
                      --enable-private-link true \
                      --private-link-location EastUS \
-                     --private-link-request-message 'Please approve this request' \
+                     --private-link-request-message 'AFD app service origin Private Link request.' \
                      --private-link-resource /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRGFD/providers/Microsoft.Web/sites/webapp1/appServices\
                      --private-link-sub-resource-type sites 
 ```
@@ -65,19 +51,17 @@ az afd origin create --enabled-state Enabled \
 
 1. Run [az network private-endpoint-connection list](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-list) to list the private endpoint connections for your web app. Note down the resource id of the private endpoint connection usually available in the first line of the output.
 
-```azurecli-interactive
-az network private-endpoint-connection list --name webapp1 --resource-group myRGFD --type Microsoft.Web/sites
-```
+    ```azurecli-interactive
+    az network private-endpoint-connection list --name webapp1 --resource-group myRGFD --type Microsoft.Web/sites
+    ```
 
-2. Run [az network private-endpoint-connection approve](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-approve) to approve the private endpoint connection
+1. Run [az network private-endpoint-connection approve](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-approve) to approve the private endpoint connection
 
-```azurecli-interactive
-az network private-endpoint-connection approve --id /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRGFD/providers/Microsoft.Web/sites/webapp1/privateEndpointConnections/00000000-0000-0000-0000-000000000000
+    ```azurecli-interactive
+    az network private-endpoint-connection approve --id /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRGFD/providers/Microsoft.Web/sites/webapp1/privateEndpointConnections/00000000-0000-0000-0000-000000000000
+    ```
 
-```
-3. Once approved, it will take a few minutes for the connection to fully establish. You can now access your app service from Azure Front Door Premium. Direct access to the App Service from the public internet gets disabled after private endpoint gets enabled.
-
-
+1. Once approved, it will take a few minutes for the connection to fully establish. You can now access your app service from Azure Front Door Premium. Direct access to the App Service from the public internet gets disabled after private endpoint gets enabled.
 
 ## Next steps
 
