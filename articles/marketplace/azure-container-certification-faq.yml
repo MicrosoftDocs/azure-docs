@@ -26,7 +26,7 @@ sections:
         answer: |
           A vulnerability is an exploitable risk and/or an unsecured entry points that can be used by malicious actors for nefarious actions.       
                     
-          Marketplace Container Certification uses MS Defender for cloud, which scans images in ACR for vulnerabilities based on CVSS v3 score (Common Vulnerability Scoring System).. All container products with vulnerabilities with CVSS v3 score greater than or equal to 7 are blocked. There may be rare instances where specific CVE IDs with even lower scores are blocked by certification. 
+          Marketplace Container Certification uses MS Defender for cloud, which scans images in ACR for vulnerabilities based on CVSS v3 score (Common Vulnerability Scoring System). All container products with vulnerabilities with CVSS v3 score greater than or equal to 7 are blocked. There may be rare instances where specific CVE IDs with even lower scores are blocked by certification. 
           Certification tries to provide remediation steps for each vulnerability so publishers can fix them.  
           
           You can also use MS Defender or open source/paid software such as Aqua Security, Qualys Container Security, Clair, Twist Lock for scanning your images before publishing. You must remove at least high and critical vulnerabilities to ensure high rate of passing. 
