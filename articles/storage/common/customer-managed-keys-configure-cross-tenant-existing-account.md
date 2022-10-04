@@ -119,9 +119,7 @@ After you've specified the key from the key vault in the customer's tenant, the 
 
 ### [PowerShell](#tab/azure-powershell)
 
-```azurepowershell
-
-```
+N/A
 
 ### [Azure CLI](#tab/azure-cli)
 
