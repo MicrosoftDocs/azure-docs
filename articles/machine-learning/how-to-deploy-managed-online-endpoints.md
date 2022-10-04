@@ -605,6 +605,8 @@ For more information on deployment logs, see [Get container logs](how-to-trouble
 
 ### Invoke the endpoint to score data by using your model
 
+# [Azure CLI](#tab/azure-cli)
+
 You can use either the `invoke` command or a REST client of your choice to invoke the endpoint and score some data: 
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint" :::
@@ -625,6 +627,28 @@ Notice we use `show` and `get-credentials` commands to get the authentication cr
 To see the invocation logs, run `get-logs` again.
 
 For information on authenticating using a token, see [Authenticate to online endpoints](how-to-authenticate-online-endpoint.md).
+
+
+# [Python](#tab/python)
+
+Using the `MLClient` created earlier, we'll get a handle to the endpoint. The endpoint can be invoked using the `invoke` command with the following parameters:
+
+* `endpoint_name` - Name of the endpoint
+* `request_file` - File with request data
+* `deployment_name` - Name of the specific deployment to test in an endpoint
+
+We'll send a sample request using a [json](https://github.com/Azure/azureml-examples/blob/v2samplesreorg/sdk/python/endpoints/online/model-1/sample-request.json) file.
+
+```python
+# test the blue deployment with some sample data
+ml_client.online_endpoints.invoke(
+    endpoint_name=online_endpoint_name,
+    deployment_name="blue",
+    request_file="../model-1/sample-request.json",
+)
+```
+
+---
 
 ### (Optional) Update the deployment
 
