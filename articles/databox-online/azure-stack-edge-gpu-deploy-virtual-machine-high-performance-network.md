@@ -81,7 +81,7 @@ In addition to the above prerequisites that are used for VM creation, you'll als
         ```
 
        > [!NOTE] 
-       > - In builds 2210 and higher, `Get-HcsNumaSpanning` will stop/move VMs internally. It will set the minrootConfig without changing the Numa spanning setting. This command will still trigger reboot, and you will see the VM stopped/moved. `Set-HcsNumaSpanning` -Enable $true/$false, will set the numa spanning setting. This is a disruptive command that will trigger reboot for all nodes. You will see the VM migration/VM stopped while this command is taking place.
+       > - In builds 2210 and higher, `Get-HcsNumaSpanning` will stop/move VMs internally. It will set the minrootConfig without changing the Numa spanning setting. This command will still trigger reboot, and you will see the VM stopped/moved. `Set-HcsNumaSpanning -Enable $true/$false`, will set the numa spanning setting. This is a disruptive command that will trigger reboot for all nodes. You will see the VM migration/VM stopped while this command is taking place.
        > - In builds 2209 and lower, you must stop all VMs before running this command. This command will set the minrootConfig and NumaSpanning flags. If the minRootConfig is all root, enable NumaSpanning. Otherwise, disable NumaSpanning.
     
     1. Get the `hostname` for your device. This should return a string corresponding to the device hostname.
