@@ -139,8 +139,8 @@ In order to eliminate a scenario where a single certificate matching multiple Az
 For example, if the tenant admin has two username bindings on PrincipalName mapped to Azure AD UPN  and SubjectKeyIdentifier(SKI) to certificateUserIds and wants a certificate to only be used for a single Azure AD Account, the admin must make sure that account has the UPN  that is present in the certificate and implements the SKI mapping in the same accounts certificateUserId attribute.
 
 Here is an example of potential values for UPN and certificateUserIDs:
-Azure AD User Principal Name = Bob.Smith@Contoso.com
-certificateUserIDs = [x509:\<SKI\>89b0f468c1abea65ec22f0a882b8fda6fdd6750p]
+Azure AD User Principal Name = Bob.Smith@Contoso.com <br>
+certificateUserIDs = [x509:\<SKI\>89b0f468c1abea65ec22f0a882b8fda6fdd6750p]<br>
 
 Having both PrincipalName and SKI values from the user's certificate mapped to the same account ensures that while the tenant policy permits only PrincipalName->AAD UPN & SKI -> certificateUserIds that certificate can only match a single Azure AD account 
 
