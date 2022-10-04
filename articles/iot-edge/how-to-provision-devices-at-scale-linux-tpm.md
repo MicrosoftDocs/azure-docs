@@ -178,64 +178,46 @@ Sign in to your device, and install the `tpm2-tools` package.
 # [Ubuntu / Debian / Raspberry Pi OS](#tab/ubuntu+debian+rpios)
 
 
-      ```bash
-      sudo apt-get install tpm2-tools
-      ```
+   ```bash
+   sudo apt-get install tpm2-tools
+   ```
 
 # [Red Hat Enterprise Linux](#tab/rhel)
 
 
-      ```bash
-      sudo yum install tpm2-tools
-      ```
+   ```bash
+   sudo yum install tpm2-tools
+   ```
 
 ---
 
 Run the following script to read the endorsement key, creating one if it does not already exist.
 
-      ```bash
-      #!/bin/sh
-      if [ "$USER" != "root" ]; then
-        SUDO="sudo "
-      fi
+   ```bash
+   #!/bin/sh
+   if [ "$USER" != "root" ]; then
+     SUDO="sudo "
+   fi
 
-      $SUDO tpm2_readpublic -Q -c 0x81010001 -o ek.pub 2> /dev/null
-      if [ $? -gt 0 ]; then
-        # Create the endorsement key (EK)
-        $SUDO tpm2_createek -c ek.ctx > /dev/null
-        $SUDO tpm2_evictcontrol -c ek.ctx 0x81010001 > /dev/null
-        $SUDO tpm2_readpublic -c 0x81010001 -o ek.pub > /dev/null
-        $SUDO tpm2_flushcontext -t > /dev/null
+   $SUDO tpm2_readpublic -Q -c 0x81010001 -o ek.pub 2> /dev/null
+   if [ $? -gt 0 ]; then
+     # Create the endorsement key (EK)
+     $SUDO tpm2_createek -c 0x81010001 -G rsa -u ek.pub
 
-        # Create a storage root key (SRK)
-        $SUDO tpm2_startauthsession --policy-session -S session.ctx > /dev/null
-        $SUDO tpm2_policysecret -S session.ctx -c 0x4000000B > /dev/null
-        $SUDO tpm2_create -C 0x81010001 \
-          -G rsa2048 \
-          -a 'restricted|decrypt|fixedtpm|fixedparent|sensitivedataorigin|userwithauth' \
-          -u srk.pub -r srk.priv \
-          -P session:session.ctx > /dev/null
-        $SUDO tpm2_flushcontext --transient-object > /dev/null
+     # Create the storage root key (SRK)
+     $SUDO tpm2_createprimary -Q -C o -c srk.ctx > /dev/null
 
-        # store the key
-        $SUDO tpm2_startauthsession -S session.ctx --policy-session > /dev/null
-        $SUDO tpm2_policysecret -S session.ctx -c 0x4000000B > /dev/null
-        $SUDO tpm2_load -C 0x81010001 \
-          -u srk.pub -r srk.priv \
-          -P session:session.ctx \
-          -c srk.ctx > /dev/null
+     # make the SRK persistent
+     $SUDO tpm2_evictcontrol -c srk.ctx 0x81000001 > /dev/null
 
-        # make the SRK persistent
-        $SUDO tpm2_evictcontrol -c srk.ctx 0x81000001 > /dev/null
+     # open transient handle space for the TPM
+     $SUDO tpm2_flushcontext -t > /dev/null
+   fi
 
-        # clean up
-        $SUDO rm session.ctx srk.pub srk.priv srk.ctx ek.ctx 2> /dev/null
-      fi
+   printf "Gathering the registration information...\n\nRegistration Id:\n%s\n\nEndorsement Key:\n%s\n" $(sha256sum -b ek.pub | cut -d' ' -f1 | sed -e 's/[^[:alnum:]]//g') $(base64 -w0 ek.pub)
+   $SUDO rm ek.pub srk.ctx 2> /dev/null
 
-      printf "Gathering the registration information...\n\nRegistration Id:\n%s\n\nEndorsement Key:\n%s\n" $(sha256sum -b ek.pub | cut -d' ' -f1 | sed -e 's/[^[:alnum:]]//g') $(base64 -w0 ek.pub)
-
-      $SUDO rm ek.pub 2> /dev/null
-      ```
+   ```
 
 The output window displays the device's **Endorsement key** and a unique **Registration ID**. Copy these values for use later when you create an individual enrollment for your device in the device provisioning service.
 
