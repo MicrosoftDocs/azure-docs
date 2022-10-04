@@ -138,7 +138,7 @@ After you've learned about Microsoft Sentinel content, start managing content an
 Discover and install solutions from the Microsoft Sentinel **Content hub**. For more information, see:
 
 - [Centrally discover and deploy out-of-the-box content and solutions (Public preview)](sentinel-solutions-deploy.md)
-- Microsoft Sentinel solutions catalog in the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=solution-templates&page=1&search=sentinel)
+- Microsoft Sentinel solutions catalog in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=solution-templates&page=1&search=sentinel)
 - [Microsoft Sentinel catalog](sentinel-solutions-catalog.md)
 - [Microsoft Sentinel data connectors](connect-data-sources.md)
 - [Find your Microsoft Sentinel data connector](data-connectors-reference.md)

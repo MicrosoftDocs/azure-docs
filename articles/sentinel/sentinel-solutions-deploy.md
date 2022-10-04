@@ -123,7 +123,7 @@ When contacting support, you may need other details about your solution, such as
 In this document, you learned about Microsoft Sentinel solutions and how to find and deploy built-in content.
 
 - Learn more about [Microsoft Sentinel solutions](sentinel-solutions.md).
-- See the full Microsoft Sentinel solutions catalog in the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=solution-templates&page=1&search=sentinel).
+- See the full Microsoft Sentinel solutions catalog in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=solution-templates&page=1&search=sentinel).
 - Find domain specific solutions in the [Microsoft Sentinel content hub catalog](sentinel-solutions-catalog.md).
 - [Delete installed Microsoft Sentinel out-of-the-box content and solutions (public preview)](sentinel-solutions-delete.md)
 

@@ -49,7 +49,7 @@ For more information, see [Tutorial: Investigate Microsoft Defender for IoT devi
 
 ### Ingest GitHub logs into your Microsoft Sentinel workspace (Public preview)
 
-Use the new [Continuous Threat Monitoring for GitHub](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftcorporation1622712991604.sentinel4github?tab=Overview) solution and [data connector](data-connectors-reference.md#github-preview) to ingest your GitHub logs into your Microsoft Sentinel workspace.
+Use the new [Continuous Threat Monitoring for GitHub](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftcorporation1622712991604.sentinel4github?tab=Overview) solution and [data connector](data-connectors-reference.md#github-preview) to ingest your GitHub logs into your Microsoft Sentinel workspace.
 
 The **Continuous Threat Monitoring for GitHub** solution includes a data connector, relevant analytics rules, and a workbook that you can use to visualize your log data.
 

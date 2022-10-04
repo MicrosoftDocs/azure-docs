@@ -2042,6 +2042,6 @@ You can find the value of your workspace ID on the ZScaler Private Access connec
 
 For more information, see:
 
-- Solutions catalog for Microsoft Sentinel in the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=solution-templates&page=1&search=sentinel)
+- Solutions catalog for Microsoft Sentinel in the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=solution-templates&page=1&search=sentinel)
 - [Microsoft Sentinel solution catalog for domain content](sentinel-solutions-catalog.md)
 - [Threat intelligence integration in Microsoft Sentinel](threat-intelligence-integration.md)
