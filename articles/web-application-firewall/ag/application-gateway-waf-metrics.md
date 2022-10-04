@@ -24,7 +24,7 @@ WAF with Application Gateway provides detailed reporting on each threat it detec
 
 ![WAFDiag](../media/waf-appgateway-metrics/waf-appgateway-diagnostic.png)
 
-For additional information on diagnostics log, visit [Application Gateway WAF resource logs](../ag/web-application-firewall-logs.md).  If logging is enabled and a WAF rule is triggered, any matching patterns are logged in plain text to assist customers with analyzing and debugging the WAF policy behavior. You can use exceptions to fine tune rules and exclude any data that you want to be excluded from the logs. For more information, see [Web application firewall exclusion lists in Azure Application Gateway](../ag/application-gateway-waf-configuration.md).
+For additional information on diagnostics log, visit [Application Gateway WAF resource logs](../ag/web-application-firewall-logs.md).  If logging is enabled and a WAF rule is triggered, any matching patterns are logged in plain text to assist customers with analyzing and debugging the WAF policy behavior. You can use exclusions to fine tune rules and exclude any data that you want to be excluded from the logs. For more information, see [Web application firewall exclusion lists in Azure Application Gateway](../ag/application-gateway-waf-configuration.md).
 
 
 
