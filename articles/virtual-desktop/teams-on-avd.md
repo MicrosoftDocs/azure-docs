@@ -161,20 +161,12 @@ Using Teams in a virtualized environment is different from using Teams in a non-
 
 ### Calls and meetings
 
-- The Teams desktop client in Azure Virtual Desktop environments doesn't support creating live events, but you can join live events. For now, we recommend you create live events from the [Teams web client](https://teams.microsoft.com) in your remote session instead. When watching a live event in the browser, [enable multimedia redirection (MMR) for Teams live events](multimedia-redirection.md#teams-live-events) for smoother playback.
-- Calls or meetings don't currently support application sharing. Desktop sessions support desktop sharing.
 - Due to WebRTC limitations, incoming and outgoing video stream resolution is limited to 720p.
 - The Teams app doesn't support HID buttons or LED controls with other devices.
-- New Meeting Experience (NME) isn't currently supported in VDI environments.
 - Teams for Azure Virtual Desktop doesn't currently support uploading custom background images.
+- Teams for Azure Virtual Desktop doesn’t currently support screenshots for incoming videos from the VM. As a workaround, we recommend you minimize the session desktop window and screenshot from the client machine instead. 
 
 For Teams known issues that aren't related to virtualized environments, see [Support Teams in your organization](/microsoftteams/known-issues).
-
-### Known issues for Teams for macOS
-
-- You can't configure audio devices from the Teams app, and the client will automatically use the default client audio device. To switch audio devices, you'll need to configure your settings from the client audio preferences instead.
-- Teams for Azure Virtual Desktop on macOS doesn't currently support background effects such as background blur and background images.
-- Give control and take control aren't currently supported.
 
 ## Collect Teams logs
 
