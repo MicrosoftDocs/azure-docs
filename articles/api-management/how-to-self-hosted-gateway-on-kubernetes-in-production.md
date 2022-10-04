@@ -136,6 +136,17 @@ Consider protecting the self-hosted gateway against [disruption](https://kuberne
 > 
 > Learn more on how to [install an API Management self-hosted gateway on Kubernetes with Helm](how-to-deploy-self-hosted-gateway-kubernetes-helm.md).
 
+## HTTP(S) Proxy
+
+The self-hosted gateway provides support for HTTP(S) proxy by using the traditional `HTTP_PROXY`, `HTTPS_PROXY` and `NO_PROXY` environment variables.
+
+Once configured, the self-hosted gateway will automatically use the proxy for all outbound HTTP(S) requests to the backend services.
+
+Starting with version 2.1.5 or above, the self-hosted gateway provides observability related to request proxying:
+
+- [API Inspector](api-management-howto-api-inspector.md) will show additional steps when HTTP(S) proxy is being used and its related interactions.
+- Verbose logs are provided to provide indication of the request proxy behavior.
+
 ### Protecting against node failure
 To prevent being affected due to data center or node failures, consider using a Kubernetes cluster that uses availability zones to achieve high availability on the node-level.
 
