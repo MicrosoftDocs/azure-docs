@@ -123,7 +123,7 @@ In the following samples, replace example parameter names such as *myResourceGro
     ```
 
 
-## Expand the disk partition and filesystem
+## Expand a disk partition and filesystem
 > [!NOTE]
 > While there are several tools that may be used for performing the partition resizing, the tools selected here are the same tools used by certain automated processes such as cloud-init.  Using the ```parted``` tool also provides more universal compatibility with GPT disks, as older versions of some tools such as ```fdisk``` did not support the GUID Partition Table (GPT).
 
