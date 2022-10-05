@@ -34,34 +34,11 @@ Custom container deployments can use web servers other than the default Python F
 
 ## Prerequisites
 
-* You must have an Azure resource group, in which you (or the service principal you use) need to have `Contributor` access. You'll have such a resource group if you configured your ML extension per the above article. 
+[!INCLUDE [cli & sdk](../../includes/machine-learning-cli-sdk-v2-prereqs.md)]
 
-* You must have an Azure Machine Learning workspace. You'll have such a workspace if you configured your ML extension per the above article.
+* You, or the service principal you use, must have `Contributor` access to the Azure Resource Group that contains your workspace. You'll have such a resource group if you configured your workspace using the quickstart article.
 
 * To deploy locally, you must have [Docker engine](https://docs.docker.com/engine/install/) running locally. This step is **highly recommended**. It will help you debug issues.
-
-# [Azure CLI](#tab/cli)
-
-* Install and configure the Azure CLI and ML extension. For more information, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md). 
-
-* If you've not already set the defaults for Azure CLI, you should save your default settings. To avoid having to repeatedly pass in the values, run:
-
-   ```azurecli
-   az account set --subscription <subscription id>
-   az configure --defaults workspace=<azureml workspace name> group=<resource group>
-   ```
-
-# [Python SDK](#tab/python)
-
-* If you haven't installed Python SDK v2, please install with this command:
-
-  ```azurecli
-  pip install --pre azure-ai-ml
-  ```
-
-  For more information, see [Install the Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ml/installv2).
-
----
 
 ## Download source code
 
@@ -78,8 +55,10 @@ cd azureml-examples/cli
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
-cd azureml-examples/sdk/endpoints/online/custom-container
+cd azureml-examples/sdk
 ```
+
+See also [the example notebook](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/custom-container/online-endpoints-custom-container.ipynb) but note that `3. Test locally` section in the notebook assumes to run under the `azureml-examples/sdk` directory.
 
 ---
 
@@ -370,7 +349,7 @@ Using the `MLClient` created earlier, we will get a handle to the endpoint. The 
 - `request_file` - File with request data
 - `deployment_name` - Name of the specific deployment to test in an endpoint
 
-We will send a sample request using a json file. The sample json is in the [example repository](https://github.com/Azure/azureml-examples/tree/main/sdk/endpoints/online/custom-container).
+We will send a sample request using a json file. The sample json is in the [example repository](https://github.com/Azure/azureml-examples/tree/v2samplesreorg/sdk/python/endpoints/online/custom-container).
 
 ```python
 # test the blue deployment with some sample data

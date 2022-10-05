@@ -58,6 +58,7 @@ For Dynamics 365 specifically, the following application types are supported:
 - Dynamics 365 for Field Service
 - Dynamics 365 for Project Service Automation
 - Dynamics 365 for Marketing
+
 This connector doesn't support other application types like Finance, Operations, and Talent.
 
 >[!TIP]

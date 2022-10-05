@@ -24,6 +24,9 @@ The tasks are as follows:
 
 Using X.509 certificates as an attestation mechanism is an excellent way to scale production and simplify device provisioning. Typically, X.509 certificates are arranged in a certificate chain of trust. Starting with a self-signed or trusted root certificate, each certificate in the chain signs the next lower certificate. This pattern creates a delegated chain of trust from the root certificate down through each intermediate certificate to the final "leaf" certificate installed on a device.
 
+> [!TIP]
+> If your device has a Hardware Security Module (HSM) such as a TPM 2.0, then we recommend storing the X.509 keys securely in the HSM. Learn more about how to implement the zero-touch provisioning at scale described in [this blueprint](https://azure.microsoft.com/blog/the-blueprint-to-securely-solve-the-elusive-zerotouch-provisioning-of-iot-devices-at-scale) with the [iotedge-tpm2cloud](https://aka.ms/iotedge-tpm2cloud) sample.
+
 ## Prerequisites
 
 <!-- Cloud resources prerequisites H3 and content -->
