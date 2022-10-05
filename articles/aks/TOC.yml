@@ -346,8 +346,6 @@
                   href: csi-secrets-store-identity-access.md
                 - name: Configure TLS for NGINX ingress controller
                   href: csi-secrets-store-nginx-tls.md
-                - name: Troubleshooting
-                  href: csi-secrets-store-troubleshooting.md
     - name: Configure private clusters
       items:
       - name: Create a private cluster
@@ -487,8 +485,6 @@
               href: dapr.md
             - name: Migrate from Dapr OSS
               href: dapr-migration.md
-            - name: Troubleshoot the Dapr extension
-              href: dapr-troubleshooting.md
         - name: Use GitOps
           href: ../azure-arc/kubernetes/tutorial-use-gitops-flux2.md
           maintainContext: true
@@ -546,18 +542,6 @@
           href: automated-deployments.md
         - name: CI/CD with Azure Pipelines
           href: ../aks/devops-pipeline.md
-    - name: Troubleshoot
-      items:
-        - name: Common issues
-          href: troubleshooting.md
-        - name: Node access
-          href: node-access.md
-        - name: Linux performance tools
-          href: troubleshoot-linux.md
-        - name: Check for Resource Health events (preview)
-          href: aks-resource-health.md
-        - name: Azure Kubernetes Service Diagnostics (preview)
-          href: concepts-diagnostics.md
 - name: Reference
   items:
     - name: Azure CLI
@@ -599,3 +583,5 @@
       href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
     - name: FAQ
       href: faq.md
+- name: Support and troubleshooting
+  href: aks-support-help.md
