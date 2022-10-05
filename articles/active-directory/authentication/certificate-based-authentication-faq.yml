@@ -128,6 +128,18 @@ sections:
           Will the changes to the Authentication methods policy take effect immediately?
         answer: |
           The policy is cached. After a policy update, it may take up to an hour for the changes to take effect.
+          
+      - question: |
+          CertificateUserIds update fails with value already there. How can an admin query all the user objects with the same value?
+        answer: |
+          Tenant admins can run MS Graph queries to find all the users with a given certificateUserId value
+          
+          GET all user objects that have the value 'bob@contoso.com' value in certificateUserIds:
+
+           ```http
+           GET  https://graph.microsoft.com/v1.0/users?$filter=certificateUserIds/any(x:x eq 'bob@contoso.com')
+           ```
+
        
           
 additionalContent: |
