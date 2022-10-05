@@ -104,9 +104,7 @@ Opening the App Service’s URL and navigating to `https://<YOUR URL>/VISIT` all
 
 ### Step 5 - Set deployed app URL in Bookings 
 
-Copy your application url into your calendar Business information setting by going to https://outlook.office.com/bookings/businessinformation.
-
-![Screenshot of final view of bookings business information.](./media/virtual-visits/bookings-acs-app-integration-url.png)
+Enter the application url followed by "/visit" in the "Deployed App URL" field in https://outlook.office.com/bookings/businessinformation.
 
 ## Going to production
 The Sample Builder gives you the basics of a Microsoft 365 and Azure virtual visit: consumer scheduling via Bookings, consumer joins via custom app, and the provider joins via Teams. However, there are several things to consider as you take this scenario to production.
