@@ -140,6 +140,23 @@ You can use the following expression for mapping to SKI and SHA1-PUKEY:
 & IIF(Contains([alternativeSecurityId],"x509:\<SHA1-PUKEY>")>0,[alternativeSecurityId],Error("No altSecurityIdentities SHA1-PUKEY match found."))
 ```
 
+## MS Graph queries to look up certificateUserIds
+
+Tenant admins can run MS Graph queries to find all the users with a given certificateUserId value
+          
+GET all user objects that have the value 'bob@contoso.com' value in certificateUserIds:
+
+ ```http
+GET  https://graph.microsoft.com/v1.0/users?$filter=certificateUserIds/any(x:x eq 'bob@contoso.com')
+ ```
+ 
+  ```http
+ GET https://graph.microsoft.com/v1.0/users?$filter=startswith(certificateUserIds, 'bob@contoso.com')
+ ```
+  ```http
+GET https://graph.microsoft.com/v1.0/users?$filter=certificateUserIds eq 'bob@contoso.com'
+ ```
+            
 ## Next steps
 
 - [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
