@@ -130,7 +130,7 @@
               href: operator-best-practices-cluster-isolation.md
             - name: Basic scheduler features
               href: operator-best-practices-scheduler.md
-            - name: Running AKS slusters at scale
+            - name: Running AKS clusters at scale
               href: operator-best-practices-running-at-scale.md
             - name: Advanced scheduler features
               href: operator-best-practices-advanced-scheduler.md
