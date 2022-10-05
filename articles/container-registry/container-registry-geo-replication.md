@@ -88,6 +88,9 @@ To configure additional replicas, select the green hexagons for other regions, t
 
 ACR begins syncing images across the configured replicas. Once complete, the portal reflects *Ready*. The replica status in the portal doesn't automatically update. Use the refresh button to see the updated status.
 
+> [!NOTE]
+> * Sometimes, even replica is in *Ready* status, images are downloaded from original location. It is recommended to *Delete/Create* the replica again. It will then work as expected (for limited time, usually few weeks). Then you need to *Delete/Create* again.
+
 ## Considerations for using a geo-replicated registry
 
 * Each region in a geo-replicated registry is independent once set up. Azure Container Registry SLAs apply to each geo-replicated region.
