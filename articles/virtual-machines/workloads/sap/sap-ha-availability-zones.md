@@ -131,7 +131,7 @@ The following considerations apply for this configuration:
   - For SUSE Linux, an NFS share that's built as documented in [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).
 	
     Currently, the solution that uses Microsoft Scale-Out File Server, as documented in [Prepare Azure infrastructure for SAP high availability by using a Windows failover cluster and file share for SAP ASCS/SCS instances](./sap-high-availability-infrastructure-wsfc-file-share.md), is not supported across zones.
-- The third zone is used to host the SBD device if you build a [SUSE Linux Pacemaker cluster](./high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-stonith-device) and use SBD devices instead of the Azure Fencing Agent. Or for additional application instances.
+- The third zone is used to host the SBD device if you build a [SUSE Linux Pacemaker cluster](./high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-device) and use SBD devices instead of the Azure Fencing Agent. Or for additional application instances.
 - To achieve run time consistency for critical business processes, you can try to direct certain batch jobs and users to application instances that are in-zone with the active DBMS instance by using SAP batch server groups, SAP logon groups, or RFC groups. However, in the case of a zonal failover, you would need to manually move these groups to instances running on VMs that are in-zone with the active DB VM.  
 - You might want to deploy dormant dialog instances in each of the zones. 
 
@@ -170,7 +170,7 @@ The following considerations apply for this configuration:
 	- For SUSE Linux, an NFS share that's built as documented in [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).
 	
   Currently, the solution that uses Microsoft Scale-Out File Server, as documented in [Prepare Azure infrastructure for SAP high availability by using a Windows failover cluster and file share for SAP ASCS/SCS instances](./sap-high-availability-infrastructure-wsfc-file-share.md), is not supported across zones.
-- The third zone is used to host the SBD device if you build a [SUSE Linux Pacemaker cluster](./high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-stonith-device) and use SBD devices instead of the Azure Fencing Agent. Or for  additional application instances.
+- The third zone is used to host the SBD device if you build a [SUSE Linux Pacemaker cluster](./high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-device) and use SBD devices instead of the Azure Fencing Agent. Or for  additional application instances.
 - You should deploy dormant VMs in the passive zone (from a DBMS point of view) so you can start application resources for the case of a zone failure.
 	- [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) is currently unable to replicate active VMs to dormant VMs between zones. 
 - You should invest in automation that allows you to automatically start the SAP application layer in the second zone if a zonal outage occurs.
@@ -200,7 +200,7 @@ The following considerations apply for this configuration:
 	- For SUSE Linux, an NFS share that's built as documented in [High availability for NFS on Azure VMs on SUSE Linux Enterprise Server](./high-availability-guide-suse-nfs.md).
 
   Currently, the solution that uses Microsoft Scale-Out File Server, as documented in [Prepare Azure infrastructure for SAP high availability by using a Windows failover cluster and file share for SAP ASCS/SCS instances](./sap-high-availability-infrastructure-wsfc-file-share.md), is not supported across zones.
-- The third zone is used to host the SBD device if you build a [SUSE Linux Pacemaker cluster](./high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-stonith-device) and use SBD devices instead of the Azure Fencing Agent. 
+- The third zone is used to host the SBD device if you build a [SUSE Linux Pacemaker cluster](./high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-device) and use SBD devices instead of the Azure Fencing Agent. 
 
 
 

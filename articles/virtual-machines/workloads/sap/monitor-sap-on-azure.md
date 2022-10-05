@@ -50,7 +50,7 @@ Data collection in AMS depends on the providers that you configure. During publi
 
 High availability (HA) Pacemaker cluster data includes:
 
-- Node, resource, and STONITH block device (SBD) status
+- Node, resource, and SBD status
 - Pacemaker location constraints
 - Quorum votes and ring status
 

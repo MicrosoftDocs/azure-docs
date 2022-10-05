@@ -282,8 +282,6 @@ items:
         href: auth0-how-to.md
       - name: Subscribe to Microsoft Graph API events
         href: subscribe-to-graph-api-events.md
-      - name: Deliver events to partner destinations
-        href: deliver-events-to-partner-destinations.md
       - name: Enable managed identity for a partner topic
         href: enable-identity-partner-topic.md
     - name: Get access keys for topics or domains
@@ -392,8 +390,8 @@ items:
       href: sdk-overview.md
   - name: Resources
     items:
-    - name: Build your skills with Microsoft Learn
-      href: /learn/browse/?products=azure-event-grid
+    - name: Build your skills with Microsoft Learn training
+      href: /training/browse/?products=azure-event-grid
     - name: FAQ
       href: event-grid-faq.yml
     - name: Azure Roadmap

@@ -172,13 +172,7 @@ if(timeout)
 }
 ```
 
-| Status Name | Description |
-| ----------- | ------------|
-| Queued | The email has been placed in the queue for delivery. |
-| OutForDelivery | The email is currently en route to its recipient(s). |
-| Dropped | The email message was dropped before the delivery could be successfully completed. |
-
-
+[!INCLUDE [Email Message Status](./email-message-status.md)]
 
 ## Run the code
 
@@ -199,3 +193,66 @@ if(timeout)
    ```console
    mvn exec:java -Dexec.mainClass="com.communication.quickstart.App" -Dexec.cleanupDaemonThreads=false
    ```
+
+## Sample code
+
+You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email)
+
+## Advanced
+
+### Send an email message to multiple recipients
+
+We can define multiple recipients by adding additional EmailAddresses to the EmailRecipients object. These addresses can be added as `To`, `CC`, or `BCC` recipients.
+
+```java
+EmailAddress toEmailAddress1 = new EmailAddress("<emailalias1@emaildomain.com>");
+EmailAddress toEmailAddress2 = new EmailAddress("<emailalias2@emaildomain.com>");
+
+EmailAddress ccEmailAddress = new EmailAddress("<ccemailalias@emaildomain.com>");
+EmailAddress bccEmailAddress = new EmailAddress("<bccemailalias@emaildomain.com>");
+
+ArrayList<EmailAddress> toAddressList = new ArrayList<>();
+toAddressList.add(toEmailAddress1);
+toAddressList.add(toEmailAddress2);
+
+ArrayList<EmailAddress> ccAddressList = new ArrayList<>();
+ccAddressList.add(ccEmailAddress);
+
+ArrayList<EmailAddress> bccAddressList = new ArrayList<>();
+bccAddressList.add(bccEmailAddress);
+
+EmailRecipients emailRecipients = new EmailRecipients(toAddressList)
+    .setCc(ccAddressList)
+    .setBcc(bccAddressList);
+```
+
+You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email-advanced/send-email-multiple-recipients)
+
+
+### Send an email message with attachments
+
+We can add an attachment by defining an EmailAttachment object and adding it to our EmailMessage object. Read the attachment file and encode it using Base64.
+
+```java
+File file = new File("<your-attachment-path>");
+
+byte[] fileContent = null;
+try {
+    fileContent = Files.readAllBytes(file.toPath());
+} catch (Exception e) {
+    System.out.println(e);
+}
+
+String b64file = Base64.getEncoder().encodeToString(fileContent);
+
+EmailAttachment attachment = new EmailAttachment("<your-attachment-name>", "<your-attachment-file-type>", b64file);
+
+ArrayList<EmailAttachment> attachmentList = new ArrayList<>();
+attachmentList.add(attachment);
+
+EmailMessage emailMessage = new EmailMessage("<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>", content)
+    .setRecipients(emailRecipients)
+    .setAttachments(attachmentList);
+```
+
+You can download the sample app demonstrating this from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email-advanced/send-email-attachments)

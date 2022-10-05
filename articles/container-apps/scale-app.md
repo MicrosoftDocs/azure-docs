@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: conceptual
-ms.date: 06/10/2022
+ms.date: 09/27/2022
 ms.author: cshoe
 ms.custom: ignite-fall-2021
 ---
@@ -38,6 +38,7 @@ There are two scale properties that apply to all rules in your container app:
 Azure Container Apps supports the following scale triggers:
 
 - [HTTP traffic](#http): Scaling based on the number of concurrent HTTP requests to your revision.
+- [TCP traffic](#tcp): Scaling based on the number of concurrent TCP requests to your revision.
 - [Event-driven](#event-driven): Event-based triggers such as messages in an Azure Service Bus.
 - [CPU](#cpu) or [Memory](#memory) usage: Scaling based on the amount of CPU or memory consumed by a replica.
 
@@ -102,6 +103,43 @@ In the following example, the container app scales out up to five replicas and c
 1. Select **Create** when you're done.
 
     :::image type="content" source="media/scalers/create-http-scale-rule.png" alt-text="A screenshot showing the newly created http scale rule.":::
+
+## TCP
+
+With a TCP scaling rule, you have control over the threshold that determines when to scale out.
+
+| Scale property | Description | Default value | Min value | Max value |
+|---|---|---|---|---|
+| `concurrentRequests`| When the number of requests exceeds this value, then another replica is added. Replicas will continue to be added up to the `maxReplicas` amount as the number of concurrent requests increase. | 10 | 1 | n/a |
+
+In the following example, the container app scales out up to five replicas and can scale down to zero. The scaling threshold is set to 100 concurrent requests per second.
+
+```json
+{
+  ...
+  "resources": {
+    ...
+    "properties": {
+      ...
+      "template": {
+        ...
+        "scale": {
+          "minReplicas": 0,
+          "maxReplicas": 5,
+          "rules": [{
+            "name": "tcp-rule",
+            "tcp": {
+              "metadata": {
+                  "concurrentRequests": "100"
+              }
+            }
+          }]
+        }
+      }
+    }
+  }
+}
+```
 
 ## Event-driven
 
