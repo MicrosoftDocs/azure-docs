@@ -16,7 +16,7 @@ Azure Kubernetes Fleet Manager is meant to solve at-scale and multi-cluster prob
 
 ## Relationship between Fleet and Azure Kubernetes Service clusters
 
-[ ![Relationship between Fleet and AKS](./media/conceptual-fleet-aks-relationship.png) ](./media/conceptual-fleet-aks-relationship.png#lightbox)
+[ ![Diagram that shows relationship between Fleet and Azure Kubernetes Service clusters](./media/conceptual-fleet-aks-relationship.png) ](./media/conceptual-fleet-aks-relationship.png#lightbox)
 
 Fleet supports joining the following types of existing AKS clusters as member clusters:
 
@@ -50,11 +50,11 @@ The following labels are added automatically to all member clusters, which can t
 
 Fleet provides `ClusterResourcePlacement` as a mechanism to control how cluster-scoped Kubernetes resources are propagated to member clusters. 
 
-[ ![Kubernetes resource propgation to member clusters](./media/conceptual-resource-propagation.png) ](./media/conceptual-resource-propagation.png#lightbox)
+[ ![Diagram that shows how Kubernetes resource are propagated to member clusters.](./media/conceptual-resource-propagation.png) ](./media/conceptual-resource-propagation.png#lightbox)
 
 A `ClusterResourcePlacement` has two parts to it:
 
-1. **Resource selection**: The `ClusterResourcePlacement` custom resource is used to select which cluster-scoped Kubernetes resource objects need to be propagated from the fleet cluster and to select which member clusters to propagate these objects to. It supports the following forms of resource selection:
+* **Resource selection**: The `ClusterResourcePlacement` custom resource is used to select which cluster-scoped Kubernetes resource objects need to be propagated from the fleet cluster and to select which member clusters to propagate these objects to. It supports the following forms of resource selection:
     * Select resources by specifying just the *<group, version, kind>*. This selection propagates all resources with matching *<group, version, kind>*.
     * Select resources by specifying the *<group, version, kind>* and name. This selection propagates only one resource that matches the *<group, version, kind>* and name.
     * Select resources by specifying the *<group, version, kind>* and a set of labels using `ClusterResourcePlacement` -> `LabelSelector`. This selection propagates all resources that match the *<group, version, kind>* and label specified.
@@ -62,7 +62,7 @@ A `ClusterResourcePlacement` has two parts to it:
     > [!NOTE]
     > `ClusterResourcePlacement` can be used to select and propagate namespaces, which are cluster-scoped resources. When a namespace is selected, all the namespace-scoped objects under this namespace are propagated to the selected member clusters along with this namespace. 
 
-1. **Target cluster selection**: The `ClusterResourcePlacement` custom resource can also be used to limit propagation of selected resources to a specific subset of member clusters. The following forms of target cluster selection are supported:
+* **Target cluster selection**: The `ClusterResourcePlacement` custom resource can also be used to limit propagation of selected resources to a specific subset of member clusters. The following forms of target cluster selection are supported:
 
     * Select all the clusters by specifying empty policy under `ClusterResourcePlacement`
     * Select clusters by listing names of `MemberCluster` custom resources
@@ -72,7 +72,7 @@ A `ClusterResourcePlacement` has two parts to it:
 
 Fleet can be used to set up layer 4 multi-cluster load balancing across workloads deployed across a fleet's member clusters.
 
-[ ![Multi-cluster load balancing](./media/conceptual-load-balancing.png) ](./media/conceptual-load-balancing.png#lightbox)
+[ ![Diagram that shows how multi-cluster load balancing works.](./media/conceptual-load-balancing.png) ](./media/conceptual-load-balancing.png#lightbox)
 
 For multi-cluster load balancing, Fleet requires target clusters to be using [Azure CNI networking](../aks/configure-azure-cni.md). Azure CNI networking enables pod IPs to be directly addressable on the Azure virtual network so that they can be routed to from the Azure Load Balancer.
 

@@ -1,5 +1,5 @@
 ---
-title: "Frequently Asked Questions - Azure Kubernetes Fleet Manager"
+title: "Frequently asked questions - Azure Kubernetes Fleet Manager"
 description: This article covers the frequently asked questions for Azure Kubernetes Fleet Manager
 ms.date: 10/03/2022
 author: shashankbarsin
@@ -9,6 +9,8 @@ ms.topic: conceptual
 ---
 
 # Frequently Asked Questions - Azure Kubernetes Fleet Manager
+
+This article covers the frequently asked questions for Azure Kubernetes Fleet Manager.
 
 [!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
@@ -30,9 +32,9 @@ During preview, you can join up to 20 AKS clusters as member clusters to the sam
 
 Fleet supports joining the following types of AKS clusters as member clusters:
 
-1. AKS clusters across same or different resource groups within same subscription
-1. AKS clusters across different subscriptions of the same Azure AD tenant
-1. AKS clusters from different regions but within the same tenant
+* AKS clusters across same or different resource groups within same subscription
+* AKS clusters across different subscriptions of the same Azure AD tenant
+* AKS clusters from different regions but within the same tenant
 
 ## Relationship to Azure-Arc enabled Kubernetes
 
