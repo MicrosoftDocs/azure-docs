@@ -17,7 +17,8 @@ Before you can run any of the following CLI commands, you'll need access to the 
 
 Each activity listed below is accessible by a different set of privileged users, including the *cyberx*, *support*, or *cyber_x_host* users. Command syntax is listed only for the users supported for a specific activity.
 
-We recommend that you use the *support* user for CLI access whenever possible.
+>[!TIP]
+>We recommend that you use the *support* user for CLI access whenever possible.
 
 For more information, see [Access the CLI](cli-overview.md#access-the-cli) and [Privileged user access for OT monitoring](cli-overview.md#privileged-user-access-for-ot-monitoring).
 
