@@ -11,7 +11,7 @@ ms.date: 09/29/2022
 
 # Read replicas in Azure Database for PostgreSQL - Flexible Server
 
-[!INCLUDE [applies-to-postgresql-single-server](../includes/applies-to-postgresql-single-server.md)]
+[!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
 The read replica feature allows you to replicate data from an Azure Database for PostgreSQL server to a read-only server. Replicas are updated **asynchronously** with the PostgreSQL engine native physical replication technology. You can replicate from the primary server to up to five replicas.
 
@@ -81,7 +81,7 @@ The replica inherits the admin account from the primary server. All user account
 You can connect to the replica by using its hostname and a valid user account, as you would on a regular Azure Database for PostgreSQL server. For a server named **my replica** with the admin username **myadmin**, you can connect to the replica by using psql:
 
 ```bash
-psql -h myreplica.postgres.database.azure.com -U myadmin -d postgres
+psql -h myreplica.postgres.database.azure.com -U myadmin postgres
 ```
 
 At the prompt, enter the password for the user account.
@@ -157,9 +157,9 @@ Read replicas and [logical decoding](concepts-logical.md) both depend on the Pos
 
 To configure the right level of logging, use the Azure replication support parameter. Azure replication support has three setting options:
 
-* **Off** - Puts the least information in the WAL. This setting is not available on most Azure Database for PostgreSQL servers.  
-* **Replica** - More verbose than **Off**. This is the minimum level of logging needed for [read replicas](concepts-read-replicas.md) to work. This setting is the default on most servers.
-* **Logical** - More verbose than **Replica**. This is the minimum level of logging for logical decoding to work. Read replicas also work at this setting.
+* **Minimal** - Puts the least information in the WAL. This setting is not available on most Azure Database for PostgreSQL servers.  
+* **Replica** - More verbose than **Minimal**. This is the minimum level of logging needed for [read replicas](concepts-read-replicas.md) to work. This setting is the default on most servers.
+* **Logical** - More verbose than **Replica**. This is the minimum level of logging for logical replication to work. Read replicas also work at this setting.
 
 ### New replicas
 
