@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, azla
 ms.topic: how-to
-ms.date: 08/20/2022
+ms.date: 10/04/2022
 
 #Customer intent: As a software developer, I want to install and set up the on-premises data gateway so that I can create logic app workflows that can access data in on-premises systems.
 ---
@@ -83,6 +83,10 @@ This article shows how to download, install, and set up your on-premises data ga
     > To continue using your Azure Government account, but set up the gateway to work in the global multi-tenant Azure Commercial cloud instead, first sign 
     > in during gateway installation with the `prod@microsoft.com` username. This solution forces the gateway to use the global multi-tenant Azure cloud, 
     > but still lets you continue using your Azure Government account.
+    >
+    > The Azure gateway resource, which you create later, and your logic app resource must use the same Azure subscription, although these resources can exist in  different resource groups.
+
+  * Your logic app resource and the Azure gateway resource, which you create after you install the gateway, must use the same Azure subscription. However, these resources can exist in different Azure resource groups.
 
   * If you're updating your gateway installation, uninstall your current gateway first for a cleaner experience.
 
