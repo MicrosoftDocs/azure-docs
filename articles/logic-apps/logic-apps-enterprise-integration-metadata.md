@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/17/2019
+ms.date: 10/7/2022
 #Customer intent: As a Logic Apps user, I want to define custom metadata for integration account artifacts so that my logic app can use that metadata.
 ---
 
@@ -33,50 +33,47 @@ that has the artifacts where you want to add metadata, for example:
   * [Schema](logic-apps-enterprise-integration-schemas.md)
   * [Map](logic-apps-enterprise-integration-maps.md)
 
-* A logic app that's linked to the integration account 
-and artifact metadata you want to use. If your logic app 
-isn't already linked, learn [how to link logic apps to integration accounts](logic-apps-enterprise-integration-create-integration-account.md#link-account). 
+* A logic app that's linked to the integration account with the artifact metadata that you want to use.
+  * If you don't have a logic app, learn [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  * If you have a logic app that's not linked to an integration account, learn [how to link logic apps to integration accounts](logic-apps-enterprise-integration-create-integration-account.md#link-account). 
 
-  If you don't have a logic app yet, learn [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
-  Add the trigger and actions you want to use for managing 
-  artifact metadata. Or, to just try things out, add a trigger 
-  such as **Request** or **HTTP** to your logic app.
+* A trigger in your logic app, such as **Request** or **HTTP**, or an action that you can use to manage artifact metadata.
 
 ## Add metadata to artifacts
 
 1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
 with your Azure account credentials. Find and open your integration account.
 
-1. Select the artifact where you want to add metadata, 
-and choose **Edit**. Enter the metadata details for 
-that artifact, for example:
+1. Select the artifact where you want to add metadata, and then select **Edit**. 
 
-   ![Enter metadata](media/logic-apps-enterprise-integration-metadata/add-partner-metadata.png)
+   :::image type="content" source="media/logic-apps-enterprise-integration-metadata/edit-partner-metadata.png" alt-text="Screenshot of the Partners page of an integration account in the Azure portal. A partner named TradingPartner1 and Edit are called out.":::
 
-1. When you're done, choose **OK**.
+1. In the **Edit** window, enter the metadata details for that artifact, and then select **OK**. For example, see the following screenshot:
+
+   :::image type="content" source="media/logic-apps-enterprise-integration-metadata/add-partner-metadata.png" alt-text="Screenshot of the Edit page for TradingPartner1. Under Metadata, three key-value pairs are called out. The OK button is also called out.":::
 
 1. To view this metadata in the JavaScript Object Notation (JSON) 
-definition for the integration account, choose **Edit as JSON** 
+definition for the integration account, select **Edit as JSON** 
 so that the JSON editor opens: 
 
-   ![JSON for partner metadata](media/logic-apps-enterprise-integration-metadata/partner-metadata.png)
+   :::image type="content" source="media/logic-apps-enterprise-integration-metadata/partner-metadata.png" alt-text="Screenshot of the JSON code that contains information about TradingPartner1. Under the metadata line, three key-value pairs are called out.":::
 
 ## Get artifact metadata
 
 1. In the Azure portal, open the logic app that's 
-linked to the integration account you want. 
+linked to your integration account. 
 
-1. In the Logic App Designer, if you're adding the step for 
-getting metadata under the trigger or last action in the workflow, 
-choose **New step** > **Add an action**. 
+1. In the Logic app designer, decide where to add a step to get the metadata. This step often follows a trigger.
+   - To add the new step to the end of the workflow, select **New step**.
+   - To add the new step before the end of the workflow, hover over the place where you'd like to insert the step. Select the **plus sign (+)** that appears, and then select **Add an action**.
 
-1. In the search box, enter "integration account". 
-Under the search box, choose **All**. From the actions list, 
-select this action: **Integration Account Artifact Lookup - Integration Account**
+1. In the search box, enter **integration account**. 
+Under the search box, select **All**. From the actions list, 
+select this action: **Integration Account Artifact Lookup - Integration Account**.
 
-   ![Select "Integration Account Artifact Lookup"](media/logic-apps-enterprise-integration-metadata/integration-account-artifact-lookup.png)
+   :::image type="content" source="media/logic-apps-enterprise-integration-metadata/integration-account-artifact-lookup.png" alt-text="Screenshot of a new step in the Logic app designer. The search box, the All tab, and the Integration Account Artifact Lookup action are called out.":::
 
-1. Provide this information for the artifact you want to find:
+1. Provide the following information for the artifact that you want to find:
 
    | Property | Required | Value | Description | 
    |----------|---------|-------|-------------| 
@@ -84,38 +81,36 @@ select this action: **Integration Account Artifact Lookup - Integration Account*
    | **Artifact Name** | Yes | <*artifact-name*> | The name for the artifact you want | 
    ||| 
 
-   For example, suppose you want to get the metadata 
-   for a trading partner artifact:
+   For example, you might want to get the metadata for a trading partner artifact. In that case, select **Partner** for the **Artifact Type**. For the **Artifact Name**, select the **name** trigger output from the dynamic content list. The following screenshot shows these values:
 
-   ![Select artifact type and enter artifact name](media/logic-apps-enterprise-integration-metadata/artifact-lookup-information.png)
+   :::image type="content" source="media/logic-apps-enterprise-integration-metadata/artifact-lookup-information.png" alt-text="Screenshot of the Logic app designer. In the Integration Account Artifact Lookup step, the Artifact Type and Artifact Name boxes are called out.":::
 
-1. Add the action that you want for handling that metadata, for example:
+1. Add the action that you want for handling that metadata. For example, to use an **HTTP** action, follow these steps:
 
-   1. Under the **Integration Account Artifact Lookup** action, 
-   choose **Next step**, and select **Add an action**. 
+   1. Under the **Integration Account Artifact Lookup** action, select **New step**. 
 
-   1. In the search box, enter "http". Under the search box, 
-   choose **Built-ins**, and select this action: **HTTP - HTTP**
+   1. In the search box, enter **http**. Under the search box, 
+   select **Built-in**, and then select this action: **HTTP - HTTP**.
 
-      ![Add HTTP action](media/logic-apps-enterprise-integration-metadata/http-action.png)
+      :::image type="content" source="media/logic-apps-enterprise-integration-metadata/http-action.png" alt-text="Screenshot of the Logic app designer. The search box of a new step contains http. That box, the Built-in tab, and an HTTP action are called out.":::
 
-   1. Provide information for the artifact metadata you want to manage. 
+   1. Provide information for the artifact metadata that you want to manage. 
 
       For example, suppose you want to get the `routingUrl` metadata 
-      that's added earlier in this topic. Here are the property 
-      values you might specify: 
+      that you added earlier. Here are the property 
+      values that you might specify: 
 
-      | Property | Required | Value | Description | 
-      |----------|----------|-------|-------------| 
-      | **Method** | Yes | <*operation-to-run*> | The HTTP operation to run on the artifact. For example, this HTTP action uses the **GET** method. | 
-      | **URI** | Yes | <*metadata-location*> | To access the `routingUrl` metadata value from the artifact you retrieved, you can use an expression, for example: <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 
-      | **Headers** | No | <*header-values*> | Any header outputs from the trigger you want to pass into the HTTP action. For example, to pass in the trigger's `headers` property value: you can use an expression, for example: <p>`@triggeroutputs()['headers']` | 
-      | **Body** | No | <*body-content*> | Any other content you want to pass through the HTTP action's `body` property. This example passes the artifact's `properties` values into the HTTP action: <p>1. Click inside the **Body** property so the dynamic content list appears. If no properties appear, choose **See more**. <br>2. From the dynamic content list, under **Integration Account Artifact Lookup**, select **Properties**. | 
-      |||| 
+      | Property | Required | Value | Description | Example value |
+      |----------|----------|-------|-------------|-------|
+      | **Method** | Yes | <*operation-to-run*> | The HTTP operation to run on the artifact. | This HTTP action uses the **GET** method. | 
+      | **URI** | Yes | <*metadata-location*> | The endpoint where you want to send the outgoing request. | To access the `routingUrl` metadata value from the artifact that you retrieved, select the **URI** box. Then enter an expression like this one into the expression editor:<br><br>`outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']` | 
+      | **Headers** | No | <*header-values*> | Any header outputs from the trigger that you want to pass into the HTTP action. | To pass in the `Content-Type` value from the trigger header, select the **Value** box of a **Headers** row. Then enter an expression like this one in the expression editor: `triggeroutputs()['headers']['Content-Type']`<br><br>To pass in the `Host` value from the trigger header, use an expression like this one in the expression editor: `triggeroutputs()['headers']['Host']` |
+      | **Body** | No | <*body-content*> | Any other content that you want to pass through the HTTP action's `body` property. | To pass the artifact's `properties` values into the HTTP action:<br><br>1. Select the **Body** box to make the dynamic content list appear. If no properties appear, select **See more**.<br>2. From the dynamic content list, under **Integration Account Artifact Lookup**, select **Properties**. | 
+      |||||
 
-      For example:
+      The following screenshot shows the example values:
 
-      ![Specify values and expressions for HTTP action](media/logic-apps-enterprise-integration-metadata/add-http-action-values.png)
+      :::image type="content" source="media/logic-apps-enterprise-integration-metadata/add-http-action-values.png" alt-text="Screenshot of an HTTP step in the designer. The Dynamic content Properties value is called out, along with the Method, URI, Headers, and Body boxes.":::
 
    1. To check the information you provided for the HTTP action, 
    view your logic app's JSON definition. On the Logic App 
