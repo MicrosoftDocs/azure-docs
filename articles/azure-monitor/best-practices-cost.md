@@ -9,7 +9,63 @@ ms.reviewer: bwren
 
 ---
 
-# Azure Monitor best practices: Cost management
+# Azure Monitor best practices: Cost optimization
+Monitoring of your Azure resources 
+
+
+
+## Design considerations
+
+Azure Monitor includes the following design considerations:
+
+
+
+
+
+
+
+
+## Checklist
+
+Workspace design
+
+> [!div class="checklist"]
+> - Configure the pricing tier or dedicated cluster that optimizes your cost depending on your usage.
+> - Consider whether to separate monitoring data and security data to reduce costs.
+
+Table design
+
+> [!div class="checklist"]
+> - Configure tables used for debugging, troubleshooting, and auditing as Basic Logs.
+> - Configure data retention and archiving.
+
+Data collection
+
+> [!div class="checklist"]
+> - Configure diagnostic settings to collect only critical resource log categories from Azure resources.
+> - Configure VM agents to collect only critical events.
+> - Use transformations to filter resource logs and events.
+> - Ensure that VMs aren't sending data to multiple workspaces.
+
+Application insights
+
+> [!div class="checklist"]
+> - Use sampling to tune the amount of data collected by Application Insights.
+> - Limit the number of Ajax calls that can be reported in every page view or disable Ajax reporting. 
+> - Disable unneeded modules.
+> - Pre-aggregate metrics from any calls to TrackMetric.
+> - Limit the use of custom metrics.
+> - Ensure use of updated SDKs.
+
+Monitor usage
+
+> - Send alert when data collection is high.
+> - Consider a daily cap as a preventative measure to ensure that you don't exceed a particular budget.
+> - Analyze your collected data.
+
+
+
+## Configure recommendations - Workspace design
 
 This article provides guidance on reducing your cloud monitoring costs by implementing and managing Azure Monitor in the most cost-effective manner. It explains how to take advantage of cost-saving features to help ensure that you're not paying for data collection that provides little value. It also provides guidance for regularly monitoring your usage so that you can proactively detect and identify sources responsible for excessive usage.
 
@@ -35,7 +91,7 @@ As your monitoring environment becomes more complex, you'll need to consider whe
 
 There can be cost implications with your workspace design, most notably when you combine different services such as operational data from Azure Monitor and security data from Microsoft Sentinel. For a description of these implications and guidance on determining the most cost-effective solution for your environment, see:
 
- - [Workspaces with Microsoft Sentinel](logs/cost-logs.md#workspaces-with-microsoft-sentinel)
+- [Workspaces with Microsoft Sentinel](logs/cost-logs.md#workspaces-with-microsoft-sentinel)
 - [Workspaces with Microsoft Defender for Cloud](logs/cost-logs.md#workspaces-with-microsoft-defender-for-cloud)
 
 ## Configure tables in each workspace
