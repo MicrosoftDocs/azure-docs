@@ -145,7 +145,6 @@ root@xsense:
 
 ### Disable NTP time sync
 
-
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**support**     |   `ntp disable IP`      |   `IP` is a valid IPv4 NTP server using port 123      |
@@ -159,19 +158,18 @@ root@xsense: ntp disable 129.6.15.28
 root@xsense:
 ```
 
-## Reset privileged user passwords
+## Reset local user passwords
 
-Use the following command to reset the password for the *cyberx* or *support* user.
-
-This command requires attributes to define the user whose password you're resetting and the password you want to use.
-
- <!--how do you reset password for the cyberx_host password?-->
+Use the following command to reset passwords for local users configured on the appliance.
+This includes:
+- Priviledged (*cyberx* or *support*) users with both SSH and web console access.
+- Local users with access to the web console.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**cyberx**     |   `cyberx-users-password-reset`      | `cyberx-users-password-reset -u <user> -p <password>`      |
+|**cyberx_host  |   `passwd` | No attributes      |
 
-<!--can we use a better password example in this code sample? like something as below?-->
 
 The following example shows the *cyberx* user resetting the *support* user's password to `jI8iD9kE6hB8qN0h`:
 
@@ -192,9 +190,61 @@ The following table describes the commands available to validate your network se
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
-|**support**     |   `ping IP`      |   `IP` is a valid IPv4 network host (from management port)      |
-|**support**     |   `network blink`      |   No attributes<br> Locate a connection by causing the interface lights to blink.|
-|**cyberx**      |   `ping IP`      |   `IP` is a valid IPv4 network host (from management port)      |
+|**support**     |   `network validate`      |   Validate and show network interfaces configuration|
+|**support**     |   `ping IP`      |   `IP` - a valid IPv4 network host (from management port)      |
+|**support**     |   `network blink INT`      |   `INT` - a physical ehternet port on the appliance<br> Locate a connection by causing the interface lights to blink.|
+|**support**     |   `network list`      |   No attibutes<br> List connected ethernet interfaces |
+|**cyberx**      |   `ping IP`      |   `IP` - a valid IPv4 network host (from management port)      |
+
+
+The following example shows the *support* user blinking eth0:
+```cli
+root@xsense: network blink eth0
+Blinking interface for 20 seconds ...
+```
+
+The following example shows the *support* user validating network configuration:
+```cli
+root@xsense: network validate
+Success! (Appliance configuration matches the network settings)
+Current Network Settings:
+interface: eth0
+ip: 172.20.248.69
+subnet: 255.255.192.0
+default gateway: 10.1.0.1
+dns: 168.63.129.16
+monitor interfaces mapping: local_listener=adiot0
+root@xsense:
+```
+
+The following example shows the *support* user reviewing network interface statistics:
+```cli
+root@xsense: network list
+adiot0: flags=4419<UP,BROADCAST,RUNNING,PROMISC,MULTICAST>  mtu 4096
+        ether be:b1:01:1f:91:88  txqueuelen 1000  (Ethernet)
+        RX packets 2589575  bytes 740011013 (740.0 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 1  bytes 90 (90.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.18.0.2  netmask 255.255.0.0  broadcast 172.18.255.255
+        ether 02:42:ac:12:00:02  txqueuelen 0  (Ethernet)
+        RX packets 22419372  bytes 5757035946 (5.7 GB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 23078301  bytes 2544599581 (2.5 GB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 837196  bytes 259542408 (259.5 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 837196  bytes 259542408 (259.5 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+root@xsense:
+```
 
 
 ### Change networking configuration or reassign network interface roles
@@ -241,7 +291,6 @@ When you're using the tool:
 
 - Verify that the certificate files are readable on the appliance. 
 - Confirm with IT the appliance domain (as it appears in the certificate) with your DNS server and the corresponding IP address. 
-
 
 ## Back up and restore appliance snapshot
 
