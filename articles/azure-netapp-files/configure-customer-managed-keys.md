@@ -12,13 +12,13 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 10/03/2022
+ms.date: 10/05/2022
 ms.author: anfdocs
 ---
 
-# Configure customer-managed keys for Azure NetApp Files (Preview)
+# Configure customer-managed keys for Azure NetApp Files (preview)
 
-Customer-managed keys in Azure NetApp Files enable you to use your own keys rather than a Microsoft-managed key when creating a new volume. 
+Customer-managed keys in Azure NetApp Files enable you to use your own keys rather than a Microsoft-managed key when creating a new volume. With customer-managed keys, you can fully manage the the relationship between a key's life cycle, key usage permissions, and auditing operations on keys. 
 
 ## Considerations
 
@@ -80,15 +80,19 @@ For more information about Azure Key Vault and Azure Private Endpoint, refer to:
     * If you choose **System-assigned**, select the **Save** button. No other configuration is required. The Azure Portal will configure the NetApp account automatically with the following process: A system-assigned identity will be added to your NetApp account. An access policy will be created on your Azure Key Vault with key permissions Get, Encrypt, Decrypt.
     * If you choose **User-assigned**, you must select an identity to use. By clicking “Select an identity” a context pane will open prompting you to select a user-assigned managed identity. 
 
+    :::image type="content" source="../media/azure-netapp-files/encryption-user-assigned.png" alt-text="Screenshot of user-assigned sub-menu." lightbox="../media/azure-netapp-files/encryption-user-assigned.png":::
+    
+    If your Azure Key Vault is configured to use Vault access policy, the Azure Portal will configure the NetApp account automatically with the following process: The user-assigned identity you select will be added to your NetApp account. An access policy will be created on your Azure Key Vault with key permissions Get, Encrypt, Decrypt. 
 
-If your Azure Key Vault is configured to use Vault access policy, the Azure Portal will configure the NetApp account automatically with the following process: The user-assigned identity you select will be added to your NetApp account. An access policy will be created on your Azure Key Vault with key permissions Get, Encrypt, Decrypt. 
+    If your Azure Key Vault is configured to use Azure role-based access control, then you need to make sure that the selected user-assigned identity has a role assignment on the key vault with permissions for data actions"
+      * `Microsoft.KeyVault/vaults/keys/read`
+      * `Microsoft.KeyVault/vaults/keys/encrypt/action`
+      * `Microsoft.KeyVault/vaults/keys/decrypt/action`
+    The user-assigned identity you select will be added to your NetApp account. Due to the customizable nature of RBAC, the Azure Portal does not configure access to the key vault. See Using role-based access control for details on configuring Azure Key Vault. 
 
-If your Azure Key Vault is configured to use Azure role-based access control, then you need to make sure that the selected user-assigned identity has a role assignment on the key vault with permissions for data actions "Microsoft.KeyVault/vaults/keys/read", "Microsoft.KeyVault/vaults/keys/encrypt/action", and "Microsoft.KeyVault/vaults/keys/decrypt/action". The user-assigned identity you select will be added to your NetApp account. Due to the customizable nature of RBAC, the Azure Portal does not configure access to the key vault. See Using role-based access control for details on configuring Azure Key Vault. 
+1. After selecting **Save** button, you will receive a notification communicating the status of the operation. If the operation was not successful, an error message will display. Refer to [error messages and troubleshooting](#error-messages-and-troubleshooting) for assistance in resolving the error.  
 
-1. After selecting **Save** button, you will receive a notification communicating the status of the operation. If the operation was not successful, refer to [error messages and troubleshooting](#error-messages-and-troubleshooting). 
-
-If there is an issue, then an error message will be displayed.
-
+<!-- 
 ## Configure a NetApp account to use customer-managed keys with user-assigned identity 
 
 The **Encryption** page doesn't currently support choosing an identity type (either system-assigned or user-assigned). To configure encryption with the user-assigned identity, you need to use the REST API to do so. A good tool to use Azure REST API is [projectkudu/ARMClient: A simple command line tool to invoke the Azure Resource Manager API (github.com)](https://github.com/projectkudu/ARMClient). 
@@ -107,8 +111,12 @@ The **Encryption** page doesn't currently support choosing an identity type (eit
     :::image type="content" source="../media/azure-netapp-files/access-policy-get-encrypt-decrypt.png" alt-text="Screenshot of a drop-down menu with get, encrypt, and decrypt options selected." lightbox="../media/azure-netapp-files/access-policy-get-encrypt-decrypt.png":::
     Select the user-assigned identity under **Select principal**. Leave **Authorized application** blank. 
     :::image type="content" source="../media/azure-netapp-files/access-policy-confirm.png" alt-text="Screenshot of the add access policy menu. Authorized application field is blank." lightbox="../media/azure-netapp-files/access-policy-confirm.png":::
+
+<!-- 
+
 1. Send a PATCH request via the REST API to the NetApp account `/{accountResourceId}?api-version=2022-03` with the following request body:
     Take note of the `Azure-AsyncOperation` header in the response. That URL can be polled to get the result of the asynchronous patch operation. 
+
     ```rest
     { 
       "identity": { 
@@ -132,6 +140,7 @@ The **Encryption** page doesn't currently support choosing an identity type (eit
       } 
     } 
     ```
+
     **Examples** 
     
     User assigned identity resource ID: `/subscriptions/<subscription-id>/resourcegroups/contoso--westcentralus/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-wcu-identity` 
@@ -139,6 +148,7 @@ The **Encryption** page doesn't currently support choosing an identity type (eit
     Key vault URI: `https://contoso-wcu2.vault.azure.net `
     
     Key name: `/subscriptions/<subscription-id>/resourceGroups/contoso-westcentralus/providers/Microsoft.KeyVault/vaults/contoso-wcu2`
+
 
 ## Use ARM processor REST API with ARMClient 
 
@@ -150,8 +160,7 @@ Example: `armclient patch <netapp account resource id>?api-version=2022-03-01 ./
 
 Copy the `Azure-AsyncOperation` header from the response and poll the URI using `armclient get <Azure-AsyncOperation value>`. 
 
-
-```bash
+```azurecli
 ---------- RESPONSE (6363ms) ----------
 HTTP/1.1 202 Accepted
 Content-Length: 848
@@ -190,10 +199,14 @@ armclient get https://management.azure.com/subscriptions/<subscriptionID>/provid
 	}
 }
 ```
+-->
 
 ## Use role-based access control
 
 You can use an Azure Key Vault that is configured to use Azure role-based access control. To configure customer-managed keys through Azure Portal, you need to provide a user-assigned identity. 
+
+1. In your Azure account, go to the **Access policies** menu.
+1. To create an access policy, under **Permission model**, select **Azure role-based access-control**.
 
 The permissions required for customer-managed keys are: 
 1. `Microsoft.KeyVault/vaults/keys/read`
@@ -201,6 +214,29 @@ The permissions required for customer-managed keys are:
 1. `Microsoft.KeyVault/vaults/keys/decrypt/action`
 
 Although there are pre-defined roles with these privileges, it is recommended that you create a custom role with the required permissions. See [Azure custom roles](../role-based-access-control/custom-roles.md) for details.
+
+```json
+{
+	"id": "/subscriptions/<subscription>/Microsoft.Authorizaiton/roleDefinitions/<role>",
+	"properties": {
+	    "roleName": "NetApp account",
+	    "description": "",
+	    "assignableScopes": ["/subscriptions/<subscription>/resourceGroups/<resource-group>"],
+	    "permissions": [
+      {
+        "actions": [],
+        "notActions": [],
+        "dataActions": [
+            "Microsoft.KeyVault/vaults/keys/read",
+            "Microsoft.KeyVault/vaults/keys/encrypt/action",
+            "Microsoft.KeyVault/vaults/keys/decrypt/action"
+        ],
+        "notDataActions": []
+	    }
+    ]
+	}
+}
+```
 
 ## Create an Azure NetApp Files volume using customer-manager keys
 
@@ -219,19 +255,21 @@ Although there are pre-defined roles with these privileges, it is recommended th
 
     :::image type="content" source="../media/azure-netapp-files/keys-create-volume.png" alt-text="Screenshot of create volume menu." lightbox="../media/azure-netapp-files/keys-create-volume.png":::
 
-
-1. Continue to complete the volume creation process. See: 
+1. Continue to complete the volume creation process. Refer to: 
     * [Create an NFS volume](azure-netapp-files-create-volumes.md)
     * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)
     * [Create a dual-protocol volume](create-volumes-dual-protocol.md)
-
 
 ## Rekey all volumes under a NetApp account
 
 If your NetApp account is already configured for customer-managed keys and has 1 or more volumes encrypted with customer-managed keys, you can change the key that is used to encrypt all volumes under the NetApp account. You can select any key that is in the same key vault, changing key vaults is not supported. 
 
 1. Under your NetApp account, navigate to the **Encryption** menu. Under the **Current key** input field, select the **Rekey** link.
+:::image type="content" source="../media/azure-netapp-files/encryption-current-key.png" alt-text="Screenshot of the encryption key." lightbox="../media/azure-netapp-files/encryption-current-key.png":::
+
 1. In the **Rekey** menu, select one of the available keys from the dropdown menu. The chosen key must be different from the current key.
+:::image type="content" source="../media/azure-netapp-files/encryption-rekey.png" alt-text="Screenshot of the rekey menu." lightbox="../media/azure-netapp-files/encryption-rekey.png":::
+
 1. Select **OK** to save. The rekey operation may take several minutes. 
 
 ## Error messages and troubleshooting
