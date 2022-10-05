@@ -19,7 +19,7 @@ If you want to scale AKS clusters beyond 1000 nodes default limit, you can reque
 
 To increase the node limit beyond 1,000, you must have the following:
 - An existing AKS cluster that needs the node limit increase. This cluster should not be deleted as that will remove the limit increase.
-2.	Cluster must be using “Uptime-SLA” feature.
+- Uptime SLA enabled on your cluster.
 
 > **Note**: It may take up to a week to enable your clusters with the larger node limit.
 
