@@ -105,7 +105,7 @@ Because multiple authentication binding policy rules can be created with differe
 
 The username binding policy helps validate the certificate of the user. By default, Subject Alternate Name (SAN) Principal Name in the certificate is mapped to UserPrincipalName attribute of the user object to determine the user.
 
-### Certificate bindings
+### Achieve higher security with Certificate bindings
 
 There are four supported values for this attribute, with two mappings considered low-affinity (insecure) and the other two considered high-affinity bindings. In general, mapping types are considered high-affinity if they're based on identifiers that you can't reuse. Therefore, all mapping types based on usernames and email addresses are considered low-affinity. For more information, see [certificateUserIds](concept-certificate-based-authentication-certificateuserids.md). 
 
