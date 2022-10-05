@@ -23,10 +23,11 @@ Each activity listed below is accessible by a different set of privileged users,
 For more information, see [Access the CLI](cli-overview.md#access-the-cli) and [Privileged user access for OT monitoring](cli-overview.md#privileged-user-access-for-ot-monitoring).
 
 
-## Check OT Monitoring services health
+## Check appliance health
 
 Use the following commands to verify that all Defender for IoT application components on the OT sensor are working correctly, including the web console and traffic analysis processes.
 
+### OT monitoring services health
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**support**     |   `system sanity`      |  No attributes      |
@@ -53,6 +54,7 @@ root@xsense: system sanity
 
 System is UP! (medium)
 ```
+
 
 ## Power Control
 ### Reboot (Restart) appliance
@@ -195,6 +197,9 @@ The following table describes the commands available to validate your network se
 |**support**     |   `network blink INT`      |   `INT` - a physical ehternet port on the appliance<br> Locate a connection by causing the interface lights to blink.|
 |**support**     |   `network list`      |   No attibutes<br> List connected ethernet interfaces |
 |**cyberx**      |   `ping IP`      |   `IP` - a valid IPv4 network host (from management port)      |
+|**cyberx**     |   `ifconfig`      |   No attibutes<br> List connected ethernet interfaces |
+|**cyberx**     |   `ifconfig`      |   No attibutes<br> Check if the appliance is connected to the internet |
+
 
 
 The following example shows the *support* user blinking eth0:
@@ -246,6 +251,56 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 root@xsense:
 ```
 
+### Bandwidth limit for the management network interface (QOS)
+Set outbound (upload) bandwidth limit for the management interface to the on-premesis management console or Azure portal in bandwidth constrained environments (for example over a satellite or serial link)
+
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+|**cyberx**     |   ` cyberx-xsense-limit-interface [-h] --interface INTERFACE [--limit LIMIT] [--clear]`      |   `-h, --help` - show this help message and exit<br>  `--interface INTERFACE` - interface (e.g. eth0) <br> `--limit LIMIT` - limit value (e.g. 30kbit). kbps - Kilobytes per second, mbps - Megabytes per second, kbit -
+                        Kilobits per second, mbit - Megabits per second, bps or a bare number - Bytes per second<br>`--clear` - flag, will clear settings for the given interface|
+
+For example, for the *cyberx* user:
+```cli
+root@xsense:/# cyberx-xsense-limit-interface -h
+usage: cyberx-xsense-limit-interface [-h] --interface INTERFACE [--limit LIMIT] [--clear]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --interface INTERFACE
+                        interface (e.g. eth0)
+  --limit LIMIT         limit value (e.g. 30kbit). kbps - Kilobytes per second, mbps - Megabytes per second, kbit -
+                        Kilobits per second, mbit - Megabits per second, bps or a bare number - Bytes per second
+  --clear               flag, will clear settings for the given interface
+root@xsense:/#
+root@xsense:/# cyberx-xsense-limit-interface --interface eth0 --limit 1000mbps
+setting the bandwidth limit of interface "eth0" to 1000mbps
+```
+
+### Network interfaces utilization
+Displays network traffic and bandwidth by using the six-second tests.
+
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+|**cyberx**     |   `cyberx-nload`      |   No attributes     |
+
+```cli
+root@xsense:/# cyberx-nload
+eth0:
+        Received: 66.95 KBit/s Sent: 87.94 KBit/s
+        Received: 58.95 KBit/s Sent: 107.25 KBit/s
+        Received: 43.67 KBit/s Sent: 107.86 KBit/s
+        Received: 87.00 KBit/s Sent: 191.47 KBit/s
+        Received: 79.71 KBit/s Sent: 85.45 KBit/s
+        Received: 54.68 KBit/s Sent: 48.77 KBit/s
+local_listener (virtual adiot0):
+        Received: 0.0 Bit Sent: 0.0 Bit
+        Received: 0.0 Bit Sent: 0.0 Bit
+        Received: 0.0 Bit Sent: 0.0 Bit
+        Received: 0.0 Bit Sent: 0.0 Bit
+        Received: 0.0 Bit Sent: 0.0 Bit
+        Received: 0.0 Bit Sent: 0.0 Bit
+root@xsense:/#
+```
 
 ### Change networking configuration or reassign network interface roles
 
@@ -341,6 +396,26 @@ backup files:
         e2e-xsense-1664469968212-backup-version-22.3.0.318-r-71e6295-2022-09-29_18:30:20.tar
         e2e-xsense-1664469968212-backup-version-22.3.0.318-r-71e6295-2022-09-29_18:29:55.tar
 root@xsense:
+```
+
+### Backup memory check
+Provides the status of the backup memory, checking the following:
+
+- The location of the backup folder
+- The size of the backup folder
+- The limitations of the backup folder
+- When the last backup happened
+- How much space there are for the extra backup files
+
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+|**cyberx**     |   ` cyberx-backup-memory-check`      |   No attributes      |
+
+```cli
+root@xsense:/# cyberx-backup-memory-check
+2.1M    /var/cyberx/backups
+Backup limit is: 20Gb
+root@xsense:/#
 ```
 
 ### Restore data from the most recent backup
