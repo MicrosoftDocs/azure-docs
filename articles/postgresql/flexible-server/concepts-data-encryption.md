@@ -39,7 +39,7 @@ The DEKs, encrypted with the KEKs, are stored separately. Only an entity with ac
 
 ## How data encryption with a customer-managed key work
 
-:::image type="content"  source="./media/concepts-encryption/postgresql-data-encryption-overview.png" alt-text ="Diagram that shows an overview of Bring Your Own Key" :::
+:::image type="content"  source="./media/concepts-encryption/postgresql-data-encryption-overview.png" alt-text ="Diagram that shows an overview of Bring Your Own Key." :::
 
 For a PostgreSQL server to use customer-managed keys stored in Key Vault for encryption of the DEK, a Key Vault administrator gives the following access rights to the server:
 
@@ -78,7 +78,7 @@ When you're using data encryption by using a customer-managed key, here are reco
 * Ensure that Key Vault and Azure Database for PostgreSQL = Flexible server reside in the same region, to ensure a faster access for DEK wrap, and unwrap operations.
 * Lock down the Azure KeyVault to only **disable public access* and allow only *trusted Microsoft* services to secure the resources.
 
-    :::image type="content" source="media/concepts-encryption/keyvault-trusted-service.png" alt-text="trusted-service-with-AKV":::
+    :::image type="content" source="media/concepts-encryption/keyvault-trusted-service.png" alt-text="Image of networking screen with trusted-service-with-AKV setting.":::
 
 Here are recommendations for configuring a customer-managed key:
 
