@@ -3,12 +3,12 @@ title: Mount an Azure Blob Storage container on Linux by using BlobFuse2 Preview
 titleSuffix: Azure Blob Storage
 description: Learn how to mount an Azure Blob Storage container on Linux by using BlobFuse2 Preview.
 author: jimmart-dev
+ms.author: jammart
+ms.reviewer: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.date: 10/01/2022
-ms.author: jammart
-ms.reviewer: tamram
 ---
 
 # Mount an Azure Blob Storage container on Linux by using BlobFuse2 Preview
@@ -16,14 +16,12 @@ ms.reviewer: tamram
 [BlobFuse2 Preview](blobfuse2-what-is.md) is a virtual file system driver for Azure Blob Storage. BlobFuse2 allows you to access your existing Azure block blob data in your storage account through the Linux file system. For more information, see [What is BlobFuse2?](blobfuse2-what-is.md).
 
 > [!IMPORTANT]
-> BlobFuse2 is the next generation of BlobFuse and currently is in preview. The preview version is provided without a service-level agreement. We recommend that you don't use the preview version for production workloads. In the preview version, certain features might not be supported or might have constrained capabilities.
+> BlobFuse2 is the next generation of BlobFuse and currently is in preview. The preview version is provided without a service-level agreement. We recommend that you don't use the preview version for production workloads. In BlobFuse2 Preview, some features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> To use BlobFuse in a production environment, use the BlobFuse v1 general availability (GA) version. For information about the GA version, see:
 >
-> If you need to use BlobFuse in a production environment, BlobFuse v1 is generally available. For information about the general availability (GA) version, see:
->
-> - [The BlobFuse v1 setup documentation](storage-how-to-mount-container-linux.md)
-> - [The BlobFuse v1 project on GitHub](https://github.com/Azure/azure-storage-fuse/tree/master)
+> - [Mount Azure Blob Storage as a file system by using BlobFuse v1](storage-how-to-mount-container-linux.md)
+> - [BlobFuse v1 project on GitHub](https://github.com/Azure/azure-storage-fuse/tree/master)
 
 This guide shows you how to install and configure BlobFuse2, mount an Azure blob container, and access data in the container. The basic steps are:
 
@@ -36,8 +34,8 @@ This guide shows you how to install and configure BlobFuse2, mount an Azure blob
 
 To install BlobFuse2, you have two basic options:
 
-- [Install BlobFuse2 binaries](#option-1-install-the-blobfuse2-binary-preferred) (preferred)
-- [Build BlobFuse2 binaries from source code](#option-2-build-from-source)
+- [Install BlobFuse2 binaries](#option-1-install-blobfuse2-binaries-preferred) (preferred)
+- [Build BlobFuse2 binaries from source code](#option-2-build-binaries-from-source-code)
 
 ### Option 1: Install BlobFuse2 binaries (preferred)
 
@@ -128,7 +126,7 @@ For details about each of the configuration parameters for BlobFuse2 and how to 
 To configure BlobFuse2 for mounting:
 
 1. [Configure caching](#configure-caching).
-1. [Create an empty directory for mounting the blob container](#create-an-empty-directory-for-mounting-the-blob-container).
+1. [Create an empty directory for mounting the blob container](#create-an-empty-directory-to-mount-the-blob-container).
 1. [Authorize access to your storage account](#authorize-access-to-your-storage-account).
 
 ### Configure caching
@@ -212,7 +210,7 @@ You must grant access to the storage account for the user who mounts the contain
 - A managed identity
 - A service principal
 
-You can provide authorization information in a configuration file or in environment variables. For more information, see [Configure Blobfuse2](blobfuse2-configuration.md).
+You can provide authorization information in a configuration file or in environment variables. For more information, see [Configure settings for BlobFuse2](blobfuse2-configuration.md).
 
 ## Mount a blob container
 
@@ -228,7 +226,7 @@ blobfuse2 mount ~/mycontainer --config-file=./config.yaml
 ```
 
 > [!NOTE]
-> For a full list of mount options, see the [BlobFuse2 mount command reference](blobfuse2-commands-mount.md).
+> For a full list of mount options, see [BlobFuse2 mount commands](blobfuse2-commands-mount.md).
 
 You should now have access to your block blobs through the Linux file system and related APIs. To test your deployment, try creating a new directory and file:
 
@@ -259,10 +257,13 @@ This table shows how this feature is supported in your account and the effect on
 
 <sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
 
+## See also
+
+- [Migrate to BlobFuse2 from BlobFuse v1](https://github.com/Azure/azure-storage-fuse/blob/main/MIGRATION.md)
+- [BlobFuse2 commands](blobfuse2-commands.md)
+- [Troubleshoot BlobFuse2 issues](blobfuse2-troubleshooting.md)
+
 ## Next steps
 
-- [BlobFuse2 Migration Guide (from BlobFuse v1)](https://github.com/Azure/azure-storage-fuse/blob/main/MIGRATION.md)
-- [BlobFuse2 configuration reference](blobfuse2-configuration.md)
-- [BlobFuse2 command reference](blobfuse2-commands.md)
+- [Configure settings for BlobFuse2](blobfuse2-configuration.md)
 - [Use Health Monitor to gain insights into BlobFuse2 mount activities and resource usage](blobfuse2-health-monitor.md)
-- [Troubleshoot BlobFuse2 issues](blobfuse2-troubleshooting.md)

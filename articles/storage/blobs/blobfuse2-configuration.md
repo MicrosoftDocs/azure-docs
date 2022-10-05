@@ -1,17 +1,17 @@
 ---
-title: Configure settings for Blobfuse2 Preview
+title: Configure settings for BlobFuse2 Preview
 titleSuffix: Azure Blob Storage
-description: Learn about your options for setting and changing configuration settings for Blobfuse2 Preview.
+description: Learn about your options for setting and changing configuration settings for BlobFuse2 Preview.
 author: jimmart-dev
 ms.author: jammart
 ms.reviewer: tamram
-ms.date: 09/29/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
+ms.date: 09/29/2022
 ---
 
-# Configure settings for Blobfuse2 Preview
+# Configure settings for BlobFuse2 Preview
 
 You can use configuration settings to manage BlobFuse2 Preview in your deployment. Through configuration settings, you can set these aspects of how BlobFuse2 works in your environment:
 
@@ -24,15 +24,12 @@ You can use configuration settings to manage BlobFuse2 Preview in your deploymen
 For a list of all BlobFuse2 settings and their descriptions, see the [base configuration file on GitHub](https://github.com/Azure/azure-storage-fuse/blob/main/setup/baseConfig.yaml).
 
 > [!IMPORTANT]
-> BlobFuse2 is the next generation of BlobFuse and currently is in preview. The preview version is provided without a service-level agreement. We recommend that you don't use the preview version for production workloads. In the preview version, certain features might not be supported or might have constrained capabilities.
+> BlobFuse2 is the next generation of BlobFuse and currently is in preview. The preview version is provided without a service-level agreement. We recommend that you don't use the preview version for production workloads. In BlobFuse2 Preview, some features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> To use BlobFuse in a production environment, use the BlobFuse v1 general availability (GA) version. For information about the GA version, see:
 >
-> If you need to use BlobFuse in a production environment, BlobFuse v1 is generally available. For information about the general availability (GA) version, see:
->
-> - [The BlobFuse v1 setup documentation](storage-how-to-mount-container-linux.md)
-> - [The BlobFuse v1 project on GitHub](https://github.com/Azure/azure-storage-fuse/tree/master)
-
+> - [Mount Azure Blob Storage as a file system by using BlobFuse v1](storage-how-to-mount-container-linux.md)
+> - [BlobFuse v1 project on GitHub](https://github.com/Azure/azure-storage-fuse/tree/master)
 To manage configuration settings for BlobFuse2, you have three options (in order of precedence):
 
 (1) [Configuration file](#configuration-file)
@@ -73,7 +70,13 @@ blobfuse2 mount ./mount_dir --config-file=./config.yaml --container-name=blobfus
 
 For more information about the entire BlobFuse2 command set, including the `blobfuse2 mount` command, see the [BlobFuse2 command set reference](blobfuse2-commands.md) and the [BlobFuse2 mount command reference](blobfuse2-commands-mount.md).
 
+## See also
+
+- [Migrate to BlobFuse2 from BlobFuse v1](https://github.com/Azure/azure-storage-fuse/blob/main/MIGRATION.md)
+- [BlobFuse2 commands](blobfuse2-commands.md)
+- [Troubleshoot BlobFuse2 issues](blobfuse2-troubleshooting.md)
+
 ## Next steps
 
-- [What is BlobFuse2?](blobfuse2-what-is.md)
 - [Mount an Azure Blob Storage container on Linux by using BlobFuse2](blobfuse2-how-to-deploy.md)
+- [Use Health Monitor to gain insights into BlobFuse2 mount activities and resource usage](blobfuse2-health-monitor.md)

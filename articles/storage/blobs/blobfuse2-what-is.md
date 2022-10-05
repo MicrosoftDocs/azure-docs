@@ -5,10 +5,10 @@ description: Get an overview of BlobFuse2 Preview and how to use it, including m
 author: jimmart-dev
 ms.author: jammart
 ms.reviewer: tamram
-ms.date: 10/01/2022
 ms.service: storage
 ms.subservice: blobs
-ms.topic: overview
+ms.topic: how-to
+ms.date: 10/01/2022
 ---
 
 # What is BlobFuse2 Preview?
@@ -16,14 +16,12 @@ ms.topic: overview
 BlobFuse2 Preview is a virtual file system driver for Azure Blob Storage. Use BlobFuse2 to access your existing Azure block blob data in your storage account through the Linux file system. BlobFuse2 also supports storage accounts that have a hierarchical namespace enabled.
 
 > [!IMPORTANT]
-> BlobFuse2 is the next generation of BlobFuse and currently is in preview. The preview version is provided without a service-level agreement. We recommend that you don't use the preview version for production workloads. In the preview version, certain features might not be supported or might have constrained capabilities.
+> BlobFuse2 is the next generation of BlobFuse and currently is in preview. The preview version is provided without a service-level agreement. We recommend that you don't use the preview version for production workloads. In BlobFuse2 Preview, some features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> To use BlobFuse in a production environment, use the BlobFuse v1 general availability (GA) version. For information about the GA version, see:
 >
-> If you need to use BlobFuse in a production environment, BlobFuse v1 is generally available. For information about the general availability (GA) version, see:
->
-> - [The BlobFuse v1 setup documentation](storage-how-to-mount-container-linux.md)
-> - [The BlobFuse v1 project on GitHub](https://github.com/Azure/azure-storage-fuse/tree/master)
+> - [Mount Azure Blob Storage as a file system by using BlobFuse v1](storage-how-to-mount-container-linux.md)
+> - [BlobFuse v1 project on GitHub](https://github.com/Azure/azure-storage-fuse/tree/master)
 
 ## About the BlobFuse2 open source project
 
@@ -157,12 +155,12 @@ This table shows how this feature is supported in your account and the effect on
 
 ## See also
 
-- [BlobFuse2 configuration reference](blobfuse2-configuration.md)
-- [BlobFuse2 command reference](blobfuse2-commands.md)
-- [Use Health Monitor to gain insights into BlobFuse2 mount activities and resource usage](blobfuse2-health-monitor.md)
-- [How to troubleshoot BlobFuse2 issues](blobfuse2-troubleshooting.md)
+- [Migrate to BlobFuse2 from BlobFuse v1](https://github.com/Azure/azure-storage-fuse/blob/main/MIGRATION.md)
+- [BlobFuse2 commands](blobfuse2-commands.md)
+- [Troubleshoot BlobFuse2 issues](blobfuse2-troubleshooting.md)
 
 ## Next steps
 
 - [Mount an Azure Blob Storage container on Linux by using BlobFuse2](blobfuse2-how-to-deploy.md)
-- [BlobFuse2 migration guide (from v1)](https://github.com/Azure/azure-storage-fuse/blob/main/MIGRATION.md)
+- [Configure settings for BlobFuse2](blobfuse2-configuration.md)
+- [Use Health Monitor to gain insights into BlobFuse2 mount activities and resource usage](blobfuse2-health-monitor.md)
