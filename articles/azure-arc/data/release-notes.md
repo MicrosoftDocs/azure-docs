@@ -30,7 +30,7 @@ New for this release:
   - AD connector will now be upgraded when data controller is upgraded
 
 - Arc-enabled SQL managed instance
-  - New reprovision replica task lets you rebuild a broken sql instance replica. For more information, see [Reprovision replica](#reprovision-replica).
+  - New reprovision replica task lets you rebuild a broken sql instance replica. For more information, see [Reprovision replica](reprovision-replica.md).
   - Edit Active Directory settings from the Azure portal
 
 - `arcdata` Azure CLI extension
