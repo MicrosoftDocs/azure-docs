@@ -249,6 +249,8 @@
           href: application-volume-group-manage-volumes.md
         - name: Delete an application volume group
           href: application-volume-group-delete.md
+        - name: Configure application volume groups for REST API
+          href: configure-application-volume-group-sap-hana-api.md
   - name: Manage data protection  
     items:
     - name: Manage volume snapshots
@@ -348,7 +350,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/netapp/
   - name: Regional availability
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=netapp
+    href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=netapp&rar=true&regions=all
   - name: SLA
     href: https://azure.microsoft.com/support/legal/sla/netapp/
   - name: Videos

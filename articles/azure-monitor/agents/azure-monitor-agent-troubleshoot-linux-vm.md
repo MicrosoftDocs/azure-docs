@@ -95,6 +95,7 @@ Here's how AMA collects syslog events:
 	3. If none of the above helps, [file a ticket](#file-a-ticket) with **Summary** as 'Syslog DCR not available' and **Problem type** as 'I need help configuring data collection from a VM'.
 3. Validate the layout of the Syslog collection workflow to ensure all necessary pieces are in place and accessible:
 	1. For `rsyslog` users, ensure the `/etc/rsyslog.d/10-azuremonitoragent.conf` file is present, isn't empty, and is accessible by the `rsyslog` daemon (syslog user).
+		1. Check your rsyslog configuration at `/etc/rsyslog.conf` and `/etc/rsyslog.d/*` to see if you have any inputs bound to a non-default ruleset, as messages from these inputs will not be forwarded to Azure Monitor Agent. For instance, messages from an input configured with a non-default ruleset like `input(type="imtcp" port="514" `**`ruleset="myruleset"`**`)` will not be forward.
 	2. For `syslog-ng` users, ensure the `/etc/syslog-ng/conf.d/azuremonitoragent.conf` file is present, isn't empty, and is accessible by the `syslog-ng` daemon (syslog user).
 	3. Ensure the file `/run/azuremonitoragent/default_syslog.socket` exists and is accessible by `rsyslog` or `syslog-ng` respectively.
 	4. Check for a corresponding drop in count of processed syslog events in `/var/opt/microsoft/azuremonitoragent/log/mdsd.qos`. If such drop isn't indicated in the file, [file a ticket](#file-a-ticket) with **Summary** as 'Syslog data dropped in pipeline' and **Problem type** as 'I need help with Azure Monitor Linux Agent'.
