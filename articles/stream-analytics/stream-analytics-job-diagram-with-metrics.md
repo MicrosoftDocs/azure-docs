@@ -4,7 +4,7 @@ description: This article describes how to troubleshoot your Azure Stream Analyt
 
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 05/01/2017
+ms.date: 10/12/2022
 ---
 
 # Data-driven debugging by using the job diagram
