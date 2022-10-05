@@ -43,18 +43,18 @@ Users will get a primary refresh token (PRT) from Azure AD after the successful 
 
 ### Windows rules for sending UPN for Azure AD-joined devices
 
-Windows will first use a principal name and if not present then RFC822Name from the SubjectAlternativeName (SAN) of the certificate being used to sign into Windows. If neither are present the user must additionally supply a User Name Hint. For more information, see [User Name Hint](/windows/security/identity-protection/smart-cards/smart-card-group-policy-and-registry-settings#allow-user-name-hint)
+Windows will first use a principal name and if not present then RFC822Name from the SubjectAlternativeName (SAN) of the certificate being used to sign into Windows. If neither are present, the user must additionally supply a User Name Hint. For more information, see [User Name Hint](/windows/security/identity-protection/smart-cards/smart-card-group-policy-and-registry-settings#allow-user-name-hint)
 
 ### Windows rules for sending UPN for hybrid Azure AD-joined devices
 
-Hybrid Join sign-in must first successfully sign-in against the Active Directory(AD) domain. The users AD UPN is sent to Azure AD. In most cases the Active Directory UPN value is the same as the Azure AD UPN value and is synchronized with Azure AD Connect. 
+Hybrid Join sign-in must first successfully sign-in against the Active Directory(AD) domain. The users AD UPN is sent to Azure AD. In most cases, the Active Directory UPN value is the same as the Azure AD UPN value and is synchronized with Azure AD Connect. 
 
-Some customers may maintain different and sometimes may have non-routable UPN values in Active Directory (such as user@woodgrove.local) In these cases the value sent by Windows may not match the the users Azure Active Directory UPN. To support these scenarios where Azure AD cannot match the value sent by Windows, a subsequent  lookup is performed for a user with a matching value in their **onPremisesUserPrincipalName** attribute. If the sign-in is successful, Windows will cache the users Azure AD UPN and is sent in subsequent subsequent sign-ins.
+Some customers may maintain different and sometimes may have non-routable UPN values in Active Directory (such as user@woodgrove.local) In these cases the value sent by Windows may not match the users Azure Active Directory UPN. To support these scenarios where Azure AD can't match the value sent by Windows, a subsequent lookup is performed for a user with a matching value in their **onPremisesUserPrincipalName** attribute. If the sign-in is successful, Windows will cache the users Azure AD UPN and is sent in subsequent sign-ins.
 
 >[!NOTE]
 >In all cases, a user supplied username login hint (X509UserNameHint) will be sent if provided. For more information, see [User Name Hint](/windows/security/identity-protection/smart-cards/smart-card-group-policy-and-registry-settings#allow-user-name-hint)
 
-For more information about the windows flow, see [Certificate Requirements and Enumeration (Windows)](/windows/security/identity-protection/smart-cards/smart-card-certificate-requirements-and-enumeration).
+For more information about the Windows flow, see [Certificate Requirements and Enumeration (Windows)](/windows/security/identity-protection/smart-cards/smart-card-certificate-requirements-and-enumeration).
 
 ## Supported Windows platforms
 
