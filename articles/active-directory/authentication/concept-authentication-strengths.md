@@ -123,20 +123,19 @@ After you determine the authentication strength you need, you'll need to create 
 -->
 
 ### How authentication strength works with the Authentication methods policy
-There are two policies that determine which authentication methods can be used to access resources:
+There are two policies that determine which authentication methods can be used to access resources. If a user is enabled for an authentication method in either policy, they can sign in with that method. 
 
-- **Security** > **Authentication methods** > **Policies** controls authentication methods for specific users and groups. 
+- **Security** > **Authentication methods** > **Policies** is a more modern way to manage authentication methods for specific users and groups. You can specify users and groups for different methods. You can also configure parameters to control how a method can be used.  
 
   :::image type="content" border="true" source="./media/concept-authentication-strengths/authentication-methods-policy.png" alt-text="Screenshot of Authentication methods policy.":::
 
-- **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings** controls methods for all the users in the tenant. 
+- **Security** > **Multifactor Authentication** > **Additional cloud-based multifactor authentication settings** is a legacy way to control multifactor authentication methods for all of the users in the tenant. 
 
   :::image type="content" border="true" source="./media/concept-authentication-strengths/service-settings.png" alt-text="Screenshot of MFA service settings.":::
 
+Users may register for authentications for which they are enabled, and in other cases, an administrator can configure a user's device with a method, such as certificate-based authentication.
 
-In addition, users must register for a method they want use, such as SMS. In other cases, an administrator might need to configure a user's device with a method, such as certificate-based authentication.
-
-The authentication strength Conditional Access policy checks these settings to determine the user’s access to the resource. For example, an administrator configures a Conditional Access policy with a custom authentication strength that requires FIDO2 Security Key or Password + SMS. The user accesses a resource protected by this policy. During sign-in, all settings are checked to determine which methods are allowed, which methods are registered, and which methods are required by the Conditional Access policy.
+The authentication strength Conditional Access policy defines which methods can be used. Azure AD checks the policy during sign-in to determine the user’s access to the resource. For example, an administrator configures a Conditional Access policy with a custom authentication strength that requires FIDO2 Security Key or Password + SMS. The user accesses a resource protected by this policy. During sign-in, all settings are checked to determine which methods are allowed, which methods are registered, and which methods are required by the Conditional Access policy. To be used, a method must be allowed, registered by the user (either before or as part of the access request), and satisfy the authentication strength. 
 
 ## User experience
 
@@ -147,11 +146,11 @@ The following factors determine if the user gains access to the resource:
 - Which methods are allowed for user sign-in in the Authentication methods policy?
 - Is the user registered for any available method?
 
-When a user accesses a resource protected by an authentication strength Conditional Access policy, we evaluate if the methods they have previously used satisfy the authentication requirements. For example, let's say a user signs in with password + SMS. They access a resource protected by MFA authentication strength. In this case, the user can access the resource without another authentication prompt.
+When a user accesses a resource protected by an authentication strength Conditional Access policy, Azure AD evaluates if the methods they have previously used satisfy the authentication strength. If a satisfactory method was used, Azure AD grants access to the resource. For example, let's say a user signs in with password + SMS. They access a resource protected by MFA authentication strength. In this case, the user can access the resource without another authentication prompt.
 
-Let's suppose they next access a resource protected by Phishing-resistant MFA authentication strength. At this point, the user will be prompted to provide a phishing-resistant authentication method, such as Windows Hello for Business. 
+Let's suppose they next access a resource protected by Phishing-resistant MFA authentication strength. At this point, they'll be prompted to provide a phishing-resistant authentication method, such as Windows Hello for Business. 
 
-If the user isn't registered for any required methods, they'll go through [combined registration](concept-registration-mfa-sspr-combined.md#interrupt-mode). <!-- making this a comment for now because we have a limitation. Once it is fixed we can remove the comment::: Only users who satisfy MFA are redirected to register another strong authentication method.-->
+If the user hasn't registered for any methods that satisfy the authentication strength, they are redirected to [combined registration](concept-registration-mfa-sspr-combined.md#interrupt-mode). <!-- making this a comment for now because we have a limitation. Once it is fixed we can remove the comment::: Only users who satisfy MFA are redirected to register another strong authentication method.-->
 
 If the authentication strength doesn't include a method that the user can register and use, the user is blocked from sign-in to the resource. 
 
