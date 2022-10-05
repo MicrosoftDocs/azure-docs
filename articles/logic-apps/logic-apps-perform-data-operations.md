@@ -5,10 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 08/01/2022
 ---
 
 # Perform data operations in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 This article shows how you can work with data in your logic apps by adding actions for these tasks and more:
 
