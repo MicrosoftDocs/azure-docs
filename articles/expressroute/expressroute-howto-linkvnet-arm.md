@@ -204,6 +204,8 @@ With FastPath and virtual network peering, you can enable ExpressRoute connectiv
 
 With FastPath and UDR, you can configure a UDR on the GatewaySubnet to direct ExpressRoute traffic to an Azure Firewall or third party NVA. FastPath will honor the UDR and send traffic directly to the target Azure Firewall or NVA, bypassing the ExpressRoute virtual network gateway in the data path.
 
+**FastPath support for virtual network peering and UDRs is only available for ExpressRoute Direct connections**.
+
 > [!NOTE]
 > * Virtual network peering and UDR support is enabled by default for all new FastPath connections 
 > * To enable virtual network peering and UDR support for FastPath connections configured before 9/19/2022, disable and enable FastPath on the target connection.
