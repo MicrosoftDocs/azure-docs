@@ -1,11 +1,11 @@
 ---
-title: Application management CLI commands - Microsoft Defender for IoT
+title:Advanced CLI reference: OT sensor appliance management - Microsoft Defender for IoT
 description: Learn about the CLI commands available for managing the Defender for IoT on-premises applications.
 ms.date: 09/07/2022
 ms.topic: reference
 ---
 
-# OT sensor CLI reference: appliance management
+# Advanced CLI reference: OT sensor appliance management
 
 This article lists the CLI commands available for managing the OT network sensor appliance and Defender for IoT software applications.
 
