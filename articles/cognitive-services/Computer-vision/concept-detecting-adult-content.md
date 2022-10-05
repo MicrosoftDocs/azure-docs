@@ -39,7 +39,7 @@ You can detect adult content with the [Analyze Image](https://westcentralus.dev.
 
 #### [Version 4.0](#tab/4-0)
 
-You can detect adult content with the [Analyze Image](https://aka.ms/vision-4-0-ref) API. When you add the value of `Adult` to the **Features** query parameter, the API returns three properties&mdash;`adult`, `racy`, and `gore`&mdash;in its JSON response. Each of these properties contains a boolean value and confidence scores between zero and one.
+You can detect adult content with the [Analyze Image](https://aka.ms/vision-4-0-ref) API. When you add the value of `Adult` to the **features** query parameter, the API returns three properties&mdash;`adult`, `racy`, and `gore`&mdash;in its JSON response. Each of these properties contains a boolean value and confidence scores between zero and one.
 
 ---
 

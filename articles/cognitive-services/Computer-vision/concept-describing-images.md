@@ -88,7 +88,7 @@ The image description feature is part of the [Analyze Image](https://westcentral
 
 #### [Version 4.0](#tab/4-0)
 
-The image description feature is part of the [Analyze Image](https://aka.ms/vision-4-0-ref) API. You can call this API using REST. Include `Description` in the **Features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"description"` section.
+The image description feature is part of the [Analyze Image](https://aka.ms/vision-4-0-ref) API. You can call this API using REST. Include `Description` in the **features** query parameter. Then, when you get the full JSON response, parse the string for the contents of the `"description"` section.
 
 ---
 
