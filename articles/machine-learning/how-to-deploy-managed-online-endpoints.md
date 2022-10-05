@@ -561,14 +561,30 @@ You can list all the endpoints in the workspace in a table format by using the `
 az ml online-endpoint list --output table
 ```
 
-<Todo: check way for SDKv2>
-
 # [Python](#tab/python)
 
 Check the status to see whether the model was deployed without error:
 
 ```python
 ml_client.online_endpoints.get(name=online_endpoint_name)
+```
+
+You can list all the endpoints in the workspace in a table format by using the `list` method:
+
+```python
+for endpoint in ml_client.online_endpoints.list():
+    print(endpoint.name)
+```
+
+The method returns list (iteretor) of `ManagedOnlineEndpoint` entities. You can get other information by specifing [parameters](/python/api/azure-ai-ml/azure.ai.ml.entities.managedonlineendpoint#parameters).
+
+For example, output the list of endpoints like a table:
+
+```python
+print("Kind\tLocation\tName")
+print("-------\t----------\t------------------------")
+for endpoint in ml_client.online_endpoints.list():
+    print(f"{endpoint.kind}\t{endpoint.location}\t{endpoint.name}")
 ```
 
 ---
