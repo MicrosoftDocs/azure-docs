@@ -86,7 +86,8 @@ Administrators can use the **External user leave settings** to control whether e
    - **Yes**: Users can leave the organization themselves without approval from your admin or privacy contact.
    - **No**: Users can't leave your organization themselves. They'll see a message guiding them to contact your admin, or privacy contact to request removal from your organization.
 
-   ![Screenshot showing External user leave settings in the portal.](media/leave-the-organization/external-user-leave-settings.png)
+
+   :::image type="content" source="media/leave-the-organization/external-user-leave-settings.png" alt-text="Screenshot showing External user leave settings in the portal.":::
 
 ### Account removal
 
