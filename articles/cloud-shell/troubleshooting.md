@@ -8,7 +8,7 @@ manager: hemantm
 tags: azure-resource-manager
  
 ms.assetid: 
-ms.service: azure-resource-manager
+ms.service: cloud-shell
 ms.subservice: troubleshooting
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
