@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/30/2022
+ms.date: 10/05/2022
 
 
 ms.author: justinha
@@ -52,20 +52,20 @@ Azure AD Connect requires a special role named **Hybrid Identity Administrator**
 
 ### Can we have privileged accounts with a federated AD FS server?
         
-While this is possible, Microsoft recommends privileged accounts be cloud-only accounts. Using cloud-only accounts for privileged access limits exposure in Azure AD from a compromised on-premises environment. For more information, see [Protecting Microsoft 365 from on-premises attacks](../fundamentals/protect-m365-from-on-premises-attacks.md).
+Although it's possible, Microsoft recommends privileged accounts be cloud-only accounts. Using cloud-only accounts for privileged access limits exposure in Azure AD from a compromised on-premises environment. For more information, see [Protecting Microsoft 365 from on-premises attacks](../fundamentals/protect-m365-from-on-premises-attacks.md).
 
 ### If an organization is a hybrid running both AD FS and Azure CBA, are they still vulnerable to the AD FS compromise?
 
-Microsoft recommends privileged accounts be cloud-only accounts. This will limit the exposure in Azure AD from a compromised on-premises environment. Maintaining privileged accounts a cloud-only is foundational to this goal. 
+Microsoft recommends privileged accounts be cloud-only accounts. This practice will limit the exposure in Azure AD from a compromised on-premises environment. Maintaining privileged accounts a cloud-only is foundational to this goal. 
 
 For synchronized accounts:
 
 - If they're in a managed domain (not federated), there's no risk from the federated IdP.
-- If they're in a federated domain, but a subset of accounts are being moved to Azure AD CBA by Staged Rollout, they are subject to risks related to the federated Idp until the federated domain is fully switched to cloud authentication.
+- If they're in a federated domain, but a subset of accounts is being moved to Azure AD CBA by Staged Rollout, they're subject to risks related to the federated Idp until the federated domain is fully switched to cloud authentication.
 
 ### Should organizations eliminate federated servers like AD FS to prevent the capability to pivot from AD FS to Azure?
  
-With federation, an attacker could impersonate anyone, such as a CIO, even if they cannot obtain a cloud-only role like the Global Administrator account.
+With federation, an attacker could impersonate anyone, such as a CIO, even if they can't obtain a cloud-only role like the Global Administrator account.
 
 When a domain is federated in Azure AD, a high level of trust is being placed on the Federated IdP. AD FS is one example, but the notion holds true for *any* federated IdP. Many organizations deploy a federated IdP such as AD FS exclusively to accomplish certificate based authentication. Azure AD CBA completely removes the AD FS dependency in this case. With Azure AD CBA, customers can move their application estate to Azure AD to modernize their IAM infrastructure and reduce costs with increased security.
 
@@ -73,11 +73,11 @@ From a security perspective, there's no change to the credential, including the 
 
 ### How does authentication work with Federated AD FS and Azure AD cloud authentication with Windows?
 
-Azure AD CBA requires the user or application to supply the AzureAD UPN of the user intending to be signed in. 
+Azure AD CBA requires the user or application to supply the Azure AD UPN of the user who signs in. 
 
-In the browser example, this is essentially the user typing in their Azure AD UPN. This is used for realm and user discovery. The certificate used then must match this user via one of the configured username bindings in the policy. 
+In the browser example, the user most often types in their Azure AD UPN. The Azure AD UPN is used for realm and user discovery. The certificate used then must match this user by using one of the configured username bindings in the policy. 
 
-In Windows sign-in, this depends on if the device is Azure/Hybrid Azure AD joined. But in both cases if username hint is provided, Windows will send the hint as an Azure AD UPN and subsequently the certificate used then must match this user via one of the configured username bindings in the policy.
+In Windows sign-in, the match depends on if the device is hybrid or Azure AD joined. But in both cases, if username hint is provided, Windows will send the hint as an Azure AD UPN. The certificate used then must match this user by using one of the configured username bindings in the policy.
 
 
 ## Next steps
