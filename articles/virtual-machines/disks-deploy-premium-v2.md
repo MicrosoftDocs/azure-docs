@@ -193,12 +193,7 @@ Unlike other managed disks, the performance of a Premium SSD v2 can be configure
 The following command changes the performance of your disk, update the values as you like, then run the command:
 
 ```azurecli
-az disk update `
---subscription $subscription `
---resource-group $rgname `
---name $diskName `
---set diskIopsReadWrite=5000 `
---set diskMbpsReadWrite=200
+az disk update --subscription $subscription --resource-group $rgname --name $diskName --disk-iops-read-write=5000 --disk-mbps-read-write=200
 ```
 
 # [PowerShell](#tab/azure-powershell)

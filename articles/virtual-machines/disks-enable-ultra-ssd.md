@@ -4,7 +4,7 @@ description: Learn about ultra disks for Azure VMs
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/06/2022
+ms.date: 10/12/2022
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
@@ -463,12 +463,7 @@ Ultra disks offer a unique capability that allows you to adjust their performanc
 Ultra disks offer a unique capability that allows you to adjust their performance, the following command depicts how to use this feature:
 
 ```azurecli-interactive
-az disk update `
---subscription $subscription `
---resource-group $rgname `
---name $diskName `
---set diskIopsReadWrite=80000 `
---set diskMbpsReadWrite=800
+az disk update --subscription $subscription --resource-group $rgname --name $diskName --disk-iops-read-write=5000 --disk-mbps-read-write=200
 ```
 
 # [PowerShell](#tab/azure-powershell)
