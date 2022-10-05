@@ -218,7 +218,7 @@ The configuration wizard starts. For more information, see [Install OT monitorin
 
 ## Manage SSL and TLS certificates
 
-Enter the following command to import SSL and TLS enterprise certificates into the CLI:
+Enter the following command to import SSL and TLS certificates into the sensor from the CLI (review [here](../how-to-deploy-certificates) for more about SSL/TLS certificates).
 
 ```cli
 root@xsense:/# cyberx-xsense-certificate-import
