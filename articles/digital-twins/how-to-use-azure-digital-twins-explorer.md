@@ -98,7 +98,7 @@ The Twin Graph panel also provides several abilities to customize your graph vie
 * [Show and hide twin graph elements](#show-and-hide-twin-graph-elements)
 * [Filter and highlight twin graph elements](#filter-and-highlight-twin-graph-elements)
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-prereq-instance.md)]
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
 
 ### View twins and relationships
 
@@ -117,7 +117,7 @@ To view the property values of a twin or a relationship, select the twin or rela
 
 The properties shown in the **Twin Properties** and **Relationship Properties** panels are each displayed with an icon, indicating the type of the field from the DTDL model. You can hover over an icon to display the associated type.
 
-The table below shows the possible data types and their corresponding icons. The table also contains links from each data type to its schema description in the [DTDL Version 3 Reference](https://explorer.digitaltwins.azure.net/3dscenes).
+The table below shows the possible data types and their corresponding icons. The table also contains links from each data type to its schema description in the [DTDL Version 3 Reference](https://github.com/Azure/opendigitaltwins-dtdl/blob/da589d7d86b6e6d77ecf7aeffbfa5a21fca00106/DTDL/v3-preview/DTDL.v3.md).
 
 | Icon | Data type |
 | --- | --- |
@@ -226,7 +226,7 @@ This section describes how to perform the following management activities:
 
 For information about the viewing experience for twins and relationships, see [Explore twins and the Twin Graph](#explore-the-twin-graph).
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-prereq-instance.md)]
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
 
 ### View flat list of twins and relationships
 
@@ -238,7 +238,7 @@ The **Twins** panel shows a flat list of your twins and their associated relatio
 
 You can create a new digital twin from its model definition in the **Models** panel.
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-prereq-instance.md)]
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
 
 To create a twin from a model, find that model in the list and choose the menu dots next to the model name. Then, select **Create a Twin**. You'll be asked to enter a **name** for the new twin, which must be unique. Then save the twin, which will add it to your graph.
 
@@ -289,7 +289,7 @@ You can also choose to delete all of the twins in your instance at the same time
 
 ## Explore models and the Model Graph
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-prereq-instance.md)]
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
 
 Models can be viewed both in the **Models** panel on the left side of the Azure Digital Twins Explorer screen, and in the **Model Graph** panel in the middle of the screen.
 
@@ -390,7 +390,7 @@ Then, to upload the images at the same time, use the **Upload Model Images** ico
 
 ## Manage models
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-prereq-instance.md)]
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
 
 You can use the **Models** panel on the left side of the Azure Digital Twins Explorer screen to perform management activities on the entire set of models, or on individual models. 
 

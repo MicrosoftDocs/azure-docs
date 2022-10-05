@@ -427,7 +427,7 @@ Here are two sample projects that can simplify dealing with multiple models at o
 
 Once you have uploaded models into your Azure Digital Twins instance, you can use [Azure Digital Twins Explorer](http://explorer.digitaltwins.azure.net/) to view them. The explorer contains a list of all models in the instance, as well as a **model graph** that illustrates how they relate to each other, including any inheritance and model relationships.
 
-[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-prereq-instance.md)]
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
 
 Here's an example of what a model graph might look like:
 
