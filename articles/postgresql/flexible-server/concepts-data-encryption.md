@@ -118,8 +118,8 @@ After Azure Database for PostgreSQL - Flexible Server  is encrypted with a custo
 To avoid issues while setting up customer-managed data encryption during restore or read replica creation, it's important to follow these steps on the primary and restored/replica servers:
 
 * Initiate the restore or read replica creation process from the primary Azure Database for PostgreSQL - Flexible server.
-* On the restored/replica server, you can change the customer-managed key and\or AAD identity used to access Azure Key Vault in the data encryption settings. Please make sure that the newly created server is given list, wrap and unwrap permissions to the key stored in Key Vault.
-* Please do not revoke original key after restoring, as at this time we don't support key revocation after restoring CMK enabled server to another server
+* On the restored/replica server, you can change the customer-managed key and\or AAD identity used to access Azure Key Vault in the data encryption settings.  Make sure that the newly created server is given list, wrap and unwrap permissions to the key stored in Key Vault.
+*  Do not revoke original key after restoring, as at this time we don't support key revocation after restoring CMK enabled server to another server
 
 ## Inaccessible customer-managed key condition
 
@@ -139,11 +139,11 @@ Follow steps below to enable CMK while creating Postgres Flexible Server.
 
 * Provide required information on Basics and Networking tabs
 
-* Navigate to Security(preview) tab, provide AAD identity that has access to the Key Vault and Key in Key Vault in the same region where you are creating this server
+* Navigate to Security(preview) tab. On the screen provide AAD identity that has access to the Key Vault and Key in Key Vault in the same region where you are creating this server
 
-* On Review Summary tab make sure that you provided correct information in Security section and press Create button
+* On Review Summary tab, make sure that you provided correct information in Security section and press Create button
 
-* Once  is created you should be able to navigate to Data Encryption (preview) screen for the server and update identity or key if necessary
+* Once its finished, you should be able to navigate to Data Encryption (preview) screen for the server and update identity or key if necessary
 
 
 
@@ -171,10 +171,10 @@ Follow steps below to update CMK on CMK enabled Flexible Server:
 The following are limitations for configuring the customer-managed key in Flexible Server:
 
 * CMK encryption can only be configured during creation of new server, not as update to existing Flexible Server.
-* Once enabled CMK encryption cannot be removed. If customer desires to remove this feature it can only be done via restore of the server to non-CMK server.
+* Once enabled CMK encryption cannot be removed. If customer desires to remove this feature , it can only be done via restore of the server to non-CMK server.
 * CMK encryption is not available on Burstable SKU.
 
-The following are additional limitations for public preview of configuring the customer-managed key that we expect to remove at General Availability of this feature:
+The following are other limitations for public preview of configuring the customer-managed key that we expect to remove at General Availability of this feature:
 
 * No support for Geo backup enabled servers 
 * **No support for revoking key after restoring CMK enabled server to another server**
