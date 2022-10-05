@@ -20,10 +20,10 @@ This article shows you how to configure VMware VMware Spring Cloud Gateway with 
 
 [VMware Spring Cloud Gateway](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) a commercial VMware Tanzu component, is based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway for Tanzu handles cross-cutting concerns for API development teams, such as single sign-on (SSO), access control, rate-limiting, resiliency, security, and more. You can accelerate API delivery using modern cloud native patterns, and any programming language you choose for API development.
 
-VMware Spring Cloud Gateway includes: 
+VMware Spring Cloud Gateway also includes: 
 
 - Dynamic routing configuration, independent of individual applications that can be applied and changed without recompilation.
-- Other commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services.
+- Commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services.
 - Client certificate authorization.
 - Rate-limiting approaches.
 - Circuit breaker configuration.
@@ -40,18 +40,6 @@ To integrate with [API portal for VMware Tanzu®](./how-to-use-enterprise-api-po
 
 - [Azure CLI version 2.0.67 or later](/cli/azure/install-azure-cli).
 
-## How VMware Spring Cloud Gateway works
-
-VMware Spring Cloud Gateway has two components: a Kubernetes operator and the Spring Cloud Gateway instance. The operator is responsible for the lifecycle of Spring Cloud Gateway instances and routing rules. It's transparent to the developer and Azure Spring Apps will manage it.
-
-A Spring Cloud Gateway instance routes traffic according to rules. Both scale in/out and up/down are supported to meet dynamic traffic load.
-
-The following table describes the default resource usage:
-
-| Component name                               | Instance count | vCPU per instance | Memory per instance |
-|----------------------------------------------|----------------|-------------------|---------------------|
-| VMware Spring Cloud Gateway          | 2              | 1 core            | 2Gi                 |
-| VMware Spring Cloud Gateway operator | 2              | 1 core            | 2Gi                 |
 
 ## Configure VMware Spring Cloud Gateway
 
@@ -108,12 +96,19 @@ To set up SSO with Azure AD, see [How to set up single sign-on with Azure Active
 >
 > After configuring SSO, remember to set `ssoEnabled: true` for the Spring Cloud Gateway routes.
 
-### Requested resource
+### Service Scaling
 
-Customization of the resource usage for Spring Cloud Gateway instances is supported, including vCpu, memory, and instance count.
+Customization of resource allocation for Spring Cloud Gateway instances is supported, including vCpu, memory, and instance count.
 
 > [!NOTE]
-> For highly available consideration, a single replica is not recommended.
+> For high availablility, a single replica is not recommended.
+
+The following table describes the default resource usage:
+
+| Component name                               | Instance count | vCPU per instance | Memory per instance |
+|----------------------------------------------|----------------|-------------------|---------------------|
+| VMware Spring Cloud Gateway                  | 2              | 1 core            | 2Gi                 |
+| VMware Spring Cloud Gateway operator         | 2              | 1 core            | 2Gi                 |
 
 ## Configure Spring Cloud Gateway
 
