@@ -17,7 +17,6 @@ ms.date: 10/04/2022
 [Access policies](concept-policies-data-owner.md) allow you to manage access from Microsoft Purview to data sources that have been registered for *Data Use Management*.
 
 This article describes how a data owner can delegate in Microsoft Purview management of access to Azure Storage datasets. Currently, these two Azure Storage sources are supported:
-
 - Blob storage
 - Azure Data Lake Storage (ADLS) Gen2
 
