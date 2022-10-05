@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to manage DTDL models within Azure Digital Twins, including how to create, edit, and delete them.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 02/23/2022
+ms.date: 10/5/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -294,6 +294,23 @@ After a model has been deleted, you may decide later to upload a new model with 
 Azure Digital Twins doesn't prevent this state, so be careful to patch twins appropriately to make sure they remain valid through the model definition switch.
 
 ## Convert V2 models to V3
+
+Azure Digital Twins supports [DTDL versions 2 and 3](concepts-models.md#supported-dtdl-versions) (shortened in the documentation to V2 and V3, respectively). This section explains how to update an existing DTDL V2 model to DTDL V3.
+
+1. **Update the context.** The main feature that identifies a model as V2 or V3 is the `@context` field on the interface. To convert a model from V2 to V3, change the `dtmi:dtdl:context;2` context value to `dtmi:dtdl:context;3`. For many models, this will be the only required change.
+    1. Value in V2: `"@context": "dtmi:dtdl:context;2"`
+    1. Value in V3: `"@context": "dtmi:dtdl:context;3"`.
+1. **If needed, update semantic types.** In DTDL V2, [semantic types](concepts-models.md#dtdl-v2-semantic-type-example) are natively supported. In DTDL V3, they are included with the [Quantitative types feature extension](concepts-models.md#quantitative-types-extension). So, if your V2 model used semantic types, you'll need to add the feature extension when converting the model to V3. To do this, first change the `@context` field on the interface from a single value to an array of values, then add the value `dtmi:dtdl:extension:quantitativeTypes;1`.
+    1. Value in V2: `"@context": "dtmi:dtdl:context;2"` 
+    1. Value in V3: `"@context": ["dtmi:dtdl:context;3", "dtmi:dtdl:extension:quantitativeTypes;1"]`
+1. **If needed, update CommandPayload type.** If your DTDL V2 model happened to have a value of `CommandPayload` in an optional `@type` field, this value will need to be replaced with `CommandRequest` or `CommandResponse` in V3.
+    1. Value in V2: `"@type": "CommandPayload"` 
+    1. Value in V3: `"@type": "CommandRequest"` or `"@type": "CommandResponse"` 
+1. **If needed, consider size limits**. V2 and V3 have different size limits, so if your interface is very large, you may want to review the limits in the [differences between DTDL V2 and V3](https://github.com/Azure/opendigitaltwins-dtdl/blob/da589d7d86b6e6d77ecf7aeffbfa5a21fca00106/DTDL/v3-preview/DTDL.v3.md#changes-from-version-2). 
+
+After these changes, a former DTDL V2 model has been converted to a DTDL V3 model.
+
+You might also want to consider [new capabilities of DTDL V3](concepts-models.md#supported-dtdl-versions), such as array-type properties, version relaxation, and additional feature extensions, to see if any of them would be beneficial additions. For a complete list of differences between DTDL V2 and V3, see [DTDL V3 Reference: Changes from Version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/da589d7d86b6e6d77ecf7aeffbfa5a21fca00106/DTDL/v3-preview/DTDL.v3.md#changes-from-version-2).
 
 ## Next steps
 

@@ -60,7 +60,7 @@ Here are the fields within a model interface:
 | --- | --- |
 | `@id` | A [Digital Twin Model Identifier (DTMI)](https://github.com/Azure/opendigitaltwins-dtdl/blob/da589d7d86b6e6d77ecf7aeffbfa5a21fca00106/DTDL/v3-preview/DTDL.v3.md#digital-twin-model-identifier) for the model, in the format `dtmi:<domain>:<unique-model-identifier>;<model-version-number>`. In DTDL V3, the version number can be omitted, or structured as a two-part (`<major>.<minor>`) version number. |
 | `@type` | Identifies the kind of information being described. For an interface, the type is `Interface`. |
-| `@context` | Sets the [context](https://niem.github.io/json/reference/json-ld/context/) for the JSON document. Models should use `dtmi:dtdl:context;2` for DTDL V2, or `dtmi:dtdl:context;3` for DTDL V3. DTDL V3 models can also include additional [feature extensions](#dtdl-v3-feature-extensions). |
+| `@context` | Sets the [context](https://niem.github.io/json/reference/json-ld/context/) for the JSON document. Models should use `dtmi:dtdl:context;2` for DTDL V2, or `dtmi:dtdl:context;3` for DTDL V3. DTDL V3 models can also name additional [feature extensions](#dtdl-v3-feature-extensions) in this field. |
 | `displayName` | [optional] Gives you the option to define a friendly name for the model. If you don't use this field, the model will use its full DTMI value.|
 | `contents` | All remaining interface data is placed here, as an array of attribute definitions. Each attribute must provide a `@type` (`Property`, `Telemetry`, `Relationship`, or `Component`) to identify the sort of interface information it describes, and then a set of properties that define the actual attribute. The next section describes the [model attributes](#model-attributes) in detail. |
 
