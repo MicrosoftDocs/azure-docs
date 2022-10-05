@@ -22,7 +22,7 @@ This document explains the technical terms used in Metrics Advisor. Use this art
 > [!NOTE]
 > Multiple metrics can share the same data source, and even the same data feed.
 
-A data feed is what Metrics Advisor ingests from your data source, such as Cosmos DB or a SQL server. A data feed contains rows of:
+A data feed is what Metrics Advisor ingests from your data source, such as Azure Cosmos DB or a SQL server. A data feed contains rows of:
 * timestamps
 * zero or more dimensions
 * one or more measures. 

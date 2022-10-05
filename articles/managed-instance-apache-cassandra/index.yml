@@ -27,14 +27,14 @@ landingContent:
             url: introduction.md
       - linkListType: get-started
         links:
-          - text: Azure Managed Instance for Apache Cassandra Vs Azure Cosmos DB Cassandra API
+          - text: Differences between Azure Managed Instance for Apache Cassandra and Azure Cosmos DB for Apache Cassandra
             url: compare-cosmosdb-managed-instance.md
       - linkListType: tutorial
         links:
           - text: Live migration
-            url: dual-write-proxy-migration.md     
+            url: dual-write-proxy-migration.md
           - text: Offline migration
-            url: spark-migration.md                      
+            url: spark-migration.md
 
   # Card 
   - title: Create and deploy a cluster

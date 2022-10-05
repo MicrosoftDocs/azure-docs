@@ -507,7 +507,7 @@
     - name: Kubernetes
       tocHref: /azure/container-service/kubernetes/
       topicHref: /azure/container-service/kubernetes/
-  - name: Cosmos DB
+  - name: Azure Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
     items:

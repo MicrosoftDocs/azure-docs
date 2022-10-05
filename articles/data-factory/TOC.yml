@@ -368,9 +368,9 @@ items:
       displayName: timeout
     - name: Azure Cognitive Search
       href: connector-azure-search.md
-    - name: Azure Cosmos DB SQL API
+    - name: Azure Cosmos DB for NoSQL
       href: connector-azure-cosmos-db.md
-    - name: Azure Cosmos DB's API for MongoDB
+    - name: Azure Cosmos DB for MongoDB
       href: connector-azure-cosmos-db-mongodb-api.md
     - name: Azure Data Explorer
       href: connector-azure-data-explorer.md
@@ -1137,12 +1137,12 @@ items:
       - name: Azure Blob Storage
         href: connector-troubleshoot-azure-blob-storage.md
         displayName: troubleshooting
-      - name: Azure Cosmos DB (including SQL API)
+      - name: Azure Cosmos DB (including Azure Cosmos DB for NoSQL)
         href: connector-troubleshoot-azure-cosmos-db.md
         displayName: troubleshooting
       - name: Azure Data Explorer
-        href: connector-troubleshoot-azure-data-explorer.md      
-        displayName: troubleshooting                
+        href: connector-troubleshoot-azure-data-explorer.md
+        displayName: troubleshooting
       - name: Azure Data Lake (Gen1 and Gen2)
         href: connector-troubleshoot-azure-data-lake.md
         displayName: troubleshooting

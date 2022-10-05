@@ -70,7 +70,7 @@ landingContent:
             url: stream-analytics-define-outputs.md
       - linkListType: concept
         links:
-          - text: Output to Cosmos DB
+          - text: Output to Azure Cosmos DB
             url: stream-analytics-documentdb-output.md
           - text: Output to Azure SQL Database
             url: stream-analytics-sql-output-perf.md

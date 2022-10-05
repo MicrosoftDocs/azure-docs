@@ -63,7 +63,7 @@ The following access restrictions are applicable when data-exfiltration protecti
    * **Description** - Provide a friendly description to identify your private endpoint.
    * **Azure subscription** - Select an Azure Cosmos DB account from the list of available accounts in your Azure subscriptions.
    * **Azure Cosmos DB account name** - Select an existing Azure Cosmos DB account of type SQL or MongoDB.
-   * **Target sub-resouce** - Select one of the following options:
+   * **Target sub-resource** - Select one of the following options:
      **Analytical**: If you want to add the private endpoint for Azure Cosmos DB analytical store.
      **NoSQL** (or **MongoDB**): If you want to add OLTP or transactional account endpoint.
 

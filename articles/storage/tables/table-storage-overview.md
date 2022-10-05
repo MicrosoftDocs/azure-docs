@@ -11,7 +11,7 @@ ms.date: 05/27/2021
 ms.subservice: tables
 ---
 
-# What is Azure Table storage ? 
+# What is Azure Table storage?
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-tip-include.md)]
 

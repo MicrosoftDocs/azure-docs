@@ -14,7 +14,7 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## CosmosDBOutputBatchSizeTooLarge
 
-* **Cause**: The batch size used to write to Cosmos DB is too large. 
+* **Cause**: The batch size used to write to Azure Cosmos DB is too large. 
 * **Recommendation**: Retry with a smaller batch size.
 
 ## Next steps

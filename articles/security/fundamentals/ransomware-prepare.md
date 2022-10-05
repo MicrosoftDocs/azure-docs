@@ -164,7 +164,7 @@ Local (operational) backups with Azure Backup
 - Azure Disks
 
 Built-in backups from Azure services
-- Data services like Azure Databases (SQL, MySQL, MariaDB, PostgreSQL), Cosmos DB, and ANF offer built-in backup capabilities
+- Data services like Azure Databases (SQL, MySQL, MariaDB, PostgreSQL), Azure Cosmos DB, and ANF offer built-in backup capabilities
 
 ## What's Next
 

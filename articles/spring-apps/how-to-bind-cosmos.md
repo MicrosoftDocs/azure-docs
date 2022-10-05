@@ -32,7 +32,7 @@ If you don't have a deployed Azure Spring Apps instance, follow the steps in the
 
 1. Add one of the following dependencies to your application's pom.xml pom.xml file. Choose the dependency that is appropriate for your API type.
 
-    * API type: Core (SQL)
+    * API type: NoSQL
 
       ```xml
       <dependency>

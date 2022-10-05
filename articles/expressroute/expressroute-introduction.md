@@ -80,7 +80,7 @@ ExpressRoute Direct provides customers the opportunity to connect directly into 
 
 Key features that ExpressRoute Direct provides include, but aren't limited to:
 
-* Massive Data Ingestion into services like Storage and Cosmos DB
+* Massive data ingestion into services like Azure Storage and Azure Cosmos DB
 * Physical isolation for industries that are regulated and require dedicated and isolated connectivity, such as: Banking, Government, and Retail
 * Granular control of circuit distribution based on business unit
 

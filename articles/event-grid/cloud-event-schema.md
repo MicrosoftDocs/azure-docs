@@ -19,7 +19,7 @@ This article describes CloudEvents schema with Event Grid.
 
 Here is an example of an Azure Blob Storage event in CloudEvents format:
 
-``` JSON
+```json
 {
     "specversion": "1.0",
     "type": "Microsoft.Storage.BlobCreated",  

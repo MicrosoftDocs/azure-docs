@@ -16,7 +16,7 @@ For example:
 
 * You create a storage account through the control plane. You use the data plane to read and write data in the storage account.
 
-* You create a Cosmos database through the control plane. To query data in the Cosmos database, you use the data plane.
+* You create an Azure Cosmos DB database through the control plane. To query data in the Azure Cosmos DB database, you use the data plane.
 
 ## Control plane
 

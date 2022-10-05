@@ -51,7 +51,7 @@ Azure Monitor Change Analysis service supports resource property level changes i
     - Storage
     - SQL
     - Redis Cache
-    - Cosmos DB, etc.
+    - Azure Cosmos DB, etc.
 
 ## Data sources
 

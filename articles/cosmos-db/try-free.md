@@ -6,14 +6,15 @@ ms.author: sidandrews
 ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 08/26/2021
+ms.date: 10/05/2021
 ---
 
 # Try Azure Cosmos DB free
-[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
+
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table, PostgreSQL](includes/appliesto-nosql-mongodb-cassandra-gremlin-table-postgresql.md)]
 
 [Try Azure Cosmos DB](https://aka.ms/trycosmosdb) makes it easy to try out Azure Cosmos DB for free before you commit. There's no credit card required to get started. Your account is free for 30 days. After expiration, a new sandbox account can be created. You can extend beyond 30 days for 24 hours. You can upgrade your active Try Azure Cosmos DB account at any time during the 30 day trial period. If you're using the API for NoSQL, migrate your Try Azure Cosmos DB data to your upgraded account.
- 
+
 This article walks you through how to create your account, limits, and upgrading your account. This article also walks through how to migrate your data from your Try Azure Cosmos DB sandbox to your own account using the API for NoSQL.
 
 ## Try Azure Cosmos DB limits
@@ -33,7 +34,7 @@ Try Azure Cosmos DB supports global distribution in only the Central US, North E
 
 ## Create your Try Azure Cosmos DB account
 
-From the [Try Azure Cosmos DB home page](https://aka.ms/trycosmosdb), select an API. Azure Cosmos DB provides five APIs: NoSQL and MongoDB for document data, Gremlin for graph data, Azure Table, and Cassandra. 
+From the [Try Azure Cosmos DB home page](https://aka.ms/trycosmosdb), select an API. Azure Cosmos DB provides five APIs: NoSQL and MongoDB for document data, Gremlin for graph data, Azure Table, and Cassandra.
 
 > [!NOTE]
 > Not sure which API will best meet your needs? To learn more about the APIs for Azure Cosmos DB, see [Choose an API in Azure Cosmos DB](choose-api.md).
@@ -42,7 +43,7 @@ From the [Try Azure Cosmos DB home page](https://aka.ms/trycosmosdb), select an 
 
 ## Launch a Quick Start
 
-Launch the Quickstart in Data Explorer in Azure portal to start using Azure Cosmos DB or get started with our documentation. 
+Launch the Quickstart in Data Explorer in Azure portal to start using Azure Cosmos DB or get started with our documentation.
 
 * [API for NoSQL Quickstart](nosql/quickstart-portal.md#create-container-database)
 * [API for MongoDB Quickstart](mongodb/quickstart-python.md#learn-the-object-model)
@@ -59,7 +60,7 @@ You can also get started with one of the learning resources in Data Explorer.
 Your account is free for 30 days. After expiration, a new sandbox account can be created. You can upgrade your active Try Azure Cosmos DB account at any time during the 30 day trial period. Here are the steps to start an upgrade.
 
 1. Select the option to upgrade your current account in the Dashboard page or from the [Try Azure Cosmos DB](https://aka.ms/trycosmosdb) page.
-    
+
     :::image type="content" source="media/try-free/upgrade-account.png" lightbox="media/try-free/upgrade-account.png" alt-text="Confirmation page for the account upgrade experience.":::
 
 1. Select **Sign up for Azure Account** & create an Azure Cosmos DB account.
@@ -89,13 +90,13 @@ If you're using the API for NoSQL, you can migrate your Try Azure Cosmos DB data
 
 ### Migrate your data
 
-1. Locate your **Primary Connection string** for the Azure Cosmos DB account you created for your data. 
+1. Locate your **Primary Connection string** for the Azure Cosmos DB account you created for your data.
 
-    1. Go to your Azure Cosmos DB Account in the Azure portal. 
-    
+    1. Go to your Azure Cosmos DB Account in the Azure portal.
+
     1. Find the connection string of your new Azure Cosmos DB account within the **Keys** page of your new account.
 
-        :::image type="content" source="media/try-free/migrate-data.png" lightbox="media/try-free/migrate-data.png" alt-text="Screenshot of the Keys page for an Azure Cosmos DB account.":::    
+        :::image type="content" source="media/try-free/migrate-data.png" lightbox="media/try-free/migrate-data.png" alt-text="Screenshot of the Keys page for an Azure Cosmos DB account.":::
 
 1. Insert the connection string of the new Azure Cosmos DB account in the **Upgrade your account** page.
 
@@ -110,23 +111,23 @@ There can only be one free Try Azure Cosmos DB account per Microsoft account. Yo
 1. Go to the [Try AzureAzure Cosmos DB](https://aka.ms/trycosmosdb) page.
 
 1. Select Delete my account.
-    
+
     :::image type="content" source="media/try-free/upgrade-account.png" lightbox="media/try-free/upgrade-account.png" alt-text="Confirmation page for the account upgrade experience.":::
 
 ## Next steps
 
 After you create a Try Azure Cosmos DB sandbox account, you can start building apps with Azure Cosmos DB with the following articles:
 
-* Use [API for NoSQL to build a console app using .NET](nosql/quickstart-dotnet.md) to manage data in Azure Cosmos DB. 
+* Use [API for NoSQL to build a console app using .NET](nosql/quickstart-dotnet.md) to manage data in Azure Cosmos DB.
 * Use [API for MongoDB to build a sample app using Python](mongodb/quickstart-python.md) to manage data in Azure Cosmos DB.
 * [Create a Jupyter notebook](notebooks-overview.md) and analyze your data.
 * Learn more about [understanding your Azure Cosmos DB bill](understand-your-bill.md)
 * Get started with Azure Cosmos DB with one of our quickstarts:
-    * [Get started with Azure Cosmos DB for NoSQL](nosql/quickstart-portal.md#create-container-database)
-    * [Get started with Azure Cosmos DB for MongoDB](mongodb/quickstart-python.md#learn-the-object-model)
-    * [Get started with Azure Cosmos DB for Cassandra](cassandra/adoption.md)
-    * [Get started with Azure Cosmos DB for Gremlin](gremlin/quickstart-console.md#add-a-graph)
-    * [Get started with Azure Cosmos DB for Table](table/quickstart-dotnet.md)
+  * [Get started with Azure Cosmos DB for NoSQL](nosql/quickstart-portal.md#create-container-database)
+  * [Get started with Azure Cosmos DB for MongoDB](mongodb/quickstart-python.md#learn-the-object-model)
+  * [Get started with Azure Cosmos DB for Cassandra](cassandra/adoption.md)
+  * [Get started with Azure Cosmos DB for Gremlin](gremlin/quickstart-console.md#add-a-graph)
+  * [Get started with Azure Cosmos DB for Table](table/quickstart-dotnet.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for [capacity planning](sql/estimate-ru-with-capacity-planner.md).
 * If all you know is the number of vCores and servers in your existing database cluster, see [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md).
 * If you know typical request rates for your current database workload, see [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md).

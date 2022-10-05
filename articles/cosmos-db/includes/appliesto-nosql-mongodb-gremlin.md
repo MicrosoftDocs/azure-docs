@@ -12,6 +12,5 @@ APPLIES TO:
 NoSQL
 :::image type="icon" source="media/applies-to/yes-icon.svg" border="false":::
 MongoDB
-APPLIES TO:
 :::image type="icon" source="media/applies-to/yes-icon.svg" border="false":::
 Gremlin

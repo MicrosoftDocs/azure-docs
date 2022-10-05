@@ -144,9 +144,9 @@ from openrowset(
 
 The `OPENJSON` function parses each line from the JSONL file containing one JSON document per line in textual format.
 
-## <a id="cosmosdb-view"></a> Cosmos DB views on containers
+## <a id="cosmosdb-view"></a> Azure Cosmos DB views on containers
 
-The views can be created on top of the Azure Cosmos DB containers if the Cosmos DB analytical storage is enabled on the container. Cosmos DB account name, database name, and container name should be added as a part of the view, and the read-only access key should be placed in the database scoped credential that the view references.
+The views can be created on top of the Azure Cosmos DB containers if the Azure Cosmos DB analytical storage is enabled on the container. The Azure Cosmos DB account name, database name, and container name should be added as a part of the view, and the read-only access key should be placed in the database scoped credential that the view references.
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL MyCosmosDbAccountCredential
