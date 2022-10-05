@@ -36,6 +36,8 @@ Make sure that the following prerequisites are in place:
 >[!IMPORTANT]
 >Make sure the PKI is secure and can't be easily compromised. In the event of a compromise, the attacker can create and sign client certificates and compromise any user in the tenant, both users whom are synchronized from on-premises and cloud-only users. However, a strong key protection strategy, along with other physical and logical controls, such as HSM activation cards or tokens for the secure storage of artifacts, can provide defense-in-depth to prevent external attackers or insider threats from compromising the integrity of the PKI. For more information, see [Securing PKI](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn786443(v=ws.11)).
 
+>[!NOTE]Tenant admins can use high-affinity bindings to acheive higher security and helps mitigate attacks from a compromised PKI. Please see [high-affinity bindings](concept-certificate-based-authentication-technical-deep-dive.md#understanding-the-username-binding-policy) for more details.
+
 ## Steps to configure and test Azure AD CBA
 
 Some configuration steps to be done before you enable Azure AD CBA. First, an admin must configure the trusted CAs that issue user certificates. As seen in the following diagram, we use role-based access control to make sure only least-privileged administrators are needed to make changes. Only the [Privileged Authentication Administrator](../roles/permissions-reference.md#privileged-authentication-administrator) role can configure the CA.
