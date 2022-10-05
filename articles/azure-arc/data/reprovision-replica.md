@@ -102,7 +102,7 @@ kubectl delete -n arc SqlManagedInstanceReprovisionReplicaTask my-reprovision-ta
 
 ## Limitations
 
-- The task should reject attempts to reprovision the current primary replica. If the current primary is believed to be corrupted and in need of reprovisioning, the user should fail over to a different primary and then request the reprovisioning.
+- The task rejects attempts to reprovision the current primary replica. If the current primary is believed to be corrupted and in need of reprovisioning, fail over to a different primary and then request the reprovisioning.
 
 - Reprovisioning of multiple replicas in the same instance will serialize; the tasks will accumulate and be held in "Creating" state until the currently active task finishes *and is deleted*. There is no auto-cleanup of a completed task, so this serialization will affect the user even if they run the az command synchronously and wait for it to complete before requesting another reprovision. In all cases they will have to remove the task via kubectl before another reprovision on the same instance can run. **There is no warning about this, either in the az cli or in kubectl.**
 
