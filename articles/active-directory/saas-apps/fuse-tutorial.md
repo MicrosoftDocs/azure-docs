@@ -20,33 +20,36 @@ In this article, you'll learn how to integrate Fuse with Azure Active Directory 
 - Enable your users to be automatically signed-in to Fuse with their Azure AD accounts.
 - Manage your accounts in one central location - the Azure portal.
 
-## Prerequisites
-
-To integrate Azure Active Directory with Fuse:
-
-- An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-- Fuse single sign-on (SSO) enabled subscription.
-
-## Scenario description
-
-In this tutorial, you configure and test Azure AD single sign-on in a test environment.
-
-* Fuse supports **SP** initiated single sign-on.
+You'll configure and test Azure AD single sign-on for Fuse in a test environment. Fuse supports **SP** initiated single sign-on. 
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-## Step 1: Add Fuse from the gallery
+
+## Prerequisites
+
+To integrate Azure Active Directory with Fuse, you need:
+
+- An Azure AD user account. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+- An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+- Fuse single sign-on (SSO) enabled subscription.
+
+## Add application and assign a test user
+
+Before you begin the process of configuring single sign-on, you need to add the Fuse application from the Azure AD gallery. You need a test user account to assign to the application and test the single sign-on configuration.
+
+### Add Fuse from the Azure AD gallery
 
 Add Fuse from the Azure AD application gallery to configure single sign-on with Fuse. For more information on how to add application from the gallery, see the [Quickstart: Add application from the gallery](../manage-apps/add-application-portal.md).
 
- Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, and walk through the single sign-on configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+### Create and assign Azure AD test user
 
-## Step 2: Create and assign Azure AD test user
+Follow the guidelines in the [create and assign users and groups](../manage-apps/assign-user-or-group-access-portal.md) article to create a test user account in the Azure portal called B.Simon.
 
-Follow the guidelines in the [create and assign users and groups](../manage-apps/assign-user-or-group-access-portal.md) article to create a test user account in the Azure portal called B.Simon. 
+Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, and assign roles. The wizard also provides a link to the single sign-on configuration pane in the Azure portal. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides). 
 
-## Step 3: Configure Azure AD single sign-on
+## Configure Azure AD single sign-on
 
 Complete the following steps to enable Azure AD single sign-on in the Azure portal.
 
@@ -70,15 +73,15 @@ Complete the following steps to enable Azure AD single sign-on in the Azure port
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-## Step 4: Configure Fuse single sign-on
+## Configure Fuse single sign-on
 
 To configure single sign-on on **Fuse** side, send the downloaded **Certificate (Base64)** and the copied URLs from Azure portal to [Fuse support team](mailto:support@fusion-universal.com). The support team will use the copied URLs to configure the single sign-on on the application.
 
-### Step 5: Create Fuse test user
+### Create Fuse test user
 
 To be able to test and use single sign-on, you have to create and activate users in the fuse application.
 
-In this section, you create a user called Britta Simon in Fuse that corresponds with the Azure AD user you created in [step 2](#step-2-create-and-assign-azure-ad-test-user). Work with [Fuse support team](mailto:support@fusion-universal.com) to add the user in the Fuse platform.
+In this section, you create a user called Britta Simon in Fuse that corresponds with the Azure AD user you already created in the previous section. Work with [Fuse support team](mailto:support@fusion-universal.com) to add the user in the Fuse platform.
 
 ## Test single sign-on
 

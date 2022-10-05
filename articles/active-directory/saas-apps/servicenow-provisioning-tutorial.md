@@ -30,8 +30,8 @@ For more information on the Azure AD automatic user provisioning service, see [A
 
 ## Prerequisites
 
-- [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
-- A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (Application Administrator, Cloud Application Administrator, Application Owner, or Global Administrator)
+- An Azure AD user account with an active subscription. If you don't already have one, you can [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
 - A [ServiceNow instance](https://www.servicenow.com/) of Calgary or higher
 - A [ServiceNow Express instance](https://www.servicenow.com/) of Helsinki or higher
 - A user account in ServiceNow with the admin role
