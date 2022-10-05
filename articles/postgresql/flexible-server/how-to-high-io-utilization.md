@@ -90,10 +90,6 @@ The query is used to check how frequently the tables in the database are being v
 **autovacuum_count** : provides number of times the table was vacuumed.    
 **autoanalyze_count**: provides number of times the table was analyzed.   
 
-#### High storage utilization
-
-You can check storage usage using storage percent metric from Azure Metrics. Storage free, storage used along with storage percent gives amount of storage being used.
-
 ### Resolve high IO utilization
 
 To resolve high IO utilization, there are three methods you could employ - using Explain Analyze, terminating long-running transactions, or tuning server parameters.
