@@ -14,7 +14,7 @@ ms.custom: include file
 
 [!INCLUDE [passwordless-overview](../passwordless-overview.md)]
 
-## [Passwordless (Recommended)](#tab/managed-identity)
+## [Passwordless (Recommended)](#tab/passwordless)
 
 [!INCLUDE [passwordless-default-azure-credential-overview](../default-azure-credential-overview.md)]
 
