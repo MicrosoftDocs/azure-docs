@@ -53,21 +53,30 @@ The following slate detection (a movie post-production) insights are automatical
 
 For details, see [Slate detection](slate-detection-insight.md).
 
+> [!NOTE]
+> Currently, only available in trial accounts.
+
 ### New source languages support for STT, translation, and search
 
 Now supporting source languages for STT (speech-to-text), translation, and search in Ukraine and Vietnamese. It means transcription, translation, and search features are also supported for these languages in Azure Video Indexer web applications, widgets and APIs.
 
 For more information, see [supported languages](language-support.md).
 
-### Edit the name speakers in the transcription through the API
+### Edit a speaker's name in the transcription through the API
 
 You can now edit the name of the speakers in the transcription using the Azure Video Indexer API. 
+
+> [!NOTE]
+> Currently, only available in trial accounts.
 
 ### Word level time annotation with confidence score
 
 An annotation is any type of additional information that is added to an already existing text, be it a transcription of an audio file or an original text file. 
 
 Now supporting word level time annotation with confidence score. 
+
+> [!NOTE]
+> Currently, only available in trial accounts.
 
 ### Azure Monitor integration enabling indexing logs 
 
@@ -78,6 +87,9 @@ Azure Video Indexer now supports Diagnostics settings for indexing events. You c
 ## Expanded supported languages in LID and MLID through the API
 
 We expanded the languages supported in LID (language identification) and MLID (multi language Identification) using the Azure Video Indexer API.
+
+> [!NOTE]
+> Currently, only available in trial accounts.
 
 ### Configure confidence level in a person model with an API
 
