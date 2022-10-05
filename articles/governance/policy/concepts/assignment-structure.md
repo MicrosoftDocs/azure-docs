@@ -234,7 +234,7 @@ Let's take a look at an example. Imagine you have a policy initiative named _Cos
 }
 ```
 
-Note that one override can be used to replace the effect of many policies by specifying multiple values in the policyDefinitionReferenceId array. A single override can be used for up to 50 policyDefinitionReferenceIds, and a single policy assignment can contain up to 10 overrides, evaluated in the order in which thery are specified. Before the assignment is created, the effect chosen in the override is validated against the policy rule and parameter allowed value list, in cases where the effect is [parameterized](definition-structure.md#parameters). 
+Note that one override can be used to replace the effect of many policies by specifying multiple values in the policyDefinitionReferenceId array. A single override can be used for up to 50 policyDefinitionReferenceIds, and a single policy assignment can contain up to 10 overrides, evaluated in the order in which they are specified. Before the assignment is created, the effect chosen in the override is validated against the policy rule and parameter allowed value list, in cases where the effect is [parameterized](definition-structure.md#parameters). 
 
 ## Enforcement mode
 
