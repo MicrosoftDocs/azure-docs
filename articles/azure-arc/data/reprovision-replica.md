@@ -1,9 +1,9 @@
 ---
 title: Reprovision replica
-description: Explains how to rebuild a broken Azure Arc-enabled SQL Managed Instance replica.
+description: This article explains how to rebuild a broken Azure Arc-enabled SQL Managed Instance replica. A replica may break due to storage corruption, for example. 
 services: sql-database
 ms.service: azure-arc
-ms.subservice: azure-arc-data-sqlmi
+ms.subservice: azure-arc-data
 ms.topic: conceptual
 author: MikeRayMSFT 
 ms.author: mikeray
@@ -11,9 +11,11 @@ ms.reviewer: mikeray
 ms.date: 10/05/2022
 ---
 
-# Reprovision replica
+# Reprovision replica - Azure Arc-enabled SQL Managed Instance
 
-The reprovision replica task lets you rebuild a broken sql instance replica. It is intended to be used for a replica that is failing to synchronize, perhaps due to corruption of the data on the persistent volumes (PV) for that instance, or due to some recurring SQL issue, for example.
+This article describes how to provision a new replica to replace an existing replica in Azure Arc-enabled SQL Managed Instance. This task is called *reprovision a replica*.
+
+When you reprovision a replica, you rebuild a new managed instance replica for an Azure Arc-enabled SQL Managed Instance deployment. Use this task to replace a replica that is failing to synchronize, perhaps due to corruption of the data on the persistent volumes (PV) for that instance, or due to some recurring SQL issue, for example.
 
 Support for reprovisioning of a replica is provided only via `az` CLI and kube-native. There is no portal support.
 
@@ -27,19 +29,21 @@ Request provisioning [via `az` CLI](#via-az-cli) or [via `kubectl`](#via-kubectl
 
 ### Via `az` CLI
 
+Azure CLI `az sql mi-arc` command group includes `reprovision-replica`. To reprovision a replica, update the following example. Replace `<instance_name-replica_number>` with the instance name and replica number of the replica you want to replace. Replace `<namespace>`.
+
 ```az
 az sql mi-arc reprovision-replica -n <instance_name-replica_number> -k <namespace> --use-k8s
 ```
 
-For example, for replica 2 of instance mySqlInstance in namespace arc, the command would be:
+For example, to reprovision replica 2 of instance `mySqlInstance` in namespace `arc`, use:
 
 ```az
 az sql mi-arc reprovision-replica -n mySqlInstance-2 -k arc --use-k8s
 ```
 
-This runs until completion at which point the console returns:
+This runs until completion, at which point the console returns:
 
-```az
+```output
 sql-reprov-replica-mySqlInstance-2-1664217002.376132 is Ready
 ```
 
@@ -68,7 +72,7 @@ to view all reprovision tasks.
 
 ## Via kubectl
 
-The CRD for reprovision replica is fairly simple. You can create a yaml file with this structure:
+To reprovision with `kubectl`, create a custom resource definition (CRD). To create a CRD to reprovision, you can create a .yaml file with this structure:
 
 ```yaml
 apiVersion: tasks.sql.arcdata.microsoft.com/v1beta1
@@ -80,7 +84,7 @@ spec:
   replicaName: instance_name-replica_number
 ```
 
-To use the same example as above, mySqlinstance replica 2, the payload would be:
+To use the same example as above, `mySqlinstance` replica 2, the payload is:
 
 ```yaml
 apiVersion: tasks.sql.arcdata.microsoft.com/v1beta1
