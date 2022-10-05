@@ -69,7 +69,7 @@ As a second phase, you can enable your application to call web APIs on behalf of
 ## Specifics
 
 - During the application registration, provide one or several (if you deploy your app to several locations) reply URIs. In some cases (ASP.NET and ASP.NET Core), the ID token will need to be enabled. Finally, set up a sign-out URI so that the application reacts to users signing out.
-- In application's code, provide the authority to which the web app delegates sign-in. Consider customizing token validation when dealing with in particular, in partner scenarios.
+- In the application's code, provide the authority to which the web app delegates sign-in. Consider customizing token validation when dealing with in particular, in partner scenarios.
 - Web applications support any account types. For more information, see [Supported account types](v2-supported-account-types.md).
 
 ## Recommended reading
