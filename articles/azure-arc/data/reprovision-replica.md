@@ -41,25 +41,36 @@ For example, to reprovision replica 2 of instance `mySqlInstance` in namespace `
 az sql mi-arc reprovision-replica -n mySqlInstance-2 -k arc --use-k8s
 ```
 
-This runs until completion, at which point the console returns:
+This runs until completion, at which point the console returns the name of the kubernetes task:
 
 ```output
 sql-reprov-replica-mySqlInstance-2-1664217002.376132 is Ready
 ```
 
-The name of the thing that is ready, is the kubernetes task. At this point you can either examine the task:
+At this point you can either examine the task or delete it.
+
+### Examine the task
+
+The following example returns information about the state of the Kubernetes task:
 
 ```console
 kubectl describe SqlManagedInstanceReprovisionReplicaTask sql-reprov-replica-mySqlInstance-2-1664217002.376132 -n arc
 ```
 
-Or delete it:
+> [!IMPORTANT]
+> After a replica is reprovisioned, you must delete the task before another reprovision can run on the same instance. For additional details, see [Limitations](#limitations).
+
+### Delete the task
+
+The following example deletes the Kubernetes task:
 
 ```console
 kubectl delete SqlManagedInstanceReprovisionReplicaTask sql-reprov-replica-mySqlInstance-2-1664217002.376132 -n arc
 ```
 
-There is an optional `--no-wait` parameter for the command. If you send the request with `--no-wait`, the output will include the name of the task to be monitored. For example:
+### Additional option: `--no-wait`
+
+There is an optional `--no-wait` parameter for the command. If you send the request with `--no-wait`, the output includes the name of the task to be monitored. For example:
 
 ```az
 az sql mi-arc reprovision-replica -n mySqlInstance-2 -k arc --use-k8s --no-wait
@@ -96,6 +107,8 @@ spec:
   replicaName: mySqlInstance-2
 ```
 
+### Monitor or delete the task
+
 Once the yaml is applied via kubectl apply, you can monitor or delete the task via kubectl:
 
 ```console
@@ -104,12 +117,15 @@ kubectl describe -n arc SqlManagedInstanceReprovisionReplicaTask my-reprovision-
 kubectl delete -n arc SqlManagedInstanceReprovisionReplicaTask my-reprovision-task-mySqlInstance-2
 ```
 
+> [!IMPORTANT]
+> After a replica is reprovisioned, you must delete the task before another reprovision can run on the same instance. For additional details, see [Limitations](#limitations).
+
+
 ## Limitations
 
 - The task rejects attempts to reprovision the current primary replica. If the current primary is believed to be corrupted and in need of reprovisioning, fail over to a different primary and then request the reprovisioning.
 
-- Reprovisioning of multiple replicas in the same instance will serialize; the tasks will accumulate and be held in "Creating" state until the currently active task finishes **and is deleted**. There is no auto-cleanup of a completed task, so this serialization will affect the user even if they run the az command synchronously and wait for it to complete before requesting another reprovision. In all cases they will have to remove the task via kubectl before another reprovision on the same instance can run. **There is no warning about this, either in the az cli or in kubectl.**
-
+- Reprovisioning of multiple replicas in the same instance runs serially. The tasks queue and be held in `Creating` state until the currently active task finishes **and is deleted**. There is no auto-cleanup of a completed task, so this serialization will affect you even if you run the `az sql mi-arc reprovision-replica` command synchronously and wait for it to complete before requesting another reprovision. In all cases you have to remove the task via `kubectl` before another reprovision on the same instance can run. 
 
 More details about serialization of reprovision tasks: If you have multiple requests to reprovision a replica in one instance, you may see something like this in the output from a `kubectl get SqlManagedInstanceReprovisionReplicaTask`:
 
