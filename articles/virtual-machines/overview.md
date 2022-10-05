@@ -87,7 +87,7 @@ Microsoft works closely with partners to ensure the images available are updated
 
 ## Cloud-init 
 
-Azure supports for [cloud-init](https://cloud-init.io/) across most Linux distributions that support it.  We are actively working with our Linux partners in order to have cloud-init enabled images available in the Azure marketplace. These images will make your cloud-init deployments and configurations work seamlessly with virtual machines and virtual machine scale sets.
+Azure supports for [cloud-init](https://cloud-init.io/) across most Linux distributions that support it.  We are actively working with our Linux partners in order to have cloud-init enabled images available in the Azure Marketplace. These images will make your cloud-init deployments and configurations work seamlessly with virtual machines and virtual machine scale sets.
 
 For more information, see [Using cloud-init on Azure Linux virtual machines](linux/using-cloud-init.md).
 
