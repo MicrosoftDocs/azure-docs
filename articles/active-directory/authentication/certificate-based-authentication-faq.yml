@@ -7,7 +7,7 @@ metadata:
   ms.service: active-directory
   ms.subservice: authentication
   ms.topic: faq
-  ms.date: 09/30/2022
+  ms.date: 10/05/2022
   ms.author: justinha
   author: vimrang
   manager: amycolannino
@@ -30,8 +30,8 @@ sections:
       - question: |
           Where can I get more diagnostic information after a user sign-in failed? 
         answer: |
-          On the error page, click **More Details** for more information to help your tenant admin look in the **Sign-ins** log to investigate further. For example, if a user certificate is revoked and is part of a Certificate Revocation List, then authentication fails correctly.
-          To get more diagnostic information, look in  the **Sign-ins** log.
+          On the error page, click **More Details** for more information to help your tenant admin. The tenant admin can check the **Sign-ins report** to investigate further. For example, if a user certificate is revoked and is part of a Certificate Revocation List, then authentication fails correctly.
+          To get more diagnostic information, check the **Sign-ins report**.
 
       - question: |
           How can an administrator enable Azure AD CBA?
