@@ -170,7 +170,7 @@ The types **Count** and **“Sum** can be misleading for certain metrics (connec
   - This metric is only available in the Premium tier for caches with geo-replication enabled.
 - Geo Replication Data Sync Offset (preview)
   - Depicts the approximate amount of data, in bytes, that has yet to be synchronized to geo-secondary cache.
-  - This metric is only emitted **from the geo-secondary** cache instance. On the geo-primary instance, this metric has no value.
+  - This metric is only emitted **from the geo-primary** cache instance. On the geo-secondary instance, this metric has no value.
   - This metric is only available in the Premium tier for caches with geo-replication enabled.
 - Geo Replication Full Sync Event Finished (preview)
   - Depicts the completion of full synchronization between geo-replicated caches. When you see lots of writes on geo-primary, and replication between the two caches can’t keep up, then a full sync is needed. A full sync involves copying the complete data from geo-primary to geo-secondary by taking an RDB snapshot rather than a partial sync that occurs on normal instances. See [this page](https://redis.io/docs/manual/replication/#how-redis-replication-works) for a more detailed explanation.
@@ -190,7 +190,8 @@ The types **Count** and **“Sum** can be misleading for certain metrics (connec
     - 1 – healthy
   - This metric is only emitted **from the geo-secondary** cache instance. On the geo-primary instance, this metric has no value.
   - This metric is only available in the Premium tier for caches with geo-replication enabled.
-  - This metric may indicate a disconnected/unhealthy replication status for several reasons, including: monthly patching, host OS updates, network misconfiguration, or failed geo-replication link provisioning. 
+  - This metric may indicate a disconnected/unhealthy replication status for several reasons, including: monthly patching, host OS updates, network misconfiguration, or failed geo-replication link provisioning.
+  - A value of 0 does not mean that data on the geo-replica is lost. It just means that the link between geo-primary and geo-secondary is unhealthy. 
   - If the geo-replication link is unhealthy for over an hour, [file a support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 - Gets
