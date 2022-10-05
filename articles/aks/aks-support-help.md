@@ -32,7 +32,7 @@ If you can't find an answer to your problem using search, submit a new question 
 
 | Area | Tag |
 |-------|----------------------|
-| [Azure Kubernetes Service](.intro-kubernetes.md) | [azure-kubernetes-service](/answers/topics/azure-kubernetes-service.html)|
+| [Azure Kubernetes Service](intro-kubernetes.md) | [azure-kubernetes-service](/answers/topics/azure-kubernetes-service.html)|
 | [Azure Container Registry](../container-registry/container-registry-intro.md) | [azure-container-registry](/answers/topics/azure-container-registry.html)|
 | [Azure storage accounts](../storage/common/storage-account-overview.md) | [azure-storage-accounts](/answers/topics/azure-storage-accounts.html)|
 | [Azure Managed Identities](../active-directory/managed-identities-azure-resources/overview.md) | [azure-managed-identity](/answers/topics/azure-managed identity.html)|
@@ -42,7 +42,7 @@ If you can't find an answer to your problem using search, submit a new question 
 | [Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md) | [virtual-machine-scale-sets](/answers/topics/azure-virtual-machine-scale-sets.html)|
 | [Azure Virtual Network](../virtual-network/network-overview.md) | [azure-virtual-network](/answers/topics/azure-virtual-network.html)|
 | [Azure Application Gateway](../application-gateway/overview.md) | [azure-application-gateway](/answers/topics/azure-application-gateway.html)|
-| [Azure Virtual Machines](./linux/overview.md) | [azure-virtual-machines](/answers/topics/azure-virtual-machines.html) |
+| [Azure Virtual Machines](../virtual-machines/linux/overview.md) | [azure-virtual-machines](/answers/topics/azure-virtual-machines.html) |
 
 ## Create an Azure support request
 
