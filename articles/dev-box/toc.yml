@@ -45,7 +45,7 @@
 - name: Reference
   items:
     - name: Azure CLI
-      href: cli-ref-subset.md
+      href: cli-reference-subset.md
     - name: REST API
       href: https://aka.ms/dev-box/restapidocs
 - name: Resources
