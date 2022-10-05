@@ -10,7 +10,7 @@ ms.date: 10/04/2022
 
 # Best practices for creating and running Azure Kubernetes Service (AKS) clusters at scale(beyond 500 nodes)
 
-AKS Clusters whcih satisfy any of the below criteria should use the [Uptime SLA][Uptime SLA] feature for higher reliability and scalability of the Kubernetes control plan:
+AKS Clusters which satisfy any of the below criteria should use the [Uptime SLA][Uptime SLA] feature for higher reliability and scalability of the Kubernetes control plan:
 * Clusters running greater than 10 nodes on average
 * Clusters that need to scale beyond 1000 nodes 
 * Clusters running production workloads or aviability sensitive mission critical workloads
