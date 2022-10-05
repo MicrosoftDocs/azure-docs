@@ -308,7 +308,7 @@ If you're using a [custom query to retrieve documents](#flatten-structures), mak
 
 In some cases, even if your query contains an `ORDER BY [collection alias]._ts` clause, Azure Cognitive Search may not infer that the query is ordered by the `_ts`. You can tell Azure Cognitive Search that results are ordered by setting the `assumeOrderByHighWaterMarkColumn` configuration property. 
 
-To specify this hint, [create or update your indexer definition](#configure-and-run-the-cosmos-db-indexer) as follows: 
+To specify this hint, [create or update your indexer definition](#configure-and-run-the-azure-cosmos-db-indexer) as follows: 
 
 ```http
 {

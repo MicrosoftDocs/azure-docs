@@ -415,7 +415,7 @@ The following properties are supported in the Copy Activity **sink** section:
 
 
 >[!TIP]
->To import JSON documents as-is, refer to [Import or export JSON documents](#import-and-export-json-documents) section; to copy from tabular-shaped data, refer to [Migrate from relational database to Azure Cosmos DB](#migrate-from-relational-database-to-cosmos-db).
+>To import JSON documents as-is, refer to [Import or export JSON documents](#import-and-export-json-documents) section; to copy from tabular-shaped data, refer to [Migrate from relational database to Azure Cosmos DB](#migrate-from-relational-database-to-azure-cosmos-db).
 
 >[!TIP]
 >Azure Cosmos DB limits single request's size to 2MB. The formula is Request Size = Single Document Size * Write Batch Size. If you hit error saying **"Request size is too large."**, **reduce the `writeBatchSize` value** in copy sink configuration.
