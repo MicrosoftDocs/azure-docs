@@ -51,11 +51,11 @@ By default, AKS configures upgrades to surge with one extra node. A default valu
 * Please read more about [cluster upgrades][cluster upgrades] and [max surge][max surge].
 
 <!-- Links - External -->
-[Managed NAT Gateway - Azure Kubernetes Service]: https://learn.microsoft.com/en-us/azure/aks/nat-gateway
-[Configure Azure CNI networking in Azure Kubernetes Service (AKS)]: https://learn.microsoft.com/en-us/azure/aks/configure-azure-cni#dynamic-allocation-of-ips-and-enhanced-subnet-support
-[max surge]: https://learn.microsoft.com/en-us/azure/aks/upgrade-cluster?tabs=azure-cli#customize-node-surge-upgrade
+[Managed NAT Gateway - Azure Kubernetes Service]: https://learn.microsoft.com/azure/aks/nat-gateway
+[Configure Azure CNI networking in Azure Kubernetes Service (AKS)]: https://learn.microsoft.com/azure/aks/configure-azure-cni#dynamic-allocation-of-ips-and-enhanced-subnet-support
+[max surge]: https://learn.microsoft.com/azure/aks/upgrade-cluster?tabs=azure-cli#customize-node-surge-upgrade
 [Azure Portal]: https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0D%0A%09%22subId%22%3A+%22%22%2C%0D%0A%09%22pesId%22%3A+%225a3a423f-8667-9095-1770-0a554a934512%22%2C%0D%0A%09%22supportTopicId%22%3A+%2280ea0df7-5108-8e37-2b0e-9737517f0b96%22%2C%0D%0A%09%22contextInfo%22%3A+%22AksLabelDeprecationMarch22%22%2C%0D%0A%09%22caller%22%3A+%22Microsoft_Azure_ContainerService+%2B+AksLabelDeprecationMarch22%22%2C%0D%0A%09%22severity%22%3A+%223%22%0D%0A%7D
-[uptime SLA]: https://learn.microsoft.com/en-us/azure/aks/uptime-sla
+[uptime SLA]: https://learn.microsoft.com/azure/aks/uptime-sla
 
 <!-- LINKS - Internal -->
 [quotas-skus-regions]: ../articles/aks/quotas-skus-regions.md
