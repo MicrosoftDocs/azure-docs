@@ -93,12 +93,11 @@ The information in this document is based on using a model stored in ONNX format
     > [!IMPORTANT]
     > You may need to request a quota increase for your subscription before you can use this series of VMs. For more information, see [NCv3-series](../virtual-machines/ncv3-series.md).
 
-The information in this article is based on the [Deploy a model to online endpoints using Triton](https://github.com/Azure/azureml-examples/blob/main/sdk/endpoints/online/triton/single-model/online-endpoints-triton.ipynb) notebook contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste files, clone the repo and then change directories to the `sdk/endpoints/online/triton/single-model/online-endpoints-triton.ipynb` directory in the repo:
+The information in this article is based on the [online-endpoints-triton.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/triton/single-model/online-endpoints-triton.ipynb) notebook contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste files, clone the repo and then change directories to the `sdk/endpoints/online/triton/single-model/` directory in the repo:
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
-cd azureml-examples
-cd sdk/endpoints/online/triton/single-model/online-endpoints-triton.ipynb
+cd azureml-examples/sdk/python/endpoints/online/triton/single-model/
 ```
 
 # [Studio](#tab/azure-studio)
