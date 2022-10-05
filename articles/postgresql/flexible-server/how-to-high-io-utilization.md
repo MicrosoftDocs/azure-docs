@@ -127,7 +127,7 @@ SELECT pg_terminate_backend(pid);
 
 If it's observed that the checkpoint is happening too frequently, increase `max_wal_size` server parameter until most checkpoints are time driven, instead of requested. Eventually, 90% or more should be time based, and the interval between two checkpoints is close to the `checkpoint_timeout` set on the server.
 
-##### max_wal_size
+##### `max_wal_size`
 
 Peak business hours is a good time to arrive at `max_wal_size` value. Follow the below listed steps to arrive at a value.
 
@@ -149,11 +149,11 @@ Execute below query that uses the two results to check the difference in GB:
 select round (pg_wal_lsn_diff ('LSN value when run second time', 'LSN value when run first time')/1024/1024/1024,2) WAL_CHANGE_GB;
 ```      
 
-##### check_point_completion_target
+##### `checkpoint_completion_target`
 
 A good practice would be to set it to 0.9.As an example a value of 0.9 for a `checkpoint_timeout` of 5 minutes indicates the target to complete a checkpoint is 270 sec [0.9*300 sec].A value of 0.9 provides fairly consistent I/O load.A aggressive value of `check_point_completion_target` may result in increased IO load on the server.
 
-##### checkpoint_timeout
+##### `checkpoint_timeout`
 
 The `checkpoint_timeout` value can be increased from default value set on the server.Please note while increasing the `checkpoint_timeout` take into consideration that increasing the value would also increase the time for crash recovery.
 
