@@ -25,7 +25,7 @@ For more information, see [Access the CLI](cli-overview.md#access-the-cli) and [
 
 ## Check appliance health
 
-Use the following commands to verify that all Defender for IoT application components on the OT sensor are working correctly, including the web console and traffic analysis processes.
+Use the following commands to verify that all Defender for IoT application components on the OT sensor are working correctly, including the web console and traffic analysis processes. For further information and [health checks that can be performed from the web console](how-to-troubleshoot-the-sensor-and-on-premises-management-console).
 
 ### OT monitoring services health
 |User  |Command  |Full command syntax   |
