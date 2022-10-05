@@ -36,15 +36,15 @@ After an app is configured for self-service, application owners can use their ow
 1. Open your Access Panel by going to `https://myapps.microsoft.com`.
 2. Point to the app, select the ellipses (**...**), and then select **Manage app**.
  
- :::image type="content" source="media/add-users-iw/access-panel-manage-app.png" alt-text="Screenshot showing the Manage app sub-menu for the Salesforce app":::
+ :::image type="content" source="media/add-users-iw/access-panel-manage-app.png" alt-text="Screenshot showing the Manage app sub-menu for the Salesforce app.":::
 
 3. At the top of the users list, select **+**.
    
-:::image type="content" source="media/add-users-iw/access-panel-manage-app-add-user.png" alt-text="Screenshot showing the plus symbol for adding members to the app":::
+:::image type="content" source="media/add-users-iw/access-panel-manage-app-add-user.png" alt-text="Screenshot showing the plus symbol for adding members to the app.":::
    
 4. In the **Add members** search box, type the email address for the guest user. Optionally, include a welcome message.
    
-:::image type="content" source="media/add-users-iw/access-panel-invitation.png" alt-text="Screenshot showing the Add members window for adding a guest":::
+:::image type="content" source="media/add-users-iw/access-panel-invitation.png" alt-text="Screenshot showing the Add members window for adding a guest.":::
 
    
 5. Select **Add** to send an invitation to the guest user. After you send the invitation, the user account is automatically added to the directory as a guest.
@@ -56,19 +56,19 @@ After an app is configured for self-service, application owners can invite guest
 2. Open your Access Panel by going to `https://myapps.microsoft.com`.
 3. Select the **Groups** app.
    
-:::image type="content" source="media/add-users-iw/access-panel-groups.png" alt-text="Screenshot showing the Groups app in the Access Panel":::
+:::image type="content" source="media/add-users-iw/access-panel-groups.png" alt-text="Screenshot showing the Groups app in the Access Panel.":::
    
 4. Under **Groups I own**, select the group that has access to the app you want to share.
    
-:::image type="content" source="media/add-users-iw/access-panel-groups-i-own.png" alt-text="Screenshot showing where to select a group under the Groups I own":::
+:::image type="content" source="media/add-users-iw/access-panel-groups-i-own.png" alt-text="Screenshot showing where to select a group under the Groups I own.":::
    
 5. At the top of the group members list, select **+**.
    
-:::image type="content" source="media/add-users-iw/access-panel-groups-add-member.png" alt-text="Screenshot showing the plus symbol for adding members to the group":::
+:::image type="content" source="media/add-users-iw/access-panel-groups-add-member.png" alt-text="Screenshot showing the plus symbol for adding members to the group.":::
    
 6. In the **Add members** search box, type the email address for the guest user. Optionally, include a welcome message.
    
-:::image type="content" source="media/add-users-iw/access-panel-invitation.png" alt-text="Screenshot showing the Add members window for adding a guest":::
+:::image type="content" source="media/add-users-iw/access-panel-invitation.png" alt-text="Screenshot showing the Add members window for adding a guest.":::
    
 7. Select **Add** to automatically send the invitation to the guest user. After you send the invitation, the user account is automatically added to the directory as a guest.
 
