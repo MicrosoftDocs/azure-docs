@@ -28,7 +28,7 @@ Service Bus supports three filter conditions:
 
 -   *SQL Filters* - A **SqlFilter** holds a SQL-like conditional expression that is evaluated in the broker against the arriving messages' user-defined properties and system properties. All system properties must be prefixed with `sys.` in the conditional expression. The [SQL-language subset for filter conditions](service-bus-messaging-sql-filter.md) tests for the existence of properties (`EXISTS`), null-values (`IS NULL`), logical NOT/AND/OR, relational operators, simple numeric arithmetic, and simple text pattern matching with `LIKE`.
 
-    **.NET example for define a SQL filter:**
+    **.NET example for defining a SQL filter:**
     ```csharp
 	adminClient = new ServiceBusAdministrationClient(connectionString);    
 
@@ -48,7 +48,7 @@ Service Bus supports three filter conditions:
 	```
 -   *Boolean filters* - The **TrueFilter** and **FalseFilter** either cause all arriving messages (**true**) or none of the arriving messages (**false**) to be selected for the subscription. These two filters derive from the SQL filter. 
 
-    **.NET example for define a boolean filter:**
+    **.NET example for defining a boolean filter:**
     ```csharp
 	// Create a True Rule filter with an expression that always evaluates to true
 	// It's equivalent to using SQL rule filter with 1=1 as the expression
@@ -69,7 +69,7 @@ Service Bus supports three filter conditions:
 	 
 	 A match exists when an arriving message's value for a property is equal to the value specified in the correlation filter. For string expressions, the comparison is case-sensitive. If you specify multiple match properties, the filter combines them as a logical AND condition, meaning for the filter to match, all conditions must match.
 
-	**.NET example for define a correlation filter:**
+	**.NET example for defining a correlation filter:**
 
     ```csharp
 	// Create a correlation filter with color set to Red and priority set to High
@@ -85,6 +85,21 @@ Complex filter rules require processing capacity. In particular, the use of SQL 
 ## Actions
 
 With SQL filter conditions, you can define an action that can annotate the message by adding, removing, or replacing properties and their values. The action [uses a SQL-like expression](service-bus-messaging-sql-rule-action.md) that loosely leans on the SQL UPDATE statement syntax. The action is done on the message after it has been matched and before the message is selected into the subscription. The changes to the message properties are private to the message copied into the subscription.
+
+**.NET example:**
+
+```csharp
+adminClient = new ServiceBusAdministrationClient(connectionString);    
+
+// Create a SQL filter with color set to red
+// Action is defined to set the quantity to half if the color is red
+await adminClient.CreateRuleAsync(topicName, "ColorRed", new CreateRuleOptions 
+{ 
+	Name = "RedOrdersWithAction",
+	Filter = new SqlRuleFilter("user.color='red'"),
+	Action = new SqlRuleAction("SET quantity = quantity / 2;")
+}
+```
 
 ## Usage patterns
 
