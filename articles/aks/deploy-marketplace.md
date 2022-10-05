@@ -31,11 +31,11 @@ Included among these solutions are Kubernetes application-based Container offers
 
 ## Register resource providers
 
-You must have registered the `Microsoft.KubernetesConfiguration` and `Microsoft.ContainerService` providers on your subscription using the `az provider register` command:
+You must have registered the  `Microsoft.ContainerService` and `Microsoft.KubernetesConfiguration` providers on your subscription using the `az provider register` command:
 
 ```azurecli-interactive
-az provider register --namespace Microsoft.KubernetesConfiguration --wait
 az provider register --namespace Microsoft.ContainerService --wait
+az provider register --namespace Microsoft.KubernetesConfiguration --wait
 ```
 
 ## Browse offers
