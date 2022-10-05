@@ -3,7 +3,7 @@ title: Azure Functions runtime versions overview
 description: Azure Functions supports multiple versions of the runtime. Learn the differences between them and how to choose the one that's right for you.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 07/06/2022
+ms.date: 09/23/2022
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -329,7 +329,7 @@ If you don't see your programming language, go select it from the [top of the pa
 
 #### Runtime
 
-- Azure Functions Proxies are no longer supported in 4.x. You're recommended to use [Azure API Management](../api-management/import-function-app-as-api.md).
+- Azure Functions proxies is a legacy feature for versions 1.x through 3.x of the Azure Functions runtime. Support for Functions proxies is being returned in version 4.x so that you can successfully upgrade your function apps to the latest runtime version. As soon as possible, you should instead switch to integrating your function apps with Azure API Management. API Management lets you take advantage of a more complete set of features for defining, securing, managing, and monetizing your Functions-based APIs. For more information, see [API Management integration](functions-proxies.md#api-management-integration). For information about the pending return of proxies in version 4.x, [Monitor the App Service announcements page](https://github.com/Azure/app-service-announcements/issues).  
 
 - Logging to Azure Storage using *AzureWebJobsDashboard* is no longer supported in 4.x. You should instead use [Application Insights](./functions-monitoring.md). ([#1923](https://github.com/Azure/Azure-Functions/issues/1923))
 

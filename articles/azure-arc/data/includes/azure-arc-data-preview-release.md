@@ -6,45 +6,145 @@ ms.topic: include
 ms.date: 08/02/2022
 ---
 
-At this time, a test or preview build is not available for the next release.
-
-
 <!--
-The current preview release published on September 6, 2022.
+At this time, a test or preview build is not available for the next release.
+-->
+
+The current preview release published on October 4, 2022.
 
 |Component|Value|
 |-----------|-----------|
 |Container images registry/repository |`mcr.microsoft.com/arcdata/preview`|
-|Container images tag |`v1.11.0_2022-09-13`|
-|CRD names and version|`datacontrollers.arcdata.microsoft.com`: v1beta1, v1 through v6<br/>`exporttasks.tasks.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`kafkas.arcdata.microsoft.com`: v1beta1<br/>`monitors.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`sqlmanagedinstances.sql.arcdata.microsoft.com`: v1beta1, v1 through v6<br/>`postgresqls.arcdata.microsoft.com`: v1beta1, v1beta2, v1beta3<br/>`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`: v1beta1, v1<br/>`failovergroups.sql.arcdata.microsoft.com`: v1beta1, v1beta2, v1<br/>`activedirectoryconnectors.arcdata.microsoft.com`: v1beta1, v1beta2<br/>`sqlmanagedinstancereprovisionreplicatask.tasks.sql.arcdata.microsoft.com`: v1beta1<br/>`otelcollectors.arcdata.microsoft.com`: v1beta1<br/>`telemetryrouters.arcdata.microsoft.com`: v1beta1<br/>|
+|Container images tag |`v1.12.0_2022-10-11`|
+|CRD names and version|`datacontrollers.arcdata.microsoft.com`: v1beta1, v1 through v6<br/>`exporttasks.tasks.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`kafkas.arcdata.microsoft.com`: v1beta1, v1beta2<br/>`monitors.arcdata.microsoft.com`: v1beta1, v1, v2<br/>`sqlmanagedinstances.sql.arcdata.microsoft.com`: v1beta1, v1 through v7<br/>`postgresqls.arcdata.microsoft.com`: v1beta1, v1beta2, v1beta3<br/>`sqlmanagedinstancerestoretasks.tasks.sql.arcdata.microsoft.com`: v1beta1, v1<br/>`failovergroups.sql.arcdata.microsoft.com`: v1beta1, v1beta2, v1 through v2<br/>`activedirectoryconnectors.arcdata.microsoft.com`: v1beta1, v1beta2, v1<br/>`sqlmanagedinstancereprovisionreplicatask.tasks.sql.arcdata.microsoft.com`: v1beta1<br/>`otelcollectors.arcdata.microsoft.com`: v1beta1, v1beta2<br/>`telemetryrouters.arcdata.microsoft.com`: v1beta1, v1beta2<br/>|
 |Azure Resource Manager (ARM) API version|2022-03-01-preview (No change)|
-|`arcdata` Azure CLI extension version|1.4.6 ([Download](https://aka.ms/az-cli-arcdata-ext))|
-|Arc enabled Kubernetes helm chart extension version|1.11.0 (Note: This versioning scheme is new, starting from this release. The scheme follows the semantic versioning scheme of the container images.)|
-|Arc Data extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.5.4 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.5.4 ([Download](https://aka.ms/ads-azcli-ext))|
+|`arcdata` Azure CLI extension version|1.4.7 ([Download](https://aka.ms/az-cli-arcdata-ext))|
+|Arc enabled Kubernetes helm chart extension version|1.12.0|
+|Arc Data extension for Azure Data Studio<br/>`arc`<br/>`azcli`|*No Changes*<br/>1.5.4 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.5.4 ([Download](https://aka.ms/ads-azcli-ext))|
 
 New for this release:
-
 - Arc data controller
-  - New extensions to monitoring stack to allow integration of Arc telemetry data feeds with external monitoring solutions.  See documentation for more details.
-  - Deleting an AD connector that is in use is now blocked.  First remove all database instances that are using it and then remove the AD connector.
-  - New OpenTelemetry Router preview to make collected logs available for export to other SEIM systems.  See documentation for details.
-  - AD connectors can now be created in Kubernetes via the Kubernetes API and syncronized to Azure via Resource Sync.
-  - Added short name 'arcdc' to the data controllers custom resource definition. You can now use `kubectl get arcdc` as short form for `kubectl get datacontrollers`.
-  - The controller-external-svc is now only created when deploying using the indirect connectivity mode since it is only used for exporting logs/metrics/usage data in the indirect mode.
-  - "Downgrades" - i.e. going from a higher major or minor version to a lower - is now blocked.  Examples of a blocked downgrade:  v1.10 -> v1.9 or v2.0 -> v1.20.
+  - Updates to TelemetryRouter implementation to include inbound and outbound TelemetryCollector layers alongside Kafka as a persistent buffer
+  - AD connector will now be upgraded when data controller is upgraded
 
 - Arc-enabled SQL managed instance
-  - Added support for specifying multiple encryption types for AD connectors using the Azure CLI extension or Azure portal.
+  - New reprovision replica task lets you rebuild a broken sql instance replica. For more information, see [Reprovision replica](#reprovision-replica).
+  - Edit Active Directory settings from the Azure portal
 
+<!--
 - Arc-enabled PostgreSQL server
-  - Removed Hyperscale/Citus scale-out capabilities. Focus will be on providing a single node Postgres server service. All user experiences have had terms and concepts like 'Hyperscale', 'server groups', 'worker nodes', 'coordinator nodes', etc. removed.  **BREAKING CHANGE**
-  - The postgresql container image is based on [CBL-Mariner](https://github.com/microsoft/CBL-Mariner) base OS image.
-  - Only PostgreSQL version 14 is supported for now. Versions 11 and 12 have been removed.  Two new images are introduced: `arc-postgres-14` and `arc-postgresql-agent`.  The `arc-postgres-11` and `arc-postgres-12` container images are removed going forward.  If you use the container image sync script, get the latest image once this [pull request](https://github.com/microsoft/azure_arc/pull/1340) has merged.
-  - The postgresql CRD version has been updated to v1beta3.  Some properties such as `workers` have been removed or changed.  Update any scripts or automation you have as needed to align to the new CRD schema. **BREAKING CHANGE**
+-->
 
 - `arcdata` Azure CLI extension
-  - Columns for desiredVersion and runningVersion are added to the following commands: `az sql mi-arc list` and `kubectl get sqlmi` to easily compare what the runningVersion and desiredVersion are.
-  - The command group `az postgres arc-server` is renamed to `az postgres server-arc`. **BREAKING CHANGE**
-  - Some of the `az postgres server-arc` commands have changed to remove things like `--workers`.  **BREAKING CHANGE**
+  - Columns for release information added to the following commands: `az sql mi-arc list` this makes it easy to see what instance may need to be updated.
+  - Alternately you can run `az arcdata dc list-upgrades'
+  - New command to list AD Connectors `az arcdata ad-connector list --k8s-namespace <namespace> --use-k8s`
+  - Az CLI Polling for AD Connector create/update/delete: This feature changes the default behavior of `az arcdata ad-connector create/update/delete` to hang and wait until the operation finishes. To override this behavior, the user has to use the `--no-wait` flag when invoking the command. 
 
--->
+### Reprovision replica
+
+The reprovision replica task lets you rebuild a broken sql instance replica. It is intended to be used for a replica that is failing to synchronize, perhaps due to corruption of the data on the persistent volumes (PV) for that instance, or due to some recurring SQL issue, for example.
+
+Support for reprovisioning of a replica is provided only via `az` CLI and kube-native. There is no portal support.
+
+#### Prerequisites
+
+Reprovisioning can only be performed on a multi-replica instance.
+
+#### Request a reprovision replica
+
+Request provisioning [via `az` CLI](#via-az-cli) or [via `kubectl`](#via-kubectl).
+
+##### Via `az` CLI
+
+```az
+az sql mi-arc reprovision-replica -n <instance_name-replica_number> -k <namespace> --use-k8s
+```
+
+For example, for replica 2 of instance mySqlInstance in namespace arc, the command would be:
+
+```az
+az sql mi-arc reprovision-replica -n mySqlInstance-2 -k arc --use-k8s
+```
+
+This runs until completion at which point the console returns:
+
+```az
+sql-reprov-replica-mySqlInstance-2-1664217002.376132 is Ready
+```
+
+The name of the thing that is ready, is the kubernetes task. At this point you can either examine the task:
+
+```console
+kubectl describe SqlManagedInstanceReprovisionReplicaTask sql-reprov-replica-mySqlInstance-2-1664217002.376132 -n arc
+```
+
+Or delete it:
+
+```console
+kubectl delete SqlManagedInstanceReprovisionReplicaTask sql-reprov-replica-mySqlInstance-2-1664217002.376132 -n arc
+```
+
+There is an optional `--no-wait` parameter for the command. If you send the request with `--no-wait`, the output will include the name of the task to be monitored. For example:
+
+```az
+az sql mi-arc reprovision-replica -n mySqlInstance-2 -k arc --use-k8s --no-wait
+Reprovisioning replica mySqlInstance-2 in namespace `arc`. Please use
+`kubectl get -n arc SqlManagedInstanceReprovisionReplicaTask sql-reprov-replica-mySqlInstance-2-1664217434.531035`
+to check its status or
+`kubectl get -n arc SqlManagedInstanceReprovisionReplicaTask`
+to view all reprovision tasks.
+```
+
+#### Via kubectl
+
+The CRD for reprovision replica is fairly simple. You can create a yaml file with this structure:
+
+```yaml
+apiVersion: tasks.sql.arcdata.microsoft.com/v1beta1
+kind: SqlManagedInstanceReprovisionReplicaTask
+metadata:
+  name: <task name you make up>
+  namespace: <namespace>
+spec:
+  replicaName: instance_name-replica_number
+```
+
+To use the same example as above, mySqlinstance replica 2, the payload would be:
+
+```yaml
+apiVersion: tasks.sql.arcdata.microsoft.com/v1beta1
+kind: SqlManagedInstanceReprovisionReplicaTask
+metadata:
+  name: my-reprovision-task-mySqlInstance-2
+  namespace: arc
+spec:
+  replicaName: mySqlInstance-2
+```
+
+Once the yaml is applied via kubectl apply, you can monitor or delete the task via kubectl:
+
+```console
+kubectl get -n arc SqlManagedInstanceReprovisionReplicaTask my-reprovision-task-mySqlInstance-2
+kubectl describe -n arc SqlManagedInstanceReprovisionReplicaTask my-reprovision-task-mySqlInstance-2
+kubectl delete -n arc SqlManagedInstanceReprovisionReplicaTask my-reprovision-task-mySqlInstance-2
+```
+
+#### Limitations
+
+- The task should reject attempts to reprovision the current primary replica. If the current primary is believed to be corrupted and in need of reprovisioning, the user should fail over to a different primary and then request the reprovisioning.
+
+- Reprovisioning of multiple replicas in the same instance will serialize; the tasks will accumulate and be held in "Creating" state until the currently active task finishes *and is deleted*. There is no auto-cleanup of a completed task, so this serialization will affect the user even if they run the az command synchronously and wait for it to complete before requesting another reprovision. In all cases they will have to remove the task via kubectl before another reprovision on the same instance can run. **There is no warning about this, either in the az cli or in kubectl.**
+
+
+More about that second limitation: If you have multiple requests to reprovision a replica in one instance, you may see something like this in the output from a `kubectl get SqlManagedInstanceReprovisionReplicaTask`:
+
+```console
+kubectl get SqlManagedInstanceReprovisionReplicaTask -n arc
+NAME                                                     STATUS      AGE
+sql-reprov-replica-c-sql-djlexlmty-1-1664217344.304601   Completed   13m
+sql-reprov-replica-c-sql-kkncursza-1-1664217002.376132   Completed   19m
+sql-reprov-replica-c-sql-kkncursza-1-1664217434.531035   Creating    12m
+```
+
+That last entry for replica c-sql-kkncursza-1, `sql-reprov-replica-c-sql-kkncursza-1-1664217434.531035`, will stay in status `Creating` until the completed one `sql-reprov-replica-c-sql-kkncursza-1-1664217002.376132` is removed.

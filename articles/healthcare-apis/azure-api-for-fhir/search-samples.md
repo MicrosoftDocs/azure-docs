@@ -1,12 +1,12 @@
 ---
 title: Search examples for Azure API for FHIR
 description: How to search using different search parameters, modifiers, and other FHIR search tools
-author: ginalee-dotcom
+author: expekesheth
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 06/03/2022
-ms.author: mikaelw
+ms.author: kesheth
 ---
 
 # FHIR search examples for Azure API for FHIR

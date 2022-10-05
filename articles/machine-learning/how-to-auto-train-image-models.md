@@ -110,7 +110,7 @@ If your training data is in a different format (like, pascal VOC or COCO), you c
 > The training data needs to have at least 10 images in order to be able to submit an AutoML run. 
 
 > [!Warning]
-> Creation of `MLTable` from data in JSONL format is supported using the SDK and CLI only, for this capability. Creating the `MLTable` via UI is not supported at this time. As of now, the UI doesn't recognize the StreamInfo datatype, which is the datatype used for image URLs in JSONL format.  
+> Creation of `MLTable` from data in JSONL format is supported using the SDK and CLI only, for this capability. Creating the `MLTable` via UI is not supported at this time. 
 
 
 ### JSONL schema samples
@@ -547,7 +547,7 @@ image_object_detection_job = automl.image_object_detection(
     training_data=my_training_data_input,
     validation_data=my_validation_data_input,
     target_column_name="label",
-    primary_metric="mean_average_precision",
+    primary_metric=ObjectDetectionPrimaryMetrics.MEAN_AVERAGE_PRECISION,
     tags={"my_custom_tag": "My custom value"},
 )
 

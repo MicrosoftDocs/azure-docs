@@ -4,7 +4,7 @@ description: This article enumerates the differences between NoSQL and relationa
 author: TheovanKraay
 ms.author: thvankra
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: mjbrown
@@ -12,7 +12,7 @@ adobe-target: true
 ---
 
 # Understanding the differences between NoSQL and relational databases
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 This article will enumerate some of the key benefits of NoSQL databases over relational databases. We will also discuss some of the challenges in working with NoSQL. For an in-depth look at the different data stores that exist, have a look at our article on [choosing the right data store](/azure/architecture/guide/technology-choices/data-store-overview).
 
@@ -34,7 +34,7 @@ There are a significant number of use cases where transactions in the database c
 
 However, today the popularity of document-style databases has grown significantly. These databases might be considered a reinventing of the hierarchical database paradigm, now uninhibited by concerns around the cost of storing data on disk. As a result, maintaining many complex parent-child entity relationships in a relational database could now be considered an anti-pattern compared to modern document-oriented approaches.
 
-The emergence of [object oriented design](https://en.wikipedia.org/wiki/Object-oriented_design), and the [impedance mismatch](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch) that arises when combining it with relational models, also highlights an anti-pattern in relational databases for certain use cases. Hidden but often significant maintenance costs can arise as a result. Although [ORM approaches](https://en.wikipedia.org/wiki/Object-relational_mapping) have evolved to partly mitigate this, document-oriented databases nonetheless coalesce much better with object-oriented approaches. With this approach, developers are not forced to be committed to ORM drivers, or bespoke language specific [OO Database engines](https://en.wikipedia.org/wiki/Object_database). If your data contains many parent-child relationships and deep levels of hierarchy, you may want to consider using a NoSQL document database such as the [Azure Cosmos DB SQL API](./introduction.md).
+The emergence of [object oriented design](https://en.wikipedia.org/wiki/Object-oriented_design), and the [impedance mismatch](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch) that arises when combining it with relational models, also highlights an anti-pattern in relational databases for certain use cases. Hidden but often significant maintenance costs can arise as a result. Although [ORM approaches](https://en.wikipedia.org/wiki/Object-relational_mapping) have evolved to partly mitigate this, document-oriented databases nonetheless coalesce much better with object-oriented approaches. With this approach, developers are not forced to be committed to ORM drivers, or bespoke language specific [OO Database engines](https://en.wikipedia.org/wiki/Object_database). If your data contains many parent-child relationships and deep levels of hierarchy, you may want to consider using a NoSQL document database such as the [Azure Cosmos DB API for NoSQL](./introduction.md).
 
 :::image type="content" source="./media/relational-or-nosql/order-orderdetails.jpg" alt-text="OrderDetails":::
 
@@ -44,11 +44,11 @@ Ironically, given their name, relational databases present a less than optimal s
 
 Various forms of “Network” databases did emerge during the time that relational databases emerged, but as with hierarchical databases, these systems struggled to gain popularity. Slow adoption was due to a lack of use cases at the time, and storage inefficiencies. Today, graph database engines could be considered a re-emergence of the network database paradigm. The key benefit with these systems is that relationships are stored as “first class citizens” within the database. Thus, traversing relationships can be done in constant time, rather than increasing in time complexity with each new join or cross product.
 
-If you are maintaining a complex network of relationships in your database, you may want to consider a graph database such as the [Azure Cosmos DB Gremlin API](./graph-introduction.md) for managing this data.
+If you are maintaining a complex network of relationships in your database, you may want to consider a graph database such as the [Azure Cosmos DB API for Gremlin](./gremlin/introduction.md) for managing this data.
 
 :::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="Database diagram shows several employees and departments connected to each other.":::
 
-Azure Cosmos DB is a multi-model database service, which offers an API projection for all the major NoSQL model types; Column-family, Document, Graph, and Key-Value. The [Gremlin (graph)](./gremlin-support.md) and SQL (Core) Document API layers are fully interoperable. This has benefits for switching between different models at the programmability level. Graph stores can be queried in terms of both complex network traversals as well as transactions modeled as document records in the same store.
+Azure Cosmos DB is a multi-model database service, which offers an API projection for all the major NoSQL model types; Column-family, Document, Graph, and Key-Value. The [API for Gremlin (graph)](./gremlin/support.md) and NoSQL are fully interoperable. This has benefits for switching between different models at the programmability level. Graph stores can be queried in terms of both complex network traversals as well as transactions modeled as document records in the same store.
 
 ## Fluid schema
 
@@ -87,13 +87,13 @@ Again, Azure Cosmos DB offers more flexibility than relational databases for the
 
 ## Next steps
 
-Learn how to manage your Azure Cosmos account and other concepts:
+Learn how to manage your Azure Cosmos DB account and other concepts:
 
-* [How-to manage your Azure Cosmos account](how-to-manage-database-account.md)
+* [How-to manage your Azure Cosmos DB account](how-to-manage-database-account.md)
 * [Global distribution](distribute-data-globally.md)
 * [Consistency levels](consistency-levels.md)
-* [Working with Azure Cosmos containers and items](account-databases-containers-items.md)
-* [VNET service endpoint for your Azure Cosmos account](how-to-configure-vnet-service-endpoint.md)
-* [IP-firewall for your Azure Cosmos account](how-to-configure-firewall.md)
-* [How-to add and remove Azure regions to your Azure Cosmos account](how-to-manage-database-account.md)
+* [Working with Azure Cosmos DB containers and items](account-databases-containers-items.md)
+* [VNET service endpoint for your Azure Cosmos DB account](how-to-configure-vnet-service-endpoint.md)
+* [IP-firewall for your Azure Cosmos DB account](how-to-configure-firewall.md)
+* [How-to add and remove Azure regions to your Azure Cosmos DB account](how-to-manage-database-account.md)
 * [Azure Cosmos DB SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

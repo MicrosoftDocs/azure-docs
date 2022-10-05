@@ -10,7 +10,7 @@ ms.date: 04/20/2021
 ---
 
 # <a id="run-on-windows-docker"></a>Use the emulator on Docker for Windows
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 You can run the Azure Cosmos DB Emulator on a Windows Docker container. See [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker) for the `Dockerfile` and more information. Currently, the emulator does not work on Docker for Oracle Linux. Use the following instructions to run the emulator on Docker for Windows:
 

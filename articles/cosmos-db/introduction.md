@@ -12,7 +12,7 @@ adobe-target: true
 ---
 
 # Welcome to Azure Cosmos DB
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 Today's applications are required to be highly responsive and always online. To achieve low latency and high availability, instances of these applications need to be deployed in datacenters that are close to their users. Applications need to respond in real time to large changes in usage at peak hours, store ever increasing volumes of data, and make this data available to users in milliseconds.
 
@@ -46,8 +46,8 @@ Gain unparalleled [SLA-backed](https://azure.microsoft.com/support/legal/sla/cos
 Build fast with open source APIs, multiple SDKs, schemaless data and no-ETL analytics over operational data.
 
 - Deeply integrated with key Azure services used in modern (cloud-native) app development including Azure Functions, IoT Hub, AKS (Azure Kubernetes Service), App Service, and more.
-- Choose from multiple database APIs including the native Core (SQL) API, API for MongoDB, Cassandra API, Gremlin API, and Table API.
-- Build apps on Core (SQL) API using the languages of your choice with SDKs for .NET, Java, Node.js and Python. Or your choice of drivers for any of the other database APIs.
+- Choose from multiple database APIs including the native API for NoSQL, API for MongoDB, Apache Cassandra, Apache Gremlin, and Table.
+- Build apps on API for NoSQL using the languages of your choice with SDKs for .NET, Java, Node.js and Python. Or your choice of drivers for any of the other database APIs.
 - Change feed makes it easy to track and manage changes to database containers and create triggered events with Azure Functions.
 - Azure Cosmos DB's schema-less service automatically indexes all your data, regardless of the data model, to deliver blazing fast queries.
 
@@ -84,18 +84,18 @@ End-to-end database management, with serverless and automatic scaling matching y
 
 ## Solutions that benefit from Azure Cosmos DB
 
-Any [web, mobile, gaming, and IoT application](use-cases.md) that needs to handle massive amounts of data, reads, and writes at a [global scale](distribute-data-globally.md) with near-real response times for a variety of data will benefit from Cosmos DB's [guaranteed high availability](https://azure.microsoft.com/support/legal/sla/cosmos-db/), high throughput, low latency, and tunable consistency. Learn about how Azure Cosmos DB can be used to build [IoT and telematics](use-cases.md#iot-and-telematics), [retail and marketing](use-cases.md#retail-and-marketing), [gaming](use-cases.md#gaming) and [web and mobile applications](use-cases.md#web-and-mobile-applications).
+Any [web, mobile, gaming, and IoT application](use-cases.md) that needs to handle massive amounts of data, reads, and writes at a [global scale](distribute-data-globally.md) with near-real response times for a variety of data will benefit from Azure Cosmos DB's [guaranteed high availability](https://azure.microsoft.com/support/legal/sla/cosmos-db/), high throughput, low latency, and tunable consistency. Learn about how Azure Cosmos DB can be used to build [IoT and telematics](use-cases.md#iot-and-telematics), [retail and marketing](use-cases.md#retail-and-marketing), [gaming](use-cases.md#gaming) and [web and mobile applications](use-cases.md#web-and-mobile-applications).
 
 ## Next steps
 
 Get started with Azure Cosmos DB with one of our quickstarts:
 
 - Learn [how to choose an API](choose-api.md) in Azure Cosmos DB
-- [Get started with Azure Cosmos DB SQL API](create-sql-api-dotnet.md)
-- [Get started with Azure Cosmos DB API for MongoDB](mongodb/create-mongodb-nodejs.md)
-- [Get started with Azure Cosmos DB Cassandra API](cassandra/manage-data-dotnet.md)
-- [Get started with Azure Cosmos DB Gremlin API](create-graph-dotnet.md)
-- [Get started with Azure Cosmos DB Table API](table/create-table-dotnet.md)
+- [Get started with Azure Cosmos DB for NoSQL](nosql/quickstart-dotnet.md)
+- [Get started with Azure Cosmos DB for MongoDB](mongodb/create-mongodb-nodejs.md)
+- [Get started with Azure Cosmos DB for Apache Cassandra](cassandra/manage-data-dotnet.md)
+- [Get started with Azure Cosmos DB for Apache Gremlin](gremlin/quickstart-dotnet.md)
+- [Get started with Azure Cosmos DB for Table](table/quickstart-dotnet.md)
 - [A whitepaper on next-gen app development with Azure Cosmos DB](https://azure.microsoft.com/resources/microsoft-azure-cosmos-db-flexible-reliable-cloud-nosql-at-any-scale/)
 - Trying to do capacity planning for a migration to Azure Cosmos DB?
     - If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 

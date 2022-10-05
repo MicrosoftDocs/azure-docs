@@ -511,21 +511,51 @@
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
     items:
-    - name: Azure Cosmos DB for MongoDB
-      tocHref: /azure/cosmos-db/mongodb
-      topicHref: /azure/cosmos-db/mongodb
-    - name: Azure Cosmos DB for Table
+    - name: MongoDB
+      tocHref: /azure/cosmos-db/mongodb/
+      topicHref: /azure/cosmos-db/mongodb/
+    - name: MongoDB
+      tocHref: /azure/cosmos-db/scripts/cli/mongodb/
+      topicHref: /azure/cosmos-db/scripts/cli/mongodb/
+    - name: MongoDB
+      tocHref: /azure/cosmos-db/scripts/powershell/mongodb/
+      topicHref: /azure/cosmos-db/scripts/powershell/mongodb/
+    - name: Table
       tocHref: /azure/cosmos-db/table/
       topicHref: /azure/cosmos-db/table/
-    - name: Azure Cosmos DB for Apache Cassandra
+    - name: Table
+      tocHref: /azure/cosmos-db/scripts/cli/table/
+      topicHref: /azure/cosmos-db/scripts/cli/table/
+    - name: Table
+      tocHref: /azure/cosmos-db/scripts/powershell/table/
+      topicHref: /azure/cosmos-db/scripts/powershell/table/
+    - name: Apache Cassandra
       tocHref: /azure/cosmos-db/cassandra/
       topicHref: /azure/cosmos-db/cassandra/
-    - name: Azure Cosmos DB for Apache Gremlin
-      tocHref: /azure/cosmos-db/graph/
-      topicHref: /azure/cosmos-db/graph/
-    - name: Azure Cosmos DB for NoSQL
-      tocHref: /azure/cosmos-db/sql/
-      topicHref: /azure/cosmos-db/sql/
+    - name: Apache Cassandra
+      tocHref: /azure/cosmos-db/scripts/cli/cassandra/
+      topicHref: /azure/cosmos-db/scripts/cli/cassandra/
+    - name: Apache Cassandra
+      tocHref: /azure/cosmos-db/scripts/powershell/cassandra/
+      topicHref: /azure/cosmos-db/scripts/powershell/cassandra/
+    - name: Apache Gremlin
+      tocHref: /azure/cosmos-db/gremlin/
+      topicHref: /azure/cosmos-db/gremlin/
+    - name: Apache Gremlin
+      tocHref: /azure/cosmos-db/scripts/cli/gremlin/
+      topicHref: /azure/cosmos-db/scripts/cli/gremlin/
+    - name: Apache Gremlin
+      tocHref: /azure/cosmos-db/scripts/powershell/gremlin/
+      topicHref: /azure/cosmos-db/scripts/powershell/gremlin/
+    - name: NoSQL
+      tocHref: /azure/cosmos-db/nosql/
+      topicHref: /azure/cosmos-db/nosql/
+    - name: NoSQL
+      tocHref: /azure/cosmos-db/scripts/cli/nosql/
+      topicHref: /azure/cosmos-db/scripts/cli/nosql/
+    - name: NoSQL
+      tocHref: /azure/cosmos-db/scripts/powershell/nosql/
+      topicHref: /azure/cosmos-db/scripts/powershell/nosql/
   - name: Managed Instance for Apache Cassandra
     tocHref: /azure/managed-instance-apache-cassandra/
     topicHref: /azure/managed-instance-apache-cassandra/

@@ -2,19 +2,22 @@
 title: View key statistics and data about your authorization system in Permissions Management
 description: How to view statistics and data about your authorization system in the Permissions Management.
 services: active-directory
-author: kenwith
-manager: rkarlin
-ms.service: ciem
+author: jenniferf-skc
+manager: amycolannino
+ms.service: active-directory 
+ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/23/2022
-ms.author: kenwith
+ms.author: jfields
 ---
 
 
 # View key statistics and data about your authorization system
 
 Permissions Management provides a summary of key statistics and data about your authorization system regularly. This information is available for Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP).
+
+:::image type="content" source="media/ui-dashboard/ui-dashboard.png" alt-text="An example of the Permissions Management dashboard, highlighting key statistics to investigate." lightbox="media/ui-dashboard/ui-dashboard.png":::
 
 ## View metrics related to avoidable risk
 
@@ -73,6 +76,8 @@ The Permissions Management **Dashboard** displays the following information:
 
 
 ## The PCI heat map
+
+:::image type="content" source="media/ui-dashboard/pci-heat-map.png" alt-text="An example of the PCI heatmap showing hundreds of identities which require investigation." lightbox="media/ui-dashboard/pci-heat-map.png":::
 
 The **Permission Creep Index**  heat map shows the incurred risk of users with access to high-risk permissions, and provides information about:
 

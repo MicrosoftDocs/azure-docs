@@ -315,6 +315,8 @@
         href: manage/programmatically-create-subscription-enterprise-agreement.md
       - name: Create MCA subscriptions programmatically
         href: manage/programmatically-create-subscription-microsoft-customer-agreement.md
+      - name: Create MCA subscriptions programmatically across AD tenants
+        href: manage/programmatically-create-subscription-microsoft-customer-agreement-across-tenants.md
       - name: Create MPA subscriptions programmatically
         href: manage/programmatically-create-subscription-microsoft-partner-agreement.md
       - name: Create subscriptions programmatically - legacy APIs
