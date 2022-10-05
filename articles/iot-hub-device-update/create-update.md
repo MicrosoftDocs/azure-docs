@@ -45,9 +45,9 @@ Once you have your update files, create an import manifest to describe the updat
     ```azurecli
     az iot device-update update init v5
     --update-provider <replace with your Provider> --update-name <replace with your update Name> --update-version <replace with your update Version>
-    `--compat manufacturer=<replace with the value your device will report> model=<replace with the value your device will report> `
-    `--step handler=<replace with your chosen handler, such as microsoft/script:1, microsoft/swupdate:1, or microsoft/apt:1> properties=<replace with any desired handler properties (JSON-formatted), such as '{"installedCriteria": "1.0"}'> `
-    `--file path=<replace with path(s) to your update file(s), including the full file name> `
+    --compat manufacturer=<replace with the value your device will report> model=<replace with the value your device will report> 
+    --step handler=<replace with your chosen handler, such as microsoft/script:1, microsoft/swupdate:1, or microsoft/apt:1> properties=<replace with any desired handler properties (JSON-formatted), such as '{"installedCriteria": "1.0"}'> 
+    --file path=<replace with path(s) to your update file(s), including the full file name> 
     ```
 
 Once you've created your import manifest and saved it as a JSON file, if you're ready to import your update, you can scroll to the Next steps link at the bottom of this page.
@@ -58,25 +58,25 @@ If your update is more complex, such as a [proxy update](device-update-proxy-upd
 
 ```azurecli
     az iot device-update update init v5
-    `--update-provider <replace with a child update Provider> --update-name <replace with a child update Name> --update-version <replace with a child update Version>`
-    `--compat manufacturer=<replace with the value your device will report> model=<replace with the value your device will report> `
-    `--step handler=<replace with your chosen handler, such as microsoft/script:1, microsoft/swupdate:1, or microsoft/apt:1> `
-    `--file path=<replace with path(s) to your update file(s), including the full file name> `
-	  `--output json >"<replace with the path where you want your import manifest created, including the full file name>"
+    --update-provider <replace with a child update Provider> --update-name <replace with a child update Name> --update-version <replace with a child update Version>
+    --compat manufacturer=<replace with the value your device will report> model=<replace with the value your device will report> 
+    --step handler=<replace with your chosen handler, such as microsoft/script:1, microsoft/swupdate:1, or microsoft/apt:1> 
+    --file path=<replace with path(s) to your update file(s), including the full file name> 
+	  --output json >"<replace with the path where you want your import manifest created, including the full file name>"
     az iot device-update update init v5
-    `--update-provider <replace with a child update Provider> --update-name <replace with a child update Name> --update-version <replace with a child update Version> `
-    `--compat manufacturer=<replace with the value your device will report> model=<replace with the value your device will report> `
-    `--step handler=<replace with your chosen handler, such as microsoft/script:1, microsoft/swupdate:1, or microsoft/apt:1> `
-    `--file path=<replace with path(s) to your update file(s), including the full file name> `
-	  `--output json >"<replace with the path where you want your import manifest created, including the full file name>"
+    --update-provider <replace with a child update Provider> --update-name <replace with a child update Name> --update-version <replace with a child update Version> 
+    --compat manufacturer=<replace with the value your device will report> model=<replace with the value your device will report> 
+    --step handler=<replace with your chosen handler, such as microsoft/script:1, microsoft/swupdate:1, or microsoft/apt:1> 
+    --file path=<replace with path(s) to your update file(s), including the full file name> 
+	  --output json >"<replace with the path where you want your import manifest created, including the full file name>"
     az iot device-update update init v5
-    `--update-provider <replace with the parent update Provider> --update-name <replace with the parent update Name> --update-version <replace with the parent update Version> `
-    `--compat manufacturer=<replace with the value your device will report> model=<replace with the value your device will report> `
-    `--step handler=<replace with your chosen handler, such as microsoft/script:1, microsoft/swupdate:1, or microsoft/apt:1> properties=<replace with any desired handler properties (JSON-formatted), such as '{"installedCriteria": "1.0"}'> `
-    `--file path=<replace with path(s) to your update file(s), including the full file name> `
-	  `--step provider=<replace with first child update provider> name=<replace with first child update name> version=<replace with first child update version>
-	  `--step provider=<replace with second child update provider> name=<replace with second child update name> version=<replace with second child update version
-	  `--output json >"<replace with the path where you want your import manifest created, including the full file name>"
+    --update-provider <replace with the parent update Provider> --update-name <replace with the parent update Name> --update-version <replace with the parent update Version> 
+    --compat manufacturer=<replace with the value your device will report> model=<replace with the value your device will report> 
+    --step handler=<replace with your chosen handler, such as microsoft/script:1, microsoft/swupdate:1, or microsoft/apt:1> properties=<replace with any desired handler properties (JSON-formatted), such as '{"installedCriteria": "1.0"}'> 
+    --file path=<replace with path(s) to your update file(s), including the full file name> 
+	  --step provider=<replace with first child update provider> name=<replace with first child update name> version=<replace with first child update version>
+	  --step provider=<replace with second child update provider> name=<replace with second child update name> version=<replace with second child update version
+	  --output json >"<replace with the path where you want your import manifest created, including the full file name>"
 ```
 
 ## Next steps
