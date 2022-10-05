@@ -134,7 +134,7 @@ Each of the Azure AD attributes (userPrincipalName, onPremiseUserPrincipalName, 
 
 >[!IMPORTANT]
 >When using multiple bindings, Azure AD CBA authentication is only as strong as your low-affinity binding as Azure AD CBA will validate each of the bindings to >authenticate the user. In order to eliminate a scenario where a single certificate matching multiple Azure AD accounts, the tenant administrator should:
->
+
 >- Configure a single binding method in the username binding policy.
 >- If a tenant has multiple binding methods configured and doesn't want to allow one certificate to multiple accounts, the tenant admin must ensure all allowable methods configured in the policy map to the same Azure AD Account.
 >- If a tenant has multiple binding methods configured, the admin should make sure that they do not have more than one low-affinity binding 
