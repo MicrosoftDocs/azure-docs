@@ -34,6 +34,12 @@ For example, if you have a local server and a database called **testdb** in it, 
 pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb -f testdb.dump
 ```
 
+> [!NOTE]
+> If you have a custom schema(s) in postgres database (The default database you can connect to once your server is created) in Azure database for PostgreSQL flexible server and want to export it using pg_dump, use the (--schema=pattern) option in the pg_dump export command, because you can’t export the whole postgres database as it contains schemas owned by Azure superuser. For detailed syntax information, see [pg_dump]( https://www.postgresql.org/docs/current/app-pgdump.html). 
+>
+
+
+
 ## Restore the data into the target database
 
 After you've created the target database, you can use the `pg_restore` command and the  `--dbname` parameter to restore the data into the target database from the dump file.
