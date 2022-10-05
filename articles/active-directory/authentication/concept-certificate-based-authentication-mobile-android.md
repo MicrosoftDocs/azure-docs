@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/30/2022
+ms.date: 10/05/2022
 
 ms.author: justinha
 author: vimrang
@@ -18,7 +18,7 @@ ms.custom: has-adal-ref
 ---
 # Azure Active Directory certificate-based authentication on Android devices
 
-Android devices can use a a client certificate on their device for certificate-based authentication (CBA) to Azure Active Directory (Azure AD). CBA can be used to connect to:
+Android devices can use a client certificate on their device for certificate-based authentication (CBA) to Azure Active Directory (Azure AD). CBA can be used to connect to:
 
 - Office mobile applications such as Microsoft Outlook and Microsoft Word
 - Exchange ActiveSync (EAS) clients
