@@ -144,7 +144,7 @@ Here's an example of potential values for UPN and certificateUserIDs:
 Azure AD User Principal Name = Bob.Smith@Contoso.com <br>
 certificateUserIDs = [x509:\<SKI>89b0f468c1abea65ec22f0a882b8fda6fdd6750p]<br>
 
-Having both PrincipalName and SKI values from the user's certificate mapped to the same account ensures that while the tenant policy permits only mapping PrincipalName to Azure AD UPN & SKI values in certificateUserIds, that certificate can only match a single Azure AD account.  
+Having both PrincipalName and SKI values from the user's certificate mapped to the same account ensures that while the tenant policy permits mapping PrincipalName to Azure AD UPN & SKI values in certificateUserIds, that certificate can only match a single Azure AD account. With unique constraint on both UserPrincipalName and certificateUserIds, no other user account can have the same values and cannot successfully authenticate with the same certificate. 
 
 ## Understanding the certificate revocation process
 
