@@ -57,7 +57,7 @@ To resolve this error, follow these steps:
 
 1. Sign in to the [Microsoft account center](https://account.microsoft.com/).
 1. At the top of the page, select **Your info**.
-1. Verify that your billing and shipping details are are completed and valid.
+1. Verify that your billing and shipping details are completed and valid.
 1.	When you sign up for the Azure subscription, verify that the billing address for the credit card registration matches your bank records.
 
 If you continue to receive the message, try to sign up by using a different browser.

@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 Microsoft partners provide services that help customers achieve business and mission objectives using Microsoft products. When acting on behalf of the customer managing, configuring, and supporting Azure services, the partner users will need access to the customer’s environment. Using Partner Admin Link (PAL), partners can associate their partner network ID with the credentials used for service delivery.
 
-PAL enables Microsoft to identify and recognize partners who drive Azure customer success. Microsoft can attribute influence and Azure consumed revenue to your organization based on the account's permissions (Azure role) and scope (subscription, resource group, resource ). If a group has Azure RBAC access, then PAL is recognized for all the users in the group.
+PAL enables Microsoft to identify and recognize partners who drive Azure customer success. Microsoft can attribute influence and Azure consumed revenue to your organization based on the account's permissions (Azure role) and scope (subscription, resource group, resource). If a group has Azure RBAC access, then PAL is recognized for all the users in the group.
 
 ## Get access from your customer
 

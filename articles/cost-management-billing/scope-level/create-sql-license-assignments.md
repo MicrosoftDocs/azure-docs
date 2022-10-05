@@ -46,7 +46,7 @@ In the following procedure, you navigate from **Cost Management + Billing** to *
 
 1. Sign in to the Azure portal and navigate to **Cost Management + Billing**.  
     :::image type="content" source="./media/create-sql-license-assignments/select-cost-management.png" alt-text="Screenshot showing Azure portal navigation to Cost Management + Billing." lightbox="./media/create-sql-license-assignments/select-cost-management.png" :::
-1. Use one of the following two steps, depending on you agreement type:
+1. Use one of the following two steps, depending on your agreement type:
     - If you have an Enterprise Agreement, select a billing scope.  
         :::image type="content" source="./media/create-sql-license-assignments/select-billing-scope.png" alt-text="Screenshot showing EA billing scope selection." lightbox="./media/create-sql-license-assignments/select-billing-scope.png" :::
     - If you have a Microsoft Customer Agreement, select a billing profile.  
