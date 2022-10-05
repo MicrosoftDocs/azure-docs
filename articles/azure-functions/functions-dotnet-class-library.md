@@ -215,23 +215,23 @@ If you install the Core Tools using the Windows installer (MSI) package or by us
 
 ## ReadyToRun
 
-You can compile your function app as [ReadyToRun binaries](/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images). ReadyToRun is a form of ahead-of-time compilation that can improve startup performance to help reduce the impact of [cold-start](event-driven-scaling.md#cold-start) when running in a [Consumption plan](consumption-plan.md).
+You can compile your function app as [ReadyToRun binaries](/dotnet/core/deploying/ready-to-run). ReadyToRun is a form of ahead-of-time compilation that can improve startup performance to help reduce the impact of [cold-start](event-driven-scaling.md#cold-start) when running in a [Consumption plan](consumption-plan.md).
 
-ReadyToRun is available in .NET 3.0 and requires [version 3.0 of the Azure Functions runtime](functions-versions.md).
+ReadyToRun is available in .NET 3.1 and .NET 6 (in-proc and isolated) and .NET 7 and requires [version 3.0 or 4.0 of the Azure Functions runtime](functions-versions.md).
 
 To compile your project as ReadyToRun, update your project file by adding the `<PublishReadyToRun>` and `<RuntimeIdentifier>` elements. The following is the configuration for publishing to a Windows 32-bit function app.
 
 ```xml
 <PropertyGroup>
-  <TargetFramework>netcoreapp3.1</TargetFramework>
-  <AzureFunctionsVersion>v3</AzureFunctionsVersion>
+  <TargetFramework>net6.0</TargetFramework>
+  <AzureFunctionsVersion>v4</AzureFunctionsVersion>
   <PublishReadyToRun>true</PublishReadyToRun>
   <RuntimeIdentifier>win-x86</RuntimeIdentifier>
 </PropertyGroup>
 ```
 
 > [!IMPORTANT]
-> ReadyToRun currently doesn't support cross-compilation. You must build your app on the same platform as the deployment target. Also, pay attention to the "bitness" that is configured in your function app. For example, if your function app in Azure is Windows 64-bit, you must compile your app on Windows with `win-x64` as the [runtime identifier](/dotnet/core/rid-catalog).
+> Starting in .NET 6, support for Composite ReadyToRun compilation has been added.  Check out [ReadyToRun Cross platform and architecture restrictions](/dotnet/core/deploying/ready-to-run).
 
 You can also build your app with ReadyToRun from the command line. For more information, see the `-p:PublishReadyToRun=true` option in [`dotnet publish`](/dotnet/core/tools/dotnet-publish).
 
