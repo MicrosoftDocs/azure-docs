@@ -37,7 +37,7 @@ To increase the node limit beyond 1,000, you must have the following:
 > You can't use NPM with clusters greater than 500 Nodes 
 
 
-## Nodepool scaling considerations and best practices**
+## Nodepool scaling considerations and best practices
 
 * For system node pools, use the *Standard_D16ds_v5* SKU or equivalent core/memory VM SKUs to provide sufficient compute resources for *kube-system* pods.
 * Create 5 additional user node pools to scale up to 5,000 nodes since there is a 1000 nodes per node pool limit.
