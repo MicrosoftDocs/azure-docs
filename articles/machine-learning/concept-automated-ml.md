@@ -23,7 +23,7 @@ Traditional machine learning model development is resource-intensive, requiring 
 
 Azure Machine Learning offers the following two experiences for working with automated ML. See the following sections to understand feature availability in each experience.
 
-* For code-experienced customers, [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).  Get started with [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md)
+* For code-experienced customers, [Azure Machine Learning Python SDK](https://aka.ms/sdk-v2-install).  Get started with [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md)
 
 * For limited/no-code experience customers, Azure Machine Learning studio at [https://ml.azure.com](https://ml.azure.com/).  Get started with these tutorials:
     * [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).

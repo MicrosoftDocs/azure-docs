@@ -146,7 +146,8 @@ To create custom models, you start with configuring your project:
 ### Labeling as tables
 
 > [!NOTE]
-> Tables are currently only supported for custom template models. When training a custom neural model, labeled tables are ignored.
+> * With the release of API versions 2022-06-30-preview and later, custom template models will add support for [cross page tabular fields (tables)](../concept-custom-template.md#tabular-fields).
+> * With the release of API versions 2022-06-30-preview and later, custom neural models will support [tabular fields (tables)](../concept-custom-template.md#tabular-fields) and models trained with API version 2022-08-31, or later will accept tabular field labels.
 
 1. Use the Delete command to delete models that aren't required.
 
