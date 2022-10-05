@@ -249,7 +249,7 @@
             - name: Resize node pools
               href: resize-node-pool.md
         - name: Use the Mariner container host
-          href: use-mariner-md
+          href: use-mariner.md
         - name: Deploy AKS with Terraform
           href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
