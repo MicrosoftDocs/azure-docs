@@ -11,7 +11,6 @@ ms.custom:
 ---
 
 # What's new for virtual machines
-TODO: Add your heading.
 
 This article describes what's new for virtual machines in Azure.
 
