@@ -135,6 +135,38 @@ az aks nodepool add \
     --node-vm-size Standard_Dpds_v5
 ```
 
+### Add a Mariner node pool
+
+Mariner is an open-source Linux distribution available as an AKS container host. It provides high reliability, security, and consistency. Mariner only includes the minimal set of packages needed for running container workloads, which improves boot times and overall performance.
+
+You can add a Mariner node pool into your existing cluster using the `az aks nodepool add` command and specifying `--os-sku mariner`.
+
+```azurecli
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --os-sku mariner
+```
+
+### Migrate Ubuntu nodes to Mariner
+
+Use the following instructions to migrate your Ubuntu nodes to Mariner nodes.
+
+1. Add a Mariner node pool into your existing cluster using the `az aks nodepool add` command and specifying `--os-sku mariner`.
+
+> [!NOTE]
+> When adding a new Mariner node pool, you need to add at least one as `--mode System`. Otherwise, AKS won't allow you to delete your existing Ubuntu node pool.
+2. [Cordon the existing Ubuntu nodes][cordon-and-drain].
+3. [Drain the existing Ubuntu nodes][drain-nodes].
+4. Remove the existing Ubuntu nodes using the `az aks delete` command.
+
+```azurecli
+az aks nodepool delete \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name myNodePool
+```
+
 ### Add a node pool with a unique subnet
 
 A workload may require splitting a cluster's nodes into separate pools for logical isolation. This isolation can be supported with separate subnets dedicated to each node pool in the cluster. This can address requirements such as having non-contiguous virtual network address space to split across node pools.
@@ -833,3 +865,4 @@ az group delete --name myResourceGroup2 --yes --no-wait
 [use-labels]: use-labels.md
 [cordon-and-drain]: resize-node-pool.md#cordon-the-existing-nodes
 [internal-lb-different-subnet]: internal-lb.md#specify-a-different-subnet
+[drain-nodes]: resize-node-pool.md#drain-the-existing-nodes
