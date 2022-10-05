@@ -58,7 +58,7 @@ If you get a `.pfx` file from your PKI provider, it's likely the certificate and
 
 If your PKI provider provides a `.cer` file, it may contain the same certificate as the `.pfx`, or it might be the PKI provider's issuing (root) certificate. To verify, inspect the file with the `openssl x509` command. If it's the issuing certificate:
 1. If it's in DER (binary) format, convert it to PEM with `openssl x509 -in cert.cer -out cert.pem`.
-1. Use the PEM file as the trust bundle. See the next section for more information about the trust bundle.
+1. Use the PEM file as the trust bundle. For more information about the trust bundle, see the next section.
 
 ## Manage trusted root CA or trust bundle
 
@@ -133,7 +133,7 @@ IoT Edge can use existing certificate and private key files to authenticate or a
    sudo iotedge config apply
    ```
 
-To prevent errors when certificate expire, remember to manually update the files and configuration before certificate expiration.
+To prevent errors when certificates expire, remember to manually update the files and configuration before certificate expiration.
 
 Overhead with manual certificate management can be risky and error-prone. For production, using IoT Edge with automatic certificate management is recommended.
 
@@ -234,7 +234,7 @@ The following table lists what each option in `auto_renew` does:
 | Parameter | Description |
 |---------|---------|
 |`rotate_key`| Controls if the private key should be rotated when IoT Edge renews the certificate.|
-|`threshold`| Sets when IoT Edge should start renewing the certificate. It can be specified as: <br> - Percentage: integer between `0` and `100` followed by `%`. Renewal starts relative to the certificate lifetime. For example, when set to `80%`, a certificate that is valid for 100 days begins renewal at 20 days before its expiry. <br> - Absolute time: integer followed by `m` (minutes) or `d` (days). Renewal starts relative to the certificate expiration time. For example, when set to `4d` for 4 days or `10m` for 10 minutes, the certificate begins renewing at that time before expiry. To avoid unintentional misconfiguration where the `threshold` is bigger than the certificate lifetime, we recommend to use *percentage* instead whenever possible.|
+|`threshold`| Sets when IoT Edge should start renewing the certificate. It can be specified as: <br> - Percentage: integer between `0` and `100` followed by `%`. Renewal starts relative to the certificate lifetime. For example, when set to `80%`, a certificate that is valid for 100 days begins renewal at 20 days before its expiry. <br> - Absolute time: integer followed by `m` (minutes) or `d` (days). Renewal starts relative to the certificate expiration time. For example, when set to `4d` for four days or `10m` for 10 minutes, the certificate begins renewing at that time before expiry. To avoid unintentional misconfiguration where the `threshold` is bigger than the certificate lifetime, we recommend using *percentage* instead whenever possible.|
 |`retry`| controls how often renewal should be retried on failure. Like `threshold`, it can similarly be specified as a *percentage* or *absolute time* using the same format.|
 
 ## Device identity certificate examples
@@ -243,7 +243,7 @@ The IoT Edge device identity certificate is used to authenticate to IoT Hub or D
 
 ### Device identity certificate files from PKI provider
 
-Request a client TLS certificate (or similar) and a private key from your PKI provider. Ensure that the common name (CN) matches the IoT Edge device ID registered with IoT Hub or registration ID with DPS. For example, the in the following device identity certificate, `Subject: CN = my-device` is the critical field that needs to match.
+Request a client TLS certificate (or similar) and a private key from your PKI provider. Ensure that the common name (CN) matches the IoT Edge device ID registered with IoT Hub or registration ID with DPS. For example, in the following device identity certificate, `Subject: CN = my-device` is the critical field that needs to match.
 
 Example device identity certificate:
 
@@ -392,7 +392,7 @@ One option is to provide your own certificates and manage them manually. However
 
 ### Edge CA certificate files from PKI provider
 
-Request the following from your PKI provider:
+Request the following files from your PKI provider:
 
 - The PKI's root CA certificate
 - An issuing/CA certificate and associated private key
@@ -473,7 +473,7 @@ pk = "file:///var/secrets/my-edge-ca-private-key.key.pem"
 
 If you've used any other certificates for IoT Edge on the device before, delete the files in `/var/lib/aziot/certd/certs`. IoT Edge recreates them with the new CA certificate you provided.
 
-This approach requires you to manually update the files as certificate expires. To avoid this, consider using EST for automatic management.
+This approach requires you to manually update the files as certificate expires. To avoid this issue, consider using EST for automatic management.
 
 ### Automatic Edge CA management with EST
 
@@ -500,7 +500,7 @@ threshold = "90%"
 retry = "2%"
 ```
 
-Automatic renewal for Edge CA cannot be disabled when issuance method is set to EST, since Edge CA expiration must be avoided as it breaks many IoT Edge functionalities. If a situation requires total control over Edge CA certificate lifecycle, use the [manual Edge CA management method](#edge-ca-certificate-files-from-pki-provider) instead.
+Automatic renewal for Edge CA can't be disabled when issuance method is set to EST, since Edge CA expiration must be avoided as it breaks many IoT Edge functionalities. If a situation requires total control over Edge CA certificate lifecycle, use the [manual Edge CA management method](#edge-ca-certificate-files-from-pki-provider) instead.
 
 
 ### Planning Edge CA renewal
@@ -615,7 +615,7 @@ Once you move into a production scenario, or you want to create a gateway device
    * Device CA certificate
    * Device CA private key
 
-   Here, the *root CA* is not the topmost certificate authority for an organization. It's the topmost certificate authority for the IoT Edge scenario, which the IoT Edge hub module, user modules, and any downstream devices use to establish trust between each other. 
+   The *root CA* isn't the topmost certificate authority for an organization. It's the topmost certificate authority for the IoT Edge scenario, which the IoT Edge hub module, user modules, and any downstream devices use to establish trust between each other. 
 
    To see an example of these certificates, review the scripts that create demo certificates in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/iotedge/tree/master/tools/CACertificates).
 
