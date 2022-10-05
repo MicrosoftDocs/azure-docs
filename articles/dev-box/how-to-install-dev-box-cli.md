@@ -74,7 +74,7 @@ In addition to the Azure admin portal and the Dev Box user portal, you can use D
     ```
 
    You will see the devcenter extension listed:
-   :::image type="content" source="media/how-to-install-dev-box-cli/dev-box-cli-installed.png" alt-text="Screenshot showing the dev box extension listed":::
+   :::image type="content" source="media/how-to-install-dev-box-cli/dev-box-cli-installed.png" alt-text="Screenshot showing the dev box extension listed.":::
 
 ## Configure your Dev Box CLI
 
@@ -106,4 +106,4 @@ In addition to the Azure admin portal and the Dev Box user portal, you can use D
 
 Discover the Dev Box commands you can use at:
 
-- [Dev Box CLI reference](./cli-ref-subset.md)
+- [Dev Box CLI reference](./cli-reference-subset.md)

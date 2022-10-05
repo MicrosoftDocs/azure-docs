@@ -266,3 +266,9 @@ az devcenter dev dev-box start `
 --user-id "me" `
 -n {devBoxName} `
 ```
+
+## Next steps
+
+Learn how to install the Azure CLI and the Dev Box CLI extension at:
+
+- [Microsoft Dev Box CLI](./how-to-install-dev-box-cli.md)
