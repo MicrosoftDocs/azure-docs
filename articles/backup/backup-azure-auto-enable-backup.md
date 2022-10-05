@@ -46,8 +46,9 @@ The below steps describe the end-to-end process of assigning Policy 1: **Configu
 
 1. Sign in to the Azure portal and navigate to the **Policy** Dashboard.
 2. Select **Definitions** in the left menu to get a list of all built-in policies across Azure Resources.
-3. Filter the list for **Category=Backup** and select the policy named 'Configure backup on VMs of a location to an existing central Vault in the same location'.
-![Policy Dashboard](./media/backup-azure-auto-enable-backup/policy-dashboard.png)
+3. Filter the list for **Category=Backup** and select the policy named 'Configure backup on virtual machines without a given tag to an existing recovery services vault in the same location'.
+![policy-dashboard](https://user-images.githubusercontent.com/21364480/194141157-3619867d-cc43-4f70-8ac8-07e8234a09dc.png)
+
 4. Select the name of the policy. You'll be redirected to the detailed definition for this policy.
 ![Policy Definition pane](./media/backup-azure-auto-enable-backup/policy-definition-blade.png)
 5. Select the **Assign** button at the top of the pane. This redirects you to the **Assign Policy** pane.
