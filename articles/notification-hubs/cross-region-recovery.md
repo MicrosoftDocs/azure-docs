@@ -76,7 +76,7 @@ To create a new namespace with disaster recovery, follow these steps:
 
       :::image type="content" source="media/cross-region-recovery/cedr5.png" alt-text="Notification hub properties":::
 
-   1. If you select **Flexible recovery region**, use the drop down to choose from a list of recovery regions.
+   1. If you select **Flexible recovery region**, use the drop-down to choose from a list of recovery regions.
 
       :::image type="content" source="media/cross-region-recovery/cedr6.png" alt-text="Select region":::
 
