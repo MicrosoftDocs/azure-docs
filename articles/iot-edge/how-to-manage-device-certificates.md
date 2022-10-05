@@ -147,7 +147,7 @@ IoT Edge can interface with an EST server for automatic certificate issuance and
 
    - Create a test EST server using the steps in [Tutorial: Configure Enrollment over Secure Transport Server for Azure IoT Edge](tutorial-configure-est-server.md).
 
-   - Microsoft partners with GlobalSign to [provide a demo account](https://www.globalsign.com/globalsign-and-microsoft-azure-iot-edge-enroll-demo).
+   - Microsoft partners with GlobalSign to [provide a demo account](https://www.globalsign.com/lp/globalsign-and-microsoft-azure-iot-edge-enroll-demo).
 
 1. In the IoT Edge device configuration file `config.toml`, configure the path to a trusted root certificate that IoT Edge uses to validate the EST server's TLS certificate. This step is optional if the EST server has a publicly-rooted TLS certificate.
 
