@@ -207,15 +207,7 @@ Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate 
 
 # [Azure portal](#tab/portal)
 
-> [!IMPORTANT]
-> Premium SSD v2 managed disks can only be deployed and managed in the Azure portal from the following link: [https://portal.azure.com/?feature.premiumv2=true#home](https://portal.azure.com/?feature.premiumv2=true#home).
-
-1. Sign in to the Azure portal with the following link: [https://portal.azure.com/?feature.premiumv2=true#home](https://portal.azure.com/?feature.premiumv2=true#home).
-1. Navigate to your disk and select **Size + Performance**.
-1. Change the values to your desire.
-1. Select **Resize**.
-
-    :::image type="content" source="media/disks-deploy-premium-v2/premv2-performance.png" alt-text="Screenshot showing the Size+performance page of a premium v2 SSD." lightbox="media/disks-deploy-premium-v2/premv2-performance.png":::
+Currently, adjusting disk performance is only supported with Azure CLI or the Azure PowerShell module.
 
 ---
 
