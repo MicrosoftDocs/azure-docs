@@ -14,7 +14,7 @@ ms.date: 10/05/2022
 
 Hyperscale (Citus) is now [Azure Cosmos DB for
 PostgreSQL](../../cosmos-db/postgresql/introduction.md). The new service is
-completely backward compatible with Hyperscale (Citus), and adds new features.
+backward compatible with Hyperscale (Citus), and adds new features.
 
 Existing Hyperscale (Citus) server groups will be automatically migrated to Azure
 Cosmos DB for PostgreSQL clusters, with zero downtime.
