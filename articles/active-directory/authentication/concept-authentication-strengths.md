@@ -189,7 +189,6 @@ In external user scenarios, the authentication methods that can satisfy authenti
 |FIDO2 security key                           | &#x2705;        |          |
 |Windows Hello for Business                   | &#x2705;        |          |
 
-To configure a Conditional Access policy that applies authentication strength requirements to external users or guests, see [Conditional Access: Require an authentication strength for external users](./conditional-access/howto-conditional-access-policy-authentication-strength-external.md).
 
 ### User experience for external users
 
