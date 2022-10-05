@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/23/2022
+ms.date: 10/05/2022
 
 ms.author: justinha
 author: vimrang
@@ -24,7 +24,7 @@ This feature enables customers to adopt a phishing resistant authentication and 
 
 ## What is Azure AD CBA?
 
-Before this feature brought cloud-managed support for CBA to Azure AD, customers had to implement federated certificate-based authentication which requires deploying Active Directory Federation Services (AD FS) to be able to authenticate using X.509 certificates against Azure AD. With Azure AD certificate-based authentication, customers can authenticate directly against Azure AD and eliminate the need for federated AD FS, with simplified customer environments and cost reduction
+Before cloud-managed support for CBA to Azure AD, customers had to implement federated certificate-based authentication, which requires deploying Active Directory Federation Services (AD FS) to be able to authenticate using X.509 certificates against Azure AD. With Azure AD certificate-based authentication, customers can authenticate directly against Azure AD and eliminate the need for federated AD FS, with simplified customer environments and cost reduction.
 
 The following images show how Azure AD CBA simplifies the customer environment by eliminating federated AD FS. 
 
@@ -42,7 +42,7 @@ The following images show how Azure AD CBA simplifies the customer environment b
 | Benefits | Description |
 |---------|---------|
 | Great user experience |- Users who need certificate-based authentication can now directly authenticate against Azure AD and not have to invest in federated AD FS.<br>- Portal UI enables users to easily configure how to map certificate fields to a user object attribute to look up the user in the tenant ([certificate username bindings](concept-certificate-based-authentication-technical-deep-dive.md#understanding-the-username-binding-policy))<br>- Portal UI to [configure authentication policies](concept-certificate-based-authentication-technical-deep-dive.md#understanding-the-authentication-binding-policy) to help determine which certificates are single-factor versus multifactor. |
-| Easy to deploy and administer |- Azure AD CBA is a free feature, and you don't need any paid editions of Azure AD to use it. <br> No need for complex on-premises deployments or network configuration.<br>- Directly authenticate against Azure AD.<br>- No management overhead or cost. |
+| Easy to deploy and administer |- Azure AD CBA is a free feature, and you don't need any paid editions of Azure AD to use it. <br>- No need for complex on-premises deployments or network configuration.<br>- Directly authenticate against Azure AD. |
 | Secure |- On-premises passwords don't need to be stored in the cloud in any form.<br>- Protects your user accounts by working seamlessly with Azure AD Conditional Access policies, including unphishable multifactor authentication (MFA) and blocking legacy authentication.<br>- Strong authentication support where users can define authentication policies through the certificate fields, such as issuer or policy OID (object identifiers), to determine which certificates qualify as single-factor versus multifactor.<br>- The feature works seamlessly with Conditional Access features and authentication strength capability to enforce MFA to help secure your users. |
 
 

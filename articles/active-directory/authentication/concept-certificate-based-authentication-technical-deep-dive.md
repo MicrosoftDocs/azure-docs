@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/23/2022
+ms.date: 10/05/2022
 
 
 ms.author: justinha
@@ -63,7 +63,7 @@ Now we'll walk through each step:
 1. Azure AD will request a client certificate, the user picks the client certificate, and clicks **Ok**.
 
    >[!NOTE] 
-   >TrustedCA hints are not supported, so the list of certificates can't be further scoped. We're looking into adding this functionality in the future.
+   >Trusted CA hints are not supported, so the list of certificates can't be further scoped. We're looking into adding this functionality in the future.
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/cert-picker.png" alt-text="Screenshot of the certificate picker." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/cert-picker.png":::
 
@@ -105,18 +105,18 @@ Because multiple authentication binding policy rules can be created with differe
 
 The username binding policy helps validate the certificate of the user. By default, Subject Alternate Name (SAN) Principal Name in the certificate is mapped to UserPrincipalName attribute of the user object to determine the user.
 
-**Certificate bindings**
+### Certificate bindings
 
-There are four supported values for this attribute, with two mappings considered low-affinity (insecure) and the other two considered high-affinity binding. In general, mapping types are considered high-affinity if they are based on identifiers that you cannot reuse. Therefore, all mapping types based on usernames and email addresses are considered low-affinity.
+There are four supported values for this attribute, with two mappings considered low-affinity (insecure) and the other two considered high-affinity binding. In general, mapping types are considered high-affinity if they are based on identifiers that you cannot reuse. Therefore, all mapping types based on usernames and email addresses are considered low-affinity. For more information, see [certificateUserIds](concept-certificate-based-authentication-certificateuserids.md). 
 
-|Certificate mapping Field | Examples of values in CertificateUserIds | User object attributes | Type | 
+|Certificate mapping Field | Examples of values in certificateUserIds | User object attributes | Type | 
 |--------------------------|--------------------------------------|------------------------|----------|
 |PrincipalName | “X509:\<PN>bob@woodgrove.com” | userPrincipalName <br> onPremisesUserPrincipalName <br> certificateUserIds | low-affinity |
 |RFC822Name	| “X509:\<RFC822>user@woodgrove.com” | userPrincipalName <br> onPremisesUserPrincipalName <br> certificateUserIds | low-affinity |
 |X509SKI | “X509:\<SKI>123456789abcdef”| certificateUserIds | high-affinity |
 |X509SHA1PublicKey |“X509:\<SHA1-PUKEY>123456789abcdef” | certificateUserIds | high-affinity |
 
-**How does Azure AD resolve multiple username policy binding rules?**
+### How Azure AD resolves multiple username policy binding rules
 
 Use the highest priority (lowest number) binding.
 
@@ -126,23 +126,25 @@ Use the highest priority (lowest number) binding.
    1. If a match is not found, move to the next priority binding.
 1. If the X.509 certificate field is not on the presented certificate, move to the next priority binding.
 1. Validate all the configured username bindings until one of them results in a match and user authentication is successful.
-1. If a match is not found on all the configured username bindings, user authentication fails.
+1. If a match is not found on any of the configured username bindings, user authentication fails.
 
 ## Securing Azure AD configuration with multiple username bindings
 
-Each of the Azure AD attributes(userPrincipalName, onPremiseUserPrincipalName, CertificateUserIds) available to bind certificates to Azure AD user accounts has unique constraint to ensure a certificate only matches a single Azure AD user account. However, Azure AD CBA does support configuring multiple binding methods in the username binding policy. This allows an administrator to accommodate multiple certificate configurations.  However the combination of some methods can also potentially permit one certificate to match to multiple Azure AD user Accounts. 
+Each of the Azure AD attributes (userPrincipalName, onPremiseUserPrincipalName, certificateUserIds) available to bind certificates to Azure AD user accounts has unique constraint to ensure a certificate only matches a single Azure AD user account. However, Azure AD CBA does support configuring multiple binding methods in the username binding policy. This allows an administrator to accommodate multiple certificate configurations. However the combination of some methods can also potentially permit one certificate to match to multiple Azure AD user accounts. 
 
-In order to eliminate a scenario where a single certificate matching multiple Azure AD accounts, the tenant administrator should
-- Configure a single binding methods in the username binding policy.
-- If a tenant has multiple binding methods configured and does not want to not allow one certificate to multiple accounts the tenant admin must ensure all allowable methods configured in the policy map to the same Azure AD Account. 
+In order to eliminate a scenario where a single certificate matching multiple Azure AD accounts, the tenant administrator should:
 
-For example, if the tenant admin has two username bindings on PrincipalName mapped to Azure AD UPN  and SubjectKeyIdentifier(SKI) to certificateUserIds and wants a certificate to only be used for a single Azure AD Account, the admin must make sure that account has the UPN  that is present in the certificate and implements the SKI mapping in the same accounts certificateUserId attribute.
+- Configure a single binding method in the username binding policy.
+- If a tenant has multiple binding methods configured and doesn't want to allow one certificate to multiple accounts, the tenant admin must ensure all allowable methods configured in the policy map to the same Azure AD Account. 
 
-Here is an example of potential values for UPN and certificateUserIDs: <br>
+For example, if the tenant admin has two username bindings on PrincipalName mapped to Azure AD UPN and SubjectKeyIdentifier (SKI) to certificateUserIds and wants a certificate to only be used for a single Azure AD Account, the admin must make sure that account has the UPN that is present in the certificate and implements the SKI mapping in the same account certificateUserId attribute.
+
+Here is an example of potential values for UPN and certificateUserIDs:
+
 Azure AD User Principal Name = Bob.Smith@Contoso.com <br>
-certificateUserIDs = [x509:\<SKI\>89b0f468c1abea65ec22f0a882b8fda6fdd6750p]<br>
+certificateUserIDs = [x509:\<SKI>89b0f468c1abea65ec22f0a882b8fda6fdd6750p]<br>
 
-Having both PrincipalName and SKI values from the user's certificate mapped to the same account ensures that while the tenant policy permits only PrincipalName->AAD UPN & SKI -> certificateUserIds that certificate can only match a single Azure AD account 
+Having both PrincipalName and SKI values from the user's certificate mapped to the same account ensures that while the tenant policy permits only mapping PrincipalName to Azure AD UPN & SKI values in certificateUserIds, that certificate can only match a single Azure AD account.  
 
 ## Understanding the certificate revocation process
 
@@ -166,7 +168,7 @@ After the error, Azure AD will attempt to download the CRL subject to the servic
 
 As of now, we don't support Online Certificate Status Protocol (OCSP) because of performance and reliability reasons. Instead of downloading the CRL at every connection by the client browser for OCSP, Azure AD downloads once at the first sign-in and caches it, thereby improving the performance and reliability of CRL verification. We also index the cache so the search is much faster every time. Customers must publish CRLs for certificate revocation.
 
-**Typical flow of the CRL check:**
+The following steps are a typical flow of the CRL check:
 
 1. Azure AD will attempt to download the CRL at the first sign-in event of any user with a certificate of the corresponding trusted issuer or certificate authority. 
 1. Azure AD will cache and re-use the CRL for any subsequent usage. It will honor the **Next update date** and, if available, **Next CRL Publish date** (used by Windows Server CAs) in the CRL document.
@@ -174,7 +176,7 @@ As of now, we don't support Online Certificate Status Protocol (OCSP) because of
    - A CRL has been configured for the trusted issuer and Azure AD cannot download the CRL, due to availability, size, or latency constraints.
    - The user's certificate is listed as revoked on the CRL.
    
-      :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/user-cert.png" alt-text="Screenshot of the revoked user certificate in the CRL." :::  
+     :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/user-cert.png" alt-text="Screenshot of the revoked user certificate in the CRL." :::  
 
    - Azure AD will attempt to download a new CRL from the distribution point if the cached CRL document is expired. 
 
@@ -197,8 +199,6 @@ As of now, there is no way for the administrator to manually force or re-trigger
 Sign-in logs provide information about sign-ins and how your resources are used by your users. For more information about sign-in logs, see [Sign-in logs in Azure Active Directory](../reports-monitoring/concept-all-sign-ins.md).
 
 Let's walk through two scenarios, one where the certificate satisfies single-factor authentication and another where the certificate satisfies MFA.
-
-**Test scenario configuration** 
 
 For the test scenarios, choose a user with a conditional access policy that requires MFA. 
 Configure the user binding policy by mapping SAN Principal Name to UserPrincipalName.
@@ -241,7 +241,7 @@ For the next test scenario, configure the authentication policy where the **poli
 :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/multifactor.png" alt-text="Screenshot of the Authentication policy configuration showing multifactor authentication required." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/multifactor.png":::  
 
 1. Sign in to the Azure portal using CBA. Since the policy was set to satisfy multifactor authentication, the user sign-in is successful without a second factor.
-1. Click **Azure Active Directory** > **Sign-in logs**.
+1. Click **Azure Active Directory** > **Sign-ins**.
 
    You'll see several entries in the Sign-in logs, including an entry with **Interrupted** status. 
 
