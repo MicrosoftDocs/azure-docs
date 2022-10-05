@@ -93,7 +93,7 @@ The information in this document is based on using a model stored in ONNX format
     > [!IMPORTANT]
     > You may need to request a quota increase for your subscription before you can use this series of VMs. For more information, see [NCv3-series](../virtual-machines/ncv3-series.md).
 
-The information in this article is based on the [online-endpoints-triton.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/triton/single-model/online-endpoints-triton.ipynb) notebook contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste files, clone the repo and then change directories to the `sdk/endpoints/online/triton/single-model/` directory in the repo:
+The information in this article is based on the [online-endpoints-triton.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/triton/single-model/online-endpoints-triton.ipynb) notebook contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste files, clone the repo, and then change directories to the `sdk/endpoints/online/triton/single-model/` directory in the repo:
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
@@ -104,7 +104,7 @@ cd azureml-examples/sdk/python/endpoints/online/triton/single-model/
 
 * An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-* An Azure Machine Learning workspace. If you don't have one, use the steps in [Manage Azure Machine Learning workspaces in the portal or with the Python SDK](how-to-manage-workspace.md) to create one.
+* An Azure Machine Learning workspace. If you don't have one, use the steps in [Manage Azure Machine Learning workspaces in the portal, or with the Python SDK](how-to-manage-workspace.md) to create one.
 
 --- 
 
