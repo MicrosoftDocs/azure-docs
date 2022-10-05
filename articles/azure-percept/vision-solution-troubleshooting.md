@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot Azure Percept Vision and vision modules
 description: Get troubleshooting tips for some of the more common issues found in the vision AI prototyping experiences.
-author: nkhuyent
-ms.author: yvonne-dq
+author: yvonne-dq
+ms.author: nbabar
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 10/04/2022
