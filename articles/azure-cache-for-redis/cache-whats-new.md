@@ -16,12 +16,12 @@ ms.date: 09/29/2022
 
 ### Upgrade your Azure Cache for Redis instances to use Redis version 6 by June 30, 2023
 
-On June 30, 2023, we'll retire version 4 for Azure Cache for Redis instances. Before that date, you need to upgrade any of your cache instances to version 6.
+On June 30, 2023, we'll retire version 4 for Azure Cache for Redis instances. Before that date, you need to [upgrade](cache-how-to-upgrade.md) any of your cache instances to version 6.
 
 - All cache instances running Redis version 4 after June 30, 2023 will be upgraded automatically.
 - All cache instances running Redis version 4 that have geo-replication enabled will be upgraded automatically after August 30, 2023.
 
-We recommend that you upgrade your caches on your own to accommodate your schedule and the needs of your users to make the upgrade as convenient as possible.
+We recommend that you [upgrade](cache-how-to-upgrade.md) your caches on your own to accommodate your schedule and the needs of your users to make the upgrade as convenient as possible.
 
 For more information, see [Retirements](cache-retired-features.md).
 
