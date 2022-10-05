@@ -64,8 +64,6 @@ There are limitations to consider:
 
 When you start the create replica workflow, a blank Azure Database for PostgreSQL server is created. The new server is filled with the data that was on the primary server. The creation time depends on the amount of data on the primary and the time since the [CHECK!] last weekly full backup. The time can range from a few minutes to several hours.
 
-Every replica is enabled for storage [auto-grow](concepts-pricing-tiers.md#storage-auto-grow). The auto-grow feature allows the replica to keep up with the data replicated to it, and prevent a break in replication caused by out of storage errors.
-
 The read replica feature uses PostgreSQL physical replication, not logical replication. Streaming replication by using replication slots is the default operation mode. When necessary, log shipping is used to catch up.
 
 Learn how to [create a read replica in the Azure portal](how-to-read-replicas-portal.md).
@@ -167,29 +165,16 @@ A read replica is created as a new Azure Database for PostgreSQL server. An exis
 
 ### Replica configuration
 
-A replica is created by using the same compute and storage settings as the primary. After a replica is created, several settings can be changed including storage and backup retention period.
+A replica is created by using the same compute and storage settings as the primary. After a replica is created, [CHECK!]several settings can be changed including storage and backup retention period.
 
-Firewall rules, virtual network rules, and parameter settings are not inherited from the primary server to the replica when the replica is created or afterwards.
+Firewall rules, virtual network rules, and parameter settings are inherited from the primary server to the replica when the replica is created.
 
 ### Scaling
 
 Scaling vCores or between General Purpose and Memory Optimized:
-* PostgreSQL requires the `max_connections` setting on a secondary server to be [greater than or equal to the setting on the primary](https://www.postgresql.org/docs/current/hot-standby.html), otherwise the secondary will not start.
-* In Azure Database for PostgreSQL, the maximum allowed connections for each server is fixed to the compute sku since connections occupy memory. You can learn more about the [mapping between max_connections and compute skus](concepts-limits.md).
-* **Scaling up**: First scale up a replica's compute, then scale up the primary. This order will prevent errors from violating the `max_connections` requirement.
-* **Scaling down**: First scale down the primary's compute, then scale down the replica. If you try to scale the replica lower than the primary, there will be an error since this violates the `max_connections` requirement.
-
-Scaling storage:
-* All replicas have storage auto-grow enabled to prevent replication issues from a storage-full replica. This setting cannot be disabled.
-* You can also manually scale up storage, as you would do on any other server
-
-### Basic tier
-
-Basic tier servers only support same-region replication.
-
-### max_prepared_transactions
-
-[PostgreSQL requires](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) the value of the `max_prepared_transactions` parameter on the read replica to be greater than or equal to the primary value; otherwise, the replica won't start. If you want to change `max_prepared_transactions` on the primary, first change it on the replicas.
+* PostgreSQL requires several parameters on replicas to be [greater than or equal to the setting on the primary](https://www.postgresql.org/docs/current/hot-standby.html#HOT-STANDBY-ADMIN), otherwise the secondary servers will not start. The parameters affected are: max_connections, max_prepared_transactions, max_locks_per_transaction, max_wal_senders, max_worker_processes.
+* **Scaling up**: First scale up a replica's compute, then scale up the primary. 
+* **Scaling down**: First scale down the primary's compute, then scale down the replica.
 
 ### Stopped replicas
 
