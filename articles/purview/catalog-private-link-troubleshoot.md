@@ -19,7 +19,7 @@ This guide summarizes known limitations related to using private endpoints for M
 - We currently don't support ingestion private endpoints that work with your AWS sources.
 - Scanning Azure Multiple Sources using self-hosted integration runtime isn't supported.
 - Using Azure integration runtime to scan data sources behind private endpoint isn't supported.
-- The ingestion private endpoints can be created via the Microsoft Purview governance portal experience described in the preceding steps. They can't be created from the Private Link Center.
+- The ingestion private endpoints can be created via the Microsoft Purview governance portal experience described in the steps [here](catalog-private-link-end-to-end.md#option-2---enable-account-portal-and-ingestion-private-endpoint-on-existing-microsoft-purview-accounts). They can't be created from the Private Link Center.
 - Creating a DNS record for ingestion private endpoints inside existing Azure DNS Zones, while the Azure Private DNS Zones are located in a different subscription than the private endpoints isn't supported via the Microsoft Purview governance portal experience. A record can be added manually in the destination DNS Zones in the other subscription.
 - If you enable a managed event hub after deploying an ingestion private endpoint, you'll need to redeploy the ingestion private endpoint.
 - Self-hosted integration runtime machine must be deployed in the same VNet or a peered VNet where Microsoft Purview account and ingestion private endpoints are deployed.
@@ -152,7 +152,7 @@ You may receive the following error message when running a scan:
 This can be an indication of issues related to connectivity or name resolution between the VM running self-hosted integration runtime and Microsoft Purview's managed resources storage account or Event Hubs.
 
 ### Resolution 
-Validate if name resolution between the VM running Self-Hosted Integration Runtime.
+Validate if name resolution is successful between the VM running the Self-Hosted Integration Runtime and the Microsoft Purview manage resources such as the blob queue and Event Hubs through port 443 and private IP addresses (step 8 above.)
 
 
 ### Issue 

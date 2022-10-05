@@ -32,7 +32,7 @@ highlightedContent:
       url: create-cosmosdb-resources-portal.md
     - title: Explore Azure Cosmos DB
       itemType: learn
-      url: /learn/modules/explore-azure-cosmos-db/
+      url: /training/modules/explore-azure-cosmos-db/
     - title: Data modeling - improve your application's speed and performance
       itemType: video
       url: https://www.microsoft.com/videoplayer/embed/RE4RWCe

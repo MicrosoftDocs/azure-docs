@@ -71,7 +71,7 @@ const msal = require('@azure/msal-node');
 
 const pca = new msal.PublicClientApplication({
         auth: {
-            clientId = "YOUR_CLIENT_ID"
+            clientId: "YOUR_CLIENT_ID"
         }
     });
 ```
@@ -86,8 +86,8 @@ const msal = require('@azure/msal-node');
 
 const cca = new msal.ConfidentialClientApplication({
         auth: {
-            clientId = "YOUR_CLIENT_ID",
-            clientSecret = "YOUR_CLIENT_SECRET"
+            clientId: "YOUR_CLIENT_ID",
+            clientSecret: "YOUR_CLIENT_SECRET"
         }
     });
 ```

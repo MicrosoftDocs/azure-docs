@@ -18,7 +18,7 @@ In this tutorial, you'll deploy a data-driven Python web app (**[Django](https:/
 **To complete this tutorial, you'll need:**
 
 * An Azure account with an active subscription exists. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/python).
-* Knowledge of Python with Flask development or [Python with Django development](/learn/paths/django-create-data-driven-websites/)
+* Knowledge of Python with Flask development or [Python with Django development](/training/paths/django-create-data-driven-websites/)
 * [Python 3.7 or higher](https://www.python.org/downloads/) installed locally.
 * [PostgreSQL](https://www.postgresql.org/download/) installed locally.
 

@@ -11,7 +11,6 @@ ms.date: 03/14/2022
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: elisolMS
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
 ---
@@ -185,7 +184,7 @@ async function sendInvite() {
   // Initialize a confidential client application. For more info, visit: https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/samples/AzureIdentityExamples.md#authenticating-a-service-principal-with-a-client-secret
   const credential = new ClientSecretCredential(TENANT_ID, CLIENT_ID, CLIENT_SECRET);
 
-  // Initialize the Microsoft Graph authentication provider. For more info, visit: https://docs.microsoft.com/en-us/graph/sdks/choose-authentication-providers?tabs=Javascript#using--for-server-side-applications
+  // Initialize the Microsoft Graph authentication provider. For more info, visit: https://learn.microsoft.com/graph/sdks/choose-authentication-providers?tabs=Javascript#using--for-server-side-applications
   const authProvider = new TokenCredentialAuthenticationProvider(credential, { scopes: ['https://graph.microsoft.com/.default'] });
 
   // Create MS Graph client instance. For more info, visit: https://github.com/microsoftgraph/msgraph-sdk-javascript/blob/dev/docs/CreatingClientInstance.md
@@ -202,7 +201,7 @@ async function sendInvite() {
     sendInvitationMessage: true
   };
   
-  // Execute the MS Graph command. For more information, visit: https://docs.microsoft.com/en-us/graph/api/invitation-post
+  // Execute the MS Graph command. For more information, visit: https://learn.microsoft.com/graph/api/invitation-post
   graphResponse = await client.api('/invitations')
     .post(invitation);
   

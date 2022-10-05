@@ -98,6 +98,8 @@
       href: estimate-storage-costs.md
     - name: Create custom built-in connectors for single-tenant workflows
       href: create-custom-built-in-connector-standard.md
+    - name: Export from integration service environment to Standard logic app
+      href: export-from-ise-to-standard-logic-app.md
   - name: Azure Arc-enabled Logic Apps
     items:
     - name: About Azure Arc-enabled Logic Apps
@@ -437,8 +439,10 @@
       href: /azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration
     - name: Enterprise integration with queues and events
       href: /azure/architecture/reference-architectures/enterprise-integration/queues-events
-  - name: Connectors - Full details
-    href: /connectors/
+  - name: Managed connector reference
+    href: /connectors/connector-reference/connector-reference-logicapps-connectors
+  - name: Built-in service provider connector reference - Standard
+    href: /azure/logic-apps/connectors/built-in/reference
   - name: Service limits and configuration
     href: logic-apps-limits-and-config.md
   - name: Azure CLI - Consumption
@@ -473,8 +477,8 @@
     href: ./policy-reference.md
 - name: Resources
   items:
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-logic-apps
+  - name: Build your skills with Microsoft Learn training
+    href: /training/browse/?products=azure-logic-apps
   - name: Azure Logic Apps roadmap
     href: https://aka.ms/logicappsroadmap/
   - name: Azure roadmap

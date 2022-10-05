@@ -100,7 +100,7 @@ conceptualContent:
           text: Create SQL Managed Instance
         - url: ./data/create-postgresql-hyperscale-server-group.md
           itemType: how-to-guide
-          text: Create PostgreSQL Hyperscale
+          text: Create PostgreSQL server
       # footerLink (optional)
       footerLink:
         url: ./data/index.yml

@@ -27,7 +27,7 @@ In this tutorial, you'll deploy a containerized application to Azure Container A
 
 ## Clone the project
 
-1. Begin by cloning the [sample repository]((https://github.com/azure-samples/containerapps-albumapi-javascript) to your machine using the following command.
+1. Begin by cloning the [sample repository](https://github.com/azure-samples/containerapps-albumapi-javascript) to your machine using the following command.
 
     ```bash
     git clone https://github.com/Azure-Samples/containerapps-albumapi-javascript.git

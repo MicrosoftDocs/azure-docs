@@ -39,12 +39,16 @@ items:
     href: how-to-monitor-managed-grafana-workspace.md
   - name: Create and manage API keys
     href: how-to-create-api-keys.md
-  - name: Troubleshoot common issues
-    href: troubleshoot-managed-grafana.md
   - name: Enable zone redundancy
     href: how-to-enable-zone-redundancy.md
   - name: Use deterministic outbound IPs
     href: how-to-deterministic-ip.md
+  - name: Transition to grafana.azure.com domain
+    href: how-to-transition-domain.md
+  - name: Troubleshoot common issues
+    href: troubleshoot-managed-grafana.md
+  - name: Known limitations
+    href: known-limitations.md
 - name: Reference
   items:
   - name: Azure CLI
