@@ -27,7 +27,7 @@ In this how-to guide, you'll undertake the four steps needed to convert a single
 
 By default, web app/API registrations in Azure AD are single-tenant upon creation. To make the registration multi-tenant, look for the **Supported account types** section on the **Authentication** pane of the application registration in the [Azure portal][AZURE-portal]. Change the setting to **Accounts in any organizational directory**.
 
-By default, apps created via the Azure portal have a globally unique App ID URI set on app creation. The App ID URI is one of the ways an application is identified in protocol messages, and can be edited in the **Overview page**. The App ID URI for single tenant apps can be globally unique within that tenant, however for multi-tenant apps it must be globally unique across all tenants, ensuring that Azure AD can find the app across all tenants.
+When a single-tenant application is created via the Azure portal, one of the items listed on the **Overview** page is the **Application ID URI**. This is one of the ways an application is identified in protocol messages, and can be added at any time. The App ID URI for single tenant apps can be globally unique within that tenant. In contrast, for multi-tenant apps it must be globally unique across all tenants, which ensures that Azure AD can find the app across all tenants.
 
 For example, if the name of your tenant was `contoso.onmicrosoft.com` then a valid App ID URI would be `https://contoso.onmicrosoft.com/myapp`. If the App ID URI doesn’t follow this pattern, setting an application as multi-tenant fails.
 
@@ -38,8 +38,6 @@ With a multi-tenant application, because the application can't immediately tell 
 Edit your code and change the value for your tenant to `/common`. It's important to note that this endpoint isn't a tenant or an issuer itself. When the Microsoft identity platform receives a request on the `/common` endpoint, it signs the user in, thereby discovering which tenant the user is from. This endpoint works with all of the authentication protocols supported by the Azure AD (OpenID Connect, OAuth 2.0, SAML 2.0, WS-Federation).
 
 The sign-in response to the application then contains a token representing the user. The issuer value in the token tells an application what tenant the user is from. When a response returns from the `/common` endpoint, the issuer value in the token corresponds to the user’s tenant.
-
-In a single-tenant application, sign-in requests are sent to the tenant’s sign-in endpoint. For example, for `contoso.onmicrosoft.com` the endpoint would be: `https://login.microsoftonline.com/contoso.onmicrosoft.com`. Requests sent to a tenant’s endpoint can sign in users (or guests) in that tenant to applications in that tenant.
 
 ## Update your code to handle multiple issuer values
 
@@ -87,7 +85,7 @@ This consent experience is affected by the permissions requested by the applicat
 
 Some permissions can be consented to by a regular user, while others require a tenant administrator’s consent.
 
-To learn more about admin consent, see [Configure the admin consent workflow](../manage-apps/configure-admin-consent-workflow.md).
+To learn more about user and admin consent, see [Configure the admin consent workflow](../manage-apps/configure-admin-consent-workflow.md).
 
 ### Admin consent
 
