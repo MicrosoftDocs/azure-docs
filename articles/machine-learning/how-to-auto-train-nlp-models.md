@@ -494,7 +494,7 @@ AutoML NLP also supports `trial_timeout_minutes`, the maximum amount of time in 
 
 
 
- [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 ```yaml
 limits: 
@@ -503,7 +503,6 @@ limits:
   max_nodes: 2 
 ```
 
----
 
 ### Early termination policies  
 
@@ -538,8 +537,14 @@ sweep:
     delay_evaluation: 6
 ```
 
----
 
+## Known Issues
+
+Dealing with very low scores, or higher loss values: 
+
+For certain datasets, regardless of the NLP task, the scores produced may be very low, sometimes even zero. This would be accompanied by higher loss values implying that the neural network failed to converge. This can happen more frequently on certain GPU SKUs.
+
+While such cases are uncommon, they're possible and the best way to handle it is to leverage hyperparameter tuning and provide a wider range of values, especially for hyperparameters like learning rates. Until our hyperparameter tuning capability is available in production we recommend users, who face such issues, to leverage the NC6 or ND6 compute clusters, where we've found training outcomes to be fairly stable.
 
 ## Next steps
 

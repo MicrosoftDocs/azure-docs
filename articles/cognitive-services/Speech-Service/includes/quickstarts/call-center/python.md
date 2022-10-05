@@ -20,7 +20,7 @@ Install a version of [Python from 3.7 to 3.10](https://www.python.org/downloads/
 
 ## Run post-call transcription analysis
 
-Follow these steps to create a new console application.
+Follow these steps to build and run the post-call transcription analysis quickstart code example.
 
 1. Download or copy the <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/scenarios/python/console/call-center/"  title="Copy the samples"  target="_blank">scenarios/python/console/call-center/</a> sample files from GitHub into a local directory. 
 1. Open a command prompt in the same directory as `call-center.py`.
