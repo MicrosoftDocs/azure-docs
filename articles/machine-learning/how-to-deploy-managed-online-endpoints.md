@@ -71,7 +71,7 @@ The main example in this doc uses managed online endpoints for deployment. To us
 
 # [Azure CLI](#tab/azure-cli)
 
-To follow along with this article, first clone the samples repository (azureml-examples). Then, run the following code to go to the samples directory:
+To follow along with this article, first clone the [samples repository (azureml-examples)](https://github.com/azure/azureml-examples). Then, run the following code to go to the samples directory:
 
 ```azurecli
 git clone --depth 1 https://github.com/Azure/azureml-examples
@@ -95,15 +95,17 @@ For Unix, run this command:
 
 ### Clone the sample repository
 
-To run the training examples, first clone the examples repository and change into the `sdk` directory:
+To run the training examples, first clone the [examples repository (azureml-examples)](https://github.com/azure/azureml-examples) and change into the `azureml-examples/sdk/python/endpoints/online/managed` directory:
 
 ```bash
 git clone --depth 1 https://github.com/Azure/azureml-examples
-cd azureml-examples/sdk
+cd azureml-examples/sdk/python/endpoints/online/managed
 ```
 
 > [!TIP]
 > Use `--depth 1` to clone only the latest commit to the repository, which reduces time to complete the operation.
+
+The information in this article is based on the [online-endpoints-simple-deployment.ipynb](https://github.com/Azure/azureml-examples/blob/main/sdk/python/endpoints/online/managed/online-endpoints-simple-deployment.ipynb) notebook. It contains the same content as this article, although the order of the codes is slightly different.
 
 ### Connect to Azure Machine Learning workspace
 
