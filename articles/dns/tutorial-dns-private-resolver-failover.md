@@ -14,9 +14,6 @@ ms.author: greglin
 
 This article details how to eliminate a single point of failure in your on-premises DNS services by using two or more Azure DNS private resolvers deployed across different regions. DNS failover is enabled by assigning a local resolver as your primary DNS and the resolver in an adjacent region as secondary DNS. If the primary DNS server fails to respond, DNS clients automatically retry using the secondary DNS server.
 
-> [!IMPORTANT]
-> Azure DNS Private Resolver is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
