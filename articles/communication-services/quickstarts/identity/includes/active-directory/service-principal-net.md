@@ -60,13 +60,6 @@ public AccessToken CreateIdentityAndGetTokenAsync(Uri resourceEndpoint)
 }
 ```
 
-You can customize the token expiration time between 1 and 24 hours to your specific needs. If the custom expiration time is not specified, then the token expiration time will be set to 24 hours which is a default expiration time. We recommend using short lifetime tokens for one-off Chat messages or time-limited Calling sessions and longer lifetime tokens for agents using the application for longer periods of time. The following code snippet shows how to specify a custom expiration time:
-
-```csharp
-TimeSpan tokenExpiresIn = TimeSpan.FromHours(1);
-var tokenResponse = client.CreateUserAndToken(scopes: new[] { CommunicationTokenScope.VoIP }, tokenExpiresIn);
-```
-
 ## Send an SMS with service principals
 
 As another example of using service principals, we'll add this code which uses the same credential to send an SMS:
