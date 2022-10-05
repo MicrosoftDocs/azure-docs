@@ -79,8 +79,6 @@
       href: authentication.md
     - name: Dapr integration
       href: dapr-overview.md
-    - name: Workload profiles
-      href: workload-profiles.md
 - name: How-to guides
   items:
     - name: Scale an app
