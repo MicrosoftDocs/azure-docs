@@ -10,7 +10,7 @@ ms.date: 09/30/2022
 
 ms.author: justinha
 author: vimrang
-manager: daveba
+manager: amycolannino
 ms.reviewer: vimrang
 
 ms.collection: M365-identity-device-management

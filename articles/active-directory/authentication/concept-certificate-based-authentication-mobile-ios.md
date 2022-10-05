@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 09/30/2022
+ms.date: 10/05/2022
 
 ms.author: justinha
 author: vimrang
@@ -23,7 +23,7 @@ Devices that run iOS can use certificate-based authentication (CBA) to authentic
 - Office mobile applications such as Microsoft Outlook and Microsoft Word
 - Exchange ActiveSync (EAS) clients
 
-Azure AD CBA is supported for certificates on-device on native browsers as well as on Microsoft first-party applications on iOS devices. 
+Azure AD CBA is supported for certificates on-device on native browsers and on Microsoft first-party applications on iOS devices. 
 
 ## Prerequisites
 
@@ -32,34 +32,34 @@ Azure AD CBA is supported for certificates on-device on native browsers as well 
 
 ## Support for on-device certificates and external storage
 
-On-device certificates are provisioned on the device. Customers can use Mobile Device Management (MDM) to provision the certificates on the device. Since iOS does not support hardware protected keys out of the box, customers can use external storage devices for certificates.
+On-device certificates are provisioned on the device. Customers can use Mobile Device Management (MDM) to provision the certificates on the device. Since iOS doesn't support hardware protected keys out of the box, customers can use external storage devices for certificates.
 
-**Advantages of external storage for certificates**
+## Advantages of external storage for certificates
 
-Customers can use external security keys to store their certificates. Security keys with certificate 
+Customers can use external security keys to store their certificates. Security keys with certificates: 
 
-- enable the usage on any device and does not require the provision on every device the user has.
-- is hardware secured with a PIN which makes them phishing resistant
-- provides MFA (multi factor authentication) with a PIN as second factor to access the private key of the certificate in the key
-- satisfies the industry requirement to have MFA on seperate device
-- future proofing where multiple credentials can be stored including FIDO2 keys.
+- Enable the usage on any device and doesn't require the provision on every device the user has
+- Are hardware secured with a PIN, which makes them phishing resistant
+- Provide multifactor authentication with a PIN as second factor to access the private key of the certificate in the key
+- Satisfy the industry requirement to have MFA on separate device
+- Future proofing where multiple credentials can be stored including FIDO2 keys
 
-## Supported platforms**
+## Supported platforms
 
-- Only native browsers are support. 
-- applications using latest MSAL libraries or Microsoft Authenticator can do CBA
+- Only native browsers are supported 
+- Applications using latest MSAL libraries or Microsoft Authenticator can do CBA
 - Edge with profile, when users add account and logged in a profile will support CBA
 - Microsoft first party apps with latest MSAL libraries or Microsoft Authenticator can do CBA
 
-**Browsers**
+### Browsers
 
-|Edge | chrome | safari | firefox |
+|Edge | Chrome | Safari | Firefox |
 |--------|---------|------|-------|
 |&#10060; | &#10060; | &#x2705; |&#10060; |
 
-**Vendors for External storage**
+### Vendors for External storage
 
-Azure AD CBA will support certificates on YubiKeys. Users can install YubiKey authenticator application from YubiKey and do Azure AD CBA. For applications not on latest MSAL libraries need to also install Microsoft authenticator.
+Azure AD CBA will support certificates on YubiKeys. Users can install YubiKey authenticator application from YubiKey and do Azure AD CBA. Applications that don't use latest MSAL libraries need to also install Microsoft Authenticator.
 
 ## Microsoft mobile applications support
 
