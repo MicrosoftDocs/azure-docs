@@ -29,7 +29,7 @@ The following example assigns the `Azure Service Bus Data Owner` role to your us
 
     :::image type="content" source="media/add-role.png" alt-text="A screenshot showing how to assign a role.":::    
 
-5. Use the search box to filter the results to the desired role. For this example, search for `Azure Service Bus Data Owner` and select the matching result and then choose **Next**.
+5. Use the search box to filter the results to the desired role. For this example, search for `Azure Service Bus Data Owner` and select the matching result. Then choose **Next**.
 
 6. Under **Assign access to**, select **User, group, or service principal**, and then choose **+ Select members**.
 
@@ -39,7 +39,7 @@ The following example assigns the `Azure Service Bus Data Owner` role to your us
 
 ### [Azure CLI](#tab/roles-azure-cli)
 
-To assign a role at the resource level using the Azure CLI, you first must retrieve the resource id using the `az servicebus namespace show ` command. You can filter the output properties using the `--query` parameter. 
+To assign a role at the resource level using the Azure CLI, you first must retrieve the resource ID using the `az servicebus namespace show` command. You can filter the output properties using the `--query` parameter. 
 
 ```azurecli
 az servicebus namespace show -g '<your-service-bus-resource-group>' -n '<your-service-bus-name> --query id

@@ -25,9 +25,9 @@ To create a namespace:
     1. Enter a **name for the namespace**. The namespace name should adhere to the following naming conventions:
         - The name must be unique across Azure. The system immediately checks to see if the name is available. 
         - The name length is at least 6 and at most 50 characters.
-        - The name can contain only letters, numbers, hyphens “-“.
+        - The name can contain only letters, numbers, and hyphens ("-").
         - The name must start with a letter and end with a letter or number.
-        - The name doesn't end with “-sb“ or “-mgmt“.
+        - The name doesn't end with "-sb" or "-mgmt".
     1. For **Location**, choose the region in which your namespace should be hosted.
     1. For **Pricing tier**, select the pricing tier (Basic, Standard, or Premium) for the namespace. For this quickstart, select **Standard**. 
     
