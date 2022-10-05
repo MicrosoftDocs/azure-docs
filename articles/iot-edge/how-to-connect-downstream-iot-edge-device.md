@@ -231,7 +231,7 @@ You should already have IoT Edge installed on your device. If not, follow the st
 
     ```toml
     [agent.config]
-    image: "mcr.microsoft.com/azureiotedge-agent:1.4"
+    image = "mcr.microsoft.com/azureiotedge-agent:1.4"
     ```
 
 01. The beginning of your parent configuration file should look similar to the following example.
