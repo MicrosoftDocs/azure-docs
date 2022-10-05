@@ -9,7 +9,6 @@ tags: azure-resource-manager
  
 ms.assetid: 
 ms.service: cloud-shell
-ms.subservice: troubleshooting
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
