@@ -951,7 +951,7 @@ public static void SendInstanceInfo(
 {
     HttpManagementPayload payload = client.CreateHttpManagementPayload(ctx.InstanceId);
 
-    // send the payload to Cosmos DB
+    // send the payload to Azure Cosmos DB
     document = new { Payload = payload, id = ctx.InstanceId };
 }
 ```
@@ -969,7 +969,7 @@ modules.exports = async function(context, ctx) {
 
     const payload = client.createHttpManagementPayload(ctx.instanceId);
 
-    // send the payload to Cosmos DB
+    // send the payload to Azure Cosmos DB
     context.bindings.document = JSON.stringify({
         id: ctx.instanceId,
         payload,

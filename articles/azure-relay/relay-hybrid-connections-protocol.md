@@ -501,7 +501,7 @@ The JSON content for `request` is as follows:
  be used.
 * **body** – boolean. Indicates whether one or more binary body frames follows.
 
-``` JSON
+```json
 {
     "request" : {
         "address" : "wss://dc-node.servicebus.windows.net:443/$hc/{path}?...",

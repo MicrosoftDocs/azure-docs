@@ -366,7 +366,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Only legacy collections from Azure DocumentDB and SQL API collections in Azure Cosmos DB are compatible. Newer Cosmos DB APIs aren't yet supported. Choose Azure DocumentDB in the Data Source list.</td>
+      <td>Only legacy collections from Azure DocumentDB and Azure Cosmos DB for NoSQL are compatible. Newer Azure Cosmos DB APIs aren't yet supported. Choose Azure DocumentDB in the Data Source list.</td>
     </tr>
     <tr>
       <td>Generic ODBC table</td>

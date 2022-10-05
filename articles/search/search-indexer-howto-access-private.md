@@ -53,7 +53,7 @@ When setting up a shared private link resource, make sure the group ID value is 
 | Azure Storage - Blob | `blob` <sup>1,</sup> <sup>2</sup>  |
 | Azure Storage - Data Lake Storage Gen2 | `dfs` and `blob` |
 | Azure Storage - Tables | `table` <sup>2</sup> |
-| Azure Cosmos DB - SQL API | `Sql`|
+| Azure Cosmos DB for NoSQL | `Sql`|
 | Azure SQL Database | `sqlServer`|
 | Azure Database for MySQL (preview) | `mysqlServer`|
 | Azure Key Vault for [customer-managed keys](search-security-manage-encryption-keys.md) | `vault` |

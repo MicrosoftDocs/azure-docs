@@ -39,13 +39,13 @@ Sample **ResourceProvider**:
 
 An **endpoint** that implements an **action** must handle the request and response for the new API in Azure. When a custom resource provider with an **action** is created, it will generate a new set of APIs in Azure. In this case, the action will generate a new Azure action API for `POST` calls:
 
-``` JSON
+```http
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomAction
 ```
 
 Azure API Incoming Request:
 
-``` HTTP
+```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomAction?api-version=2018-09-01-preview
 Authorization: Bearer eyJ0e...
 Content-Type: application/json
@@ -60,7 +60,7 @@ Content-Type: application/json
 
 This request will then be forwarded to the **endpoint** in the form:
 
-``` HTTP
+```http
 POST https://{endpointURL}/?api-version=2018-09-01-preview
 Content-Type: application/json
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomAction
@@ -78,7 +78,7 @@ Similarly, the response from the **endpoint** is then forwarded back to the cust
 - A valid JSON object document. All arrays and strings should be nested under a top object.
 - The `Content-Type` header should be set to "application/json; charset=utf-8".
 
-``` HTTP
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
@@ -92,7 +92,7 @@ Content-Type: application/json; charset=utf-8
 
 Azure Custom Resource Provider Response:
 
-``` HTTP
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
@@ -155,7 +155,7 @@ Sample **ResourceProvider** with List Action:
 
 Sample Azure Resource Manager Template:
 
-``` JSON
+```json
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",

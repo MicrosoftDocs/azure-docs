@@ -9,7 +9,7 @@ ms.author: jianleishen
 | Category | Data store | Supported as a source | Supported as a sink |
 |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob storage](../data-factory-azure-blob-connector.md) |✓ |✓ |
-| &nbsp; |[Azure Cosmos DB (SQL API)](../data-factory-azure-documentdb-connector.md) |✓ |✓ |
+| &nbsp; |[Azure Cosmos DB for NoSQL](../data-factory-azure-documentdb-connector.md) |✓ |✓ |
 | &nbsp; |[Azure Data Lake Storage Gen1](../data-factory-azure-datalake-connector.md) |✓ |✓ |
 | &nbsp; |[Azure SQL Database](../data-factory-azure-sql-connector.md) |✓ |✓ |
 | &nbsp; |[Azure Synapse Analytics](../data-factory-azure-sql-data-warehouse-connector.md) |✓ |✓ |

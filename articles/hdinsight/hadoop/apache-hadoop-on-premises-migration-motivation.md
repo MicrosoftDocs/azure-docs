@@ -160,7 +160,7 @@ This section provides template questionnaires to help gather important informati
 | Preferred Region|US East||
 |VNet preferred?|Yes||
 |HA / DR Needed?|Yes||
-|Integration with other cloud services?|ADF, CosmosDB||
+|Integration with other cloud services?|ADF, Azure Cosmos DB||
 |**Topic**:   **Data Movement**  |||
 |Initial load preference|DistCp, Data box, ADF, WANDisco||
 |Data transfer delta|DistCp, AzCopy||

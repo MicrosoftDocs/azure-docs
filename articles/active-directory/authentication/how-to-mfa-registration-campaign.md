@@ -277,7 +277,7 @@ The feature aims to empower admins to get users set up with MFA using the Authen
 
 If this user doesn’t have the Authenticator app set up for push notifications and is enabled for it by policy, yes, the user will see the nudge. 
 
-**Will a user who has a the Authenticator app setup only for TOTP codes see the nudge?** 
+**Will a user who has the Authenticator app setup only for TOTP codes see the nudge?** 
 
 Yes. If the Authenticator app is not set up for push notifications and the user is enabled for it by policy, yes, the user will see the nudge.
 

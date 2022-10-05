@@ -244,7 +244,7 @@ As with top-level simple fields, simple sub-fields of complex fields can only be
 
 ## Next steps
 
-Try the [Hotels data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels) in the **Import data** wizard. You'll need the Cosmos DB connection information provided in the readme to access the data.
+Try the [Hotels data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels) in the **Import data** wizard. You'll need the Azure Cosmos DB connection information provided in the readme to access the data.
 
 With that information in hand, your first step in the wizard is to create a new Azure Cosmos DB data source. Further on in the wizard, when you get to the target index page, you'll see an index with complex types. Create and load this index, and then execute queries to understand the new structure.
 
