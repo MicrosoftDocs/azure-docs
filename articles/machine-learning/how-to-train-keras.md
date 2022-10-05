@@ -43,10 +43,7 @@ To benefit from this article, you'll need to:
         - In the samples deep learning folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **v2  > sdk > python > jobs > single-step > tensorflow > train-hyperparameter-tune-deploy-with-keras**.
     - Your Jupyter notebook server
         - [Install the Azure Machine Learning SDK (v2)](https://aka.ms/sdk-v2-install).
-- Download the following files:
-    - training script [tf_mnist.py](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/src/tf_mnist.py) 
-    - scoring script [score.py](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/src/score.py)
-    - sample request file [sample-request.json](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/request/sample-request.json)
+- Download the training scripts [keras_mnist.py](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/src/keras_mnist.py) and [utils.py](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/src/utils.py).
 
 You can also find a completed [Jupyter Notebook version](https://github.com/Azure/azureml-examples/blob/main/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) of this guide on the GitHub samples page.
 
@@ -111,7 +108,7 @@ To create your custom environment, you'll define your Conda dependencies in a YA
 [!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=dependencies_folder)]
 Then, create the file in the dependencies directory. In this example, we've named the file `conda.yml`.
 
-[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=make_conda_file)]
+[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=conda_file)]
 
 The specification contains some usual packages (such as numpy and pip) that you'll use in your job.
 
@@ -261,7 +258,7 @@ The code to deploy the model to the endpoint does the following:
 - scores the model, using the `score.py` file; and
 - uses the custom environment (that you created earlier) to perform inferencing.
 
-[[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=blue_deployment)]
+[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=blue_deployment)]
 
 > [!NOTE]
 > Expect this deployment to take a bit of time to finish.
@@ -272,19 +269,19 @@ Now that you've deployed the model to the endpoint, you can predict the output o
 
 To test the endpoint you need some test data. Let us locally download the test data which we used in our training script.
 
-[[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=download_test_data)]
+[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=download_test_data)]
 
 Load these into a test dataset.
 
-[[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=load_test_data)]
+[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=load_test_data)]
 
 Pick 30 random samples from the test set and write them to a JSON file.
 
-[[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=generate_test_json)]
+[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=generate_test_json)]
 
 You can then invoke the endpoint, print the returned predictions, and plot them along with the input images. Use red font color and inverted image (white on black) to highlight the misclassified samples.
 
-[[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=invoke_and_test)]
+[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=invoke_and_test)]
 
 
 > [!NOTE]
@@ -294,7 +291,7 @@ You can then invoke the endpoint, print the returned predictions, and plot them 
 
 If you won't be using the endpoint, delete it to stop using the resource. Make sure no other deployments are using the endpoint before you delete it.
 
-[[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=delete_endpoint)]
+[!notebook-python[](~/azureml-examples-v2samplesreorg/sdk/python/jobs/single-step/tensorflow/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb?name=delete_endpoint)]
 
 > [!NOTE]
 > Expect this cleanup to take a bit of time to finish.
