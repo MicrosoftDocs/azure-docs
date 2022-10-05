@@ -132,11 +132,12 @@ Use the highest priority (lowest number) binding.
 
 Each of the Azure AD attributes (userPrincipalName, onPremiseUserPrincipalName, certificateUserIds) available to bind certificates to Azure AD user accounts has unique constraint to ensure a certificate only matches a single Azure AD user account. However, Azure AD CBA does support configuring multiple binding methods in the username binding policy. This allows an administrator to accommodate multiple certificate configurations. However the combination of some methods can also potentially permit one certificate to match to multiple Azure AD user accounts. 
 
-In order to eliminate a scenario where a single certificate matching multiple Azure AD accounts, the tenant administrator should:
-
-- Configure a single binding method in the username binding policy.
-- If a tenant has multiple binding methods configured and doesn't want to allow one certificate to multiple accounts, the tenant admin must ensure all allowable methods configured in the policy map to the same Azure AD Account.
-- If a tenant has multiple binding methods configured, the admin should make sure that they do not have more than one low-affinity binding 
+>[!IMPORTANT]
+>When using multiple bindings, Azure AD CBA authentication is only as strong as your low-affinity binding as Azure AD CBA will validate each of the bindings to >autehnticate the user. In order to eliminate a scenario where a single certificate matching multiple Azure AD accounts, the tenant administrator should:
+>
+>- Configure a single binding method in the username binding policy.
+>- If a tenant has multiple binding methods configured and doesn't want to allow one certificate to multiple accounts, the tenant admin must ensure all allowable methods configured in the policy map to the same Azure AD Account.
+>- If a tenant has multiple binding methods configured, the admin should make sure that they do not have more than one low-affinity binding 
 
 For example, if the tenant admin has two username bindings on PrincipalName mapped to Azure AD UPN and SubjectKeyIdentifier (SKI) to certificateUserIds and wants a certificate to only be used for a single Azure AD Account, the admin must make sure that account has the UPN that is present in the certificate and implements the SKI mapping in the same account certificateUserId attribute.
 
