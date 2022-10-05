@@ -138,7 +138,7 @@ sudo ./DiffGenTool
 /mnt/o/temp/[recompressed file to be created.swu]
 ```  
 
-If you're also using the signing parameter (needed if your SWU file is signed), you can use the sample `sign_file.sh` script from the [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta) GitHub repo. First, open the script and edit it to add the path to your private key file. Save the script, and then run DiffGen as follows:
+If you're also using the signing parameter (needed if your SWU file is signed), you can use the sample `sign_file.sh` script from the [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta/tree/main/src/scripts/signing_samples/openssl_wrapper) GitHub repo. First, open the script and edit it to add the path to your private key file. Save the script, and then run DiffGen as follows:
 
 _Creating diff between input source file and recompressed/re-signed target file:_
 
