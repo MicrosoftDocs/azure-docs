@@ -6,8 +6,6 @@
       href: overview.md
     - name: Compare container options in Azure
       href: compare-options.md
-    - name: Plan types
-      href: plans.md
 - name: Quickstarts
   expanded: true
   items: 
@@ -81,8 +79,6 @@
       href: authentication.md
     - name: Dapr integration
       href: dapr-overview.md
-    - name: Workload profiles
-      href: workload-profiles.md
 - name: How-to guides
   items:
     - name: Scale an app
