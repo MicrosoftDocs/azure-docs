@@ -251,13 +251,12 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 root@xsense:
 ```
 
-### Bandwidth limit for the management network interface (QOS)
+### Bandwidth limit for the management network interface (QoS)
 Set outbound (upload) bandwidth limit for the management interface to the on-premesis management console or Azure portal in bandwidth constrained environments (for example over a satellite or serial link)
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
-|**cyberx**     |   ` cyberx-xsense-limit-interface [-h] --interface INTERFACE [--limit LIMIT] [--clear]`      |   `-h, --help` - show this help message and exit<br>  `--interface INTERFACE` - interface (e.g. eth0) <br> `--limit LIMIT` - limit value (e.g. 30kbit). kbps - Kilobytes per second, mbps - Megabytes per second, kbit -
-                        Kilobits per second, mbit - Megabits per second, bps or a bare number - Bytes per second<br>`--clear` - flag, will clear settings for the given interface|
+|**cyberx**     |   ` cyberx-xsense-limit-interface [-h] --interface INTERFACE [--limit LIMIT] [--clear]`      |   `-h, --help` - show this help message and exit<br>  `--interface INTERFACE` - interface (e.g. eth0) <br> `--limit LIMIT` - limit value (e.g. 30kbit). kbps - Kilobytes per second, mbps - Megabytes per second, kbit -Kilobits per second, mbit - Megabits per second, bps or a bare number - Bytes per second<br>`--clear` - flag, will clear settings for the given interface|
 
 For example, for the *cyberx* user:
 ```cli
