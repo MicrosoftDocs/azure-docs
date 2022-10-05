@@ -140,22 +140,23 @@ You can use the following expression for mapping to SKI and SHA1-PUKEY:
 & IIF(Contains([alternativeSecurityId],"x509:\<SHA1-PUKEY>")>0,[alternativeSecurityId],Error("No altSecurityIdentities SHA1-PUKEY match found."))
 ```
 
-## Look up certificateUserIds using MS Graph queries
+## Look up certificateUserIds using Microsoft Graph queries
 
-Tenant admins can run MS Graph queries to find all the users with a given certificateUserId value
+Tenant admins can run MS Graph queries to find all the users with a given certificateUserId value.
           
 GET all user objects that have the value 'bob@contoso.com' value in certificateUserIds:
 
- ```http
+```http
 GET  https://graph.microsoft.com/v1.0/users?$filter=certificateUserIds/any(x:x eq 'bob@contoso.com')
- ```
+```
  
-  ```http
- GET https://graph.microsoft.com/v1.0/users?$filter=startswith(certificateUserIds, 'bob@contoso.com')
- ```
-  ```http
+```http
+GET https://graph.microsoft.com/v1.0/users?$filter=startswith(certificateUserIds, 'bob@contoso.com')
+```
+
+```http
 GET https://graph.microsoft.com/v1.0/users?$filter=certificateUserIds eq 'bob@contoso.com'
- ```
+```
             
 ## Next steps
 
