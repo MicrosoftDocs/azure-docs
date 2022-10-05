@@ -91,7 +91,7 @@
       href: monitor.md
     - name: Manage revisions
       href: revisions-manage.md
-    - name: Set up HTTPS ingress
+    - name: Set up HTTPS or TCP ingress
       href: ingress.md
     - name: Set up custom domains and certificates
       href: custom-domains-certificates.md
