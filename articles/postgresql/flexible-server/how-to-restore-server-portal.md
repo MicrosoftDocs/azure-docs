@@ -1,6 +1,6 @@
 ---
 title: Restore - Azure portal - Azure Database for PostgreSQL - Flexible Server
-description: This article describes how to perform restore operations in Azure Database for PostgreSQL through the Azure portal.
+description: This article describes how to perform restore operations in Azure Database for PostgreSQL Flexible Server through the Azure portal.
 ms.author: srranga
 author: sr-msft
 ms.service: postgresql
