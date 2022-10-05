@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 08/04/2022
+ms.date: 10/04/2022
 ms.author: victorh
 ---
 
@@ -123,7 +123,9 @@ Policy Analytics provides insights, centralized visibility, and control to Azure
 
 For large, geographically dispersed organizations, manually managing Firewall rules and policies is a complex and sometimes  error-prone process. The new Policy Analytics feature is the answer to this common challenge faced by IT teams.
 
-You can now refine and update Firewall rules and policies with confidence in just a few steps in the Azure portal. You have granular control to define your own custom rules for an enhanced security and compliance posture. You can automate rule and policy management to reduce the risks associated with a manual process.
+You can now refine and update Firewall rules and policies with confidence in just a few steps in the Azure portal. You have granular control to define your own custom rules for an enhanced security and compliance posture. You can automate rule and policy management to reduce the risks associated with a manual process.<br><br>
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE57NCC]
 
 #### Pricing
 
@@ -173,6 +175,9 @@ Policy analytics starts monitoring the flows in the DNAT, Network, and Applicati
    During the save process, you might see the following error message: **Failed to update Diagnostic Settings**
 
    You can disregard this error message if the policy was successfully updated.
+
+> [!TIP]
+> Policy Analytics has a dependency on both Log Analytics and Azure Firewall resource specific logging. Verify the Firewall is configured appropriately or follow the previous instructions. Be aware that logs take 60 minutes to appear after enabling them for the first time. This is because logs are aggregated in the backend every hour. You can check logs are configured appropriately by running a log analytics query on the resource specific tables such as **AZFWNetworkRuleAggregation**, **AZFWApplicationRuleAggregation**, and **AZFWNatRuleAggregation**.
 
 ## Next steps
 

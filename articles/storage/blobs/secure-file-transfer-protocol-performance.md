@@ -1,13 +1,13 @@
 ---
 title: SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage (preview) | Microsoft Docs
 description: Optimize the performance of your SSH File Transfer Protocol (SFTP) requests by using the recommendations in this article.
-author: mikewill4
+author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
 ms.date: 09/13/2022
 ms.custom: references_regions
-ms.author: michawil
+ms.author: normesta
 ms.reviewer: ylunagaria
 
 ---
@@ -30,6 +30,11 @@ For WinSCP, you can use a maximum of 9 concurrent connections to upload multiple
 
 > [!IMPORTANT]
 > Concurrent uploads will only improve performance when uploading multiple files at the same time. Using multiple connections to upload a single file is not supported.
+  
+- Under the **Preferences** dialog, under **Logging**, if the **Enable session logging on level** is checked, select **Reduced** or **Normal**.
+
+> [!CAUTION]
+> Logging level **Debug 1** or **Debug 2** significantly reduces session operation performance.
 
 ## Use premium block blob storage accounts
 
