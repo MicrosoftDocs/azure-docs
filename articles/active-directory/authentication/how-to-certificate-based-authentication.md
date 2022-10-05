@@ -302,13 +302,13 @@ To enable CBA and configure username bindings using Graph API, complete the foll
 1. GET all authentication methods:
 
    ```http
-   GET  https://graph.microsoft.com/beta/policies/authenticationmethodspolicy
+   GET  https://graph.microsoft.com/v1.0/policies/authenticationmethodspolicy
    ```
 
 1. GET the configuration for the x509Certificate authentication method:
 
    ```http
-   GET https://graph.microsoft.com/beta/policies/authenticationmethodspolicy/authenticationMethodConfigurations/X509Certificate
+   GET https://graph.microsoft.com/v1.0/policies/authenticationmethodspolicy/authenticationMethodConfigurations/X509Certificate
    ```
 
 1. By default, the x509Certificate authentication method is disabled. To allow users to sign in with a certificate, you must enable the authentication method and configure the authentication and username binding policies through an update operation. To update policy, run a PATCH request.
@@ -317,7 +317,7 @@ To enable CBA and configure username bindings using Graph API, complete the foll
 
 
    ```http
-    PATCH https: //graph.microsoft.com/beta/policies/authenticationMethodsPolicy/authenticationMethodConfigurations/x509Certificate
+    PATCH https: //graph.microsoft.com/v1.0/policies/authenticationMethodsPolicy/authenticationMethodConfigurations/x509Certificate
     Content-Type: application/json
     
     {
