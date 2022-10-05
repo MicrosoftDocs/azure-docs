@@ -13,11 +13,11 @@ ms.date: 10/05/2022
 
 # Reprovision replica - Azure Arc-enabled SQL Managed Instance
 
-This article describes how to provision a new replica to replace an existing replica in Azure Arc-enabled SQL Managed Instance. This task is called *reprovision a replica*.
+This article describes how to provision a new replica to replace an existing replica in Azure Arc-enabled SQL Managed Instance. This task is *reprovision a replica*.
 
-When you reprovision a replica, you rebuild a new managed instance replica for an Azure Arc-enabled SQL Managed Instance deployment. Use this task to replace a replica that is failing to synchronize, perhaps due to corruption of the data on the persistent volumes (PV) for that instance, or due to some recurring SQL issue, for example.
+When you reprovision a replica, you rebuild a new managed instance replica for an Azure Arc-enabled SQL Managed Instance deployment. Use this task to replace a replica that is failing to synchronize, for example, due to corruption of the data on the persistent volumes (PV) for that instance, or due to some recurring SQL issue, for example.
 
-Support for reprovisioning of a replica is provided only via `az` CLI and kube-native. There is no portal support.
+Support for reprovisioning of a replica is provided only via `az` CLI and kube-native. You can't reprovision a replica from Azure portal.
 
 ## Prerequisites
 
@@ -41,13 +41,13 @@ For example, to reprovision replica 2 of instance `mySqlInstance` in namespace `
 az sql mi-arc reprovision-replica -n mySqlInstance-2 -k arc --use-k8s
 ```
 
-This runs until completion, at which point the console returns the name of the kubernetes task:
+The command runs until completion, at which point the console returns the name of the kubernetes task:
 
 ```output
 sql-reprov-replica-mySqlInstance-2-1664217002.376132 is Ready
 ```
 
-At this point you can either examine the task or delete it.
+At this point, you can either examine the task or delete it.
 
 ### Examine the task
 
@@ -58,7 +58,7 @@ kubectl describe SqlManagedInstanceReprovisionReplicaTask sql-reprov-replica-myS
 ```
 
 > [!IMPORTANT]
-> After a replica is reprovisioned, you must delete the task before another reprovision can run on the same instance. For additional details, see [Limitations](#limitations).
+> After a replica is reprovisioned, you must delete the task before another reprovision can run on the same instance. For more information, see [Limitations](#limitations).
 
 ### Delete the task
 
@@ -68,9 +68,9 @@ The following example deletes the Kubernetes task:
 kubectl delete SqlManagedInstanceReprovisionReplicaTask sql-reprov-replica-mySqlInstance-2-1664217002.376132 -n arc
 ```
 
-### Additional option: `--no-wait`
+### Option parameter: `--no-wait`
 
-There is an optional `--no-wait` parameter for the command. If you send the request with `--no-wait`, the output includes the name of the task to be monitored. For example:
+There's an optional `--no-wait` parameter for the command. If you send the request with `--no-wait`, the output includes the name of the task to be monitored. For example:
 
 ```az
 az sql mi-arc reprovision-replica -n mySqlInstance-2 -k arc --use-k8s --no-wait
@@ -118,14 +118,14 @@ kubectl delete -n arc SqlManagedInstanceReprovisionReplicaTask my-reprovision-ta
 ```
 
 > [!IMPORTANT]
-> After a replica is reprovisioned, you must delete the task before another reprovision can run on the same instance. For additional details, see [Limitations](#limitations).
+> After a replica is reprovisioned, you must delete the task before another reprovision can run on the same instance. For more information, see [Limitations](#limitations).
 
 
 ## Limitations
 
-- The task rejects attempts to reprovision the current primary replica. If the current primary is believed to be corrupted and in need of reprovisioning, fail over to a different primary and then request the reprovisioning.
+- The task rejects attempts to reprovision the current primary replica. If the current primary replica is corrupted and in need of reprovisioning, fail over to a different primary and then request the reprovisioning.
 
-- Reprovisioning of multiple replicas in the same instance runs serially. The tasks queue and be held in `Creating` state until the currently active task finishes **and is deleted**. There is no auto-cleanup of a completed task, so this serialization will affect you even if you run the `az sql mi-arc reprovision-replica` command synchronously and wait for it to complete before requesting another reprovision. In all cases you have to remove the task via `kubectl` before another reprovision on the same instance can run. 
+- Reprovisioning of multiple replicas in the same instance runs serially. The tasks queue and be held in `Creating` state until the currently active task finishes **and is deleted**. There's no auto-cleanup of a completed task, so this serialization will affect you even if you run the `az sql mi-arc reprovision-replica` command synchronously and wait for it to complete before requesting another reprovision. In all cases, you have to remove the task via `kubectl` before another reprovision on the same instance can run. 
 
 More details about serialization of reprovision tasks: If you have multiple requests to reprovision a replica in one instance, you may see something like this in the output from a `kubectl get SqlManagedInstanceReprovisionReplicaTask`:
 
