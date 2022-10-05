@@ -9,7 +9,7 @@ ms.date: 09/22/2022
 ms.custom: subject-rbac-steps
 ---
 
-# Use managed identities to access Azure Cosmos DB from an Azure Stream Analytics job (preview)
+# Use managed identities to access Azure Cosmos DB from an Azure Stream Analytics job
 
 Azure Stream Analytics supports managed identity authentication for Azure Cosmos DB output. Managed identities eliminate the limitations of user-based authentication methods, like the need to reauthenticate because of password changes or user token expirations that occur every 90 days. When you remove the need to manually authenticate, your Stream Analytics deployments can be fully automated.  
 
@@ -44,7 +44,7 @@ For the Stream Analytics job to access your Azure Cosmos DB using managed identi
 | Cosmos DB Built-in Data Contributor|
 
 > [!IMPORTANT]
-> Azure Cosmos DB data plane built-in role-based access control (RBAC) is not exposed through the Azure Portal. To assign the Cosmos DB Built-in Data Contributor role, you must grant permission via Azure PowerShell. For more information about role-based access control with Azure Active Directory for your Azure Cosmos DB account, visit the: [Configure role-based access control with Azure Active Directory for your Azure Cosmos DB account documentation.](../cosmos-db/how-to-setup-rbac.md)
+> Azure Cosmos DB data plane built-in role-based access control (RBAC) is not exposed through the Azure Portal. To assign the Cosmos DB Built-in Data Contributor role, you must grant permission via Azure Powershell. For more information about role-based access control with Azure Active Directory for your Azure Cosmos DB account, please see [configure role-based access control with Azure Active Directory for your Azure Cosmos DB account documentation.](../cosmos-db/how-to-setup-rbac.md)
 
 The following command can be used to authenticate your ASA job with Azure Cosmos DB. The `$accountName` and `$resourceGroupName` are for your Azure Cosmos DB account, and the `$principalId` is the value obtained in the previous step, in the Identity tab of your ASA job. You need to have "Contributor" access to your Azure Cosmos DB account for this command to work properly.
 

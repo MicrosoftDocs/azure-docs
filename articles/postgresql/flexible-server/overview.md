@@ -14,11 +14,10 @@ ms.custom: "mvc, references_regions"
 
 [!INCLUDE [applies-to-postgresql-flexible-server](../includes/applies-to-postgresql-flexible-server.md)]
 
-[Azure Database for PostgreSQL](../overview.md) powered by the PostgreSQL community edition is available in three deployment modes:
+[Azure Database for PostgreSQL](../overview.md) powered by the PostgreSQL community edition is available in two deployment modes:
 
 - [Single Server](../overview-single-server.md)
 - [Flexible Server](./overview.md) 
-- [Hyperscale (Citus)](../hyperscale/overview.md)
 
 In this article, we will provide an overview and introduction to core concepts of flexible server deployment model.
 

@@ -69,16 +69,16 @@ additionalContent:
           - url: ../azure-netapp-files/azure-netapp-files-introduction.md
             text: Use volumes provided by NetApp ONTAP (Azure NetApp Files)
         # Card
-        - title: Disk storage for IaaS workloads
+        - title: Storage for infrastructure
           links:
           - url: ../virtual-machines/managed-disks-overview.md
-            text: Learn about block-level storage volumes for Azure VMs
+            text: Learn about Azure managed disks for Azure VMs
           - url: ../virtual-machines/disks-types.md
             text: Understand the available disk types
-          - url: ../virtual-machines/windows/attach-managed-disk-portal.md
-            text: Add a new disk to a VM - Windows
-          - url: ../virtual-machines/linux/attach-disk-portal.md
-            text: Attach a data disk to a VM - Linux
+          - url: elastic-san/elastic-san-introduction.md
+            text: Learn about Azure Elastic SAN
+          - url: elastic-san/elastic-san-planning.md
+            text: Understand and plan for an Elastic SAN deployment
         # Card
         - title: Storage for asynchronous message queuing
           links:

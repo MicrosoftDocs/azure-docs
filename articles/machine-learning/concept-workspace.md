@@ -113,7 +113,7 @@ When you create a new workspace, it automatically creates several Azure resource
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registers docker containers that are used for the following components:
     * [Azure Machine Learning environments](concept-environments.md) when training and deploying models
     * [AutoML](concept-automated-ml.md) when deploying
-    * [Data profiling](v1/how-to-connect-data-ui.md#data-profile-and-preview)
+    * [Data profiling](v1/how-to-connect-data-ui.md#data-preview-and-profile)
 
     To minimize costs, ACR is **lazy-loaded** until images are needed.
 

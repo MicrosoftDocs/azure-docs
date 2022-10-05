@@ -800,7 +800,7 @@
       - name: Firewall Manager
         tocHref: /azure/firewall-manager/
         topicHref: /azure/firewall-manager/
-      - name: DDoS Protection Standard
+      - name: DDoS Protection
         tocHref: /azure/ddos-protection/
         topicHref: /azure/ddos-protection/
       - name: Front Door Service
@@ -1125,3 +1125,6 @@
   - name: Dev Box
     tocHref: /azure/dev-box/
     topicHref: /azure/dev-box/overview-what-is-microsoft-dev-box
+  - name: Azure Deployment Environments
+    tocHref: /azure/deployment-environments/
+    topicHref: /azure/deployment-environments/index

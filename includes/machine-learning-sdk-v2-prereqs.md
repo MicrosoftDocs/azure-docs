@@ -18,4 +18,4 @@ Before following the steps in this article, make sure you have the following pre
     pip install --pre azure-ai-ml
     ```
 
-    For more information, see [Install the Python SDK v2 for Azure Machine Learning](https://aka.ms/sdk-v2-install) (preview).
+    For more information, see [Install the Python SDK v2 for Azure Machine Learning](https://aka.ms/sdk-v2-install).

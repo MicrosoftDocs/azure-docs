@@ -333,7 +333,7 @@ image builds on the environment
 #### **"R section is deprecated"**
 - The Azure Machine Learning SDK for R will be deprecated by the end of 2021 to make way for an improved R training and deployment
 experience using Azure Machine Learning CLI 2.0
-- See the [samples repository](https://aka.ms/azureml/environment/train-r-models-cli-v2) to get started with the Public Preview edition of the 2.0 CLI
+- See the [samples repository](https://aka.ms/azureml/environment/train-r-models-cli-v2) to get started with the edition CLI 2.0.
 
 ## *Image build problems*
 

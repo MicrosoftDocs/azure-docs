@@ -212,7 +212,7 @@ You can also provide test data to evaluate the recommended model that automated 
 
 > [!WARNING]
 > This feature is not available for the following automated ML scenarios
->  * [Computer vision tasks (preview)](how-to-auto-train-image-models.md)
+>  * [Computer vision tasks](how-to-auto-train-image-models.md)
 >  * [Many models and hiearchical time series forecasting training (preview)](how-to-auto-train-forecast.md)
 >  * [Forecasting tasks where deep learning neural networks (DNN) are enabled](how-to-auto-train-forecast.md#enable-deep-learning)
 >  * [Automated ML runs from local computes or Azure Databricks clusters](how-to-configure-auto-train.md#compute-to-run-experiment)

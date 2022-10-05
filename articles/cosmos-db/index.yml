@@ -119,6 +119,16 @@ additionalContent:
               url: table/table-api-faq.yml  
             - text: See more >            
               url: table/index.yml
+        - title: PostgreSQL
+          links: 
+            - text: Connect and run SQL commands using Python
+              url: postgresql/quickstart-app-stacks-python.md
+            - text: Distribute and modify tables
+              url: postgresql/howto-modify-distributed-tables.md
+            - text: Design a multi-tenant database
+              url: postgresql/tutorial-design-database-multi-tenant.md
+            - text: See more >            
+              url: postgresql/index.yml
     - title: Data Migration
       items:
       - title: Migration options
