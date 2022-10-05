@@ -1,7 +1,7 @@
 ---
-title: Use BlobFuse2 Preview to mount and manage Azure Blob Storage containers on Linux
+title: What is BlobFuse2 Preview?
 titleSuffix: Azure Blob Storage
-description: Learn about using BlobFuse2 Preview to mount and manage Azure Blob Storage containers on Linux.
+description: Get an overview of BlobFuse2 Preview and how to use it, including migration options if you use BlobFuse v1.
 author: jimmart-dev
 ms.author: jammart
 ms.reviewer: tamram
@@ -59,7 +59,7 @@ Here's a summary of enhancements from BlobFuse v1:
 
 - Improved caching
 - More management support through new Azure CLI commands
-- Additional logging support
+- More logging support
 - The addition of write-streaming for large files (read-streaming was previously supported)
 - Gain insights into mount activities and resource usage using BlobFuse2 Health Monitor
 - Compatibility and upgrade options for existing BlobFuse v1 users
@@ -96,7 +96,7 @@ BlobFuse2 is different from the Linux file system in some key ways:
 
 - **Non-atomic renames**:
 
-  Atomic rename operations aren't supported by the Azure Storage Blob Service. Single file renames are actually two operations: a copy, and then a deletion of the original. Directory renames recursively enumerate all files in the directory. It renames each file.
+  Atomic rename operations aren't supported by the Azure Storage Blob Service. Single-file renames are actually two operations: a copy, and then a deletion of the original. Directory renames recursively enumerate all files in the directory. It renames each file.
 
 - **Special files**:
 
@@ -120,49 +120,49 @@ BlobFuse2 is different from the Linux file system in some key ways:
 
 - **Write-streaming**:
 
-  Concurrent streaming of read and write operations on large file data can produce unpredictable results. Simultaneously writing to the same blob from different threads is not supported.
+  Concurrent streaming of read and write operations on large file data can produce unpredictable results. Simultaneously writing to the same blob from different threads isn't supported.
 
 ### Data integrity
 
-The file caching behavior plays an important role in the integrity of the data being read and written to a Blob Storage file system mount. Streaming mode is recommended for use with large files, which supports streaming for both read and write operations. BlobFuse2 caches blocks of streaming files in memory. For smaller files that do not consist of blocks, the entire file is stored in memory. File cache is the second mode and is recommended for workloads that do not contain large files. Where files are stored on disk in their entirety.
+The file caching behavior plays an important role in the integrity of the data that's read and written to a Blob Storage file system mount. We recommend streaming mode for use with large files, which supports streaming for both read and write operations. BlobFuse2 caches blocks of streaming files in memory. For smaller files that don't consist of blocks, the entire file is stored in memory. File cache is the second mode. We recommend file cache for workloads that don't contain large files. Where files are stored on disk in their entirety. <!-- The preceding sentence is incomplete, so it's not clear what's being said. -->
 
-BlobFuse2 supports both read and write operations. Continuous synchronization of data written to storage by using other APIs or other mounts of BlobFuse2 isn't guaranteed. For data integrity, it's recommended that multiple sources don't modify the same blob, especially at the same time. If one or more applications attempt to write to the same file simultaneously, the results could be unexpected. Depending on the timing of multiple write operations and the freshness of the cache for each, the result could be that the last writer wins and previous writes are lost, or generally that the updated file isn't in the desired state.
+BlobFuse2 supports both read and write operations. Continuous synchronization of data written to storage by using other APIs or other mounts of BlobFuse2 isn't guaranteed. For data integrity, we recommend that multiple sources don't modify the same blob, especially at the same time. If one or more applications attempt to write to the same file simultaneously, the results might be unexpected. Depending on the timing of multiple write operations and the freshness of the cache for each, the result might be that the last writer wins and previous writes are lost, or generally that the updated file isn't in the intended state.
 
 #### File caching on disk
 
-When a file is written to, the data is first persisted into cache on a local disk. The data is written to blob storage only after the file handle is closed. If there's an issue attempting to persist the data to blob storage, you will receive an error message.
+When a file is written to, the data is first persisted into cache on a local disk. The data is written to Blob Storage only after the file handle is closed. If there's an issue attempting to persist the data to Blob Storage, you'll receive an error message.
 
 #### Streaming
 
-For streaming during both read and write operations, blocks of data are cached in memory as they are read or updated. Updates are flushed to Azure Storage when a file is closed or when the buffer is filled with dirty blocks.
+For streaming during both read and write operations, blocks of data are cached in memory as they're read or updated. Updates are flushed to Azure Storage when a file is closed or when the buffer is filled with dirty blocks.
 
 Reading the same blob from multiple simultaneous threads is supported. However, simultaneous write operations could result in unexpected file data outcomes, including data loss. Performing simultaneous read operations and a single write operation is supported, but the data being read from some threads might not be current.
 
 ### Permissions
 
-When a container is mounted with the default options, all files get 770 permissions, and only be accessible by the user doing the mounting. If you want to allow anyone on your machine to access the BlobFuse2 mount, mount it with option "--allow-other". This option can also be configured through the *.yaml* config file.
+When a container is mounted with the default options, all files get 770 permissions and are accessible only by the user who does the mounting. If you want to allow anyone on your computer to access the BlobFuse2 mount, mount it by using the `--allow-other` option. You also can configure this option in the YAML config file.
 
-As stated previously, the `chown` and `chmod` operations are supported for Data Lake Storage Gen2, but not for flat namespace (FNS) block blobs. Running a `chmod` operation against a mounted FNS block blob container returns a success message, but the operation won't actually succeed.
+As stated earlier, the `chown` and `chmod` operations are supported for Data Lake Storage Gen2, but not for FNS block blobs. Running a `chmod` operation against a mounted FNS block blob container returns a success message, but the operation doesn't actually succeed.
 
 ## Feature support
 
-This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
+This table shows how this feature is supported in your account and the effect on support when you enable certain capabilities.
 
-| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
+| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | Network File System (NFS) 3.0 <sup>1</sup> | SSH File Transfer Protocol (SFTP) <sup>1</sup> |
 |--|--|--|--|--|
 | Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Premium block blobs          | ![Yes](../media/icons/yes-icon.png)|![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
-<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account that has a hierarchical namespace enabled.
-
-## Next steps
-
-- [How to mount an Azure blob storage container on Linux with BlobFuse2 Preview](blobfuse2-how-to-deploy.md)
-- [The BlobFuse2 Migration Guide (from v1)](https://github.com/Azure/azure-storage-fuse/blob/main/MIGRATION.md)
+<sup>1</sup> Data Lake Storage Gen2, the NFS 3.0 protocol, and SFTP support all require a storage account that has a hierarchical namespace enabled.
 
 ## See also
 
-- [BlobFuse2 configuration reference (preview)](blobfuse2-configuration.md)
-- [BlobFuse2 command reference (preview)](blobfuse2-commands.md)
-- [Use Health Monitor to gain insights into BlobFuse2 mount activities and resource usage (preview)](blobfuse2-health-monitor.md)
-- [How to troubleshoot BlobFuse2 issues (preview)](blobfuse2-troubleshooting.md)
+- [BlobFuse2 configuration reference](blobfuse2-configuration.md)
+- [BlobFuse2 command reference](blobfuse2-commands.md)
+- [Use Health Monitor to gain insights into BlobFuse2 mount activities and resource usage](blobfuse2-health-monitor.md)
+- [How to troubleshoot BlobFuse2 issues](blobfuse2-troubleshooting.md)
+
+## Next steps
+
+- [Mount an Azure Blob Storage container on Linux by using BlobFuse2](blobfuse2-how-to-deploy.md)
+- [BlobFuse2 migration guide (from v1)](https://github.com/Azure/azure-storage-fuse/blob/main/MIGRATION.md)
