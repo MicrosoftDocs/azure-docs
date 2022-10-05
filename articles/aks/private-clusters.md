@@ -21,10 +21,11 @@ Private cluster is available in public regions, Azure Government, and Azure Chin
 
 ## Prerequisites
 
-* Azure CLI >= 2.28.0 or Azure CLI with aks-preview extension 0.5.29 or later.
-* If using ARM or the rest API, the AKS API version must be 2021-05-01 or later.
-* The Private Link service is supported on Standard Azure Load Balancer only. Basic Azure Load Balancer isn't supported.  
-* To use a custom DNS server, add the Azure DNS IP 168.63.129.16 as the upstream DNS server in the custom DNS server. For more information about the Azure DNS IP address, see [What is IP address 168.63.129.16?][virtual-networks-168.63.129.16]
+* The Azure CLI version 2.28.0 and higher.
+* The aks-preview extension 0.5.29 or higher.
+* If using ARM or the Azure REST API, the AKS API version must be 2021-05-01 or higher.
+* Azure Private Link service is supported on Standard Azure Load Balancer only. Basic Azure Load Balancer isn't supported.  
+* To use a custom DNS server, add the Azure public IP address 168.63.129.16 as the upstream DNS server in the custom DNS server. For more information about the Azure IP address, see [What is IP address 168.63.129.16?][virtual-networks-168.63.129.16]
 
 ## Create a private AKS cluster
 
@@ -66,7 +67,7 @@ Where `--enable-private-cluster` is a mandatory flag for a private cluster.
 
 ## Use custom domains
 
-If you want to configure custom domains that can only be resolved internally, see [Use custom domains][use-custom-domains] for more information. 
+If you want to configure custom domains that can only be resolved internally, see [Use custom domains][use-custom-domains] for more information.
 
 ## Disable Public FQDN
 
