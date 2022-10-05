@@ -13,7 +13,7 @@ ms.date: 10/05/2022
 
 # Reprovision replica - Azure Arc-enabled SQL Managed Instance
 
-This article describes how to provision a new replica to replace an existing replica in Azure Arc-enabled SQL Managed Instance. This task is *reprovision a replica*.
+This article describes how to provision a new replica to replace an existing replica in Azure Arc-enabled SQL Managed Instance.
 
 When you reprovision a replica, you rebuild a new managed instance replica for an Azure Arc-enabled SQL Managed Instance deployment. Use this task to replace a replica that is failing to synchronize, for example, due to corruption of the data on the persistent volumes (PV) for that instance, or due to some recurring SQL issue, for example.
 
