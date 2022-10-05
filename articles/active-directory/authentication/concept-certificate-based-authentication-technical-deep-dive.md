@@ -31,7 +31,7 @@ The following image describes what happens when a user tries to sign in to an ap
 Now we'll walk through each step:
 
 1. The user tries to access an application, such as [MyApps portal](https://myapps.microsoft.com/).
-1. If the user is not already signed in, the user is redirected to the Azure AD **User Sign-in** page at [https://login.microsoftonline.com/](https://login.microsoftonline.com/).
+1. If the user isn't already signed in, the user is redirected to the Azure AD **User Sign-in** page at [https://login.microsoftonline.com/](https://login.microsoftonline.com/).
 1. The user enters their username into the Azure AD sign-in page, and then clicks **Next**. Azure AD does home realm discovery using the tenant name and the username is used to look up the user in Azure AD tenant.
    
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in.png" alt-text="Screenshot of the Sign-in for MyApps portal.":::
@@ -67,7 +67,7 @@ Now we'll walk through each step:
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/cert-picker.png" alt-text="Screenshot of the certificate picker." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/cert-picker.png":::
 
-1. Azure AD verifies the certificate revocation list to make sure the certificate is not revoked and is valid. Azure AD identifies the user by using the [username binding configured](how-to-certificate-based-authentication.md#step-4-configure-username-binding-policy) on the tenant to map the certificate field value to the user attribute value.
+1. Azure AD verifies the certificate revocation list to make sure the certificate isn't revoked and is valid. Azure AD identifies the user by using the [username binding configured](how-to-certificate-based-authentication.md#step-4-configure-username-binding-policy) on the tenant to map the certificate field value to the user attribute value.
 1. If a unique user is found with a Conditional Access policy that requires multifactor authentication (MFA), and the [certificate authentication binding rule](how-to-certificate-based-authentication.md#step-3-configure-authentication-binding-policy) satisfies MFA, then Azure AD signs the user in immediately. If the certificate satisfies only a single factor, then it requests the user for a second factor to complete Azure AD Multi-Factor Authentication.
 1. Azure AD completes the sign-in process by sending a primary refresh token back to indicate successful sign-in.
 1. If the user sign-in is successful, the user can access the application.
@@ -82,7 +82,7 @@ An admin can determine whether the certificates are single-factor or multifactor
 
 ### Single-factor certificate authentication
 
-When a user has a single-factor certificate, they can't perform multifactor authentication. There is no support for a second factor when the first factor is a single-factor certificate. We are working to add support for second factors.
+When a user has a single-factor certificate, they can't perform multifactor authentication. There is no support for a second factor when the first factor is a single-factor certificate. We're working to add support for second factors.
 
 :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/mfa-not-allowed.png" alt-text="Screenshot of MFA not allowed for single factor certificate." :::  
 
@@ -98,8 +98,8 @@ Because multiple authentication binding policy rules can be created with differe
 1. Policy OID rules will take precedence over certificate issuer rules. If a certificate has both policy OID and Issuer, the policy OID is always checked first, and if no policy rule is found then the issuer subject bindings are checked. Policy OID has a higher strong authentication binding priority than the issuer.
 1. If one CA binds to MFA, all user certificates that the CA issues qualify as MFA. The same logic applies for single-factor authentication.
 1. If one policy OID binds to MFA, all user certificates that include this policy OID as one of the OIDs (A user certificate could have multiple policy OIDs) qualify as MFA.
-1. If there is a conflict between multiple policy OIDs (such as when a certificate has two policy OIDs, where one binds to single-factor authentication and the other binds to MFA) then treat the certificate as a single-factor authentication.
-1. One certificate can only have one valid strong authentication binding (that is, a certificate cannot bind to both single-factor and MFA).
+1. If there' a conflict between multiple policy OIDs (such as when a certificate has two policy OIDs, where one binds to single-factor authentication and the other binds to MFA) then treat the certificate as a single-factor authentication.
+1. One certificate can only have one valid strong authentication binding (that is, a certificate can't bind to both single-factor and MFA).
 
 ## Understanding the username binding policy
 
@@ -123,10 +123,10 @@ Use the highest priority (lowest number) binding.
 1. Look up the user object by using the username or User Principal Name.
 1. If the X.509 certificate field is on the presented certificate, Azure AD will match the value in the certificate field to the user object attribute value.
    1. If a match is found, user authentication is successful.
-   1. If a match is not found, move to the next priority binding.
-1. If the X.509 certificate field is not on the presented certificate, move to the next priority binding.
+   1. If a match isn't found, move to the next priority binding.
+1. If the X.509 certificate field isn't on the presented certificate, move to the next priority binding.
 1. Validate all the configured username bindings until one of them results in a match and user authentication is successful.
-1. If a match is not found on any of the configured username bindings, user authentication fails.
+1. If a match isn't found on any of the configured username bindings, user authentication fails.
 
 ## Securing Azure AD configuration with multiple username bindings
 
@@ -139,7 +139,7 @@ In order to eliminate a scenario where a single certificate matching multiple Az
 
 For example, if the tenant admin has two username bindings on PrincipalName mapped to Azure AD UPN and SubjectKeyIdentifier (SKI) to certificateUserIds and wants a certificate to only be used for a single Azure AD Account, the admin must make sure that account has the UPN that is present in the certificate and implements the SKI mapping in the same account certificateUserId attribute.
 
-Here is an example of potential values for UPN and certificateUserIDs:
+Here's an example of potential values for UPN and certificateUserIDs:
 
 Azure AD User Principal Name = Bob.Smith@Contoso.com <br>
 certificateUserIDs = [x509:\<SKI>89b0f468c1abea65ec22f0a882b8fda6fdd6750p]<br>
@@ -188,7 +188,7 @@ If the tenant’s PKI chain has more than 5 CAs and in case of a CA compromise, 
 >[!IMPORTANT]
 >Due to the nature of CRL caching and publishing cycles, it is highly recommended in case of a certificate revocation to also revoke all sessions of the affected user in Azure AD.
 
-As of now, there is no way for the administrator to manually force or re-trigger the download of the CRL. 
+As of now, there's no way for the administrator to manually force or re-trigger the download of the CRL. 
 
 ### How to configure revocation
 
@@ -298,7 +298,7 @@ For more information about how to enable **Trust multi-factor authentication fro
 
 ## Known issues
 
-- On iOS clients, there is a double prompt issue as part of the Azure AD CBA flow where the user needs to click **Use the certificate or smart card** twice. We're aware of the UX experience issue and working on fixing this for a seamless UX experience.
+- On iOS clients, there's a double prompt issue as part of the Azure AD CBA flow where the user needs to click **Use the certificate or smart card** twice. We're aware of the UX experience issue and working on fixing this for a seamless UX experience.
 
 ## Next steps
 
