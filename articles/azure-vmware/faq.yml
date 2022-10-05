@@ -377,7 +377,7 @@ sections:
         answer: VMware does not allow VCD in the cloud or from on-premises to be licensed with any Hyperscaler, including Microsoft.
 
       - question: Can I connect VMware Cloud Director Service (CDS) to my Azure VMware Solution instance in Azure?
-        answer: Although technically possible, Microsoft does not allow Azure VMware Solution to be used through the new CDS service from VMware running on VMware Cloud.
+        answer: Yes. You can connect your Azure VMware Solution private cloud to VMware Cloud Director Service from VMware. This integration of both services is [currently in public preview](https://azure.microsoft.com/updates/public-preview-enterprise-vmware-cloud-director-service-for-azure-vmware-solution/).
 
       - question: Can Azure VMware Solution be purchased through a Microsoft CSP?
         answer: Yes, customers can deploy Azure VMware Solution within an Azure subscription managed by a CSP.
