@@ -46,6 +46,8 @@ To configure the integration of Meta Work Accounts into Azure AD, you need to ad
 1. In the **Add from the gallery** section, type **Meta Work Accounts** in the search box.
 1. Select **Meta Work Accounts** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
+ Alternatively, you can also use the [Enterprise App Configuration Wizard](https://portal.office.com/AdminPortal/home?Q=Docs#/azureadappintegration). In this wizard, you can add an application to your tenant, add users/groups to the app, assign roles, as well as walk through the SSO configuration as well. [Learn more about Microsoft 365 wizards.](/microsoft-365/admin/misc/azure-ad-setup-guides)
+
 ## Configure and test Azure AD SSO for Meta Work Accounts
 
 Configure and test Azure AD SSO with Meta Work Accounts using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Meta Work Accounts.
@@ -125,29 +127,29 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Enable **Single-sign on(SSO)** checkbox and click **+Add new SSO Provider**.
 
-    ![Screenshot shows the SSO Account.](./media/meta-work-accounts-tutorial/security.png "SSO Account")
+<!-- ![Screenshot shows the SSO Account.](./media/meta-work-accounts-tutorial/security.png "SSO Account") -->
 
 1. On the **Single Sign-On (SSO) Setup** page, perform the following steps:
 
-    ![Screenshot shows the SSO Configuration.](./media/meta-work-accounts-tutorial/certificate.png "Configuration")
+<!--     ![Screenshot shows the SSO Configuration.](./media/meta-work-accounts-tutorial/certificate.png "Configuration") -->
 
-    1. Enter a valid **Name of the SSO Provider**.
+1. Enter a valid **Name of the SSO Provider**.
 
-    1. In the **SAML URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+1. In the **SAML URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
 
-    1. In the **SAML Issuer URL** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
+1. In the **SAML Issuer URL** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
 
-    1. **Enable SAML logout redirection** checkbox and in the **SAML Logout URL** textbox, paste the **Logout URL** value which you have copied from the Azure portal.
+1. **Enable SAML logout redirection** checkbox and in the **SAML Logout URL** textbox, paste the **Logout URL** value which you have copied from the Azure portal.
 
-    1. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **SAML Certificate** textbox.
+1. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **SAML Certificate** textbox.
 
-    1. Copy **Audience URL** value, paste this value into the **Identifier** textbox in the **Basic SAML Configuration** section in the Azure portal.
+1. Copy **Audience URL** value, paste this value into the **Identifier** textbox in the **Basic SAML Configuration** section in the Azure portal.
 
-    1. Copy **ACS (Assertion Consumer Service) URL** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
+1. Copy **ACS (Assertion Consumer Service) URL** value, paste this value into the **Reply URL** text box in the **Basic SAML Configuration** section in the Azure portal.
 
-    1. In the **Test SSO Setup** section, enter a valid email in the textbox and click **Test SSO**.
+1. In the **Test SSO Setup** section, enter a valid email in the textbox and click **Test SSO**.
 
-    1. Click **Save Changes**.
+1. Click **Save Changes**.
 
 ### Create Meta Work Accounts test user
 

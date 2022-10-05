@@ -38,6 +38,7 @@ The following services are generally available for Customer Lockbox:
 - Azure Database for PostgreSQL
 - Azure Functions
 - Azure HDInsight
+- Azure Intelligent Recommendations
 - Azure Kubernetes Service
 - Azure Monitor
 - Azure Storage
@@ -45,6 +46,7 @@ The following services are generally available for Customer Lockbox:
 - Azure SQL managed Instance
 - Azure subscription transfers
 - Azure Synapse Analytics
+- Azure Unified Vision Service
 - Virtual machines in Azure (covering remote desktop access, access to memory dumps, and managed disks)
 
 ### Public Preview

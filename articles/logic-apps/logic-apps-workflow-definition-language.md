@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: reference
-ms.date: 05/13/2019
+ms.date: 08/20/2022
 ---
 
 # Schema reference guide for the Workflow Definition Language in Azure Logic Apps

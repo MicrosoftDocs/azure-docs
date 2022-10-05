@@ -25,7 +25,6 @@ To create a comprehensive mapping of your organization’s attack surface, the s
 - Pages
 - Host Name
 - Domain
-- SSL Cert
 - Contact Email Address
 - IP Block
 - IP Address

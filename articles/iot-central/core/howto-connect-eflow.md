@@ -107,15 +107,11 @@ To enable an operator to view the telemetry from the device, define a view in th
 
 1. Select **Save** to save the **View IoT Edge device telemetry** view.
 
-:::image type="content" source="media/howto-connect-eflow/template-telemetry-view.png" alt-text="Device template with telemetry view.":::
-
 ### Publish the template
 
 Before you can add a device that uses the **Environmental Sensor Edge Device** template, you must publish the template.
 
-Navigate to the **Environmental Sensor Edge Device** template and select **Publish**. On the **Publish this device template to the application** panel, select **Publish** to publish the template:
-
-:::image type="content" source="media/howto-connect-eflow/publish-template.png" alt-text="Publish the device template.":::
+Navigate to the **Environmental Sensor Edge Device** template and select **Publish**. On the **Publish this device template to the application** panel, select **Publish** to publish the template
 
 ## Add an IoT Edge device
 

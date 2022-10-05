@@ -296,12 +296,12 @@ For situations where the SDK doesn't provide access to datastores, you might be 
 
 ## Move data to supported Azure storage solutions
 
-Azure Machine Learning supports accessing data from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL. If you're using unsupported storage, we recommend that you move your data to supported Azure storage solutions by using [Azure Data Factory and these steps](../../data-factory/quickstart-create-data-factory-copy-data-tool.md). Moving data to supported storage can help you save data egress costs during machine learning experiments. 
+Azure Machine Learning supports accessing data from Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, and Azure Database for PostgreSQL. If you're using unsupported storage, we recommend that you move your data to supported Azure storage solutions by using [Azure Data Factory and these steps](../../data-factory/quickstart-hello-world-copy-data-tool.md). Moving data to supported storage can help you save data egress costs during machine learning experiments. 
 
 Azure Data Factory provides efficient and resilient data transfer with more than 80 prebuilt connectors at no extra cost. These connectors include Azure data services, on-premises data sources, Amazon S3 and Redshift, and Google BigQuery.
 
 ## Next steps
 
 * [Create an Azure machine learning dataset](how-to-create-register-datasets.md)
-* [Train a model](../how-to-set-up-training-targets.md)
+* [Train a model](how-to-set-up-training-targets.md)
 * [Deploy a model](how-to-deploy-and-where.md)

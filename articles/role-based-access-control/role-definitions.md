@@ -4,7 +4,7 @@ description: Learn about Azure role definitions in Azure role-based access contr
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: karenhoran
+manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: conceptual
 ms.workload: identity
@@ -361,6 +361,7 @@ For more information about `AssignableScopes` for custom roles, see [Azure custo
 
 ## Next steps
 
+* [Understand role assignments](role-assignments.md)
 * [Azure built-in roles](built-in-roles.md)
 * [Azure custom roles](custom-roles.md)
 * [Azure resource provider operations](resource-provider-operations.md)

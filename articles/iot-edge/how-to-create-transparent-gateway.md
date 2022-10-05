@@ -13,7 +13,7 @@ ms.custom:  [amqp, mqtt]
 
 # Configure an IoT Edge device to act as a transparent gateway
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 This article provides detailed instructions for configuring an IoT Edge device to function as a transparent gateway for other devices to communicate with IoT Hub. This article uses the term *IoT Edge gateway* to refer to an IoT Edge device configured as a transparent gateway. For more information, see [How an IoT Edge device can be used as a gateway](./iot-edge-as-gateway.md).
 
@@ -155,7 +155,7 @@ Now, you need to copy the certificates to the Azure IoT Edge for Linux on Window
    Copy-EflowVMFile -fromFile <path>\certs\azure-iot-test-only.root.ca.cert.pem -toFile /home/iotedge-user/certs/certs/azure-iot-test-only.root.ca.cert.pem -pushFile
    ```
 
-1. Invoke the following commands on the EFLOW VM to grant iotedge permissions to the certificate files since `Copy-EflowVMFile` copies files with root only access permissions.
+1. Invoke the following commands on the EFLOW VM to grant *iotedge* permissions to the certificate files since `Copy-EflowVMFile` copies files with root only access permissions.
 
    ```powershell
    Invoke-EflowVmCommand "sudo chown -R iotedge /home/iotedge-user/certs/"
@@ -236,7 +236,7 @@ To deploy the IoT Edge hub module and configure it with routes to handle incomin
 
 1. In the Azure portal, navigate to your IoT hub.
 
-2. Go to **IoT Edge** and select your IoT Edge device that you want to use as a gateway.
+2. Go to **Devices** under the **Device management** menu and select your IoT Edge device that you want to use as a gateway.
 
 3. Select **Set Modules**.
 

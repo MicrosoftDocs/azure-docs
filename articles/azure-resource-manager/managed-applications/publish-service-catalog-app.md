@@ -5,7 +5,7 @@ author: davidsmatlak
 ms.author: davidsmatlak
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, mode-api, mode-arm
-ms.date: 08/16/2022
+ms.date: 09/29/2022
 ---
 
 # Quickstart: Create and publish an Azure Managed Application definition
@@ -185,21 +185,28 @@ az storage account create \
     --location eastus \
     --sku Standard_LRS \
     --kind StorageV2
+```
 
+After you create the storage account, add the role assignment _Storage Blob Data Contributor_ to the storage account scope. Assign access to your Azure Active Directory user account. Depending on your access level in Azure, you might need other permissions assigned by your administrator. For more information, see [Assign an Azure role for access to blob data](../../storage/blobs/assign-azure-role-data-access.md).
+
+After you add the role to the storage account, it takes a few minutes to become active in Azure. You can then use the parameter `--auth-mode login` in the commands to create the container and upload the file.
+
+```azurecli-interactive
 az storage container create \
     --account-name demostorageaccount \
     --name appcontainer \
+    --auth-mode login \
     --public-access blob
 
 az storage blob upload \
     --account-name demostorageaccount \
     --container-name appcontainer \
+    --auth-mode login \
     --name "app.zip" \
     --file "./app.zip"
-
 ```
 
-When you run the Azure CLI command to create the container, you might see a warning message about credentials, but the command will be successful. The reason is because although you own the storage account you assign roles like _Storage Blob Data Contributor_ to the storage account scope. For more information, see [Assign an Azure role for access to blob data](../../storage/blobs/assign-azure-role-data-access.md). After you add a role, it takes a few minutes to become active in Azure. You can then append the command with `--auth-mode login` and resolve the warning message.
+For more information about storage authentication, see [Choose how to authorize access to blob data with Azure CLI](../../storage/blobs/authorize-data-operations-cli.md).
 
 ---
 
@@ -209,9 +216,9 @@ In this section you'll get identity information from Azure Active Directory, cre
 
 ### Create an Azure Active Directory user group or application
 
-The next step is to select a user group, user, or application for managing the resources for the customer. This identity has permissions on the managed resource group according to the role that is assigned. The role can be any Azure built-in role like Owner or Contributor. To create a new Active Directory user group, see [Create a group and add members in Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+The next step is to select a user group, user, or application for managing the resources for the customer. This identity has permissions on the managed resource group according to the role that's assigned. The role can be any Azure built-in role like Owner or Contributor. To create a new Active Directory user group, see [Create a group and add members in Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-You need the object ID of the user group to use for managing the resources.
+This example uses a user group, so you need the object ID of the user group to use for managing the resources. Replace the placeholder `mygroup` with your group's name.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -267,6 +274,8 @@ az group create --name appDefinitionGroup --location westcentralus
 
 Create the managed application definition resource. In the `Name` parameter, replace the placeholder `demostorageaccount` with your unique storage account name.
 
+The `blob` command that's run from Azure PowerShell or Azure CLI creates a variable that's used to get the URL for the package _.zip_ file. That variable is used in the command that creates the managed application definition.
+
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
@@ -289,6 +298,7 @@ New-AzManagedApplicationDefinition `
 blob=$(az storage blob url \
   --account-name demostorageaccount \
   --container-name appcontainer \
+  --auth-mode login \
   --name app.zip --output tsv)
 
 az managedapp definition create \
@@ -403,7 +413,7 @@ If you're running CLI commands with Git Bash for Windows, you might get an `Inva
 
 ---
 
-The **Appliance Resource Provider** is an Azure Enterprise application (service principal). Go to **Azure Active Directory** > **Enterprise applications** and change the search filter to **All Applications**. Search for _Appliance Resource Provider_. If it's not found, [register](../troubleshooting/error-register-resource-provider.md) the `Microsoft.Solutions` resource provider.
+The **Appliance Resource Provider** is a service principal in your Azure Active Directory's tenant. From the Azure portal, you can see if it's registered by going to **Azure Active Directory** > **Enterprise applications** and change the search filter to **Microsoft Applications**. Search for _Appliance Resource Provider_. If it's not found, [register](../troubleshooting/error-register-resource-provider.md) the `Microsoft.Solutions` resource provider.
 
 ### Deploy the managed application definition with an ARM template
 
@@ -468,7 +478,7 @@ Add the following JSON and save the file.
 }
 ```
 
-For more information about the ARM template's properties, see [Microsoft.Solutions](/azure/templates/microsoft.solutions/applicationdefinitions).
+For more information about the ARM template's properties, see [Microsoft.Solutions/applicationDefinitions](/azure/templates/microsoft.solutions/applicationdefinitions?pivots=deployment-language-arm-template). Managed applications only use ARM template JSON.
 
 ### Deploy the definition
 

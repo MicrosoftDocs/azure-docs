@@ -7,10 +7,12 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, divswa, azla
 ms.topic: how-to
-ms.date: 07/16/2021
+ms.date: 08/20/2022
 ---
 
 # Exchange X12 messages for B2B enterprise integration using Azure Logic Apps and Enterprise Integration Pack
+
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 In Azure Logic Apps, you can create workflows that work with X12 messages by using **X12** operations. These operations include triggers and actions that you can use in your workflow to handle X12 communication. You can add X12 triggers and actions in the same way as any other trigger and action in a workflow, but you need to meet extra prerequisites before you can use X12 operations.
 

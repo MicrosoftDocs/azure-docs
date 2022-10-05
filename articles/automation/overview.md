@@ -143,4 +143,4 @@ You can review the prices associated with Azure Automation on the [pricing](http
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an Automation account](./quickstarts/create-account-portal.md)
+> [Create an Automation account](/azure/automation/quickstarts/create-azure-automation-account-portal)

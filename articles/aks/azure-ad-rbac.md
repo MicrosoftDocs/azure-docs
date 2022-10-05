@@ -181,7 +181,7 @@ kubectl apply -f role-dev-namespace.yaml
 Next, get the resource ID for the *appdev* group using the [az ad group show][az-ad-group-show] command. This group is set as the subject of a RoleBinding in the next step.
 
 ```azurecli-interactive
-az ad group show --group appdev --query objectId -o tsv
+az ad group show --group appdev --query id -o tsv
 ```
 
 Now, create a RoleBinding for the *appdev* group to use the previously created Role for namespace access. Create a file named `rolebinding-dev-namespace.yaml` and paste the following YAML manifest. On the last line, replace *groupObjectId*  with the group object ID output from the previous command:
@@ -249,7 +249,7 @@ kubectl apply -f role-sre-namespace.yaml
 Get the resource ID for the *opssre* group using the [az ad group show][az-ad-group-show] command:
 
 ```azurecli-interactive
-az ad group show --group opssre --query objectId -o tsv
+az ad group show --group opssre --query id -o tsv
 ```
 
 Create a RoleBinding for the *opssre* group to use the previously created Role for namespace access. Create a file named `rolebinding-sre-namespace.yaml` and paste the following YAML manifest. On the last line, replace *groupObjectId*  with the group object ID output from the previous command:

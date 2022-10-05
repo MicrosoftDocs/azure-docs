@@ -46,7 +46,8 @@ After executing the code script below, it will allow non-admin users to have ser
     GRANT SELECT ALL USER SECURABLES to [login@contoso.com];
     GO;
 ```
-`CONNECT ANY DATABASE` permission will allow a user to access connection to any database, but it doesn't grant any permission in any database beyond connect. When `SELECT ALL USER SECURABLES` permission is granted, a login can view data from all schema-level objects, such as external tables and views (any schema except sys and INFORMATION_SCHEMA). This permission has effect in all databases that the user can connect to. Read more about [GRANT SERVER permissions](/sql/t-sql/statements/grant-server-permissions-transact-sql?view=sql-server-ver15#remarks&preserve-view=true).
+> [!NOTE]
+> These statements should be executed on master database, as these are all server-level permissions.
 
 After creating a login and granting permissions, users can run queries on top of the synchronized external tables. This mitigation can also be applied to Azure AD security groups.
 

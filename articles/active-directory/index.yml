@@ -59,22 +59,22 @@ conceptualContent:
         # Card
         - title: Microsoft Learn
           links:
-            - url: /learn/modules/describe-identity-principles-concepts/
+            - url: /training/modules/describe-identity-principles-concepts/
               itemType: learn
               text: Identity concepts
-            - url: /learn/modules/explore-basic-services-identity-types/
+            - url: /training/modules/explore-basic-services-identity-types/
               itemType: learn
               text: Services and identity types
-            - url: /learn/modules/create-users-and-groups-in-azure-active-directory/
+            - url: /training/modules/create-users-and-groups-in-azure-active-directory/
               itemType: learn
               text: Create users and groups
-            - url: /learn/modules/allow-users-reset-their-password/
+            - url: /training/modules/allow-users-reset-their-password/
               itemType: learn
               text: Allow users to reset their password
-            - url: /learn/modules/secure-access-azure-identity-services/
+            - url: /training/modules/secure-access-azure-identity-services/
               itemType: learn
               text: Secure access to your apps
-            - url: /learn/browse/?expanded=azure&products=azure-active-directory-domain%2Cazure-active-directory-b2c%2Cazure-active-directory&resource_type=module
+            - url: /training/browse/?expanded=azure&products=azure-active-directory-domain%2Cazure-active-directory-b2c%2Cazure-active-directory&resource_type=module
               itemType: learn
               text: See more >
         # Card

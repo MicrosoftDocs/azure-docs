@@ -233,7 +233,7 @@ For more information about Azure Bastion, see [Azure Bastion](~/articles/bastion
 
 1. Complete the steps in [Connect to myVM1](#connect-to-myvm1), but connect to **myVM2**.
 
-1. Open PowerShell on **myVM2**, enter `ping myvm1`.
+1. Open PowerShell on **myVM2**, enter `ping myVM1`.
 
     You'll receive a successful reply message like this:
 
