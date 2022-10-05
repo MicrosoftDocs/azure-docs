@@ -133,11 +133,10 @@ For more information about the MNIST dataset, visit [Yan LeCun's website](http:/
 
 In this article, we've provided the training script *keras_mnist.py*. In practice, you should be able to take any custom training script as is and run it with AzureML without having to modify your code.
 
-> [!NOTE]
-> The provided training script does the following:
-> - handles the data preprocessing, splitting the data into test and train data;
-> - trains a model, using the data; and
-> - returns the output model.
+The provided training script does the following:
+ - handles the data preprocessing, splitting the data into test and train data;
+ - trains a model, using the data; and
+ - returns the output model.
 
 During the pipeline run, you'll use MLFlow to log the parameters and metrics. To learn how to enable MLFlow tracking, see [Track ML experiments and models with MLflow](how-to-use-mlflow-cli-runs.md).
 
