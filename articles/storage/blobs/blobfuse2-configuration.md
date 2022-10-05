@@ -68,7 +68,7 @@ You also can set configuration settings when you pass them as parameters of the 
 blobfuse2 mount ./mount_dir --config-file=./config.yaml --container-name=blobfuse2b --log-level=log_debug --log-file-path=./bobfuse2b.log
 ```
 
-For more information about the entire BlobFuse2 command set, including the `blobfuse2 mount` command, see the [BlobFuse2 command set reference](blobfuse2-commands.md) and the [BlobFuse2 mount command reference](blobfuse2-commands-mount.md).
+For more information about the entire BlobFuse2 command set, including the `blobfuse2 mount` command, see [BlobFuse2 commands](blobfuse2-commands.md) and [BlobFuse2 mount commands](blobfuse2-commands-mount.md).
 
 ## See also
 

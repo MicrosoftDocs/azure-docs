@@ -13,7 +13,7 @@ ms.date: 10/01/2022
 
 # Mount an Azure Blob Storage container on Linux by using BlobFuse2 Preview
 
-[BlobFuse2 Preview](blobfuse2-what-is.md) is a virtual file system driver for Azure Blob Storage. BlobFuse2 allows you to access your existing Azure block blob data in your storage account through the Linux file system. For more information, see [What is BlobFuse2?](blobfuse2-what-is.md).
+[BlobFuse2 Preview](blobfuse2-what-is.md) is a virtual file system driver for Azure Blob Storage. BlobFuse2 allows you to access your existing Azure block blob data in your storage account through the Linux file system. For more information, see [What is BlobFuse2?](blobfuse2-what-is.md)
 
 > [!IMPORTANT]
 > BlobFuse2 is the next generation of BlobFuse and currently is in preview. The preview version is provided without a service-level agreement. We recommend that you don't use the preview version for production workloads. In BlobFuse2 Preview, some features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -23,11 +23,11 @@ ms.date: 10/01/2022
 > - [Mount Azure Blob Storage as a file system by using BlobFuse v1](storage-how-to-mount-container-linux.md)
 > - [BlobFuse v1 project on GitHub](https://github.com/Azure/azure-storage-fuse/tree/master)
 
-This guide shows you how to install and configure BlobFuse2, mount an Azure blob container, and access data in the container. The basic steps are:
+This article shows you how to install and configure BlobFuse2, mount an Azure blob container, and access data in the container. The basic steps are:
 
 - [Install BlobFuse2](#install-blobfuse2)
 - [Configure BlobFuse2](#configure-blobfuse2)
-- [Mount blob container](#mount-blob-container)
+- [Mount a blob container](#mount-a-blob-container)
 - [Access data](#access-data)
 
 ## Install BlobFuse2
@@ -82,13 +82,13 @@ To build the BlobFuse2 binaries from source code:
 
     1. Install BlobFuse2 dependencies:
 
-       Ubuntu:
+       On Ubuntu:
 
        ```bash
        sudo apt-get install libfuse3-dev fuse3 -y
        ```
 
-1. Clone the repo:
+1. Clone the repository:
 
    ```Git
    git clone https://github.com/Azure/azure-storage-fuse/
@@ -96,7 +96,7 @@ To build the BlobFuse2 binaries from source code:
    git checkout main
    ```
 
-1. Build:
+1. Build BlobFuse2:
 
     ```Git
     go get
@@ -118,15 +118,15 @@ The settings can be configured in a YAML configuration file, using environment v
 
 For details about each of the configuration parameters for BlobFuse2 and how to specify them, see these articles:
 
-- [Complete BlobFuse2 configuration reference](blobfuse2-configuration.md)
-- [Configuration file reference](blobfuse2-configuration.md#configuration-file)
-- [Environment variable reference](blobfuse2-configuration.md#environment-variables)
-- [Mount command reference](blobfuse2-commands-mount.md)
+- [Configure settings for BlobFuse2](blobfuse2-configuration.md)
+- [BlobFuse2 configuration file](blobfuse2-configuration.md#configuration-file)
+- [BlobFuse2 environment variables](blobfuse2-configuration.md#environment-variables)
+- [BlobFuse2 mount commands](blobfuse2-commands-mount.md)
 
 To configure BlobFuse2 for mounting:
 
 1. [Configure caching](#configure-caching).
-1. [Create an empty directory for mounting the blob container](#create-an-empty-directory-to-mount-the-blob-container).
+1. [Create an empty directory to mount the blob container](#create-an-empty-directory-to-mount-the-blob-container).
 1. [Authorize access to your storage account](#authorize-access-to-your-storage-account).
 
 ### Configure caching
@@ -164,12 +164,12 @@ file_cache:
 You have three common options to configure the temporary path for file caching:
 
 - [Use a local high-performing disk](#use-a-local-high-performing-disk)
-- [Use a ramdisk](#use-a-ramdisk)
+- [Use a RAM disk](#use-a-ram-disk)
 - [Use an SSD](#use-an-ssd)
 
 ##### Use a local high-performing disk
 
-If you use an existing local disk for file caching, choose a disk that will provide the best performance possible, such as a solid-state disk (SSD).
+If you use an existing local disk for file caching, choose a disk that provides the best performance possible, such as a solid-state disk (SSD).
 
 ##### Use a RAM disk
 
@@ -203,12 +203,12 @@ mkdir ~/mycontainer
 
 ### Authorize access to your storage account
 
-You must grant access to the storage account for the user who mounts the container. The most common ways to grant access are by using:
+You must grant access to the storage account for the user who mounts the container. The most common ways to grant access are by using one of the following options:
 
-- A storage account access key
-- A shared access signature
-- A managed identity
-- A service principal
+- Storage account access key
+- Shared access signature
+- Managed identity
+- Service principal
 
 You can provide authorization information in a configuration file or in environment variables. For more information, see [Configure settings for BlobFuse2](blobfuse2-configuration.md).
 
@@ -238,7 +238,7 @@ echo "hello world" > test/blob.txt
 
 ## Access data
 
-Generally, you can work with the BlobFuse2-mounted storage like you would work with the native Linux file system. It uses the virtual directory scheme with the forward-slash '/' as a delimiter in the file path and supports basic file system operations such as `mkdir`, `opendir`, `readdir`, `rmdir`, `open`, `read`, `create`, `write`, `close`, `unlink`, `truncate`, `stat`, and `rename`.
+Generally, you can work with the BlobFuse2-mounted storage like you would work with the native Linux file system. It uses the virtual directory scheme with a forward slash (`/`) as a delimiter in the file path and supports basic file system operations such as `mkdir`, `opendir`, `readdir`, `rmdir`, `open`, `read`, `create`, `write`, `close`, `unlink`, `truncate`, `stat`, and `rename`.
 
 However, you should be aware of some key [differences in functionality](blobfuse2-what-is.md#limitations):
 
