@@ -16,7 +16,7 @@ Azure Kubernetes Fleet Manager is meant to solve at-scale and multi-cluster prob
 
 ## Relationship between Fleet and Azure Kubernetes Service clusters
 
-[ ![Diagram that shows relationship between Fleet and Azure Kubernetes Service clusters](./media/conceptual-fleet-aks-relationship.png) ](./media/conceptual-fleet-aks-relationship.png#lightbox)
+[ ![Diagram that shows relationship between Fleet and Azure Kubernetes Service clusters.](./media/conceptual-fleet-aks-relationship.png) ](./media/conceptual-fleet-aks-relationship.png#lightbox)
 
 Fleet supports joining the following types of existing AKS clusters as member clusters:
 

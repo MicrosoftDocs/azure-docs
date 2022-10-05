@@ -20,7 +20,7 @@ landingContent:
         links:
           - text: Architectural overview
             url: architectural-overview.md
-          - text: Frequently Asked Questions
+          - text: Frequently asked questions
             url: faq.md
 
   - title: API reference
