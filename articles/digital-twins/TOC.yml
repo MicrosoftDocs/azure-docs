@@ -183,8 +183,8 @@
           href: /python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true
   - name: Digital Twins CLI
     href: /cli/azure/dt
-  - name: DTDL v2 spec
-    href: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md
+  - name: DTDL V3 Reference
+    href: https://github.com/Azure/opendigitaltwins-dtdl/blob/da589d7d86b6e6d77ecf7aeffbfa5a21fca00106/DTDL/v3-preview/DTDL.v3.md
   - name: Query language reference
     items:
       - name: Clauses

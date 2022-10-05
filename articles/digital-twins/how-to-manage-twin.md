@@ -102,7 +102,7 @@ Only properties that have been set at least once are returned when you retrieve 
 
 To retrieve multiple twins using a single API call, see the query API examples in [Query the twin graph](how-to-query-graph.md).
 
-Consider the following model (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) that defines a Moon:
+Consider the following model (written in [Digital Twins Definition Language (DTDL)](https://explorer.digitaltwins.azure.net/3dscenes)) that defines a Moon:
 
 :::code language="json" source="~/digital-twins-docs-samples/models/Moon.json":::
 
