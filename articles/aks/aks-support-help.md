@@ -35,7 +35,7 @@ If you can't find an answer to your problem using search, submit a new question 
 | [Azure Kubernetes Service](intro-kubernetes.md) | [azure-kubernetes-service](/answers/topics/azure-kubernetes-service.html)|
 | [Azure Container Registry](../container-registry/container-registry-intro.md) | [azure-container-registry](/answers/topics/azure-container-registry.html)|
 | [Azure storage accounts](../storage/common/storage-account-overview.md) | [azure-storage-accounts](/answers/topics/azure-storage-accounts.html)|
-| [Azure Managed Identities](../active-directory/managed-identities-azure-resources/overview.md) | [azure-managed-identity](/answers/topics/azure-managed identity.html)|
+| [Azure Managed Identities](../active-directory/managed-identities-azure-resources/overview.md) | [azure-managed-identity](/answers/topics/azure-managed-identity.html) |
 | [Azure RBAC](../role-based-access-control/overview.md) | [azure-rbac](/answers/topics/azure-rbac.html)|
 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | [azure-active-directory](/answers/topics/azure-active-directory.html)|
 | [Azure Policy](../governance/policy/overview.md) | [azure-policy](/answers/topics/azure-policy.html)|
