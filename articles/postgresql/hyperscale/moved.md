@@ -5,7 +5,7 @@ ms.author: jonels
 author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.topic: concept
+ms.topic: conceptual
 recommendations: false
 ms.date: 10/05/2022
 ---
@@ -30,7 +30,7 @@ Cosmos DB for PostgreSQL clusters, with zero downtime.
 
 | What | Changes |
 |------|---------|
-| Existing features | All features continue to be supported |
+| Existing features | All Hyperscale (Citus) features continue to be supported |
 | Pricing model | Same pricing as Hyperscale (Citus) |
 | System architecture | Some terminology has changed, but the technical architecture remains the same |
 | Database connection strings | Connection strings don't change, application code connects the same |
@@ -39,4 +39,4 @@ Cosmos DB for PostgreSQL clusters, with zero downtime.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Try Azure Cosmos DB for PostgreSQL >](../../cosmos-db/postgresql/quickstart-create.md)
+> [Try Azure Cosmos DB for PostgreSQL >](../../cosmos-db/postgresql/quickstart-create-portal.md)

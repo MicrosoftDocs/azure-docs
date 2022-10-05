@@ -631,7 +631,7 @@
         href: flexible-server/howto-configure-and-access-logs.md
 - name: Hyperscale (Citus)
   items:
-  - name: Hyperscale (Citus) moved
+  - name: Where is Hyperscale (Citus)?
     href: hyperscale/moved.md
 - name: Samples
   items:
