@@ -279,4 +279,4 @@ An Azure Machine Learning [component](concept-component.md) is a self-contained 
 ## Next steps
 
 * [How to migrate from v1 to v2](how-to-migrate-from-v1.md)
-* [Train models with the v2 CLI and SDK (preview)](how-to-train-model.md)
+* [Train models with the v2 CLI and SDK](how-to-train-model.md)
