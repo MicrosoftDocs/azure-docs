@@ -10,7 +10,7 @@ ms.date: 09/16/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# PG dump And restore 
+# PG dump and restore 
 
 This article reviews options to speed up pg_dump and pg_restore. It also explains the best server configurations for carrying out pg_restore.
 
