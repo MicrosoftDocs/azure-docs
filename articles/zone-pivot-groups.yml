@@ -1898,5 +1898,7 @@ groups:
     title: Azure portal
   - id: powershell
     title: PowerShell
+  - id: cli
+    title: Azure CLI
   - id: bicep
     title: Bicep
