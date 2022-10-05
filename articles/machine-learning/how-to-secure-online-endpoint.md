@@ -129,7 +129,7 @@ blue_deployment = ManagedOnlineDeployment(name='blue',
                                           code_configuration=CodeConfiguration(code_local_path='./model-1/onlinescoring/',
                                                                                scoring_script='score.py'),
                                           environment=env, 
-                                          instance_type='Standard_F2s_v2', 
+                                          instance_type='Standard_DS2_v2', 
                                           instance_count=1, 
                                           egress_public_network_access=PublicNetworkAccess.Disabled 
                                           # egress_public_network_access=PublicNetworkAccess.Enabled 
