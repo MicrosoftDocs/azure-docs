@@ -195,12 +195,12 @@ az aks update -n aks -g myResourceGroup --disable-node-restriction
 This enables an OIDC Issuer URL of the provider which allows the API server to discover public signing keys.
 
 > [!WARNING]
-> Enable or disable OIDC Issuer changes the current service account token issuer to a new value, which can cause down time and restarts the API server. If the application pods using a service token remain in a failed state after you enable or disable the OIDC Issuer, it's recommended to manually restart the pods.
+> Enable or disable OIDC Issuer changes the current service account token issuer to a new value, which can cause down time and restarts the API server. If the application pods using a service token remain in a failed state after you enable or disable the OIDC Issuer, we recommend you manually restart the pods.
 
 ### Prerequisites
 
 * The Azure CLI version 2.42.0 or higher. Run `az --version` to find your version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
-* AKS version 1.22 and higher. If your cluster is running version 1.21 and the OIDC Issuer preview is enabled, it's recommended to upgrade the cluster to the minimum required version supported.
+* AKS version 1.22 and higher. If your cluster is running version 1.21 and the OIDC Issuer preview is enabled, we recommend you upgrade the cluster to the minimum required version supported.
 
 ### Create an AKS cluster with OIDC Issuer
 
