@@ -151,7 +151,7 @@ The following table highlights the key differences between managed online endpoi
 | **Virtual Network (VNET)** | [Supported](how-to-secure-online-endpoint.md) (preview) | Supported |
 | **View costs** | [Endpoint and deployment level](how-to-view-online-endpoints-costs.md) | Cluster level |
 | **Mirrored traffic** | [Supported](how-to-safely-rollout-managed-endpoints.md#test-the-deployment-with-mirrored-traffic-preview) | Unsupported |
-| **No-code deployment** | Supported [MLflow](how-to-deploy-mlflow-models-online-endpoints.md) and [Triton](how-to-deploy-with-triton.md) models | Supported [MLflow](how-to-deploy-mlflow-models-online-endpoints.md) and [Triton](how-to-deploy-with-triton.md) models |
+| **No-code deployment** | Supported ([MLflow](how-to-deploy-mlflow-models-online-endpoints.md) and [Triton](how-to-deploy-with-triton.md) models) | Supported ([MLflow](how-to-deploy-mlflow-models-online-endpoints.md) and [Triton](how-to-deploy-with-triton.md) models) |
 
 ### Managed online endpoints
 
