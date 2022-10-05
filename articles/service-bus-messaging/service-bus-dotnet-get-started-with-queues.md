@@ -25,7 +25,7 @@ In this quickstart, you will do the following steps:
 If you're new to the service, see [Service Bus overview](service-bus-messaging-overview.md) before you do this quickstart.
 
 - **Azure subscription**. To use Azure services, including Azure Service Bus, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/).
-- **Microsoft Visual Studio 2022**. The sample application makes use of new features that were introduced in C# 10.0.  You can still use the Servicei Bus client library with  previous C# language versions, but the syntax may vary. To make use of the latest syntax, we recommend that you install .NET 6.0 or higher and set the language version to `latest`. If you're using Visual Studio, versions before Visual Studio 2022 aren't compatible with the tools needed to build C# 10.0 projects.
+- **Microsoft Visual Studio 2022**. The sample application makes use of new features that were introduced in C# 10.  You can still use the Service Bus client library with previous C# language versions, but the syntax may vary. To use the latest syntax, we recommend that you install .NET 6.0 or higher and set the language version to `latest`. If you're using Visual Studio, versions before Visual Studio 2022 aren't compatible with the tools needed to build C# 10 projects.
 
 [!INCLUDE [service-bus-create-namespace-portal-passwordless](../../includes/passwordless/service-bus/service-bus-create-namespace-portal-passwordless.md)]
 
@@ -67,12 +67,12 @@ This section shows you how to create a .NET Core console application to send mes
 
 ## Add code to send messages to the queue
 
-1. Replace the contents of `program.cs` with the following code. The important steps are outlined below, with additional information in the code comments.
+1. Replace the contents of `Program.cs` with the following code. The important steps are outlined below, with additional information in the code comments.
 
     ### [Passwordless (Recommended)](#tab/passwordless)
 
     > [!IMPORTANT]
-    > Make sure to update the `queueName` variable and the `queueNamespace` values in the code snippets with the values from the service bus you created.
+    > Make sure to update the `queueName` variable and the `queueNamespace` values in the code snippets with the values from the Service Bus you created.
 
     * Declares the required variables, such as the `queuename` and the `client` and `sender` objects. 
     * Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the passwordless `DefaultAzureCredential` object. `DefaultAzureCredential` will automatically discover and use the credentials of your Visual Studio login to authenticate to Azure Service Bus.
@@ -86,8 +86,6 @@ This section shows you how to create a .NET Core console application to send mes
     using Azure.Identity;
     
     // name of your Service Bus queue
-    string queueName = "<QUEUE-NAME>";
-    
     // the client that owns the connection and can be used to create senders and receivers
     ServiceBusClient client;
     
@@ -101,11 +99,17 @@ This section shows you how to create a .NET Core console application to send mes
     // of the application, which is best practice when messages are being published or read
     // regularly.
     //
-    // set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
-    // If you use the default AmqpTcp, you will need to make sure that the ports 5671 and 5672 are open
-    var clientOptions = new ServiceBusClientOptions() { TransportType = ServiceBusTransportType.AmqpWebSockets };
-    client = new ServiceBusClient("<NAMESPACE NAME>.servicebus.windows.net", new DefaultAzureCredential());
-    sender = client.CreateSender(queueName);
+    // Set the transport type to AmqpWebSockets so that the ServiceBusClient uses the port 443. 
+    // If you use the default AmqpTcp, ensure that ports 5671 and 5672 are open.
+    var clientOptions = new ServiceBusClientOptions
+    { 
+        TransportType = ServiceBusTransportType.AmqpWebSockets
+    };
+    //TODO: Replace the "<NAMESPACE-NAME>" and "<QUEUE-NAME>" placeholders.
+    client = new ServiceBusClient(
+        "<NAMESPACE-NAME>.servicebus.windows.net",
+        new DefaultAzureCredential());
+    sender = client.CreateSender("<QUEUE-NAME>");
     
     // create a batch 
     using ServiceBusMessageBatch messageBatch = await sender.CreateMessageBatchAsync();
@@ -141,9 +145,8 @@ This section shows you how to create a .NET Core console application to send mes
     ### [Connection string](#tab/connection-string)
 
     > [!IMPORTANT]
-    > Make sure to update the `queueName` variable and the `connectionString` values in the code snippets with the values from the service bus you created.
+    > Per the `TODO` comment, update the placeholder values in the code snippets with the values from the Service Bus you created.
 
-    * Declares the required variables, such as the `queuename`, `connectionString` and the `client` and `sender` objects.
     * Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the connection string.
     * Invokes the [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) method on the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object to create a [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) object for the specific Service Bus queue.
     * Creates a [ServiceBusMessageBatch](/dotnet/api/azure.messaging.servicebus.servicebusmessagebatch) object by using the [ServiceBusSender.CreateMessageBatchAsync](/dotnet/api/azure.messaging.servicebus.servicebussender.createmessagebatchasync) method.
@@ -255,7 +258,7 @@ In this section, you'll create a .NET Core console application that receives mes
 1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
 1. Run the following command to install the **Azure.Messaging.ServiceBus** and **Azure.Identity** NuGet packages:
 
-    ```cmd
+    ```powershell
     Install-Package Azure.Messaging.ServiceBus
     Install-Package Azure.Identity
     ```
