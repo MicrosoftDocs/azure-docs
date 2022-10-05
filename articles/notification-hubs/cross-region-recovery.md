@@ -11,6 +11,9 @@ ms.date: 10/07/2022
 
 # Cross-region disaster recovery (preview)
 
+> [!NOTE]
+> The ability to edit your cross region disaster recovery options is available in preview. If you are interested in using this feature, contact your customer success manager at Microsoft, or create an Azure support ticket which will be triaged by the support team.
+
 [Azure Notification Hubs](notification-hubs-push-notification-overview.md) provides an easy-to-use and scaled-out push engine that enables you to send notifications to any platform (iOS, Android, Windows, etc.) from any back-end (cloud or on-premises). This article describes the cross-region disaster recovery configuration options currently available.
 
 Cross-region disaster recovery provides *metadata* disaster recovery coverage. This is supported in paired and flexible region recovery
