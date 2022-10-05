@@ -70,8 +70,8 @@ The following services do not currently support managed identity-based access:
 - Azure Flexible MySQL
 - Azure Flexible PostgreSQL
 - Azure Database for MariaDB
-- Azure Cosmos DB - Mongo DB
-- Azure Cosmos DB - Cassandra
+- Azure Cosmos DB for MongoDB
+- Azure Cosmos DB for Apache Cassandra
 - Azure Databricks
 
 ---

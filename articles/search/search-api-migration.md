@@ -67,9 +67,9 @@ Version 2019-05-06 is the previous generally available release of the REST API. 
 
 Existing code written against earlier API versions will break on api-version=2019-05-06 and later if code contains the following functionality:
 
-#### Indexer for Azure Cosmos DB - datasource is now "type": "cosmosdb"
+#### Indexer for Azure Cosmos DB - datasource is now "type": "`cosmosdb`"
 
-If you are using a [Cosmos DB indexer](search-howto-index-cosmosdb.md ), you must change `"type": "documentdb"` to `"type": "cosmosdb"`.
+If you are using a [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md ), you must change `"type": "documentdb"` to `"type": "cosmosdb"`.
 
 #### Indexer execution result errors no longer have status
 

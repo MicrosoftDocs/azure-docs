@@ -56,15 +56,15 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## CosmosDBConnectionFailureAfterMaxRetries
 
-* **Cause**: Stream Analytics failed to connect to a Cosmos DB account after the maximum number of retries.
+* **Cause**: Stream Analytics failed to connect to an Azure Cosmos DB account after the maximum number of retries.
 
 ## CosmosDBFailureAfterMaxRetries
 
-* **Cause**: Stream Analytics failed to query the Cosmos DB database and collection after the maximum number of retries.
+* **Cause**: Stream Analytics failed to query the Azure Cosmos DB database and collection after the maximum number of retries.
 
 ## CosmosDBFailedToCreateStoredProcedure
 
-* **Cause**: CosmosDB can't create a stored procedure after several retries.
+* **Cause**: Azure Cosmos DB can't create a stored procedure after several retries.
 
 ## CosmosDBOutputRequestTimeout
 

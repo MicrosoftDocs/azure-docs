@@ -27,7 +27,7 @@ Indexers can be configured to run on a schedule when you set the "schedule" prop
 
 + A valid indexer configured with a data source and index.
 
-+ Change detection in the data source. Azure Storage and SharePoint have built-in change detection. Other data sources, such as [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) and [Cosmos DB](search-howto-index-cosmosdb.md) must be enabled manually.
++ Change detection in the data source. Azure Storage and SharePoint have built-in change detection. Other data sources, such as [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) and [Azure Cosmos DB](search-howto-index-cosmosdb.md) must be enabled manually.
 
 ## Schedule definition
 

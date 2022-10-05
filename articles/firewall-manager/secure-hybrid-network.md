@@ -246,7 +246,7 @@ Create the on-premises to hub virtual network connection. This step is similar t
 1. Open the **FW-Hybrid-Test** resource group and select the **GW-Onprem** gateway.
 2. Select **Connections** in the left column.
 3. Select **Add**.
-4. The the connection name, type **Onprem-to-Hub**.
+4. For the connection name, type **Onprem-to-Hub**.
 5. Select **VNet-to-VNet** for **Connection type**.
 6. For the **Second virtual network gateway**, select **GW-hub**.
 7. For **Shared key (PSK)**, type **AzureA1b2C3**.

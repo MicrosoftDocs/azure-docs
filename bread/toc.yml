@@ -507,23 +507,23 @@
     - name: Kubernetes
       tocHref: /azure/container-service/kubernetes/
       topicHref: /azure/container-service/kubernetes/
-  - name: Cosmos DB
+  - name: Azure Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
     items:
-    - name: MongoDB API
+    - name: Azure Cosmos DB for MongoDB
       tocHref: /azure/cosmos-db/mongodb
       topicHref: /azure/cosmos-db/mongodb
-    - name: Table API
+    - name: Azure Cosmos DB for Table
       tocHref: /azure/cosmos-db/table/
       topicHref: /azure/cosmos-db/table/
-    - name: Cassandra API
+    - name: Azure Cosmos DB for Apache Cassandra
       tocHref: /azure/cosmos-db/cassandra/
       topicHref: /azure/cosmos-db/cassandra/
-    - name: Gremlin API
+    - name: Azure Cosmos DB for Apache Gremlin
       tocHref: /azure/cosmos-db/graph/
       topicHref: /azure/cosmos-db/graph/
-    - name: SQL API
+    - name: Azure Cosmos DB for NoSQL
       tocHref: /azure/cosmos-db/sql/
       topicHref: /azure/cosmos-db/sql/
   - name: Managed Instance for Apache Cassandra

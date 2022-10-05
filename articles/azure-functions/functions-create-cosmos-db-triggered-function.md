@@ -51,8 +51,8 @@ Next, you create a function in the new function app.
 
     | Setting      | Suggested value  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **New Function** | Accept the default name | The name of the function. |
-    | **Cosmos DB account connection** | Accept the default new name | Select **New**, the **Database Account** you created earlier, and then **OK**. This action creates an application setting for your account connection. This setting is used by the binding to connection to the database. |
+    | **New function** | Accept the default name | The name of the function. |
+    | **Azure Cosmos DB account connection** | Accept the default new name | Select **New**, the **Database Account** you created earlier, and then **OK**. This action creates an application setting for your account connection. This setting is used by the binding to connection to the database. |
     | **Database name** | Tasks | Name of the database that includes the collection to be monitored. |
     | **Collection name** | Items | Name of the collection to be monitored. |
     | **Collection name for leases** | leases | Name of the collection to store the leases. |
@@ -62,11 +62,11 @@ Next, you create a function in the new function app.
 
 1. Select **Create Function**. 
 
-    Azure creates the Cosmos DB trigger function.
+    Azure creates the Azure Cosmos DB trigger function.
 
 1. To display the template-based function code, select **Code + Test**.
 
-    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Cosmos DB function template in C#":::
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Azure Cosmos DB function template in C#":::
 
     This function template writes the number of documents and the first document ID to the logs.
 

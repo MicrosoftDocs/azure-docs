@@ -239,7 +239,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 };
 ```
 
-## <a id="encrypt-docdb"></a>Encrypt sensitive data stored in Cosmos DB
+## <a id="encrypt-docdb"></a>Encrypt sensitive data stored in Azure Cosmos DB
 
 | Title                   | Details      |
 | ----------------------- | ------------ |

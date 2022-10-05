@@ -37,7 +37,7 @@ To get started, see [Publish a service catalog application through Azure portal]
 > [!NOTE]
 > You can only supply one endpoint in the `notificationEndpoints` property of the managed application definition.
 
-``` JSON
+```json
 {
   "properties": {
     "isEnabled": true,

@@ -30,7 +30,7 @@
     items:
     - name: .NET with SQL DB
       href: ../../app-service/app-service-web-tutorial-dotnet-sqldatabase.md
-    - name: Node.js with Mongo DB
+    - name: Node.js with MongoDB
       href: ../../app-service/tutorial-nodejs-mongodb-app.md
     - name: PHP with MySQL
       href: ../../app-service/tutorial-php-mysql-app.md

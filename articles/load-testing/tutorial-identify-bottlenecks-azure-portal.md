@@ -228,7 +228,7 @@ For Azure Cosmos DB, increase the database RU scale setting:
 
 1. Select **Scale & Settings**, and update the throughput value to **1200**.
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/1200-ru-scaling-for-cosmos-db.png" alt-text="Screenshot that shows the updated Azure Cosmos D B scale settings.":::
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/1200-ru-scaling-for-cosmos-db.png" alt-text="Screenshot that shows the updated `Azure Cosmos D B` scale settings.":::
 
 1. Select **Save** to confirm the changes.
 
@@ -246,7 +246,7 @@ Now that you've increased the database throughput, rerun the load test and verif
 
 1. Check the server-side metrics for Azure Cosmos DB and ensure that the performance has improved.
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/cosmos-db-metrics-post-run.png" alt-text="Screenshot that shows the Azure Cosmos D B client-side metrics after update of the scale settings.":::
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/cosmos-db-metrics-post-run.png" alt-text="Screenshot that shows the `Azure Cosmos D B` client-side metrics after update of the scale settings.":::
 
    The Azure Cosmos DB **Normalized RU Consumption** value is now well below 100%.
 

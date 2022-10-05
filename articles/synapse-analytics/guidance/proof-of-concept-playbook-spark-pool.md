@@ -129,7 +129,7 @@ Here are some testing scenarios:
 
 - **Spark pool test A:** We will execute data processing across multiple node types (small, medium, and large) as well as different numbers of worker nodes.
 - **Spark pool test B:** We will load/retrieve processed data from the Spark pool to the dedicated SQL pool by using [the connector](../spark/synapse-spark-sql-pool-import-export.md).
-- **Spark pool test C:** We will load/retrieve processed data from the Spark pool to Cosmos DB by using Azure Synapse Link.
+- **Spark pool test C:** We will load/retrieve processed data from the Spark pool to Azure Cosmos DB via Azure Synapse Link.
 
 ### Evaluate the POC dataset
 
