@@ -26,3 +26,35 @@ Check [Add a managed identity to a Service Fabric Managed Cluster node type](how
 ```powershell 
 New-AzRoleAssignment -PrincipalId "<SFMC SPID>" -RoleDefinitionName "Reader" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<galleryName>"
 ```
+
+## Use the ARM template
+
+When you create a new node type, you will need to modify your ARM template with the new property: VmImageResourceId: <Image name>.  The following is an example:
+
+ ```JSON 
+ {
+  "name": "SF",
+  "properties": {
+    "isPrimary" : true,
+    "vmImageResourceId": "/subscriptions/<SubscriptionID>/resourceGroups/<myRG>/providers/Microsoft.Compute/images/<MyCustomImage>",
+    "vmSize": "Standard_D2",
+    "vmInstanceCount": 5,
+    "dataDiskSizeGB": 100
+    }
+}
+```
+ 
+The vmImageResourceId will be passed along to the VM ScaleSet as image reference Id, currently we support 3 types of resources:
+
+•	Managed Image (Microsoft.Compute/images)
+•	Shared Gallery Image (Microsoft.Compute/galleries/images)
+•	Shared Gallery Image Version (Microsoft.Compute/galleries/images/versions)
+
+## Auto OS upgrade
+
+Auto OS upgrade is also supported for custom image. To enable auto OS upgrade, the node type must not be pinned to a specific image version, i.e. must use a gallery image (Microsoft.Compute/galleries/images), for example:
+
+`/subscriptions/<subscriptionID>/resourceGroups/<myRG>/providers/Microsoft.Compute/galleries/<CustomImageGallery>/images/<CustomImageDef>`
+
+When node type is created with this as vmImageResourceId and the cluster has [auto OS upgrade](how-to-managed-cluster-upgrades.md) enabled, SFMC will monitor the published versions for this image definition and if any new version is published, start to reimage the VM ScaleSets created with this image definition which will bring them to the latest version.
+ 
