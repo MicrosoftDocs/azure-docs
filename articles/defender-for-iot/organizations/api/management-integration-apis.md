@@ -154,7 +154,7 @@ This API returns data about all devices that were updated after the given timest
 **API**:
 
 ```curl
-curl -k -H "Authorization: <Authorization token>" "<IP Address>/external/v3/integration/devices/<Timestamp>"
+curl -k -H "Authorization: <Authorization token>" "https://<IP address>/external/v3/integration/devices/<Timestamp>"
 ```
 
 **Example**:
