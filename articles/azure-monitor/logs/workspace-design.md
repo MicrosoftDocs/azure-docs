@@ -7,7 +7,7 @@ ms.date: 05/25/2022
 ---
 
 # Design a Log Analytics workspace architecture
-While a single [Log Analytics workspace](log-analytics-workspace-overview.md) may be sufficient for many environments using Azure Monitor and Microsoft Sentinel, many organizations will create multiple workspaces to optimize costs and better meet different business requirements. This article presents a set of criteria for determining whether to use a single workspace or multiple workspaces and the configuration and placement of those workspace to meet your particular requirements while optimizing your costs.
+While a single [Log Analytics workspace](log-analytics-workspace-overview.md) may be sufficient for many environments using Azure Monitor and Microsoft Sentinel, many organizations will create multiple workspaces to optimize costs and better meet different business requirements. This article presents a set of criteria for determining whether to use a single workspace or multiple workspaces and the configuration and placement of those workspaces to meet your particular requirements while optimizing your costs.
 
 > [!NOTE]
 > This article includes both Azure Monitor and Microsoft Sentinel since many customers need to consider both in their design, and most of the decision criteria applies to both. If you only use one of these services, then you can simply ignore the other in your evaluation.
