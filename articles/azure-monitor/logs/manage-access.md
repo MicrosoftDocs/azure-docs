@@ -284,29 +284,29 @@ To create a role that lets users or groups read data from specific tables in a w
 
 1. Assign your custom role to the relevant users or groups. 
 
-1. Grant the users or groups read access to specific tables in a workspace by calling the https://management.azure.com/batch?api-version=2020-06-01 POST API and send the following details in the request body:
+1. Grant the users or groups read access to specific tables in a workspace by calling the https://management.azure.com/batch?api-version=2020-06-01 POST API and sending the following details in the request body:
 
     ```json
     {
         "requests": [
             {
                 "content": {
-                    "Id": "<GUID 1>",
+                    "Id": "<GUID_1>",
                     "Properties": {
-                        "PrincipalId": "<User object ID of the user or group to which table-level RBAC should be assigned>",
+                        "PrincipalId": "<User_object_ID>",
                         "PrincipalType": "User",
-                        "RoleDefinitionId": "<custom role ID>",
-                        "Scope": "/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.OperationalInsights/workspaces/<workspace name>/Tables/<table name>",
+                        "RoleDefinitionId": "<custom_role_ID>",
+                        "Scope": "/subscriptions/<subscription_ID>/resourceGroups/<resource_group_name>/providers/Microsoft.OperationalInsights/workspaces/<workspace_name>/Tables/<table_name>",
                         "Condition": null,
                         "ConditionVersion": null
                     }
                 },
                 "httpMethod": "PUT",
-                "name": "<GUID 2>",
+                "name": "<GUID_2>",
                 "requestHeaderDetails": {
                     "commandName": "Microsoft_Azure_AD."
                 },
-                "url": "/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.OperationalInsights/workspaces/<workspace name>/Tables/<table name>/providers/Microsoft.Authorization/roleAssignments/<GUID 1>?api-version=2020-04-01-preview"
+                "url": "/subscriptions/<subscription_ID>/resourceGroups/<resource_group_name>/providers/Microsoft.OperationalInsights/workspaces/<workspace_name>/Tables/<table_name>/providers/Microsoft.Authorization/roleAssignments/<GUID_1>?api-version=2020-04-01-preview"
             }
         ]
     }
@@ -314,12 +314,12 @@ To create a role that lets users or groups read data from specific tables in a w
 
     Where:
     - You can generate a GUID for `<GUID 1>` and `<GUID 2>` using any GUID generator.
-    - <User object ID> is the ID of the user or group to which table-level RBAC should be assigned.
-    - <custom role ID> begins with `_/providers/Microsoft.Authorization/roleDefinitions/_`
-    - <subscription ID> is the ID of the subscription related to the workspace.
-    - <resource group name> is the resource group of the workspace.
-    - <workspace name> is the name of the workspace.
-    - <table name> is the name of the table to which you want to assign the user or group permission to read data from.
+    - <_User_object_ID_> is the ID of the user or group to which table-level RBAC should be assigned.
+    - <custom_role_ID> begins with `_/providers/Microsoft.Authorization/roleDefinitions/_`
+    - <subscription_ID> is the ID of the subscription related to the workspace.
+    - <resource_group_name> is the resource group of the workspace.
+    - <workspace_name> is the name of the workspace.
+    - <table_name> is the name of the table to which you want to assign the user or group permission to read data from.
 
 ### Legacy method of setting table-level read access
 
