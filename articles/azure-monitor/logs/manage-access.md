@@ -271,15 +271,23 @@ To create a role that lets users or groups read data from specific tables in a w
 
 1. Create a custom role that grants read access to table data, based on the built-in Azure Monitor Logs **Reader** role:
     
-    1. Navigate to your workspace and select **Access control (AIM)**.
+    1. Navigate to your workspace and select **Access control (AIM)** > **Roles**.
+    
     1. Right-click the **Reader** role and select **Clone**.
     
+       :::image type="content" source="media/manage-access/access-control-clone-role.png" alt-text="Screenshot that shows the Roles tab of the Access control screen with the clone button highlighted for the Reader role." lightbox="media/manage-access/access-control-clone-role.png":::        
+      
        This opens the **Create a custom role** screen.
 
-    1. On the **Basics** tab of the screen enter a **Custom role name** value.
-    1. Optionally, provide a description.
+    1. On the **Basics** tab of the screen enter a **Custom role name** value and, optionally, provide a description.
+
+        :::image type="content" source="media/manage-access/manage-access-create-custom-role.png" alt-text="Screenshot that shows the Basics tab of the Create a custom role screen with the Custom role name and Description fields highlighted." lightbox="media/manage-access/manage-access-create-custom-role.png":::
+
     1. Select the **JSON** tab > **Edit**.
-    1. Edit the `"actions"` section to include only `Microsoft.OperationalInsights/workspaces/query/read`.
+    1. Edit the `"actions"` section to include only `Microsoft.OperationalInsights/workspaces/query/read` and select **Save**.
+    
+        :::image type="content" source="media/manage-access/manage-access-create-custom-role-json.png" alt-text="Screeshot that shows the JSON tab of the Create a custom role screen with the actions section of the JSON file higlighted." lightbox="media/manage-access/manage-access-create-custom-role-json.png":::    
+
     1. Select **Review + Create** at the bottom of the screen, and then **Create** on the next page.   
 
 1. Assign your custom role to the relevant users or groups. 
