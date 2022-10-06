@@ -175,15 +175,13 @@ root@xsense:
 
 Use the following commands to reset passwords for local users on your OT sensor.
 
-- To reset passwords that you've created on the sensor, sign in as the *cyberx* user and define the user and new password in the command attributes.<!--not sure we need to say for web access here. these users don't have ssh access, right?-->
-- To reset the password for the *cyberx* or *support* user, sign in as the *cyberx_host*. Passwords are reset for both SSH and web access. <!--how do define which user and how to know what the new password is? do we get a new computer generated one?-->
+- To reset the password for the *cyberx* or *support* user. Passwords will be reset for both SSH and web access.
+- To reset the password for locally defined users accessing the local management web-interface.
 
-<!--what about cyberx_host user? you can't reset those passwords?-->
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**cyberx**     |   `cyberx-users-password-reset`      | `cyberx-users-password-reset -u <user> -p <password>`      |
-|**cyberx_host**  |   `passwd` | No attributes <!--i'm confused here. how does it know which use to reset it for and what the new password is?-->     |
 
 
 The following example shows the *cyberx* user resetting the *support* user's password to `jI8iD9kE6hB8qN0h`:
@@ -196,6 +194,21 @@ Open UDS connection with /var/cyberx/system/os_manager.sock
 Received data: b'ack'
 resetting the password of UI user "support"
 root@xsense:/#
+```
+
+The *cyberx_host* user can be changed after a successful login with the following command:
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+|**cyberx_host**  |   `passwd` | No attributes   |
+
+```bash
+cyberx_host@xsense:/# passwd
+Changing password for user cyberx_host.
+(current) UNIX password:
+New password:
+Retype new password:
+passwd: all authentication tokens updated successfully.
+cyberx_host@xsense:/#
 ```
 
 ## Validate network settings
@@ -294,9 +307,14 @@ Use the following command to check the internet connectivity on your appliance.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
-|**cyberx**     |   `ifconfig`      |   No attributes |
+|**cyberx**     |   `cyberx-xsense-internet-connectivity`      |   No attributes |
 
-<!--I think we need an example here - how does this ifconfig differ from other ifconfigs? perhaps an example of one showing that the internet connection is *down*?-->
+```bash
+root@xsense:/# cyberx-xsense-internet-connectivity
+Checking internet connectivity...
+The machine was successfully able to connect the internet.
+root@xsense:/#
+```
 
 ### Check network interfaces usage
 
