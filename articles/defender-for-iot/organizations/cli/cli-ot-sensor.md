@@ -325,7 +325,7 @@ local_listener (virtual adiot0):
 root@xsense:/#
 ```
 
-## Manage networking settings
+## Configure network settings
 
 ### Set bandwidth limit for the management network interface
 
