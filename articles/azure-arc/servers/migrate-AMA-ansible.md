@@ -64,7 +64,7 @@ To use this collection in Automation Controller, follow the steps below to set u
 1. In the left menu, select **Projects**.
 1. Select **Add**, and then complete the fields of the form as follows:
     Name: Content Lab - Azure Infrastructure Configuration Collection
-    Automation Environment: <select with the Azure Collection and CLI instead>
+    Automation Environment: (select with the Azure Collection and CLI instead)
     Source Control Type: Git
     Source Control URL: https://github.com/ansible-content-lab/azure.infrastructure_config_demos.git
 1. Select **Save**.
@@ -92,7 +92,7 @@ This workflow performs the following tasks:
 
 ### Create template to install Azure Arc agent
 
-This template is responsible for installing the Azure Arc [Connected Machine agent](https://docs.microsoft.com/en-us/azure/azure-arc/servers/agent-overview) on hosts within the provided inventory. A successful run will have installed the agent on all machines. 
+This template is responsible for installing the Azure Arc [Connected Machine agent](/azure/azure-arc/servers/agent-overview) on hosts within the provided inventory. A successful run will have installed the agent on all machines. 
 
 Follow the steps below to create the template:
 
@@ -101,12 +101,12 @@ Follow the steps below to create the template:
 1. Select **Add job template**, then complete the fields of the form as follows:
     Name: Content Lab - Install Arc Agent
     Job Type: Run
-    Inventory:<your linux host inventory>
+    Inventory:your linux host inventory
     Project: Content Lab - Azure Infrastructure Configuration Collection
     Playbook: playbooks/replace_log_analytics_with_arc_linux.yml
     Credentials:
-        <Your Azure Resource Manager credential>
-        <Your Host Inventory Machine credential>
+    - Your Azure Resource Manager credential
+    - Your Host Inventory Machine credential
     Variables:
         > [!NOTE]
         > The operations in this playbook happen through the Azure CLI.   Most of these variables are set to pass along the proper variable from the Azure Resource Manager credential to the CL.
@@ -125,12 +125,12 @@ Follow the steps below to create the template:
 1. Select **Add job template**, then complete the fields of the form as follows:
     Name: Content Lab - Replace Log Analytics agent with Arc agent
     Job Type: Run
-    Inventory:<your linux host inventory>
+    Inventory:(Your linux host inventory)
     Project: Content Lab - Azure Infrastructure Configuration Collection
     Playbook: playbooks/replace_log_analytics_with_arc_linux.yml
     Credentials:
-        <Your Azure Resource Manager credential>
-        <Your Host Inventory Machine credential>
+    - Your Azure Resource Manager credential
+    - Your Host Inventory Machine credential
     Variables:
         > [!NOTE]
         > The `linux_hosts` variable is used to create a list of hostnames to send to the Azure Collection and is not directly related to a host inventory. You may set this list in any way that Ansible supports. In this case, the variable attempts to pull host names from groups with “linux” in the group name.
@@ -147,11 +147,11 @@ Follow the steps below to create the template:
 1. Select **Add job template**, then complete the fields of the form as follows:
     Name: Content Lab - Uninstall Log Analytics agent
     Job Type: Run
-    Inventory:<your linux host inventory>
+    Inventory:(Your linux host inventory)
     Project: Content Lab - Azure Infrastructure Configuration Collection
     Playbook: playbooks/uninstall_log_analytics_with_arc_linux.yml
     Credentials:
-        <Your Host Inventory Machine credential>
+    - Your Host Inventory Machine credential
     Options:
         Privilege Escalation: true
 1. Select **Save**.
@@ -165,7 +165,7 @@ An automation controller workflow allows you to construct complex automation by 
 1. Select **Add workflow template**, then complete the following fields as follows:
     Name: Content Lab - Migrate Log Agent to Azure Monitor
     Job Type: Run
-    Inventory: <your linux host inventory>
+    Inventory: (Your linux host inventory)
     Project: Content Lab - Azure Infrastructure Configuration Collection
 1. Select **Save**.
 1. Select **Start** to begin the workflow designer.
