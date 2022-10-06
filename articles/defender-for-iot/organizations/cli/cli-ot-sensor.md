@@ -354,28 +354,6 @@ Backup includes a full snapshot of the sensor state including: configuration, ba
 >[!WARNING]
 >Do not interrupt a system backup or restore operation as this may cause the system to become unusable
 
-### Start an immediate, unscheduled backup
-
-Use the following commands to start an immediate, unscheduled backup of the data on your OT sensor. For more information, see [Set up backup and restore files](../how-to-manage-individual-sensors.md#set-up-backup-and-restore-files).
-
-|User  |Command  |Full command syntax   |
-|---------|---------|---------|
-|**support**     |   `system backup`      |   No attributes      |
-|**cyberx**     |   ` cyberx-xsense-system-backup`      |   No attributes      |
-
-
-For example, for the *support* user:
-
-```cli
-root@xsense: system backup
-Backing up DATA_KEY
-...
-...
-Finished backup. Backup is stored at /var/cyberx/backups/e2e-xsense-1664469968212-backup-version-22.2.6.318-r-71e6295-2022-09-29_18:29:55.tar
-Setting backup status 'SUCCESS' in redis
-root@xsense:
-```
-
 ### List current backup files
 
 Use the following commands to list the backup files currently stored on your OT network sensor.
@@ -397,14 +375,14 @@ backup files:
 root@xsense:
 ```
 
-### Backup memory check
-Provides the status of the backup memory, checking the following:
+### Allocation of backup diskspace
+Provides the status of the backup allocation, displaying the following:
 
-- The location of the backup folder
-- The size of the backup folder
-- The limitations of the backup folder
-- When the last backup happened
-- How much space there are for the extra backup files
+- Location of the backup folder
+- Size of the backup folder
+- Limitations of the backup folder
+- Time of last backup operation
+- Free diskspace available for backups
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
@@ -415,6 +393,28 @@ root@xsense:/# cyberx-backup-memory-check
 2.1M    /var/cyberx/backups
 Backup limit is: 20Gb
 root@xsense:/#
+```
+
+### Start an immediate, unscheduled backup
+
+Use the following commands to start an immediate, unscheduled backup of the data on your OT sensor. For more information, see [Set up backup and restore files](../how-to-manage-individual-sensors.md#set-up-backup-and-restore-files).
+
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+|**support**     |   `system backup`      |   No attributes      |
+|**cyberx**     |   ` cyberx-xsense-system-backup`      |   No attributes      |
+
+
+For example, for the *support* user:
+
+```cli
+root@xsense: system backup
+Backing up DATA_KEY
+...
+...
+Finished backup. Backup is stored at /var/cyberx/backups/e2e-xsense-1664469968212-backup-version-22.2.6.318-r-71e6295-2022-09-29_18:29:55.tar
+Setting backup status 'SUCCESS' in redis
+root@xsense:
 ```
 
 ### Restore data from the most recent backup
