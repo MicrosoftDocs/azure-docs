@@ -7,132 +7,212 @@ ms.topic: conceptual
 
 # Migrate to Azure Monitor Agent on Azure Arc using Red Hat Ansible Automation Platform
 
+This article covers how to use Red Hat Ansible Automation Platform to migrate servers that are currently using Azure Log Analytics agent to Azure Monitor Agent on Azure Arc using Ansible Automation Platform. Once you have completed the configuration steps in this article, you'll be able to run a workflow against an automation controller inventory that performs the following tasks:
 
+- Ensure that the Azure Arc agent is installed on each machine. In cases where the agent is not installed, then it will be installed.
+- Enable the Azure Monitor Agent on Arc-enabled machines.
+- Disable the Log Analytics agent.
+- Uninstall the Log Analytics agent.
 
+Content from the [Ansible Content Lab for Cloud Automation](https://cloud.lab.ansible.io/) has already been developed to perform the automation for this effort.  This article will cover importing that content as a project in automation controller to build a workflow that will perform the automation previously mentioned.
 
-
-
-
-
-
-
-
-<!--
-
-
-Azure Arc-enabled servers is designed to help you connect servers running on-premises or in other clouds to Azure. Normally, you would not use Azure Arc-enabled servers on an Azure virtual machine because all the same capabilities are natively available for these VMs, including a representation of the VM in Azure Resource Manager, VM extensions, managed identities, and Azure Policy. If you attempt to install Azure Arc-enabled servers on an Azure VM, you'll receive an error message stating that it is unsupported and the agent installation will be canceled.
-
-While you cannot install Azure Arc-enabled servers on an Azure VM for production scenarios, it is possible to configure Azure Arc-enabled servers to run on an Azure VM for *evaluation and testing purposes only*. This article will help you set up an Azure VM before you can enable Azure Arc-enabled servers on it.
+Ansible Automation Platform can automate the deployment of Arc services across your IT landscape to make onboarding to Azure Arc fast and reliable.
 
 > [!NOTE]
-> The steps in this article are intended for virtual machines hosted in the Azure cloud. Azure Arc-enabled servers is not supported on virtual machines running on Azure Stack Hub or Azure Stack Edge.
+> The Ansible content examples in this article target Linux hosts, but the playbooks can be altered to accommodate Windows hosts as well. 
+
 
 ## Prerequisites
 
-* Your account is assigned to the [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) role.
-* The Azure virtual machine is running an [operating system supported by Azure Arc-enabled servers](prerequisites.md#supported-operating-systems). If you don't have an Azure VM, you can deploy a [simple Windows VM](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.compute%2fvm-simple-windows%2fazuredeploy.json) or a [simple Ubuntu Linux 18.04 LTS VM](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.compute%2fvm-simple-windows%2fazuredeploy.json).
-* Your Azure VM can communicate outbound to download the Azure Connected Machine agent package for Windows from the [Microsoft Download Center](https://aka.ms/AzureConnectedMachineAgent), and Linux from the Microsoft [package repository](https://packages.microsoft.com/). If outbound connectivity to the Internet is restricted following your IT security policy, you will need to download the agent package manually and copy it to a folder on the Azure VM.
-* An account with elevated (that is, an administrator or as root) privileges on the VM, and RDP or SSH access to the VM.
-* To register and manage the Azure VM with Azure Arc-enabled servers, you are a member of the [Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator) or [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role in the resource group.
+### Automation controller 2.x
 
-## Plan
+This article is applicable to both self-managed Ansible Automation Platform and Red Hat Ansible Automation Platform on Microsoft Azure.
 
-To start managing your Azure VM as an Azure Arc-enabled server, you need to make the following changes to the Azure VM before you can install and configure Azure Arc-enabled servers.
+### Automation execution environment
 
-1. Remove any VM extensions deployed to the Azure VM, such as the Log Analytics agent. While Azure Arc-enabled servers support many of the same extensions as Azure VMs, the Azure Arc-enabled servers agent can't manage VM extensions already deployed to the VM.
+To use the examples in this article, you'll need an automation execution environment with both the Azure Collection and the Azure CLI installed, since both are required to run the automation.
 
-2. Disable the Azure Windows or Linux Guest Agent. The Azure VM guest agent serves a similar purpose to the Azure Connected Machine agent. To avoid conflicts between the two, the Azure VM Agent needs to be disabled. Once it is disabled, you cannot use VM extensions or some Azure services.
+If you don't have an automation execution environment that meets these requirements, you can [use this example](https://github.com/scottharwell/cloud-ee).
 
-3. Create a security rule to deny access to the Azure Instance Metadata Service (IMDS). IMDS is a REST API that applications can call to get information about the VM's representation in Azure, including its resource ID and location. IMDS also provides access to any managed identities assigned to the machine. Azure Arc-enabled servers provides its own IMDS implementation and returns information about the Azure Arc representation of the VM. To avoid situations where both IMDS endpoints are available and apps have to choose between the two, you block access to the Azure VM IMDS so that the Azure Arc-enabled server IMDS implementation is the only one available.
+See the [Red Hat Ansible documentation](https://docs.ansible.com/automation-controller/latest/html/userguide/execution_environments.html) for more information about building and configuring automation execution environments.
 
-After you've made these changes, your Azure VM behaves like any machine or server outside of Azure and is at the necessary starting point to install and evaluate Azure Arc-enabled servers.
+### Host inventory
 
-When Azure Arc-enabled servers is configured on the VM, you see two representations of it in Azure. One is the Azure VM resource, with a `Microsoft.Compute/virtualMachines` resource type, and the other is an Azure Arc resource, with a `Microsoft.HybridCompute/machines` resource type. As a result of preventing management of the guest operating system from the shared physical host server, the best way to think about the two resources is the Azure VM resource is the virtual hardware for your VM, and let's you control the power state and view information about its SKU, network, and storage configurations. The Azure Arc resource manages the guest operating system in that VM, and can be used to install extensions, view compliance data for Azure Policy, and complete any other supported task by Azure Arc-enabled servers.
+You will need an inventory of Linux hosts configured in automation controller that contains a list of VMs that will use Azure Arc and the Azure Monitor Agent.
 
-## Reconfigure Azure VM
+### Azure Resource Manager credential
 
-1. Remove any VM extensions on the Azure VM.
+A working account credential configured in Ansible Automation Platform for the Azure Resource Manager is required. This credential is used by Ansible Automation Platform to authenticate operations using the Azure Collection and the Azure CLI.
 
-   In the Azure portal, navigate to your Azure VM resource and from the left-hand pane, select  **Extensions**. If there are any extensions installed on the VM, select each extension individually and then select **Uninstall**. Wait for all extensions to finish uninstalling before proceeding to step 2.
+### Server machine credential
 
-2. Disable the Azure VM Guest Agent.
+A “Machine Credential” configured in Automation Controller for SSH access to the servers in your host inventory is required.
 
-   To disable the Azure VM Guest Agent, you'll need to connect to your VM using Remote Desktop Connection (Windows) or SSH (Linux). Once connected, run the following commands to disable the guest agent.
+### Azure Log Analytics workspace
 
-   For Windows, run the following PowerShell commands:
+This article assumes you are using the Azure Log Analytics agent and that the servers are pre-configured to report data to a Log Analytics workspace. You will need the name and resource group of the workspace from which you are migrating.
 
-   ```powershell
-   Set-Service WindowsAzureGuestAgent -StartupType Disabled -Verbose
-   Stop-Service WindowsAzureGuestAgent -Force -Verbose
-   ```
+## Configuring the content
 
-   For Linux, run the following commands:
+The examples in this article rely on content developed and incubated by Red Hat through the [Ansible Content Lab for Cloud Content](https://cloud.lab.ansible.io/).
 
-   ```bash
-   current_hostname=$(hostname)
-   sudo service walinuxagent stop
-   sudo waagent -deprovision -force
-   sudo rm -rf /var/lib/waagent
-   sudo hostnamectl set-hostname $current_hostname
-   ```
+Also, this article makes use of the [Azure Infrastructure Configuration Demo](https://github.com/ansible-content-lab/azure.infrastructure_config_demos) collection, which contains a number of roles and playbooks that manage Azure use cases including those with Azure Arc-enabled servers and Azure Log Analytics.
 
-3. Block access to the Azure IMDS endpoint.
+To use this collection in Automation Controller, follow the steps below to set up a project with the repository:
 
-   While still connected to the server, run the following commands to block access to the Azure IMDS endpoint. For Windows, run the following PowerShell command:
+1. Log in to automation controller.
+1. In the left menu, select **Projects**.
+1. Select **Add**, and then complete the fields of the form as follows:
+    Name: Content Lab - Azure Infrastructure Configuration Collection
+    Automation Environment: <select with the Azure Collection and CLI instead>
+    Source Control Type: Git
+    Source Control URL: https://github.com/ansible-content-lab/azure.infrastructure_config_demos.git
+1. Select **Save**.
 
-   ```powershell
-   New-NetFirewallRule -Name BlockAzureIMDS -DisplayName "Block access to Azure IMDS" -Enabled True -Profile Any -Direction Outbound -Action Block -RemoteAddress 169.254.169.254
-   ```
+Once saved, the project should be synchronized with the automation controller.
 
-   For Linux, consult your distribution's documentation for the best way to block outbound access to `169.254.169.254/32` over TCP port 80. Normally you'll block outbound access with the built-in firewall, but you can also temporarily block it with **iptables** or **nftables**.
+## Migrating Azure agents
 
-   If your Azure VM is running Ubuntu, perform the following steps to configure its uncomplicated firewall (UFW):
+The Ansible Content Lab for Cloud Content project contains example playbooks that implement the reusable content found in the example roles. Learn more about the individual roles in the Collection by viewing the [README.md](https://github.com/ansible-content-lab/azure.infrastructure_config_demos/blob/main/README.md) file included with the Collection.
 
-   ```bash
-   sudo ufw --force enable
-   sudo ufw deny out from any to 169.254.169.254
-   sudo ufw default allow incoming
-   ```
+In this example, we will assume that our Linux servers are already running the Azure Log Analytics agent, but do not yet have the Azure Arc agent installed. If your organization relies on other Azure services that use the Log Analytics agent, you may need to plan for extra data collection rules prior to migrating to the Connected Machine agent.
 
-   If your Azure VM is running CentOS, Red Hat, or SUSE Linux Enterprise Server (SLES), perform the following steps to configure firewalld:
+We will create a workflow that leverages the following playbooks to install the Azure Arc agent, deploy the Azure Monitor Agent, disable the Log Analytics agent, and then uninstall the Log Analytics agent:
 
-   ```bash
-   firewall-cmd --permanent --direct --add-rule ipv4 filter OUTPUT 1 -p tcp -d 169.254.169.254 -j DROP
-   firewall-cmd --reload
-   ```
+- install_arc_agent.yml
+- replace_log_analytics_with_arc_linux.yml
+- uninstall_log_analytics_agent.yml
 
-   For other distributions, consult your firewall docs or configure a generic iptables rule with the following command:
+This workflow performs the following tasks:
 
-   ```bash
-   iptables -A OUTPUT -d 169.254.169.254 -j DROP
-   ```
+1. Installs the Azure Arc agent on all of the VMs identified in inventory.
+1. Enables the Azure Monitor agent extension via Azure Arc.
+1. Disables the Azure Log Analytics agent extension via Azure Arc.
+1. Uninstalls the Azure Log Analytics agent if flagged.
 
-   > [!NOTE]
-   > The iptables configuration needs to be set after every reboot unless a persistent iptables solution is used.
+### Create template to install Azure Arc agent
 
+This template is responsible for installing the Azure Arc [Connected Machine agent](https://docs.microsoft.com/en-us/azure/azure-arc/servers/agent-overview) on hosts within the provided inventory. A successful run will have installed the agent on all machines. 
 
-4. Install and configure the Azure Arc-enabled servers agent.
+Follow the steps below to create the template:
 
-   The VM is now ready for you to begin evaluating Azure Arc-enabled servers. To install and configure the Azure Arc-enabled servers agent, see [Connect hybrid machines using the Azure portal](onboard-portal.md) and follow the steps to generate an installation script and install using the scripted method.
+1. On the right menu, select **Templates**.
+1. Select **Add**.
+1. Select **Add job template**, then complete the fields of the form as follows:
+    Name: Content Lab - Install Arc Agent
+    Job Type: Run
+    Inventory:<your linux host inventory>
+    Project: Content Lab - Azure Infrastructure Configuration Collection
+    Playbook: playbooks/replace_log_analytics_with_arc_linux.yml
+    Credentials:
+        <Your Azure Resource Manager credential>
+        <Your Host Inventory Machine credential>
+    Variables:
+        > [!NOTE]
+        > The operations in this playbook happen through the Azure CLI.   Most of these variables are set to pass along the proper variable from the Azure Resource Manager credential to the CL.
+    Options:
+        Privilege Escalation: true
+1. Select **Save**.
 
-   > [!NOTE]
-   > If outbound connectivity to the internet is restricted from your Azure VM, you'll need to download the agent package manually. Copy the agent package to the Azure VM, and modify the Azure Arc-enabled servers installation script to reference the source folder.
+### Create template to replace log analytics
 
-If you missed one of the steps, the installation script detects it is running on an Azure VM and terminates with an error. Verify you've completed steps 1-3, and then rerun the script.
+This template is responsible for migrating from the Log Analytics agent to the Azure Monitor agent by enabling the Azure Monitor Agent extension and disabling the Azure Log Analytics extension (if used via the Arc agent).
 
-## Verify the connection with Azure Arc
+Follow the steps below to create the template:
 
-After you install and configure the agent to register with Azure Arc-enabled servers, go to the Azure portal to verify that the server has successfully connected. View your machine in the [Azure portal](https://portal.azure.com).
+1. On the right menu, select **Templates**.
+1. Select **Add**.
+1. Select **Add job template**, then complete the fields of the form as follows:
+    Name: Content Lab - Replace Log Analytics agent with Arc agent
+    Job Type: Run
+    Inventory:<your linux host inventory>
+    Project: Content Lab - Azure Infrastructure Configuration Collection
+    Playbook: playbooks/replace_log_analytics_with_arc_linux.yml
+    Credentials:
+        <Your Azure Resource Manager credential>
+        <Your Host Inventory Machine credential>
+    Variables:
+        > [!NOTE]
+        > The `linux_hosts` variable is used to create a list of hostnames to send to the Azure Collection and is not directly related to a host inventory. You may set this list in any way that Ansible supports. In this case, the variable attempts to pull host names from groups with “linux” in the group name.
+1. Select **Save**.
 
-![A successful server connection](./media/onboard-portal/arc-for-servers-successful-onboard.png)
+### Create template to uninstall Log Analytics
 
-## Next steps
+This template will attempt to run the Log Analytics agent uninstall script if the Log Analytics agent was installed outside of the Azure Arc agent.
 
-* Learn [how to plan and enable a large number of machines to Azure Arc-enabled servers](plan-at-scale-deployment.md) to simplify configuration of essential security management and monitoring capabilities in Azure.
+Follow the steps below to create the template:
 
-* Learn about our [supported Azure VM extensions](manage-vm-extensions.md) available to simplify deployment with other Azure services like Automation, KeyVault, and others for your Windows or Linux machine.
+1. On the right menu, select **Templates**.
+1. Select **Add**.
+1. Select **Add job template**, then complete the fields of the form as follows:
+    Name: Content Lab - Uninstall Log Analytics agent
+    Job Type: Run
+    Inventory:<your linux host inventory>
+    Project: Content Lab - Azure Infrastructure Configuration Collection
+    Playbook: playbooks/uninstall_log_analytics_with_arc_linux.yml
+    Credentials:
+        <Your Host Inventory Machine credential>
+    Options:
+        Privilege Escalation: true
+1. Select **Save**.
 
-* When you have finished testing, [uninstall the Azure Arc-enabled servers agent](manage-agent.md#uninstall-the-agent).
+### Create the workflow
 
--->
+An automation controller workflow allows you to construct complex automation by connecting automation templates and other actions together. This workflow example is a simple linear flow that enables the end-to-end scenario in this example, but other nodes could be added for context such as error handling, human approvals, etc.
+
+1. On the right menu, select **Templates**.
+1. Select **Add**.
+1. Select **Add workflow template**, then complete the following fields as follows:
+    Name: Content Lab - Migrate Log Agent to Azure Monitor
+    Job Type: Run
+    Inventory: <your linux host inventory>
+    Project: Content Lab - Azure Infrastructure Configuration Collection
+1. Select **Save**.
+1. Select **Start** to begin the workflow designer.
+1. Set **Node Type** to "Job Template" and select **Content Lab - Replace Log Analytics with Arc Agent**.
+1. Select **Next**.
+1. Select **Save**.
+1. Hover over the **Content Lab - Replace Log Analytics with Arc Agent** node and select the **+** button.
+1. Select **On Success**.
+1. Select **Next**.
+1. Set **Node Type** to "Job Template" and select **Content Lab - Uninstall Log Analytics Agent**.
+1. Select **Save**.
+1. Select **Save** at the top right corner of the workflow designer.
+
+You will now have a workflow that looks like the following:
+
+### Add a survey to the workflow
+
+We want to add survey questions to the workflow so that we can collect input when the workflow is run.
+
+1. Select **Survey** from the workflow details screen.
+1. Select **Add**, then complete the form using the following values:
+    Question: Which Azure region will your Arc servers reside?
+    Answer variable name: region
+    Required: true
+    Answer type: Text
+1. Select **Save**.
+1. Select **Add**, then complete the form using the following values:
+    Question: What is the name of the resource group?
+    Answer variable name: resource_group_name
+    Required: true
+    Answer type: Text
+1. Select **Save**.
+1. Select **Add**, then complete the form using the following values:
+    Question: What is the name of your Log Analytics workspace?
+    Answer variable name: analytics_workspace_name
+    Required: true
+    Answer type: Text
+1. Select **Save**.
+1. From the Survey list screen, ensure that the survey is enabled.
+
+Your workflow has now been created.
+
+### Running the workflow
+
+Now that you have the workflow created, you can run the workflow at any time. When you click the “launch” 🚀 icon, the survey that you configured will be presented so that you can update the variables across automation runs. This will allow you to move Log Analytics connected servers that are assigned to different regions or resource groups as needed.
+
+## Conclusion
+
+After following the steps in this article, you have created an automation workflow that migrates your Linux-based machines from the Azure Log Analytics agent to the Azure Monitor Agent. This example took advantage of content from the Ansible Content Lab for Cloud Automation to make implementation fast and easy. You may submit content ideas to the Ansible Content Lab for Cloud Content [here](https://cloud.lab.ansible.io/).
 
