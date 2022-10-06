@@ -79,7 +79,12 @@ select this action: **Integration Account Artifact Lookup - Integration Account*
    | **Artifact Name** | Yes | <*artifact-name*> | The name for the artifact you want | 
    ||| 
 
-   For example, you might want to get the metadata for a trading partner artifact. In that case, select **Partner** for the **Artifact Type**. For the **Artifact Name**, select the **name** trigger output from the dynamic content list. The following screenshot shows these values:
+   For example, to get the metadata for a trading partner artifact:
+
+   - For **Artifact Type**, select **Partner**.
+   - For **Artifact Name**, select the **name** trigger output from the dynamic content list.
+
+   The following screenshot shows these values:
 
    :::image type="content" source="media/logic-apps-enterprise-integration-metadata/artifact-lookup-information.png" alt-text="Screenshot of the Logic app designer. In the Integration Account Artifact Lookup step, the Artifact Type and Artifact Name boxes are called out.":::
 
