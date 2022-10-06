@@ -62,7 +62,8 @@ This section helps you decide which Form Recognizer v3.0 supported feature you s
 
 ::: moniker range="form-recog-3.0.0"
 
-The following features  and development options are supported by the Form Recognizer service v3.0. Use the links in the table to learn more about each feature and browse the API references.
+> [!NOTE]
+> The following features  and development options are supported by the Form Recognizer service v3.0. Use the links in the table to learn more about each feature and browse the API references.
 
 | Feature | Description | Development options |
 |----------|--------------|-------------------------|
@@ -80,7 +81,8 @@ The following features  and development options are supported by the Form Recogn
 
 ::: moniker range="form-recog-2.1.0"
 
-The following features are supported by Form Recognizer v2.1. Use the links in the table to learn more about each feature and browse the API references.
+> [!NOTE]
+>The following features are supported by Form Recognizer v2.1. Use the links in the table to learn more about each feature and browse the API references.
 
 | Feature | Description | Development options |
 |----------|--------------|-------------------------|

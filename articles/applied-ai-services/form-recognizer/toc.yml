@@ -30,7 +30,7 @@ items:
     href: faq.yml
 - name: Quickstarts
   items:
-    - name: Form Recognizer Studio | v3.0
+    - name: Form Recognizer Studio
       displayName: get started, cors, blob, storage, upload, labels, custom, dynamic, fixed, signatures
       href: quickstarts/try-v3-form-recognizer-studio.md
     - name: Form Recognizer SDKs and REST API v3.0
@@ -157,22 +157,22 @@ items:
   - name: General document model | v3.0
     displayName: key value pairs, selection marks, structured
     href: concept-general-document.md
-  - name: Layout model | v3.0, v2.0
+  - name: Layout model 
     displayName: tables, selection marks, structure, paragraph roles, text, headers, page numbers
     href: concept-layout.md
   - name: W-2 form model | v3.0
     displayName: wages, taxes, salary, employees
     href: concept-w2.md
-  - name: Invoice model | v3.0, v2.0
+  - name: Invoice model 
     displayName: sales, vendors, VAT
     href: concept-invoice.md
-  - name: Receipt model | v3.0, v2.0
+  - name: Receipt model 
     displayName: sales, merchants
     href: concept-receipt.md
-  - name: ID document model | v3.0, v2.0
+  - name: ID document model 
     displayName: passport, visa, ID, social security, green card
     href: concept-id-document.md
-  - name: Business card model | v3.0, v2.0
+  - name: Business card model 
     displayName: https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument
     href: concept-business-card.md
   - name: Custom models

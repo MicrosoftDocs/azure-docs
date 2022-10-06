@@ -16,52 +16,33 @@ recommendations: false
 
 # Quickstart: Form Recognizer SDKs | REST API v3.0
 
-::: moniker range="form-recog-3.0.0"
-
 Get started with the latest version of Azure Form Recognizer. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, tables and key data from your documents. You can easily integrate Form Recognizer models into your workflows and applications by using an SDK in the programming language of your choice or calling the REST API.  For this quickstart, we recommend that you use the free service while you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
 To learn more about Form Recognizer features and development options, visit our [Overview](../overview.md#form-recognizer-features-and-development-options) page.
 
-::: moniker-end
-
 ::: zone pivot="programming-language-csharp"
 
-monikerRange: 'form-recog-3.0.0'
 [!INCLUDE [C# SDK](includes/v3-csharp-sdk.md)]
-::: moniker-end
-
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 
-monikerRange: 'form-recog-3.0.0'
 [!INCLUDE [Java SDK](includes/v3-java-sdk.md)]
-::: moniker-end
-
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
-monikerRange: 'form-recog-3.0.0'
 [!INCLUDE [NodeJS SDK](includes/v3-javascript-sdk.md)]
-::: moniker-end
-
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-monikerRange: 'form-recog-3.0.0'
 [!INCLUDE [Python SDK](includes/v3-python-sdk.md)]
-::: moniker-end
-
 ::: zone-end
 
 ::: zone pivot="programming-language-rest-api"
 
-monikerRange: 'form-recog-3.0.0'
 [!INCLUDE [REST API](includes/v3-rest-api.md)]
-::: moniker-end
-
 ::: zone-end
 
 That's it, congratulations!

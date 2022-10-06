@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 09/13/2022
+ms.date: 10/06/2022
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
 monikerRange: 'form-recog-2.1.0'

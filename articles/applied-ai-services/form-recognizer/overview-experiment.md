@@ -52,7 +52,8 @@ This section will help you decide which Form Recognizer v3.0 supported model you
 
 ::: moniker range="form-recog-3.0.0"
 
-The following models  and development options are supported by the Form Recognizer service v3.0. You can Use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities. Use the links in the table to learn more about each model and browse the API references.
+> [!NOTE]
+> The following models  and development options are supported by the Form Recognizer service v3.0. You can Use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities. Use the links in the table to learn more about each model and browse the API references.
 
 | Model | Description |Automation use cases | Development options |
 |----------|--------------|-------------------------|-----------|
