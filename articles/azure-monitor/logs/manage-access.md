@@ -299,7 +299,7 @@ To create a role that lets users or groups read data from specific tables in a w
 
         1. Select **JSON** and copy the `id` field.
              
-            You'll need the `/providers/Microsoft.Authorization/roleDefinitions/<definition_id>" when you call the https://management.azure.com/batch?api-version=2020-06-01 POST API.
+            You'll need the `/providers/Microsoft.Authorization/roleDefinitions/<definition_id>` when you call the https://management.azure.com/batch?api-version=2020-06-01 POST API.
 
 1. Assign your custom role to the relevant users or groups:
     1. Select **Access control (AIM)** > **Add** > **Add role assignment**.
