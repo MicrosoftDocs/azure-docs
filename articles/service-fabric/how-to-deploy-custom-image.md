@@ -25,3 +25,4 @@ Check [Add a managed identity to a Service Fabric Managed Cluster node type](how
 
 ```powershell 
 New-AzRoleAssignment -PrincipalId "<SFMC SPID>" -RoleDefinitionName "Reader" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<galleryName>"
+```
