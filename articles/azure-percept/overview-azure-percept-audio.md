@@ -63,7 +63,3 @@ Build a [no-code speech solution](./tutorial-no-code-speech.md) in [Azure Percep
 - [Azure Percept Audio datasheet](./azure-percept-audio-datasheet.md)
 - [Button and LED behavior](./audio-button-led-behavior.md)
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Buy an Azure Percept Audio device from the Microsoft online store](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
