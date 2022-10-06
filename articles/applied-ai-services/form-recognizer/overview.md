@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 08/22/2022
+ms.date: 10/06/2022
 ms.author: lajanuar
 recommendations: false
 adobe-target: true
@@ -60,7 +60,7 @@ This section helps you decide which Form Recognizer v3.0 supported feature you s
 
 ## Form Recognizer features and development options
 
-### [Form Recognizer v3.0](#tab/v3-0)
+::: moniker range="form-recog-3.0.0"
 
 The following features  and development options are supported by the Form Recognizer service v3.0. Use the links in the table to learn more about each feature and browse the API references.
 
@@ -76,7 +76,9 @@ The following features  and development options are supported by the Form Recogn
 |[**ID document model (updated)**](concept-id-document.md) |Automated data processing and extraction of key information from US driver's licenses and international passports.</br></br>Prebuilt ID document API supports the **extraction of endorsements, restrictions, and vehicle classifications from US driver's licenses**. |<ul><li> [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)</li><li>[**REST API**](quickstarts/get-started-v3-sdk-rest-api.md)</li><li>[**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li><li>[**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li><li>[**Java SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li><li>[**JavaScript**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li></ul>|
 |[**Business card model**](concept-business-card.md) |Automated data processing and extraction of key information from business cards.| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)</li><li>[**REST API**](quickstarts/get-started-v3-sdk-rest-api.md)</li><li>[**C# SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li><li>[**Python SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li><li>[**Java SDK**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li><li>[**JavaScript**](quickstarts/get-started-v3-sdk-rest-api.md#prebuilt-model)</li></ul>|
 
-### [Form Recognizer GA (v2.1)](#tab/v2-1)
+::: moniker-end
+
+::: moniker range="form-recog-3.0.0"
 
 The following features are supported by Form Recognizer v2.1. Use the links in the table to learn more about each feature and browse the API references.
 
@@ -89,7 +91,7 @@ The following features are supported by Form Recognizer v2.1. Use the links in t
 |[**ID document model**](concept-id-document.md) | Automated data processing and extraction of key information from US driver's licenses and international passports.| <ul><li>[**Form Recognizer labeling tool**](quickstarts/try-sample-label-tool.md#analyze-using-a-prebuilt-model)</li><li>[**REST API**](quickstarts/get-started-v2-1-sdk-rest-api.md#try-it-prebuilt-model)</li><li>[**Client-library SDK**](how-to-guides/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=id-document#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 |[**Business card model**](concept-business-card.md) | Automated data processing and extraction of key information from business cards.| <ul><li>[**Form Recognizer labeling tool**](quickstarts/try-sample-label-tool.md#analyze-using-a-prebuilt-model)</li><li>[**REST API**](quickstarts/get-started-v2-1-sdk-rest-api.md#try-it-prebuilt-model)</li><li>[**Client-library SDK**](how-to-guides/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=business-card#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 
----
+::: moniker-end
 
 ## How to use Form Recognizer documentation
 
@@ -106,7 +108,7 @@ This documentation contains the following article types:
 
 ## Next steps
 
-### [Form Recognizer v3.0](#tab/v3-0)
+::: moniker range="form-recog-3.0.0"
 
 > [!div class="checklist"]
 >
@@ -114,7 +116,9 @@ This documentation contains the following article types:
 > * Explore the [**REST API reference documentation**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-08-31/operations/AnalyzeDocument) to learn more.
 > * If you're familiar with a previous version of the API, see the [**What's new**](./whats-new.md) article to learn of recent changes.
 
-### [Form Recognizer v2.1](#tab/v2-1)
+::: moniker-end
+
+::: moniker range="form-recog-2.1.0"
 
 > [!div class="checklist"]
 >
@@ -123,4 +127,4 @@ This documentation contains the following article types:
 > * Explore the [**REST API reference documentation**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) to learn more.
 > * If you're familiar with a previous version of the API, see the [**What's new**](./whats-new.md) article to learn of recent changes.
 
----
+::: moniker-end
