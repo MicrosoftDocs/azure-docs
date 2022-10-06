@@ -746,7 +746,7 @@ To view metrics and set alerts based on your SLA, complete the steps that are de
 
 ### (Optional) Integrate with Log Analytics
 
-The `get-logs` command provides only the last few hundred lines of logs from an automatically selected instance. However, Log Analytics provides a way to durably store and analyze logs. For more information on using logging, see [Monitor online endpoints](how-to-monitor-online-endpoints.md#logs)
+The `get-logs` command for CLI or the `get_logs` method for SDK provides only the last few hundred lines of logs from an automatically selected instance. However, Log Analytics provides a way to durably store and analyze logs. For more information on using logging, see [Monitor online endpoints](how-to-monitor-online-endpoints.md#logs)
 
 [!INCLUDE [Email Notification Include](../../includes/machine-learning-email-notifications.md)]
 
@@ -754,7 +754,17 @@ The `get-logs` command provides only the last few hundred lines of logs from an 
 
 If you aren't going use the deployment, you should delete it by running the following code (it deletes the endpoint and all the underlying deployments):
 
+# [Azure CLI](#tab/azure-cli)
+
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
+
+# [Python](#tab/python)
+
+```python
+ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
+```
+
+---
 
 ## Next steps
 
