@@ -33,7 +33,7 @@ To get started with the IEF Editor, ensure the following prerequisites are met:
 - An Azure AD B2C tenant linked to the Azure subscription. Learn more at [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md).
 - [Visual IEF Editor](https://www.gritiefedit.com) is free and works only with Google Chrome browser.
 - Review and download policies from [Azure AD B2C customer policies starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)
-- Google Chrome browser
+- Install Google Chrome browser
 
 ## Sample code development workflow
 
@@ -44,11 +44,11 @@ The following illustration shows a sample code-development workflow from XML fil
 | Step | Description |
 |:-----|:------|
 | 1. | Go to https://www.gritiefedit.com and upload the policies from [Azure AD B2C customer policies starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack) using the upload policy button in the user interface.|
-| 2 | Using the Visual IEF editor tool, select and edit any user journey and self asserted profile that needs update/modification.|
+| 2. | Using the Visual IEF editor tool, select and edit any user journey and self asserted profile that needs update/modification.|
 |3. | Once the files are updated, select the download button. All the policies will be downloaded to the local machine.|
 |4. | Check-in the files in GitHub or CI/CD pipleline. |
 |5. | Use the files in the lower environment for testing the Azure AD B2C policies.|
-|6. | Once the policies are tested, deploy in the Azure AD B2C production environment. |
+|6. | Deploy the policies in Azure AD B2C production environment. |
 
 Learn more about [IEF Editor](https://app.archbee.com/doc/uwPRnuvZNjyEaJ8odNOEC/WmcXf6fTZjAHpx7-rAlac). 
 
@@ -81,9 +81,9 @@ When IEF files are loaded into Visual IEF Editor, a list of user journeys appear
 >[!NOTE]
 >This scenario is in private preview. For access, or questions, contact [Grit IAM Solutions support](https://www.gritiam.com/).
 
-Fabrikam has a set of pre-built templates with intuitive charts that show user flows. You can use Visual IEF Editor to modify templates and then deploy them into a lower environment, or upload them to GitHub for CI/CD.
+Fabrikam has a set of pre-built templates with intuitive charts that show user flows. Use Visual IEF Editor to modify templates and then deploy them into a lower environment, or upload them to GitHub for CI/CD.
 
-After the IEF is modified, you can download, and upload the files to Azure AD B2C to see them in action.
+After the IEF is modified, download, and upload the files to Azure AD B2C to see them in action.
 
 ## Next steps
 
