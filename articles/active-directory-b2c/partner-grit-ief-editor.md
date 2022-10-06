@@ -1,23 +1,23 @@
 ---
-title: Tutorial to Edit identity experience framework XML with Grit Visual Identity Experience Framework (IEF) Editor
+title: Edit identity experience framework XML with Grit Visual Identity Experience Framework (IEF) Editor
 titleSuffix: Azure AD B2C
-description: Learn how to integrate Azure AD B2C authentication with the Grit Visual IEF Editor
+description: Learn how Grit Visual IEF Editor enables fast authentication deployments in Azure AD B2C
 services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 9/28/2022
+ms.date: 10/05/2022
 ms.author: gasinh
 ms.reviewer: kengaderdus
 ms.subservice: B2C 
 ---
 
 
-# Tutorial: Edit Identity Experience Framework XML with Grit Visual Identity Experience Framework Editor
+# Edit your Azure Active Directoty B2C Identity Experience Framework XML with Grit Visual Identity Experience Framework Editor
 
-In this tutorial, you'll learn how to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Grit Software Systems Visual Identity Experience Framework (IEF) Editor](https://www.gritiam.com/iefeditor), a tool that saves time during authentication deployment. It supports multiple languages without the need to write code. It also has a no code debugger for user journeys.
+[Grit Software Systems Visual Identity Experience Framework (IEF) Editor](https://www.gritiam.com/iefeditor), is a tool that saves time during Azure Active Directory B2C (Azure AD B2C) authentication deployment. It supports multiple languages without the need to write code. It also has a no code debugger for user journeys.
 
 Use the Visual IEF Editor to:
 
@@ -25,29 +25,35 @@ Use the Visual IEF Editor to:
 - Load your Azure AD B2C IEF XML.
 - Visualize and modify your current code, check it in, and run it through a continuous integration/continuous delivery (CI/CD) pipeline.
 
+## Prerequisites
+
+To get started with the IEF Editor, ensure the following prerequisites are met:
+
+- An Azure AD subscription. If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/).
+- An Azure AD B2C tenant linked to the Azure subscription. Learn more at [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md).
+- [Visual IEF Editor](https://www.gritiefedit.com) is free and works only with Google Chrome browser.
+- Policies downloaded from [Azure AD B2C customer policies starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)
+- Google Chrome browser installed 
+
 ## Sample code development workflow
 
 The following illustration shows a sample code-development workflow from XML files to production.
 
 ![Screenshot shows the sample code-development workflow.](./media/partner-grit-ief-editor/sample-code-development-workflow.png)
 
->[!TIP]
->Visual IEF Editor is free and works only with Google Chrome browser.
+| Step | Description |
+| 1. | Go to https://www.gritiefedit.com and upload the policies from [Azure AD B2C customer policies starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack) using the upload policy button in the user interface.|
+| 2 | Using the Visual IEF editor tool, select and edit any user journey and self asserted profile that needs update/modification.|
+|3. | Once the files are updated, select the download button. All the policies will be downloaded to the local machine.|
+|4. | Check-in the files in GitHub or CI/CD pipleline. |
+|5. | Use the files in the lower environment for testing the Azure AD B2C policies.|
+|6. | Once the policies are tested, deploy in the Azure AD B2C production environment. |
 
-## Prerequisites
-
-To get started with the IEF Editor, ensure the following prerequisites are met:
-
-- Go to [IEF Editor](https://app.archbee.com/doc/uwPRnuvZNjyEaJ8odNOEC/WmcXf6fTZjAHpx7-rAlac) and review:
-  - Prerequisites for browser and Starter Pack
-  - Summary for the IEF Editor objective
-  - Walk-through link and instructions
-- An Azure AD subscription. If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/).
-- An Azure AD B2C tenant linked to the Azure subscription. Learn more at [Tutorial: Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md).
+Learn more about [IEF Editor](https://app.archbee.com/doc/uwPRnuvZNjyEaJ8odNOEC/WmcXf6fTZjAHpx7-rAlac). 
 
 ## Scenario descriptions
 
-The following sections describe two Visual IEF Editor scenarios for *Contoso* and *Fabrikam*.
+The following sections describe two Visual IEF Editor scenarios for *Contoso* and *Fabrikam* to consider when you plan your Azure AD B2C deployment using this tool. 
 
 ### Case 1 - Contoso: IEF logic, make changes, and enable features
 
@@ -80,8 +86,11 @@ After the IEF is modified, you can download, and upload the files to Azure AD B2
 
 ## Next steps
 
+For additional information, review the following articles:
+
 - [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](custom-policy-get-started.md?tabs=applications)
 
 - [IEF Editor](https://app.archbee.com/doc/uwPRnuvZNjyEaJ8odNOEC/WmcXf6fTZjAHpx7-rAlac) documentation
 
 - [Grit IAM B2B2C](partner-grit-iam.md)
+
