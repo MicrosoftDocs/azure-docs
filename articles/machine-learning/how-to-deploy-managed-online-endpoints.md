@@ -8,7 +8,7 @@ ms.subservice: mlops
 author: dem108
 ms.author: sehan
 ms.reviewer: larryfr
-ms.date: 08/31/2022
+ms.date: 10/06/2022
 ms.topic: how-to
 ms.custom: how-to, devplatv2, ignite-fall-2021, cliv2, event-tier1-build-2022, sdkv2
 ---
@@ -53,7 +53,6 @@ The main example in this doc uses managed online endpoints for deployment. To us
 
 > [!IMPORTANT]
 > The examples in this document assume that you are using the Bash shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about). 
-
 
 # [Python](#tab/python)
 
@@ -354,17 +353,7 @@ Check the status to see whether the model was deployed without error:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="get_status":::
 
-# [Python](#tab/python)
-
-```python
-ml_client.online_endpoints.get(name=local_endpoint_name, local=True)
-```
-
----
-
 The output should appear similar to the following JSON. The `provisioning_state` is `Succeeded`.
-
-<Todo: confirm output style for SDKv2>
 
 ```json
 {
@@ -378,6 +367,20 @@ The output should appear similar to the following JSON. The `provisioning_state`
   "traffic": {}
 }
 ```
+
+# [Python](#tab/python)
+
+```python
+ml_client.online_endpoints.get(name=local_endpoint_name, local=True)
+```
+
+The method returns [`ManagedOnlineEndpoint` entity](/python/api/azure-ai-ml/azure.ai.ml.entities.managedonlineendpoint.md). The `provisioning_state` is `Succeeded`.
+
+```python
+ManagedOnlineEndpoint({'public_network_access': None, 'provisioning_state': 'Succeeded', 'scoring_uri': 'http://localhost:49158/score', 'swagger_uri': None, 'name': 'local-10061534497697', 'description': 'this is a sample local endpoint', 'tags': {}, 'properties': {}, 'id': None, 'Resource__source_path': None, 'base_path': '/path/to/your/working/directory', 'creation_context': None, 'serialize': <msrest.serialization.Serializer object at 0x7ffb781bccd0>, 'auth_mode': 'key', 'location': 'local', 'identity': None, 'traffic': {}, 'mirror_traffic': {}, 'kind': None})
+```
+
+---
 
 The following table contains the possible values for `provisioning_state`:
 
