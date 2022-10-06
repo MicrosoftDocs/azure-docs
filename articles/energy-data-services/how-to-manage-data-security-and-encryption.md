@@ -27,7 +27,7 @@ In addition to TLS, when you interact with Microsoft Energy Data Services, all t
 
 ## Set up Customer Managed Keys (CMK) for Microsoft Energy Data Services Preview instance
 
-### Pre-requisites
+### Prerequisites
 
 **Step 1- Configure the key vault**
 
