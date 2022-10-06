@@ -15,7 +15,7 @@ Connect the destination switch to your OT network sensor to monitor traffic with
 
 *Promiscuous mode* is a mode of operation and a security, monitoring, and administration technique that is defined at the virtual switch or portgroup level. When promiscuous mode is used, any of the virtual machine’s network interfaces that are in the same portgroup can view all network traffic that goes through that virtual switch. By default, promiscuous mode is turned off.
 
-<!--How does it get into D4IoT?-->
+Make sure to connect the both incoming traffic for monitoring as well as the MD4IoT sensor "monitoring interfaces" to the vSwitch for passive traffic security monitoring to start.
 
 ## Configure a monitoring interface using Promiscuous mode
 
