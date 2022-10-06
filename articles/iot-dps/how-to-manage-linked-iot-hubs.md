@@ -12,7 +12,19 @@ ms.custom: mvc
 
 # How to link and manage IoT hubs
 
-Device Provisioning Service can provision devices across one or more IoT hubs. Before DPS can provision devices to an IoT hub it must be linked to your DPS instance. Once linked, an IoT hub can be used in an allocation policy. Allocation policies determine how devices are assigned to IoT hubs by DPS. This article provides instruction on how to link IoT hubs and manage them in your DPS instance. To learn about DPS allocation policies and how linked IoT hubs participate in them, see [Manage allocation policies](how-to-use-allocation-policies.md).
+Device Provisioning Service can provision devices across one or more IoT hubs. Before DPS can provision devices to an IoT hub it must be linked to your DPS instance. Once linked, an IoT hub can be used in an allocation policy. Allocation policies determine how devices are assigned to IoT hubs by DPS. This article provides instruction on how to link IoT hubs and manage them in your DPS instance. 
+
+## Linked IoT hubs and allocation policies
+
+Allocation policies determine how DPS assigns devices to IoT hubs. Before an IoT hub can be used in an allocation policy, it must be linked to the DPS instance. Once an IoT hub is linked to DPS, it's eligible to participate in allocation. Whether it will participate in allocation depends on settings in the enrollment that a device is provisioning through. To learn about DPS allocation policies and how linked IoT hubs participate in them, see [Manage allocation policies](how-to-use-allocation-policies.md).
+
+The following settings are important when working with linked IoT hubs:
+
+* **Connection string**: Sets the IoT Hub connection string that DPS uses to connect to the linked IoT hub. The connection string is based on one of the IoT hub's shared access policies. DPS needs the following permissions on the IoT hub: RegistryWrite and ServiceConnect. The connection string must be for a shared access policy that has these permissions. To learn more about IoT Hub shared access policies, see  [IoT Hub access control and permissions](../iot-hub/iot-hub-dev-guide-sas.md#access-control-and-permissions).
+
+* **Allocation weight**: Determines the likelihood of an IoT hub being selected when DPS hashes device assignment across a set of IoT hubs. The value can be between one and 1000. The default is one (or **null**). Higher values increase the IoT hub's probability of being selected.
+
+* **Apply allocation policy**: Sets whether the IoT hub participates in allocation policy. The default is **Yes** (true). If set to **No** (false), devices won't be assigned to the IoT hub. The IoT hub can still be selected on an enrollment, it just won't participate in allocation. You can use this setting to temporarily or permanently remove an IoT hub from participating in allocation; for example, if it's approaching the allowed number of devices.
 
 ## Add a linked IoT hub
 
@@ -48,7 +60,15 @@ To link an IoT hub to your DPS instance from an enrollment in Azure portal:
 
     * To update an existing enrollment, select it from the list under either the **Enrollment Groups** or **Individual Enrollments** tab.
 
-1. On the **Add Enrollment** page (on create) or the **Enrollment details** page (on update), you can select the **Link a new IoT hub** button to link a new IoT hub to the DPS instance.
+1. On the **Add Enrollment** page (on create) or the **Enrollment details** page (on update), select the **Link a new IoT hub** button to link a new IoT hub to the DPS instance.
+
+1. On the **Add link to IoT hub** page, select the subscription that contains the IoT hub and then choose the name of the IoT hub from the **IoT hub** list.
+
+1. After you select the IoT hub, choose an access policy that DPS will use to connect to the IoT hub. The **Access Policy** list shows all shared access policies defined on the selected IoT Hub that have both **Registry Write** and **Service Connect** permissions defined. The default is the *iothubowner* policy. Select the policy you want to use.  
+
+1. Select **Save**.
+
+1. You're returned to the previous page. If you want to, you can select the newly linked IoT hub on the enrollment.
 
 1. After you finish specifying any other fields necessary for the enrollment, save your settings.
 
@@ -195,7 +215,7 @@ To update symmetric keys for a linked IoT hub with Azure portal:
 
 1. On the left menu of your DPS instance in Azure portal, select the IoT hub that you want to update the key(s) for.
 
-1. From the **Linked IoT hub details** page, select **Manage Resource** to go to the IoT hub.
+1. On the **Linked IoT hub details** page, note down the values for *Allocation weight* and *Apply allocation policy*, you'll need these when you re-link the IoT hub to your DPS instance later. Then, select **Manage Resource** to go to the IoT hub.
 
 1. On the left menu of the IoT hub, under **Hub settings**, select **Shared access policies**.
 
@@ -207,12 +227,16 @@ To update symmetric keys for a linked IoT hub with Azure portal:
 
 1. On the left menu of your DPS instance, select **Linked IoT hubs**.
 
-1. Select the checkbox next to the IoT hub that you're updating the keys for, then select **Delete** at the top of the page, and confirm the changes.
+1. Select the checkbox next to the IoT hub that you're updating the keys for, then select **Delete** at the top of the page and confirm the changes.
 
-1. Follow the steps in [Add a linked IoT hub](#use-azure-portal-to-add-a-linked-iot-hub) to re-add the IoT hub to your DPS instance.
+1. Follow the steps in [Link an IoT hub](#use-azure-portal-to-link-an-iot-hub) to re-link the IoT hub to your DPS instance.
 
-1. If you need to restore the allocation weight and apply allocation policy settings, follow the steps in [Update a linked IoT hub](#update-a-linked-iot-hub-using-azure-portal).
+1. If you need to restore the allocation weight and apply allocation policy settings, follow the steps in [Update a linked IoT hub](#use-azure-portal-to-update-a-linked-iot-hub) using the values you saved in step 2.
 
 ## Limitations
 
 There are some limitations when working with linked IoT hubs and private endpoints. For more information, see [Private endpoint limitations](virtual-network-support.md#private-endpoint-limitations).
+
+## Next steps
+
+* To learn more about allocation policies, see [Manage allocation policies](how-to-use-allocation-policies.md).

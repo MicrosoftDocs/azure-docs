@@ -32,7 +32,7 @@ DPS supports four allocation policies:
 
 There are two settings on a linked IoT hub that determine how it participates in allocation:
 
-* **Allocation weight** sets the weight that the IoT hub will have when participating in allocation policies that involve provisioning among multiple IoT hubs. It can be a value between one and 1000. The default is one.
+* **Allocation weight**: sets the weight that the IoT hub will have when participating in allocation policies that involve provisioning among multiple IoT hubs. It can be a value between one and 1000. The default is one.
 
   * With the *Evenly weighted distribution* allocation policy, IoT hubs with higher allocation weight values have a greater likelihood of being selected compared to those with lower weight values.
 
@@ -40,7 +40,7 @@ There are two settings on a linked IoT hub that determine how it participates in
   
   * With a *Custom* allocation policy, whether and how the allocation weight value is used will depend on the webhook logic.
 
-* **Apply allocation policy** specifies whether the IoT hub participates in allocation policy. If set to **No** (false), devices won't be assigned to the IoT hub. The IoT hub can still be selected on an enrollment, it just won't participate in allocation. You can use this setting to temporarily or permanently remove an IoT hub from participating in allocation; for example, if it's approaching the allowed number of devices.
+* **Apply allocation policy**: specifies whether the IoT hub participates in allocation policy. If set to **No** (false), devices won't be assigned to the IoT hub. The IoT hub can still be selected on an enrollment, it just won't participate in allocation. You can use this setting to temporarily or permanently remove an IoT hub from participating in allocation; for example, if it's approaching the allowed number of devices.
 
 Every DPS instance has a default allocation policy. In addition, individual enrollments and enrollment groups can specify an allocation policy and one or more IoT hubs from the IoT hubs linked to the DPS instance that the policy should be applied to.
 
@@ -157,6 +157,10 @@ There are some limitations when working with allocation policies and private end
 
 ## Next steps
 
+* To learn more about linking and managing linked IoT hubs, see [Manage linked IoT hubs](how-to-manage-linked-iot-hubs.md).
+
+* To learn more about custom allocation policies, see [Understand custom allocation policies](concepts-custom-allocation.md).
+
 * For an end-to-end example using the lowest latency allocation policy, see the [Provision for geolatency](how-to-provision-multitenant.md) tutorial.
 
-* To learn more about custom allocation policies, see the [Use custom allocation policies](tutorial-custom-allocation-policies.md) tutorial.
+* For an end-to-end example using a custom allocation policy, see the [Use custom allocation policies](tutorial-custom-allocation-policies.md) tutorial.
