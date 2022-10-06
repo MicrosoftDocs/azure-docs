@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: openai
 ms.topic: include
-ms.date: 06/30/2022
+ms.date: 10/06/2022
 keywords: 
 ---
 
@@ -38,11 +38,7 @@ From here, select the **create new deployment** button in the banner at the top.
 
 ## Deployments
 
-<<<<<<< HEAD
-Before you can generate text or inference, you need to deploy a model by clicking the **create new deployment** button on the deployments page. From here you can select from one of our many available models. For getting started we recommend selecting the `text-davinci-002` model.
-=======
-Before you can generate text or inference, you need to deploy a model. This is done by clicking the **create new deployment** on the deployments page. From here you can select from one of our many available models. For getting started we recommend `text-davinci-002`.
->>>>>>> e87c44faf345cf4dce02bd265212fd9ed8914b27
+Before you can generate text or inference, you need to deploy a model. This is done by selecting the **create new deployment** on the deployments page. From here, you can select from one of our many available models. For getting started we recommend `text-davinci-002`.
 
 Once this is complete, select the 'Playground' button on the left nav to start experimenting.
 
