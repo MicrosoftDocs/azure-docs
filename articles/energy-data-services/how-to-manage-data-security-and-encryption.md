@@ -1,5 +1,5 @@
 ---
-Title: Data security and encryption in Microsoft Energy Data Services Preview #Required; page title is displayed in search results. Include the brand.
+title: Data security and encryption in Microsoft Energy Data Services Preview #Required; page title is displayed in search results. Include the brand.
 description: Guide on security in Microsoft Energy Data Services and how to set up customer managed keys on Microsoft Energy Data Services #Required; article description that is displayed in search results. 
 author: NandiniMurali #Required; your GitHub user alias, with correct capitalization.
 ms.author: Nandinim #Required; microsoft alias of author; optional team alias.
