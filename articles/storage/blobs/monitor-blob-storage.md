@@ -6,9 +6,8 @@ author: normesta
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/05/2022
+ms.date: 10/06/2022
 ms.author: normesta
-ms.reviewer: fryu
 ms.devlang: csharp
 ms.custom: "subject-monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell"
 ---
@@ -67,7 +66,7 @@ See [Create diagnostic setting to collect platform logs and metrics in Azure](..
 
 ## Destination limitations
 
-For general destination limitations, see [Destination limitations](../../azure-monitor/essentials/diagnostic-settings#destination-limitations.md). The following limitations apply only to monitoring Azure Storage accounts.
+For general destination limitations, see [Destination limitations](../../azure-monitor/essentials/diagnostic-settings.md#destination-limitations). The following limitations apply only to monitoring Azure Storage accounts.
 
 - You can't send logs to the same storage account that you are monitoring with this setting. 
 
@@ -78,8 +77,6 @@ For general destination limitations, see [Destination limitations](../../azure-m
   If you archive logs to a storage account, you can manage the retention policy of a log container by defining a lifecycle management policy. To learn how, see [Optimize costs by automating Azure Blob Storage access tiers](lifecycle-management-overview.md).
 
   If you send logs to Log Analytics, you can manage the data retention period of Log Analytics at the workspace level or even specify different retention settings by data type. To learn how, see [Change the data retention period](/azure/azure-monitor/logs/data-retention-archive).
-
----
 
 ## Analyzing metrics
 
@@ -309,11 +306,15 @@ The following example shows how to read metric data on the metric supporting mul
 
 ## Analyzing logs
 
-You can access resource logs either as a blob in a storage account, as event data, or through Log Analytic queries.
+You can access resource logs either as a blob in a storage account, as event data, or through Log Analytic queries. For information about how to find those log, see [Azure resource logs](/azure/azure-monitor/essentials/resource-logs).
 
-For a detailed reference of the fields that appear in these logs, see [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md).
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema). The schema for Azure Blob Storage resource logs is found in [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md).
 
-Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its blob endpoint but not in its table or queue endpoints, only logs that pertain to the blob service are created. Azure Storage logs contain detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis.
+To get the list of SMB and REST operations that are logged, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
+
+Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its file endpoint but not in its table or queue endpoints, only logs that pertain to the Azure Blob Storage service are created. Azure Storage logs contain detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis.
+
+The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
 ### Log authenticated requests
 
@@ -337,33 +338,9 @@ Requests made by the Blob storage service itself, such as log creation or deleti
 
 All other failed anonymous requests aren't logged. For a full list of the logged data, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage log format](monitor-blob-storage-reference.md).
 
-### Accessing logs in a storage account
+### Sample Kusto queries
 
-Logs appear as blobs stored to a container in the target storage account. Data is collected and stored inside a single blob as a line-delimited JSON payload. The name of the blob follows this naming convention:
-
-`https://<destination-storage-account>.blob.core.windows.net/insights-logs-<storage-operation>/resourceId=/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<source-storage-account>/blobServices/default/y=<year>/m=<month>/d=<day>/h=<hour>/m=<minute>/PT1H.json`
-
-Here's an example:
-
-`https://mylogstorageaccount.blob.core.windows.net/insights-logs-storagewrite/resourceId=/subscriptions/`<br>`208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default/y=2019/m=07/d=30/h=23/m=12/PT1H.json`
-
-### Accessing logs in an event hub
-
-Logs sent to an event hub aren't stored as a file, but you can verify that the event hub received the log information. In the Azure portal, go to your event hub and verify that the **incoming messages** count is greater than zero.
-
-![Audit logs](media/monitor-blob-storage/event-hub-log.png)
-
-You can access and read log data that's sent to your event hub by using security information and event management and monitoring tools. For more information, see [What can I do with the monitoring data being sent to my event hub?](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
-
-### Accessing logs in a Log Analytics workspace
-
-You can access logs sent to a Log Analytics workspace by using Azure Monitor log queries.
-
-For more information, see [Get started with Log Analytics in Azure Monitor](../../azure-monitor/logs/log-analytics-tutorial.md).
-
-Data is stored in the **StorageBlobLog** table. Logs for Data Lake Storage Gen2 do not appear in a dedicated table. That's because Data Lake Storage Gen2 is not service. It's a set of capabilities that you can enable in your storage account. If you've enabled those capabilities, logs will continue to appear in the StorageBlobLog table.
-
-#### Sample Kusto queries
+If you send logs to Log Analytics, you can access those logs by using Azure Monitor log queries. For more information, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
 
 Here are some queries that you can enter in the **Log search** bar to help you monitor your Blob storage. These queries work with the [new language](../../azure-monitor/logs/log-query-overview.md).
 
