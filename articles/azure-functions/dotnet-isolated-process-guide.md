@@ -4,7 +4,7 @@ description: Learn how to use a .NET isolated process to run your C# functions i
 
 ms.service: azure-functions
 ms.topic: conceptual 
-ms.date: 07/06/2022
+ms.date: 09/29/2022
 ms.custom: template-concept 
 recommendations: false
 #Customer intent: As a developer, I need to know how to create functions that run in an isolated process so that I can run my function code on current (not LTS) releases of .NET.
@@ -136,6 +136,31 @@ The following is an example of a middleware implementation which reads the `Http
  
 For a more complete example of using custom middleware in your function app, see the [custom middleware reference sample](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/CustomMiddleware).
 
+## Cancellation tokens
+
+A function can accept a [CancellationToken](/dotnet/api/system.threading.cancellationtoken) parameter, which enables the operating system to notify your code when the function is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
+
+Cancellation tokens are supported in .NET functions when running in an isolated process. The following example shows how to use a cancellation token in a function:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Net7Worker/HttpFunction.cs" range="23-51":::
+
+## ReadyToRun
+
+You can compile your function app as [ReadyToRun binaries](/dotnet/core/deploying/ready-to-run). ReadyToRun is a form of ahead-of-time compilation that can improve startup performance to help reduce the impact of [cold-start](event-driven-scaling.md#cold-start) when running in a [Consumption plan](consumption-plan.md).
+
+ReadyToRun is available in .NET 3.1, .NET 6 (both in-process and isolated process), and .NET 7, and it requires [version 3.0 or later](functions-versions.md) of the Azure Functions runtime.
+
+To compile your project as ReadyToRun, update your project file by adding the `<PublishReadyToRun>` and `<RuntimeIdentifier>` elements. The following is the configuration for publishing to a Windows 32-bit function app.
+
+```xml
+<PropertyGroup>
+  <TargetFramework>net6.0</TargetFramework>
+  <AzureFunctionsVersion>v4</AzureFunctionsVersion>
+  <RuntimeIdentifier>win-x86</RuntimeIdentifier>
+  <PublishReadyToRun>true</PublishReadyToRun>
+</PropertyGroup>
+```
+
 ## Execution context
 
 .NET isolated passes a [FunctionContext] object to your function methods. This object lets you get an [ILogger] instance to write to the logs by calling the [GetLogger] method and supplying a `categoryName` string. To learn more, see [Logging](#logging). 
@@ -251,7 +276,7 @@ This section describes the current state of the functional and behavioral differ
 
 | Feature/behavior |  In-process | Out-of-process  |
 | ---- | ---- | ---- |
-| .NET versions | .NET Core 3.1<br/>.NET 6.0 | .NET 6.0<br/>.NET 7.0 (Preview)<br/>.NET Framework 4.8 (Preview) |
+| .NET versions | .NET Core 3.1<br/>.NET 6.0 | .NET 6.0<br/>.NET 7.0 (Preview)<br/>.NET Framework 4.8 (GA) |
 | Core packages | [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) | [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | 
 | Binding extension packages | [Microsoft.Azure.WebJobs.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  | [Microsoft.Azure.Functions.Worker.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) | 
 | Durable Functions | [Supported](durable/durable-functions-overview.md) | [Supported (public preview)](https://github.com/microsoft/durabletask-dotnet#usage-with-azure-functions) | 
@@ -263,9 +288,9 @@ This section describes the current state of the functional and behavioral differ
 | Middleware | Not supported | [Supported](#middleware) |
 | Logging | [ILogger] passed to the function<br/>[ILogger&lt;T&gt;] via dependency injection | [ILogger]/[ILogger&lt;T&gt;] obtained from [FunctionContext] or via [dependency injection](#dependency-injection)|
 | Application Insights dependencies | [Supported](functions-monitoring.md#dependencies) | [Supported (public preview)](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ApplicationInsights) |
-| Cancellation tokens | [Supported](functions-dotnet-class-library.md#cancellation-tokens) | Not supported |
+| Cancellation tokens | [Supported](functions-dotnet-class-library.md#cancellation-tokens) | [Supported](#cancellation-tokens) |
 | Cold start times<sup>2</sup> | (Baseline) | Additionally includes process launch |
-| ReadyToRun | [Supported](functions-dotnet-class-library.md#readytorun) | _TBD_ | 
+| ReadyToRun | [Supported](functions-dotnet-class-library.md#readytorun) | [Supported](#readytorun) | 
 
 <sup>1</sup> When you need to interact with a service using parameters determined at runtime, using the corresponding service SDKs directly is recommended over using imperative bindings. The SDKs are less verbose, cover more scenarios, and have advantages for error handling and debugging purposes. This recommendation applies to both models.
 

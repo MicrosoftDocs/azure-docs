@@ -1,6 +1,7 @@
 ### YamlMime:Landing
 title: Azure Percept documentation
-summary: Azure Percept is an end-to-end solution for building and deploying perception-based AI at the edge. # < 160 chars
+summary: The Azure Percept DK will be retired March 30th, 2023 and the Azure Percept public preview will be evolving to support new edge device platforms and developer experiences. The Azure Percept DK and Audio Accessory will no longer be supported by any Azure services including Azure Percept Studio, OS updates, containers updates, view web stream, and Custom Vision integration.  Microsoft will no longer provide customer success support and any associated supporting services. # < 500 chars
+
 
 metadata:
   title: Azure Percept documentation
@@ -8,9 +9,9 @@ metadata:
   services: azure-percept
   ms.service: azure-percept
   ms.topic: landing-page 
-  author: nkhuyent
-  ms.author: ngt
-  ms.date: 03/25/2021 
+  author: yvonne-deq
+  ms.author: v-mdequadros
+  ms.date: 10/03/2022 
 
 landingContent:
   - title: What is Azure Percept?

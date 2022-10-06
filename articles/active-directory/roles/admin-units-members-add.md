@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 06/30/2022
+ms.date: 10/05/2022
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -26,7 +26,10 @@ This article describes how to add users, groups, or devices to administrative un
 
 - Azure AD Premium P1 or P2 license for each administrative unit administrator
 - Azure AD Free licenses for administrative unit members
-- Privileged Role Administrator or Global Administrator
+- To add existing users, groups, or devices:
+    - Privileged Role Administrator or Global Administrator
+- To create new groups:
+    - Groups Administrator (scoped to the administrative unit or entire directory) or Global Administrator
 - Microsoft Graph PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API
 
