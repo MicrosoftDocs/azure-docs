@@ -15,7 +15,7 @@ ms.subservice: B2C
 ---
 
 
-# Edit your Azure Active Directoty B2C Identity Experience Framework XML with Grit Visual Identity Experience Framework Editor
+# Edit your Azure Active Directory B2C Identity Experience Framework XML with Grit Visual Identity Experience Framework Editor
 
 [Grit Software Systems Visual Identity Experience Framework (IEF) Editor](https://www.gritiam.com/iefeditor), is a tool that saves time during Azure Active Directory B2C (Azure AD B2C) authentication deployment. It supports multiple languages without the need to write code. It also has a no code debugger for user journeys.
 
@@ -46,7 +46,7 @@ The following illustration shows a sample code-development workflow from XML fil
 | 1. | Go to https://www.gritiefedit.com and upload the policies from [Azure AD B2C customer policies starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack) using the upload policy button in the user interface.|
 | 2. | Using the Visual IEF editor tool, select and edit any user journey and self asserted profile that needs update/modification.|
 |3. | Once the files are updated, select the download button. All the policies will be downloaded to the local machine.|
-|4. | Check-in the files in GitHub or CI/CD pipleline. |
+|4. | Check in the files in GitHub or CI/CD pipeline. |
 |5. | Use the files in the lower environment for testing the Azure AD B2C policies.|
 |6. | Deploy the policies in Azure AD B2C production environment. |
 
