@@ -33,8 +33,7 @@ The following table describes the access available to each privileged user:
 
 > [!NOTE]
 > We recommend that you use the *support* user for CLI access whenever possible.
->
-> No other users have permissions to perform CLI commands.
+> Other CLI users cannot be added.
 
 ## Access the CLI
 
