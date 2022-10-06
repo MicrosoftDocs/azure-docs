@@ -37,7 +37,7 @@ Health checks are also available from the OT sensor console. For more informatio
 
 The following example shows the command syntax and response for the *support* user:
 
-```Console
+```BASH
 root@xsense: system sanity
 [+] C-Cabra Engine | Running for 17:26:30.191945
 [+] Cache Layer | Running for 17:26:32.352745
@@ -71,7 +71,7 @@ Use the following commands to restart an OT sensor appliance.
 
 For example, for the *support* user:
 
-```Console
+```BASH
 root@xsense: system reboot
 ```
 
@@ -88,7 +88,7 @@ Use the following commands to shut down an OT sensor appliance.
 
 For example, for the *support* user:
 
-```Console
+```BASH
 root@xsense: system shutdown
 ```
 
@@ -104,7 +104,7 @@ Use the following commands to list the Defender for IoT software version install
 
 For example, for the *support* user:
 
-```Console
+```BASH
 root@xsense: system version
 Version: 22.2.5.9-r-2121448
 ```
@@ -124,7 +124,7 @@ Use the following commands to show the current system date and time on your OT n
 
 For example, for the *support* user:
 
-```Console
+```BASH
 root@xsense: date
 Thu Sep 29 18:38:23 UTC 2022
 root@xsense:
@@ -148,7 +148,7 @@ In these commands, `<IP address>` is the IP address of a valid IPv4 NTP server u
 
 For example, for the *support* user:
 
-```Console
+```BASH
 root@xsense: ntp enable 129.6.15.28
 root@xsense:
 ```
@@ -166,7 +166,7 @@ In these commands, `<IP address>` is the IP address of a valid IPv4 NTP server u
 
 For example, for the *support* user:
 
-```Console
+```BASH
 root@xsense: ntp disable 129.6.15.28
 root@xsense:
 ```
@@ -188,7 +188,7 @@ Use the following commands to reset passwords for local users on your OT sensor.
 
 The following example shows the *cyberx* user resetting the *support* user's password to `jI8iD9kE6hB8qN0h`:
 
-```console
+```BASH
 root@xsense:/# cyberx-users-password-reset -u support -p jI8iD9kE6hB8qN0h
 resetting the password of OS user "support"
 Sending USER_PASSWORD request to OS manager
@@ -208,7 +208,7 @@ root@xsense:/#
 
 For example, for the *support* user:
 
-```console
+```BASH
 root@xsense: network validate
 Success! (Appliance configuration matches the network settings)
 Current Network Settings:
@@ -244,7 +244,7 @@ In this command, `<INT>` is a physical ethernet port on the appliance.
 
 The following example shows the *support* user blinking the *eth0* interface:
 
-```console
+```BASH
 root@xsense: network blink eth0
 Blinking interface for 20 seconds ...
 ```
@@ -260,7 +260,7 @@ Use the following commands to list the connected ethernet interfaces on your OT 
 
 For example, for the *support* user:
 
-```console
+```BASH
 root@xsense: network list
 adiot0: flags=4419<UP,BROADCAST,RUNNING,PROMISC,MULTICAST>  mtu 4096
         ether be:b1:01:1f:91:88  txqueuelen 1000  (Ethernet)
@@ -306,7 +306,7 @@ Use the following command to display network traffic and bandwidth using a six-s
 |---------|---------|---------|
 |**cyberx**     |   `cyberx-nload`      |   No attributes     |
 
-```console
+```BASH
 root@xsense:/# cyberx-nload
 eth0:
         Received: 66.95 KBit/s Sent: 87.94 KBit/s
@@ -356,7 +356,7 @@ In this command:
 
 For example, for the *cyberx* user:
 
-```console
+```BASH
 root@xsense:/# cyberx-xsense-limit-interface -h
 usage: cyberx-xsense-limit-interface [-h] --interface INTERFACE [--limit LIMIT] [--clear]
 
@@ -388,7 +388,7 @@ Use the following command to re-run the OT monitoring software configuration wiz
 
 For example, for the **cyberx** user:
 
-```console
+```BASH
 root@xsense:/# sudo dpkg-reconfigure iot-sensor
 ```
 
@@ -420,7 +420,7 @@ In this command:
 
 For example, for the *cyberx* user:
 
-```console
+```BASH
 root@xsense:/# cyberx-xsense-certificate-import
 ```
 
@@ -447,7 +447,7 @@ Use the following commands to list the backup files currently stored on your OT 
 
 For example, for the *support* user:
 
-```console
+```BASH
 root@xsense: system backup-list
 backup files:
         e2e-xsense-1664469968212-backup-version-22.3.0.318-r-71e6295-2022-09-29_18:30:20.tar
@@ -471,7 +471,7 @@ The following command lists the current backup disk space allocation, including 
 
 For example, for the *cyberx* user:
 
-```console
+```BASH
 root@xsense:/# cyberx-backup-memory-check
 2.1M    /var/cyberx/backups
 Backup limit is: 20Gb
@@ -493,7 +493,7 @@ Use the following commands to start an immediate, unscheduled backup of the data
 
 For example, for the *support* user:
 
-```console
+```BASH
 root@xsense: system backup
 Backing up DATA_KEY
 ...
@@ -518,7 +518,7 @@ Use the following commands to restore data on your OT network sensor using the m
 
 For example, for the *support* user:
 
-```console
+```BASH
 root@xsense: system restore
 Waiting for redis to start...
 Redis is up
