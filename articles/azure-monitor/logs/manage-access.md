@@ -296,7 +296,7 @@ To create a role that lets users or groups read data from specific tables in a w
 
     1. Select the **JSON** tab > **Edit** and edit the `"actions"` section to include only `Microsoft.OperationalInsights/workspaces/query/read` and select **Save**.
     
-        :::image type="content" source="media/manage-access/manage-access-create-custom-role-json.png" alt-text="Screenshot that shows the JSON tab of the Create a custom role screen with the actions section of the JSON file higlighted." lightbox="media/manage-access/manage-access-create-custom-role-json.png":::    
+        :::image type="content" source="media/manage-access/manage-access-create-custom-role-json.png" alt-text="Screenshot that shows the JSON tab of the Create a custom role screen with the actions section of the JSON file highlighted." lightbox="media/manage-access/manage-access-create-custom-role-json.png":::    
 
     1. Select **Review + Create** at the bottom of the screen, and then **Create** on the next page.   
     1. Copy the custom role ID:
@@ -314,11 +314,11 @@ To create a role that lets users or groups read data from specific tables in a w
 1. Assign your custom role to the relevant users or groups:
     1. Select **Access control (AIM)** > **Add** > **Add role assignment**.
     
-       :::image type="content" source="media/manage-access/manage-access-add-role-assignment-button.png" alt-text="Screenshot that shows the Access control screen with the Add role assignment button higlighted." lightbox="media/manage-access/manage-access-add-role-assignment-button.png":::
+       :::image type="content" source="media/manage-access/manage-access-add-role-assignment-button.png" alt-text="Screenshot that shows the Access control screen with the Add role assignment button highlighted." lightbox="media/manage-access/manage-access-add-role-assignment-button.png":::
 
     1. Select the custom role you created and select **Next**.
     
-       :::image type="content" source="media/manage-access/manage-access-add-role-assignment-screen.png" alt-text="Screenshot that shows the Add role assignment screen with a custom role and the Next button higlighted." lightbox="media/manage-access/manage-access-add-role-assignment-screen.png":::
+       :::image type="content" source="media/manage-access/manage-access-add-role-assignment-screen.png" alt-text="Screenshot that shows the Add role assignment screen with a custom role and the Next button highlighted." lightbox="media/manage-access/manage-access-add-role-assignment-screen.png":::
      
     
        This opens the **Members** tab of the **Add custom role assignment** screen.   
