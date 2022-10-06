@@ -186,7 +186,7 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
     ```
 
     ```console
-    TOKEN=$(kubectl get secret demo-user-secret -o jsonpath='{$.data.token}' | base64 -d | sed 's/$/\\\n/g')
+    TOKEN=$(kubectl get secret demo-user-secret -o jsonpath='{$.data.token}' | base64 -d | sed 's/$/\n/g')
     ```
 1. Get the token to output to console
   

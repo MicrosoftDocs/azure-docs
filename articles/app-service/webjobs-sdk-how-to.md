@@ -589,7 +589,7 @@ For more information about binding expressions, see [Binding expressions and pat
 
 Sometimes you want to specify a queue name, a blob name or container, or a table name in code rather than hard-coding it. For example, you might want to specify the queue name for the `QueueTrigger` attribute in a configuration file or environment variable.
 
-You can do that by passing a `NameResolver` object in to the `JobHostConfiguration` object. You include placeholders in trigger or binding attribute constructor parameters, and your `NameResolver` code provides the actual values to be used in place of those placeholders. You identify placeholders by surrounding them with percent (%) signs, as shown here:
+You can do that by passing a custom name resolver during configuration. You include placeholders in trigger or binding attribute constructor parameters, and your resolver code provides the actual values to be used in place of those placeholders. You identify placeholders by surrounding them with percent (%) signs, as shown here:
 
 ```cs
 public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
@@ -600,9 +600,15 @@ public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
 
 This code lets you use a queue named `logqueuetest` in the test environment and one named `logqueueprod` in production. Instead of a hard-coded queue name, you specify the name of an entry in the `appSettings` collection.
 
-There's a default `NameResolver` that takes effect if you don't provide a custom one. The default gets values from app settings or environment variables.
+There's a default resolver that takes effect if you don't provide a custom one. The default gets values from app settings or environment variables.
 
-Your `NameResolver` class gets the queue name from `appSettings`, as shown here:
+Starting in .NET Core 3.1, the [`ConfigurationManager`](/dotnet/api/system.configuration.configurationmanager) you use requires the [System.Configuration.ConfigurationManager NuGet package](https://www.nuget.org/packages/System.Configuration.ConfigurationManager). The sample requires the following `using` statement:
+
+```cs
+using System.Configuration;
+```
+
+Your `NameResolver` class gets the queue name from app settings, as shown here:
 
 ```cs
 public class CustomNameResolver : INameResolver
