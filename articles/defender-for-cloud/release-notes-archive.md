@@ -1190,7 +1190,7 @@ The new vulnerability scanning feature for container images, utilizing Trivy, he
 
 Container scan reports are summarized in Azure Security Center, providing security teams better insight and understanding about the source of vulnerable container images and the workflows and repositories from where they originate.
 
-Learn more in [Identify vulnerable container images in your CI/CD workflows](defender-for-containers-cicd.md).
+Learn more in [Identify vulnerable container images in your CI/CD workflows](defender-for-devops-introduction.md).
 
 ### More Resource Graph queries available for some recommendations
 
