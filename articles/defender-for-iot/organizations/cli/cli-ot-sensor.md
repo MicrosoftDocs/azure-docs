@@ -302,11 +302,11 @@ Use the following command to check the internet connectivity on your appliance.
 
 <!--I think we need an example here - how does this ifconfig differ from other ifconfigs? perhaps an example of one showing that the internet connection is *down*?-->
 
-### Bandwidth limit for the management network interface (QoS)
+### Set bandwidth limit for the management network interface
 
-Use the following command to set the outbound bandwidth limit for uploads from the OT sensor's management interface to the Azure portal or an on-premises management console.
+Use the following command set the outbound bandwidth limit for uploads from the OT sensor's management interface to the Azure portal or an on-premises management console.
 
-This command is supported only in bandwidth-constrained environments, such as over a satellite or serial link.
+Setting outbound bandwidth limits can be helpful in maintaining networking quality of service (QoS). This command is supported only in bandwidth-constrained environments, such as over a satellite or serial link.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
