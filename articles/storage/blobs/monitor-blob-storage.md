@@ -63,11 +63,11 @@ To collect resource logs, you must create a diagnostic setting. When you create 
 > [!NOTE]
 > Data Lake Storage Gen2 doesn't appear as a storage type. That's because Data Lake Storage Gen2 is a set of capabilities available to Blob storage.
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, and PowerShell. You can also find links to information about how to create a diagnostic setting by using an Azure Resource manager template or an Azure Policy definition.
+See [Create diagnostic setting to collect platform logs and metrics in Azure](../../azure-monitor/platform/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, and PowerShell. You can also find links to information about how to create a diagnostic setting by using an Azure Resource manager template or an Azure Policy definition.
 
 ## Destination limitations
 
-For general destination limitations, see [Destination limitations](../../azure-monitor/essentials/diagnostic-settings#destination-limitations). The following limitations apply only to monitoring Azure Storage accounts.
+For general destination limitations, see [Destination limitations](../../azure-monitor/essentials/diagnostic-settings#destination-limitations.md). The following limitations apply only to monitoring Azure Storage accounts.
 
 - You can't send logs to the same storage account that you are monitoring with this setting. 
 
@@ -424,10 +424,6 @@ Use these queries to help you monitor your Azure Storage accounts:
     | sort by count_ desc
     | render piechart
     ```
-
-## Alerts
-
-Put content here.
 
 ## Feature support
 
