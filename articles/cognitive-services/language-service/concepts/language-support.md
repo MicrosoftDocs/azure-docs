@@ -8,9 +8,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 05/12/2022
+ms.date: 10/06/2022
 ms.author: aahi
-ms.custom: language-service-clu, ignite-fall-2021
 ---
 
 # Language support for Language features
@@ -18,10 +17,10 @@ ms.custom: language-service-clu, ignite-fall-2021
 Use this article to learn about the languages currently supported by different features.
 
 > [!NOTE]
-> Some of the languages listed below are only supported in some [model versions](../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data). It's recommended to check each service language support article for more details.
+> Some of the languages listed below are only supported in some [model versions](../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data). See the linked feature-level language support article for details.
 
 
-| Language | Language code |[Custom text classification](../custom-text-classification/language-support.md) |[Custom named entity recognition(NER)](../custom-named-entity-recognition/language-support.md)|[Conversational language understanding](../conversational-language-understanding/language-support.md)|[Entity linking](../entity-linking/language-support.md)|[Language detection](../language-detection/language-support.md)|[Key phrase extraction](../key-phrase-extraction/language-support.md)|[Named entity recognition(NER)](../named-entity-recognition/language-support.md)|[Orchestration workflow](../orchestration-workflow/language-support.md)|[Personally Identifiable Information (PII)](../personally-identifiable-information/language-support.md#pii-for-documents)|[Conversation PII](../personally-identifiable-information/language-support.md#pii-for-conversations-preview)|[Question answering](../question-answering/language-support.md)|[Sentiment analysis](../sentiment-opinion-mining/language-support.md#sentiment-analysis-language-support)|[Opinion mining](../sentiment-opinion-mining/language-support.md#opinion-mining-language-support)|[Text Analytics for health](../text-analytics-for-health/language-support.md) |[Summarization](../summarization/language-support.md#document-summarization) |[Conversation summarization](../summarization/language-support.md#conversation-summarization-preview)|
+| Language | Language code |[Custom text classification](../custom-text-classification/language-support.md) |[Custom named entity recognition(NER)](../custom-named-entity-recognition/language-support.md)|[Conversational language understanding](../conversational-language-understanding/language-support.md)|[Entity linking](../entity-linking/language-support.md)|[Language detection](../language-detection/language-support.md)|[Key phrase extraction](../key-phrase-extraction/language-support.md)|[Named entity recognition(NER)](../named-entity-recognition/language-support.md)|[Orchestration workflow](../orchestration-workflow/language-support.md)|[Personally Identifiable Information (PII)](../personally-identifiable-information/language-support.md?tabs=documents)|[Conversation PII](../personally-identifiable-information/language-support.md?tabs=conversations)|[Question answering](../question-answering/language-support.md)|[Sentiment analysis](../sentiment-opinion-mining/language-support.md#sentiment-analysis-language-support)|[Opinion mining](../sentiment-opinion-mining/language-support.md#opinion-mining-language-support)|[Text Analytics for health](../text-analytics-for-health/language-support.md) |[Summarization](../summarization/language-support.md?tabs=document-summarization) |[Conversation summarization](../summarization/language-support.md?tabs=conversation-summarization)|
 | :---: | :---: |:---: |:---: |:---: |:---: |:---: |:---: |:---: |:---: |:---: |:---: |:---: |:---: |:---: |:---: |:---:| :---:|
 | Afrikaans | `af`|&check;|&check;|&check;||&check;|&check;|||||||||||
 | Amharic | `am`|&check;|&check;|&check;||&check;||||||||||||
