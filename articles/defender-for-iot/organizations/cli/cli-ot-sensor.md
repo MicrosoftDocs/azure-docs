@@ -23,9 +23,7 @@ Each activity listed below is accessible by a different set of privileged users,
 For more information, see [Access the CLI](cli-overview.md#access-the-cli) and [Privileged user access for OT monitoring](cli-overview.md#privileged-user-access-for-ot-monitoring).
 
 
-## Appliance health
-
-### Check OT monitoring services health
+## Check OT monitoring services health
 
 Use the following commands to verify that all Defender for IoT application components on the OT sensor are working correctly, including the web console and traffic analysis processes. For further information and [health checks that can be performed from the web console](how-to-troubleshoot-the-sensor-and-on-premises-management-console).
 
@@ -56,7 +54,7 @@ root@xsense: system sanity
 System is UP! (medium)
 ```
 
-## Power control
+## Restart and shutdown an appliance
 
 ### Restart an appliance
 
@@ -109,7 +107,7 @@ root@xsense: system version
 Version: 22.2.5.9-r-2121448
 ```
 
-## Date, time, and NTP management
+## Manage date, time, and NTP settings
 
 ### Show current system date/time
 
@@ -198,13 +196,9 @@ resetting the password of UI user "support"
 root@xsense:/#
 ```
 
-## Network configuration
+## Validate network settings
 
-### Validate network interfaces
-
-Use the following commands to validate your OT sensor's network setup.
-
-#### Validate and show network interface configuration
+### Validate and show network interface configuration
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
@@ -225,7 +219,7 @@ monitor interfaces mapping: local_listener=adiot0
 root@xsense:
 ```
 
-#### Ping an OT sensor
+### Ping an OT sensor
 
 Use the following commands to send a ping message to an OT sensor.
 
@@ -236,7 +230,7 @@ Use the following commands to send a ping message to an OT sensor.
 
 In these commands, `<IP address>` is the IP address of a valid IPv4 network host from the management port on your OT sensor.
 
-#### Locate a connection with blinking an interface light
+### Locate a connection with blinking an interface light
 
 Use the following command to locate a specific connection by causing the interface lights to blink.
 
@@ -253,7 +247,7 @@ root@xsense: network blink eth0
 Blinking interface for 20 seconds ...
 ```
 
-#### List connected ethernet interfaces
+### List connected ethernet interfaces
 
 Use the following commands to list the connected ethernet interfaces on your OT sensor.
 
@@ -292,7 +286,7 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 root@xsense:
 ```
 
-#### Check internet connection
+### Check internet connection
 
 Use the following command to check the internet connectivity on your appliance.
 
@@ -301,6 +295,35 @@ Use the following command to check the internet connectivity on your appliance.
 |**cyberx**     |   `ifconfig`      |   No attributes |
 
 <!--I think we need an example here - how does this ifconfig differ from other ifconfigs? perhaps an example of one showing that the internet connection is *down*?-->
+
+### Check network interfaces usage
+
+Use the following command to display network traffic and bandwidth using a six-second test.
+
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+|**cyberx**     |   `cyberx-nload`      |   No attributes     |
+
+```console
+root@xsense:/# cyberx-nload
+eth0:
+        Received: 66.95 KBit/s Sent: 87.94 KBit/s
+        Received: 58.95 KBit/s Sent: 107.25 KBit/s
+        Received: 43.67 KBit/s Sent: 107.86 KBit/s
+        Received: 87.00 KBit/s Sent: 191.47 KBit/s
+        Received: 79.71 KBit/s Sent: 85.45 KBit/s
+        Received: 54.68 KBit/s Sent: 48.77 KBit/s
+local_listener (virtual adiot0):
+        Received: 0.0 Bit Sent: 0.0 Bit
+        Received: 0.0 Bit Sent: 0.0 Bit
+        Received: 0.0 Bit Sent: 0.0 Bit
+        Received: 0.0 Bit Sent: 0.0 Bit
+        Received: 0.0 Bit Sent: 0.0 Bit
+        Received: 0.0 Bit Sent: 0.0 Bit
+root@xsense:/#
+```
+
+## Manage networking settings
 
 ### Set bandwidth limit for the management network interface
 
@@ -347,32 +370,6 @@ root@xsense:/# cyberx-xsense-limit-interface --interface eth0 --limit 1000mbps
 setting the bandwidth limit of interface "eth0" to 1000mbps
 ```
 
-### Network interfaces usage
-
-Use the following command to display network traffic and bandwidth using a six-second test.
-
-|User  |Command  |Full command syntax   |
-|---------|---------|---------|
-|**cyberx**     |   `cyberx-nload`      |   No attributes     |
-
-```console
-root@xsense:/# cyberx-nload
-eth0:
-        Received: 66.95 KBit/s Sent: 87.94 KBit/s
-        Received: 58.95 KBit/s Sent: 107.25 KBit/s
-        Received: 43.67 KBit/s Sent: 107.86 KBit/s
-        Received: 87.00 KBit/s Sent: 191.47 KBit/s
-        Received: 79.71 KBit/s Sent: 85.45 KBit/s
-        Received: 54.68 KBit/s Sent: 48.77 KBit/s
-local_listener (virtual adiot0):
-        Received: 0.0 Bit Sent: 0.0 Bit
-        Received: 0.0 Bit Sent: 0.0 Bit
-        Received: 0.0 Bit Sent: 0.0 Bit
-        Received: 0.0 Bit Sent: 0.0 Bit
-        Received: 0.0 Bit Sent: 0.0 Bit
-        Received: 0.0 Bit Sent: 0.0 Bit
-root@xsense:/#
-```
 
 ### Change networking configuration or reassign network interface roles
 
