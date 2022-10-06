@@ -12,7 +12,7 @@ ms.date: 09/20/2022
 
 # Training - Azure Cognitive Search
 
-Training modules deliver an end-to-end experience that help you build skills and develop insights while working through a progression of exercises. Visit the following links to begin learning with prepared lessons from Microsoft and other training providers.
+Training modules deliver an end-to-end experience that helps you build skills and develop insights while working through a progression of exercises. Visit the following links to begin learning with prepared lessons from Microsoft and other training providers.
 
 + [Introduction to Azure Cognitive Search (Microsoft)](/training/modules/intro-to-azure-search/)
 + [Implement knowledge mining with Azure Cognitive Search (Microsoft)](/training/paths/implement-knowledge-mining-azure-cognitive-search/)
