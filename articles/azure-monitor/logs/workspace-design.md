@@ -114,7 +114,7 @@ By default, if a user has read access to an Azure resource, they inherit permiss
 - **If you want to explicitly assign permissions for all users**, change the access control mode to *Require workspace permissions*.
 
 
-[Table-level RBAC](manage-access.md#table-level-azure-rbac)
+[Table-level RBAC](manage-access.md#set-table-level-read-access)
 With table-level RBAC, you can grant or deny access to specific tables in the workspace. This allows you to implement granular permissions required for specific situations in your environment.
 
 For example, you might grant access to only specific tables collected by Sentinel to an internal auditing team. Or you might deny access to security related tables to resource owners who need operational data related to their resources.
