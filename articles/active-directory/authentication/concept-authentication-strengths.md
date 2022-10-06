@@ -227,11 +227,7 @@ Authentication strength is based on the Authentication methods policy. The Authe
 
 For example, the administrator of Contoso wants to allow their users to use Microsoft Authenticator with either push notifications or passwordless authentication mode. The administrator goes to the Microsoft Authenticator settings in the Authentication method policy, scopes the policy for the relevant users and set the **Authentication mode** to **Any**. 
 
-:::image type="content" border="true" source="./media/concept-authentication-strengths/any.png" alt-text="Screenshot showing Microsoft Authenticator set to Any authentication mode.":::
-
 Then for Contoso’s most sensitive resource, the administrator wants to restrict the access to only passwordless authentication methods. The administrator creates a new Conditional Access policy, using the built-in **Passwordless MFA strength**. 
-
-:::image type="content" border="true" source="./media/concept-authentication-strengths/grant.png" alt-text="Screenshot showing passwordless MFA authentication strength.":::
 
 As a result, users in Contoso can access most of the resources in the tenant using password + push notification from the Microsoft Authenticator OR only using Microsoft Authenticator (phone sign-in). However, when the users in the tenant access the sensitive application, they must use Microsoft Authenticator (phone sign-in).
 
