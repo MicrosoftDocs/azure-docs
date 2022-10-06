@@ -41,20 +41,23 @@ ERSPAN source options include elements such as:
 
 ## Configure ERSPAN on your OT network sensor
 
-Newly installed OT network sensors have ERSPAN and GRE header stripping turned off by default. To turn on support for ERSPAN, you'll need to configure your ERSPAN interfaces and then enable the RCDCAP component to restart your monitoring processes:
+Newly installed OT network sensors have ERSPAN and GRE header stripping turned off by default. To turn on support for ERSPAN, you'll need to configure your ERSPAN interfaces and then enable the RCDCAP component to restart your monitoring processes.
 
+ERSPAN support is configured in the **Select erspan monitor interfaces** screen, which appears during your first software installation on the appliance. For example:
 
-**To turn on support for ERSPAN on your OT sensor**:
+:::image type="content" source="../media/tutorial-install-components/erspan-monitor.png" alt-text="Screenshot of the select erspan monitor screen.":::
 
-1.   This screen will appear during the first installation of the appliance, or you can access it afterward by logging in (using SSH, cyberx_host user) and typing the following command:
+To access this screen later on, sign in to your sensor via SSH as the *cyberx_host* user and run the following command:
 
-    ```cli
-    sudo dpkg-reconfigure iot-sensor
-    ```
+```console
+sudo dpkg-reconfigure iot-sensor
+```
 
-1. Choose the interfaces that will receive ERSPAN traffic
-1. As soon as you complete the rest of the setup process, the new setup will be applied.
+The installation wizard starts to run, and you can select the interfaces you want to receive ERSPAN traffic.
 
+Complete the wizard to apply your changes.
+
+For more information, see [Install OT monitoring software](../how-to-install-software.md#install-ot-monitoring-software).
 ## Sample configuration on a Cisco switch
 
 The following code shows a sample `ifconfig` output for ERSPAN configured on a Cisco switch:
