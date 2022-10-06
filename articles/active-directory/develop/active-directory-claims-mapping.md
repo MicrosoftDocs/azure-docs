@@ -18,7 +18,7 @@ ms.reviewer: ludwignick
 A claim is information that an identity provider states about a user inside the token they issue for that user. Claims customization is used by tenant admins to customize the claims emitted in tokens for a specific application in their tenant. You can use claims-mapping policies to:
 
 - select which claims are included in tokens.
-- create claim types that do not already exist.
+- create claim types that don't already exist.
 - choose or change the source of data emitted in specific claims.
 
 Claims customization supports configuring claim-mapping policies for the WS-Fed, SAML, OAuth, and OpenID Connect protocols.
@@ -30,7 +30,7 @@ In this article, we walk through a few common scenarios that can help you unders
 
 ## Get started
 
-In the following examples, you create, update, link, and delete policies for service principals. Claims-mapping policies can only be assigned to service principal objects. If you are new to Azure AD, we recommend that you [learn about how to get an Azure AD tenant](quickstart-create-new-tenant.md) before you proceed with these examples.
+In the following examples, you create, update, link, and delete policies for service principals. Claims-mapping policies can only be assigned to service principal objects. If you're new to Azure AD, we recommend that you [learn about how to get an Azure AD tenant](quickstart-create-new-tenant.md) before you proceed with these examples.
 
 When creating a claims-mapping policy, you can also emit a claim from a directory extension attribute in tokens. Use *ExtensionID* for the extension attribute instead of *ID* in the `ClaimsSchema` element.  For more info on extension attributes, see [Using directory extension attributes](active-directory-schema-extensions.md).
 
@@ -134,7 +134,7 @@ In this example, you create a policy that emits a custom claim "JoinedData" to J
 
 ## Security considerations
 
-Applications that receive tokens rely on the fact that the claim values are authoritatively issued by Azure AD and cannot be tampered with. However, when you modify the token contents through claims-mapping policies, these assumptions may no longer be correct. Applications must explicitly acknowledge that tokens have been modified by the creator of the claims-mapping policy to protect themselves from claims-mapping policies created by malicious actors. This can be done in one the following ways:
+Applications that receive tokens rely on the fact that the claim values are authoritatively issued by Azure AD and can't be tampered with. However, when you modify the token contents through claims-mapping policies, these assumptions may no longer be correct. Applications must explicitly acknowledge that tokens have been modified by the creator of the claims-mapping policy to protect themselves from claims-mapping policies created by malicious actors. This can be done in one the following ways:
 
 - [Configure a custom signing key](#configure-a-custom-signing-key)
 - Or, [update the application manifest](#update-the-application-manifest) to accept mapped claims.
@@ -143,7 +143,7 @@ Without this, Azure AD will return an [`AADSTS50146` error code](reference-aadst
 
 ### Configure a custom signing key
 
-For multi-tenant apps, a custom signing key should be used.  Do not set `acceptMappedClaims` in the app manifest. If set up an app in the Azure portal, you get an app registration object and a service principal in your tenant.  That app is using the Azure global sign-in key, which cannot be used for customizing claims in tokens.  To get custom claims in tokens, create a custom sign-in key from a certificate and add it to service principal.  For testing purposes, you can use a self-signed certificate. After configuring the custom signing key, your application code needs to [validate the token signing key](#validate-token-signing-key).
+For multi-tenant apps, a custom signing key should be used.  Don't set `acceptMappedClaims` in the app manifest. If set up an app in the Azure portal, you get an app registration object and a service principal in your tenant.  That app is using the Azure global sign-in key, which can't be used for customizing claims in tokens.  To get custom claims in tokens, create a custom sign-in key from a certificate and add it to service principal.  For testing purposes, you can use a self-signed certificate. After configuring the custom signing key, your application code needs to [validate the token signing key](#validate-token-signing-key).
 
 Add the following information to the service principal:
 
@@ -203,7 +203,7 @@ Authorization: Bearer {token}
 
 Use PowerShell to [instantiate an MSAL Public Client Application](msal-net-initializing-client-applications.md#initializing-a-public-client-application-from-code) and use the [Authorization Code Grant](v2-oauth2-auth-code-flow.md) flow to obtain a delegated permission access token for Microsoft Graph. Use the access token to call Microsoft Graph and configure a custom signing key for the service principal. After configuring the custom signing key, your application code needs to [validate the token signing key](#validate-token-signing-key).
 
-To run this script you need:
+To run this script, you need:
 1. The object ID of your application's service principal, found in the **Overview** blade of your application's entry in [Enterprise Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) in the Azure portal.
 2. An app registration to sign in a user and get an access token to call Microsoft Graph. Get the application (client) ID of this app in the **Overview** blade of the application's entry in [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal. The app registration should have the following configuration:
     - A redirect URI of "http://localhost" listed in the **Mobile and desktop applications** platform configuration
