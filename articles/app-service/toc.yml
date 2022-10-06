@@ -182,7 +182,7 @@
               href: ./scripts/cli-connect-to-storage.md
             - name: Connect to Azure Cache for Redis
               href: ./scripts/cli-connect-to-redis.md
-            - name: Connect to Cosmos DB
+            - name: Connect to Azure Cosmos DB
               href: ./scripts/cli-connect-to-documentdb.md
         - name: Backup and restore an app
           href: ./scripts/cli-backup-schedule-restore.md

@@ -4,14 +4,14 @@ description: This article presents an overview of Azure Cosmos DB Attachments.
 author: aliuy
 ms.author: andrl
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: nosql
 ms.topic: conceptual
 ms.date: 08/07/2020
 ms.reviewer: mjbrown
 ---
 
 # Azure Cosmos DB Attachments
-[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
+[!INCLUDE[NoSQL, MongoDB](includes/appliesto-nosql-mongodb.md)]
 
 Azure Cosmos DB attachments are special items that contain references to an associated metadata with an external blob or media file.
 
@@ -37,9 +37,9 @@ Azure Cosmos DB’s managed attachments are distinct from its support for standa
 - Managed attachments aren't compatible with Azure Cosmos DB’s global distribution, and they aren't replicated across regions.
 
 > [!NOTE]
-> Azure Cosmos DB API for MongoDB version 3.2 utilizes managed attachments for GridFS and are subject to the same limitations.
+> Azure Cosmso DB for MongoDB version 3.2 utilizes managed attachments for GridFS and are subject to the same limitations.
 >
-> We recommend developers using the MongoDB GridFS feature set to upgrade to Azure Cosmos DB API for MongoDB version 3.6 or higher, which is decoupled from attachments and provides a better experience. Alternatively, developers using the MongoDB GridFS feature set should also consider using Azure Blob Storage - which is purpose-built for storing blob content and offers expanded functionality at lower cost compared to GridFS.
+> We recommend developers using the MongoDB GridFS feature set to upgrade to Azure Cosmso DB for MongoDB version 3.6 or higher, which is decoupled from attachments and provides a better experience. Alternatively, developers using the MongoDB GridFS feature set should also consider using Azure Blob Storage - which is purpose-built for storing blob content and offers expanded functionality at lower cost compared to GridFS.
 
 ## Migrating Attachments to Azure Blob Storage
 

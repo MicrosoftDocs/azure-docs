@@ -42,7 +42,7 @@ After locating the package from Maven Repository, gather the values for **GroupI
 
    :::image type="content" source="./media/apache-spark-manage-dependencies/spark-package-schema.png " alt-text="Concatenate package schema" border="true":::kage schema" border="true":::
 
-Make sure the values you gather match your cluster. In this case, we're using Spark Cosmos DB connector package for Scala 2.11 and Spark 2.3 for HDInsight 3.6 Spark cluster. If you are not sure, run `scala.util.Properties.versionString` in code cell on Spark kernel to get cluster Scala version. Run `sc.version` to get cluster Spark version.
+Make sure the values you gather match your cluster. In this case, we're using Spark Azure Cosmos DB connector package for Scala 2.11 and Spark 2.3 for HDInsight 3.6 Spark cluster. If you are not sure, run `scala.util.Properties.versionString` in code cell on Spark kernel to get cluster Scala version. Run `sc.version` to get cluster Spark version.
 
 ```
 %%configure { "conf": {"spark.jars.packages": "com.microsoft.azure:azure-cosmosdb-spark_2.3.0_2.11:1.3.3" }}

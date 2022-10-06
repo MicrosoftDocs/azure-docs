@@ -10,7 +10,7 @@ ms.custom: ignite-fall-2021
 ---
 
 # Limit the total throughput provisioned on your Azure Cosmos DB account
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 When using an Azure Cosmos DB account in [provisioned throughput](./set-throughput.md) mode, most of your costs usually come from the amount of throughput that you have provisioned across your account. In particular, these costs are directly influenced by:
 

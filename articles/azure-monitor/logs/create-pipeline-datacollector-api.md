@@ -60,7 +60,7 @@ In this example, we parse a CSV file, but any other file type can be similarly p
 
     ![Azure Functions example project](./media/create-pipeline-datacollector-api/functions-example-project-01.png)
     
-    ``` JSON
+    ```json
     {
       "frameworks": {
         "net46":{

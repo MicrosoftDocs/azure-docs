@@ -11,7 +11,7 @@ ms.reviewer: turao
 
 # Configure cross-tenant customer-managed keys for your Azure Cosmos DB account with Azure Key Vault (preview)
 
-[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
+[!INCLUDE[NoSQL, MongoDB, Cassandra, Gremlin, Table](includes/appliesto-nosql-mongodb-cassandra-gremlin-table.md)]
 
 Data stored in your Azure Cosmos DB account is automatically and seamlessly encrypted with service-managed keys managed by Microsoft. However, you can choose to add a second layer of encryption with keys you manage. These keys are known as customer-managed keys (or CMK). Customer-managed keys are stored in an Azure Key Vault instance.
 

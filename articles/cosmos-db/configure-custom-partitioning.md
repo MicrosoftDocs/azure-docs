@@ -10,8 +10,7 @@ ms.custom: ignite-fall-2021
 ---
 
 # Configure custom partitioning to partition analytical store data (Preview)
-[!INCLUDE[appliesto-sql-mongodb-gremlin-api](includes/appliesto-sql-mongodb-gremlin-api.md)]
-
+[!INCLUDE[NoSQL, MongoDB, Gremlin](includes/appliesto-nosql-mongodb-gremlin.md)]
 
 Custom partitioning enables you to partition analytical store data, on fields that are commonly used as filters in analytical queries, resulting in improved query performance.
 To learn more about custom partitioning, see [what is custom partitioning](custom-partitioning-analytical-store.md) article.

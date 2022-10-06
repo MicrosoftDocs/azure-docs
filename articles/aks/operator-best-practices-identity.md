@@ -123,7 +123,7 @@ There are two levels of access needed to fully operate an AKS cluster:
 > [!NOTE]
 > Pod identities are intended for use with Linux pods and container images only. Pod-managed identities support for Windows containers is coming soon.
 
-To access other Azure resources, like Cosmos DB, Key Vault, or Blob Storage, the pod needs authentication credentials. You could define authentication credentials with the container image or inject them as a Kubernetes secret. Either way, you would need to manually create and assign them. Usually, these credentials are reused across pods and aren't regularly rotated.
+To access other Azure resources, like Azure Cosmos DB, Key Vault, or Blob storage, the pod needs authentication credentials. You could define authentication credentials with the container image or inject them as a Kubernetes secret. Either way, you would need to manually create and assign them. Usually, these credentials are reused across pods and aren't regularly rotated.
 
 With pod-managed identities (preview) for Azure resources, you automatically request access to services through Azure AD. Pod-managed identities is currently in preview for AKS. Refer to the [Use Azure Active Directory pod-managed identities in Azure Kubernetes Service (Preview)](./use-azure-ad-pod-identity.md) documentation to get started.
 

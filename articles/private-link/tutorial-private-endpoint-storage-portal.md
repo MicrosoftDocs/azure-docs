@@ -273,6 +273,7 @@ In this tutorial, you learned how to create:
 * Virtual machine.
 * Storage account and a container.
 
-Learn how to connect to an Azure Cosmos DB account using an Azure Private Endpoint:
+Learn how to connect to an Azure Cosmos DB account via Azure Private Endpoint:
+
 > [!div class="nextstepaction"]
-> [Connect to Azure Cosmos using Private Endpoint](tutorial-private-endpoint-cosmosdb-portal.md)
+> [Connect to Azure Cosmos DB using Private Endpoint](tutorial-private-endpoint-cosmosdb-portal.md)

@@ -45,7 +45,7 @@ az group delete --name $resourceGroup
 
 ## Sample reference
 
-This script uses the following commands to create a resource group, App Service app, Cosmos DB, and all related resources. Each command in the table links to command specific documentation.
+This script uses the following commands to create a resource group, an App Service app, an Azure Cosmos DB instance, and all related resources. Each command in the table links to command specific documentation.
 
 | Command | Notes |
 |---|---|

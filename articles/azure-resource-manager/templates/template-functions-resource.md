@@ -398,7 +398,7 @@ You can use the response from `pickZones` to determine whether to provide null f
 },
 ```
 
-Cosmos DB isn't a zonal resource but you can use the `pickZones` function to determine whether to enable zone redundancy for georeplication. Pass the **Microsoft.Storage/storageAccounts** resource type to determine whether to enable zone redundancy.
+Azure Cosmos DB isn't a zonal resource, but you can use the `pickZones` function to determine whether to enable zone redundancy for georeplication. Pass the **Microsoft.Storage/storageAccounts** resource type to determine whether to enable zone redundancy.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/pickzones-cosmosdb.json":::
 

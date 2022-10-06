@@ -225,7 +225,7 @@ If you encounter errors when you run `az role assignment create`, you might not 
 
 ## Troubleshooting
 
-If you encounter an error when applying permissions to your Virtual Network using Azure CLI, you can apply the same permission manually from the Azure portal. An example error might be *Cannot find user or service principal in graph database for 'e5007d2c-4b13-4a74-9b6a-605d99f03501'*.  For more information, see [Use Azure portal to add Cosmos DB service principal](add-service-principal.md).
+If you encounter an error when applying permissions to your Virtual Network using Azure CLI, you can apply the same permission manually from the Azure portal. An example error might be *Cannot find user or service principal in graph database for 'e5007d2c-4b13-4a74-9b6a-605d99f03501'*.  For more information, see [Use Azure portal to add an Azure Cosmos DB service principal](add-service-principal.md).
 
 > [!NOTE]
 > The Azure Cosmos DB role assignment is used for deployment purposes only. Azure Managed Instanced for Apache Cassandra has no backend dependencies on Azure Cosmos DB.

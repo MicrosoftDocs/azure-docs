@@ -194,7 +194,7 @@ This section contains the following examples:
   }
 ```
 
- In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@BlobOutput` annotation on function parameters whose value would be written to an object in blob storage.  The parameter type should be `OutputBinding<T>`, where T is any native Java type or a POJO.
+ In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@BlobOutput` annotation on function parameters whose value would be written to an object in blob storage.  The parameter type should be `OutputBinding<T>`, where `T` is any native Java type or a POJO.
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  

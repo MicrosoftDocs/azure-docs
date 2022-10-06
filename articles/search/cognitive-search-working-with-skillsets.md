@@ -135,7 +135,7 @@ The initial content is metadata and the *root node* (`document/content`). The ro
 |---|---|---|
 |Blob Storage|/document/content<br>/document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
 |Azure SQL|/document/{column1}<br>/document/{column2}<br>…|N/A |
-|Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/A|
+|Azure Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/A|
 
 As skills execute, output is added to the enrichment tree as new nodes. If skill execution is over the entire document, nodes are added at the first level under the root.
 

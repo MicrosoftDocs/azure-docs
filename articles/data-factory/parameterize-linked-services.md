@@ -39,7 +39,7 @@ All the linked service types are supported for parameterization.
 - Amazon S3
 - Amazon S3 Compatible Storage
 - Azure Blob Storage
-- Azure Cosmos DB (SQL API)
+- Azure Cosmos DB for NoSQL
 - Azure Data Explorer
 - Azure Data Lake Storage Gen1
 - Azure Data Lake Storage Gen2

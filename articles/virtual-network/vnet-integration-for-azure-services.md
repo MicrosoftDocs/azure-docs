@@ -130,4 +130,4 @@ To compare and understand the differences, see the following table.
 
 - Learn how to [integrate your app with an Azure network](../app-service/overview-vnet-integration.md).
 - Learn how to [restrict access to resources using Service Tags](tutorial-restrict-network-access-to-resources.md).
-- Learn how to [connect privately to an Azure Cosmos account using Azure Private Link](../private-link/tutorial-private-endpoint-cosmosdb-portal.md).
+- Learn how to [connect privately to an Azure Cosmos DB account via Azure Private Link](../private-link/tutorial-private-endpoint-cosmosdb-portal.md).

@@ -14,8 +14,8 @@ ms.custom: include file
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob storage](../connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Cognitive Search index](../connector-azure-search.md) | |✓ |✓ |✓  |
-| &nbsp; |[Azure Cosmos DB (SQL API)](../connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Azure Cosmos DB's API for MongoDB](../connector-azure-cosmos-db-mongodb-api.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure Cosmos DB for NoSQL](../connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure Cosmos DB for MongoDB](../connector-azure-cosmos-db-mongodb-api.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Data Explorer](../connector-azure-data-explorer.md) |✓ |✓ |✓ |✓ |
 | &nbsp; |[Azure Data Lake Storage Gen1](../connector-azure-data-lake-store.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Data Lake Storage Gen2](../connector-azure-data-lake-storage.md) |✓ |✓ |✓ |✓  |

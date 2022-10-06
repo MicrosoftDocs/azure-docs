@@ -12,7 +12,7 @@
     - name: NoSQL vs. relational databases
       href: relational-nosql.md
 - name: NoSQL
-  href: sql/toc.yml
+  href: nosql/toc.yml
 - name: MongoDB
   href: mongodb/toc.yml
 - name: PostgreSQL
@@ -20,6 +20,6 @@
 - name: Apache Cassandra
   href: cassandra/toc.yml
 - name: Apache Gremlin
-  href: graph/toc.yml
+  href: gremlin/toc.yml
 - name: Table
   href: table/toc.yml
