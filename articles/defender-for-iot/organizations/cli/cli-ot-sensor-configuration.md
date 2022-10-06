@@ -7,6 +7,62 @@ ms.topic: reference
 
 # Configuration CLI command reference
 
+## SSL/TLS Certificates
+
+## Trigger test alert
+
+## Review audit logs
+
+## Apply ingress traffic filters (capture filter)
+### Block by IP address range
+### Block by port
+### Base capture filter
+
+## Local Alert Suppression
+### Show Alert Suppression
+### Create new Alert Suppression
+### Append Alert Suppression
+### Delete Alert Suppression
+
+## Define Clients/Servers
+
+
+## Upgrade Sensor from CLI
+
+
+##After mounting the file (secured patch)  to /home/cyberx copy it to /tmp
+cp /home/cyberx/<file name> /tmp
+
+##Validate the file is not corrupted:
+md5sum <filename>
+
+##Create the upgrade flag – without it the upgrade itself will not start:
+touch /var/cyberx/media/device-info/pending_update
+
+##In case this is not the first update and to make sure no old files are being used (if /update does not exist skip this step):
+cd /update
+sudo rm -rf *
+
+##Extract the secured patch file:
+sudo monit stop tomcat
+	• Without stopping tomcat the file will not be extracted
+sudo /usr/local/bin/cyberx-update-extract --encrypted-file-path /tmp/<file name> --output-dir-path /var/cyberx/media/device-info/update
+
+sudo monit start tomcat
+
+##Make sure you are not in /tmp or in /var/cyberx/media/device-info/update
+cd /home/cyberx
+
+##Run the upgrade manually:
+sudo python /var/cyberx/media/device-info/update/setup_upgrade.py --pre_reboot
+
+##To trace the upgrade:
+tail -f /var/cyberx/logs/upgrade.log
+
+
+
+
+
 ## Manage local alert exclusions
 
 <!--extra intro about what these are and xref to where we talk about them in the main docs-->
