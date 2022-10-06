@@ -132,8 +132,8 @@ Follow the steps below to create the template:
    tenant_id: "{{ lookup('env', 'AZURE_TENANT') }}"
    ```
     
-       > [!NOTE]
-       > The operations in this playbook happen through the Azure CLI.   Most of these variables are set to pass along the proper variable from the Azure Resource Manager credential to the CL.
+   > [!NOTE]
+   > The operations in this playbook happen through the Azure CLI.   Most of these variables are set to pass along the proper variable from the Azure Resource Manager credential to the CL.
 
     **Options:**
         Privilege Escalation: true
@@ -172,8 +172,8 @@ Follow the steps below to create the template:
    linux_hosts: "{{ hostvars.values() | selectattr('group_names','contains', 'linux') | map(attribute='inventory_hostname') | list }}"
    ```
 
-        > [!NOTE]
-        > The `linux_hosts` variable is used to create a list of hostnames to send to the Azure Collection and is not directly related to a host inventory. You may set this list in any way that Ansible supports. In this case, the variable attempts to pull host names from groups with “linux” in the group name.
+   > [!NOTE]
+   > The `linux_hosts` variable is used to create a list of hostnames to send to the Azure Collection and is not directly related to a host inventory. You may set this list in any way that Ansible supports. In this case, the variable attempts to pull host names from groups with “linux” in the group name.
 1. Select **Save**.
 
 ### Create template to uninstall Log Analytics
