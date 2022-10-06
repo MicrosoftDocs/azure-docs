@@ -402,9 +402,9 @@ Use the following command to re-run the OT monitoring software configuration wiz
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
-|**cyberx**     |   `sudo dpkg-reconfigure iot-sensor`      |   No attributes     |
+|**cyberx_host**     |   `sudo dpkg-reconfigure iot-sensor`      |   No attributes     |
 
-For example, for the **cyberx** user:
+For example, for the **cyberx_host** user:
 
 ```bash
 root@xsense:/# sudo dpkg-reconfigure iot-sensor
