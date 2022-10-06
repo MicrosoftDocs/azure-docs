@@ -77,11 +77,11 @@ To run a search job, in the Azure portal:
 
 1. When the new table is ready, select **View tablename_SRCH** to view the table in Log Analytics.
 
-    :::image type="content" source="media/search-job/SearchJobExecution_2.png" alt-text="Screenshot that shows an Azure Monitor Logs message that the search job results table is available to view." lightbox="media/search-job/SearchJobExecution_2.png"::
+    :::image type="content" source="media/search-job/SearchJobExecution_2.png" alt-text="Screenshot that shows an Azure Monitor Logs message that the search job results table is available to view." lightbox="media/search-job/SearchJobExecution_2.png":::
 
     You can see the search job results as they begin flowing in to the newly created search job results table.
 
-    :::image type="content" source="media/search-job/SearchJobExecution_3.png" alt-text="Screenshot that shows search job results table with data." lightbox="media/search-job/SearchJobExecution_3.png"::
+    :::image type="content" source="media/search-job/SearchJobExecution_3.png" alt-text="Screenshot that shows search job results table with data." lightbox="media/search-job/SearchJobExecution_3.png":::
 
     Azure Monitor Logs shows a **Search job is done** message at the end of the search job. The results table is now ready with all the records that match the search query. 
 
