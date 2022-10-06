@@ -349,7 +349,7 @@ To create a role that lets users or groups read data from specific tables in a w
 
     Where:
     - You can generate a GUID for `<GUID 1>` and `<GUID 2>` using any GUID generator.
-    - `<custom_role_ID>` begins with `_/providers/Microsoft.Authorization/roleDefinitions/_`.
+    - `<custom_role_ID>` is the `/providers/Microsoft.Authorization/roleDefinitions/<definition_id>` value you copied earlier.
     - `<subscription_ID>` is the ID of the subscription related to the workspace.
     - `<resource_group_name>` is the resource group of the workspace.
     - `<workspace_name>` is the name of the workspace.
