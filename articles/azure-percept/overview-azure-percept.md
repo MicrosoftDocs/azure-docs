@@ -5,7 +5,7 @@ author: yvonne-dq
 ms.author: davej
 ms.service: azure-percept
 ms.topic: overview
-ms.date: 10/04/2022
+ms.date: 10/06/2022
 ms.custom: template-overview #Required; leave this attribute/value as-is.
 ---
 
@@ -25,12 +25,9 @@ The integration challenges one faces when attempting to deploy edge AI solutions
 
 The main components of Azure Percept are:
 
-- [Azure Percept DK.](./overview-azure-percept-dk.md)
+- Azure Percept DK
 
     - A development kit that is flexible enough to support a wide variety of prototyping scenarios for device builders, solution builders, and customers.
-
-        > [!div class="nextstepaction"]
-        > [Buy now](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
 - Services and workflows that accelerate edge AI model and solution development.
 
@@ -43,6 +40,4 @@ The main components of Azure Percept are:
 
     - Provides the ecosystem of hardware developers with patterns and best practices for developing edge AI hardware that can be integrated easily with Azure AI and IoT services.
 
-## Next steps
 
-Learn more about [Azure Percept DK](./overview-azure-percept-dk.md) and [Azure Percept Studio](./overview-azure-percept-studio.md).
