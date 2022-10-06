@@ -75,9 +75,7 @@ The audit activity report is available in all editions of Azure AD. To access th
 - Global Reader
 - Global Administrator
 
-The Azure portal provides several options to access the log. Go to **Azure AD** and select **Audit log** from the **Monitoring** section.  
-
-![Screenshot of the Audit logs menu option.](./media/concept-audit-logs/audit-logs-menu.png)
+Sign in to the Azure portal and go to **Azure AD** and select **Audit log** from the **Monitoring** section.  
 
 You can also access the audit log through the [Microsoft Graph API](/graph/api/resources/azure-ad-auditlog-overview).
 
