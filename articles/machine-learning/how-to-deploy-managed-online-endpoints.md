@@ -272,7 +272,7 @@ In this example, we specify the `path` (where to upload files from) inline. The 
 For more information on registering your model as an asset, see [Register your model as an asset in Machine Learning by using the SDK](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-sdk)
 
 For more information on creating an environment, see 
-[Manage Azure Machine Learning environments with the CLI & SDK (v2)](hmachine-learning.md/how-to-manage-environments-v2#create-an-environment)
+[Manage Azure Machine Learning environments with the CLI & SDK (v2)](how-to-manage-environments-v2.md#create-an-environment)
 
 ---
 
