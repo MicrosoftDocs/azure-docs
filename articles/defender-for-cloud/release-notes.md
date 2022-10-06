@@ -106,6 +106,8 @@ With this change, alerts on machines connected to Log Analytics workspace in a d
 
 If you want to continue receiving the alerts in Defender for Cloud, connect the Log Analytics agent of the relevant machines to the workspace in the same tenant as the machine.
 
+Learn more about [security alerts](alerts-overview.md).
+
 ## August 2022
 
 Updates in August include:
