@@ -68,27 +68,93 @@ width|Width of the tile
 x|Horizontal position of the tile
 y|Vertical position of the tile
 
-### Bar chart tile
+Tile object can have multiple configuations. This articles includes line chart, markdown and last known value tiles.
 
-The bar chart tile has the below configuration::
+### Line chart tile
+
+The Line chart tile has the below configuration::
 
 Name| Description
 ----|------------
-capabilities|Specifies the capability to be displayed in the tile.
+capabilities|Specifies the aggregate value of either property, telemetry or command to be displayed in the tile.
 devices|The list of associated devices to display
 format|The format configuration of the chart
 group|The ID of the device group to display
 queryRange|The query range configuration of the chart
-type|The type of widget the tile renders
+type|For this type of tile this value should be `lineChart`
 
-The following example shows a request body that adds a new dashboard with bar chart tile
+### Markdown tile
+
+The markdown tile has the below configuration:
+
+Name|Description
+----|-----------
+description|Markdown string to render inside the tile
+href|Link to visit when tile is clicked
+image|Base64 encoded
+type|For this type of tile this value should be `markdown`
+
+### Last known value tile
+
+The last known value (LKV) tile has the below configuration:
+
+Name|Description
+----|-----------
+capabilities|Specifies the capability to be displayed in the tile.
+devices|The list of associated devices to display
+format|The format configuration of the LKV tile
+group|The ID of the device group to display
+showTrend|Show the trend between the last known value and the value before that
+type|For this type of tile this value should be `lkv`
+
+The following example shows a request body that adds a new dashboard with line chart tile, markdown tile and last known value tile
 
 ```json
 {
-    "displayName": "My Dashboard",
+    "displayName": "My Dashboard ",
     "tiles": [
         {
-            "displayName": "lineChart",
+            "displayName": "LKV Temperature",
+            "configuration": {
+                "type": "lkv",
+                "capabilities": [
+                    {
+                        "capability": "temperature",
+                        "aggregateFunction": "avg"
+                    }
+                ],
+                "group": "0fb6cf08-f03c-4987-93f6-72103e9f6100",
+                "devices": [
+                    "3xksbkqm8r",
+                    "1ak6jtz2m5q",
+                    "h4ow04mv3d"
+                ],
+                "format": {
+                    "abbreviateValue": false,
+                    "wordWrap": false,
+                    "textSize": 14
+                }
+            },
+            "x": 0,
+            "y": 0,
+            "width": 2,
+            "height": 2
+        },
+        {
+            "displayName": "Documentation",
+            "configuration": {
+                "type": "markdown",
+                "description": "Comprehensive help articles and links to more support.",
+                "href": "https://aka.ms/iotcentral-pnp-docs",
+                "image": "4d6c6373-0220-4191-be2e-d58ca2a289e1"
+            },
+            "x": 4,
+            "y": 0,
+            "width": 1,
+            "height": 1
+        },
+        {
+            "displayName": "Average temperature",
             "configuration": {
                 "type": "lineChart",
                 "capabilities": [
@@ -98,10 +164,11 @@ The following example shows a request body that adds a new dashboard with bar ch
                     }
                 ],
                 "devices": [
-                    "1cfqhp3tue3",
-                    "mcoi4i2qh3"
+                    "3xksbkqm8r",
+                    "1ak6jtz2m5q",
+                    "h4ow04mv3d"
                 ],
-                "group": "da48c8fe-bac7-42bc-81c0-d8158551f066",
+                "group": "0fb6cf08-f03c-4987-93f6-72103e9f6100",
                 "format": {
                     "xAxisEnabled": true,
                     "yAxisEnabled": true,
@@ -158,158 +225,6 @@ The response to this request looks like the following example:
                 }
             },
             "x": 5,
-            "y": 0,
-            "width": 2,
-            "height": 2
-        }
-    ],
-    "favorite": false
-}
-```
-
-### Markdown tile
-
-The markdown tile has the below configuration:
-
-Name|Description
-----|-----------
-description|Markdown string to render inside the tile
-href|Link to visit when tile is clicked
-image|Base64 encoded
-type|The type of widget the tile renders
-
-The following example shows a request body that adds a new dashboard with markdown tile
-
-```json
-{
-    "displayName": "My Markdown",
-    "tiles": [
-     {
-    "displayName": "Documentation",
-    "configuration": {
-        "type": "markdown",
-        "description": "Comprehensive help articles and links to more support.",
-        "href": "https://aka.ms/iotcentral-pnp-docs",
-        "image": "4d6c6373-0220-4191-be2e-d58ca2a289e1"
-    },
-    "x": 4,
-    "y": 0,
-    "width": 1,
-    "height": 1
-}
-    ],
-    "favorite": false
-}
-```
-
-The response to this request looks like the following example:
-
-```json
-{
-    "id": "dtmi:kkfvwa2xi:p7pyt5x3o",
-    "displayName": "My Dashboard Markdown",
-    "personal": false,
-    "tiles": [
-        {
-            "displayName": "Documentation 2",
-            "configuration": {
-                "type": "markdown",
-                "description": "Comprehensive help articles and links to more support.",
-                "href": "https://aka.ms/iotcentral-pnp-docs",
-                "image": "4d6c6373-0220-4191-be2e-d58ca2a289e1"
-            },
-            "x": 4,
-            "y": 0,
-            "width": 1,
-            "height": 1
-        }
-    ],
-    "favorite": false
-}
-```
-
-### Lkv tile
-
-The last known value tile has the below configuration:
-
-Name|Description
-----|-----------
-capabilities|Specifies the capability to be displayed in the tile.
-devices|The list of associated devices to display
-format|The format configuration of the lkv tile
-group|The ID of the device group to display
-showTrend|Show the trend between the last known value and the value before that
-type|The type of widget the tile renders
-
-The following example shows a request body that adds a new dashboard which displays last known value of the temperature:
-
-```json
-{
-    "displayName": "My Dashboard LKV",
-    "tiles": [
-        {
-            "displayName": "LKV - root",
-            "configuration": {
-                "type": "lkv",
-                "capabilities": [
-                    {
-                        "capability": "temperature",
-                        "aggregateFunction": "avg"
-                    }
-                ],
-                "group": "0fb6cf08-f03c-4987-93f6-72103e9f6100",
-                "devices": [
-                    "3xksbkqm8r",
-                    "1ak6jtz2m5q",
-                    "h4ow04mv3d"
-                ],
-                "format": {
-                    "abbreviateValue": false,
-                    "wordWrap": false,
-                    "textSize": 14
-                }
-            },
-            "x": 0,
-            "y": 0,
-            "width": 2,
-            "height": 2
-        }
-    ],
-    "favorite": false
-}
-```
-
-The response to this request looks like the following example:
-
-```json
-{
-    "id": "dtmi:kkfvwa2xi:p7pyt5x3o",
-    "displayName": "My Dashboard LKV",
-    "personal": false,
-    "tiles": [
-        {
-            "displayName": "LKV - root",
-            "configuration": {
-                "type": "lkv",
-                "capabilities": [
-                    {
-                        "capability": "temperature",
-                        "aggregateFunction": "avg"
-                    }
-                ],
-                "devices": [
-                    "3xksbkqm8r",
-                    "1ak6jtz2m5q",
-                    "h4ow04mv3d"
-                ],
-                "group": "0fb6cf08-f03c-4987-93f6-72103e9f6100",
-                "format": {
-                    "abbreviateValue": false,
-                    "wordWrap": false,
-                    "textSize": 14
-                }
-            },
-            "x": 0,
             "y": 0,
             "width": 2,
             "height": 2
@@ -621,4 +536,4 @@ The response to this request looks like the following example:
 
 ## Next steps
 
-Now that you've learned how to manage dashboards with the REST API, a suggested next step is to [How to create device templates from IoT Central GUI.](howto-set-up-template.md#create-a-device-template)
+Now that you've learned how to manage dashboards with the REST API, a suggested next step is to [How to manage file upload with rest api.](howto-upload-file-rest-api.md)
