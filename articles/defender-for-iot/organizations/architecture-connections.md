@@ -15,6 +15,8 @@ The cloud connection methods described in this article are supported only for OT
 
 - **Improved security**, without needing to configure or lock down any resource security settings in the Azure VNET
 
+- **Encryption**, Transport Layer Security (TLS1.2/AES-256) provides encrypted communication between the sensor and Azure resources.
+
 - **Scalability** for new features supported only in the cloud
 
 - **Flexible connectivity** using any of the connection methods described in this article
@@ -58,7 +60,7 @@ The following image shows how you can connect your sensors to the Defender for I
 
 With direct connections
 
-- Any sensors connected to Azure data centers directly over the internet have a secure and encrypted connection to the Azure data centers. Transport Layer Security (TLS) provides *always-on* communication between the sensor and Azure resources.
+- Any sensors connected to Azure data centers directly over the internet have a secure and encrypted connection to the Azure data centers. Transport Layer Security (TLS1.2/AES-256) provides *always-on* communication between the sensor and Azure resources.
 
 - The sensor initiates all connections to the Azure portal. Initiating connections only from the sensor protects internal network devices from unsolicited inbound connections, but also means that you don't need to configure any inbound firewall rules.
 
