@@ -10,6 +10,7 @@ ms.topic: quickstart
 ms.date: 06/21/2021
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
+monikerRange: 'form-recog-2.1.0'
 recommendations: false
 ---
 
