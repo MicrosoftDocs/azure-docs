@@ -114,8 +114,8 @@ sections:
 
       - question: I've created a custom Sensitive Information Type (SIT) in Microsoft Purview Information Protection and used it in my autolabeling rules for schematized data assets. Can I use this custom SIT in the Microsoft Purview Data Map? 
         answer: |
-          No, [custom sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about#creating-custom-sensitive-information-types) are not supported in the Microsoft Purview Data Map at this time. The Microsoft Purview Data Map currently only supports Microsoft Purview Information Protection [built-in sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about).</br></br>
-    
+          No, [custom sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about#creating-custom-sensitive-information-types) are not supported in the Microsoft Purview Data Map at this time. The Microsoft Purview Data Map currently only supports Microsoft Purview Information Protection [built-in sensitive information types](/microsoft-365/compliance/sensitive-information-type-learn-about).
+
       - question: Can I manually label an asset, or manually modify or remove a label in the Microsoft Purview Data Map? 
         answer: |
           The Microsoft Purview Data Map supports automatic labeling only. Labels are automatically applied to assets in the data map based on the classifications found on the assets and the autolabeling rules for the labels. 
