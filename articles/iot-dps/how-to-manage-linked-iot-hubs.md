@@ -154,7 +154,7 @@ Use the [az iot dps linked-hub delete](/cli/azure/iot/dps/linked-hub#az-iot-dps-
 az iot dps linked-hub update --dps-name MyExampleDps --resource-group MyResourceGroup --linked-hub MyExampleHub
 ```
 
-DPS also supports deleting linked IoT Hubs from the DPS instance using the [Create or Update DPS resource](/rest/api/iot-dps/iot-dps-resource/create-or-update?tabs=HTTP) REST API, [Resource Manager templates](/azure/templates/microsoft.devices/provisioningservices?pivots=deployment-language-arm-template), and the [DPS Management SDKs](libraries-sdks.md#management-sdks).
+DPS also supports deleting linked IoT Hubs from the DPS instance using the [Delete DPS resource](/rest/api/iot-dps/iot-dps-resource/delete?tabs=HTTP) REST API, [Resource Manager templates](/azure/templates/microsoft.devices/provisioningservices?pivots=deployment-language-arm-template), and the [DPS Management SDKs](libraries-sdks.md#management-sdks).
 
 ## Update keys for linked IoT hubs
 
