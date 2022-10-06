@@ -26,21 +26,23 @@ Microsoft Energy Data Services Preview  supports Transport Layer Security (TLS 1
 In addition to TLS, when you interact with Microsoft Energy Data Services, all transactions take place over HTTPS. 
 
 ## Set up Customer Managed Keys (CMK) for Microsoft Energy Data Services Preview instance
+> [!IMPORTANT]
+> You cannot edit CMK settings once the Microsoft Energy Data Services instance is created.
 
 ### Prerequisites
 
 **Step 1- Configure the key vault**
 
-1.You can use a new or existing key vault to store customer-managed keys. To learn more about Azure Key Vault, see [Azure Key Vault Overview](../key-vault/general/overview.md) and [What is Azure Key Vault](../key-vault/general/basic-concepts.md)?.
-2.Using customer-managed keys with Microsoft Energy Data Services requires that both soft delete and purge protection be enabled for the key vault. Soft delete is enabled by default when you create a new key vault and cannot be disabled. You can enable purge protection either when you create the key vault or after it is created.
-3.To learn how to create a key vault with the Azure portal, see [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md). When you create the key vault, select Enable purge protection.
+1. You can use a new or existing key vault to store customer-managed keys. To learn more about Azure Key Vault, see [Azure Key Vault Overview](../key-vault/general/overview.md) and [What is Azure Key Vault](../key-vault/general/basic-concepts.md)?.
+2. Using customer-managed keys with Microsoft Energy Data Services requires that both soft delete and purge protection be enabled for the key vault. Soft delete is enabled by default when you create a new key vault and cannot be disabled. You can enable purge protection either when you create the key vault or after it is created.
+3. To learn how to create a key vault with the Azure portal, see [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md). When you create the key vault, select Enable purge protection.
 
- [![Screenshot of enabling purge protection and soft delete while creating key vault](media/how-to-manage-data-security-and-encryption/customer-mananged-key-1-create-key-vault.png)](media/how-to-manage-data-security-and-encryption/customer-mananged-key-1-create-key-vault.png#lightbox)
+   [![Screenshot of enabling purge protection and soft delete while creating key vault](media/how-to-manage-data-security-and-encryption/customer-managed-key-1-create-key-vault.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-1-create-key-vault.png#lightbox)
  
 4.	To enable purge protection on an existing key vault, follow these steps:
-*	Navigate to your key vault in the Azure portal.
-*	Under Settings,choose Properties.
-*	In the Purge protection section,choose Enable purge protection.
+   1. Navigate to your key vault in the Azure portal.
+   2. Under **Settings**, choose **Properties**.
+   3. In the **purge protection** section, choose **Enable purge protection**.
 
 **Step 2 - Add a key**
 1.	Next, add a key to the key vault.
@@ -55,7 +57,7 @@ In addition to TLS, when you interact with Microsoft Energy Data Services, all t
 1.	Create a **Microsoft Energy Data Services** instance.
 2.	Select the **Encryption** tab.
 
-[![Screenshot of Encyption tab while creating Microsoft Energy Data Services](media/how-to-manage-data-security-and-encryption/customer-mananged-key-2-encryption-tab.png)](media/how-to-manage-data-security-and-encryption/customer-mananged-key-2-encryption-tab.png#lightbox)
+   [![Screenshot of Encyption tab while creating Microsoft Energy Data Services](media/how-to-manage-data-security-and-encryption/customer-managed-key-2-encryption-tab.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-2-encryption-tab.png#lightbox)
  
 3.	In the encryption tab, select **Customer-managed keys (CMK)**. 
 4.	For using CMK, you need to select the key vault where the key is stored. 
@@ -65,32 +67,30 @@ In addition to TLS, when you interact with Microsoft Energy Data Services, all t
 8.	Next, select the user-assigned managed identity that will be used to authorize access to the key vault that contains the key. 
 9.	Select “**Select a user identity**.” Select the user-assigned managed identity that you created in the pre-requisites. 
  
-[![Screenshot of key vault, key, user assigned identity, and CMK on encryption tab](media/how-to-manage-data-security-and-encryption/customer-mananged-key-3-enable-cmk.png)](media/how-to-manage-data-security-and-encryption/customer-mananged-key-3-enable-cmk.png#lightbox)
-
+   [![Screenshot of key vault, key, user assigned identity, and CMK on encryption tab](media/how-to-manage-data-security-and-encryption/customer-managed-key-3-enable-cmk.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-3-enable-cmk.png#lightbox)
 
 10.	This user assigned identity must have _get key_, _list key_, _wrap key_, and _unwrap key_ permissions on the key vault. For more information on assigning Azure Key Vault access policies, see [Assign a Key Vault Access Policy](../key-vault/general/assign-access-policy.md). 
  
-[![Screenshot of get, list, wrap, and upwrap key access policy](media/how-to-manage-data-security-and-encryption/customer-mananged-key-4-access-policy.png)](media/how-to-manage-data-security-and-encryption/customer-mananged-key-4-access-policy.png#lightbox)
+    [![Screenshot of get, list, wrap, and upwrap key access policy](media/how-to-manage-data-security-and-encryption/customer-managed-key-4-access-policy.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-4-access-policy.png#lightbox)
 
 11.	You can also select Encryption Key as “**Enter key from Uri**.” It is mandatory for the Key to have soft delete and purge protection to be enabled. You will have to confirm that by checking the box shown below.
 
-[![Screenshot of key vault uri for encryption](media/how-to-manage-data-security-and-encryption/customer-mananged-key-5-key-vault-url.png)](media/how-to-manage-data-security-and-encryption/customer-mananged-key-5-key-vault-url.png#lightbox)
+    [![Screenshot of key vault uri for encryption](media/how-to-manage-data-security-and-encryption/customer-managed-key-5-key-vault-url.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-5-key-vault-url.png#lightbox)
 
 12.	Next, select “**Review+Create**” after completing other tabs. 
 13.	Select the "**Create**" button. 
 14.	A Microsoft Energy Data Services instance is created with customer-managed keys.
 15.	Once CMK is enabled you will see its status on the **Overview** screen.
 
-[![Screenshot of CMK enabled on MEDS overview page](media/how-to-manage-data-security-and-encryption/customer-mananged-key-6-cmk-enabled-meds-overview.png)](media/how-to-manage-data-security-and-encryption/customer-mananged-key-6-cmk-enabled-meds-overview.png#lightbox)
+    [![Screenshot of CMK enabled on MEDS overview page](media/how-to-manage-data-security-and-encryption/customer-managed-key-6-cmk-enabled-meds-overview.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-6-cmk-enabled-meds-overview.png#lightbox)
 
 16.	You can navigate to **Encryption** and see that CMK enabled with user managed identity.
  
-[![Screenshot of CMK settings disabled once MEDS instance is installed](media/how-to-manage-data-security-and-encryption/customer-mananged-key-7-cmk-disabled-meds-instance-created.png)](media/how-to-manage-data-security-and-encryption/customer-mananged-key-7-cmk-disabled-meds-instance-created.png#lightbox)
+    [![Screenshot of CMK settings disabled once MEDS instance is installed](media/how-to-manage-data-security-and-encryption/customer-managed-key-7-cmk-disabled-meds-instance-created.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-7-cmk-disabled-meds-instance-created.png#lightbox)
 
-[!NOTE]
-You cannot edit CMK settings once the Microsoft Energy Data Services instance is created.
+
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
+To learn more about Private Links.
 > [!div class="nextstepaction"]
 > [How to set up private links](how-to-set-up-private-links.md)
