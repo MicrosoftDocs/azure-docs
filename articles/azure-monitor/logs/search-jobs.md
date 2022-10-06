@@ -51,7 +51,7 @@ Run a search job to fetch records from large datasets into a new search results 
 > [!TIP] 
 > You incur charges for running a search job. Therefore, write and optimize your query in interactive query mode before running the search job.  
 
-# [Portal](#tab/portal-1)
+### [Portal](#tab/portal-1)
 
 To run a search job, in the Azure portal:
 
@@ -87,7 +87,7 @@ To run a search job, in the Azure portal:
 
     ![Screenshot of search job run done, search job results table is ready.](./media/search-job/SearchJobDone.png)
 
-# [API](#tab/api-1)
+### [API](#tab/api-1)
 To run a search job, call the **Tables - Create or Update** API. The call includes the name of the results table to be created. The name of the results table must end with *_SRCH*.
  
 ```http
@@ -135,7 +135,7 @@ PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 
 Status code: 202 accepted.
 
-# [CLI](#tab/cli-1)
+### [CLI](#tab/cli-1)
 
 To run a search job, run the [az monitor log-analytics workspace table search-job create](/cli/azure/monitor/log-analytics/workspace/table/search-job#az-monitor-log-analytics-workspace-table-search-job-create) command. The name of the results table, which you set using the `--name` parameter, must end with *_SRCH*.
 
@@ -148,13 +148,13 @@ az monitor log-analytics workspace table search-job create --subscription Contos
 ---
 
 ## Get search job status and details
-# [Portal](#tab/portal-2)
+### [Portal](#tab/portal-2)
 1. From the **Log Analytics workspace** menu, select **Logs**. 
 1. All the search results tables can be found in the Tables tab, under **Search results**. 
 1. While a search job is running, the results table will have an update indication. When the search job that initiated the results table is completed the table icon become like any other Analytics table in Azure workspace. 
 ![Screenshot of search results tables.](./media/search-job/SearchResultsTables.png)
 
-# [API](#tab/api-2)
+### [API](#tab/api-2)
 
 Call the **Tables - Get** API to get the status and details of a search job:
 ```http
@@ -217,7 +217,7 @@ GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 }
 ```
 
-# [CLI](#tab/cli-2)
+### [CLI](#tab/cli-2)
 
 To check the status and details of a search job table, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-show) command.
 
@@ -231,14 +231,14 @@ az monitor log-analytics workspace table show --subscription ContosoSID --resour
 
 ## Delete search a job table
 We recommend deleting the search job table when you're done querying the table. This reduces workspace clutter and extra charges for data retention. 
-# [Portal](#tab/portal-3)
+### [Portal](#tab/portal-3)
 1. From the Log Analytics workspace menu, select **Tables.**
 1. Search for the table you want to delete by its name, or by the type: Search results.
 ![Screenshot of search results in Tables blase.](./media/search-job/SearchResultsInTablesBlade.png)
 1. Select the tables you want to delete, select the delete icon, and confirm the deletion by typing *yes**.
 ![Screenshot of delete of search results table.](./media/search-job/DeleteTable.png)
 
-# [API](#tab/api-3)
+### [API](#tab/api-3)
 
 To delete a table, call the **Tables - Delete** API: 
 
@@ -246,7 +246,7 @@ To delete a table, call the **Tables - Delete** API:
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/<TableName>_SRCH?api-version=2021-12-01-preview
 ```
 
-# [CLI](#tab/cli-3)
+### [CLI](#tab/cli-3)
 
 To delete a search table, run the [az monitor log-analytics workspace table delete](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-delete) command.
 
