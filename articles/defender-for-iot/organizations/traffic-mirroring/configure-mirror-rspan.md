@@ -10,7 +10,6 @@ ms.topic: how-to
 Configure a remote SPAN (RSPAN) session on your switch to mirror traffic from multiple, distributed source ports into a dedicated remote VLAN.
 
 Data in the VLAN is then delivered through trunked ports, across multiple switches to a specified switch that contains the physical destination port. Connect the destination port to your OT network sensor to monitor traffic with Defender for IoT.
-<!--worth a diagram?-->
 
 The following diagram shows an example of a remote VLAN architecture:
 

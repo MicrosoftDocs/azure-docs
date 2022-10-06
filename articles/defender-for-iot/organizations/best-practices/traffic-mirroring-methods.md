@@ -30,6 +30,12 @@ Defender for IoT supports the following methods:
 |[An ESXi vSwitch](../traffic-mirroring/configure-mirror-esxi.md)    |  Mirrors traffic using *Promiscuous mode* on an ESXi vSwitch.        |
 |[A Hyper-V vSwitch](../traffic-mirroring/configure-mirror-hyper-v.md)    |   Mirrors traffic using *Promiscuous mode* on a Hyper-V vSwitch.       |
 
+## Mirroring port scope recommendations
+
+We recommend configuring your traffic mirroring from all of your switch's ports, even if no data is connected to them. If you don't, rogue devices can later be connected to an unmonitored port, and those devices won't be detected by the Defender for IoT network sensors.
+
+For OT networks that use broadcast or multicast messaging, configure traffic mirroring only for RX (*Recieve*) transmissions. Multicast messages will be repeated for any relevant active ports, and you'll be using more bandwidth unnecessarily.
+
 ## Next steps
 
 For more information, see:

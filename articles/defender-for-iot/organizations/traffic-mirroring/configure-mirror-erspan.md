@@ -7,13 +7,12 @@ ms.topic: how-to
 
 # Configure traffic mirroring with an encapsulated remote switched port analyzer (ERSPAN)
 
-Use an encapsulated remote switched port analyzer (ERSPAN) to mirror input interfaces over an IP network your OT sensor's monitoring interface, to secure remote networks with Defender for IoT.
+Use an encapsulated remote switched port analyzer (ERSPAN) to mirror input interfaces over an IP network to your OT sensor's monitoring interface, when securing remote networks with Defender for IoT.
 
-When configuring ERSPAN, we recommend using your receiving router as the generic routing encapsulation (GRE) tunnel destination.
+The sensor's monitoring interface is a promiscuous interface and does not have a specifically allocated IP address. When ERSPAN support is configured, traffic payloads that are ERSPAN encapsulated with GRE tunnel encapsulation will be analyzed by the sensor.
 
-The sensor's monitoring interface is a promiscous interface and does not have a specifically allocated IP address. When ERSPAN support is configured, traffic payloads which are ERSPAN encapsulated (GRE tunnel encapsulation is used) will be analyzed by the sensor.
+Use ERSPAN encapsulation when there is a need to extend monitored traffic across Layer 3 domains. ERSPAN is a Cisco proprietary feature and is available only on specific routers and switches. For more information, see the [Cisco documentation](https://learningnetwork.cisco.com/s/article/span-rspan-erspan).
 
-Use ERSPAN encapsulation when there is a need to extend monitored traffic across Layer 3 domains. ERSPAN is a Cisco proprietary feature and is available only on specific routers and switches.
 
 > [!NOTE]
 > This article provides high-level guidance for configuring traffic mirroring with ERSPAN. Specific implementation details will vary depending on your equiptment vendor.
@@ -38,6 +37,10 @@ ERSPAN source options include elements such as:
 - VLANs; all supported interfaces in the VLAN are ERSPAN sources
 - Fabric port channels
 - Satellite ports and host interface port channels
+
+> [!TIP]
+> When configuring ERSPAN, we recommend using your receiving router as the generic routing encapsulation (GRE) tunnel destination.
+>
 
 ## Configure ERSPAN on your OT network sensor
 
