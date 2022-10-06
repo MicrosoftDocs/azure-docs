@@ -1,6 +1,6 @@
 ---
-title: Provide an external virtual network to an Azure Container Apps environment
-description: Learn how to provide an external VNET to an Azure Container Apps environment.
+title: Integrate a virtual network with an external Azure Container Apps environment
+description: Learn how to integrate a VNET with an external Azure Container Apps environment.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -221,11 +221,11 @@ First, extract identifiable information from the environment.
 # [Bash](#tab/bash)
 
 ```bash
-ENVIRONMENT_DEFAULT_DOMAIN=`az containerapp env show --name ${CONTAINERAPPS_ENVIRONMENT} --resource-group ${RESOURCE_GROUP} --query defaultDomain --out json | tr -d '"'`
+ENVIRONMENT_DEFAULT_DOMAIN=`az containerapp env show --name ${CONTAINERAPPS_ENVIRONMENT} --resource-group ${RESOURCE_GROUP} --query properties.defaultDomain --out json | tr -d '"'`
 ```
 
 ```bash
-ENVIRONMENT_STATIC_IP=`az containerapp env show --name ${CONTAINERAPPS_ENVIRONMENT} --resource-group ${RESOURCE_GROUP} --query staticIp --out json | tr -d '"'`
+ENVIRONMENT_STATIC_IP=`az containerapp env show --name ${CONTAINERAPPS_ENVIRONMENT} --resource-group ${RESOURCE_GROUP} --query properties.staticIp --out json | tr -d '"'`
 ```
 
 ```bash
@@ -236,6 +236,7 @@ VNET_ID=`az network vnet show --resource-group ${RESOURCE_GROUP} --name ${VNET_N
 
 ```azurepowershell
 $EnvironmentDefaultDomain = (Get-AzContainerAppManagedEnv -EnvName $ContainerAppsEnvironment -ResourceGroupName $ResourceGroupName).DefaultDomain
+
 ```
 
 ```azurepowershell

@@ -1698,7 +1698,7 @@ Users with this role can't change the credentials or reset MFA for members and o
 
 Assign the Permissions Management Administrator role to users who need to do the following tasks:
 
-- Manage all aspects of Entry Permissions Management, when the service is present
+- Manage all aspects of Entra Permissions Management, when the service is present
 
 Learn more about Permissions Management roles and polices at [View information about roles/policies](../cloud-infrastructure-entitlement-management/how-to-view-role-policy.md).
 
