@@ -141,15 +141,15 @@ OutboundNAT can cause certain connection and communication issues with your AKS 
 
 Windows enables OutboundNAT by default. You can manually disable OutboundNAT when creating new Windows agent pools by using `--disable-windows-outbound-nat`.
 
-    ```azurecli
-    az aks nodepool add \
-        --resource-group myResourceGroup
-        --cluster-name natCluster
-        --name mynodepool
-        --node-count 3
-        --os-type Windows
-        --disable-windows-outbound-nat
-    ```
+```azurecli
+az aks nodepool add \
+    --resource-group myResourceGroup
+    --cluster-name natCluster
+    --name mynodepool
+    --node-count 3
+    --os-type Windows
+    --disable-windows-outbound-nat
+```
 
 ## Next steps
 
