@@ -1,12 +1,12 @@
 ---
 Title: Data security and encryption in Microsoft Energy Data Services Preview #Required; page title is displayed in search results. Include the brand.
 description: Guide on security in Microsoft Energy Data Services and how to set up customer managed keys on Microsoft Energy Data Services #Required; article description that is displayed in search results. 
-author: Nandinim #Required; your GitHub user alias, with correct capitalization.
-ms.author: NandiniMurali #Required; microsoft alias of author; optional team alias.
+author: NandiniMurali #Required; your GitHub user alias, with correct capitalization.
+ms.author: Nandinim #Required; microsoft alias of author; optional team alias.
 ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 10/06/2022
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 #Customer intent: As a developer, I want to set up customer-managed keys on Microsoft Energy Data Services
 ---
