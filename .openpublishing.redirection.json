@@ -1,6 +1,26 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-dotnet-legacy.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-java-legacy.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-python-legacy.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-xamarin.md",
+            "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-dotnet",
+            "redirect_document_id": false
+        },
+        {
             "source_path":  "articles/site-recovery/deploy-vmware-azure-replication-appliance-preview.md",
             "redirect_url":  "/azure/site-recovery/deploy-vmware-azure-replication-appliance-modernized",
             "redirect_document_id":  false
@@ -6286,6 +6306,21 @@
         {
             "source_path_from_root": "/articles/storage/common/storage-auth-abac.md",
             "redirect_url": "/azure/storage/blobs/storage-auth-abac",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/blobs/reference.md",
+            "redirect_url": "/azure/storage/blobs/storage-blobs-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/queues/reference.md",
+            "redirect_url": "/azure/storage/queues/storage-queues-introduction",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/storage/files/reference.md",
+            "redirect_url": "/azure/storage/files/storage-files-introduction",
             "redirect_document_id": false
         },
         {
@@ -21251,12 +21286,12 @@
         {
             "source_path_from_root": "/articles/storage/vs-storage-cloud-services-getting-started-queues.md",
             "redirect_url": "/azure/visual-studio/vs-storage-cloud-services-getting-started-queues",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/vs-storage-cloud-services-getting-started-tables.md",
             "redirect_url": "/azure/visual-studio/vs-storage-cloud-services-getting-started-tables",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/vs-storage-cloud-services-what-happened.md",

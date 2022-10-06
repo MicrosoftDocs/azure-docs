@@ -105,9 +105,9 @@ Compute of type `AmlCompute` and `ComputeInstance` are fully available for use i
 
 We recommend migrating the code for creating compute to v2.
 
-### Endpoint and deployment (endpoint or web service in v1)
+### Endpoint and deployment (endpoint and web service in v1)
 
-You can continue using your existing v1 model deployments. For new model deployments, we recommend migrating to v2. In v2, we offer managed endpoints or Kubernetes endpoints. The following table guides our recommendation:
+With SDK/CLI v1, you can deploy models on ACI or AKS as web services. Your existing v1 model deployments and web services will continue to function as they are, but Using SDK/CLI v1 to deploy models on ACI or AKS as web services is now consiered as **legacy**. For new model deployments, we recommend migrating to v2. In v2, we offer [managed endpoints or Kubernetes endpoints](./concept-endpoints.md). The following table guides our recommendation:
 
 |Endpoint type in v2|Migrate from|Notes|
 |-|-|-|
@@ -117,7 +117,8 @@ You can continue using your existing v1 model deployments. For new model deploym
 |Azure Kubernetes Service (AKS)|ACI, AKS|Manage your own AKS cluster(s) for model deployment, giving flexibility and granular control at the cost of IT overhead.|
 |Azure Arc Kubernetes|N/A|Manage your own Kubernetes cluster(s) in other clouds or on-premises, giving flexibility and granular control at the cost of IT overhead.|
 
-For a comparison of SDK v1 and v2 code, see [Migrate deployment endpoints from SDK v1 to SDK v2](migrate-to-v2-deploy-endpoints.md).
+For a comparison of SDK v1 and v2 code, see [Upgrade deployment endpoints to SDK v2](migrate-to-v2-deploy-endpoints.md).
+For upgrade steps from your existing ACI web services to managed online endpoints, see our [upgrade guide article](migrate-to-v2-managed-online-endpoints.md) and [blog](https://aka.ms/acimoemigration).
 
 ### Jobs (experiments, runs, pipelines in v1)
 
