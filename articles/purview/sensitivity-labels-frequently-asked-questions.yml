@@ -161,7 +161,7 @@ sections:
 
       - question: Does the Microsoft Purview Data Map scan an entire asset when applying automatic labels to the database columns? 
         answer: |
-          The Microsoft Purview scanner samples the data. For more information, see [sampling data for classification and autolabeling](microsoft-purview-connector-overview#sampling-data-for-classification).
+          The Microsoft Purview scanner samples the data. For more information, see [sampling data for classification and autolabeling](microsoft-purview-connector-overview.md#sampling-data-for-classification).
                   
       - question: If there are multiple sensitivity labels that meet the classification criteria, which label is applied?  
         answer: |
