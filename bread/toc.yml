@@ -494,6 +494,9 @@
   - name: AKS
     tocHref: /azure/aks/
     topicHref: /azure/aks/
+  - name: Kubernetes Fleet Manager
+    tocHref: /azure/kubernetes-fleet/
+    topicHref: /azure/kubernetes-fleet/
   - name: OpenShift
     tocHref: /azure/openshift/
     topicHref: /azure/openshift/
@@ -1094,6 +1097,9 @@
     - name: Centrally managed Azure Hybrid Benefit
       tocHref: /azure/cost-management-billing/scope-level
       topicHref: /azure/cost-management-billing/scope-level
+    - name: Azure savings plans
+      tocHref: /azure/cost-management-billing/savings-plan
+      topicHref: /azure/cost-management-billing/savings-plan
   - name: Microsoft Purview
     tocHref: /azure/purview/
     topicHref: /azure/purview/

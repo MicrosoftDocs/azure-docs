@@ -25,7 +25,7 @@ Try out the capabilities of Spatial Analysis quickly and easily in your browser 
 <!--This documentation contains the following types of articles:
 * The [quickstarts](./quickstarts-sdk/analyze-image-client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
 * The [how-to guides](./how-to/call-analyze-image.md) contain instructions for using the service in more specific or customized ways.
-* The [conceptual articles](tbd) provide in-depth explanations of the service's functionality and features.
+* The [conceptual articles]() provide in-depth explanations of the service's functionality and features.
 * The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.-->
 
 ## What it does

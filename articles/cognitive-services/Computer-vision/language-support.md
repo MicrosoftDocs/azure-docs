@@ -18,7 +18,7 @@ Some capabilities of Computer Vision support multiple languages; any capabilitie
 
 ## Optical Character Recognition (OCR)
 
-The Computer Vision [Read API](./overview-ocr.md#read-api) supports many languages. The `Read` API can extract text from images and documents with mixed languages, including from the same text line, without requiring a language parameter.
+The Computer Vision [Read API](./overview-ocr.md) supports many languages. The `Read` API can extract text from images and documents with mixed languages, including from the same text line, without requiring a language parameter.
 
 > [!NOTE]
 > **Language code optional**

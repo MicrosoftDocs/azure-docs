@@ -26,6 +26,8 @@ landingContent:
             url: intro-kubernetes.md
       - linkListType: whats-new
         links:
+          - text: Mariner container host for AKS
+            url: use-mariner.md
           - text: Vertical Pod Autoscaler (preview)
             url: vertical-pod-autoscaler.md
           - text: Workload identity (preview)

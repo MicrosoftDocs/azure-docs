@@ -16,7 +16,7 @@ Starting with agent version *ciprod03022019*, Container insights integrated agen
 > * containerGpumemoryTotalBytes
 > * containerGpumemoryUsedBytes
 > 
-> To continue collecting GPU metrics through Container Insights, please migrate by December 31, 2022 to your GPU vendor specific metrics exporter and configure [Prometheus scraping](./container-insights-prometheus-integration.md) to scrape metrics from the deployed vendor specific exporter.
+> To continue collecting GPU metrics through Container Insights, please migrate by December 31, 2022 to your GPU vendor specific metrics exporter and configure [Prometheus scraping](./container-insights-prometheus.md) to scrape metrics from the deployed vendor specific exporter.
 
 ## Supported GPU vendors
 

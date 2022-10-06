@@ -58,8 +58,6 @@ landingContent:
             url: enable-enhanced-security.md
           - text: Connect hybrid and multicloud machines
             url: quickstart-onboard-machines.md
-          - text: Configure auto provisioning
-            url: enable-data-collection.md
           - text: Set up email notifications
             url: configure-email-notifications.md
 

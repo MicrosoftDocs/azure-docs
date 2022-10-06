@@ -126,7 +126,7 @@ For information about when recommendations are generated for each of these solut
 | - [Recommendation exemption rules](./exempt-resource.md)                                                                                                      | Public Preview | Not Available                  | Not Available                  |
 | - [Alert suppression rules](./alerts-suppression-rules.md)                                                                                                    | GA             | GA                             | GA                             |
 | - [Email notifications for security alerts](./configure-email-notifications.md)                                                                               | GA             | GA                             | GA                             |
-| - [Auto provisioning for agents and extensions](./enable-data-collection.md)                                                                                  | GA             | GA                             | GA                             |
+| - [Deployment of agents and extensions](monitoring-components.md)                                                                                  | GA             | GA                             | GA                             |
 | - [Asset inventory](./asset-inventory.md)                                                                                                                     | GA             | GA                             | GA                             |
 | - [Azure Monitor Workbooks reports in Microsoft Defender for Cloud's workbooks gallery](./custom-dashboards-azure-workbooks.md)                               | GA             | GA                             | GA                             |
 | - [Integration with Microsoft Defender for Cloud Apps](./other-threat-protections.md#display-recommendations-in-microsoft-defender-for-cloud-apps)                | GA             | Not Available                  | Not Available                  |
@@ -183,6 +183,6 @@ For information about when recommendations are generated for each of these solut
 
 ## Next steps
 
-- Learn how [Defender for Cloud collects data using the Log Analytics Agent](enable-data-collection.md).
+- Learn how [Defender for Cloud collects data using the Log Analytics Agent](monitoring-components.md#log-analytics-agent).
 - Learn how [Defender for Cloud manages and safeguards data](data-security.md).
 - Review the [platforms that support Defender for Cloud](security-center-os-coverage.md).
