@@ -60,7 +60,7 @@ To run a search job, in the Azure portal:
 
     ![Screenshot of the Logs screen with the Search job mode switch highlighted.](./media/search-job/switch-to-mode.png)
 
-    Azure Monitor Logs intellisense supports [KQL query limitations in search job mode](#kql-query-limitations) to help composing a search job query. 
+    Azure Monitor Logs intellisense supports [KQL query limitations in search job mode](#kql-query-limitations) to help you write your search job query. 
 
 1. Specify the search job date range using the time picker.
 1. Type the search job query and select the **Search Job** button.
@@ -296,7 +296,7 @@ The charge for a search job is based on:
 For example, if your table holds 500 GB per day, for a query on three days, you'll be charged for 1500 GB of scanned data. If the job returns 1000 records, you'll be charged for ingesting these 1000 records into the results table. 
 
 > [!NOTE]
-> Search job execution is free until February 1, 2023. Until February 2023, you will only incur charges for ingesting the search results, not for executing the search job. 
+> Search job execution is free until early 2023. In other words, until early 2023, you will only incur charges for ingesting the search results, not for executing the search job. 
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
