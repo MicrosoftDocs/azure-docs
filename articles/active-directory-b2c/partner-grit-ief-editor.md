@@ -42,6 +42,7 @@ The following illustration shows a sample code-development workflow from XML fil
 ![Screenshot shows the sample code-development workflow.](./media/partner-grit-ief-editor/sample-code-development-workflow.png)
 
 | Step | Description |
+|:-----|:------|
 | 1. | Go to https://www.gritiefedit.com and upload the policies from [Azure AD B2C customer policies starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack) using the upload policy button in the user interface.|
 | 2 | Using the Visual IEF editor tool, select and edit any user journey and self asserted profile that needs update/modification.|
 |3. | Once the files are updated, select the download button. All the policies will be downloaded to the local machine.|
