@@ -1053,7 +1053,7 @@ You might want to enable the OpenTelemetry Protocol (OTLP) Exporter alongside yo
 
 ### Local Storage and Automatic Retries
 
-To improve reliability and resiliancy, Azure Monitor OpenTelemetry-based offerings write local storage by default when an application loses its connection with Application Insights. It will save the application telemetry for up to XX hours, and continue to retry every XX minutes until XYZ. In some cases, you may wish to disable this feature to optimize application performance.
+To improve reliability and resiliency, Azure Monitor OpenTelemetry-based offerings write local storage by default when an application loses its connection with Application Insights. It will save the application telemetry for up to XX hours, and continue to retry every XX minutes until XYZ. In some cases, you may wish to disable this feature to optimize application performance.
 
 #### [.NET](#tab/net)
 
