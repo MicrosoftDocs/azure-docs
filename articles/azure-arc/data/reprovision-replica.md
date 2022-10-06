@@ -23,7 +23,7 @@ You can reprovision a replica [via `az` CLI](#via-az-cli) or [via `kubectl`](#vi
 
 You can only reprovision a replica on a multi-replica instance.
 
-### Via `az` CLI
+## Via `az` CLI
 
 Azure CLI `az sql mi-arc` command group includes `reprovision-replica`. To reprovision a replica, update the following example. Replace `<instance_name-replica_number>` with the instance name and replica number of the replica you want to replace. Replace `<namespace>`.
 
