@@ -1,7 +1,7 @@
 ---
 title: Deploy machine learning models to online endpoints
 titleSuffix: Azure Machine Learning
-description: Learn to deploy your machine learning model as a online endpoint that's to Azure.
+description: Learn to deploy your machine learning model as an online endpoint that's to Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -200,7 +200,7 @@ For more information about the YAML schema, see the [online endpoint YAML refere
 
 # [Python](#tab/python)
 
-In this article, we first define names of online endpoint and deployement for debug locally.
+In this article, we first define names of online endpoint and deployment for debug locally.
 
 1. Define endpoint (with name for local endpoint):
       ```python
@@ -319,7 +319,7 @@ To save time debugging, we *highly recommend* that you test-run your endpoint lo
 
 ### Deploy the model locally
 
-First create the endpoint. Optionally, for a local endpoint, you can skip this step and directly create the deployment (next step), which will, in turn, create the required metadata. This is useful for development and testing purposes.
+First create an endpoint. Optionally, for a local endpoint, you can skip this step and directly create the deployment (next step), which will, in turn, create the required metadata. Deploying models locally is useful for development and testing purposes.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -588,7 +588,7 @@ for endpoint in ml_client.online_endpoints.list():
     print(endpoint.name)
 ```
 
-The method returns list (iteretor) of `ManagedOnlineEndpoint` entities. You can get other information by specifing [parameters](/python/api/azure-ai-ml/azure.ai.ml.entities.managedonlineendpoint.md#parameters).
+The method returns list (iterator) of `ManagedOnlineEndpoint` entities. You can get other information by specifying [parameters](/python/api/azure-ai-ml/azure.ai.ml.entities.managedonlineendpoint.md#parameters).
 
 For example, output the list of endpoints like a table:
 
@@ -790,7 +790,7 @@ To learn more, review these articles:
 - [Create and use online endpoints in the studio](how-to-use-managed-online-endpoint-studio.md)
 - [How to autoscale managed online endpoints](how-to-autoscale-endpoints.md)
 - [Use batch endpoints for batch scoring](how-to-use-batch-endpoint.md)
-- [Access Azure resources with a online endpoint and managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
+- [Access Azure resources from an online endpoint with a managed identity](how-to-access-resources-from-endpoints-managed-identities.md)
 - [Troubleshoot online endpoints deployment](how-to-troubleshoot-online-endpoints.md)
 - [Enable network isolation with managed online endpoints](how-to-secure-online-endpoint.md)
 - [View costs for an Azure Machine Learning managed online endpoint](how-to-view-online-endpoints-costs.md)
