@@ -272,33 +272,33 @@ The following steps show how to prepare the internal load balancer for the move 
 
  * **Availability zone**. You can change the zone(s) of the load balancer's frontend by changing the **zone** property. If the zone property isn't specified, the frontend will be created as no-zone. You can specify a single zone to create a zonal frontend or all 3 zones for a zone-redundant frontend.
 
-         ```json
-         "frontendIPConfigurations": [
-                { 
-                    "name": "myfrontendIPinbound",
-                    "etag": "W/\"39e5e9cd-2d6d-491f-83cf-b37a259d86b6\"",
-                "type": "Microsoft.Network/loadBalancers/frontendIPConfigurations",
-                "properties": {
-                    "provisioningState": "Succeeded",
-                    "privateIPAddress": "10.0.0.6",
-                    "privateIPAllocationMethod": "Dynamic",
-                    "subnet": {
-                        "id": "[concat(parameters('virtualNetworks_myVNET2_internalid'), '/subnet-1')]"
-                    },
-                    "loadBalancingRules": [
-                        {
-                            "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/loadBalancingRules/myInboundRule')]"
-                        }
-                    ],
-                    "privateIPAddressVersion": "IPv4"
+        ```json
+        "frontendIPConfigurations": [
+        { 
+            "name": "myfrontendIPinbound",
+            "etag": "W/\"39e5e9cd-2d6d-491f-83cf-b37a259d86b6\"",
+            "type": "Microsoft.Network/loadBalancers/frontendIPConfigurations",
+            "properties": {
+                "provisioningState": "Succeeded",
+                "privateIPAddress": "10.0.0.6",
+                "privateIPAllocationMethod": "Dynamic",
+                "subnet": {
+                    "id": "[concat(parameters('virtualNetworks_myVNET2_internalid'), '/subnet-1')]"
                 },
-                "zones": [
-                    "1",
-                    "2",
-                    "3"
-                ]
-          },
-         ```
+                "loadBalancingRules": [
+                    {
+                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/loadBalancingRules/myInboundRule')]"
+                    }
+                ],
+                "privateIPAddressVersion": "IPv4"
+            },
+            "zones": [
+                "1",
+                "2",
+                "3"
+            ]
+        },
+        ```
 
     * **Load balancing rules** - You can add or remove load balancing rules in the configuration by adding or removing entries to the **loadBalancingRules** section of the **template.json** file:
 
