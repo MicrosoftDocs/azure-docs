@@ -125,8 +125,12 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Back up SAP HANA databases in Azure VMs
+          - text: Back up SAP HANA databases on Azure VMs
             url: backup-azure-sap-hana-database.md
+          - text: Back up SAP HSR databases on Azure VMs (preview)
+            url: sap-hana-database-with-hana-system-replication-backup.md
+          - text: Back up SAP HANA databases' instance snapshots on Azure VMs (preview)
+            url: sap-hana-database-instances-backup.md
           - text: Manage and monitor backed up SAP HANA databases
             url: sap-hana-db-manage.md
           - text: FAQ - Back up SAP HANA databases on Azure VMs

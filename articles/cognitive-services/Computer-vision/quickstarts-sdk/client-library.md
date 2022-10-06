@@ -16,7 +16,9 @@ zone_pivot_groups: programming-languages-ocr
 keywords: computer vision, computer vision service
 ---
 
-# Quickstart: Optical character recognition (OCR)
+# Quickstart: Computer Vision v3.2 GA Read
+
+[!INCLUDE [read-editions](../includes/read-editions.md)]
 
 Get started with the Computer Vision Read REST API or client libraries. The Read API provides you with AI algorithms for extracting text from images and returning it as structured strings. Follow these steps to install a package to your application and try out the sample code for basic tasks.
 

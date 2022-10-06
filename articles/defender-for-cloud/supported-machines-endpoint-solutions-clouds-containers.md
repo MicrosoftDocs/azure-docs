@@ -75,7 +75,7 @@ Learn how to [use Azure Private Link to connect networks to Azure Monitor](../az
 | Domain | Feature | Supported Resources | Linux release state <sup>[1](#footnote1)</sup> | Windows release state <sup>[1](#footnote1)</sup>  | Agentless/Agent-based | Pricing tier |
 |--|--| -- | -- | -- | -- | --| 
 | Compliance | Docker CIS | EC2 | Preview | - | Log Analytics agent | Defender for Servers Plan 2 |
-| Vulnerability Assessment | Registry scan | - | - | - | - | - |
+| Vulnerability Assessment | Registry scan | ECR | Preview | - | Agentless | Defender for Containers |
 | Vulnerability Assessment | View vulnerabilities for running images | - | - | - | - | - |
 | Hardening | Control plane recommendations | - | - | - | - | - |
 | Hardening | Kubernetes data plane recommendations | EKS | Preview | - | Azure Policy extension | Defender for Containers |
@@ -256,6 +256,6 @@ Outbound proxy without authentication and outbound proxy with basic authenticati
 
 ## Next steps
     
-- Learn how [Defender for Cloud collects data using the Log Analytics Agent](enable-data-collection.md).
+- Learn how [Defender for Cloud collects data using the Log Analytics Agent](monitoring-components.md).
 - Learn how [Defender for Cloud manages and safeguards data](data-security.md).
 - Review the [platforms that support Defender for Cloud](security-center-os-coverage.md).
