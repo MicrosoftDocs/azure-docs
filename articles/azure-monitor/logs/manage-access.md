@@ -289,7 +289,18 @@ To create a role that lets users or groups read data from specific tables in a w
         :::image type="content" source="media/manage-access/manage-access-create-custom-role-json.png" alt-text="Screenshot that shows the JSON tab of the Create a custom role screen with the actions section of the JSON file higlighted." lightbox="media/manage-access/manage-access-create-custom-role-json.png":::    
 
     1. Select **Review + Create** at the bottom of the screen, and then **Create** on the next page.   
-    
+    1. Copy the custom role ID:
+        1. Select **Access control (AIM)** > **Roles**.
+        1. Right-click on your custom role and select **Edit**. 
+          
+           This opens the **Custom Role** screen.
+
+            :::image type="content" source="media/manage-access/manage-access-role-definition-id.png" alt-text="Screenshot that shows the JSON tab of the Custom Role screen with the ID field highlighted." lightbox="media/manage-access/manage-access-role-definition-id.png":::        
+
+        1. Select **JSON** and copy the `id` field.
+             
+            You'll need the `/providers/Microsoft.Authorization/roleDefinitions/<definition_id>" when you call the https://management.azure.com/batch?api-version=2020-06-01 POST API.
+
 1. Assign your custom role to the relevant users or groups:
     1. Select **Access control (AIM)** > **Add** > **Add role assignment**.
     
@@ -339,7 +350,7 @@ To create a role that lets users or groups read data from specific tables in a w
 
     Where:
     - You can generate a GUID for `<GUID 1>` and `<GUID 2>` using any GUID generator.
-    - `<custom_role_ID>` begins with `_/providers/Microsoft.Authorization/roleDefinitions/_`
+    - `<custom_role_ID>` begins with `_/providers/Microsoft.Authorization/roleDefinitions/_`.
     - `<subscription_ID>` is the ID of the subscription related to the workspace.
     - `<resource_group_name>` is the resource group of the workspace.
     - `<workspace_name>` is the name of the workspace.
