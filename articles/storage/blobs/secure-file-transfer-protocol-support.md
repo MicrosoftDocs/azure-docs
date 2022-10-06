@@ -22,7 +22,9 @@ Blob storage now supports the SSH File Transfer Protocol (SFTP). This support le
 >
 > To help us understand your scenario, please complete [this form](https://forms.office.com/r/gZguN0j65Y) before you begin using SFTP support. After you've tested your end-to-end scenarios with SFTP, please share your experience by using [this form](https://forms.office.com/r/MgjezFV1NR). Both of these forms are optional. 
 
-> [!VIDEO https://www.youtube.com/watch?v=5cSo3GqSTWY]
+Here's a video that tells you more about it.
+
+> [!VIDEO https://www.youtube-nocookie.com/embed/5cSo3GqSTWY]
 
 Azure allows secure data transfer to Blob Storage accounts using Azure Blob service REST API, Azure SDKs, and tools such as AzCopy. However, legacy workloads often use traditional file transfer protocols such as SFTP. You could update custom applications to use the REST API and Azure SDKs, but only by making significant code changes.
 
