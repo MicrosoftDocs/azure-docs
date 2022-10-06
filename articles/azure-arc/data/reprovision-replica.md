@@ -17,11 +17,11 @@ This article describes how to provision a new replica to replace an existing rep
 
 When you reprovision a replica, you rebuild a new managed instance replica for an Azure Arc-enabled SQL Managed Instance deployment. Use this task to replace a replica that is failing to synchronize, for example, due to corruption of the data on the persistent volumes (PV) for that instance, or due to some recurring SQL issue.
 
-You can reprovision a replica [via `az` CLI](#via-az-cli) or [via `kubectl`](#via-kubectl).. You can't reprovision a replica from the Azure portal.
+You can reprovision a replica [via `az` CLI](#via-az-cli) or [via `kubectl`](#via-kubectl). You can't reprovision a replica from the Azure portal.
 
 ## Prerequisites
 
-You can only reprovision an replica on a multi-replica instance.
+You can only reprovision a replica on a multi-replica instance.
 
 ### Via `az` CLI
 
