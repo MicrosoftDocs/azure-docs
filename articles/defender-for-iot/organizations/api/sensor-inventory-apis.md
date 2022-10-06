@@ -118,14 +118,14 @@ Array of JSON objects that represent device connections, or the following failur
 
 **APIs**:
 
-```curl
+```rest
 curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/connections
 ```
 
 
 **Examples**:
 
-```curl
+```rest
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices/connections
 ```
 
@@ -243,7 +243,7 @@ Array of JSON objects that represent device connections, or the following failur
 **APIs**:
 
 
-```curl
+```rest
 curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/devices/<deviceId>/connections?lastActiveInMinutes=&discoveredBefore=&discoveredAfter=
 ```
 
@@ -251,7 +251,7 @@ curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/devices/<d
 
 With given query parameters:
 
-```curl
+```rest
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/api/v1/devices/2/connections?lastActiveInMinutes=20&discoveredBefore=1594550986000&discoveredAfter=1594550986000
 ```
 
@@ -337,13 +337,13 @@ JSON array of device CVE objects, or the following failure message:
 
 **APIs**:
 
-```curl
+```rest
 curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/cves
 ```
 
 **Examples**:
 
-```curl
+```rest
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices/cves
 ```
 ---
@@ -433,7 +433,7 @@ JSON array of device CVE objects, or the following failure message:
 
 **APIs**:
 
-```curl
+```rest
 curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/<deviceIpAddress>/cves?top=
 ```
 
@@ -442,7 +442,7 @@ curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/<de
 
 With given query parameters:
 
-```curl
+```rest
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices/10.10.10.15/cves?top=50
 ```
 
@@ -488,12 +488,12 @@ Array of JSON objects that represent device objects, or the following failure me
 | **<a name="operatingsystem"></a>operatingSystem** | Enum. Defines the device's operating system. |Nullable | For more information, see [Supported operatingSystem values](#supported-operatingsystem-values). |
 | **macAddresses** | JSON array of strings. |Nullable | - |
 | <a name="type"></a>**type** |String. Defines the device type. |Not nullable |Can be `Unknown`. For more information, see [Supported type values](#supported-type-values). |
-| **engineeringStation** | Boolean. Defines whether the device is defined as an engineering station or not: <br><br>- `true`: Device is an engineering station <br>- `false`: Device is not an engineering station.  |Not nullable | |
-|**authorized**  |Boolean. Defines whether the device is defined as an engineering station or not: <br><br>- `true`: Device is an engineering station <br>- `false`: Device is not an engineering station. | | |
-|**scanner** |Boolean. Defines whether the device is authorized or not: <br><br>- `true`: Device is authorized <br>- `false`: Device is not authorized. | | |
-| <a name="protocol"></a>**protocols** |Object that contains the device's protocol details. |Nullable | For more information, see  |
+| **engineeringStation** | Boolean. Defines whether the device is defined as an engineering station or not. |Not nullable | - `true`: Device is an engineering station <br>- `false`: Device is not an engineering station. |
+|**authorized**  |Boolean. Defines whether the device is defined as an engineering station or not. |Not nullable | - `true`: Device is an engineering station <br>- `false`: Device is not an engineering station|
+|**scanner** |Boolean. Defines whether the device is authorized or not.|Not nullable | - `true`: Device is authorized <br>- `false`: Device is not authorized |
+| <a name="protocol"></a>**protocols** |Object that contains the device's protocol details. |Nullable | For more information, see [Microsoft Defender for IoT - supported IoT, OT, ICS, and SCADA protocols](../concept-supported-protocols.md). |
 |<a name="firmware"></a>**firmware** | JSON array of a `firmware` object that defies the device's firmware. |Not nullable | For more information, see [Supported firmware fields](#supported-firmware-fields).|
-|**hasDynamicAddress** | Boolean. Defines whether the device has a dynamic address or not. <br><br>- `true`: Device has a dynamic address <br>- `false`: Device does not have a dynamic address |Not nullable|
+|**hasDynamicAddress** | Boolean. Defines whether the device has a dynamic address or not.  |Not nullable| - `true`: Device has a dynamic address <br>- `false`: Device does not have a dynamic address |
 
 
 #### Supported `operatingSystem` values
@@ -750,7 +750,7 @@ This section lists the supported fields for the [firware](#operatingsystem) obje
 
 **Type**: GET
 
-```curl
+```rest
 curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/devices/'
 ```
 ---

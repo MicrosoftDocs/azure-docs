@@ -107,13 +107,13 @@ For more information, see [Sensor API version reference](../references-work-with
 
 **API**:
 
-```curl
+```rest
 curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/alerts?state=<STATE>&fromTime=<FROM_TIME>&toTime=<TO_TIME>&type=<TYPE>'
 ```
 
 **Example**:
 
-```curl
+```rest
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/api/v1/alerts?state=unhandled&fromTime=1594550986000&toTime=1594550986001&type=disconnections'
 ```
 
@@ -203,13 +203,13 @@ Event fields include:
 
 **API**:
 
-```curl
+```rest
 curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/events?minutesTimeFrame=<TIME_FRAEM>&type=<TYPE>'
 ```
 
 **Example**:
 
-```curl
+```rest
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/api/v1/events?minutesTimeFrame=20&type=DEVICE_CONNECTION_CREATED'`
 ```
 ---

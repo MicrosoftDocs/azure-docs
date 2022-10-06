@@ -146,20 +146,20 @@ This API returns data about all devices that were updated after the given timest
 }
 ```
 
-# [cURL](#tab/devices-curl)
+# [cURL command](#tab/devices-curl)
 
 
 **Type**: GET
 
 **API**:
 
-```curl
+```rest
 curl -k -H "Authorization: <Authorization token>" "https://<IP address>/external/v3/integration/devices/<Timestamp>"
 ```
 
 **Example**:
 
-```curl
+```rest
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" "https://127.0.0.1/external/v3/integration/devices/<Timestamp>"
 ```
 
@@ -241,19 +241,19 @@ This API returns data about all device connections that were updated after the g
     },
 ```
 
-# [cURL](#tab/connections-curl)
+# [cURL command](#tab/connections-curl)
 
 **Type**: GET
 
 **API**:
 
-```curl
+```rest
 curl -k -H "Authorization: <Authorization token>" "https://<IP address>/external/v3/integration/connections/1664781014000"
 ```
 
 **Example**:
 
-```curl
+```rest
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" "https://127.0.0.1/external/v3/integration/connections/1664781014000"
 ```
 
@@ -403,19 +403,19 @@ This API returns data about a specific device per a given device ID.
 }]
 ```
 
-# [cURL](#tab/device-curl)
+# [cURL command](#tab/device-curl)
 
 **Type**: GET
 
 **API**:
 
-```curl
+```rest
 curl -k -H "Authorization: <Authorization token>" "https://<IP address>/external/v3/integration/device/<device ID>"
 ```
 
 **Example**:
 
-```curl
+```rest
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" "https://127.0.0.1/external/v3/integration/device/1"
 ```
 
@@ -463,19 +463,19 @@ This API returns a list of IDs of recently deleted devices, from the supplied ti
 }]
 ```
 
-# [cURL](#tab/deleteddevices-curl)
+# [cURL command](#tab/deleteddevices-curl)
 
 **Type**: GET
 
 **API**:
 
-```curl
+```rest
 curl -k -H "Authorization: <Authorization token>" "https://<IP address>/external/v3/integration/deleteddevices/<timestamp>"
 ```
 
 **Example**:
 
-```curl
+```rest
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" "https://127.0.0.1/external/v3/integration/deleteddevices/1664781014000"
 ```
 
@@ -508,7 +508,7 @@ An array of the following fields:
 |**u_id** | Long integer | Not nullable | Defines the internal sensor ID, to be used in the [devices (Create and update devices)](#devices-create-and-update-devices) API.|
 | **u_name** | String | Not nullable | Defines the sensor appliance's name. |
 | **u_interface_address** | String | Not nullable | Defines the sensor appliance's network address.|
-|**u_connection_state** |String |Not nullable | Defines the device's connection state with an on-premises management console, using one of the following values: <br><br>- **SYNCED**: Connection is successful. <br>- **OUT_OF_SYNC**: On-premises management console cannot process data received from the sensor. <br>- **TIME_DIFF_OFFSET**: Time drift detected. On-premises management console has been disconnected from the sensor. <br>**DISCONNECTED**: Sensor not communicating with management console. Check network connectivity. |
+|**u_connection_state** |String |Not nullable | Defines the device's connection state with an on-premises management console, using one of the following values: <br><br>- **SYNCED**: Connection is successful. <br>- `OUT_OF_SYNC`: On-premises management console cannot process data received from the sensor. <br>- `TIME_DIFF_OFFSET`: Time drift detected. On-premises management console has been disconnected from the sensor. <br>`DISCONNECTED`: Sensor not communicating with management console. Check network connectivity. |
 |**u_version** | String | Not nullable | A string representation of the sensor's software version. |
 | **u_alert_count** | Long integer | Not nullable | The current number of alerts triggered by the sensor. |
 | **u_device_count** | Long integer | Not nullable | The current number of devices detected by the sensor. |
@@ -518,7 +518,7 @@ An array of the following fields:
 | **u_uid** |String | Not nullable | Defines the sensor's globally unique identifier. |
 | **u_zone_id** | Long integer | Nullable | Define's the device's zone. |
 | **u_is_in_learning_mode** | Boolean | Not nullable  | Determines whether the sensor is in learning mode. |
-| **u_remote_upgrade_stage** | String |Nullable |Defines a current stage in a version update process as one of the following: <br> - **UPLOADING** <br>-  **PREPARE_TO_INSTALL** <br>- **STOPPING_PROCESSES** <br>- **BACKING_UP_DATA** <br>- **TAKING_SNAPSHOT** <br>- **UPDATING_CONFIGURATION** <br>- **UPDATING_DEPENDENCIES** <br>- **UPDATING_LIBRARIES** <br>- **PATCHING_DATABASES** <br>- **STARTING_PROCESSES** <br>- **VALIDATING_SYSTEM_SANITY** <br>- **VALIDATION_SUCCEEDED_REBOOTING** <br>- **SUCCESS** <br>- **FAILURE** <br>- **UPGRADE_STARTED** <br>- **STARTING_INSTALLATION** <br>- **INSTALLING_OPERATING_SYSTEM**|
+| **u_remote_upgrade_stage** | String |Nullable |Defines a current stage in a version update process as one of the following: <br> - `UPLOADING` <br>-  `PREPARE_TO_INSTALL` <br>- `STOPPING_PROCESSES` <br>- `BACKING_UP_DATA` <br>- `TAKING_SNAPSHOT` <br>- `UPDATING_CONFIGURATION` <br>- `UPDATING_DEPENDENCIES` <br>- `UPDATING_LIBRARIES` <br>- `PATCHING_DATABASES` <br>- `STARTING_PROCESSES` <br>- `VALIDATING_SYSTEM_SANITY` <br>- `VALIDATION_SUCCEEDED_REBOOTING` <br>- `SUCCESS` <br>- `FAILURE` <br>- `UPGRADE_STARTED` <br>- `STARTING_INSTALLATION` <br>- `INSTALLING_OPERATING_SYSTEM`|
 
 #### Response example
 
@@ -543,19 +543,19 @@ An array of the following fields:
 ];
 ```
 
-# [cURL](#tab/sensors-curl)
+# [cURL command](#tab/sensors-curl)
 
 **Type**: GET
 
 **API**:
 
-```curl
+```rest
 curl -k -H "Authorization: <Authorization token>" "https://<IP Address>/external/v3/integration/sensors"
 ```
 
 **Example**:
 
-```curl
+```rest
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" "https://127.0.0.1/external/v3/integration/sensors"
 ```
 
@@ -614,9 +614,9 @@ This API returns a list of active CVEs for all devices that were updated since t
 |**u_cves** | JSON array of CVEs | Not nullable | An array of [CVE details](#u_cves-fields) objects |
 
 > [!NOTE]
-> If Defender for IoT can confidently identify the MAC address of one of its IP addresses, the MAC address is returned in the **u_mac_address_objects** field directly.
+> If Defender for IoT can confidently identify the MAC address of one of its IP addresses, the MAC address is returned in the `u_mac_address_objects` field directly.
 >
-> If Defender for IoT is not entirely confident about a MAC address, such as if the traffic has been routed via a router, the MAC address is returned in the **u_guessed_mac_address** field instead, as part of the JSON array of IP addresses.
+> If Defender for IoT is not entirely confident about a MAC address, such as if the traffic has been routed via a router, the MAC address is returned in the `u_guessed_mac_address` field instead, as part of the JSON array of IP addresses.
 
 #### u_ip_address_objects fields
 
@@ -638,7 +638,7 @@ This API returns a list of active CVEs for all devices that were updated since t
 |**u_address** |String | Not nullable | Address of the specific interface, with the specific firmware where the CVE was detected. |
 | **u_cve_id**| String| Not nullable | Defines the CVE ID |
 |**u_score** | String| Not nullable | Defines the CVE risk score |
-| **u_attack_vector**|String | Not nullable | Defines the attack vector as one of the following: **ADJACENT_NETWORK**, **LOCAL**, **NETWORK** |
+| **u_attack_vector**|String | Not nullable | Defines the attack vector as one of the following: `ADJACENT_NETWORK`, `LOCAL`, `NETWORK` |
 | **u_description**| String| Not nullable | Defines the CVE description|
 
 #### Response example
@@ -717,10 +717,20 @@ This API returns a list of active CVEs for all devices that were updated since t
 }
 ```
 
-# [cURL](#tab/devicecves-curl)
+# [cURL command](#tab/devicecves-curl)
+
+**Type**: GET
+
+**API**:
 
 ```rest
 curl -k -H "Authorization: <Authorization token>" "https://<IP Address>/external/v3/integration/devicecves/<timestamp>"
+```
+
+**Examplle**:
+
+```rest
+curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" "https://127.0.0.1/external/v3/integration/devicecves/1664781014000"
 ```
 ---
 
