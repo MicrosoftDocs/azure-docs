@@ -15,7 +15,7 @@ AKS clusters that satisfy any of the below criteria should use the [Uptime SLA][
 * Clusters that need to scale beyond 1000 nodes 
 * Clusters running production workloads or availability sensitive mission critical workloads
 
-To scale AKS clusters beyond 1000 nodes, you need to request a node limit quota increase by raising a support ticket via the [Portal][Azure Portal] up-to a maximum of 5000 nodes per cluster. 
+To scale AKS clusters beyond 1000 nodes, you need to request a node limit quota increase by raising a support ticket via the [portal][Azure Portal] up-to a maximum of 5000 nodes per cluster. 
 
 To increase the node limit beyond 1000, you must have the following pre-requisites:
 - An existing AKS cluster that needs the node limit increase. This cluster shouldn't be deleted as that will remove the limit increase.
