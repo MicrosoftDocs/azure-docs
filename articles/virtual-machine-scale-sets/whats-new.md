@@ -1,22 +1,22 @@
 ---
-title: "What's new for virtual machines" 
-description: Learn about what's new for virtual machines in Azure.
+title: "What's new for virtual machine scale sets" 
+description: Learn about what's new for virtual machine scale sets in Azure.
 author: cynthn
-ms.service: virtual-machines
+ms.service: virtual-machine-scale-sets
 ms.topic: whats-new
 ms.date: 10/06/2022
 ms.author: cynthn
 ms.custom: day0
 ---
 
-# What's new for virtual machines
+# What's new for scale sets
 
 This article describes what's new for virtual machines in Azure.
 
 
 ## Spot Priority Mix for Flexible scale sets
 
-On October 12, 2022  [Spot Priority Mix](../virtual-machine-scale-sets/spot-priority-mix.md) was introduced for scale sets using Flexible orchestration.
+On October 12, 2022  [Spot Priority Mix](spot-priority-mix.md) was introduced for scale sets using Flexible orchestration.
 
 Spot Priority Mix provides the flexibility of running a mix of regular on-demand VMs and Spot VMs for virtual machine scale set deployments. Easily balance between high-capacity availability and lower infrastructure costs according to your workload requirements.
 
