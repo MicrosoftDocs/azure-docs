@@ -131,7 +131,7 @@ Here are the typical subject areas that are evaluated with Data Explorer:
 >
 > - **How do I choose the caching period when creating my Data Explorer pool?**  
 >     To provide best query performance, ingested data is cached on the local SSD disk. This level of performance is not always required and less frequently queried data can often be stored on cheaper blob storage. Queries on data in blob storage run slower, but this acceptable in many scenarios. Knowing this can help you identify the number of compute nodes you need to hold your data in local SSD and continue to meet your query performance requirements. For example, if you you want to query *x* days worth of data (based on ingestion age) more frequently and retain data for *y* days and query it less frequently, in your cache retention policy, specify *x* as the value for hot cache retention and *y* as the value for the total retention. For more information, see [Cache policy](/azure/data-explorer/kusto/management/cachepolicy?context=/azure/synapse-analytics/context/context).
-> - **How do I choose the retention period when creating my POC workspace?**  
+> - **How do I choose the retention period when creating my Data Explorer pool?**  
 >     The retention period is a combination of hot and cold cache data that is available for querying. You choose data retention based on how long you need to retain the data based on compliance or other regulatory requirements. You can use the hot window capability, to warm data stored in the cold cache, for faster queries for any auditing purpose. For more information, see [Query cold data with hot windows](/azure/data-explorer/hot-windows?context=/azure/synapse-analytics/context/context).
 
 Here's an example of the needed level of specificity in planning:
@@ -167,10 +167,10 @@ The following is a high level example of tasks that you can use to help you plan
 
 | Sprint | Task |
 |--|--|
-| 0 | Present and demo Data Azure Synapse Data Explorer to the customer team |
-| 0 | Define business scenarios that customer wants to achieve with Data Explorer |
+| 0 | Develop an understanding of Data Explorer using online resources or with the help of Microsoft account team |
+| 0 | Define business scenarios that you want to achieve with Data Explorer |
 | 0 | Define technical requirements in terms of data sources, ingestion methods, data retention, data caching, SLAs, security, networking, IAM |
-| 0 | Define key performance measures, such as query performance expectation, latency, concurrent requests, ingestion throughout, data freshness |
+| 0 | Define key performance measures, such as query performance expectation, latency, concurrent requests, ingestion throughput, data freshness |
 | 0 | Define high level architecture with Data Explorer and its data ingesters and consumers |
 | 0 | Define POC Scope |
 | 0 | Define POC planning and timelines |
@@ -182,22 +182,21 @@ The following is a high level example of tasks that you can use to help you plan
 | 1 | Define configuration elements needed when creating workspaces, such as streaming, Python/R plugins, purge |
 | 1 | Review source data format, structure, schema |
 | 1 | Review, refine, revise evaluation criteria |
-| 2 | Create workspace and the required databases, tables, materialized views per the architecture design |
+| 2 | Create workspace, Data Explorer pool, and the required databases, tables, and materialized views per the architecture design |
 | 2 | Assign permissions to the relevant users for data plane access |
 | 2 | Implement partitioning and merge policies (if required) |
 | 2 | Implement one-time ingestion of data, typically historical or migration data |
 | 2 | Install and configure query tool (if required) |
 | 2 | Test queries on the ingested data using Data Explorer web UI |
 | 2 | Test update and delete scenarios |
-| 2 | Test connection to PowerBI |
-| 2 | Test connection to Grafana |
+| 2 | Test connection to your chosen visualization and querying tools (such as Power BI, Grafana, etc.) |
 | 2 | Configure data access management rules |
 | 2 | Implement continuous ingestion |
 | 2 | Create data connections with Event Hubs/Iot Hub/Event Grid |
 | 3 | Implement autorefreshing dashboard for near real-time monitoring in Azure Data Explorer Dashboards or Grafana |
 | 3 | Define how to perform load testing |
 | 3 | Optimize ingestion methods and processes based on learnings from previous sprints and completed backlog items |
-| 3 | Performance assessment on Grafana dashboard |
+| 3 | Performance assessment on Grafana or your chosen dashboarding tool |
 | 3 | Perform load testing in line with concurrency and expected load requirements |
 | 3 | Validate success criteria |
 | 3 | Review scoring |
@@ -273,9 +272,9 @@ When you complete all the POC tests, you evaluate the results. Begin by evaluati
 
 ## Migrating from POC to production
 
-If you've decided to proceed with Data Explorer in Azure Synapse and intend to migrate your POC workspace to production, we strongly recommend that you keep the POC workspace running, and use it to set up your production workspace. This will help you ensure that you don't lose the configurations and optimizations that you may have applied during the POC.
+If you've decided to proceed with your Data Explorer pool in Azure Synapse and intend to migrate your POC pool to production, we strongly recommend that you keep the Data Explorer pool in the POC workspace running, and use it to set up your production workspace. This will help you ensure that you don't lose the configurations and optimizations that you may have applied during the POC.
 
-Before you migrate your POC workspace to production, we highly recommend that you consider, design, and decide on the following factors:
+Before you migrate your Data Explorer pool in the POC workspace to production, we highly recommend that you consider, design, and decide on the following factors:
 
 - Functional and non-functional requirements
 - Disaster Recovery and High Availability requirements
