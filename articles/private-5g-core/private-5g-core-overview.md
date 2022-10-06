@@ -150,9 +150,9 @@ In the context of private mobile networks, a single RAN can connect to both a pr
 
 ### Maximum Transmission Units (MTU)
 
-Maximum Transmission Units (MTU) allow you to specify the largest data packet size allowed within the network. Packets that exceed the MTU are fragmented via IPv4 fragmentation. To avoid IPv4 fragmentation, an appropriate MTU should be configured. However, it is not uncommon for some large packets (up to 1500 bytes) to still be fragmented.
+Maximum Transmission Units (MTU) allow you to specify the largest data packet size allowed within the packet core instance. Packets that exceed the MTU are split into smaller packets via IPv4 fragmentation and reassembled at their destination. To avoid IPv4 fragmentation, an appropriate MTU should be configured. However, it is not uncommon for some large packets (up to 1500 bytes) to still be fragmented.
 
-By default, the MTUs are configured to an UE MTU of 1440 bytes and a RAN MTU of 1500 bytes. You can optionally configure an UE MTU of 1500 and a RAN MTU of 1560 or higher preventing. This avoids all IP fragmentation, but requires RAN support and additional configuration.
+By default, the packet core instance is configured to have an UE MTU of 1440 bytes and a RAN MTU of 1500 bytes. You can optionally configure an UE MTU of 1500 and a RAN MTU of 1560 or higher. This avoids all IP fragmentation, but requires RAN support and additional configuration.
 
 ## Flexible integration with Azure private multi-access edge compute (MEC) partners
 
