@@ -27,7 +27,7 @@ Run the code on either of these environments:
 * Azure Machine Learning compute instance (no downloads or installation necessary):
   * Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) tutorial to create a dedicated notebook server preloaded with the SDK and the sample repository.
 * Your own Jupyter Notebook server:
-  * Create a [workspace configuration file](how-to-configure-environment.md#workspace).
+  * Create a [workspace configuration file](how-to-configure-environment.md#local-and-dsvm-only-create-a-workspace-configuration-file).
   * Install the [Azure Machine Learning SDK](/python/api/overview/azure/ml/install). 
   * Create an [Azure container registry](../container-registry/index.yml) or other Docker registry that's available on the internet.
 
