@@ -4,40 +4,35 @@ description: In this quickstart, you learn how to use the Azure Blob Storage cli
 author: pauljewellmsft
 ms.author: pauljewell
 ms.custom: devx-track-java, mode-api
-ms.date: 12/01/2020
+ms.date: 10/06/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.devlang: java
 ---
 
-# Quickstart: Manage blobs with Java v12 SDK
+# Quickstart: Azure Blob Storage client library for Java
 
-In this quickstart, you learn to manage blobs by using Java. Blobs are objects that can hold large amounts of text or binary data, including images, documents, streaming media, and archive data. You'll upload, download, and list blobs, and you'll create and delete containers.
+Get started with the Azure Blob Storage client library for Java to manage blobs and containers. Follow steps to install the package and try out example code for basic tasks.
 
-Additional resources:
-
-- [API reference documentation](/java/api/overview/azure/storage-blob-readme)
-- [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob)
-- [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob)
-- [Samples](../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+[API reference documentation](/java/api/overview/azure/storage-blob-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob) | [Samples](../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An Azure Storage account. [Create a storage account](../common/storage-account-create.md).
+- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Azure Storage account - [create a storage account](../common/storage-account-create.md).
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
 ## Setting up
 
-This section walks you through preparing a project to work with the Azure Blob Storage client library v12 for Java.
+This section walks you through preparing a project to work with the Azure Blob Storage client library for Java.
 
 ### Create the project
 
 Create a Java application named *blob-quickstart-v12*.
 
-1. In a console window (such as cmd, PowerShell, or Bash), use Maven to create a new console app with the name *blob-quickstart-v12*. Type the following **mvn** command to create a "Hello world!" Java project.
+1. In a console window (such as PowerShell, cmd, or bash), use Maven to create a new console app with the name *blob-quickstart-v12*. Type the following **mvn** command to create a "Hello world!" Java project.
 
     # [PowerShell](#tab/powershell)
 
@@ -112,28 +107,53 @@ Create a Java application named *blob-quickstart-v12*.
     mkdir data
     ```
 
-### Install the package
+### Install the packages
 
-Open the *pom.xml* file in your text editor. Add the following dependency element to the group of dependencies.
+Open the *pom.xml* file in your text editor. 
+
+Add **azure-sdk-bom** to take a dependency on the latest version of the library. In the following snippet, replace the {bom_version_to_target} placeholder with the version number. Using the **azure-sdk-bom** keeps you from having to specify the version of each individual dependency. To learn more about the BOM, see the [Azure SDK BOM readme](https://github.com/Azure/azure-sdk-for-java/blob/azure-identity_1.6.0/sdk/boms/azure-sdk-bom/README.md).
+
+```xml
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-sdk-bom</artifactId>
+            <version>{bom_version_to_target}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+```
+
+Then add the following dependency elements to the group of dependencies. Note that the **azure-identity** dependency is needed for passwordless authentication.
 
 ```xml
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-storage-blob</artifactId>
-    <version>12.13.0</version>
+</dependency>
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-identity</artifactId>
+</dependency>
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-core</artifactId>
 </dependency>
 ```
 
 ### Set up the app framework
 
-From the project directory:
+From the project directory, follow steps to create the basic structure of the app::
 
 1. Navigate to the */src/main/java/com/blobs/quickstart* directory
 1. Open the *App.java* file in your editor
-1. Delete the `System.out.println("Hello world!");` statement
-1. Add `import` directives
+1. Delete the line `System.out.println("Hello world!");`
+1. Add the necessary `import` directives, as shown below
 
-Here's the code:
+The code should resemble the following:
 
 ```java
 package com.blobs.quickstart;
@@ -141,6 +161,8 @@ package com.blobs.quickstart;
 /**
  * Azure blob storage v12 SDK quickstart
  */
+import com.azure.core.*;
+import com.azure.identity.*;
 import com.azure.storage.blob.*;
 import com.azure.storage.blob.models.*;
 import java.io.*;
@@ -149,11 +171,10 @@ public class App
 {
     public static void main( String[] args ) throws IOException
     {
+        // Quickstart code goes here
     }
 }
 ```
-
-[!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
 ## Object model
 
@@ -179,30 +200,140 @@ Use the following Java classes to interact with these resources:
 
 These example code snippets show you how to perform the following with the Azure Blob Storage client library for Java:
 
-- [Get the connection string](#get-the-connection-string)
+- [Authenticate the client](#authenticate-the-client)
 - [Create a container](#create-a-container)
 - [Upload blobs to a container](#upload-blobs-to-a-container)
 - [List the blobs in a container](#list-the-blobs-in-a-container)
 - [Download blobs](#download-blobs)
 - [Delete a container](#delete-a-container)
+ 
+> [!IMPORTANT]
+> Make sure you have the correct dependencies in pom.xml and the necessary directives for the code samples to work, as described in the [setting up](#setting-up) section.
 
-### Get the connection string
+### Authenticate the client
+
+Application requests to Azure Blob Storage must be authorized. Using the `DefaultAzureCredential` class provided by the **azure-identity** client library is the recommended approach for implementing passwordless connections to Azure services in your code, including Blob Storage.
+
+You can also authorize requests to Azure Blob Storage by using the account access key. However, this approach should be used with caution. Developers must be diligent to never expose the access key in an unsecure location. Anyone who gains access to the access key is able to authenticate. `DefaultAzureCredential` offers improved management and security benefits over the account key to allow passwordless authentication. Both options are demonstrated in the following example.
+
+## [Passwordless (Recommended)](#tab/managed-identity)
+
+`DefaultAzureCredential` is a class provided by the Azure Identity client library for Java. `DefaultAzureCredential` supports multiple authentication methods and determines which method should be used at runtime. This approach enables your app to use different authentication methods in different environments (local vs. production) without implementing environment-specific code.
+
+The order and locations in which `DefaultAzureCredential` looks for credentials can be found in the [Azure Identity library overview](/java/api/overview/azure/identity-readme?view=azure-java-stable#defaultazurecredential).
+
+:::image type="content" source="https://raw.githubusercontent.com/Azure/azure-sdk-for-net/main/sdk/identity/Azure.Identity/images/mermaidjs/DefaultAzureCredentialAuthFlow.svg"alt-text="A diagram of the credential flow.":::
+
+For example, your app can authenticate using your Visual Studio sign-in credentials with when developing locally. Your app can then use a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview) once it has been deployed to Azure. No code changes are required for this transition.
+
+### Assign roles to your Azure AD user
+
+[!INCLUDE [assign-roles](../../../includes/assign-roles.md)]
+
+### Sign-in and connect your app code to Azure using DefaultAzureCredential
+
+You can authorize access to data in your storage account using the following steps:
+
+1. Make sure you're authenticated with the same Azure AD account you assigned the role to on your Blob Storage account. You can authenticate via the Azure CLI, Visual Studio Code, or Azure PowerShell.
+
+    ### [Azure CLI](#tab/sign-in-azure-cli)
+
+    Sign-in to Azure through the Azure CLI using the following command:
+
+    ```azurecli
+    az login
+    ```
+
+    ### [Visual Studio Code](#tab/sign-in-visual-studio-code)
+
+    You will need to [install the Azure CLI](/cli/azure/install-azure-cli) to work with `DefaultAzureCredential` through Visual Studio code.
+
+    On the main menu of Visual Studio Code, navigate to **Terminal > New Terminal**.
+
+    Sign-in to Azure through the Azure CLI using the following command:
+
+    ```azurecli
+    az login
+    ```
+
+    ### [PowerShell](#tab/sign-in-powershell)
+
+    Sign-in to Azure using PowerShell via the following command:
+
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+--- 
+
+2. To use `DefaultAzureCredential`, make sure that the **azure-identity** dependency is added in pom.xml:
+
+    ```xml
+    <dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-identity</artifactId>
+      <version>1.6.0</version>
+    </dependency>
+    ```
+
+3. Add this code to the `Main` method. When the code is run on your local workstation during development, it will use the developer credentials of the prioritized tool you're logged into to authenticate to Azure, such as the Azure CLI or Visual Studio.
+
+    :::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/Java/blob-quickstart-v12/src/main/java/com/blobs/quickstart/App.java" id="Snippet_CreateServiceClientDAC":::
+
+4. Make sure to update the Storage account name in the URI of your `BlobServiceClient`. The Storage account name can be found on the overview page of the Azure portal.
+
+    :::image type="content" source="../articles/storage/blobs/media/storage-quickstart-blobs-dotnet/storage-account-name.png" alt-text="A screenshot showing how find the storage account name.":::
+
+    > [!NOTE]
+    > When deployed to Azure, this same code can be used to authorize requests to Azure Storage from an application running in Azure. However, you'll need to enable managed identity on your app in Azure. Then configure your Blob Storage account to allow that managed identity to connect. For detailed instructions on configuring this connection between Azure services, see the [Auth from Azure-hosted apps](/dotnet/azure/sdk/authentication-azure-hosted-apps) tutorial.
+
+## [Connection String](#tab/connection-string)
+
+A connection string includes the storage account access key and uses it to authorize requests. Always be careful to never expose the keys in an unsecure location.
+
+> [!NOTE]
+> If you plan to use connection strings, you will need the Storage Account Contributor role or higher. You can also use any account with the `Microsoft.Storage/storageAccounts/listkeys/action` permission.
+
+[!INCLUDE [retrieve credentials](../../../includes/retrieve-credentials.md)]
+
+### Configure your storage connection string
+
+After you copy the connection string, write it to a new environment variable on the local machine running the application. To set the environment variable, open a console window, and follow the instructions for your operating system. Replace `<yourconnectionstring>` with your actual connection string.
+
+**Windows**:
+
+```cmd
+setx AZURE_STORAGE_CONNECTION_STRING "<yourconnectionstring>"
+```
+
+After you add the environment variable in Windows, you must start a new instance of the command window. If you are using Visual Studio on Windows, you may need to relaunch Visual Studio after creating the environment variable for the change to be detected.
+
+**Linux**:
+
+```bash
+export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
+```
+
+### Configure the connection string
 
 The code below retrieves the connection string for the storage account from the environment variable created in the [Configure your storage connection string](#configure-your-storage-connection-string) section.
 
-Add this code inside the `Main` method:
+Add this code to the end of the `Main` method:
 
 ```java
-System.out.println("Azure Blob Storage v12 - Java quickstart sample\n");
-
-// Retrieve the connection string for use with the application. The storage
-// connection string is stored in an environment variable on the machine
-// running the application called AZURE_STORAGE_CONNECTION_STRING. If the environment variable
-// is created after the application is launched in a console or with
-// Visual Studio, the shell or application needs to be closed and reloaded
-// to take the environment variable into account.
+// Retrieve the connection string for use with the application. 
 String connectStr = System.getenv("AZURE_STORAGE_CONNECTION_STRING");
+
+// Create a BlobServiceClient object using a connection string
+BlobServiceClient client = new BlobServiceClientBuilder()
+    .connectionString(connectStr)
+    .buildClient();
+
 ```
+
+> [!IMPORTANT]
+> The account access key should be used with caution. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. `DefaultAzureCredential` provides enhanced security features and benefits and is the recommended approach for managing authentication to Azure services.
+
+---
 
 ### Create a container
 
@@ -215,46 +346,19 @@ Next, create an instance of the [BlobContainerClient](/java/api/com.azure.storag
 
 Add this code to the end of the `Main` method:
 
-```java
-// Create a BlobServiceClient object which will be used to create a container client
-BlobServiceClient blobServiceClient = new BlobServiceClientBuilder().connectionString(connectStr).buildClient();
-
-//Create a unique name for the container
-String containerName = "quickstartblobs" + java.util.UUID.randomUUID();
-
-// Create the container and return a container client object
-BlobContainerClient containerClient = blobServiceClient.createBlobContainer(containerName);
-```
+:::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/Java/blob-quickstart-v12/src/main/java/com/blobs/quickstart/App.java" id="Snippet_CreateContainer":::
 
 ### Upload blobs to a container
 
-The following code snippet:
+Add this code to the end of the `Main` method:
+
+:::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/Java/blob-quickstart-v12/src/main/java/com/blobs/quickstart/App.java" id="Snippet_UploadBlobFromFile":::
+
+The code snippet completes the following steps:
 
 1. Creates a text file in the local *data* directory.
 1. Gets a reference to a [BlobClient](/java/api/com.azure.storage.blob.blobclient) object by calling the [getBlobClient](/java/api/com.azure.storage.blob.blobcontainerclient.getblobclient) method on the container from the [Create a container](#create-a-container) section.
 1. Uploads the local text file to the blob by calling the [uploadFromFile](/java/api/com.azure.storage.blob.blobclient.uploadfromfile) method. This method creates the blob if it doesn't already exist, but will not overwrite it if it does.
-
-Add this code to the end of the `Main` method:
-
-```java
-// Create a local file in the ./data/ directory for uploading and downloading
-String localPath = "./data/";
-String fileName = "quickstart" + java.util.UUID.randomUUID() + ".txt";
-File localFile = new File(localPath + fileName);
-
-// Write text to the file
-FileWriter writer = new FileWriter(localPath + fileName, true);
-writer.write("Hello, World!");
-writer.close();
-
-// Get a reference to a blob
-BlobClient blobClient = containerClient.getBlobClient(fileName);
-
-System.out.println("\nUploading to Blob storage as blob:\n\t" + blobClient.getBlobUrl());
-
-// Upload the blob
-blobClient.uploadFromFile(localPath + fileName);
-```
 
 ### List the blobs in a container
 
@@ -262,14 +366,7 @@ List the blobs in the container by calling the [listBlobs](/java/api/com.azure.s
 
 Add this code to the end of the `Main` method:
 
-```java
-System.out.println("\nListing blobs...");
-
-// List the blob(s) in the container.
-for (BlobItem blobItem : containerClient.listBlobs()) {
-    System.out.println("\t" + blobItem.getName());
-}
-```
+:::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/Java/blob-quickstart-v12/src/main/java/com/blobs/quickstart/App.java" id="Snippet_ListBlobs":::
 
 ### Download blobs
 
@@ -277,16 +374,7 @@ Download the previously created blob by calling the [downloadToFile](/java/api/c
 
 Add this code to the end of the `Main` method:
 
-```java
-// Download the blob to a local file
-// Append the string "DOWNLOAD" before the .txt extension so that you can see both files.
-String downloadFileName = fileName.replace(".txt", "DOWNLOAD.txt");
-File downloadedFile = new File(localPath + downloadFileName);
-
-System.out.println("\nDownloading blob to\n\t " + localPath + downloadFileName);
-
-blobClient.downloadToFile(localPath + downloadFileName);
-```
+:::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/Java/blob-quickstart-v12/src/main/java/com/blobs/quickstart/App.java" id="Snippet_DownloadBlob":::
 
 ### Delete a container
 
@@ -296,41 +384,47 @@ The app pauses for user input by calling `System.console().readLine()` before it
 
 Add this code to the end of the `Main` method:
 
-```java
-// Clean up
-System.out.println("\nPress the Enter key to begin clean up");
-System.console().readLine();
-
-System.out.println("Deleting blob container...");
-containerClient.delete();
-
-System.out.println("Deleting the local source and downloaded files...");
-localFile.delete();
-downloadedFile.delete();
-
-System.out.println("Done");
-```
+:::code language="java" source="~/azure-storage-snippets/blobs/quickstarts/Java/blob-quickstart-v12/src/main/java/com/blobs/quickstart/App.java" id="Snippet_DeleteContainer":::
 
 ## Run the code
 
 This app creates a test file in your local folder and uploads it to Blob storage. The example then lists the blobs in the container and downloads the file with a new name so that you can compare the old and new files.
 
-Navigate to the directory containing the *pom.xml* file and compile the project by using the following `mvn` command.
+Navigate to the directory containing the *pom.xml* file and compile the project by using the following `mvn` command:
 
 ```console
 mvn compile
 ```
 
-Then, build the package.
+Next, build the package:
 
 ```console
 mvn package
 ```
 
-Run the following `mvn` command to execute the app.
+Run the following `mvn` command to execute the app:
 
 ```console
 mvn exec:java -Dexec.mainClass="com.blobs.quickstart.App" -Dexec.cleanupDaemonThreads=false
+```
+
+Alternatively, you can also add the following plugin to pom.xml:
+
+```xml
+<plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>exec-maven-plugin</artifactId>
+  <version>1.4.0</version>
+  <configuration>
+    <mainClass>com.blobs.quickstart.App</mainClass>
+    <cleanupDaemonThreads>false</cleanupDaemonThreads>
+  </configuration>
+</plugin>
+```
+With this plugin, you can execute the app with this command:
+
+```console
+mvn exec:java
 ```
 
 The output of the app is similar to the following example:
