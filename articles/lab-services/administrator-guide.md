@@ -229,10 +229,7 @@ When you're assigning roles, it helps to follow these tips:
 
 Your school may need to do content filtering to prevent students from accessing inappropriate websites.  For example, to comply with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act).  Lab Services doesn't offer built-in support for content filtering.
 
-There are two approaches that schools typically consider for content filtering:
-
-- Configure a firewall to filter content at the network level.
-- Install third-party software directly on each computer that performs content filtering.
+Schools typically approach content filtering by installing third-party software that performs content filtering on each computer. Azure Lab Services does not support network-level filtering.
 
 By default, Azure Lab Services hosts each lab's virtual network within a Microsoft-managed Azure subscription.  You'll need to use [advanced networking](how-to-connect-vnet-injection.md) in the lab plan.  Make sure to check known limitations of VNet injection before proceeding.
 

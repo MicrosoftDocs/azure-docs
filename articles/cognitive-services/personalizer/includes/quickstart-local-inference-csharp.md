@@ -119,7 +119,8 @@ Next, construct the Rank and Reward URLs.
 ```csharp
 static PersonalizerClient InitializePersonalizerClient(Uri url)
 {
-    return new PersonalizerClient(url, new AzureKeyCredential(ResourceKey));
+    // Set the local inference flag to true when initializing the client.
+    return new PersonalizerClient(url, new AzureKeyCredential(ResourceKey), new PersonalizerClientOptions(useLocalInference: true));
 }
 ```
 
