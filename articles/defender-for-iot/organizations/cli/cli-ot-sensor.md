@@ -1,5 +1,5 @@
 ---
-title:Advanced CLI reference: OT sensor appliance management - Microsoft Defender for IoT
+title: Advanced CLI reference for OT sensor appliance management - Microsoft Defender for IoT
 description: Learn about the CLI commands available for managing the Defender for IoT on-premises applications.
 ms.date: 09/07/2022
 ms.topic: reference
@@ -17,17 +17,18 @@ Before you can run any of the following CLI commands, you'll need access to the 
 
 Each activity listed below is accessible by a different set of privileged users, including the *cyberx*, *support*, or *cyber_x_host* users. Command syntax is listed only for the users supported for a specific activity.
 
->[!TIP]
->We recommend that you use the *support* user for CLI access whenever possible.
+>[!IMPORTANT]
+> We recommend that you use the *support* user for CLI access whenever possible.
 
 For more information, see [Access the CLI](cli-overview.md#access-the-cli) and [Privileged user access for OT monitoring](cli-overview.md#privileged-user-access-for-ot-monitoring).
 
 
-## Check appliance health
+## Appliance health
+
+### Check OT monitoring services health
 
 Use the following commands to verify that all Defender for IoT application components on the OT sensor are working correctly, including the web console and traffic analysis processes. For further information and [health checks that can be performed from the web console](how-to-troubleshoot-the-sensor-and-on-premises-management-console).
 
-### OT monitoring services health
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**support**     |   `system sanity`      |  No attributes      |
@@ -55,11 +56,11 @@ root@xsense: system sanity
 System is UP! (medium)
 ```
 
+## Power control
 
-## Power Control
-### Reboot (Restart) appliance
+### Restart an appliance
 
-Use the following commands to reboot the OT sensor appliance.
+Use the following commands to restart an OT sensor appliance.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
@@ -74,9 +75,9 @@ For example, for the *support* user:
 root@xsense: system reboot
 ```
 
-### Shut down appliance
+### Shut down an appliance
 
-Use the following commands to shut down the OT sensor appliance.
+Use the following commands to shut down an OT sensor appliance.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
@@ -108,8 +109,9 @@ root@xsense: system version
 Version: 22.2.5.9-r-2121448
 ```
 
-## Setup time/date and NTP
-### Show current system time/date
+## Date, time, and NTP management
+
+### Show current system date/time
 
 Use the following commands to show the current system date and time on your OT network sensor, in GMT format.
 
@@ -128,15 +130,21 @@ Thu Sep 29 18:38:23 UTC 2022
 root@xsense:
 ```
 
-### Enable NTP time sync
+### Turn on NTP time sync
 
-The ability to sync time to a specified NTP server can be enabled or disabled. Ensure the server can be reached from the appliance management port, and utilize the same time source to sync all sensors and the on-premise management console.
+Use the following commands to turn on synchronization for the appliance time with an NTP server.
+
+To use these commands, make sure that:
+
+- The NTP server can be reached from the appliance management port
+- You use the same NTP server to synchronize all sensor appliances and the on-premises management console
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
-|**support**     |   `ntp enable IP`      |   `IP` is a valid IPv4 NTP server using port 123      |
-|**cyberx**     |   `cyberx-xsense-ntp-enable IP`      |  `IP` is a valid IPv4 NTP server using port 123      |
+|**support**     |   `ntp enable <IP address>`      |  No attributes |
+|**cyberx**     |   `cyberx-xsense-ntp-enable <IP address>`      |  No attributes      |
 
+In these commands, `<IP address>` is the IP address of a valid IPv4 NTP server using port 123.
 
 For example, for the *support* user:
 
@@ -145,13 +153,16 @@ root@xsense: ntp enable 129.6.15.28
 root@xsense:
 ```
 
-### Disable NTP time sync
+### Turn off NTP time sync
+
+Use the following commands to turn off the synchronization for the appliance time with an NTP server.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
-|**support**     |   `ntp disable IP`      |   `IP` is a valid IPv4 NTP server using port 123      |
-|**cyberx**     |   `cyberx-xsense-ntp-disable IP`      |  `IP` is a valid IPv4 NTP server using port 123      |
+|**support**     |   `ntp disable <IP address>`      |   No attributes      |
+|**cyberx**     |   `cyberx-xsense-ntp-disable <IP address>`      |  No attributes |
 
+In these commands, `<IP address>` is the IP address of a valid IPv4 NTP server using port 123.
 
 For example, for the *support* user:
 
@@ -162,20 +173,22 @@ root@xsense:
 
 ## Reset local user passwords
 
-Use the following command to reset passwords for local users configured on the appliance.
-This includes:
-- Priviledged (*cyberx* or *support*) users with both SSH and web console access.
-- Local users with access to the web console.
+Use the following commands to reset passwords for local users on your OT sensor.
+
+- To reset passwords that you've created on the sensor, sign in as the *cyberx* user and define the user and new password in the command attributes.<!--not sure we need to say for web access here. these users don't have ssh access, right?-->
+- To reset the password for the *cyberx* or *support* user, sign in as the *cyberx_host*. Passwords are reset for both SSH and web access. <!--how do define which user and how to know what the new password is? do we get a new computer generated one?-->
+
+<!--what about cyberx_host user? you can't reset those passwords?-->
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**cyberx**     |   `cyberx-users-password-reset`      | `cyberx-users-password-reset -u <user> -p <password>`      |
-|**cyberx_host  |   `passwd` | No attributes      |
+|**cyberx_host**  |   `passwd` | No attributes <!--i'm confused here. how does it know which use to reset it for and what the new password is?-->     |
 
 
 The following example shows the *cyberx* user resetting the *support* user's password to `jI8iD9kE6hB8qN0h`:
 
-```OT Sensor CLI
+```CLI
 root@xsense:/# cyberx-users-password-reset -u support -p jI8iD9kE6hB8qN0h
 resetting the password of OS user "support"
 Sending USER_PASSWORD request to OS manager
@@ -185,31 +198,21 @@ resetting the password of UI user "support"
 root@xsense:/#
 ```
 
-## Network Configuration
+## Network configuration
 
-### Validate Network interfaces
-The following table describes the commands available to validate your network setup:
+### Validate network interfaces
+
+Use the following commands to validate your OT sensor's network setup.
+
+#### Validate and show network interface configuration
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
-|**support**     |   `network validate`      |   Validate and show network interfaces configuration|
-|**support**     |   `ping IP`      |   `IP` - a valid IPv4 network host (from management port)      |
-|**support**     |   `network blink INT`      |   `INT` - a physical ehternet port on the appliance<br> Locate a connection by causing the interface lights to blink.|
-|**support**     |   `network list`      |   No attibutes<br> List connected ethernet interfaces |
-|**cyberx**      |   `ping IP`      |   `IP` - a valid IPv4 network host (from management port)      |
-|**cyberx**     |   `ifconfig`      |   No attibutes<br> List connected ethernet interfaces |
-|**cyberx**     |   `ifconfig`      |   No attibutes<br> Check if the appliance is connected to the internet |
+|**support**     |   `network validate`      |   No attributes |
 
+For example, for the *support* user:
 
-
-The following example shows the *support* user blinking eth0:
-```OT Sensor CLI
-root@xsense: network blink eth0
-Blinking interface for 20 seconds ...
-```
-
-The following example shows the *support* user validating network configuration:
-```OT Sensor CLI
+```CLI
 root@xsense: network validate
 Success! (Appliance configuration matches the network settings)
 Current Network Settings:
@@ -222,8 +225,46 @@ monitor interfaces mapping: local_listener=adiot0
 root@xsense:
 ```
 
-The following example shows the *support* user reviewing network interface statistics:
-```OT Sensor CLI
+#### Ping an OT sensor
+
+Use the following commands to send a ping message to an OT sensor.
+
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+|**support**     |   `ping <IP address>`      |  No attributes|
+|**cyberx**      |   `ping <IP address>`      |   No attributes |
+
+In these commands, `<IP address>` is the IP address of a valid IPv4 network host from the management port on your OT sensor.
+
+#### Locate a connection with blinking an interface light
+
+Use the following command to locate a specific connection by causing the interface lights to blink.
+
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+|**support**     |   `network blink <INT>`      | No attributes |
+
+In this command, `<INT>` is a physical ethernet port on the appliance.
+
+The following example shows the *support* user blinking the *eth0* interface:
+
+```CLI
+root@xsense: network blink eth0
+Blinking interface for 20 seconds ...
+```
+
+#### List connected ethernet interfaces
+
+Use the following commands to list the connected ethernet interfaces on your OT sensor.
+
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+|**support**     |   `network list`      |   No attributes |
+|**cyberx**     |   `ifconfig`      |   No attributes |
+
+For example, for the *support* user:
+
+```CLI
 root@xsense: network list
 adiot0: flags=4419<UP,BROADCAST,RUNNING,PROMISC,MULTICAST>  mtu 4096
         ether be:b1:01:1f:91:88  txqueuelen 1000  (Ethernet)
@@ -251,15 +292,46 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 root@xsense:
 ```
 
-### Bandwidth limit for the management network interface (QoS)
-Set outbound (upload) bandwidth limit for the management interface to the on-premesis management console or Azure portal in bandwidth constrained environments (for example over a satellite or serial link)
+#### Check internet connection
+
+Use the following command to check the internet connectivity on your appliance.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
-|**cyberx**     |   ` cyberx-xsense-limit-interface [-h] --interface INTERFACE [--limit LIMIT] [--clear]`      |   `-h, --help` - show this help message and exit<br>  `--interface INTERFACE` - interface (e.g. eth0) <br> `--limit LIMIT` - limit value (e.g. 30kbit). kbps - Kilobytes per second, mbps - Megabytes per second, kbit -Kilobits per second, mbit - Megabits per second, bps or a bare number - Bytes per second<br>`--clear` - flag, will clear settings for the given interface|
+|**cyberx**     |   `ifconfig`      |   No attributes |
+
+<!--I think we need an example here - how does this ifconfig differ from other ifconfigs? perhaps an example of one showing that the internet connection is *down*?-->
+
+### Bandwidth limit for the management network interface (QoS)
+
+Use the following command to set the outbound bandwidth limit for uploads from the OT sensor's management interface to the Azure portal or an on-premises management console.
+
+This command is supported only in bandwidth-constrained environments, such as over a satellite or serial link.
+
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+|**cyberx**     |  `cyberx-xsense-limit-interface` |  `cyberx-xsense-limit-interface [-h] --interface <INTERFACE VALUE> [--limit <LIMIT VALUE] [--clear]`    |
+
+In this command:
+
+- `-h` or `--help`: Shows the command help syntax
+
+- `--interface <INTERFACE VALUE>`: Is the interface you you want to limit, such as `eth0`
+
+- `--limit <LIMIT VALUE>`: The limit you want to set, such as `30kbit`. Use one of the following units:
+
+    - `kbps`: Kilobytes per second
+    - `mbps`: Megabytes per second
+    - `kbit`: Kilobits per second
+    - `mbit`: Megabits per second
+    - `bps` or a bare number: Bytes per second
+
+- `--clear`: Clears all settings for the specified interface
+
 
 For example, for the *cyberx* user:
-```OT Sensor CLI
+
+```CLI
 root@xsense:/# cyberx-xsense-limit-interface -h
 usage: cyberx-xsense-limit-interface [-h] --interface INTERFACE [--limit LIMIT] [--clear]
 
@@ -275,14 +347,15 @@ root@xsense:/# cyberx-xsense-limit-interface --interface eth0 --limit 1000mbps
 setting the bandwidth limit of interface "eth0" to 1000mbps
 ```
 
-### Network interfaces utilization
-Displays network traffic and bandwidth by using the six-second tests.
+### Network interfaces usage
+
+Use the following command to display network traffic and bandwidth using a six-second test.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**cyberx**     |   `cyberx-nload`      |   No attributes     |
 
-```OT Sensor CLI
+```CLI
 root@xsense:/# cyberx-nload
 eth0:
         Received: 66.95 KBit/s Sent: 87.94 KBit/s
@@ -303,56 +376,65 @@ root@xsense:/#
 
 ### Change networking configuration or reassign network interface roles
 
-Use the following command to re-run the software configuration wizard which allows to set the OT sensor:
-- Monitoring interfaces mapping
-- Management Interface mapping and network configuration
-- Assign ERSPAN interfaces
-- Assign the backup directory
+Use the following command to re-run the OT monitoring software configuration wizard, which helps you define the following OT sensor settings:
+
+- Mapping monitoring interfaces
+- Mapping and configuring network settings for the management interface
+- Assigning ERSPAN interfaces
+- Assigning a backup directory
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**cyberx**     |   `sudo dpkg-reconfigure iot-sensor`      |   No attributes     |
 
-
 For example, for the **cyberx** user:
-```OT Sensor CLI
+
+```CLI
 root@xsense:/# sudo dpkg-reconfigure iot-sensor
 ```
 
-The configuration wizard starts. For more information, see [Install OT monitoring software](../how-to-install-software.md#install-ot-monitoring-software).
+The configuration wizard starts automatically after you run this command. For more information, see [Install OT monitoring software](../how-to-install-software.md#install-ot-monitoring-software).
 
 ## Manage SSL and TLS certificates
 
-Enter the following command to import SSL and TLS certificates into the sensor from the CLI (review this guide [for more information about SSL/TLS certificates](../how-to-deploy-certificates) ).
+Use the following command to import SSL and TLS certificates to the sensor from the CLI.
 
-```OT Sensor CLI
+To use this command:
+
+- Verify that the certificate file you want to import is readable on the appliance. Upload certificate files to the appliance using tools such as WinSCP or Wget.
+- Confirm with your IT office that the appliance domain as it appears in the certificate is correct for your DNS server and the corresponding IP address.
+
+For more information, see [Certificates for appliance encryption and authentication (OT appliances)](../how-to-deploy-certificates.md).
+
+|User  |Command  |Full command syntax   |
+|---------|---------|---------|
+| **cyberx** | `cyberx-xsense-certificate-import` | cyberx-xsense-certificate-import [-h] [--crt <PATH>] [--key <FILE NAME>] [--chain <PATH>] [--pass <PASSPHRASE>] [--passphrase-set <VALUE>]`
+
+In this command:
+
+- `-h`: Shows the full command help syntax
+- `--crt`: The path to the certificate file you want to upload, with a `.crt` extension
+- `--key`: The `\*.key` file you want to use for the certificate. Key length must be a minimum of 2,048 bits
+- `--chain`: The path to a certificate chain file. Optional.
+- `--pass`: A passphrase used to encrypt the certificate. Optional.
+- `--passphrase-set`: Unused and set to *False* by default. Set to *True* to use passphrase supplied with the previous certificate. Optional.
+
+For example, for the *cyberx* user:
+
+```CLI
 root@xsense:/# cyberx-xsense-certificate-import
 ```
-To use the tool, you need to upload the certificate files to the device. You can do this through tools such as WinSCP or Wget. 
 
-The command supports the following input flags:
-
-| Flag | Description |
-|--|--|
-| -h | Shows the command-line help syntax. |
-| --crt | The path to the certificate file (.crt extension). |
-| --key | The \*.key file. Key length should be a minimum of 2,048 bits. |
-| --chain | Path to the certificate chain file (optional). |
-| --pass | Passphrase used to encrypt the certificate (optional). |
-| --passphrase-set | The default is **False**, **unused**. <br />Set to **True** to use the previous passphrase supplied with the previous certificate (optional). | 
-
-When you're using the tool:
-
-- Verify that the certificate files are readable on the appliance. 
-- Confirm with IT the appliance domain (as it appears in the certificate) with your DNS server and the corresponding IP address. 
+<!--better example with attributes showing and also response?-->
 
 ## Back up and restore appliance snapshot
 
 The following sections describe the CLI commands supported for backing up and restoring a system snapshot of your OT network sensor.
-Backup includes a full snapshot of the sensor state including: configuration, baseline, inventory and logs.
 
->[!WARNING]
->Do not interrupt a system backup or restore operation as this may cause the system to become unusable
+Backup files include a full snapshot of the sensor state, including configuration settings, baseline values, inventory data, and logs.
+
+>[!CAUTION]
+> Do not interrupt a system backup or restore operation as this may cause the system to become unusable.
 
 ### List current backup files
 
@@ -366,8 +448,7 @@ Use the following commands to list the backup files currently stored on your OT 
 
 For example, for the *support* user:
 
-<!--ariel, i added in the first line, seemed to have been missing?-->
-```OT Sensor CLI
+```CLI
 root@xsense: system backup-list
 backup files:
         e2e-xsense-1664469968212-backup-version-22.3.0.318-r-71e6295-2022-09-29_18:30:20.tar
@@ -375,20 +456,23 @@ backup files:
 root@xsense:
 ```
 
-### Allocation of backup diskspace
-Provides the status of the backup allocation, displaying the following:
+### Display backup disk space allocation
 
-- Location of the backup folder
-- Size of the backup folder
-- Limitations of the backup folder
-- Time of last backup operation
-- Free diskspace available for backups
+The following command lists the current backup disk space allocation, including the following details:
+
+- Backup folder location
+- Backup folder size
+- Backup folder limitations
+- Last backup operation time
+- Free disk space available for backups
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**cyberx**     |   ` cyberx-backup-memory-check`      |   No attributes      |
 
-```OT Sensor CLI
+For example, for the *cyberx* user:
+
+```CLI
 root@xsense:/# cyberx-backup-memory-check
 2.1M    /var/cyberx/backups
 Backup limit is: 20Gb
@@ -399,6 +483,9 @@ root@xsense:/#
 
 Use the following commands to start an immediate, unscheduled backup of the data on your OT sensor. For more information, see [Set up backup and restore files](../how-to-manage-individual-sensors.md#set-up-backup-and-restore-files).
 
+> [!CAUTION]
+> Make sure not to stop or power off the appliance while backing up data.
+
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**support**     |   `system backup`      |   No attributes      |
@@ -407,7 +494,7 @@ Use the following commands to start an immediate, unscheduled backup of the data
 
 For example, for the *support* user:
 
-```OT Sensor CLI
+```CLI
 root@xsense: system backup
 Backing up DATA_KEY
 ...
@@ -419,9 +506,10 @@ root@xsense:
 
 ### Restore data from the most recent backup
 
-Use the following commands to restore data on your OT network sensor using the most recent backup file.
+Use the following commands to restore data on your OT network sensor using the most recent backup file. When prompted, confirm that you want to proceed.
 
-Make sure not to stop or power off the appliance while restoring data. When prompted, confirm that you want to proceed.
+> [!CAUTION]
+> Make sure not to stop or power off the appliance while restoring data.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
@@ -431,7 +519,7 @@ Make sure not to stop or power off the appliance while restoring data. When prom
 
 For example, for the *support* user:
 
-```OT Sensor CLI
+```CLI
 root@xsense: system restore
 Waiting for redis to start...
 Redis is up
