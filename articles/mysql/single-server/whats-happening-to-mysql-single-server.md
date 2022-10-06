@@ -7,7 +7,7 @@ ms.topic: overview
 author: markingmyname
 ms.author: maghan
 ms.reviewer: adig
-ms.custom: Single Server deprecation
+ms.custom: Single Server deprecation announcement 
 ms.date: 09/29/2022
 ---
 
@@ -144,7 +144,7 @@ Yes, migration from lower version MySQL servers (v5.6 and above) to higher versi
 2. For *Issue type*, select **Technical**.
 3. For *Subscription*, select your subscription.
 4. For *Service*, select **My services**.
-5. For *Service type*, select **Azure Database for MySQL Single Server**.**
+5. For *Service type*, select **Azure Database for MySQL Single Server**.
 6. For *Resource*, select your resource.
 7. For *Problem type*, select **Migration**.
 8. For *Problem subtype*, select **Migrating from single to flexible server**
