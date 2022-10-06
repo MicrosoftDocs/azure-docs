@@ -1,6 +1,6 @@
 ---
 title: Delete an Azure Active Directory tenant 
-description: Learn how to prepare an Azure AD tenant, includiing a self-service tenant, for deletion.
+description: Learn how to prepare an Azure AD tenant, including a self-service tenant, for deletion.
 services: active-directory
 documentationcenter: ''
 author: barclayn
@@ -41,7 +41,7 @@ Check the following conditions:
 
 ## Delete the organization
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is the Global Administrator for your organization.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is the global administrator for your organization.
 1. Select **Azure Active Directory**.
 1. On a tenant's **Overview** page, select **Manage tenants**.
   
@@ -60,14 +60,14 @@ For what to expect when a trial Microsoft 365 subscription expires (not includin
 
 Subscription state | Data | Access to data
 ----- | ----- | -----
-Active (30 days for trial) | Data is accessible to all.	| Users have normal access to Microsoft 365 files or apps.<br>Admins have normal access to the Microsoft 365 admin center and resources. 
-Expired (30 days) | Data is accessible to all.| Users have normal access to Microsoft 365 files or apps.<br>Admins have normal access to the Microsoft 365 admin center and resources.
-Disabled (30 days) | Data is accessible to admins only. | Users can't access Microsoft 365 files or apps<br>Admins can access the Microsoft 365 admin center but can't assign licenses to or update users.
-Deprovisioned  (30 days after Disabled) | Data is deleted (automatically deleted if no other services are in use). | Users can't access Microsoft 365 files or apps.<br>Admins can access the Microsoft 365 admin center to purchase and manage other subscriptions.
+**Active** (30 days for trial) | Data is accessible to all.	| Users have normal access to Microsoft 365 files or apps.<br>Admins have normal access to the Microsoft 365 admin center and resources. 
+**Expired** (30 days) | Data is accessible to all.| Users have normal access to Microsoft 365 files or apps.<br>Admins have normal access to the Microsoft 365 admin center and resources.
+**Disabled** (30 days) | Data is accessible to admins only. | Users can't access Microsoft 365 files or apps.<br>Admins can access the Microsoft 365 admin center but can't assign licenses to or update users.
+**Deprovisioned**  (30 days after **Disabled**) | Data is deleted (automatically deleted if no other services are in use). | Users can't access Microsoft 365 files or apps.<br>Admins can access the Microsoft 365 admin center to purchase and manage other subscriptions.
 
 ## Delete an Office 365 or Microsoft 365 subscription
 
-You can put a subscription into the **Deprovisioned** state to be deleted in three days by using the Microsoft 365 admin center.
+You can use the Microsoft admin center to put a subscription into the **Deprovisioned** state for deletion in three days:
 
 1. Sign in to the [Microsoft 365 admin center](https://admin.microsoft.com) with an account that is a global administrator in your organization. If you're trying to delete the Contoso organization that has the initial default domain `contoso.onmicrosoft.com`, sign in with a User Principal Name (UPN) such as `admin@contoso.onmicrosoft.com`.
 
@@ -83,15 +83,15 @@ You can put a subscription into the **Deprovisioned** state to be deleted in thr
 
    ![Screenshot that shows feedback options and the button for canceling a subscription.](./media/directory-delete-howto/cancel-command.png)
 
-1. You can now delete the subscription. Select **Delete** for the subscription that you want to delete. If you can't find the subscription on the **Products & services** page, make sure you have **Subscription status** set to **All**.
+1. Select **Delete** for the subscription that you want to delete. If you can't find the subscription on the **Your products** page, make sure that you have **Subscription status** set to **All**.
 
    ![Screenshot that shows subscription status and the delete link.](./media/directory-delete-howto/delete-command.png)
 
-1. Select the checkbox for accepting terms and conditions, and then select **Delete subscription**. All data for the subscription is permanently deleted within three days. You can [reactivate the subscription](/office365/admin/subscriptions-and-billing/reactivate-your-subscription) during the three-day period if you change your mind.
+1. Select the checkbox to accept terms and conditions, and then select **Delete subscription**. All data for the subscription is permanently deleted in three days. You can [reactivate the subscription](/office365/admin/subscriptions-and-billing/reactivate-your-subscription) during the three-day period if you change your mind.
   
    ![Screenshot that shows the link for terms and conditions, along with the button for deleting a subscription.](./media/directory-delete-howto/delete-terms.png)
 
-   Now the subscription state has changed, and the subscription is marked for deletion. The subscription enters the **Deprovisioned** state 72 hours later.
+   Now the subscription is marked for deletion. The subscription enters the **Deprovisioned** state 72 hours later.
 
 1. After you've deleted a subscription in your organization and 72 hours have elapsed, sign in to the Azure AD admin center again. Confirm that no required actions or subscriptions are blocking your organization deletion. You should be able to successfully delete your Azure AD organization.
   
@@ -103,7 +103,7 @@ If you have an active or canceled Azure subscription associated with your Azure 
 
 If you have a free trial or pay-as-you-go subscription, you don't have to wait 90 days for the subscription to be automatically deleted. You can delete your subscription three days after you cancel it, when the **Delete subscription** option becomes available. For details, read through [Delete free trial or pay-as-you-go subscriptions](../../cost-management-billing/manage/cancel-azure-subscription.md#delete-subscriptions).
 
-All other subscription types are deleted only through the [subscription cancellation](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-subscription-in-the-azure-portal) process. In other words, you can't delete a subscription directly unless it's a free trial or pay-as-you-go subscription. However, after you cancel a subscription, you can create an [Azure support request](https://go.microsoft.com/fwlink/?linkid=2083458) to ask to have the subscription deleted immediately.
+All other subscription types are deleted only through the [subscription cancellation](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-subscription-in-the-azure-portal) process. In other words, you can't delete a subscription directly unless it's a free trial or pay-as-you-go subscription. However, after you cancel a subscription, you can create an [Azure support request](https://go.microsoft.com/fwlink/?linkid=2083458) and ask to have the subscription deleted immediately.
 
 Alternatively, you can move the Azure subscription to another Azure AD tenant account. When you transfer billing ownership of your subscription to an account in another Azure AD tenant, you can move the subscription to the new account's tenant. Performing a **Switch Directory** action on the subscription wouldn't help, because the billing would still be aligned with the Azure AD tenant that was used to sign up for the subscription. For more information, review [Transfer a subscription to another Azure AD tenant account](../../cost-management-billing/manage/billing-subscription-transfer.md#transfer-a-subscription-to-another-azure-ad-tenant-account).
 
@@ -119,7 +119,7 @@ A few enterprise applications can't be deleted in the Azure portal and might blo
 
 2. Install the Az PowerShell module by running the following command:
 
-   'Install-Module -Name Az'
+   `Install-Module -Name Az`
 
 3. Create or use a managed admin account from the tenant that you want to delete. For example: `newAdmin@tenanttodelete.onmicrosoft.com`. 
 
@@ -159,14 +159,14 @@ A few enterprise applications can't be deleted in the Azure portal and might blo
 
 There are [self-service sign-up products](/office365/admin/misc/self-service-sign-up) like Microsoft Power BI, Azure Rights Management (Azure RMS), Microsoft Power Apps, and Dynamics 365. Individual users can sign up via Microsoft 365, which also creates a guest user for authentication in your Azure AD organization. 
 
-These self-service products block directory deletions until the products are fully deleted from the organization, to avoid data loss. They can be deleted only by the Azure AD admin, whether the user signed up individually or was assigned the product.
+These self-service products block directory deletions until the products are fully deleted from the organization, to avoid data loss. Only the Azure AD admin can delete them, whether the user signed up individually or was assigned the product.
 
-There are two types of self-service sign-up products, in terma of how they're assigned: 
+There are two types of self-service sign-up products, in terms of how they're assigned: 
 
-* Organizational-level assignment: An Azure AD admin assigns the product to the entire organization. A user can actively use the service with this organizational-level assignment, even if the users isn't licensed individually.
-* User-level assignment: An individual user during self-service sign-up essentially self-assigns the product without an admin. After an admin starts managing the organization (see [Administrator takeover of an unmanaged organization](domains-admin-takeover.md), the admin can directly assign the product to users without self-service sign-up.  
+* Organizational-level assignment: An Azure AD admin assigns the product to the entire organization. A user can actively use the service with the organizational-level assignment, even if the user isn't licensed individually.
+* User-level assignment: An individual user during self-service sign-up essentially self-assigns the product without an admin. After an admin starts managing the organization (see [Administrator takeover of an unmanaged organization](domains-admin-takeover.md)), the admin can directly assign the product to users without self-service sign-up.  
 
-When you begin the deletion of the self-service sign-up product, the action permanently deletes the data and removes all user access to the service. Any user who was assigned the offer individually or on the organization level is then blocked from signing in or accessing any existing data. If you want to prevent data loss with a self-service sign-up product like [Microsoft Power BI dashboards](/power-bi/service-export-to-pbix) or [Azure RMS policy configuration](/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy), ensure that the data is backed up and saved elsewhere.
+When you begin the deletion of a self-service sign-up product, the action permanently deletes the data and removes all user access to the service. Any user who was assigned the offer individually or on the organization level is then blocked from signing in or accessing any existing data. If you want to prevent data loss with a self-service sign-up product like [Microsoft Power BI dashboards](/power-bi/service-export-to-pbix) or [Azure RMS policy configuration](/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy), ensure that the data is backed up and saved elsewhere.
 
 For more information about currently available self-service sign-up products and services, see [Available self-service programs](/office365/admin/misc/self-service-sign-up#available-self-service-programs).
 
@@ -174,34 +174,34 @@ For what to expect when a trial Microsoft 365 subscription expires (not includin
 
 Product state | Data | Access to data
 ------------- | ---- | --------------
-Active (30 days for trial) | Data is accessible to all. | Users have normal access to self-service sign-up products, files, or apps.<br>Admins have normal access to the Microsoft 365 admin center and resources.
-Deleted | Data is deleted, | Users can't access self-service sign-up products, files, or apps.<br>Admins can access the Microsoft 365 admin center to purchase and manage other subscriptions.
+**Active** (30 days for trial) | Data is accessible to all. | Users have normal access to self-service sign-up products, files, or apps.<br>Admins have normal access to the Microsoft 365 admin center and resources.
+**Deleted** | Data is deleted, | Users can't access self-service sign-up products, files, or apps.<br>Admins can access the Microsoft 365 admin center to purchase and manage other subscriptions.
 
 ## Delete a self-service sign-up product
 
-You can put a self-service sign-up product like Microsoft Power BI or Azure RMS into a **Delete** state to be immediately deleted in the Azure AD portal.
+You can put a self-service sign-up product like Microsoft Power BI or Azure RMS into a **Delete** state to be immediately deleted in the Azure AD portal:
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is a Global administrator in the organization. If you're trying to delete the Contoso organization that has the initial default domain `contoso.onmicrosoft.com`, sign in with a UPN such as `admin@contoso.onmicrosoft.com`.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is a global administrator in the organization. If you're trying to delete the Contoso organization that has the initial default domain `contoso.onmicrosoft.com`, sign in with a UPN such as `admin@contoso.onmicrosoft.com`.
 
 1. Select **Licenses**, and then select **Self-service sign-up products**. You can see all the self-service sign-up products separately from the seat-based subscriptions. Choose the product that you want to permanently delete. Here's an example in Microsoft Power BI:
 
-    ![Screenshot that shows the "Licenses - Self-service sign-up products" page.](./media/directory-delete-howto/licenses-page.png)
+    ![Screenshot that shows a list of self-service sign-up products.](./media/directory-delete-howto/licenses-page.png)
 
-1. Select **Delete** to delete the product and accept the terms that data is deleted immediately and irrevocably. This delete action will remove all users and remove organization access to the product. Select **Yes** to move forward with the deletion.  
+1. Select **Delete** to delete the product. This action will remove all users and remove organization access to the product. A dialog warns you that deleting the product will immediately and irrevocably delete data. Select **Yes** to confirm.  
 
-    ![Screenshot that shows the "Licenses - Self-service sign-up products" page with the "Delete self-service sign-up product" window open.](./media/directory-delete-howto/delete-product.png)
+    ![Screenshot of the confirmation dialog that warns about deletion of data.](./media/directory-delete-howto/delete-product.png)
 
-    The deletion of the self-service product starts. A notification will tells you that the deletion is in progress.  
+    A notification tells you that the deletion is in progress.  
 
-    ![Screenshot that shows the "Licenses - Self-service sign-up products" page with the "deletion in progress" notification displayed.](./media/directory-delete-howto/progress-message.png)
+    ![Screenshot of a notification that a deletion is in progress.](./media/directory-delete-howto/progress-message.png)
 
 1. The self-service sign-up product state has changed to **Deleted**. Refresh the page, and verify that the product is removed from the **Self-service sign-up products** page.  
 
-    ![Screenshot that shows the "Licenses - Self-service sign-up products" page with the "Self-service sign-up product deleted" pane on the right-side.](./media/directory-delete-howto/product-deleted.png)
+    ![Screenshot that shows the list of self-service sign-up products and a pane that confirms the deletion of a self-service sign-up product.](./media/directory-delete-howto/product-deleted.png)
 
 1. After you've deleted all the products, sign in to the Azure AD admin center again. Confirm that no required actions or products are blocking your organization deletion. You should be able to successfully delete your Azure AD organization.
 
-    ![the username is mistyped or not found](./media/directory-delete-howto/delete-checks-passed.png)
+    ![Screenshot that shows status information for resources.](./media/directory-delete-howto/delete-checks-passed.png)
 
 ## Next steps
 
