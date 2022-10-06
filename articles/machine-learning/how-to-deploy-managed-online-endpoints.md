@@ -576,7 +576,7 @@ for endpoint in ml_client.online_endpoints.list():
     print(endpoint.name)
 ```
 
-The method returns list (iteretor) of `ManagedOnlineEndpoint` entities. You can get other information by specifing [parameters](/python/api/azure-ai-ml/azure.ai.ml.entities.managedonlineendpoint#parameters).
+The method returns list (iteretor) of `ManagedOnlineEndpoint` entities. You can get other information by specifing [parameters](/python/api/azure-ai-ml/azure.ai.ml.entities.managedonlineendpoint.md#parameters).
 
 For example, output the list of endpoints like a table:
 
@@ -670,6 +670,8 @@ ml_client.online_endpoints.invoke(
 
 ### (Optional) Update the deployment
 
+# [Azure CLI](#tab/azure-cli)
+
 If you want to update the code, model, or environment, update the YAML file, and then run the `az ml online-endpoint update` command. 
 
 > [!NOTE]
@@ -697,6 +699,36 @@ The `update` command also works with local deployments. Use the same `az ml onli
 
 > [!TIP]
 > With the `update` command, you can use the [`--set` parameter in the Azure CLI](/cli/azure/use-cli-effectively#generic-update-arguments) to override attributes in your YAML *or* to set specific attributes without passing the YAML file. Using `--set` for single attributes is especially valuable in development and test scenarios. For example, to scale up the `instance_count` value for the first deployment, you could use the `--set instance_count=2` flag. However, because the YAML isn't updated, this technique doesn't facilitate [GitOps](https://www.atlassian.com/git/tutorials/gitops).
+
+# [Python](#tab/python)
+
+If you want to update the code, model, or environment, update the configuration, and then run the `MLClient`'s [`online_deployments.begin_create_or_update` module/method](/python/api/azure-ai-ml/azure.ai.ml.operations.onlinedeploymentoperations.md#azure-ai-ml-operations-onlinedeploymentoperations-begin-create-or-update). 
+
+> [!NOTE]
+> If you update instance count and along with other model settings (code, model, or environment) in a single `begin_create_or_update` method: first the scaling operation will be performed, then the other updates will be applied. In production environment is a good practice to perform these operations separately.
+
+To understand how `begin_create_or_update` works:
+
+1. Open the file *online/model-1/onlinescoring/score.py*.
+2. Change the last line of the `init()` function: After `logging.info("Init complete")`, add `logging.info("Updated successfully")`. 
+3. Save the file.
+4. Run the method:
+
+    ```python
+    ml_client.online_deployments.begin_create_or_update(blue_deployment)
+    ```
+
+5. Because you modified the `init()` function (`init()` runs when the endpoint is created or updated), the message `Updated successfully` will be in the logs. Retrieve the logs by running:
+
+    ```python
+    ml_client.online_deployments.get_logs(
+        name="blue", endpoint_name=online_endpoint_name, lines=50
+    )
+    ```
+
+The `begin_create_or_update` method also works with local deployments. Use the same method with the `local=True` flag.
+
+---
 
 > [!Note]
 > The above is an example of inplace rolling update.
