@@ -6,7 +6,7 @@ ms.author: lakshmishaks #Required; microsoft alias of author; optional team alia
 ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
 ms.topic: how-to #Required; leave this attribute/value as-is.
 ms.date: 09/29/2022
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+ms.custom: template-how-to #Required; leave this attribute/value as-is.
 #Customer intent: As a developer, I want to set up private links on Microsoft Energy Data Services
 ---
 
