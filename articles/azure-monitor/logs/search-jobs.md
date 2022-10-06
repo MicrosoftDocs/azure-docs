@@ -69,7 +69,7 @@ To run a search job, in the Azure portal:
     
     :::image type="content" source="media/search-job/RunSearchJob.png" alt-text="Screenshot that shows the Azure Monitor Logs prompt to provide a name for the search job results table." lightbox="media/search-job/RunSearchJob.png":::
 
-1. Enter a name for the search job result set table and select **Run a search job**.
+1. Enter a name for the search job result table and select **Run a search job**.
 
     Azure Monitor Logs runs the search job and creates a new table in your workspace for your search job results. 
 
@@ -79,7 +79,7 @@ To run a search job, in the Azure portal:
 
     :::image type="content" source="media/search-job/SearchJobExecution_2.png" alt-text="Screenshot that shows an Azure Monitor Logs message that the search job results table is available to view." lightbox="media/search-job/SearchJobExecution_2.png":::
 
-    You can see the search job results as they begin flowing in to the newly created search job results table.
+    You can see the search job results as they begin flowing into the newly created search job results table.
 
     :::image type="content" source="media/search-job/SearchJobExecution_3.png" alt-text="Screenshot that shows search job results table with data." lightbox="media/search-job/SearchJobExecution_3.png":::
 

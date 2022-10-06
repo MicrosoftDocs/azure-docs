@@ -44,7 +44,6 @@ You can run two concurrent queries per user.
 ### Purge
 You can’t [purge personal data](personal-data-mgmt.md#exporting-and-deleting-personal-data) from Basic Logs tables. 
 
-
 ## Run a query on a Basic Logs table
 Creating a query using Basic Logs is the same as any other query in Log Analytics. See [Get started with Azure Monitor Log Analytics](./log-analytics-tutorial.md) if you aren't familiar with this process.
 
@@ -92,7 +91,7 @@ The charge for a query on Basic Logs is based on the amount of data the query sc
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 > [!NOTE]
-> Billing of queries on Basic Logs is not yet enabled. Queries on Basic Logs can be used for free until February 1, 2023.
+> Billing of queries on Basic Logs is not yet enabled. You can query Basic Logs for free until early 2023.
 
 ## Next steps
 
