@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 06/11/2021
+ms.date: 08/29/2022
 ms.custom: devx-track-csharp, mode-api
 ---
 # Quickstart: Create a search index using the Azure.Search.Documents client library
 
-Use the new [Azure.Search.Documents (version 11) client library](/dotnet/api/overview/azure/search.documents-readme) to create a .NET Core console application in C# that creates, loads, and queries a search index.
+Learn how to use the [Azure.Search.Documents (version 11) client library](/dotnet/api/overview/azure/search.documents-readme) to create a .NET Core console application in C# that creates, loads, and queries a search index.
 
 You can [download the source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) to start with a finished project or follow the steps in this article to create your own.
 
@@ -30,23 +30,22 @@ Before you begin, have the following tools and services:
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), any edition. Sample code was tested on the free Community edition of Visual Studio 2019.
 
-When setting up your project, you will download the [Azure.Search.Documents NuGet package](https://www.nuget.org/packages/Azure.Search.Documents/).
+When setting up your project, you'll download the [Azure.Search.Documents NuGet package](https://www.nuget.org/packages/Azure.Search.Documents/).
 
-Azure SDK for .NET conforms to [.NET Standard 2.0](/dotnet/standard/net-standard#net-implementation-support), which means .NET Framework 4.6.1 and .NET Core 2.0 as minimum requirements.
-
+Azure SDK for .NET conforms to [.NET Standard 2.0](/dotnet/standard/net-standard#net-implementation-support), which means .NET Framework 4.6.1 and .NET Core 2.1 as minimum requirements.
 ## Set up your project
 
-Assemble service connection information, and then start Visual Studio to create a new Console App project that can run on .NET Core.
+Assemble service connection information, and then start Visual Studio to create a new Console App project that can run on. Select NET Core 3.1 for the run time.
 
 <a name="get-service-info"></a>
 
 ### Copy a key and endpoint
 
-Calls to the service require a URL endpoint and an access key on every request. As a first step, find the API key and URL to add to your project. You will specify both values when creating the client in a later step.
+Calls to the service require a URL endpoint and an access key on every request. As a first step, find the API key and URL to add to your project. You'll specify both values when creating the client in a later step.
 
 1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
-2. In **Settings** > **Keys**, get an admin key for full rights on the service, required if you are creating or deleting objects. There are two interchangeable primary and secondary keys. You can use either one.
+2. In **Settings** > **Keys**, get an admin key for full rights on the service, required if you're creating or deleting objects. There are two interchangeable primary and secondary keys. You can use either one.
 
    ![Get an HTTP endpoint and access key](media/search-get-started-rest/get-url-key.png "Get an HTTP endpoint and access key")
 
@@ -60,11 +59,11 @@ After the project is created, add the client library. The [Azure.Search.Document
 
 1. In **Tools** > **NuGet Package Manager**, select **Manage NuGet Packages for Solution...**. 
 
-1. Click **Browse**.
+1. Select **Browse**.
 
 1. Search for `Azure.Search.Documents` and select version 11.0 or later.
 
-1. Click **Install** on the right to add the assembly to your project and solution.
+1. Select **Install** on the right to add the assembly to your project and solution.
 
 ### Create a search client
 
@@ -81,11 +80,11 @@ After the project is created, add the client library. The [Azure.Search.Document
 1. Create two clients: [SearchIndexClient](/dotnet/api/azure.search.documents.indexes.searchindexclient) creates the index, and [SearchClient](/dotnet/api/azure.search.documents.searchclient) loads and queries an existing index. Both need the service endpoint and an admin API key for authentication with create/delete rights.
 
    ```csharp
-   static void Main(string[] args)
-   {
-       string serviceName = "<YOUR-SERVICE-NAME>";
-       string indexName = "hotels-quickstart";
-       string apiKey = "<YOUR-ADMIN-API-KEY>";
+    static void Main(string[] args)
+    {
+        string serviceName = "<your-search-service-name>";
+        string apiKey = "<your-search-service-admin-api-key>";
+        string indexName = "hotels-quickstart";
 
         // Create a SearchIndexClient to send create/delete index commands
         Uri serviceEndpoint = new Uri($"https://{serviceName}.search.windows.net/");
@@ -94,6 +93,8 @@ After the project is created, add the client library. The [Azure.Search.Document
 
         // Create a SearchClient to load and query documents
         SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, credential);
+        . . . 
+    }
     ```
 
 ## 1 - Create an index
@@ -104,7 +105,7 @@ In this example, synchronous methods of the Azure.Search.Documents library are u
 
 1. Add an empty class definition to your project: **Hotel.cs**
 
-1. Copy the following code into **Hotel.cs** to define the structure of a hotel document. Attributes on the field determine how it is used in an application. For example, the `IsFilterable` attribute must be assigned to every field that supports a filter expression.
+1. Copy the following code into **Hotel.cs** to define the structure of a hotel document. Attributes on the field determine how it's used in an application. For example, the `IsFilterable` attribute must be assigned to every field that supports a filter expression.
 
     ```csharp
     using System;
@@ -185,7 +186,7 @@ In this example, synchronous methods of the Azure.Search.Documents library are u
     }
    ```
 
-1. Create two more classes: **Hotel.Methods.cs** and **Address.Methods.cs** for ToString() overrides. These classes are used to render search results in the console output.  The contents of these classes are not provided in this article, but you can copy the code from [files in GitHub](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11/AzureSearchQuickstart-v11).
+1. Create two more classes: **Hotel.Methods.cs** and **Address.Methods.cs** for ToString() overrides. These classes are used to render search results in the console output.  The contents of these classes aren't provided in this article, but you can copy the code from [files in GitHub](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11/AzureSearchQuickstart-v11).
 
 1. In **Program.cs**, create a [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) object, and then call the [CreateIndex](/dotnet/api/azure.search.documents.indexes.searchindexclient.createindex) method to express the index in your search service. The index also includes a [SearchSuggester](/dotnet/api/azure.search.documents.indexes.models.searchsuggester) to enable autocomplete on the specified fields.
 
@@ -347,7 +348,7 @@ When uploading documents, you must use an [IndexDocumentsBatch](/dotnet/api/azur
 
 You can get query results as soon as the first document is indexed, but actual testing of your index should wait until all documents are indexed.
 
-This section adds two pieces of functionality: query logic, and results. For queries, use the [Search](/dotnet/api/azure.search.documents.searchclient.search) method. This method takes search text (the query string) as well as other [options](/dotnet/api/azure.search.documents.searchoptions).
+This section adds two pieces of functionality: query logic, and results. For queries, use the [Search](/dotnet/api/azure.search.documents.searchclient.search) method. This method takes search text (the query string) and other [options](/dotnet/api/azure.search.documents.searchoptions).
 
 The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) class represents the results.
 
@@ -364,6 +365,16 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
 
         Console.WriteLine();
     }
+
+    private static void WriteDocuments(AutocompleteResults autoResults)
+    {
+        foreach (AutocompleteItem result in autoResults.Results)
+        {
+            Console.WriteLine(result.Text);
+        }
+
+        Console.WriteLine();
+    }
     ```
 
 1. Create a **RunQueries** method to execute queries and return results. Results are Hotel objects. This sample shows the method signature and the first query. This query demonstrates the Select parameter that lets you compose the result using selected fields from the document.
@@ -374,7 +385,8 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
     {
         SearchOptions options;
         SearchResults<Hotel> response;
-
+        
+        // Query 1
         Console.WriteLine("Query #1: Search on empty term '*' to return all documents, showing a subset of fields...\n");
 
         options = new SearchOptions()
@@ -392,9 +404,10 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
         WriteDocuments(response);
     ```
 
-1. In the second query, search on a term, add a filter that selects documents where Rating is greater than 4, and then sort by Rating in descending order. Filter is a boolean expression that is evaluated over [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) fields in an index. Filter queries either include or exclude values. As such, there is no relevance score associated with a filter query. 
+1. In the second query, search on a term, add a filter that selects documents where Rating is greater than 4, and then sort by Rating in descending order. Filter is a boolean expression that is evaluated over [IsFilterable](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) fields in an index. Filter queries either include or exclude values. As such, there's no relevance score associated with a filter query. 
 
     ```csharp
+    // Query 2
     Console.WriteLine("Query #2: Search on 'hotels', filter on 'Rating gt 4', sort by Rating in descending order...\n");
 
     options = new SearchOptions()
@@ -414,6 +427,7 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
 1. The third query demonstrates searchFields, used to scope a full text search operation to specific fields.
 
     ```csharp
+    // Query 3
     Console.WriteLine("Query #3: Limit search to specific fields (pool in Tags field)...\n");
 
     options = new SearchOptions()
@@ -432,6 +446,7 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
 1. The fourth query demonstrates facets, which can be used to structure a faceted navigation structure. 
 
    ```csharp
+    // Query 4
     Console.WriteLine("Query #4: Facet on 'Category'...\n");
 
     options = new SearchOptions()
@@ -452,6 +467,7 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
 1. In the fifth query, return a specific document. A document lookup is a typical response to OnClick event in a result set.
 
    ```csharp
+    // Query 5
     Console.WriteLine("Query #5: Look up a specific document...\n");
 
     Response<Hotel> lookupResponse;
@@ -463,12 +479,12 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
 1. The last query shows the syntax for autocomplete, simulating a partial user input of "sa" that resolves to two possible matches in the sourceFields associated with the suggester you defined in the index.
 
    ```csharp
+    // Query 6
     Console.WriteLine("Query #6: Call Autocomplete on HotelName that starts with 'sa'...\n");
 
     var autoresponse = srchclient.Autocomplete("sa", "sg");
     WriteDocuments(autoresponse);
    ```
-
 1. Add **RunQueries** to Main().
 
     ```csharp
@@ -483,7 +499,7 @@ The [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) c
 
 The previous queries show multiple [ways of matching terms in a query](search-query-overview.md#types-of-queries): full-text search, filters, and autocomplete.
 
-Full text search and filters are performed using the [SearchClient.Search](/dotnet/api/azure.search.documents.searchclient.search) method. A search query can be passed in the `searchText` string, while a filter expression can be passed in the [Filter](/dotnet/api/azure.search.documents.searchoptions.filter) property of the [SearchOptions](/dotnet/api/azure.search.documents.searchoptions) class. To filter without searching, just pass `"*"` for the `searchText` parameter of the [Search](/dotnet/api/azure.search.documents.searchclient.search) method. To search without filtering, leave the `Filter` property unset, or do not pass in a `SearchOptions` instance at all.
+Full text search and filters are performed using the [SearchClient.Search](/dotnet/api/azure.search.documents.searchclient.search) method. A search query can be passed in the `searchText` string, while a filter expression can be passed in the [Filter](/dotnet/api/azure.search.documents.searchoptions.filter) property of the [SearchOptions](/dotnet/api/azure.search.documents.searchoptions) class. To filter without searching, just pass `"*"` for the `searchText` parameter of the [Search](/dotnet/api/azure.search.documents.searchclient.search) method. To search without filtering, leave the `Filter` property unset, or don't pass in a `SearchOptions` instance at all.
 
 ## Run the program
 
@@ -497,7 +513,7 @@ When you're working in your own subscription, it's a good idea at the end of a p
 
 You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
+If you're using a free service, remember that you're limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
 
 ## Next steps
 

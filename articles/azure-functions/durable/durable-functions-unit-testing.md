@@ -73,7 +73,7 @@ durableClientMock
     // Notice that even though the HttpStart function does not call IDurableClient.CreateCheckStatusResponse() 
     // with the optional parameter returnInternalServerErrorOnFailure, moq requires the method to be set up
     // with each of the optional parameters provided. Simply use It.IsAny<> for each optional parameter
-    .Setup(x => x.CreateCheckStatusResponse(It.IsAny<HttpRequestMessage>(), instanceId, returnInternalServerErrorOnFailure: It.IsAny<bool>())
+    .Setup(x => x.CreateCheckStatusResponse(It.IsAny<HttpRequestMessage>(), instanceId, returnInternalServerErrorOnFailure: It.IsAny<bool>()))
     .Returns(new HttpResponseMessage
     {
         StatusCode = HttpStatusCode.OK,

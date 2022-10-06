@@ -1,8 +1,8 @@
 ---
-title: Get right-sized Azure recommendation for your on-premises SQL Server database(s)
-description: Learn how to use the Azure SQL migration extension in Azure Data Studio to get SKU recommendation to migrate SQL Server database(s) to the right-sized Azure SQL Managed Instance or SQL Server on Azure Virtual Machines.
+title: Get right-sized Azure recommendation for your on-premises SQL Server database(s) (Preview)
+description: Learn how to use the Azure SQL migration extension in Azure Data Studio to get SKU recommendation to migrate SQL Server database(s) to the right-sized Azure SQL Managed Instance, SQL Server on Azure Virtual Machines or, Azure SQL Database.
 services: database-migration
-author: dbamaster
+author: croblesm
 ms.author: roblescarlos
 manager: 
 ms.reviewer: 
@@ -13,20 +13,20 @@ ms.date: 02/22/2022
 ms.custom: references_regions
 ---
 
-# Get right-sized Azure recommendation for your on-premises SQL Server database(s)
+# Get right-sized Azure recommendation for your on-premises SQL Server database(s) (Preview)
 
-The [Azure SQL migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) provides a unified experience to assess, get right-sized Azure recommendations and migrate your SQL Server database(s) to Azure.
+The [Azure SQL migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) provides a unified experience to assess, get right-sized SKU recommendations and migrate your SQL Server database(s) to Azure.
 
 Before migrating your SQL Server databases to Azure, it is important to assess them to identify any migration issues (if any) so you can remediate them and confidently migrate them to Azure. Moreover, it is equally important to identify the right-sized configuration in Azure to ensure your database workload performance requirements are met with minimal cost.
 
-The Azure SQL migration extension for Azure Data Studio provides both the assessment and SKU recommendation (right-sized Azure recommended configuration) capabilities when you are trying to select the best option to migrate your SQL Server database(s) to Azure SQL Managed Instance or SQL Server on Azure Virtual Machines. The extension provides a user friendly interface to run the assessment and generate recommendations within a short timeframe.
+The Azure SQL migration extension for Azure Data Studio provides both the assessment and SKU recommendation (right-sized Azure recommended configuration) capabilities when you are trying to select the best option to migrate your SQL Server database(s) to Azure SQL Managed Instance, SQL Server on Azure Virtual Machines or, Azure SQL Database (Preview). The extension provides a user friendly interface to run the assessment and generate recommendations within a short timeframe.
 
 > [!NOTE]
 > Assessment and Azure recommendation feature in the Azure SQL migration extension for Azure Data Studio also supports source SQL Server running on Linux.
 
 ## Performance data collection and SKU recommendation
 
-With the Azure SQL migration extension, you can get a right-sized Azure recommendation to migrate your SQL Server databases to Azure SQL Managed Instance or SQL Server on Azure Virtual Machines. The extension collects and analyzes performance data from your SQL Server instance to generate a recommended SKU each for Azure SQL Managed Instance and SQL Server on Azure Virtual Machines that meets your database(s)' performance characteristics with the lowest cost.
+With the Azure SQL migration extension, you can get a right-sized Azure recommendation to migrate your SQL Server databases to Azure SQL Managed Instance, SQL Server on Azure Virtual Machines or, Azure SQL Database (Preview). The extension collects and analyzes performance data from your SQL Server instance to generate a recommended SKU each for Azure SQL Managed Instance, SQL Server on Azure Virtual Machines or Azure SQL Database (Preview) that meets your database(s)' performance characteristics with the lowest cost.
 
 The workflow for data collection and SKU recommendation is illustrated below.
 

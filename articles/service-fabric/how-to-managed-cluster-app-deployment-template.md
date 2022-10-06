@@ -2,8 +2,11 @@
 title: Deploy an application to a managed cluster using Azure Resource Manager
 description: Learn how to deploy, upgrade, or delete a Service Fabric application on an Azure Service Fabric managed cluster using Azure Resource Manager
 ms.topic: how-to
-ms.date: 8/23/2021 
-ms.custom: devx-track-azurepowershell
+ms.author: tomcassidy
+author: tomvcassidy
+ms.service: service-fabric
+services: service-fabric
+ms.date: 07/11/2022
 ---
 # Manage application lifecycle on a managed cluster using Azure Resource Manager
 
@@ -181,7 +184,7 @@ To delete a service fabric application that was deployed by using the applicatio
 
 If you are migrating application(s) from classic to managed clusters you will need to make sure to validate types are correctly specified or you will encounter errors. 
 
-The following items are called out specifically due to frequency of usage, but not not meant to be an exclusive list of differences. 
+The following items are called out specifically due to frequency of usage, but not meant to be an exclusive list of differences. 
 
 * upgradeReplicaSetCheckTimeout is now an integer for managed, but a string on classic SFRP. 
 

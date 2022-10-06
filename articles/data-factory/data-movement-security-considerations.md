@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/22/2021
+ms.date: 08/05/2022
 ---
 
 # Security considerations for data movement in Azure Data Factory

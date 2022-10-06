@@ -1,5 +1,5 @@
 ---
-title: Working with security policies | Microsoft Docs
+title: Working with security policies
 description: Learn how to work with security policies in Microsoft Defender for Cloud.
 ms.topic: conceptual
 ms.date: 01/25/2022

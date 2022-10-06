@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-* [Oracle Java Development kit](https://www.azul.com/downloads/azure-only/zulu/).  This tutorial uses Java version 8.0.202.
+* [Oracle Java Development kit](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).  This tutorial uses Java version 8.0.202.
 
 * A Java IDE. This article uses [IntelliJ IDEA Community 2018.3.4](https://www.jetbrains.com/idea/download/).
 

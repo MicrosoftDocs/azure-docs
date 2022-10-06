@@ -3,9 +3,9 @@ title: Template deployment what-if
 description: Determine what changes will happen to your resources before deploying an Azure Resource Manager template.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 03/09/2021
+ms.date: 07/11/2022
 ms.author: tomfitz
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.devlang: azurecli
 ---
 # ARM template deployment what-if operation
@@ -14,9 +14,11 @@ Before deploying an Azure Resource Manager template (ARM template), you can prev
 
 You can use the what-if operation with Azure PowerShell, Azure CLI, or REST API operations. What-if is supported for resource group, subscription, management group, and tenant level deployments.
 
-### Microsoft Learn
+### Training resources
 
-To learn more about what-if, and for hands-on guidance, see [Preview Azure deployment changes by using what-if](/learn/modules/arm-template-whatif) on **Microsoft Learn**.
+To learn more about what-if, and for hands-on guidance, see [Preview Azure deployment changes by using what-if](/training/modules/arm-template-whatif).
+
+[!INCLUDE [permissions](../../../includes/template-deploy-permissions.md)]
 
 ## Install Azure PowerShell module
 
@@ -393,4 +395,4 @@ You can use the what-if operation through the Azure SDKs.
 - [ARM Deployment Insights](https://marketplace.visualstudio.com/items?itemName=AuthorityPartnersInc.arm-deployment-insights) extension provides an easy way to integrate the what-if operation in your Azure DevOps pipeline.
 - To use the what-if operation in a pipeline, see [Test ARM templates with What-If in a pipeline](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/).
 - If you notice incorrect results from the what-if operation, please report the issues at [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
-- For a Microsoft Learn module that covers using what if, see [Preview changes and validate Azure resources by using what-if and the ARM template test toolkit](/learn/modules/arm-template-test/).
+- For a Learn module that covers using what if, see [Preview changes and validate Azure resources by using what-if and the ARM template test toolkit](/training/modules/arm-template-test/).

@@ -5,7 +5,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 03/15/2022
+ms.date: 07/22/2022
 ms.author: anfdocs
 ---
 
@@ -49,7 +49,7 @@ Once you have [created an Active Directory connection](create-active-directory-c
 **\*There is no impact on a modified entry only if the modifications are entered correctly. If you enter data incorrectly, users and applications will lose access.**
 
 ## Next Steps
-
+* [Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files](understand-guidelines-active-directory-domain-service-site.md)
 * [Configure ADDS LDAP with extended groups for NFS](configure-ldap-extended-groups.md)
 * [Configure ADDS LDAP over TLS](configure-ldap-over-tls.md)
 * [Create and manage Active Directory connections](create-active-directory-connections.md)

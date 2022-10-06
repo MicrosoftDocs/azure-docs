@@ -16,8 +16,6 @@
       href: add-application-portal-assign-users.md
     - name: View applications
       href: view-applications-portal.md
-    - name: Delete applications
-      href: delete-application-portal.md
   - name: Tutorials
     items:
     - name: Manage access and security
@@ -43,6 +41,8 @@
     items: 
     - name: Application gallery
       href: overview-application-gallery.md
+    - name: Request to publish applications
+      href: v2-howto-app-gallery-listing.md
     - name: Application integration
       href: plan-an-application-integration.md
     - name: Application ownership
@@ -57,6 +57,8 @@
         href: certificate-signing-options.md
       - name: Tenant restrictions
         href: tenant-restrictions.md
+      - name: Enforce signed SAML authentication requests
+        href: howto-enforce-signed-saml-authentication.md
       - name: Configure SAML token encryption
         href: howto-saml-token-encryption.md
       - name: End-user portals
@@ -92,6 +94,8 @@
       href: assign-app-owners.md
     - name: Configure properties
       href: add-application-portal-configure.md
+    - name: Add enterprise app for multi-tenant app
+      href: create-service-principal-cross-tenant.md
     - name: Manage access
       items:
       - name: Manage consent and permissions
@@ -152,16 +156,22 @@
           href: migrate-okta-sync-provisioning-to-azure-active-directory.md
         - name: Migrate Okta federation to Azure AD managed authentication
           href: migrate-okta-federation-to-azure-active-directory.md
-    - name: Publish applications
-      href: v2-howto-app-gallery-listing.md
     - name: Secure legacy apps 
       items:
       - name: Secure hybrid access with Azure AD 
         href: secure-hybrid-access.md
       - name: Secure hybrid access partner integrations
         href: secure-hybrid-access-integrations.md
+      - name: Cloudflare
+        href: cloudflare-azure-ad-integration.md
       - name: Datawiza
-        href: datawiza-with-azure-ad.md 
+        items:
+        - name: Integrate Datawiza with Azure AD
+          href: datawiza-with-azure-ad.md 
+        - name: Configure Oracle JDE with Azure AD 
+          href: datawiza-azure-ad-sso-oracle-jde.md
+        - name: Configure Oracle PeopleSoft with Azure AD 
+          href: datawiza-azure-ad-sso-oracle-peoplesoft.md
       - name: F5
         items:
         - name: Deploy F5 BIG-IP in Azure
@@ -202,11 +212,13 @@
         href: silverfort-azure-ad-integration.md
     - name: Single sign-on
       items:
-      - name: Linked
+      - name: Enable Single sign-on with SAML
+        href: add-application-portal-setup-sso.md
+      - name: Enable Linked single sign-on
         href: configure-linked-sign-on.md
-      - name: OpenID Connect
+      - name: Enable OpenID Connect based single sign-on
         href: add-application-portal-setup-oidc-sso.md
-      - name: Password
+      - name: Enable Password based single sign-on
         href: configure-password-single-sign-on-non-gallery-applications.md
     - name: Troubleshoot
       items:
@@ -228,8 +240,16 @@
         href: application-sign-in-problem-application-error.md
       - name: Problem signing into a Microsoft app
         href: application-sign-in-problem-first-party-microsoft.md
+    - name: Deprecate
+      items:
+      - name: Delete an enterprise application
+        href: delete-application-portal.md
+      - name: Restore an enterprise application
+        href: restore-application.md   
   - name: Reference
     items:
+    - name: Deletion and recovery FAQ
+      href: delete-recover-faq.yml
     - name: Admin consent workflow FAQ
       href: admin-consent-workflow-faq.md
     - name: App Management certificates FAQ

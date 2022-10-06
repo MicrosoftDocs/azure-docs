@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Follow this tutorial to learn how to build out an end-to-end Azure Digital Twins solution that's driven by device data.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 06/21/2022
+ms.date: 09/26/2022
 ms.topic: tutorial
 ms.service: digital-twins
 
@@ -59,7 +59,7 @@ First, you'll use the AdtSampleApp solution from the sample project to build the
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-a.png" alt-text="Diagram of an excerpt from the full building scenario diagram highlighting the Azure Digital Twins instance section.":::
 
-Open a local **console window** and navigate into the *digital-twins-samples-main\AdtE2ESample\SampleClientApp* folder. Run the *SampleClientApp* project with this dotnet command:
+Open a local **console window** and navigate into the *digital-twins-samples-main\AdtSampleApp\SampleClientApp* folder. Run the *SampleClientApp* project with this dotnet command:
 
 ```cmd/sh
 dotnet run
@@ -96,7 +96,7 @@ The next step is setting up an [Azure Functions app](../azure-functions/function
 
 In this section, you'll publish the pre-written function app, and ensure the function app can access Azure Digital Twins by assigning it an Azure Active Directory (Azure AD) identity.
 
-The function app is part of the sample project you downloaded, located in the *digital-twins-samples-main\AdtE2ESample\SampleFunctionsApp* folder.
+The function app is part of the sample project you downloaded, located in the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp* folder.
 
 ### Publish the app
 
@@ -116,7 +116,7 @@ To publish the function app to Azure, you'll need to create a storage account, t
 
 1. Next, you'll zip up the functions and publish them to your new Azure function app.
 
-    1. Open a console window on your machine, and navigate into the *digital-twins-samples-main\AdtE2ESample\SampleFunctionsApp* folder inside your downloaded sample project.
+    1. Open a console window on your machine, and navigate into the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp* folder inside your downloaded sample project.
     
     1. In the console, run the following command to publish the project locally:
 
@@ -126,7 +126,7 @@ To publish the function app to Azure, you'll need to create a storage account, t
 
         This command publishes the project to the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* directory.
 
-    1. Create a zip of the published files that are located in the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* directory. Name the zipped folder *publish.zip*.
+    1. Using your preferred method, create a zip of the published files that are located in the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* directory. Name the zipped folder *publish.zip*.
         
         >[!TIP] 
         >If you're using PowerShell, you can create the zip by copying the full path to that *\publish* directory and pasting it into the following command:
@@ -184,20 +184,11 @@ There are two settings that need to be set for the function app to access your A
 
 The first setting gives the function app the **Azure Digital Twins Data Owner** role in the Azure Digital Twins instance. This role is required for any user or function that wants to perform many data plane activities on the instance. You can read more about security and role assignments in [Security for Azure Digital Twins solutions](concepts-security.md). 
 
-1. Use the following command to see the details of the system-managed identity for the function. Take note of the **principalId** field in the output.
+1. Use the following command to create a system-managed identity for the function. The output will display details of the identity that's been created. Take note of the **principalId** field in the output to use in the next step.
 
     ```azurecli-interactive	
-    az functionapp identity show --resource-group <your-resource-group> --name <your-function-app-name>	
+    az functionapp identity assign --resource-group <your-resource-group> --name <your-function-app-name>
     ```
-
-    >[!NOTE]
-    > If the result is empty instead of showing details of an identity, create a new system-managed identity for the function using this command:
-    > 
-    >```azurecli-interactive	
-    >az functionapp identity assign --resource-group <your-resource-group> --name <your-function-app-name>	
-    >```
-    >
-    > The output will then display details of the identity, including the **principalId** value required for the next step. 
 
 1. Use the **principalId** value in the following command to assign the function app's identity to the **Azure Digital Twins Data Owner** role for your Azure Digital Twins instance.
 
@@ -307,7 +298,7 @@ deviceConnectionString = <your-device-connection-string>
 
 Save the file.
 
-Now, to see the results of the data simulation that you've set up, navigate to *digital-twins-samples-main\DeviceSimulator\DeviceSimulator* in a local console window.
+Now, to see the results of the data simulation that you've set up, open a new local console window and navigate to *digital-twins-samples-main\DeviceSimulator\DeviceSimulator*.
 
 >[!NOTE]
 > You should now have two open console windows: one that's open to the the *DeviceSimulator\DeviceSimulator* folder, and one from earlier that's still open to the *AdtSampleApp\SampleClientApp* folder.

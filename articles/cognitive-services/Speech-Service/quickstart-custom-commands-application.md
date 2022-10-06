@@ -18,7 +18,7 @@ ms.custom: cogserv-non-critical-speech, references_regions
 In this quickstart, you create and test a basic Custom Commands application using Speech Studio. You will also be able to access this application from a Windows client app.
 
 ## Region Availability
-At this time, Custom Commands supports speech subscriptions created in regions that have [voice assistant capabilities](./regions.md#voice-assistants).
+At this time, Custom Commands supports speech resources created in regions that have [voice assistant capabilities](./regions.md#voice-assistants).
 
 ## Prerequisites
 
@@ -33,14 +33,14 @@ At this time, Custom Commands supports speech subscriptions created in regions t
 1. In a web browser, go to [Speech Studio](https://aka.ms/speechstudio/customcommands).
 1. Enter your credentials to sign in to the portal.
 
-   The default view is your list of Speech subscriptions.
+   The default view is your list of Speech resources.
    > [!NOTE]
-   > If you don't see the select subscription page, you can navigate there by choosing "Speech resources" from the settings menu on the top bar.
+   > If you don't see the select resource page, you can navigate there by choosing "Resource" from the settings menu on the top bar.
 
-1. Select your Speech subscription, and then select **Go to Studio**.
+1. Select your Speech resource, and then select **Go to Studio**.
 1. Select **Custom Commands**.
 
-   The default view is a list of the Custom Commands applications you have under your selected subscription.
+   The default view is a list of the Custom Commands applications you have under your selected resource.
 
 ## Import an existing application as a new Custom Commands project
 

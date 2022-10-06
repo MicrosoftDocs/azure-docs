@@ -12,8 +12,6 @@ ms.custom: mimckitt, devx-track-azurecli
 ---
 # Manage a virtual machine scale set with the Azure CLI
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
-
 Throughout the lifecycle of a virtual machine scale set, you may need to run one or more management tasks. Additionally, you may want to create scripts that automate various lifecycle-tasks. This article details some of the common Azure CLI commands that let you perform these tasks.
 
 To complete these management tasks, you need the latest Azure CLI. For information, see [Install the Azure CLI](/cli/azure/install-azure-cli). If you need to create a virtual machine scale set, you can [create a scale set with the Azure CLI](quick-create-cli.md).

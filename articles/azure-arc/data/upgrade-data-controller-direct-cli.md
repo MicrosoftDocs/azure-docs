@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 05/27/2022
+ms.date: 07/07/2022
 ms.topic: how-to
 ---
 
@@ -64,8 +64,7 @@ This section shows how to upgrade a directly connected data controller.
 > To upgrade, delete all non-GA database instances. You can find the list of generally available 
 > and preview services in the [Release Notes](./release-notes.md).
 
-[!INCLUDE [upgrade-supported-path](includes/upgrade-supported-path.md)]
-
+For supported upgrade paths, see [Upgrade Azure Arc-enabled data services](upgrade-overview.md).
 
 ### Authenticate  
 
@@ -154,6 +153,4 @@ The upgrade is a two-part process. First the controller is upgraded, then the mo
 Ready
 ```
 
-## Troubleshoot upgrade problems
-
-If you encounter any troubles with upgrading, see the [troubleshooting guide](troubleshoot-guide.md).
+[!INCLUDE [upgrade-rollback](includes/upgrade-rollback.md)]

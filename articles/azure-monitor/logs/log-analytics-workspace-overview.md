@@ -27,6 +27,9 @@ Each workspace contains multiple tables that are organized into separate columns
 
 [![Diagram that shows the Azure Monitor Logs structure.](media/data-platform-logs/logs-structure.png)](media/data-platform-logs/logs-structure.png#lightbox)
 
+> [!WARNING]
+> Table names are used for billing purposes so they should not contain sensitive information.
+
 ## Cost
 
 There's no direct cost for creating or maintaining a workspace. You're charged for the data sent to it, which is also known as data ingestion. You're charged for how long that data is stored, which is otherwise known as data retention. These costs might vary based on the data plan of each table, as described in [Log data plans (preview)](#log-data-plans-preview).
@@ -49,11 +52,11 @@ The following table summarizes the two plans. For more information on Basic Logs
 | Retention |  Configure retention from 30 days to 730 days. | Retention fixed at 8 days. |
 | Alerts | Supported. | Not supported. |
 
-## Ingestion-time transformations
+## Workspace transformation DCR
 
-[Data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) that define data coming into Azure Monitor can include transformations that allow you to filter and transform data before it's ingested into the workspace. Since all workflows don't yet support DCRs, each workspace can define ingestion-time transformations. For this reason, you can filter or transform data before it's stored.
+[Data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) that define data coming into Azure Monitor can include transformations that allow you to filter and transform data before it's ingested into the workspace. Since all data sources don't yet support DCRs, each workspace can have a [workspace transformation DCR](../essentials/data-collection-transformations.md#workspace-transformation-dcr).
 
-[Ingestion-time transformations](ingestion-time-transformations.md) are defined for each table in a workspace and apply to all data sent to that table, even if sent from multiple sources. Ingestion-time transformations only apply to workflows that don't already use a DCR. For example, [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) uses a DCR to define data collected from virtual machines. This data won't be subject to any ingestion-time transformations defined in the workspace.
+[Transformations](../essentials/data-collection-transformations.md) in the workspace transformation DCR are defined for each table in a workspace and apply to all data sent to that table, even if sent from multiple sources. These transformations only apply to workflows that don't already use a DCR. For example, [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) uses a DCR to define data collected from virtual machines. This data won't be subject to any ingestion-time transformations defined in the workspace.
 
 For example, you might have [diagnostic settings](../essentials/diagnostic-settings.md) that send [resource logs](../essentials/resource-logs.md) for different Azure resources to your workspace. You can create a transformation for the table that collects the resource logs that filters this data for only records that you want. This method saves you the ingestion cost for records you don't need. You might also want to extract important data from certain columns and store it in other columns in the workspace to support simpler queries.
 

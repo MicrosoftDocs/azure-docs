@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/06/2022
+ms.date: 07/04/2022
 ---
 
 # Copy and transform data in Azure Database for PostgreSQL using Azure Data Factory or Synapse Analytics
@@ -21,11 +21,15 @@ This connector is specialized for the [Azure Database for PostgreSQL service](..
 
 ## Supported capabilities
 
-This Azure Database for PostgreSQL connector is supported for the following activities:
+This Azure Database for PostgreSQL connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with a [supported source/sink matrix](copy-activity-overview.md)
-- [Mapping data flow](concepts-data-flow-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
+| Supported capabilities|IR | Managed private endpoint|
+|---------| --------| --------|
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ |
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ |
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ |
+
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
 
 The three activities work on all Azure Database for PostgreSQL deployment options:
 

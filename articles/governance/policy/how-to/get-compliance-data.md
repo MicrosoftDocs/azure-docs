@@ -1,8 +1,10 @@
 ---
 title: Get policy compliance data
 description: Azure Policy evaluations and effects determine compliance. Learn how to get the compliance details of your Azure resources.
-ms.date: 06/29/2021
+author: timwarner-msft
+ms.date: 08/05/2022
 ms.topic: how-to
+ms.author: timwarner
 ---
 # Get compliance data of Azure resources
 
@@ -67,7 +69,7 @@ Evaluations of assigned policies and initiatives happen as the result of various
   pre-defined expectation of when the evaluation cycle completes. Once it completes, updated
   compliance results are available in the portal and SDKs.
 
-- The [guest configuration](../concepts/guest-configuration.md) resource provider is updated with
+- The [machine configuration](../../machine-configuration/overview.md) resource provider is updated with
   compliance details by a managed resource.
 
 - On-demand scan
@@ -78,6 +80,9 @@ An evaluation scan for a subscription or a resource group can be started with Az
 PowerShell, a call to the REST API, or by using the
 [Azure Policy Compliance Scan GitHub Action](https://github.com/marketplace/actions/azure-policy-compliance-scan).
 This scan is an asynchronous process.
+
+> [!NOTE]
+> Not all Azure resource providers support on-demand evaluation scans. For example, [Azure Virtual Network Manager (AVNM)](../../../virtual-network-manager/overview.md) currently doesn't support either manual triggers or the standard policy compliance evaluation cycle (daily scans).
 
 #### On-demand evaluation scan - GitHub Action
 

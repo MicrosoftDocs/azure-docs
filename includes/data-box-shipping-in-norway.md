@@ -3,7 +3,7 @@ author: sipastak
 ms.service: databox  
 ms.subservice: pod
 ms.topic: include
-ms.date: 03/31/2022
+ms.date: 06/06/2022
 ms.author: alkohli
 ---
 
@@ -19,7 +19,12 @@ Take the following steps if you're returning the device in Norway.
 
 1. Book a pickup with DHL using one of the following methods:	 
 
-    - Book a pickup online by going to DHL Express Norway and selecting **Schedule a Pickup**.
+    - Book a pickup online by going to [DHL Express Norway](https://mydhl.express.dhl/no/en/schedule-pickup.html#/schedule-pickup#label-reference) and selecting **Schedule a Pickup**.
+    
+        On the DHL website, select **No** to create a shipping label. Enter the DHL Waybill number generated when completing **Prepare to ship** process.
+    
+        :::image type="content" source="media/data-box-shipping-in-norway/dhl-schedule-pickup.png" alt-text="Screenshot of DHL site to schedule a pickup.":::
+
     - Send an [email](mailto:info@kundeservicedhl.no) using the following template:
     :::image type="content" source="media/data-box-shipping-in-norway/icon-norway-dhl-email-template.png" alt-text="Screenshot of email template":::
 

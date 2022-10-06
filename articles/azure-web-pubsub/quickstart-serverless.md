@@ -66,20 +66,23 @@ In this tutorial, you learn how to:
     func init --worker-runtime dotnet
     ```
 
-2. *Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub` function extension package.
-
-    > [!NOTE]
-    > The step will be optional when [Extension bundles](../azure-functions/functions-bindings-register.md#extension-bundles) are supported.
-
-   a. Remove `extensionBundle` section in `host.json` to enable install specific extension package in next step. Or simply make host json as simple a below.
+2. Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub`.
+   
+    # [JavaScript](#tab/javascript)
+    Update `host.json`'s extensionBundle to version _3.3.0_ or later to get Web PubSub support.
     ```json
     {
-        "version": "2.0"
+        "version": "2.0",
+        "extensionBundle": {
+            "id": "Microsoft.Azure.Functions.ExtensionBundle",
+            "version": "[3.3.*, 4.0.0)"
+        }
     }
     ```
-   b. Run command to install specific function extension package.
+    
+    # [C#](#tab/csharp)
     ```bash
-    func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0
+    dotnet add package Microsoft.Azure.WebJobs.Extensions.WebPubSub
     ```
 
 3. Create an `index` function to read and host a static web page for clients.
@@ -459,10 +462,10 @@ If you're not going to continue to use this app, delete all resources created by
 In this quickstart, you learned how to run a serverless chat application. Now, you could start to build your own application. 
 
 > [!div class="nextstepaction"]
-> [Azure Web PubSub bindings for Azure Functions](/azure/azure-web-pubsub/reference-functions-bindings)
+> [Azure Web PubSub bindings for Azure Functions](./reference-functions-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Quick start: Create a simple chatroom with Azure Web PubSub](/azure/azure-web-pubsub/tutorial-build-chat)
+> [Quick start: Create a simple chatroom with Azure Web PubSub](./tutorial-build-chat.md)
 
 > [!div class="nextstepaction"]
 > [Explore more Azure Web PubSub samples](https://github.com/Azure/azure-webpubsub/tree/main/samples)

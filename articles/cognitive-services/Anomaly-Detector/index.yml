@@ -89,7 +89,7 @@ landingContent:
     - linkListType: overview
       links:
         - text: What is Univariate Anomaly Detector?
-          url: overview.md
+          url: overview-univariate.md
         - text: Introducing Azure Anomaly Detector API (univariate) 
           url: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162
     - linkListType: how-to-guide
@@ -116,7 +116,6 @@ landingContent:
       links:
       - text: Visualize (univariate) anomalies using batch detection and Power BI
         url: tutorials/batch-anomaly-detection-powerbi.md
-
 # Card 5
 
 - title: Optimize your detection results

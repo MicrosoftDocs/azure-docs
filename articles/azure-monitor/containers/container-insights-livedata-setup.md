@@ -134,4 +134,4 @@ For additional help configuring your AKS cluster **ClusterRoleBinding**, see [Cr
 
 ## Next steps
 
-Now that you have setup authentication, you can view [metrics](container-insights-livedata-metrics.md), [Deployments](container-insights-livedata-deployments.md), and [events and logs](container-insights-livedata-overview.md) in real-time from your cluster.
+Now that you have setup authentication, you can view [metrics](container-insights-livedata-metrics.md) and [events and logs](container-insights-livedata-overview.md) in real-time from your cluster.

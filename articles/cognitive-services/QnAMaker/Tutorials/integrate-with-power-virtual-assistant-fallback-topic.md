@@ -148,7 +148,7 @@ Here's what the final bot canvas looks like.
 > ![Screenshot shows the final agent canvas with Trigger Phrases, Action, and then Message sections.](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-topic-authoring-canvas-full-flow.png)
 
 ## Test the bot
-As you design your bot in Power Virtual Agents, you can use [the Test bot pane](/power-virtual-agents/authoring-test-bot.md) to see how the bot leads a customer through the bot conversation.
+As you design your bot in Power Virtual Agents, you can use [the Test bot pane](/power-virtual-agents/authoring-test-bot) to see how the bot leads a customer through the bot conversation.
 
 1. In the test pane, toggle **Track between topics**. This allows you to watch the progression between topics, as well as within a single topic.
 
@@ -169,13 +169,13 @@ As you design your bot in Power Virtual Agents, you can use [the Test bot pane](
 
 To make the bot available to all members of your school or organization, you need to *publish* it.
 
-Publish your bot by following the steps in [Publish your bot](/power-virtual-agents/publication-fundamentals-publish-channels.md).
+Publish your bot by following the steps in [Publish your bot](/power-virtual-agents/publication-fundamentals-publish-channels).
 
 ## Share your bot
 
 To make your bot available to others, you first need to publish it to a channel. For this tutorial we'll use the demo website.
 
-Configure the demo website by following the steps in [Configure a chatbot for a live or demo website](/power-virtual-agents/publication-connect-bot-to-web-channels.md).
+Configure the demo website by following the steps in [Configure a chatbot for a live or demo website](/power-virtual-agents/publication-connect-bot-to-web-channels).
 
 Then you can share your website URL with your school or organization members.
 

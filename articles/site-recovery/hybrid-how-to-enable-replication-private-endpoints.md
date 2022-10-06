@@ -1,11 +1,11 @@
 ---
 title: Enable replication for on-premises machines with private endpoints 
 description: This article describes how to configure replication for on-premises machines by using private endpoints in Site Recovery. 
-author: Harsha-CS
-ms.author: harshacs
+author: v-pgaddala
+ms.author: v-pgaddala
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/14/2020
+ms.date: 09/21/2022
 ms.custom: subject-rbac-steps
 ---
 # Replicate on-premises machines by using private endpoints
@@ -13,6 +13,9 @@ ms.custom: subject-rbac-steps
 Azure Site Recovery allows you to use [Azure Private Link](../private-link/private-endpoint-overview.md) private endpoints to replicate
 your on-premises machines to a virtual network in Azure. Private endpoint access to
 a recovery vault is supported in all Azure Commercial & Government regions.
+
+>[!Note]
+>Automatic upgrades are not supported for Private Endpoints. [Learn more](upgrade-mobility-service-modernized.md).
 
 This article describes how to complete the following steps:
 
@@ -314,5 +317,8 @@ to private IPs.
 Now that you've enabled private endpoints for your virtual machine replication, see these other
 articles for additional and related information:
 
-- [Deploy an on-premises configuration server](./vmware-azure-deploy-configuration-server.md)
-- [Set up disaster recovery of on-premises Hyper-V VMs to Azure](./hyper-v-azure-tutorial.md)
+> [!div class="nextstepaction"]
+> [Deploy an on-premises configuration server](./vmware-azure-deploy-configuration-server.md)
+
+> [!div class="nextstepaction"]
+> [Set up disaster recovery of on-premises Hyper-V VMs to Azure](./hyper-v-azure-tutorial.md)

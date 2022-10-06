@@ -406,7 +406,7 @@ The *host.json* file must also be updated to include an HTTP `routePrefix` value
 }
 ```
 
-Update the Python code file *init.py*, based on the interface that your framework uses. The following example shows either an ASGI handler approach or a WSGI wrapper approach for Flask:
+Update the Python code file *__init__.py*, based on the interface that your framework uses. The following example shows either an ASGI handler approach or a WSGI wrapper approach for Flask:
 
 # [ASGI](#tab/asgi)
 
@@ -633,6 +633,10 @@ When your packages are available from an accessible custom package index, use a 
 
 You can also use basic authentication credentials with your extra package index URLs. To learn more, see [Basic authentication credentials](https://pip.pypa.io/en/stable/user_guide/#basic-authentication-credentials) in Python documentation.
 
+> [!NOTE]
+> If you need to change the base URL of the Python Package Index from the default of `https://pypi.org/simple`, you can do this by [creating an app setting](functions-how-to-use-azure-function-app-settings.md#settings) named [`PIP_INDEX_URL`](functions-app-settings.md#pip_index_url) that points to a different package index URL. Like [`PIP_EXTRA_INDEX_URL`](functions-app-settings.md#pip_extra_index_url), [`PIP_INDEX_URL`](functions-app-settings.md#pip_index_url) is a pip-specific application setting that changes the source for pip to use.
+
+
 #### Installing local packages
 
 If your project uses packages that aren't publicly available, you can make them available to your app by putting them in the *\_\_app\_\_/.python_packages* directory. Before publishing, run the following command to install the dependencies locally:
@@ -812,7 +816,7 @@ The following table lists preinstalled system libraries in Docker images for the
 
 |  Functions runtime  | Debian version | Python versions |
 |------------|------------|------------|
-| Version 2.x | Stretch  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
+| Version 2.x | Stretch  | [Python 3.7](https://github.com/Azure/azure-functions-docker/blob/dev/host/4/bullseye/amd64/python/python37/python37.Dockerfile) |
 | Version 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile)<br/> [Python 3.9](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python39/python39.Dockerfile)|
 
 ## Python worker extensions  
@@ -940,6 +944,7 @@ Here's a list of troubleshooting guides for common issues:
 
 * [ModuleNotFoundError and ImportError](recover-python-functions.md#troubleshoot-modulenotfounderror)
 * [Can't import 'cygrpc'](recover-python-functions.md#troubleshoot-cannot-import-cygrpc)
+* [Troubleshoot Errors with Protobuf](recover-python-functions.md#troubleshoot-errors-with-protocol-buffers)
 
 All known issues and feature requests are tracked through the [GitHub issues](https://github.com/Azure/azure-functions-python-worker/issues) list. If you run into a problem and can't find the issue in GitHub, open a new issue and include a detailed description of the problem.
 

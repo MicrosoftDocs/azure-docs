@@ -1671,6 +1671,41 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/cosmosdb-jupyter-notebooks.md",
+      "redirect_url": "/azure/cosmos-db/notebooks-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/sql/create-notebook-visualize-data.md",
+      "redirect_url": "/azure/cosmos-db/sql/tutorial-create-notebook",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/sql/enable-notebooks.md",
+      "redirect_url": "/azure/cosmos-db/sql/tutorial-create-notebook",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/sql/import-github-notebooks.md",
+      "redirect_url": "/azure/cosmos-db/sql/tutorial-create-notebook",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/sql/publish-notebook-gallery.md",
+      "redirect_url": "/azure/cosmos-db/sql/tutorial-create-notebook",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/sql/use-csharp-notebook-features-and-commands.md",
+      "redirect_url": "/azure/cosmos-db/sql/tutorial-create-notebook",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cosmos-db/sql/use-python-notebook-features-and-commands.md",
+      "redirect_url": "/azure/cosmos-db/sql/tutorial-create-notebook",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/continuous-backup-restore-portal.md",
       "redirect_url": "/azure/cosmos-db/provision-account-continuous-backup",
       "redirect_document_id": true
@@ -3411,6 +3446,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cosmos-db/how-to-setup-cmk.md",
+      "redirect_url": "/azure/cosmos-db/how-to-setup-customer-managed-keys",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cosmos-db/sql-api-sdk-java-spring-v3.md",
       "redirect_url": "/azure/cosmos-db/sql/sql-api-sdk-java-spring-v3",
       "redirect_document_id": true
@@ -3626,16 +3666,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/cosmos-db/how-to-container-copy.md",
-      "redirect_url": "/azure/cosmos-db/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/intra-account-container-copy.md",
-      "redirect_url": "/azure/cosmos-db/",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/cosmos-db/sql/create-sql-api-dotnet-v4.md",
       "redirect_url": "/azure/cosmos-db/sql/quickstart-dotnet",
       "redirect_document_id": false
@@ -3653,6 +3683,16 @@
     {
       "source_path_from_root":"/articles/cosmos-db/sql/sql-api-dotnet-v3sdk-samples.md",
       "redirect_url": "/azure/cosmos-db/sql/samples-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root":"/articles/cosmos-db/mongodb/create-mongodb-dotnet.md",
+      "redirect_url": "/azure/cosmos-db/mongodb/quickstart-javascript",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root":"/articles/cosmos-db/mongodb/create-mongodb-nodejs.md",
+      "redirect_url": "/azure/cosmos-db/mongodb/quickstart-dotnet",
       "redirect_document_id": false
     }
   ]

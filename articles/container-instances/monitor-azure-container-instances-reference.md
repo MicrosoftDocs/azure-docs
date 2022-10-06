@@ -33,7 +33,7 @@ Azure Container Instances has the following dimension associated with its metric
 
 ## Activity log
 
-The following table lists the operations that Azure Container Instances may record in the Activity log. This is a subset of the possible entries you might find in the activity log. You can also find this information in the [Azure role-based access control (RBAC) Resource provider operations documentation](/azure/role-based-access-control/resource-provider-operations#microsoftcontainerinstance).
+The following table lists the operations that Azure Container Instances may record in the Activity log. This is a subset of the possible entries you might find in the activity log. You can also find this information in the [Azure role-based access control (RBAC) Resource provider operations documentation](../role-based-access-control/resource-provider-operations.md#microsoftcontainerinstance).
 
 | Operation | Description |
 |:---|:---|
@@ -66,9 +66,9 @@ The following table lists the operations that Azure Container Instances may reco
 | Microsoft.ContainerInstance/operations/read | List the operations for Azure Container Instance service. |
 | Microsoft.ContainerInstance/serviceassociationlinks/delete | Delete the service association link created by Azure Container Instance resource provider on a subnet. |
 
-See [all the possible resource provider operations in the activity log](/azure/role-based-access-control/resource-provider-operations).  
+See [all the possible resource provider operations in the activity log](../role-based-access-control/resource-provider-operations.md).  
 
-For more information on the schema of Activity Log entries, see [Activity Log schema](/azure/azure-monitor/essentials/activity-log-schema).
+For more information on the schema of Activity Log entries, see [Activity Log schema](../azure-monitor/essentials/activity-log-schema.md).
 
 ## Schemas
 
@@ -122,4 +122,4 @@ The following schemas are in use by Azure Container Instances.
 ## See also
 
 - See [Monitoring Azure Container Instances](monitor-azure-container-instances.md) for a description of monitoring Azure Container Instances.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

@@ -27,7 +27,7 @@ The [custom log ingestion tool](https://github.com/Azure/Azure-Sentinel/tree/mas
 
 ### Direct API 
 
-With this option, you [ingest your custom logs into Azure Monitor Logs](../azure-monitor/logs/tutorial-custom-logs.md). You ingest the logs with a PowerShell script that uses a REST API. Alternatively, you can use any other programming language to perform the ingestion, and you can use other Azure services to abstract the compute layer, such as Azure Functions or Azure Logic Apps. 
+With this option, you [ingest your custom logs into Azure Monitor Logs](../azure-monitor/logs/tutorial-logs-ingestion-portal.md). You ingest the logs with a PowerShell script that uses a REST API. Alternatively, you can use any other programming language to perform the ingestion, and you can use other Azure services to abstract the compute layer, such as Azure Functions or Azure Logic Apps. 
 
 ## Azure Data Explorer 
 
@@ -78,7 +78,7 @@ Review the Azure Data Factory (ADF) and Azure Synapse methods, which are better 
 To use the Copy activity in Azure Data Factory (ADF) or Synapse pipelines:
 1. Create and configure a self-hosted integration runtime. This component is responsible for copying the data from your on-premises host.
 1. Create linked services for the source data store ([filesystem](../data-factory/connector-file-system.md?tabs=data-factory#create-a-file-system-linked-service-using-ui) and the sink data store [blob storage](../data-factory/connector-azure-blob-storage.md?tabs=data-factory#create-an-azure-blob-storage-linked-service-using-ui).
-3. To copy the data, use the [Copy data tool](../data-factory/quickstart-create-data-factory-copy-data-tool.md). Alternatively, you can use method such as PowerShell, Azure portal, a .NET SDK, and so on.
+3. To copy the data, use the [Copy data tool](../data-factory/quickstart-hello-world-copy-data-tool.md). Alternatively, you can use method such as PowerShell, Azure portal, a .NET SDK, and so on.
 
 ### AzCopy
 

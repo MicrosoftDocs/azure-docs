@@ -5,7 +5,7 @@ author: kanshiG
 ms.author: govindk
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 06/28/2022
+ms.date: 08/24/2022
 ms.topic: how-to
 ms.reviewer: mjbrown
 ---
@@ -45,7 +45,7 @@ To perform the migration, you need `Microsoft.DocumentDB/databaseAccounts/write`
 
 ## Pricing after migration
 
-After you migrate your account to continuous backup mode, the costs change when compared to the periodic backup mode. The tier choice of 30 days versus seven days will also have an influence on the cost of the backup. To learn more, see [continuous backup mode pricing](continuous-backup-restore-introduction.md#continuous-backup-pricing).
+After you migrate your account to continuous backup mode, the cost can change when compared to the periodic backup mode. The tier choice of 30 days versus seven days will also have an influence on the cost of the backup. To learn more, see [continuous backup mode pricing](continuous-backup-restore-introduction.md#continuous-backup-pricing).
 
 ## <a id="portal"></a> Migrate using portal
 
@@ -53,19 +53,19 @@ Use the following steps to migrate your account from periodic backup to continuo
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
 
-1. Navigate to your Azure Cosmos DB account and open the **Features** pane. Select **Continuous Backup** and select **Enable**.
+2. Navigate to your Azure Cosmos DB account and open the **Backup & Restore** pane. Select **Backup Policies** tab and select on **change**. Once you choose the target continuous mode, select on **Save**.
 
-   :::image type="content" source="./media/migrate-continuous-backup/enable-backup-migration.png" alt-text="Migrate to continuous mode using Azure portal" lightbox="./media/migrate-continuous-backup/enable-backup-migration.png":::
+   :::image type="content" source="./media/migrate-continuous-backup/migrate-from-periodic-continuous.png" alt-text="Migrate to continuous mode using Azure portal" lightbox="./media/migrate-continuous-backup/migrate-from-periodic-continuous.png":::
 
-1. When the migration is in progress, the status shows **Pending.** After it’s complete, the status changes to **On.** Migration time depends on the size of data in your account.
+3. When the migration is in progress, the popup shows **Updating Backup policy settings**. If you select that notification, you might see **Updating** on the account level and **Migrating** for Backup policy on overview of the account. After it’s complete, the backup policy would have switched to chosen tier of **Continuous** mode. Migration time depends on the size of data in your account.
 
-   :::image type="content" source="./media/migrate-continuous-backup/migration-status.png" alt-text="Check the status of migration from Azure portal" lightbox="./media/migrate-continuous-backup/migration-status.png":::
+   :::image type="content" source="./media/migrate-continuous-backup/migrate-result-periodic-continuous.png" alt-text="Check the status of migration from Azure portal" lightbox="./media/migrate-continuous-backup/migrate-result-periodic-continuous.png":::
 
 ## <a id="powershell"></a>Migrate using PowerShell
 
 1. Install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps?view=azps-6.2.1&preserve-view=true) or any version higher than 6.2.0.
-1. To use ``Continous7Days`` mode for provisioning or migrating, you'll have to use preview of the ``cosmosdb`` extension. Use ``Install-Module -Name Az.CosmosDB -AllowPrerelease``
-1. Next, run the following steps:
+2. To use ``Continous7Days`` mode for provisioning or migrating, you'll have to use preview of the ``cosmosdb`` extension. Use ``Install-Module -Name Az.CosmosDB -AllowPrerelease``
+3. Next, run the following steps:
 
     1. Connect to your Azure account:
 
@@ -73,7 +73,7 @@ Use the following steps to migrate your account from periodic backup to continuo
        Connect-AzAccount
        ```
 
-    1. Migrate your account from periodic to continuous backup mode with ``continuous30days`` tier or ``continuous7days`` days. If a tier value isn't provided, it's assumed to be ``continuous30days``:
+    2. Migrate your account from periodic to continuous backup mode with ``continuous30days`` tier or ``continuous7days`` days. If a tier value isn't provided, it's assumed to be ``continuous30days``:
 
        ```azurepowershell-interactive
        Update-AzCosmosDBAccount ` 
@@ -98,13 +98,13 @@ Use the following steps to migrate your account from periodic backup to continuo
    * If you already have Azure CLI installed, use the ``az upgrade`` command to upgrade to the latest version. Alternatively, you can also use the Azure Cloud Shell from the Azure portal.
    * To use ``Continous7Days`` mode for provisioning or migrating, you'll have to use preview of the ``cosmosdb`` extension. Use ``az extension update --name cosmosdb-preview`` to manage the extension.
 
-1. Sign in to your Azure account and run the following command to migrate your account to continuous mode:
+2. Sign in to your Azure account and run the following command to migrate your account to continuous mode:
 
    ```azurecli-interactive
    az login
    ```
 
-1. Migrate the account to ``continuous30days`` or ``continuous7days`` tier. If tier value isn't provided, it's assumed to be ``continuous30days``:
+3. Migrate the account to ``continuous30days`` or ``continuous7days`` tier. If tier value isn't provided, it's assumed to be ``continuous30days``:
 
    ```azurecli-interactive
    az cosmosdb update -n <myaccount> -g <myresourcegroup> --backup-policy-type continuous
@@ -114,7 +114,7 @@ Use the following steps to migrate your account from periodic backup to continuo
    az cosmosdb update -g "my-rg" -n "my-continuous-backup-account" --backup-policy-type "Continuous" --continuous-tier "Continuous7Days"
    ```
 
-1. After the migration completes successfully, the output shows the ``backupPolicy`` object, which includes ``type`` property with a value of ``Continuous``.
+4. After the migration completes successfully, the output shows the ``backupPolicy`` object, which includes ``type`` property with a value of ``Continuous``.
 
    ```console
     {
@@ -138,7 +138,7 @@ Run the following command and check the **status** and **targetType** properties
 az cosmosdb show -n "myAccount" -g "myrg"
 ```
 
-:::image type="content" source="./media/migrate-continuous-backup/migration-status-started-powershell.png" alt-text="Check the migration status using PowerShell command":::
+:::image type="content" source="./media/migrate-continuous-backup/migration-status-started-powershell.png" lightbox="./media/migrate-continuous-backup/migration-status-started-powershell.png" alt-text="Check the migration status using PowerShell command":::
 
 When the migration is complete, the backup type changes to **Continuous** and shows the chosen tier. If a tier wasn't provided, the tier would be set to ``Continuous30Days``. Run the same command again to check the status:
 
@@ -146,7 +146,7 @@ When the migration is complete, the backup type changes to **Continuous** and sh
 az cosmosdb show -n "myAccount" -g "myrg"
 ```
 
-:::image type="content" source="./media/migrate-continuous-backup/migration-status-complete-powershell.png" alt-text="Backup type changes to continuous after the migration is complete":::
+:::image type="content" source="./media/migrate-continuous-backup/migration-status-complete-powershell.png" lightbox="./media/migrate-continuous-backup/migration-status-complete-powershell.png" alt-text="Backup type changes to continuous after the migration is complete":::
 
 ## <a id="ARM-template"></a> Migrate from periodic mode to Continuous mode using Resource Manager template
 
@@ -182,6 +182,10 @@ az deployment group create -g <ResourceGroup> --template-file <ProvisionTemplate
 ## Change Continuous Mode tiers
 
 You can switch between ``Continuous30Days`` and ``Continous7Days`` in Azure PowerShell, Azure CLI or the Azure portal.
+
+In the portal for the given Cosmos DB account, choose **Point in Time Restore** pane, select on change link next to Backup policy mode to show you the option of Continuous (30 days) or  Continuous (7 days). Choose the required target and select on **Save**.
+
+:::image type="content" source="./media/migrate-continuous-backup/migrate-continuous-mode-tiers.png" lightbox="./media/migrate-continuous-backup/migrate-continuous-mode-tiers.png" alt-text="Screenshot of dialog to select tier of continuous mode.":::
 
 The Following Azure CLI command illustrates switching an existing account to ``Continous7Days``:
 

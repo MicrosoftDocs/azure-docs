@@ -3,7 +3,7 @@ title: Migrate a database from SQL Server to Azure Arc-enabled SQL Managed Insta
 description: Migrate database from SQL Server to Azure Arc-enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
-ms.subservice: azure-arc-data
+ms.subservice: azure-arc-data-sqlmi
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray

@@ -140,7 +140,7 @@ Entity behavior in Microsoft Sentinel allows users to review and investigate act
 
 - [Enable User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel](enable-entity-behavior-analytics.md)
 - [Investigate incidents with UEBA data](investigate-with-ueba.md)
-- [Microsoft Sentinel UEBA enrichments reference](ueba-enrichments.md)
+- [Microsoft Sentinel UEBA reference](ueba-reference.md)
 
 ### Handle incidents with watchlists and threat intelligence
 

@@ -2,11 +2,11 @@
 title: Move an Azure Site Recovery vault to another region
 description: Describes how to move a Recovery Services vault (Azure Site Recovery) to another Azure region
 services: site-recovery
-author: Sharmistha-Rai
+author: v-pgaddala
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 07/31/2019
-ms.author: sharrai
+ms.author: v-pgaddala
 ms.custom: MVC
 ---
 

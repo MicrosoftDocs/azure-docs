@@ -1,7 +1,7 @@
 ---
 title: View and manage service providers
 description: Customers can view info about Azure Lighthouse service providers, service provider offers, and delegated resources in the Azure portal.
-ms.date: 12/16/2021
+ms.date: 07/08/2022
 ms.topic: how-to
 ---
 
@@ -9,7 +9,7 @@ ms.topic: how-to
 
 The **Service providers** page in the [Azure portal](https://portal.azure.com) gives customers control and visibility for their service providers who use [Azure Lighthouse](../overview.md). Customers can delegate specific resources, review new or updated offers, remove service provider access, and more.
 
-To view this page in the Azure portal, select **All services**, then search for **Service providers** and select it. You can also find this page by entering "Service providers" or "Azure Lighthouse" in the search box near the top of the Azure portal.
+To access the **Service providers** page in the Azure portal, enter "Service providers" in the search box near the top of the Azure portal. You can also select **All services**, then search for **Azure Lighthouse**, or search for "Azure Lighthouse". From the Azure Lighthouse page, select **View service provider offers**.
 
 > [!NOTE]
 > To view the **Service providers** page, a user in the customer's tenant must have the [Reader built-in role](../../role-based-access-control/built-in-roles.md#reader) (or another built-in role which includes Reader access).
@@ -28,7 +28,11 @@ In the **Delegations** column, you can see how many subscriptions and/or resourc
 
 ## Add service provider offers
 
-To add a new service provider offer from the **Service provider offers** page, select **Add offer**. Select **Private offers** to view offers that a service provider has published for this customer. You can then select an offer, then select **Set up + subscribe**.
+You can add a new service provider offer from the **Service provider offers** page.
+
+To add an offer from the marketplace, select the **Add offer** button in the middle of the page, or select **Add offer** near the top of the page and then choose **Add via marketplace**. If [Managed Service offers](../concepts/managed-services-offers.md) have been published specifically for this customer, select **Private offers** to view them. Select an offer to review details. To add the offer, select **Create**.
+
+To add an offer from a template, select **Add offer** near the top of the page and then choose **Add via marketplace**. This will allow you to upload a template from your service provider and onboard your subscription (or resource group). For more information, see [Deploy in the Azure portal](onboard-customer.md#deploy-in-the-azure-portal).
 
 ## Update service provider offers
 
@@ -36,7 +40,7 @@ After a customer has added an offer, a service provider may publish an updated v
 
  ![Update offer icon](../media/update-offer.jpg)
 
-After reviewing the changes, the customer can choose to update to the new version. The authorizations and other settings specified in the new version will then apply to any subscriptions and/or resource groups that have been delegated for that offer.
+After reviewing the changes, you can choose to update to the new version. The authorizations and other settings specified in the new version will then apply to any subscriptions and/or resource groups that have been delegated for that offer.
 
 ## Remove service provider offers
 

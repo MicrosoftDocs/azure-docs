@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 04/21/2022
+ms.date: 08/24/2022
 ---
 # SMB FAQs for Azure NetApp Files
 
@@ -30,7 +30,7 @@ However, you can map multiple NetApp accounts that are under the same subscripti
 
 Both [Azure Active Directory (AD) Domain Services](../active-directory-domain-services/overview.md) and [Active Directory Domain Services (AD DS)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) are supported. You can use existing Active Directory domain controllers with Azure NetApp Files. Domain controllers can reside in Azure as virtual machines, or on premises via ExpressRoute or S2S VPN. Azure NetApp Files doesn't support AD join for [Azure Active Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/) at this time.
 
-If you are using Azure NetApp Files with Azure Active Directory Domain Services, the organizational unit path is `OU=AADDC Computers` when you configure Active Directory for your NetApp account.
+If you're using Azure NetApp Files with Azure Active Directory Domain Services, the organizational unit path is `OU=AADDC Computers` when you configure Active Directory for your NetApp account.
 
 ## What versions of Windows Server Active Directory are supported?
 
@@ -74,6 +74,10 @@ Yes.
 Azure NetApp Files supports [`CHANGE_NOTIFY` response](/openspecs/windows_protocols/ms-smb2/14f9d050-27b2-49df-b009-54e08e8bf7b5). This response is for the client’s request that comes in the form of a [`CHANGE_NOTIFY` request](/openspecs/windows_protocols/ms-smb2/598f395a-e7a2-4cc8-afb3-ccb30dd2df7c).  
 
 Azure NetApp Files also supports [`LOCK` response](/openspecs/windows_protocols/ms-smb2/e215700a-102c-450a-a598-7ec2a99cd82c). This response is for the client’s request that comes in the form of a [`LOCK` request](/openspecs/windows_protocols/ms-smb2/6178b960-48b6-4999-b589-669f88e9017d).  
+
+## What network authentication methods are supported for SMB volumes in Azure NetApp Files?
+
+NTLMv2 and Kerberos network authentication methods are supported with SMB volumes in Azure NetApp Files. NTLMv1 and LanManager are disabled and are not supported.
 
 ## What is the password rotation policy for the Active Directory machine account for SMB volumes?
 

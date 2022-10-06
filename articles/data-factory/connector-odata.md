@@ -21,12 +21,16 @@ This article outlines how to use Copy Activity in an Azure Data Factory or Synap
 
 ## Supported capabilities
 
-This OData connector is supported for the following activities:
+This OData connector is supported for the following capabilities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
-- [Lookup activity](control-flow-lookup-activity.md)
+| Supported capabilities|IR |
+|---------| --------|
+|[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-You can copy data from an OData source to any supported sink data store. For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
+<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+
+For a list of data stores that are supported as sources/sinks, see [Supported data stores](connector-overview.md#supported-data-stores).
 
 Specifically, this OData connector supports:
 
@@ -82,7 +86,7 @@ The following properties are supported for an OData linked service:
 | servicePrincipalId | Specify the Azure Active Directory application's client ID. | No |
 | aadServicePrincipalCredentialType | Specify the credential type to use for service principal authentication. Allowed values are: `ServicePrincipalKey` or `ServicePrincipalCert`. | No |
 | servicePrincipalKey | Specify the Azure Active Directory application's key. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
-| servicePrincipalEmbeddedCert | Specify the base64 encoded certificate of your application registered in Azure Active Directory. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| servicePrincipalEmbeddedCert | Specify the base64 encoded certificate of your application registered in Azure Active Directory, and ensure the certificate content type is **PKCS #12**. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | servicePrincipalEmbeddedCertPassword | Specify the password of your certificate if your certificate is secured with a password. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).  | No|
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. | No |
 | aadResourceId | Specify the Azure AD resource you are requesting for authorization.| No |

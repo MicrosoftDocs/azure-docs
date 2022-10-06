@@ -133,7 +133,7 @@ sed -i -e "s/<rgName>/$imageResourceGroup/g" helloImageTemplateWin.json
 sed -i -e "s/<region>/$location/g" helloImageTemplateWin.json
 sed -i -e "s/<imageName>/$imageName/g" helloImageTemplateWin.json
 sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateWin.json
-sed -i -e "s%<imgBuilderId>%$imgBuilderId%g" helloImageTemplateWin.json
+sed -i -e "s/<imgBuilderId>/$imgBuilderId/g" helloImageTemplateWin.json
 ```
 
 You can modify this example in the terminal by using a text editor such as `vi`.
@@ -143,7 +143,7 @@ vi helloImageTemplateWin.json
 ```
 
 > [!NOTE]
-> For the source image, always [specify a version](../linux/image-builder-troubleshoot.md#build-step-failed-for-image-version). You can't specify `latest` as the version.
+> For the source image, always [specify a version](../linux/image-builder-troubleshoot.md#the-build-step-failed-for-the-image-version). You can't specify `latest` as the version.
 >
 > If you add or change the resource group that the image is distributed to, make sure that the [permissions are set](#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group) on the resource group.
  

@@ -13,7 +13,7 @@ ms.custom:  [amqp, mqtt]
 
 # Common issues and resolutions for Azure IoT Edge
 
-[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 Use this article to find steps to resolve common issues that you may experience when deploying IoT Edge solutions. If you need to learn how to find logs and errors from your IoT Edge device, see [Troubleshoot your IoT Edge device](troubleshoot.md).
 
@@ -101,7 +101,7 @@ Restart the container engine for the updates to take effect.
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 Place `daemon.json` in the `/etc/docker` directory on your device.
 
@@ -114,7 +114,7 @@ sudo systemctl restart docker
 ```
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 **Option 2: Set DNS server in IoT Edge deployment per module**
 
@@ -190,7 +190,7 @@ If you don't need to use the IoT Edge device as a gateway, then you can remove t
 
 In the Azure portal:
 
-1. Navigate to your IoT hub and select **IoT Edge**.
+1. Navigate to your IoT hub and select **Devices** under the **Device management** menu.
 
 2. Select the IoT Edge device that you want to update.
 
@@ -280,7 +280,7 @@ When you see this error, you can resolve it by configuring the DNS name of your 
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 1. In the Azure portal, navigate to the overview page of your virtual machine.
@@ -308,7 +308,7 @@ When you see this error, you can resolve it by configuring the DNS name of your 
    ```
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -493,7 +493,7 @@ On Linux:
 
 1. Restart the network service and docker service to apply the changes.
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
 
 ## IoT Edge behind a gateway cannot perform HTTP requests and start edgeAgent module
@@ -532,7 +532,7 @@ When migrating to the new IoT hub (assuming not using DPS), follow these steps i
 1. Restart each device in hierarchy level by level from top to the bottom
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 ## Security daemon couldn't start successfully
 

@@ -39,7 +39,7 @@ This configuration will be different depending on the data source. For example:
 
 - [Create diagnostic settings](../essentials/diagnostic-settings.md) to send resource logs from Azure resources to the workspace. 
 - [Enable VM insights](../vm/vminsights-enable-overview.md) to collect data from virtual machines. 
-- [Configure data sources on the workspace](../agents/data-sources.md) to collect more events and performance data.
+- [Configure data sources on the workspace](../data-sources.md) to collect more events and performance data.
 
 > [!IMPORTANT]
 > Most data collection in Logs will incur ingestion and retention costs, so refer to [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) before enabling any data collection.
@@ -75,4 +75,4 @@ The experience of using Log Analytics to work with Azure Monitor queries in the 
 
 - Learn about [log queries](./log-query-overview.md) to retrieve and analyze data from a Log Analytics workspace.
 - Learn about [metrics in Azure Monitor](../essentials/data-platform-metrics.md).
-- Learn about the [monitoring data available](../agents/data-sources.md) for various resources in Azure.
+- Learn about the [monitoring data available](../data-sources.md) for various resources in Azure.

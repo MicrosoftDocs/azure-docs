@@ -2,7 +2,7 @@
 title: App settings reference for Azure Functions
 description: Reference documentation for the Azure Functions app settings or environment variables.
 ms.topic: conceptual
-ms.date: 04/27/2022
+ms.date: 10/04/2022
 ---
 
 # App settings reference for Azure Functions
@@ -17,6 +17,9 @@ Example connection string values are truncated for readability.
 > [!NOTE]
 > You can use application settings to override host.json setting values without having to change the host.json file itself. This is helpful for scenarios where you need to configure or modify specific host.json settings for a specific environment. This also lets you change host.json settings without having to republish your project. To learn more, see the [host.json reference article](functions-host-json.md#override-hostjson-values). Changes to function app settings require your function app to be restarted.
 
+> [!IMPORTANT]
+> Do not use an [instrumentation key](../azure-monitor/app/separate-resources.md#about-resources-and-instrumentation-keys) and a [connection string](../azure-monitor/app/sdk-connection-string.md#overview) simultaneously. Whichever was set last will take precedence.
+
 ## APPINSIGHTS_INSTRUMENTATIONKEY
 
 The instrumentation key for Application Insights. Only use one of `APPINSIGHTS_INSTRUMENTATIONKEY` or `APPLICATIONINSIGHTS_CONNECTION_STRING`. When Application Insights runs in a sovereign cloud, use `APPLICATIONINSIGHTS_CONNECTION_STRING`. For more information, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
@@ -24,6 +27,8 @@ The instrumentation key for Application Insights. Only use one of `APPINSIGHTS_I
 |Key|Sample value|
 |---|------------|
 |APPINSIGHTS_INSTRUMENTATIONKEY|`55555555-af77-484b-9032-64f83bb83bb`|
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
 ## APPLICATIONINSIGHTS_CONNECTION_STRING
 
@@ -82,7 +87,7 @@ In version 2.x and later versions of the Functions runtime, configures app behav
 
 In version 2.x and later versions of the Functions runtime, application settings can override [host.json](functions-host-json.md) settings in the current environment. These overrides are expressed as application settings named `AzureFunctionsJobHost__path__to__setting`. For more information, see [Override host.json values](functions-host-json.md#override-hostjson-values).
 
-## AzureFunctionsWebHost__hostid
+## AzureFunctionsWebHost__hostId
 
 Sets the host ID for a given function app, which should be a unique ID. This setting overrides the automatically generated host ID value for your app. Use this setting only when you need to prevent host ID collisions between function apps that share the same storage account. 
 
@@ -90,7 +95,7 @@ A host ID must be between 1 and 32 characters, contain only lowercase letters, n
 
 |Key|Sample value|
 |---|------------|
-|AzureFunctionsWebHost__hostid|`myuniquefunctionappname123456789`|
+|AzureFunctionsWebHost__hostId|`myuniquefunctionappname123456789`|
 
 For more information, see [Host ID considerations](storage-considerations.md#host-id-considerations).
 
@@ -260,7 +265,16 @@ The version of the Functions runtime that hosts your function app. A tilde (`~`)
 
 |Key|Sample value|
 |---|------------|
-|FUNCTIONS\_EXTENSION\_VERSION|`~3`|
+|FUNCTIONS\_EXTENSION\_VERSION|`~4`|
+
+The following major runtime version values are supported:
+
+| Value | Runtime target | Comment |
+| ------ | -------- | --- |
+| `~4` | 4.x | Recommended |
+| `~3` | 3.x | Support ends December 13, 2022 |
+| `~2` | 2.x | No longer supported |
+| `~1` | 1.x | Supported |
 
 ## FUNCTIONS\_V2\_COMPATIBILITY\_MODE
 
@@ -269,7 +283,7 @@ This setting enables your function app to run in a version 2.x compatible mode o
 >[!IMPORTANT]
 > This setting is intended only as a short-term workaround while you update your app to run correctly on version 3.x. This setting is supported as long as the [2.x runtime is supported](functions-versions.md). If you encounter issues that prevent your app from running on version 3.x without using this setting, please [report your issue](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md).
 
-Requires that [FUNCTIONS\_EXTENSION\_VERSION](functions-app-settings.md#functions_extension_version) be set to `~3`.
+Requires that [FUNCTIONS\_EXTENSION\_VERSION](#functions_extension_version) be set to `~3`.
 
 |Key|Sample value|
 |---|------------|
@@ -351,15 +365,25 @@ To avoid excessive module upgrades on frequent Worker restarts, checking for mod
 
 To learn more, see [Dependency management](functions-reference-powershell.md#dependency-management).
 
+## PIP\_INDEX\_URL
+
+This setting lets you override the base URL of the Python Package Index, which by default is `https://pypi.org/simple`. Use this setting when you need to run a remote build using custom dependencies that are found in a package index repository compliant with PEP 503 (the simple repository API) or in a local directory that follows the same format.
+
+|Key|Sample value|
+|---|------------|
+|PIP\_INDEX\_URL|`http://my.custom.package.repo/simple` |
+
+To learn more, see [`pip` documentation for `--index-url`](https://pip.pypa.io/en/stable/cli/pip_wheel/?highlight=index%20url#cmdoption-i) and using [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
+
 ## PIP\_EXTRA\_INDEX\_URL
 
-The value for this setting indicates a custom package index URL for Python apps. Use this setting when you need to run a remote build using custom dependencies that are found in an extra package index.
+The value for this setting indicates an extra index URL for custom packages for Python apps, to use in addition to the `--index-url`. Use this setting when you need to run a remote build using custom dependencies that are found in an extra package index. Should follow the same rules as --index-url.
 
 |Key|Sample value|
 |---|------------|
 |PIP\_EXTRA\_INDEX\_URL|`http://my.custom.package.repo/simple` |
 
-To learn more, see [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
+To learn more, see [`pip` documentation for `--extra-index-url`](https://pip.pypa.io/en/stable/cli/pip_wheel/?highlight=index%20url#cmdoption-extra-index-url) and [Custom dependencies](functions-reference-python.md#remote-build-with-extra-index-url) in the Python developer reference.
 
 ## PYTHON\_ISOLATE\_WORKER\_DEPENDENCIES (Preview)
 
@@ -541,6 +565,47 @@ Indicates whether all outbound traffic from the app is routed through the virtua
 |Key|Sample value|
 |---|------------|
 |WEBSITE\_VNET\_ROUTE\_ALL|`1`|
+
+## App Service site settings
+
+Some configurations must be maintained at the App Service level as site settings, such as language versions. These settings are usually set in the portal, by using REST APIs, or by using Azure CLI or Azure PowerShell. The following are site settings that could be required, depending on your runtime language, OS, and versions: 
+
+### linuxFxVersion 
+
+For function apps running on Linux, `linuxFxVersion` indicates the language and version for the language-specific worker process. This information is used, along with [`FUNCTIONS_EXTENSION_VERSION`](#functions_extension_version), to determine which specific Linux container image is installed to run your function app. This setting can be set to a pre-defined value or a custom image URI.
+
+This value is set for you when you create your Linux function app. You may need to set it for ARM template and Bicep deployments and in certain upgrade scenarios. 
+
+#### Valid linuxFxVersion values
+
+You can use the following Azure CLI command to see a table of current `linuxFxVersion` values, by supported Functions runtime version:
+
+```azurecli-interactive
+az functionapp list-runtimes --os linux --query "[].{stack:join(' ', [runtime, version]), LinuxFxVersion:linux_fx_version, SupportedFunctionsVersions:to_string(supported_functions_versions[])}" --output table
+```
+
+The previous command requires you to upgrade to version 2.40 of the Azure CLI.  
+
+#### Custom images
+
+When you create and maintain your own custom linux container for your function app, the `linuxFxVersion` value is also in the format `DOCKER|<IMAGE_URI>`, as in the following example:
+
+```
+linuxFxVersion = "DOCKER|contoso.com/azurefunctionsimage:v1.0.0"
+```
+For more information, see [Create a function on Linux using a custom container](functions-create-function-linux-custom-image.md).
+
+[!INCLUDE [functions-linux-custom-container-note](../../includes/functions-linux-custom-container-note.md)]
+
+### netFrameworkVersion
+
+Sets the specific version of .NET for C# functions. For more information, see [Migrating from 3.x to 4.x](functions-versions.md#migrating-from-3x-to-4x). 
+
+### powerShellVersion 
+
+Sets the specific version of PowerShell on which your functions run. For more information, see [Changing the PowerShell version](functions-reference-powershell.md#changing-the-powershell-version). 
+
+When running locally, you instead use the [`FUNCTIONS_WORKER_RUNTIME_VERSION`](functions-reference-powershell.md#running-local-on-a-specific-version) setting in the local.settings.json file. 
 
 ## Next steps
 

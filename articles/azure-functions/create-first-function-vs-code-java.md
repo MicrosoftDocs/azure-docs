@@ -8,7 +8,7 @@ adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-vs-code-java-uiex
 ms.devlang: java
-ms.custom: mode-api
+ms.custom: mode-api, vscode-azure-extension-update-complete
 ---
 
 # Quickstart: Create a Java function in Azure using Visual Studio Code
@@ -28,17 +28,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 Before you get started, make sure you have the following requirements in place:
 
-+ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
-+ The [Java Development Kit](/azure/developer/java/fundamentals/java-support-on-azure), version 11 or 8.
-
-+ [Apache Maven](https://maven.apache.org), version 3.0 or above.
-
-+ [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
-
-+ The [Java extension pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)  
-
-+ The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. 
+[!INCLUDE [functions-requirements-visual-studio-code-java](../../includes/functions-requirements-visual-studio-code-java.md)]
 
 ## <a name="create-an-azure-functions-project"></a>Create your local project
 

@@ -4,7 +4,7 @@ description: Reference information for Azure IoT Edge for Linux on Windows Power
 author: PatAltimore
 
 ms.author: fcabrera
-ms.date: 10/15/2021
+ms.date: 07/28/2022
 ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
@@ -12,7 +12,7 @@ services: iot-edge
 
 # PowerShell functions for IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-1.1-or-1.4](./includes/iot-edge-version-1.1-or-1.4.md)]
 
 Understand the PowerShell functions that deploy, provision, and get the status of your IoT Edge for Linux on Windows (EFLOW) virtual machine.
 
@@ -22,6 +22,8 @@ The commands described in this article are from the `AzureEFLOW.psm1` file, whic
 
 If you don't have the **AzureEflow** folder in your PowerShell directory, use the following steps to download and install Azure IoT Edge for Linux on Windows: 
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 1. In an elevated PowerShell session, run each of the following commands to download IoT Edge for Linux on Windows.
 
    ```powershell
@@ -29,6 +31,29 @@ If you don't have the **AzureEflow** folder in your PowerShell directory, use th
    $ProgressPreference = 'SilentlyContinue'
    Invoke-WebRequest "https://aka.ms/AzEflowMSI" -OutFile $msiPath
    ```
+:::moniker-end
+<!-- end iotedge-2018-06 -->
+
+<!-- iotedge-2020-11 -->
+:::moniker range=">=iotedge-2020-11"
+1. In an elevated PowerShell session, run each of the following commands to download IoT Edge for Linux on Windows.
+
+   * **X64/AMD64**
+   ```powershell
+   $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
+   $ProgressPreference = 'SilentlyContinue'
+   Invoke-WebRequest "https://aka.ms/AzEFLOWMSI-CR-X64" -OutFile $msiPath
+   ```
+
+   * **ARM64**
+   ```powershell
+   $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
+   $ProgressPreference = 'SilentlyContinue'
+   Invoke-WebRequest "https://aka.ms/AzEFLOWMSI-CR-ARM64" -OutFile $msiPath
+   ```
+:::moniker-end
+<!-- end iotedge-2020-11 -->
+
 
 1. Install IoT Edge for Linux on Windows on your device.
 
@@ -38,7 +63,7 @@ If you don't have the **AzureEflow** folder in your PowerShell directory, use th
 
    You can specify custom installation and VHDX directories by adding `INSTALLDIR="<FULLY_QUALIFIED_PATH>"` and `VHDXDIR="<FULLY_QUALIFIED_PATH>"` parameters to the install command.
 
-1. Set the execution policy on the target device to `AllSigned` if it is not already.
+1. Set the execution policy on the target device to at least `AllSigned`.
 
    ```powershell
    Set-ExecutionPolicy -ExecutionPolicy AllSigned -Force
@@ -82,6 +107,41 @@ It returns an object that contains four properties:
 * IpConfiguration
 
 For more information, use the command `Get-Help Add-EflowVmEndpoint -full`.
+
+<!-- iotedge-2020-11 -->
+:::moniker range=">=iotedge-2020-11"
+## Add-EflowVmSharedFolder
+
+The **Add-EflowVmSharedFolder** command allows sharing one or more Windows host OS folders with the EFLOW virtual machine. 
+
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| sharedFoldersJsonPath | String |  Path to the **Shared Folders** JSON configuration file. |
+
+The JSON configuration file must have the following structure:
+
+- **sharedFOlderRoot** : Path to the Windows root folder that contains all the folders to be shared with the EFLOW virtual machine.
+- **hostFolderPath**: Relative path (to the parent root folder) of the folder to be shared with the EFLOW VM.
+- **readOnly**: Defines if the shared folder will be writeable or read-only from the EFLOW virtual machine - Values: **false** or **true**.
+- **targetFolderOnGuest** : Folder path inside the EFLOW virtual machine where Windows host OS folder will be mounted. 
+
+```json
+[
+   {
+      "sharedFolderRoot": "<shared-folder-root-windows-path>",
+      "sharedFolders": [ 
+        { "hostFolderPath": "<path-shared-folder>", 
+            "readOnly": "<read-only>", 
+            "targetFolderOnGuest": "<linux-mounting-point>" 
+        }
+      ]
+   }
+]
+```
+For more information, use the command `Get-Help Add-EflowVmSharedFolder -full`.
+
+:::moniker-end
+<!-- end iotedge-2020-11 -->
 
 ## Connect-EflowVm
 
@@ -130,7 +190,7 @@ The **Deploy-Eflow** command is the main deployment method. The deployment comma
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
@@ -140,7 +200,7 @@ The **Deploy-Eflow** command is the main deployment method. The deployment comma
 | memoryInMB | Integer **even** value between 1024 and the maximum amount of free memory of the device |Memory allocated for the VM.<br><br>**Default value**: 1024 MB. |
 | vmDiskSize | Between 21 GB and 2 TB | Maximum logical disk size of the dynamically expanding virtual hard disk.<br><br>**Default value**: 29 GB. <br><br>**Note**: Either _vmDiskSize_ or _vmDataSize_ can be used, but not both together. |
 | vmDataSize | Between 2 GB and 2 TB | Maximum data partition size of the resulting hard disk, in GB.<br><br>**Default value**: 10 GB. <br><br>**Note**: Either _vmDiskSize_ or _vmDataSize_ can be used, but not both together. |
-| vmLogSize | **Small** or **Large** | Specificy the log partition size. Small = 1GB, Large = 6GB.<br><br>**Default value**: Small.  |
+| vmLogSize | **Small** or **Large** | Specify the log partition size. Small = 1GB, Large = 6GB.<br><br>**Default value**: Small.  |
 | vswitchName | Name of the virtual switch |  Name of the virtual switch assigned to the EFLOW VM. |
 | vswitchType | **Internal** or **External** | Type of the virtual switch assigned to the EFLOW VM. |
 | ip4Address | IPv4 Address in the range of the DCHP Server Scope | Static Ipv4 address of the EFLOW VM. |
@@ -150,8 +210,9 @@ The **Deploy-Eflow** command is the main deployment method. The deployment comma
 | gpuPassthroughType | **DirectDeviceAssignment**, **ParaVirtualization**, or none (CPU only) |  GPU Passthrough type |
 | gpuCount | Integer value between 1 and the number of the device's GPU cores | Number of GPU devices for the VM. <br><br>**Note**: If using ParaVirtualization, make sure to set gpuCount = 1 |
 | customSsh | None | Determines whether user wants to use their custom OpenSSH.Client installation. If present, ssh.exe must be available to the EFLOW PSM |
+| sharedFoldersJsonPath | String | Path to the **Shared Folders** JSON configuration file. |
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 
 For more information, use the command `Get-Help Deploy-Eflow -full`.  
@@ -249,6 +310,26 @@ The **Get-EflowVmName** command returns the virtual machine's current hostname. 
 
 For more information, use the command `Get-Help Get-EflowVmName -full`.
 
+<!-- iotedge-2020-11 -->
+:::moniker range=">=iotedge-2020-11"
+## Get-EflowVmSharedFolder
+
+The **Get-EflowVmSharedFolder** command returns the information about one or more Windows host OS folders shared with the EFLOW virtual machine. 
+
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| sharedfolderRoot | String | Path to the Windows host OS shared root folder.|
+| hostFolderPath | String or List | Relative path/paths (to the root folder) to the Windows host OS shared folder/s.|
+
+It returns a list of objects that contains three properties:
+- **hostFolderPath**: Relative path (to the parent root folder) of the folder shared with the EFLOW VM.
+- **readOnly**: Defines if the shared folder is writeable or read-only from the EFLOW virtual machine - Values: **false** or **true**.
+- **targetFolderOnGuest**: Folder path inside the EFLOW virtual machine where the Windows folder is mounted.
+
+For more information, use the command `Get-Help Get-EflowVmSharedFolder -full`.
+:::moniker-end
+<!-- end iotedge-2020-11 -->
+
 ## Get-EflowVmTelemetryOption
 
 The **Get-EflowVmTelemetryOption** command displays the status of the telemetry (either **Optional** or **Required**) inside the virtual machine.
@@ -316,6 +397,20 @@ The **Remove-EflowVmEndpoint** command removes an existing network endpoint atta
 
 For more information, use the command `Get-Help Remove-EflowVmEndpoint -full`.
 
+<!-- iotedge-2020-11 -->
+:::moniker range=">=iotedge-2020-11"
+## Remove-EflowVmSharedFolder
+
+The **Remove-EflowVmSharedFolder** command stops sharing the Windows host OS folder to the EFLOW virtual machine. This command takes two parameters. 
+
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| sharedfolderRoot | String | Path to the Windows host OS shared root folder.|
+| hostFolderPath | String or List | Relative path/paths (to the root folder) to the Windows host OS shared folder/s.|
+
+For more information, use the command `Get-Help Remove-EflowVmSharedFolder -full`.
+:::moniker-end
+<!-- end iotedge-2020-11 -->
 
 ## Set-EflowVM
 
@@ -358,14 +453,14 @@ The **Set-EflowVmFeature** command enables or disables the status of IoT Edge fo
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
 | feature | **DpsTpm**, **Defender** | Feature name to toggle. |
 | enable | None | If this flag is present, the command enables the feature. |
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 For more information, use the command `Get-Help Set-EflowVmFeature -full`.
 

@@ -4,7 +4,7 @@ description: Learn how to monitor a storage account in Azure by using Azure Stor
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/29/2021
+ms.date: 09/30/2022
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
@@ -45,10 +45,10 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
    > [!div class="mx-imgBorder"]
    > ![Configure logging in the Azure portal.](./media/manage-storage-analytics-logs/enable-diagnostics.png)
 
-4. Ensure that the **Delete data** check box is selected.  Then, set the number of days that you would like log data to be retained by moving the slider control beneath the check box, or by directly modifying the value that appears in the text box next to the slider control. The default for new storage accounts is seven days. If you do not want to set a retention policy, enter zero. If there is no retention policy, it is up to you to delete the log data.
+4. To retain logs, ensure that the **Delete data** check box is selected.  Then, set the number of days that you would like log data to be retained by moving the slider control beneath the check box, or by directly modifying the value that appears in the text box next to the slider control. The default for new storage accounts is seven days.  If you do not want to set a retention policy, leave the **Delete data** checkbox unchecked. If there is no retention policy, it is up to you to delete the log data.
 
    > [!WARNING]
-   > Logs are stored as data in your account. log data can accumulate in your account over time which can increase the cost of storage. If you need log data for only a small period of time, you can reduce your costs by modifying the data retention policy. Stale log data (data older than your retention policy) is deleted by the system. We recommend setting a retention policy based on how long you want to retain the log data for your account. See [Billing on storage metrics](storage-analytics-metrics.md#billing-on-storage-metrics) for more information.
+   > Logs are stored as data in your account. Log data can accumulate in your account over time which can increase the cost of storage. If you need log data for only a small period of time, you can reduce your costs by modifying the data retention policy. Stale log data (data older than your retention policy) is deleted by the system. We recommend setting a retention policy based on how long you want to retain the log data for your account. See [Billing on storage metrics](storage-analytics-metrics.md#billing-on-storage-metrics) for more information.
 
 4. Click **Save**.
 
@@ -130,9 +130,6 @@ queueClient.SetServiceProperties(serviceProperties);
 
 Log data can accumulate in your account over time which can increase the cost of storage. If you need log data for only a small period of time, you can reduce your costs by modifying the log data retention period. For example, if you need logs for only three days, set your log data retention period to a value of `3`. That way logs will be automatically deleted from your account after 3 days. This section shows you how to view your current log data retention period, and then update that period if that's what you want to do.
 
-> [!NOTE]
-> These steps apply only for accounts that do not have the **Hierarchical namespace** setting enabled on them. If you've enabled that setting on your account, then the setting for retention days is not yet supported. Instead, you'll have to delete logs manually by using any supported tool such as Azure Storage Explorer, REST or an SDK. To find those logs in your storage account, see [How logs are stored](storage-analytics-logging.md#how-logs-are-stored).
-
 ### [Portal](#tab/azure-portal)
 
 1. In the [Azure portal](https://portal.azure.com), select **Storage accounts**, then the name of the storage account to open the storage account blade.
@@ -145,7 +142,7 @@ Log data can accumulate in your account over time which can increase the cost of
    > [!div class="mx-imgBorder"]
    > ![Modify the retention period in the Azure portal](./media/manage-storage-analytics-logs/modify-retention-period.png)
 
-   The default number of days for new storage accounts is seven days. If you do not want to set a retention policy, enter zero. If there is no retention policy, it is up to you to delete the monitoring data.
+   The default number of days for new storage accounts is seven days. If you do not want to set a retention policy, leave the **Delete data** checkbox unchecked. If there is no retention policy, it is up to you to delete the monitoring data.
 
 4. Click **Save**.
 

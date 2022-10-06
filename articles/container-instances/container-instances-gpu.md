@@ -18,6 +18,13 @@ This article shows how to add GPU resources when you deploy a container group by
 > [!IMPORTANT]
 > This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
+## Prerequisites
+
+> [!NOTE]
+> Due to some current limitations, not all limit increase requests are guaranteed to be approved.
+
+* If you would like to use this sku for your production container deployments, create an [Azure Support request](https://azure.microsoft.com/support) to increase the limit. 
+
 ## Preview limitations
 
 In preview, the following limitations apply when using GPU resources in container groups. 

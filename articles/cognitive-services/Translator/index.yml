@@ -73,8 +73,8 @@ landingContent:
             url: request-limits.md
       - linkListType: how-to-guide
         links:
-          - text: Create a Translator Service resource
-            url: how-to-create-translator-resource.md
+          - text: Use the Text Translator APIs
+            url: translator-text-apis.md
           - text: Migrate from Translator v2.0 to v3.0
             url: migrate-to-v3.md
           - text: Translate behind firewalls

@@ -55,6 +55,10 @@
       href: tutorial-alias-pip.md
     - name: Create alias records for Traffic Manager
       href: tutorial-alias-tm.md
+  - name: Private Resolver
+    items:
+    - name: Set up DNS failover using private resolvers
+      href: tutorial-dns-private-resolver-failover.md
 - name: Samples
   items:
   - name: Azure PowerShell
@@ -66,7 +70,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/dns-security-baseline?toc=/azure/dns/TOC.json
+      href: /security/benchmark/azure/baselines/azure-dns-security-baseline?toc=/azure/dns/TOC.json
   - name: Public DNS
     items:
     - name: Zones and records
@@ -97,6 +101,12 @@
       href: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md?toc=%2fazure%2fdns%2ftoc.json
     - name: FAQ
       href: dns-faq-private.yml
+  - name: Private Resolver
+    items:
+    - name: Endpoints and rulesets
+      href: private-resolver-endpoints-rulesets.md
+    - name: Resiliency in Azure DNS Private Resolver
+      href: private-resolver-reliability.md
 - name: How-to guides
   items:
   - name: Public DNS
@@ -147,6 +157,10 @@
       href: dns-protect-private-zones-recordsets.md
     - name: Import and export a DNS zone file
       href: private-dns-import-export.md
+  - name: Private Resolver
+    items:
+    - name: Resolve Azure and on-premises domains
+      href: private-resolver-hybrid-dns.md
   - name: Troubleshoot
     items:
     - name: Troubleshooting guide
@@ -203,6 +217,8 @@
       href: https://www.npmjs.com/package/@azure/arm-dnsresolver
     - name: Go
       href: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/dnsresolver/armdnsresolver
+    - name: Resource Manager template
+      href: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/azure-dns-private-resolver   
 - name: Resources
   items:
   - name: Azure Roadmap

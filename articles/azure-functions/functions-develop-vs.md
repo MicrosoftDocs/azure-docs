@@ -4,7 +4,7 @@ description: Learn how to develop and test Azure Functions by using Azure Functi
 ms.devlang: csharp
 ms.custom: devdivchpfy22
 ms.topic: conceptual
-ms.date: 05/19/2022
+ms.date: 09/08/2022
 ---
 
 # Develop Azure Functions using Visual Studio  
@@ -21,11 +21,11 @@ Visual Studio provides the following benefits when you develop your functions:
 
 This article provides details about how to use Visual Studio to develop C# class library functions and publish them to Azure. Before you read this article, consider completing the [Functions quickstart for Visual Studio](functions-create-your-first-function-visual-studio.md). 
 
-Unless otherwise noted, procedures and examples shown are for Visual Studio 2022. 
+Unless otherwise noted, procedures and examples shown are for Visual Studio 2022. For more information about Visual Studio 2022 releases, see [the release notes](/visualstudio/releases/2022/release-notes) or the [preview release notes](/visualstudio/releases/2022/release-notes-preview).
 
 ## Prerequisites
 
-- Azure Functions Tools. To add Azure Function Tools, include the **Azure development** workload in your Visual Studio installation. If you are using Visual Studio 2017, you may need to [follow some additional installation steps](#azure-functions-tools-with-visual-studio-2017).
+- Azure Functions Tools. To add Azure Function Tools, include the **Azure development** workload in your Visual Studio installation. If you're using Visual Studio 2017, you may need to [follow some extra installation steps](#azure-functions-tools-with-visual-studio-2017).
 
 - Other resources that you need, such as an Azure Storage account, are created in your subscription during the publishing process.
 
@@ -78,7 +78,7 @@ In C# class library functions, the bindings used by the function are defined by 
 
     ![Create a Queue storage trigger function](./media/functions-develop-vs/functions-vstools-create-queuetrigger.png)
 
-    You will then be prompted to choose between two Azure storage emulators or referencing a provisioned Azure storage account.
+    You'll then be prompted to choose between two Azure storage emulators or referencing a provisioned Azure storage account.
 
     This trigger example uses a connection string with a key named `QueueStorage`. This key, stored in the [local.settings.json file](functions-develop-local.md#local-settings-file), either references the Azure storage emulators or an Azure storage account.
 
@@ -134,7 +134,7 @@ As with triggers, input and output bindings are added to your function as bindin
     
     ---
 
-    In this example replace `<BINDING_TYPE>` with the name specific to the binding extension and `<TARGET_VERSION>` with a specific version of the package, such as `3.0.0-beta5`. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org). The major versions that correspond to Functions runtime 1.x or 2.x are specified in the reference article for the binding.
+    In this example, replace `<BINDING_TYPE>` with the name specific to the binding extension and `<TARGET_VERSION>` with a specific version of the package, such as `3.0.0-beta5`. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org). The major versions that correspond to Functions runtime 1.x or 2.x are specified in the reference article for the binding.
 
 3. If there are app settings that the binding needs, add them to the `Values` collection in the [local setting file](functions-develop-local.md#local-settings-file). 
 
@@ -163,7 +163,7 @@ For a full list of the bindings supported by Functions, see [Supported bindings]
 
 ## Run functions locally
 
-Azure Functions Core Tools lets you run Azure Functions project on your local development computer. When you press F5 to debug a Functions project, the local Functions host (func.exe) starts to listen on a local port (usually 7071). Any callable function endpoints are written to the output, and you can use these for testing your functions. For more information, see [Work with Azure Functions Core Tools](functions-run-local.md). You're prompted to install these tools the first time you start a function from Visual Studio.
+Azure Functions Core Tools lets you run Azure Functions project on your local development computer. When you press F5 to debug a Functions project, the local Functions host (func.exe) starts to listen on a local port (usually 7071). Any callable function endpoints are written to the output, and you can use these endpoints for testing your functions. For more information, see [Work with Azure Functions Core Tools](functions-run-local.md). You're prompted to install these tools the first time you start a function from Visual Studio.
 
 To start your function in Visual Studio in debug mode:
 
@@ -208,6 +208,82 @@ You can also manage application settings in one of these other ways:
 * [Use the Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Use the `--publish-local-settings` publish option in the Azure Functions Core Tools](functions-run-local.md#publish).
 * [Use the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
+
+## Remote Debugging 
+
+To debug your function app remotely, you must publish a debug configuration of your project. You also need to enable remote debugging in your function app in Azure. 
+
+This section assumes you've already published to your function app using a release configuration.
+
+### Remote debugging considerations
+
+* Remote debugging isn't recommended on a production service.
+* If you have [Just My Code debugging](/visualstudio/debugger/just-my-code#BKMK_Enable_or_disable_Just_My_Code) enabled, disable it. 
+* Avoid long stops at breakpoints when remote debugging. Azure treats a process that is stopped for longer than a few minutes as an unresponsive process, and shuts it down.
+* While you're debugging, the server is sending data to Visual Studio, which could affect bandwidth charges. For information about bandwidth rates, see [Azure Pricing](https://azure.microsoft.com/pricing/calculator/).
+* Remote debugging is automatically disabled in your function app after 48 hours. After 48 hours, you'll need to reenable remote debugging.
+
+### Attach the debugger
+
+The way you attach the debugger depends on your execution mode. When debugging an isolated process app, you currently need to attach the remote debugger to a separate .NET process, and several other configuration steps are required.
+
+When you're done, you should [disable remote debugging](#disable-remote-debugging).
+
+# [In-process](#tab/in-process)
+
+To attach a remote debugger to a function app running in-process with the Functions host:
+
++ From the **Publish** tab, select the ellipses (**...**) in the **Hosting** section, and then choose **Attach debugger**.  
+
+    :::image type="content" source="media/functions-develop-vs/attach-to-process-in-process.png" alt-text="Screenshot of attaching the debugger from Visual Studio.":::
+
+Visual Studio connects to your function app and enables remote debugging, if it's not already enabled. It also locates and attaches the debugger to the host process for the app. At this point, you can debug your function app as normal. 
+
+# [Isolated process](#tab/isolated-process) 
+
+To attach a remote debugger to a function app running in a process separate from the Functions host:
+
+1. From the **Publish** tab, select the ellipses (**...**) in the **Hosting** section, and then choose **Download publish profile**. This action downloads a copy of the publish profile and opens the download location. You need this file, which contains the credentials used to attach to your isolated process running in Azure.
+
+    > [!CAUTION]
+    > The .publishsettings file contains your credentials (unencoded) that are used to administer your function app. The security best practice for this file is to store it temporarily outside your source directories (for example in the Libraries\Documents folder), and then delete it after it's no longer needed. A malicious user who gains access to the .publishsettings file can edit, create, and delete your function app.
+
+1. Again from the **Publish** tab, select the ellipses (**...**) in the **Hosting** section, and then choose **Attach debugger**.  
+
+    :::image type="content" source="media/functions-develop-vs/attach-to-process-in-process.png" alt-text="Screenshot of attaching the debugger from Visual Studio.":::
+
+    Visual Studio connects to your function app and enables remote debugging, if it's not already enabled. 
+    
+    > [!NOTE]
+    > Because the remote debugger isn't able to connect to the host process, you could see an error. In any case, the default debugging won't break into your code. 
+
+1. Back in Visual Studio, copy the URL for the **Site** under **Hosting** in the **Publish** page.
+
+1.  From the **Debug** menu, select **Attach to Process**, and in the **Attach to process** window, paste the URL in the **Connection Target**, remove `https://` and append the port `:4024`. 
+
+    Verify that your target looks like `<FUNCTION_APP>.azurewebsites.net:4024` and press **Enter**.
+
+    ![Visual Studio attach to process dialog](./media/functions-develop-vs/attach-to-process-dialog.png)
+
+1. If prompted, allow Visual Studio access through your local firewall.
+
+1. When prompted for credentials, instead of local user credentials choose a different account (**More choices** on Windows). Provide the values of **userName** and **userPWD** from the published profile for **Email address** and **Password** in the authentication dialog on Windows. After a secure connection is established with the deployment server, the available processes are shown.
+
+    ![Visual Studio enter credential](./media/functions-develop-vs/creds-dialog.png)
+
+1. Check **Show process from all users** and then choose **dotnet.exe** and select **Attach**. When the operation completes, you're attached to your C# class library code running in an isolated process. At this point, you can debug your function app as normal.
+
+---
+
+### Disable remote debugging
+
+After you're done remote debugging your code, you should disable remote debugging in the [Azure portal](https://portal.azure.com). Remote debugging is automatically disabled after 48 hours, in case you forget. 
+
+1. In the **Publish** tab in your project, select the ellipses (**...**) in the **Hosting** section, and choose **Open in Azure portal**. This action opens the function app in the Azure portal to which your project is deployed. 
+
+1. In the functions app, select **Configuration** under **settings**, choose **General Settings**, set **Remote Debugging** to **Off**, and select **Save** then **Continue**.
+
+After the function app restarts, you can no longer remotely connect to your remote processes. You can use this same tab in the Azure portal to enable remote debugging outside of Visual Studio.
 
 ## Monitoring functions
 
@@ -468,7 +544,7 @@ When you update your Visual Studio 2017 installation, make sure that you're usin
 
 1. If your version is older, update your tools in Visual Studio as shown in the following section.
 
-### Update your tools in Visual Studio 2017
+### Update your tools in Visual Studio
 
 1. In the **Extensions and Updates** dialog, expand **Updates** > **Visual Studio Marketplace**, choose **Azure Functions and Web Jobs Tools** and select **Update**.
 

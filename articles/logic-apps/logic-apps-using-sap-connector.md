@@ -1,17 +1,19 @@
 ---
-title: Connect to SAP systems
-description: Access and manage SAP resources by automating workflows with Azure Logic Apps.
+title: Connect to SAP
+description: Connect to SAP resources from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, azla
 ms.topic: how-to
-ms.date: 03/18/2022
+ms.date: 08/22/2022
 tags: connectors
 ---
 
-# Connect to SAP systems from Azure Logic Apps
+# Connect to SAP from workflows in Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
 
 This article explains how you can access your SAP resources from Azure Logic Apps using the [SAP connector](/connectors/sap/).
 
@@ -234,13 +236,15 @@ An ISE provides access to resources that are protected by an Azure virtual netwo
 
 The following list describes the prerequisites for the SAP client library that you're using with the connector:
 
-* Make sure that you install the latest version, [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.24.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://support.sap.com/en/product/connectors/msnet.html). Earlier versions of SAP NCo might experience the following issues:
+* Make sure that you install the latest version, [SAP Connector (NCo 3.0) for Microsoft .NET 3.0.25.0 compiled with .NET Framework 4.0  - Windows 64-bit (x64)](https://support.sap.com/en/product/connectors/msnet.html). Earlier versions of SAP NCo might experience the following issues:
 
   * When more than one IDoc message is sent at the same time, this condition blocks all later messages that are sent to the SAP destination, causing messages to time out.
 
   * Session activation might fail due to a leaked session. This condition might block calls sent by SAP to the logic app workflow trigger.
 
   * The on-premises data gateway (June 2021 release) depends on the `SAP.Middleware.Connector.RfcConfigParameters.Dispose()` method in SAP NCo to free up resources.
+
+  * After you upgrade the SAP server environment, you get the following exception message: 'The only destination &lt;some-GUID&gt; available failed when retrieving metadata from &lt;SAP-system-ID&gt; -- see log for details'.
 
 * You must have the 64-bit version of the SAP client library installed, because the data gateway only runs on 64-bit systems. Installing the unsupported 32-bit version results in a "bad image" error.
 
@@ -896,7 +900,39 @@ If you're receiving this error message and experience intermittent failures call
 
 1. Check SAP settings in your on-premises data gateway service configuration file, `Microsoft.PowerBI.EnterpriseGateway.exe.config`.
 
-   The retry count setting looks like `WebhookRetryMaximumCount="2"`. The retry interval setting looks like `WebhookRetryDefaultDelay="00:00:00.10"` and the timespan format is `HH:mm:ss.ff`.
+   1. Under the `configuration` root node, add a `configSections` element, if none exists.
+   1. Under the `configSections` node, add a `section` element with the following attributes, if none exist: `name="SapAdapterSection" type="Microsoft.Adapters.SAP.Common.SapAdapterSection, Microsoft.Adapters.SAP.Common"`
+
+      > [!IMPORTANT]
+      > Don't change the attributes in existing `section` elements, if such elements already exist.
+
+      Your `configSections` element looks like the following version, if no other section or section group is declared in the gateway service configuration:
+
+      ```xml
+      <configSections>
+        <section name="SapAdapterSection" type="Microsoft.Adapters.SAP.Common.SapAdapterSection, Microsoft.Adapters.SAP.Common"/>
+      </configSections>
+      ```
+
+   1. Under the `configuration` root node, add an `SapAdapterSection` element, if none exists.
+   1. Under the `SapAdapterSection` node, add a `Broker` element with the following attributes, if none exist: `WebhookRetryDefaultDelay="00:00:00.10" WebhookRetryMaximumCount="2"`
+
+      > [!IMPORTANT]
+      > Change the attributes for the `Broker` element, even if the element already exists.
+
+      The `SapAdapterSection` element looks like the following version, if no other element or attribute is declared in the SAP adapter configuration:
+
+      ```xml
+      <SapAdapterSection>
+        <Broker WebhookRetryDefaultDelay="00:00:00.10" WebhookRetryMaximumCount="2" />
+      </SapAdapterSection>
+      ```
+
+      The retry count setting looks like `WebhookRetryMaximumCount="2"`. The retry interval setting looks like `WebhookRetryDefaultDelay="00:00:00.10"` where the timespan format is `HH:mm:ss.ff`.
+
+   > [!NOTE]
+   > For more information about the configuration file,
+   > review [Configuration file schema for .NET Framework](/dotnet/framework/configure-apps/file-schema/).
 
 1. Save your changes. Restart your on-premises data gateway.
 
@@ -1256,11 +1292,13 @@ The following example is an RFC call with a table parameter. This example call a
 <STFC_WRITE_TO_TCPIC xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
    <RESTART_QNAME>exampleQName</RESTART_QNAME>
    <TCPICDAT>
-      <ABAPTEXT xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+      <ABAPTEXT xmlns="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/">
          <LINE>exampleFieldInput1</LINE>
-      <ABAPTEXT xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+      </ABAPTEXT>
+      <ABAPTEXT xmlns="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/">
          <LINE>exampleFieldInput2</LINE>
-      <ABAPTEXT xmlns="http://Microsoft.LobServices.Sap/2007/03/Rfc/">
+      </ABAPTEXT>
+      <ABAPTEXT xmlns="http://Microsoft.LobServices.Sap/2007/03/Types/Rfc/">
          <LINE>exampleFieldInput3</LINE>
       </ABAPTEXT>
    </TCPICDAT>
@@ -1543,6 +1581,19 @@ By default, strong typing is used to check for invalid values by performing XML 
 
 Optionally, you can download or store the generated schemas in repositories, such as a blob, storage, or integration account. Integration accounts provide a first-class experience with other XML actions, so this example shows how to upload schemas to an integration account for the same logic app workflow by using the Azure Resource Manager connector.
 
+> [!NOTE]
+>
+> Schemas use base64-encoded format. To upload schemas to an integration account, you must decode them first 
+> by using the `base64ToString()` function. The following example shows the code for the `properties` element:
+>
+> ```json
+> "properties": {
+>    "Content": "@base64ToString(items('For_each')?['Content'])",
+>    "ContentType": "application/xml",
+>    "SchemaType": "Xml"
+> }
+> ```
+
 1. In the workflow designer, under the trigger, select **New step**.
 
 1. In the search box, enter `resource manager` as your filter. Select **Create or update a resource**.
@@ -1560,18 +1611,6 @@ Optionally, you can download or store the generated schemas in repositories, suc
    The SAP **Generate schemas** action generates schemas as a collection, so the designer automatically adds a **For each** loop to the action. Here's an example that shows how this action appears:
 
    ![Screenshot that shows the Azure Resource Manager action with a "for each" loop.](./media/logic-apps-using-sap-connector/azure-resource-manager-action-foreach.png)
-
-   > [!NOTE]
-   > The schemas use base64-encoded format. To upload the schemas to an integration account, they must be decoded 
-   > by using the `base64ToString()` function. Here's an example that shows the code for the `"properties"` element:
-   >
-   > ```json
-   > "properties": {
-   >    "Content": "@base64ToString(items('For_each')?['Content'])",
-   >    "ContentType": "application/xml",
-   >    "SchemaType": "Xml"
-   > }
-   > ```
 
 1. Save your logic app workflow. On the designer toolbar, select **Save**.
 
@@ -1704,7 +1743,7 @@ To enable sending SAP telemetry to Application insights, follow these steps:
 
 1. In your on-premises data gateway installation directory, check that the **Microsoft.ApplicationInsights.dll** file has the same version number as the **Microsoft.ApplicationInsights.EventSourceListener.dll** file that you added. The gateway currently uses version 2.14.0.
 
-1. In the **ApplicationInsights.config** file, add your [Application Insights instrumentation key](../azure-monitor/app/app-insights-overview.md#how-does-application-insights-work) by uncommenting the line with the `<InstrumentationKey></Instrumentation>` element. Replace the placeholder, *your-Application-Insights-instrumentation-key*, with your key, for example:
+1. In the **ApplicationInsights.config** file, add your [Application Insights instrumentation key](../azure-monitor/app/sdk-connection-string.md) by uncommenting the line with the `<InstrumentationKey></Instrumentation>` element. Replace the placeholder, *your-Application-Insights-instrumentation-key*, with your key, for example:
 
       ```xml
       <?xml version="1.0" encoding="utf-8"?>

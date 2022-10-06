@@ -1,8 +1,8 @@
 ---
 title: Understand Device Update for Azure IoT Hub Agent| Microsoft Docs
 description: Understand Device Update for Azure IoT Hub Agent.
-author: ValOlson
-ms.author: valls
+author: eross-msft
+ms.author: lizross
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
@@ -38,7 +38,9 @@ The Linux *platform layer* integrates with [Delivery Optimization](https://githu
 The Linux platform layer implementation can be found in the `src/platform_layers/linux_platform_layer` and it integrates with the [Delivery Optimization client](https://github.com/microsoft/do-client/releases) for downloads.
 
 This layer can integrate with different update handlers to implement the
-installers. For instance, the `SWUpdate` update handler, `Apt` update handler, and `Script` update handler.
+installers. For instance, the `SWUpdate` update handler, `Apt` update handler, and `Script` update handler.  
+
+If you choose to implement with your own downloader in place of Delivery Optimization, be sure to review the [requirements for large file downloads](device-update-limits.md).
 
 ## Update handlers
 

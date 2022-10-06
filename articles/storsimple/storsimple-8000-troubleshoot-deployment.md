@@ -12,11 +12,14 @@ ms.service: storsimple
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/25/2021
+ms.date: 08/18/2022
 ms.author: alkohli
 
 ---
 # Troubleshoot StorSimple device deployment issues
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner-2.md)]
+
 ## Overview
 This article provides helpful troubleshooting guidance for your Microsoft Azure StorSimple deployment. It describes common issues, possible causes, and recommended steps to help you resolve problems that you might experience when you configure StorSimple. 
 

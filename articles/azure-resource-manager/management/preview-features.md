@@ -2,7 +2,7 @@
 title: Set up preview features in Azure subscription
 description: Describes how to list, register, or unregister preview features in your Azure subscription for a resource provider.
 ms.topic: how-to
-ms.date: 08/18/2021
+ms.date: 08/10/2022
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 # Customer intent: As an Azure user, I want to use preview features in my subscription so that I can expose a resource provider's preview functionality.
 ---
@@ -14,6 +14,10 @@ This article shows you how to manage preview features in your Azure subscription
 Azure Feature Exposure Control (AFEC) is available through the [Microsoft.Features](/rest/api/resources/features) namespace. Preview features have the following format for the resource ID:
 
 `Microsoft.Features/providers/{resourceProviderNamespace}/features/{featureName}`
+
+## Required access
+
+To list, register, or unregister preview features in your Azure subscription, you need access to the `Microsoft.Features/*` actions. This permission is granted through the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) and [Owner](../../role-based-access-control/built-in-roles.md#owner) built-in roles. You can also specify the required access through a [custom role](../../role-based-access-control/custom-roles.md).
 
 ## List preview features
 
@@ -150,9 +154,11 @@ Register a preview feature in your Azure subscription to expose more functionali
 After a preview feature is registered in your subscription, you'll see one of two states: **Registered** or **Pending**.
 
 - For a preview feature that doesn't require approval, the state is **Registered**.
-- If a preview feature requires approval, the registration state is **Pending**.
+- If a preview feature requires approval, the registration state is **Pending**. You must request approval from the Azure service offering the preview feature. Usually, you request access through a support ticket.
   - To request approval, submit an [Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
   - After the registration is approved, the preview feature's state changes to **Registered**.
+
+Some services require other methods, such as email, to get approval for pending request. Check announcements about the preview feature for information about how to get access.
 
 # [Portal](#tab/azure-portal)
 

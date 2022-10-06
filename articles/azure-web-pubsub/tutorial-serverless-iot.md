@@ -5,12 +5,12 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: tutorial 
-ms.date: 06/01/2022
+ms.date: 06/30/2022
 ---
 
 # Tutorial: Visualize IoT device data from IoT Hub using Azure Web PubSub service and Azure Functions
 
-In this tutorial, you learn how to use Azure Web PubSub service and Azure Functions to build a serverless application with real-time data visualization from IoT Hub. 
+In this tutorial, you'll learn how to use Azure Web PubSub service and Azure Functions to build a serverless application with real-time data visualization from IoT Hub.
 
 In this tutorial, you learn how to:
 
@@ -40,14 +40,14 @@ In this tutorial, you learn how to:
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub-quickstart.md)]
 
 ## Create a Web PubSub instance
+
 If you already have a Web PubSub instance in your Azure subscription, you can skip this section.
 
 [!INCLUDE [create-instance-cli](includes/cli-awps-creation.md)]
 
-
 ## Create and run the functions locally
 
-1. Make sure you have [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) installed. And then create an empty directory for the project. Run command under this working directory.
+1. Create an empty folder for the project, and then run the following command in the new folder.
 
     # [JavaScript](#tab/javascript)
     ```bash
@@ -55,7 +55,7 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
     ```
     ---
 
-2. Update `host.json`'s `extensionBundle` to version larger than _3.3.0_ which contains Web PubSub support.
+2. Update `host.json`'s `extensionBundle` to version _3.3.0_ or later to get Web PubSub support.
 
 ```json
 {
@@ -72,7 +72,7 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
     func new -n index -t HttpTrigger
     ```
    # [JavaScript](#tab/javascript)
-   - Update `index/index.js` with following code that serve the html content as a static site.
+   - Update `index/index.js` with following code, which serves the HTML content as a static site.
         ```js
         var fs = require("fs");
         var path = require("path");
@@ -101,7 +101,7 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
 
         ```
 
-4. Create this _index.html_ file under the same folder as file _index.js_:
+4. Create an `index.html` file under the same folder as file `index.js`.
 
     ```html
     <!doctype html>
@@ -298,12 +298,12 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
     </html>
     ```
 
-5. Create a `negotiate` function to help clients get service connection url with access token.
+5. Create a `negotiate` function that clients use to get a service connection URL and access token.
     ```bash
     func new -n negotiate -t HttpTrigger
     ```
     # [JavaScript](#tab/javascript)
-   - Update `negotiate/function.json` to include input binding [`WebPubSubConnection`](reference-functions-bindings.md#input-binding), with the following json codes.
+   - Update `negotiate/function.json` to include an input binding [`WebPubSubConnection`](reference-functions-bindings.md#input-binding), with the following json code.
         ```json
         {
             "bindings": [
@@ -327,7 +327,7 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
             ]
         }
         ```
-   - Update `negotiate/index.js` and to return the `connection` binding which contains the generated token.
+   - Update `negotiate/index.js` to return the `connection` binding that contains the generated token.
         ```js
         module.exports = function (context, req, connection) {
             // Add your own auth logic here
@@ -336,12 +336,12 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
         };
         ```
 
-6. Create a `messagehandler` function to generate notifications with template `"IoT Hub (Event Hub)"`.
+6. Create a `messagehandler` function to generate notifications by using the `"IoT Hub (Event Hub)"` template.
    ```bash
     func new --template "IoT Hub (Event Hub)" --name messagehandler
     ```
     # [JavaScript](#tab/javascript)
-   - Update _messagehandler/function.json_ to add [Web PubSub output binding](reference-functions-bindings.md#output-binding) with the following json code. Please note that we use variable `%hubName%` as the hub name for both IoT eventHubName and Web PubSub hub.
+   - Update _messagehandler/function.json_ to add [Web PubSub output binding](reference-functions-bindings.md#output-binding) with the following json code. We use variable `%hubName%` as the hub name for both IoT eventHubName and Web PubSub hub.
         ```json
         {
             "bindings": [
@@ -364,7 +364,7 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
             ]
         }
         ```
-   - Update `messagehandler/index.js` with the following code. It sends every message from IoT hub to every client connected to Web PubSub service using Web PubSub output bindings.
+   - Update `messagehandler/index.js` with the following code. It sends every message from IoT hub to every client connected to Web PubSub service using the Web PubSub output bindings.
         ```js
         module.exports = function (context, IoTHubMessages) {
         IoTHubMessages.forEach((message) => {
@@ -384,42 +384,42 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
         };
         ```
 
-7. Update the Function settings
+7. Update the Function settings.
     
-    1. Add `hubName` setting and replace `{YourIoTHubName}` with the hub name you used when creating your IoT Hub：
+    1. Add `hubName` setting and replace `{YourIoTHubName}` with the hub name you used when creating your IoT Hub.
 
         ```bash
         func settings add hubName "{YourIoTHubName}"
         ```
 
-    2. Get the **Service Connection String** for IoT Hub using below CLI command:
+    2. Get the **Service Connection String** for IoT Hub.
 
     ```azcli
     az iot hub connection-string show --policy-name service --hub-name {YourIoTHubName} --output table --default-eventhub
     ```
 
-    And set `IOTHubConnectionString` using below command, replacing `<iot-connection-string>` with the value:
+    Set `IOTHubConnectionString`, replacing `<iot-connection-string>` with the value.
 
     ```bash
     func settings add IOTHubConnectionString "<iot-connection-string>"
     ```
 
-    3. Get the **Connection String** for Web PubSub using below CLI command:
+    3. Get the **Connection String** for Web PubSub.
 
     ```azcli
     az webpubsub key show --name "<your-unique-resource-name>" --resource-group "<your-resource-group>" --query primaryConnectionString
     ```
 
-    And set `WebPubSubConnectionString` using below command, replacing `<webpubsub-connection-string>` with the value:
+    Set `WebPubSubConnectionString`, replacing `<webpubsub-connection-string>` with the value.
 
     ```bash
     func settings add WebPubSubConnectionString "<webpubsub-connection-string>"
     ```
 
     > [!NOTE]
-    > `IoT Hub (Event Hub)` Function trigger used in the sample has dependency on Azure Storage, but you can use local storage emulator when the Function is running locally. If you got some error like `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.`, you'll need to download and enable [Storage Emulator](../storage/common/storage-use-emulator.md).
+    > The `IoT Hub (Event Hub)` function trigger used in the sample has dependency on Azure Storage, but you can use a local storage emulator when the function is running locally. If you get an error such as `There was an error performing a read operation on the Blob Storage Secret Repository. Please ensure the 'AzureWebJobsStorage' connection string is valid.`, you'll need to download and enable [Storage Emulator](../storage/common/storage-use-emulator.md).
 
-8. Run the function locally
+8. Run the function locally.
 
     Now you're able to run your local function by command below.
 
@@ -427,25 +427,23 @@ If you already have a Web PubSub instance in your Azure subscription, you can sk
     func start
     ```
 
-    And checking the running logs, you can visit your local host static page by visiting: `https://localhost:7071/api/index`.
+    You can visit your local host static page by visiting: `https://localhost:7071/api/index`.
 
 ## Run the device to send data
 
 ### Register a device
 
-A device must be registered with your IoT hub before it can connect.
-
-If you already have a device registered in your IoT hub, you can skip this section.
+A device must be registered with your IoT hub before it can connect. If you already have a device registered in your IoT hub, you can skip this section.
 
 1. Run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az-iot-hub-device-identity-create) command in Azure Cloud Shell to create the device identity.
 
-   **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
+   **YourIoTHubName**: Replace this placeholder with the name you chose for your IoT hub.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id simDevice
     ```
 
-2. Run the [az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az-iot-hub-device-identity-connection-string-show) command in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
+2. Run the [Az PowerShell module iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az-iot-hub-device-identity-connection-string-show) command in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
 
     **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
@@ -453,16 +451,16 @@ If you already have a device registered in your IoT hub, you can skip this secti
     az iot hub device-identity connection-string show --hub-name {YourIoTHubName} --device-id simDevice --output table
     ```
 
-    Make a note of the device connection string, which looks like:
+    Make a note of the device connection string, which looks like this:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=simDevice;SharedAccessKey={YourSharedAccessKey}`
 
 - For quickest results, simulate temperature data using the [Raspberry Pi Azure IoT Online Simulator](https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted). Paste in the **device connection string**, and select the **Run** button.
 
-- If you have a physical Raspberry Pi and BME280 sensor, you may measure and report real temperature and humidity values by following the [Connect Raspberry Pi to Azure IoT Hub (Node.js)](../iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md) tutorial.
+- If you have a physical Raspberry Pi and BME280 sensor, you can measure and report real temperature and humidity values by following the [Connect Raspberry Pi to Azure IoT Hub (Node.js)](../iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md) tutorial.
 
 ## Run the visualization website
-Open function host index page: `http://localhost:7071/api/index` to view the real-time dashboard. Register multiple devices and you can see the dashboard updates multiple devices in real-time. Open multiple browsers and you can see every page are updated in real-time.
+Open function host index page: `http://localhost:7071/api/index` to view the real-time dashboard. Register multiple devices and you'll see the dashboard updates multiple devices in real-time. Open multiple browsers and you'll see every page is updated in real-time.
 
 :::image type="content" source="media/tutorial-serverless-iot/iot-devices-sample.png" alt-text="Screenshot of multiple devices data visualization using Web PubSub service.":::
 
@@ -472,13 +470,11 @@ Open function host index page: `http://localhost:7071/api/index` to view the rea
 
 ## Next steps
 
-In this quickstart, you learned how to run a serverless chat application. Now, you could start to build your own application. 
+> [!div class="nextstepaction"]
+> [Tutorial: Create a simple chatroom with Azure Web PubSub](./tutorial-build-chat.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create a simple chatroom with Azure Web PubSub](/azure/azure-web-pubsub/tutorial-build-chat)
-
-> [!div class="nextstepaction"]
-> [Azure Web PubSub bindings for Azure Functions](/azure/azure-web-pubsub/reference-functions-bindings)
+> [Azure Web PubSub bindings for Azure Functions](./reference-functions-bindings.md)
 
 > [!div class="nextstepaction"]
 > [Explore more Azure Web PubSub samples](https://github.com/Azure/azure-webpubsub/tree/main/samples)
