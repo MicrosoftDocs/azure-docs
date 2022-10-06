@@ -270,7 +270,7 @@ The following steps show how to prepare the internal load balancer for the move 
         ```
       For more information on the differences between basic and standard sku load balancers, see [Azure Standard Load Balancer overview](./load-balancer-overview.md)
 
- * **Availability zone**. You can change the zone(s) of the load balancer's frontend by changing the **zone** property. If the zone property isn't specified, the frontend will be created as no-zone. You can specify a single zone to create a zonal frontend or all 3 zones for a zone-redundant frontend.
+ * **Availability zone** - You can change the zone(s) of the load balancer's frontend by changing the **zone** property. If the zone property isn't specified, the frontend will be created as no-zone. You can specify a single zone to create a zonal frontend or all 3 zones for a zone-redundant frontend.
 
         ```json
         "frontendIPConfigurations": [
