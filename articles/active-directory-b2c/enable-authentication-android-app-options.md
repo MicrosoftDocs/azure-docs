@@ -162,8 +162,14 @@ b2cApp.acquireToken(parameters);
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-val extraQueryParameters: MutableList<Pair<String, String>> = ArrayList()
-extraQueryParameters.add(Pair("ui_locales", "en-us"))
+val extraQueryParameters: MutableList<Map.Entry<String, String>> = ArrayList()
+
+val mapEntry   = object : Map.Entry<String, String> {
+      override val key: String = "ui_locales"
+      override val value: String = "en-us"
+    }   
+    
+extraQueryParameters.add(mapEntry )
 
 val parameters = AcquireTokenParameters.Builder()
     .startAuthorizationFromActivity(activity)
@@ -173,7 +179,6 @@ val parameters = AcquireTokenParameters.Builder()
 
 b2cApp!!.acquireToken(parameters)
 ```
-
 #### [Java](#tab/java)
 
 ```java
