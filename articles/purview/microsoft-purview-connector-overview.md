@@ -148,9 +148,6 @@ File sampling for resource sets by file types:
 - **SQL objects and CosmosDB entities** - Each file is L3 scanned.
 - **Document file types** - Each file is L3 scanned. Resource set patterns don't apply to these file types.
 
-## Classification
-
-All 208 system classification rules apply to structured file formats. Only the MCE classification rules apply to document file types (Not the data scan native regex patterns, bloom filter-based detection). For more information on supported classifications, see [Supported classifications in the Microsoft Purview Data Map](supported-classifications.md).
 
 ## Next steps
 
