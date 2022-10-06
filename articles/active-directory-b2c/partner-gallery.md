@@ -102,7 +102,7 @@ Microsoft partners with the following ISVs for Web Application Firewall (WAF).
 |  ![Screenshot of Azure WAF logo](./media/partner-gallery/azure-web-application-firewall-logo.png) | [Azure WAF](./partner-azure-web-application-firewall.md) provides centralized protection of your web applications from common exploits and vulnerabilities.  |
 ![Screenshot of Cloudflare logo](./media/partner-gallery/cloudflare-logo.png) | [Cloudflare](./partner-cloudflare.md) is a WAF provider that helps organizations protect against malicious attacks that aim to exploit vulnerabilities such as SQLi, and XSS. |
 
-## Identity verfication tools 
+## Identity verification tools 
 
 Microsoft partners with the following ISVs for tools that can help with implementation of your authentication solution.
 
