@@ -77,15 +77,15 @@ To run a search job, in the Azure portal:
 
 1. When the new table is ready, select **View tablename_SRCH** to view the table in Log Analytics.
 
-    ![Screenshot of search job run, search job results table ia available.](./media/search-job/SearchJobExecution_2.png)
+    ![Screenshot that shows an Azure Monitor Logs message that the search job results table is available to view.](./media/search-job/SearchJobExecution_2.png)
 
     You can see the search job results as they begin flowing in to the newly created search job results table.
 
-    ![Screenshot of search job run, search job results table with data.](./media/search-job/SearchJobExecution_3.png)
+    ![Screenshot that shows search job results table with data.](./media/search-job/SearchJobExecution_3.png)
 
     Azure Monitor Logs shows a **Search job is done** message at the end of the search job. The results table is now ready with all the records that match the search query. 
 
-    ![Screenshot of search job run done, search job results table is ready.](./media/search-job/SearchJobDone.png)
+    ![Screenshot that shows an Azure Monitor Logs message that the search job is done.](./media/search-job/SearchJobDone.png)
 
 ### [API](#tab/api-1)
 To run a search job, call the **Tables - Create or Update** API. The call includes the name of the results table to be created. The name of the results table must end with *_SRCH*.
@@ -152,9 +152,9 @@ az monitor log-analytics workspace table search-job create --subscription Contos
 1. From the **Log Analytics workspace** menu, select **Logs**. 
 1. From the Tables tab, select **Search results** to view all search job results tables. 
 
-    ![Screenshot of search results tables.](./media/search-job/SearchResultsTables.png)
-
-    Until the search job is completed, the icon on the results table has an update indication.  
+    The icon on the search job results table displays an update indication until the search job is completed.  
+    
+    ![Screenshot that shows the the Tables tab on Logs screen in the Azure portal with the search results tables listed under Search results.](./media/search-job/SearchResultsTables.png)
 
 ### [API](#tab/api-2)
 
@@ -237,11 +237,11 @@ We recommend deleting the search job table when you're done querying the table. 
 1. From the Log Analytics workspace menu, select **Tables.**
 1. Search for the tables you want to delete by name, or by selecting **Search results** in the **Type** field.
     
-    ![Screenshot of search results in Tables blase.](./media/search-job/SearchResultsInTablesBlade.png)
+    ![Screenshot that shows the Tables screen for a Log Analytics workspace with the Filter by name and Type fields highlighted.](./media/search-job/SearchResultsInTablesBlade.png)
 
 1. Select the tables you want to delete, select **Delete**, and confirm the deletion by typing **yes**.
     
-    ![Screenshot of delete of search results table.](./media/search-job/DeleteTable.png)
+    ![Screenshot that shows the Delete Table screen for a table in a Log Analytics workspace.](./media/search-job/DeleteTable.png)
 
 ### [API](#tab/api-3)
 
