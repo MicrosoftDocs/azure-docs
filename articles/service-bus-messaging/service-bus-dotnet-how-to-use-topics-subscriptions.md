@@ -31,10 +31,11 @@ In this quickstart, you'll do the following steps:
 > This quick start provides step-by-step instructions to implement a simple scenario of sending a batch of messages to a Service Bus topic and receiving those messages from a subscription of the topic.  For more samples on other and advanced scenarios, see [Service Bus .NET samples on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples). 
 
 ## Prerequisites
-If you're new to the service, see [Service Bus overview](service-bus-messaging-overview.md) before you do this quickstart. 
 
-- **Azure subscription**. To use Azure services, including Azure Service Bus, you need a subscription.  If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com).
-- **Microsoft Visual Studio 2019**. The Azure Service Bus client library makes use of new features that were introduced in C# 8.0.  You can still use the library with  previous C# language versions, but the new syntax won't be available. To make use of the full syntax, we recommend that you compile with the [.NET Core SDK](https://dotnet.microsoft.com/download) 3.0 or higher and [language version](/dotnet/csharp/language-reference/configure-language-version#override-a-default) set to `latest`. If you're using Visual Studio, versions before Visual Studio 2019 aren't compatible with the tools needed to build C# 8.0 projects. Visual Studio 2019, including the free Community edition, can be downloaded [here](https://visualstudio.microsoft.com/vs/).
+If you're new to the service, see [Service Bus overview](service-bus-messaging-overview.md) before you do this quickstart.
+
+- **Azure subscription**. To use Azure services, including Azure Service Bus, you need a subscription. If you don't have an existing Azure account, you can sign up for a [free trial](https://azure.microsoft.com/free/).
+- **Microsoft Visual Studio 2022**. The sample application makes use of new features that were introduced in C# 10.  You can still use the Service Bus client library with previous C# language versions, but the syntax may vary. To use the latest syntax, we recommend that you install .NET 6.0 or higher and set the language version to `latest`. If you're using Visual Studio, versions before Visual Studio 2022 aren't compatible with the tools needed to build C# 10 projects.
 
 [!INCLUDE [service-bus-create-namespace-portal-passwordless](../../includes/passwordless/service-bus/service-bus-create-namespace-portal-passwordless.md)]
 
@@ -51,22 +52,22 @@ This section shows you how to create a .NET Core console application to send mes
 
 ### Create a console application
 
-1. Start Visual Studio 2019. 
-1. Select **Create a new project**. 
-1. On the **Create a new project** dialog box, do the following steps: If you don't see this dialog box, select **File** on the menu, select **New**, and then select **Project**. 
+1. Start Visual Studio 2022.
+1. Select **Create a new project**.
+1. On the **Create a new project** dialog box, do the following steps: If you don't see this dialog box, select **File** on the menu, select **New**, and then select **Project**.
     1. Select **C#** for the programming language.
-    1. Select **Console** for the type of the application. 
-    1. Select **Console Application** from the results list. 
-    1. Then, select **Next**. 
+    1. Select **Console** for the type of the application.
+    1. Select **Console Application** from the results list.
+    1. Then, select **Next**.
 
         :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/new-send-project.png" alt-text="Image showing the Create a new project dialog box with C# and Console selected":::
 1. Enter **TopicSender** for the project name, **ServiceBusTopicQuickStart** for the solution name, and then select **Next**. 
 1. On the **Additional information** page, select **Create** to create the solution and the project.
 
-### Add the Service Bus NuGet package
+### Add the NuGet packages to the project
 
-1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu. 
-1. Run the following command to install the [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/) NuGet package:
+1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
+1. Run the following command to install the **Azure.Messaging.ServiceBus** NuGet package:
 
     ```cmd
     Install-Package Azure.Messaging.ServiceBus
@@ -141,7 +142,7 @@ This section shows you how to create a .NET Core console application to send mes
     Console.ReadKey();
     ```
 
-    ## [Connection String (Recommended)](#tab/connection-string)
+    ## [Connection String](#tab/connection-string)
 
     1. Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the connection string to the namespace. 
     1. Invokes the [CreateSender](/dotnet/api/azure.messaging.servicebus.servicebusclient.createsender) method on the `ServiceBusClient` object to create a [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender) object for the specific Service Bus topic.     
@@ -234,17 +235,32 @@ In this section, you'll create a .NET Core console application that receives mes
 1. On the **Additional information** page, select **Create**. 
 1. In the **Solution Explorer** window, right-click **SubscriptionReceiver**, and select **Set as a Startup Project**. 
 
-### Add the Service Bus NuGet package
+### Add the NuGet packages to the project
 
-1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu. 
-1. In the **Package Manager Console** window, confirm that **SubscriptionReceiver** is selected for the **Default project**. If not, use the drop-down list to select **SubscriptionReceiver**.
+### [Passwordless (Recommended)](#tab/passwordless)
 
-    :::image type="content" source="./media/service-bus-dotnet-how-to-use-topics-subscriptions/select-subscription-receiver-project.png" alt-text="Image showing the selection of SubscriptionReceiver project in the Package Manager Console window." lightbox="./media/service-bus-dotnet-how-to-use-topics-subscriptions/select-subscription-receiver-project.png":::    
+1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
+1. Run the following command to install the **Azure.Messaging.ServiceBus** and **Azure.Identity** NuGet packages:
+
+    ```powershell
+    Install-Package Azure.Messaging.ServiceBus
+    Install-Package Azure.Identity
+    ```
+
+:::image type="content" source="media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console":::
+
+### [Connection String](#tab/connection-string)
+
+1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** from the menu.
 1. Run the following command to install the **Azure.Messaging.ServiceBus** NuGet package:
 
     ```cmd
     Install-Package Azure.Messaging.ServiceBus
     ```
+
+    :::image type="content" source="media/service-bus-dotnet-get-started-with-queues/package-manager-console.png" alt-text="Screenshot showing QueueReceiver project selected in the Package Manager Console":::
+
+---
 
 ### Add code to receive messages from the subscription
 
@@ -284,7 +300,7 @@ In this section, you'll add code to retrieve messages from the queue.
     }
     ```
 
-     ## [Connection String (Recommended)](#tab/connection-string)
+     ## [Connection String](#tab/connection-string)
 
     ```csharp
     using System.Threading.Tasks;
@@ -369,7 +385,7 @@ In this section, you'll add code to retrieve messages from the queue.
     }
     ```
 
-    ## [Connection String (Recommended)](#tab/connection-string)
+    ## [Connection String](#tab/connection-string)
 
     * Creates a [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) object using the connection string to the namespace. 
     * Invokes the [CreateProcessor](/dotnet/api/azure.messaging.servicebus.servicebusclient.createprocessor) method on the `ServiceBusClient` object to create a [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) object for the specified Service Bus queue. 
@@ -424,11 +440,83 @@ In this section, you'll add code to retrieve messages from the queue.
 
 1. Here's what your `Program.cs` should look like:  
 
+    ## [Passwordless (Recommended)](#tab/passwordless)
+    
     ```csharp
     using System;
     using System.Threading.Tasks;
     using Azure.Messaging.ServiceBus;
     using Azure.Identity;
+    
+    // the client that owns the connection and can be used to create senders and receivers
+    ServiceBusClient client;
+
+    // the processor that reads and processes messages from the subscription
+    ServiceBusProcessor processor;
+
+    // handle received messages
+    async Task MessageHandler(ProcessMessageEventArgs args)
+    {
+        string body = args.Message.Body.ToString();
+        Console.WriteLine($"Received: {body} from subscription.");
+
+        // complete the message. messages is deleted from the subscription. 
+        await args.CompleteMessageAsync(args.Message);
+    }
+
+    // handle any errors when receiving messages
+    Task ErrorHandler(ProcessErrorEventArgs args)
+    {
+        Console.WriteLine(args.Exception.ToString());
+        return Task.CompletedTask;
+    }
+    
+    // The Service Bus client types are safe to cache and use as a singleton for the lifetime
+    // of the application, which is best practice when messages are being published or read
+    // regularly.
+    //
+    // Create the clients that we'll use for sending and processing messages.
+    // TODO: Replace the <CONNECTION STRING VALUE> placeholder
+    client = new ServiceBusClient(new DefaultAzureCredential()>);
+
+    // create a processor that we can use to process the messages
+    // TODO: Replace the <TOPIC NAME> and <SUBSCRIPTION NAME> placeholders
+    processor = client.CreateProcessor("<TOPIC NAME>", "<SUBSCRIPTION NAME>", new ServiceBusProcessorOptions());
+
+    try
+    {
+        // add handler to process messages
+        processor.ProcessMessageAsync += MessageHandler;
+
+        // add handler to process any errors
+        processor.ProcessErrorAsync += ErrorHandler;
+
+        // start processing 
+        await processor.StartProcessingAsync();
+
+        Console.WriteLine("Wait for a minute and then press any key to end the processing");
+        Console.ReadKey();
+
+        // stop processing 
+        Console.WriteLine("\nStopping the receiver...");
+        await processor.StopProcessingAsync();
+        Console.WriteLine("Stopped receiving messages");
+    }
+    finally
+    {
+        // Calling DisposeAsync on client types is required to ensure that network
+        // resources and other unmanaged objects are properly cleaned up.
+        await processor.DisposeAsync();
+        await client.DisposeAsync();
+    }
+    ```
+
+    ## [Connection String](#tab/connection-string)
+
+    ```csharp
+    using System;
+    using System.Threading.Tasks;
+    using Azure.Messaging.ServiceBus;
     
     // the client that owns the connection and can be used to create senders and receivers
     ServiceBusClient client;
@@ -492,6 +580,8 @@ In this section, you'll add code to retrieve messages from the queue.
         await client.DisposeAsync();
     }
     ```
+
+    ---
 
 1. Build the project, and ensure that there are no errors.
 1. Run the receiver application. You should see the received messages. Press any key to stop the receiver and the application. 
