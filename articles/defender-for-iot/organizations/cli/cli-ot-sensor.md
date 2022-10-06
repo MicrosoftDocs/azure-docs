@@ -36,7 +36,7 @@ Use the following commands to verify that all Defender for IoT application compo
 
 The following example shows the command syntax and response for the *support* user:
 
-```OT Sensor CLI 
+```BASH
 root@xsense: system sanity
 [+] C-Cabra Engine | Running for 17:26:30.191945
 [+] Cache Layer | Running for 17:26:32.352745
@@ -70,7 +70,7 @@ Use the following commands to reboot the OT sensor appliance.
 
 For example, for the *support* user:
 
-```OT Sensor CLI
+```CLI
 root@xsense: system reboot
 ```
 
@@ -87,7 +87,7 @@ Use the following commands to shut down the OT sensor appliance.
 
 For example, for the *support* user:
 
-```OT Sensor CLI
+```CLI
 root@xsense: system shutdown
 ```
 
@@ -103,7 +103,7 @@ Use the following commands to list the Defender for IoT software version install
 
 For example, for the *support* user:
 
-```OT Sensor CLI
+```CLI
 root@xsense: system version
 Version: 22.2.5.9-r-2121448
 ```
@@ -122,7 +122,7 @@ Use the following commands to show the current system date and time on your OT n
 
 For example, for the *support* user:
 
-```OT Sensor CLI
+```CLI
 root@xsense: date
 Thu Sep 29 18:38:23 UTC 2022
 root@xsense:
@@ -140,7 +140,7 @@ The ability to sync time to a specified NTP server can be enabled or disabled. E
 
 For example, for the *support* user:
 
-```OT Sensor CLI
+```CLI
 root@xsense: ntp enable 129.6.15.28
 root@xsense:
 ```
@@ -155,7 +155,7 @@ root@xsense:
 
 For example, for the *support* user:
 
-```OT Sensor CLI
+```CLI
 root@xsense: ntp disable 129.6.15.28
 root@xsense:
 ```
