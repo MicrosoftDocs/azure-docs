@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 This article covers how to use Red Hat Ansible Automation Platform to migrate servers that are currently using Azure Log Analytics agent to Azure Monitor Agent on Azure Arc using Ansible Automation Platform. Once you have completed the configuration steps in this article, you'll be able to run a workflow against an automation controller inventory that performs the following tasks:
 
-- Ensure that the Azure Arc agent is installed on each machine. In cases where the agent is not installed, then it will be installed.
+- Ensure that the Azure Connected Machine agent is installed on each machine. In cases where the agent is not installed, then it will be installed.
 - Enable the Azure Monitor Agent on Arc-enabled machines.
 - Disable the Log Analytics agent.
 - Uninstall the Log Analytics agent.
@@ -63,10 +63,15 @@ To use this collection in Automation Controller, follow the steps below to set u
 1. Log in to automation controller.
 1. In the left menu, select **Projects**.
 1. Select **Add**, and then complete the fields of the form as follows:
-    Name: Content Lab - Azure Infrastructure Configuration Collection
-    Automation Environment: (select with the Azure Collection and CLI instead)
-    Source Control Type: Git
-    Source Control URL: https://github.com/ansible-content-lab/azure.infrastructure_config_demos.git
+
+    **Name:** Content Lab - Azure Infrastructure Configuration Collection
+
+    **Automation Environment:** (select with the Azure Collection and CLI instead)
+
+    **Source Control Type:** Git
+
+    **Source Control URL:** https://github.com/ansible-content-lab/azure.infrastructure_config_demos.git
+
 1. Select **Save**.
     :::image type="content" source="media/migrate-ama/configure-content.png" alt-text="Screenshot of Projects window to edit details":::
 
@@ -76,9 +81,9 @@ Once saved, the project should be synchronized with the automation controller.
 
 The Ansible Content Lab for Cloud Content project contains example playbooks that implement the reusable content found in the example roles. Learn more about the individual roles in the Collection by viewing the [README.md](https://github.com/ansible-content-lab/azure.infrastructure_config_demos/blob/main/README.md) file included with the Collection.
 
-In this example, we will assume that our Linux servers are already running the Azure Log Analytics agent, but do not yet have the Azure Arc agent installed. If your organization relies on other Azure services that use the Log Analytics agent, you may need to plan for extra data collection rules prior to migrating to the Connected Machine agent.
+In this example, we will assume that our Linux servers are already running the Azure Log Analytics agent, but do not yet have the Azure Connected Machine agent installed. If your organization relies on other Azure services that use the Log Analytics agent, you may need to plan for extra data collection rules prior to migrating to the Connected Machine agent.
 
-We will create a workflow that leverages the following playbooks to install the Azure Arc agent, deploy the Azure Monitor Agent, disable the Log Analytics agent, and then uninstall the Log Analytics agent:
+We will create a workflow that leverages the following playbooks to install the Azure Connected Machine agent, deploy the Azure Monitor Agent, disable the Log Analytics agent, and then uninstall the Log Analytics agent:
 
 - install_arc_agent.yml
 - replace_log_analytics_with_arc_linux.yml
@@ -86,12 +91,12 @@ We will create a workflow that leverages the following playbooks to install the 
 
 This workflow performs the following tasks:
 
-1. Installs the Azure Arc agent on all of the VMs identified in inventory.
+1. Installs the Azure Connected Machine agent on all of the VMs identified in inventory.
 1. Enables the Azure Monitor agent extension via Azure Arc.
 1. Disables the Azure Log Analytics agent extension via Azure Arc.
 1. Uninstalls the Azure Log Analytics agent if flagged.
 
-### Create template to install Azure Arc agent
+### Create template to install Azure Connected Machine agent
 
 This template is responsible for installing the Azure Arc [Connected Machine agent](/azure/azure-arc/servers/agent-overview) on hosts within the provided inventory. A successful run will have installed the agent on all machines. 
 
@@ -100,61 +105,103 @@ Follow the steps below to create the template:
 1. On the right menu, select **Templates**.
 1. Select **Add**.
 1. Select **Add job template**, then complete the fields of the form as follows:
-    Name: Content Lab - Install Arc Agent
-    Job Type: Run
-    Inventory:your linux host inventory
-    Project: Content Lab - Azure Infrastructure Configuration Collection
-    Playbook: playbooks/replace_log_analytics_with_arc_linux.yml
-    Credentials:
+
+    **Name:** Content Lab - Install Arc Agent
+
+    **Job Type:** Run
+
+    **Inventory:** (Your linux host inventory)
+
+    **Project:** Content Lab - Azure Infrastructure Configuration Collection
+
+    **Playbook:** `playbooks/replace_log_analytics_with_arc_linux.yml`
+
+    **Credentials:**
     - Your Azure Resource Manager credential
     - Your Host Inventory Machine credential
-    Variables:
-        > [!NOTE]
-        > The operations in this playbook happen through the Azure CLI.   Most of these variables are set to pass along the proper variable from the Azure Resource Manager credential to the CL.
-    Options:
+    
+    **Variables:**
+
+   ```bash
+   ---
+   region: eastus
+   resource_group_name: sh-rg
+   subscription_id: "{{ lookup('env', 'AZURE_SUBSCRIPTION_ID') }}"
+   service_principal_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
+   service_principal_secret: "{{ lookup('env', 'AZURE_SECRET') }}"
+   tenant_id: "{{ lookup('env', 'AZURE_TENANT') }}"
+   ```
+    
+       > [!NOTE]
+       > The operations in this playbook happen through the Azure CLI.   Most of these variables are set to pass along the proper variable from the Azure Resource Manager credential to the CL.
+
+    **Options:**
         Privilege Escalation: true
 1. Select **Save**.
 
 ### Create template to replace log analytics
 
-This template is responsible for migrating from the Log Analytics agent to the Azure Monitor agent by enabling the Azure Monitor Agent extension and disabling the Azure Log Analytics extension (if used via the Arc agent).
+This template is responsible for migrating from the Log Analytics agent to the Azure Monitor agent by enabling the Azure Monitor Agent extension and disabling the Azure Log Analytics extension (if used via the Azure Connected Machine agent).
 
 Follow the steps below to create the template:
 
 1. On the right menu, select **Templates**.
 1. Select **Add**.
 1. Select **Add job template**, then complete the fields of the form as follows:
-    Name: Content Lab - Replace Log Analytics agent with Arc agent
-    Job Type: Run
-    Inventory:(Your linux host inventory)
-    Project: Content Lab - Azure Infrastructure Configuration Collection
-    Playbook: playbooks/replace_log_analytics_with_arc_linux.yml
-    Credentials:
+
+    **Name:** Content Lab - Replace Log Analytics agent with Arc agent
+
+    **Job Type:** Run
+
+    **Inventory:** (Your linux host inventory)
+
+    **Project:** Content Lab - Azure Infrastructure Configuration Collection
+
+    **Playbook:** `playbooks/replace_log_analytics_with_arc_linux.yml`
+
+    **Credentials:**
     - Your Azure Resource Manager credential
     - Your Host Inventory Machine credential
-    Variables:
+    
+    **Variables:**
+    
+    ```bash
+   —
+   Region: <Azure Region>
+   resource_group_name: <Resource Group Name>
+   linux_hosts: "{{ hostvars.values() | selectattr('group_names','contains', 'linux') | map(attribute='inventory_hostname') | list }}"
+   ```
+
         > [!NOTE]
         > The `linux_hosts` variable is used to create a list of hostnames to send to the Azure Collection and is not directly related to a host inventory. You may set this list in any way that Ansible supports. In this case, the variable attempts to pull host names from groups with “linux” in the group name.
 1. Select **Save**.
 
 ### Create template to uninstall Log Analytics
 
-This template will attempt to run the Log Analytics agent uninstall script if the Log Analytics agent was installed outside of the Azure Arc agent.
+This template will attempt to run the Log Analytics agent uninstall script if the Log Analytics agent was installed outside of the Azure Connected Machine agent.
 
 Follow the steps below to create the template:
 
 1. On the right menu, select **Templates**.
 1. Select **Add**.
 1. Select **Add job template**, then complete the fields of the form as follows:
-    Name: Content Lab - Uninstall Log Analytics agent
-    Job Type: Run
-    Inventory:(Your linux host inventory)
-    Project: Content Lab - Azure Infrastructure Configuration Collection
-    Playbook: playbooks/uninstall_log_analytics_with_arc_linux.yml
-    Credentials:
+
+    **Name:** Content Lab - Uninstall Log Analytics agent
+
+    **Job Type:** Run
+
+    **Inventory:** (Your linux host inventory)
+
+    **Project:** Content Lab - Azure Infrastructure Configuration Collection
+
+    **Playbook:** `playbooks/uninstall_log_analytics_with_arc_linux.yml`
+
+    **Credentials:**
     - Your Host Inventory Machine credential
-    Options:
-        Privilege Escalation: true
+    
+    **Options:**
+    
+    - Privilege Escalation: true
 1. Select **Save**.
 
 ### Create the workflow
@@ -164,10 +211,15 @@ An automation controller workflow allows you to construct complex automation by 
 1. On the right menu, select **Templates**.
 1. Select **Add**.
 1. Select **Add workflow template**, then complete the following fields as follows:
-    Name: Content Lab - Migrate Log Agent to Azure Monitor
-    Job Type: Run
-    Inventory: (Your linux host inventory)
-    Project: Content Lab - Azure Infrastructure Configuration Collection
+
+    **Name:** Content Lab - Migrate Log Agent to Azure Monitor
+
+    **Job Type:** Run
+
+    **Inventory:** (Your linux host inventory)
+
+    **Project:** Content Lab - Azure Infrastructure Configuration Collection
+
 1. Select **Save**.
 1. Select **Start** to begin the workflow designer.
 1. Set **Node Type** to "Job Template" and select **Content Lab - Replace Log Analytics with Arc Agent**.
@@ -190,22 +242,37 @@ We want to add survey questions to the workflow so that we can collect input whe
 1. Select **Survey** from the workflow details screen.
     :::image type="content" source="media/migrate-ama/survey.png" alt-text="Screenshot of template details window with survey tab highlighted on right side.":::
 1. Select **Add**, then complete the form using the following values:
-    Question: Which Azure region will your Arc servers reside?
-    Answer variable name: region
-    Required: true
-    Answer type: Text
+
+    **Question:** Which Azure region will your Arc servers reside?
+
+    **Answer variable name:** region
+
+    **Required:** true
+
+    **Answer type:** Text
+
 1. Select **Save**.
 1. Select **Add**, then complete the form using the following values:
-    Question: What is the name of the resource group?
-    Answer variable name: resource_group_name
-    Required: true
-    Answer type: Text
+
+    **Question:** What is the name of the resource group?
+
+    **Answer variable name:** resource_group_name
+
+    **Required:** true
+
+    **Answer type:** Text
+
 1. Select **Save**.
 1. Select **Add**, then complete the form using the following values:
-    Question: What is the name of your Log Analytics workspace?
-    Answer variable name: analytics_workspace_name
-    Required: true
-    Answer type: Text
+
+    **Question:** What is the name of your Log Analytics workspace?
+
+    **Answer variable name:** analytics_workspace_name
+
+    **Required:** true
+
+    **Answer type:** Text
+
 1. Select **Save**.
 1. From the Survey list screen, ensure that the survey is enabled.
     :::image type="content" source="media/migrate-ama/survey-enabled.png" alt-text="Screenshot of Survey window with Survey Enabled switched enabled.":::
