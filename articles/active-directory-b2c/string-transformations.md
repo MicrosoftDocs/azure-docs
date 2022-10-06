@@ -795,9 +795,9 @@ Use this claims transformation to parse the domain name after the @ symbol of th
 ```
 
 - Input claims:
-  - **emailAddress**: joe@outlook.com
+  - **email**: joe@outlook.com
 - Output claims:
-  - **domain**: outlook.com
+  - **domainName**: outlook.com
 
 ## SetClaimIfBooleansMatch
 
