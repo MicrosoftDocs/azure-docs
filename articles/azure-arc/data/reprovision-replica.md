@@ -15,15 +15,15 @@ ms.date: 10/05/2022
 
 This article describes how to provision a new replica to replace an existing replica in Azure Arc-enabled SQL Managed Instance.
 
-When you reprovision a replica, you rebuild a new managed instance replica for an Azure Arc-enabled SQL Managed Instance deployment. Use this task to replace a replica that is failing to synchronize, for example, due to corruption of the data on the persistent volumes (PV) for that instance, or due to some recurring SQL issue, for example.
+When you reprovision a replica, you rebuild a new managed instance replica for an Azure Arc-enabled SQL Managed Instance deployment. Use this task to replace a replica that is failing to synchronize, for example, due to corruption of the data on the persistent volumes (PV) for that instance, or due to some recurring SQL issue.
 
-Support for reprovisioning of a replica is provided only via `az` CLI and kube-native. You can't reprovision a replica from Azure portal.
+You can reprovision a replica with `az` CLI and Kubernetes tools. You can't reprovision a replica from the Azure portal.
 
 ## Prerequisites
 
 Reprovisioning can only be performed on a multi-replica instance.
 
-## Request a reprovision replica
+## Reprovision a replica
 
 Request provisioning [via `az` CLI](#via-az-cli) or [via `kubectl`](#via-kubectl).
 
@@ -41,7 +41,7 @@ For example, to reprovision replica 2 of instance `mySqlInstance` in namespace `
 az sql mi-arc reprovision-replica -n mySqlInstance-2 -k arc --use-k8s
 ```
 
-The command runs until completion, at which point the console returns the name of the kubernetes task:
+The command runs until completion, at which point the console returns the name of the Kubernetes task:
 
 ```output
 sql-reprov-replica-mySqlInstance-2-1664217002.376132 is Ready
@@ -83,7 +83,7 @@ to view all reprovision tasks.
 
 ## Via kubectl
 
-To reprovision with `kubectl`, create a custom resource definition (CRD). To create a CRD to reprovision, you can create a .yaml file with this structure:
+To reprovision with `kubectl`, create a custom resource. To create a custom resource to reprovision, you can create a .yaml file with this structure:
 
 ```yaml
 apiVersion: tasks.sql.arcdata.microsoft.com/v1beta1
@@ -123,9 +123,9 @@ kubectl delete -n arc SqlManagedInstanceReprovisionReplicaTask my-reprovision-ta
 
 ## Limitations
 
-- The task rejects attempts to reprovision the current primary replica. If the current primary replica is corrupted and in need of reprovisioning, fail over to a different primary, and then request the reprovisioning.
+- The task rejects attempts to reprovision the current primary replica. If the current primary replica is corrupted and in need of reprovisioning, fail over to a different replica, and then request the reprovisioning.
 
-- Reprovisioning of multiple replicas in the same instance runs serially. The tasks queue and be held in `Creating` state until the currently active task finishes **and is deleted**. There's no auto-cleanup of a completed task, so this serialization will affect you even if you run the `az sql mi-arc reprovision-replica` command synchronously and wait for it to complete before requesting another reprovision. In all cases, you have to remove the task via `kubectl` before another reprovision on the same instance can run. 
+- Reprovisioning of multiple replicas in the same instance runs serially. The tasks queue and are held in `Creating` state until the currently active task finishes **and is deleted**. There's no auto-cleanup of a completed task, so this serialization will affect you even if you run the `az sql mi-arc reprovision-replica` command synchronously and wait for it to complete before requesting another reprovision. In all cases, you have to remove the task via `kubectl` before another reprovision on the same instance can run. 
 
 More details about serialization of reprovision tasks: If you have multiple requests to reprovision a replica in one instance, you may see something like this in the output from a `kubectl get SqlManagedInstanceReprovisionReplicaTask`:
 
