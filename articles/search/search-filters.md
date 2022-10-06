@@ -1,22 +1,22 @@
 ---
 title: Filter on search results
 titleSuffix: Azure Cognitive Search
-description: Filter by user security identity, language, geo-location, or numeric values to reduce search results on queries in Azure Cognitive Search, a hosted cloud search service on Microsoft Azure.
+description: Apply filter criteria to include or exclude content before query execution in Azure Cognitive Search.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/13/2021
+ms.date: 10/06/2022
 ms.custom: devx-track-csharp
 ---
 
 # Filters in Azure Cognitive Search 
 
-A *filter* provides value-based criteria for selecting which documents to include in search results. A filter can be a single value or an OData [filter expression](search-query-odata-filter.md). In contrast with full text search, a filter succeeds only if an exact match is made.
+A *filter* provides value-based criteria for including or excluding content before query execution. For example, you could set filters to select documents based on dates, locations, or some other field. Filters are specified on individual fields. A field definition must be attributed as "filterable" if you want to use it in filter expressions.
 
-Filters are specified on individual fields. A field definition must be attributed as "filterable" if you want to use it in filter expressions.
+A filter can be a single value or an OData [filter expression](search-query-odata-filter.md). In contrast with full text search, a filter succeeds only if an exact match is made.
 
 ## When to use a filter
 
