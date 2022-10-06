@@ -36,7 +36,7 @@ Use the following commands to verify that all Defender for IoT application compo
 
 The following example shows the command syntax and response for the *support* user:
 
-```BASH
+```CLI
 root@xsense: system sanity
 [+] C-Cabra Engine | Running for 17:26:30.191945
 [+] Cache Layer | Running for 17:26:32.352745
@@ -175,7 +175,7 @@ This includes:
 
 The following example shows the *cyberx* user resetting the *support* user's password to `jI8iD9kE6hB8qN0h`:
 
-```OT Sensor CLI
+```CLI
 root@xsense:/# cyberx-users-password-reset -u support -p jI8iD9kE6hB8qN0h
 resetting the password of OS user "support"
 Sending USER_PASSWORD request to OS manager
@@ -203,13 +203,13 @@ The following table describes the commands available to validate your network se
 
 
 The following example shows the *support* user blinking eth0:
-```OT Sensor CLI
+```CLI
 root@xsense: network blink eth0
 Blinking interface for 20 seconds ...
 ```
 
 The following example shows the *support* user validating network configuration:
-```OT Sensor CLI
+```CLI
 root@xsense: network validate
 Success! (Appliance configuration matches the network settings)
 Current Network Settings:
@@ -223,7 +223,7 @@ root@xsense:
 ```
 
 The following example shows the *support* user reviewing network interface statistics:
-```OT Sensor CLI
+```CLI
 root@xsense: network list
 adiot0: flags=4419<UP,BROADCAST,RUNNING,PROMISC,MULTICAST>  mtu 4096
         ether be:b1:01:1f:91:88  txqueuelen 1000  (Ethernet)
@@ -259,7 +259,7 @@ Set outbound (upload) bandwidth limit for the management interface to the on-pre
 |**cyberx**     |   ` cyberx-xsense-limit-interface [-h] --interface INTERFACE [--limit LIMIT] [--clear]`      |   `-h, --help` - show this help message and exit<br>  `--interface INTERFACE` - interface (e.g. eth0) <br> `--limit LIMIT` - limit value (e.g. 30kbit). kbps - Kilobytes per second, mbps - Megabytes per second, kbit -Kilobits per second, mbit - Megabits per second, bps or a bare number - Bytes per second<br>`--clear` - flag, will clear settings for the given interface|
 
 For example, for the *cyberx* user:
-```OT Sensor CLI
+```CLI
 root@xsense:/# cyberx-xsense-limit-interface -h
 usage: cyberx-xsense-limit-interface [-h] --interface INTERFACE [--limit LIMIT] [--clear]
 
@@ -282,7 +282,7 @@ Displays network traffic and bandwidth by using the six-second tests.
 |---------|---------|---------|
 |**cyberx**     |   `cyberx-nload`      |   No attributes     |
 
-```OT Sensor CLI
+```CLI
 root@xsense:/# cyberx-nload
 eth0:
         Received: 66.95 KBit/s Sent: 87.94 KBit/s
@@ -315,7 +315,7 @@ Use the following command to re-run the software configuration wizard which allo
 
 
 For example, for the **cyberx** user:
-```OT Sensor CLI
+```CLI
 root@xsense:/# sudo dpkg-reconfigure iot-sensor
 ```
 
@@ -325,7 +325,7 @@ The configuration wizard starts. For more information, see [Install OT monitorin
 
 Enter the following command to import SSL and TLS certificates into the sensor from the CLI (review this guide [for more information about SSL/TLS certificates](../how-to-deploy-certificates) ).
 
-```OT Sensor CLI
+```CLI
 root@xsense:/# cyberx-xsense-certificate-import
 ```
 To use the tool, you need to upload the certificate files to the device. You can do this through tools such as WinSCP or Wget. 
@@ -367,7 +367,7 @@ Use the following commands to list the backup files currently stored on your OT 
 For example, for the *support* user:
 
 <!--ariel, i added in the first line, seemed to have been missing?-->
-```OT Sensor CLI
+```CLI
 root@xsense: system backup-list
 backup files:
         e2e-xsense-1664469968212-backup-version-22.3.0.318-r-71e6295-2022-09-29_18:30:20.tar
@@ -388,7 +388,7 @@ Provides the status of the backup allocation, displaying the following:
 |---------|---------|---------|
 |**cyberx**     |   ` cyberx-backup-memory-check`      |   No attributes      |
 
-```OT Sensor CLI
+```CLI
 root@xsense:/# cyberx-backup-memory-check
 2.1M    /var/cyberx/backups
 Backup limit is: 20Gb
@@ -407,7 +407,7 @@ Use the following commands to start an immediate, unscheduled backup of the data
 
 For example, for the *support* user:
 
-```OT Sensor CLI
+```CLI
 root@xsense: system backup
 Backing up DATA_KEY
 ...
@@ -431,7 +431,7 @@ Make sure not to stop or power off the appliance while restoring data. When prom
 
 For example, for the *support* user:
 
-```OT Sensor CLI
+```CLI
 root@xsense: system restore
 Waiting for redis to start...
 Redis is up
