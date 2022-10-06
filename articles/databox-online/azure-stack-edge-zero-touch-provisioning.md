@@ -6,7 +6,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/30/2022
+ms.date: 10/06/2022
 ms.author: alkohli
 ---
 # Use a config file to deploy an Azure Stack Edge device
@@ -106,19 +106,19 @@ Run the following cmdlets in PowerShell:
     Set-Login "https://<IP address>" "<Password>"
     ```
 
-1. Set the TimeZone property.
+1. Set the time object properties.
 
    ```azurepowershell
    $time = New-Object PSObject -Property @{ timezone = "Hawaiian Standard Time" }
    ```
 
-1. Set the ServerType property.
+1. Set the update object properties.
 
    ```azurepowershell
    $update = New-Object PSObject -Property @{ ServerType = "MicrosoftUpdate" }
    ```
 
-1. Create a package with the new TimeZone and ServerType settings.
+1. Create a package with the new time and update settings.
 
    ```azurepowershell
    $pkg = New-Package -time $time -update $update
@@ -138,30 +138,11 @@ Run the following cmdlets in PowerShell:
    Here is an example output:
 
    ```output
-
    PS C:\> Get-DeviceConfigurationStatus | to-json
-   {
-    "deviceConfiguration":  {
+      {
+       "deviceConfiguration":  {
                                 "status":  "Complete",
                                 "results":  [
-                                                {
-                                                    "declarationName":  "Network",
-                                                    "resultCode":  "Success",
-                                                    "errorCode":  "None",
-                                                    "message":  null
-                                                },
-                                                {
-                                                    "declarationName":  "DeviceEndpoint",
-                                                    "resultCode":  "Success",
-                                                    "errorCode":  "None",
-                                                    "message":  null
-                                                },
-                                                {
-                                                    "declarationName":  "WebProxy",
-                                                    "resultCode":  "Success",
-                                                    "errorCode":  "None",
-                                                    "message":  null
-                                                },
                                                 {
                                                     "declarationName":  "Time",
                                                     "resultCode":  "Success",
@@ -176,7 +157,9 @@ Run the following cmdlets in PowerShell:
                                                 }
                                             ]
                             }
-   }
+       }
+PS C:\>
+   
    ```
 
 1. After the operation is complete, fetch the new device configuration.
@@ -283,7 +266,7 @@ Use the following steps to activate an Azure Stack Edge device. Note that activa
    ```azurepowershell
    $ActivationKey = "<activation key>"
    ```
-1. Create an activation object and set the activation property.
+1. Create an activation object and set the activationKey property.
 
    ```azurepowershell
    $activation = New-Object PsObject -Property @{activationkey=$ActivationKey; ServiceEncryptionKey=""}
