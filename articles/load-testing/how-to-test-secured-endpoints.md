@@ -129,7 +129,7 @@ When you now run your load test, the JMeter script can retrieve the secret infor
 
 In this scenario, the application endpoint requires that you use a client certificate to authenticate. Azure Load Testing supports Public Key Certificate Standard #12 (PKCS12) type of certificates. You can use only one client certificate in a load test.
 
-The following diagram shows how to use a client certificate to authenticate with an application endpoint in your load test. To avoid storing, and disclosing, the client certificate alongside the JMeter script, you store the certificate in Azure Key Vault. When you run the load test, Azure Load Testing reads the certificate from the key vault and passes it to JMeter. JMeter then uses the certificate to authenticate with the application endpoint. You don't have to update the JMeter script to use the client certificate.
+The following diagram shows how to use a client certificate to authenticate with an application endpoint in your load test. To avoid storing, and disclosing, the client certificate alongside the JMeter script, you store the certificate in Azure Key Vault. When you run the load test, Azure Load Testing reads the certificate from the key vault and automatically passes it to JMeter. JMeter then transparently passes the certificate in all application requests. You don't have to update the JMeter script to use the client certificate.
 
 :::image type="content" source="./media/how-to-test-secured-endpoints/load-test-authentication-with-client-certificate.png" alt-text="Diagram that shows how to use client-certificate authentication with Azure Load Testing.":::
 
