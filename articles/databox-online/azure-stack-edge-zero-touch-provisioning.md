@@ -158,7 +158,7 @@ Run the following cmdlets in PowerShell:
                                             ]
                             }
        }
-PS C:\>
+    PS C:\>
    
    ```
 
