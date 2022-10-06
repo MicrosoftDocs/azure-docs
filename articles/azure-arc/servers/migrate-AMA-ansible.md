@@ -68,6 +68,7 @@ To use this collection in Automation Controller, follow the steps below to set u
     Source Control Type: Git
     Source Control URL: https://github.com/ansible-content-lab/azure.infrastructure_config_demos.git
 1. Select **Save**.
+    :::image type="content" source="media/migrate-ama/configure-content.png" alt-text="Screenshot of Projects window to edit details":::
 
 Once saved, the project should be synchronized with the automation controller.
 
@@ -180,12 +181,14 @@ An automation controller workflow allows you to construct complex automation by 
 1. Select **Save** at the top right corner of the workflow designer.
 
 You will now have a workflow that looks like the following:
+:::image type="content" source="media/migrate-ama/workflow.png" alt-text="Diagram showing workflow of azure monitor agent migration process":::
 
 ### Add a survey to the workflow
 
 We want to add survey questions to the workflow so that we can collect input when the workflow is run.
 
 1. Select **Survey** from the workflow details screen.
+    :::image type="content" source="media/migrate-ama/survey.png" alt-text="Screenshot of template details window with survey tab highlighted on right side.":::
 1. Select **Add**, then complete the form using the following values:
     Question: Which Azure region will your Arc servers reside?
     Answer variable name: region
@@ -205,12 +208,15 @@ We want to add survey questions to the workflow so that we can collect input whe
     Answer type: Text
 1. Select **Save**.
 1. From the Survey list screen, ensure that the survey is enabled.
+    :::image type="content" source="media/migrate-ama/survey-enabled.png" alt-text="Screenshot of Survey window with Survey Enabled switched enabled.":::
 
 Your workflow has now been created.
 
 ### Running the workflow
 
 Now that you have the workflow created, you can run the workflow at any time. When you click the “launch” 🚀 icon, the survey that you configured will be presented so that you can update the variables across automation runs. This will allow you to move Log Analytics connected servers that are assigned to different regions or resource groups as needed.
+
+:::image type="content" source="media/migrate-ama/launch.png" alt-text="Screenshot of Launch window for workflow.":::
 
 ## Conclusion
 
