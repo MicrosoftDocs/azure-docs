@@ -224,7 +224,7 @@ Specifically identify the technical resources and time commitments required to s
 
 - A business representative to oversee requirements and results.
 - An application data expert, to source the data for the POC and provide knowledge of the existing processes and logic.
-- An Data Explorer expert. You can request your Microsoft contacts to arrange, if necessary.
+- A Data Explorer expert. You can request your Microsoft contacts to arrange, if necessary.
 - An expert advisor, to optimize the POC tests. You can request your Microsoft contacts to arrange, if necessary.
 - Resources that will be required for specific components of your POC project, but not necessarily required during the POC. These resources could include network admins, Azure admins, Active Directory admins, Azure portal admins, and others.
 - Ensure all the required Azure services resources are provisioned and the required level of access is granted, including access to storage accounts.
@@ -245,7 +245,7 @@ Here are some examples of high-level tasks:
 
 1. Create a Data Explorer pool, and all Azure resources identified in the POC plan.
 1. Load POC dataset:
-    - Make data available in Azure by extracting from the source or by creating sample data in Azure. For an initial test on ingesting data in you Data Explorer pool, use the [ingestion wizard](../data-explorer/ingest-data/data-explorer-ingest-data-one-click.md).
+    - Make data available in Azure by extracting from the source or by creating sample data in Azure. For an initial test on ingesting data in your Data Explorer pool, use the [ingestion wizard](../data-explorer/ingest-data/data-explorer-ingest-data-one-click.md).
     - Test the connector/integration methods you've planned to use to ingest data into your workspace.
 1. Write Kusto Queries to query data:
 1. Execute the tests:
