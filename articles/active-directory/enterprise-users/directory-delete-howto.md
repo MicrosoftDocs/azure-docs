@@ -47,7 +47,7 @@ Check the following conditions:
   
    ![Screenshot that shows the button for managing tenants.](./media/directory-delete-howto/manage-tenants-command.png)
 
-1. Select the check box for the tenant that you want to delete, and then select **Delete**.
+1. Select the checkbox for the tenant that you want to delete, and then select **Delete**.
   
    ![Screenshot that shows the button for deleting an organization.](./media/directory-delete-howto/manage-tenants-delete-command.png)
 1. If your organization doesn't pass one or more checks, you'll get a link to more information on how to pass. After you pass all checks, select **Delete** to complete the process.
@@ -91,7 +91,7 @@ You can use the Microsoft admin center to put a subscription into the **Deprovis
   
    ![Screenshot that shows the link for terms and conditions, along with the button for deleting a subscription.](./media/directory-delete-howto/delete-terms.png)
 
-   Now the subscription is marked for deletion. The subscription enters the **Deprovisioned** state 72 hours later.
+   Now the subscription state has changed to **Disabled**, and the subscription is marked for deletion. The subscription enters the **Deprovisioned** state 72 hours later.
 
 1. After you've deleted a subscription in your organization and 72 hours have elapsed, sign in to the Azure AD admin center again. Confirm that no required actions or subscriptions are blocking your organization deletion. You should be able to successfully delete your Azure AD organization.
   
@@ -107,7 +107,7 @@ All other subscription types are deleted only through the [subscription cancella
 
 Alternatively, you can move the Azure subscription to another Azure AD tenant account. When you transfer billing ownership of your subscription to an account in another Azure AD tenant, you can move the subscription to the new account's tenant. Performing a **Switch Directory** action on the subscription wouldn't help, because the billing would still be aligned with the Azure AD tenant that was used to sign up for the subscription. For more information, review [Transfer a subscription to another Azure AD tenant account](../../cost-management-billing/manage/billing-subscription-transfer.md#transfer-a-subscription-to-another-azure-ad-tenant-account).
 
-After you have all the Azure, Office 365, and Microsoft 365 subscriptions canceled and deleted, you can proceed with cleaning up rest of the things within an Azure AD tenant before you delete it.
+After you have all the Azure, Office 365, and Microsoft 365 subscriptions canceled and deleted, you can clean up the rest of the things within an Azure AD tenant before you delete it.
 
 ## Remove enterprise apps that you can't delete
 
@@ -175,7 +175,7 @@ For what to expect when a trial Microsoft 365 subscription expires (not includin
 Product state | Data | Access to data
 ------------- | ---- | --------------
 **Active** (30 days for trial) | Data is accessible to all. | Users have normal access to self-service sign-up products, files, or apps.<br>Admins have normal access to the Microsoft 365 admin center and resources.
-**Deleted** | Data is deleted, | Users can't access self-service sign-up products, files, or apps.<br>Admins can access the Microsoft 365 admin center to purchase and manage other subscriptions.
+**Deleted** | Data is deleted. | Users can't access self-service sign-up products, files, or apps.<br>Admins can access the Microsoft 365 admin center to purchase and manage other subscriptions.
 
 ## Delete a self-service sign-up product
 
