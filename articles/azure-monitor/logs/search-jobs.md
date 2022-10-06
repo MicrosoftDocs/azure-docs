@@ -150,9 +150,11 @@ az monitor log-analytics workspace table search-job create --subscription Contos
 ## Get search job status and details
 ### [Portal](#tab/portal-2)
 1. From the **Log Analytics workspace** menu, select **Logs**. 
-1. All the search results tables can be found in the Tables tab, under **Search results**. 
-1. While a search job is running, the results table will have an update indication. When the search job that initiated the results table is completed the table icon become like any other Analytics table in Azure workspace. 
-![Screenshot of search results tables.](./media/search-job/SearchResultsTables.png)
+1. From the Tables tab, select **Search results** to view all search job results tables. 
+
+    ![Screenshot of search results tables.](./media/search-job/SearchResultsTables.png)
+
+    Until the search job is completed, the icon on the results table has an update indication.  
 
 ### [API](#tab/api-2)
 
