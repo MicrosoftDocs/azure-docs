@@ -386,6 +386,7 @@ $virtualNetwork |  Set-AzVirtualNetwork
 **Incompatible Services**: Due to current platform limitations, a small set of Azure services are not supported by NSG Flow Logs. The current list of incompatible services is
 - [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances/)
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
+- [Azure Functions](https://azure.microsoft.com/services/functions/)
 
 > [!NOTE]
 > App services deployed under App Service Plan do not support NSG Flow Logs. Please refer [this documentaion](../app-service/overview-vnet-integration.md#how-regional-virtual-network-integration-works) for additional details.
