@@ -58,7 +58,7 @@ To run a search job, in the Azure portal:
 1. From the **Log Analytics workspace** menu, select **Logs**. 
 1. Select the ellipsis menu on the right-hand side of the screen and toggle **Search job mode** on. 
 
-    ![Screenshot of the Logs screen with the Search job mode switch highlighted.](./media/search-job/switch-to-mode.png)
+    :::image type="content" source="media/search-job/switch-to-search-job-mode.png" alt-text="Screenshot of the Logs screen with the Search job mode switch highlighted." lightbox="media/search-job/switch-to-search-job-mode.png":::
 
     Azure Monitor Logs intellisense supports [KQL query limitations in search job mode](#kql-query-limitations) to help you write your search job query. 
 
