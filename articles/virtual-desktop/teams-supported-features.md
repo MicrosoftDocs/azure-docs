@@ -3,10 +3,12 @@ title: Supported features for Microsoft Teams on Azure Virtual Desktop - Azure
 description: Supported features for Microsoft Teams on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 06/27/2022
+ms.date: 10/07/2022
 ms.author: helohr
 manager: femila
 ---
+
+# Supported features for Teams on Azure Virtual Desktop
 
 This article lists the features that Microsoft Teams for Azure Virtual Desktop currently supports and the minimum requirements to use each feature.
 
@@ -27,34 +29,34 @@ This article lists the features that Microsoft Teams for Azure Virtual Desktop c
 |Background images|Yes|No|
 |Screen share and video together|Yes|Yes|
 |Secondary ringer|Yes|No|
-|e911 support|Yes|Yes|
+|Dynamic e911|Yes|Yes|
 |Diagnostic overlay|Yes|No|
 |Noise suppression|Yes|No|
 
 ## Minimum requirements
 
-The following table lists the minimum required versions for each Teams feature. For optimal euser experience on Teams for Azure VIrtual Desktop, we recommend using the latest versions of each client, which you can find in the following list:
+The following table lists the minimum required versions for each Teams feature. For optimal user experience on Teams for Azure VIrtual Desktop, we recommend using the latest versions of each client, which you can find in the following list:
 
-- [Windows Desktop client]()
-- [macOS]()
-- [Teams WebSocket service]()
-- [Teams desktop app]()
+- [Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
+- [macOS](/windows-server/remote/remote-desktop-services/clients/mac-whatsnew)
+- [Teams WebSocket service](https://aka.ms/msrdcwebrtcsvc/msi)
+- [Teams desktop app](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm)
 
 |Supported features|Minimum Windows Desktop client version |Minimum MacOS client version|Minimum WebSocket version|Minimum Teams version|
 |---|---|---|---|---|
-|Audio/video call|||||
-|Screen share|||||
-|Configure camera devices|||||
-|Configure audio devices|||||
-|Large gallery view and Together mode|||||
-|Live captions|||||
-|CART transcriptions|||||
-|Give and take control |||||
-|Multiwindow|||||
-|Background blur|||||
-|Background images|||||
-|Screen share and video together|||||
-|Secondary ringer|||||
-|e911 support|||||
-|Diagnostic overlay|||||
-|Noise suppression|||||
+|Audio/video call|1.2.1755 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
+|Screen share|1.2.1755 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
+|Configure camera devices|1.2.1755 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
+|Configure audio devices|1.2.1755 and later|Not supported|1.0.2006.1101 and later|Updates within 90 days of the current version|
+|Large gallery view and Together mode|1.2.1755 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
+|Live captions|1.2.2322 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
+|CART transcriptions|1.2.2322 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
+|Give and take control |1.2.2924 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
+|Multiwindow|1.2.1755 and later|10.7.7 and later|1.0.2006.1101 and later|1.5.00.11865 and later|
+|Background blur|1.2.3004 and later|Not supported|1.0.2006.1101 and later|1.5.00.11865 and later|
+|Background images|1.2.3004 and later|Not supported|1.0.2006.1101 and later|1.5.00.11865 and later|
+|Screen share and video together|1.2.1755 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
+|Secondary ringer|1.2.3004 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
+|Dynamic e911|1.2.2600 and later|10.7.7 and later|1.0.2006.1101 and later|Updates within 90 days of the current version|
+|Diagnostic overlay|1.2.3316 and later|Not supported|1.0.2006.23001 and later|Updates within 90 days of the current version|
+|Noise suppression|1.2.3316 and later|Not supported|1.0.2006.1101 and later|Updates within 90 days of the current version|

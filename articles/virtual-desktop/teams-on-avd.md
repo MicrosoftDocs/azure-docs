@@ -27,7 +27,9 @@ Before you can use Microsoft Teams on Azure Virtual Desktop, you'll need to do t
 - Install the [Remote Desktop client](./user-documentation/connect-windows-7-10.md) on a Windows 10, Windows 10 IoT Enterprise, Windows 11, or macOS 10.14 or later device that meets the [hardware requirements for Microsoft Teams](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Connect to a Windows 10 or 11 Multi-session or Windows 10 or 11 Enterprise virtual machine (VM).
 
-## Install the Teams desktop app
+For more information about which features Teams on Azure Virtual Desktop supports and minimum required client versions, see [Supported features for Teams on Azure Virtual Desktop](teams-supported-features.md).
+
+## Prepare to install the Teams desktop app
 
 This section will show you how to install the Teams desktop app on your Windows 10 or 11 Multi-session or Windows 10 or 11 Enterprise VM image. To learn more, check out [Install or update the Teams desktop app on VDI](/microsoftteams/teams-for-vdi#install-or-update-the-teams-desktop-app-on-vdi).
 
@@ -54,38 +56,9 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Teams" -Name IsWVDEnvironment -
 
 Install the latest version of the [Remote Desktop WebRTC Redirector Service](https://aka.ms/msrdcwebrtcsvc/msi) on your VM image. If you encounter an installation error, install the [latest Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) and try again.
 
-#### Latest WebSocket Service versions
+You can find more information about the latest version of the WebSocket service at [What's new in the WebSocket Service](whats-new-websocket.md).
 
-The following table lists the latest versions of the WebSocket Service:
-
-|Version        |Release date  |
-|---------------|--------------|
-|1.17.2205.23001|06/20/2022    |
-|1.4.2111.18001 |12/02/2021    |
-|1.1.2110.16001 |10/15/2021    |
-|1.0.2106.14001 |07/29/2021    |
-
-### Updates for version 1.17.2205.23001
-
-- Fixed an issue that made the WebRTC redirector service disconnect from Teams on Azure Virtual Desktop.
-- Added keyboard shortcut detection for Shift+Ctrl+; that lets users turn on a diagnostic overlay during calls on Teams for Azure Virtual Desktop. This feature is supported in version 1.2.3313 or later of the Windows Desktop client. 
-- Added further stability and reliability improvements to the service.
-
-#### Updates for version 1.4.2111.18001
-
-- Fixed a mute notification problem.
-- Multiple z-ordering fixes in Teams on Azure Virtual Desktop and Teams on Microsoft 365.
-- Removed timeout that prevented the WebRTC redirector service from starting when the user connects.
-- Fixed setup problems that prevented side-by-side installation from working.
-
-#### Updates for version 1.1.2110.16001
-
-- Fixed an issue that caused the screen to turn black while screen sharing. If you've been experiencing this issue, confirm that this update will resolve it by resizing the Teams window. If screen sharing starts working again after resizing, the update will resolve this issue.
-- You can now control the meeting, ringtone, and notification volume from the host VM. You can only use this feature with version 1.2.2459 or later of [the Windows Desktop client](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew).
-- The installer will now make sure that Teams is closed before installing updates.
-- Fixed an issue that prevented users from returning to full screen mode after leaving the call window.
-
-### Install Microsoft Teams
+## Install Microsoft Teams for Azure Virtual Desktop
 
 You can deploy the Teams desktop app using a per-machine or per-user installation. To install Microsoft Teams in your Azure Virtual Desktop environment:
 
@@ -130,7 +103,7 @@ You can deploy the Teams desktop app using a per-machine or per-user installatio
 >[!IMPORTANT]
 >If you're using a version of the Remote Desktop client for macOS that's earlier than 10.7.7, in order to use our latest Teams optimization features, you'll need to update your client to version 10.7.7 or later, then go to **Microsoft Remote Desktop Preferences** > **General** and enable Teams optimizations. If you're using the client for the first time and already have version 10.7.7 or later installed, you won't need to do this, because Teams optimizations are enabled by default.
 
-### Verify media optimizations loaded
+## Verify media optimizations loaded
 
 After installing the WebSocket Service and the Teams desktop app, follow these steps to verify that Teams media optimizations loaded:
 
@@ -148,36 +121,6 @@ After installing the WebSocket Service and the Teams desktop app, follow these s
 
       If optimizations don't load, uninstall then reinstall Teams and check again.
 
-## Known issues and limitations
-
-Using Teams in a virtualized environment is different from using Teams in a non-virtualized environment. For more information about the limitations of Teams in virtualized environments, check out [Teams for Virtualized Desktop Infrastructure](/microsoftteams/teams-for-vdi#known-issues-and-limitations).
-
-### Client deployment, installation, and setup
-
-- With per-machine installation, Teams on VDI isn't automatically updated the same way non-VDI Teams clients are. To update the client, you'll need to update the VM image by installing a new MSI.
-- Media optimization for Teams is only supported for the Remote Desktop client on machines running Windows 10 or later or macOS 10.14 or later.
-- Use of explicit HTTP proxies defined on the client endpoint device isn't supported.
-- Zoom in/zoom out of chat windows isn't supported.
-
-### Calls and meetings
-
-- Due to WebRTC limitations, incoming and outgoing video stream resolution is limited to 720p.
-- The Teams app doesn't support HID buttons or LED controls with other devices.
-- Teams for Azure Virtual Desktop doesn't currently support uploading custom background images.
-- Teams for Azure Virtual Desktop doesn’t currently support screenshots for incoming videos from the VM. As a workaround, we recommend you minimize the session desktop window and screenshot from the client machine instead. 
-
-For Teams known issues that aren't related to virtualized environments, see [Support Teams in your organization](/microsoftteams/known-issues).
-
-## Collect Teams logs
-
-If you encounter issues with the Teams desktop app in your Azure Virtual Desktop environment, collect client logs under **%appdata%\Microsoft\Teams\logs.txt** on the host VM.
-
-If you encounter issues with calls and meetings, collect Teams Web client logs with the key combination **Ctrl** + **Alt** + **Shift** + **1**. Logs will be written to **%userprofile%\Downloads\MSTeams Diagnostics Log DATE_TIME.txt** on the host VM.
-
-## Contact Microsoft Teams support
-
-To contact Microsoft Teams support, go to the [Microsoft 365 admin center](/microsoft-365/admin/contact-support-for-business-products).
-
 ## Customize Remote Desktop Protocol properties for a host pool
 
 Customizing a host pool's Remote Desktop Protocol (RDP) properties, such as multi-monitor experience or enabling microphone and audio redirection, lets you deliver an optimal experience for your users based on their needs.
@@ -189,3 +132,11 @@ Enabling device redirections isn't required when using Teams with media optimiza
 - `camerastoredirect:s:*` redirects all cameras.
 
 To learn more, check out [Customize Remote Desktop Protocol properties for a host pool](customize-rdp-properties.md).
+
+## Next steps
+
+See [Supported features for Teams on Azure Virtual Desktop](teams-supported-features.md) for more information about which features Teams on Azure Virtual Desktop supports and minimum required client versions.
+
+Learn about known issues, limitations, and how to log issues at [Troubleshoot Teams on Azure Virtual Desktop](troubleshoot-teams.md).
+
+Learn about the latest version of the WebSocket Service at [What's new in the WebSocket Service for Azure Virtual Desktop](whats-new-websocket.md).
