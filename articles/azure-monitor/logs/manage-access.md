@@ -314,12 +314,11 @@ To create a role that lets users or groups read data from specific tables in a w
 
     Where:
     - You can generate a GUID for `<GUID 1>` and `<GUID 2>` using any GUID generator.
-    - <_User_object_ID_> is the ID of the user or group to which table-level RBAC should be assigned.
-    - <custom_role_ID> begins with `_/providers/Microsoft.Authorization/roleDefinitions/_`
-    - <subscription_ID> is the ID of the subscription related to the workspace.
-    - <resource_group_name> is the resource group of the workspace.
-    - <workspace_name> is the name of the workspace.
-    - <table_name> is the name of the table to which you want to assign the user or group permission to read data from.
+    - `<custom_role_ID>` begins with `_/providers/Microsoft.Authorization/roleDefinitions/_`
+    - `<subscription_ID>` is the ID of the subscription related to the workspace.
+    - `<resource_group_name>` is the resource group of the workspace.
+    - `<workspace_name>` is the name of the workspace.
+    - `<table_name>` is the name of the table to which you want to assign the user or group permission to read data from.
 
 ### Legacy method of setting table-level read access
 
