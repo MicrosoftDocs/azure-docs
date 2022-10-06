@@ -402,6 +402,18 @@ Use these queries to help you monitor your Azure Storage accounts:
     | render piechart
     ```
 
+## Alerts
+
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../../azure-monitor/alerts/alerts-metric-overview.md), [logs](../../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../../azure-monitor/alerts/activity-log-alerts.md). 
+
+The following table lists some example scenarios to monitor and the proper metric to use for the alert:
+
+| Scenario | Metric to use for alert |
+|-|-|
+| Blob Storage service is throttled. | Metric: Transactions<br>Dimension name: Response type |
+| Blob Storage requests are successful 99% of the time. | Metric: Availability<br>Dimension names: Geo type, API name, Authentication |
+| Blob Storage egress has exceeded 500 GiB in one day. | Metric: Egress<br>Dimension names: Geo type, API name, Authentication |
+
 ## Feature support
 
 [!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
