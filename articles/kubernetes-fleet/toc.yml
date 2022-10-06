@@ -8,6 +8,12 @@
   items:
   - name: Create a fleet and join member clusters
     href: quickstart-create-fleet-and-members.md
+- name: Concepts
+  items:
+  - name: Architectural overview
+    href: architectural-overview.md
+  - name: FAQ
+    href: faq.md
 - name: How-to guides
   items:
   - name: Kubernetes resource objects propagation
