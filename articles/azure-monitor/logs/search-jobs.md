@@ -233,10 +233,13 @@ az monitor log-analytics workspace table show --subscription ContosoSID --resour
 We recommend deleting the search job table when you're done querying the table. This reduces workspace clutter and extra charges for data retention. 
 ### [Portal](#tab/portal-3)
 1. From the Log Analytics workspace menu, select **Tables.**
-1. Search for the table you want to delete by its name, or by the type: Search results.
-![Screenshot of search results in Tables blase.](./media/search-job/SearchResultsInTablesBlade.png)
-1. Select the tables you want to delete, select the delete icon, and confirm the deletion by typing *yes**.
-![Screenshot of delete of search results table.](./media/search-job/DeleteTable.png)
+1. Search for the tables you want to delete by name, or by selecting **Search results** in the **Type** field.
+    
+    ![Screenshot of search results in Tables blase.](./media/search-job/SearchResultsInTablesBlade.png)
+
+1. Select the tables you want to delete, select **Delete**, and confirm the deletion by typing **yes**.
+    
+    ![Screenshot of delete of search results table.](./media/search-job/DeleteTable.png)
 
 ### [API](#tab/api-3)
 
