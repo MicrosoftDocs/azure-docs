@@ -75,7 +75,7 @@ To add a user properties file to your load test by using the Azure portal, follo
 
 If you run a load test within your CI/CD workflow, you add the user properties file to the source control repository. You then specify this properties file in the [load test configuration YAML file](./reference-test-config-yaml.md).
 
-For more information about running a load test in a CI/CD workflow, see the [Automated regression testing tutorial](./tutorial-cicd-azure-pipelines.md).
+For more information about running a load test in a CI/CD workflow, see the [Automated regression testing tutorial](./tutorial-identify-performance-regression-with-cicd.md).
 
 To add a user properties file to your load test, follow these steps:
 

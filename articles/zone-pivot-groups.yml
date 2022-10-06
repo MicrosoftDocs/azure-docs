@@ -1336,6 +1336,17 @@ groups:
     title: Portal
   - id: cli
     title: CLI
+# Owner: mbullwin
+- id: openai-fine-tuning
+  title: Programming languages
+  prompt: Choose your preferred fine-tuning method
+  pivots:
+  - id: programming-language-studio
+    title: Studio
+  - id: programming-language-python
+    title: Python
+  - id: rest-api
+    title: REST
 # Owner: diberry
 - id: app-service-webjob
   title: WebJob types
@@ -1887,5 +1898,7 @@ groups:
     title: Azure portal
   - id: powershell
     title: PowerShell
+  - id: cli
+    title: Azure CLI
   - id: bicep
     title: Bicep
