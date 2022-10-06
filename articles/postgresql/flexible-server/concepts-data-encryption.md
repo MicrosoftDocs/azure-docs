@@ -96,7 +96,7 @@ When you're using data encryption by using a customer-managed key, here are reco
 
 - Lock down the Azure KeyVault to only **disable public access** and allow only *trusted Microsoft* services to secure the resources.
 
-    :::image type="content" source="media/concepts-data-encryption/keyvault-trusted-service.png" alt-text="Screenshot of an image of networking screen with trusted-service-with-AKV setting." lightbox="media/concepts-data-encryption/keyvault-trusted-service.png":::
+    :::image type="content" source="media/concepts-data-encryption/key-vault-trusted-service.png" alt-text="Screenshot of an image of networking screen with trusted-service-with-AKV setting." lightbox="media/concepts-data-encryption/keyvault-trusted-service.png":::
 
 Here are recommendations for configuring a customer-managed key:
 
