@@ -67,25 +67,25 @@ To run a search job, in the Azure portal:
 
     Azure Monitor Logs prompts you to provide a name for the result set table and informs you that the search job is subject to billing.
     
-    ![Screenshot that shows the Azure Monitor Logs prompt to provide a name for the search job results table.](./media/search-job/RunSearchJob.png)
+    :::image type="content" source="media/search-job/RunSearchJob.png" alt-text="Screenshot that shows the Azure Monitor Logs prompt to provide a name for the search job results table." lightbox="media/search-job/RunSearchJob.png":::
 
 1. Enter a name for the search job result set table and select **Run a search job**.
 
     Azure Monitor Logs runs the search job and creates a new table in your workspace for your search job results. 
 
-    ![Screenshot that shows an Azure Monitor Logs message that the search job is running and the search job results table will be available shortly.](./media/search-job/SearchJobExecution_1.png)
+    :::image type="content" source="media/search-job/SearchJobExecution_1.png" alt-text="Screenshot that shows an Azure Monitor Logs message that the search job is running and the search job results table will be available shortly." lightbox="media/search-job/SearchJobExecution_1.png":::
 
 1. When the new table is ready, select **View tablename_SRCH** to view the table in Log Analytics.
 
-    ![Screenshot that shows an Azure Monitor Logs message that the search job results table is available to view.](./media/search-job/SearchJobExecution_2.png)
+    :::image type="content" source="media/search-job/SearchJobExecution_2.png" alt-text="Screenshot that shows an Azure Monitor Logs message that the search job results table is available to view." lightbox="media/search-job/SearchJobExecution_2.png"::
 
     You can see the search job results as they begin flowing in to the newly created search job results table.
 
-    ![Screenshot that shows search job results table with data.](./media/search-job/SearchJobExecution_3.png)
+    :::image type="content" source="media/search-job/SearchJobExecution_3.png" alt-text="Screenshot that shows search job results table with data." lightbox="media/search-job/SearchJobExecution_3.png"::
 
     Azure Monitor Logs shows a **Search job is done** message at the end of the search job. The results table is now ready with all the records that match the search query. 
 
-    ![Screenshot that shows an Azure Monitor Logs message that the search job is done.](./media/search-job/SearchJobDone.png)
+    :::image type="content" source="media/search-job/SearchJobDone.png" alt-text="Screenshot that shows an Azure Monitor Logs message that the search job is done." lightbox="media/search-job/SearchJobDone.png":::
 
 ### [API](#tab/api-1)
 To run a search job, call the **Tables - Create or Update** API. The call includes the name of the results table to be created. The name of the results table must end with *_SRCH*.
@@ -154,7 +154,7 @@ az monitor log-analytics workspace table search-job create --subscription Contos
 
     The icon on the search job results table displays an update indication until the search job is completed.  
     
-    ![Screenshot that shows the the Tables tab on Logs screen in the Azure portal with the search results tables listed under Search results.](./media/search-job/SearchResultsTables.png)
+    :::image type="content" source="media/search-job/SearchResultsTables.png" alt-text="Screenshot that shows the the Tables tab on Logs screen in the Azure portal with the search results tables listed under Search results." lightbox="media/search-job/SearchResultsTables.png":::
 
 ### [API](#tab/api-2)
 
@@ -237,12 +237,12 @@ We recommend deleting the search job table when you're done querying the table. 
 1. From the Log Analytics workspace menu, select **Tables.**
 1. Search for the tables you want to delete by name, or by selecting **Search results** in the **Type** field.
     
-    ![Screenshot that shows the Tables screen for a Log Analytics workspace with the Filter by name and Type fields highlighted.](./media/search-job/SearchResultsInTablesBlade.png)
+    :::image type="content" source="media/search-job/SearchResultsInTablesBlade.png" alt-text="Screenshot that shows the Tables screen for a Log Analytics workspace with the Filter by name and Type fields highlighted." lightbox="media/search-job/SearchResultsInTablesBlade.png":::
 
 1. Select the tables you want to delete, select **Delete**, and confirm the deletion by typing **yes**.
-    
-    ![Screenshot that shows the Delete Table screen for a table in a Log Analytics workspace.](./media/search-job/DeleteTable.png)
 
+    :::image type="content" source="media/search-job/DeleteTable.png" alt-text="Screenshot that shows the Delete Table screen for a table in a Log Analytics workspace." lightbox="media/search-job/DeleteTable.png":::
+    
 ### [API](#tab/api-3)
 
 To delete a table, call the **Tables - Delete** API: 
