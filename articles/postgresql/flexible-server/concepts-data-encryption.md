@@ -137,7 +137,7 @@ Avoid issues while setting up customer-managed data encryption during restore or
 
 - Initiate the restore or read replica creation process from the primary Azure Database for PostgreSQL - Flexible server.
 
-- On the restored/replica server, you can change the customer-managed key and\or Azure Active Directory (AAD) identity used to access Azure Key Vault in the data encryption settings. Ensure that the newly created server is given list, wrap and unwrap permissions to the key stored in Key Vault.
+- On the restored/replica server, you can change the customer-managed key and\or Azure Active Directory (Azure AD) identity used to access Azure Key Vault in the data encryption settings. Ensure that the newly created server is given list, wrap and unwrap permissions to the key stored in Key Vault.
 
 -  Don't revoke the original key after restoring, as at this time we don't support key revocation after restoring CMK enabled server to another server
 
@@ -149,7 +149,7 @@ When you configure data encryption with a customer-managed key in Key Vault, con
 
 Prerequisites:
 
-- Azure Active Directory (AAD) user managed identity in region where Postgres Flex Server will be created. Follow this [tutorial](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) to create identity.
+- Azure Active Directory (Azure AD) user managed identity in region where Postgres Flex Server will be created. Follow this [tutorial](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) to create identity.
 
 - Key Vault with key in region where Postgres Flex Server will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal.md) to create Key Vault and generate key. Follow [requirements section above](#requirements-for-configuring-data-encryption-in-preview-for-azure-database-for-postgresql-flexible-server) for required Azure Key Vault settings
 
@@ -159,7 +159,7 @@ Follow the steps below to enable CMK while creating Postgres Flexible Server.
 
 2. Provide required information on Basics and Networking tabs
 
-3. Navigate to Security(preview) tab. On the screen, provide Azure Active Directory (AAD)  identity that has access to the Key Vault and Key in Key Vault in the same region where you're creating this server
+3. Navigate to Security(preview) tab. On the screen, provide Azure Active Directory (Azure AD)  identity that has access to the Key Vault and Key in Key Vault in the same region where you're creating this server
 
 4. On Review Summary tab, make sure that you provided correct information in Security section and press Create button
 
@@ -169,7 +169,7 @@ Follow the steps below to enable CMK while creating Postgres Flexible Server.
 
 Prerequisites:
 
-- Azure Active Directory (AAD) user-managed identity in region where Postgres Flex Server will be created. Follow this [tutorial](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) to create identity.
+- Azure Active Directory (Azure AD) user-managed identity in region where Postgres Flex Server will be created. Follow this [tutorial](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md) to create identity.
 
 - Key Vault with key in region where Postgres Flex Server will be created. Follow this [tutorial](../../key-vault/general/quick-create-portal.md) to create Key Vault and generate key. 
 
