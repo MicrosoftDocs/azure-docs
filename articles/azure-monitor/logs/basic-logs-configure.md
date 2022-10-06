@@ -67,7 +67,7 @@ PATCH https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups
 
 This example configures the `ContainerLogV2` table for Basic Logs.
 
-Container Insights uses ContainerLog by default, to switch to using ContainerLogV2, please follow these [instructions](../containers/container-insights-logging-v2.md) before attempting to convert the table to Basic Logs.
+Container Insights uses ContainerLog by default. To switch to using ContainerLogV2 for Container Insights, [enable the ContainerLogV2 schema](../containers/container-insights-logging-v2.md) before you convert the table to Basic Logs.
 
 **Sample request**
 
