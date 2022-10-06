@@ -93,7 +93,7 @@ Use this API to let system administrators change passwords for specified users. 
 
 You don't need a Defender for IoT access token to use this API.
 
-**URI**: /external/authentication/set_password_by_admin
+**URI**: `/external/authentication/set_password_by_admin`
 
 ### POST
 

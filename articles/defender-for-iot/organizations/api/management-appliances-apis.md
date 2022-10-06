@@ -116,7 +116,7 @@ curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<>IP_ADDRESS>/external/v1/appl
 ```curl
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/external/v1/appliances'
 ```
-
+---
 
 
 ## Next steps

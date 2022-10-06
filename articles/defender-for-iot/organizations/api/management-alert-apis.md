@@ -417,7 +417,7 @@ Allows you to update the maintenance window duration after you start the mainten
 
 This method is useful when you want to set a longer duration than the currently configured duration. For example, if you've originally defined 180 minutes, 90 minutes have passed, and you want to add another 30 minutes, update the `ttl` to `120` minute to reset the duration count.
 
-# [Request command](#tab/maintenanceWindow-put-request)
+# [Request](#tab/maintenanceWindow-put-request)
 
 **Query parameters**:
 
@@ -426,7 +426,7 @@ This method is useful when you want to set a longer duration than the currently 
 |**ticketId**     |  String. Defines the maintenance ticket ID in the user's systems.      | `2987345p98234` | Required |
 |**ttl**     | Positive integer. Defines the duration of the window in minutes.       |  `210` | Required |
 
-# [Response command](#tab/maintenanceWindow-put-response)
+# [Response](#tab/maintenanceWindow-put-response)
 
 **Error codes**:
 
@@ -474,7 +474,7 @@ Use this API to request a PCAP file related to an alert.
 |---------|---------|---------|---------|
 |**id**     | Alert ID from the on-premises management console        |    `/external/v2/alerts/pcap/<id>`     | Required |
 
-# [Request](#tab/pcap-response)
+# [Response](#tab/pcap-response)
 
 **Type**: JSON
 
@@ -498,7 +498,7 @@ Message string with the operation status details:
 |**token**|String|Not nullable| The sensor's token, to be used when downloading the PCAP file |
 
 
-### Response example Success
+### Response example: Success
 
 ```json
 {
@@ -510,7 +510,7 @@ Message string with the operation status details:
 }
 ```
 
-### Response example Error
+### Response example: Error
 
 
 ```json

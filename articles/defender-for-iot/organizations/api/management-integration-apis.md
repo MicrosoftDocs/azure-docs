@@ -39,7 +39,7 @@ This API returns data about all devices that were updated after the given timest
 |Name  |Description  |Example  | Required / Optional |
 |---------|---------|---------|---------|
 |**sensorId**     |   Return only devices seen by a specific sensor. Use the ID value from the results of the [sensors (Get sensors)](#sensors-get-sensors) API. | `1` | Optional |
-|**notificationType**     | Determines the types of devices to return. Supported values include: <br>- `0`: Both updated and new devices (default). <br>- `1`: Only new devices. <br>`2`: Only updated devices.        | `2` | Optional |
+|**notificationType**     | Determines the types of devices to return. Supported values include: <br>- `0`: Both updated and new devices (default). <br>- `1`: Only new devices. <br>- `2`: Only updated devices.        | `2` | Optional |
 |**page**     | Defines the number where the result page numbering begins. For example, `0`= first page is **0**. <br>Default = `0`| `0` | Optional |
 |**size**     |Defines the page sizing. Default = `50`         | `75` | Optional |
 
@@ -146,11 +146,24 @@ This API returns data about all devices that were updated after the given timest
 }
 ```
 
-# [Curl](#tab/devices-curl)
+# [cURL](#tab/devices-curl)
+
+
+**Type**: GET
+
+**API**:
 
 ```curl
 curl -k -H "Authorization: <Authorization token>" "<IP Address>/external/v3/integration/devices/<Timestamp>"
 ```
+
+**Example**:
+
+```curl
+curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" "https://127.0.0.1/external/v3/integration/devices/<Timestamp>"
+```
+
+
 ---
 
 ## connections (Get device connections)
@@ -228,11 +241,23 @@ This API returns data about all device connections that were updated after the g
     },
 ```
 
-# [Curl](#tab/connections-curl)
+# [cURL](#tab/connections-curl)
+
+**Type**: GET
+
+**API**:
 
 ```curl
-curl -k -H "Authorization: <Authorization token>" "https://<IP address>/external/v3/integration/connections/1664781014000"---
+curl -k -H "Authorization: <Authorization token>" "https://<IP address>/external/v3/integration/connections/1664781014000"
 ```
+
+**Example**:
+
+```curl
+curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" "https://127.0.0.1/external/v3/integration/connections/1664781014000"
+```
+
+---
 
 ## device (Get details for a device)
 
@@ -378,10 +403,20 @@ This API returns data about a specific device per a given device ID.
 }]
 ```
 
-# [Curl](#tab/device-curl)
+# [cURL](#tab/device-curl)
 
-```rest
+**Type**: GET
+
+**API**:
+
+```curl
 curl -k -H "Authorization: <Authorization token>" "https://<IP address>/external/v3/integration/device/<device ID>"
+```
+
+**Example**:
+
+```curl
+curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" "https://127.0.0.1/external/v3/integration/device/1"
 ```
 
 ---
@@ -428,11 +463,22 @@ This API returns a list of IDs of recently deleted devices, from the supplied ti
 }]
 ```
 
-# [Curl](#tab/deleteddevices-curl)
+# [cURL](#tab/deleteddevices-curl)
+
+**Type**: GET
+
+**API**:
 
 ```curl
-curl -k -H "Authorization: <Authorization token>" "https://<IP address>/external/v3/integration/deleteddevices/1664781014000"
+curl -k -H "Authorization: <Authorization token>" "https://<IP address>/external/v3/integration/deleteddevices/<timestamp>"
 ```
+
+**Example**:
+
+```curl
+curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" "https://127.0.0.1/external/v3/integration/deleteddevices/1664781014000"
+```
+
 ---
 
 ## sensors (Get sensors)
@@ -472,7 +518,7 @@ An array of the following fields:
 | **u_uid** |String | Not nullable | Defines the sensor's globally unique identifier. |
 | **u_zone_id** | Long integer | Nullable | Define's the device's zone. |
 | **u_is_in_learning_mode** | Boolean | Not nullable  | Determines whether the sensor is in learning mode. |
-| **u_remote_upgrade_stage** | String |Nullable |Defines a current stage in a version update process as one of the following:  - **UPLOADING** <br>-  **PREPARE_TO_INSTALL** <br>- **STOPPING_PROCESSES** <br>- **BACKING_UP_DATA** <br>- **TAKING_SNAPSHOT** <br>- **UPDATING_CONFIGURATION** <br>- **UPDATING_DEPENDENCIES** <br>- **UPDATING_LIBRARIES** <br>- **PATCHING_DATABASES** <br>- **STARTING_PROCESSES** <br>- **VALIDATING_SYSTEM_SANITY** <br>- **VALIDATION_SUCCEEDED_REBOOTING** <br>- **SUCCESS** <br>- **FAILURE** <br>- **UPGRADE_STARTED** <br>- **STARTING_INSTALLATION** <br>- **INSTALLING_OPERATING_SYSTEM**|
+| **u_remote_upgrade_stage** | String |Nullable |Defines a current stage in a version update process as one of the following: <br> - **UPLOADING** <br>-  **PREPARE_TO_INSTALL** <br>- **STOPPING_PROCESSES** <br>- **BACKING_UP_DATA** <br>- **TAKING_SNAPSHOT** <br>- **UPDATING_CONFIGURATION** <br>- **UPDATING_DEPENDENCIES** <br>- **UPDATING_LIBRARIES** <br>- **PATCHING_DATABASES** <br>- **STARTING_PROCESSES** <br>- **VALIDATING_SYSTEM_SANITY** <br>- **VALIDATION_SUCCEEDED_REBOOTING** <br>- **SUCCESS** <br>- **FAILURE** <br>- **UPGRADE_STARTED** <br>- **STARTING_INSTALLATION** <br>- **INSTALLING_OPERATING_SYSTEM**|
 
 #### Response example
 
@@ -497,11 +543,23 @@ An array of the following fields:
 ];
 ```
 
-# [Curl](#tab/sensors-curl)
+# [cURL](#tab/sensors-curl)
 
-```rest
+**Type**: GET
+
+**API**:
+
+```curl
 curl -k -H "Authorization: <Authorization token>" "https://<IP Address>/external/v3/integration/sensors"
 ```
+
+**Example**:
+
+```curl
+curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" "https://127.0.0.1/external/v3/integration/sensors"
+```
+
+
 ---
 
 ## devicecves (Get device CVEs)
@@ -656,13 +714,15 @@ This API returns a list of active CVEs for all devices that were updated since t
             "u_attack_vector": "NETWORK"
         }]
     }]
-}```
+}
+```
 
-# [Curl](#tab/devicecves-curl)
+# [cURL](#tab/devicecves-curl)
 
 ```rest
 curl -k -H "Authorization: <Authorization token>" "https://<IP Address>/external/v3/integration/devicecves/<timestamp>"
-```---
+```
+---
 
 ## Next steps
 
