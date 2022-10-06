@@ -147,6 +147,9 @@ Starting with version 2.1.5 or above, the self-hosted gateway provides observabi
 - [API Inspector](api-management-howto-api-inspector.md) will show additional steps when HTTP(S) proxy is being used and its related interactions.
 - Verbose logs are provided to provide indication of the request proxy behavior.
 
+> [!Warning]
+> Ensure that the [infrastructure requirements](self-hosted-gateway-overview.md#fqdn-dependencies) have been met and that the self-hosted gateway can still connect to them or certain functionality will not work properly.
+
 ### Protecting against node failure
 To prevent being affected due to data center or node failures, consider using a Kubernetes cluster that uses availability zones to achieve high availability on the node-level.
 
