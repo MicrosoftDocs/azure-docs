@@ -267,37 +267,59 @@ Grant a user access to log data from their resources and read all Azure AD sign-
 
 ## Set table-level read access
 
-Define [Azure RBAC](../../role-based-access-control/overview.md) at the table level to control which users have read access to any specific table.
+To create a role that lets users or groups read data from specific tables in a workspace:
 
-To grant users read access to specific tables in a workspace, call the https://management.azure.com/batch?api-version=2020-06-01 POST API and send the following details in the request body:
+1. Create a custom role that grants read access to table data, based on the built-in Azure Monitor Logs **Reader** role:
+    
+    1. Navigate to your workspace and select **Access control (AIM)**.
+    1. Right-click the **Reader** role and select **Clone**.
+    
+       This opens the **Create a custom role** screen.
 
-```json
-{
-     "requests": [
-         {
-             "content": {
-                 "Id": "<GUID_1>",
-                 "Properties": {
-                 "PrincipalId": "<Object ID of the user to which the table-level RBAC should be assigned>",
-                 "PrincipalType": "User",
-                 "RoleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
-                 "Scope": "/subscriptions/<subscriptionid>/resourceGroups/<resourcegroup name>/providers/Microsoft.OperationalInsights/workspaces/<workspacename>/Tables/<table name>",
-                 "Condition": null,
-                 "ConditionVersion": null
-                 }
-             },
-             "httpMethod": "PUT",
-             "name": "<GUID_2>",
-             "requestHeaderDetails":{
-                 "commandName": "Microsoft_Azure_AD."
-             },
-             "url": "https://api-dogfood.resources.windows-int.net/subscriptions/f8df94f2-2f5a-4f4a-bcaf-1bb992fb564b/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/Dilshad/Tables/First_CL/providers/Microsoft.Authorization/roleAssignments/<GUID_1 from Id>?api-version=2020-04-01-preview"
-         }
-     ]
-}
-```
+    1. On the **Basics** tab of the screen enter a **Custom role name** value.
+    1. Optionally, provide a description.
+    1. Select the **JSON** tab > **Edit**.
+    1. Edit the `"actions"` section to include only `Microsoft.OperationalInsights/workspaces/query/read`.
+    1. Select **Review + Create** at the bottom of the screen, and then **Create** on the next page.   
 
-You can generate a GUID for `<GUID_1>` and `<GUID_2>` using any GUID generator.
+1. Assign your custom role to the relevant users or groups. 
+
+1. Grant the users or groups read access to specific tables in a workspace by calling the https://management.azure.com/batch?api-version=2020-06-01 POST API and send the following details in the request body:
+
+    ```json
+    {
+        "requests": [
+            {
+                "content": {
+                    "Id": "<GUID 1>",
+                    "Properties": {
+                        "PrincipalId": "<User object ID of the user or group to which table-level RBAC should be assigned>",
+                        "PrincipalType": "User",
+                        "RoleDefinitionId": "<custom role ID>",
+                        "Scope": "/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.OperationalInsights/workspaces/<workspace name>/Tables/<table name>",
+                        "Condition": null,
+                        "ConditionVersion": null
+                    }
+                },
+                "httpMethod": "PUT",
+                "name": "<GUID 2>",
+                "requestHeaderDetails": {
+                    "commandName": "Microsoft_Azure_AD."
+                },
+                "url": "/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.OperationalInsights/workspaces/<workspace name>/Tables/<table name>/providers/Microsoft.Authorization/roleAssignments/<GUID 1>?api-version=2020-04-01-preview"
+            }
+        ]
+    }
+    ```
+
+    Where:
+    - You can generate a GUID for `<GUID 1>` and `<GUID 2>` using any GUID generator.
+    - <User object ID> is the ID of the user or group to which table-level RBAC should be assigned.
+    - <custom role ID> begins with `_/providers/Microsoft.Authorization/roleDefinitions/_`
+    - <subscription ID> is the ID of the subscription related to the workspace.
+    - <resource group name> is the resource group of the workspace.
+    - <workspace name> is the name of the workspace.
+    - <table name> is the name of the table to which you want to assign the user or group permission to read data from.
 
 ### Legacy method of setting table-level read access
 
