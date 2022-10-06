@@ -259,11 +259,22 @@ In this article, we first define names of online endpoint and deployement for de
 
 ### Register your model and environment separately
 
+# [Azure CLI](#tab/azure-cli)
+
 In this example, we specify the `path` (where to upload files from) inline. The CLI automatically uploads the files and registers the model and environment. As a best practice for production, you should register the model and environment and specify the registered name and version separately in the YAML. Use the form `model: azureml:my-model:1` or `environment: azureml:my-env:1`.
 
 For registration, you can extract the YAML definitions of `model` and `environment` into separate YAML files and use the commands `az ml model create` and `az ml environment create`. To learn more about these commands, run `az ml model create -h` and `az ml environment create -h`.
 
-<Todo: Add SDKv2 contents>
+# [Python](#tab/python)
+
+In this example, we specify the `path` (where to upload files from) inline. The SDK automatically uploads the files and registers the model and environment. As a best practice for production, you should register the model and environment and specify the registered name and version separately in the codes. 
+
+For more information on registering your model as an asset, see [Register your model as an asset in Machine Learning by using the SDK](how-to-manage-models.md#register-your-model-as-an-asset-in-machine-learning-by-using-the-sdk)
+
+For more information on creating an environment, see 
+[Manage Azure Machine Learning environments with the CLI & SDK (v2)](hmachine-learning.md/how-to-manage-environments-v2#create-an-environment)
+
+---
 
 ### Use different CPU and GPU instance types
 
