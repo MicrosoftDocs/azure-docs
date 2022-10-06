@@ -13,7 +13,7 @@ ms.author: mapankra
 
 Working with SAP datasets in Microsoft Excel or Power BI is a common requirement for customers.
 
-This article describes the required configurations and components to enable SAP dataset consumption via OData with [Power Query](/power-query/power-query-what-is-power-query). The SAP data integration is considered "live" because it can be refreshed from clients like Excel or Power BI on-demand--in contrast to Excel exports (like ALV CSV exports) for instance. Those exports are static by nature and have no continuous relationship with the data origin.
+This article describes the required configurations and components to enable SAP dataset consumption via OData with [Power Query](/power-query/power-query-what-is-power-query). The SAP data integration is considered **"live"** because it can be refreshed from clients such as Microsoft Excel or Power BI on-demand, unlike data exports (like ALV CSV exports) for instance. Those exports are **static** by nature and have no continuous relationship with the data origin.
 
 The article puts emphasis on end-to-end user mapping between the known Azure AD identity in Power Query and the SAP backend user. This mechanism is often referred to as SAP Principal Propagation.
 
@@ -47,9 +47,9 @@ For more information on which Microsoft products support Power Query, see [the P
 End users have a choice between local desktop or web-based clients (for instance Excel or Power BI). The client execution environment needs to be considered for the network path between the client application and the target SAP workload. Network access solutions such as VPN aren't in scope for apps like Excel for the web.
 
 [Azure API Management](/services/api-management/) reflects local and web-based environment needs with different deployment modes that can be applied to Azure landscapes ([internal](/azure/api-management/api-management-using-with-internal-vnet?tabs=stv2)
-or [external](/azure/api-management/api-management-using-with-vnet?tabs=stv2)). Internal refers to instances that are fully restricted to a private virtual network whereas external retains public access to Azure API Management. On-premises installations require a hybrid deployment to apply the approach as is using the Azure API Management [self-hosted Gateway](/azure/api-management/self-hosted-gateway-overview).
+or [external](/azure/api-management/api-management-using-with-vnet?tabs=stv2)). `Internal` refers to instances that are fully restricted to a private virtual network whereas `external` retains public access to Azure API Management. On-premises installations require a hybrid deployment to apply the approach as is using the Azure API Management [self-hosted Gateway](/azure/api-management/self-hosted-gateway-overview).
 
-Power Query requires matching API service URL and Azure AD application ID URL. Since standard Azure domains, like `apim-service-name.azure-api.net`, can't be registered as application ID, a [custom domain for Azure API Management](/azure/api-management/configure-custom-domain) needs to be set up.
+Power Query requires matching API service URL and Azure AD application ID URL. Configure a [custom domain for Azure API Management](/azure/api-management/configure-custom-domain) to meet the requirement.
 
 [SAP Gateway](https://help.sap.com/docs/SAP_GATEWAY) needs to be configured to expose the desired target OData services. Discover and activate available services via SAP transaction code `/IWFND/MAINT_SERVICE`. For more information, see SAP's [OData configuration](https://help.sap.com/docs/SAP_GATEWAY).
 
@@ -124,7 +124,10 @@ Continue to choose at which level the authentication settings should be applied 
 
 ## Configure SAP Principal Propagation with Azure API Management
 
-Use [this](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Request%20OAuth2%20access%20token%20from%20SAP%20using%20AAD%20JWT%20token.xml) second Azure API Management policy for SAP to complete the configuration for SAP Principal Propagation on the middle layer. For more information about the configuration of the SAP Gateway backend, see [this Microsoft tutorial](/azure/active-directory/saas-apps/sap-netweaver-tutorial#configure-sap-netweaver-for-oauth). Learn more about SAP Principal Propagation from [this](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway/) SAP community post and [this video series](https://github.com/MartinPankraz/SAP-MSTeams-Hero/blob/main/Towel-Bearer/103a-sap-principal-propagation-basics.md)
+Use [this](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Request%20OAuth2%20access%20token%20from%20SAP%20using%20AAD%20JWT%20token.xml) second Azure API Management policy for SAP to complete the configuration for SAP Principal Propagation on the middle layer. For more information about the configuration of the SAP Gateway backend, see [this Microsoft tutorial](/azure/active-directory/saas-apps/sap-netweaver-tutorial#configure-sap-netweaver-for-oauth).
+
+> [!NOTE]
+> Learn more about SAP Principal Propagation from [this](https://blogs.sap.com/2021/08/12/.net-speaks-odata-too-how-to-implement-azure-app-service-with-sap-odata-gateway/) SAP community post and [this video series](https://github.com/MartinPankraz/SAP-MSTeams-Hero/blob/main/Towel-Bearer/103a-sap-principal-propagation-basics.md).
 
 :::image type="content" source="media/expose-sap-odata-to-power-query/app-registration-dependencies.png" alt-text="Diagram that shows the Azure Active Directory app registrations involved in this article":::
 
@@ -138,7 +141,7 @@ The UPN mapping is maintained on the SAP back end using transaction **SAML2**.
 
 :::image type="content" source="media/expose-sap-odata-to-power-query/saml2-config.png" alt-text="Screenshot that shows the email mapping mode in SAP SAML2 transaction":::
 
-According to this configuration **named SAP users** will be mapped to the respective Azure AD user. See below an example configuration from the SAP back end using transaction code SU01.
+According to this configuration **named SAP users** will be mapped to the respective Azure AD user. See below an example configuration from the SAP back end using transaction code **SU01**.
 
 :::image type="content" source="media/expose-sap-odata-to-power-query/sap-su01-config.png" alt-text="Screenshot of named SAP user in transaction SU01 with mapped email address":::
 
@@ -151,7 +154,7 @@ honoring the SAP named user mapping.
 
 ## SAP OData access via other Power Query enabled applications and services
 
-Above example shows the flow for Excel Desktop, but the approach is applicable to **any** Power Query enabled Microsoft product. For more information which products support Power Query, see [the Power Query documentation](/power-query/power-query-what-is-power-query#where-can-you-use-power-query). Popular consumers are [Power BI](/power-bi/connect-data/desktop-connect-odata), Excel for the web, [Azure Data Factory](/azure/data-factory/control-flow-power-query-activity), [Azure Synapse Analytics Pipelines](/azure/data-factory/control-flow-power-query-activity), [Power Automate](/flow/) and [Dynamics 365](/power-query/power-query-what-is-power-query#where-can-you-use-power-query).
+Above example shows the flow for Excel Desktop, but the approach is applicable to **any** Power Query enabled Microsoft product. For more information which products support Power Query, see [the Power Query documentation](/power-query/power-query-what-is-power-query#where-can-you-use-power-query). Popular consumers are [Power BI](/power-bi/connect-data/desktop-connect-odata), [Excel for the web](https://www.office.com/launch/excel), [Azure Data Factory](/azure/data-factory/control-flow-power-query-activity), [Azure Synapse Analytics Pipelines](/azure/data-factory/control-flow-power-query-activity), [Power Automate](/flow/) and [Dynamics 365](/power-query/power-query-what-is-power-query#where-can-you-use-power-query).
 
 ## Next steps
 
@@ -161,12 +164,12 @@ Above example shows the flow for Excel Desktop, but the approach is applicable t
 
 [Configure Azure API Management for SAP APIs](/azure/api-management/sap-api)
 
+[Tutorial: Analyze sales data from Excel and an OData feed](/power-bi/connect-data/desktop-tutorial-analyzing-sales-data-from-excel-and-an-odata-feed)
+
 [Protect APIs with Application Gateway and API Management](/azure/architecture/reference-architectures/apis/protect-apis)
 
 [Integrate API Management in an internal virtual network with Application Gateway](/azure/api-management/api-management-howto-integrate-internal-vnet-appgateway)
 
 [Understand Azure Application Gateway and Web Application Firewall for SAP](https://blogs.sap.com/2020/12/03/sap-on-azure-application-gateway-web-application-firewall-waf-v2-setup-for-internet-facing-sap-fiori-apps/)
-
-[Understand implication of combining Azure Firewall and Azure Application Gateway](/azure/architecture/example-scenario/gateway/firewall-application-gateway#application-gateway-before-firewall)
 
 [Automate API deployments with APIOps](/azure/architecture/example-scenario/devops/automated-api-deployments-apiops)
