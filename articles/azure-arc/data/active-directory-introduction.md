@@ -7,15 +7,13 @@ ms.subservice: azure-arc-data-sqlmi
 author: mikhailalmeida
 ms.author: mialmei
 ms.reviewer: mikeray
-ms.date: 04/15/2022
+ms.date: 10/11/2022
 ms.topic: how-to
 ---
 
 # Azure Arc-enabled SQL Managed Instance with Active Directory authentication 
 
 Azure Arc-enabled data services support Active Directory (AD) for Identity and Access Management (IAM). The Arc-enabled SQL Managed Instance uses an existing on-premises Active Directory (AD) domain for authentication. 
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 This article describes how to enable Azure Arc-enabled SQL Managed Instance with Active Directory (AD) Authentication. The article demonstrates two possible AD integration modes: 
 -  Customer-managed keytab (CMK) 
@@ -55,7 +53,7 @@ To enable Active Directory authentication for Arc-enabled SQL Managed Instance, 
 
 The following section compares these modes.
 
-|                  |Customer-managed keytab​|System-managed keytab -  Preview​|
+|                  |Customer-managed keytab​|System-managed keytab|
 |------------------|---------|--------|
 |**Use cases**|Small and medium size businesses who are familiar with managing Active Directory objects and want flexibility in their automation process |All sizes of businesses - seeking to highly automated Active Directory management experience|
 |**User provides**|An Active Directory account and SPNs under that account, and a [keytab file](/sql/linux/sql-server-linux-ad-auth-understanding#what-is-a-keytab-file) for Active Directory authentication |An [Organizational Unit (OU)](../../active-directory-domain-services/create-ou.md) and a domain service account has [sufficient permissions](deploy-system-managed-keytab-active-directory-connector.md?#prerequisites) on that OU in Active Directory.|
