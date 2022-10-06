@@ -125,8 +125,6 @@ let tokenResponse = await identityClient.getToken(identityResponse, ["voip"]);
 
 // Get the token and its expiration date from the response
 const { token, expiresOn } = tokenResponse;
-
-// Print the expiration date and token to the screen
 console.log(`\nIssued an access token with 'voip' scope that expires at ${expiresOn}:`);
 console.log(token);
 ```
@@ -143,8 +141,6 @@ let tokenResponse = await identityClient.getToken
 
 // Get the token and its expiration date from the response
 const { token, expiresOn } = tokenResponse;
-
-// Print the expiration date and token to the screen
 console.log(`\nIssued an access token with 'voip' scope and custom expiration time that expires at ${expiresOn}:`);
 console.log(token);
 ```
@@ -159,8 +155,6 @@ let identityTokenResponse = await identityClient.createUserAndToken(["voip"]);
 
 // Get the token, its expiration date, and the user from the response
 const { token, expiresOn, user } = identityTokenResponse;
-
-// print these details to the screen
 console.log(`\nCreated an identity with ID: ${user.communicationUserId}`);
 console.log(`\nIssued an access token with 'voip' scope that expires at ${expiresOn}:`);
 console.log(token);
@@ -175,8 +169,6 @@ let identityTokenResponse = await identityClient.createUserAndToken(["voip"], us
 
 // Get the token, its expiration date, and the user from the response
 const { token, expiresOn, user } = identityTokenResponse;
-
-// print these details to the screen
 console.log(`\nCreated an identity with ID: ${user.communicationUserId}`);
 console.log(`\nIssued an access token with 'voip' scope and custom expiration time that expires at ${expiresOn}:`);
 console.log(token);

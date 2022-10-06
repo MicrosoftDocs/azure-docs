@@ -169,6 +169,7 @@ Alternatively, you can use the 'createUserAndToken' method to create a new entry
 issue an access token at the same time.
 
 ```java
+//Create an identity and issue token with validity of 24 hours in one call
 List<CommunicationTokenScope> scopes = Arrays.asList(CommunicationTokenScope.CHAT);
 CommunicationUserIdentifierAndToken result = communicationIdentityClient.createUserAndToken(scopes);
 CommunicationUserIdentifier user = result.getUser();
@@ -183,6 +184,7 @@ You can also customize of the token expiration time in this API as little as an 
 
 
 ```java
+//Create an identity and issue token with validity of an hour in one call
 List<CommunicationTokenScope> scopes = Arrays.asList(CommunicationTokenScope.CHAT);
 Duration tokenExpiresIn = Duration.ofHours(1);
 CommunicationUserIdentifierAndToken result = communicationIdentityClient.createUserAndToken(scopes, tokenExpiresIn);

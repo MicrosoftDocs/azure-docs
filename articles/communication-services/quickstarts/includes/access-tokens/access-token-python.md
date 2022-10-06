@@ -36,6 +36,7 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 
    ```python
    import os
+   from datetime import timedelta
    from azure.communication.identity import CommunicationIdentityClient, CommunicationUserIdentifier
 
    try:
@@ -94,10 +95,7 @@ Use the `get_token` method to issue an access token for your Communication Servi
 ```python
 # Issue an access token with validity of 24 hours and the "voip" scope for an identity
 token_result = client.get_token(identity, ["voip"])
-expires_on = token_result.expires_on.strftime("%d/%m/%y %I:%M %S %p")
-
-# Print the details to the screen
-print("\nIssued an access token with 'voip' scope that expires at " + expires_on + ":")
+print("\nIssued an access token with 'voip' scope that expires at " + token_result.expires_on + ":")
 print(token_result.token)
 ```
 
@@ -109,10 +107,7 @@ Alternatively, you can customize the token expiration time as little as an hour 
 # Issue an access token with validity of an hour and the "voip" scope for an identity
 token_expires_in = timedelta(hours=1)
 token_result = client.get_token(identity, ["voip"], token_expires_in=token_expires_in)
-expires_on = token_result.expires_on.strftime("%d/%m/%y %I:%M %S %p")
-
-# Print the details to the screen
-print("\nIssued an access token with 'voip' scope and custom expiration that expires at " + expires_on + ":")
+print("\nIssued an access token with 'voip' scope and custom expiration that expires at " + token_result.expires_on + ":")
 print(token_result.token)
 ```
 
@@ -127,9 +122,7 @@ identity_token_result = client.create_user_and_token(["voip"])
 # Get the token details from the response
 identity = identity_token_result[0]
 token = identity_token_result[1].token
-expires_on = identity_token_result[1].expires_on.strftime("%d/%m/%y %I:%M %S %p")
-
-# Print the details to the screen
+expires_on = identity_token_result[1].expires_on
 print("\nCreated an identity with ID: " + identity.properties['id'])
 print("\nIssued an access token with 'voip' scope that expires at " + expires_on + ":")
 print(token)
@@ -145,9 +138,7 @@ identity_token_result = client.create_user_and_token(["voip"], token_expires_in=
 # Get the token details from the response
 identity = identity_token_result[0]
 token = identity_token_result[1].token
-expires_on = identity_token_result[1].expires_on.strftime("%d/%m/%y %I:%M %S %p")
-
-# Print the details to the screen
+expires_on = identity_token_result[1].expires_on
 print("\nCreated an identity with ID: " + identity.properties['id'])
 print("\nIssued an access token with 'voip' scope and custom expiration that expires at " + expires_on + ":")
 print(token)

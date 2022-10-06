@@ -129,8 +129,6 @@ var tokenResponse = await client.GetTokenAsync(identity, scopes: new [] { Commun
 // Get the token from the response
 var token =  tokenResponse.Value.Token;
 var expiresOn = tokenResponse.Value.ExpiresOn;
-
-// Write the token details to the screen
 Console.WriteLine($"\nIssued an access token with 'voip' scope that expires at {expiresOn}:");
 Console.WriteLine(token);
 ```
@@ -147,8 +145,6 @@ var tokenResponse = await client.GetTokenAsync(identity, scopes: new [] { Commun
 // Get the token from the response
 var token =  tokenResponse.Value.Token;
 var expiresOn = tokenResponse.Value.ExpiresOn;
-
-// Write the token details to the screen
 Console.WriteLine($"\nIssued an access token with 'voip' scope and custom expiration time that expires at {expiresOn}:");
 Console.WriteLine(token);
 ```
@@ -165,8 +161,6 @@ var identityAndTokenResponse = await client.CreateUserAndTokenAsync(scopes: new[
 var identity = identityAndTokenResponse.Value.User;
 var token = identityAndTokenResponse.Value.AccessToken.Token;
 var expiresOn = identityAndTokenResponse.Value.AccessToken.ExpiresOn;
-
-// Print the details to the screen
 Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
 Console.WriteLine($"\nIssued an access token with 'voip' scope that expires at {expiresOn}:");
 Console.WriteLine(token);
@@ -183,8 +177,6 @@ var identityAndTokenResponse = await client.CreateUserAndTokenAsync(scopes: new[
 var identity = identityAndTokenResponse.Value.User;
 var token = identityAndTokenResponse.Value.AccessToken.Token;
 var expiresOn = identityAndTokenResponse.Value.AccessToken.ExpiresOn;
-
-// Print the details to the screen
 Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
 Console.WriteLine($"\nIssued an access token with 'voip' scope and custom expiration time that expires at {expiresOn}:");
 Console.WriteLine(token);
