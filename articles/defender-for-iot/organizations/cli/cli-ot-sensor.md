@@ -407,7 +407,7 @@ For more information, see [Certificates for appliance encryption and authenticat
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
-| **cyberx** | `cyberx-xsense-certificate-import` | cyberx-xsense-certificate-import [-h] [--crt <PATH>] [--key <FILE NAME>] [--chain <PATH>] [--pass <PASSPHRASE>] [--passphrase-set <VALUE>]`
+| **cyberx** | `cyberx-xsense-certificate-import` | cyberx-xsense-certificate-import [-h] [--crt &lt;PATH&gt;] [--key &lt;FILE NAME&gt;] [--chain &lt;PATH&gt;] [--pass &lt;PASSPHRASE&gt;] [--passphrase-set &lt;VALUE&gt;]`
 
 In this command:
 
