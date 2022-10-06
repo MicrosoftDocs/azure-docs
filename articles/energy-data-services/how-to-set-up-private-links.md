@@ -25,7 +25,7 @@ This article describes how to set up private endpoints for Microsoft Energy Data
 
 ## Pre-requisites
 
-Create a virtual network in the same subscription as the Microsoft Energy Data Services instance. [Learn more](../virtual-network/quick-create-portal.md). This will allow auto-approval of the private link endpoint.
+Create a virtual network in the same subscription as the Microsoft Energy Data Services instance. [Learn more](../virtual-network/quick-create-portal.md). This virtual network will allow auto-approval of the private link endpoint.
 
 ## Create a private endpoint by using the Azure portal
 
@@ -108,7 +108,7 @@ Use the following steps to create a private endpoint for an existing Microsoft E
     [![Screenshot of private link showing connection state as auto-approved.](media/how-to-manage-private-links/private-links-9-auto-approved.png)](media/how-to-manage-private-links/private-links-9-auto-approved.png#lightbox)
 
 
-18. When the Microsoft Energy Data Services and vnet are in different tenants or subscriptions, you will be required to **Approve** or **Reject** the **Private Endpoint** creation request. 
+18. When the Microsoft Energy Data Services and vnet are in different tenants or subscriptions, you'll be required to **Approve** or **Reject** the **Private Endpoint** creation request. 
 
     [![Screenshot of private link showing approve or reject option.](media/how-to-manage-private-links/private-links-10-awaiting-approval.png)](media/how-to-manage-private-links/private-links-10-awaiting-approval.png#lightbox)
 
