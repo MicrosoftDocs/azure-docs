@@ -24,8 +24,6 @@ Before you can proceed with the tasks in this article, you need:
 - Azure Arc data controller deployed, either in `direct` or `indirect` mode
 - Active Directory connector deployed
 
-You need a direct or indirect mode connected to data controller with the imageTag `v1.2.0_2021-12-15` or greater.
-
 ### Install tools
 
 To upgrade the Active Directory connector (adc), you need to have the Kubernetes tools such as kubectl installed.
