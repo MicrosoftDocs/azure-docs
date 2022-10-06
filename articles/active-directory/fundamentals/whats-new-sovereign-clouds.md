@@ -180,25 +180,6 @@ We highly recommend enabling this new protection when using Azure AD Multi-Facto
  
 ---
 
-### Public Preview - OATH hardware tokens are now available in Azure Government 
-
-**Type:** New feature  
-**Service category:** MFA      
-**Product capability:** Identity Security & Protection     
-
- 
-Azure AD supports the use of OATH-TOTP SHA-1 tokens that refresh codes every 30 or 60 seconds. Customers can purchase these tokens from the vendor of their choice. The public preview is now available in Azure Government. For more information, see: [OATH hardware tokens (Preview)](../authentication/concept-authentication-oath-tokens.md#oath-hardware-tokens-preview).
-
-
-
- 
----
-
-
-
-
-
-
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
