@@ -7,7 +7,9 @@ ms.date: 09/11/2022
 
 # OT sensor cloud connection methods
 
-This article describes the architectures and methods supported for connecting your Microsoft Defender for IoT OT sensors to the cloud.
+This article describes the architectures and methods supported for connecting your Microsoft Defender for IoT OT sensors to the cloud. An integral part of the Microsoft Defender for IoT service is the managed cloud service in Azure that acts as the central security monitoring portal for aggregating security information collected from network monitoring sensors and security agents. In order to ensure the security of IoT/OT at a global scale, the service supports millions of concurrent telemetry sources securely and reliably. 
+
+
 
 The cloud connection methods described in this article are supported only for OT sensor version 22.x and later. All methods provide:
 
