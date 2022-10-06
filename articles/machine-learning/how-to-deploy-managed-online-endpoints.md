@@ -510,12 +510,10 @@ This deployment might take up to 15 minutes, depending on whether the underlying
     Using the `MLClient` created earlier, we'll now create the Endpoint in the workspace. This command will start the endpoint creation and return a confirmation response while the endpoint creation continues.
 
     ```python
-    endpoint = ml_client.online_endpoints.begin_create_or_update(endpoint)
-    #ml_client.begin_create_or_update(endpoint)
+    ml_client.online_endpoints.begin_create_or_update(endpoint)
     ```
-    <Todo: need to verify. do we need to redefine endpoint variable?>
 
-1. Configure online deployment:
+2. Configure online deployment:
 
     A deployment is a set of resources required for hosting the model that does the actual inferencing. We'll create a deployment for our endpoint using the `ManagedOnlineDeployment` class.
 
@@ -539,7 +537,7 @@ This deployment might take up to 15 minutes, depending on whether the underlying
     )
     ```
 
-1. Create the deployment:
+3. Create the deployment:
 
     Using the `MLClient` created earlier, we'll now create the deployment in the workspace. This command will start the deployment creation and return a confirmation response while the deployment creation continues.
 
