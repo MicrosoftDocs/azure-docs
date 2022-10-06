@@ -3,12 +3,12 @@ title: Limited Access features for Cognitive Services
 titleSuffix: Azure Cognitive Services
 description: Azure Cognitive Services that are available with Limited Access are described below.
 services: cognitive-services
-author: nitinme
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/16/2022
-ms.author: nitinme
+ms.author: pafarley
 ---
 
 # Limited Access features for Cognitive Services
