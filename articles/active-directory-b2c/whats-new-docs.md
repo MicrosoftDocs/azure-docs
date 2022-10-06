@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory business-to-customer (B2C)"
 description: "New and updated documentation for the Azure Active Directory business-to-customer (B2C)."
-ms.date: 08/01/2022
+ms.date: 10/04/2022
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -14,6 +14,12 @@ manager: CelesteDG
 # Azure Active Directory B2C: What's new
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md) and [Azure AD B2C developer release notes](custom-policy-developer-notes.md)
+
+## September
+
+### New articles
+
+- [Tutorial: Configure the Grit IAM B2B2C solution with Azure Active Directory B2C](partner-grit-iam.md)
 
 ## August 2022
 
