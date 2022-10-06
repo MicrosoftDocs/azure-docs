@@ -10,7 +10,8 @@ ms.topic: quickstart
 ms.date: 06/24/2022
 ms.author: lajanuar
 ms.custom: cog-serv-seo-may-2021, ignite-fall-2021, mode-other
-keywords: document processing
+monikerRange: 'form-recog-2.1.0'
+recommendations: false
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -18,6 +19,8 @@ keywords: document processing
 <!-- markdownlint-disable MD034 -->
 <!-- markdownlint-disable MD029 -->
 # Get started with the Form Recognizer Sample Labeling tool
+
+::: moniker range="form-recog-2.1.0"
 
 >[!TIP]
 >
@@ -289,3 +292,5 @@ That's it! You've learned how to use the Form Recognizer sample tool for Form Re
 
 >[!div class="nextstepaction"]
 > [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com/studio)
+
+::: moniker-end

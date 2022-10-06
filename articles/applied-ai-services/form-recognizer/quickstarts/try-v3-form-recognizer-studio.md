@@ -7,13 +7,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 03/08/2022
+ms.date: 10/06/2022
 ms.author: lajanuar
-ms.custom: ignite-fall-2021, mode-ui
+monikerRange: 'form-recog-3.0.0'
 ---
 
 # Get started: Form Recognizer Studio | v3.0
 
+::: moniker range="form-recog-3.0.0"
 
 [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service in your applications. You can get started by exploring the pre-trained models with sample or your own documents. You can also create projects to build custom template models and reference the models in your applications using the [Python SDK](get-started-v3-sdk-rest-api.md) and other quickstarts.
 
@@ -208,3 +209,5 @@ To label for signature detection: (Custom form only)
 * Refer to our [**v3.0 REST API quickstarts**](get-started-v3-sdk-rest-api.md) to try the v3.0 features using the new REST API.
 
 [Get started with the Form Recognizer Studio](https://formrecognizer.appliedai.azure.com).
+
+::: moniker-end

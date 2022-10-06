@@ -30,22 +30,18 @@ items:
     href: faq.yml
 - name: Quickstarts
   items:
-   - name: "Form Recognizer v3.0"
-     items:
-       - name: Form Recognizer Studio | v3.0
-         displayName: get started, cors, blob, storage, upload, labels, custom, dynamic, fixed, signatures
-         href: quickstarts/try-v3-form-recognizer-studio.md
-       - name: Form Recognizer SDKs and REST API v3.0
-         displayName: get started, documentAnalysisClient, document analysis client, AzureKeyCredential, azure key credential, AnalyzeResult, analyze result, output, polygon,begin_analyze_document , boundingPolygon, key, endpoint, packages, headers
-         href: quickstarts/get-started-v3-sdk-rest-api.md
-   - name: Form Recognizer v2.1
-     items:
-     - name: Sample Labeling tool
-       displayName: tables, labels, ocr, bounding box
-       href: quickstarts/try-sample-label-tool.md
-     - name: Form Recognizer SDKs and REST API v2.1
-       displayName: formRecognizerClient, form recognizer client, boundingBox, box, begin_recognize
-       href: quickstarts/get-started-v2-1-sdk-rest-api.md
+    - name: Form Recognizer Studio | v3.0
+      displayName: get started, cors, blob, storage, upload, labels, custom, dynamic, fixed, signatures
+      href: quickstarts/try-v3-form-recognizer-studio.md
+    - name: Form Recognizer SDKs and REST API v3.0
+      displayName: get started, documentAnalysisClient, document analysis client, AzureKeyCredential, azure key credential, AnalyzeResult, analyze result, output, polygon,begin_analyze_document , boundingPolygon, key, endpoint, packages, headers
+      href: quickstarts/get-started-v3-sdk-rest-api.md
+    - name: Sample Labeling tool
+      displayName: tables, labels, ocr, bounding box
+      href: quickstarts/try-sample-label-tool.md
+    - name: Form Recognizer SDKs and REST API v2.1
+      displayName: formRecognizerClient, form recognizer client, boundingBox, box, begin_recognize
+      href: quickstarts/get-started-v2-1-sdk-rest-api.md
 - name: How-to guides
   items:
   - name: Create a Form Recognizer resource
