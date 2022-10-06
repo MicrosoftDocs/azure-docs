@@ -60,7 +60,7 @@ System is UP! (medium)
 
 ### Restart an appliance
 
-Use the following commands to restart an OT sensor appliance.
+Use the following commands to restart the OT sensor appliance.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
@@ -77,7 +77,7 @@ root@xsense: system reboot
 
 ### Shut down an appliance
 
-Use the following commands to shut down an OT sensor appliance.
+Use the following commands to shut down the OT sensor appliance.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
@@ -234,20 +234,20 @@ monitor interfaces mapping: local_listener=adiot0
 root@xsense:
 ```
 
-### Ping an OT sensor
+### Check network connectivity from the OT sensor
 
-Use the following commands to send a ping message to an OT sensor.
+Use the following commands to send a ping message from the OT sensor.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**support**     |   `ping <IP address>`      |  No attributes|
 |**cyberx**      |   `ping <IP address>`      |   No attributes |
 
-In these commands, `<IP address>` is the IP address of a valid IPv4 network host from the management port on your OT sensor.
+In these commands, `<IP address>` is the IP address of a valid IPv4 network host accessible from the management port on your OT sensor.
 
-### Locate a connection with blinking an interface light
+### Locate a physical port by blinking interface lights
 
-Use the following command to locate a specific connection by causing the interface lights to blink.
+Use the following command to locate a specific physical interface by causing the interface lights to blink.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
@@ -262,9 +262,9 @@ root@xsense: network blink eth0
 Blinking interface for 20 seconds ...
 ```
 
-### List connected ethernet interfaces
+### List connected physical interfaces
 
-Use the following commands to list the connected ethernet interfaces on your OT sensor.
+Use the following commands to list the connected physical interfaces on your OT sensor.
 
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
@@ -316,7 +316,7 @@ The machine was successfully able to connect the internet.
 root@xsense:/#
 ```
 
-### Check network interfaces usage
+### Check network interface current load
 
 Use the following command to display network traffic and bandwidth using a six-second test.
 
@@ -347,7 +347,7 @@ root@xsense:/#
 
 ### Set bandwidth limit for the management network interface
 
-Use the following command set the outbound bandwidth limit for uploads from the OT sensor's management interface to the Azure portal or an on-premises management console.
+Use the following command to set the outbound bandwidth limit for uploads from the OT sensor's management interface to the Azure portal or an on-premises management console.
 
 Setting outbound bandwidth limits can be helpful in maintaining networking quality of service (QoS). This command is supported only in bandwidth-constrained environments, such as over a satellite or serial link.
 
