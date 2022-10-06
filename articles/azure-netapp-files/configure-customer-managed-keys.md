@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 10/05/2022
+ms.date: 10/06/2022
 ms.author: anfdocs
 ---
 
@@ -217,24 +217,26 @@ Although there are pre-defined roles with these privileges, it is recommended th
 
 ```json
 {
-	"id": "/subscriptions/<subscription>/Microsoft.Authorizaiton/roleDefinitions/<role>",
+	"id": "/subscriptions/<subscription>/Microsoft.Authorization/roleDefinitions/<roleDefinitionsID>",
 	"properties": {
 	    "roleName": "NetApp account",
-	    "description": "",
-	    "assignableScopes": ["/subscriptions/<subscription>/resourceGroups/<resource-group>"],
-	    "permissions": [
-      {
-        "actions": [],
-        "notActions": [],
-        "dataActions": [
-            "Microsoft.KeyVault/vaults/keys/read",
-            "Microsoft.KeyVault/vaults/keys/encrypt/action",
-            "Microsoft.KeyVault/vaults/keys/decrypt/action"
+	    "description": "Has the necessary permissions for customer-managed key encryption: get key, encrypt and decrypt",
+	    "assignableScopes": [
+            "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroup>"
         ],
-        "notDataActions": []
-	    }
-    ]
-	}
+	    "permissions": [
+          {
+            "actions": [],
+            "notActions": [],
+            "dataActions": [
+                "Microsoft.KeyVault/vaults/keys/read",
+                "Microsoft.KeyVault/vaults/keys/encrypt/action",
+                "Microsoft.KeyVault/vaults/keys/decrypt/action"
+            ],
+            "notDataActions": []
+	        }
+        ]
+	  }
 }
 ```
 
