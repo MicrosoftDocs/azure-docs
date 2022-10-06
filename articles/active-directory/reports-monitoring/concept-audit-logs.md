@@ -28,15 +28,7 @@ This article gives you an overview of the audit logs.
 
 ## What is it?
 
-With the audit logs in Azure AD, you get access to records of system activities for compliance.
-The most common views of this log are based on the following categories:
-
-- User management
-
-- Group management
- 
-- Application management  
-
+Audit logs in Azure AD provide access to system activity records, often needed for compliance. This log is categorized by user, group, and application management.
 
 With a user-centric view, you can get answers to questions such as:
 
@@ -59,6 +51,7 @@ With a group-centric view, you can get answers to questions such as:
 
 - What licenses have been assigned to a group or a user?
 
+
 With an application-centric view, you can get answers to questions such as:
 
 - What applications have been added or updated?
@@ -76,9 +69,9 @@ With an application-centric view, you can get answers to questions such as:
 
 The audit activity report is available in all editions of Azure AD. To access the audit logs, you need to have one of the following roles: 
 
-- Security Administrator
-- Security Reader
 - Report Reader
+- Security Reader
+- Security Administrator
 - Global Reader
 - Global Administrator
 
@@ -103,33 +96,31 @@ You can customize and filter the list view by clicking the **Columns** button in
 
 ![Screenshot of available fields.](./media/concept-audit-logs/columnselect.png "Remove fields")
 
-### Filter audit logs
+### Filtering audit logs
 
 You can filter the audit data using the options visible in your list such as date range, service, category, and activity. 
 
-The **Service** filter defaults to all available services, but you can filter the list to one or more by selecting an option from the dropdown list.
-
 ![Screenshot of the service filter.](./media/concept-audit-logs/audit-log-service-filter.png)
 
-The **Category** filter also defaults to all categories, but can be filtered to view the category of activity, such as changing a policy or activating an eligible Azure AD role.
+- **Service**: Defaults to all available services, but you can filter the list to one or more by selecting an option from the dropdown list.
 
-The **Activity** filter is based on the category and activity resource type selection you make. You can select a specific activity you want to see or choose all. 
+- **Category**: Defaults to all categories, but can be filtered to view the category of activity, such as changing a policy or activating an eligible Azure AD role.
 
-You can get the list of all Audit Activities using the Graph API: `https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
+- **Activity**: Based on the category and activity resource type selection you make. You can select a specific activity you want to see or choose all.
+ 
+    You can get the list of all Audit Activities using the Graph API: `https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
 
-The **Status** filter allows you to look at result based on if the activity was a success or failure.
+- **Status**: Allows you to look at result based on if the activity was a success or failure.
 
-The **Target** filter allows you to search for the target or recipient of an activity. Search by the first few letters of a name or user principal name (UPN). The target name and UPN are case-sensitive. 
+- **Target**: Allows you to search for the target or recipient of an activity. Search by the first few letters of a name or user principal name (UPN). The target name and UPN are case-sensitive. 
 
-The **Initiated by** filter allows you to search by who initiated the activity using the first few letters of their name or UPN. The name and UPN are case-sensitive.
+- **Initiated by**: Allows you to search by who initiated the activity using the first few letters of their name or UPN. The name and UPN are case-sensitive.
 
-The **Date range** filter enables to you to define a timeframe for the returned data. You can search the last 7 days, 24 hours, or a custom range.
+- **Date range**: Enables to you to define a timeframe for the returned data. You can search the last 7 days, 24 hours, or a custom range. When you select a custom timeframe, you can configure a start time and an end time.
 
-When you select a custom timeframe, you can configure a start time and an end time.
+    You can also choose to download the filtered data, up to 250,000 records, by selecting the **Download** button. You can download the logs in either CSV or JSON format. The number of records you can download is constrained by the [Azure Active Directory report retention policies](reference-reports-data-retention.md).
 
-You can also choose to download the filtered data, up to 250,000 records, by selecting the **Download** button. You can download the logs in either CSV or JSON format. The number of records you can download is constrained by the [Azure Active Directory report retention policies](reference-reports-data-retention.md).
-
-![Screenshot of the download data option.](./media/concept-audit-logs/download.png "Download data")
+    ![Screenshot of the download data option.](./media/concept-audit-logs/download.png "Download data")
 
 ## Microsoft 365 activity logs
 

@@ -2,19 +2,14 @@
 title: Provisioning logs in Azure Active Directory | Microsoft Docs
 description: Overview of the provisioning logs in Azure Active Directory.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: shlipsey3
 manager: amycolannino
-editor: ''
-
-ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/26/2022
-ms.author: markvi
+ms.date: 10/05/2022
+ms.author: sarahlipsey
 ms.reviewer: arvinh
 
 ms.collection: M365-identity-device-management
@@ -33,9 +28,9 @@ To support you with this goal, the Azure Active Directory portal gives you acces
 This article gives you an overview of the provisioning logs. 
 
 
-## What can you do with it?
+## What can I do with it?
 
-You can use the the provisioning logs to find answers to questions like:
+You can use the provisioning logs to find answers to questions like:
 
 -  What groups were successfully created in ServiceNow?
 
@@ -44,61 +39,34 @@ You can use the the provisioning logs to find answers to questions like:
 -  What users from Workday were successfully created in Active Directory? 
 
 
-## Who can access it?
-
-These users can access the data in provisioning logs:
-
-- Application owners (logs for their own applications)
-
-- Users in the Security Administrator, Security Reader, Report Reader, Security Operator, Application Administrator, and Cloud Application Administrator roles
-
-- Users in a custom role with the [provisioningLogs permission](../roles/custom-enterprise-app-permissions.md#full-list-of-permissions)
-
-- Global administrators
-
-## What Azure AD license do you need?
+## How can I access it?
 
 To view the provisioning activity report, your tenant must have an Azure AD Premium license associated with it. To upgrade your Azure AD edition, see [Getting started with Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md). 
 
+Application owners can view logs for their own applications. The following roles are required to view provisioning logs:
 
-## How can you access it? 
+- Report Reader
+- Security Reader
+- Security Operator
+- Security Administrator
+- Application Administrator
+- Cloud Application Administrator
+- Global Administrator
+- Users in a custom role with the [provisioningLogs permission](../roles/custom-enterprise-app-permissions.md#full-list-of-permissions)
 
-To access the log data, you have the following options:
+To access the provisioning log data, you have the following options:
 
-- The Azure portal
+- Select **Provisioning logs** from the **Monitoring** section of Azure AD.
 
-- Streaming the provisioning logs into [Azure Monitor](../app-provisioning/application-provisioning-log-analytics.md). This method allows for extended data retention and building custom dashboards, alerts, and queries.
+- Stream the provisioning logs into [Azure Monitor](../app-provisioning/application-provisioning-log-analytics.md). This method allows for extended data retention and building custom dashboards, alerts, and queries.
 
-- Querying the [Microsoft Graph API](/graph/api/resources/provisioningobjectsummary) for the provisioning logs.
+- Query the [Microsoft Graph API](/graph/api/resources/provisioningobjectsummary) for the provisioning logs.
 
-- Downloading the provisioning logs as a CSV or JSON file.
+- Download the provisioning logs as a CSV or JSON file.
 
 
-
-## Where can you find it in the Azure portal?
-
-The Azure portal provides you with several options to access the log. For example, on the Azure Active Directory menu, you can open the log in the **Monitoring** section.  
-
-![Open provisioning logs](./media/concept-sign-ins/sign-ins-logs-menu.png)
 
 Additionally, you can get directly get to the sign-ins logs using this link: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)
-
-
-
-
-
-
-
-
-
-
-
-
-You can access the provisioning logs by selecting **Provisioning Logs** in the **Monitoring** section of the **Azure Active Directory** pane in the [Azure portal](https://portal.azure.com). It can take up to two hours for some provisioning records to appear in the portal.
-
-![Screenshot that shows selections for accessing provisioning logs.](./media/concept-provisioning-logs/access-provisioning-logs.png "Provisioning logs")
-
-
 
 ## What is the default view?
 
@@ -111,9 +79,6 @@ A provisioning log has a default list view that shows:
 - The status
 - The date
 
-
-![Screenshot that shows default columns in a provisioning log.](./media/concept-provisioning-logs/default-columns.png "Default columns")
-
 You can customize the list view by selecting **Columns** on the toolbar.
 
 ![Screenshot that shows the button for customizing columns.](./media/concept-provisioning-logs/column-chooser.png "Column chooser")
@@ -122,14 +87,14 @@ This area enables you to display additional fields or remove fields that are alr
 
 ![Screenshot that shows available columns with some selected.](./media/concept-provisioning-logs/available-columns.png "Available columns")
 
-Select an item in the list view to get more detailed information.
+Select an item from the list to get more detailed information, such as the steps taken to provision the user and tips for troubleshooting issues.
 
 ![Screenshot that shows detailed information.](./media/concept-provisioning-logs/steps.png "Filter")
 
 
 ## Filter provisioning activities
 
-You can filter your provisioning data. Some filter values are dynamically populated based on your tenant. If, for example, you don't have any "create" events in your tenant, there won't be a **Create** filter option.
+When you filter your provisioning data, some filter values are dynamically populated based on your tenant. For example, if you don't have any "create" events in your tenant, there won't be a **Create** filter option.
 
 In the default view, you can select the following filters:
 
@@ -137,7 +102,6 @@ In the default view, you can select the following filters:
 - **Date**
 - **Status**
 - **Action**
-
 
 ![Screenshot that shows filter values.](./media/concept-provisioning-logs/default-filter.png "Filter")
 
