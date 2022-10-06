@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 10/03/2022
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
+monikerRange: 'form-recog-3.0.0'
 recommendations: false
 ---
 <!-- markdownlint-disable MD051 -->

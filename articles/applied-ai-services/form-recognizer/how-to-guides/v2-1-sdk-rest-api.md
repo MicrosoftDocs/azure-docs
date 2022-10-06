@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 09/13/2022
 ms.author: lajanuar
 zone_pivot_groups: programming-languages-set-formre
+monikerRange: 'form-recog-2.1.0'
 recommendations: false
 ---
 
