@@ -1,7 +1,7 @@
 ---
-title: Tools
+title: Tools for search indexing
 titleSuffix: Azure Cognitive Search
-description: Use or build your own tools for working with a search index.
+description: Use existing code samples or build your own tools for working with a search index in Azure Cognitive Search.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
