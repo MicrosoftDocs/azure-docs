@@ -36,7 +36,7 @@
       {
         "group": "grp-form-recognizer",
         "src": "articles/applied-ai-services/form-recognizer",
-        "dest": "./form-recognizer/",
+        "dest": "./applied-ai-services/form-recognizer/",
         "files": [
           "**/*.md",
           "**/*.yml"
@@ -113,7 +113,7 @@
       {
         "group": "grp-form-recognizer",
         "src": "articles/applied-ai-services/form-recognizer",
-        "dest": "./form-recognizer/",
+        "dest": "./applied-ai-services/form-recognizer/",
         "files": [
           "**/*.gif",
           "**/*.jpeg",
