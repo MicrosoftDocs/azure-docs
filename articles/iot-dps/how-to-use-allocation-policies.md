@@ -40,9 +40,11 @@ There are two settings on a linked IoT hub that determine how it participates in
   
   * With a *Custom* allocation policy, whether and how the allocation weight value is used will depend on the webhook logic.
 
-* **Apply allocation policy**: specifies whether the IoT hub participates in allocation policy. If set to **No** (false), devices won't be assigned to the IoT hub. The IoT hub can still be selected on an enrollment, it just won't participate in allocation. You can use this setting to temporarily or permanently remove an IoT hub from participating in allocation; for example, if it's approaching the allowed number of devices.
+* **Apply allocation policy**: specifies whether the IoT hub participates in allocation policy. The default is **Yes** (true). If set to **No** (false), devices won't be assigned to the IoT hub. The IoT hub can still be selected on an enrollment, but it won't participate in allocation. You can use this setting to temporarily or permanently remove an IoT hub from participating in allocation; for example, if it's approaching the allowed number of devices.
 
-Every DPS instance has a default allocation policy. In addition, individual enrollments and enrollment groups can specify an allocation policy and one or more IoT hubs from the IoT hubs linked to the DPS instance that the policy should be applied to.
+To learn more about linking and managing IoT hubs in your DPS instance, see [Link and manage IoT hubs](how-to-manage-linked-iot-hubs.md).
+
+Every DPS instance has a default allocation policy. Instead of using the default allocation policy, individual enrollments and enrollment groups can specify an allocation policy and one or more IoT hubs from the IoT hubs linked to the DPS instance that the policy should be applied to.
 
 When a device provisions through DPS, the service assigns it to an IoT hub according to the following guidelines:
 
@@ -125,7 +127,7 @@ To set allocation policy and select IoT hubs on an enrollment in Azure portal:
 
     * Select the IoT hubs that devices can be assigned to. If you've selected the *Static configuration* allocation policy, you'll be limited to selecting a single linked IoT hub. For all other allocation policies, all the linked IoT hubs will be selected by default, but you can modify this selection using the drop-down. To have the enrollment automatically use linked IoT hubs as they're added to (or deleted from) the DPS instance, unselect all IoT hubs.
 
-    * Optionally, you can select the **Link a new IoT hub** button to link a new IoT hub to the DPS instance and make it available in the list of IoT hubs that can be selected. For details about adding a linked IoT hub, see []().
+    * Optionally, you can select the **Link a new IoT hub** button to link a new IoT hub to the DPS instance and make it available in the list of IoT hubs that can be selected. For details about linking an IoT hub, see [Link an IoT Hub](how-to-manage-linked-iot-hubs.md#use-azure-portal-to-link-an-iot-hub).
 
 1. Set any other properties needed for the enrollment and then save your settings.
 

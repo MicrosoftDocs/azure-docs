@@ -16,7 +16,7 @@ Device Provisioning Service can provision devices across one or more IoT hubs. B
 
 ## Linked IoT hubs and allocation policies
 
-Allocation policies determine how DPS assigns devices to IoT hubs. Before an IoT hub can be used in an allocation policy, it must be linked to the DPS instance. Once an IoT hub is linked to DPS, it's eligible to participate in allocation. Whether it will participate in allocation depends on settings in the enrollment that a device is provisioning through. To learn about DPS allocation policies and how linked IoT hubs participate in them, see [Manage allocation policies](how-to-use-allocation-policies.md).
+Allocation policies determine how DPS assigns devices to IoT hubs. Before an IoT hub can be used in an allocation policy, it must be linked to the DPS instance. Once an IoT hub is linked to DPS, it's eligible to participate in allocation. Whether it will participate in allocation depends on settings in the enrollment that a device is provisioning through.
 
 The following settings are important when working with linked IoT hubs:
 
@@ -24,7 +24,9 @@ The following settings are important when working with linked IoT hubs:
 
 * **Allocation weight**: Determines the likelihood of an IoT hub being selected when DPS hashes device assignment across a set of IoT hubs. The value can be between one and 1000. The default is one (or **null**). Higher values increase the IoT hub's probability of being selected.
 
-* **Apply allocation policy**: Sets whether the IoT hub participates in allocation policy. The default is **Yes** (true). If set to **No** (false), devices won't be assigned to the IoT hub. The IoT hub can still be selected on an enrollment, it just won't participate in allocation. You can use this setting to temporarily or permanently remove an IoT hub from participating in allocation; for example, if it's approaching the allowed number of devices.
+* **Apply allocation policy**: Sets whether the IoT hub participates in allocation policy. The default is **Yes** (true). If set to **No** (false), devices won't be assigned to the IoT hub. The IoT hub can still be selected on an enrollment, but it won't participate in allocation. You can use this setting to temporarily or permanently remove an IoT hub from participating in allocation; for example, if it's approaching the allowed number of devices.
+
+To learn about DPS allocation policies and how linked IoT hubs participate in them, see [Manage allocation policies](how-to-use-allocation-policies.md).
 
 ## Add a linked IoT hub
 
