@@ -1,0 +1,10 @@
+stateDiagram-v2
+    TempSensor
+    note right of TempSensor: 🆕 Is the identity of EdgeGateway correct?
+
+    TempSensor --> EdgeGateway
+    note left of EdgeGateway: 🆕 Is this an authentic message from TempSensor?
+    note right of EdgeGateway: ✅ Is the identity of ContosoIotHub correct?
+
+    EdgeGateway --> ContosoIotHub
+    note left of ContosoIotHub: ✅ Is this an authentic message from EdgeGateway?
