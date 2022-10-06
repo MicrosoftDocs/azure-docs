@@ -148,6 +148,12 @@ Multi-operator Core Network (MOCN) aims to maximize resource usage by sharing a 
 
 In the context of private mobile networks, a single RAN can connect to both a private and a standard macro network, with traffic automatically routed to the appropriate core network based on the PLMN ID.
 
+### Maximum Transmission Units (MTU)
+
+Maximum Transmission Units (MTU) allow you to specify the largest data packet size allowed within the network. Packets that exceed the MTU are fragmented via IPv4 fragmentation. To avoid IPv4 fragmentation, an appropriate MTU should be configured. However, it is not uncommon for some large packets (up to 1500 bytes) to still be fragmented.
+
+By default, the MTUs are configured to an UE MTU of 1440 bytes and a RAN MTU of 1500 bytes. You can optionally configure an UE MTU of 1500 and a RAN MTU of 1560 or higher preventing. This avoids all IP fragmentation, but requires RAN support and additional configuration.
+
 ## Flexible integration with Azure private multi-access edge compute (MEC) partners
 
 Each packet core instance is standards-compliant and compatible with several radio access network (RAN) partners in the Azure private MEC ecosystem.
