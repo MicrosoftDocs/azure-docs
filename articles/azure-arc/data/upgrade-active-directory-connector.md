@@ -11,9 +11,9 @@ ms.date: 10/11/2022
 ms.topic: how-to
 ---
 
-# Upgrade Active Directory connector (adc) for Azure SQL Managed Instance direct or indirect mode connected to Azure Arc
+# Upgrade Active Directory connector
 
-This article describes how to upgrade the Active Directory connector deployed on direct or indirect mode connected to Azure Arc-enabled data controller.
+This article describes how to upgrade the Active Directory connector.
 
 ## Prerequisites
 
@@ -21,12 +21,14 @@ Before you can proceed with the tasks in this article, you need:
 
 - To connect and authenticate to a Kubernetes cluster
 - An existing Kubernetes context selected
+- Azure Arc data controller deployed, either in `direct` or `indirect` mode
+- Active Directory connector deployed
 
-You need a direct or indirect mode connected to data controller with the `imageTag v1.2.0_2021-12-15` or greater.
+You need a direct or indirect mode connected to data controller with the imageTag `v1.2.0_2021-12-15` or greater.
 
 ### Install tools
 
-To upgrade the active directory connector (adc), you need to have the Kubernetes tools installed.
+To upgrade the Active Directory connector (adc), you need to have the Kubernetes tools such as kubectl installed.
 
 The examples in this article use `kubectl`, but similar approaches could be used with other Kubernetes tools such as the Kubernetes dashboard, `oc`, or helm if you're familiar with those tools and Kubernetes yaml/json.
 
@@ -35,20 +37,15 @@ The examples in this article use `kubectl`, but similar approaches could be used
 
 ## Limitations
 
-The Azure Arc Data Controller must be upgraded to the new version before the active directory connector (adc) can be upgraded.
+Auto upgrade of Active Directory connector is applicable from imageTag `v1.12.0_2022-10-11` and above and the Arc data controller must be at least `v1.11.0_2022-09-13` version.
 
 The active directory connector (adc) must be at the same version as the data controller before a data controller is upgraded.
 
 There is no batch upgrade process available at this time.
 
-## Upgrade the active directory connector (adc)
+## Upgrade Active Directory connector for previous versions
 
-
-### Upgrade to `imageTag v1.12.0_2022-10-11` or greater
-
-The active directory connector (adc) automatically upgrades to the new version part of the data controller upgrade.
-
-### Upgrade prior to `imageTag v1.12.0_2022-10-11` or lower
+For imageTag versions `v1.11.0_2022-09-13` or lower, the Active Directory connector must be upgraded manually as below:
 
 Use a kubectl command to view the existing spec in yaml.
 
@@ -64,9 +61,7 @@ kubectl patch adc <adc-name> --namespace <namespace> --type merge --patch '{"spe
 
 ## Monitor
 
-You can monitor the progress of the upgrade with kubectl.
-
-### kubectl
+You can monitor the progress of the upgrade with kubectl as follows:
 
 ```console
 kubectl describe adc <adc-name> --namespace <namespace>

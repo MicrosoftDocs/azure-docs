@@ -58,9 +58,7 @@ kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{
 
 ## Monitor
 
-You can monitor the progress of the upgrade with kubectl.
-
-### kubectl
+You can monitor the progress of the upgrade with kubectl as follows:
 
 ```console
 kubectl describe sqlmi --namespace <namespace>
