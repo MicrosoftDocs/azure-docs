@@ -404,13 +404,14 @@ Use the following command to re-run the OT monitoring software configuration wiz
 |---------|---------|---------|
 |**cyberx_host**     |   `sudo dpkg-reconfigure iot-sensor`      |   No attributes     |
 
-For example, for the **cyberx_host** user:
+For example with the **cyberx_host** user:
 
 ```bash
 root@xsense:/# sudo dpkg-reconfigure iot-sensor
 ```
 
-The configuration wizard starts automatically after you run this command. For more information, see [Install OT monitoring software](../how-to-install-software.md#install-ot-monitoring-software).
+The configuration wizard starts automatically after you run this command. 
+For more information, see [Install OT monitoring software](../how-to-install-software.md#install-ot-monitoring-software).
 
 ## Manage SSL and TLS certificates
 
