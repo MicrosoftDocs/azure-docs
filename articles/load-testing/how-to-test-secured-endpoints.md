@@ -19,6 +19,10 @@ In this article, you learn how to load test secured applications with Azure Load
 
 ## Prerequisites
 
+* An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure Load Testing resource. To create a Load Testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md#create-an-azure-load-testing-resource).
+* An Azure key vault, if you're using client certificates.
+
 ## Authenticate with a shared secret or credentials
 
 In this scenario, the application endpoint requires that you use a shared secret, such as an access token, an API key, or user credentials to authenticate. In the JMeter script, you have to provide this security information with each application request. For example, to load test a web endpoint that uses OAuth 2.0, you add an `Authorization` header, which contains the access token, to the HTTP request.
