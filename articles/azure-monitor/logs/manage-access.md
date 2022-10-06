@@ -283,8 +283,7 @@ To create a role that lets users or groups read data from specific tables in a w
 
         :::image type="content" source="media/manage-access/manage-access-create-custom-role.png" alt-text="Screenshot that shows the Basics tab of the Create a custom role screen with the Custom role name and Description fields highlighted." lightbox="media/manage-access/manage-access-create-custom-role.png":::
 
-    1. Select the **JSON** tab > **Edit**.
-    1. Edit the `"actions"` section to include only `Microsoft.OperationalInsights/workspaces/query/read` and select **Save**.
+    1. Select the **JSON** tab > **Edit** and edit the `"actions"` section to include only `Microsoft.OperationalInsights/workspaces/query/read` and select **Save**.
     
         :::image type="content" source="media/manage-access/manage-access-create-custom-role-json.png" alt-text="Screenshot that shows the JSON tab of the Create a custom role screen with the actions section of the JSON file higlighted." lightbox="media/manage-access/manage-access-create-custom-role-json.png":::    
 
