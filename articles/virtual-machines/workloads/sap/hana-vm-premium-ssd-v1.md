@@ -1,6 +1,6 @@
 ---
 title: SAP HANA Azure virtual machine premium storage configurations | Microsoft Docs
-description: Storage recommendations for VM that have SAP HANA deployed in them.
+description: Storage recommendations HANA using premium storage.
 author: msjuergent
 manager: bburns
 tags: azure-resource-manager

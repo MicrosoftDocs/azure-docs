@@ -1,6 +1,6 @@
 ---
 title: SAP HANA Azure virtual machine storage configurations | Microsoft Docs
-description: Storage recommendations for VM that have SAP HANA deployed in them.
+description: General Storage recommendations for VM that have SAP HANA deployed.
 author: msjuergent
 manager: bburns
 tags: azure-resource-manager

@@ -1,6 +1,6 @@
 ---
 title: SAP HANA Azure virtual machine Ultra Disk configurations | Microsoft Docs
-description: Storage recommendations for VM that have SAP HANA deployed in them.
+description: Storage recommendations for SAP HANA using Ultra disk.
 author: msjuergent
 manager: bburns
 tags: azure-resource-manager
