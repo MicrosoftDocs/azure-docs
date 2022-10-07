@@ -32,7 +32,6 @@ This article provides instructions to create and configure an IPsec/IKE policy a
 > [!IMPORTANT]
 > 1. Note that IPsec/IKE policy only works on the following gateway SKUs:
 >    * ***VpnGw1~5 and VpnGw1AZ~5AZ*** (route-based)
->    * ***Standard*** and ***HighPerformance*** (route-based)
 > 2. You can only specify ***one*** policy combination for a given connection.
 > 3. You must specify all algorithms and parameters for both IKE (Main Mode) and IPsec (Quick Mode). Partial policy specification is not allowed.
 > 4. Consult with your VPN device vendor specifications to ensure the policy is supported on your on-premises VPN devices. S2S or VNet-to-VNet connections cannot establish if the policies are incompatible.
@@ -266,7 +265,7 @@ $vnet2      = Get-AzVirtualNetwork -Name $VNetName2 -ResourceGroupName $RG2
 $subnet2    = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet2
 $gw2ipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GW2IPconf1 -Subnet $subnet2 -PublicIpAddress $gw2pip1
 
-New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance
+New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw3
 ```
 
 ### Step 2 - Create a VNet-toVNet connection with the IPsec/IKE policy
@@ -318,7 +317,7 @@ The last section shows you how to manage IPsec/IKE policy for an existing S2S or
 The same steps apply to both S2S and VNet-to-VNet connections.
 
 > [!IMPORTANT]
-> IPsec/IKE policy is supported on *Standard* and *HighPerformance* route-based VPN gateways only. It does not work on the Basic gateway SKU or the policy-based VPN gateway.
+> IPsec/IKE policy is supported on ***VpnGw1~5*** and ***VpnGw1AZ~5AZ*** route-based VPN gateways only. It does not work on the Basic gateway SKU, regardless of whether it is deployed as a route-based or policy-based VPN gateway.
 
 #### 1. Show the IPsec/IKE policy of a connection
 
