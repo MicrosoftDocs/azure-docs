@@ -1,5 +1,5 @@
 ---
-title: Use number matching in multifactor authentication (MFA) notifications (Preview) - Azure Active Directory
+title: Use number matching in multifactor authentication (MFA) notifications - Azure Active Directory
 description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,7 +11,7 @@ ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
 ---
-# How to use number matching in multifactor authentication (MFA) notifications (Preview) - Authentication methods policy
+# How to use number matching in multifactor authentication (MFA) notifications  - Authentication methods policy
 
 This topic covers how to enable number matching in Microsoft Authenticator push notifications to improve user sign-in security.  
 
@@ -92,7 +92,7 @@ To create the registry key that overrides push notifications:
 Identify your single target group for the schema configuration. Then use the following API endpoint to change the numberMatchingRequiredState property under featureSettings to **enabled**, and include or exclude groups:
 
 ```
-https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
+https://graph.microsoft.com/v1.0/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
 ```
 
 >[!NOTE]
@@ -178,7 +178,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 //Change the Query to PATCH and Run query
  
 {
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodConfigurations/$entity",
     "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
     "id": "MicrosoftAuthenticator",
     "state": "enabled",
@@ -195,7 +195,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
             }
       }
     },
-    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
+    "includeTargets@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
     "includeTargets": [
         {
             "targetType": "group",
@@ -211,7 +211,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 To confirm the change is applied, run the GET request by using the following endpoint: 
 
 ```http
-GET https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
+GET https://graph.microsoft.com/v1.0/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
 ```
 
 #### Example of how to enable number matching for a single group
@@ -225,7 +225,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 
 ```json
 {
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodConfigurations/$entity",
     "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
     "id": "MicrosoftAuthenticator",
     "state": "enabled",
@@ -242,7 +242,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
             }
         }
     },
-    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
+    "includeTargets@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
     "includeTargets": [
         {
             "targetType": "group",
@@ -257,7 +257,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 To verify, run GET again and verify the ObjectID:
 
 ```http
-GET https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
+GET https://graph.microsoft.com/v1.0/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
 ```
 
 #### Example of removing the excluded group from number matching
@@ -271,7 +271,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
 
 ```json
 {
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodConfigurations/$entity",
     "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
     "id": "MicrosoftAuthenticator",
     "state": "enabled",
@@ -288,7 +288,7 @@ Only users who are enabled for Microsoft Authenticator under Microsoft Authentic
             }
         }
     },
-    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
+    "includeTargets@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
     "includeTargets": [
         {
             "targetType": "group",
@@ -306,7 +306,7 @@ To turn number matching off, you'll need to PATCH remove **numberMatchingRequire
 
 ```json
 {
-    "@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodConfigurations/$entity",
+    "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodConfigurations/$entity",
     "@odata.type": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration",
     "id": "MicrosoftAuthenticator",
     "state": "enabled",
@@ -323,7 +323,7 @@ To turn number matching off, you'll need to PATCH remove **numberMatchingRequire
             }
         }
     },
-    "includeTargets@odata.context": "https://graph.microsoft.com/beta/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
+    "includeTargets@odata.context": "https://graph.microsoft.com/v1.0/$metadata#authenticationMethodsPolicy/authenticationMethodConfigurations('MicrosoftAuthenticator')/microsoft.graph.microsoftAuthenticatorAuthenticationMethodConfiguration/includeTargets",
     "includeTargets": [
         {
             "targetType": "group",
@@ -346,7 +346,7 @@ To enable number matching in the Azure AD portal, complete the following steps:
 
    :::image type="content" border="true" source="./media/how-to-mfa-number-match/enable-settings-number-match.png" alt-text="Screenshot of how to enable Microsoft Authenticator settings for Push authentication mode.":::
 
-1. On the **Configure** tab, for **Require number matching for push notifications (Preview)**, change **Status** to **Enabled**, choose who to include or exclude from number matching, and click **Save**. 
+1. On the **Configure** tab, for **Require number matching for push notifications**, change **Status** to **Enabled**, choose who to include or exclude from number matching, and click **Save**. 
 
    :::image type="content" border="true" source="./media/how-to-mfa-number-match/number-match.png" alt-text="Screenshot of how to enable number matching.":::
 
