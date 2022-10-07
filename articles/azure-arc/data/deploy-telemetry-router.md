@@ -61,7 +61,7 @@ Elasticsearch Exporter Settings
 
 During the Public Preview, only logs and metrics pipelines are supported. These pipelines are exposed in the custom resource specification of the Arc telemetry router and available for modification.  Currently, we do not allow configuration of receivers and processors in these pipelines - only exporters are changeable.  All pipelines must be prefixed with "logs" or "metrics" in order to be injected with the necessary receivers and processors. For example, `logs/internal`
 
-Logs pipelines may export to Kafka or elasticsearch. Metrics pipelines may only export to Kafka.
+Logs pipelines may export to Kafka or Elasticsearch. Metrics pipelines may only export to Kafka.
 
 Pipeline Settings
 
@@ -405,7 +405,7 @@ metricsdc-twq7r               2/2     Running     0          19h
 metricsui-psnvg               2/2     Running     0          19h
 ```
 
-To verify that the logs exporting is happening correctly, check elasticsearch or Kafka.
+To verify that the logs exporting is happening correctly, check Elasticsearch or Kafka.
 
 ## **Exporting to Your Monitoring Solutions**
 
