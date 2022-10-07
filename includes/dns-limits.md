@@ -9,7 +9,7 @@ ms.author: greglin
 
 | Resource | Limit |
 | --- | --- |
-| Public DNS Zones per subscription |250 <sup>1</sup> |
+| Public DNS zones per subscription |250 <sup>1</sup> |
 | Record sets per public DNS zone |10,000 <sup>1</sup> |
 | Records per record set in public DNS zone |20 |
 | Number of Alias records for a single Azure resource |20|
