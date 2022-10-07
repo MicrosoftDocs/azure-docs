@@ -34,6 +34,7 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 > - libgcc-ng 9.3.0 --> 12.1.0
 > - libgfortran-ng 9.3.0 --> 7.5.0
 > - libgomp=9.3.0 --> 12.1.0
+> - nest-asyncio 1.5.5 --> 1.5.6
 
 > New additions:
 > - cached_property=1.5.2
