@@ -6,20 +6,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 10/07/2022
 ms.author: lajanuar
 recommendations: false
-
 ---
 
 <!-- markdownlint-disable MD024 -->
 
 <!-- markdownlint-disable MD033 -->
-> [!IMPORTANT]
->
-> This quickstart  targets Azure Form Recognizer REST API version **2.1** using cURL to execute REST API calls.
->
->* For simplicity, the code in this article uses synchronous methods and unsecured credentials storage.
 
 [Reference documentation](/dotnet/api/overview/azure/ai.formrecognizer-readme) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 

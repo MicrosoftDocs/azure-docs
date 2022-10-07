@@ -10,4 +10,4 @@ ms.topic: include
 ms.date: 10/07/2022
 ---
 
-**Applies to:** ![Form Recognizer v3.0 checkmark](../media/yes-icon.png) 
+**Applies to:** ![Form Recognizer v3.0 checkmark](../media/yes-icon.png) **Form Recognizer v3.0**
