@@ -19,7 +19,7 @@ Azure VMware Solution clusters are based upon hyper-converged infrastructure. Th
 | AV36P     |  Dual Intel Xeon Gold 6240 Cascade Lake CPUs with 18 cores/CPU @ 2.6 GHz / 3.9 GHz Turbo, Total 38 physical cores (72 logical cores with hyperthreading) |  768  | 1.5 (Intel Optane Cache) | 19.20 (NVMe) | 4x 25 Gb/s NICs (2 for management & control plane, 2 for customer traffic) | Selected regions (*) |
 | AV52      | Dual Intel Xeon Platinum 8270 Cascade Lake CPUs with 26 cores/CPU @ 2.7 GHz / 4.0 GHz Turbo, Total 52 physical cores (104 logical cores with hyperthreading) | 1,536  | 1.5 (Intel Optane Cache) | 38.40 (NVMe) | 4x 25 Gb/s NICs (2 for management & control plane, 2 for customer traffic) | Selected regions (*) |
 
-An Azure VMware Solution cluster requires a minimum number of three hosts. You can only use host of the same type in a single cluster. You can use multiple clusters with different host types in a single Azure VMware Private Cloud.
+An Azure VMware Solution cluster requires a minimum number of three hosts. You can only use hosts of the same type in a single Azure VMware Solution private cloud.
 Hosts used to build or scale clusters come from an isolated pool of hosts. Those hosts have passed hardware tests and have had all data securely deleted before being added to a cluster. 
 
 (*) details available via the Azure pricing calculator.
