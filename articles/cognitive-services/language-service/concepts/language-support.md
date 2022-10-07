@@ -148,7 +148,7 @@ Use this article to learn about the languages currently supported by different f
 
 ## See also
 
-See the following service-level language support articles for information on model-version support for each language: 
+See the following service-level language support articles for information on model version support for each language: 
 * [Custom text classification](../custom-text-classification/language-support.md) 
 * [Custom named entity recognition(NER)](../custom-named-entity-recognition/language-support.md)
 * [Conversational language understanding](../conversational-language-understanding/language-support.md)
