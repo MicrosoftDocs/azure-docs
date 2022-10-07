@@ -3,7 +3,7 @@ title: Tutorial - Provision devices using a symmetric key enrollment group in Az
 description: This tutorial shows how to use symmetric keys to provision devices through an enrollment group in your Device Provisioning Service (DPS) instance
 author: kgremban
 ms.author: kgremban
-ms.date: 08/19/2022
+ms.date: 10/06/2022
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
@@ -311,8 +311,8 @@ The sample provisioning code accomplishes the following tasks, in order:
 1. Authenticates your device with your Device Provisioning resource using the following three parameters:
 
     * The ID Scope of your Device Provisioning Service
-    * The registration ID for your device enrollment.
-    * The primary symmetric key for your device enrollment.
+    * The registration ID for your device.
+    * The derived device key for your device.
 
 2. Assigns the device to the IoT hub already linked to your Device Provisioning Service instance.
 
@@ -359,11 +359,11 @@ To update and run the provisioning sample with your device information:
     //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
-    Uncomment the function call, and replace the placeholder values (including the angle brackets) with your registration ID and the primary key value you copied earlier.
+    Uncomment the function call, and replace the placeholder values (including the angle brackets) with the registration ID and the derived device key.
 
     ```c
     // Set the symmetric key if using they auth type
-    prov_dev_set_symmetric_key_info("symm-key-device-007", "your primary key here");
+    prov_dev_set_symmetric_key_info("sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6", "Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=");
     ```
 
 8. Save the file.
@@ -383,7 +383,7 @@ To update and run the provisioning sample with your device information:
     Provisioning Status: PROV_DEVICE_REG_STATUS_ASSIGNING
 
     Registration Information received from service:
-    test-docs-hub.azure-devices.net, deviceId: device-007
+    test-docs-hub.azure-devices.net, deviceId: sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
     Press enter key to exit:
     ```
 
@@ -396,8 +396,8 @@ The sample provisioning code accomplishes the following tasks:
 1. Authenticates your device with your Device Provisioning resource using the following three parameters:
 
     * The ID Scope of your Device Provisioning Service
-    * The registration ID for your device enrollment.
-    * The primary symmetric key for your device enrollment.
+    * The registration ID for your device.
+    * The derived device key for your device.
 
 2. Assigns the device to the IoT hub already linked to your Device Provisioning Service instance.
 
@@ -433,8 +433,8 @@ To update and run the provisioning sample with your device information:
 6. Build and run the sample code using the following command:
 
     * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
-    * Replace `<registration-id>` with the **Registration ID** that you copied from the device enrollment.
-    * Replace `<primarykey>` with the **Primary Key** that you copied from the device enrollment.
+    * Replace `<registration-id>` with the **Registration ID** for your device.
+    * Replace `<primarykey>` with the derived device key that you generated.
 
     ```cmd
     dotnet run --s <id-scope> --i <registration-id> --p <primarykey>
@@ -443,13 +443,13 @@ To update and run the provisioning sample with your device information:
 7. You should now see something similar to the following output. A "TestMessage" string is sent to the hub as a test message.
 
      ```output
-    D:\azure-iot-sdk-csharp\provisioning\device\samples\How To\SymmetricKeySample>dotnet run --s 0ne00000A0A --i symm-key-csharp-device-01 --p sbDDeEzRuEuGKag+kQKV+T1QGakRtHpsERLP0yPjwR93TrpEgEh/Y07CXstfha6dhIPWvdD1nRxK5T0KGKA+nQ==
+    D:\azure-iot-sdk-csharp\provisioning\device\samples\How To\SymmetricKeySample>dotnet run --s 0ne00000A0A --i sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6 --p sbDDeEzRuEuGKag+kQKV+T1QGakRtHpsERLP0yPjwR93TrpEgEh/Y07CXstfha6dhIPWvdD1nRxK5T0KGKA+nQ==
 
     Initializing the device provisioning client...
-    Initialized for registration Id symm-key-csharp-device-01.
+    Initialized for registration Id sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6.
     Registering with the device provisioning service...
     Registration status: Assigned.
-    Device csharp-device-01 registered to ExampleIoTHub.azure-devices.net.
+    Device sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6 registered to ExampleIoTHub.azure-devices.net.
     Creating symmetric key authentication for IoT Hub...
     Testing the provisioned device with IoT Hub...
     Sending a telemetry message...
@@ -493,7 +493,7 @@ To update and run the provisioning sample with your device information:
     provisioningClient.setProvisioningPayload({a: 'b'});
     ```
 
-    You may comment out this code, as it is not needed with for this quick start. A custom payload would be required you wanted to use a custom allocation function to assign your device to an IoT Hub. For more information, see [Tutorial: Use custom allocation policies](tutorial-custom-allocation-policies.md).
+    You may comment out this code, as it is not needed with for this quick start. A custom payload can be used when you use a custom allocation webhook to assign your device to an IoT Hub. For more information, see [Tutorial: Use custom allocation policies](tutorial-custom-allocation-policies.md).
 
      The `provisioningClient.register()` method attempts the registration of your device.
 
@@ -503,8 +503,8 @@ To update and run the provisioning sample with your device information:
 
     * Replace `<provisioning-global-endpoint>` with the **Global device endpoint** that you copied in step 2.
     * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
-    * Replace `<registration-id>` with the **Registration ID** that you copied from the device enrollment.
-    * Replace `<primarykey>` with the **Primary Key** that you copied from the device enrollment.
+    * Replace `<registration-id>` with the **Registration ID** that you chose in [Choose a unique reistration ID for the device](#choose-a-unique-registration-id-for-the-device).
+    * Replace `<defived-device-key>` with the derived device key that you generated in [Derive a device key](#derive-a-device-key).
 
     ```cmd
     set PROVISIONING_HOST=<provisioning-global-endpoint>
@@ -519,7 +519,7 @@ To update and run the provisioning sample with your device information:
     ```
 
     ```cmd
-    set PROVISIONING_SYMMETRIC_KEY=<primarykey>
+    set PROVISIONING_SYMMETRIC_KEY=<derived-device-key>
     ```
 
 6. Build and run the sample code using the following commands:
@@ -535,13 +535,11 @@ To update and run the provisioning sample with your device information:
 7. You should now see something similar to the following output. A "Hello World" string is sent to the hub as a test message.
 
      ```output
-    D:\azure-iot-samples-csharp\provisioning\Samples\device\SymmetricKeySample>dotnet run --s 0ne00000A0A --i symm-key-csharp-device-01 --p sbDDeEzRuEuGKag+kQKV+T1QGakRtHpsERLP0yPjwR93TrpEgEh/Y07CXstfha6dhIPWvdD1nRxK5T0KGKA+nQ==
-
     Initializing the device provisioning client...
-    Initialized for registration Id symm-key-csharp-device-01.
+    Initialized for registration Id sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6.
     Registering with the device provisioning service...
     Registration status: Assigned.
-    Device csharp-device-01 registered to ExampleIoTHub.azure-devices.net.
+    Device sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6 registered to ExampleIoTHub.azure-devices.net.
     Creating symmetric key authentication for IoT Hub...
     Testing the provisioned device with IoT Hub...
     Sending a telemetry message...
@@ -584,8 +582,8 @@ To update and run the provisioning sample with your device information:
 
     * Replace `<provisioning-global-endpoint>` with the **Global device endpoint** that you copied in step 2.
     * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
-    * Replace `<registration-id>` with the **Registration ID** that you copied from the device enrollment.
-    * Replace `<primarykey>` with the **Primary Key** that you copied from the device enrollment.
+    * Replace `<registration-id>` with the **Registration ID** that you chose in [Choose a unique reistration ID for the device](#choose-a-unique-registration-id-for-the-device).
+    * Replace `<defived-device-key>` with the derived device key that you generated in [Derive a device key](#derive-a-device-key).
 
     ```cmd
     set PROVISIONING_HOST=<provisioning-global-endpoint>
@@ -600,7 +598,7 @@ To update and run the provisioning sample with your device information:
     ```
 
     ```cmd
-    set PROVISIONING_SYMMETRIC_KEY=<primarykey>
+    set PROVISIONING_SYMMETRIC_KEY=<derived-device-key>
     ```
 
 5. Install the _azure-iot-device_ library by running the following command.
@@ -621,7 +619,7 @@ To update and run the provisioning sample with your device information:
     D:\azure-iot-sdk-python\samples\async-hub-scenarios>python provision_symmetric_key.py
     RegistrationStage(RequestAndResponseOperation): Op will transition into polling after interval 2.  Setting timer.
     The complete registration result is
-    python-device-008
+    sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
     docs-test-iot-hub.azure-devices.net
     initialAssignment
     null
@@ -681,8 +679,8 @@ To update and run the provisioning sample with your device information:
 
     * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
     * Replace `<provisioning-global-endpoint>` with the **Global device endpoint** that you copied in step 2.
-    * Replace `<registration-id>` with the **Registration ID** that you copied from the device enrollment.
-    * Replace `<primarykey>` with the **Primary Key** that you copied from the device enrollment.
+    * Replace `<registration-id>` with the **Registration ID** that you chose in [Choose a unique reistration ID for the device](#choose-a-unique-registration-id-for-the-device).
+    * Replace `<primarykey>` with the derived device key that you generated in [Derive a device key](#derive-a-device-key).
 
     ```java
     private static final String SCOPE_ID = "<id-scope>";
@@ -725,7 +723,7 @@ To update and run the provisioning sample with your device information:
     Current provisioning status: ASSIGNING
     Device provisioning service assigned the device successfully
     IotHUb Uri : <Your IoT hub name>.azure-devices.net
-    Device ID : java-device-007
+    Device ID : sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
     Sending message from device to IoT Hub...
     Press any key to exit...
     Message received! Response status: OK_EMPTY
