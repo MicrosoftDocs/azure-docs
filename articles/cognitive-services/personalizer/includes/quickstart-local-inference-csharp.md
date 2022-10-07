@@ -85,7 +85,7 @@ The Personalizer client is a [PersonalizerClient](/dotnet/api/azure.ai.personali
 
 To ask for the single best item to show th user, create a [PersonalizerRankOptions](/dotnet/api/azure.ai.personalizer.personalizerrankoptions?view=azure-dotnet-preview&branch=main), then pass it to [PersonalizerClient.Rank](/dotnet/api/azure.ai.personalizer.personalizerclient.rank?view=azure-dotnet-preview&branch=main#azure-ai-personalizer-personalizerclient-rank(azure-ai-personalizer-personalizerrankoptions-system-threading-cancellationtoken)) method. The Rank method returns a [PersonalizerRankResult](/dotnet/api/azure.ai.personalizer.personalizerrankresult?view=azure-dotnet-preview&branch=main).
 
-To send a reward score to Personalizer, pass the event ID and the reward score to the [PersonalizerClient.Reward](/dotnet/api/azure.ai.personalizer.personalizerclient.reward?view=azure-dotnet-preview&branch=main#azure-ai-personalizer-personalizerclient-reward(system-string-system-single-system-threading-cancellationtoken) method.
+To send a reward score to Personalizer, pass the event ID and the reward score to the [PersonalizerClient.Reward](dotnet/api/azure.ai.personalizer.personalizerclient.reward?view=azure-dotnet-preview&branch=main#azure-ai-personalizer-personalizerclient-reward(system-string-system-single-system-threading-cancellationtoken) method.
 
 Determining the reward score, in this quickstart is trivial. In a production system, the determination of what impacts the [reward score](../concept-rewards.md) and by how much can be a complex process, that you may decide to change over time. This design decision should be one of the primary decisions in your Personalizer architecture.
 
