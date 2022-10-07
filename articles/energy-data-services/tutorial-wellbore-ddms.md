@@ -88,7 +88,7 @@ The Postman collection for Wellbore DDMS contains requests you can use to intera
 
 1. To send the request, select **Send**.
 
-    :::image type="content" source="media/tutorial-wellbore-ddms/postman-request-send.png" alt-text="Screenshot that shows the Send button for a Get request in Postman.":::
+    :::image type="content" source="media/tutorial-wellbore-ddms/postman-request-send.png" alt-text="Screenshot that shows the Send button for a request in Postman.":::
 
 1. The request  validates the actual API response code against the expected response code. Select the **Test Results** tab to see whether the request succeeded or failed.
 
