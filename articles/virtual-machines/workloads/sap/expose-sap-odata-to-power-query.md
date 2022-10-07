@@ -13,7 +13,7 @@ ms.author: mapankra
 
 Working with SAP datasets in Microsoft Excel or Power BI is a common requirement for customers.
 
-This article describes the required configurations and components to enable SAP dataset consumption via OData with [Power Query](/power-query/power-query-what-is-power-query). The SAP data integration is considered **"live"** because it can be refreshed from clients such as Microsoft Excel or Power BI on-demand, unlike data exports (like ALV CSV exports) for instance. Those exports are **static** by nature and have no continuous relationship with the data origin.
+This article describes the required configurations and components to enable SAP dataset consumption via OData with [Power Query](/power-query/power-query-what-is-power-query). The SAP data integration is considered **"live"** because it can be refreshed from clients such as Microsoft Excel or Power BI on-demand, unlike data exports (like [SAP List Viewer (ALV)](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-us/4e/c38f8788d22b90e10000000a42189d/content.htm) CSV exports) for instance. Those exports are **static** by nature and have no continuous relationship with the data origin.
 
 The article puts emphasis on end-to-end user mapping between the known Azure AD identity in Power Query and the SAP backend user. This mechanism is often referred to as SAP Principal Propagation.
 
