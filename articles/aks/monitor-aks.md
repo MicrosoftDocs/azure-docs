@@ -87,7 +87,7 @@ Access Azure Monitor features for all AKS clusters in your subscription from the
 | Alerts | Views alerts for the current cluster. |
 | Metrics | Open metrics explorer with the scope set to the current cluster. |
 | Diagnostic settings | Create diagnostic settings for the cluster to collect resource logs. |
-| Advisor | recommendations	Recommendations for the current cluster from Azure Advisor. |
+| Advisor | Recommendations for the current cluster from Azure Advisor. |
 | Logs | Open Log Analytics with the scope set to the current cluster to analyze log data and access prebuilt queries. |
 | Workbooks | Open workbook gallery for Kubernetes service. |
 
