@@ -6,22 +6,8 @@
   href: business-continuity-management-program.md
 - name: Reliability support guides
   items:
-  - name: App Services
-    href: https://review.docs.microsoft.com/help/patterns/article-reliability?branch=patterns
-  - name: Batch Service
-    href: https://review.docs.microsoft.com/help/patterns/article-reliability?branch=patterns
-  - name: Container Instances
-    href: https://review.docs.microsoft.com/help/patterns/article-reliability?branch=patterns
-  - name: Key Vault Service
-    href: https://review.docs.microsoft.com/help/patterns/article-reliability?branch=patterns
-  - name: Kubernetes Service
-    href: https://review.docs.microsoft.com/help/patterns/article-reliability?branch=patterns
-  - name: PostgreSQL Service
-    href: https://review.docs.microsoft.com/help/patterns/article-reliability?branch=patterns
-  - name: Redis Service
-    href: https://review.docs.microsoft.com/help/patterns/article-reliability?branch=patterns
-  - name: Virtual Machines and virtual machine scale sets
-    href: https://review.docs.microsoft.com/help/patterns/article-reliability?branch=patterns
+  - name: Azure Functions 
+    href: reliability-functions.md
 - name: Availability zone support
   items:
   - name: Availability zone service and regional support
