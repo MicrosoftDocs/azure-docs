@@ -14,7 +14,7 @@ ms.author: abbyweisberg
 
 Private and legacy workbooks have been deprecated and aren't accessible from the Azure portal. If you're looking for the deprecated workbook that you forgot to convert before the deadline, you can use this process to retrieve the content of your old workbook and load it into a new workbook. This tool will only be available for a limited time.
 
-Application Insights Workbooks, also known as "Legacy Workbooks", are stored as a different Azure resource type than all other Azure Workbooks. These different Azure resource types are now being merged one single standard type. This will allow it to take advantage of all the existing and new functionality available in standard Azure Workbooks. For example:
+Application Insights Workbooks, also known as "Legacy Workbooks", are stored as a different Azure resource type than all other Azure Workbooks. These different Azure resource types are now being merged one single standard type so that you can take advantage of all the existing and new functionality available in standard Azure Workbooks. For example:
 
 * Converted legacy workbooks can be queried via Azure Resource Graph (ARG), and show up in other standard Azure views of resources in a resource group or subscription.
 * Converted legacy workbooks can support top level ARM template features like other resource types, including, but not limited to:
@@ -28,16 +28,16 @@ Application Insights Workbooks, also known as "Legacy Workbooks", are stored as 
 
 The legacy workbook deprecation doesn't change where you find your workbooks in the Azure portal. The legacy workbooks are still visible in the Workbooks section of Application Insights. The deprecation won't affect the content of your workbook. 
 
-> Note: 
+> [!NOTE]
 >
-> 1. After April 15 2021, you will not be able to save legacy workbooks.
-> 1. Use `Save as` on a legacy workbook to create a standard Azure workbook.
-> 1. Any new workbook you create will be a standard workbook.
+> - After April 15 2021, you will not be able to save legacy workbooks.
+> - Use `Save as` on a legacy workbook to create a standard Azure workbook.
+> - Any new workbook you create will be a standard workbook.
 
 ## Why isn't there an automatic conversion?
-1. The write permissions for legacy workbooks are only based on Azure role based access control on the Application Insights resource itself. A user may not be allowed to create new workbooks in that resource group. If the workbooks were auto migrated, they could fail to be moved, or they could be created but then a user might not be able to delete them after the fact.
-2. Legacy workbooks support "My" (private) workbooks, which is no longer supported by Azure Workbooks. A migration would cause those private workbooks to become publicly visible to users with read access to that same resource group.
-3. Usage of links/group content loaded from saved Legacy workbooks would become broken. Authors will need to manually update these links to point to the new saved items.
+- The write permissions for legacy workbooks are only based on Azure role based access control on the Application Insights resource itself. A user may not be allowed to create new workbooks in that resource group. If the workbooks were auto migrated, they could fail to be moved, or they could be created but then a user might not be able to delete them after the fact.
+- Legacy workbooks support "My" (private) workbooks, which is no longer supported by Azure Workbooks. A migration would cause those private workbooks to become publicly visible to users with read access to that same resource group.
+- Usage of links/group content loaded from saved Legacy workbooks would become broken. Authors will need to manually update these links to point to the new saved items.
 
 For these reasons, we suggest that users manually migrate the workbooks they want to keep.
 ## Convert a legacy Application Insights workbook
@@ -45,7 +45,7 @@ For these reasons, we suggest that users manually migrate the workbooks they wan
 
     :::image type="content" source="media/workbooks-retrieve-legacy-workbooks/workbooks-legacy-warning.png" alt-text="Screenshot of the warning symbol on a deprecated workbook.":::
 
-    :::image type="content" source="media/workbooks-retrieve-legacy-workbooks/workbooks-legacy-banner.png" alt-text="Screenshot on the banner at the top of a deprecated workbook.":::
+    :::image type="content" source="media/workbooks-retrieve-legacy-workbooks/workbooks-legacy-banner.png" alt-text="Screenshot of the banner at the top of a deprecated workbook.":::
 
 1. Convert the legacy workbooks. For any legacy workbook you want to keep after June 30 2021:
 
@@ -59,7 +59,7 @@ For these reasons, we suggest that users manually migrate the workbooks they wan
 
 For more information, see [access control](workbooks-overview.md#access-control).
 
-After deprecation of the legacy workbooks, you will still be able to retrieve the content of Legacy Workbooks for a limited time by using Azure CLI or PowerShell tools, to query `microsoft.insights/components/[name]/favorites` for the specific resource using `api-version=2015-05-01`. 
+After deprecation of the legacy workbooks, you'll still be able to retrieve the content of Legacy Workbooks for a limited time by using Azure CLI or PowerShell tools, to query `microsoft.insights/components/[name]/favorites` for the specific resource using `api-version=2015-05-01`. 
 ## Convert a private workbook
 
 1. Open a new or empty workbook.
@@ -73,12 +73,12 @@ After deprecation of the legacy workbooks, you will still be able to retrieve th
 1. The grid at the bottom of this workbook lists all the private workbooks in the selected subscription or resource group.
 1. Select one of the workbooks in the grid. Your workbook should look something like this:
 
-    :::image type="content" source="media/workbooks-retrieve-legacy-workbooks/workbooks-retrieve-deprecated-private.png" alt-text="Screenshot of a deprecated private workbook converted to a standard workbook.":::
+    :::image type="content" source="media/workbooks-retrieve-legacy-workbooks/workbooks-retrieve-deprecated-private.png" alt-text="Screenshot of a deprecated private workbook converted to a standard workbook." lightbox="media//workbooks-retrieve-legacy-workbooks/workbooks-retrieve-deprecated-private.png":::
 
 1. Select **Open Content as Workbook** at the bottom of the workbook.
 1. A new workbook appears with the content of the old private workbook that you selected. Save the workbook as a standard workbook.
 1. You have to re-create links to the deprecated workbook or its contents, including dashboard pins and URL links.
-## Convert a favorites- based (legacy) workbook
+## Convert a favorites-based (legacy) workbook
  
 1. Navigate to your Application Insights Resource > Workbooks gallery.
 1. Open a new or empty workbook.
@@ -91,13 +91,13 @@ After deprecation of the legacy workbooks, you will still be able to retrieve th
 1. The grid at the bottom of this workbook lists all the legacy workbooks within the current AppInsights resource.
 1. Select one of the workbooks in the grid. Your workbook should now look something like this:
 
-    :::image type="content" source="media/workbooks-retrieve-legacy-workbooks/workbooks-retrieve-deprecated-legacy.png" alt-text="Screenshot of a deprecated legacy workbook converted to a standard workbook.":::
+    :::image type="content" source="media/workbooks-retrieve-legacy-workbooks/workbooks-retrieve-deprecated-legacy.png" alt-text="Screenshot of a deprecated legacy workbook converted to a standard workbook." lightbox="media/workbooks-retrieve-legacy-workbooks/workbooks-retrieve-deprecated-legacy.png":::
 
 1. Select **Open Content as Workbook** at the bottom of the workbook.
 1. A new workbook appears with the content of the old private workbook that you selected. Save the workbook as a standard workbook.
 1. You have to re-create links to the deprecated workbook or its contents, including dashboard pins and URL links.
 
-## JSON for Legacy Workbook Conversion
+## JSON for legacy workbook conversion
 
 ```json
 {
@@ -238,7 +238,7 @@ After deprecation of the legacy workbooks, you will still be able to retrieve th
 ```
 
 
-## JSON for Private Workbook Conversion
+## JSON for private workbook conversion
 
 ```json
 {
