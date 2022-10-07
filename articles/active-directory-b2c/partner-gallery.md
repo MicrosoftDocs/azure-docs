@@ -108,7 +108,7 @@ Microsoft partners with the following ISVs for tools that can help with implemen
 
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
-| ![Screenshot of a grit ief editor logo.](./media/partner-gallery/grit-logo.png) | [Grit Visual Identity Experience Framework Editor](./partner-grit-ief-editor.md) is a tool that saves time during authentication deployment. It supports multiple languages without the need to write code. It also has a no code debugger for user journeys.|
+| ![Screenshot of a grit ief editor logo.](./media/partner-gallery/grit-logo.png) | [Grit Visual Identity Experience Framework Editor](./partner-grit-editor.md) is a tool that saves time during authentication deployment. It supports multiple languages without the need to write code. It also has a no code debugger for user journeys.|
 
 ## Additional information
 
