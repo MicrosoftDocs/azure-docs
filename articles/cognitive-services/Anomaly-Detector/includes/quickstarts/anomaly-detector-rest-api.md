@@ -14,7 +14,7 @@ For a high-level look at Anomaly Detector concepts, see the [overview](../../ove
 
 * An Azure subscription - <a href="https://azure.microsoft.com/free/cognitive-services" target="_blank">Create one for free</a>
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and select the **Go to resource** button. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-* A valid JSON file of time series data to test for anomalies. If you don't have your own file, you can create a sample.json file from the <a href="https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect" target="_blank">Request body sample/a>
+* A valid JSON file of time series data to test for anomalies. If you don't have your own file, you can create a sample.json file from the <a href="https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect" target="_blank">Request body sample</a>
 
 ## Retrieve key and endpoint
 
