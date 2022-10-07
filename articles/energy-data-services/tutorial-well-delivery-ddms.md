@@ -156,21 +156,17 @@ Method: GET
 
 :::image type="content" source="media/tutorial-well-delivery/postman-api-activity-plans-by-well.png" alt-text="Screenshot of the API that gets an activity plan by well ID." lightbox="media/tutorial-well-delivery/postman-api-activity-plans-by-well.png":::
 
-### Delete a well record
+### Delete a wellbore record
 
-Delete a well record in your Microsoft Energy Data Services instance by using Well Delivery DDMS APIs:
-
-Method: DELETE
-
-:::image type="content" source="media/tutorial-well-delivery/postman-api-delete-well.png" alt-text="Screenshot that shows how to use an API to delete a well record.":::
-
-### Delete a wellbore
-
-Delete a wellbore record in your Microsoft Energy Data Services instance by using Well Delivery DDMS APIs:
-
-Method: DELETE
+You can delete a wellbore record in your Microsoft Energy Data Services instance by using Well Delivery DDMS APIs. For example:
 
 :::image type="content" source="media/tutorial-well-delivery/postman-api-delete-well-bore.png" alt-text="Screenshot that shows how to use an API to delete a wellbore record.":::
+
+### Delete a well record
+
+You can delete a well record in your Microsoft Energy Data Services instance by using Well Delivery DDMS APIs. For example:
+
+:::image type="content" source="media/tutorial-well-delivery/postman-api-delete-well.png" alt-text="Screenshot that shows how to use an API to delete a well record.":::
 
 ## Next steps
 
