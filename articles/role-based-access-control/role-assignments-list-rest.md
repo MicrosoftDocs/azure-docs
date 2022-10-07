@@ -27,6 +27,7 @@ ms.author: rolyon
 You must use the following version:
 
 - `2015-07-01` or later
+- `2022-04-01` or later to include conditions
 
 For more information, see [API versions of Azure RBAC REST APIs](/rest/api/authorization/versions).
 
