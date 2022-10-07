@@ -31,7 +31,7 @@ ms.author: eur
   - Create audio processor worklet only when AudioWorklet is supported in browser ([Customer issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/572)). This was a community contribution by [William Wong](https://github.com/compulim). Thank you William!
   - Fix recognized callback when LUIS response `connectionMessage` is empty ([Customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1644)).
   - Properly set speech segmentation timeout.
-- **Intent Recognition using patter matching**:
+- **Intent Recognition using pattern matching**:
   - Non-json characters inside models will now load properly.
   - Fix hanging issue when `recognizeOnceAsync(text)` was called during continuous recognition.
 
