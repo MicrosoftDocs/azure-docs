@@ -81,7 +81,7 @@ Pipeline Settings
 ### Example TelemetryRouter Specification:
 
 ```yaml
-apiVersion: arcdata.microsoft.com/v1beta1
+apiVersion: arcdata.microsoft.com/v1beta2
 kind: TelemetryRouter
 metadata:
   name: arc-telemetry-router
@@ -171,7 +171,7 @@ kubectl describe telemetryrouter arc-telemetry-router -n <namespace>
 ```
 
 ```yaml
-apiVersion: arcdata.microsoft.com/v1beta1
+apiVersion: arcdata.microsoft.com/v1beta2
   kind: TelemetryRouter
   metadata:
     creationTimestamp: "2022-09-08T16:54:04Z"
@@ -206,104 +206,232 @@ apiVersion: arcdata.microsoft.com/v1beta1
   status:
     lastUpdateTime: "2022-09-08T16:54:05.042806Z"
     observedGeneration: 1
-    runningVersion: v1.11.0_2022-09-13
+    runningVersion: v1.12.0_2022-10-11
     state: Ready
 
 ```
 
-We are exporting logs to our deployment of Elasticsearch in the Arc cluster.  You can see the index, service endpoint, and certificates it is using to do so.  This is provided as an example in the deployment, so you can see how to export to your own monitoring solutions.
+We are exporting logs to our deployment of Elasticsearch in the Arc cluster. When you deploy the telemetry router, two TelemetryCollector customer resources are created. One collector is dedicated to inbound/interal telemetry layer while the 2nd is dedicated to outbound/external telemetry layer. You can see the index, service endpoint, and certificates it is using to do so.  This is provided as an example in the deployment, so you can see how to export to your own monitoring solutions.
 
-You can run the following command to see the detailed deployment of the child collector that is receiving logs and exporting to Elasticsearch:
+You can run the following command to see the detailed deployment of the child collectors that are receiving logs and exporting to Elasticsearch:
 
 ```bash
 kubectl describe otelcollector collector -n <namespace>
 ```
 
 ```yaml
-apiVersion: arcdata.microsoft.com/v1beta1
-  kind: OtelCollector
-  metadata:
-    creationTimestamp: "2022-09-08T16:54:04Z"
-    generation: 1
-    name: collector
-    namespace: <namespace>
-    ownerReferences:
-    - apiVersion: arcdata.microsoft.com/v1beta1
-      controller: true
-      kind: TelemetryRouter
-      name: arc-telemetry-router
-      uid: <uid>
-    resourceVersion: "15000654"
-    uid: <uid>
-  spec:
-    collector:
-      exporters:
-        elasticsearch/arcdata/msft/internal:
-          endpoints:
-          - https://logsdb-svc:9200
-          index: logstash-otel
-          tls:
-            ca_file: cluster-ca-certificate
-            cert_file: arcdata-msft-elasticsearch-exporter-internal
-            key_file: arcdata-msft-elasticsearch-exporter-internal
-      extensions:
-        memory_ballast:
-          size_mib: 683
-      processors:
-        batch:
-          send_batch_max_size: 500
-          send_batch_size: 100
-          timeout: 10s
-        memory_limiter:
-          check_interval: 5s
-          limit_mib: 1500
-          spike_limit_mib: 512
-      receivers:
-        fluentforward:
-          endpoint: 0.0.0.0:8006
-      service:
-        extensions:
-        - memory_ballast
-        pipelines:
-          logs:
-            exporters:
-            - elasticsearch/arcdata/msft/internal
-            processors:
-            - memory_limiter
-            - batch
-            receivers:
-            - fluentforward
-    credentials:
-      certificates:
-      - certificateName: arcdata-msft-elasticsearch-exporter-internal
-      - certificateName: cluster-ca-certificate
-  status:
-    lastUpdateTime: "2022-09-08T16:54:56.923140Z"
-    observedGeneration: 1
-    runningVersion: v1.11.0_2022-09-13
-    state: Ready
+Name:         collector-inbound
+Namespace:    <namespace>
+Labels:       <none>
+Annotations:  <none>
+Is Valid:     true
+API Version:  arcdata.microsoft.com/v1beta2
+Kind:         OtelCollector
+Metadata:
+  Creation Timestamp:  <timestamp>
+  Generation:          1
+  Owner References:
+    API Version:     arcdata.microsoft.com/v1beta2
+    Controller:      true
+    Kind:            TelemetryRouter
+    Name:            arc-telemetry-router
+    UID:             <uid>
+  Resource Version:  10506200
+  UID:               <uid>
+Spec:
+  Collector:
+    Exporters:
+      kafka/arcdata/msft/logs:
+        Brokers:           kafka-broker-svc:9092
+        Encoding:          otlp_proto
+        protocol_version:  2.0.0
+        Tls:
+          ca_file:    cluster-ca-certificate
+          cert_file:  arcdata-msft-kafka-exporter-internal
+          key_file:   arcdata-msft-kafka-exporter-internal
+        Topic:        arcdata.microsoft.com.logs
+      kafka/arcdata/msft/metrics:
+        Brokers:           kafka-broker-svc:9092
+        Encoding:          otlp_proto
+        protocol_version:  2.0.0
+        Tls:
+          ca_file:    cluster-ca-certificate
+          cert_file:  arcdata-msft-kafka-exporter-internal
+          key_file:   arcdata-msft-kafka-exporter-internal
+        Topic:        arcdata.microsoft.com.metrics
+    Extensions:
+      memory_ballast:
+        size_mib:  683
+    Limits:        <nil>
+    Processors:
+      Batch:
+        send_batch_max_size:  500
+        send_batch_size:      100
+        Timeout:              10s
+      memory_limiter:
+        check_interval:   5s
+        limit_mib:        1500
+        spike_limit_mib:  512
+    Receivers:
+      Collectd:
+        Endpoint:  0.0.0.0:8003
+      Fluentforward:
+        Endpoint:  0.0.0.0:8002
+    Requests:      <nil>
+    Service:
+      Extensions:
+        memory_ballast
+      Pipelines:
+        Logs:
+          Exporters:
+            kafka/arcdata/msft/logs
+          Processors:
+            memory_limiter
+            batch
+          Receivers:
+            fluentforward
+        Metrics:
+          Exporters:
+            kafka/arcdata/msft/metrics
+          Processors:
+            memory_limiter
+            batch
+          Receivers:
+            collectd
+    Storage:  <nil>
+  Credentials:
+    Certificates:
+      Certificate Name:  arcdata-msft-kafka-exporter-internal
+      Secret Name:       <secret>
+      Secret Namespace:  <secret namespace>
+  Update:                <nil>
+Status:
+  Last Update Time:     <timestamp>
+  Observed Generation:  1
+  Running Version:  v1.12.0_2022-10-11
+  State:            Ready
+Events:             <none>
+
+Name:         collector-outbound
+Namespace:    arc
+Labels:       <none>
+Annotations:  <none>
+Is Valid:     true
+API Version:  arcdata.microsoft.com/v1beta2
+Kind:         OtelCollector
+Metadata:
+  Creation Timestamp:  2022-10-06T22:54:10Z
+  Generation:          1
+  Owner References:
+    API Version:     arcdata.microsoft.com/v1beta2
+    Controller:      true
+    Kind:            TelemetryRouter
+    Name:            arc-telemetry-router
+    UID:             <uid>
+  Resource Version:  10506201
+  UID:               <uid>
+Spec:
+  Collector:
+    Exporters:
+      elasticsearch/arcdata/msft/internal:
+        Endpoints:
+          https://logsdb-svc:9200
+        Index:  logstash-otel
+        Tls:
+          ca_file:    cluster-ca-certificate
+          cert_file:  arcdata-msft-elasticsearch-exporter-internal
+          key_file:   arcdata-msft-elasticsearch-exporter-internal
+    Extensions:
+      memory_ballast:
+        size_mib:  683
+    Limits:        <nil>
+    Processors:
+      Batch:
+        send_batch_max_size:  500
+        send_batch_size:      100
+        Timeout:              10s
+      memory_limiter:
+        check_interval:   5s
+        limit_mib:        1500
+        spike_limit_mib:  512
+    Receivers:
+      kafka/arcdata/msft/logs:
+        Auth:
+          Tls:
+            ca_file:       cluster-ca-certificate
+            cert_file:     arcdata-msft-kafka-receiver-internal
+            key_file:      arcdata-msft-kafka-receiver-internal
+        Brokers:           kafka-broker-svc:9092
+        Encoding:          otlp_proto
+        protocol_version:  2.0.0
+        Topic:             arcdata.microsoft.com.logs
+      kafka/arcdata/msft/metrics:
+        Auth:
+          Tls:
+            ca_file:       cluster-ca-certificate
+            cert_file:     arcdata-msft-kafka-receiver-internal
+            key_file:      arcdata-msft-kafka-receiver-internal
+        Brokers:           kafka-broker-svc:9092
+        Encoding:          otlp_proto
+        protocol_version:  2.0.0
+        Topic:             arcdata.microsoft.com.metrics
+    Requests:              <nil>
+    Service:
+      Extensions:
+        memory_ballast
+      Pipelines:
+        Logs:
+          Exporters:
+            elasticsearch/arcdata/msft/internal
+          Processors:
+            memory_limiter
+            batch
+          Receivers:
+            kafka/arcdata/msft/logs
+    Storage:  <nil>
+  Credentials:
+    Certificates:
+      Certificate Name:  arcdata-msft-kafka-receiver-internal
+      Secret Name:       <secret>
+      Secret Namespace:  <secret namespace>
+      Certificate Name:  arcdata-msft-elasticsearch-exporter-internal
+      Secret Name:       <secret>
+      Secret Namespace:  <secret namespace>
+      Certificate Name:  cluster-ca-certificate
+      Secret Name:       <secret>
+      Secret Namespace:  <secret namespace>
+  Update:                <nil>
+Status:
+  Last Update Time:     <timestamp>
+  Observed Generation:  1
+  Running Version:  v1.12.0_2022-10-11
+  State:            Ready
+Events:             <none>
 
 ```
 
 The purpose of this child resource is to provide a visual representation of the inner configuration of the collector, and you should see it in a *Ready* state.  For modification, all updates should go through its parent resource, the TelemetryRouter custom resource. 
 
-If you look at the pods, you should see an otel-collector-0 pod there as well:
+If you look at the pods, you should see the two collector pods - `arctc-collector-inbound-0` and `arctc-collector-outbound-0` - as well:
 
 ```bash
 kubectl get pods -n <namespace>
 
-NAME                           READY   STATUS      RESTARTS   AGE
-arc-bootstrapper-job-r4m45     0/1     Completed   0          9m5s
-arc-webhook-job-7d443-lf9ws    0/1     Completed   0          9m3s
-bootstrapper-96b5c4fc7-kvxgq   1/1     Running     0          9m3s
-control-l5j2c                  2/2     Running     0          8m46s
-controldb-0                    2/2     Running     0          8m46s
-logsdb-0                       3/3     Running     0          7m51s
-logsui-rx746                   3/3     Running     0          6m9s
-metricsdb-0                    2/2     Running     0          7m51s
-metricsdc-6g66g                2/2     Running     0          7m51s
-metricsui-jg25t                2/2     Running     0          7m51s
-otel-collector-0               2/2     Running     0          5m4s
+NAME                          READY   STATUS      RESTARTS   AGE
+arc-bootstrapper-job-kmrsx    0/1     Completed   0          19h
+arc-webhook-job-5bd06-r6g8w   0/1     Completed   0          19h
+arctc-collector-inbound-0     2/2     Running     0          19h
+arctc-collector-outbound-0    2/2     Running     0          19h
+bootstrapper-789b4f89-c77z6   1/1     Running     0          19h
+control-xtjrr                 2/2     Running     0          19h
+controldb-0                   2/2     Running     0          19h
+kafka-server-0                2/2     Running     0          19h
+logsdb-0                      3/3     Running     0          19h
+logsui-67hvm                  3/3     Running     0          19h
+metricsdb-0                   2/2     Running     0          19h
+metricsdc-hq25d               2/2     Running     0          19h
+metricsdc-twq7r               2/2     Running     0          19h
+metricsui-psnvg               2/2     Running     0          19h
 ```
 
 To verify that the exporting of the logs is happening correctly, you can inspect the logs of the collector or look at Elasticsearch and verify.
@@ -311,7 +439,7 @@ To verify that the exporting of the logs is happening correctly, you can inspect
 To look at the logs of the collector, you will need to exec into the container run the following command:
 
 ```bash
- kubectl exec -it otel-collector-0 -c otel-collector -- /bin/bash -n <namespace>
+ kubectl exec -it arctc-collector-outbound-0 -c otel-collector -- /bin/bash -n <namespace>
 
 cd /var/log/opentelemetry-collector/
 ```
