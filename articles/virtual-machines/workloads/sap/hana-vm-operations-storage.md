@@ -37,7 +37,7 @@ The minimum SAP HANA certified conditions for the different storage types are:
 - Azure Ultra disk at least for the **/hana/log** volume. The **/hana/data** volume can be placed on either premium storage without Azure Write Accelerator or in order to get faster restart times Ultra disk
 - **NFS v4.1** volumes on top of Azure NetApp Files for **/hana/log and /hana/data**. The volume of /hana/shared can use NFS v3 or NFS v4.1 protocol
 
-Some of the storage types can be combined. For example, it is possible to put **/hana/data** onto premium storage and **/hana/log** can be placed on Ultra disk storage in order to get the required low latency. If you use a volume based on ANF for **/hana/data**,  **/hana/log** volume needs to be based on NFS on top of ANF as well. Using NFS on top of ANF for one of the volumes (like /hana/data) and Azure premium storage or Ultra disk for the other volume (like **/hana/log**) is **not supported**.
+Some of the storage types can be combined. For example, it's possible to put **/hana/data** onto premium storage and **/hana/log** can be placed on Ultra disk storage in order to get the required low latency. If you use a volume based on ANF for **/hana/data**,  **/hana/log** volume needs to be based on NFS on top of ANF as well. Using NFS on top of ANF for one of the volumes (like /hana/data) and Azure premium storage or Ultra disk for the other volume (like **/hana/log**) is **not supported**.
 
 In the on-premises world, you rarely had to care about the I/O subsystems and its capabilities. Reason was that the appliance vendor needed to make sure that the minimum storage requirements are met for SAP HANA. As you build the Azure infrastructure yourself, you should be aware of some of these SAP issued requirements. Some of the minimum throughput characteristics that SAP is recommending, are:
 
@@ -45,19 +45,19 @@ In the on-premises world, you rarely had to care about the I/O subsystems and it
 - Read activity of at least 400 MB/sec for **/hana/data** for 16 MB and 64 MB I/O sizes
 - Write activity of at least 250 MB/sec for **/hana/data** with 16 MB and 64 MB I/O sizes
 
-Given that low storage latency is critical for DBMS systems, even as DBMS, like SAP HANA, keep data in-memory. The critical path in storage is usually around the transaction log writes of the DBMS systems. But also operations like writing savepoints or loading data in-memory after crash recovery can be critical. Therefore, it is **mandatory** to use Azure premium storage, Ultra disk, or ANF for **/hana/data** and **/hana/log** volumes. 
+Given that low storage latency is critical for DBMS systems, even as DBMS, like SAP HANA, keep data in-memory. The critical path in storage is usually around the transaction log writes of the DBMS systems. But also operations like writing savepoints or loading data in-memory after crash recovery can be critical. Therefore, it's **mandatory** to use Azure premium storage, Ultra disk, or ANF for **/hana/data** and **/hana/log** volumes. 
 
 
 Some guiding principles in selecting your storage configuration for HANA can be listed like:
 
 - Decide on the type of storage based on [Azure Storage types for SAP workload](./planning-guide-storage.md) and [Select a disk type](../../disks-types.md)
 - The overall VM I/O throughput and IOPS limits in mind when sizing or deciding for a VM. Overall VM storage throughput is documented in the article [Memory optimized virtual machine sizes](../../sizes-memory.md). 
-- When deciding for the storage configuration, try to stay below the overall throughput of the VM with your **/hana/data** volume configuration. SAP HANA writing savepoints, HANA can be aggressive issuing I/Os. It is easily possible to push up to throughput limits of your **/hana/data** volume when writing a savepoint. If your disk(s) that build the **/hana/data** volume have a higher throughput than your VM allows, you could run into situations where throughput utilized by the savepoint writing is interfering with throughput demands of the redo log writes. A situation that can impact the application throughput
-- If you are considering using HANA System Replication, you need to use exactly the same type of Azure storage for **/hana/data** and **/hana/log** for all the VMs participating in the HANA System Replication configuration. For example, using Azure premium storage for **/hana/data** with one VM and Azure Ultra disk for **/hana/log** in another VM within the same HANA System replication configuration, is not supported
+- When deciding for the storage configuration, try to stay below the overall throughput of the VM with your **/hana/data** volume configuration. SAP HANA writing savepoints, HANA can be aggressive issuing I/Os. It's easily possible to push up to throughput limits of your **/hana/data** volume when writing a savepoint. If your disk(s) that build the **/hana/data** volume have a higher throughput than your VM allows, you could run into situations where throughput utilized by the savepoint writing is interfering with throughput demands of the redo log writes. A situation that can impact the application throughput
+- If you're considering using HANA System Replication, you need to use exactly the same type of Azure storage for **/hana/data** and **/hana/log** for all the VMs participating in the HANA System Replication configuration. For example, using Azure premium storage for **/hana/data** with one VM and Azure Ultra disk for **/hana/log** in another VM within the same HANA System replication configuration, isn't supported
 
 
 > [!IMPORTANT]
-> The suggestions for the storage configurations in this or subsequent documents are meant as directions to start with. Running workload and analyzing storage utilization patterns, you might realize that you are not utilizing all the storage bandwidth or IOPS provided. You might consider downsizing on storage then. Or in contrary, your workload might need more storage throughput than suggested with these configurations. As a result, you might need to deploy more capacity, IOPS or throughput. In the field of tension between storage capacity required, storage latency needed, storage throughput and IOPS required and least expensive configuration, Azure offers enough different storage types with different capabilities and different price points to find and adjust to the right compromise for you and your HANA workload.
+> The suggestions for the storage configurations in this or subsequent documents are meant as directions to start with. Running workload and analyzing storage utilization patterns, you might realize that you're not utilizing all the storage bandwidth or IOPS provided. You might consider downsizing on storage then. Or in contrary, your workload might need more storage throughput than suggested with these configurations. As a result, you might need to deploy more capacity, IOPS or throughput. In the field of tension between storage capacity required, storage latency needed, storage throughput and IOPS required and least expensive configuration, Azure offers enough different storage types with different capabilities and different price points to find and adjust to the right compromise for you and your HANA workload.
 
 
 ## Stripe sets versus SAP HANA data volume partitioning
@@ -68,7 +68,7 @@ Using Azure premium storage you may hit the best price/performance ratio when yo
 - [SAP Note #2400005](https://launchpad.support.sap.com/#/notes/2400005)
 - [SAP Note #2700123](https://launchpad.support.sap.com/#/notes/2700123)
 
-Reading through the details, it is apparent that applying this functionality takes away complexities of volume manager based stripe sets. You also realize that the HANA data volume partitioning is not only working for Azure block storage, like Azure premium storage. You can use this functionality as well to stripe across NFS shares in case these shares have IOPS or throughput limitations.  
+Reading through the details, it's apparent that applying this functionality takes away complexities of volume manager based stripe sets. You also realize that the HANA data volume partitioning isn't only working for Azure block storage, like Azure premium storage. You can use this functionality as well to stripe across NFS shares in case these shares have IOPS or throughput limitations.  
 
 
 ## Linux I/O Scheduler mode
@@ -82,7 +82,7 @@ On Red Hat, leave the settings as established by the specific tune profiles for 
 
 
 ## Stripe sizes when using logical volume managers
-If you are using LVM or mdadm to build stripe sets across several Azure premium disks, you need to define stripe sizes. These sizes differ between **/hana/data** and **/hana/log**. **Recommendation: As stripe sizes the recommendation is to use:**
+If you're using LVM or mdadm to build stripe sets across several Azure premium disks, you need to define stripe sizes. These sizes differ between **/hana/data** and **/hana/log**. **Recommendation: As stripe sizes the recommendation is to use:**
 
 - 256 KB for **/hana/data**
 - 64 KB for **/hana/log**
@@ -93,10 +93,10 @@ If you are using LVM or mdadm to build stripe sets across several Azure premium 
 > [!NOTE]
 > You don't need to configure any redundancy level using RAID volumes since Azure block storage keeps three images of a VHD. The usage of a stripe set with Azure premium disks is purely to configure volumes that provide sufficient IOPS and/or I/O throughput.
 
-Accumulating a number of Azure VHDs underneath a stripe set, is accumulative from an IOPS and storage throughput side. So, if you put a stripe set across  over 3 x P30 Azure premium storage disks, it should give you three times the IOPS and three times the storage throughput of a single Azure premium Storage P30 disk.
+Accumulating multiple Azure disks underneath a stripe set, is accumulative from an IOPS and storage throughput side. So, if you put a stripe set across  over 3 x P30 Azure premium storage disks, it should give you three times the IOPS and three times the storage throughput of a single Azure premium Storage P30 disk.
 
 > [!IMPORTANT]
-> In case you are using LVM or mdadm as volume manager to create stripe sets across multiple Azure premium disks, the three SAP HANA FileSystems /data, /log and /shared must not be put in a default or root volume group. It is highly recommended to follow the Linux Vendors guidance which is typically to create individual Volume Groups for /data, /log and /shared.
+> In case you're using LVM or mdadm as volume manager to create stripe sets across multiple Azure premium disks, the three SAP HANA FileSystems /data, /log and /shared must not be put in a default or root volume group. It's highly recommended to follow the Linux Vendors guidance which is typically to create individual Volume Groups for /data, /log and /shared.
 
 
 ## Azure Premium Storage configurations for HANA
