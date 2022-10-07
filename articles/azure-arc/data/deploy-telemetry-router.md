@@ -18,7 +18,7 @@ ms.custom: template-how-to
 
 **What is the Arc Telemetry Router?**
 
-The Arc telemetry router enables exporting the collected monitoring telemetry data to other monitoring solutions. For this Public Preview, we only support exporting metric and log data to either Kafka or Elasticsearch.
+The Arc telemetry router enables exporting the collected monitoring telemetry data to other monitoring solutions. For this Public Preview, we only support exporting log data to either Kafka or Elasticsearch and metric data to Kafka.
 
 This document specifies how to deploy the telemetry router and configure it to work with the supported exporters.
 
@@ -61,11 +61,14 @@ Elasticsearch Exporter Settings
 
 During the Public Preview, only logs and metrics pipelines are supported. These pipelines are exposed in the custom resource specification of the Arc telemetry router and available for modification.  Currently, we do not allow configuration of receivers and processors in these pipelines - only exporters are changeable.  All pipelines must be prefixed with "logs" or "metrics" in order to be injected with the necessary receivers and processors. For example, `logs/internal`
 
+Logs pipelines may export to Kafka or elasticsearch. Metrics pipelines may only export to Kafka.
+
 Pipeline Settings
 
 |  Setting     | Description |
 |--------------|-----------|
 | logs       | Can only declare new logs pipelines. Must be prefixed with "logs"       |
+| metrics | Can only declare new metrics pipelines. Must be prefixed with "metrics" |
 | exporters       | List of exporters. Can be multiple of the same type.      |
 
 ### Credentials 
@@ -89,14 +92,22 @@ metadata:
 spec:
     collector:
       customerPipelines:
-        # Only logs pipelines are supported for the first preview.
-        # Any additional logs pipelines, must be prefixed with "logs"
-        # e.g. logs/internal, logs/external, etc.
+        # Additional logs pipelines must be prefixed with "logs"
+        # For example: logs/internal, logs/external, etc.
         logs:
           # The name of these exporters need to map to the declared ones beneath
           # the exporters property.
+          # logs pipelines can export to elasticsearch or kafka
           exporters:
           - elasticsearch
+          - kafka
+        # Additional metrics piplines must be prefixed with "metrics"
+        # For example: metrics/internal, metrics/external, etc.
+        metrics:
+          # The name of these exporters need to map to the declared ones beneath
+          # the exporters property.
+          # metrics pipelines can export to kafka only
+          exporters:
           - kafka
       exporters:
         # Only elasticsearch and kafka exporters are supported for this first preview.
@@ -229,17 +240,6 @@ Annotations:  <none>
 Is Valid:     true
 API Version:  arcdata.microsoft.com/v1beta2
 Kind:         OtelCollector
-Metadata:
-  Creation Timestamp:  <timestamp>
-  Generation:          1
-  Owner References:
-    API Version:     arcdata.microsoft.com/v1beta2
-    Controller:      true
-    Kind:            TelemetryRouter
-    Name:            arc-telemetry-router
-    UID:             <uid>
-  Resource Version:  <resourceVersion>
-  UID:               <uid>
 Spec:
   Collector:
     Exporters:
@@ -307,11 +307,6 @@ Spec:
       Secret Name:       <secret>
       Secret Namespace:  <secret namespace>
   Update:                <nil>
-Status:
-  Last Update Time:     <timestamp>
-  Observed Generation:  1
-  Running Version:  v1.12.0_2022-10-11
-  State:            Ready
 Events:             <none>
 
 ```
@@ -326,17 +321,6 @@ Annotations:  <none>
 Is Valid:     true
 API Version:  arcdata.microsoft.com/v1beta2
 Kind:         OtelCollector
-Metadata:
-  Creation Timestamp:  <timestamp> 
-  Generation:          1
-  Owner References:
-    API Version:     arcdata.microsoft.com/v1beta2
-    Controller:      true
-    Kind:            TelemetryRouter
-    Name:            arc-telemetry-router
-    UID:             <uid>
-  Resource Version:  <resourceVersion>
-  UID:               <uid>
 Spec:
   Collector:
     Exporters:
@@ -408,11 +392,6 @@ Spec:
       Secret Name:       <secret>
       Secret Namespace:  <secret namespace>
   Update:                <nil>
-Status:
-  Last Update Time:     <timestamp>
-  Observed Generation:  1
-  Running Version:  v1.12.0_2022-10-11
-  State:            Ready
 Events:             <none>
 
 ```
