@@ -36,14 +36,14 @@ For more information about DDMS, see [DDMS concepts](concepts-ddms.md).
 
 The first step is to get the following information from your [Energy Data Services Preview instance](quickstart-create-microsoft-energy-data-services-instance.md) in the Azure portal:
 
-| Parameter | Value |
-| --- | --- |
-| CLIENT_ID | Your application ID (client) |
-| CLIENT_SECRET | Your client secret |
-| SCOPE | Your application ID (client) |
-| TENANT_ID | Your directory ID (tenant) |
-| base_url | URL (example: `<instance>.energy.azure.com`) |
-| data-partition-id | A data partition name (example: `<instance>-<data-partition-name>`) |
+| Parameter          | Value to use             | Example                               |
+| ------------------ | ------------------------ |-------------------------------------- |
+| CLIENT_ID          | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx  |
+| CLIENT_SECRET      | Client secrets           |  _fl******************                |
+| TENANT_ID          | Directory (tenant) ID    | 72f988bf-86f1-41af-91ab-xxxxxxxxxxxx  |
+| SCOPE              | Application (client) ID  | 3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx  |
+| base_uri           | URI                      | `<instance>.energy.azure.com`           |
+| data-partition-id  | Data Partition(s)        | `<instance>-<data-partition-name>`                    |
 
 You'll use this information later in the tutorial.
 
@@ -76,9 +76,9 @@ Next, set up Postman:
 
    :::image type="content" source="media/tutorial-wellbore-ddms/postman-environment-current-values.png" alt-text="Screenshot that shows where to enter current values in the Wellbore DDMS environment.":::
 
-## Send a Postman request
+## Send an example Postman request
 
-The Postman collection for Wellbore DDMS contains requests that allows interaction with wells, wellbores, well logs, and well trajectory data.
+The Postman collection for Wellbore DDMS contains requests you can use to interact with data about wells, wellbores, well logs, and well trajectory data in your Microsoft Energy Data Services instance.
 
 1. In Postman, in the left menu, select **Collections**, and then select **Wellbore DDMS**. Under **Setup**, select **Get an SPN Token**.
 
@@ -115,7 +115,7 @@ To generate a token:
           --data-urlencode 'scope={{SCOPE}}'  
       ```
 
-   :::image type="content" source="media/tutorial-wellbore-ddms/postman-generate-token.png" alt-text="Screenshot of the wellbore generate token." lightbox="media/tutorial-wellbore-ddms/postman-generate-token.png":::
+   :::image type="content" source="media/tutorial-wellbore-ddms/postman-generate-token.png" alt-text="Screenshot of the Wellbore DDMs generate token cURL code." lightbox="media/tutorial-wellbore-ddms/postman-generate-token.png":::
 
 1. Use the token output to update `access_token` in your Wellbore DDMS environment. Then, you can use the bearer token as an authorization type in other API calls.
 
