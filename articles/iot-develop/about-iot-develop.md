@@ -4,6 +4,7 @@ description: Learn how to use Azure IoT to do embedded device development and bu
 author: ryanwinter
 ms.author: rywinter
 ms.service: iot-develop
+ms.topic: overview
 ms.date: 10/07/2022
 ms.custom: engagement-fy23
 ---
