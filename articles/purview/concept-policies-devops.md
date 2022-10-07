@@ -25,36 +25,36 @@ Access to system metadata is crucial for database administrators and other DevOp
 ### Microsoft Purview access policies vs. DevOps policies
 Microsoft Purview access policies enable customers to manage access to different data systems across their entire data estate, all from a central location in the cloud. These policies are access grants that can be created through Microsoft Purview Studio, avoiding the need for code. They dictate whether a set of Azure AD principals (users, groups, etc.) should be allowed or denied a specific type of access to a data source or asset within it. These policies get communicated to the data sources where they get natively enforced.
 
-DevOps policies are a special type of Microsoft Purview access policies. They grant access to database system metadata instead of user data. They simplify access provisioning for IT operations and security auditing functions. DevOps policies only grant access i.e., they don't deny access.
+DevOps policies are a special type of Microsoft Purview access policies. They grant access to database system metadata instead of user data. They simplify access provisioning for IT operations and security auditing functions. DevOps policies only grant access, that is, they don't deny access.
 
 ## Elements of a DevOps policy
-A DevOps policy is defined by 3 elements: The *data resource path*, the *role* and the *subject*. In essence, the DevOps policy assigns the *subject* to the *role* for the scope of the *data resource path*.
-
+A DevOps policy is defined by three elements: The *data resource path*, the *role* and the *subject*. In essence, the DevOps policy assigns the *subject* to the *role* for the scope of the *data resource path*.
+    
 #### The subject
 Is a set of Azure AD users, groups or service principals.
 
 #### The role
-The role maps to a set of actions that the policy permits on the data resource. DevOps policies support a couple of roles: *SQL Performance Monitor* and *SQL Security Auditor*. The DevOps policy guides for each data source detail the role definition, i.e., the mapping betweem the role in Microsoft Purview and the actions that get permitted in the data source. For example, the role definition for SQL Performance Monitor and SQL Security Auditor includes Connect actions at server and database level on the data source side. 
+The role maps to a set of actions that the policy permits on the data resource. DevOps policies support a couple of roles: *SQL Performance Monitor* and *SQL Security Auditor*. The DevOps policy how-to docs detail the role definition for each data source, that is, the mapping between the role in Microsoft Purview and the actions that get permitted in the data source. For example, the role definition for SQL Performance Monitor and SQL Security Auditor includes Connect actions at server and database level on the data source side.
 
 #### The data resource
 Microsoft Purview DevOps policies currently support SQL-type data sources and can be configured on individual data sources, resource groups and subscriptions. DevOps policies can only be created if the data source is first registered in Microsoft Purview with the option *Data use management enabled*. The data resource path is the composition of subscription > resource group > data source.
 
 #### Hierarchical enforcement of policies
-A DevOps policy on a data resource is enforced on the data resource itself and all children contained by it. For example, a DevOps policy on an Azure subscription applies to all resource groups, to all policy-enabled data sources within each resource group, and to each database contained within each data source.
+A DevOps policy on a data resource is enforced on the data resource itself and all children contained by it. For example, a DevOps policy on an Azure subscription applies to all resource groups, to all policy-enabled data sources within each resource group, and to all databases contained within each data source.
 
 ## A sample scenario to demonstrate the concept and the benefits
-Bob and Alice are DevOps users at their company. Given their role, they need to login to dozens of Azure SQL logical servers to monitor their performance so that critical DevOps processes don’t break. Their manager, Mateo, creates an AAD group and includes Alice and Bob. He then uses Microsoft Purview DevOps policies (Policy 1 in the diagram below) to grant this AAD group access at resource group level, to Resource Group 1, which hosts the Azure SQL servers.
+Bob and Alice are DevOps users at their company. Given their role, they need to log in to dozens of Azure SQL logical servers to monitor their performance so that critical DevOps processes don’t break. Their manager, Mateo, creates an Azure AD group and includes Alice and Bob. He then uses Microsoft Purview DevOps policies (Policy 1 in the diagram below) to grant this Azure AD group access at resource group level, to Resource Group 1, which hosts the Azure SQL servers.
 
 ![Example of DevOps policy on resource group](./media/concept-policies-devops/devops-policy-on-resource-group.png).
 
 #### These are the benefits:
-1. Mateo does not have to create local logins in each logical server
+1. Mateo doesn't have to create local logins in each logical server
 2. The policies from Microsoft Purview improve security by helping limit local privileged access. This is what we call PoLP (Principle of Least Privilege). In the scenario, Mateo only grants the minimum access necessary that Bob and Alice need to perform the task of monitoring performance.
-3. When new Azure SQL servers are added to the Resource Group, Mateo does not need to update the policies in Microsoft Purview for them to be effective on the new logical servers.
-4. If Alice or Bob leave their job and get backfilled, Mateo just updates the AAD group, without having to make any changes to the servers or to the policies he created in Microsoft Purview.
+3. When new Azure SQL servers are added to the Resource Group, Mateo doesn't need to update the policies in Microsoft Purview for them to be effective on the new logical servers.
+4. If Alice or Bob leave their job and get backfilled, Mateo just updates the Azure AD group, without having to make any changes to the servers or to the policies he created in Microsoft Purview.
 5. At any point in time, Mateo or the company’s auditor can see what access has been granted directly in Microsoft Purview Studio.
 
-## Additional info
+## More info
 - DevOps policies can be created, updated and deleted by any user holding *Policy Author* role at root collection level in Microsoft Purview.
 - Once saved, DevOps policies get automatically published.
 
