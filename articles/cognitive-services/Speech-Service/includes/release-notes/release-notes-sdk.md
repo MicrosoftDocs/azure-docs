@@ -13,7 +13,7 @@ ms.author: eur
 - **All programing languages**: AMR-WB (16khz) added to the supported list of Text-to-speech audio output formats
 - **Python**: Package added for Linux ARM64 for supported Linux distributions.
 - **C#/C++/Java/Python**: Support added for ALAW & MULAW direct streaming to the speech service (in addition to existing PCM stream) using `AudioStreamWaveFormat`.
-- **C# MAUI**: NuGet package updated to support Android targets for [.NET MAUI](https://learn.microsoft.com/en-us/dotnet/maui/what-is-maui) developers ([Customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1649))
+- **C# MAUI**: NuGet package updated to support Android targets for [.NET MAUI](/dotnet/maui/what-is-maui) developers ([Customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1649))
 - **Mac**: Added separate XCframework for Mac, which does not contain any iOS binaries. This offers an option for developers who need only Mac binaries using a smaller XCframework package.
 - **Microsoft Audio Stack** (MAS):
   - When beam-forming angles are specified, sound originating outside of specified range will be suppressed better.
