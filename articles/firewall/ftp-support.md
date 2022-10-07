@@ -45,7 +45,7 @@ To deploy using Azure PowerShell, use the `AllowActiveFTP` parameter. For more i
 
 To update an existing Azure Firewall using Azure PowerShell, switch the `AllowActiveFTP` paramater to 'True'
 
-```powershell
+```azurepowershell
 $rgName = "resourceGroupName"
 $afwName = "afwName"
 $afw = Get-AzFirewall -Name $afwName -ResourceGroupName $rgName
