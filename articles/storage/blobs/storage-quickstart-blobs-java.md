@@ -263,7 +263,6 @@ You can authorize access to data in your storage account using the following ste
     ```azurepowershell
     Connect-AzAccount
     ```
---- 
 
 2. To use `DefaultAzureCredential`, make sure that the **azure-identity** dependency is added in pom.xml:
 
