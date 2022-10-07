@@ -1,5 +1,5 @@
 ---
-title: Resiliency in Azure Functions
+title: Reliability in Azure Functions
 description: Find out about reliability in Azure Functions
 author: anaharris-ms
 ms.author: anaharris
