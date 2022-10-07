@@ -46,9 +46,10 @@ When you create a new node type, you will need to modify your ARM template with 
  
 The vmImageResourceId will be passed along to the virtual machine scale set as an image reference ID, currently we support 3 types of resources:
 
-•	Managed Image (Microsoft.Compute/images)
-•	Shared Gallery Image (Microsoft.Compute/galleries/images)
-•	Shared Gallery Image Version (Microsoft.Compute/galleries/images/versions)
+- Managed Image (Microsoft.Compute/images)
+- Shared Gallery Image (Microsoft.Compute/galleries/images)
+- Shared Gallery Image Version (Microsoft.Compute/galleries/images/versions)
+
 
 ## Auto OS upgrade
 
