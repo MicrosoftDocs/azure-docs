@@ -155,7 +155,7 @@ The creation wizard generated the connectivity variables for you already as [app
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2.** In the **Application settings** tab of the **Configuration** page, verify that (`DBNAME`, `DBHOST`, `DBUSER`, and `DBPASS`) are present. They will be injected into the runtime environment as environment variables.
+        **Step 2.** In the **Application settings** tab of the **Configuration** page, verify that (`DBNAME`, `DBHOST`, `DBUSER`, and `DBPASS`) are present. They'll be injected into the runtime environment as environment variables.
         App settings are a good way to keep connection secrets out of your code repository.
     :::column-end:::
     :::column:::
@@ -317,7 +317,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 
 Having issues? Refer first to the [Troubleshooting guide](configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
 
-## 4 - Generate database schema
+## 4. Generate database schema
 
 ### [Flask](#tab/flask)
 
@@ -334,7 +334,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 :::row:::
     :::column span="2":::
         **Step 2.** In the SSH terminal, run `flask db upgrade`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
-        Only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` are not persisted.
+        Only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` aren't persisted.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output (Flask)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-flask-2.png":::
@@ -356,7 +356,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 :::row:::
     :::column span="2":::
         **Step 2.** In the SSH terminal, run `python manage.py migrate`. If it succeeds, App Service is [connecting successfully to the database](#i-get-an-error-when-running-database-migrations).
-        Only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` are not persisted.
+        Only changes to files in `/home` can persist beyond app restarts. Changes outside of `/home` aren't persisted.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output (Django)." lightbox="./media/tutorial-python-postgresql-app/azure-portal-generate-db-schema-django-2.png":::
@@ -370,7 +370,7 @@ With the PostgreSQL database protected by the virtual network, the easiest way t
 
 Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 
-## 4. Browse to the app
+## 5. Browse to the app
 
 :::row:::
     :::column span="2":::
@@ -394,7 +394,7 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 
 Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 
-## 5. Stream diagnostic logs
+## 6. Stream diagnostic logs
 
 Azure App Service captures all messages output to the console to help you diagnose issues with your application. The sample app includes `print()` statements to demonstrate this capability as shown below.
 
@@ -429,7 +429,7 @@ Azure App Service captures all messages output to the console to help you diagno
 
 Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 
-## 6. Clean up resources
+## 7. Clean up resources
 
 When you're finished, you can delete all of the resources from your Azure subscription by deleting the resource group.
 
@@ -507,21 +507,21 @@ The [Django sample application](https://github.com/Azure-Samples/msdocs-django-p
 
 - Django validates the HTTP_HOST header in incoming requests. The sample code uses the [`WEBSITE_HOSTNAME` environment variable in App Service](reference-app-settings.md#app-environment) to add the app's domain name to Django's [ALLOWED_HOSTS](https://docs.djangoproject.com/en/4.1/ref/settings/#allowed-hosts) setting.
 
-    :::code language="python" source="~/msdocs-flask-django-sample-app/azureproject/production.py" range="6" highlight="3":::
+    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="6" highlight="3":::
 
 - Django doesn't support [serving static files in production](https://docs.djangoproject.com/en/4.1/howto/static-files/deployment/). For this tutorial, you use [WhiteNoise](https://whitenoise.evans.io/) to enable serving the files. The WhiteNoise package was already installed with requirements.txt, and its middleware is added to the list.
 
-    :::code language="python" source="~/msdocs-flask-django-sample-app/azureproject/production.py" range="11-14" highlight="3":::
+    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="11-14" highlight="3":::
 
     Then the static file settings are configured according to the Django documentation.
 
-    :::code language="python" source="~/msdocs-flask-django-sample-app/azureproject/production.py" range="23-24" highlight="3":::
+    :::code language="python" source="~/msdocs-django-postgresql-sample-app/azureproject/production.py" range="23-24" highlight="3":::
 
 For more information, see [Production settings for Django apps](configure-language-python.md#production-settings-for-django-apps).
 
 #### I can't connect to the SSH session
 
-If you cannot connect to the SSH session, then the app itself has failed to start. Check the [diagnostic logs](#5-stream-diagnostic-logs) for details. For example, if you see an error like `KeyError: 'DBNAME'`, it may mean that the environment variable is missing (you may have removed the app setting).
+If you can't connect to the SSH session, then the app itself has failed to start. Check the [diagnostic logs](#6-stream-diagnostic-logs) for details. For example, if you see an error like `KeyError: 'DBNAME'`, it may mean that the environment variable is missing (you may have removed the app setting).
 
 #### I get an error when running database migrations
 
