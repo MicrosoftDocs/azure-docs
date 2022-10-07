@@ -38,7 +38,7 @@ items:
       href: quickstarts/try-v3-form-recognizer-studio.md
     - name: Form Recognizer SDKs and REST API v3.0
       displayName: get started, documentAnalysisClient, document analysis client, AzureKeyCredential, azure key credential, AnalyzeResult, analyze result, output, polygon,begin_analyze_document , boundingPolygon, key, endpoint, packages, headers
-      href: quickstarts/get-started-v3-sdk-rest-api.md
+      href: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
     - name: Form Recognizer SDKs and REST API v2.1
       displayName: formRecognizerClient, form recognizer client, boundingBox, box, begin_recognize
       href: quickstarts/get-started-v2-1-sdk-rest-api.md

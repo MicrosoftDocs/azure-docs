@@ -67,15 +67,15 @@ landingContent:
         - text: Form Recognizer Sample Labeling tool
           url: quickstarts/try-sample-label-tool.md
         - text: REST API
-          url: quickstarts/get-started-v3-sdk-rest-api.md
+          url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
         - text: C# SDK
-          url: quickstarts/get-started-v3-sdk-rest-api.md
+          url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
         - text: Java SDK
-          url: quickstarts/get-started-v3-sdk-rest-api.md
+          url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
         - text: JavaScript SDK
-          url: quickstarts/get-started-v3-sdk-rest-api.md
+          url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
         - text: Python SDK
-          url: quickstarts/get-started-v3-sdk-rest-api.md
+          url: quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true
 
       - linkListType: how-to-guide
         links:

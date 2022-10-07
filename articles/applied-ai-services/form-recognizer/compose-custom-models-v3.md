@@ -251,16 +251,16 @@ Try one of our Form Recognizer quickstarts:
 > [Form Recognizer Studio](quickstarts/try-v3-form-recognizer-studio.md)
 
 > [!div class="nextstepaction"]
-> [REST API](quickstarts/get-started-v3-sdk-rest-api.md)
+> [REST API](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
 
 > [!div class="nextstepaction"]
-> [C#](quickstarts/get-started-v3-sdk-rest-api.md#prerequisites)
+> [C#](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true#prerequisites)
 
 > [!div class="nextstepaction"]
-> [Java](quickstarts/get-started-v3-sdk-rest-api.md)
+> [Java](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
 
 > [!div class="nextstepaction"]
-> [JavaScript](quickstarts/get-started-v3-sdk-rest-api.md)
+> [JavaScript](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
 
 > [!div class="nextstepaction"]
-> [Python](quickstarts/get-started-v3-sdk-rest-api.md)
+> [Python](quickstarts/get-started-sdks-rest-api.md?view=form-recog-3.0.0&preserve-view=true)
