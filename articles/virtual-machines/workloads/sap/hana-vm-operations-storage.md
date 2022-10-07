@@ -100,10 +100,10 @@ Accumulating multiple Azure disks underneath a stripe set, is accumulative from 
 
 
 ## Azure Premium Storage configurations for HANA
-For detailed HANA storage configuration recommendations using Azure premium storage, read the document [SAP HANA Azure virtual machine Premium SSD storage configurations](./hana-virtualmachines-premium-ssd-v1.md)
+For detailed HANA storage configuration recommendations using Azure premium storage, read the document [SAP HANA Azure virtual machine Premium SSD storage configurations](./hana-vm-premium-ssd-v1.md)
 
 ## Azure Ultra disk storage configuration for SAP HANA
-For detailed HANA storage configuration recommendations using Azure Ultra Disk, read the document [SAP HANA Azure virtual machine Ultra Disk storage configurations](./hana-virtualmachines-ultra-disk.md)
+For detailed HANA storage configuration recommendations using Azure Ultra Disk, read the document [SAP HANA Azure virtual machine Ultra Disk storage configurations](./hana-vm-ultra-disk.md)
 
 ## NFS v4.1 volumes on Azure NetApp Files
 For detail on ANF for HANA, read the document [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
@@ -111,7 +111,7 @@ For detail on ANF for HANA, read the document [NFS v4.1 volumes on Azure NetApp 
 ## Next steps
 For more information, see:
 
-- [SAP HANA Azure virtual machine Premium SSD storage configurations](./hana-virtualmachines-premium-ssd-v1.md).
-- [SAP HANA Azure virtual machine Ultra Disk storage configurations](./hana-virtualmachines-ultra-disk.md).
+- [SAP HANA Azure virtual machine Premium SSD storage configurations](./hana-vm-premium-ssd-v1.md).
+- [SAP HANA Azure virtual machine Ultra Disk storage configurations](./hana-vm-ultra-disk.md).
 - [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md).
 - [SAP HANA High Availability guide for Azure virtual machines](./sap-hana-availability-overview.md).
